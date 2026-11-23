@@ -5,11 +5,13 @@ Status-Detail: >-
   The oracle question has a determination: Discord publishes its own message parser on npm under an
   MIT licence (`@discord/markdown-wasm`), byte-identical to what the web client serves, and it runs
   under plain Node. Discord's older parser runs from the logged-out public page. Both were run over a
-  272-case corpus here. The test account is served the older parser for rendered messages (V-15).
-  Stays Active on two things: the corpus comparison against rendered Discord and the text-box read
-  on the test server are in progress (Resumption State, next acts 3 and 4), and the owner has not
-  said which of Discord's two parsers is the standard where they disagree (37 of 272 cases). The
-  per-client checks of third-party clients stay not done by his selection of 2026-11-23T09:31Z.
+  272-case corpus here, and the corpus was then checked against real Discord on the test server:
+  the one account observed is drawn by the older parser, in messages and in the text box, on every
+  case (V-15, V-18, V-21, V-23). Stays Active on one thing: the owner has not said which of
+  Discord's two parsers is the standard where they disagree (OQ-1; 37 of 272 cases), and the
+  recommended arrangement's "primary" depends on it. His answer closes this document. The published
+  parser has not been seen rendered (G-11). The per-client checks of third-party clients stay not
+  done by his selection of 2026-11-23T09:31Z.
 ---
 
 # Which oracle can tell the Slate formatting effort "what Discord does"?
@@ -21,56 +23,37 @@ Status-Detail: >-
 | 2026-11-23T09:32 | researcher-slate-formatting-oracle | Document created | Brief `steering/slate-formatting-oracle-brief-researcher.md`; two addenda from `steering-hooks-fixer` (effort rulings blocks "2026-11-23T09:15Z" and "09:18Z") |
 | 2026-11-23T09:35 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State written | Owner's selections recorded from effort rulings block "2026-11-23T09:32Z": client checks stay not done; the session restarts with the test-account browser. OQ-5 and G-6 retired on that selection. |
 | 2026-11-23T10:33 | researcher-slate-formatting-oracle | Resumed from the Resumption State (record commit `ef9c9dd4`) in a fresh session with the test-account browser; check (c) recorded as V-15 to V-17; H-1 and H-2 closed | Brief `steering/slate-formatting-oracle-brief-researcher-resume.md`. Nothing written before the resume was re-verified except what V-15 to V-17 test (H-1, H-2, and the build number of V-1, read again from the signed-in page). Check (c) ran 09:39Z to 09:40Z and was sent to `steering-hooks-fixer` before 09:45Z (message id `1f0a6563-4bbf-4bd8-977c-7dc0f9b8d99f`); this session then made no tool call from 09:45Z to 10:33Z (its turn had ended; the cache-warm wake restarted it), so this row and the findings were written 52 minutes after the result. The walk added channel `slate-oracle-walk` to the test server; `test-estate.json` updated in the same turn. |
+| 2026-11-23T10:54 | researcher-slate-formatting-oracle | Walk against real Discord recorded: V-18 to V-23 added; OQ-2, G-1, G-4, G-5 closed; G-11 to G-13 opened; § 3 rewritten as run; § 4 and Recommendations 1 and 2 revised; Resumption State rewritten; Short answer items 6 and 7 added | Of the pre-resume claims, the walk re-tested V-8's two probe artefacts and V-11's legacy text-box table (both borne out, V-18 and V-21) and V-2's "same switch for message and text box" for one account; no other earlier finding was re-run. One capture was redone: the first text-box pass carried a quote element from one case into the next, found when `>>>a` showed as a quote, and the quote cases were typed again with a check for an empty, class-less line (V-21). The first three text-box inputs went into the server search box, not the message box, and were removed without being submitted. A webhook was created and deleted in the walk channel; old scratch directories holding Discord's code and the website export were deleted. |
 
 ## Resumption State
 
-Written 2026-11-23T09:35Z at steering's `/checkpoint`. A fresh session under the same name, launched
-with the test-account browser, resumes from here.
+Rewritten 2026-11-23 at the end of the resumed run. The next acts the 09:35Z checkpoint listed (the
+three test-server checks) are done and recorded as V-15 to V-23; the checkpoint's own text is in
+record commit `ef9c9dd4`.
 
-**Done.** Everything in § Findings through § Appendix B: both Discord parsers located, run and
-compared over the 272-case corpus; candidate libraries scored; the website's static rules compared;
-the published MIT package found and shown byte-identical to the served wasm.
+**Done.** Everything in § Findings through § Appendix B, and the walk against real Discord: which
+parser the test account is served, the whole corpus as bot posts and as webhook posts against the
+rendered DOM, and the text box.
 
-**Next acts, in order** (the owner's word, effort rulings block "2026-11-23T09:32Z"; method in
-§ "3. How to verify against real Discord"):
-1. Read `~/.claude/skills/discord-test-browser/SKILL.md`, `test-estate.json` beside it, and
-   `~/.claude/agent-skills/stage-procedures/agent-browser.md`. The grant file exists, so no ask.
-2. **(c) Which parser the test account is served.** Post the three discriminating cases of H-1 first;
-   one DOM read settles H-1 and H-2 before the full corpus is posted.
-3. **(a) Post the corpus and read the rendered DOM.** As the test bot, in a new channel of guild
-   `1566742402180456559`, one case per message, `allowed_mentions: {"parse": []}`. Start with
-   Appendix A's 37 cases plus about thirty agreeing ones; the whole 272 only if those match. Then the
-   same set through a webhook. Rewrite the DOM to the canonical form and compare with the parser the
-   account is served. A walk that adds a channel or a webhook updates `test-estate.json` in the same
-   turn.
-4. **(b) The text box's DOM while typing.** Type, do not send; read `[data-slate-leaf]` text and
-   classes (prefixes in V-11); compare with `parseLossless` spans.
-5. Record results here as new Verified findings; close OQ-2, G-1, H-1, H-2; add a changelog row
-   naming this resume and which earlier claims were re-verified.
-6. Deliver to `steering-hooks-fixer` by SendMessage, then delete the scratch directory's Discord
-   assets and exports (below).
+**Next acts.** None of this researcher's. What is left is the owner's (OQ-1), the architect's
+(OQ-4) and the effort's (OQ-3, G-3, G-8, G-9, G-11, G-13).
 
-**Approach in flight.** None mid-edit. The DOM-to-canonical rewriter is not written; the scratch
-script `norm.py` has the target form.
+**Approach in flight.** None.
 
-**Refs.** Record repository `master`, HEAD `0b23f9c7` before this document's first commit. Website
-read at `origin/master` `0411d3b`; the shared website tree was not touched.
+**Refs.** Record repository `master`. Website read at `origin/master` `0411d3b`; the shared website
+tree was not touched.
 
-**Uncommitted or locally mutated.** Nothing in any repository beyond this document. Scratch only, at
-`/tmp/claude-1000/-usr-local-bin-hooks/9aa102b9-a7a1-4106-ba3f-996decade255/scratchpad/` (a new
-session has a different scratch directory; read these by absolute path, and re-create them from this
-document's § Methodology if a reboot has removed them): `corpus/`, `tools/`, `runs/`, `official/`
-(the npm package, installed with `--ignore-scripts`), `official-old/`, `cands/`, `discord-assets/`,
-`discord-assets-canary/`, `discord-assets-ptb/`, `discord-mods/`, `helpers/`, and `site-export/`
-(an export of website `0411d3b` whose `node_modules` is a symlink to the shared tree's; remove the
-link, never its target). `clones/` was deleted at this checkpoint.
+**Left on the test server.** Channel `slate-oracle-walk` (id `1574358729577599086`) in guild
+`1566742402180456559`, holding the corpus as 278 bot messages and 272 webhook messages, kept so a
+later walk (G-11) can read the same messages from another account without posting again. The
+webhook that posted the second set was deleted at the end of the run. `test-estate.json` names the
+channel.
 
-**Evidence run but not recorded.** None; every output cited is under `runs/` and its figures are in
-this document.
+**Scratch.** § Scratch instruments lists what was kept and what was deleted.
 
-**Questions sent, and to whom.** To `steering-hooks-fixer`: OQ-1 (which Discord parser is the
-standard) and OQ-4 (adopt the published parser in the product; an architect question), sent with this
-document's path after this commit. No reply yet. Nothing was put to the owner directly.
+**Questions sent, and to whom.** To `steering-hooks-fixer`: OQ-1 and OQ-4 (before the checkpoint),
+the check (c) result (between 09:40Z and 09:45Z, for OQ-1), and this document's path at delivery. Nothing was put to
+the owner directly.
 
 **Standing bounds.** Test server only; nothing to any other server, DM or person. Discord's code is
 fetched from public assets, never committed, never shipped. The search over the cloned clients is not
@@ -100,6 +83,15 @@ against real Discord, and which arrangement should the fuzzer use?
    client** (client mods and wrappers). The owner's suggestion holds only for those.
 5. **The comparison finds real differences in the website today**: its preview rules differ from both
    Discord parsers on 37 cases where the two Discord parsers agree with each other.
+6. **The one signed-in account that could be observed sees the older parser.** Checked against real
+   Discord on the test server on 2026-11-23: all 272 corpus cases, posted by the test bot and read
+   back from the rendered page as test account 1, are drawn as the older parser parses them, and the
+   message box styles what is typed the older way too (V-15, V-18, V-21). So the published parser,
+   which is the practical oracle, does not describe what this account sees on 32 of 272 cases, and
+   it has not itself been seen rendered (G-11).
+7. **Discord's own text box does not format like its rendered message.** It leaves headings and
+   lists unstyled, styles each line alone, and turns `> ` into a quote block as it is typed (V-21).
+   "Same as Discord" therefore needs saying twice: once for the preview, once for the editor.
 
 ## Context
 
@@ -147,6 +139,13 @@ this document describes rules in prose and names modules by id and by a content 
   rows I recognised as artefacts are named where they occur.
 - **Helpers.** Two `general-purpose` helpers gathered registry and GitHub metadata and shallow-cloned
   candidates; their tables were read here. Cells this document cites from them are marked "helper".
+- **Walk against real Discord** (the resumed session, 2026-11-23). Posts were made as the test bot
+  over Discord's REST API by a script written here (`drest.py`; the token read from its file and
+  never printed), to a channel it created in the test server, and then through a webhook it created
+  there. The rendered page was read in the test-account browser (Chrome on the kept profile, signed
+  in as test account 1). Details and what the run corrected are in § "3. How to verify against real
+  Discord". No helper was used for the walk. Nothing was sent as the test account; nothing went
+  outside the test server.
 
 ## Findings
 
@@ -233,7 +232,9 @@ mention 16/17, emoji 17/17, escape 18/20, mixed 16/21. The larger classes:
 - several unbalanced-delimiter cases (`_a_b_`, `*a**`, `****`, `_a__`).
 Two rows are probe artefacts rather than parser differences: `@silent hi` (legacy has a text-box-only
 `silentPrefix` rule in the set I called) and `<t:99999999999999999>` (legacy rejects it at date
-construction, a rendering-stage check).
+construction, a rendering-stage check). The walk bears both out: `@silent hi` is drawn as plain text
+in a message and carries `silentPrefix_` only in the text box, and the out-of-range timestamp is
+drawn as plain text (V-18, V-21).
 
 **V-9. No candidate library reproduces either Discord parser.** Agreement out of 272, loose form:
 
@@ -325,6 +326,117 @@ rendered as a heading. So a case that differs only by leading whitespace of the 
 by posting it, and any posted comparison must run the parser over the stored content the API
 returns, not over the corpus text. Of Appendix A, rows 6 and 152 open with a space; whether trailing
 whitespace and leading tabs (rows 157, 158, 272) are stripped the same way was not read in this check.
+V-19 reads them.
+
+**V-18. Over the whole corpus, rendered Discord is the legacy parser.** All 272 cases were posted by
+the test bot to `slate-oracle-walk`, one per message, with `allowed_mentions: {"parse": []}`
+(2026-11-23, 10:34Z to 10:44Z by the message ids' timestamps; 79 first, then the other 193). Every message's content element was
+read in the test-account browser as test account 1 on build 679055 (272 of 272 ids captured, by
+opening message links in steps of thirty, because scrolling did not load history reliably). Both
+parsers were then run again over the **stored** content the API returned (V-19), and the DOM was
+rewritten to the canonical form by a rewriter written in this session (`domcmp.py`). Scored in the
+loose form with four things blurred on both sides because the DOM does not carry them (a timestamp's
+value and style, a mention's id and kind, which character a `:name:` emoji is, a code block's
+language as typed):
+
+| DOM equals | Cases |
+|---|---|
+| both parsers | 236 |
+| the legacy parser only | 32 |
+| the native parser only | 1 |
+| neither | 3 |
+
+The 32 are exactly the cases on which the two parsers still disagree over the stored text, apart
+from `@silent hi`. The four rows that do not equal the legacy parser are not parser differences:
+- `@silent hi` (native only): Discord draws it as two adjacent plain-text elements, "@silent" and
+  " hi", which is the legacy tree (a `silentPrefix` node, then text) drawn as text. The normaliser
+  gives that node its own name, so it scores as a mismatch.
+- `<@&123456789012345678>`, `</ping:123456789012345678>`, `</a b c:123456789012345678>` (neither):
+  both parsers return a mention; the renderer cannot resolve the id and draws plain text
+  ("@unknown-role", "/ping", "/a b c"). An unknown user id is drawn as a mention element reading
+  "@unknown-user", and an unknown channel id as a channel mention reading "unknown".
+
+So no case shows rendered Discord departing from the legacy parser's tree for this account. The two
+parsers disagree on 33 of the 272 stored texts (37 before the API's trimming, V-19), and on 32 of the
+33 the DOM is the legacy form; the 33rd is `@silent hi`. Scope: one account, one build, bot-posted
+message content. The comparison has been seen to discriminate: its first run over the 272 reported
+15 rows equal to neither parser; 12 were traced to what the DOM does not carry (the emoji's
+character, the language as typed) and blurred as said above, and 3 are the unresolved mentions.
+
+**V-19. What the API changes before it stores a message.** 12 of the 272 bot posts came back with
+content different from what was sent (compared in the posting script, per message):
+- leading and trailing whitespace of the whole message is stripped, tabs included: rows 6, 17, 152,
+  256, 272 (leading), 157, 158, 185, 257 (trailing; `> ` is stored as `>`, `- ` as `-`);
+- a custom emoji the bot cannot use is rewritten to its name: `<:name:123456789012345678>` and
+  `<a:name:123456789012345678>` are stored as `:name:`, and `<:a:1><:b:2>` as `:a::b:` (rows 215,
+  216, 229), which Discord then draws as the Unicode emoji of that name where one exists.
+A posted comparison therefore cannot test leading or trailing whitespace of a whole message or an
+emoji id the poster has no access to; those inputs can only be tested against the parsers directly.
+
+**V-20. The tags Discord's legacy renderer emits** (read from the 272 captures; class names are
+CSS-module names, shown by their stable prefix):
+
+| Construct | DOM |
+|---|---|
+| text | `span` |
+| bold, italic, underline, strikethrough | `strong`, `em`, `u`, `s` |
+| spoiler | `span.spoilerContent_` wrapping `span.obscuredTextContent_` > `span.obscuredTextContentInner_` |
+| inline code | `code.inline` |
+| code block | `pre` > `div.codeContainer_` > `code.hljs`, plus `language-<name>` when the highlighter knows the language (`js` and `JS` become `language-javascript`, `c++` becomes `language-cpp`, an unknown name adds no class); highlighted tokens are custom elements (`a-k`, `a-v`, `a-o`, `a-n`, `a-p`) |
+| quote | `div.blockquoteContainer_` > `div.blockquoteDivider_` + `blockquote` |
+| heading | `h1` to `h3`, with a visually hidden "," appended for screen readers |
+| subtext | `small` |
+| list | `ul` / `ol[start]` > `li`; a nested list sits inside the parent `li` |
+| link | `a[href][title]`; a masked link's `title` is `<label or given title>`, a blank line, then `(<url>)` |
+| timestamp | `span.timestamp_` holding the formatted date (no value or style attribute) |
+| user and channel mention | `span.mention.wrapper_` / `span.channelMention.wrapper_`; `@everyone` and `@here` are `span.roleMention_.wrapper_`. A role that exists was not posted |
+| Unicode emoji | `span.emojiContainer_` > `img.emoji[data-type="emoji"][data-name][alt]`; `alt` is the character when one was typed and the `:name:` when a name was typed |
+| a line break made by two trailing spaces | `br` |
+
+**V-21. The text box is on the legacy path for this account too, and it formats differently from
+the rendered message.** 86 inputs (the 79-case subset and seven more) were typed into the message
+box of `slate-oracle-walk` as test account 1 with `keyboard.insertText` and never sent (no Enter key
+event was issued; the box was emptied after each case and confirmed empty at the end). Each line's
+`[data-slate-leaf]` spans and inline objects were read. Legacy markers: `@silent` carries a
+`silentPrefix_` class (a rule only the legacy set has, V-8); `_a_b_`, `*a**`, `****`, `_a__`,
+`` `a``b` `` and `*loose *` are styled as the legacy parser parses them; a spoiler inside a masked
+link's label is styled. What the box does, by construct:
+
+| Construct | In the text box |
+|---|---|
+| bold, italic, underline, strikethrough, spoiler, inline code | markers stay, in `syntaxBefore_` / `syntaxAfter_` leaves (with `before_em_`, `before_u_`, `before_s_`, `before_spoiler_`, `before_inlineCode_` and the `after_` forms; bold's markers carry no `before_` class); content carries `bold_`, `italics_`, `underline_`, `strikethrough_`, `spoiler_`, `inlineCode_`, stacked when nested |
+| the same across a line break | **not styled.** Each line is its own Slate element and is styled alone: `*a` / `b*` and `\|\|a` / `b\|\|` are plain in the box and one italic run or one spoiler when sent |
+| heading, list | no styling at all; the text stays as typed |
+| subtext | `-# ` is a `syntaxBefore_ before_subtext_` leaf and the rest carries `subtext_` |
+| quote | `> ` or `>>> ` at a line start (after optional leading spaces) turns the line into a quote element (`blockquoteContainer_ slateBlockquoteContainer_`) and removes the marker from the text; `>q`, `>>>a` and a `>` in mid-line stay plain text. Read in a second pass that confirmed an empty, class-less line before each case: in the first pass a quote element left by one case survived the clear and coloured the quote cases typed after it |
+| code block | fences are `codeBlockSyntax_` leaves; each body line is an element with class `codeLine_`, highlighted when a language is given; a one-line block's body is `codeBlockText_` |
+| bare URL, and the URL of a masked link | `fakeLink_`; the label, brackets and title of a masked link are plain. Two masked links with nothing between them got no `fakeLink_` at all |
+| escape | the backslash is a `syntaxBefore_ syntaxOverride_` leaf |
+| timestamp, mention, `@everyone`, `@here`, emoji (typed as a character, a `:name:` or `<:name:id>`) | replaced by an inline object (`inlineElement_ inlineVoid_`) showing the resolved text or image; an invalid timestamp style stays text |
+| `@silent` at the start | `silentPrefix_` |
+
+**V-22. The published parser's token view predicts the legacy text box on 43 of 68 comparable
+cases.** Of the 86 typed cases, 68 kept their text unchanged in the box and held no inline object;
+18 were set aside (quotes, timestamps, mentions and emoji, whose text the box changes, and `>>> `,
+whose first-pass capture was contaminated as V-21 says). For the 68, each character's style set and
+"is a marker" flag from the box was compared with what `parseLossless` tokens imply under a mapping
+written here (`tbcmp.py`; it is mine, not Discord's module 818948). 43 are identical. Of the 25 that
+differ, 19 are cases where the two parsers disagree anyway (Appendix A), and 6 are not: a space
+between two styled runs loses the enclosing style in the box (`**b *bi* b**`, `***a** b*`,
+`-# **b** *i*`), two adjacent masked links lose their link styling, and two escape cases differ by
+one marker flag. Fourteen Appendix A cases look the same in the box under either parser because the
+box does not style what they differ in (headings, lists). `silentPrefix_` is not in the mapping, so
+`@silent hi` counts as identical when it is not.
+
+**V-23. A webhook's messages are stored and drawn exactly as the bot's.** The 272 cases were posted
+again through a webhook created in the same channel (10:44Z to 10:52Z, `allowed_mentions` as
+before). The stored content of every case equals the bot post's stored content (the same 12 changed,
+the same way), and the content element's `innerHTML` equals the bot post's for all 272 once a
+per-render counter attribute (`data-focus-blocked-<n>`) is dropped. The three-way comparison gives
+the same partition: 236, 32, 1, 3. So on this account, for message content, nothing in the corpus
+is granted to a webhook and withheld from a bot, masked links included. The corpus has no emoji
+inside a link label, which is one of the two things the legacy code's webhook allowance names
+(module 354777, § 3 step 1), so that one is untested. Embeds were not posted (OQ-3).
 
 ### High-confidence inference
 
@@ -426,8 +538,8 @@ which the site builds on, are 128 to 142 short.
 
 ### 3. How to verify against real Discord
 
-Not run: this session has no `mcp__playwright__*` tools. The method, for a session that has the
-test-account browser:
+Run on 2026-11-23 in the resumed session, for rendered messages and for the text box (V-15 to
+V-22). The steps below are the method as first written; what the run changed is listed after them.
 
 1. **Post.** The test bot (`~/.claude-credentials/test_bot_token`, never printed) creates a channel
    in guild `1566742402180456559` and posts one corpus case per message with
@@ -452,7 +564,36 @@ test-account browser:
 6. **Keep it small and periodic.** The DOM walk is slow and rate-limited (one message per case), so
    it checks the oracle on a discriminating subset; the fuzzer itself runs against the parser.
 
+What the run changed or added:
+- **Compare over stored content.** The API rewrites some content before storing it (V-19), so the
+  parser runs over the `content` the create-message call returns, never over the corpus text.
+- **Open message links; do not scroll.** Setting the scroller's position, and wheel events, both
+  stopped loading history after about 100 messages. Opening
+  `/channels/<guild>/<channel>/<message id>` for every thirtieth message and reading every content
+  element present captured 272 of 272 in seven page loads.
+- **Blur what the DOM does not carry** on both sides before comparing: a timestamp's value and
+  style, a mention's id and kind, the character behind a `:name:` emoji, a code block's language as
+  typed. An id that resolves to nothing is drawn as text for roles and commands (V-18), so such a
+  case needs a real role or command, or is set aside.
+- **The message box is `[data-slate-editor="true"][role="textbox"]`.** The first
+  `[data-slate-editor]` on the page is the server's search box (`role="combobox"`); the first
+  attempt typed three cases there before the selector was corrected. Nothing was submitted.
+- **Type with `keyboard.insertText`, which issues no key events, and never Enter.** Before each case
+  require one empty line with no class: an emptied quote or code line keeps its element type and
+  colours the next case (V-21).
+- **Captures and generated capture scripts pass through the browser tool's output directory**
+  (`.playwright-mcp/` in the workspace root) and were moved to scratch in the same step.
+- Rate: 272 bot posts took ten minutes at one post per 1.1 s plus Discord's limits; webhook posts
+  ran at about one per 2.2 s.
+
 ### 4. Recommended oracle arrangement, with its gaps
+
+**What the walk changes.** This arrangement was written before the walk and named the published
+parser "primary" because it is the one that can be pinned and run anywhere. The walk shows the only
+account observed is drawn by the other parser (V-18). Which of the two is the standard is OQ-1 and
+is not decided here; until it is, "primary" below means "cheapest to run", not "what Discord shows",
+and the three-way split in the second bullet is the part of the arrangement that holds either way:
+on this corpus 235 of 272 expected values are the same under both parsers.
 
 - **Primary: `@discord/markdown-wasm`, exact version pinned, as a development dependency.** `parse`
   for the preview's tree; `parseLossless` for the editor's marker and style ranges. Runs in the
@@ -466,11 +607,22 @@ test-account browser:
   answer below), and contexts the native path may not cover (H-3). Locate modules by the content
   predicates of V-1 and fail loudly when a predicate matches zero or more than one module.
 - **Ground truth: the test-server DOM walk** of § 3, run when the pin moves and at the effort's start.
+  As run here it checks the legacy extraction only, because that is the parser the test account is
+  served; it becomes a check of the primary oracle when an account on the native path exists (G-11).
+- **The editor needs its own expected values.** Discord's text box is not its renderer (V-21), so a
+  preview oracle says nothing about how the editor should colour a heading, a list or a formatting
+  run that crosses a line. For the native path the token tree of `parseLossless` is that
+  specification (V-6); for the legacy path it is the text box's DOM as read in V-21 and the
+  rule-to-Slate table of V-11.
 - **(a) Reading as specification.** The rule modules of V-1 are readable in the served bundle and are
   the written specification of the legacy path; the native path has no readable source, only behaviour.
 
 Known gaps of this arrangement:
-1. It has not been checked against rendered Discord (§ 3 not run).
+1. The primary oracle has not been seen in rendered Discord. The one account available renders with
+   the legacy parser (V-15, V-18), so the walk confirmed the legacy extraction against the DOM and
+   could not do the same for the native parser. What stands for the native one is identity of the
+   binary (V-4), not an observed render. An account that Discord has placed on the native path
+   would close it.
 2. Where the two parsers disagree there is no single right answer until the owner chooses.
 3. The oracle's tree is not the site's tree; a normaliser sits between them and is itself fallible.
    The effort needs its own, with its own tests, and should treat a mismatch as "candidate" until read.
@@ -505,7 +657,7 @@ Known gaps of this arrangement:
 | # | Question | Whose | What would close it |
 |---|---|---|---|
 | OQ-1 | Where Discord's two parsers disagree (Appendix A), which one is the site's standard: the new parser, the old one, or "assert only where both agree and list the rest"? | Owner (product direction) | His answer. Sent to `steering-hooks-fixer` as an owner-needing item. |
-| OQ-2 | Does the oracle agree with what Discord actually renders, and which parser is the test account served? | This researcher, resumed with the test-account browser | The walk of § 3 on the 37 cases plus a sample of the rest (Resumption State, next acts 2 to 4). |
+| OQ-2 | ANSWERED — the test account is served the legacy parser, and rendered Discord equals the legacy parser's tree on the whole corpus, for the message and in the text box's styling. V-15, V-18, V-21. The native parser has not been seen rendered (G-11). | | |
 | OQ-3 | Which parser and which syntax set does Discord use for embed description, embed title, field name, field value, footer and Components V2 text? | Analyst or the effort's first stage | Fetch the lazy chunks, read the embed renderer; or read the DOM of posted embeds in the walk. |
 | OQ-4 | Should the product adopt Discord's published parser for its preview instead of testing its own rules against it? The licence allows it; `@discord/markdown-react` exists for the rendering step. | Architect, then the owner | An architecture finding. Raised because it changes what the fuzzer has to cover; not answered here. |
 | OQ-5 | Which constructs does each independent third-party client implement, and does any format in its text box? | Retired 2026-11-23 | The owner's selection "Agent: leave them not done" (effort rulings block "2026-11-23T09:32Z"): the per-client checks stay not done and third-party clients are a footnote. |
@@ -514,16 +666,19 @@ Known gaps of this arrangement:
 
 | # | Unknown | Blocker | Required action | Owner |
 |---|---|---|---|---|
-| G-1 | Fidelity of either parser to rendered Discord | No browser tools in the session that wrote this | Run § 3 after the restart with the browser (Resumption State) | this researcher, resumed |
+| G-1 | RESOLVED for the legacy parser — rendered Discord equals its tree on the 272-case corpus for test account 1. V-18. The native parser's part moves to G-11. | | | |
 | G-2 | The share of users on each parser | Server-side experiment assignment | None available from public assets; the walk answers it for the test accounts only | — |
 | G-3 | Embed and Components V2 rule sets (H-3) | Embed renderer is in a lazy chunk not fetched | OQ-3 | effort |
-| G-4 | Legacy text-box styling of links, quotes, code blocks, lists and headings (the `skip` rows of V-11) | Not traced past the table | Read the rest of module 339200 and its callers, or read the text box DOM in the walk | effort |
-| G-5 | Legacy React output (which tags the old renderer emits) | Module 862316 not read | Read it, or take it from the DOM in the walk | effort |
+| G-4 | RESOLVED — read from the text box's DOM: links, quotes, code blocks, lists and headings in the legacy text box. V-21. | | | |
+| G-5 | RESOLVED — the legacy renderer's tags, read from the DOM. V-20. | | | |
 | G-6 | Per-client construct, text-box and test checks for 25 of 26 cloned clients; four library cells (masked link, underline, escape, list) for four libraries | Not completed | Deferred: stays not done by the owner's selection (OQ-5) | — |
 | G-7 | Older parser versions (0.12.0 and earlier) | Different API | Not needed unless the pin goes backwards | — |
 | G-8 | Module-id stability beyond 13 hours | Only three same-day builds observed | Re-run the predicate table on a later build; the drift alarm does this as a side effect | effort |
 | G-9 | The site's interactive (editor) rule set and embed rule sets against the oracle | Only the static content set was run | The effort's fuzzer | effort |
 | G-10 | The January 2025 post on Discord's Rust markdown rewrite | Host did not resolve | Fetch from another network or find the canonical URL | — |
+| G-11 | The native parser against rendered Discord, and the native text box | Test account 1 is on the legacy path; whether test account 2 is was not read (its Chrome profile is not the one this session's browser holds) | Read three discriminating cases as test account 2; failing that, an account Discord has placed in the native experiment. Until then the native parser rests on V-4 | effort (QA, whose sessions carry both profiles) |
+| G-12 | The account's experiment assignment itself (why it is on legacy) | Not read from the signed-in page; the DOM settled the question it would have answered | Read the two experiments of V-2 from the client's experiment store | — |
+| G-13 | Rendered DOM for a role and a slash command that exist, and for a custom emoji the poster can use | The corpus used made-up ids, which Discord draws as text or rewrites (V-18, V-19) | Post those three with real ids from the test server | effort |
 
 ## Scratch instruments (perishable)
 
@@ -535,16 +690,28 @@ a `corpus` folder (`corpus.js`, the 272 cases); a `tools` folder of scripts writ
 request filter; `norm.py` and `compare.py`, canonical form and scoring; `mods.py` and `buildcmp.py`,
 module indexer and cross-build comparison); a `runs` folder (every output cited above); and a
 `helpers` folder (`libraries-table.md` and `clients-table.md`, the helpers' tables). None of these
-is a path in this repository. The directories `discord-assets*` and
-`discord-mods` hold Discord's code and must not be copied into any repository. The third-party
-`clones/` directory was deleted at the 09:35Z checkpoint.
+is a path in this repository. The third-party `clones/` directory was deleted at the 09:35Z
+checkpoint, and the directories that held Discord's code and the website export
+(`discord-assets`, `discord-assets-canary`, `discord-assets-ptb`, `discord-mods`, `site-export`,
+`site`) were deleted at the end of the resumed run; the export's `node_modules` link was removed
+first and its target, the shared website tree's `node_modules`, was listed present afterwards.
+
+The resumed session's scratch directory,
+`/tmp/claude-1000/-usr-local-bin-hooks/9d755293-e6fd-4715-a2b8-b53e82c37b4b/scratchpad/`, holds
+the walk: a `tools` folder (`drest.py`, posting; `domcmp.py`, DOM-to-canonical rewriter and
+three-way comparison; `tbcmp.py`, text box against `parseLossless`; the generated capture scripts)
+and a `walk` folder (the posted-message maps with stored content, the DOM captures, both parsers'
+outputs over stored content, the text-box captures, and the comparison outputs `cmp-all-bot.txt`,
+`cmp-all-webhook.txt`, `tbcmp-clean.txt`). The DOM captures are Discord's rendered markup for the
+corpus and carry no account data beyond resolved names.
 
 ## Recommendations (investigation only)
 
 1. Put OQ-1 to the owner before the plan fixes acceptance criteria; it decides what "matches Discord"
-   means for 14% of this corpus.
-2. Run the § 3 walk once, on Appendix A plus about thirty agreeing cases, before the fuzzer's results
-   are trusted.
+   means for 14% of this corpus. He should have V-18 in front of him when he answers: the account
+   that could be observed sees the older parser, and which one his own account sees is not known.
+2. The § 3 walk has been run once (V-15 to V-23). What it could not reach is in G-11 and G-13; the
+   cheapest next read is three discriminating cases from `slate-oracle-walk` as test account 2.
 3. Ask the architect OQ-4 before the planner sizes the effort.
 4. Next: the planner (it mints the effort's ID and cites this document by name), with the architect
    first if OQ-4 is to be answered.
