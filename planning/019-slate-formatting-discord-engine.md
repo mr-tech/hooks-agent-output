@@ -56,6 +56,7 @@ Lane: full
 | 2026-11-23T19:15 | R-24 | code-reviewer-019 | Code review Round 1, milestone-scoped (M2 at website `22f3e58`, AC-2.1 to AC-2.7 as Revision 9 states them): REJECTED on CR-1 MEDIUM, a severity floor, and CR-2 MEDIUM; CR-3 and CR-4 are LOW. `code-review/019-slate-formatting-discord-engine-code-review.md`. Plan Status is not moved. |
 | 2026-11-23T19:26 | R-25 | code-reviewer-019 | Code review Round 1 sub-entry, milestone-scoped (M2 paths at website `78c5f74`): CR-1 and CR-2 resolved, APPROVED_WITH_COMMENTS. CR-3 is carried to M5 and CR-4 to the M3 round. Same document, record `3d583e9c`. Plan Status is not moved. |
 | 2026-11-23T19:35 | R-26 | qa-019 | QA Phase 2 on M2 (milestone-scoped) at website `78c5f74`: **QA Failed** on QAF-29 MEDIUM. AC-2.4's declared clause is unmet for the five modifier members of `Inline` (bold, italic, underline, strikethrough, spoiler), which no map holds. QAF-30 LOW. AC-2.1 to AC-2.3, AC-2.6 (control discriminating) and AC-2.7 pass; AC-2.5's surface limbs belong to M4 and M5. `qa/019-slate-formatting-discord-engine-m2-qa.md`. The plan's Status is not moved. |
+| 2026-11-23T19:45 | R-27 | code-reviewer-019 | Code review Round 2, milestone-scoped (M2 paths at website `7dcedc9`, the fix for QAF-29 and QAF-30): APPROVED_WITH_COMMENTS, no new finding. CR-3 is carried to M5 and CR-4 to the M3 round. `code-review/019-slate-formatting-discord-engine-code-review.md`, record `86ba88f4`. Plan Status is not moved. |
 
 ## Resumption State
 
