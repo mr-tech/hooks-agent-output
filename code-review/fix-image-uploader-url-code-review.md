@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
-Reviewed-At: 48c5e87 — repos=website
+Reviewed-At: 5ec0621 — repos=website
 Status: In Review
 Round: 3
 Verdict: APPROVED
@@ -23,6 +23,7 @@ Verdict: APPROVED
 | 2026-11-23T16:52 | fixer-fix-image-uploader-url (implementation record `9a33daa2`, `Handoff-At: e94baf7`) | Round 1 sub-entry: confirm the CR-1 and CR-2 fix at website `e94baf7` | APPROVED. CR-1 is gone as a class: the stored error is removed, 0 `setImageError` hits. CR-2 is fixed at its one site. All 5 probe cases pass at `e94baf7`, exit 0. Convention check: 0 FAIL. QA Phase 2 is next (27 production lines added since `af3d95a`). |
 | 2026-11-23T17:32 | fixer-fix-image-uploader-url (implementation record `761dd803`, `Handoff-At: cae7472`) | Round 2: the QA Phase 2 fix round (QAF-1 test only, QAF-3 production, rulings block 17:22Z) at website `cae7472` | APPROVED. The sync of the saved image during render covers every state seeded from `image` (3 of 3). Removing CR-2's line holds: P2 passes, and all 5 consumers feed back what they were sent. The probes pass 10 of 10 at `cae7472`; the round-2 probe fails 3 of 5 at `e94baf7` (control). CR-4 and CR-5 are INFO. QA Phase 2's re-run is next (32 production lines added). |
 | 2026-11-23T17:58 | fixer-fix-image-uploader-url (implementation record `74ffd334`, `Handoff-At: 48c5e87`) | Round 3: limb 5, Enter in the address box (his 17:40Z selection), at website `48c5e87`. Round 2's approval at `cae7472` is superseded | APPROVED. The shared `useDialogEnter`'s 2 other callers behave the same, shown by execution (probe Q1 and Q2 identical at `cae7472` and `48c5e87`; Q3 discriminates). The probes pass 13 of 13 at `48c5e87`. QA Phase 2's re-run is next (41 production lines added since `af3d95a`). |
+| 2026-11-23T18:19 | fixer-fix-image-uploader-url (implementation record `a9614a7f`, `Handoff-At: 5ec0621`) | Round 3 sub-entry: QAF-4, a test-only fix, at website `5ec0621` | APPROVED. The delta is test-only (non-test paths are identical, `git diff --quiet`); 1 case added, spec-form, with literal expectations. Convention check: 0 FAIL. QA's re-run is next. |
 
 **Disclosed in this round.** The stamp gate (PostToolUse hook) refused my first write of this file because its changelog stamp was typed
 ahead of the clock (16:44 against 16:43Z). I corrected the stamp from `date -u`, which satisfies the gate. I made that correction, and
@@ -325,7 +326,23 @@ tree. `git rev-parse HEAD` printed `48c5e87eda2ba0b553b7bbd83e3e8c34e7f96405` at
   IME composition in the box would answer. It would save only if the composed text equals an address that has already loaded, because
   composing changes the box and so clears `loaded`. INFO, no action.
 
+## Round 3 sub-entry — QAF-4 (test only) at `5ec0621`
+
+The delta `48c5e87..5ec0621` (`5ec0621`) is test-only, so it takes the scoped check and opens no round.
+`git diff --quiet 48c5e87 5ec0621 -- . ':(exclude)src/**/__tests__/**'` exits 0: production is identical, and still at 41 added lines
+since `af3d95a`. `git rev-parse HEAD` printed `5ec06212d73073ab556e46582c3b23e3468da3a3` at the start and at the end.
+- The added case, "follows that image in the box and the preview, and saves it", is in its own `describe` ("…while the dialog is
+  open"). It holds the open-dialog half of the `shownImage` sync, which Round 2 recorded as CR-5 and covered only with probe P5. Its
+  expectations are literals (`URL_Z`), it uses the existing host's `data-replace` button, and its title is spec-form.
+- The ID-token `grep -c` over the file gives 0, and no comment is added.
+- `convention-check.js --since=af3d95a` at `5ec0621`: exit 0, 0 FAIL, 0 CANDIDATE, the same 18 SKIPs
+  (`verification/fix-image-uploader-url/code-review/convention-check-5ec0621.txt`).
+- Whether the case discriminates (QA's survivor `saved-change-only-while-closed`, killed by this case alone) is QA's to confirm, and is
+  not re-run here.
+
 ## Verdict
+
+**Status (Round 3 sub-entry, `5ec0621`)**: APPROVED. Test only.
 
 **Status (Round 3, `48c5e87`)**: APPROVED. No finding blocks. It supersedes Round 2's approval at `cae7472`.
 
