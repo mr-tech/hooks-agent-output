@@ -897,3 +897,22 @@ per surface, and the counts go to him as a selection prompt, with no threshold s
 **Told to him at his next prompt**, with spend and hours. `python3 ~/.claude/tools/cc-usage.py chain 019 --since 2026-11-23T18:48`: TOTAL $88.93,
 1,416 requests, over every 019 session from implementation start (block 18:48Z) to 22:35Z (3 h 47 m). The tool does not split spend by milestone, so
 this is the whole chain's figure over that window.
+
+## 2026-11-23T23:33Z — selection: plan 019 RK-9, the embed residue after adjustment (put 23:0xZ, answered 23:33Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T23:33Z — steering-hooks-fixer`. The wording is this thread's. The M3 cap (block
+22:35Z) was told to him in the same turn, with $88.93 and 3 h 47 m, in chat just before the prompt. Options:
+- *Agent: keep your choice (Recommended)*: "Nothing changes. The leftover differences stay listed, about 1,300 per embed field, and any new one
+  fails the tests… 42 come from the 272 realistic messages. No extra work or time."
+- *Agent: fix the common ones*: "Relax the plan's rule on when a hand-made fix toward Discord's older look is allowed… Cost: one plan revision and
+  a review round on the milestone being built now. How many it would fix isn't measured yet."
+- *Agent: older rules for embeds*: "…undoes part of your choice to use Discord's formatter, keeps a second set of rules… Not checked: whether
+  the site's older rules are actually closer to Discord for embeds."
+**Chosen by selection: keep your choice.** D-14 stands. RK-9's M4 firing is answered, nothing reopens, and the plan holds no wait on it (SL-13).
+Premises read this turn: `implementer-019`'s message (22:4xZ) and `verification/019/impl/m4-dom-residue-all.json`. A `general-purpose-sonnet`
+refutation helper re-ran the measurement, which fetches Discord's live build, through the real code path in a `git archive 5ccb54d` export under
+`systemd-run` (900 s, 6 G). It ran in 261 s with exit 0, and every count and differing set equals the claim (scratch `refute-rk9/mine.json`). The
+examples were run by the helper's probe (`show.json`). The adjustment's zero reach was read from `m4-adjustment-reach-after.json`, not re-run.
+**Helper finding, routed to M4's code review:** the measurement test `zz-dom-residue.run.test.tsx` and its helper `helpers/previewDom.tsx` are
+untracked in the website tree and absent at `5ccb54d`, so the committed record does not reproduce the counts from a commit. The finding goes to
+`implementer-019`'s M4 document by message.
