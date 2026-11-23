@@ -108,3 +108,16 @@ this thread's own prompts now, and it is lodged for the definitions in `~/.claud
 the wording.
 **Disclosed:** this thread's first write of this block, and of the two inbox entries, went through a shell heredoc. The record-write gate
 refused it before anything was written, and it was re-issued with the Edit tool.
+
+## 2026-11-23T18:50Z — test-case scoring beside retrospective `fixes-2026-11-23-steering-hooks-fixer-3`; box cleared
+
+The scoring ran at website `5ec0621`, from a clean export (`git archive`, offline install exit 0). Vitest exited 0, with 2718 of 2718 cases
+passing. The case list is `verification/fix-image-uploader-url/deweed/cases.tsv`. Marked: the 43 cases in the two test files the chain
+changed (`git diff --name-status af3d95a 5ec0621`, `.test.tsx`): `ImageUploader.enter-scope.test.tsx` (21) and
+`ImageUploader.saved-address.test.tsx` (22). One deweeder unit, so the merged table is that unit:
+`verification/fixes-2026-11-23-steering-hooks-fixer-3/deweed/website-1.tsv`.
+**Scored: 43. Below 7: 9 of 43** (ids 11, 14, 15, 16, 19, 21, 24, 27, 29), each naming a covering case. Every covering id (5, 6, 7, 8, 13,
+18, 23, 32) is in the scored table, so none is unchecked (`awk` over column 6 against ids 5 to 47: 0 outside). Nothing is deleted on it.
+**Box.** No Docker image or container names the chain (`docker image ls`). The export and the two logs in `/var/tmp`, and the scratch of the
+chain's four exited sessions under `/tmp/claude-1000/-usr-local-bin-hooks-website/`, are removed. No open handoff or docket cites them
+(`grep -rlF` per session id). `du -sc` before: 968,464 KB. Afterwards `ls -d` fails.

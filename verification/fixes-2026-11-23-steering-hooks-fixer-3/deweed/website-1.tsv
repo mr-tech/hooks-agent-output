@@ -1,0 +1,44 @@
+id	score	disposition	class	generated	covering	reason
+5	8	kept	-	yes	-	Only count-exact assertion that Enter on the focused dialog with the opening image loaded closes and sets once; fails if the hook loses its answer or fires twice
+6	8	kept	-	yes	-	Earliest pin of the form-tag opt-in: Enter in the URL field submits; fails if the input opt-in is dropped from the hook call
+7	8	kept	-	yes	-	First row of the button table: Enter on the close button closes once and the dialog hook does not also save
+8	7	kept	-	yes	-	Enter on Cancel closes without saving; keyboard route on Cancel is asserted nowhere else, overlaps the close-button row in mechanism
+9	8	kept	-	yes	-	Only row whose expected effect is nothing: a hook leaking onto buttons would turn Enter on Clear into a save
+10	8	kept	-	yes	-	Only Enter-key activation of Save; exact counts fail if button press and dialog hook both fire
+11	5	remove	-	no	5	Same fixture and key press as the dialog-element row; adds only the saved argument, which the typed-image case also asserts
+12	8	kept	-	no	-	Image typed and loaded after open: fails if the hook keeps the stale undefined answer, and pins argument and counts
+13	8	kept	-	yes	-	Empty dialog, Enter answers nothing; fails if submit is wired unconditionally and saves an empty address
+14	6	remove	-	yes	13	Same empty-state refusal as the dialog-element row with focus moved to the field; the field route is kept by the loaded-field row
+15	5	remove	-	yes	7	With no answer available the hook cannot leak, so this only repeats that the close button closes on Enter
+16	5	remove	-	yes	8	With no answer available the hook cannot leak, so this only repeats that Cancel closes on Enter
+17	8	kept	-	no	-	Focus inside a still-visible leaving panel: only the isOpen argument stops the answer; fails if enabled is dropped or derived from visibility
+18	8	kept	-	yes	-	Focus in the other dialog with this one open and loaded: only the containment check stops the uploader answering
+19	6	remove	-	yes	18	Same containment refusal with focus on another node of the same foreign dialog; uploader code sees no difference
+20	7	kept	-	no	-	Uploader answers and the co-mounted update prompt stays unanswered and mounted; overlaps the alone row on the uploader half only
+21	5	remove	-	no	18	Uploader side is the same containment refusal; the prompt Reload single-fire belongs to the prompt and is asserted in the WarningDialog file
+22	7	kept	-	no	-	Closed never-opened instance with focus in its hidden dialog answers nothing and the open sibling stays silent; overlaps the leaving-panel and containment cases in part
+23	7	kept	-	yes	-	Only fixture with the open instance mounted first and a hidden one after; exact counts across both instances
+24	6	remove	-	yes	23	Same open-instance-only assertion with mount order swapped; that order is already the closed-instance fixture
+25	7	kept	-	no	-	Only assertion that the ref wrapper added for the hook keeps display-contents and spans field and footer; class name is the one observable under this DOM
+26	8	kept	-	no	-	Out-of-order loads: preview and save follow the box, not the last load to finish; fails if the stale-load guard goes
+27	6	remove	-	no	6	Enter in the field saving a loaded address is kept by the loaded-field row; this repeats it with a typed address
+28	7	kept	-	yes	-	Enter in the field while the new address is pending saves nothing; fails if loaded stops comparing the loaded address to the box
+29	6	remove	-	yes	32	Box already differs from the loaded address so the failure flag decides nothing here; the failed-address refusal is asserted by the row named
+30	8	kept	-	no	-	Only pin of Save disabled while the box address is pending, a separate expression from the Enter gate, then enabled once it loads
+31	7	kept	-	yes	-	Non-image text after a loaded address: error, no preview, Save off, Enter refused; error and preview overlap the url-validation file
+32	8	kept	-	yes	-	Failed load after a loaded address: Image not found, no preview, Save off, Enter refused
+33	8	kept	-	no	-	Emptied box with a saved image saves the empty address; only pin of the Save-enabled-on-empty branch
+34	7	kept	-	no	-	Only assertion of Clear disabled, after an empty save round-trips through the image prop
+35	9	kept	-	no	-	Opening address equals the box, so the failure flag alone decides loaded; Save must be off and the error shown
+36	9	kept	-	no	-	Box and loaded address both empty with a different failed address: the non-empty conjunct alone keeps preview and Enter off
+37	8	kept	-	no	-	Retry of a failed address that then loads is saveable; fails if a success does not clear the failure flag
+38	8	kept	-	no	-	Clear enabled for a saved address that failed on open; fails if Clear is tied to loaded
+39	8	kept	-	no	-	Only case that presses Clear: box and preview empty and Save then saves the empty address despite a late load
+40	8	kept	-	no	-	Image prop replaced while closed: reopen shows and saves it; fails if the prop sync is removed or tied to open
+41	7	kept	-	no	-	Image prop replaced while open over a typed edit; fails if sync runs only on open, overlaps the closed case otherwise
+42	8	kept	-	no	-	Cancel discards a loaded edit: box, preview and next save return to the saved image
+43	7	kept	-	no	-	Cancel with nothing saved; only pin of Save disabled when the box is empty and no image is saved
+44	7	kept	-	no	-	Error of a cancelled address is gone on reopen; fails if the error becomes state that Cancel does not reset
+45	8	kept	-	no	-	Counterpart control: an unedited failing saved address keeps its error and Save stays off after Cancel and reopen
+46	8	kept	-	no	-	Cancel returns to the image saved during this mount, not the opening one; fails on a stale or initial-prop capture in Cancel
+47	7	kept	-	no	-	Load pending at Cancel finishes after reopen without displacing the saved image; guard overlaps the out-of-order case
