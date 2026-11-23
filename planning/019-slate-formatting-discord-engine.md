@@ -4,9 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 2, for the critic (cycle 1 pass 2), the architect's delta pass and QA Phase 1's re-key. Implementation is not approved.
-  M2 waits on M1's analysis (AN-1, AN-3), on the three gates passing one revision, and on the website tree, which the fixer queue
-  holds (9e cut, effort rulings). OQ-5 is answered (D-13, option b) and is folded at revision 3.
+  Revision 2, read by all three gates (critic REQUEST REVISION, e3e49ac7; architect APPROVED_WITH_CHANGES, ee54771c; QA re-key,
+  6dace3fa). M1's analysis has landed (aafecf1). Revision 3 is held for his answers on AN-3 (embeds and the V2 text display are
+  legacy-only) and on AN-6's cross-line read (D-11's reopening class), both with steering, then folds every event since revision 2.
+  Implementation is not approved; M2's approval is held on AN-3.
 Revision: 2
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
@@ -24,6 +25,7 @@ Lane: full
 | 2026-11-23T15:52 | 1 | planner-019 | Folds his answers to OQ-1 to OQ-3 and steering's three scope additions (effort rulings block 15:49Z, record `093a7c9d`; ledger block "2026-11-23T15:48Z — steering-hooks-fixer"), plus Planner batch row G-14 (research, record `a666dbd9`). It adds D-10 to D-12 and resolves OQ-1 to OQ-3 in place; AC-5.6 and AC-6.2 are restated on the answers, and M3 takes the two-command form. G-14 enters AN-4, AN-7 and AC-3.1. Scope delta: M6 gains S-29's QAF-4 trigger and S-30 (the `>>>` server-side question, settled by a code read at `0411d3b`, with production residue his). M3 gains the fence-loop chain's three drivers as seeds, all carried. M1's AN-4 and AN-7 each gain a G-14 limb. The plan is still the original ask plus three in-region additions, with no milestone added or removed. |
 | 2026-11-23T16:24 | 2 | planner-019 | Folds the three gates' verdicts on revision 1, one batch: the critique (`critiques/019-slate-formatting-discord-engine-critique.md`, record `0435794c`, F-1 to F-23), the conformance pass (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`, record `78d7ec06`, CF-1 to CF-7), and QA Phase 1 (`qa/019-slate-formatting-discord-engine-qa.md`, record `75f479a1`, QAF-1 to QAF-14). The arguments live in those documents; § Finding disposition maps each finding to where it is folded. OQ-4 is resolved by CF-7. CF-2's option (b) is OQ-5, at steering as a scope delta, with option (a) written as the floor. Scope delta: M5 gains a per-element parse cache with a counted criterion (CF-1); M6 gains AC-6.5, the editor's emoji lift held equal to the engine (CF-2 a); M3 gains a red-command outcome table and the vitest project form (F-2, CF-3), and the three-class table (F-6); M2 keeps today's hidden-until-ready loading state (F-3) and gains a link scheme allow-list (QAF-5) and R-A's criterion; M7 gains the Test Conventions update. No milestone was added or removed; the plan is the original ask plus the three in-region additions of revision 1. |
 | 2026-11-23T16:30 | R-2 | planner-019 | Registered D-13 (OQ-5, CF-2 option b); its words live in effort rulings block "2026-11-23T16:29Z — selection: plan 019 OQ-5" (record `213d34ec`) and the ledger block it cites. |
+| 2026-11-23T16:39 | R-3 | planner-019 | Status write: revision 3 held for his answers on AN-3 and D-11's reopening; the events it will fold are the critique pass 2 (`e3e49ac7`), the architect's delta pass (`ee54771c`), QA's re-key (`6dace3fa`), devops's AN-1 Preview record (`2531c04a`) and the analysis (`aafecf1`). |
 
 ## Resumption State
 
