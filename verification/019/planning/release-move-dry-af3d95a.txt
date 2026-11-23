@@ -1,0 +1,11 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   af3d95acc4f4b1b25f78b71bd2baa555c0724a72
+remote   origin/master af3d95acc4f4b1b25f78b71bd2baa555c0724a72
+local    master af3d95acc4f4b1b25f78b71bd2baa555c0724a72
+untracked 17 path(s) left alone
+evidence none: a real move refuses without --qa-record or --reason
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+one serving ref at origin (master); no pair

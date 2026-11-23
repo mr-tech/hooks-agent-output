@@ -1,0 +1,34 @@
+af3d95a:src/@types/slate.d.ts:1:import type { EmojiNode, StrictSingleASTNode } from 'simple-markdown';
+af3d95a:src/components/DiscordContentEditor/Desktop.tsx:6:import SlateEditor from '../dynamics/SlateEditor';
+af3d95a:src/components/DiscordContentEditor/Desktop.tsx:15:import Markdown from '~/components/dynamics/Markdown';
+af3d95a:src/components/DiscordContentEditor/Mobile.tsx:7:import SlateEditor from '../dynamics/SlateEditor';
+af3d95a:src/components/DiscordContentEditor/Mobile.tsx:15:import Markdown from '~/components/dynamics/Markdown';
+af3d95a:src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:17:vi.mock('~/components/dynamics/SlateEditor', () => {
+af3d95a:src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:28:vi.mock('~/components/dynamics/Markdown', () => ({
+af3d95a:src/components/DiscordContentEditor/index.tsx:10:import type { InteractiveParser, StaticParser } from 'simple-markdown';
+af3d95a:src/components/DiscordContentEditor/index.tsx:13:import Markdown from '~/components/dynamics/Markdown';
+af3d95a:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:10:import Markdown from '~/components/dynamics/Markdown';
+af3d95a:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:9:import Markdown from '~/components/dynamics/Markdown';
+af3d95a:src/components/Markdown.tsx:4:import type { StaticParser } from 'simple-markdown';
+af3d95a:src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:10:import markdown from '~/utils/markdown';
+af3d95a:src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:14:  const { default: loaded } = await import('~/utils/markdown');
+af3d95a:src/components/SlateEditor/index.tsx:24:import type { InteractiveParser } from 'simple-markdown';
+af3d95a:src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:10:import markdown from '~/utils/markdown';
+af3d95a:src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:11:import markdown from '~/utils/markdown';
+af3d95a:src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:13:import markdown from '~/utils/markdown';
+af3d95a:src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:15:import markdown from '~/utils/markdown';
+af3d95a:src/components/SlateEditor/utils/common.ts:1:import type { EmojiNode, MarkdownTypes, StrictSingleASTNode } from 'simple-markdown';
+af3d95a:src/components/SlateEditor/utils/common.ts:3:import type { SurrogateSourceOffsets } from '~/utils/markdown/emoji';
+af3d95a:src/components/SlateEditor/utils/createLeaf.ts:1:import type { StrictSingleASTNode } from 'simple-markdown';
+af3d95a:src/components/SlateEditor/utils/decorator.tsx:9:import type { InteractiveParser, MarkdownTypes, StrictSingleASTNode } from 'simple-markdown';
+af3d95a:src/components/SlateEditor/utils/getInitialValue.ts:8:import type { InteractiveParser } from 'simple-markdown';
+af3d95a:src/components/SlateEditor/utils/withNormalizeNode.ts:11:import type { InteractiveParser } from 'simple-markdown';
+af3d95a:src/providers/MarkdownProvider.tsx:6:import type { MarkdownParsers } from 'simple-markdown';
+af3d95a:src/providers/MarkdownProvider.tsx:25:      import('~/utils/markdown').then((m) => setMarkdown(m.default)).catch(console.error);
+af3d95a:src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:10:import type { InteractiveParser, StaticParser } from 'simple-markdown';
+af3d95a:src/utils/markdown/emoji.tsx:4:import type { EmojiNode, StrictSingleASTNode } from 'simple-markdown';
+af3d95a:src/utils/markdown/index.tsx:6:import type { InteractiveParserMap, StaticParserMap } from 'simple-markdown';
+af3d95a:src/utils/markdown/rules.tsx:5:import SimpleMarkdown, { unescapeUrl } from 'simple-markdown';
+af3d95a:src/utils/markdown/rules.tsx:15:} from 'simple-markdown';
+af3d95a:src/utils/markdown/utils.ts:1:import SimpleMarkdown from 'simple-markdown';
+af3d95a:src/utils/markdown/utils.ts:8:} from 'simple-markdown';
