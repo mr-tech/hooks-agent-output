@@ -386,3 +386,19 @@ Resumption State; the queue follows in the docket's order. The park's condition 
 08:15Z) `weekly_all` 0.0%, resets 2026-11-28T17:00Z (supersedes the docket's 2026-11-25T09:00Z). Website tree on
 `chain/fix-emoji-pretransform-widths` at `0411d3b` (`git rev-parse`), `origin/master` `febf20e` (`git ls-remote`); one untracked path
 `.playwright-mcp/`, not this thread's, left in place. No session of the chain live (`cc-usage.py sessions`).
+
+## 2026-11-23T08:48Z — fixer-batch retrospective over seven chains now; chain 9c opens
+
+Chain `fix-emoji-pretransform-widths` released and closed (its rulings block 08:48Z). Fixer chains closed since batch e (block
+"2026-11-21T18:57"): `fix-delete-dead-cron`, `fix-api-extractor-devdep`, `fix-git-dependency-pins`, `fix-middleware-dead-matcher`,
+`fix-cut-collapsed-caret`, `fix-decorator-offsets`, `fix-emoji-pretransform-widths` — seven, past the sixth-chain trigger, none in flight
+(`deployment/closed/` and the open-folder listing, 08:4xZ: no open stage document names any of them). **This thread's ruling, changing its
+docket's earlier sequencing** (which held the batch for his Vercel Cron Jobs read): the retrospective runs now. That read and the
+request-log read are carried by open handoffs (`handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md`; 4bc9b626, 3039bc8a,
+b1fdd41a stay open until his reads), which the retrospective's trigger admits ("post-deploy rows terminal or carried by a handoff").
+Origin `fixes-2026-11-23-steering-hooks-fixer` (this thread's first batch today; the docket's `fixes-2026-11-22-steering-hooks-5` was never
+used). Retrospective: subagent `retrospective-fixes-2026-11-23-steering-hooks-fixer`. Scoring: website at `0411d3b`; marked = the test
+files `git diff --name-only 0c14d5b 0411d3b -- 'src/**/__tests__/**'` lists as `*.test.ts[x]`; project-utils has no tests, so no pass.
+Output under `verification/fixes-2026-11-23-steering-hooks-fixer/deweed/`. Result recorded below when the tables land.
+Chain 9c `fix-normalize-fence-loop` opens next: its sweep (at `132a7ab`) predates the emoji fix's edit of `withNormalizeNode.ts`, so a
+re-sweep runs at `origin/master` `0411d3b`; the coordinator's go is asked for the tree switch, naming that base.

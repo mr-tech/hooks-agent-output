@@ -82,3 +82,19 @@ post-deploy for devops. QA's Assumption Not Checked (emoji picker click path; gu
 standard-emoji picker limb to devops's post-deploy walk, the other two to devops's Stage 1 handoff, owned by this thread. Disclosed by QA:
 one pass section written by a shell-run script (its changelog). Website HEAD `0411d3b` (`git rev-parse`); no `.github/workflows` (`ls -d`
 fails). Devops brief `steering/fix-emoji-pretransform-widths-brief-devops.md`; `devops-fix-emoji-pretransform-widths` started.
+
+## 2026-11-23T08:48Z — released and closed out; sessions stopped; retrospective joins the batch
+
+His release answer in devops's session ("Release now", ledger `steering/selection-ledger/2026-11-23.md`). QA Phase 3 Release Verified
+(`qa/closed/website-0411d3b-release-tip-qa.md`, record `4f43628b`). Website `master` `0411d3b` (`git ls-remote`, devops; tree on `master`
+at `0411d3b`, `git rev-parse`, 08:4xZ). B-1 PASS on hooks.gg (devops record `49ce5066`): the walk shows the fixed form, which base fails
+deterministically, so the serving build carries the fix (devops did not read the deployment's commit; `vercel inspect` hung).
+Closure reads (this thread, 08:4xZ): implementation, code review, QA, release-tip QA, deployment and the post-deploy handoff are in their
+`closed/` folders; no open stage document names the chain. Open carrier, owned by this thread:
+`handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md` (5b19c3e4), on its own trigger. Source `TODO.md` item
+"website editor: the emoji pre-transform shifts widths" deleted (every limb in the scope delivered; QA's picker assumption is in the
+handoff). Architecture: devops found no line this chain changes; nothing lodged. Fired trigger seen in the round: QA's report on
+`handoff/qa-014-bc7-…` (fires on every QA run), lodged in record `INBOX.md`. Sessions stopped: `qa-…` and `devops-…` (`tmux-agent stop`).
+Docker: `mariadb:11.8` and `postgres:16` images, not this chain's, left as they are. Disclosed: the TODO.md deletion was first issued as a
+shell python write; the record-write gate refused it, and it was re-made with the Edit tool.
+Retrospective: this chain took a REJECTED round; it joins the batch of every fixer chain closed since batch e (effort block 08:48Z).
