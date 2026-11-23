@@ -74,14 +74,14 @@
  {
   "id": "cancel-keeps-box",
   "file": "src/components/ImageUploader.tsx",
-  "old": "    setImageInput(image);\n",
-  "new": ""
+  "old": "    onClose();\n    setImageInput(image);\n",
+  "new": "    onClose();\n"
  },
  {
   "id": "cancel-keeps-preview",
   "file": "src/components/ImageUploader.tsx",
-  "old": "    setLocalImage(image);\n",
-  "new": ""
+  "old": "    setLocalImage(image);\n  }, [image, onClose]);",
+  "new": "  }, [image, onClose]);"
  },
  {
   "id": "error-shows-any-failure",
@@ -102,9 +102,27 @@
   "new": "? 'Invalid url.' : 'Image not found.'"
  },
  {
-  "id": "save-keeps-last-loaded",
+  "id": "cancel-ignores-saved-change",
   "file": "src/components/ImageUploader.tsx",
-  "old": "    setLocalImage(imageInput);\n    setImage(imageInput);",
-  "new": "    setImage(imageInput);"
+  "old": "  }, [image, onClose]);",
+  "new": "  }, [onClose]);"
+ },
+ {
+  "id": "saved-change-ignored",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (shownImage !== image) {",
+  "new": "  if (false) {"
+ },
+ {
+  "id": "saved-change-keeps-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setShownImage(image);\n    setImageInput(image);\n",
+  "new": "    setShownImage(image);\n"
+ },
+ {
+  "id": "saved-change-keeps-preview",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setImageInput(image);\n    setLocalImage(image);\n  }\n",
+  "new": "    setImageInput(image);\n  }\n"
  }
 ]

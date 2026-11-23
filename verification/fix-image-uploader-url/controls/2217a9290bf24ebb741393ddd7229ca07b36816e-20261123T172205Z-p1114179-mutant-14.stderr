@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image
+AssertionError: expected null to be 'https://example.com/x.png' // Object.is equality
+
+- Expected:
+"https://example.com/x.png"
+
++ Received:
+null
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:260:23
+    258|
+    259|     expect(box().value).toBe(URL_X);
+    260|     expect(preview()).toBe(URL_X);
+       |                       ^
+    261|     save();
+    262|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

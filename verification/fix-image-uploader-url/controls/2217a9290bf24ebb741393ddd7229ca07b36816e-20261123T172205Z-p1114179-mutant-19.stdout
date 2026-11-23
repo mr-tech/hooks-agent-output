@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T172205Z-p1114179/mutant-19
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (17 tests | 1 failed) 722ms
+     × puts the box back to the image saved in this dialog, not the one it opened with 58ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 40 passed (41)
+   Start at  17:23:18
+   Duration  2.42s (transform 514ms, setup 67ms, import 2.54s, tests 1.51s, environment 2.02s)
+

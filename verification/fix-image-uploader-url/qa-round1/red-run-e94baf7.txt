@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/prev
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (18 tests | 1 failed) 720ms
+     × shows that image on reopening, and saves it 32ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, an image saved by another path while the dialog is closed > shows that image on reopening, and saves it
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:260:25
+    258|     await reopen();
+    259|
+    260|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    261|     expect(preview()).toBe(URL_Z);
+    262|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+   Start at  17:28:26
+   Duration  2.31s (transform 211ms, setup 20ms, import 799ms, tests 720ms, environment 641ms)
+
+exit=1

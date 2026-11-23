@@ -1,0 +1,64 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box
+AssertionError: expected [] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+- [
+-   "",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:182:19
+    180|     save();
+    181|
+    182|     expect(saved).toEqual(['']);
+       |                   ^
+    183|   });
+    184|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:193:38
+    191|
+    192|     expect(box().value).toBe('');
+    193|     expect(button('Clear').disabled).toBe(true);
+       |                                      ^
+    194|   });
+    195|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards
+AssertionError: expected [] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+- [
+-   "",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:248:19
+    246|     save();
+    247|
+    248|     expect(saved).toEqual(['']);
+       |                   ^
+    249|   });
+    250| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

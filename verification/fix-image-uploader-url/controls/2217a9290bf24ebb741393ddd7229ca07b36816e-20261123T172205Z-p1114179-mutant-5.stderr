@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: expected [] to deeply equal [ 'https://example.com/a.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/a.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:223:19
+    221|     save();
+    222|
+    223|     expect(saved).toEqual([URL_A]);
+       |                   ^
+    224|   });
+    225| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

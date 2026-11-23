@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box back to the image saved in this dialog, not the one it opened with
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/a.png' // Object.is equality
+
+Expected: "https://example.com/a.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:329:25
+    327|     await reopen();
+    328|
+    329|     expect(box().value).toBe(URL_A);
+       |                         ^
+    330|     save();
+    331|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

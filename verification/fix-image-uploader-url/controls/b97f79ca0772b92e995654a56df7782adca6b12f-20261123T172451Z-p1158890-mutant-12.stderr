@@ -1,0 +1,23 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+AssertionError: expected 'https://example.com/a.png' to be null
+
+- Expected:
+null
+
++ Received:
+"https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:169:23
+    167|
+    168|     expect(dialog().textContent).toContain(error);
+    169|     expect(preview()).toBeNull();
+       |                       ^
+    170|     expect(button('Save').disabled).toBe(true);
+    171|     enterOnDialog();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

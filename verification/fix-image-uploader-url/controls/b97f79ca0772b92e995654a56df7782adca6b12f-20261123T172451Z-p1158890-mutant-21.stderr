@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, an image saved by another path while the dialog is closed > shows that image on reopening, and saves it
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:260:25
+    258|     await reopen();
+    259|
+    260|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    261|     expect(preview()).toBe(URL_Z);
+    262|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

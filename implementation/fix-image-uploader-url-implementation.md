@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
 Status: Active
-Status-Detail: "Code review Round 1 fix (CR-1, CR-2) handed off at website e94baf7 for confirmation (code-reviewer-fix-image-uploader-url); QA Phase 2 owed (27 production lines added); merge is devops's at release, under the owner's release approval."
-Handoff-At: e94baf7 — repos=website
+Status-Detail: "QA Phase 2 fix round (QAF-1, QAF-3) handed off at website cae7472 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 32 production lines added; QAF-2 held for the owner by steering; merge is devops's at release, under the owner's release approval."
+Handoff-At: cae7472 — repos=website
 Origin-Chain: none
 ---
 
@@ -239,12 +239,60 @@ Evidence, all under `verification/fix-image-uploader-url/round1/` unless named:
 
 Flow 3 below now reads: the error shows for the address in the box, and goes as soon as another address is typed.
 
+## QA Phase 2 fix round
+
+QA Phase 2 (`qa/fix-image-uploader-url-qa.md`, record `8dfa68f9`) failed `e94baf7` on QAF-1 MEDIUM. Steering then ruled QAF-3 into this
+round under limb 4 (rulings block "2026-11-23T17:22Z", record `1cf6d88b`). QAF-2 is held for him by steering, and only its wording
+correction is made here (flow 1, below). Fixed at website `2217a92`, `b97f79c` and `cae7472` (`e94baf7..cae7472`).
+
+- **QAF-1, test only.** The test `Host` now passes `useCallback` callbacks, which stay the same across renders, as all five consumers'
+  callbacks do. Under the old host, a new arrow on every render re-created `onCancel` and hid a lost `image` dependency. New case:
+  "puts the box back to the image saved in this dialog, not the one it opened with" (Save A over a saved X, reopen, type B, Cancel,
+  reopen: the box shows A, and Save commits A). At `e94baf7` it passes, because the behaviour is already correct there. QA's survivor
+  `cancel-ignores-saved-change` (`[image, onClose]` → `[onClose]`) kills it, at `2217a92` and again at `cae7472`. The other 41 cases
+  stay green under the new host.
+- **QAF-3, production.**
+  - *Re-derived by reading the code at `e94baf7`.* `Author` renders its `ImageUploader` (`Author.tsx:161`, `image={avatarUrl}`) from
+    `DiscordMessageEditor/index.tsx:284` with no key, so it stays mounted. The JSON modal's load (`JsonModalBody.tsx:78-88`,
+    `updateMessage`) and the reload offered by "Message Update Detected" (`usePusher.ts:64-75`, `onConfirm: reloadMessage`) replace the
+    message, and with it `avatar_url`. The dialog reads `image` only as the initial value of `useState`, so its box and preview stay on
+    the old address. Save then commits that address back over the new one.
+  - *Red*, through the real component: "shows that image on reopening, and saves it". The host replaces the saved image while the
+    dialog is closed. Run against the unchanged component at `2217a92`: `expected 'https://example.com/x.png' to be
+    'https://example.com/z.png'`, 1 failed and 17 passed, exit 1 (`qa-round1/red-run-2217a92.txt`). With the final test file at
+    `e94baf7` it is the only failure: 1 failed and 17 passed, exit 1 (`qa-round1/red-run-e94baf7.txt`).
+  - *Fix*: the dialog remembers the saved image it last showed (`shownImage`). When `image` differs from it, during render (React's
+    documented way to adjust state when a prop changes), it adopts the new image into the box and the loaded address. The check effect
+    then re-runs for the new box. A change that arrives while the dialog is open replaces the box in the same way.
+  - *Consumers of the newly resolved value*: the box, the preview and `loaded`, which read `imageInput`/`localImage` as before. The five
+    consumers' props are unchanged. The embed dialogs remount on load (steering's reachability read), so for them the sync simply
+    agrees with the initial state.
+- **Simplification.** With the sync in place, CR-2's `setLocalImage(imageInput)` in `onSetImage` became indistinguishable: after Save,
+  each consumer passes the committed value back as `image`, and the sync sets `localImage` from it. Control `save-keeps-last-loaded`
+  survived at `b97f79c` (21 of 22). I removed the line at `cae7472` and retired the control. CR-2's case, "leaves nothing to clear on
+  reopening after an emptied box is saved", still passes, and the sync's own controls hold it.
+
+Evidence, under `verification/fix-image-uploader-url/qa-round1/` unless named:
+- **Green** at `cae7472`: the three `ImageUploader` files, **42 passed (42), exit 0** (`green-run.txt`).
+- **Controls** at `cae7472`: **21 of 21 killed**, exit 0 (`controls/mutation-run-cae7472.out`, `controls/table-cae7472.md`).
+  - New controls: `cancel-ignores-saved-change`, `saved-change-ignored`, `saved-change-keeps-box` and `saved-change-keeps-preview`.
+  - `cancel-keeps-box` and `cancel-keeps-preview` were widened to stay unique, because the sync repeats their lines.
+  - `save-keeps-last-loaded` was retired with its line.
+  - Earlier runs: `2217a92` 19 of 19, `b97f79c` 21 of 22.
+- **Suite** at `cae7472`: **2714 passed of 2714, 173 files, exit 0** (`suite-cae7472.json`/`.txt`).
+- **Typecheck**, both programs, in a `git worktree` export of `cae7472`: **exit 0** (`typecheck-export.txt`).
+- **Lint**: `eslint --max-warnings=0`, no fix, over the two files, exit 0 (`lint-changed-files.txt`).
+- **Convention check**: `--since=af3d95a`, 0 FAIL, 0 CANDIDATE, the same 18 SKIPs (`convention-check.txt`).
+- `git diff --numstat af3d95a cae7472`: **32** production lines added (`ImageUploader.tsx`). The worktrees were removed
+  (`git worktree list` shows only the shared tree).
+
 ## User-visible flows
 
 These are for his check. They cover the image address dialog behind the author avatar, the embed author icon, the embed footer icon, the
 embed image and the embed thumbnail.
 
-1. Type or paste an image address. Save and Enter work once the preview appears, and they save that address.
+1. Type or paste an image address. Save works once the preview appears, and it saves that address. Enter saves it too, but only with
+   focus outside the address box. With focus in the box, Enter does nothing, as before this fix (QAF-2, held for him).
 2. Type one address, then quickly another. Whatever order they load in, the preview and Save follow the second one.
 3. Change a loaded address to something that isn't an image address, or one that doesn't load. The error shows, the preview goes, and
    Save and Enter do nothing. Typing another address takes the error away while that address loads.
@@ -255,12 +303,15 @@ embed image and the embed thumbnail.
 7. With no image saved, type an address, then Cancel. Reopen the dialog: the box is empty and Save is off.
 8. An image saved earlier that no longer loads: the dialog shows "Image not found.", Save is off, and Clear is available. That still
    holds after Cancel and reopening.
+9. Load a message from JSON, or press Reload on "Message Update Detected", so that the avatar changes. Then open the avatar's image
+   dialog: it shows the new avatar address, and Save keeps it.
 
 ## Handoff
 
-- **SHA**: website `e94baf7` (`Handoff-At`), the Round 1 fix. The first hand-off was `7660259`.
-- **Reviews**: `code-reviewer-fix-image-uploader-url`, the Round 1 fix confirmation at `e94baf7`. Then QA Phase 2, which is owed at 27
-  added production lines.
+- **SHA**: website `cae7472` (`Handoff-At`), the QA Phase 2 fix round. Earlier hand-offs: `7660259`, then `e94baf7`.
+- **Reviews**: `code-reviewer-fix-image-uploader-url` at `cae7472`, since QAF-3 changes production. Then QA Phase 2's re-run (32 added
+  production lines).
+- **QA fix round delivery**: per the next-act table, the code reviewer, by SendMessage.
 - **Round 1 delivery**: the reviewer's rejection came to this session by SendMessage. The fix goes back to it by SendMessage, the
   consuming stage per the next-act table.
 - **Delivery**: the brief routes the hand-off through steering. I cue `steering-hooks-fixer` by SendMessage once this document is
@@ -273,3 +324,4 @@ embed image and the embed thumbnail.
 |---|---|---|
 | 2026-11-23T16:35 | 1 | Created. Fix committed on `chain/fix-image-uploader-url` (`cfd3b7f`, `03164d5`, `ee87897`, `7660259`). Red 11 of 14 at `af3d95a`, green 14 of 14, 15 of 15 controls killed. The `eslint --fix` rewrite of 75 files was disclosed and restored. Handed off at `7660259`. |
 | 2026-11-23T16:51 | 2 | Code review Round 1 (REJECTED, CR-1, CR-2) fixed at `a8b23ce` and `e94baf7`. The error is derived from `failedImage`, and Save sets `localImage`. Red 3 of 16 at `7660259`, green 40 of 40, 18 of 18 controls killed, suite 2712 of 2712. Re-handed off at `e94baf7`. |
+| 2026-11-23T17:29 | 3 | QA Phase 2 fix round. QAF-1: the test host has stable callbacks, and a Cancel-after-Save case was added. QAF-3, ruled in by steering at 17:22Z: the dialog adopts a saved image that changes while it is mounted. CR-2's Save line was made redundant by the sync and removed. Red at `2217a92` and at `e94baf7`, green 42 of 42, 21 of 21 controls killed, suite 2714 of 2714. Flow 1's wording corrected (QAF-2). Re-handed off at `cae7472`. |

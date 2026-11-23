@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T172451Z-p1158890/mutant-12
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (18 tests | 2 failed) 785ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 46ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 34ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 40 passed (42)
+   Start at  17:25:38
+   Duration  2.46s (transform 413ms, setup 77ms, import 2.40s, tests 1.62s, environment 2.09s)
+
