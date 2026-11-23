@@ -1,0 +1,3 @@
+{"label":"vi-VN (no file in loadLocales.ts)","dayjsEffective":"en","intlEffective":"11/14/23, 10:13 PM"}
+{"label":"without the site locale files","dayjsEffective":"en","intlEffective":"11/14/23, 10:13 PM"}
+{"label":"after require dayjs/locale/ja, as loadLocales.ts does","dayjsEffective":"ja","intlEffective":"2023/11/14 22:13"}

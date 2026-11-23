@@ -373,8 +373,8 @@ the UTC rule is an inference. Re-verify against the code.
 **Mechanism.**
 - `src/utils/markdown/components/MarkdownTimestamp.tsx` renders every `<t:…>` node. `rules.tsx` `discordTimestamp` passes the
   node's `timestamp` and `format` through to it.
-- Style letters map to dayjs formats in `TIMESTAMP_TO_DAYJS_FORMAT`. An unmapped letter falls through to `fromNow()`, and the
-  same map's keys build the component's format picker.
+- Style letters map to dayjs formats in `TIMESTAMP_TO_DAYJS_FORMAT`. An unmapped letter falls through to `fromNow()`. The
+  component's format picker offers that map's six keys plus a separate `R` (`fromNow()`) button.
 - Before mount (`!state.mounted`) the date is formatted in UTC; after mount, in the browser's zone.
 - The locale is dayjs's global one, set by `src/components/LoadLocale.tsx` from react-aria's `useLocale()`. It is limited to the
   locale files `src/utils/loadLocales.ts` imports. So the locale in effect (`dayjs.locale()`) is not always react-aria's tag:
@@ -409,3 +409,4 @@ inference, the UTC rule keeps the first client render equal to the server's.
 | 2026-11-23T16:00 | 17 | architect-019 | Added `A-9` (agent-designed), read at website `af3d95a` in the plan 019 conformance pass: markdown parsing reaches components only through `MarkdownProvider` and `src/utils/markdown/index.tsx`, and Discord-measured expected values are frozen as typed literal helpers. His D-6 selection is cited as the plan's authority, not as intent. |
 | 2026-11-23T17:50 | 18 | architect-019 | Added `A-10` (agent-designed), read at website `af3d95a` in the plan 019 delta pass on revision 6 (CF-13): Discord timestamps render in `MarkdownTimestamp`, with react-aria's locale through dayjs and UTC before mount. The reason given for the UTC rule is marked an inference. No selection of his shaped it. |
 | 2026-11-23T17:55 | 19 | architect-019 | `A-10` gains the effective-locale sentence from the plan 019 delta pass on revision 7 (CF-14). dayjs's locale in effect is not always react-aria's tag, and the consequence now names `dayjs.locale()`. Run on dayjs 1.11.7. Agent-designed. |
+| 2026-11-23T18:00 | 20 | architect-019 | `A-10` picker sentence corrected (plan 019 delta pass on revision 8). It said the map's keys build the picker, which left out the separate `R` button (`MarkdownTimestamp.tsx` lines 115-122 at `af3d95a`). The picker offers the six keys plus `R`. Agent-designed. |

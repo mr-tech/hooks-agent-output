@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 8 (record 7b419f5b): APPROVED. CF-14 is resolved. CF-15 (LOW: AC-4.7's ja-JP fixture names a
+  locale the site loads, so use a tag with no file, e.g. vi-VN) is a stated limit in the Planner batch under the cap. It holds
+  nothing.
   Delta pass on plan 019 revision 7 (record e0eb1e87): APPROVED under steering's M4/M6 cap (rulings block 17:56Z, b95a3d43).
   CF-13 is resolved as option (a). CF-14 (LOW: Intl should take dayjs's effective locale, and the America/New_York case should
   state the mounted state) goes to the Planner batch as a stated limit on AC-4.7, with no revision round. It holds nothing.
@@ -28,6 +31,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T18:00 | architect-019 | Delta pass on plan 019 revision 8 (record `7b419f5b`); § Delta pass, revision 8. CF-14 resolved. CF-15 raised and, under the cap, made a stated limit. `website.md` A-10's picker sentence corrected | Read as `git diff e0eb1e87 7b419f5b` on the plan. The dayjs `ja` resolution probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev8/`. |
 | 2026-11-23T17:56 | architect-019 | Revision 7 verdict re-dispositioned under steering's cap (rulings block 17:56Z, record `b95a3d43`): APPROVED for M4 and M6, with CF-14 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 7, with the original verdict kept in place. Steering's message arrived after commit `27f61730`. |
 | 2026-11-23T17:55 | architect-019 | Delta pass on plan 019 revision 7 (record `e0eb1e87`); § Delta pass, revision 7. CF-13 resolved; CF-14 raised. `website.md` A-10 gains the effective-locale sentence | Read as `git diff 946d4e54 e0eb1e87` on the plan. The dayjs locale probes ran read-only on the shared tree's installed dayjs 1.11.7; captures are in `verification/019/architect-conformance/rev7/`. |
 | 2026-11-23T17:49 | architect-019 | Delta pass on plan 019 revision 6 (record `946d4e54`); § Delta pass, revision 6. CF-12 retired to a disposition line with a reconcile note. CF-13 raised. `website.md` gains A-10 | Read as `git diff d2912590 946d4e54` on the plan, with AN-8 limb 2b (`3681654e`). Website `af3d95a` was read through `git show`/`git grep`. The heading-containment probe and its control ran on the pinned wasm; captures are in `verification/019/architect-conformance/rev6/`. Resumed after a `/clear` from the Resumption State at `14ceb6df`. |
@@ -40,7 +44,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-14** is a stated limit carried by the plan's Planner batch, under the cap. My next pass reads only that the row exists.
+- **CF-15** is a stated limit carried by the plan's Planner batch, under the cap. My next pass reads only that the row exists.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
@@ -272,6 +276,40 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 8 (record `7b419f5b`)
+
+Read as `git diff e0eb1e87 7b419f5b -- planning/019-slate-formatting-discord-engine.md` (60 insertions, 16 deletions). Revision 8
+changes AC-4.7 and registers D-16 and the cap. Website `af3d95a` was read through `git show`: `MarkdownTimestamp.tsx` lines
+113-123 and `loadLocales.ts`. The dayjs probe ran read-only on the shared tree's installed dayjs 1.11.7. The capture is in
+`verification/019/architect-conformance/rev8/`.
+
+**CF-14 as folded.** AC-4.7 names `dayjs.locale()` read at render, never the tag. The New York case states that it is mounted,
+and a pre-mount New York case is added. CF-14 is resolved.
+
+**Picker (D-16).** The separate `R` button is at `MarkdownTimestamp.tsx` lines 115-122, read this pass. The corrected line holds.
+My `website.md` A-10 said the map's keys build the picker, which leaves out that button; it is corrected in this pass.
+
+### CF-15 LOW — AC-4.7's `ja-JP` fixture tests a locale the site does load
+
+AC-4.7's unloaded-tag fixture is `ja-JP`, with the expectation that dayjs falls back to `en` and `s` reads `11/14/23, 10:13 PM`.
+But website `af3d95a` `src/utils/loadLocales.ts` imports `dayjs/locale/ja`. Once that file is loaded, `ja-JP` resolves to `ja`,
+and `s` reads `2023/11/14 22:13`. That is the same string a tag-passing mutant gives (`ja-resolution.out`). QA's P-Q18 ran
+without the site's locale files, so it saw `en`.
+
+So the fixture's outcome depends on which locale files the test loads:
+- If the test loads only `en-gb`, for the `en-GB` fixture, the case discriminates, but under a setup that production never has.
+- If it loads the site's own `loadLocales.ts`, the expected value is red against a correct implementation.
+
+Either outcome is loud, never a false pass, so this is LOW and not a severity floor.
+
+**Under the cap** (block 17:56Z) it goes to the Planner batch as a stated limit, with no revision round. Its content, for the M4
+implementer and QA Phase 2: the unloaded-tag fixture uses a tag with no file in `loadLocales.ts`, such as `vi-VN` (CF-14), and
+the test loads the site's locale files the way production does. Under that setup `vi-VN` resolves to `en`, and a tag-passing
+mutant gives `22:13 14/11/23` (`verification/019/architect-conformance/rev7/intl-locale-source.out`).
+
+**Verdict on revision 8:** APPROVED. CF-14 is resolved. CF-15 is LOW and is a stated limit in the Planner batch under the cap. It
+holds nothing. Nothing needs the owner.
 
 ## Delta pass, revision 7 (record `e0eb1e87`)
 
