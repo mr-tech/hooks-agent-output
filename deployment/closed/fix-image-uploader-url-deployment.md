@@ -214,5 +214,5 @@ Enumerated by `grep -rl "^Origin: fix-image-uploader-url" --include=*.md` over t
 
 - The `python3` replace script used for the runbook cells (changelog row, 18:39).
 - The stamp gate refused my first row in handoff 017 (I typed 18:44 against a clock of 18:43Z). I corrected the stamp from `date -u` (18:43), which satisfies the gate, and changed no other text.
-- The helper's walk failed on a signed-in profile; I ran the signed-out walk myself (under "Post-release walk: result").
+- The helper's walk failed on a signed-in profile; I ran the signed-out walk myself (under "Post-release walk: result"). The helper's browser tool left one screenshot of its signed-in page in the website tree (`W1-hooks.gg_message_m_new.png`, untracked, created by my helper at 18:40Z); I deleted that one file by its literal path after `ls` showed it, and the website porcelain is back to `.playwright-mcp/` alone.
 - Vercel's CLI hung at the 60 s timeout several times across the round: the first two production listings returned nothing and the third returned (three tries, the brief's two retries); later `vercel ls --prod` and one `vercel inspect` also hung once each and the inspect was re-run once. No hang was treated as a control. `vercel inspect --logs` is not an option of CLI 29.1.1 ("unknown or unexpected option"), so the build log was read with `vercel logs`.
