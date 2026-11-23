@@ -670,3 +670,19 @@ chain's rulings, block "2026-11-23T15:54Z" (`83bc1cab`). Plan 019's implementati
 threshold). The Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`). In
 flight: `fixer-fix-image-uploader-url` (9e, from `af3d95a`); plan 019 Rev 1 under `critic-019`, `qa-019` Phase 1 and the architect's
 conformance pass, and `analyst-019` on M1.
+
+## 2026-11-23T16:29Z — selection: plan 019 OQ-5, the editor's emoji lift (put 16:2xZ, answered 16:29Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T16:29Z — steering-hooks-fixer`. Asked by `planner-019` (message,
+16:1xZ) from the conformance pass's CF-2 (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`, record
+`78d7ec06`). The plan's OQ-5 is at Revision 2 (record `8dfd4659`), with (a) written as the floor in AC-6.5. Options (wording is this
+thread's): *Agent: engine decides emoji (Recommended)*. The editor's lift takes its emoji from Discord's formatter, and the old formatter
+library leaves the site; the cost is the stored emoji shape, with six readers. The other option was *Agent: keep editor's own emoji
+check*, with a test holding the two equal. **Chosen by selection: engine decides emoji**, which is CF-2(b). This widens D-6's reach from
+"the preview and the editor's colouring" to the editor's emoji lift.
+Premise, read this turn: a `general-purpose-sonnet` refutation helper ran both sides in an `af3d95a` export. Engine 0.16.0 `parse("© ™")`
+gives plain text, and `😀` gives an emoji node. The site's `interactive.parseEmoji("© ™")` and `getInitialValue` give an emoji element
+for © (and for `™` alone), each with an empty `src`. Result: confirmed, executed on both sides. Whether the editor draws © as an image
+(the `src` is empty) is unread.
+Disclosure (this round): `record-write-gate-hook` refused a shell `sed` stamp edit of `steering/019-brief-devops.md`. The same edit was
+made with the Edit tool, the form the gate names, and committed in `dad314e2`.
