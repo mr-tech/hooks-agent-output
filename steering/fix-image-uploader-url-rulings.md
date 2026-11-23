@@ -57,3 +57,17 @@ e94baf7` gives 27 production lines added, so Phase 2 is owed. CR-3 INFO: with an
 the image but Enter does nothing. Ruling: inside limb 1, no change. His words (block 04:44) bind Save ("Save always saves exactly what
 the box shows"). Enter doing nothing commits no wrong value. The Enter half of limb 1 is this thread's scope wording, and it narrows
 nothing he said.
+
+## 2026-11-23T17:22Z — QAF-3 ruled in scope (limb 4, inside the region); QAF-2 held for him
+
+QA Phase 2 at `e94baf7` is QA Failed on QAF-1 MEDIUM, a missing test (`qa/fix-image-uploader-url-qa.md`, record `8dfa68f9`), routed to
+the fixer.
+**QAF-3, ruled in scope by this thread.** The always-mounted dialog does not re-read a saved image that changed while it was closed. QA
+ran this with probe P3, at base and at the tip. A `general-purpose-sonnet` helper read reachability from code at `e94baf7`, without
+running it. The JSON modal's load (`JsonModalBody.tsx:78-88`) and the reload after "Message Update Detected" (`usePusher.ts:68-73`)
+change `avatar_url` while the Author `ImageUploader` stays mounted (`index.tsx:284`; `ImageUploader.tsx:50-51` seeds `imageInput`
+once). Reopening then shows the old address, and Save (`:59-63`) writes it back over the new one. Embed uploaders remount, because
+fresh `_key`s are assigned, so they are unaffected. It is inside the swept region (`ImageUploader.tsx`) and within limb 4's words,
+"reopening shows the saved image". So it is in this round, with a red test through the real component.
+**QAF-2, held for him.** Pressing Enter inside the address box does nothing, at base and at the tip. His words (block 04:44) name Save
+only. Whether Enter should save is a product choice, put to him by selection.
