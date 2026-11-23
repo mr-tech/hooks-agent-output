@@ -4,10 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 0, ready for critique. Implementation is not approved. Before M2 can start, the analysis M1 commissions must land,
-  four OPEN QUESTIONs (OQ-1 to OQ-4) need his answers, and the critic, the architect's conformance pass and QA Phase 1 must
-  pass this revision. The website tree is held by the fixer queue (9e next) in his order (effort rulings block 09:18Z).
-Revision: 0
+  Revision 1, ready for critique, the architect's conformance pass and QA Phase 1. Implementation is not approved. M2 waits on M1's
+  analysis landing, on those three gates passing one revision, and on the website tree, which the fixer queue holds (9e next, effort
+  rulings block 09:18Z). OQ-4 (S-14) is open for the architect, not the owner.
+Revision: 1
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -21,6 +21,7 @@ Lane: full
 |---|---|---|---|
 | 2026-11-23T15:33 | 0 | planner-slate-formatting | Plan created from brief `steering/slate-formatting-brief-planner.md`, common brief `steering/slate-formatting-brief-common.md`, effort rulings blocks 09:07Z to 15:29Z, inventory `verification/slate-formatting-effort/scoping/inventory.md`, research `research/slate-formatting-discord-oracle-2026-11-23.md` (read at record `b668ea1d` content), architect findings `architecture/slate-formatting-preview-architecture-findings.md` (`86418be`). Scope delta: none (first revision). Size against the original ask: every in-scope inventory row is carried by a milestone or declined in Exclusions; the fuzzer is a suite deliverable (M3). |
 | 2026-11-23T15:47 | R-1 | planner-019 | Registered research G-14 as a Planner batch row; its words live in `research/closed/slate-formatting-discord-oracle-2026-11-23.md` (record `a666dbd9`), Remaining gaps G-14. |
+| 2026-11-23T15:52 | 1 | planner-019 | Folds his answers to OQ-1 to OQ-3 and steering's three scope additions (effort rulings block 15:49Z, record `093a7c9d`; ledger block "2026-11-23T15:48Z — steering-hooks-fixer"), plus Planner batch row G-14 (research, record `a666dbd9`). It adds D-10 to D-12 and resolves OQ-1 to OQ-3 in place; AC-5.6 and AC-6.2 are restated on the answers, and M3 takes the two-command form. G-14 enters AN-4, AN-7 and AC-3.1. Scope delta: M6 gains S-29's QAF-4 trigger and S-30 (the `>>>` server-side question, settled by a code read at `0411d3b`, with production residue his). M3 gains the fence-loop chain's three drivers as seeds, all carried. M1's AN-4 and AN-7 each gain a G-14 limb. The plan is still the original ask plus three in-region additions, with no milestone added or removed. |
 
 ## Header notes
 
@@ -78,6 +79,9 @@ except D-8.
 | D-7 | A defect or leftover a stage finds in this effort's code is fixed without a fix-or-not question to him. A product-behaviour choice with more than one reasonable answer is still put to him. | 2026-11-22 | "Just fix everything you find along the way." Relayed, block "2026-11-22T04:50". It is in this effort's rulings file, so it binds here (GLOSSARY, "Ruling scope"). | Owner withdrawal only. Consequence: fuzzer finds in the region are in scope (scope statement). OQ-1 and OQ-2 go to him as behaviour choices. |
 | D-8 | A timestamp edit in the preview always changes the timestamp clicked, in both cases (code-span miscount, re-render index), with tests for each and for normal editing. | 2026-11-22 | By selection, option A: "Agent: fix both (Recommended)". Option text, agent-authored (`steering-hooks`): "Editing a timestamp always changes the one you clicked, in both cases, with tests for each and for normal editing." Ledger `steering/selection-ledger/2026-11-22.md`, block of 04:0xZ. Carried from `steering/fix-timestamp-edit-target-rulings.md` block "2026-11-22T04:03", moved into this effort by effort block 09:07Z. | Owner withdrawal only. Consequence: S-10 in M4. |
 | D-9 | The third-party clients' per-client checks stay not done. Third-party clients are a footnote. | 2026-11-23 | By selection: "Agent: leave them not done (Recommended)". Ledger, 2026-11-23 file, block "2026-11-23T09:31Z — steering-hooks-fixer"; effort rulings block 09:32Z. | Owner withdrawal only. Consequence: Exclusions X-10. |
+| D-10 | An emoji typed or pasted as a character is saved and sent as that character. Messages already saved with `:name:` stay as they are. | 2026-11-23 | By selection: "Agent: store the character (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "save and send 🙂 as typed; messages already saved as `:name:` stay". The option stated that whether Discord's own box sends the character is unchecked, and that AN-7 reads it. Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T15:48Z — steering-hooks-fixer"; effort rulings block 15:49Z. | Owner withdrawal, or AN-7 finding that Discord's box sends the `:name:` form. That read is the option's stated unchecked premise; the result goes back to him. Consequence: AC-6.2. |
+| D-11 | The editor follows Discord's text box. No heading or list marker is coloured, and each line is styled alone, so a run that crosses a line break is not styled across it. | 2026-11-23 | By selection: "Agent: follow Discord's box (Recommended)". Option text, agent-authored: "no heading or list marker colouring; each line styled alone". Same ledger block; effort rulings block 15:49Z. | Owner withdrawal, or AN-6 finding that Discord's native box styles one of these. That would be a premise the option rested on (research V-11, V-21) proving false. Consequence: AC-5.6. |
+| D-12 | `pnpm test` stays green offline. A separate command holds every comparison against Discord; it fails loudly offline and runs at every release gate and every pin change. | 2026-11-23 | By selection: "Agent: separate Discord command (Recommended)". Option text, agent-authored: "`pnpm test` offline-green; a separate command holds every Discord comparison, fails loudly offline, run at every release gate and pin change". Same ledger block; effort rulings block 15:49Z. | Owner withdrawal only. Consequence: M3's two commands, AC-3.5. |
 
 The scope statement is quoted verbatim from block 09:18Z in § Objective. It narrows nothing that may be reconsidered beyond what it
 says. It carries no expiry: a member found later inside the region is in scope on steering's ruling (same block), and a member
@@ -107,7 +111,7 @@ a generated known-differences list names the case. Original wording beside the r
 | S-04 ranges past a line's end | M5 | |
 | S-05 the `_` inside a renamed emoji pairs | M5 | Cause removed: the parse runs over the typed text. |
 | S-06 static render manufactures `:ok:` | M4 | Cause removed: the preview no longer pre-transforms. |
-| S-07 emoji stored as `:name:` | OQ-1, then M6 | |
+| S-07 emoji stored as `:name:` | M6 (D-10) | |
 | S-08 guild emoji from the picker | M6 (UAT walk) | From handoff 5b19c3e4, item 1. |
 | S-09 IME after an emoji | M6, stated limit | From handoff 5b19c3e4, item 2. The handoff stays its carrier. |
 | S-10 timestamp edit target | M4 | Came from 9d; D-8. |
@@ -115,12 +119,14 @@ a generated known-differences list names the case. Original wording beside the r
 | S-14 highlight.js private `_emitter` | M5, OQ-4 | |
 | S-17 escape rewritten on open | M6 | |
 | S-18 real-browser assumptions of the decorator | M5 (UAT walk) | |
-| S-29 a fence typed above a quote drops `> ` | M6 | Re-read at `af3d95a`. |
+| S-29 typing turns a quote line into code and drops its `> ` | M6 | The trigger is widened by QAF-4 (`qa/closed/fix-normalize-fence-loop-qa.md`: 346 of 15,480 random typed edits at `61e5dfe` drop a `> `/`>>> ` when typing inside a fence turns a quote line into code), per effort block 15:49Z item 1. Re-read at `af3d95a`. |
+| S-30 opening a box without saving stored the old `>>>` rewrite on the server | M6, by a read | Added by effort block 15:49Z item 2 (plan-local id; from `retrospectives/fixes-2026-11-23-steering-hooks-fixer-2-retrospective.md` § 3). The messages already rewritten are his to check (same block). |
 | LF-1 emoji pre-transform rewrites link targets | M4 (preview), M5 (editor) | |
-| LF-2 emoji beside links stored as `:name:` | OQ-1 (it is S-07) | |
+| LF-2 emoji beside links stored as `:name:` | M6 (it is S-07; D-10) | |
 | LF-3 bare-URL end rule | M4/M5 by the engine, M3 asserts | |
 | LF-4 `<…>` scheme | M4/M5 by the engine, M3 asserts | |
-| LF-5 list lines uncoloured | M5, subject to OQ-2 | |
+| LF-5 list lines uncoloured | M5 (D-11: no list-marker colouring; content styles still apply) | |
+| Fence-loop chain's three differential drivers | M3, as seeds and lifted instruments | Effort block 15:49Z item 3: the reviewer's 20-atom differential (`verification/fix-normalize-fence-loop/code-review/probe.differential.test.tsx.txt`), QA's seeded random differential (`…/qa/probe.random-differential.test.tsx.txt`, with `…/qa/probe.wrong-edit-replay.test.tsx.txt`), the fixer's loader-identity driver (`…/round1b/probe.loader-same.test.ts.txt`). All three are carried. |
 | LF-6 embed-title link behaviour | M4/M5 per surface mask (AN-3) | |
 | LF-7, LF-8 | no finding | M3's corpus keeps them as agreement rows. |
 | LF-9 coverage gap | M3 | |
@@ -160,38 +166,12 @@ Premises read or run in this pass:
   `dynamics/SlateEditor`: 34 lines, 25 of them outside `__tests__` (`grep -c` over the saved listing
   `verification/019/planning/markdown-importers-af3d95a.txt`, 2026-11-23), plus the `useMarkdown()` consumers read in the same pass.
 
-**OPEN QUESTION OQ-1 (S-07, his; blocks M6's emoji limb only).** Today an emoji typed as a character is stored and sent as its
-`:name:` form. For example, 🙂 next to text reaches Discord as `:slight_smile:` (inventory S-07, run). Discord draws a typed
-`:name:` as the same emoji image, with `alt` set to the `:name:` (research V-20), so in a rendered message the two look alike. They
-differ in three places: the stored and sent text differs from what was typed; inside inline code or a code block, the name shows as
-text; and copying from Discord gives the name. Options for him:
-- *Agent: keep storing `:name:` (today's behaviour)*.
-- *Agent: store the character as typed (Recommended)*. This matches what Discord's own box sends, and the editor already shows the
-  image.
-- *You: say how*.
+OPEN QUESTION [RESOLVED] OQ-1 (S-07): he chose "store the character" (D-10); M6 AC-6.2 carries it.
 
-The cost of the recommended option, as one M6 limb: the serialiser (`flattenNodeText.ts`, `onCopy.ts`) writes the character. Stored
-messages already holding `:name:` are unchanged. Not re-derived: whether Discord's own box sends the character. AN-7 reads it in the
-text box walk.
+OPEN QUESTION [RESOLVED] OQ-2 (heading and list markers, cross-line runs): he chose "follow Discord's box" (D-11); M5 AC-5.6 carries
+it.
 
-**OPEN QUESTION OQ-2 (his; blocks M5's heading and list limb).** Discord's text box leaves `# ` headings and `- ` / `1. ` list
-markers unstyled. It also styles each line on its own, so a run that crosses a line break is plain in the box (research V-21, legacy,
-observed). The native token mapping gives heading and list markers nothing too (V-11, module 818948), so both Discord paths agree.
-Today the site colours `# ` (LF-7) and, by LF-5's fault, leaves list lines entirely uncoloured. Options:
-- *Agent: follow Discord's box (Recommended)*. No marker styling for headings and lists, and each line styled alone. This is what his
-  agree-only standard (D-5) gives when it is applied to the box.
-- *Agent: keep colouring heading markers*. A known difference from Discord.
-
-**OPEN QUESTION OQ-3 (his; blocks M3's form).** The Discord oracle needs discord.com at test time (D-4). Options:
-- *Agent: a separate suite command that fails loudly offline (Recommended)*. The standing `pnpm test` holds every property, the
-  finite mapping tables and the stored corpus's frozen inputs. It runs offline and stays green with no network. `pnpm
-  test:discord` holds every case whose expected value comes from Discord, and it fails, not skips, when the oracle cannot be fetched.
-  It runs at every release gate (QA Phase 2 and 3) and on each pin change.
-- *Agent: one suite, oracle cases fail offline*. `pnpm test` goes red with no network.
-- *Agent: one suite, oracle cases skip offline*. A run with no network reports no Discord comparison and passes.
-
-The cost of the recommended option: "stays in the suite" (D-1) is met by a committed vitest project that release gates run, not by
-the default command. The option says so.
+OPEN QUESTION [RESOLVED] OQ-3 (the oracle offline): he chose "separate Discord command" (D-12); M3 carries it.
 
 **OPEN QUESTION OQ-4 (S-14; the planner's, put to the architect at conformance; not his).** Which public highlight.js 11.12.0
 surface gives the token tree, if any, in place of `_emitter.rootNode`. Read owed in AN-6. If none exists, S-14 is a stated limit
@@ -235,7 +215,7 @@ of production's range (workspace `CLAUDE.md`).
   - **Pass**: 150 of 150 formatted. Otherwise, measure the gap between network quiet and the first formatted render.
   - The remedy is outside the region: a generator wait is a re-scope to steering. The other candidate, a page that holds a
     request open until formatted, is the analyst's to state, not to pick.
-- **AN-3 Surface masks (OQ-3 / G-3; research H-3).**
+- **AN-3 Surface masks (research OQ-3 / G-3; research H-3).**
   - Which syntax Discord parses in each of: embed description, title, field name, field value, footer and author (the last two are
     not markdown on the site today; confirm), and Components V2 text display.
   - Read both parsers: legacy `EMBED_TITLE_RULES` and the others in the served rule module, and the native mask if the embed
@@ -250,6 +230,7 @@ of production's range (workspace `CLAUDE.md`).
   - Locator: module content predicates (research V-1 table), failing when a predicate matches zero modules or more than one.
   - Re-run the predicate table on the stable build current at the analysis, against research V-13's build 679055.
   - Report: run time over the 272-case corpus, and the failure modes when discord.com is unreachable or the page changes.
+  - **G-14**: the legacy parse state a message sent by the site gets. Read in the served code (research § 3 step 1, module 354777) which state flags a message with a `webhookId` is parsed under, `allowEmojiLinks` included. The oracle runs under that state; research V-7 ran with `allowEmojiLinks` false.
 - **AN-5 Which tree the preview renders from (P-1).**
   - For each node kind whose rendering needs source text or a span: detected and auto link labels (what Discord draws as the label
     of a bare URL — read from the research walk's DOM captures, or re-posted), the timestamp edit target (S-10), the code block's
@@ -264,13 +245,14 @@ of production's range (workspace `CLAUDE.md`).
     mapping.
   - How the box treats a style crossing an inline object (emoji, mention, timestamp).
   - OQ-4's highlight.js read.
-- **AN-7 Real-Discord reads (G-11, G-13; OQ-1 premise).**
+- **AN-7 Real-Discord reads (G-11, G-13, G-14; D-10's premise).**
   - G-13: post a role mention, a slash-command mention and a custom emoji the bot can use, with real ids from the test server, and
     read the DOM.
   - G-11: read `***bi***`, `# # nested` and `**# not head**` in `slate-oracle-walk` as test account 2, if a session's browser holds
     that profile. If none does, the native parser's render stays unseen, and that is the stated limit: it rests on research V-4's
     byte identity, and under D-5 it decides nothing.
-  - OQ-1 premise: type 🙂 into Discord's box and read the stored content after sending to the test server.
+  - D-10's premise: type 🙂 into Discord's box, send it to the test server, and read the stored content. If it is `:name:`, that goes back to him (D-10's reopening class).
+  - G-14: post a masked link whose label is a Unicode emoji, and one whose label is a custom emoji the poster can use, to `slate-oracle-walk` both as the bot and through a webhook. Read both DOMs.
 
 Acceptance: the analysis document states a result, with its capture path, for every AN item, or marks the item not completed. AN-1
 and AN-2 are pass/fail as written above. A failed AN-1 stops the chain at the owner (D-6). A failed AN-2 goes to steering as a
@@ -337,13 +319,14 @@ before it is committed.
 
 Mirrors: the instruments of inventory § 3, which are lifted rather than rewritten: the grammar-oracle generator, the
 sentinel-oracle, the strict round-trip probe and the 1,662-line probe corpus. The suite's placement and naming follow the workspace
-`CLAUDE.md` Test Conventions, which bind this milestone's test work. Its form follows OQ-3's answer.
+`CLAUDE.md` Test Conventions, which bind this milestone's test work. Its form is two commands (D-12): `pnpm test` holds the properties, the finite maps and the frozen inputs, and stays green offline; `pnpm test:discord` holds every case whose expected value comes from Discord, fails loudly offline, and runs at QA Phase 2 and 3 and on every pin change.
 
 What it holds:
 - **Generator.** A seeded generator over the syntax class: every `Syntax` bit's constructs, nested to depth 3, with delimiters
   balanced and unbalanced. It adds the link forms of D-2 (bare, `<…>`, `<email>`, masked with a title and with angle brackets), emoji
   in, before and after links, escapes, lists, headings, subtext, quotes, fences, timestamps of every style letter, and mentions of
-  every kind. Fixed inputs: the 272-case research corpus and the inventory's 107 link inputs, both lifted into the repo as data.
+  every kind. Fixed inputs: the 272-case research corpus (`research/closed/slate-formatting-discord-oracle-2026-11-23.md` Appendix C, record `a666dbd9`) and the inventory's 107 link inputs, both lifted into the repo as data.
+- **Lifted seeds** (effort block 15:49Z item 3). The fence-loop chain's three drivers become the generator's block-layer input classes for AC-3.3: the 20-atom differential's atoms, the seeded random typed-edit differential (its 15,480 edits at its committed seed, with QAF-4's 346 wrong edits kept as fixed members), and the loader-identity driver's inputs. Each is lifted as data and a driver under `__tests__/`, named per the Test Conventions; none keeps a review-round or chain name. The decorator chain's grammar-oracle and probe instruments are lifted the same way (S-13).
 - **Three-way classification**, per input, of the text Discord would store (research V-19 trimming applied):
   - *agree* — the legacy tree equals the native tree in canonical form;
   - *disagree*;
@@ -358,27 +341,28 @@ What it holds:
 Acceptance criteria:
 - **AC-3.1 Preview oracle.** For every input in the agree class, on every surface whose mask AN-3 settles, the preview's rendered DOM,
   rewritten to canonical form, equals the legacy tree's canonical form. The expected value is the legacy tree, computed by Discord's
-  fetched code. The native parse decides only membership in the agree class, never the expected value (expectations independence;
-  axiom E).
+  fetched code, run under the parse state a webhook-sent message gets (AN-4's G-14 read; `allowEmojiLinks` as that read finds it).
+  The native parse decides only membership in the agree class, never the expected value (expectations independence; axiom E).
   - Input classes covered: the generator's output at the committed seed and count (≥ 4,000 unique strings), the 272 corpus, the 107
-    link inputs.
+    link inputs, and masked links whose label holds an emoji (G-14). AN-7's webhook and bot DOM reads check the legacy oracle on that
+    class.
   - Residue, named: rendering beyond the tree (emoji image choice, highlight colours, locale wording; research § 4 gap 4) and inputs
     the API rewrites (whole-message leading and trailing whitespace, unusable custom emoji ids; V-19).
 - **AC-3.2 Editor oracle.** For every typed-case input where AN-6's legacy text-box table and Discord's native mapping agree, the
   editor's per-character style set and marker flag equal that expected value. The expected value comes from AN-6's legacy run, never
-  from the adapter's token map. Residue: inputs where the box replaces text with an inline object (V-21), and OQ-2's limb until he
-  answers.
+  from the adapter's token map. Residue: inputs where the box replaces text with an inline object (V-21). Heading, list and cross-line
+  limbs follow D-11 (AC-5.6).
 - **AC-3.3 Round trip (no Discord oracle; research gap 7).** These are properties of the site, enumerated over the generator, the
   corpus and the 1,662-line probe corpus:
-  - load (`getInitialValue`) then save (`flattenNodeText`) returns the input character for character, with OQ-1's answer
-    deciding the emoji class;
+  - load (`getInitialValue`) then save (`flattenNodeText`) returns the input character for character, emoji
+    included (D-10);
   - typing the input one character at a time into a mounted editor yields the same text;
   - pasting it whole yields the same text;
   - normalisation settles in fewer passes than Slate's iteration limit for every input.
 - **AC-3.4 Seen red.** Each criterion above is shown failing at the base `af3d95a` on at least one named input, and failing under a
   restored one-token mutation of the adapter's maps (axiom A). The run's counts, by class, are recorded with the pinned version (the
   normal-level telemetry the architect names).
-- **AC-3.5 Fetch failure is loud** (under OQ-3's recommended answer). With discord.com unreachable, the Discord command exits
+- **AC-3.5 Fetch failure is loud** (D-12). With discord.com unreachable, the Discord command exits
   non-zero, naming the fetch, and reports no pass count. A predicate matching zero modules or more than one fails, naming the
   predicate.
 
@@ -442,7 +426,7 @@ Acceptance criteria:
   decorator.
 - **AC-5.5 Real browser (S-18).** In Chrome, on a local production build, none of AN-6's discriminating cases shows a character
   coloured differently from the jsdom class list. Walked by UAT, with captures under `verification/019/uat/`.
-- **AC-5.6** OQ-2's answer, stated over the heading, subtext and list marker class, and over runs crossing a line break.
+- **AC-5.6 (D-11).** No character of a heading marker (`#`, `##`, `###` and its space), a list marker (`-`, `*`, `1.` and the like, with its space), or a quote prefix carries a style class. The subtext marker `-# ` carries the marker class Discord's box gives it (research V-21: `syntaxBefore_ before_subtext_`). Each line's classes are computed from that line's text alone: a run whose delimiters sit on different lines styles neither line. The expected values are literals from AN-6's legacy box run, on its agree set.
 
 Rollback: with M4 (AF-2).
 
@@ -453,10 +437,10 @@ Mirrors: chain `fix-normalize-fence-loop`'s fence and quote handling at `af3d95a
 `SlateEditor.opening-writes-stored-text.test.tsx`), which this milestone extends rather than duplicates.
 
 Acceptance criteria:
-- **AC-6.1** AC-3.3 holds for every input in its classes. S-29's form (a fence typed above a quote line) and S-17's (escaped
-  markdown on open) are illustrative members, re-read at `af3d95a` before the change.
-- **AC-6.2 (OQ-1).** Over every emoji form — a Unicode character, a ZWJ sequence, a skin-tone sequence, a keycap, a `:name:` typed,
-  and a custom `<:n:id>` or `<a:n:id>` — the saved text is what OQ-1's answer states.
+- **AC-6.1** AC-3.3 holds for every input in its classes. Illustrative members, re-read at `af3d95a` before the change: S-29 in QAF-4's widened form (any typed edit inside a fence that turns a quote line into code keeps that line's `> ` or `>>> ` in the saved text, over the 346 recorded edits and the random differential's class), and S-17 (escaped markdown on open).
+- **AC-6.1b (S-30), a read rather than a fix.** Read at `0411d3b`: every `saveMessage()` caller is a user act (`git grep -n "saveMessage("` at `0411d3b`, four sites: `Navigation.tsx` two buttons, `edit/page.tsx` the save hotkey and a button). So opening a box without saving wrote nothing to the server; a rewritten `>>>` reached it only through a later user Save, or through Send or Save-as from that state. The code review re-reads this at the chain base, including the other `message.upsert` writers (`system-architecture.md` Persisting writers). At the tip, AC-3.3's load-then-save identity holds for every `>>>` input. Residue: messages already rewritten in production are his (effort block 15:49Z).
+- **AC-6.2 (D-10).** Over every emoji form — a Unicode character, a ZWJ sequence, a skin-tone sequence, a keycap, a `:name:` typed,
+  and a custom `<:n:id>` or `<a:n:id>` — the saved and copied text equals what was typed or pasted, character for character, and stored text loads and saves unchanged, `:name:` included. The expected values are literals.
 - **AC-6.3 (S-08).** A guild emoji picked from the picker into a content line, a code line and a quote line keeps every character
   around the cursor, and inserts the emoji's text form. Walked by UAT, signed in on the site as a test account with access to the test
   guild's emoji, where a build can be signed into. Otherwise this is a stated limit, and handoff 5b19c3e4 item 1 stays its carrier.
@@ -536,7 +520,7 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
 
 | Item | Source row | Disposition |
 |---|---|---|
-| G-14: which legacy parser state (`allowEmojiLinks`, a message's `webhookId`, research § 3 step 1, module 354777) AC-3.1's oracle runs under, so an emoji inside a masked-link label on a webhook-sent message has the expected value Discord draws; with the research corpus now in its Appendix C as M3's source | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` Remaining gaps row G-14 (record `a666dbd9`); `INBOX.md` last entry, researcher-slate-formatting-oracle FYI | Open: folded at the next planning pass (revision 1, batched with the critique) into AN-4/AN-7 and AC-3.1. Severity: none stated at source; it bears on an expected value, so it is treated as a criterion change. |
+| G-14: which legacy parser state (`allowEmojiLinks`, a message's `webhookId`, research § 3 step 1, module 354777) AC-3.1's oracle runs under, so an emoji inside a masked-link label on a webhook-sent message has the expected value Discord draws; with the research corpus now in its Appendix C as M3's source | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` Remaining gaps row G-14 (record `a666dbd9`); `INBOX.md` last entry, researcher-slate-formatting-oracle FYI | Discharged at revision 1 into AN-4, AN-7 and AC-3.1; corpus source in M3. |
 
 ## Version Management
 
