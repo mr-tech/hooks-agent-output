@@ -4,11 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 8, for the critic (cycle 3 pass 1), the architect's delta pass and QA Phase 1's re-key, on AC-4.7 only. M2, M3, M5 and
-  M6 stand ready for implementation, on his approval: every gate passed their criteria (M6's AC-6.5 at revision 7, QA c6fa2e26).
-  M4 waits on revision 8's verdicts. QAF-26 is a severity-floor finding, excepted from steering's cap (block 17:56Z). M2's start
-  also waits on the website tree.
-Revision: 8
+  Revision 9, for the critic (cycle 3 pass 2), the architect and QA, each on AC-4.7's delta only (steering, block 18:02Z). M2, M3,
+  M5 and M6 stand ready for implementation, on his approval: every gate passed their criteria. M4 waits on revision 9's verdicts.
+  After revision 9, any further AC-4.7 gap goes to steering before a fold. M2's start also waits on the website tree.
+Revision: 9
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -47,13 +46,14 @@ Lane: full
 | 2026-11-23T18:01 | R-16 | planner-019 | Registered AN-8 limb 5 as landed on its Planner batch row (analysis record `1b5a46d2`, § Findings "Limb 5"); RK-2's text takes it at the next seam fold. |
 | 2026-11-23T18:02 | R-17 | planner-019 | Recorded the architect's delta pass on revision 8 (APPROVED; record `e1e6f363`) in the owed re-verdicts table. Registered Planner batch row CF-15 as a stated limit under the cap: AC-4.7's `ja-JP` fixture is read as `vi-VN`, because the site loads `dayjs/locale/ja`. That was the planner's error. |
 | 2026-11-23T18:03 | R-18 | planner-019 | Recorded QA's re-key on revision 8 (QAF-28 MEDIUM, a severity floor; record `5ca68b07`) in the owed re-verdicts table, and registered Planner batch row QAF-28, which folds at revision 9 after the critic's cycle 3 verdict. |
+| 2026-11-23T18:04 | 9 | planner-019 | Folds the three gates' verdicts on revision 8 as one batch, as steering's ruling directs (effort rulings block 18:02Z, record `0a794563`): QA's QAF-28 (`5ca68b07`), the critic's F-33 with SL-10 (`683f3e9`) and the architect's CF-15 (`e1e6f363`). All three name one member, revision 8's `ja-JP` fixture, which is a locale `loadLocales.ts` loads. § Finding disposition (revision 9) maps each, and registers block 18:02Z beside block 17:56Z. The `ja-JP` choice came from QA's P-Q18 and was taken over by the planner. Both documents now record it. Scope delta: AC-4.7's unloaded-tag fixture becomes `vi-VN`, with the site's locale files loaded and the tag supplied through react-aria, and its locale sentence cites P-Q19. Nothing else changed. No milestone was added or removed. Size: unchanged. |
 
 ## Resumption State
 
-Written at revision 8's commit. Revisions 0 to 8 and registrations R-1 to R-15 are committed. Revision 8, on AC-4.7 only, goes
-to `critic-019` (cycle 3 pass 1), `architect-019` (delta) and `qa-019` (re-key), each by message naming the plan and its SHA.
-Their verdicts release M4. Steering's cap (block 17:56Z) sends any further M4 or M6 gap below HIGH to the Planner batch, except a
-severity-floor finding. AN-8 limb 5 is a Planner batch row.
+Written at revision 9's commit. Revisions 0 to 9 and registrations R-1 to R-18 are committed. Revision 9, on AC-4.7's delta only,
+goes to `critic-019` (cycle 3 pass 2), `architect-019` (delta) and `qa-019` (re-key), each by message naming the plan and its
+SHA. Their verdicts release M4. Two of steering's rulings bound what follows (§ Decisions Register notes): block 17:56Z caps M4
+and M6 below HIGH, and block 18:02Z sends any further AC-4.7 gap to steering before a fold.
 
 **Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
 runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
@@ -81,7 +81,8 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 |---|---|---|---|
 | Revision 5's delta (§ Finding disposition (revision 5)): AC-2.3's literals, AC-6.5's expected value and typed-edit class, M3's drift rule, the mask count | revision 5 commit | critic (cycle 1 pass 5) | APPROVED, no new finding; the critique is closed Resolved (record `944e53f6`). A later revision that changes a criterion's text opens cycle 2 |
 | Revision 7 | revision 7 commit | critic APPROVED, critique closed (`16ca70fe`); architect APPROVED for M4 and M6 under the cap (`6a669d8`); QA re-key: QAF-26 MEDIUM severity floor, QAF-27 LOW (`c6fa2e26`) | M6 is released: every gate passed revision 7's AC-6.5. AC-2.3's `GAME_MENTION` bits are released: all three gates passed revision 6's AC-2.3 (critic `8b596f83`, architect `93708612`, QA `b5985b20`) |
-| Revision 8's delta: AC-4.7's locale, its time-zone fixtures and mutants only | revision 8 commit | architect APPROVED, CF-15 a stated limit (record `e1e6f363`); QA re-key: QAF-28 MEDIUM severity floor (record `5ca68b07`); critic (cycle 3 pass 1) owed | M4 waits on the critic's verdict and on QAF-28's fold at revision 9 |
+| Revision 8 | revision 8 commit | critic APPROVED with F-33 / SL-10 (`683f3e9`); architect APPROVED with CF-15 (`e1e6f363`); QA QAF-28 MEDIUM severity floor (`5ca68b07`) | All three name one member, folded at revision 9 |
+| Revision 9's delta: AC-4.7's unloaded-tag fixture (`vi-VN`) and its locale sentence only | revision 9 commit | critic (cycle 3 pass 2), architect (delta), QA (re-key), each on AC-4.7's delta only (block 18:02Z) | owed; M4 waits on them |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
@@ -167,6 +168,12 @@ or M6 goes to the plan's Planner batch as a stated limit, with no revision round
 M3 and M5 are not capped". Reason given: revision 7 is M4's and M6's second revision after revision 5's approval. Date
 2026-11-23. Voided by his word: steering tells him at his next prompt, with the spend. Reading M4 and M6 stays in scope for every
 gate; only revising them below HIGH is barred.
+
+**AC-4.7 decided by steering before any further fold (steering's ruling, not his).** Effort rulings block "2026-11-23T18:02Z"
+(record `0a794563`): "After Revision 9, a further AC-4.7 gap of any severity is decided here before any fold, against a stated
+limit." The reason given is that AC-4.7 was revised in revisions 6, 7 and 8. Revision 9, which folds QAF-28 with the critic's and
+architect's revision 8 verdicts and asks gates to read AC-4.7's delta only, is the fold that ruling authorised. Date 2026-11-23.
+Voided by his word or by steering's.
 
 The scope statement is quoted verbatim from block 09:18Z in § Objective. It narrows nothing that may be reconsidered beyond what it
 says. It carries no expiry: a member found later inside the region is in scope on steering's ruling (same block), and a member
@@ -846,10 +853,11 @@ Acceptance criteria:
     - **Time zone:** while `state.mounted` is false, `s` and `S` format in UTC, as the sibling does (`if (!state.mounted) date =
       date.utc()`).
     - **Locale (CF-14; QAF-26 iii):** `Intl` takes the locale dayjs **resolves** the tag to, `dayjs.locale()` read at render,
-      never the tag `src/components/LoadLocale.tsx` hands it. The two differ for any locale the site does not load. For `ja-JP`,
-      dayjs falls back to `en` and `s` reads `11/14/23, 10:13 PM`, while `Intl` given the tag reads `2023/11/14 22:13` (QA P-Q18,
-      `verification/019/qa/probe-r7-timestamp-locale.out`, record `c6fa2e26`). So `s` and `S` always render in the six siblings'
-      language.
+      never the tag `src/components/LoadLocale.tsx` hands it. The two differ for any tag with no dayjs file in
+      `src/utils/loadLocales.ts`, which imports 29 locales, `ja` and `en-gb` among them, and not `vi`. For `vi-VN`, dayjs falls back
+      to `en` and `s` reads `11/14/23, 10:13 PM`, while `Intl` given the tag reads `22:13 14/11/23` (QA P-Q19,
+      `verification/019/qa/probe-r8-timestamp-locale.out`, record `5ca68b07`; the critic ran the same pair at `683f3e9`). So `s`
+      and `S` always render in the six siblings' language.
     - **Picker (D-16):** the format picker offers seven styles: the six keys of `TIMESTAMP_TO_DAYJS_FORMAT`, mapped at line 105,
       and a separate `R` button at lines 115-122 (`af3d95a`). It stays as it is and lists neither `s` nor `S`, which render
       correctly when typed or pasted.
@@ -861,8 +869,10 @@ Acceptance criteria:
       ignores `mounted`, is red on it;
     - **a non-default locale through `LoadLocale`'s dayjs path, `en-GB`, UTC:** `s` is `14/11/2023, 22:13`. NM-46, which
       hard-codes the locale or reads the host's, is red on it;
-    - **a tag the site has no file for, `ja-JP`, UTC:** `s` is `11/14/23, 10:13 PM`, the `en` form dayjs resolves to. A mutant
-      that passes the tag to `Intl` is red on it.
+    - **a tag the site has no file for, `vi-VN`, UTC (QAF-28; critique F-33; CF-15):** `s` is `11/14/23, 10:13 PM`, the `en` form
+      dayjs resolves to. The tag-passing mutant gives `22:13 14/11/23` and is red on it. The test loads the site's locale files as
+      production does (`loadLocales.ts`), and supplies the tag where `LoadLocale` reads it, react-aria's locale, never by calling
+      `dayjs.locale` directly, or the mutant would have no tag to pass. `cs-CZ` and `da-DK` also serve.
     The expected strings are QA's probe outputs at Node 24.14.0 and ICU 78.2, and the test pins nothing it doesn't set.
   - Other locales are X-19's locale-wording residue. An invalid style letter stays text (AC-4.3).
 - **AC-4.8 Spoiler pieces reveal together (D-14's visible form).** Where the engine splits one spoiler into several rendered pieces,
@@ -1127,7 +1137,12 @@ fifth limb (QAF-22). After
   - pass 1: four members;
   - pass 2: none (critique record `e3e49ac7`, § Verdict, "RK-8, the class from pass 1: no new member in pass 2");
   - planning pass 3: one member, found by this pass's read of `src/@types/slate.d.ts` at `af3d95a`. AC-5.2 said mentions and
-    timestamps divide a line into text nodes, but the emoji element is the only inline element (P-7). It is folded into AC-5.2.
+    timestamps divide a line into text nodes, but the emoji element is the only inline element (P-7). It is folded into AC-5.2;
+  - critique cycles 1 (passes 3 to 5) and 2: none recorded by the critic;
+  - critique cycle 3 pass 1: one member, F-33 (record `683f3e9`). Revision 8's AC-4.7 called `ja-JP` "a tag the site has no file
+    for", but `src/utils/loadLocales.ts` at `af3d95a` imports `dayjs/locale/ja`. It is folded at revision 9 (`vi-VN`). Other
+    members found outside the critic's passes: revision 7's "the picker already omits `R`" (steering, block 17:58Z), corrected at
+    revision 8.
 - **RK-9 (D-14's unmeasured residue).** On the legacy-only surfaces, the visible residue left after adjustment is large enough that
   embed previews differ visibly from Discord on ordinary inputs. Falsifier: M3's residue count per surface, before and after
   adjustment, recorded at M3 and M4. The architect's provisional reading of research Appendix A puts the token-level classes
@@ -1159,6 +1174,19 @@ fifth limb (QAF-22). After
 | X-23 Legacy-only residue classes that fail the B3 rule | D-14: "the rest are listed". The site follows the engine there, and the embed preview differs visibly from Discord on those inputs. | The known-differences report, per surface; RK-9 |
 | X-25 The jumbo-emoji rule, where neither AN-7's reads nor the corpus show Discord's rule for a case | No Discord observation for that case (CF-10). | Stated limit at M4's emoji display helper; a user report goes to this row |
 | X-26 A move of the embed or V2 surfaces to the native formatter that keeps the legacy calls and adds no reference to the switch in those modules | AC-3.8's (i) and (i′) cannot see it; the critique's pass 3 assumption names it. | Stated limit at AC-3.8; a user report goes to this row |
+
+## Finding disposition (revision 9)
+
+Revision 8's verdicts: critic `683f3e9` (APPROVED; F-33 with SL-10), architect `e1e6f363` (APPROVED; CF-15), QA `5ca68b07`
+(QAF-28, a severity floor). All three name one member: revision 8's `ja-JP` fixture is a locale the site loads. Revision 9 changes
+AC-4.7's locale sentence and that fixture only, under steering's block 18:02Z:
+
+| Source | Item | Folded at |
+|---|---|---|
+| QA `5ca68b07`; critique `683f3e9`; architect `e1e6f363` | QAF-28; F-33 / SL-10; CF-15 | AC-4.7: the unloaded tag is `vi-VN`; the site's locale files are loaded; the tag is supplied through react-aria |
+| Critique `683f3e9` | RK-8 record | RK-8: cycle 3 pass 1, one member |
+| Critique `683f3e9` | Assumption (`dayjs.locale()` at render) | Planner batch, open for the M4 implementer |
+| Ruling, block 18:02Z | AC-4.7 decided by steering after revision 9 | Decisions Register note |
 
 ## Finding disposition (revision 8)
 
@@ -1252,8 +1280,9 @@ Revision 4's folds, for reference:
 | Critique cycle 2 pass 1 assumption: `0x02000000` is the heading bit (AC-6.5 calls it an inference) | `critiques/019-slate-formatting-discord-engine-critique.md`, cycle 2 pass 1 (record `8b596f83`) | Read this pass: `Syntax.HEADING` is `0x2000000` at `@discord/markdown-wasm@0.16.0` (`verification/019/planning/syntax-bits-0.16.0.txt`, run). The architect read the same in `markdown-types` 0.14.0 `syntax.js` (`1<<25`), and measured that the heading bit moves no emoji span: 0 of 50,012 inputs on the pinned wasm, against 494 under a CODE-cleared control (`verification/019/architect-conformance/rev6/`, record `93708612`). Discharged at revision 7: AC-6.5 cites these reads in place of the inference. |
 | CF-14 (LOW): AC-4.7's "the locale `LoadLocale.tsx` sets for dayjs" names two values. `LoadLocale` passes react-aria's tag, but the dayjs locale in effect differs: `en-US` becomes `en`, and a tag with no file in `loadLocales.ts` leaves dayjs at `en` (run on dayjs 1.11.7). So for `vi-VN`, `cs-CZ` or `da-DK` the six sibling styles render in English, while `Intl` given react-aria's tag renders `s` and `S` in the viewer's language. Under `vi-VN`, `s` gives `22:13 14/11/23` beside the siblings' `10:13 PM`. The fold: AC-4.7 passes `Intl` the value of `dayjs.locale()` read at render (or the instance's `.locale()`), and adds a test case under a tag the site has no file for (`vi-VN`) asserting the `en` form. QAF-25's `America/New_York` case states `state.mounted` true: unmounted it is `10:13 PM`, under the UTC rule | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 7" (record `27f61730`; captures `verification/019/architect-conformance/rev7/`) | Discharged at revision 8 into AC-4.7. QAF-26, a severity-floor finding excepted from the cap, required the locale to be named in the text, so the same edit carries CF-14's two points. |
 | QAF-27 (LOW): add `<t:1700000000:s> <t:1700000000:f>` to AC-4.3's class, editing the `f`. Today two `[tTdDfFR]` regexes skip `s`, so any copy left in the edit path would rewrite the wrong timestamp. AC-4.3's span design passes it by construction | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 7 (record `c6fa2e26`) | Stated limit under the revision cap on M4 (block 17:56Z); no revision round. The member is written here for the implementer and QA Phase 2 to add to AC-4.3's class. A user report of the wrong timestamp edited beside an `s` goes to this row. |
-| CF-15 (LOW): AC-4.7's "unloaded tag" fixture is `ja-JP`, but `website@af3d95a src/utils/loadLocales.ts` imports `dayjs/locale/ja` (one of its 29 dayjs locale imports, `grep -c`, read this pass; `vi` is not among them). With the site's locale files loaded, `ja-JP` resolves to `ja`, and `s` reads `2023/11/14 22:13`, the same string as the tag-passing mutant. QA's P-Q18 ran without those files, so it saw `en`. The planner's error, in revision 8's text | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 8" (record `e1e6f363`; `verification/019/architect-conformance/rev8/ja-resolution.out`) | Stated limit under the revision cap on M4 (block 17:56Z); not a severity floor, since the case fails loudly either way. For the implementer and QA Phase 2: the unloaded-tag case uses `vi-VN`, which has no file in `loadLocales.ts`, and the test loads the site's locale files as production does. Under that setup `vi-VN` resolves to `en`, so `s` reads `11/14/23, 10:13 PM`, while the tag-passing mutant gives `22:13 14/11/23`. AC-4.7's `ja-JP` line is read as `vi-VN` under this row. QA then classed the same fault QAF-28 MEDIUM, a severity floor: with `ja-JP` the tag mutant survives. So it is excepted from the cap and folds into AC-4.7's text at revision 9 (next row). |
-| QAF-28 (MEDIUM, a severity floor; excepted from the cap): change AC-4.7's unloaded-tag fixture from `ja-JP` to `vi-VN`, which has no dayjs file, expecting `11/14/23, 10:13 PM`. The tag-passing mutant renders `22:13 14/11/23` and is red on it. The test supplies the tag where `LoadLocale` reads it (react-aria's locale), never by calling `dayjs.locale` directly, or the mutant has no tag to pass. `cs-CZ` and `da-DK` also serve. QA's P-Q18 carries a dated reconcile: its probe loaded only `de` and `en-gb`. The corrected probe is P-Q19, `verification/019/qa/probe-r8-timestamp-locale.out` | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 8 (record `5ca68b07`) | Open. Landing trigger: revision 9, written once the critic's cycle 3 verdict on revision 8 arrives. It holds M4's approval only. |
+| CF-15 (LOW): AC-4.7's "unloaded tag" fixture is `ja-JP`, but `website@af3d95a src/utils/loadLocales.ts` imports `dayjs/locale/ja` (one of its 29 dayjs locale imports, `grep -c`, read this pass; `vi` is not among them). With the site's locale files loaded, `ja-JP` resolves to `ja`, and `s` reads `2023/11/14 22:13`, the same string as the tag-passing mutant. QA's P-Q18 ran without those files, so it saw `en`. The planner's error, in revision 8's text | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 8" (record `e1e6f363`; `verification/019/architect-conformance/rev8/ja-resolution.out`) | Stated limit under the revision cap on M4 (block 17:56Z); not a severity floor, since the case fails loudly either way. For the implementer and QA Phase 2: the unloaded-tag case uses `vi-VN`, which has no file in `loadLocales.ts`, and the test loads the site's locale files as production does. Under that setup `vi-VN` resolves to `en`, so `s` reads `11/14/23, 10:13 PM`, while the tag-passing mutant gives `22:13 14/11/23`. AC-4.7's `ja-JP` line is read as `vi-VN` under this row. QA then classed the same fault QAF-28 MEDIUM, a severity floor: with `ja-JP` the tag mutant survives. So it was excepted from the cap, and the row is discharged at revision 9 into AC-4.7's text. |
+| QAF-28 (MEDIUM, a severity floor; excepted from the cap): change AC-4.7's unloaded-tag fixture from `ja-JP` to `vi-VN`, which has no dayjs file, expecting `11/14/23, 10:13 PM`. The tag-passing mutant renders `22:13 14/11/23` and is red on it. The test supplies the tag where `LoadLocale` reads it (react-aria's locale), never by calling `dayjs.locale` directly, or the mutant has no tag to pass. `cs-CZ` and `da-DK` also serve. QA's P-Q18 carries a dated reconcile: its probe loaded only `de` and `en-gb`. The corrected probe is P-Q19, `verification/019/qa/probe-r8-timestamp-locale.out` | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 8 (record `5ca68b07`) | Discharged at revision 9 into AC-4.7, with CF-15 and the critic's F-33 / SL-10 (one member, three gates). |
+| Critique cycle 3 pass 1 assumption: `dayjs.locale()` read at render is the locale `LoadLocale` set for that viewer. Untested | `critiques/019-slate-formatting-discord-engine-critique.md`, cycle 3 pass 1 (record `683f3e9`) | Open, for the M4 implementer: AC-4.7's `vi-VN` and `en-GB` fixtures, which supply the tag through react-aria's locale, are what exercise it. A miss is an AC-4.7 gap, and under steering's 18:02Z ruling it goes to steering before any fold. |
 | AN-8 limb 5 (slow-CPU capture; QAF-22), still running at revision 6 | `analyst-019`'s message after record `3681654e` | Landed (analysis record `1b5a46d2`, § Findings "Limb 5"; `verification/019/analysis/an8/rows-cpu4-{warm,cold}.json`): at 4× CPU, 150 of 150 formatted in both modes. Warm margin min 562.0 ms, median 646.1, max 1,700.6; cold min 638.0, median 902.7. AN-2's minimum was 519.7 ms. The throttle took effect: first formatted moved from 620 to 1,502 ms warm, and from 692 to 2,133 ms cold. H-1 is falsified at 4× on this box, so nothing goes to steering. RK-2's text takes this at the next seam fold, since it changes no criterion. The production generator's own host stays UAT's B-1 capture. |
 
 ## Version Management
