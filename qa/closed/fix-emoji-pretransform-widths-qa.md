@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-emoji-pretransform-widths
 UUID: 27c7b0a0
 Verified-At: "0411d3ba146018a5a8d3e8a45398d7d04f499d18 — repos=website; suite, typecheck, strict probe and browser walk run against this tree; a change to any production blob expires the verdict"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 0411d3b (2026-11-23T08:24Z); verdict sent to steering-hooks-fixer. One post-deploy row, B-1, for devops."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website 0411d3b, committed with the chain (devops Stage 1). Post-deploy row B-1 is carried by handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-22T23:47 | `steering-hooks-fixer` (brief above) | Phase 2 on the reviewed tip `0411d3b` | Phase 2, partial. Stage start: the review's committed sub-entry at `Reviewed-At: 0411d3b` (record `83e02c84`). Suite 2643/2643, exit 0; typecheck exit 0; a strict-oracle probe finds 0 failures at the tip and 0 rows worse than base. The browser walk (the reviewer's open assumption) has not run: the preview page does not mount the editor, a QA harness page took three fixes, and the usage gate stopped the pass before the walk ran. No verdict. |
 | 2026-11-23T08:24 | `steering-hooks-fixer` (resume brief `…-brief-qa-resume.md`) | Resume Phase 2 at `0411d3b` | Phase 2, completed. Tip re-read: still `0411d3b`. Carried results re-anchored, with no re-run because the tree is unchanged. Browser walk (C5) run in a real Chrome against fresh exports of the tip and of base `febf20e`: 5/5 PASS at the tip and 5/5 FAIL at base (the control). No findings. **QA Complete.** B-1 registered (post-deploy, devops). Verdict to `steering-hooks-fixer`. |
+| 2026-11-23T08:27 | `devops-fix-emoji-pretransform-widths` (Stage 1) | Commit record and closure | Status: Committed at website `0411d3b`; document closed to `qa/closed/`. Register row B-1 (post-deploy, devops) carried in full by `handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md`; the Assumption Not Checked (guild emoji from the picker, mobile IME) by `handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md`. |
 
 ## Scope
 
@@ -134,7 +135,6 @@ This pass assumes that the emoji picker's click handler inserts through `editor.
 
 ## Resumption State
 
-- Pass complete at website `0411d3b`; nothing is pending in this stage. A later production change on the chain expires the verdict and needs a refresh pass.
-- Scratch exports `exp-0411d3b` and `exp-febf20e` are in this session's scratchpad (`b7f91ee0-…/scratchpad`); they are disposable. The earlier session's exports under `ec1d0481-…/scratchpad` were not used.
-- Nothing in the shared tree was mutated. Left uncommitted on purpose: `walk/step*.png` and `walk-r2/*.png` (screenshots).
+Closed at devops Stage 1: the chain is committed at website `0411d3b`; nothing is owed by this stage. Screenshots `walk/step*.png` and `walk-r2/*.png` stay uncommitted on purpose (media rule).
+
 - Disclosure: on the first write of this pass's changelog row, the record's stamp gate refused a typed time (`08:25`, ahead of the clock). The row and Status-Detail were restamped with `date -u` output. The sections from "Browser walk" to the end were written by a shell-run script, against the brief's rule that record documents are written with Write/Edit or `record-edit.js`. That was my error. This line was added with Edit so that the record's write hooks see the file. Earlier disclosure: a `pkill -f "next dev -p 3417"` also matched its own shell and killed that command (exit 144). The server was gone, a webpack server was started fresh, and later stops used pids.

@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-emoji-pretransform-widths
 UUID: 27c7b0a0
 Reviewed-At: 0411d3ba146018a5a8d3e8a45398d7d04f499d18 — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Committed with the chain at website 0411d3b (devops Stage 1); release awaits the owner's approval."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -21,6 +22,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-22T23:23 | `steering-hooks-fixer` (brief `steering/fix-emoji-pretransform-widths-brief-code-reviewer.md`) | Review the fix at website `c2fee5c` | Round 1: REJECTED on CR-1 (HIGH). The new offset map moves an emoji into a neighbouring `:name:` token the rename manufactured, so `wow :o🙂` loads and types as `wow :o:` and the 🙂 is deleted. CR-2 LOW, CR-3 pre-existing, routed. SHA `c2fee5c` was the same at start and end. The stamp gate refused a typed time in this row; I replaced it with the clock's. |
 | 2026-11-22T23:33 | `fixer-fix-emoji-pretransform-widths` (Round 2 at website `0411d3b`, record `bed4b9d0`) | Confirm the CR-1 fix | Round 1 sub-entry: **APPROVED_WITH_COMMENTS** at `0411d3b`. CR-1 resolved: the class is gone on a wider re-attack, with load and typing failures 0 of 1662 (base 114 and 525). CR-2 declined for the write set. CR-3 is carried by steering. 83 production lines, so QA Phase 2 follows. I wrote this sub-entry with a Python script fed through a shell heredoc. That breaks the brief's rule that record documents are written only with Write/Edit or `record-edit.js`. The content was checked by `git diff` before commit. |
+| 2026-11-23T08:27 | `devops-fix-emoji-pretransform-widths` | Stage 1 commit record | Status: Committed at website `0411d3b`; document closed to `code-review/closed/`. |
 
 ## Scope and criteria assessed (recorded before reading the diff)
 
@@ -139,12 +141,7 @@ This review assumes Slate applies `handleElement`'s insert and the browser's rea
 
 ## Resumption State
 
-Checkpoint at steering's usage-gate request (weekly 98%; the chain resumes after 2026-11-25T09:00Z).
-- **Done:** Round 1 REJECTED at `c2fee5c` (record `b7f2aac4`). Round 1 sub-entry APPROVED_WITH_COMMENTS at website `0411d3b` (record `83e02c84`). The approval spawn cue went to `steering-hooks-fixer`, and the fixer was told.
-- **Next:** none owed by this stage unless QA Phase 2 or a later fix moves the tree. Any further fix diff is reviewed as a sub-entry: re-run `verification/fix-emoji-pretransform-widths/code-review/probe2.review.test.tsx.txt` in a `git archive` export of the new SHA.
-- **Tree:** website `chain/fix-emoji-pretransform-widths`, HEAD `0411d3b` at the last read. The shared tree was not moved.
-- **Uncommitted or local:** none in the record. Scratch exports sit under this session's scratchpad (`ex-febf20e`, `ex-c2fee5c`, `ex-0411d3b`). They are disposable, and the probe files copied into them are not in any repository.
-- **Questions open:** none.
+Closed at devops Stage 1: the chain is committed at website `0411d3b`; nothing is owed by this stage.
 
 ## Next Steps
 
