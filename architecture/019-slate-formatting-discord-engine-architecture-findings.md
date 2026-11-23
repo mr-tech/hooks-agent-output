@@ -4,7 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3), for planner-019's revision 3.
+  Delta pass on plan 019 revision 3 (record 9ac9ba62): APPROVED_WITH_CHANGES on two LOW findings (CF-9 the emoji lift on
+  edit, CF-10 the emoji element's derived fields). A′/B3, CF-8, the run unit and D-13's removal are carried as designed.
+  § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3).
   Delta pass on plan 019 revision 2 (record 8dfd4659): APPROVED_WITH_CHANGES. CF-1 to CF-7 are folded as found. One new
   LOW defect against the Test Conventions: a single `discord` vitest project cannot keep the environment-by-extension
   rule (CF-8). CF-2's option b is OQ-5, at steering. Goes to planner-019; the next delta pass reads CF-8's fold.
@@ -16,6 +18,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:18 | architect-019 | Delta pass on plan 019 revision 3 (record `9ac9ba62`); § Delta pass, revision 3 | Read in place: the Owed re-verdicts table, D-13 to D-15, M3's Form, Visible form, Adjustments and AC-3.7 and AC-3.8, M4's adjustment module, M5 whole, AC-6.5 and AC-6.6. The diff is 431 insertions and 207 deletions. Website `af3d95a` read from an export: `src/@types/slate.d.ts`, `getInitialValue.ts`, and the readers of `.ast` under `src/components`. |
 | 2026-11-23T17:08 | architect-019 | § Legacy-only surfaces added: the design behind his 17:04Z selection "match how it looks" (effort rulings, record `af8b5a5a`) | Asked by `planner-019` for revision 3. My 16:5xZ message to steering named A′ and B3 without the binding detail; this section is that detail. Inputs re-read: analysis 019 (`aafecf1`) AN-3, AN-5 ("form chosen: `parseLossless` alone") and AN-6; research Appendix A; my re-derivation of AN-3's legacy outputs (description and V2 equal content's legacy output on 272 of 272 rows). |
 | 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
 | 2026-11-23T15:58 | architect-019 | Conformance pass on plan 019 revision 1 (record `103687b4`) | Brief from `steering-hooks-fixer` by message; common brief `steering/slate-formatting-brief-common.md`. The plan was read whole. Website was read at `af3d95a` from a `git archive` export, with the shell in the record folder and exact paths only (his 15:29Z selection). highlight.js 11.12.0 was read from the shared tree's installed copy, read-only. `@discord/markdown-wasm` 0.16.0 was run under Node 24.14.0 in capped scopes. Captures are in `verification/019/architect-conformance/`. The pre-planning findings (`architecture/closed/slate-formatting-preview-architecture-findings.md`) were closed Resolved in this pass, because plan 019 carries every item they raised. |
@@ -245,6 +248,61 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 3 (record `9ac9ba62`)
+
+**Limbs owed to this gate, and what each is read against:**
+- **D-14 (AC-3.7, AC-3.8, M4's adjustment module, AC-5.8):** they carry § Legacy-only surfaces (`1c78753`) part for part.
+  AC-3.7's expected value comes from the fetched legacy code, never from the engine or the module (axiom E). The listed
+  class carries its reason. AC-3.8 (i) has a real member and a real non-member before it is relied on. Carried as
+  designed.
+- **D-15's run unit (M5, AC-5.6, AC-5.7):** the unit is adjacent `div` and `blockQuote` elements, ended by a `codeBlock`.
+  These are the element types of `src/@types/slate.d.ts` `CustomElement` at `af3d95a` (`'div' | 'codeBlock' | 'blockQuote'`).
+  The quote's `> ` prefix is contributed, an emoji element is one `?`, and the cache is keyed per unit. AC-5.7 is counted
+  through a pass-through mock, with a limb that goes red on a stale cache, and D-15's timing read is recorded beside the
+  option's 10 ms. Follows CF-1 and AN-6.
+- **D-13 (AC-6.5, AC-6.6):** the lift reads the same unit parse as the colouring, and the removal is checked by the
+  module graph, `package.json`, `patches/`, `pnpm-workspace.yaml` and the deleted type file. This is CF-2(b) as designed.
+  Two gaps follow (CF-9, CF-10).
+- **CF-8:** two projects, `discord-node` and `discord-dom`, through `project()`; `node` and `dom` exclude `__tests__/discord/`.
+  Folded as found.
+
+### CF-9 LOW — On edit, the lift never re-decides an emoji element it already made
+
+AC-6.5 hands the engine the unit's text with existing emoji elements as one `?` each, and its property is stated over
+loaded text (the generator, the corpus, the 1,662-line probe). On an edit, an element made earlier is never re-decided.
+Type a backtick before and after `🙂` and the element sits inside inline code. The engine's parse of the unit puts the
+`?` inside a `code_content` token, so the preview, which parses the stored character, shows the character as code text.
+The editor still draws the emoji element. The same happens inside a link's URL. That is edit-versus-preview drift (W-3) on
+the edit path only.
+
+- **Form that closes it:** after each unit parse, an emoji element whose `?` falls inside a `code` or `code_block` node,
+  or inside a link's `url` token, is turned back into its source text. That runs in the same normalisation pass as
+  today's lift. Then add to AC-6.5's property a typed-edit class: the lift's set after any sequence of edits equals the
+  set a fresh load of the resulting text gives. The lifted typed-edit differential of M3 is the input class.
+- **Option pair:** *accept the deviation* (elements are never revisited, and the drift is listed); or *follow the load
+  path's rule on edit as well*, which is recommended, since it is the same predicate run once more per unit parse.
+
+### CF-10 LOW — The emoji element's derived fields need one home, shared with the preview
+
+The readers of the element's `ast` at `af3d95a` are:
+- `renderElementFactory.tsx` `emojiToImage` (`src`, `name`, `content`, `jumboable`, `animated`, `emojiId`);
+- `flattenNodeText.ts`;
+- `common.ts` (two `isEmojiNode(node?.ast)` predicates), which **is not in AC-6.5's reader list**.
+
+`CustomText` in `slate.d.ts` also declares an `ast?: Required<StrictSingleASTNode>`. The module graph of AC-6.6 finds a
+`simple-markdown` type import, and AC-6.2's round trip finds a lost character, but neither names `common.ts`. Add it to
+the list.
+
+The substantive point: `src` (the emoji image) and `jumboable` were computed by the `simple-markdown` emoji rule. The
+engine's `emoji` node gives the emoji's value, not an image URL or a jumbo flag. The preview's emoji renderer (M4) needs
+both for the same emoji. Each is computed in one site-owned helper beside the adapter, read by the preview's emoji
+renderer and by the editor element's renderer, so the two cannot disagree on an image or a size (W-3). `emoji.tsx` stays as
+that helper's name and image table, not as a recogniser. Jumbo follows Discord's rule as AN-7 or the corpus establishes it.
+Where neither does, that is a residue row. Necessary; no option pair.
+
+**Verdict on revision 3:** APPROVED_WITH_CHANGES on CF-9 and CF-10, both LOW, each a few lines of plan text. Nothing needs
+the owner.
 
 ## Legacy-only surfaces: visible-style equivalence (A′) and adjustments toward legacy (B3)
 
