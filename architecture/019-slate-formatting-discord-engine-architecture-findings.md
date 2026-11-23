@@ -4,9 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Delta pass on plan 019 revision 12 (record b0af4dc3): APPROVED_WITH_CHANGES. CF-18 and CF-19 are resolved; the atom narrowing
-  fits D-14's visible form. CF-20 (LOW): the atom clause must say "kind and identifying fields", not "source span", because legacy
-  trees carry no spans. Fold before M4's residue-list commit.
+  Delta pass on plan 019 revision 12 (record b0af4dc3): APPROVED under steering's M3 cap (block 22:35Z). CF-18 and CF-19 are
+  resolved; the atom narrowing fits D-14's visible form. CF-20 (LOW: atoms compare on kind and identifying fields, not
+  "source span", because legacy trees carry no spans) is a stated limit in the Planner batch. It holds nothing.
   Delta pass on plan 019 revision 11 (record ec2440d9, AC-3.7's residue list): APPROVED_WITH_CHANGES. CF-18 (MEDIUM): the
   measurement behind the per-input list left out the inputs containing atoms (1,034 of 2,378 per rich surface), so AC-3.7 must
   measure them or state them as an excluded class before M4's residue-list commit. CF-19 (LOW): RK-9 needs a fire condition
@@ -44,6 +44,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T22:37 | architect-019 | Revision 12 verdict re-dispositioned under steering's M3 cap (block 22:35Z, commit `41101e7`): APPROVED, with CF-20 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 12, with the original verdict kept in place. |
 | 2026-11-23T22:36 | architect-019 | Delta pass on plan 019 revision 12 (record `b0af4dc3`); § Delta pass, revision 12. CF-18 and CF-19 resolved; CF-20 LOW raised | Read as `git diff ec2440d9 b0af4dc3` on the plan, against § Legacy-only surfaces part (1). Website chain tip `0b9f76f`: `canonicalForm.ts` and `canonFromDom.ts`, read through `git grep`/`git show`. |
 | 2026-11-23T22:31 | architect-019 | Delta pass on plan 019 revision 11 (record `ec2440d9`); § Delta pass, revision 11. CF-18 MEDIUM and CF-19 LOW raised | Read as `git diff 890d0b78 ec2440d9` on the plan, with the implementer's residue captures and website `0b9f76f`/`6379abc`. The tabulation is in `verification/019/architect-conformance/rev11/`. |
 | 2026-11-23T21:40 | architect-019 | Delta pass on plan 019 revision 10 (record `890d0b78`); § Delta pass, revision 10. CF-17 raised and, under the M4 cap, made a stated limit. A Problem Area is lodged for the master document | Read as `git diff 47348a6d 890d0b78` on the plan. Website `5ec0621` and the chain's `93b26fd` were read through `git show`/`git grep`; steering blocks 21:18Z to 21:38Z were read. CF-16's open item is closed (steering 18:06Z made it a stated limit, plan R-21). |
@@ -61,7 +62,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-20** waits on the planner's fold; my next delta pass reads it.
+- **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
   at the reconciliation below.
@@ -344,6 +345,13 @@ input, field name masks included, raise no conformance question.
 
 **Verdict on revision 12:** APPROVED_WITH_CHANGES. CF-20 is LOW, to fold before M4's residue-list commit. CF-18 and CF-19 are
 resolved. Nothing needs the owner.
+
+Reconcile note (2026-11-23T22:37): steering's M3 cap (effort rulings block "2026-11-23T22:35Z", commit `41101e7`) arrived after this
+verdict was written and applies to this pass. The verdict was right when written, since no cap was in force. CF-20 is LOW and not a
+severity-floor finding, so it goes to the plan's Planner batch as a stated limit on AC-3.7, with no revision round. The verdict on
+revision 12 now reads **APPROVED**. The required change above stays as the limit's content: the M4 implementer and code review read
+the atom clause as kind and identifying fields, with position from the unit order, and the DOM reader takes kind and id from the
+element.
 
 ## Delta pass, revision 11 (record `ec2440d9`)
 
