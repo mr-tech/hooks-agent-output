@@ -2,17 +2,19 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Open
-Status-Detail: "Cycle 2 pass 1 on plan revision 6: APPROVED. F-1 to F-31 are RESOLVED. F-32 (LOW, AC-4.7's form for the s and S timestamp styles against the site's existing format table) is open with no landing trigger in the plan yet; this document stays Open until the plan records one or the fix lands, before M4 is coded."
-Artifact-Revision: 6 — read as the delta d2912590..946d4e54 (cycle 2 pass 1)
-Reviewed-At: "946d4e54 — repos=agent-output; website read at af3d95a"
+Status: Resolved
+Status-Detail: "Cycle 2 pass 2 on plan revision 7: APPROVED, and closed at that pass. F-1 to F-32 are RESOLVED, each verified landed. A later revision that changes a criterion's text opens cycle 3."
+Artifact-Revision: 7 — read as the delta 946d4e54..e0eb1e87 (cycle 2 pass 2)
+Reviewed-At: "e0eb1e87 — repos=agent-output; website read at af3d95a"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 6 (`946d4e54`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 6 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 7 (`e0eb1e87`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 7 as deltas.
+**Read at cycle 2 pass 2**: the plan's diff `946d4e54..e0eb1e87`; `verification/019/planning/timestamp-s-S-dayjs-vs-intl.txt`;
+website `MarkdownTimestamp.tsx` and `src/components/LoadLocale.tsx` at `af3d95a`.
 **Read at cycle 2 pass 1**: the plan's diff `d2912590..946d4e54`; the analysis's AN-8 section at `3681654e` (limbs 1, 2 and
 2b); website `src/utils/markdown/components/MarkdownTimestamp.tsx` at `af3d95a`.
 **Read at cycle 1 pass 5**: the plan's diff `e53c7cdb..d2912590`; `verification/019/qa/probe-mask-vs-an3-table.r4.out`.
@@ -36,8 +38,29 @@ for the 15,480 figure.
 | 2026-11-23T17:31 | planner-019 (message naming revision 5 at `d2912590`) | cycle 1 pass 5: plan revision 5 | Depth: delta-bounded. The delta `e53c7cdb..d2912590` is 73 added and 35 removed lines (`git diff --numstat`, two commits, one of them registration R-6), fully readable as a diff; it reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed, none added. Artifact changes: AC-2.3 states six mask literals (and "seven masks" is corrected to six); AC-6.5's expected spans come from Discord's native box, with emoji edits added to its typed-edit class (the architect's CF-11, QA's QAF-23); M3's drift rule holds no gate on a live native-box departure under drift; F-31 is a Planner batch row and M4's mask line marks its premise not established. Findings addressed: F-31 carries its landing trigger in the plan. New findings: none. Verdict APPROVED. |
 | 2026-11-23T17:31 | critic-019 | Document closed | Status: Resolved. Every finding is RESOLVED or, for F-31, carries a landing trigger recorded in the plan's Planner batch. |
 | 2026-11-23T17:44 | planner-019 (message naming revision 6 at `946d4e54`) | cycle 2 pass 1: plan revision 6 | Reopened from `critiques/closed/` for cycle 2, which revision 6 opens by changing criterion text. Depth: delta-bounded; the delta `d2912590..946d4e54` is 99 added and 43 removed lines (`git diff --numstat`, four commits, three of them registrations R-7 to R-10), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed as a token (X-24 has no Exclusions row left and is named only where withdrawn); added EC-7, QA's entry condition. Artifact changes: AN-8 limbs 1 to 4 and 2b folded (AC-2.3's mask table, M4's mask line, AC-4.7, AC-6.3's provision step, X-14); AC-6.5's expected value split by surface with two entry conditions at M6 (the architect's CF-12, QA's EC-7, this critique's pass-5 assumption). Findings addressed: F-31 RESOLVED, read against the analysis. New finding: F-32 (LOW), OPEN. Verdict APPROVED. |
+| 2026-11-23T17:54 | planner-019 (message naming revision 7 at `e0eb1e87`) | cycle 2 pass 2: plan revision 7 | Depth: delta-bounded; the delta `946d4e54..e0eb1e87` is 55 added and 18 removed lines (`git diff --numstat`, three commits, two of them registrations R-11 and R-12), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed, none added. Artifact changes: AC-4.7 marks `s` and `S` a deviation from the sibling table with its reason, follows the sibling in UTC before mount and in locale, and says what its test sets (the architect's CF-13, QA's QAF-25); AC-6.5's helper gains a mask control (QA's QAF-24) and cites the heading bit as read. Findings addressed: F-32 RESOLVED. New findings: none. Verdict APPROVED. |
+| 2026-11-23T17:54 | critic-019 | Document closed | Status: Resolved. Every finding, F-1 to F-32, is RESOLVED and verified landed. |
 
 ## Verdict
+
+**APPROVED — cycle 2, pass 2.** Neither the stop authority nor the hard stop fired (pass 2 of 15 in this cycle). Pricing: sized
+to the ask plus his three rulings, unchanged; revision 7 adds no criterion, milestone or instrument.
+
+- **F-32 is resolved.** AC-4.7 names the dayjs format table as the sibling, marks `s` and `S` a deviation, and gives the reason
+  with its capture: dayjs's `L LT` gives `11/14/2023 10:13 PM`, and Discord draws `11/14/23, 10:13 PM`. Everything else about
+  the two styles follows the sibling. The three sibling behaviours the criterion cites were read at `af3d95a` and hold
+  (`if (!state.mounted) date = date.utc()`; `LoadLocale` sets `dayjs.locale` from react-aria's `useLocale`; the picker maps
+  `Object.keys(TIMESTAMP_TO_DAYJS_FORMAT)`). The `America/New_York` literal is right (22:13 UTC is 5:13 PM there).
+- **The pass-1 assumption** is read: `0x02000000` is `Syntax.HEADING` at the pin, by the planner's run and the architect's.
+- **RK-8: no new member found by this pass.**
+
+Not a finding: the planner left the format picker without `s` and `S` and flagged that choice to steering as his to overturn.
+It adds nothing he did not ask for.
+
+No milestone is marked `PREMISE-STALE`. `Target-Release` is unchanged. No `OPEN QUESTION` is unresolved. Routed to the owner:
+nothing.
+
+The cycle 2 pass 1 verdict follows, as written at that pass.
 
 **APPROVED — cycle 2, pass 1.** Neither the stop authority nor the hard stop fired (pass 1 of 15 in this cycle). Pricing: sized
 to the ask plus his three rulings, unchanged; revision 6 adds no criterion, milestone or instrument, and withdraws one stated
@@ -115,7 +138,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
-Cycle 2 pass 1: this pass assumes that `0x02000000`, the one bit by which the field value's mask differs from content's, is
+Cycle 2 pass 2: this pass assumes that every locale react-aria reports to `LoadLocale` is one dayjs has loaded, and does not
+test it. `src/utils/loadLocales.ts` at `af3d95a` names dayjs locale files (`git grep -c "dayjs/locale"`: 29 lines in that file);
+which locales those cover against what a browser can report was not read. If it is false, a viewer in an unloaded locale sees
+`s` and `S` in their own language from `Intl` and the six sibling styles in dayjs's fallback, in one message. The implementer
+at M4 owns closing it; a user report goes to X-19's locale-wording residue.
+
+Cycle 2 pass 1 (read at plan revision 7: `0x02000000` is `Syntax.HEADING`): this pass assumes that `0x02000000`, the one bit by which the field value's mask differs from content's, is
 the heading bit, and does not test it. The plan marks it an inference from AN-3's table, and `@discord/markdown-types` is not
 in the workspace to read. If it is false and the bit is one that decides whether an emoji sits inside a construct, AC-6.5 goes
 red on field-value inputs with no site defect, because the box's spans were taken under content's mask. The implementer at M2
@@ -143,22 +172,11 @@ None.
 
 ### Open
 
-F-32 LOW cycle 2 pass 1 — OPEN — AC-4.7 gives `s` and `S` a form that departs from the six sibling styles without saying so
-- **Location**: M4, AC-4.7 ("`s` renders as `Intl.DateTimeFormat` with `{ dateStyle: 'short', timeStyle: 'short' }` … in the
-  viewer's locale and time zone"); `website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx:TIMESTAMP_TO_DAYJS_FORMAT`.
-- **Description**: the six styles the same criterion says "keep today's output" are entries of one dayjs format table (`t`
-  `LT`, `T` `LTS`, `d` `L`, `D` `LL`, `f` `LLL`, `F` `LLLL`), formatted by dayjs. The plan writes the two new styles as a
-  different formatter with a locale rule, and neither cites the table as the sibling nor marks the departure with its reason
-  (planner.md, "mirrors the siblings"). The option sets are the analysis's description of what Discord does, marked there as an
-  inference; the criterion's own evidence is the two drawn strings.
-- **Impact**: one component would format seven styles one way and two another, and whether the two follow the viewer's locale
-  while the others do not is decided by this sentence and not by a stated choice.
-- **Recommendation**: state the required output (the two literals for `en-US` and UTC, which the criterion already asserts) and
-  either name the dayjs table as the sibling the new entries join, or mark the `Intl` form a deviation with its reason.
-- **Landing**: before M4 is coded. The plan's next planning pass (the fold of AN-8 limb 5) is the natural one; a Planner batch
-  row naming it lets this document close.
+None.
 
 ### Resolved
+
+F-32 LOW cycle 2 pass 1 — RESOLVED — `s` and `S` are a marked deviation from `TIMESTAMP_TO_DAYJS_FORMAT`, with the reason and its capture; UTC before mount and the locale follow the sibling. Plan revision 7, AC-4.7.
 
 F-31 LOW cycle 1 pass 4 — RESOLVED — AN-8 limb 2b read it per surface: `GAME_MENTION` stays set on the description, field value and V2 masks and is cleared on title and field name only. Plan revision 6, AC-2.3, M4's mask line, Planner batch row F-31 discharged. Read against analysis `3681654e` at cycle 2 pass 1.
 
@@ -258,17 +276,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Written after cycle 2 pass 1.
-
-- **Done**: cycle 1 (passes 1 to 5, closed at `944e53f6`) and cycle 2 pass 1. Verdict APPROVED on revision 6 (`946d4e54`).
-  This document was reopened from `critiques/closed/` for cycle 2.
-- **Next**: the planner's next pass. Read it as the `git diff` from `946d4e54`, boundary checked by the in-memory ID
-  comparison (no file written from the shell). It checks F-32. Where F-32 has landed or carries a Planner batch row and no
-  other finding is open, set `Resolved` and close this document again (`record-closure` skill).
-- **Standing rules of the brief** (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in the
-  record folder; website read by `git show <sha>:<path>`; record documents by Write or Edit only; stamps from `date -u`.
-- **Tree**: record `master`. Nothing of this session is uncommitted after the cycle 2 pass 1 commit; no process of this
-  session is running. No question is awaiting an answer. A cache-warm wake is armed for 18:11 UTC.
+Closed at cycle 2 pass 2 (APPROVED on plan revision 7, `e0eb1e87`); nothing is in flight, and a later criterion-changing revision opens cycle 3 from that SHA.
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
