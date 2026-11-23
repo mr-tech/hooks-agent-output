@@ -136,16 +136,17 @@ No irreversible action is added. No source comment is added.
 
 ## Test
 
-All evidence is under `verification/fix-image-uploader-url/`.
+All evidence is under `verification/fix-image-uploader-url/`. The captured command logs are stored as `.txt`, because the record's
+`.gitignore` excludes `*.log`.
 
 - **Red run** at `af3d95a`: a `git worktree add --detach` export at `af3d95a` with the 14-case file copied in, then
   `npx vitest run src/components/__tests__/ImageUploader.saved-address.test.tsx`. Result: **11 failed, 3 passed (14), exit 1**
-  (`red-run-af3d95a.log`). Each failure is on its literal expectation. The three that pass at base hold base behaviour the fix keeps, and
+  (`red-run-af3d95a.txt`). Each failure is on its literal expectation. The three that pass at base hold base behaviour the fix keeps, and
   each is shown red by a control below:
   - "stays available for a saved address that fails to load…" (`failed-load-clears-preview`);
   - "saves an address that loads on a later try after failing" (`failure-never-forgotten`);
   - "shows no preview and saves nothing on Enter once a failed address is deleted from the box" (`loaded-allows-empty-box`).
-- **Green run** at `7660259`: the same command, **14 passed (14), exit 0** (`green-run.log`).
+- **Green run** at `7660259`: the same command, **14 passed (14), exit 0** (`green-run.txt`).
 - **Negative controls**: 15 mutants, each run in its own `git archive` export of `7660259` through
   `python3 ~/.claude/tools/mutation-run.py --sha 7660259 --mutants mutants.json --dep node_modules --timeout 240`. The command ran the
   three `ImageUploader` test files under a transcribed config (`__dirname` → `process.cwd()`, per the runner's stated limit), 38 cases a
@@ -169,28 +170,28 @@ All evidence is under `verification/fix-image-uploader-url/`.
 ## Verification
 
 - **Existing tests.** At base `af3d95a` (step 2's command, `npx vitest run --reporter=json`): **2696 passed of 2696, 172 files, exit 0**
-  (`suite-base-af3d95a.json`/`.log`). At `7660259`, two runs:
-  - Run 1: 2708 passed and 2 failed of 2710, 173 files, exit 1 (`suite-fix-run1.json`/`.log`). The two failures are
+  (`suite-base-af3d95a.json`/`.txt`). At `7660259`, two runs:
+  - Run 1: 2708 passed and 2 failed of 2710, 173 files, exit 1 (`suite-fix-run1.json`/`.txt`). The two failures are
     `trpc.batch-refusal.test.ts` ("refuses two calls with a bad-request status…") and `messageValidity.predicate.test.ts` ("parity by
     construction…"). Each ran about 5,000 ms, vitest's default case timeout, at load average 30 to 33 (`uptime`, 16:32Z). Neither file
     imports `ImageUploader` (`grep -c`, 0 each). Not investigated further.
-  - Run 2: **2710 passed of 2710, 173 files, exit 0** (`suite-fix.json`/`.log`). Against base that is 14 more cases and one more file.
+  - Run 2: **2710 passed of 2710, 173 files, exit 0** (`suite-fix.json`/`.txt`). Against base that is 14 more cases and one more file.
     Compared by path membership, the one added file is `ImageUploader.saved-address.test.tsx` and no base file is missing.
 - **Build verification.** The workspace names none beyond the typecheck: no `verify-pinned-build.sh`, and no package-manager operation
   was run. `pnpm run typecheck` (both `tsc` programs) in a `git worktree` export of `7660259`, with the untracked `next-env.d.ts` copied
-  in: **exit 0** (`typecheck-export.log`). In the shared tree the same script exits 2 on
+  in: **exit 0** (`typecheck-export.txt`). In the shared tree the same script exits 2 on
   `.next/types/validator.ts(227,39): Cannot find module '../../src/pages/api/cron.js'`. That is a build artifact `.gitignore` ignores,
   pointing at a file the repository no longer has. My change does not touch it.
 - **Lint.**
-  - `npx eslint --max-warnings=0` (no fix) over the two changed files: **exit 0** (`lint-changed-files.log`).
-  - `node ~/.claude/tools/convention-check.js website --since=af3d95a`: **0 FAIL, 0 CANDIDATE**, exit 0 (`convention-check.log`). It
+  - `npx eslint --max-warnings=0` (no fix) over the two changed files: **exit 0** (`lint-changed-files.txt`).
+  - `node ~/.claude/tools/convention-check.js website --since=af3d95a`: **0 FAIL, 0 CANDIDATE**, exit 0 (`convention-check.txt`). It
     covers the comment gate, test naming, fixed waits and eslint `--no-fix`. It logged 18 SKIPs:
     - 17 are `.playwright-mcp/*.png`, untracked files that are not this chain's.
     - 1 is its ID-token and basename check, which did not run ("states an ID-token class this checker does not implement verbatim"). I
       checked by hand instead. The workspace's ID-token regex over the test file matched nothing (`grep` exit 1), and the basename
       matches the positive form (`grep -c` 1).
   - **Disclosed in this round: the repository's lint script is `eslint --fix . --max-warnings=0`.** I ran it once as `pnpm run lint` in
-    the shared tree, before the first commit. It exited 1 (557 problems, 247 errors, repo-wide, `lint.log`), and its autofix rewrote 75 files outside
+    the shared tree, before the first commit. It exited 1 (557 problems, 247 errors, repo-wide, `lint.txt`), and its autofix rewrote 75 files outside
     my write set. I checked that every one of the 75 was byte-identical to eslint's own `--fix` output from that file's `HEAD` content
     (reproduced in a detached export, 75 of 75 identical). Then I re-checked each file just before restoring it with
     `git show HEAD:<path> > <path>`: 75 restored, 0 skipped. `git status` afterwards showed only my two paths and the pre-existing
