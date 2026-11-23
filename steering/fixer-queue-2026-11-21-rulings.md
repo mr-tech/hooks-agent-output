@@ -709,3 +709,12 @@ row `4096 lines`, lossless median 9.895 ms. A `general-purpose-sonnet` refutatio
 because the harness needs a Discord build that is not on this box. A, the native box styles across breaks, is confirmed from
 `an6-textbox.json`, with one caveat: the harness feeds legacy one line at a time. B, embeds legacy-only, is confirmed from the code read
 and from the DOM on the heading and subtext cases; no captured inline-disagree case exists.
+
+## 2026-11-23T17:17Z — plan 019 Revision 3: the planner's reading of D-15, answered from D-6's option text (this thread's)
+
+`planner-019` (message, 17:1xZ) reads D-15's "expected values come from the native box" as covering every typed input in the content
+editor (AC-3.2), with the legacy box's 26-of-65 differences in the known-differences report. It offered that reading for his
+confirmation. This thread does not put it to him: D-6's option text already answers it. D-6, plan register row, is his selection
+15:23Z, and its option "stated that on the 33 disagreeing cases the site shows the new formatter's way". D-5's listing of the
+disagreements stands beside it. Revision 3 is record `9ac9ba62`. On the same plan, `critic-019` and `analyst-019`, both cleared, had
+started on the planner's delivery before this thread's brief. Each was sent its Resumption State pointer at 17:1xZ.
