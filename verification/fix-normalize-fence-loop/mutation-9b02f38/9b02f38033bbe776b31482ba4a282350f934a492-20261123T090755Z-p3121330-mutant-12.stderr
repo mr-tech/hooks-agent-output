@@ -1,0 +1,221 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged
+AssertionError: expected 'a\n```\nfoo\n```' to be '>>> a\n```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  ```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:46:28
+     44|     const editor = loadedEditor(text);
+     45|     Editor.normalize(editor, { force: true });
+     46|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\nb" with its text unchanged
+AssertionError: expected 'a\nb' to be '>>> a\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:46:28
+     44|     const editor = loadedEditor(text);
+     45|     Editor.normalize(editor, { force: true });
+     46|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a" with its text unchanged
+AssertionError: expected 'a' to be '>>> a' // Object.is equality
+
+Expected: ">>> a"
+Received: "a"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:46:28
+     44|     const editor = loadedEditor(text);
+     45|     Editor.normalize(editor, { force: true });
+     46|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n\nb" with its text unchanged
+AssertionError: expected 'a\n\nb' to be '>>> a\n\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:46:28
+     44|     const editor = loadedEditor(text);
+     45|     Editor.normalize(editor, { force: true });
+     46|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n> b" with its text unchanged
+AssertionError: expected 'a\n> b' to be '>>> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:46:28
+     44|     const editor = loadedEditor(text);
+     45|     Editor.normalize(editor, { force: true });
+     46|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed after a multi-line quote marker followed by a bare fence
+AssertionError: expected 'a\n```\nfoox\n```' to be '>>> a\n```\nfoox\n```' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  ```
+  foox
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, Editor.end(editor, [2]));
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe('>>> a\n```\nfoox\n```');
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps every line after a multi-line quote marker as a quote line
+AssertionError: expected [ 'div', 'div', 'div' ] to deeply equal [ 'blockQuote', 'blockQuote', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "blockQuote",
+-   "blockQuote",
+-   "blockQuote",
++   "div",
++   "div",
++   "div",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:75:29
+     73|     const editor = loadedEditor('>>> a\nb\nc');
+     74|     Editor.normalize(editor, { force: true });
+     75|     expect(typesOf(editor)).toEqual(['blockQuote', 'blockQuote', 'bloc…
+       |                             ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns ">>> x" typed into a plain line into a quote line that keeps its marker
+AssertionError: expected [ '>>> x', [ 'div' ] ] to deeply equal [ '>>> x', [ 'blockQuote' ] ]
+
+- Expected
++ Received
+
+  [
+    ">>> x",
+    [
+-     "blockQuote",
++     "div",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:85:47
+     83|     Transforms.select(editor, Editor.end(editor, [0]));
+     84|     Transforms.insertText(editor, typed);
+     85|     expect([textOf(editor), typesOf(editor)]).toEqual([expected, ['blo…
+       |                                               ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > starts a quoted line with no marker when a line of a multi-line quote is split
+AssertionError: expected [ 'a\nb', [ 'div', 'div' ] ] to deeply equal [ '>>> a\nb', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a
++   "a
+  b",
+    [
+-     "blockQuote",
+-     "blockQuote",
++     "div",
++     "div",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:92:47
+     90|     Transforms.select(editor, { path: [0, 0], offset: 1 });
+     91|     editor.insertBreak();
+     92|     expect([textOf(editor), typesOf(editor)]).toEqual(['>>> a\nb', ['b…
+       |                                               ^
+     93|   });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+AssertionError: expected '>>> a\nc' to be '>>> a\n>>> c' // Object.is equality
+
+- Expected
++ Received
+
+  >>> a
+- >>> c
++ c
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:105:28
+    103|     Transforms.select(editor, Editor.start(editor, [0]));
+    104|     Transforms.insertText(editor, '>>> ');
+    105|     expect(textOf(editor)).toBe('>>> a\n>>> c');
+       |                            ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+

@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+AssertionError: expected 'a\n```x\nfoo\n```' to be '> a\n```x\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```x
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:62:28
+     60|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     61|     Transforms.insertText(editor, 'x');
+     62|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+AssertionError: expected '>>> a\nc' to be '>>> a\n>>> c' // Object.is equality
+
+- Expected
++ Received
+
+  >>> a
+- >>> c
++ c
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:105:28
+    103|     Transforms.select(editor, Editor.start(editor, [0]));
+    104|     Transforms.insertText(editor, '>>> ');
+    105|     expect(textOf(editor)).toBe('>>> a\n>>> c');
+       |                            ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

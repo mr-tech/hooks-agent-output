@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T091050Z-p3154970/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (25 tests | 1 failed) 114ms
+     × writes no text to the lines a typed multi-line quote marker takes in 18ms
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 314 passed (315)
+   Start at  09:11:01
+   Duration  2.75s (transform 2.73s, setup 35ms, import 6.37s, tests 400ms, environment 1.98s)
+

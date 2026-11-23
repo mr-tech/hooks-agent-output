@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T090755Z-p3121330/mutant-6
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (18 tests | 1 failed) 32ms
+     × loads "```\n>>> a\n```" with its text unchanged 5ms
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 313 passed (314)
+   Start at  09:08:18
+   Duration  2.35s (transform 2.07s, setup 47ms, import 5.74s, tests 292ms, environment 2.10s)
+

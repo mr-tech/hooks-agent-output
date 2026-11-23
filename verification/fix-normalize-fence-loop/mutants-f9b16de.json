@@ -1,0 +1,38 @@
+[
+ {
+  "id": "M1 fence lang regex back to + (normalise limb reverted alone)",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "const res = /```([A-Za-z0-9-]*)$/.exec(childText);",
+  "new": "const res = /```([A-Za-z0-9-]+)$/.exec(childText);"
+ },
+ {
+  "id": "M2 quote rewrite guard: existing quote lines rewritten again",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (child.type !== 'blockQuote' && quotePrefix) {",
+  "new": "if (quotePrefix) {"
+ },
+ {
+  "id": "M3 quote rewrite guard: rewrite also where no marker is stripped",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (child.type !== 'blockQuote' && quotePrefix) {",
+  "new": "if (child.type !== 'blockQuote') {"
+ },
+ {
+  "id": "M17 both loop limbs reverted together (M1 with M2)",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (child.type !== 'blockQuote' && quotePrefix) {\n            const content = childText.slice(quotePrefix.length);\n            Transforms.insertText(editor, content, { at: [childLocation] });\n          }\n        } else {\n          type = 'div';\n        }\n\n        Transforms.setNodes(editor, {\n          type,\n          lang: isFullCodeBlock && currentLang ? currentLang : '',\n          startCodeBlock: inCodeBlock,\n          quotePrefix: isBlockQuote ? quotePrefix : undefined,\n          children: child.children,\n        }, { at: [childLocation] });\n\n        ++childLocation;\n      }\n\n      const res = /```([A-Za-z0-9-]*)$/.exec(childText);",
+  "new": "if (quotePrefix) {\n            const content = childText.slice(quotePrefix.length);\n            Transforms.insertText(editor, content, { at: [childLocation] });\n          }\n        } else {\n          type = 'div';\n        }\n\n        Transforms.setNodes(editor, {\n          type,\n          lang: isFullCodeBlock && currentLang ? currentLang : '',\n          startCodeBlock: inCodeBlock,\n          quotePrefix: isBlockQuote ? quotePrefix : undefined,\n          children: child.children,\n        }, { at: [childLocation] });\n\n        ++childLocation;\n      }\n\n      const res = /```([A-Za-z0-9-]+)$/.exec(childText);"
+ },
+ {
+  "id": "M13 save fallback marker for a quote line without one",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "${node.quotePrefix ?? '> '}",
+  "new": "${node.quotePrefix ?? ''}"
+ },
+ {
+  "id": "M14 normaliser fallback marker for a quote line without one",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "return child.quotePrefix ?? '> ';",
+  "new": "return child.quotePrefix ?? '';"
+ }
+]

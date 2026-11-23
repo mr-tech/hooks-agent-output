@@ -1,0 +1,39 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a" into a single-line field with its text unchanged
+AssertionError: expected 'a' to be '>>> a' // Object.is equality
+
+Expected: ">>> a"
+Received: "a"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:40:36
+     38|   ])('loads %j into a single-line field with its text unchanged', (tex…
+     39|     const lines = getInitialValue(text, markdown.interactive.parseEmoj…
+     40|     expect(flattenNodeText(lines)).toBe(text);
+       |                                    ^
+     41|   });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\nb" into a single-line field with its text unchanged
+AssertionError: expected 'a\nb' to be '>>> a\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:40:36
+     38|   ])('loads %j into a single-line field with its text unchanged', (tex…
+     39|     const lines = getInitialValue(text, markdown.interactive.parseEmoj…
+     40|     expect(flattenNodeText(lines)).toBe(text);
+       |                                    ^
+     41|   });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

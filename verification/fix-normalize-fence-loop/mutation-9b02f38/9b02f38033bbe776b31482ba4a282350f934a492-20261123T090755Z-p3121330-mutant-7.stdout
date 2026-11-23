@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T090755Z-p3121330/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (24 tests | 1 failed) 56ms
+     × keeps the lines after a code block holding a multi-line quote marker as plain lines 8ms
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 313 passed (314)
+   Start at  09:08:21
+   Duration  2.37s (transform 2.06s, setup 46ms, import 5.80s, tests 296ms, environment 2.12s)
+

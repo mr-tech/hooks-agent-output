@@ -1,0 +1,22 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { appendFileSync } from 'fs';
+import { it, vi } from 'vitest';
+import { flattenNodeText, getInitialValue, withEmojis, withNormalizeNode } from '..';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const run = (text: string, line: number, typed: string) => {
+  const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, markdown.interactive.parseEmoji);
+  editor.children = getInitialValue(text, markdown.interactive.parseEmoji, false);
+  Transforms.select(editor, Editor.end(editor, [line]));
+  let out: string;
+  try { Transforms.insertText(editor, typed); out = flattenNodeText(editor.children); } catch (e) { out = `THROW ${(e as Error).message.slice(0, 60)}`; }
+  appendFileSync('/tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/probe-out-fix.txt', `PROBE ${JSON.stringify(text)} +${JSON.stringify(typed)}@${line} -> ${JSON.stringify(out)} types=${JSON.stringify(editor.children.map((c) => (c as { type: string }).type))}\n`);
+};
+it('probe', () => {
+  run('z\n> a\n```', 0, '```');
+  run('z\n> a\nb\n```', 0, '```');
+  run('> a\n```\nfoo\n```', 2, 'x');
+  run('>>> a\n```\nfoo\n```', 2, 'x');
+});

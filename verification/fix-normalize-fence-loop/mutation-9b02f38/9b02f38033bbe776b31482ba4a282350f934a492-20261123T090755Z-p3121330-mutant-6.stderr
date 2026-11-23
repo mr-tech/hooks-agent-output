@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "```\n>>> a\n```" with its text unchanged
+AssertionError: expected '```\na\n```' to be '```\n>>> a\n```' // Object.is equality
+
+- Expected
++ Received
+
+  ```
+- >>> a
++ a
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

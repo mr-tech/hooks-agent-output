@@ -1,0 +1,29 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+AssertionError: expected [ '>>> a\n> b\nc', Set{ +0, 1 } ] to deeply equal [ '>>> a\n> b\nc', Set{ +0 } ]
+
+- Expected
++ Received
+
+@@ -2,7 +2,8 @@
+    ">>> a
+  > b
+  c",
+    Set {
+      0,
++     1,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:94:8
+     92|     const textWrites = editor.operations.filter((op) => op.type !== 's…
+     93|     expect([textOf(editor), new Set(textWrites.map((op) => (op as { pa…
+     94|       .toEqual(['>>> a\n> b\nc', new Set([0])]);
+       |        ^
+     95|   });
+     96|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

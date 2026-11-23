@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T090755Z-p3121330/mutant-15
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (18 tests | 5 failed) 35ms
+     × loads ">>> a\nb" with its text unchanged 6ms
+     × loads ">>> a" with its text unchanged 1ms
+     × loads ">>> a\n\nb" with its text unchanged 1ms
+     × loads ">>> a\n> b" with its text unchanged 1ms
+     × loads "x\n>>> a\nb" with its text unchanged 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (24 tests | 10 failed) 57ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 6ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 1ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 1ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 4ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 3ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 3ms
+     × makes the lines after a removed multi-line quote marker plain lines 2ms
+
+ Test Files  2 failed | 3 passed (5)
+      Tests  15 failed | 299 passed (314)
+   Start at  09:08:50
+   Duration  2.27s (transform 1.87s, setup 51ms, import 5.45s, tests 299ms, environment 2.01s)
+

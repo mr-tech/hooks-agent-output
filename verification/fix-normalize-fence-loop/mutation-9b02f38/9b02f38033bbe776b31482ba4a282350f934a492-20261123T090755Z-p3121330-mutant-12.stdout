@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T090755Z-p3121330/mutant-12
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (24 tests | 10 failed) 60ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 11ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 2ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 2ms
+     × keeps every line after a multi-line quote marker as a quote line 4ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 1ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 3ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 1ms
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  10 failed | 304 passed (314)
+   Start at  09:08:39
+   Duration  2.36s (transform 1.94s, setup 60ms, import 5.67s, tests 305ms, environment 2.09s)
+

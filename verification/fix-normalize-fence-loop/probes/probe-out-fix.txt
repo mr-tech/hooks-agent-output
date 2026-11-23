@@ -1,0 +1,4 @@
+PROBE "z\n> a\n```" +"```"@0 -> "z```\na\n```" types=["div","codeBlock","div"]
+PROBE "z\n> a\nb\n```" +"```"@0 -> "z```\na\nb\n```" types=["div","codeBlock","codeBlock","div"]
+PROBE "> a\n```\nfoo\n```" +"x"@2 -> "> a\n```\nfoox\n```" types=["blockQuote","div","codeBlock","div"]
+PROBE ">>> a\n```\nfoo\n```" +"x"@2 -> ">>> a\n```\nfoox\n```" types=["blockQuote","blockQuote","codeBlock","blockQuote"]

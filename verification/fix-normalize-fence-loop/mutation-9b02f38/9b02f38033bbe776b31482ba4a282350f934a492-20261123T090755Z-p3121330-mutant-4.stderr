@@ -1,0 +1,71 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns ">>> x" typed into a plain line into a quote line that keeps its marker
+AssertionError: expected [ '>>> >>> x', [ 'blockQuote' ] ] to deeply equal [ '>>> x', [ 'blockQuote' ] ]
+
+- Expected
++ Received
+
+  [
+-   ">>> x",
++   ">>> >>> x",
+    [
+      "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:85:47
+     83|     Transforms.select(editor, Editor.end(editor, [0]));
+     84|     Transforms.insertText(editor, typed);
+     85|     expect([textOf(editor), typesOf(editor)]).toEqual([expected, ['blo…
+       |                                               ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns "> x" typed into a plain line into a quote line that keeps its marker
+AssertionError: expected [ '> > x', [ 'blockQuote' ] ] to deeply equal [ '> x', [ 'blockQuote' ] ]
+
+- Expected
++ Received
+
+  [
+-   "> x",
++   "> > x",
+    [
+      "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:85:47
+     83|     Transforms.select(editor, Editor.end(editor, [0]));
+     84|     Transforms.insertText(editor, typed);
+     85|     expect([textOf(editor), typesOf(editor)]).toEqual([expected, ['blo…
+       |                                               ^
+     86|   });
+     87|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+AssertionError: expected '>>> >>> a\n>>> c' to be '>>> a\n>>> c' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ >>> >>> a
+  >>> c
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:105:28
+    103|     Transforms.select(editor, Editor.start(editor, [0]));
+    104|     Transforms.insertText(editor, '>>> ');
+    105|     expect(textOf(editor)).toBe('>>> a\n>>> c');
+       |                            ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

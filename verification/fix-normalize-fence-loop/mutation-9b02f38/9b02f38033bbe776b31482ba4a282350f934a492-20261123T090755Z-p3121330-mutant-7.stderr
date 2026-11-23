@@ -1,0 +1,28 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the lines after a code block holding a multi-line quote marker as plain lines
+AssertionError: expected [ 'div', 'codeBlock', …(2) ] to deeply equal [ 'div', 'codeBlock', 'div', 'div' ]
+
+- Expected
++ Received
+
+  [
+    "div",
+    "codeBlock",
+-   "div",
+-   "div",
++   "blockQuote",
++   "blockQuote",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:98:29
+     96|     const editor = loadedEditor('```\n>>> a\n```\nb');
+     97|     Editor.normalize(editor, { force: true });
+     98|     expect(typesOf(editor)).toEqual(['div', 'codeBlock', 'div', 'div']…
+       |                             ^
+     99|   });
+    100|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

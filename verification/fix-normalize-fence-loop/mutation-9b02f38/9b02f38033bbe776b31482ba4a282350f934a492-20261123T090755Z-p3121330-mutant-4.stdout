@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T090755Z-p3121330/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (24 tests | 3 failed) 52ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 7ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 2ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 2ms
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  3 failed | 311 passed (314)
+   Start at  09:08:11
+   Duration  2.26s (transform 1.86s, setup 38ms, import 5.41s, tests 283ms, environment 2.05s)
+

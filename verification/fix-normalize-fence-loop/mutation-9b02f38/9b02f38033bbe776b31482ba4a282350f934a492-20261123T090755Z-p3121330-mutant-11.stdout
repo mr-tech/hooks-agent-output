@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/15c159b0-1b25-43ee-a603-c8c3f1680933/scratchpad/mutwork/20261123T090755Z-p3121330/mutant-11
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (18 tests | 6 failed) 34ms
+     × loads ">>> a\nb" with its text unchanged 5ms
+     × loads ">>> a" with its text unchanged 2ms
+     × loads ">>> a\n\nb" with its text unchanged 1ms
+     × loads ">>> a\n> b" with its text unchanged 2ms
+     × loads "x\n>>> a\nb" with its text unchanged 1ms
+     × loads "> a\n> b" with its text unchanged 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (24 tests | 20 failed) 67ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 17ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 2ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 2ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 3ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 2ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 2ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 2ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 1ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 2ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 2ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 2ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 2ms
+     × keeps every line after a multi-line quote marker as a quote line 5ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 4ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 2ms
+
+ Test Files  2 failed | 3 passed (5)
+      Tests  26 failed | 288 passed (314)
+   Start at  09:08:36
+   Duration  2.31s (transform 2.18s, setup 53ms, import 5.44s, tests 302ms, environment 2.03s)
+
