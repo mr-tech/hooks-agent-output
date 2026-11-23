@@ -607,3 +607,20 @@ the researcher's full real-Discord walk (research doc, record `2db3cc2f`, V-18/V
 rendered the old way, and both agree on 235. The correction does not change the scope he chose (the agree-only rule stands; only the size
 of the exception list moves), so his answer holds. The check that would have caught it: waiting for the walk's committed count.
 The prompt was open from about 09:41Z to 13:09Z, and the fence-loop QA PASS cue waited behind it.
+
+## 2026-11-23T15:23Z — selection: the site uses Discord's formatter (put ~13:5xZ, answered 15:23Z); planner started
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T15:23Z — steering-hooks-fixer`. Source: the architect's
+findings `architecture/slate-formatting-preview-architecture-findings.md` (record `86418be`, APPROVED_WITH_CHANGES for adoption).
+Options: *Agent: use Discord's formatter (Recommended)* (one engine drives the preview and the editor's colouring; the plan opens with a
+build check; preview and editor switch in the same release; the old formatter stays in tests only) / *Agent: keep the site's rules*
+(nothing new ships; both rule sets fixed by hand; recorded as standing debt) / *Agent: don't change either yet* (no planner starts).
+**Chosen by selection: use Discord's formatter.**
+Premises, read this turn: the package wasm is 1,230,190 bytes, 450,861 gzipped (`stat`, `gzip -9c | wc -c` over the refutation helper's
+`npm install`); npm shows 28 versions, six between 0.11.0 (2026-10-13) and 0.16.0 (2026-11-16) (`npm view … time`). The output-shape
+change in the last release is the architect's read, marked so in the option. The option stated that on the 33 disagreeing cases the site
+shows the new formatter's way, which the test account does not see today.
+How it binds with his 09:17Z ruling: that ruling bars shipping code extracted from Discord's served bundle; the published npm package
+(MIT) is a different object, and this selection admits it to the product. The old formatter stays fetched at test time, never shipped.
+Planner `planner-slate-formatting` spawned on this block (brief `steering/slate-formatting-brief-planner.md`). S-29 is in scope
+(inventory row, inside the region); QA's QAF-4 on the fence-loop chain (`qa/closed/fix-normalize-fence-loop-qa.md`) widens its trigger.
