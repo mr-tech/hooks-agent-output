@@ -146,4 +146,27 @@ M3 fix round, then M4 slice 2 (timestamps, emoji helper, then the site-DOM compa
 
 ## Resumption State
 
-(Written at the checkpoint, see below.)
+Written at the checkpoint after M4 slice 1 and M3 fix round 3, for a `/clear`.
+
+- **Done.** M4 slice 1 at website `93b26fd` (preview parsers on the engine, subtext, shared spoiler reveal; `staticParserFor` deleted). M3 fix round 3 at `1698c80`, sent to `code-reviewer-019` (CR-5, CR-6; the M3 document's `Handoff-At` is `1698c80`). Record commits `5ad6e64`, `e1c265a7`.
+- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `1698c80`. The website tree holds only the foreign `?? .playwright-mcp/`. No uncommitted source work.
+- **Rulings that bind the rest of M4.**
+  - Q2 (subtext) and Q3 (spoiler) were answered by steering from the plan and his standard, option (a) each; both are coded.
+  - Q1 is his selection "Agent: channel names only", now plan revision 10's AC-4.4 (D-17), approved by critic `71b981ad`, architect `b8d11f1b`, QA `f79d7f77` (R-33, record `b9dadaf0`); M4's mention code is released.
+  - Build to AC-4.4's table with CF-17's form: the channel list (or a `channelName(id)` function) travels in the parser `State` and then in `preview.tsx`'s `Ctx`; a surface supplies it from a second `GuildProvider` export, `use(Context)`, which returns `null` outside the provider. Do not change `Context`'s default (eight files call `useGuild` and rely on its throw). `/preview` supplies nothing. A renderer under `src/utils/markdown` that reads the guild context itself would be a deviation for review.
+  - SL-11: forum channels (type 15) are in `TEXT_CHANNEL_TYPES`, so they are on the list and render their name. Take list membership from `fetchChannels`' filter, not from the plan's residue sentence. A listed channel, or an active thread under one, renders `#<name>` in today's pill. Everything else keeps `rules.tsx`'s form: unlisted channel or no list `#<id>`; role `@&<id>`; user `@<id>` or `@!<id>` in the pill; `@everyone` and `@here`; command as plain source; game and static as source. Nothing renders "unknown".
+  - QA's re-key (QA document, § Re-key on Revision 10) sets 12 kinds by 5 list states as literals, a coupling fixture and per-surface fixtures. List fixtures use `fetchChannels`' shape. Read that section before the tests.
+  - The M4 and M6 revision cap (block 17:56Z) applies; AC-4.7 gaps go to steering first (block 18:02Z). R-30: M6 does not exit while `BASE_RED`/`holdsEmoji` are in `src`.
+- **Next, in order.**
+  1. Mentions per AC-4.4 (tests first: the 12 by 5 table, then the renderer; `Ctx` and `State` carry the channel lookup; `Markdown.tsx` is where the state is built, `onChange` and `mounted` already travel there).
+  2. The emoji display helper (CF-10) and the emoji renderer: the engine's `emoji` node draws as source text now. The helper takes `src` and `jumboable` (`emoji.tsx`'s `jumboify` rule, limit 27, is the rung); the preview and M6's editor element read it.
+  3. Timestamps: AC-4.3 (the target is the node's span, never a count or a search; the `onChange` callback's signature changes per CF-6; `localDate` resyncs on a re-render that changes the source) and AC-4.7 (nine style letters and the bare form; `s` and `S` by `Intl.DateTimeFormat`, `{dateStyle:'short', timeStyle:'short'|'medium'}`, UTC before mount, the locale dayjs resolves; the five fixtures in the plan; the picker stays at seven, D-16). The engine currently draws timestamps as source text.
+  4. Field name with an embed url uses the `embedTitleWithUrl` mask (AN-8 table); the preview of a field name has no embed-url flag today.
+  5. The M3 residue measurement re-run (the corrected game mention changed the generator; Outstanding 11 of the M3 document), then the adjustment choice by (a), (b), (c); the frozen residue list as data; AC-3.7, AC-3.8 (ii); the site-DOM limbs of AC-3.1, AC-3.6, AC-4.1 (a `canonFromDom` over the renderer's output: tags `strong`, `em`, `u`, `s`, `code.inline`, `a`, `h1` to `h3`, quote div, `ul`, `ol`, `li`, `pre>code`, `.spoiler`, `.discord-visualizer__subtext`). Findings 4 of the M3 document is a text-family grouping; M4 needs the tree predicates.
+  6. AC-4.5's module-graph instrument and the removal of the now-dead `react` functions of `staticBaseRules` (they have no preview caller since `93b26fd`; `rules.tsx`'s `match` and `parse` remain for the interactive parsers until M6).
+  7. Then the stage self-check (`mutant-gen.js` over the diff in an isolated export, the Named mutants NM-1, NM-8 to NM-10, NM-24, NM-26, NM-27), `convention-check.js`, the offline suite in `unshare -rn`, `pnpm run typecheck`, hand-off to `code-reviewer-019`.
+- **Approach in flight.** None.
+- **Local state not restored.** None. Scratch only: `scratchpad/export-m4a` (a disposable mutant export), `scratchpad/probe.mjs` (prints a lossless tree: `node probe.mjs '<text>'`, which imports the wasm by absolute path), `scratchpad/collected.json`.
+- **Evidence run but not recorded.** None; every run is under `verification/019/impl/m4-*`.
+- **Questions sent.** None open. For code review of M3: the held-out generator set was re-collected (Outstanding 11 of the M3 document).
+- **Cache-warm wake.** Job `df8fc767` (armed 21:16) deleted at this checkpoint. Arm a new one on the next turn.
