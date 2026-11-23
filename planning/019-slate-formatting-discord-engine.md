@@ -4,9 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 9, for the critic (cycle 3 pass 2), the architect and QA, each on AC-4.7's delta only (steering, block 18:02Z). M2, M3,
-  M5 and M6 stand ready for implementation, on his approval: every gate passed their criteria. M4 waits on revision 9's verdicts.
-  After revision 9, any further AC-4.7 gap goes to steering before a fold. M2's start also waits on the website tree.
+  Revision 9 is approved by all three pre-code gates (critic c1e40234, architect 559253f1, QA 26f3a3c): ready for implementation
+  of M2 to M7, on his approval. M2's start waits on the website tree (fixer queue). Steering bounds later changes: M4 and M6 are
+  capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z).
 Revision: 9
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
@@ -50,13 +50,36 @@ Lane: full
 | 2026-11-23T18:06 | R-19 | planner-019 | Recorded QA's re-key on revision 9 (QAF-28 closed, nothing open; `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 9, record `26f3a3c`) in the owed re-verdicts table. |
 | 2026-11-23T18:06 | R-20 | planner-019 | Recorded the architect's delta pass on revision 9 (APPROVED; CF-16 LOW is with steering under block 18:02Z; record `559253f1`) in the owed re-verdicts table. |
 | 2026-11-23T18:07 | R-21 | planner-019 | Registered Planner batch row CF-16 as a stated limit, decided by steering (effort rulings block "2026-11-23T18:06Z", record `e8386c2c`), carrying the architect's remedy to the M4 implementer. |
+| 2026-11-23T18:15 | R-22 | planner-019 | Recorded the critic's cycle 3 pass 2 on revision 9 (APPROVED, critique closed; `critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `c1e40234`). Status write: revision 9 is approved by all three gates, and M2 to M7 are ready for implementation on his approval. Resumption State written for a checkpoint. |
 
 ## Resumption State
 
-Written at revision 9's commit. Revisions 0 to 9 and registrations R-1 to R-18 are committed. Revision 9, on AC-4.7's delta only,
-goes to `critic-019` (cycle 3 pass 2), `architect-019` (delta) and `qa-019` (re-key), each by message naming the plan and its
-SHA. Their verdicts release M4. Two of steering's rulings bound what follows (§ Decisions Register notes): block 17:56Z caps M4
-and M6 below HIGH, and block 18:02Z sends any further AC-4.7 gap to steering before a fold.
+Written at steering's ask (checkpoint for a clear), after all three gates approved revision 9.
+
+**Done.**
+- Revisions 0 to 9 and registrations R-1 to R-22 are committed.
+- Revision 9 (`47348a6d`) is approved by the critic (cycle 3 pass 2, critique closed, `c1e40234`), the architect (`559253f1`) and
+  QA (`26f3a3c`, nothing open).
+- The plan is ready for implementation of M2 to M7, on his approval. Steering holds the report.
+- M1 is complete (analysis `aafecf1` to `1b5a46d2`, AN-1 to AN-8).
+
+**Next.**
+- No planning pass is owed. The next one comes on a new event: his approval, a gate or implementer report, or a ruling.
+- Open Planner batch rows, which fold at one seam after implementation approval (planner.md):
+  - QAF-27, CF-15's `vi-VN` reading and CF-16, all stated limits for M4;
+  - the critic's two assumptions, for the M3 and M4 implementers;
+  - AN-8 limb 5, landed, for RK-2's text.
+- Steering's rulings bound changes (§ Decisions Register notes):
+  - block 17:56Z caps M4 and M6 below HIGH, except a severity floor;
+  - block 18:02Z sends any AC-4.7 gap to steering before a fold.
+
+**Approach in flight.** None. No uncommitted edit.
+
+**Refs.** Record `master`. The website was read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git
+grep`. Probe captures this session are under `verification/019/planning/`. The shell runs from `/usr/local/bin/hooks/agent-output`,
+never from `preview-image-generator` (effort rulings block 15:29Z).
+
+**Questions sent, and to whom.** All to `steering-hooks-fixer`. None is open.
 
 **Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
 runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
@@ -85,7 +108,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 5's delta (§ Finding disposition (revision 5)): AC-2.3's literals, AC-6.5's expected value and typed-edit class, M3's drift rule, the mask count | revision 5 commit | critic (cycle 1 pass 5) | APPROVED, no new finding; the critique is closed Resolved (record `944e53f6`). A later revision that changes a criterion's text opens cycle 2 |
 | Revision 7 | revision 7 commit | critic APPROVED, critique closed (`16ca70fe`); architect APPROVED for M4 and M6 under the cap (`6a669d8`); QA re-key: QAF-26 MEDIUM severity floor, QAF-27 LOW (`c6fa2e26`) | M6 is released: every gate passed revision 7's AC-6.5. AC-2.3's `GAME_MENTION` bits are released: all three gates passed revision 6's AC-2.3 (critic `8b596f83`, architect `93708612`, QA `b5985b20`) |
 | Revision 8 | revision 8 commit | critic APPROVED with F-33 / SL-10 (`683f3e9`); architect APPROVED with CF-15 (`e1e6f363`); QA QAF-28 MEDIUM severity floor (`5ca68b07`) | All three name one member, folded at revision 9 |
-| Revision 9's delta: AC-4.7's unloaded-tag fixture (`vi-VN`) and its locale sentence only | revision 9 commit | QA re-key: QAF-28 closed, nothing open (record `26f3a3c`); architect APPROVED, CF-15 resolved, with CF-16 LOW at steering under block 18:02Z (record `559253f1`); critic (cycle 3 pass 2) owed, on AC-4.7's delta only | M4 waits on the critic. CF-16 is a stated limit (steering, block 18:06Z) |
+| Revision 9's delta: AC-4.7's unloaded-tag fixture (`vi-VN`) and its locale sentence only | revision 9 commit | QA re-key: QAF-28 closed, nothing open (record `26f3a3c`); architect APPROVED, CF-15 resolved, with CF-16 LOW at steering under block 18:02Z (record `559253f1`); critic APPROVED, F-33 resolved, critique closed (record `c1e40234`) | Every gate has approved revision 9. M4 is released. CF-16 is a stated limit (steering, block 18:06Z) |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
