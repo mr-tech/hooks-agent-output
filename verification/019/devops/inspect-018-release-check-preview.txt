@@ -1,0 +1,48 @@
+=== 1r843p8i7
+Vercel CLI 29.1.1
+Fetching deployment "hooks-gg-website-1r843p8i7-hooks-gg.vercel.app" in blacklabel
+> Fetched deployment "hooks-gg-website-1r843p8i7-hooks-gg.vercel.app" in blacklabel [725ms]
+
+  General
+
+    id		dpl_oVqvgvn5zFPquLnNehXZMWBHnq1E
+    name	hooks-gg-website
+    status	● Ready
+    url		https://hooks-gg-website-1r843p8i7-hooks-gg.vercel.app
+    created	Fri Nov 20 2026 06:21:59 GMT+0000 (Coordinated Universal Time) [3d ago]
+
+
+  Aliases
+
+    ╶ https://hooks-gg-website-git-release-check-018-next-upg-c39d5c-hooks-gg.vercel.app
+    
+
+  Builds
+
+    ┌ .        [0ms]
+    ├── λ _middleware (73.9KB) [cle1]
+exit=0
+=== ijl602uao
+Vercel CLI 29.1.1
+Fetching deployment "hooks-gg-website-ijl602uao-hooks-gg.vercel.app" in blacklabel
+> Fetched deployment "hooks-gg-website-ijl602uao-hooks-gg.vercel.app" in blacklabel [1s]
+
+  General
+
+    id		dpl_H394JR3gmKdtV8dBFdFpYj5fNqjW
+    name	hooks-gg-website
+    status	● Ready
+    url		https://hooks-gg-website-ijl602uao-hooks-gg.vercel.app
+    created	Sat Nov 21 2026 00:45:06 GMT+0000 (Coordinated Universal Time) [3d ago]
+
+
+  Aliases
+
+    ╶ https://hooks.gg
+    ╶ https://hooks-gg-website.vercel.app
+    ╶ https://www.hooks.gg
+    ╶ https://hooks-gg-website-hooks-gg.vercel.app
+    ╶ https://hooks-gg-website-git-master-hooks-gg.vercel.app
+    
+
+exit=0

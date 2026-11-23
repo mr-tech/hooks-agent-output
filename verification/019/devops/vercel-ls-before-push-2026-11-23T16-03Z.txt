@@ -1,0 +1,31 @@
+(node:4069030) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Vercel CLI 29.1.1
+Retrieving project…
+Fetching deployments in hooks-gg
+> Deployments for hooks-gg-website under hooks-gg [489ms]
+> To list deployments for a project, run `vercel ls [project]`.
+
+  Age     Deployment                                                 Status      Duration     Username
+  39m     https://hooks-gg-website-567m70ejp-hooks-gg.vercel.app     ● Ready     34s          blacklabel
+  7h      https://hooks-gg-website-c8t6ruw19-hooks-gg.vercel.app     ● Ready     34s          blacklabel
+  17h     https://hooks-gg-website-jibbsnk91-hooks-gg.vercel.app     ● Ready     30s          blacklabel
+  20h     https://hooks-gg-website-nabm8670v-hooks-gg.vercel.app     ● Ready     35s          blacklabel
+  21h     https://hooks-gg-website-h2wiis6lt-hooks-gg.vercel.app     ● Ready     20s          blacklabel
+  23h     https://hooks-gg-website-6sx0jkh48-hooks-gg.vercel.app     ● Ready     27s          blacklabel
+  23h     https://hooks-gg-website-1nodvml13-hooks-gg.vercel.app     ● Ready     38s          blacklabel
+  23h     https://hooks-gg-website-dppc69flc-hooks-gg.vercel.app     ● Ready     20s          blacklabel
+  2d      https://hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app     ● Error     17s          blacklabel
+  2d      https://hooks-gg-website-oxeqdn0vp-hooks-gg.vercel.app     ● Ready     23s          blacklabel
+  2d      https://hooks-gg-website-by083oxrl-hooks-gg.vercel.app     ● Ready     30s          blacklabel
+  2d      https://hooks-gg-website-iazfawox4-hooks-gg.vercel.app     ● Ready     25s          blacklabel
+  2d      https://hooks-gg-website-ja442fdlj-hooks-gg.vercel.app     ● Ready     27s          blacklabel
+  2d      https://hooks-gg-website-bkhqulqx4-hooks-gg.vercel.app     ● Ready     28s          blacklabel
+  2d      https://hooks-gg-website-k2ceccn7v-hooks-gg.vercel.app     ● Ready     32s          blacklabel
+  3d      https://hooks-gg-website-ijl602uao-hooks-gg.vercel.app     ● Ready     21s          blacklabel
+  3d      https://hooks-gg-website-plc4oubkz-hooks-gg.vercel.app     ● Ready     36s          blacklabel
+  3d      https://hooks-gg-website-1r843p8i7-hooks-gg.vercel.app     ● Ready     36s          blacklabel
+  4d      https://hooks-gg-website-cfhojcfba-hooks-gg.vercel.app     ● Ready     43s          blacklabel
+  4d      https://hooks-gg-website-hhkc3ckfu-hooks-gg.vercel.app     ● Ready     34s          blacklabel
+
+> To display the next page, run `vercel ls hooks-gg-website --next 1795138439689`

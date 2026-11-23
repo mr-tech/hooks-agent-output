@@ -1,0 +1,62 @@
+diff --git a/package.json b/package.json
+index 127af04..f80eb0e 100644
+--- a/package.json
++++ b/package.json
+@@ -21,6 +21,7 @@
+     "@codemirror/lang-json": "^6.0.1",
+     "@codemirror/state": "^6.2.0",
+     "@codemirror/view": "^6.9.3",
++    "@discord/markdown-wasm": "0.16.0",
+     "@floating-ui/dom": "^1.1.0",
+     "@floating-ui/react": "^0.27.18",
+     "@headlessui/react": "^2.2.9",
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 95a0e0f..2331691 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -28,6 +28,9 @@ importers:
+       '@codemirror/view':
+         specifier: ^6.9.3
+         version: 6.9.3
++      '@discord/markdown-wasm':
++        specifier: 0.16.0
++        version: 0.16.0
+       '@floating-ui/dom':
+         specifier: ^1.1.0
+         version: 1.1.0
+@@ -674,6 +677,12 @@ packages:
+     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
+     engines: {node: '>=20.19.0'}
+ 
++  '@discord/markdown-types@0.14.0':
++    resolution: {integrity: sha512-3fZ/26jd+kAYLt0cAHBccru5hxwAGgWBfMXLg8+Ki/XfTvXjDhZPvrXmama5qQBbi3CfikQ6zrrC0US8jXNv7Q==}
++
++  '@discord/markdown-wasm@0.16.0':
++    resolution: {integrity: sha512-+wFNlHyO835qxAOvaUlQA/Q6tIazDMvs1l+5H459xhKncscCMdDaz9sLzxGPfYy1UbwyCzoME1HHVQFoU8m1Gw==}
++
+   '@discoveryjs/json-ext@0.5.7':
+     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
+     engines: {node: '>=10.0.0'}
+@@ -6809,6 +6818,12 @@ snapshots:
+ 
+   '@csstools/css-tokenizer@4.0.0': {}
+ 
++  '@discord/markdown-types@0.14.0': {}
++
++  '@discord/markdown-wasm@0.16.0':
++    dependencies:
++      '@discord/markdown-types': 0.14.0
++
+   '@discoveryjs/json-ext@0.5.7': {}
+ 
+   '@edge-runtime/cookies@3.4.1': {}
+@@ -12279,7 +12294,8 @@ snapshots:
+ 
+   semver@7.7.4: {}
+ 
+-  semver@7.8.6: {}
++  semver@7.8.6:
++    optional: true
+ 
+   send@0.18.0:
+     dependencies:

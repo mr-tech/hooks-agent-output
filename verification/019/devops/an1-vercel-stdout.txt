@@ -1,0 +1,116 @@
+{
+ "summary": {
+  "previewFirstFormattedMs": {
+   "n": 20,
+   "median": 1214.3999999761581,
+   "p95": 1893.7999999523163,
+   "min": 936.5999999046326,
+   "max": 1958.7000000476837
+  },
+  "previewInitMs": {
+   "n": 20,
+   "median": 191,
+   "p95": 430.39999997615814,
+   "min": 138.79999995231628,
+   "max": 494.1999999284744
+  },
+  "editorEngineReadyMs": {
+   "n": 20,
+   "median": 1599.7999999523163,
+   "p95": 2673.600000023842,
+   "min": 1041.6999999284744,
+   "max": 2832.399999976158
+  },
+  "editorInitMs": {
+   "n": 20,
+   "median": 180.5,
+   "p95": 427.5,
+   "min": 134.39999997615814,
+   "max": 580.0999999046326
+  },
+  "previewFormattedCount": 20,
+  "editorInitCount": 20,
+  "previewJsTransfer": {
+   "n": 20,
+   "median": 0,
+   "p95": 0,
+   "min": 0,
+   "max": 0
+  },
+  "editorJsTransfer": {
+   "n": 20,
+   "median": 0,
+   "p95": 0,
+   "min": 0,
+   "max": 0
+  }
+ },
+ "samplePreview": {
+  "status": 200,
+  "wallMs": 1998,
+  "firstFormatted": 1958.7000000476837,
+  "initMs": 494.1999999284744,
+  "engineReadyMark": 1641.5,
+  "engineNodes": 1,
+  "html": "<div data-md-engine=\"wasm\"><strong>bold</strong> <a href=\"https://example.com/\">masked</a> <span data-md-spoiler=\"\">spoiler</span></div>",
+  "jsTransfer": 0,
+  "jsDecoded": 0,
+  "wasmEntry": [
+   {
+    "transfer": 447726,
+    "encoded": 447426,
+    "decoded": 1230190,
+    "start": 1267.3000000715256,
+    "end": 1635.9000000953674
+   }
+  ],
+  "formatted": 1958.7000000476837,
+  "responses": [
+   {
+    "url": "/_next/static/immutable/media/discord_markdown_wasm_bg.0g4-dsbt98mfj.wasm",
+    "status": 200,
+    "ce": "br",
+    "cl": null,
+    "ct": "application/wasm",
+    "bytes": 1230190
+   }
+  ],
+  "chunkResponses": 1,
+  "errors": []
+ },
+ "sampleEditor": {
+  "status": 200,
+  "wallMs": 1811,
+  "firstFormatted": null,
+  "initMs": 187.79999995231628,
+  "engineReadyMark": 1599.7999999523163,
+  "engineNodes": 0,
+  "html": null,
+  "jsTransfer": 0,
+  "jsDecoded": 0,
+  "wasmEntry": [
+   {
+    "transfer": 447726,
+    "encoded": 447426,
+    "decoded": 1230190,
+    "start": 1455.0999999046326,
+    "end": 1490.3999999761581
+   }
+  ],
+  "formatted": null,
+  "responses": [
+   {
+    "url": "/_next/static/immutable/media/discord_markdown_wasm_bg.0g4-dsbt98mfj.wasm",
+    "status": 200,
+    "ce": "br",
+    "cl": null,
+    "ct": "application/wasm",
+    "bytes": 1230190
+   }
+  ],
+  "chunkResponses": 1,
+  "errors": [
+   "pageerror Error"
+  ]
+ }
+}
