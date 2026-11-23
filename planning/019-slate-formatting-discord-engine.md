@@ -4,10 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 6, for the critic (cycle 2 pass 1), the architect's delta pass and QA Phase 1's re-key. M2, M3 and M5 stand ready for
-  implementation as all three gates approved them at revision 5, on his approval. Revision 6 changes none of their criteria
-  except AC-2.3's GAME_MENTION bits, which wait on these gates with M4 and M6. M2's start also waits on the website tree.
-Revision: 6
+  Revision 7, for the critic (cycle 2 pass 2), the architect's delta pass and QA Phase 1's re-key. M2 (AC-2.3's GAME_MENTION
+  bits included, which all three gates passed at revision 6), M3 and M5 stand ready for implementation, on his approval. M4 and
+  M6 wait on these three verdicts (AC-4.7, AC-6.5). M2's start also waits on the website tree (fixer queue).
+Revision: 7
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -38,12 +38,13 @@ Lane: full
 | 2026-11-23T17:43 | 6 | planner-019 | Folds AN-8 limbs 1 to 4 and 2b (analysis records `db8199aa`, `3681654e`) and the four Planner batch rows parked at revision 5's approval: F-31 (critique `faa1b319`), CF-12 (architect `681ae51`), EC-7 (QA `d060162`) and the critic's pass 5 assumption (`944e53f6`). § Finding disposition (revision 6) maps each. Limb 2b settles F-31: `GAME_MENTION` stays set on the description, field value and V2 masks, and is cleared on title and field name only. Content's game mentions move from disagree to agree. Scope delta: AC-2.3's three rich-surface values revert to AN-3's masks. AC-4.7 states `s` and `S` (X-24 withdrawn). AC-6.3's provision step adds a local Postgres and the `127.0.0.1` host. AC-6.5's expected value splits by surface between the box and the helper, and gains two entry conditions at M6. No milestone was added or removed. M2's other criteria, M3 and M5 are unchanged from the revision 5 the gates approved. Size: unchanged. This opens critique cycle 2. |
 | 2026-11-23T17:46 | R-11 | planner-019 | Recorded the critic's cycle 2 pass 1 on revision 6 (APPROVED, F-32 LOW; `critiques/019-slate-formatting-discord-engine-critique.md`, record `8b596f83`) in the owed re-verdicts table. Registered Planner batch rows F-32 and the pass's heading-bit assumption, each with this pass's read: `verification/019/planning/timestamp-s-S-dayjs-vs-intl.txt` and `syntax-bits-0.16.0.txt`. |
 | 2026-11-23T17:52 | R-12 | planner-019 | Recorded the architect's delta pass on revision 6 (APPROVED_WITH_CHANGES on CF-13 LOW; record `93708612`) in the owed re-verdicts table. Registered Planner batch row CF-13 with its disposition, option (a); added the architect's heading-bit measurement to that assumption's row. |
+| 2026-11-23T17:53 | 7 | planner-019 | Folds the three gates' verdicts on revision 6: critique cycle 2 pass 1 (`8b596f83`: F-32 and its heading-bit assumption), the architect's delta pass (`93708612`: CF-13, option a), and QA's re-key (`b5985b20`: QAF-24, QAF-25). § Finding disposition (revision 7) maps each. Correction: R-10's F-31 Planner batch cell and my messages to steering and QA attributed the withdrawn `<game:id>` form to a QA probe. It came from AN-3's bit driver, which the analysis attributes to the research's guess (QA, `b5985b20`). The error was mine. Revision 6 replaced that cell, so no current text carries it, and the messages are withdrawn in their channels. Scope delta: AC-4.7's `s` and `S` become a marked deviation from the sibling table, following it in UTC-before-mount and locale, with the picker unchanged, and the test sets its own locale and zone. AC-6.5's helper gains a mask control on url-variant link fixtures, and its heading bit is read, no longer inferred. AC-2.3 is unchanged and released. No milestone was added or removed. Size: unchanged. |
 
 ## Resumption State
 
-Written at revision 6's commit. Revisions 0 to 6 and registrations R-1 to R-10 are committed. Revision 6 goes to `critic-019`
-(cycle 2 pass 1), `architect-019` (delta) and `qa-019` (re-key), each by message naming the plan and its SHA. Their verdicts
-release M4, M6 and AC-2.3's `GAME_MENTION` bits. AN-8 limb 5 is a Planner batch row and lands in RK-2 at the next pass.
+Written at revision 7's commit. Revisions 0 to 7 and registrations R-1 to R-12 are committed. Revision 7 goes to `critic-019`
+(cycle 2 pass 2), `architect-019` (delta) and `qa-019` (re-key), each by message naming the plan and its SHA. Their verdicts
+release M4 and M6. AN-8 limb 5 is a Planner batch row and lands in RK-2 at the next pass.
 
 **Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
 runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
@@ -70,9 +71,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
 | Revision 5's delta (§ Finding disposition (revision 5)): AC-2.3's literals, AC-6.5's expected value and typed-edit class, M3's drift rule, the mask count | revision 5 commit | critic (cycle 1 pass 5) | APPROVED, no new finding; the critique is closed Resolved (record `944e53f6`). A later revision that changes a criterion's text opens cycle 2 |
-| Revision 6's delta (§ Finding disposition (revision 6)): AC-2.3's mask table and M4's mask line; AC-4.7; AC-6.3's provision step; AC-6.5's expected value and entry conditions; X-14, X-24 | revision 6 commit | critic (cycle 2 pass 1) | APPROVED, with F-32 LOW non-blocking (record `8b596f83`); F-32 is a Planner batch row |
-| The same delta | revision 6 commit | architect (delta pass) | APPROVED_WITH_CHANGES on CF-13 LOW (record `93708612`); CF-13 is a Planner batch row, folded before M4's code |
-| The same delta | revision 6 commit | QA Phase 1 (re-key) | owed; it holds M4's and M6's approval, and AC-2.3's `GAME_MENTION` bits |
+| Revision 7's delta (§ Finding disposition (revision 7)): AC-4.7's `s` and `S`; AC-6.5's helper controls and the heading read | revision 7 commit | critic (cycle 2 pass 2), architect (delta pass), QA Phase 1 (re-key) | owed; M4's AC-4.7 and M6's AC-6.5 wait on them. AC-2.3's `GAME_MENTION` bits are released: all three gates passed revision 6's AC-2.3 (critic `8b596f83`, architect `93708612`, QA `b5985b20`) |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
@@ -817,12 +816,22 @@ Acceptance criteria:
 - **AC-4.7 Timestamp styles (critique F-25, SL-2).** Every timestamp form the engine accepts renders as a timestamp element, never as
   raw source and never empty: the nine style letters `d f s t D F R S T` and the bare form. The engine returns a timestamp node for
   all nine and for the bare form (critique Appendix). `R` renders relative time, asserted under a fixed clock against a literal
-  (QAF-20). The other six existing formats keep today's
-  output. `s` renders as `Intl.DateTimeFormat` with `{ dateStyle: 'short', timeStyle: 'short' }`, and `S` with `{ dateStyle:
-  'short', timeStyle: 'medium' }`, in the viewer's locale and time zone. Discord drew `<t:1700000000:s>` as `11/14/23, 10:13 PM`
-  and `:S` as `11/14/23, 10:13:20 PM` for an `en-US`, UTC reader (AN-8 limb 1, observed; the option sets are a high-confidence
-  inference that reproduces those strings exactly under Node). The literals are asserted for `en-US` and UTC. Other locales are
-  X-19's locale-wording residue. An invalid style letter stays text (AC-4.3).
+  (QAF-20). The other six existing formats keep today's output, through the sibling table `TIMESTAMP_TO_DAYJS_FORMAT`
+  (`website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx`, formatted by dayjs).
+  - **`s` and `S`, a deviation from the sibling table (critique F-32; architect CF-13, record `93708612`).** `s` renders as
+    `Intl.DateTimeFormat` with `{ dateStyle: 'short', timeStyle: 'short' }`, and `S` with `{ dateStyle: 'short', timeStyle:
+    'medium' }`. The reason is that no dayjs form gives Discord's text: dayjs's localized `L LT` and `L LTS` give `11/14/2023
+    10:13 PM` and `11/14/2023 10:13:20 PM`, with a four-digit year and no comma, while `Intl` gives Discord's `11/14/23, 10:13 PM`
+    and `11/14/23, 10:13:20 PM` exactly (`verification/019/planning/timestamp-s-S-dayjs-vs-intl.txt`; Discord's strings from AN-8
+    limb 1, observed for an `en-US`, UTC reader; the option sets are a high-confidence inference).
+  - **Everything else follows the sibling.** While `state.mounted` is false, `s` and `S` format in UTC, as the sibling does
+    (`if (!state.mounted) date = date.utc()`). The locale is the one `src/components/LoadLocale.tsx` sets for dayjs, passed to
+    `Intl`. The format picker maps `Object.keys(TIMESTAMP_TO_DAYJS_FORMAT)`, and already omits `R`. It stays as it is and lists
+    neither `s` nor `S`.
+  - **What the test sets (QAF-25).** `en-US` and UTC are this box's own defaults, so the test sets the locale and the time zone
+    itself, never relying on the environment's. It asserts the two literals above under `en-US` and UTC, and one case under
+    `America/New_York`: `11/14/23, 5:13 PM` for `s`.
+  - Other locales are X-19's locale-wording residue. An invalid style letter stays text (AC-4.3).
 - **AC-4.8 Spoiler pieces reveal together (D-14's visible form).** Where the engine splits one spoiler into several rendered pieces,
   revealing any piece reveals every piece of that spoiler, on every surface. The visible form treats the split as invisible only
   because this holds.
@@ -971,14 +980,21 @@ Acceptance criteria:
     - **Discord's native box (module 818948)**, for content and for every surface whose mask equals content's on the bits that
       decide whether an emoji sits inside a construct: the code-block, inline-code, link and emoji bits. Those surfaces are the
       embed description and the V2 text display (both `0x3fffffff`, equal to content), and the field value (`0x3dffffff`). The
-      field value differs from content in one bit, `0x02000000`. That is the heading bit by inference from AN-3's table, where
-      the field value differs from the description only in headings. The box is Discord's message box, so it parses under
+      field value differs from content in one bit, `0x02000000`, which is `Syntax.HEADING` at the pin
+      (`verification/019/planning/syntax-bits-0.16.0.txt`, run). The architect measured that it moves no emoji span: 0 of 50,012
+      inputs on the pinned wasm, against 494 under a control that clears only `CODE` (`verification/019/architect-conformance/rev6/`,
+      record `93708612`). The box is Discord's message box, so it parses under
       content's mask. Whether it takes a flags argument is unread (CF-12). It runs on the pinned wasm in `pnpm test:discord`, the
       box doing its own join, and its spans are frozen as literals for `pnpm test` (C4 re-derives them).
     - **AC-2.1's oracle helper**, for the title and field name masks, where code blocks, headings, lists and (with an embed url)
       links are off, so the box's spans could be wrong. The helper runs the engine under AN-3's literal masks with its own join
-      written from AN-6. Its positive control is the content run: over content, the helper's spans equal the box's frozen
-      literals.
+      written from AN-6. It has two controls:
+      - **content**: over content, the helper's spans equal the box's frozen literals;
+      - **its mask is read (QAF-24)**. The content run cannot catch a helper that ignores its mask. QA measured that the no-url
+        title and field name mask moves no emoji span over 417 inputs, and only the url variant differs, on link constructs (QA
+        P-Q16, record `b5985b20`). So the helper also runs url-variant link fixtures, `[🙂](https://x.y)`, `https://x.y/🙂`,
+        `<https://x.y/🙂>` and `https://x.y🙂`, each with a Unicode, a `:name:` and a custom emoji. QA's mutant NM-44, a helper that
+        ignores its mask, is shown red on them.
   - **Entry conditions at M6, before AC-6.5's literals freeze.**
     - **The box exposes its spans** (critique pass 5's assumption). M3 records whether a run of module 818948 exposes the emoji
       spans of its own parse; AN-6's table shows an emoji as an `atom` token. If it does not, the result goes to the planner
@@ -1111,6 +1127,20 @@ fifth limb (QAF-22). After
 | X-25 The jumbo-emoji rule, where neither AN-7's reads nor the corpus show Discord's rule for a case | No Discord observation for that case (CF-10). | Stated limit at M4's emoji display helper; a user report goes to this row |
 | X-26 A move of the embed or V2 surfaces to the native formatter that keeps the legacy calls and adds no reference to the switch in those modules | AC-3.8's (i) and (i′) cannot see it; the critique's pass 3 assumption names it. | Stated limit at AC-3.8; a user report goes to this row |
 
+## Finding disposition (revision 7)
+
+All three gates read revision 6: critic `8b596f83` (APPROVED; F-32), architect `93708612` (APPROVED_WITH_CHANGES; CF-13), QA
+`b5985b20` (QAF-24, QAF-25). Revision 7 folds:
+
+| Source | Item | Folded at |
+|---|---|---|
+| Critique cycle 2 pass 1 | F-32 | AC-4.7: `s` and `S` a marked deviation from `TIMESTAMP_TO_DAYJS_FORMAT`, with dayjs's output beside Discord's |
+| Critique cycle 2 pass 1 | Assumption (the heading bit) | AC-6.5: `0x02000000` is `Syntax.HEADING`, read and measured |
+| Architect `93708612` | CF-13 | AC-4.7, option (a): UTC before mount, `LoadLocale`'s locale; the picker unchanged |
+| QA `b5985b20` | QAF-24 | AC-6.5: the helper's mask control, url-variant link fixtures and NM-44 |
+| QA `b5985b20` | QAF-25 | AC-4.7: the test sets locale and zone, plus an `America/New_York` case |
+| QA `b5985b20` | AC-2.3 re-checked (0 of 248 cells) | No change; the `GAME_MENTION` bits are released |
+
 ## Finding disposition (revision 6)
 
 All three pre-code gates approved revision 5: critic `944e53f6` (cycle 1 closed), architect `681ae51`, QA `d060162`. Revision 6
@@ -1172,9 +1202,9 @@ Revision 4's folds, for reference:
 | CF-12 (LOW): module 818948 is Discord's message box and parses under content's mask, while AC-6.5 runs under each surface's mask, so on the title, field name and field value its emoji spans can be the wrong expected value. A miss shows as red, not a false pass. The fold states either that 818948 takes a flags argument and runs per surface, or that it covers content and every surface whose mask matches content's on the emoji-relevant bits, with the other surfaces on the helper's join under AN-3's literal masks and the content run as its positive control. Whether 818948 takes flags is unread on this box | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 5" (record `681ae51`) | Discharged at revision 6 into AC-6.5 "Expected value", in the second form: the box for content and the surfaces matching it on emoji-relevant bits, the helper for title and field name. |
 | EC-7 (QA entry condition): AC-6.5's lift reads the adapter's `parseLossless` emoji nodes, while its expected spans are what native box 818948 lifts, and nobody has measured whether the two sets agree. Before AC-6.5's literals freeze at M6, the implementer runs both over the 272 corpus and the 1,662 probe and records how many inputs differ. On any member the plan states which the lift follows, and a choice that changes what D-13's option described goes to him through steering | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 5 (record `d060162`) | Discharged at revision 6 into AC-6.5 "Entry conditions at M6". |
 | Critique pass 5 assumption: a run of module 818948 exposes the emoji spans of its own parse, which is AC-6.5's expected value. Untested; AN-6's table shows an emoji as an `atom` | `critiques/closed/019-slate-formatting-discord-engine-critique.md`, cycle 1 pass 5 (record `944e53f6`) | Discharged at revision 6 into AC-6.5 "Entry conditions at M6"; a miss at M3 comes back to the planner before M6. |
-| F-32 (LOW): AC-4.7 writes `s` and `S` as `Intl.DateTimeFormat` option sets, while the six sibling styles are entries of `TIMESTAMP_TO_DAYJS_FORMAT` (`website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx`, formatted by dayjs), and the plan neither cites the sibling nor marks the departure. Read this pass (`verification/019/planning/timestamp-s-S-dayjs-vs-intl.txt`): dayjs's localized tokens give `11/14/2023 10:13 PM` and `11/14/2023 10:13:20 PM` (`L LT`, `L LTS`; four-digit year, no comma), while `Intl` reproduces Discord's drawn `11/14/23, 10:13 PM` and `11/14/23, 10:13:20 PM` exactly. So the fold marks `s` and `S` a deviation from the sibling table with that reason. The six existing entries keep dayjs. A custom dayjs string such as `M/D/YY, h:mm A` would match en-US only, and is not taken | `critiques/019-slate-formatting-discord-engine-critique.md` F-32, cycle 2 pass 1 (record `8b596f83`) | Open. Landing trigger: the next planning pass, before M4 is coded. It does not hold approval (critique). |
-| CF-13 (LOW): AC-4.7's `s` and `S` say "in the viewer's locale and time zone", while the sibling formats in UTC before mount (`website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx`: `if (!state.mounted) date = date.utc()`) and takes its locale from `dayjs.locale`, which `src/components/LoadLocale.tsx` sets. The fold takes the architect's option (a), following the pattern: `s` and `S` pass `timeZone: 'UTC'` to `Intl` while `state.mounted` is false, and the locale `LoadLocale` hands dayjs. Only the formatter departs (F-32's reason). The picker maps `Object.keys(TIMESTAMP_TO_DAYJS_FORMAT)` (line 105 at `af3d95a`) and so already omits `R`. It stays as it is and does not list `s` or `S`, since nothing in the ask or the rulings asks for new picker entries | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 6" (record `93708612`) | Open. Landing trigger: the next planning pass, before M4 is coded. It does not hold approval. The picker choice is flagged to steering as his to overturn. |
-| Critique cycle 2 pass 1 assumption: `0x02000000` is the heading bit (AC-6.5 calls it an inference) | `critiques/019-slate-formatting-discord-engine-critique.md`, cycle 2 pass 1 (record `8b596f83`) | Read this pass: `Syntax.HEADING` is `0x2000000` at `@discord/markdown-wasm@0.16.0` (`verification/019/planning/syntax-bits-0.16.0.txt`, run). The architect read the same in `markdown-types` 0.14.0 `syntax.js` (`1<<25`), and measured that the heading bit moves no emoji span: 0 of 50,012 inputs on the pinned wasm, against 494 under a CODE-cleared control (`verification/019/architect-conformance/rev6/`, record `93708612`). The next planning pass replaces "by inference" in AC-6.5 with these reads. It changes no criterion. |
+| F-32 (LOW): AC-4.7 writes `s` and `S` as `Intl.DateTimeFormat` option sets, while the six sibling styles are entries of `TIMESTAMP_TO_DAYJS_FORMAT` (`website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx`, formatted by dayjs), and the plan neither cites the sibling nor marks the departure. Read this pass (`verification/019/planning/timestamp-s-S-dayjs-vs-intl.txt`): dayjs's localized tokens give `11/14/2023 10:13 PM` and `11/14/2023 10:13:20 PM` (`L LT`, `L LTS`; four-digit year, no comma), while `Intl` reproduces Discord's drawn `11/14/23, 10:13 PM` and `11/14/23, 10:13:20 PM` exactly. So the fold marks `s` and `S` a deviation from the sibling table with that reason. The six existing entries keep dayjs. A custom dayjs string such as `M/D/YY, h:mm A` would match en-US only, and is not taken | `critiques/019-slate-formatting-discord-engine-critique.md` F-32, cycle 2 pass 1 (record `8b596f83`) | Discharged at revision 7 into AC-4.7, as a marked deviation with its reason. |
+| CF-13 (LOW): AC-4.7's `s` and `S` say "in the viewer's locale and time zone", while the sibling formats in UTC before mount (`website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx`: `if (!state.mounted) date = date.utc()`) and takes its locale from `dayjs.locale`, which `src/components/LoadLocale.tsx` sets. The fold takes the architect's option (a), following the pattern: `s` and `S` pass `timeZone: 'UTC'` to `Intl` while `state.mounted` is false, and the locale `LoadLocale` hands dayjs. Only the formatter departs (F-32's reason). The picker maps `Object.keys(TIMESTAMP_TO_DAYJS_FORMAT)` (line 105 at `af3d95a`) and so already omits `R`. It stays as it is and does not list `s` or `S`, since nothing in the ask or the rulings asks for new picker entries | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 6" (record `93708612`) | Discharged at revision 7 into AC-4.7, option (a). The picker choice is flagged to steering as his to overturn. |
+| Critique cycle 2 pass 1 assumption: `0x02000000` is the heading bit (AC-6.5 calls it an inference) | `critiques/019-slate-formatting-discord-engine-critique.md`, cycle 2 pass 1 (record `8b596f83`) | Read this pass: `Syntax.HEADING` is `0x2000000` at `@discord/markdown-wasm@0.16.0` (`verification/019/planning/syntax-bits-0.16.0.txt`, run). The architect read the same in `markdown-types` 0.14.0 `syntax.js` (`1<<25`), and measured that the heading bit moves no emoji span: 0 of 50,012 inputs on the pinned wasm, against 494 under a CODE-cleared control (`verification/019/architect-conformance/rev6/`, record `93708612`). Discharged at revision 7: AC-6.5 cites these reads in place of the inference. |
 | AN-8 limb 5 (slow-CPU capture; QAF-22), still running at revision 6 | `analyst-019`'s message after record `3681654e` | Open. It holds no approval. It lands in RK-2 at the next planning pass. A run with fewer than 150 of 150 formatted goes to steering at once (AN-8's not-completed text). |
 
 ## Version Management
