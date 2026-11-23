@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 7 (record e0eb1e87). QAF-24 and QAF-25 are folded and closed. QAF-26 MEDIUM (AC-4.7's
-  pre-mount and locale branches have no fixture that alone decides them, and the locale has two readings) and QAF-27 LOW (an
-  `s` timestamp member for AC-4.3's class; Planner batch under the 17:56Z cap) are new. The register is swept, with no change. Implementation is not approved.
+  Phase 1 re-keyed on plan 019 Revision 8 (record 7b419f5b), AC-4.7 only. QAF-26 is folded, except its unloaded-locale
+  fixture. QA's own P-Q18 wrongly said the site does not load `ja`, and AC-4.7 took `ja-JP` from it. QAF-28 MEDIUM (a severity
+  floor) asks for `vi-VN` instead. Implementation is not approved.
 Phase: 1
 ---
 
@@ -15,16 +15,17 @@ Phase: 1
 
 ## Resumption State
 
-Written 2026-11-23T17:56 at the revision 7 re-key commit.
+Written 2026-11-23T18:01 at the revision 8 re-key commit.
 
-- **Done.** Phase 1 on revisions 1 to 7, each re-key committed. Revision 7 is in § Re-key on Revision 7, raising QAF-26 and QAF-27.
-- **Next.** The planner folds QAF-26 and QAF-27 at its next revision, and this phase re-keys that delta. Phase 2 starts at the code review's
+- **Done.** Phase 1 on revisions 1 to 8, each re-key committed. Revision 8 is in § Re-key on Revision 8, raising QAF-28 and
+  correcting P-Q18.
+- **Next.** The planner folds QAF-28 (one fixture's tag and literal in AC-4.7), and this phase re-keys that delta. Phase 2 starts at the code review's
   committed verdict.
 - **Uncommitted or local.** Nothing in the record. The scratchpad `pkg/` holds the re-packed wasm the probes run from; it is perishable.
 - **Questions out.** None.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 7 (record
-`e0eb1e87`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 8 (record
+`7b419f5b`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -38,6 +39,7 @@ Written 2026-11-23T17:56 at the revision 7 re-key commit.
 | 2026-11-23T17:31 | planner-019 (message: revision 5 at record `d2912590`) | Re-key Phase 1 on revision 5 | Phase 1 re-key, read as the word diff from `e53c7cdb`. It confirmed the folds of QAF-23, AC-2.3's six literals and CF-11's expected value, and reconciled the mask count to six. It adds EC-7 (the box's emoji spans against `parseLossless`'s emoji nodes, measured before AC-6.5's literals freeze) and swept the register with no change. No new finding. |
 | 2026-11-23T17:51 | planner-019 (message: revision 6 at record `946d4e54`) | Re-key Phase 1 on revision 6 | Phase 1 re-key, read as the word diff from `d2912590` and AN-8 limb 2b (`3681654e`). AC-2.3's six masks were re-run against AN-3's table, with its stale `GAME_MENTION` row replaced by limb 2b's run: 0 of 248 cells differ, and revision 4's masks give the three expected differences as a control. Three premises were run: `0x02000000` is HEADING, the field value's emoji spans equal content's, and Node prints `s` and `S` with the bytes Discord drew. It re-keyed AC-2.3 (NM-39), AC-4.7, AC-6.3 with B-4, and AC-6.5. It raises QAF-24 and QAF-25 (both MEDIUM) and swept the register: B-4 re-specified, the others cleared. |
 | 2026-11-23T17:56 | planner-019 (message: revision 7 at record `e0eb1e87`) | Re-key Phase 1 on revision 7 | Phase 1 re-key, read as the word diff from `946d4e54`. It confirmed the folds of QAF-24 and QAF-25 (closed), F-32, CF-13 option (a) and the heading-bit read, which agrees with P-Q14. It read the sibling `MarkdownTimestamp.tsx`, `Markdown.tsx` and `LoadLocale.tsx` at `af3d95a`, and ran the two CF-13 branches' literals and the dayjs locale resolution (P-Q18). It raises QAF-26 MEDIUM and QAF-27 LOW, and swept the register with no change. |
+| 2026-11-23T18:01 | planner-019 (message: revision 8 at record `7b419f5b`) | Re-key Phase 1 on revision 8 (AC-4.7 only) | Phase 1 re-key, read as the word diff from `e0eb1e87`. It confirmed QAF-26's folds (i) and (ii), (iii)'s resolved-locale reading, QAF-27 as a Planner batch limit, and D-16. A check of `src/utils/loadLocales.ts` at `af3d95a` found the site loads 29 dayjs locales, `ja` among them. So this document's P-Q18 premise that `ja-JP` is unloaded was wrong, and AC-4.7's `ja-JP` fixture took it. The corrected probe (P-Q19) gives `ja-JP` the same string under both readings. P-Q18 carries a dated reconcile, and QAF-28 MEDIUM (a severity floor, excepted from the cap) asks for `vi-VN` with `11/14/23, 10:13 PM`. |
 
 ## Reading
 
@@ -744,6 +746,11 @@ installed `node_modules`, under `unshare -rn`:
     `14.11.23, 22:13`).
   - They differ for `ja-JP`, a locale the site does not load into dayjs: dayjs falls back to `en`. The tag gives
     `2023/11/14 22:13`, and the resolved locale gives `11/14/23, 10:13 PM`.
+  - 2026-11-23T18:01 reconcile: **this bullet is wrong for the site.** The probe loaded only `de` and `en-gb`, so `ja` was unloaded in
+    the probe, not on the site. That was defensible only for the probe's own setup. It was never checked against
+    `src/utils/loadLocales.ts`, which imports `dayjs/locale/ja`. On the site, `ja-JP` resolves to `ja`, and both readings give
+    `2023/11/14 22:13` (P-Q19, § Re-key on Revision 8). The statement holds for a tag with no file there, such as `vi-VN`, `cs-CZ`
+    or `da-DK`. QAF-26 (iii)'s `ja-JP` example below carries the same error.
 
 **Read, for AC-4.3 (QAF-27).** At `af3d95a`, two sites restrict the style letter to `[tTdDfFR]`:
 - `rules.tsx`'s timestamp match. So `<t:…:s>` is text today and takes no timestamp index.
@@ -794,6 +801,50 @@ to B-6 are checked and cleared: B-2 and B-5 read link hrefs, B-3 colours, B-4 th
 
 Rows inherited and not discharged: B-1 to B-6, all open.
 
+## Re-key on Revision 8
+
+Revision 8 (record `7b419f5b`, with R-13 to R-15) was read as its word diff from `e0eb1e87`. It changes AC-4.7 only, and registers
+D-16 and steering's revision cap.
+
+| Item | Where revision 8 folds it | Check |
+|---|---|---|
+| QAF-26 (i) pre-mount | AC-4.7, "What the test sets" | `state.mounted` false, `America/New_York`, `11/14/23, 10:13 PM`, with NM-45. **Closed.** |
+| QAF-26 (ii) loaded locale | the same | `en-GB` through `LoadLocale`'s dayjs path, `14/11/2023, 22:13`, with NM-46. `en-gb` is in `loadLocales.ts`. **Closed.** |
+| QAF-26 (iii) which locale | AC-4.7, "Locale" | The resolved `dayjs.locale()`, never the tag. **Closed** as a contract. Its unloaded-tag fixture is QAF-28. |
+| Mounted `America/New_York` | the same | `s` and `S` both, as P-Q18 gives. |
+| QAF-27 | Planner batch, stated limit under the cap | The member is written there. QA Phase 2 looks for it at the AC-4.3 audit. |
+| D-16, picker | AC-4.7 | The picker offers `R` as a separate button (read at `MarkdownTimestamp.tsx` `af3d95a`). This document never claimed the picker omits `R`, so nothing here needs correcting. |
+
+**P-Q19 (run; `probe-r8-timestamp-locale.cjs`, `.out`).** The probe loads exactly the dayjs locales `src/utils/loadLocales.ts` imports
+at `af3d95a`: 29 of them, `ja` included. Its control, with none loaded, reproduces P-Q18's `ja-JP -> en`. With the site's set loaded:
+- `ja-JP` resolves to `ja`. Both readings give `2023/11/14 22:13`, so they **agree**.
+- `vi-VN`, `cs-CZ` and `da-DK` resolve to `en`. The resolved locale gives `11/14/23, 10:13 PM`, while the tag gives
+  `22:13 14/11/23`, `14.11.23 22:13` and `14.11.2023, 22.13`, so they **differ**.
+- `en-US` and `en-GB` agree, as before.
+
+The architect's CF-14 already named `vi-VN`. QA's `ja-JP` example came from P-Q18's wrong premise. The method failure: the probe's
+loaded set was not derived from the site's file.
+
+### New finding
+
+QAF-28 MEDIUM Phase 1
+AC-4.7's unloaded-tag fixture is "`ja-JP`, UTC: `s` is `11/14/23, 10:13 PM`, the `en` form dayjs resolves to. A mutant that passes
+the tag to `Intl` is red on it." On the site, dayjs resolves `ja-JP` to `ja`, because `loadLocales.ts` imports it. A correct
+implementation then renders `2023/11/14 22:13`, so the fixture's expected value is wrong, and the test fails against correct code.
+The tag-passing mutant renders the same string, so the fixture cannot tell the two apart. The clause "never the tag" is left
+with no assertion that fails when it is lost: a severity floor, excepted from the cap (block 17:56Z). The error is QA's
+(P-Q18, corrected above).
+*Asked*: the fixture's tag becomes `vi-VN`, a tag with no file in `loadLocales.ts`, expecting `11/14/23, 10:13 PM`. The
+tag-passing mutant renders `22:13 14/11/23` and is red on it (P-Q19). The test supplies the tag where `LoadLocale` reads it
+(react-aria's locale), not by calling `dayjs.locale` directly. Otherwise the mutant has no tag to pass, and the fixture cannot
+represent the case.
+
+### Register sweep
+
+Predicate: rows citing AC-4.7 or a timestamp. Members: none. B-1 to B-6 are checked and cleared.
+
+Rows inherited and not discharged: B-1 to B-6, all open.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -831,6 +882,11 @@ the way Discord's native text box does in a browser, and it does not test that. 
 No account on the native path has been seen (G-11 not completed, X-13). If an account on the native path shows its text box
 colouring a case differently from the module's jsdom output, the editor's frozen literals encode the wrong standard. **Owner: the
 analyst**, through AN-7's G-11 limb, carried as X-13 until an account on the native path is available.
+
+Revision 8 re-key: this pass assumes the tag react-aria hands `LoadLocale` for a Vietnamese browser is `vi-VN` or `vi`, and it
+does not test that. Either has no dayjs file, so the fixture's outcome is the same either way. If react-aria normalises to a tag
+that dayjs does load, the fixture still holds, but `vi-VN` stops standing for a real viewer. **Owner: uat**, under the revision 7
+assumption's browser read below.
 
 Revision 7 re-key: this pass assumes that react-aria's `useLocale` in the browser returns the viewer's language (so `LoadLocale`'s
 tag is the viewer's), and it does not test that, because no browser runs here. If it returns a fixed default, every viewer sees

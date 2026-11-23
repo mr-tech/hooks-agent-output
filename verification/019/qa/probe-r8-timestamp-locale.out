@@ -1,0 +1,8 @@
+control (no site locales loaded): ja-JP -> en
+site loads 29 dayjs locales: ar bg ca de el en-gb es fa fr he hu id it ja ko lt ms nl pl pt-br ro ru sv th tr uk zh zh-cn zh-tw
+tag en-US -> dayjs en: Intl(tag) "11/14/23, 10:13 PM"; Intl(resolved) "11/14/23, 10:13 PM"; readings agree
+tag en-GB -> dayjs en-gb: Intl(tag) "14/11/2023, 22:13"; Intl(resolved) "14/11/2023, 22:13"; readings agree
+tag ja-JP -> dayjs ja: Intl(tag) "2023/11/14 22:13"; Intl(resolved) "2023/11/14 22:13"; readings agree
+tag vi-VN -> dayjs en: Intl(tag) "22:13 14/11/23"; Intl(resolved) "11/14/23, 10:13 PM"; readings DIFFER
+tag cs-CZ -> dayjs en: Intl(tag) "14.11.23 22:13"; Intl(resolved) "11/14/23, 10:13 PM"; readings DIFFER
+tag da-DK -> dayjs en: Intl(tag) "14.11.2023, 22.13"; Intl(resolved) "11/14/23, 10:13 PM"; readings DIFFER
