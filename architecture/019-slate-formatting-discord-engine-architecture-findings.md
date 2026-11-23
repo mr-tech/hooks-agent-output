@@ -4,6 +4,8 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 5 (record d2912590): APPROVED. CF-11 is folded as recommended. CF-12 (LOW, non-blocking)
+  asks which mask module 818948 runs under on the non-content surfaces.
   Delta pass on plan 019 revision 4 (record e53c7cdb): APPROVED. CF-9 and CF-10 are folded as found. CF-11 (LOW, a
   recommendation the planner may fold or decline with its reason) is on AC-6.5's expected spans.
   Delta pass on plan 019 revision 3 (record 9ac9ba62): APPROVED_WITH_CHANGES on two LOW findings (CF-9 the emoji lift on
@@ -20,6 +22,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:31 | architect-019 | Delta pass on plan 019 revision 5 (record `d2912590`); § Delta pass, revision 5 | Read as `git diff e53c7cdb d2912590` (73 insertions, 35 deletions), with the limb the Owed re-verdicts table names to this gate (AC-6.5's expected value), M3 "Which wasm", and AC-2.3's six literals. |
 | 2026-11-23T17:26 | architect-019 | Delta pass on plan 019 revision 4 (record `e53c7cdb`); § Delta pass, revision 4 | Read as `git diff 9ac9ba62 e53c7cdb` (132 insertions, 75 deletions), with the limbs the Owed re-verdicts table names to this gate: CF-9 and CF-10 as folded, the `GAME_MENTION` mask line, and AC-3.8 (i′). |
 | 2026-11-23T17:18 | architect-019 | Delta pass on plan 019 revision 3 (record `9ac9ba62`); § Delta pass, revision 3 | Read in place: the Owed re-verdicts table, D-13 to D-15, M3's Form, Visible form, Adjustments and AC-3.7 and AC-3.8, M4's adjustment module, M5 whole, AC-6.5 and AC-6.6. The diff is 431 insertions and 207 deletions. Website `af3d95a` read from an export: `src/@types/slate.d.ts`, `getInitialValue.ts`, and the readers of `.ast` under `src/components`. |
 | 2026-11-23T17:08 | architect-019 | § Legacy-only surfaces added: the design behind his 17:04Z selection "match how it looks" (effort rulings, record `af8b5a5a`) | Asked by `planner-019` for revision 3. My 16:5xZ message to steering named A′ and B3 without the binding detail; this section is that detail. Inputs re-read: analysis 019 (`aafecf1`) AN-3, AN-5 ("form chosen: `parseLossless` alone") and AN-6; research Appendix A; my re-derivation of AN-3's legacy outputs (description and V2 equal content's legacy output on 272 of 272 rows). |
@@ -251,6 +254,41 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 5 (record `d2912590`)
+
+**The owed limb: AC-6.5's expected value (CF-11).** The expected spans are module 818948's own parse over the unit, with
+its own join, run on the pinned wasm in `pnpm test:discord` and frozen for `pnpm test` under C4. The helper's join is now a
+positive control against those literals. That is the recommended form.
+
+Running the box on the pinned wasm (M3 "Which wasm") keeps the parse identical to the adapter's engine, so what the
+property tests is the join, the mask and the `?` substitution, and each of those now has Discord's own code as its
+expected value. Folded.
+
+**Read beside it:**
+- **AC-2.3's six literals.** Each legacy-only mask is AN-3's native mask with bit `0x400` (`GAME_MENTION`) cleared:
+  description `0x3fffffff` → `0x3ffffbff`, field value `0x3dffffff` → `0x3dfffbff`, title and field name `0x19fecd7f` →
+  `0x19fec97f`, the url variant `0x19fecd07` → `0x19fec907`, V2 `0x3fffffff` → `0x3ffffbff`. Content stays `0x3fffffff`. It is
+  consistent with M4's mask line, and the count of six matches M2's list.
+- **The drift rule under C2** keeps the live native-box limbs out of the gate while the frozen literals still catch a
+  site regression. No finding.
+
+### CF-12 LOW (non-blocking) — Which mask module 818948 runs under on the non-content surfaces
+
+Module 818948 is Discord's message box, so its parse runs under the content path's mask: `ALL & ~DEV_LINKS`, minus
+`QUOTES` under `formatInline` (AN-3, modules 997141 and 538355). AC-6.5's property runs "under each surface's mask".
+
+On the title and field-name surfaces (no `CODE_BLOCK`, no heading, no list) and on field value, the emoji spans can differ
+from content's. For example, an emoji between triple backticks on a title is in a different construct than in content.
+Where that happens, a box run under content's mask gives the wrong expected value for that surface. The failure would be
+loud (a red property), not a false pass, so this does not block approval.
+
+The plan should state one of two things. If the box's parse call can be handed a mask (unread: whether 818948 passes a
+flags argument through to the engine), it runs under each surface's mask. Otherwise, the 818948 expected value covers
+the content surface and the surfaces whose mask equals content's on every bit that affects emoji containment, and the
+other surfaces take the helper's join under AN-3's literal masks, with the content run as its positive control.
+
+**Verdict on revision 5:** APPROVED. Nothing needs the owner.
 
 ## Delta pass, revision 4 (record `e53c7cdb`)
 
