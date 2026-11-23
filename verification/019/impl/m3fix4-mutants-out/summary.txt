@@ -1,0 +1,4 @@
+M3f4-attempts-disconnected	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M3f4-xhr-open-only	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M3f4-websocket-unrecorded	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	
+M3f4-fetch-unrecorded	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	

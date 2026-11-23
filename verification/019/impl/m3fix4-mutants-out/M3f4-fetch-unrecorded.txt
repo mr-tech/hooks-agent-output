@@ -1,0 +1,54 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts (3 tests | 1 failed) 158ms
+     × records a fetch that is refused 18ms
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts (12 tests | 1 failed) 217ms
+     × records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused 18ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused
+AssertionError: expected [ …(2) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    "XMLHttpRequest.addEventListener",
+    "wss://w.test/socket",
+-   "https://f.test/data",
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordBuild.locators.test.ts:98:29
+     96|     (oracle.req('20') as () => void)();
+     97|
+     98|     expect(oracle.attempts).toEqual(['XMLHttpRequest.addEventListener'…
+       |                             ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > records a fetch that is refused
+AssertionError: expected [Function] to throw error including 'network disabled' but got 'x'
+
+Expected: "network disabled"
+Received: "x"
+
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:63:58
+     61|     const attempts: string[] = [];
+     62|     const w = oracleWindow(attempts);
+     63|     await expect(w.fetch('https://discord.com/api/v9/x')).rejects.toTh…
+       |                                                          ^
+     64|     expect(attempts).toEqual(['https://discord.com/api/v9/x']);
+     65|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 13 passed (15)
+   Start at  22:05:48
+   Duration  982ms (transform 83ms, setup 0ms, import 1.22s, tests 375ms, environment 0ms)
+

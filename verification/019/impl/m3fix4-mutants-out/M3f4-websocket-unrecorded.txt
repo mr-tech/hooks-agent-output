@@ -1,0 +1,57 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts (3 tests | 1 failed) 128ms
+     × lets a WebSocket nowhere and names its address 16ms
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts (12 tests | 1 failed) 178ms
+     × records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused 16ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused
+AssertionError: expected [ …(2) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    "XMLHttpRequest.addEventListener",
+-   "wss://w.test/socket",
+    "https://f.test/data",
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordBuild.locators.test.ts:98:29
+     96|     (oracle.req('20') as () => void)();
+     97|
+     98|     expect(oracle.attempts).toEqual(['XMLHttpRequest.addEventListener'…
+       |                             ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets a WebSocket nowhere and names its address
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:56:22
+     54|       expect(hits).toEqual([]);
+     55|     });
+     56|     expect(attempts).toHaveLength(1);
+       |                      ^
+     57|     expect(attempts[0]).toContain('/ws');
+     58|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 13 passed (15)
+   Start at  22:05:46
+   Duration  988ms (transform 90ms, setup 0ms, import 1.31s, tests 307ms, environment 0ms)
+

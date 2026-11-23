@@ -7,7 +7,7 @@ Status-Detail: >-
   M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: 1698c80 — repos=website — M3 fix round 3 (CR-5, CR-6) handed to code review; the offline suite (199 files, 3214 of 3214, exit 0), both typechecks and the convention check were run at this SHA; the live controls file passed 9 of 9 at the same code (m4-discord-live-cr6.log.txt)
+Handoff-At: 2c1590f — repos=website — M3 fix round 4 (CR-10) handed to code review; CR-5 and CR-6 stand resolved at 1698c80. The offline suite was run at M4's tip c32e058 (see the M4 document), not yet re-run at 2c1590f beyond the two discordBuild files (15 of 15, exit 0, `m3fix4-green-1.txt`)
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -26,6 +26,7 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry, record `62c1ba99`) | Fix CR-10 (MEDIUM); three record corrections | CR-10 fixed at `2c1590f`; corrections below. |
 | 2026-11-23T21:42 | code-reviewer-019 (message, Round 3, record `dd5b093d`) | Fix CR-5 and CR-6 (MEDIUM); CR-4 remainder, CR-7 to CR-9 optional | CR-5 and CR-6 fixed in the commit named under Handoff-At's next move; CR-4 remainder, CR-7 to CR-9 not done this round (Outstanding 11). |
 | 2026-11-23T21:13 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 M3 from the Resumption State | Items 5, 6, 7, 9, 10, 11 and the residue grouping, commits `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`. M3 handed to code review. |
 | 2026-11-23T20:08 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 with M3 | Outstanding items 3, 1, 2 (surface calls and measurement) and 4 (boxes, frozen native literals), commits `9ad0939`, `dff2f0d`, `00148c8`, `492b813`, `c113084`. Checkpoint at 231K tokens. |
@@ -168,8 +169,10 @@ Round 3 (fix round for CR-5 and CR-6). Red runs: `verification/019/impl/m4-red-4
 
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---------|---------------------|----------------------------------|--------------------------|
-| CR-5 (a construct written from a withdrawn premise) | `git grep -n "<game:" -- src` (the reviewer's removal test over the generator's first 200 inputs is the instrument of record; mine is this text predicate for the one form) | 4 hits after the fix: `markdownGenerator.ts:53` (the untagged near-miss), `discordReports.report-forms.test.ts:26` (asserts the form names no bit), `markdownGenerator.seeded-inputs.test.ts:156` (selects the near-miss), `mountedBaseRed.json:17` (one held-out text built from the old generator form) | The first three are the near-miss by design. The fourth is a frozen held-out text and stays as data: the generator no longer makes it, and the first run after the change shows whether a held-out member lost its match (Outstanding 11). |
+| CR-5 (a construct written from a withdrawn premise) | `git grep -n "<game:" -- src` (the reviewer's removal test over the generator's first 200 inputs is the instrument of record; mine is this text predicate for the one form) | 3 hits at `1698c80` (corrected from 4 at the reviewer's note: `mountedBaseRed.json:17` is not in the file): `markdownGenerator.ts:53` (the untagged near-miss), `discordReports.report-forms.test.ts:26` (asserts the form names no bit), `markdownGenerator.seeded-inputs.test.ts:156` (selects the near-miss) | All three are the near-miss by design. |
 | CR-6 (a sandbox shim that closes one network API and leaves others live) | `git grep -c "XMLHttpRequest\|WebSocket\|EventSource\|sendBeacon" -- src/utils/markdown/__tests__` | 5 in `helpers/discordBuild.ts` (the four constructors replaced, plus the recorder), the new test file names them | `XMLHttpRequest`, `WebSocket`, `EventSource` and `navigator.sendBeacon` each refuse and record; `fetch` records; the live control asserts the attempt list is empty (it is: `m4-discord-live-cr6.log.txt`, 9 of 9) |
+
+`m4-discord-live-cr6.log.txt` is stamped 21:37, before the 21:46 commit, and was run from the shared tree; "at the same code" is not verified here (the reviewer says QA owns that) and the Handoff-At line no longer claims it.
 
 Residual after the fix: 0 live network constructors in the oracle window (the test drives each). Not done from CR-5's preferred form: the coverage run failing on a zero cell for a carried bit, and the residue measurement's re-run with the corrected game mention (Outstanding 11).
 
@@ -180,6 +183,14 @@ Earlier rounds: no reviewer finding in this milestone. Two gates fired in this r
 - `convention-check.js` now runs ESLint, and reported 75 FAILs on files committed earlier in M3 (`object-curly-newline`, `import/order`, `max-len`, `quotes`,
   `prefer-destructuring`, `no-unsafe-return`). Satisfied by `eslint --fix` over the M3 files and by wrapping the 26 over-long lines by hand; no rule was
   disabled and no config changed. Now 0 FAIL, 0 CANDIDATE (`m3-convention-check-f4060c5.txt`).
+
+### Round 4 (CR-10: the attempt record has no failing assertion)
+
+Red run `m3fix4-red-1.txt`: the new case in `discordBuild.locators.test.ts` fails on `XMLHttpRequest.addEventListener` missing from `oracle.attempts` (the fetch and WebSocket attempts were recorded). Fix at `2c1590f`: `RefusedXMLHttpRequest` is a Proxy, so any member touched, `open` or not, refuses and records (`open` by its address, any other by `XMLHttpRequest.<member>`); the case drives a synthetic module through `loadBuild` that touches an XHR before `open`, opens a WebSocket and calls `fetch`, and asserts the list reads empty before and the three entries after. Green `m3fix4-green-1.txt` (15 of 15). Mutants (`m3fix4-mutants-out/`, isolated export `scratchpad/export-m4b`): the reviewer's disconnect (`loadBuild` hands the shims `[]`), an XHR that records only `open`, a WebSocket that records nothing, a `fetch` that records nothing: 4 of 4 red.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| CR-10 (an "attempted nothing" claim read from a record that can be empty while an attempt was made) | `git grep -n "attempts" -- src` | 22 lines in 4 files at `2c1590f`: the writer `helpers/discordBuild.ts` `refuse()` (called from fetch, XHR proxy, WebSocket, EventSource, sendBeacon); the carrier `loadBuild` → `Oracle.attempts`; readers: `discord/discordLive.oracle-controls.test.ts:48` (the live control), `discordBuild.locators.test.ts` (new case, reads it after a `loadBuild`), `discordBuild.network-refusal.test.ts` (own array, five reads) | The one production-path reader of a `loadBuild` window's record is the live control; the new offline case is the failing assertion for its wiring and for the XHR member gap. `EventSource` and `sendBeacon` record by address and have a case each in `network-refusal`. Residual: the live control still reads the record at Discord's evaluated code, which the offline case does not reproduce; whether that code attempts a request is unmeasured and stays so. Not in the class: the 7 paths jsdom never loads (the reviewer's blind spot). |
 
 ## Test Execution Results
 
@@ -265,7 +276,7 @@ frozen probe-state legacy trees (`discordLegacyTrees.json`, kept for the one-inp
 9. Self-diagnosis, method level (two defects of mine reached a gate): (a) I committed `418af30` after running only the markdown tests, so the engine-confinement test (a whole-suite guard on a rule I knew, AC-2.1's second oracle helper) first ran after the commit; I ran the property rather than the suite that holds the guard. Whole offline suite before each commit that adds an importer. (b) I began the residue measurement (earlier part) by comparing visible forms on the generator and read the 50% difference as signal before reading ten minimal examples; shrink and print first, count after. (c) The first edit comparison of the boxes counted `before_<style>` classes the plan's score does not use (1,991 of 2,463 differing); I read AN-6's scoring script before trusting the figure (1,545 after).
 10. The `.next` stale validator hazard did not arise (`pnpm run typecheck` exit 0, no build in this part).
 
-11. **Fix round 3, not done:** CR-5's preferred form (the coverage run fails on a zero cell for a bit the surface's mask carries, naming masked-off cells) and the residue measurement re-run with the corrected game mention (`m3-residue-measurement-492b813.json` is built on the old generator); CR-4's remainder; CR-7's split and re-keying; CR-8, CR-9. The generator's mention list changed length, so its seeded draw shifted: 11 generator texts now fail at the editor base on quote and fence structure, the same class as before (held out; collected on the unchanged editor in both modes, typed and pasted agree and single-line mode holds on every input; `m4-base-red-generator-m3fix.json`). The earlier 10 are stale in the set and no longer arise. The re-run is M4's own input (its adjustment choice), so it is taken at M4's measurement step.
+11. **Fix round 3, not done:** CR-5's preferred form (the coverage run fails on a zero cell for a bit the surface's mask carries, naming masked-off cells) and the residue measurement re-run with the corrected game mention (`m3-residue-measurement-492b813.json` is built on the old generator); CR-4's remainder; CR-7's split and re-keying; CR-8, CR-9. The generator's mention list changed length, so its seeded draw shifted: 11 generator texts now fail at the editor base on quote and fence structure, the same class as before (held out; collected on the unchanged editor in both modes, typed and pasted agree and single-line mode holds on every input; `m4-base-red-generator-m3fix.json`). The generator class was replaced rather than shifted (reviewer's count: 8 members removed, 9 added, 2 kept), so the earlier members are not comparable one to one. The re-run is M4's own input (its adjustment choice), so it is taken at M4's measurement step.
 
 ## Next Steps
 
