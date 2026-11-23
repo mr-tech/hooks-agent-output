@@ -25,6 +25,52 @@ Lane: full
 | 2026-11-23T16:24 | 2 | planner-019 | Folds the three gates' verdicts on revision 1, one batch: the critique (`critiques/019-slate-formatting-discord-engine-critique.md`, record `0435794c`, F-1 to F-23), the conformance pass (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`, record `78d7ec06`, CF-1 to CF-7), and QA Phase 1 (`qa/019-slate-formatting-discord-engine-qa.md`, record `75f479a1`, QAF-1 to QAF-14). The arguments live in those documents; § Finding disposition maps each finding to where it is folded. OQ-4 is resolved by CF-7. CF-2's option (b) is OQ-5, at steering as a scope delta, with option (a) written as the floor. Scope delta: M5 gains a per-element parse cache with a counted criterion (CF-1); M6 gains AC-6.5, the editor's emoji lift held equal to the engine (CF-2 a); M3 gains a red-command outcome table and the vitest project form (F-2, CF-3), and the three-class table (F-6); M2 keeps today's hidden-until-ready loading state (F-3) and gains a link scheme allow-list (QAF-5) and R-A's criterion; M7 gains the Test Conventions update. No milestone was added or removed; the plan is the original ask plus the three in-region additions of revision 1. |
 | 2026-11-23T16:30 | R-2 | planner-019 | Registered D-13 (OQ-5, CF-2 option b); its words live in effort rulings block "2026-11-23T16:29Z — selection: plan 019 OQ-5" (record `213d34ec`) and the ledger block it cites. |
 
+## Resumption State
+
+Written 2026-11-23T16:35 at steering's ask (checkpoint for a clear). Plan at revision 2 (record `8dfd4659`), plus registration R-2 (D-13).
+
+**Done.** Revisions 0 to 2 are committed, and so are registrations R-1 (G-14) and R-2 (D-13, OQ-5 answered: the engine decides
+emoji, CF-2 option b). Revision 2 was sent to `critic-019`, `architect-slate-formatting-preview` and `qa-019`. The architect's delta
+pass on revision 2 is APPROVED_WITH_CHANGES on CF-8 LOW (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`
+§ "Delta pass, revision 2", record `ee54771`).
+
+**Next.** Revision 3, once the critic's verdict and QA Phase 1's re-key on revision 2 both arrive, as one batch with:
+- **D-13**: AC-6.5 becomes "the lift's emoji ranges come from the adapter's `parseLossless` emoji nodes". It names the six readers of
+  the element's `ast` (CF-2's list: `renderElementFactory.tsx` `emojiToImage`, `flattenNodeText.ts`, `onCopy.ts`,
+  `getInitialValue.ts`, `withNormalizeNode.ts`, `src/@types/slate.d.ts`), with a criterion that `simple-markdown`, its `patches/`
+  entry and `src/@types/simple-markdown.d.ts` leave the product (a module-graph read, as AC-2.1). It also:
+  - drops X-8 and the M7 X-8 handoff;
+  - rewrites the Header notes' Problem Area and Packaging lines (closes; removed);
+  - rewrites M2's provider sentence (no `parseEmoji`);
+  - rewrites the "Emoji lift" scope assumption;
+  - marks OQ-5 `[RESOLVED]`;
+  - adds the © member (Appendix B row 230) to AC-6.5.
+- **CF-8**: M3's `discord` project becomes two projects through `project()`, `discord-node` (`__tests__/discord/**/*.test.ts`, node)
+  and `discord-dom` (`__tests__/discord/**/*.test.tsx`, jsdom, with the same setup file). `test:discord` runs both, and M7's Test
+  Conventions text names both.
+- QA's re-key on revision 2 (`qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 2, record `6dace3fa`), which
+  arrived during this checkpoint:
+  - **QAF-15** MEDIUM: the pending state needs a bound, a timeout to the plain-text state, or a stated limit. AN-1 measures under
+    Slow 4G, and B-1 carries the throttled read.
+  - **QAF-16** MEDIUM: AC-3.3 reads the text the message receives through `onChange`, not `editor.children`. The drive must be shown
+    to emit first.
+  - **QAF-17** LOW: AC-4.6's refusing control is a fixture node, named as invented engine output.
+  - **EC-4**: 1.12 ms per character; 5.1 ms median and 44 ms p95 per input; 3.77 s over the 272 corpus. A projection of about 55 s
+    added for 4,000 generator inputs; fix AC-3.3's count from it.
+  - Its 8 base-red corpus rows (143, 144, 153, 159, 219, 220, 258, 262) are candidates for AC-3.4.
+  This leaves only the critic's verdict outstanding.
+- RK-8: write back pass 2's member count from the critique.
+- Update the Reading Order's owed re-verdicts table, and the finding-disposition table for revision 3.
+After committing, send to the critic, the architect (delta) and QA (re-key), each by SendMessage naming the plan and SHA.
+
+**Approach in flight.** None. No uncommitted edit.
+
+**Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show`. The shell runs from
+`/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
+
+**Questions sent, and to whom.** All to `steering-hooks-fixer`. OQ-1 to OQ-3 are answered (D-10 to D-12), and OQ-5 is answered
+(D-13). None is open.
+
 ## Reading Order
 
 Each role reads these sections, in this order, by heading. Every other section is reference, reached when a named section cites it.
