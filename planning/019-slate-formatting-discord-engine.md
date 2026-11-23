@@ -8,7 +8,9 @@ Status-Detail: >-
   started 2026-11-23T18:49Z by implementer-019 on chain/019-slate-formatting-discord-engine (steering's recorded start, effort
   rulings block 18:48Z); M7 is devops's. Steering bounds later changes: M4 and M6 are
   capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z).
-Revision: 9
+  Revision 10 folds his mentions selection (D-17) into AC-4.4 and corrects M4's Mirrors line. It awaits a delta read by the
+  critic, the architect and QA. M4's mention code is held until all three have passed it; the rest of M4 is not held.
+Revision: 10
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -60,20 +62,22 @@ Lane: full
 | 2026-11-23T19:49 | R-28 | qa-019 | QA Phase 2 refresh on M2 (milestone-scoped) at website `7dcedc9`, after fix round 2: **QA Complete**. QAF-29 and QAF-30 are closed, each seen red under a QA mutant. The offline suite is 3041 of 3041, exit 0. AC-2.1 to AC-2.4, AC-2.6 and AC-2.7 pass; AC-2.5's surface limbs belong to M4 and M5. `qa/019-slate-formatting-discord-engine-m2-qa.md`. The plan's Status is not moved. |
 | 2026-11-23T21:24 | R-29 | code-reviewer-019 | Code review Round 3, milestone-scoped (M3 at website `f4060c5`): REJECTED on CR-5 MEDIUM (the generator's game mention is AN-8's withdrawn `<game:id>`, so no input exercises `GAME_MENTION`) and CR-6 MEDIUM (the oracle window keeps live XHR and WebSocket). CR-7 LOW asks for the three base-red hold-outs' deletion as an M6 exit condition, routed to the planner. `code-review/019-slate-formatting-discord-engine-code-review.md`, record `dd5b093d`. Plan Status is not moved. |
 | 2026-11-23T21:25 | R-30 | planner-019 | Registered CR-7's M6 carriage as a Planner batch row, a stated limit under the M6 cap (block 17:56Z); its words live in `code-review/019-slate-formatting-discord-engine-code-review.md` CR-7, Round 3 (record `dd5b093d`). Disclosed: the stamp gate refused my first stamp, which I had estimated, and I corrected it to the clock's time with `sed`. The record-write gate then refused a second shell write, so this note is made with Edit. |
+| 2026-11-23T21:36 | 10 | planner-019 | Folds his selection on how the preview shows mentions (effort rulings block "2026-11-23T21:31Z", record `16f53b7c`; ledger block "2026-11-23T21:31Z — steering-hooks-fixer") as D-17 and AC-4.4's decision table. It also folds the Planner batch fact from block 21:18Z (record `988e5d69`): M4's Mirrors line names the mention rules, which resolve no id. The premises were re-read at website `5ec0621` this pass. Scope delta: AC-4.4 changes. A channel mention whose id is on the guild's channel list renders that channel's name. Every other mention keeps today's form, and nothing renders "unknown". The resolved-role and resolved-command limbs are gone, because the site holds no role or command data. This is a milestone-level scope delta on M4, which is open, so M4's mention code is held until the critic, the architect and QA pass this revision. This is the first revision since revision 9's approval. It triggers three delta reads: critic, architect, QA re-key. No milestone was added or removed. Size: the original ask, with one criterion's limbs changed inside M4. |
 
 ## Resumption State
 
-Written at steering's ask (checkpoint for a clear), after all three gates approved revision 9.
+Written at steering's ask (checkpoint for a clear), after all three gates approved revision 9. Brought current at revision 10.
 
 **Done.**
-- Revisions 0 to 9 and registrations R-1 to R-22 are committed.
+- Revisions 0 to 10 and registrations R-1 to R-30 are committed.
 - Revision 9 (`47348a6d`) is approved by the critic (cycle 3 pass 2, critique closed, `c1e40234`), the architect (`559253f1`) and
-  QA (`26f3a3c`, nothing open).
-- The plan is ready for implementation of M2 to M7, on his approval. Steering holds the report.
+  QA (`26f3a3c`, nothing open). Implementation of M2 to M6 started at 18:49Z.
+- Revision 10 folds D-17 (mentions) into AC-4.4.
 - M1 is complete (analysis `aafecf1` to `1b5a46d2`, AN-1 to AN-8).
 
 **Next.**
-- No planning pass is owed. The next one comes on a new event: his approval, a gate or implementer report, or a ruling.
+- Revision 10 is owed a delta read by the critic, the architect and QA (§ Owed re-verdicts). Their verdicts are folded in one
+  pass. M4's mention code is held until all three have passed it.
 - Open Planner batch rows, which fold at one seam after implementation approval (planner.md):
   - QAF-27, CF-15's `vi-VN` reading and CF-16, all stated limits for M4;
   - the critic's two assumptions, for the M3 and M4 implementers;
@@ -118,6 +122,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 7 | revision 7 commit | critic APPROVED, critique closed (`16ca70fe`); architect APPROVED for M4 and M6 under the cap (`6a669d8`); QA re-key: QAF-26 MEDIUM severity floor, QAF-27 LOW (`c6fa2e26`) | M6 is released: every gate passed revision 7's AC-6.5. AC-2.3's `GAME_MENTION` bits are released: all three gates passed revision 6's AC-2.3 (critic `8b596f83`, architect `93708612`, QA `b5985b20`) |
 | Revision 8 | revision 8 commit | critic APPROVED with F-33 / SL-10 (`683f3e9`); architect APPROVED with CF-15 (`e1e6f363`); QA QAF-28 MEDIUM severity floor (`5ca68b07`) | All three name one member, folded at revision 9 |
 | Revision 9's delta: AC-4.7's unloaded-tag fixture (`vi-VN`) and its locale sentence only | revision 9 commit | QA re-key: QAF-28 closed, nothing open (record `26f3a3c`); architect APPROVED, CF-15 resolved, with CF-16 LOW at steering under block 18:02Z (record `559253f1`); critic APPROVED, F-33 resolved, critique closed (record `c1e40234`) | Every gate has approved revision 9. M4 is released. CF-16 is a stated limit (steering, block 18:06Z) |
+| Revision 10's delta: AC-4.4 (D-17's decision table, its residue and its human-observable form), M4's Mirrors line, and G-13's carriage line only | revision 10 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Owed by all three. M4's mention code is held until each has passed it |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
@@ -196,6 +201,7 @@ except D-8.
 | D-14 | On the embed surfaces (description, title, field name, field value) and the V2 text display, which Discord draws with its legacy formatter only, the site still parses with the engine alone. The preview there is judged by each character's visible styles against Discord's legacy rendering, not by tree shape. A visible difference is either corrected toward legacy by one hand-written adjustment module or listed. A test flags the module as stale if Discord moves embeds to the native formatter. | 2026-11-23 | By selection: "Agent: match how it looks (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The engine stays the only parser. Legacy-only surfaces are judged by each character's visible styles, not tree shape. A visible residue gets a hand-written adjustment toward legacy (the architect's B3), and the rest are listed. Cost: one adjustment module, stale if Discord moves embeds to native, with a test flagging that. How many differences remain is unmeasured." The other options were "Agent: list the differences" and "Agent: old rules for embeds". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T17:04Z — steering-hooks-fixer"; effort rulings block "2026-11-23T17:04Z — selection: plan 019 AN-3 (legacy-only surfaces) and D-11's reopening" (record `af8b5a5a`), which carries the cost text he saw. A′ and B3 are the architect's terms (agent-authored), read in § M3 "Legacy-visible standard". | Owner withdrawal. Or the option's own stop condition, "stale if Discord moves embeds to native", observable through AC-3.8's staleness check (a native-formatter reference in the served embed or V2 renderer). That returns the surface to D-5's treatment, through him. Consequence: AC-3.7, AC-3.8, the adjustment module in M4, and X-23. |
 | D-15 | The editor colours inline runs across line breaks, as Discord's native box does, over each run of adjacent line and quote elements. Its expected values come from the native box (module 818948). This replaces D-11's "each line styled alone"; D-11's marker clause stands. | 2026-11-23 | By selection: "Agent: style across lines (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The editor colours runs across line breaks, like the preview and Discord's native box. It re-parses a run of adjacent lines on each edit (about 10 ms for 4,096 multi-line characters on this box), the change is confined to M5, and the expected values come from the native box (818948)." The other option was "Agent: keep each line alone". Same ledger block and effort rulings block (record `af8b5a5a`). | Owner withdrawal. Or the option's stated cost proving false: AC-5.7's timing read at M5 showing the per-edit re-parse materially above "about 10 ms for 4,096 multi-line characters". That goes back to him. Consequence: M5's run unit, AC-3.2's expected value, AC-5.6, AC-5.7. |
 | D-16 | The timestamp format picker stays as it is, with its seven choices (the six table styles and `R`). `s` and `S` render correctly when typed or pasted, but the picker does not offer them. | 2026-11-23 | By selection: "Agent: leave the picker as is (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "s and S display correctly when typed or pasted, but the picker keeps its seven choices. No added work or review round." The other option was "Agent: add s and S to the picker". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T17:58Z — steering-hooks-fixer"; effort rulings block "2026-11-23T17:58Z" (record `d5642c26`), which records the premise read at `MarkdownTimestamp.tsx:15-22` and `:115-122`. | Owner withdrawal only. Consequence: AC-4.7's picker line. |
+| D-17 | The preview names a channel mention by the channel's name, taken from the server's channel list the site already holds. Role and command mentions keep today's look: a role shows its id in a pill, and a command shows as plain text. Nothing renders as "unknown". No role data is fetched. | 2026-11-23 | By selection: "Agent: channel names only (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "channel mentions show the real channel name from your server's list. Roles and commands stay as they look today: the role id in a pill, and a command as plain text. Nothing is labelled 'unknown'. Small plan change: one plan revision and one re-read by the reviewers, inside the current milestone." The other options were "Agent: also look up role names", "Agent: Discord's unknown style" and "Agent: leave mentions as today". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T21:31Z — steering-hooks-fixer"; effort rulings block "2026-11-23T21:31Z" (record `16f53b7c`), with premises in block 21:18Z (record `988e5d69`). | Owner withdrawal only. Or the option's stated cost proving false: the change not fitting "one plan revision and one re-read by the reviewers, inside the current milestone". That goes back to him. Consequence: AC-4.4's table. Users, `@everyone`/`@here`, an unlisted channel and the kinds with no observation keep today's form under the "nothing unknown" clause; that reading is mine (planner-019), stated at AC-4.4. |
 
 **Revision cap on M4 and M6 (steering's ruling, not his).** Effort rulings block "2026-11-23T17:56Z" (record `b95a3d43`), by
 `steering-hooks-fixer` under steering.md's standing check: "from Revision 7's verdicts onward, each further gap below HIGH on M4
@@ -269,7 +275,9 @@ The research's items left to the effort, by name (research Recommendations item 
   (outcome table, C3).
 - **G-9** (editor and embed rule sets against the oracle): M3, over every surface.
 - **G-11** (the native parser seen rendered, read as test account 2): not completed in AN-7; Exclusions X-13.
-- **G-13** (real role, command and usable emoji ids): read in AN-7; AC-4.4 carries it. GAME_MENTION's written form is AN-8.
+- **G-13** (real role, command and usable emoji ids): read in AN-7, and those reads remain the record of how Discord draws them.
+  AC-4.4 carries the usable-emoji limb. Under D-17, AC-4.4 has no resolved-role or resolved-command limb, because the site holds
+  no role or command data. GAME_MENTION's written form is AN-8.
 - **G-14** (emoji inside a masked-link label on a webhook message): AN-4 read the state, and AN-7 found the class to be a
   legacy/native disagreement on the webhook path. It is in AC-3.6's class and the known-differences report.
 
@@ -808,8 +816,13 @@ Rollback: revert its commits, run by the implementer before release or devops af
 ### M4 — The preview on the engine (S-06, S-10, LF-1, LF-3, LF-4, LF-6 preview side; D-8)
 
 Mirrors: the site's existing renderers, kept rather than replaced (AF-2): `MarkdownSpoiler`, `MarkdownTimestamp`, the
-guild-resolved mentions, `next/image` emoji and highlight.js code blocks (`website@af3d95a
-src/utils/markdown/rules.tsx:staticBaseRules`, each rule's `react` output). The tree comes from AN-5's form. Every static parse path
+mention pills, `next/image` emoji and highlight.js code blocks (`website@af3d95a
+src/utils/markdown/rules.tsx:staticBaseRules`, each rule's `react` output). The mention pills are the rules `discordChannel`,
+`discordRole`, `discordUser` and `discordEveryone`. None of them resolves an id: each renders its capture, such as `#<id>`, in a
+`discord-visualizer__mention` span (`website@5ec0621 src/utils/markdown/rules.tsx`, read this pass), and there is no command rule.
+The channel-name lookup that AC-4.4 adds mirrors the site's existing readers of the guild's channel list:
+`website@5ec0621 src/providers/WebhookProvider.tsx:useValue` reads `useGuild().channels`, and
+`src/providers/GuildProvider.tsx:attachChannelsToWebhooks` finds a channel by `id`. The tree comes from AN-5's form. Every static parse path
 goes through the adapter with its surface mask: `Markdown.tsx`, `ContentBody`, `TextDisplayEditor`, `Embed`, `EmbedTitle`,
 `EmbedField`, the `DiscordContentEditor` read-only branch, and `/preview`. The timestamp callback's signature change and its readers
 follow the architect's CF-6.
@@ -857,10 +870,42 @@ Acceptance criteria:
   - timestamps added before, between or after existing ones.
   `localDate` follows a re-render whose source changes that timestamp. The target comes from a span, never from a count or a search
   over the raw string.
-- **AC-4.4 Mentions.** Every mention kind in AC-2.4's declared class renders something visible. A resolved role, command or usable
-  custom emoji renders as Discord drew it with real test-server ids (AN-7, G-13: a role as "@Streamers", a command as "/slateping",
-  an emoji as an image whose `alt` is `:name:`). A kind the site cannot resolve renders as Discord draws an unresolved one (research
-  V-18: "@unknown-role", "/ping"). A kind with no Discord observation renders its source text (Exclusions X-14).
+- **AC-4.4 Mentions (D-17).** Every mention node the engine returns renders something visible, on every surface. What it renders
+  follows the table below, over every member of `MENTION_KINDS` (`website@7dcedc9 src/utils/markdown/engine.ts`: `user`,
+  `channel`, `role`, `game`, `command`, `everyone`, `here`, and `static` with its five `STATIC_MENTION_KINDS`) crossed with
+  whether a channel's id is on the list. "Today's form" means the text and class that the `rules.tsx` rule at `website@5ec0621`
+  renders for the same source (M4's Mirrors line). No mention renders the text `unknown`, `@unknown-role` or `@unknown-user`.
+
+  | Mention | Renders |
+  |---|---|
+  | `channel`, and its id is a channel on the guild's channel list, or an active thread under one | That channel's or thread's name, after `#`, in today's channel pill (`discord-visualizer__mention discord-visualizer__interactive`) |
+  | `channel`, any other case: no list is in reach (`/preview`, which `GuildProvider` does not wrap; signed out; no guild chosen; the list still loading or failed), or the id is not on the list | Today's form: `#<id>` in the same pill |
+  | `role` | Today's form: `@&<id>` in the `discord-visualizer__mention` pill |
+  | `user` | Today's form: `@<id>` (or `@!<id>`, as typed) in the interactive pill |
+  | `everyone`, `here` | Today's form: `@everyone` / `@here` in the pill |
+  | `command` | Today's form: its source text, as plain text (no command rule exists today) |
+  | `game`, `static` (five kinds) | Its source text (Exclusions X-14) |
+
+  - **Usable custom emoji (unchanged; AN-7, G-13).** It renders as an image whose `alt` is `:name:`.
+  - **Where the list comes from.** It is the list `GuildProvider` already holds: text and voice channels with names, each with its
+    active threads (`website@5ec0621 src/utils/redis/index.ts:fetchChannels`, read this pass). Nothing new is fetched. Today a
+    surface outside `GuildProvider` (`/preview`; `Providers` mounts it only in `src/app/message/layout.tsx`) gets no list.
+    `useGuild` throws there, so on such a surface the lookup must not need the provider. There the channel renders today's form,
+    and the surface still renders.
+  - **The deviations, marked.** Discord draws a resolved channel as a channel-type icon followed by the name, with no `#` character
+    (AN-3 capture `verification/019/analysis/an3/an3-dom2.json`, record `aafecf19`: an icon labelled "Text", then
+    `slate-oracle-walk`). The site keeps today's `#` text prefix in place of the icon, for every channel type. Threads are looked up
+    in each channel's `threads`, where `attachChannelsToWebhooks` searches top-level channels only, because Discord's
+    `<#id>` syntax names a thread as well as a channel. The unlisted-channel row, and the user and `everyone`/`here` rows, are my
+    reading of D-17's "nothing renders as unknown" with today's form (planner-019). The selection named only channels, roles and
+    commands.
+  - **Residue.** The name is whatever the list held when it was fetched. `GuildProvider` keeps the list for 5 minutes without
+    refetching on focus, and the server caches it for 10 seconds (`staleTime: 5 * 60 * 1000`, `expireSeconds: 10`, read this pass).
+    So a channel renamed or deleted within that window can show its old name until the next fetch. Forum, category and archived
+    thread ids are not on the list and render today's form. A user report of a wrong channel name goes to this criterion.
+  - **Human-observable form.** On a local production build signed in to the test guild `1566742402180456559`, the content
+    `<#1574358729577599086>` previews as `#slate-oracle-walk`, and `<@&1>` previews as `@&1`. The same content on `/preview` shows
+    `#1574358729577599086`. Walked by UAT on that build before release.
 - **AC-4.5** The static emoji pre-transform (`utils.ts:staticParserFor`) has no caller on a preview path, read by AC-2.1's
   module-graph instrument.
 - **AC-4.6 Link schemes (QAF-5; critique F-25, SL-1).** Every rendered `href`, over the generator and the fixed inputs, has a scheme
@@ -1318,6 +1363,7 @@ Revision 4's folds, for reference:
 | CF-15 (LOW): AC-4.7's "unloaded tag" fixture is `ja-JP`, but `website@af3d95a src/utils/loadLocales.ts` imports `dayjs/locale/ja` (one of its 29 dayjs locale imports, `grep -c`, read this pass; `vi` is not among them). With the site's locale files loaded, `ja-JP` resolves to `ja`, and `s` reads `2023/11/14 22:13`, the same string as the tag-passing mutant. QA's P-Q18 ran without those files, so it saw `en`. The planner's error, in revision 8's text | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 8" (record `e1e6f363`; `verification/019/architect-conformance/rev8/ja-resolution.out`) | Stated limit under the revision cap on M4 (block 17:56Z); not a severity floor, since the case fails loudly either way. For the implementer and QA Phase 2: the unloaded-tag case uses `vi-VN`, which has no file in `loadLocales.ts`, and the test loads the site's locale files as production does. Under that setup `vi-VN` resolves to `en`, so `s` reads `11/14/23, 10:13 PM`, while the tag-passing mutant gives `22:13 14/11/23`. AC-4.7's `ja-JP` line is read as `vi-VN` under this row. QA then classed the same fault QAF-28 MEDIUM, a severity floor: with `ja-JP` the tag mutant survives. So it was excepted from the cap, and the row is discharged at revision 9 into AC-4.7's text. |
 | QAF-28 (MEDIUM, a severity floor; excepted from the cap): change AC-4.7's unloaded-tag fixture from `ja-JP` to `vi-VN`, which has no dayjs file, expecting `11/14/23, 10:13 PM`. The tag-passing mutant renders `22:13 14/11/23` and is red on it. The test supplies the tag where `LoadLocale` reads it (react-aria's locale), never by calling `dayjs.locale` directly, or the mutant has no tag to pass. `cs-CZ` and `da-DK` also serve. QA's P-Q18 carries a dated reconcile: its probe loaded only `de` and `en-gb`. The corrected probe is P-Q19, `verification/019/qa/probe-r8-timestamp-locale.out` | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 8 (record `5ca68b07`) | Discharged at revision 9 into AC-4.7, with CF-15 and the critic's F-33 / SL-10 (one member, three gates). |
 | CF-16 (LOW): AC-4.7's `vi-VN` fixture's expected value depends on test order, because dayjs's locale is process-global. A case that ran earlier and set another loaded locale (for example `en-GB`) leaves it in effect | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 9" (record `559253f1`); decided by steering, effort rulings block "2026-11-23T18:06Z" (record `e8386c2c`) | Stated limit, no revision (steering's decision under block 18:02Z). Carried to the M4 implementer with the architect's remedy: the `vi-VN` case resets dayjs to `en` first, or runs in its own test module. |
+| Steering's plan fact (the implementer's): M4's Mirrors line cites "guild-resolved mentions", but `rules.tsx` at `website@5ec0621` resolves none | Effort rulings block "2026-11-23T21:18Z" (record `988e5d69`), "Plan fact for the Planner batch" | Discharged at revision 10. Re-read this pass: the four mention rules render their capture and resolve no id. M4's Mirrors line now says so, and names the channel-list readers that AC-4.4's lookup mirrors. |
 | Critique cycle 3 pass 1 assumption: `dayjs.locale()` read at render is the locale `LoadLocale` set for that viewer. Untested | `critiques/019-slate-formatting-discord-engine-critique.md`, cycle 3 pass 1 (record `683f3e9`) | Open, for the M4 implementer: AC-4.7's `vi-VN` and `en-GB` fixtures, which supply the tag through react-aria's locale, are what exercise it. A miss is an AC-4.7 gap, and under steering's 18:02Z ruling it goes to steering before any fold. |
 | AN-8 limb 5 (slow-CPU capture; QAF-22), still running at revision 6 | `analyst-019`'s message after record `3681654e` | Landed (analysis record `1b5a46d2`, § Findings "Limb 5"; `verification/019/analysis/an8/rows-cpu4-{warm,cold}.json`): at 4× CPU, 150 of 150 formatted in both modes. Warm margin min 562.0 ms, median 646.1, max 1,700.6; cold min 638.0, median 902.7. AN-2's minimum was 519.7 ms. The throttle took effect: first formatted moved from 620 to 1,502 ms warm, and from 692 to 2,133 ms cold. H-1 is falsified at 4× on this box, so nothing goes to steering. RK-2's text takes this at the next seam fold, since it changes no criterion. The production generator's own host stays UAT's B-1 capture. |
 | CR-7 (LOW): M3's three base-red hold-outs (`MOUNTED_BASE_RED` in `src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts`, `EDITS_BASE_RED` in `helpers/blockLayerEdits.ts`, and the `holdsEmoji` filter) keep members out of their limbs and are wider than those limbs' red sets. No text in M6 names their deletion. At `website@f4060c5`, `git -C website grep -c "BASE_RED\|holdsEmoji" f4060c5 -- src` gives 14 lines over 5 files (run 2026-11-23, planner-019) | `code-review/019-slate-formatting-discord-engine-code-review.md` CR-7, Round 3 (record `dd5b093d`) | Stated limit under the revision cap on M6 (block 17:56Z), with no revision round. For the M6 implementer, code review and QA Phase 2: M6 does not exit while any of the three hold-outs is in `src`. The same `git grep -c` at M6's tip prints nothing (it exits 1). If a member is still red at M6's tip, its hold-out stays and the case goes to steering before M6 is handed off, because M6 cannot then meet this condition. The split by limb and the re-keying by `(text, line, offset)` belong to the M3 fix round (code review Required Actions, item 3), not to this row. |
