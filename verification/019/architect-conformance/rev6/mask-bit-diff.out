@@ -1,0 +1,5 @@
+description differs from content on: - | on containment bits: -
+fieldValue differs from content on: HEADING | on containment bits: -
+v2 differs from content on: - | on containment bits: -
+titleName differs from content on: USER_MENTION,ROLE_MENTION,GAME_MENTION,EVERYONE_MENTION,HERE_MENTION,CODE_BLOCK,HEADING,LIST,SUBTEXT | on containment bits: CODE_BLOCK
+titleNameUrl differs from content on: MASKED_LINK,DETECTED_LINK,AUTO_LINK,CONTACT_LINK,USER_MENTION,ROLE_MENTION,GAME_MENTION,EVERYONE_MENTION,HERE_MENTION,CODE_BLOCK,HEADING,LIST,SUBTEXT | on containment bits: MASKED_LINK,DETECTED_LINK,AUTO_LINK,CONTACT_LINK,CODE_BLOCK

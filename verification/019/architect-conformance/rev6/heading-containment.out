@@ -1,0 +1,7 @@
+{
+ "wasm": "0.16.0",
+ "inputs": 50012,
+ "inputsWithEmoji": 26478,
+ "differing": 0,
+ "examples": []
+}

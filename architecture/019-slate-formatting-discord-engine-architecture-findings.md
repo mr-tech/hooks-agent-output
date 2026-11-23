@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 6 (record 946d4e54): APPROVED_WITH_CHANGES. CF-12 is resolved, and the field value's one
+  differing bit, HEADING, was run and changes no emoji span. CF-13 (LOW): AC-4.7's s and S must take the timestamp component's
+  locale and pre-mount UTC rule. It is a Planner batch row, folded before M4's code. It holds nothing else.
   Delta pass on plan 019 revision 5 (record d2912590): APPROVED. CF-11 is folded as recommended. CF-12 (LOW, non-blocking)
   asks which mask module 818948 runs under on the non-content surfaces.
   Delta pass on plan 019 revision 4 (record e53c7cdb): APPROVED. CF-9 and CF-10 are folded as found. CF-11 (LOW, a
@@ -22,6 +25,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:49 | architect-019 | Delta pass on plan 019 revision 6 (record `946d4e54`); § Delta pass, revision 6. CF-12 retired to a disposition line with a reconcile note. CF-13 raised. `website.md` gains A-10 | Read as `git diff d2912590 946d4e54` on the plan, with AN-8 limb 2b (`3681654e`). Website `af3d95a` was read through `git show`/`git grep`. The heading-containment probe and its control ran on the pinned wasm; captures are in `verification/019/architect-conformance/rev6/`. Resumed after a `/clear` from the Resumption State at `14ceb6df`. |
 | 2026-11-23T17:31 | architect-019 | Delta pass on plan 019 revision 5 (record `d2912590`); § Delta pass, revision 5 | Read as `git diff e53c7cdb d2912590` (73 insertions, 35 deletions), with the limb the Owed re-verdicts table names to this gate (AC-6.5's expected value), M3 "Which wasm", and AC-2.3's six literals. |
 | 2026-11-23T17:26 | architect-019 | Delta pass on plan 019 revision 4 (record `e53c7cdb`); § Delta pass, revision 4 | Read as `git diff 9ac9ba62 e53c7cdb` (132 insertions, 75 deletions), with the limbs the Owed re-verdicts table names to this gate: CF-9 and CF-10 as folded, the `GAME_MENTION` mask line, and AC-3.8 (i′). |
 | 2026-11-23T17:18 | architect-019 | Delta pass on plan 019 revision 3 (record `9ac9ba62`); § Delta pass, revision 3 | Read in place: the Owed re-verdicts table, D-13 to D-15, M3's Form, Visible form, Adjustments and AC-3.7 and AC-3.8, M4's adjustment module, M5 whole, AC-6.5 and AC-6.6. The diff is 431 insertions and 207 deletions. Website `af3d95a` read from an export: `src/@types/slate.d.ts`, `getInitialValue.ts`, and the readers of `.ast` under `src/components`. |
@@ -29,41 +33,11 @@ Status-Detail: >-
 | 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
 | 2026-11-23T15:58 | architect-019 | Conformance pass on plan 019 revision 1 (record `103687b4`) | Brief from `steering-hooks-fixer` by message; common brief `steering/slate-formatting-brief-common.md`. The plan was read whole. Website was read at `af3d95a` from a `git archive` export, with the shell in the record folder and exact paths only (his 15:29Z selection). highlight.js 11.12.0 was read from the shared tree's installed copy, read-only. `@discord/markdown-wasm` 0.16.0 was run under Node 24.14.0 in capped scopes. Captures are in `verification/019/architect-conformance/`. The pre-planning findings (`architecture/closed/slate-formatting-preview-architecture-findings.md`) were closed Resolved in this pass, because plan 019 carries every item they raised. |
 
-## Resumption State
+## Open items
 
-Written 2026-11-23T17:44 at steering's `/checkpoint` request, mid delta pass on plan 019 revision 6 (record `946d4e54`).
-
-**Done.** The conformance pass on revision 1 and the delta passes on revisions 2 to 5 are all recorded below. Revision 5
-is APPROVED, with CF-12 LOW and non-blocking. The design behind his 17:04Z selection is § Legacy-only surfaces (`1c78753`).
-
-**In flight: delta pass on revision 6.** `planner-019`'s message names two limbs, and neither is recorded yet.
-- **CF-12 as folded** (AC-6.5 "Expected value"). Module 818948 serves content, description, V2 and field value; the
-  helper serves title and field name under AN-3's literal masks, with the content run as its control. The planner asked
-  me to check that `0x02000000` is the heading bit. **Checked:** `@discord/markdown-types@0.14.0` `syntax.js` defines
-  `HEADING = 1 << 25`, which is `0x02000000`, so the field value's mask differs from content's only on `HEADING`.
-  Reading still owed:
-  - confirm the claim that the four masks match content's on every bit that affects whether an emoji sits inside a
-    construct: `CODE_BLOCK` (bit 16), `CODE` (bit 17), `DOUBLE_CODE` (bit 18), the link bits 3 to 6, and the emoji bits
-    0 to 2;
-  - decide whether any other bit affects containment (no `ESCAPE` bit exists in `Syntax`).
-- **AN-8 limb 2b:** `parseRichEmbedText` defaults `allowGameMentions` to true, so M4's mask line now clears
-  `GAME_MENTION` on title and field name only. Owed: read that limb in the analysis document, and check that AC-2.3's
-  literals moved to match (description, field value and V2 back to setting bit 10).
-
-**Next acts.**
-1. Read `git diff d2912590 946d4e54 -- planning/019-slate-formatting-discord-engine.md`.
-2. Finish the two limbs above.
-3. Write § Delta pass, revision 6, with its changelog row and `Status-Detail`, and commit it with `git commit --only`.
-4. Message `planner-019` with the verdict.
-
-**Refs.** Record repository `master`; my last record commit before this checkpoint is `681ae51`. The website was read only
-from `git archive af3d95a` exports, all deleted. Probe captures are committed under `verification/019/architect-conformance/`.
-
-**Uncommitted or mutated.** Nothing in any repository. Scratch: `npm pack` of `@discord/markdown-types` under this
-session's scratchpad `types6/`, disposable.
-
-**Questions sent.** None outstanding to the owner. Open with steering: the master document's reconciliation to the
-chains released since 2026-11-20 is owed (said in my messages of 13:2xZ and 16:0xZ).
+- **CF-13** waits on the planner's fold; my next delta pass reads it.
+- **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
+  (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
 **Closing obligation.** This findings document closes no later than devops Stage 1 of chain 019, after the closing pass
 (Document Lifecycle).
@@ -294,6 +268,79 @@ quoted above and would need that sentence changed, which is M7's convention upda
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
 
+## Delta pass, revision 6 (record `946d4e54`)
+
+Read as `git diff d2912590 946d4e54 -- planning/019-slate-formatting-discord-engine.md`, together with analysis AN-8 limbs 2 and 2b
+(`analysis/019-slate-formatting-discord-engine-analysis.md`, record `3681654e`). Website `af3d95a` was read through
+`git -C website show` and `git grep`, using exact paths only. The probes ran on `@discord/markdown-wasm@0.16.0` and
+`@discord/markdown-types@0.14.0` (npm packs) under Node 24.14.0. Captures are in `verification/019/architect-conformance/rev6/`.
+
+**CF-12 as folded (AC-6.5 "Expected value").** The split by surface is the second form CF-12 recommended. Folded.
+- **The heading bit is read, not inferred.** `@discord/markdown-types@0.14.0` `syntax.js` defines `HEADING = 1 << 25`, which is
+  `0x02000000`.
+- **The box surfaces match content on every containment bit.** The containment bits are the emoji bits 0 to 2, the link
+  bits 3 to 6, and `CODE_BLOCK`, `CODE` and `DOUBLE_CODE` (bits 16 to 18). Description and V2 equal content on all 31 bits.
+  The field value differs only on `HEADING` (`mask-bit-diff.out`).
+- **No other bit decides containment on those surfaces.** No other bit differs on them, and `Syntax` has no escape bit.
+- **Run:** I compared the emoji node spans of `parseLossless` under content's mask (`0x3fffffff`) and the field value's
+  (`0x3dffffff`). The inputs were 50,012: 12 fixed heading cases plus 50,000 seeded random strings over heading, quote, list,
+  code, link and emoji atoms. 26,478 of them contain an emoji, and **0** differ (`heading-containment.out`).
+- **Positive control:** the same harness with only `CODE` cleared finds 494 inputs that differ (`control-code-cleared.out`),
+  so the instrument discriminates.
+- **Title and field name:** these masks differ from content on `CODE_BLOCK`, and with an embed url on the four link bits. They
+  rightly take the helper.
+
+**AN-8 limb 2b (`GAME_MENTION`).** Read in the analysis document. The legacy tree holds `gameMention` on the description, the
+field value and the V2 text display, and a pill was drawn there. On the title and field name, with or without an embed url, the
+literal text was drawn. The facade's `parseRichEmbedText` defaults `allowGameMentions` to true, and a read-state control that
+drops the default loses the node. AC-2.3's literals moved to match. Bit 10 is set on content, description (`0x3fffffff`), field
+value (`0x3dffffff`) and V2 (`0x3fffffff`), and clear on title and field name (`0x19fec97f`) and its url variant (`0x19fec907`).
+The three rich surfaces are back to AN-3's native masks, and the delta from QA's revision 4 derivation (`cf895cd`) is that one
+bit on those three. M4's mask line and the agree class for content's game mentions are consistent with the limb. No finding.
+
+**Read beside them.** X-24's withdrawal, X-14's narrowing and AC-6.3's provision step raise no conformance question. AC-4.7's new
+form does (CF-13).
+
+### CF-13 LOW — AC-4.7's `s` and `S` bypass the timestamp component's locale and pre-mount time-zone rule
+
+**Existing pattern** (website `af3d95a`, `src/utils/markdown/components/MarkdownTimestamp.tsx`):
+- `TIMESTAMP_TO_DAYJS_FORMAT` maps the six letters `t T d D f F` to dayjs formats, and anything else falls through to
+  `fromNow()`.
+- Before mount (`if (!state.mounted) date = date.utc()`), the date is formatted in UTC. After mount, it is formatted in the
+  browser's zone.
+- The locale is dayjs's global one, which `src/components/LoadLocale.tsx` sets from react-aria's `useLocale()`. It is limited to
+  the locales `src/utils/loadLocales.ts` imports.
+- The map's keys also build the component's format picker (`Object.keys(TIMESTAMP_TO_DAYJS_FORMAT).map`).
+
+**The plan's form** (AC-4.7): `s` and `S` render through `Intl.DateTimeFormat` with `dateStyle: 'short'` and a `timeStyle`, "in
+the viewer's locale and time zone". That is a **necessary** deviation in mechanism. dayjs has no localized format that gives
+`11/14/23` (its `L` is `11/14/2023`), so Intl is the faithful route. As written, though, it departs from the component's rules on
+two points that the other six letters keep:
+1. **Time zone before mount.** Under "the viewer's time zone", `s` and `S` format in the browser's zone before mount, while
+   `t`…`F` format in UTC. The first client render then differs from the server's on any viewer outside UTC. My inference is
+   that this is what the `state.mounted` branch exists to prevent: a hydration mismatch, and an SSR'd preview whose text
+   changes on hydration. It is not owner-stated. AC-4.7's literals are asserted under UTC, so they cannot see this.
+2. **Locale source.** Intl with an implicit locale takes the runtime default. The six dayjs letters take react-aria's locale,
+   which falls back to dayjs's `en` where `loadLocales.ts` has no file. Where those differ, the eight letters of one message
+   render in two locales.
+
+**Required change** (option pair: follow the current pattern / accept the deviation):
+- *Follow the current pattern* (recommended). AC-4.7 states that `s` and `S` take the same time-zone rule as the other letters
+  (`timeZone: 'UTC'` while `state.mounted` is false) and the same locale source (the locale `LoadLocale` hands dayjs, passed to
+  `Intl.DateTimeFormat`). It also states whether the format picker lists `s` and `S`, because adding them to
+  `TIMESTAMP_TO_DAYJS_FORMAT` would list them, with a dayjs format that does not exist.
+- *Accept the deviation.* The plan states the hydration difference on non-UTC viewers as a stated limit, with a reason.
+
+**Readers of the current form:** `MarkdownTimestamp` only (its label, its full label and its picker). `rules.tsx`
+`discordTimestamp` passes `format` through unchanged. No shared library is in the path.
+
+**Severity and carrier.** LOW: the miss is a visible text flicker and a console hydration warning, never lost content. It does not
+hold M2, M3, M5 or AC-2.3's bits. It is a Planner batch row on the plan, folded before M4's implementation starts, and my next
+delta pass reads the fold.
+
+**Verdict on revision 6:** APPROVED_WITH_CHANGES. The one change is CF-13, LOW, folded before M4's code. CF-12 is resolved.
+Nothing needs the owner.
+
 ## Delta pass, revision 5 (record `d2912590`)
 
 **The owed limb: AC-6.5's expected value (CF-11).** The expected spans are module 818948's own parse over the unit, with
@@ -312,20 +359,11 @@ expected value. Folded.
 - **The drift rule under C2** keeps the live native-box limbs out of the gate while the frozen literals still catch a
   site regression. No finding.
 
-### CF-12 LOW (non-blocking) — Which mask module 818948 runs under on the non-content surfaces
-
-Module 818948 is Discord's message box, so its parse runs under the content path's mask: `ALL & ~DEV_LINKS`, minus
-`QUOTES` under `formatInline` (AN-3, modules 997141 and 538355). AC-6.5's property runs "under each surface's mask".
-
-On the title and field-name surfaces (no `CODE_BLOCK`, no heading, no list) and on field value, the emoji spans can differ
-from content's. For example, an emoji between triple backticks on a title is in a different construct than in content.
-Where that happens, a box run under content's mask gives the wrong expected value for that surface. The failure would be
-loud (a red property), not a false pass, so this does not block approval.
-
-The plan should state one of two things. If the box's parse call can be handed a mask (unread: whether 818948 passes a
-flags argument through to the engine), it runs under each surface's mask. Otherwise, the 818948 expected value covers
-the content surface and the surfaces whose mask equals content's on every bit that affects emoji containment, and the
-other surfaces take the helper's join under AN-3's literal masks, with the content run as its positive control.
+CF-12 LOW RESOLVED — folded at plan revision 6 (`946d4e54`) in its second form: AC-6.5 "Expected value" takes the box for content,
+description, field value and V2, and the helper for title and field name. Reconcile note (2026-11-23T17:49): CF-12 as raised
+listed the field value among surfaces whose emoji spans "can differ from content's". That was defensible as written, since the
+field value's mask differs from content's. The revision 6 pass ran it: the only differing bit is `HEADING`, and it changes no
+emoji span (§ Delta pass, revision 6).
 
 **Verdict on revision 5:** APPROVED. Nothing needs the owner.
 
