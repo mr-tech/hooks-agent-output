@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (20 tests | 5 failed) 272ms
+     × draws a code block with its body and a language it does not know as plain 32ms
+     × keeps a https link as an anchor 1ms
+     × keeps a mailto link as an anchor 1ms
+     × draws a javascript link as its label with no href 1ms
+     × draws a data link as its label with no href 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws a code block with its body and a language it does not know as plain
+AssertionError: expected '<pre><code class="hljs">foo\nbar\n</c…' to be '<pre><code class="hljs">foo\nbar</cod…' // Object.is equality
+
+- Expected
++ Received
+
+  <pre><code class="hljs">foo
+- bar</code></pre>
++ bar
++ </code></pre>
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:82:56
+     80|
+     81|   it('draws a code block with its body and a language it does not know…
+     82|     expect(render('content', '```zzz\nfoo\nbar\n```')).toBe('<pre><cod…
+       |                                                        ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > keeps a https link as an anchor
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > keeps a mailto link as an anchor
+TypeError: renderLosslessTree is not a function
+ ❯ markupOf src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:22:61
+     20|
+     21| function markupOf(tree: LosslessNode, source: string): string {
+     22|   return renderToStaticMarkup(createElement(Fragment, null, renderLoss…
+       |                                                             ^
+     23| }
+     24|
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:95:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > draws a javascript link as its label with no href
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > draws a data link as its label with no href
+TypeError: renderLosslessTree is not a function
+ ❯ markupOf src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:22:61
+     20|
+     21| function markupOf(tree: LosslessNode, source: string): string {
+     22|   return renderToStaticMarkup(createElement(Fragment, null, renderLoss…
+       |                                                             ^
+     23| }
+     24|
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:102:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  5 failed | 17 passed (22)
+   Start at  21:20:19
+   Duration  1.49s (transform 432ms, setup 0ms, import 1.05s, tests 785ms, environment 0ms)
+

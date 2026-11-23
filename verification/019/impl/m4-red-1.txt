@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts [ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts ]
+Error: Cannot find module '/src/utils/markdown/preview' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/preview.engine-tree-render.test.ts
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:8:1
+      6|
+      7| import { startEngine } from '../engine';
+      8| import { previewParser } from '../preview';
+       | ^
+      9|
+     10| import type { ReactNode } from 'react';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  21:19:11
+   Duration  534ms (transform 157ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
