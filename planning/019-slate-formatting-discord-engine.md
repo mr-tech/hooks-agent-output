@@ -2,10 +2,11 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
+Status: In Progress
 Status-Detail: >-
-  Revision 9 is approved by all three pre-code gates (critic c1e40234, architect 559253f1, QA 26f3a3c): ready for implementation
-  of M2 to M7, on his approval. M2's start waits on the website tree (fixer queue). Steering bounds later changes: M4 and M6 are
+  Revision 9 is approved by all three pre-code gates (critic c1e40234, architect 559253f1, QA 26f3a3c). Implementation of M2 to M6
+  started 2026-11-23T18:49Z by implementer-019 on chain/019-slate-formatting-discord-engine (steering's recorded start, effort
+  rulings block 18:48Z); M7 is devops's. Steering bounds later changes: M4 and M6 are
   capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z).
 Revision: 9
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
@@ -51,6 +52,7 @@ Lane: full
 | 2026-11-23T18:06 | R-20 | planner-019 | Recorded the architect's delta pass on revision 9 (APPROVED; CF-16 LOW is with steering under block 18:02Z; record `559253f1`) in the owed re-verdicts table. |
 | 2026-11-23T18:07 | R-21 | planner-019 | Registered Planner batch row CF-16 as a stated limit, decided by steering (effort rulings block "2026-11-23T18:06Z", record `e8386c2c`), carrying the architect's remedy to the M4 implementer. |
 | 2026-11-23T18:15 | R-22 | planner-019 | Recorded the critic's cycle 3 pass 2 on revision 9 (APPROVED, critique closed; `critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `c1e40234`). Status write: revision 9 is approved by all three gates, and M2 to M7 are ready for implementation on his approval. Resumption State written for a checkpoint. |
+| 2026-11-23T18:49 | R-23 | implementer-019 | Status write: In Progress. Implementation of M2 to M6 starts on the chain branch at `5ec0621`, on steering's recorded start (effort rulings block "2026-11-23T18:48Z — 9e released and closing; website tree to plan 019; implementation start"). |
 
 ## Resumption State
 
