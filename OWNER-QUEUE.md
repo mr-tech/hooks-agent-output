@@ -47,3 +47,10 @@ be sending message numbers in a form the site now refuses).
 
 Tell steering-hooks-fixer the result; it then closes the old hardening task.
 
+## Choose how the formatting preview shows role, channel and command mentions
+
+The preview is moving onto Discord's own formatter. Its mention code waits for your choice. The site has your server's channel list, but it
+has no role or command names. Discord's own style for a name it doesn't know would show every role as "@unknown-role".
+
+steering-hooks-fixer is asking you this as a question in its session. Answer it there.
+
