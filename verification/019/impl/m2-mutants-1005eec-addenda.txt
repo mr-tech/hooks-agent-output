@@ -1,0 +1,7 @@
+M2-20 rerun after tightening: allow-list by prefix text killed by engine.link-schemes.test.ts rows ' https://a.b/' (admit) and 'https:' (refuse); 2 failed | 23 passed
+NM-39 variant [EMBED_DESCRIPTION_MASK = 0x3ffffbff]: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  3 failed | 195 passed (198)
+NM-39 variant [V2_TEXT_MASK = 0x3ffffbff]: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  3 failed | 195 passed (198)
+NM-39 variant [FIELD_VALUE_MASK = 0x3dfffbff]: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  3 failed | 195 passed (198)

@@ -1,0 +1,17 @@
+# class: a link or scheme predicate judging text form where a browser parses a URL
+# command: git grep -nE "\.protocol|startsWith\(['\"]https?|/\^\(?https\?|new URL\(" -- 'src/**/*.ts' 'src/**/*.tsx' ':!src/**/__tests__/**'
+src/app/layout.tsx:19:  metadataBase: new URL('https://hooks.gg'),
+src/app/message/f/[id]/page.tsx:224:  const botInviteUrl = new URL(INVITE_URL);
+src/app/message/m/[id]/send/page.tsx:145:    const botInviteUrl = new URL(INVITE_URL);
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx:38:      const segments = new URL(url).pathname.split('/');
+src/components/StyledLink.tsx:18:  return new URL(href, window.location.href).origin === window.location.origin;
+src/constants/index.ts:35:const inviteUrl = new URL('https://discord.com/oauth2/authorize');
+src/providers/MessageProvider/index.tsx:107:  const url = new URL(destination, window.location.href);
+src/scripts/backfillValid.ts:26:    const url = new URL(databaseUrl);
+src/scripts/backfillValid.ts:53:    const url = new URL(databaseUrl);
+src/utils/isValidUrl.tsx:1:export default (url: string) => /^https?:\/\/[^ ]+\.[^ ]+$/.test(url);
+src/utils/limits.tsx:187:  const { protocol } = new URL(requiredUrl.parse(button.url));
+src/utils/markdown/engine.ts:164:    return ALLOWED_LINK_PROTOCOLS.has(new URL(url).protocol);
+src/utils/markdown/rules.tsx:473:  //   match: SimpleMarkdown.anyScopeRegex(/^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/), // default
+src/utils/sendWebhook.ts:69:  const url = new URL(constructWebhookUrl(webhook, oldMessage?.id));
+# hit count: 14

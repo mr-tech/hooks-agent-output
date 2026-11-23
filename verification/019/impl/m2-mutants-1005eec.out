@@ -1,0 +1,26 @@
+KILLED       M2-01 title mask zero engine.surface-masks.test.ts
+KILLED       M2-02 title keeps GAME_MENTION engine.surface-masks.test.ts
+KILLED       M2-03 field value takes the content mask engine.surface-masks.test.ts
+KILLED       M2-04 content mask leaves DEV_LINKS on engine.surface-masks.test.ts
+KILLED       M2-05 url variant equals plain title engine.surface-masks.test.ts
+KILLED       M2-06 every surface parses under the content mask engine.init-states.test.ts
+KILLED       M2-07 link renderer entry removed engine.kind-maps.test.ts
+KILLED       M2-08 token entry removed engine.kind-maps.test.ts
+KILLED       M2-09 static mention entry removed engine.kind-maps.test.ts
+KILLED       M2-10 init not shared between callers engine.init-states.test.ts
+KILLED       M2-11 failure logged per caller engine.init-states.test.ts
+KILLED       M2-12 rejection never settles engine.init-states.test.ts
+KILLED       M2-13 resolution never settles engine.init-states.test.ts
+KILLED       M2-14 unmapped kind warns every call engine.kind-maps.test.ts
+KILLED       M2-15 unmapped kind never warns engine.kind-maps.test.ts
+KILLED       M2-16 notice dropped from the loader engine.notice.test.ts
+KILLED       M2-17 allow-list admits javascript engine.link-schemes.test.ts
+KILLED       M2-18 allow-list admits dev engine.link-schemes.test.ts
+KILLED       M2-19 allow-list refuses mailto engine.link-schemes.test.ts
+SURVIVED     M2-20 allow-list by prefix text, not URL parse 
+KILLED       M2-21 allow-list admits anything that parses engine.link-schemes.test.ts
+KILLED       M2-22 provider never starts the engine MarkdownProvider.engine-state.test.tsx
+KILLED       M2-23 provider shows pending always MarkdownProvider.engine-state.test.tsx
+KILLED       M2-24 import scan ignores subpaths engine.import-confinement.test.ts
+KILLED       M2-25 import scan skips bot directory engine.import-confinement.test.ts
+KILLED       M2-26 import scan does not skip node_modules engine.import-confinement.test.ts

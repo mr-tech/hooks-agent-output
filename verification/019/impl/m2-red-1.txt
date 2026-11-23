@@ -1,0 +1,147 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/engine.surface-masks.test.ts (0 test)
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (0 test)
+ ❯ |node| src/utils/markdown/__tests__/engine.init-states.test.ts (6 tests | 6 failed) 376ms
+     × is pending until the wasm has loaded, and starts the load once however many surfaces ask 77ms
+     × is resolved after the wasm loads, and tells each subscriber once 265ms
+     × stops telling a subscriber that has left 16ms
+     × is rejected when the wasm fails to load, with one failure line per document 9ms
+     × names a non-error rejection by a fixed reason 3ms
+     × parses a surface under that surface's mask 3ms
+ ❯ |node| src/utils/markdown/__tests__/engine.link-schemes.test.ts (0 test)
+ ❯ |node| src/utils/markdown/__tests__/engine.import-confinement.test.ts (3 tests | 1 failed) 769ms
+     × lets the adapter, and at most one test oracle helper, name an engine package 755ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts [ src/utils/markdown/__tests__/engine.kind-maps.test.ts ]
+Error: Cannot find module '../engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.kind-maps.test.ts
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:5:1
+      3| } from 'vitest';
+      4|
+      5| import {
+       | ^
+      6|   EMOJI_KINDS,
+      7|   MENTION_KINDS,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.link-schemes.test.ts [ src/utils/markdown/__tests__/engine.link-schemes.test.ts ]
+Error: Cannot find module '../engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.link-schemes.test.ts
+ ❯ src/utils/markdown/__tests__/engine.link-schemes.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import { isAllowedLinkUrl, parseLossless } from '../engine';
+       | ^
+      4|
+      5| describe('the engine link scheme allow-list', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.surface-masks.test.ts [ src/utils/markdown/__tests__/engine.surface-masks.test.ts ]
+Error: Cannot find module '../engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.surface-masks.test.ts
+ ❯ src/utils/markdown/__tests__/engine.surface-masks.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import { SURFACE_MASKS } from '../engine';
+       | ^
+      4|
+      5| const BITS = {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.import-confinement.test.ts > the confinement of the engine packages > lets the adapter, and at most one test oracle helper, name an engine package
+AssertionError: expected [] to include 'src/utils/markdown/engine.ts'
+ ❯ src/utils/markdown/__tests__/engine.import-confinement.test.ts:66:23
+     64|   it('lets the adapter, and at most one test oracle helper, name an en…
+     65|     const { importers } = importersOf(WEBSITE_ROOT, ENGINE_PACKAGES);
+     66|     expect(importers).toContain(ADAPTER);
+       |                       ^
+     67|     const others = importers.filter((name) => name !== ADAPTER);
+     68|     expect(others.length).toBeLessThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > is pending until the wasm has loaded, and starts the load once however many surfaces ask
+Error: Cannot find module '/src/utils/markdown/engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.init-states.test.ts
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:36:20
+     34|     const gate = deferred();
+     35|     wasm.init.mockReturnValue(gate.promise);
+     36|     const engine = await freshEngine();
+       |                    ^
+     37|
+     38|     expect(engine.engineState()).toBe('pending');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > is resolved after the wasm loads, and tells each subscriber once
+Error: Cannot find module '/src/utils/markdown/engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.init-states.test.ts
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:49:20
+     47|     const gate = deferred();
+     48|     wasm.init.mockReturnValue(gate.promise);
+     49|     const engine = await freshEngine();
+       |                    ^
+     50|     const listener = vi.fn();
+     51|     engine.subscribeEngine(listener);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > stops telling a subscriber that has left
+Error: Cannot find module '/src/utils/markdown/engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.init-states.test.ts
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:63:20
+     61|   it('stops telling a subscriber that has left', async () => {
+     62|     wasm.init.mockResolvedValue(undefined);
+     63|     const engine = await freshEngine();
+       |                    ^
+     64|     const listener = vi.fn();
+     65|     const leave = engine.subscribeEngine(listener);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > is rejected when the wasm fails to load, with one failure line per document
+Error: Cannot find module '/src/utils/markdown/engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.init-states.test.ts
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:75:20
+     73|     wasm.init.mockRejectedValue(failure);
+     74|     const error = vi.spyOn(console, 'error').mockImplementation(() => …
+     75|     const engine = await freshEngine();
+       |                    ^
+     76|     const listener = vi.fn();
+     77|     engine.subscribeEngine(listener);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > names a non-error rejection by a fixed reason
+Error: Cannot find module '/src/utils/markdown/engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.init-states.test.ts
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:89:20
+     87|     wasm.init.mockRejectedValue('boom');
+     88|     const error = vi.spyOn(console, 'error').mockImplementation(() => …
+     89|     const engine = await freshEngine();
+       |                    ^
+     90|     await engine.startEngine();
+     91|     expect(error.mock.calls).toEqual([['markdown-engine-init-failure v…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses a surface under that surface's mask
+Error: Cannot find module '/src/utils/markdown/engine' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/engine.init-states.test.ts
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:97:20
+     95|     wasm.init.mockResolvedValue(undefined);
+     96|     wasm.parseLossless.mockReturnValue({ kind: { type: 'document' }, s…
+     97|     const engine = await freshEngine();
+       |                    ^
+     98|     await engine.startEngine();
+     99|     engine.parseLossless('embedTitleWithUrl', 'x');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+
+
+ Test Files  5 failed (5)
+      Tests  7 failed | 2 passed (9)
+   Start at  18:55:54
+   Duration  2.36s (transform 1.16s, setup 0ms, import 1.42s, tests 1.14s, environment 1ms)
+

@@ -1,0 +1,182 @@
+[
+  {
+    "name": "M2-01 title mask zero",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.surface-masks.test.ts"
+    ]
+  },
+  {
+    "name": "M2-02 title keeps GAME_MENTION",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.surface-masks.test.ts"
+    ]
+  },
+  {
+    "name": "M2-03 field value takes the content mask",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.surface-masks.test.ts"
+    ]
+  },
+  {
+    "name": "M2-04 content mask leaves DEV_LINKS on",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.surface-masks.test.ts"
+    ]
+  },
+  {
+    "name": "M2-05 url variant equals plain title",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.surface-masks.test.ts"
+    ]
+  },
+  {
+    "name": "M2-06 every surface parses under the content mask",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.init-states.test.ts"
+    ]
+  },
+  {
+    "name": "M2-07 link renderer entry removed",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.kind-maps.test.ts"
+    ]
+  },
+  {
+    "name": "M2-08 token entry removed",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.kind-maps.test.ts"
+    ]
+  },
+  {
+    "name": "M2-09 static mention entry removed",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.kind-maps.test.ts"
+    ]
+  },
+  {
+    "name": "M2-10 init not shared between callers",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.init-states.test.ts"
+    ]
+  },
+  {
+    "name": "M2-11 failure logged per caller",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.init-states.test.ts"
+    ]
+  },
+  {
+    "name": "M2-12 rejection never settles",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.init-states.test.ts"
+    ]
+  },
+  {
+    "name": "M2-13 resolution never settles",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.init-states.test.ts"
+    ]
+  },
+  {
+    "name": "M2-14 unmapped kind warns every call",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.kind-maps.test.ts"
+    ]
+  },
+  {
+    "name": "M2-15 unmapped kind never warns",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.kind-maps.test.ts"
+    ]
+  },
+  {
+    "name": "M2-16 notice dropped from the loader",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.notice.test.ts"
+    ]
+  },
+  {
+    "name": "M2-17 allow-list admits javascript",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.link-schemes.test.ts"
+    ]
+  },
+  {
+    "name": "M2-18 allow-list admits dev",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.link-schemes.test.ts"
+    ]
+  },
+  {
+    "name": "M2-19 allow-list refuses mailto",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.link-schemes.test.ts"
+    ]
+  },
+  {
+    "name": "M2-20 allow-list by prefix text, not URL parse",
+    "outcome": "SURVIVED",
+    "failedFiles": []
+  },
+  {
+    "name": "M2-21 allow-list admits anything that parses",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.link-schemes.test.ts"
+    ]
+  },
+  {
+    "name": "M2-22 provider never starts the engine",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/providers/__tests__/MarkdownProvider.engine-state.test.tsx"
+    ]
+  },
+  {
+    "name": "M2-23 provider shows pending always",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/providers/__tests__/MarkdownProvider.engine-state.test.tsx"
+    ]
+  },
+  {
+    "name": "M2-24 import scan ignores subpaths",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.import-confinement.test.ts"
+    ]
+  },
+  {
+    "name": "M2-25 import scan skips bot directory",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.import-confinement.test.ts"
+    ]
+  },
+  {
+    "name": "M2-26 import scan does not skip node_modules",
+    "outcome": "KILLED",
+    "failedFiles": [
+      "src/utils/markdown/__tests__/engine.import-confinement.test.ts"
+    ]
+  }
+]

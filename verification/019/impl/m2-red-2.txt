@@ -1,0 +1,41 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/providers/__tests__/MarkdownProvider.engine-state.test.tsx (4 tests | 4 failed) 29ms
+     × starts the engine when it mounts and shows pending until the engine is ready 21ms
+     × shows resolved once the engine is ready 2ms
+     × shows rejected when the engine failed to load 2ms
+     × reads an engine that was already ready before the provider mounted 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/MarkdownProvider.engine-state.test.tsx > MarkdownProvider engine state > starts the engine when it mounts and shows pending until the engine is ready
+ FAIL  |dom| src/providers/__tests__/MarkdownProvider.engine-state.test.tsx > MarkdownProvider engine state > shows resolved once the engine is ready
+ FAIL  |dom| src/providers/__tests__/MarkdownProvider.engine-state.test.tsx > MarkdownProvider engine state > shows rejected when the engine failed to load
+ FAIL  |dom| src/providers/__tests__/MarkdownProvider.engine-state.test.tsx > MarkdownProvider engine state > reads an engine that was already ready before the provider mounted
+TypeError: useEngineState is not a function
+ ❯ Probe src/providers/__tests__/MarkdownProvider.engine-state.test.tsx:33:37
+     31|
+     32| function Probe() {
+     33|   return <span data-testid="state">{useEngineState()}</span>;
+       |                                     ^
+     34| }
+     35|
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+ ❯ performWorkOnRoot node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:16583:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  18:57:08
+   Duration  1.32s (transform 48ms, setup 21ms, import 87ms, tests 29ms, environment 853ms)
+
