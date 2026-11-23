@@ -741,3 +741,15 @@ Premises read this turn:
 - Hours: from Revision 0, at 15:38:16Z, to Revision 7, at 17:53:44Z.
 - Spend: `cc-usage.py chain 019` gives TOTAL $168.64 over the `*019` sessions, from about 15:39Z to 17:58Z. That is the whole plan,
   not one milestone: the instrument has no per-milestone split. It excludes the researcher and this thread.
+
+## 2026-11-23T18:02Z — plan 019 AC-4.7: three consecutive revisions; this thread decides before the next fold (steering.md Standing check)
+
+AC-4.7 was revised in Revisions 6, 7 and 8 (`grep` of the plan's changelog rows: `946d4e54`, `e0eb1e87`, `7b419f5b`). QA's re-key on
+Revision 8 (`5ca68b07`) raises QAF-28 MEDIUM, a severity floor. Revision 8's "unloaded tag" fixture, ja-JP, is a locale the site does
+load, from QA's own wrong P-Q18, so that branch of AC-4.7 would assert against a loaded locale and test nothing. The fix is one
+fixture's tag and literal (vi-VN).
+**Decision: fold it.** Weighed: recording it as a stated limit would leave one of AC-4.7's four branches vacuous; a fold costs one
+gate round on a single literal. Conditions:
+- Revision 9 batches QAF-28 with the critic's and architect's Revision 8 verdicts, so there is one fold.
+- The gates read only AC-4.7's delta.
+- After Revision 9, a further AC-4.7 gap of any severity is decided here before any fold, against a stated limit.
