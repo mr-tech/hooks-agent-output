@@ -1,19 +1,7 @@
 ---
 UUID: 91e0e83a
-Status: Active
-Status-Detail: >-
-  The oracle question has a determination: Discord publishes its own message parser on npm under an
-  MIT licence (`@discord/markdown-wasm`), byte-identical to what the web client serves, and it runs
-  under plain Node. Discord's older parser runs from the logged-out public page. Both were run over a
-  272-case corpus here, and the corpus was then checked against real Discord on the test server:
-  the one account observed is drawn by the older parser, in messages and in the text box, on every
-  case (V-15, V-18, V-21, V-23). The owner has settled the standard: match Discord only where its
-  two parsers agree, and list the rest as known differences (OQ-1, 2026-11-23T13:09Z). The question
-  is settled. Stays Active on one thing: five items owed to the effort (OQ-3 with G-3, G-8, G-9,
-  G-11, G-13) have no carrier but this document until the effort's plan exists; it closes as
-  Answered when the plan's first revision is committed and carries or declines them. The published
-  parser has not been seen rendered (G-11). The per-client checks of third-party clients stay not
-  done by his selection of 2026-11-23T09:31Z.
+Status: Answered
+Status-Detail: "The oracle question is answered, and the owner has settled the standard (match Discord only where its two parsers agree) and the engine (the site uses the published parser). Plan 019, planning/019-slate-formatting-discord-engine.md, Revision 0, carries by name the five items this document left to the effort (OQ-3 with G-3, G-8, G-9, G-11, G-13). A sixth limb found at the close, G-14 (an emoji inside a link label on a webhook message), is carried by an entry in the record's INBOX.md. Two things stay unestablished and are stated as such: the published parser seen rendered in Discord (G-11) and the share of users on each parser (G-2)."
 ---
 
 # Which oracle can tell the Slate formatting effort "what Discord does"?
@@ -29,69 +17,11 @@ Status-Detail: >-
 | 2026-11-23T13:11 | researcher-slate-formatting-oracle | OQ-1 closed on the owner's selection; OQ-4 routed to the architect; G-11 recorded as a gap for the plan; § 4 and Recommendations brought into line | Effort rulings block "2026-11-23T13:09Z" (record commit `ab4dbaea`), read whole at this write, at `steering-hooks-fixer`'s message. G-11 was offered to this session if it could reach test account 2's profile; its browser holds test account 1's only, so the read was not made. Not closed: the Close Procedure wants a carrier outside this document for the items owed to the effort, and no plan exists yet (Status-Detail). Citation corrected in the body: the ruling that Discord's code may run as a test oracle is rulings block "2026-11-23T09:17Z", which § Context and the § 1 table had cited as "09:18Z" (the scoping block after it); `grep -n "09:18Z"` gave three body hits before, and after it gives one, the range "09:07Z to 09:18Z" in § Context, which is right as a range. The 09:32 row above keeps its wording. |
 | 2026-11-23T15:25 | researcher-slate-formatting-oracle | OQ-4 closed on the owner's selection; § 4 gains what it changes for the oracle | Effort rulings block "2026-11-23T15:23Z" (record commit `5d7fbf5e`), read whole at this write, at `steering-hooks-fixer`'s message. The architect's findings document is named from that block and was not read here. Still Active on the plan's first commit (Status-Detail). |
 | 2026-11-23T15:26 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State rewritten | The one next act is the close, on steering's cue. Cache-warm wake deleted at this checkpoint. |
+| 2026-11-23T15:46 | researcher-slate-formatting-oracle | Document closed | Status: Answered. Resumed from the Resumption State (record commit `25190ae4`) after a `/clear`, on `steering-hooks-fixer`'s cue that plan 019 was first committed (record commit `09170dd0`). The plan was read whole at this write, at that commit (`git diff --quiet 09170dd0 -- <plan>` exit 0 in the working tree). Nothing in § Findings was re-run or re-verified in this session; it is carried as written. Each of the five items of Recommendations item 4 is carried by the plan by name; the rows in Open questions and Remaining gaps now name each carrier. Added at the close: G-14, a limb V-23 left untested that neither Recommendations item 4 nor the plan listed, with its carrier; Appendix C, the corpus; fates for G-2, G-7, G-10 and G-12; and three install directories § Scratch instruments had not named. `node tools/check-repo.js` at this session's start: exit 1, 24 failures outside the baseline, none in this document, each in a file an `INBOX.md` entry already names (`grep -c` of the inbox for each of the five failing paths: 1, 1, 2, 4, 2). |
 
 ## Resumption State
 
-Written 2026-11-23T15:26Z at `steering-hooks-fixer`'s `/checkpoint`. The session is cleared after
-this commit; its next turn comes on steering's cue. The 09:35Z checkpoint's text is in record commit
-`ef9c9dd4`.
-
-**Done.** Everything in § Findings through § Appendix B; the walk against real Discord (V-15 to
-V-23); OQ-1 and OQ-4 closed from the owner's selections; OQ-2, G-1, G-4, G-5 closed. The document
-was delivered to `steering-hooks-fixer` (message id `97108655-88a6-431f-b7c5-56b539f04a75`)
-and `planner-slate-formatting` was told at 15:25Z that § 4 and Recommendations item 4 moved after
-its spawn.
-
-**Next act, one, on steering's cue that the Slate effort's plan is first committed.** Close this
-document:
-1. Read the plan under `planning/` (no Slate plan existed at this checkpoint: `ls planning` had no
-   such file) and find, for each of the five items this document leaves to the effort, the row that
-   carries or declines it: OQ-3 with G-3 (embed and Components V2 rule sets), G-8 (module-id
-   stability), G-9 (the editor and embed rule sets against the oracle), G-11 (the published parser
-   seen rendered, by test account 2), G-13 (real role, command and usable-emoji ids).
-2. An item the plan neither carries nor declines blocks the close: send it to `steering-hooks-fixer`
-   and hold. Otherwise name each item's carrier by path in the Open questions and Remaining gaps
-   rows.
-3. Close per `document-lifecycle/references/documents.md` § Close Procedure: `Status: Answered`,
-   `Status-Detail` reconciled, this Resumption State replaced by one closing line, the changelog row
-   `Document closed`, then move the file to `research/closed/`, commit by pathspec, and run
-   `node tools/check-repo.js` from the record root.
-
-**Approach in flight.** None. Nothing is mid-edit and no run is in progress.
-
-**Refs.** Record repository `agent-output`, branch `master`, HEAD `b668ea1d` before this
-checkpoint's commit; this document's last commit before it is the same. Website read at
-`origin/master` `0411d3b`; the shared website tree was not touched.
-
-**Uncommitted or locally mutated.** One entry of this session's in `agent-output/INBOX.md` (headed
-"2026-11-23 — researcher-slate-formatting-oracle — FYI"), left for the record's owning session to
-commit, as the inbox's rule has it. Outside any repository:
-`~/.claude/skills/discord-test-browser/test-estate.json` carries the `slate-oracle-walk` channel
-entry this session added. Nothing else.
-
-**Evidence run but not recorded.** None; every figure in this document has its output under the
-two scratch directories named in § Scratch instruments.
-
-**Processes.** None of this session's work is running; the browser was closed at 10:55Z and its
-profile's cache directories emptied.
-
-**Left on the test server.** Channel `slate-oracle-walk` (id `1574358729577599086`) in guild
-`1566742402180456559`, holding the corpus as 278 bot messages and 272 webhook messages, kept so a
-later walk (G-11) can read the same messages from another account without posting again. The
-webhook that posted the second set was deleted at the end of the run. `test-estate.json` names the
-channel.
-
-**Scratch.** § Scratch instruments lists what was kept and what was deleted.
-
-**Questions sent, and to whom.** To `steering-hooks-fixer`: OQ-1 and OQ-4 (both since answered by
-the owner through it), the check (c) result, this document's path at delivery, and the ask to be
-cued when the plan is first committed (message id `8aa7050f-dc74-4ac0-a92e-e1d5b0ddb390`), which it
-accepted in its message carrying rulings block "2026-11-23T15:23Z". None is awaiting an answer.
-Nothing was put to the owner directly.
-
-**Standing bounds.** Test server only; nothing to any other server, DM or person. Discord's code is
-fetched from public assets, never committed, never shipped. The search over the cloned clients is not
-re-issued in any form. No `.env*` value is read. The bare word `none` is not used in a command.
+Closed on `steering-hooks-fixer`'s cue of 2026-11-23; nothing is in flight and no question awaits an answer (the 15:26Z checkpoint's text is in record commit `25190ae4`).
 
 ## Question
 
@@ -712,7 +642,7 @@ Known gaps of this arrangement:
 |---|---|---|---|
 | OQ-1 | ANSWERED — the owner chose "match only where both agree"; the disagreeing cases are listed as known differences. Effort rulings `steering/fixer-queue-2026-11-21-rulings.md`, block "2026-11-23T13:09Z". § 4 states what it changes. | | |
 | OQ-2 | ANSWERED — the test account is served the legacy parser, and rendered Discord equals the legacy parser's tree on the whole corpus, for the message and in the text box's styling. V-15, V-18, V-21. The native parser has not been seen rendered (G-11). | | |
-| OQ-3 | Which parser and which syntax set does Discord use for embed description, embed title, field name, field value, footer and Components V2 text? | Analyst or the effort's first stage | Fetch the lazy chunks, read the embed renderer; or read the DOM of posted embeds in the walk. |
+| OQ-3 | ROUTED, not answered here — which parser and which syntax set Discord uses for embed description, embed title, field name, field value, footer and Components V2 text. Carried by `planning/019-slate-formatting-discord-engine.md`, M1 item AN-3 "Surface masks", which names OQ-3, G-3 and H-3; M2's per-surface masks (AC-2.3 "Mask table") are built on its table. | The plan's analyst (AN-3) | AN-3's table: surface × `Syntax` bit, with the legacy, native and rendered result for each. |
 | OQ-4 | ANSWERED — the owner chose "use Discord's formatter": the published parser drives the site's preview and the editor's colouring, and the old one stays in tests only. Effort rulings `steering/fixer-queue-2026-11-21-rulings.md`, block "2026-11-23T15:23Z", on the architect's findings `architecture/slate-formatting-preview-architecture-findings.md`. § 4 states what it changes for the oracle. | | |
 | OQ-5 | Which constructs does each independent third-party client implement, and does any format in its text box? | Retired 2026-11-23 | The owner's selection "Agent: leave them not done" (effort rulings block "2026-11-23T09:32Z"): the per-client checks stay not done and third-party clients are a footnote. |
 
@@ -721,18 +651,19 @@ Known gaps of this arrangement:
 | # | Unknown | Blocker | Required action | Owner |
 |---|---|---|---|---|
 | G-1 | RESOLVED for the legacy parser — rendered Discord equals its tree on the 272-case corpus for test account 1. V-18. The native parser's part moves to G-11. | | | |
-| G-2 | The share of users on each parser | Server-side experiment assignment | None available from public assets; the walk answers it for the test accounts only | — |
-| G-3 | Embed and Components V2 rule sets (H-3) | Embed renderer is in a lazy chunk not fetched | OQ-3 | effort |
+| G-2 | The share of users on each parser | Server-side experiment assignment | Not resolvable from public assets, and owed by no one: it lapses with this document. The walk answers it for test account 1 only. The plan accepts the consequence as RK-4 (`planning/019-slate-formatting-discord-engine.md`, § Risks). What would close it: figures from Discord, or a read of the two experiments of V-2 across many accounts | — |
+| G-3 | Embed and Components V2 rule sets (H-3) | Embed renderer is in a lazy chunk not fetched | Carried with OQ-3 by `planning/019-slate-formatting-discord-engine.md`, M1 item AN-3 "Surface masks" | the plan's analyst |
 | G-4 | RESOLVED — read from the text box's DOM: links, quotes, code blocks, lists and headings in the legacy text box. V-21. | | | |
 | G-5 | RESOLVED — the legacy renderer's tags, read from the DOM. V-20. | | | |
-| G-6 | Per-client construct, text-box and test checks for 25 of 26 cloned clients; four library cells (masked link, underline, escape, list) for four libraries | Not completed | Deferred: stays not done by the owner's selection (OQ-5) | — |
-| G-7 | Older parser versions (0.12.0 and earlier) | Different API | Not needed unless the pin goes backwards | — |
-| G-8 | Module-id stability beyond 13 hours | Only three same-day builds observed | Re-run the predicate table on a later build; the drift alarm does this as a side effect | effort |
-| G-9 | The site's interactive (editor) rule set and embed rule sets against the oracle | Only the static content set was run | The effort's fuzzer | effort |
-| G-10 | The January 2025 post on Discord's Rust markdown rewrite | Host did not resolve | Fetch from another network or find the canonical URL | — |
-| G-11 | The native parser against rendered Discord, and the native text box | Test account 1 is on the legacy path; whether test account 2 is was not read (its Chrome profile is not the one this session's browser holds; offered to this session at 13:09Z and not made for that reason) | A gap for the plan: read three discriminating cases (`***bi***`, `# # nested`, `**# not head**`) in `slate-oracle-walk` as test account 2; failing that, an account Discord has placed in the native experiment. Until then the native parser rests on V-4. Under OQ-1's answer it no longer decides the standard; it decides only whether the native half of "both agree" has been seen rendered | effort (a stage whose session holds test account 2's profile) |
-| G-12 | The account's experiment assignment itself (why it is on legacy) | Not read from the signed-in page; the DOM settled the question it would have answered | Read the two experiments of V-2 from the client's experiment store | — |
-| G-13 | Rendered DOM for a role and a slash command that exist, and for a custom emoji the poster can use | The corpus used made-up ids, which Discord draws as text or rewrites (V-18, V-19) | Post those three with real ids from the test server | effort |
+| G-6 | Per-client construct, text-box and test checks for 25 of 26 cloned clients; four library cells (masked link, underline, escape, list) for four libraries | Not completed | Deferred: stays not done by the owner's selection (OQ-5), which the plan records as D-9 and excludes as X-10 "Third-party clients" (`planning/019-slate-formatting-discord-engine.md`) | — |
+| G-7 | Older parser versions (0.12.0 and earlier) | Different API | Not needed unless the pin goes backwards; owed by no one, and it lapses with this document | — |
+| G-8 | Module-id stability beyond 13 hours | Only three same-day builds observed | Carried by `planning/019-slate-formatting-discord-engine.md`: M1 item AN-4 "Legacy oracle in the test environment" re-runs the predicate table on the stable build current at the analysis, and M3's AC-3.5 "Fetch failure is loud" fails a predicate that matches zero modules or more than one | the plan's analyst, then M3 |
+| G-9 | The site's interactive (editor) rule set and embed rule sets against the oracle | Only the static content set was run | Carried by `planning/019-slate-formatting-discord-engine.md`, M3: AC-3.1 "Preview oracle" on every surface whose mask AN-3 settles, and AC-3.2 "Editor oracle" | the plan (M3) |
+| G-10 | The January 2025 post on Discord's Rust markdown rewrite | Host did not resolve | Nothing here relies on it (I-3); owed by no one, and it lapses with this document. What would close it: fetch from another network or find the canonical URL | — |
+| G-11 | The native parser against rendered Discord, and the native text box | Test account 1 is on the legacy path; whether test account 2 is was not read (its Chrome profile is not the one this session's browser holds; offered to this session at 13:09Z and not made for that reason) | A gap for the plan: read three discriminating cases (`***bi***`, `# # nested`, `**# not head**`) in `slate-oracle-walk` as test account 2; failing that, an account Discord has placed in the native experiment. Until then the native parser rests on V-4. Under OQ-1's answer it no longer decides the standard; it decides only whether the native half of "both agree" has been seen rendered . Carried by `planning/019-slate-formatting-discord-engine.md`, M1 item AN-7 "Real-Discord reads", with the limit that item states: if no session's browser holds test account 2's profile, the native render stays unseen | the plan's analyst (AN-7) |
+| G-12 | The account's experiment assignment itself (why it is on legacy) | Not read from the signed-in page; the DOM settled the question it would have answered | Owed by no one, and it lapses with this document. What would close it: read the two experiments of V-2 from the client's experiment store. The plan's D-5 row names such a read as part of how its stop condition is observed (`planning/019-slate-formatting-discord-engine.md`, Decisions Register) | — |
+| G-13 | Rendered DOM for a role and a slash command that exist, and for a custom emoji the poster can use | The corpus used made-up ids, which Discord draws as text or rewrites (V-18, V-19) | Carried by `planning/019-slate-formatting-discord-engine.md`, M1 item AN-7 "Real-Discord reads": post the three with real ids from the test server and read the DOM | the plan's analyst (AN-7) |
+| G-14 | Whether Discord draws an emoji inside a masked link's label differently for a webhook message than for a bot's, and so which legacy parser state gives the expected value for a message the site sends | Found at the close. V-23 left it untested (the corpus has no emoji inside a link label); V-7 ran the legacy parser with `allowEmojiLinks` false; § 3 step 1 says the legacy code grants emoji in link labels by `webhookId` (module 354777) and that the product sends through webhooks. Recommendations item 4 did not list it, and the plan at Revision 0 names neither term (`grep -c` over the plan for `webhook` and for `allowEmojiLinks`: 0 and 0) | Post a masked link whose label is a Unicode emoji, and one whose label is a custom emoji the poster can use, to `slate-oracle-walk` as the bot and through a webhook, and read both DOMs; read in module 354777 which state flags a webhook message's parse is given. Carried by the entry in `INBOX.md` headed "2026-11-23 — researcher-slate-formatting-oracle — FYI" whose first line names plan 019; `planner-slate-formatting` was sent its path | the plan (019), through that entry |
 
 ## Scratch instruments (perishable)
 
@@ -744,7 +675,12 @@ a `corpus` folder (`corpus.js`, the 272 cases); a `tools` folder of scripts writ
 request filter; `norm.py` and `compare.py`, canonical form and scoring; `mods.py` and `buildcmp.py`,
 module indexer and cross-build comparison); a `runs` folder (every output cited above); and a
 `helpers` folder (`libraries-table.md` and `clients-table.md`, the helpers' tables). None of these
-is a path in this repository. The third-party `clones/` directory was deleted at the 09:35Z
+is a path in this repository. From the close the corpus itself is in the record (Appendix C); the outputs are not, and
+can be made again from it by running both parsers and by reading the messages left in `slate-oracle-walk`. The same
+directory also holds three install directories this section had not named: `cands` (the libraries of V-9), `official`
+(`@discord/markdown-wasm` and `@discord/markdown-react`) and `official-old` (five earlier versions of the parser), all from
+the npm registry and obtainable again from it. They were left in place at the close, since the scripts in `tools` load from
+them and a session named `analyst-019` was listed as running the plan's M1. The third-party `clones/` directory was deleted at the 09:35Z
 checkpoint, and the directories that held Discord's code and the website export
 (`discord-assets`, `discord-assets-canary`, `discord-assets-ptb`, `discord-mods`, `site-export`,
 `site`) were deleted at the end of the resumed run; the export's `node_modules` link was removed
@@ -765,10 +701,9 @@ corpus and carry no account data beyond resolved names.
 2. The § 3 walk has been run once (V-15 to V-23). What it could not reach is in G-11 and G-13; the
    cheapest next read is three discriminating cases from `slate-oracle-walk` as test account 2.
 3. Done: OQ-4 went to the architect and the owner answered it (Open questions).
-4. Next: the planner, after the architect's recommendation has been to the owner (it mints the
-   effort's ID and cites this document by name). The plan should carry or decline, by name, the
-   items this document leaves to the effort: OQ-3 with G-3 (embed and Components V2 rule sets), G-8
-   (module-id stability), G-9 (the editor and embed rule sets against the oracle), G-11 and G-13.
+4. Done: the planner minted ID 019, and its plan `planning/019-slate-formatting-discord-engine.md` (Revision 0), read at the close, carries each of the five
+   items by name in its § "Inventory carriage": OQ-3 with G-3 by AN-3 and the M2 masks, G-8 by AN-4 and M3's locator, G-9
+   by M3, G-11 and G-13 by AN-7. This item should have listed a sixth and did not: G-14 (Remaining gaps).
 
 ## Appendix A — the 37 cases where Discord's two parsers disagree
 
@@ -858,3 +793,326 @@ and 254 are normaliser artefacts (see V-10), and the others have not been read o
 | 258 | `# h\ntext\n- a\n> q\n-# s` | h1("h") "text" ul(li("a")) q("q") sub("s") | h1("h") "text" ul(li("a")) q("q") "-" h1("s") |
 | 265 | `-# https://example.com` | sub(a(https://example.com/)) | "-" h1(a(https://example.com/)) |
 | 270 | `¯\\_(ツ)_/¯` | "¯\\_(ツ)_/¯" | "¯_(ツ)_/¯" |
+
+## Appendix C — the corpus
+
+Added at the close, because until then the corpus existed only in a scratch directory (§ Scratch
+instruments). Every count in this document is taken over these inputs, and the row numbers of
+Appendices A and B are the ids here. Each line of a block is one JSON value, so a leading or trailing
+space, a tab and a line break inside a case are exact (`\t`, `\n`). The blocks were written by a
+script from the scratch files `corpus.json`, `links.json` and `tb-cases.json`; the counts were
+asserted by that script before writing (272, 18, and 79 with 7).
+
+**The 272 cases** (`[id, category, text]`):
+
+~~~~json
+[1, "heading", "# one"]
+[2, "heading", "## two"]
+[3, "heading", "### three"]
+[4, "heading", "#### four"]
+[5, "heading", "#nospace"]
+[6, "heading", " # leading space"]
+[7, "heading", "# trailing hashes ##"]
+[8, "heading", "text\n# after text"]
+[9, "heading", "text # mid line"]
+[10, "heading", "# **bold** head"]
+[11, "heading", "# # nested"]
+[12, "heading", "#  two spaces"]
+[13, "heading", "# a\n# b"]
+[14, "heading", "#\tTab"]
+[15, "subtext", "-# sub"]
+[16, "subtext", "-#nospace"]
+[17, "subtext", " -# leading space"]
+[18, "subtext", "-# -# nested"]
+[19, "subtext", "text\n-# after"]
+[20, "subtext", "-# **b** *i*"]
+[21, "subtext", "# -# head then sub"]
+[22, "subtext", "-# # sub then head"]
+[23, "subtext", "a -# mid"]
+[24, "masked", "[text](https://example.com)"]
+[25, "masked", "[text](http://example.com/a_b)"]
+[26, "masked", "[text](example.com)"]
+[27, "masked", "[text](<https://example.com>)"]
+[28, "masked", "[text](https://example.com \"title\")"]
+[29, "masked", "[**bold**](https://example.com)"]
+[30, "masked", "[a [b] c](https://example.com)"]
+[31, "masked", "[https://evil.com](https://example.com)"]
+[32, "masked", "[text](https://example.com/a(b)c)"]
+[33, "masked", "[](https://example.com)"]
+[34, "masked", "[ ](https://example.com)"]
+[35, "masked", "[text]( https://example.com )"]
+[36, "masked", "**[text](https://example.com)**"]
+[37, "masked", "[text](https://example.com)[two](https://example.org)"]
+[38, "masked", "[text] (https://example.com)"]
+[39, "masked", "[`code`](https://example.com)"]
+[40, "masked", "[||sp||](https://example.com)"]
+[41, "masked", "[text](ftp://example.com)"]
+[42, "masked", "[text](discord://-/channels/1/2)"]
+[43, "masked", "[te\nxt](https://example.com)"]
+[44, "link", "https://example.com"]
+[45, "link", "http://example.com/path?q=1#h"]
+[46, "link", "https://example.com."]
+[47, "link", "https://example.com)"]
+[48, "link", "(https://example.com)"]
+[49, "link", "https://example.com/a(b)"]
+[50, "link", "<https://example.com>"]
+[51, "link", "<http://example.com/a b>"]
+[52, "link", "<example.com>"]
+[53, "link", "www.example.com"]
+[54, "link", "https://example.com/**bold**"]
+[55, "link", "**https://example.com**"]
+[56, "link", "https://example.com/a_b_c"]
+[57, "link", "_https://example.com_"]
+[58, "link", "steam://run/440"]
+[59, "link", "mailto:a@b.co"]
+[60, "link", "<a@b.co>"]
+[61, "link", "https://example.com,"]
+[62, "link", "https://exa mple.com"]
+[63, "link", "x https://example.com y"]
+[64, "link", "https://example.com's"]
+[65, "link", "HTTPS://EXAMPLE.COM"]
+[66, "spoiler", "||sp||"]
+[67, "spoiler", "||a\nb||"]
+[68, "spoiler", "|| ||"]
+[69, "spoiler", "||||"]
+[70, "spoiler", "||**b**||"]
+[71, "spoiler", "**||b||**"]
+[72, "spoiler", "||a||b||c||"]
+[73, "spoiler", "|||a|||"]
+[74, "spoiler", "||`code`||"]
+[75, "spoiler", "`||x||`"]
+[76, "spoiler", "||https://example.com||"]
+[77, "spoiler", "||unclosed"]
+[78, "emphasis", "*i*"]
+[79, "emphasis", "_i_"]
+[80, "emphasis", "**b**"]
+[81, "emphasis", "__u__"]
+[82, "emphasis", "~~s~~"]
+[83, "emphasis", "***bi***"]
+[84, "emphasis", "___ui___"]
+[85, "emphasis", "__*ui*__"]
+[86, "emphasis", "**__bu__**"]
+[87, "emphasis", "*__iu__*"]
+[88, "emphasis", "***__biu__***"]
+[89, "emphasis", "**b *bi* b**"]
+[90, "emphasis", "*i **ib** i*"]
+[91, "emphasis", "* not italic*"]
+[92, "emphasis", "*loose *"]
+[93, "emphasis", "*a * b*"]
+[94, "emphasis", "snake_case_word"]
+[95, "emphasis", "_a_b_"]
+[96, "emphasis", "a*b*c"]
+[97, "emphasis", "**a*"]
+[98, "emphasis", "*a**"]
+[99, "emphasis", "****"]
+[100, "emphasis", "** b **"]
+[101, "emphasis", "__ u __"]
+[102, "emphasis", "~~a~~~"]
+[103, "emphasis", "~~ s ~~"]
+[104, "emphasis", "*a\nb*"]
+[105, "emphasis", "**a\n\nb**"]
+[106, "emphasis", "_a_ _b_"]
+[107, "emphasis", "*a**b**c*"]
+[108, "emphasis", "**a*b*c**"]
+[109, "emphasis", "~~**a**~~"]
+[110, "emphasis", "**~~a~~**"]
+[111, "emphasis", "_**a**_"]
+[112, "emphasis", "__a_"]
+[113, "emphasis", "_a__"]
+[114, "emphasis", "*a*b*"]
+[115, "emphasis", "\\*a*"]
+[116, "code", "`code`"]
+[117, "code", "``co`de``"]
+[118, "code", "` code `"]
+[119, "code", "`unclosed"]
+[120, "code", "``"]
+[121, "code", "`a``b`"]
+[122, "code", "`**b**`"]
+[123, "code", "**`b`**"]
+[124, "code", "```block```"]
+[125, "code", "```\nblock\n```"]
+[126, "code", "```js\nlet a = 1;\n```"]
+[127, "code", "```js let a```"]
+[128, "code", "```JS\nx\n```"]
+[129, "code", "```c++\nx\n```"]
+[130, "code", "```notalang\nx\n```"]
+[131, "code", "```\n\n\nx\n\n\n```"]
+[132, "code", "a ```b``` c"]
+[133, "code", "```unclosed\nx"]
+[134, "code", "````x````"]
+[135, "code", "```\n```"]
+[136, "code", "```js\n```"]
+[137, "code", "> ```\n> x\n> ```"]
+[138, "code", "```a\nb```c```"]
+[139, "code", "`a\nb`"]
+[140, "code", "```**b**```"]
+[141, "quote", "> q"]
+[142, "quote", ">q"]
+[143, "quote", "> a\n> b"]
+[144, "quote", "> a\nb"]
+[145, "quote", ">>> a\nb\nc"]
+[146, "quote", ">>>a"]
+[147, "quote", "x > q"]
+[148, "quote", "x\n> q"]
+[149, "quote", "> > nested"]
+[150, "quote", "> **b**"]
+[151, "quote", ">  two spaces"]
+[152, "quote", " > leading space"]
+[153, "quote", "> a\n\n> b"]
+[154, "quote", "> # head"]
+[155, "quote", "> - item"]
+[156, "quote", ">>> # head\n- item"]
+[157, "quote", "> "]
+[158, "quote", ">>> "]
+[159, "quote", "> a\n>>> b"]
+[160, "quote", ">> a"]
+[161, "list", "- a"]
+[162, "list", "* a"]
+[163, "list", "+ a"]
+[164, "list", "- a\n- b"]
+[165, "list", "1. a\n2. b"]
+[166, "list", "5. a\n6. b"]
+[167, "list", "1) a"]
+[168, "list", "-a"]
+[169, "list", "- a\n  - b"]
+[170, "list", "- a\n - b"]
+[171, "list", "- a\n    - b"]
+[172, "list", "- a\n\n- b"]
+[173, "list", "text\n- a"]
+[174, "list", "text - a"]
+[175, "list", "- **b**"]
+[176, "list", "- a\ntext"]
+[177, "list", "1. a\n- b"]
+[178, "list", "- # head"]
+[179, "list", "0. a"]
+[180, "list", "1000000000000. a"]
+[181, "list", "- a\n  continued"]
+[182, "list", "-  two spaces"]
+[183, "list", "1. a\n1. b"]
+[184, "list", "- [x] task"]
+[185, "list", "- "]
+[186, "timestamp", "<t:1700000000>"]
+[187, "timestamp", "<t:1700000000:R>"]
+[188, "timestamp", "<t:1700000000:F>"]
+[189, "timestamp", "<t:1700000000:x>"]
+[190, "timestamp", "<t:-1>"]
+[191, "timestamp", "<t:99999999999999999>"]
+[192, "timestamp", "<t:abc>"]
+[193, "timestamp", "<t:1700000000:s>"]
+[194, "timestamp", "<t:1700000000:S>"]
+[195, "timestamp", "**<t:1700000000>**"]
+[196, "timestamp", "`<t:1700000000>`"]
+[197, "timestamp", "<t:1700000000:>"]
+[198, "mention", "<@123456789012345678>"]
+[199, "mention", "<@!123456789012345678>"]
+[200, "mention", "<@&123456789012345678>"]
+[201, "mention", "<#123456789012345678>"]
+[202, "mention", "@everyone"]
+[203, "mention", "@here"]
+[204, "mention", "@Everyone"]
+[205, "mention", "</ping:123456789012345678>"]
+[206, "mention", "</a b c:123456789012345678>"]
+[207, "mention", "<@abc>"]
+[208, "mention", "**<@123456789012345678>**"]
+[209, "mention", "`<@123456789012345678>`"]
+[210, "mention", "<id:customize>"]
+[211, "mention", "<id:browse>"]
+[212, "mention", "x@everyone"]
+[213, "mention", "<@123>"]
+[214, "mention", "@silent hi"]
+[215, "emoji", "<:name:123456789012345678>"]
+[216, "emoji", "<a:name:123456789012345678>"]
+[217, "emoji", ":smile:"]
+[218, "emoji", ":notanemoji:"]
+[219, "emoji", "😀"]
+[220, "emoji", "👍🏽"]
+[221, "emoji", ":thumbsup::skin-tone-3:"]
+[222, "emoji", "<:name:abc>"]
+[223, "emoji", "**:smile:**"]
+[224, "emoji", "`:smile:`"]
+[225, "emoji", "\\:smile:"]
+[226, "emoji", "\\😀"]
+[227, "emoji", ":smile: :smile:"]
+[228, "emoji", "a:smile:b"]
+[229, "emoji", "<:a:1><:b:2>"]
+[230, "emoji", "© ™"]
+[231, "emoji", ":+1:"]
+[232, "escape", "\\*a\\*"]
+[233, "escape", "\\**a**"]
+[234, "escape", "\\_a\\_"]
+[235, "escape", "\\# head"]
+[236, "escape", "\\> q"]
+[237, "escape", "\\- item"]
+[238, "escape", "\\`code\\`"]
+[239, "escape", "\\||sp\\||"]
+[240, "escape", "\\\\"]
+[241, "escape", "\\a"]
+[242, "escape", "\\1"]
+[243, "escape", "\\"]
+[244, "escape", "\\[t](https://example.com)"]
+[245, "escape", "[t\\](https://example.com)"]
+[246, "escape", "\\https://example.com"]
+[247, "escape", "\\<@123456789012345678>"]
+[248, "escape", "\\<t:1700000000>"]
+[249, "escape", "\\-# sub"]
+[250, "escape", "\\~~s~~"]
+[251, "escape", "a\\\nb"]
+[252, "mix", "a\nb"]
+[253, "mix", "a\n\nb"]
+[254, "mix", "a\n\n\nb"]
+[255, "mix", "a  \nb"]
+[256, "mix", "  leading"]
+[257, "mix", "trailing  "]
+[258, "mix", "# h\ntext\n- a\n> q\n-# s"]
+[259, "mix", "**# not head**"]
+[260, "mix", "*- not list*"]
+[261, "mix", "||> q||"]
+[262, "mix", "> ||sp||\n> **b**"]
+[263, "mix", "- [t](https://example.com)\n- `c`"]
+[264, "mix", "# [t](https://example.com)"]
+[265, "mix", "-# https://example.com"]
+[266, "mix", "***a** b*"]
+[267, "mix", "__**a__**"]
+[268, "mix", "<https://example.com> **b**"]
+[269, "mix", "1. a\n   - b\n2. c"]
+[270, "mix", "¯\\_(ツ)_/¯"]
+[271, "mix", "a​b"]
+[272, "mix", "\t\ttabs"]
+~~~~
+
+**The 86 inputs typed into the text box** (V-21, V-22): the 79 corpus ids below, then seven further
+inputs (`[id, text]`). `x6` is a mention of the walk channel itself.
+
+~~~~json
+[1, 4, 6, 7, 9, 11, 15, 17, 18, 20, 21, 22, 24, 30, 35, 37, 40, 44, 51, 58, 66, 67, 70, 73, 74, 78, 83, 88, 89, 92, 93, 95, 98, 99, 103, 104, 105, 113, 116, 121, 124, 131, 135, 136, 137, 141, 146, 151, 152, 157, 158, 161, 169, 177, 178, 186, 189, 191, 193, 198, 203, 208, 214, 215, 220, 225, 232, 233, 239, 245, 246, 252, 255, 258, 259, 260, 261, 266, 272]
+["x1", "```js\nlet a = 1;\n```"]
+["x2", "[text](https://example.com \"title\")"]
+["x3", "> a\n> b"]
+["x4", "1. a\n2. b"]
+["x5", ":smile:"]
+["x6", "<#1574358729577599086>"]
+["x7", "@everyone"]
+~~~~
+
+**The eighteen link inputs** of § "The inventory's unverified link rows" (`[id, text]`):
+
+~~~~json
+[1, "https://x.y!"]
+[2, "https://x.y?"]
+[3, "https://x.y>"]
+[4, "https://x.y\\"]
+[5, "https://x.y/(a)"]
+[6, "https://x.y/a(b)c"]
+[7, "<ftp://x.y>"]
+[8, "<foo:/bar>"]
+[9, "<[a](https://x.y)>"]
+[10, "<mailto:a@b.c>"]
+[11, "https://x.y🙂"]
+[12, "[a](https://x.y/🙂)"]
+[13, "[a](https://x.y)b"]
+[14, "[a](x.y)"]
+[15, "[a](javascript:alert(1))"]
+[16, "www.x.y"]
+[17, "https://x.y/a_b*c*"]
+[18, "[a](https://x.y \"t\")"]
+~~~~
