@@ -4,6 +4,8 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 4 (record e53c7cdb): APPROVED. CF-9 and CF-10 are folded as found. CF-11 (LOW, a
+  recommendation the planner may fold or decline with its reason) is on AC-6.5's expected spans.
   Delta pass on plan 019 revision 3 (record 9ac9ba62): APPROVED_WITH_CHANGES on two LOW findings (CF-9 the emoji lift on
   edit, CF-10 the emoji element's derived fields). A′/B3, CF-8, the run unit and D-13's removal are carried as designed.
   § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3).
@@ -18,6 +20,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:26 | architect-019 | Delta pass on plan 019 revision 4 (record `e53c7cdb`); § Delta pass, revision 4 | Read as `git diff 9ac9ba62 e53c7cdb` (132 insertions, 75 deletions), with the limbs the Owed re-verdicts table names to this gate: CF-9 and CF-10 as folded, the `GAME_MENTION` mask line, and AC-3.8 (i′). |
 | 2026-11-23T17:18 | architect-019 | Delta pass on plan 019 revision 3 (record `9ac9ba62`); § Delta pass, revision 3 | Read in place: the Owed re-verdicts table, D-13 to D-15, M3's Form, Visible form, Adjustments and AC-3.7 and AC-3.8, M4's adjustment module, M5 whole, AC-6.5 and AC-6.6. The diff is 431 insertions and 207 deletions. Website `af3d95a` read from an export: `src/@types/slate.d.ts`, `getInitialValue.ts`, and the readers of `.ast` under `src/components`. |
 | 2026-11-23T17:08 | architect-019 | § Legacy-only surfaces added: the design behind his 17:04Z selection "match how it looks" (effort rulings, record `af8b5a5a`) | Asked by `planner-019` for revision 3. My 16:5xZ message to steering named A′ and B3 without the binding detail; this section is that detail. Inputs re-read: analysis 019 (`aafecf1`) AN-3, AN-5 ("form chosen: `parseLossless` alone") and AN-6; research Appendix A; my re-derivation of AN-3's legacy outputs (description and V2 equal content's legacy output on 272 of 272 rows). |
 | 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
@@ -248,6 +251,43 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 4 (record `e53c7cdb`)
+
+**Limbs owed to this gate:**
+- **CF-9.** AC-6.5's "Re-deciding on edit" and "Property, typed edits" read as recommended. The demotion predicate is
+  `code`, `code_block` or a `url` token. The input is M3's typed-edit differential plus wrap-and-move edits. Folded.
+- **CF-10.** M4's emoji display helper is the one home of `src` and `jumboable`, read by both renderers, with `emoji.tsx`
+  as its table only. `common.ts` is in the reader list, and the unobserved jumbo cases are X-25. Folded.
+- **The `GAME_MENTION` mask line.** The masks of the legacy-only surfaces are the site's statement of what legacy parses
+  there. No native mask exists for those surfaces in Discord (AN-3: "no path"), so clearing a bit legacy never parses
+  follows the adapter's one home for masks (M2), and that is where the line belongs, not in the adjustment module. One
+  observation, not a finding: AN-3 records `GAME_MENTION`'s written form as not established (its G-1). So the cleared bit
+  has no observable effect on any known input until that form is read. The cell is still right to clear, since it encodes
+  "legacy does not parse it", and no known input contradicts that.
+- **AC-3.8 (i′).** A missing legacy call in the embed renderer or the V2 module fires C6. It closes the gap that (i) alone
+  left (a move without a switch reference), and X-26 states the residue both limbs cannot see. Follows part 4.
+
+### CF-11 LOW — AC-6.5's live expected spans can come from Discord's own join, not a second hand-written one
+
+QAF-21's form computes the expected spans with the oracle helper's "own join of the unit, written from AN-6's description
+of Discord's native box". That is independent of the adapter's code, which is what axiom E asks for. But the same
+implementer writes both joins from one prose description, so a misreading of the description (the quote prefix, a
+`codeBlock` boundary, the `?` for an inline object) can land in both, and the property then passes.
+
+A more independent source already runs in this chain: `pnpm test:discord` executes Discord's native box, module 818948,
+with the served wasm, for AC-3.2 (M3 Form). Its join is the specification itself.
+
+- **Recommended form:** in `discord-dom` or `discord-node`, AC-6.5's expected spans for the generator and corpus units
+  come from module 818948's own join and the served wasm's emoji nodes. They are frozen as literals for `pnpm test`, under
+  M3's C4 rule for drift. The helper's own join is then checked against those frozen literals once, as its positive
+  control, rather than standing as the oracle.
+- **Option pair:** *accept QAF-21's form* (independent of the adapter, written from prose); or *take Discord's own join*
+  (independent of both the adapter and the prose).
+
+This does not block approval. The planner folds it or declines it with its reason.
+
+**Verdict on revision 4:** APPROVED. Nothing needs the owner.
 
 ## Delta pass, revision 3 (record `9ac9ba62`)
 
