@@ -448,3 +448,19 @@ writes that document.
 His words in this session, 09:0xZ: "It looks like you just ran the retrospective for all the fixers. Why did you do that? No, do not stop the
 current one. Just answer the question." Answered in chat with block 08:48Z's reasons. This thread disclosed that it had reversed its own
 earlier plan to wait for his Vercel reads without telling him.
+
+## 2026-11-23T09:07Z — his words: group every future formatting (Slate) fix into one effort, with a fuzzer
+
+His words, in this session: "If at all possible, it'd be nice to batch any other future formatting fixes, basically any Slate related fix,
+into a singular effort, whether that be a fixer change or a full chain. I do not know, but I would like them all grouped into one. And then
+alongside that should be some kind of fuzzer and or intensive check just to try and cover every single edge case."
+This thread's reading, vetoable from this record:
+- "other future" leaves the in-flight 9c+9f chain `fix-normalize-fence-loop` running as it is. Its fixer started 08:56Z.
+- Every not-yet-started website formatting or editor fix leaves the fixer queue and goes into one effort: `fix-decorator-nested-styles`
+  (the `TODO.md` item and the emoji chain's display rows), the editor test-instrument lift (`TODO.md`), 9d `fix-timestamp-edit-target`
+  (Markdown timestamp rendering), handoff 5b19c3e4 (emoji picker and IME), and whatever the inventory sweep below finds.
+- 9e `fix-image-uploader-url` (an image dialog's state, not formatting) and the non-editor riders stay in the fixer queue.
+- His "fuzzer and or intensive check" is a deliverable of that effort.
+- The pipeline choice he left to this thread ("I do not know"). The determination follows the inventory and is recorded here before any
+  stage starts.
+Inventory: helper `general-purpose-sonnet`, output `verification/slate-formatting-effort/scoping/inventory.md`.
