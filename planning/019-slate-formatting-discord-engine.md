@@ -4,9 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 5, for the critic (cycle 1 pass 5), the architect's delta pass and QA Phase 1's re-key. All three approved revision 4.
-  Implementation is not approved. AN-8 (five residual reads, in progress) holds M4's approval on its timestamp-style limb only.
-  M2 waits on the three gates passing revision 5, and on the website tree (fixer queue).
+  Revision 5 is approved by all three pre-code gates (critic 944e53f6, architect 681ae51, QA d060162): ready for implementation
+  from M2, on his approval. M4's approval is held on AN-8's timestamp-style limb, and M6's on the planning pass that folds AN-8
+  with Planner batch rows CF-12, EC-7 and the critic's pass 5 assumption. M2's start also waits on the website tree (fixer queue).
 Revision: 5
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
@@ -32,13 +32,15 @@ Lane: full
 | 2026-11-23T17:27 | R-6 | planner-019 | Recorded the architect's delta pass on revision 4 in the owed re-verdicts table: APPROVED, with CF-11 LOW non-blocking, in `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 4" (record `a5f78f8`). |
 | 2026-11-23T17:30 | 5 | planner-019 | Folds the three gates' verdicts on revision 4, all approving: critique pass 4 (`faa1b319`: F-31 registered as a Planner batch row, and the pass's assumption), the architect's delta pass (`a5f78f83`: CF-11), and QA's re-key (`cf895cd`, link fix `61e58f7`: QAF-23 and its derived mask literals). § Finding disposition (revision 5) maps each. The pass also corrects its own "seven masks" to six: the title and field name share one mask, with and without an embed url. Scope delta: AC-6.5's expected spans come from Discord's native box, and its typed-edit class gains emoji edits over the 1,662 probe. AC-2.3 states its six literals. M3's drift rule holds no gate on a live native-box departure under drift. No milestone was added or removed. Size: unchanged from revision 4. |
 | 2026-11-23T17:31 | R-7 | planner-019 | Recorded the architect's delta pass on revision 5 in the owed re-verdicts table: APPROVED, with CF-12 LOW non-blocking, in `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 5" (record `681ae51`). |
+| 2026-11-23T17:32 | R-8 | planner-019 | Recorded QA's Phase 1 re-key on revision 5 in the owed re-verdicts table: nothing open, and entry condition EC-7 for AC-6.5, in `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 5 (record `d060162`). |
+| 2026-11-23T17:32 | R-9 | planner-019 | Recorded the critic's pass 5 on revision 5 (APPROVED; critique closed, `critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `944e53f6`) in the owed re-verdicts table. Registered Planner batch rows CF-12 (architect `681ae51`), EC-7 (QA `d060162`) and the critic's pass 5 assumption, each holding M6's approval only. Status write: ready for implementation from M2, with M4 and M6 held. |
 
 ## Resumption State
 
-Written at revision 5's commit. Revisions 0 to 5 and registrations R-1 to R-6 are committed. Revision 5 goes to `critic-019`
-(cycle 1 pass 5), `architect-019` (delta pass) and `qa-019` (re-key), each by message naming the plan and its SHA. Next is their
-three verdicts. AN-8's results from `analyst-019` fold at the next planning pass, with Planner batch row F-31. If all three gates
-approve revision 5, the plan is ready for implementation from M2, with M4's approval held on AN-8's first limb.
+Written after the three gates approved revision 5. Revisions 0 to 5 and registrations R-1 to R-9 are committed. The plan is
+reported ready for implementation from M2, to steering for his approval. Next: AN-8's results from `analyst-019`, folded at one
+planning pass with Planner batch rows F-31, CF-12, EC-7 and the critic's pass 5 assumption. That pass opens critique cycle 2,
+and its three gates' verdicts release M4's and M6's approval.
 
 **Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
 runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
@@ -64,9 +66,10 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| Revision 5's delta (§ Finding disposition (revision 5)): AC-2.3's literals, AC-6.5's expected value and typed-edit class, M3's drift rule, the mask count | revision 5 commit | critic (cycle 1 pass 5) | owed |
+| Revision 5's delta (§ Finding disposition (revision 5)): AC-2.3's literals, AC-6.5's expected value and typed-edit class, M3's drift rule, the mask count | revision 5 commit | critic (cycle 1 pass 5) | APPROVED, no new finding; the critique is closed Resolved (record `944e53f6`). A later revision that changes a criterion's text opens cycle 2 |
+| AC-6.5 as revised by CF-12, EC-7 and the critic's pass 5 assumption; AN-8's fold (AC-4.7, F-31) | the next planning pass | critic (cycle 2), architect, QA | owed when that pass commits; it holds M4's and M6's approval only |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
-| AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | owed |
+| AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
 ## Header notes
 
@@ -1114,6 +1117,9 @@ Revision 4's folds, for reference:
 |---|---|---|
 | G-14: which legacy parser state (`allowEmojiLinks`, a message's `webhookId`, research § 3 step 1, module 354777) AC-3.1's oracle runs under, so an emoji inside a masked-link label on a webhook-sent message has the expected value Discord draws; with the research corpus now in its Appendix C as M3's source | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` Remaining gaps row G-14 (record `a666dbd9`); `INBOX.md` last entry, researcher-slate-formatting-oracle FYI | Discharged at revision 1 into AN-4, AN-7 and AC-3.1; corpus source in M3. |
 | F-31 (LOW): M4's mask line clears `GAME_MENTION` on the five legacy-only surfaces on a premise AN-3 marks not established. Landing trigger: the planning pass that folds AN-8's GAME_MENTION limb. That pass either confirms the premise from the written form, or re-derives the mask line and AC-2.3's five values | `critiques/019-slate-formatting-discord-engine-critique.md` F-31, cycle 1 pass 4 (record `faa1b319`) | Open; the plan text carries the premise as not established (M4). It does not hold approval (critique pass 4). |
+| CF-12 (LOW): module 818948 is Discord's message box and parses under content's mask, while AC-6.5 runs under each surface's mask, so on the title, field name and field value its emoji spans can be the wrong expected value. A miss shows as red, not a false pass. The fold states either that 818948 takes a flags argument and runs per surface, or that it covers content and every surface whose mask matches content's on the emoji-relevant bits, with the other surfaces on the helper's join under AN-3's literal masks and the content run as its positive control. Whether 818948 takes flags is unread on this box | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 5" (record `681ae51`) | Open. Landing trigger: the planning pass that folds AN-8, before M6's approval. It holds M6's approval only. |
+| EC-7 (QA entry condition): AC-6.5's lift reads the adapter's `parseLossless` emoji nodes, while its expected spans are what native box 818948 lifts, and nobody has measured whether the two sets agree. Before AC-6.5's literals freeze at M6, the implementer runs both over the 272 corpus and the 1,662 probe and records how many inputs differ. On any member the plan states which the lift follows, and a choice that changes what D-13's option described goes to him through steering | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 5 (record `d060162`) | Open. Landing trigger: the same pass as CF-12. It holds M6's approval only. |
+| Critique pass 5 assumption: a run of module 818948 exposes the emoji spans of its own parse, which is AC-6.5's expected value. Untested; AN-6's table shows an emoji as an `atom` | `critiques/closed/019-slate-formatting-discord-engine-critique.md`, cycle 1 pass 5 (record `944e53f6`) | Open. Landing trigger: the same pass as CF-12; a miss at M3 or M6 comes back to the planner. It holds M6's approval only. |
 
 ## Version Management
 
