@@ -1,0 +1,22 @@
+chain: sessions matching '*fix-image-uploader-url' or '*fix-image-uploader-url-<n>' from 2026-11-23T15:54Z to 2026-11-23T18:48Z
+4 of 4 resolved from the registry cache (live entry gone): code-reviewer-fix-image-uploader-url, devops-fix-image-uploader-url, fixer-fix-image-uploader-url, qa-fix-image-uploader-url
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-image-uploa claude-opus                 74       159  10,147,327    154,427    64,554     4.56
+                                main 74 req $4.56 · cached seen 2026-11-23T16:37:03Z
+devops-fix-image-uploader-url claude-sonn                104       209  18,565,667    255,251    82,995     3.66
+  own                         claude-sonn                 96       193  18,369,426    224,321    80,257     3.54
+  browser-walker              claude-sonn                  8        16     196,241     30,930     2,738     0.12
+                                main 96 req $3.54 · subagent 8 req $0.12 · cached seen 2026-11-23T18:26:33Z
+fixer-fix-image-uploader-url  claude-opus                165       346  31,849,564    266,949   130,937    11.13
+                                main 165 req $11.13 · cached seen 2026-11-23T15:55:53Z
+qa-fix-image-uploader-url     claude-haik,claude-opus    317       651  35,175,620    527,004   175,582    11.54
+  own                         claude-opus                134       283  27,186,890    265,859   111,565     9.80
+  browser-walker              claude-sonn                162       324   7,550,315    202,576    46,470     1.73
+  general-purpose             claude-haik                 21        44     438,415     58,569    17,547     0.02
+                                main 134 req $9.80 · subagent 183 req $1.75 · cached seen 2026-11-23T17:05:27Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      660     1,365  95,738,178  1,203,631   454,068    30.89
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
