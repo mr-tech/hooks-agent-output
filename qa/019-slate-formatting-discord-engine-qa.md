@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 2 (record 8dfd4659, with R-2 at 4c872804). QAF-1 to QAF-14 are folded, verified in §
-  Re-key on Revision 2. QAF-15 to QAF-17 are new and go to the planner. EC-4 is measured. Register B-1 to B-6 is re-keyed.
-  AC-6.5 and X-8 re-key at Revision 3 (D-13). Implementation is not approved.
+  Phase 1 re-keyed on plan 019 Revision 3 (record 9ac9ba62). QAF-1 to QAF-17 are folded, verified in the re-key sections.
+  QAF-18 to QAF-22 are new and go to the planner. E-4 is declined. Register B-1 to B-6 is swept and re-keyed. Implementation
+  is not approved.
 Phase: 1
 ---
 
@@ -23,6 +23,7 @@ says what moved.
 |------|---------------|---------|---------|
 | 2026-11-23T16:03 | steering-hooks-fixer (brief `steering/019-brief-qa.md`, common brief `steering/slate-formatting-brief-common.md`) | QA Phase 1 on Revision 1 | Phase 1: test strategy, Irreversible Side-Effect Register, infrastructure, named mutants, blocking-condition register B-1 to B-6, findings QAF-1 to QAF-14. It measured the populations it could at website `af3d95a`: an offline suite baseline, the Syntax bit count, the highlight.js language count, the save and upsert routes and the corpus counts. It captured the inventory's link inputs from a scratch directory that would not survive a reboot, and took a production reading for the post-deploy row. |
 | 2026-11-23T16:32 | planner-019 (message: revision 2 at record `8dfd4659`) | Re-key Phase 1 on revision 2 | Phase 1 re-key. Read revision 2 by the Reading Order's QA row, plus M1 and the finding disposition. It verified that each of QAF-1 to QAF-14 is folded where the disposition says, re-keyed register B-1, B-2, B-4 and B-5, and measured EC-4 (the typing cost) as AC-3.3 now asks before implementation approval. It raises QAF-15 to QAF-17. One website read in this pass was not completed, then re-run under effort rulings block 15:29Z. R-2 (D-13, record `4c872804`) registers a decision that revision 3 folds; AC-6.5 and X-8 re-key then. |
+| 2026-11-23T17:18 | planner-019 (message: revision 3 at record `9ac9ba62`) | Re-key Phase 1 on revision 3 | Phase 1 re-key, read as the delta from `4c872804`. It confirmed the folds of QAF-15 to QAF-17, EC-4 and NM-30, and re-keyed AC-2.3, AC-3.2, AC-3.7, AC-3.8, AC-4.7, AC-4.8, AC-5.6 to AC-5.8, AC-6.5 and AC-6.6. It measured P-8 (16 of 16 files) and read the draft store's shape. E-4 is declined, with the reason and QAF-22. It swept the register on a stated predicate, B-1, B-3, B-4 and B-6 re-specified, and raises QAF-18 to QAF-21. |
 
 ## Reading
 
@@ -416,6 +417,114 @@ what the engine returns (Iron Law 5).
 output. `discord://` is admitted on research Appendix B row 42's word. Confirming the engine links it is a one-line run of P-Q4's
 probe at the implementer's first commit.
 
+## Re-key on Revision 3
+
+Revision 3 (record `9ac9ba62`) was read as its delta from `4c872804`: § Results of M1, M2 to M6's criteria, M3's form, the outcome
+table, the classes, the visible form and adjustment rule, the Testing Strategy, Risks, and Exclusions X-22 to X-24. It folds D-13 to
+D-15 and analysis `aafecf1`.
+
+### Folds of the second pass, checked
+
+| Item | Where revision 3 folds it | Check |
+|---|---|---|
+| QAF-15 | M2 pending; X-22; B-1's Slow 4G reading | It takes the stated-limit branch, with the bound priced and not taken. That is the asked form. B-1 records the reading, and it is not a pass condition. **Closed.** |
+| QAF-16 | AC-3.3, "Where the text is read" | The typed and pasted limbs read `onChange`, with the `a` → `a` control first; the implementer names the drive. **Closed.** |
+| QAF-17 | AC-4.6 | An engine-level control and a renderer-level fixture named as invented engine output. **Closed.** |
+| EC-4 | AC-3.3 count; AC-3.4 | 1,000 generator inputs plus the corpus and seeds in `pnpm test`, under a 60 s cap, re-timed with the `onChange` drive at M3. The eight rows are base-red candidates. **Closed.** QA Phase 2 reads the re-timed figure. |
+| NM-30 | AC-5.7 stale limb | Re-parses the edited unit once, and no other. **Closed.** |
+| QAF-12, AC-6.5 limb owed at revision 2 | AC-6.5 rewritten onto the engine (D-13) | See QAF-21. |
+
+### Premises re-read in this pass
+
+- **P-8, 16 files** (AC-6.6's population). Measured: `git -C website grep -l "simple-markdown" af3d95a -- . ':!pnpm-lock.yaml'` gives
+  19 files, 16 of them `.ts`/`.tsx`/`.js`/`.mjs` (`package.json`, the patch and `pnpm-workspace.yaml` are the other three). **Equal
+  to the plan's 16.**
+- **AN-2's figures, from the capture.** `verification/019/analysis/an2/rows-{cold,warm}.json`: `formattedInDom` is true on 150 of
+  150 in each. The minimum `marginMs` is 552.8 cold and **519.7 warm**, equal to the plan's quote.
+- **AN-3's seven masks against AN-3's own table.** `verification/019/qa/probe-mask-vs-an3-table.{mjs,out}` decodes each mask with
+  the pinned `Syntax` constants, beside the table's legacy cell (`analysis/an3/an3-table.md`), over 8 columns × 31 bits = 248
+  cells. **240 agree.** The 8 that differ are all `GAME_MENTION`: every native mask sets it, and the legacy formatter has no rule
+  for it on any surface. So game mentions are a disagree or residue class on every surface, and AN-8's `GAME_MENTION` limb reads
+  their written form. Positive control on the same run: the title mask with `BOLD` flipped is detected. AC-2.3's literals equal
+  AN-3's values.
+- **Drafts and D-13's new element shape.** `utils/messageDrafts.ts` at `af3d95a` stores `message.data` (the message's text form),
+  not Slate nodes (`website@af3d95a src/utils/messageDrafts.ts`, line 77: `data: message.data`). So the emoji element's shape change reaches no stored draft. Read, not run.
+
+### Criteria new or changed in revision 3, re-keyed
+
+| Criterion | Population and instrument | Edge cases, mutants and asks |
+|---|---|---|
+| AC-2.3, seven masks | 7 × 31 = 217 literal cells (AN-3's values) | The title and field-name mask switches on whether the embed has a url (`0x19fecd7f` / `0x19fecd07`). NM-31: the adapter picks the no-url mask for a title with a url. Assert both on a title and on a field name. |
+| AC-3.2, native box expected values (D-15) | AN-6's 85 typed cases, the 272 corpus typed, the generator's typed limb; module 818948 run live under jsdom | **QAF-18** |
+| AC-3.7, legacy-visible equality, and the adjustment rule | 5 surfaces × their masks × (generator, 272, 106); disagree counts at AN-3 over 272: 37, 37, 32, 54 (37), 37 (the analysis, a record) | **QAF-19**. The visible form's positive controls are stated per invisible class and per counted dimension, which is the asked shape. |
+| AC-3.8, staleness | three limbs in `test:discord` | Limb (i)'s member and non-member are named, and the member is still unread (the plan says so). A run where (i) has not been seen to fire on its member is not evidence. |
+| AC-4.7, timestamp styles | 9 letters plus the bare form | **QAF-20** (the `R` letter is a time-based cell). NM-32: `s`/`S` fall through to raw source. |
+| AC-4.8, spoiler pieces | every spoiler the engine splits, on every surface | A DOM test: activate one piece by click and by keyboard (a `detail: 0` click, Test Conventions), and count the revealed pieces. NM-33: reveal state kept per piece. |
+| AC-5.6 / AC-5.7, run unit (D-15) | run units of adjacent `div` and `blockQuote` elements; a `codeBlock` ends a unit | Cases: a run across a quote and a plain line; a run broken by a code block; an emoji (`?`) inside a run that crosses lines. NM-34: the quote's `> ` prefix is left out of the joined text, which shifts every span after it. NM-35: a `codeBlock` does not end the unit. |
+| AC-5.8, editor equals preview on legacy-only surfaces | 5 surfaces × (generator, 272) | Both sides come from one `parseLossless` tree. A defect in the tree or in the adjustment module shows on both and cancels here. AC-3.7 is that defect's only control, so AC-5.8 counts for the leaf map only. This is a stated scope, not a finding. |
+| AC-6.5, the lift reads the engine | generator, 272, 1,662, under each surface's mask | **QAF-21** |
+| AC-6.6, `simple-markdown` leaves | P-8's 16 files; package, patch, workspace entry, type file | Measured above. The module-graph instrument from AC-2.1, plus `pnpm install --frozen-lockfile` in an export. |
+
+### E-4: declined as a register row, with its risk routed
+
+The candidate was a post-deploy read of a production preview image of a formatted message.
+- **Measured instead (AN-2).** The analysis ran the generator's own puppeteer, `goto` options and screenshot against the spike's
+  `/preview`: 150 of 150 captures were formatted, and the minimum margin before `networkidle0` was 519.7 ms.
+- **Why one image is not an instrument.** A post-deploy look at a single image cannot refute a race: a pass is one draw from a
+  distribution that AN-2 already sampled 150 times.
+- **Why the read has no executor.** The production images surface only on `/message` and `/message/f/[id]`, through
+  `getPreviewImageUrl` (read at `af3d95a`). A fresh image needs a save on production by a signed-in account, and no stage here is
+  cleared to make one.
+- **What would refute it.** The open limb is a slower host CPU (RK-2, analysis H-1). Its stronger test is pre-release: AN-2's
+  `an2-capture.js` re-run at 4× CPU throttle. That re-run has no owner in revision 3 (QAF-22).
+- **X-21 stays**, and is now final: no stage reads a generated image after release.
+
+### New findings
+
+QAF-18 MEDIUM Phase 1
+AC-3.2's live limb runs module 818948 "with the served wasm", while the site parses with the pinned 0.16.0. Under outcome C2 (served
+≠ pinned), the outcome table calls the drift "not a failure". But AC-3.2's live limb then compares two parser versions. Any
+difference shows up as C4 (frozen ≠ live) or C5 (a site defect), and a site that has not changed holds the gate for Discord's
+release.
+*Asked*: the live limb runs 818948 over the **pinned** wasm bytes, so the box's JavaScript is live and the parser is the site's. It
+then reports separately what the served wasm changes. Or: under C2, AC-3.2's live differences are classed as drift and reported,
+not C4 or C5. The same question applies to every live limb that runs the served wasm, and the implementer's re-derivation list
+(M3, "Not re-derived") names the wasm each limb uses.
+
+QAF-19 MEDIUM Phase 1
+AC-3.7 passes an input that is "a member of a listed residue class". If membership is decided by the class predicate on the input,
+a site defect on an input that also matches a residue predicate is excused. This is QAF-1's shape again, on the legacy-only
+surfaces.
+*Asked*: an input is excused only when its visible difference is the class's difference. Compare the visible-form diff signature,
+meaning which unit and which dimension differ, not predicate membership alone. Each residue class reports its member count and how
+many of its members match its signature, and a member that differs otherwise is C5.
+
+QAF-20 LOW Phase 1
+AC-4.7 asserts that `R` renders relative time. A relative-time cell depends on the clock, and in the standing suite it is a
+time-based cell (testing-patterns skill, "Time-Based Tests").
+*Asked*: the `R` case fixes the clock (fake `Date`) and asserts a literal, such as the wording for a timestamp a stated interval
+before the fixed now. No live clock is read.
+
+QAF-21 MEDIUM Phase 1
+AC-6.5's property compares the lift's emoji ranges with "the `emoji` node spans that parse returns", where the parse is "the
+adapter's one `parseLossless` parse" that the lift itself reads. Computed that way, the expected value comes from the code under
+test (axiom E). A wrong mask constant, a wrong run-unit join (NM-34) or a wrong `?` substitution moves both sides together and
+stays green.
+*Asked*: the expected spans come from the test oracle helper (AC-2.1's second member), with AN-3's literal masks and the oracle's
+own join of the run unit. Research Appendix B row 230 (`©`, `™` stay text) stays as a literal member.
+
+QAF-22 LOW Phase 1
+RK-2's open limb, a slower host CPU (analysis H-1), names its test, a 4× CPU-throttled re-run of `an2-capture.js`, but no owner or
+time. With E-4 declined, nothing reads this risk before or after release.
+*Asked*: assign that re-run, to the analyst before M4's approval or to UAT at B-1's build, and record its margin beside AN-2's
+519.7 ms. A capture that is not formatted under throttle goes to steering as AN-2's fail outcome.
+
+### Register sweep (D-13 to D-15 moved premises the rows were written against)
+
+Predicate: a row whose condition, instrument or predicted value cites the editor's colouring, an embed or V2 surface, the emoji
+element, or `test:discord`'s outcome. Members: B-3 (colouring), B-4 (emoji insert), B-6 (`test:discord`). B-1 is re-specified by
+revision 3's own text. Checked and cleared: B-2 and B-5 are content-preview links only, and no ruling moved them.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -425,15 +534,18 @@ Stage 1 handoff) are authoritative on each row's execution state.
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode | Owner | Discharging document | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| B-1 | observable pre-release | AC-2.5: the plain text shows while the wasm is blocked, and the formatted text shows once it loads (QAF-3) | Chrome devtools request block of the `.wasm` on a local production build of the tip; then unblocked and reloaded. In Chrome and Playwright Firefox (revision 2). Also loaded under Chrome's "Slow 4G" throttle (QAF-15). | UAT through the stage browser / the owner | M2 to M5 built locally; AN-1 passed | Blocked (the rejected state): every character, unformatted, and one `markdown-engine-init-failure` line. Unblocked: `**a**` renders as `strong`. Throttled: the editor is shown within the bound the plan states for QAF-15. | If a blocked wasm empties the box, a user on a flaky network loses sight of their message; if it never formats after load, the effort ships nothing; if it waits unbounded, a slow phone never shows the editor | uat | UAT document for 019 (to be created; the UAT brief names it) | open. 2026-11-23T16:32 re-key: Firefox and the throttled limb added; pending is hidden-until-ready (AC-2.5, revision 2). |
+| B-1 | observable pre-release | AC-2.5: the plain text shows while the wasm is blocked, and the formatted text shows once it loads (QAF-3) | Chrome devtools request block of the `.wasm` on a local production build of the tip; then unblocked and reloaded. In Chrome and Playwright Firefox (revision 2). Also loaded under Chrome's "Slow 4G" throttle (QAF-15). | UAT through the stage browser / the owner | M2 to M5 built locally; AN-1 passed | Blocked (the rejected state): every character, unformatted, and one `markdown-engine-init-failure` line. Unblocked: `**a**` renders as `strong`. Throttled: the editor is shown within the bound the plan states for QAF-15. 2026-11-23T17:18 reconcile (revision 3): the throttled time-to-shown is recorded for X-22 and is not a pass condition. | If a blocked wasm empties the box, a user on a flaky network loses sight of their message; if it never formats after load, the effort ships nothing; if it waits unbounded, a slow phone never shows the editor | uat | UAT document for 019 (to be created; the UAT brief names it) | open. 2026-11-23T16:32 re-key: Firefox and the throttled limb added; pending is hidden-until-ready (AC-2.5, revision 2). |
 | B-2 | observable pre-release | AC-4.2: link targets keep their emoji | Type `https://x.y🙂` and `[a](https://x.y/🙂)` in the content editor of a local production build; read the preview's `a[href]` | UAT / owner | as B-1 | A target with no `:slight_smile`; hrefs equal the engine's `url` (P-1: `https://x.xn--y-bz3s/` and `https://x.y/%F0%9F%99%82`), with labels as AN-5 settles | If the target still carries `:slight_smile`, his link report (D-2) is unfixed | uat | UAT document for 019 | open |
-| B-3 | observable pre-release | AC-5.5: Chrome colours match the jsdom class lists on AN-6's discriminating cases | Captures under `verification/019/uat/`, compared per character | UAT / owner | as B-1; AN-6 landed | 0 characters differ | If slate-react drops or merges a range in a real browser, the editor colours differently from what the suite proved | uat | UAT document for 019 | open; depends on AN-6 |
-| B-4 | observable pre-release | AC-6.3: a guild emoji picked into content, code and quote lines keeps every character | Picker click on a local build signed in as a test account with access to the guild's emoji | UAT / owner | The analyst's provision read (AC-6.3, alongside AN-7) shows a local build can complete Discord sign-in; otherwise a stated limit quoting that attempt, carried by handoff 5b19c3e4 item 1 | All characters kept; the emoji's text form inserted | If the picker path deletes text, users lose content on insert | uat | UAT document for 019 | open. 2026-11-23T16:32 re-key: earliest-decidable condition set to the provision read (revision 2). |
+| B-3 | observable pre-release | AC-5.5: Chrome colours match the jsdom class lists on AN-6's discriminating cases. 2026-11-23T17:18 reconcile (revision 3, D-15): the cases are AN-6's 65 comparable cases, the line-crossing cases 104, 105 and 67 among them, coloured by run unit. | Captures under `verification/019/uat/`, compared per character | UAT / owner | as B-1; AN-6 landed | 0 characters differ | If slate-react drops or merges a range in a real browser, the editor colours differently from what the suite proved | uat | UAT document for 019 | open; depends on AN-6 |
+| B-4 | observable pre-release | AC-6.3: a guild emoji picked into content, code and quote lines keeps every character | Picker click on a local build signed in as a test account with access to the guild's emoji | UAT / owner | The analyst's provision read (AC-6.3, alongside AN-7) shows a local build can complete Discord sign-in. 2026-11-23T17:18 reconcile (revision 3): that read is AN-8's sign-in limb, before M4's approval, and the emoji element now has D-13's shape; otherwise a stated limit quoting that attempt, carried by handoff 5b19c3e4 item 1 | All characters kept; the emoji's text form inserted | If the picker path deletes text, users lose content on insert | uat | UAT document for 019 | open. 2026-11-23T16:32 re-key: earliest-decidable condition set to the provision read (revision 2). |
 | B-5 | post-deploy-observable | AC-4.2 in production (the plan's post-deploy observable; his report, D-2) | Stage browser on `hooks.gg/message/m/0/edit`: type `https://x.y🙂 [a](https://x.y/🙂)`, blur, read `main a[href]` (minted run, P-Q13) | devops at Stage 1, or QA / owner | Production serves a commit containing the release tip (the running-commit precondition: Vercel deployment commit contains the tip) | **Unfixed (measured at production, 16:00Z):** `https://x.y:slight_smile` and `https://x.y/:slight_smile:`. **Fixed:** no `:slight_smile` in either; hrefs equal the engine's `url` as in B-2. One observation refutes by construction. | If production still shows `:slight_smile`, the deploy did not carry the fix, or carried it to a commit not serving | devops creates the carrier; its reader is the carrier's Owning-Stage, never the Stage 1 session (F-15) | the Stage 1 handoff devops creates, `handoff/<name>.md` | open. 2026-11-23T16:32 re-key: the fixed form now also requires two anchors to exist (AC-4.2, revision 2), which B-5's read already returns. |
-| B-6 | observable pre-release | D-12: `pnpm test:discord` exits 0 at the release tip, and `pnpm test` exits 0 offline | The two commands; `pnpm test` under P-Q1's namespace | QA Phase 3 | the release tip assembled | Both exit 0; the drift alarm's hashes equal | If either is skipped, the release ships unchecked against Discord, or with a suite that needs the network | qa (Phase 3) | the release-tip QA record | open |
+| B-6 | observable pre-release | D-12: `pnpm test:discord` exits 0 at the release tip, and `pnpm test` exits 0 offline | The two commands; `pnpm test` under P-Q1's namespace | QA Phase 3 | the release tip assembled | Both exit 0; the drift alarm's hashes equal. 2026-11-23T17:18 reconcile (revision 3): `test:discord` now also holds AC-3.7 and AC-3.8. A C2 drift is reported, not failed, under the outcome table, and the row reads its outcome cause (C1 to C6) beside the exit code. QAF-18 bears on C2's reading. | If either is skipped, the release ships unchecked against Discord, or with a suite that needs the network | qa (Phase 3) | the release-tip QA record | open |
 
 Candidate held, not minted: a production preview image of a formatted message shows formatted text (E-4, RK-2). Its instrument is
 not established until AN-2 reports. It is minted at the re-key after AN-2 lands, or declined there with the reason.
+2026-11-23T17:18 reconcile: declined at the revision 3 re-key (§ Re-key on Revision 3, "E-4"); RK-2's open limb is routed as QAF-22.
+
+Rows inherited and not discharged: B-1 to B-6, all open (no implementation exists).
 
 ## Assumption Not Checked
 
@@ -444,6 +556,12 @@ the deployment's commit at Stage 1 before reading B-5.
 Re-key pass: this pass assumes EC-4's model-level drive costs about the same as a drive that reaches `onChange` (QAF-16), and it does
 not test that. If the drive the implementer names costs materially more per character than 1.12 ms, the projected 55 s understates
 `pnpm test`'s added time. **Owner: the implementer**, who re-times with the named drive at M3. QA Phase 2 reads that figure.
+
+Revision 3 re-key: this pass assumes that Discord's native box code (module 818948), run under jsdom on the fetched build, colours
+the way Discord's native text box does in a browser, and it does not test that. AC-3.2's and AC-5.6's expected values rest on it.
+No account on the native path has been seen (G-11 not completed, X-13). If an account on the native path shows its text box
+colouring a case differently from the module's jsdom output, the editor's frozen literals encode the wrong standard. **Owner: the
+analyst**, through AN-7's G-11 limb, carried as X-13 until an account on the native path is available.
 
 ## Implementation Review (Post-Implementation)
 

@@ -1,0 +1,10 @@
+content (webhook) GAME_MENTION: table legacy=- mask=on
+embed description GAME_MENTION: table legacy=-/- mask=on
+embed field value GAME_MENTION: table legacy=-/- mask=on
+embed title GAME_MENTION: table legacy=-/- mask=on
+embed title, embed has url GAME_MENTION: table legacy=-/- mask=on
+field name GAME_MENTION: table legacy=-/- mask=on
+field name, embed has url GAME_MENTION: table legacy=-/- mask=on
+V2 text display GAME_MENTION: table legacy=-/- mask=on
+cells 248 mismatches 8
+control (title mask with BOLD flipped): BOLD detected
