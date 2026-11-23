@@ -1,0 +1,6 @@
+[
+ {"id": "gm-bare", "text": "<@$700136079562375258>"},
+ {"id": "gm-inline", "text": "x <@$700136079562375258> x"},
+ {"id": "gm-nondigit", "text": "x <@$abc> x"},
+ {"id": "gm-old-guess", "text": "x <game:700136079562375258> x"}
+]

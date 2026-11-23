@@ -1,0 +1,36 @@
+{
+  "locale": "en-US",
+  "tz": "UTC",
+  "rows": [
+    {
+      "id": "1574475816417493063",
+      "text": "an8 ts-s 11/14/23, 10:13 PM end",
+      "html": "<span>an8 ts-s </span><span class=\"timestamp_ku1OHH\">11/14/23, 10:13 PM</span><span> end</span>",
+      "times": []
+    },
+    {
+      "id": "1574475822050443377",
+      "text": "an8 ts-S 11/14/23, 10:13:20 PM end",
+      "html": "<span>an8 ts-S </span><span class=\"timestamp_ku1OHH\">11/14/23, 10:13:20 PM</span><span> end</span>",
+      "times": []
+    },
+    {
+      "id": "1574475827910025226",
+      "text": "an8 ts-t 10:13 PM end",
+      "html": "<span>an8 ts-t </span><span class=\"timestamp_ku1OHH\">10:13 PM</span><span> end</span>",
+      "times": []
+    },
+    {
+      "id": "1574475834620780629",
+      "text": "an8 ts-T 10:13:20 PM end",
+      "html": "<span>an8 ts-T </span><span class=\"timestamp_ku1OHH\">10:13:20 PM</span><span> end</span>",
+      "times": []
+    },
+    {
+      "id": "1574475840178356398",
+      "text": "an8 gm ⁠VALORANT@game VALORANT end",
+      "html": "<span>an8 gm </span><span><span class=\"wrapper_NDaLCQ interactive\" data-mention-game-id=\"700136079562375258\" tabindex=\"0\" role=\"button\"><span class=\"nowrap_omevcu\"><span aria-hidden=\"true\" class=\"iconWrapper_cuLZqL\"><img alt=\"\" class=\"icon_cuLZqL icon_lXrdH_\" height=\"32\" loading=\"lazy\" width=\"32\" src=\"https://cdn.discordapp.com/app-icons/700136079562375258/11f81959f4fdd76ca6c39c59eac256c1.png?size=32&amp;keep_aspect_ratio=false\"></span>⁠</span><span class=\"name_cuLZqL\">VALORANT</span></span></span><span id=\"_r_33_\" class=\"hiddenVisually_FX8kaC\">@game VALORANT</span><span> end</span>",
+      "times": []
+    }
+  ]
+}

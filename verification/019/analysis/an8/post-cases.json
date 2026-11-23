@@ -1,0 +1,7 @@
+[
+ {"id": "ts-s", "text": "an8 ts-s <t:1700000000:s> end"},
+ {"id": "ts-S", "text": "an8 ts-S <t:1700000000:S> end"},
+ {"id": "ts-t-control", "text": "an8 ts-t <t:1700000000:t> end"},
+ {"id": "ts-T-control", "text": "an8 ts-T <t:1700000000:T> end"},
+ {"id": "gm-inline", "text": "an8 gm <@$700136079562375258> end"}
+]

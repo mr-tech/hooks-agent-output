@@ -1,0 +1,143 @@
+{
+ "GAME_MENTION_bit": 1024,
+ "masks": {
+  "base": "0x3fffffff",
+  "base_no_game": "0x3ffffbff"
+ },
+ "rows": [
+  {
+   "id": "gm-bare",
+   "mask": "base",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "mention",
+       "value": {
+        "type": "game",
+        "value": "700136079562375258n"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-bare",
+   "mask": "base_no_game",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "<@$700136079562375258>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-inline",
+   "mask": "base",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "x "
+      },
+      {
+       "type": "mention",
+       "value": {
+        "type": "game",
+        "value": "700136079562375258n"
+       }
+      },
+      {
+       "type": "text",
+       "value": " x"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-inline",
+   "mask": "base_no_game",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "x <@$700136079562375258> x"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-nondigit",
+   "mask": "base",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "x <@$abc> x"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-nondigit",
+   "mask": "base_no_game",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "x <@$abc> x"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-old-guess",
+   "mask": "base",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "x <game:700136079562375258> x"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gm-old-guess",
+   "mask": "base_no_game",
+   "out": [
+    {
+     "type": "paragraph",
+     "value": [
+      {
+       "type": "text",
+       "value": "x <game:700136079562375258> x"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

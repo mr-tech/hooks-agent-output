@@ -1,0 +1,10 @@
+{
+ "at": "2026-11-23T17:33:32.398Z",
+ "account": "test account 1 (kept profile), via the Playwright MCP browser",
+ "method": "page.goto(https://discord.com/oauth2/authorize?client_id=<production hooks.gg public client id>&scope=identify+guilds&response_type=code&redirect_uri=<below>), wait 7 s, read body innerText; nothing clicked; then about:blank. Recorded from the tool's returned value (the in-browser code could not write a file).",
+ "rows": [
+  {"redirect": "http://127.0.0.1:3000/api/auth/callback/discord", "finalUrlHost": "discord.com", "finalPath": "/oauth2/authorize", "text": "Hooks.gg wants to access your Discord account Signed in as kikianyanNot you? This will allow the developer of Hooks.gg to: Access your username, avatar, and banner Know what servers you're in Have an existential crisis Once you authorize, you will be redirected outside of Discord to: http://127.0.0.1:3000 The developer of Hooks.gg's privacy policy and terms of service apply to this application. Discord's Privacy Policy applies to data it receives. Active since Oct 25, 2022 This application cannot read your messages or send messages as you. Cancel Authorize"},
+  {"redirect": "http://localhost:3000/api/auth/callback/discord", "finalUrlHost": "discord.com", "finalPath": "/oauth2/authorize", "text": "Invalid OAuth2 redirect_uri"},
+  {"redirect": "https://hooks.gg/api/auth/callback/discord", "finalUrlHost": "discord.com", "finalPath": "/oauth2/authorize", "text": "Hooks.gg wants to access your Discord account Signed in as kikianyanNot you? This will allow the developer of Hooks.gg to: Access your username, avatar, and banner Know what servers you're in Solve a mystery with Scooby and the gang Once you authorize, you will be redirected outside of Discord to: https://hooks.gg The developer of Hooks.gg's privacy policy and terms of service apply to this application. Discord's Privacy Policy applies to data it receives. Active since Oct 25, 2022 This application cannot read your messages or send messages as you. Cancel Authorize"}
+ ]
+}

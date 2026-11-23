@@ -1,0 +1,37 @@
+[
+{
+"id": "ts-s",
+"text": "an8 ts-s <t:1700000000:s> end",
+"status": 200,
+"message_id": "1574475816417493063",
+"stored": "an8 ts-s <t:1700000000:s> end"
+},
+{
+"id": "ts-S",
+"text": "an8 ts-S <t:1700000000:S> end",
+"status": 200,
+"message_id": "1574475822050443377",
+"stored": "an8 ts-S <t:1700000000:S> end"
+},
+{
+"id": "ts-t-control",
+"text": "an8 ts-t <t:1700000000:t> end",
+"status": 200,
+"message_id": "1574475827910025226",
+"stored": "an8 ts-t <t:1700000000:t> end"
+},
+{
+"id": "ts-T-control",
+"text": "an8 ts-T <t:1700000000:T> end",
+"status": 200,
+"message_id": "1574475834620780629",
+"stored": "an8 ts-T <t:1700000000:T> end"
+},
+{
+"id": "gm-inline",
+"text": "an8 gm <@$700136079562375258> end",
+"status": 200,
+"message_id": "1574475840178356398",
+"stored": "an8 gm <@$700136079562375258> end"
+}
+]

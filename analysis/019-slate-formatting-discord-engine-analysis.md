@@ -5,20 +5,19 @@ UUID: 286c730a
 Parent: slate-formatting-discord-oracle-2026-11-23.md
 Status: Active
 Status-Detail: >-
-  M1 items AN-1 to AN-7 run against plan 019 Revision 2. Every item has a result, except two limbs: G-11 is not completed (no session
-  holds test account 2's profile, so it falls to X-13), and GAME_MENTION's written form. AN-1's Preview limb is devops's, landed
-  (record 2531c04a). Two items for him go through
-  steering: AN-3 (every embed surface and the V2 text display are legacy-only) and AN-6 (the native box styles a run across a line
-  break, D-11's reopening class).
+  AN-1 to AN-7 (plan Revision 2) and AN-8 limbs 1 to 4 (plan Revision 5) have results. G-11 is not completed (X-13). AN-8 limb 5,
+  the slow-CPU generator capture, is in progress. AN-8 limb 1, which holds M4's approval, has landed: Discord draws `s` and `S`
+  as short date with short time, and short date with medium time.
 ---
 
-# 019 — Analysis: Slate formatting on Discord's published engine (plan M1, AN-1 to AN-7)
+# 019 — Analysis: Slate formatting on Discord's published engine (plan M1, AN-1 to AN-8)
 
 ## Changelog
 
 | Date | Rev | Author | Change |
 |---|---|---|---|
 | 2026-11-23T16:36 | 1 | analyst-019 | Created from brief `steering/019-brief-analyst.md` and common brief `steering/slate-formatting-brief-common.md`, commissioned by plan 019. Work began on Revision 0 (record `09170dd0`). The plan moved to Revision 2 (`8dfd4659`) during the run, and M1 was re-read there before writing. Changes under me, all followed: AN-1 adds Playwright Firefox and the wasm's `content-type`. AN-2 adds the loading state and the puppeteer quiet window. AN-3 adds per-surface classes and the disagree counts for legacy-only surfaces. AN-4 adds G-14's state read. AN-7 adds G-14's emoji-label DOM read and D-10's premise. M1 adds lifting the research instruments (QAF-11). |
+| 2026-11-23T17:36 | 2 | analyst-019 | Resumed after `/clear` from the Resumption State at `6bf42552`, on `planner-019`'s AN-8 commission (plan Revision 3, `9ac9ba62`; scope confirmed by message `4f5801aa`). M1 was read again at Revision 5 (`8cfd2fc2`): limb 5 was added at Revision 4, and limbs 1 to 4 are unchanged. AN-8 limbs 1 to 4 were added under § Findings, with G-1 and G-3 updated and G-7 added. No earlier claim in this document was re-verified, except that AN-3's GAME_MENTION cell is withdrawn (limb 2). Limb 5 is in progress. |
 
 ## Resumption State
 
@@ -31,7 +30,10 @@ Written 2026-11-23T16:40Z at `steering-hooks-fixer`'s `/checkpoint`. The session
 - **Next.** No act is owed. The next brief comes from steering. A likely trigger is his answer to AN-3 or D-11, or the planner
   asking for gap G-1 (GAME_MENTION) or the hypotheses H-1 or H-2. Plan 019 was at Revision 2 (`8dfd4659`) when read; at
   `d503160e` its Revision 3 is held for those two answers. Read the plan as a diff from Revision 2.
-- **Approach in flight.** None.
+- **Update, changelog row 2 (resumed run).** AN-8 limbs 1 to 4 are committed. The plan was read at Revision 5 (`8cfd2fc2`). Next:
+  limb 5, which rebuilds the spike from `an1/wasmSpike.tsx.txt` and `an1/MarkdownProvider.spike.diff` in a scratch export, then
+  runs `an2-capture.js` at 4× CPU throttle, 50 captures of each of the three messages.
+- **Approach in flight.** AN-8 limb 5, as above.
 - **Refs.** Record `agent-output` `master`, HEAD `d503160e` before this commit. Website analysed at `af3d95a` from exports only. The
   shared tree was not touched (its HEAD read `7660259`).
 - **Uncommitted or local.** Outside the record:
@@ -351,6 +353,87 @@ context used, and no Master Product Objective is cited here.
 - Which surface to use is the architect's (OQ-4 is put to it at conformance). The options are the public HTML re-parsed, or the
   typed-but-private `__emitter` on its own instance.
 
+**AN-8 Residual reads (plan Revision 3, read again at Revision 5; limbs 1 to 4).** Captures: `verification/019/analysis/an8/`. M1's
+AN-8 was read at Revision 3 (`9ac9ba62`) and again at Revision 5 (`8cfd2fc2`). Limbs 1 to 4 are unchanged between the two.
+Revision 4 added limb 5, which is recorded separately below.
+
+- **Limb 1, timestamp styles `s` and `S`.** [observed] The run created webhook `slate-019-an8` (`1574475815230513312`) in
+  `#slate-oracle-walk`, posted five messages through it, and deleted it (HTTP 204). The stored content of all five is unchanged
+  (`posted-webhook.json`). The drawn text was read as test account 1, whose browser reports locale `en-US` and time zone `UTC`
+  (`dom-account1.json`).
+
+  | Written | Drawn |
+  |---|---|
+  | `<t:1700000000:s>` | `11/14/23, 10:13 PM` |
+  | `<t:1700000000:S>` | `11/14/23, 10:13:20 PM` |
+  | `<t:1700000000:t>` (control) | `10:13 PM` |
+  | `<t:1700000000:T>` (control) | `10:13:20 PM` |
+
+  Each is one `span.timestamp_` with no `<time>` child.
+  - [run] Node's `Intl.DateTimeFormat('en-US', { timeZone: 'UTC' })` gives these four strings exactly. `s` is `{ dateStyle: 'short',
+    timeStyle: 'short' }` and `S` is `{ dateStyle: 'short', timeStyle: 'medium' }`.
+  - [inference, high confidence] Discord draws `s` and `S` with those two option sets. Only `en-US` was observed; other locales are
+    not read.
+  - The year has two digits (`23`), the `short` date style's form.
+- **Limb 2, GAME_MENTION's written form (G-1).** It is `<@$<id>>`. The id is decimal digits; non-digits and `<game:id>` stay text.
+  - [read] In stable build 679055 the form lives in module `827669`, not `856896`: in this build `856896` is a conversations store.
+    The module exports a pattern `^<@\$(\d+)>`, its global form, an extractor, and a writer.
+  - [read] Discord's box writes a game mention back with that writer (module `323350`'s serializer, case `gameMention`).
+  - [run] Node oracle (`legacy-node-gm.js`, a copy of `an4/legacy-node.js` that also reads that module, found by its content and
+    not its id). It ran under `unshare -rn` and a capped scope (`gm-legacy-node.json`), with the message state's
+    `allowGameMentions: true`.
+    - The module's pattern reads `/^<@\$(\d+)>/`, and its writer gives `<@$700136079562375258>`.
+    - The legacy facade parses `<@$700136079562375258>` as `{ type: 'gameMention', gameId }`.
+  - [run] `@discord/markdown-wasm@0.16.0` (`gm-native.mjs`, `gm-native.json`) gives `mention` of type `game` for the same text
+    under the full mask, and text with the `GAME_MENTION` bit cleared. Legacy and native agree on all four cases (`gm-cases.json`).
+  - [observed] Webhook message `1574475840178356398` (`an8 gm <@$700136079562375258> end`; the id is VALORANT's, from Discord's public
+    `applications/detectable` list) is drawn as an interactive pill:
+    - `span.wrapper_[data-mention-game-id="700136079562375258"][role=button]`;
+    - inside it, the game's app icon (`cdn.discordapp.com/app-icons/<id>/…`) and the name `VALORANT`, after a U+2060;
+    - a visually hidden `@game VALORANT`.
+
+    So a webhook message is parsed with game mentions on.
+  - The research's `<game:id>` guess was wrong, so AN-3's "NOT DISCRIMINATING" cell for GAME_MENTION is withdrawn. The form above
+    discriminates.
+- **Limb 3, local-build sign-in.** The redirect host passes: production's OAuth application accepts `http://127.0.0.1:3000`. A
+  complete sign-in was not executed.
+  - [read] `src/server/auth.ts` at `af3d95a` uses next-auth 4's `DiscordProvider` with `clientId` `NEXT_PUBLIC_DISCORD_CLIENT_ID`,
+    scope `identify guilds`, and no custom callback. Its redirect is therefore `NEXTAUTH_URL` plus `/api/auth/callback/discord`.
+  - [read] `website/.env.local` (key names and hosts only; it is the only `.env*` file present):
+    - `NEXTAUTH_URL` is `http://127.0.0.1:3000`;
+    - `DISCORD_URL` is `https://discord.com/api/v10`;
+    - `DATABASE_URL` is Postgres on `127.0.0.1:5432`, database `railway`;
+    - `REDISHOST` is `127.0.0.1:6379`;
+    - `NODE_ENV` is `development`;
+    - `NEXT_PUBLIC_DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` are non-empty.
+  - [run] The local client id equals production's public one: it occurs in production `hooks.gg`'s served JS. Only the equality
+    result was printed. A local build therefore signs in against production's OAuth application.
+  - [observed] As test account 1, Discord's authorize page was opened with production's public client id and scope
+    `identify guilds`. Only the page was read; nothing was clicked (`signin-authorize-reads.json`).
+
+    | `redirect_uri` | Discord's page |
+    |---|---|
+    | `http://127.0.0.1:3000/api/auth/callback/discord` | Consent screen, "redirected outside of Discord to: http://127.0.0.1:3000" |
+    | `http://localhost:3000/api/auth/callback/discord` | `Invalid OAuth2 redirect_uri` |
+    | `https://hooks.gg/api/auth/callback/discord` (control) | Consent screen, "redirected … to: https://hooks.gg" |
+  - [run] Nothing listens on `127.0.0.1:5432`; something does listen on `127.0.0.1:6379` (`ss -ltn`). The adapter writes the user,
+    account and session to Postgres, so a sign-in cannot complete on this box until a database is provisioned.
+  - Not executed: the code exchange, which shows whether `DISCORD_CLIENT_SECRET` in `.env.local` is current. It needs a running local
+    build, a provisioned database, and clicking Authorize as test account 1.
+  - A walk must browse `127.0.0.1:3000`, not `localhost:3000`. `localhost` is not registered, and `NEXTAUTH_URL` names 127.0.0.1.
+- **Limb 4, the editor-page `pageerror` (G-3).** Production `hooks.gg` raised none in 40 loads.
+  - [observed] Production `hooks.gg/message/m/new` was loaded 20 times, each in a fresh Playwright context, in headless Chrome
+    157.0.8103.38 (`pageerror-prod.js`, `pageerror-prod-20.json`, 17:26Z):
+    - every load returned 200, redirected to `/message/m/0/edit`, and was held to network idle plus 3 s;
+    - no load raised a `pageerror` or a console error.
+  - [observed] A second set of 20 closed each page as soon as `load` fired (`pageerror-prod-early.js`, `pageerror-prod-early-20.json`),
+    the way devops's AN-1 driver closed the editor page once the engine initialised. It also raised no `pageerror`.
+  - So the base does not show the error, in this browser. Devops's three came from the spike on a Vercel Preview, with puppeteer
+    21.1.0 and Chrome for Testing 116. That driver and browser were not re-run against the base here, so the comparison crosses
+    drivers.
+  - [hypothesis, low confidence] The error belongs to the spike build or the Preview environment. Fastest disconfirming test: devops
+    reads the `pageerror`'s stack on the chain's Preview at Stage 1, as the plan's not-completed outcome already routes it.
+
 ### High-confidence inference
 
 - **I-1.** M2's real bundle cost is bounded above by the spike's figures, because the spike carries both engines.
@@ -378,14 +461,21 @@ context used, and no Master Product Objective is cited here.
    before M2's approval, with the disagree counts above.
 4. **The masked-link styling is reversed between the boxes** (native: label `link`, URL syntax; legacy: label plain, URL `url`).
    This is a disagree class for AC-3.2.
+5. **AC-4.7's `s` and `S`** have an observed expected value (AN-8 limb 1), so X-24's not-completed fallback does not apply.
+   `MarkdownTimestamp.tsx` at `af3d95a` has no case for either letter.
+6. **X-14's GAME_MENTION clause** does not arise for content: the form and its webhook drawing are read (AN-8 limb 2). The drawing
+   needs the game's name and icon, which the message text does not carry.
+7. **AC-6.3's provision step** rests on two facts. A local build signs in against production's OAuth application, and only
+   `http://127.0.0.1:3000` is a registered local redirect. Whether the sign-in completes is gap G-7.
 
 ## Open Questions and remaining gaps
 
 | # | Unknown | Blocker | Required action | Owner |
 |---|---|---|---|---|
-| G-1 | GAME_MENTION's written form, and its rendering on any surface | Not read out of module 856896; `<game:id>` parses as text in both | Read the regex export in the Node oracle, then post one case | analyst, on the planner's ask |
+| G-1 | RESOLVED by AN-8 limb 2: `<@$<id>>`, drawn as a game pill on the webhook path. Still open: its drawing on the embed surfaces | Not posted in an embed | Post one in an embed description and a field value | M4's implementer, where AC-4.4 needs it |
 | G-2 | G-11: the native parser seen rendered, as test account 2 | Not completed: no session's browser holds test account 2's profile (`test-estate.json`: `chrome-test-account-2`; this session's browser is test account 1's) | A session launched with that profile reads `***bi***`, `# # nested`, `**# not head**`. Per plan Revision 2, this falls to Exclusions X-13 | steering |
-| G-3 | RESOLVED: AN-1 on a Vercel Preview, by devops (record `2531c04a`; AN-1 above). What stays open: the 3 editor-load `pageerror`s it did not diagnose | Devops's record | Read the page error on one Preview load | devops or M2's implementer |
+| G-3 | Narrowed by AN-8 limb 4: production base, 0 of 40 loads in Chrome 157. Still open: the source of the 3 `pageerror`s on the spike Preview | The spike branch is deleted, and the base was not re-run with puppeteer 21.1.0 and Chrome 116 | Devops reads the stack on the chain's Preview at Stage 1 (plan AN-8 outcome) | devops |
+| G-7 | AN-8 limb 3: whether `.env.local`'s client secret completes the code exchange | No local Postgres on 5432; Authorize not clicked | Provision a database (CLAUDE.md id-range step), run the build on 127.0.0.1:3000, sign in as test account 1 | AC-6.3's provision step |
 | G-4 | H-1 and H-2 | Not run | The tests named in each | analyst, or a re-scope for H-2 |
 | G-5 | The two `syntaxOverride_` escape cells (AN-6 rows 239 and 246) | The leaf renderer was not read | Read the leaf class component that adds `syntaxOverride_` | M3's implementer, as a residue row |
 | G-6 | The 404 URLs in the AN-1 page loads | Not read | Log response URLs on one load | low; nothing rests on it |
@@ -401,5 +491,8 @@ context used, and no Master Product Objective is cited here.
   - one emoji and one guild command, kept and recorded in `test-estate.json`;
   - 19 test-bot messages and 3 webhook messages in `#slate-oracle-walk`;
   - one message as test account 1;
-  - webhook `slate-019-g14`, deleted.
+  - webhook `slate-019-g14`, deleted;
+  - AN-8: webhook `slate-019-an8` (`1574475815230513312`), created and deleted, and its 5 messages in `#slate-oracle-walk`, kept.
+- AN-8, in scratch: Discord's stable bundle (364 scripts), `@discord/markdown-wasm@0.16.0` with `@discord/markdown-types@0.14.0`
+  unpacked, Discord's detectable-games list, and production `hooks.gg`'s home JS. All of it is removed at the run's close.
 - Removal of the scratch export, the downloaded bundle and the package unpacks is recorded at the run's close in the hand-back.
