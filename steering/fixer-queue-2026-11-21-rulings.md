@@ -543,3 +543,11 @@ region. S-07 (emoji stored as `:name:`) is in, as a question for him through the
 - 9e image dialog and the `/preview` matcher: outside the region.
 A member found later inside the region is in scope on this thread's ruling; one outside it is a re-scope. tmux category: `slate-formatting`.
 Implementation waits for the website tree, which is held by 9c+9f and then 9e in his order. Planning runs now.
+
+## 2026-11-23T09:21Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (09:2xZ) asked for `/checkpoint` (prefix 278,582, past the 225K steering threshold). The Resumption State
+is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`). In flight:
+`code-reviewer-fix-normalize-fence-loop` (review of `d3b98cf`), `fixer-fix-normalize-fence-loop` (idle, waiting on review) and
+`researcher-slate-formatting-oracle`. No cache-warm wake was armed in this session (`CronList`). This thread started no process to stop
+(`pstree`).
