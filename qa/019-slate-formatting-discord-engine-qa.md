@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 4 (record e53c7cdb). QAF-1 to QAF-22 are folded, verified in the re-key sections.
-  QAF-23 is new and goes to the planner. AC-2.3's seven mask literals are measured. Register B-1 to B-6 is swept; B-1 and B-6
-  are re-specified. Implementation is not approved.
+  Phase 1 re-keyed on plan 019 Revision 5 (record d2912590). QAF-1 to QAF-23 are folded, verified in the re-key sections, and
+  there is no new finding. EC-7 is added for AC-6.5. Register B-1 to B-6 is swept, with no change. Implementation is not
+  approved.
 Phase: 1
 ---
 
@@ -25,6 +25,7 @@ says what moved.
 | 2026-11-23T16:32 | planner-019 (message: revision 2 at record `8dfd4659`) | Re-key Phase 1 on revision 2 | Phase 1 re-key. Read revision 2 by the Reading Order's QA row, plus M1 and the finding disposition. It verified that each of QAF-1 to QAF-14 is folded where the disposition says, re-keyed register B-1, B-2, B-4 and B-5, and measured EC-4 (the typing cost) as AC-3.3 now asks before implementation approval. It raises QAF-15 to QAF-17. One website read in this pass was not completed, then re-run under effort rulings block 15:29Z. R-2 (D-13, record `4c872804`) registers a decision that revision 3 folds; AC-6.5 and X-8 re-key then. |
 | 2026-11-23T17:18 | planner-019 (message: revision 3 at record `9ac9ba62`) | Re-key Phase 1 on revision 3 | Phase 1 re-key, read as the delta from `4c872804`. It confirmed the folds of QAF-15 to QAF-17, EC-4 and NM-30, and re-keyed AC-2.3, AC-3.2, AC-3.7, AC-3.8, AC-4.7, AC-4.8, AC-5.6 to AC-5.8, AC-6.5 and AC-6.6. It measured P-8 (16 of 16 files) and read the draft store's shape. E-4 is declined, with the reason and QAF-22. It swept the register on a stated predicate, B-1, B-3, B-4 and B-6 re-specified, and raises QAF-18 to QAF-21. |
 | 2026-11-23T17:27 | planner-019 (message: revision 4 at record `e53c7cdb`) | Re-key Phase 1 on revision 4 | Phase 1 re-key, read as the word diff from `9ac9ba62`. It confirmed the folds of QAF-18 to QAF-22 and E-4. It re-measured the masks with `GAME_MENTION` cleared on the five legacy-only surfaces (1 of 248 cells differs, content's, as intended) and published AC-2.3's seven literals. It re-keyed AC-3.2, AC-3.7, AC-3.8 (i′), AC-4.7, AC-6.5 (CF-9) and the emoji display helper (CF-10). It swept the register, with B-1 and B-6 re-specified, and raises QAF-23. One command was refused by the record-write gate and re-issued in a read-only form (disclosed in the section). |
+| 2026-11-23T17:31 | planner-019 (message: revision 5 at record `d2912590`) | Re-key Phase 1 on revision 5 | Phase 1 re-key, read as the word diff from `e53c7cdb`. It confirmed the folds of QAF-23, AC-2.3's six literals and CF-11's expected value, and reconciled the mask count to six. It adds EC-7 (the box's emoji spans against `parseLossless`'s emoji nodes, measured before AC-6.5's literals freeze) and swept the register with no change. No new finding. |
 
 ## Reading
 
@@ -455,7 +456,7 @@ D-15 and analysis `aafecf1`.
 
 | Criterion | Population and instrument | Edge cases, mutants and asks |
 |---|---|---|
-| AC-2.3, seven masks | 7 × 31 = 217 literal cells (AN-3's values) | The title and field-name mask switches on whether the embed has a url (`0x19fecd7f` / `0x19fecd07`). NM-31: the adapter picks the no-url mask for a title with a url. Assert both on a title and on a field name. |
+| AC-2.3, seven masks | 7 × 31 = 217 literal cells (AN-3's values). 2026-11-23T17:31 reconcile (revision 5): six masks, the title and field name sharing one with and without an embed url, so 6 × 31 = 186 literal cells. | The title and field-name mask switches on whether the embed has a url (`0x19fecd7f` / `0x19fecd07`). NM-31: the adapter picks the no-url mask for a title with a url. Assert both on a title and on a field name. |
 | AC-3.2, native box expected values (D-15) | AN-6's 85 typed cases, the 272 corpus typed, the generator's typed limb; module 818948 run live under jsdom | **QAF-18** |
 | AC-3.7, legacy-visible equality, and the adjustment rule | 5 surfaces × their masks × (generator, 272, 106); disagree counts at AN-3 over 272: 37, 37, 32, 54 (37), 37 (the analysis, a record) | **QAF-19**. The visible form's positive controls are stated per invisible class and per counted dimension, which is the asked shape. |
 | AC-3.8, staleness | three limbs in `test:discord` | Limb (i)'s member and non-member are named, and the member is still unread (the plan says so). A run where (i) has not been seen to fire on its member is not evidence. |
@@ -599,6 +600,28 @@ link's `](` or `)` around one, and type an emoji inside an existing code span an
 
 Predicate: rows whose instrument or predicted value cites the generator capture, the native box's wasm, or `test:discord`'s
 outcomes. Members: B-1 (QAF-22's fallback) and B-6 (the drift outcome). Checked and cleared: B-2, B-3, B-4 and B-5.
+
+## Re-key on Revision 5
+
+Revision 5 (record `d2912590`, with R-6 at `46248cd7`) was read as its word diff from `e53c7cdb`.
+
+| Item | Where revision 5 folds it | Check |
+|---|---|---|
+| QAF-23 | AC-6.5, "Property, typed edits" | Emoji edits over the 1,662 probe's emoji tokens at every offset: backticks in and out (un-wrap re-lifts), `](` and `)` around an emoji, and an emoji typed inside a code span or URL. The emoji-free differential is kept for what it can check. The count sits inside AC-3.3's 60 s cap and is recorded at M6. **Closed.** |
+| AC-2.3 literals | AC-2.3's table, cited to `cf895cd` | Six values, equal to `probe-mask-vs-an3-table.r4.out`. The `GAME_MENTION` clearing rests on a premise AN-8 has not yet read (critique F-31, in the Planner batch). A re-derivation at that pass re-opens AC-2.3's five legacy-only values. **Closed** for this revision. |
+| AC-6.5 expected value (CF-11) | module 818948's emoji spans on the pinned wasm, frozen for `pnpm test`, re-derived by C4 | Independent of the adapter and of AN-6's prose (axiom E). The oracle helper is kept as a positive control against those literals. See EC-7. |
+| C2 drift rule | M3 "Which wasm" | Under drift, a departure is reported with C2 and never classed as C4 or C5. A site regression is still caught by the frozen literals in `pnpm test`. That is consistent with QAF-18. |
+
+**EC-7 (entry condition for AC-6.5, a probe shape).** AC-6.5 now has two clauses that can disagree. The lift "takes its emoji
+ranges from the `emoji` nodes of the adapter's one `parseLossless` parse", while the expected spans are what the native box
+(818948) lifts. Nobody has measured whether the box's emoji spans equal `parseLossless`'s `emoji` nodes over the same unit. Before
+the literals are frozen at M6, the implementer runs both over the 272 corpus and the 1,662 probe and records the count of inputs
+where they differ. On 0, the clauses are one. On any member, the plan names which one the lift follows. If following the box
+changes what the editor shows against D-13's option text, that is his question through steering. This is an entry condition,
+not a finding: neither clause is wrong until a member exists.
+
+Register sweep: predicate, rows citing AC-2.3 or AC-6.5. No row does (B-4 cites AC-6.3's picker insert, whose element shape
+revision 5 does not move). Checked and cleared: B-1 to B-6.
 
 ## Blocking-condition register (the chain's one register)
 
