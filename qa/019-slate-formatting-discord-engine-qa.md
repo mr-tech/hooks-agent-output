@@ -13,6 +13,38 @@ Phase: 1
 
 # QA Report: 019 — Slate formatting: one Discord engine for the preview and the editor
 
+## Resumption State
+
+Written 2026-11-23T17:44 at a checkpoint steering asked for. Record HEAD was `946d4e54` before this commit; the website tree was not
+switched or written.
+
+- **Done.** Phase 1 on revisions 1 to 5, each re-key committed: `75f479a1`, `6dace3fa`, `24d537bf`, `cf895cd` with link fix
+  `61e58f7`, and `d060162`. Revision 5 left nothing open for QA. EC-7 was sent to `planner-019`.
+- **Next: re-key on revision 6** (record `946d4e54`), not started. The plan delta from `d2912590` has not been read; only
+  `planner-019`'s message was. Its items, per that message:
+  - AN-8 limb 2b (record `3681654e`) finds legacy parses game mentions on the description, field value and V2 surfaces, so those
+    masks revert to `0x3fffffff`, `0x3dffffff` and `0x3fffffff`. Title and field name stay cleared at `0x19fec97f` and `0x19fec907`.
+    Content's game mentions are agree class.
+  - EC-7 is folded at M6 in AC-6.5. AC-6.5's expected value splits between the box and the helper by surface (CF-12).
+  - AC-4.7 states `s` and `S` as en-US, UTC literals.
+  - AC-6.3's provision step for B-4 adds a local Postgres with the id sequence moved, browsed at `127.0.0.1:3000`. Re-key B-4, and
+    check the step against the workspace `CLAUDE.md` local-build rule (id range recorded).
+- **Approach in flight.**
+  1. Read the word diff `d2912590..946d4e54` and the analysis change in `3681654e`.
+  2. **Attribution to verify before re-keying.** The planner's message says my probe "used the withdrawn `<game:id>` form". My
+     probes (`verification/019/qa/probe-mask-vs-an3-table{,.r4}.mjs`) posted nothing. They decode masks against AN-3's own table
+     (`verification/019/analysis/an3/an3-table.md`). The `<game:id>` form, if it is one, came from AN-3's posting script
+     (`an3/an3-post.py` and `an3-table.py`; `an3-table.py` line 20 matches `GAME_MENTION` by a `mention` class). Read which form
+     AN-3 posted. If the record attributes the form to QA, ask the planner to correct it in the same channel. If the planner is
+     right, say so.
+  3. Re-run `probe-mask-vs-an3-table.r4.mjs` with revision 6's masks, as an r6 copy at a new path, never edited in place. Predict 0
+     disagreements against AN-8's corrected per-surface reading, since the table's `GAME_MENTION` cells are now known stale. Then
+     re-key AC-2.3, AC-4.7, AC-6.5 and AC-6.3/B-4, sweep the register, commit, and message `planner-019`.
+- **Uncommitted or local.** None in the record. The scratchpad holds `pkg/` (`npm pack` of `@discord/markdown-wasm@0.16.0` and
+  `-types@0.14.0`, with a `node_modules` link), which the mask probe runs from. It is perishable and can be re-packed. No export
+  exists; it was deleted after the EC-4 runs.
+- **Questions out.** None pending an answer. Every finding up to QAF-23 is folded.
+
 **Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This pass is keyed to Revision 2 (record
 `8dfd4659`) with R-2 (record `4c872804`). Revision 1 (record `103687b4`) was read whole by the first pass; § Re-key on Revision 2
 says what moved.
