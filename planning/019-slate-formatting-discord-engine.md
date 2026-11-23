@@ -10,7 +10,10 @@ Status-Detail: >-
   capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z).
   Revision 10 folds his mentions selection (D-17) into AC-4.4 and corrects M4's Mirrors line. The critic (71b981ad), the
   architect (b8d11f1b) and QA (f79d7f77) have all approved it, so M4's mention code is released.
-Revision: 10
+  Revision 11 changes AC-3.7's frozen residue list to one literal entry per differing input, answering implementer-019's
+  question. It awaits delta reads by the critic, the architect and QA. M4's residue-list commit waits for them; nothing else
+  is held.
+Revision: 11
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -69,6 +72,7 @@ Lane: full
 | 2026-11-23T21:44 | R-34 | planner-019 | Recorded on the F-35 row QA's re-specification of B-7 into two limbs (`qa/019-slate-formatting-discord-engine-qa.md`, record `ca6d0f21`). |
 | 2026-11-23T22:19 | R-35 | planner-019 | Registered two Planner batch rows from the M4 implementation document's Outstanding 0 (record `3e47795f`), relayed by steering: the custom emoji `alt`, and large emoji. |
 | 2026-11-23T22:21 | R-36 | planner-019 | Recorded on the large-emoji row steering's answer from his rulings (effort rulings block "2026-11-23T22:20Z", record `d5b28c7`). |
+| 2026-11-23T22:28 | 11 | planner-019 | Answers implementer-019's AC-3.7 question (message, 22:2xZ, relayed by steering) by taking its option A. The implementer's residue measurement at website `6379abc` carries the argument; its figures are not re-derived by the planner. Scope delta: AC-3.7's frozen residue list changes from class-predicate entries to one literal entry per differing input, per surface and mask, each naming a family and a reason. A stale entry now fails. The count RK-9 reads becomes entries per surface. AC-3.7 is an M3 criterion, so the M4 cap does not apply, and the change tightens a test instrument without changing product behaviour, so it is not put to him. This is the second revision since revision 9's approval. It triggers three delta reads: critic, architect, QA re-key. No milestone was added or removed. Size: the original ask. |
 | 2026-11-23T22:02 | R-35 | code-reviewer-019 | Code review Round 3 sub-entry, milestone-scoped (M3's fix commit at website `1698c80`): CR-5 and CR-6 RESOLVED; REJECTED on CR-10 MEDIUM (severity floor: the live control's empty `oracle.attempts` has no assertion that fails when `loadBuild`'s wiring is cut or a refused XHR is touched before `open`). `code-review/019-slate-formatting-discord-engine-code-review.md`. Plan Status not moved. |
 | 2026-11-23T22:11 | R-36 | code-reviewer-019 | Code review Round 3 sub-entry, milestone-scoped (M3 at website `2c1590f`): CR-10 RESOLVED; CR-11 LOW raised (the XHR refusal records a member when it is called, not when it is read); APPROVED_WITH_COMMENTS, and M3 goes to QA Phase 2. `code-review/019-slate-formatting-discord-engine-code-review.md`. Plan Status not moved. |
 
@@ -131,6 +135,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 8 | revision 8 commit | critic APPROVED with F-33 / SL-10 (`683f3e9`); architect APPROVED with CF-15 (`e1e6f363`); QA QAF-28 MEDIUM severity floor (`5ca68b07`) | All three name one member, folded at revision 9 |
 | Revision 9's delta: AC-4.7's unloaded-tag fixture (`vi-VN`) and its locale sentence only | revision 9 commit | QA re-key: QAF-28 closed, nothing open (record `26f3a3c`); architect APPROVED, CF-15 resolved, with CF-16 LOW at steering under block 18:02Z (record `559253f1`); critic APPROVED, F-33 resolved, critique closed (record `c1e40234`) | Every gate has approved revision 9. M4 is released. CF-16 is a stated limit (steering, block 18:06Z) |
 | Revision 10's delta: AC-4.4 (D-17's decision table, its residue and its human-observable form), M4's Mirrors line, and G-13's carriage line only | revision 10 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-17 LOW as a stated limit (record `b8d11f1b`). Critic APPROVED, cycle 4 pass 1, critique closed, with F-34 / SL-11 and F-35 as Planner batch rows (record `71b981ad`). QA re-key: nothing blocking, with QAF-31 LOW, the same member as F-34 (record `f79d7f77`). Every gate has approved revision 10, and M4's mention code is released |
+| Revision 11's delta: AC-3.7's frozen residue list (per-input entries, family and reason, the stale-entry failure, RK-9's count unit) only | revision 11 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Owed by all three. M4's residue-list commit waits for them |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
@@ -777,21 +782,35 @@ Acceptance criteria:
   - the input matches an entry of the **frozen residue list**, and its difference is exactly that entry's signature.
   The expected value is computed by Discord's fetched legacy code, with that surface's own call and state (AN-3), and never by the
   engine or the adjustment module (axiom E).
-  - **The frozen residue list (critique F-29, SL-8; QAF-19).** Each entry has three parts, and all are literals committed as test
-    data at M4 from M3's residue measurement:
-    - the surface;
-    - a class predicate. It is evaluated on the oracle helper's own engine parse with AN-3's literal masks (AC-2.1), never on the
-      adapter's output or the site's rendering;
-    - a visible-difference signature: which units, by their place in the class's construct, differ, and on which dimensions of the
-      visible form.
-  - **What fails.** An input whose difference matches no entry fails as C5. So does one that matches an entry's predicate but
-    differs otherwise, or on other units. The list never grows from a run: the known-differences report is generated, and an input
-    that is newly different with no frozen entry fails.
+  - **The frozen residue list (critique F-29, SL-8; QAF-19; revision 11).** It has one entry per differing input, per surface
+    and mask, and every part is a literal committed as test data at M4 from M3's residue measurement:
+    - the surface and its mask;
+    - the input, as its literal text, drawn from the classes above (the generator at its committed seed and count, the 272
+      corpus, the 106 link inputs);
+    - a visible-difference signature: the exact differing units, by position in the visible form, and the dimensions on which
+      each one differs;
+    - its family, one of a named set the implementation document states, and its reason.
+  - **Why per input (revision 11; a deviation from revision 10's "class predicate").** The implementer measured the site's
+    preview DOM against live legacy at website `6379abc` (`verification/019/impl/m4-residue-measurement-6379abc.json`,
+    `m4-dom-residue-before.json`; the implementer's figures, not re-derived by the planner). On embedDescription and v2Text, 500
+    of 1,344 inputs differ (148 minimal-input classes). On fieldValue, 501 differ (151). On embedTitle, 818 of 1,545 differ
+    (174), and on embedTitleWithUrl, 354 (132). Most classes are the engine and legacy tokenising text differently: unbalanced
+    emphasis runs, an empty heading, backtick runs, a list item with an odd character. No predicate over the engine parse
+    separates them. A family predicate would admit almost any difference in its family, so "matches no entry fails" would catch
+    little. A literal input is the narrowest class an entry can name, so this form is the stricter one.
+  - **What fails.** Each of these fails as C5:
+    - an input that differs and has no entry;
+    - an input whose entry exists but whose difference is not exactly that entry's signature;
+    - a stale entry: one whose input now equals legacy, or is no longer in the input classes. A change to the generator, its seed
+      or its count therefore fails loudly until the list is re-measured in a reviewed commit.
+    The list never grows from a run: the known-differences report is generated, and an input that is newly different with no
+    frozen entry fails.
   - **Changing the list.** Only a reviewed commit changes it. In this chain that is M4's, and later only a chain touching the
     region. Each entry carries its reason, one of: condition (a) or (b) fails, or an adjustment was tried and failed (c). The
-    implementation document records the reasons, and code review reads them (Reading Order).
-  - Its count per surface, before and after adjustment, is RK-9's falsifier. QA at Phase 2 reads the count at the tip against the
-    one recorded at M4.
+    implementation document states each family once, with its reason and its member count per surface, and each entry names its
+    family. Code review reads the families, and samples entries against them (Reading Order).
+  - Its count of entries per surface, before and after adjustment, is RK-9's falsifier. QA at Phase 2 reads the count at the tip
+    against the one recorded at M4.
 - **AC-3.8 Staleness check (D-14's stop condition; architect findings `1c78753`, part 4).** `pnpm test:discord` reads three things,
   and any failure is outcome C6:
   - **(i) routing**: it locates the embed renderer and the V2 text-display module in the fetched bundle by AN-3's content
