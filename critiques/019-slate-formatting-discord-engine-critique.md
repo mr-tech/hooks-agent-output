@@ -198,8 +198,9 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 Written after pass 4.
 
-- **Done**: cycle 1 passes 1 to 4. Verdict APPROVED on revision 4 (`e53c7cdb`). `planner-019` is sent this document for F-31;
-  `qa-019` is sent it as the pre-code gate that has not yet recorded revision 4.
+- **Done**: cycle 1 passes 1 to 4. Verdict APPROVED on revision 4 (`e53c7cdb`). `planner-019` is sent this document at
+  `faa1b319`, for F-31. No other stage was sent it: at the seam both other pre-code gates had recorded revision 4 (architect
+  `a5f78f83`, APPROVED with CF-11; QA `cf895cd2`, with QAF-23), so their findings and this verdict meet at the planner.
 - **Next**: the planner's fold of AN-8. Read it as the `git diff` from `e53c7cdb`, boundary checked by the in-memory ID
   comparison. Where the fold changes a criterion's text it is a pass; where it only records AN-8's results it is one boundary
   line. F-31 closes there as landed-by-author, and this document then takes `Resolved` and moves to `critiques/closed/`.
