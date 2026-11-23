@@ -224,4 +224,7 @@ highlight scope whose outer scope is a line's first range: python `f"a {b} c"`, 
 `round6/nested-probe.out`); CR-6 (zero-length highlight.js scopes, 2 of 193 languages); and the emoji chain's CR-3 (the decorator emits ranges past the line's end
 on some lines with `#`: 3 probe rows at website `c2fee5c`, 20 at base `febf20e`, `code-review/fix-emoji-pretransform-widths-code-review.md`,
 record `b7f2aac4`). Pre-existing; display only. Rulings
-`steering/fix-decorator-offsets-rulings.md` blocks 21:21 onward.
+`steering/fix-decorator-offsets-rulings.md` blocks 21:21 onward. Also from the emoji chain, both display only and the same at base: the
+`_` inside a renamed `slight_smile` pairing with a user-typed `_` (3 of 1,662 probe rows, `code-review/fix-emoji-pretransform-widths-code-review.md`
+line 115, record `83e02c84`); and the static (unfocused) render of `wow :ok🙂 hi` showing 🆗 + `slight_smile: hi`, since the static
+parser's rename manufactures `:ok:` (`qa/fix-emoji-pretransform-widths-qa.md` line 83).
