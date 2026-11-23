@@ -633,3 +633,26 @@ record folder and re-runs website lookups with exact website paths only, nothing
 re-run in its plan; the common brief's standing rule is relaxed to match `~/.claude/CLAUDE.md`, "A blocked action is reported, never
 retried in different words", its last sentence) / *Agent: keep it from the website* / *You: look first*. **Chosen by selection: re-run
 from the record folder.** The planner minted ID 019 (record `ae3d41fb`); the plan will be `planning/019-slate-formatting-discord-engine.md`.
+
+## 2026-11-23T15:49Z — selection: plan 019's OQ-1 to OQ-3 (put 15:4xZ, answered 15:48Z); scope additions
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T15:48Z — steering-hooks-fixer`. Questions from plan 019 Revision 0
+(record `09170dd0`), "Assumptions and open questions", in his words-free form:
+- **Emoji (OQ-1, S-07)** — *Agent: store the character (Recommended)* (save and send 🙂 as typed; messages already saved as `:name:` stay)
+  / *Agent: keep storing :name:* / *You: say how*. **Chosen by selection: store the character.** The option said whether Discord's own
+  box sends the character is unchecked (AN-7 reads it).
+- **Headings (OQ-2)** — *Agent: follow Discord's box (Recommended)* (no heading or list marker colouring; each line styled alone) /
+  *Agent: keep colouring headings*. **Chosen by selection: follow Discord's box.**
+- **Offline (OQ-3)** — *Agent: separate Discord command (Recommended)* (`pnpm test` offline-green; a separate command holds every
+  Discord comparison, fails loudly offline, run at every release gate and pin change) / *one command, red offline* / *one command,
+  skip offline*. **Chosen by selection: separate Discord command.**
+Premises: V-20 and V-21 are the researcher's test-server reads (marked so in the options); no refutation helper ran on them, since a
+re-read needs the test-account browser and the analyst's AN-7 re-reads the box anyway.
+**Scope additions inside the region, this thread's ruling (block 09:18Z):** (1) QAF-4 (`qa/closed/fix-normalize-fence-loop-qa.md`: 346
+of 15,480 random typed edits drop a quote marker when typing inside a fence turns a quote line into code) widens S-29's trigger, and
+plan 019's M6 carries it. (2) Whether opening a box without saving stored the old `>>>` rewrite on the server (retrospective
+`fixes-2026-11-23-steering-hooks-fixer-2`, routed item 5) is a new row in the region, carried by the plan. Already-rewritten production
+messages stay his to check. (3) The fence-loop chain's three differential drivers (the reviewer's 20-atom corpus, QA's seeded random
+differential, the fixer's loader-identity driver, under `verification/fix-normalize-fence-loop/`) are candidate seeds for the fuzzer
+and for the instrument-lift item. The planner carries or declines them.
+Critic, architect conformance and QA Phase 1 start on the revision that registers these answers.
