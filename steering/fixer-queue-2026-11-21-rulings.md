@@ -464,3 +464,11 @@ This thread's reading, vetoable from this record:
 - The pipeline choice he left to this thread ("I do not know"). The determination follows the inventory and is recorded here before any
   stage starts.
 Inventory: helper `general-purpose-sonnet`, output `verification/slate-formatting-effort/scoping/inventory.md`.
+
+## 2026-11-23T09:10Z — his words: hyperlink formatting is in the effort
+
+His words, in this session: "one thing that definitely needs to be looked at is hyperlinking, since I believe there's something off with the
+formatting there." Classed as a requirement (links are in scope) plus an observation he holds loosely ("I believe"); no specific input
+named. Acted on: the inventory helper was told by message to add a section on every link form the editor and preview handle — bare URLs,
+`<url>`, masked `[text](url)`, links within or next to styles, emoji and punctuation — with probes run where it can. Links are a named
+limb of the effort's scope and of its fuzzer.
