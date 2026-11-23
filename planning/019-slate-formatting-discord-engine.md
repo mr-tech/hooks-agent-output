@@ -4,12 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 5 is approved by all three pre-code gates (critic 944e53f6, architect 681ae51, QA d060162): ready for implementation
-  from M2, on his approval, except AC-2.3's GAME_MENTION bit on the five legacy-only masks. AN-8 limb 2 (db8199aa) falsified
-  that bit's premise (F-31 fired), and its per-surface read (limb 2b) is with the analyst. M4's and M6's approval are held on the
-  planning pass that folds AN-8 with Planner batch rows F-31, CF-12, EC-7 and the critic's pass 5 assumption. M2's start also
-  waits on the website tree (fixer queue).
-Revision: 5
+  Revision 6, for the critic (cycle 2 pass 1), the architect's delta pass and QA Phase 1's re-key. M2, M3 and M5 stand ready for
+  implementation as all three gates approved them at revision 5, on his approval. Revision 6 changes none of their criteria
+  except AC-2.3's GAME_MENTION bits, which wait on these gates with M4 and M6. M2's start also waits on the website tree.
+Revision: 6
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -37,13 +35,13 @@ Lane: full
 | 2026-11-23T17:32 | R-8 | planner-019 | Recorded QA's Phase 1 re-key on revision 5 in the owed re-verdicts table: nothing open, and entry condition EC-7 for AC-6.5, in `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 5 (record `d060162`). |
 | 2026-11-23T17:32 | R-9 | planner-019 | Recorded the critic's pass 5 on revision 5 (APPROVED; critique closed, `critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `944e53f6`) in the owed re-verdicts table. Registered Planner batch rows CF-12 (architect `681ae51`), EC-7 (QA `d060162`) and the critic's pass 5 assumption, each holding M6's approval only. Status write: ready for implementation from M2, with M4 and M6 held. |
 | 2026-11-23T17:38 | R-10 | planner-019 | Registered AN-8 limbs 1 to 4 (analysis record `db8199aa`, § Findings "AN-8 Residual reads") as landed, and recorded that F-31 fired: limb 2's written form falsifies the `GAME_MENTION` mask premise. Status write: AC-2.3's `GAME_MENTION` bit on the five legacy-only masks is held from M2's readiness until limb 2b, sent to `analyst-019`, lands. |
+| 2026-11-23T17:43 | 6 | planner-019 | Folds AN-8 limbs 1 to 4 and 2b (analysis records `db8199aa`, `3681654e`) and the four Planner batch rows parked at revision 5's approval: F-31 (critique `faa1b319`), CF-12 (architect `681ae51`), EC-7 (QA `d060162`) and the critic's pass 5 assumption (`944e53f6`). § Finding disposition (revision 6) maps each. Limb 2b settles F-31: `GAME_MENTION` stays set on the description, field value and V2 masks, and is cleared on title and field name only. Content's game mentions move from disagree to agree. Scope delta: AC-2.3's three rich-surface values revert to AN-3's masks. AC-4.7 states `s` and `S` (X-24 withdrawn). AC-6.3's provision step adds a local Postgres and the `127.0.0.1` host. AC-6.5's expected value splits by surface between the box and the helper, and gains two entry conditions at M6. No milestone was added or removed. M2's other criteria, M3 and M5 are unchanged from the revision 5 the gates approved. Size: unchanged. This opens critique cycle 2. |
 
 ## Resumption State
 
-Written after the three gates approved revision 5. Revisions 0 to 5 and registrations R-1 to R-9 are committed. The plan is
-reported ready for implementation from M2, to steering for his approval. Next: AN-8's results from `analyst-019`, folded at one
-planning pass with Planner batch rows F-31, CF-12, EC-7 and the critic's pass 5 assumption. That pass opens critique cycle 2,
-and its three gates' verdicts release M4's and M6's approval.
+Written at revision 6's commit. Revisions 0 to 6 and registrations R-1 to R-10 are committed. Revision 6 goes to `critic-019`
+(cycle 2 pass 1), `architect-019` (delta) and `qa-019` (re-key), each by message naming the plan and its SHA. Their verdicts
+release M4, M6 and AC-2.3's `GAME_MENTION` bits. AN-8 limb 5 is a Planner batch row and lands in RK-2 at the next pass.
 
 **Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
 runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
@@ -70,7 +68,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
 | Revision 5's delta (§ Finding disposition (revision 5)): AC-2.3's literals, AC-6.5's expected value and typed-edit class, M3's drift rule, the mask count | revision 5 commit | critic (cycle 1 pass 5) | APPROVED, no new finding; the critique is closed Resolved (record `944e53f6`). A later revision that changes a criterion's text opens cycle 2 |
-| AC-6.5 as revised by CF-12, EC-7 and the critic's pass 5 assumption; AN-8's fold (AC-4.7, F-31) | the next planning pass | critic (cycle 2), architect, QA | owed when that pass commits; it holds M4's and M6's approval only |
+| Revision 6's delta (§ Finding disposition (revision 6)): AC-2.3's mask table and M4's mask line; AC-4.7; AC-6.3's provision step; AC-6.5's expected value and entry conditions; X-14, X-24 | revision 6 commit | critic (cycle 2 pass 1), architect (delta pass), QA Phase 1 (re-key) | owed; it holds M4's and M6's approval, and AC-2.3's `GAME_MENTION` bits |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
@@ -383,7 +381,7 @@ build first moves message ids out of production's range (workspace `CLAUDE.md`).
     `Emulation.setCPUThrottlingRate` 4×, 50 captures of each of AN-2's three messages. Record the formatted count and the margin
     distribution beside AN-2's 519.7 ms minimum.
   - **Not completed**, per limb:
-    - `s` and `S`: AC-4.7's two letters render as the bare `<t:…>` form does, and the read stays a stated limit (X-24).
+    - `s` and `S`: completed (Results below); this outcome did not apply.
     - GAME_MENTION: it stays X-14.
     - Sign-in: AC-6.3's walk is a stated limit quoting the attempt, carried by handoff 5b19c3e4 item 1.
     - `pageerror`: it stays a stated limit, and devops reads it on the chain's Preview at Stage 1.
@@ -401,6 +399,7 @@ Results of M1 (analysis `aafecf1`, read at revision 3; AN-1's Vercel limb from d
 | AN-4 | The legacy facade and both box tables run under Node 24 in jsdom 30.0.1 with no browser: 272 rows in about 1.5 s, plus a 1.80 s fetch. All 13 predicates are unique on stable 679055 and canary 679159. G-14: a webhook message is parsed with `allowLinks` and `allowEmojiLinks` true | M3's approval is not held. F-13's driver clause does not arise |
 | AN-5 | `parseLossless` alone: S-10 needs its span, and its nodes rebuild `parse`'s tree on 271 of 272 (the last row is a text-node split). A bare or `<…>` link's label is the normalised `url` | M4's approval is not held. `@discord/markdown-react` is not taken |
 | AN-6 | The native box (818948) parses each run of adjacent line and quote elements as one text, so a run crosses line breaks; markers take no style; a masked link's label is styled `link` and its URL is syntax, the reverse of the legacy box. Native and legacy boxes agree on 39 of 65 comparable cases; the legacy table matches the box DOM on 63 of 65. Both boxes read an inline object as one `?` | D-11's reopening class fired; ruled at D-15. M5's approval is not held. The native box is run, not only read |
+| AN-8 (limbs 1 to 4 and 2b; analysis records `db8199aa`, `3681654e`) | Limb 1: `s` and `S` drawn as `11/14/23, 10:13 PM` and `11/14/23, 10:13:20 PM` (en-US, UTC). Limb 2: a game mention is `<@$<id>>`, in module 827669; legacy and native agree in content, and a webhook draws a pill. Limb 2b: legacy parses it on the description, the field value and the V2 text display, not on the title or field name. Limb 3: the redirect host passes on `127.0.0.1:3000`, but a full sign-in needs a local Postgres. Limb 4: production raised no `pageerror` in 40 loads. Limb 5 (slow CPU) is in progress | M4's approval is not held. AC-4.7 takes limb 1's formats and X-24 is withdrawn. AC-2.3 and M4's mask line take limb 2b, which settles F-31. AC-6.3's provision step takes limb 3. The `pageerror` stays devops's to read on the chain's Preview at Stage 1. Limb 5 holds nothing |
 | AN-7 | G-13 read on real ids. D-10's premise holds: U+1F642 is stored as typed. G-14: a masked link with an emoji label is a link only on the webhook path, drawn by legacy with the emoji as an image, while native leaves the emoji as text. G-11 not completed | X-13 applies. X-15 and X-16 are withdrawn (their reads landed). The G-14 class is a disagreement (AC-3.6) |
 
 Acceptance: each AN item states a result with its capture path, or is marked not completed, and the outcome written above for that
@@ -457,17 +456,18 @@ Acceptance criteria:
   moves is listed and dispositioned in the implementation document, from a diff of the base and tip lockfiles (plan 018 M2-b form).
 - **AC-2.3 Mask table.** Each of the six masks (M2's adapter list) equals AN-3's value for that surface over all 31 single-bit `Syntax` members
   (`@discord/markdown-types@0.14.0 syntax.d.ts:Syntax`), `DEV_LINKS` included. Expected values are literals from AN-3, with
-  `GAME_MENTION` cleared on the five legacy-only surfaces' masks (M4, the adjustment module's mask line). As derived by QA,
-  independently of the adapter (QA re-key on revision 4, record `cf895cd`; `verification/019/qa/probe-mask-vs-an3-table.r4.out`):
+  `GAME_MENTION` (`0x400`) cleared on the title and field name masks only, where Discord's legacy formatter does not parse a game
+  mention (AN-8 limb 2b, analysis record `3681654e`; M4's mask line). The values are AN-3's native masks with that one bit
+  cleared where limb 2b says, checked against QA's independent derivation (record `cf895cd`), which differs only in that bit:
 
-  | Mask | Value |
-  |---|---|
-  | content | `0x3fffffff` |
-  | embed description | `0x3ffffbff` |
-  | embed field value | `0x3dfffbff` |
-  | embed title and field name | `0x19fec97f` |
-  | embed title and field name, embed has a url | `0x19fec907` |
-  | V2 text display | `0x3ffffbff` |
+  | Mask | Value | `GAME_MENTION` |
+  |---|---|---|
+  | content | `0x3fffffff` | set |
+  | embed description | `0x3fffffff` | set (limb 2b: legacy parses it, and a pill is drawn) |
+  | embed field value | `0x3dffffff` | set (limb 2b) |
+  | embed title and field name | `0x19fec97f` | cleared (limb 2b: the literal text is drawn) |
+  | embed title and field name, embed has a url | `0x19fec907` | cleared (limb 2b) |
+  | V2 text display | `0x3fffffff` | set (limb 2b) |
 
   No mask equals `0`, which the engine reads as `Syntax.ALL` (`syntax.d.ts`; QA P-Q3). A surface AN-3 finds is not markdown
   (footer, author) never calls the engine (QAF-4).
@@ -763,13 +763,13 @@ follow the architect's CF-6.
   - only the adapter calls it, selecting it per legacy-only surface beside that surface's mask, and content selects none;
   - it imports tree types only from the adapter, never from `@discord/markdown-*`, so AC-2.1 holds unchanged;
   - each adjustment is one named, exported function with its class predicate, so AC-3.8 (ii) can address it;
-  - one legacy difference is settled now, in the adapter's masks rather than in this module. On the five legacy-only surfaces the
-    mask clears the `GAME_MENTION` bit, on the premise that legacy never parses a game mention there, while each of AN-3's native
-    masks sets it. QA's probe found those `GAME_MENTION` cells, 8 of 248 (31 bits over eight surface variants), were the only
-    disagreements with AN-3's table (`verification/019/qa/probe-mask-vs-an3-table.out`, record `24d537bf`). With the bit cleared,
-    1 of 248 differs, content's (`…r4.out`, record `cf895cd`). Content keeps Discord's own mask, and a game mention there is in
-    content's disagree class. The premise is not established until AN-8's GAME_MENTION limb reads the written form (critique
-    F-31; Planner batch). Until then clearing the bit has no observable effect (architect, record `a5f78f83`);
+  - one legacy difference is settled now, in the adapter's masks rather than in this module. On the title and field name masks
+    (with and without an embed url), the mask clears the `GAME_MENTION` bit. There, Discord's legacy formatter leaves
+    `<@$<id>>` as text, and Discord draws the literal (AN-8 limb 2b, analysis record `3681654e`, run and observed on every
+    variant). On the embed description, the field value and the V2 text display, the legacy tree holds a `gameMention` node
+    and Discord draws a pill, so the bit stays set. The legacy facade's `parseRichEmbedText` defaults `allowGameMentions` to
+    true (read in build 679055). In content, legacy and native agree on game mentions (limb 2, four cases), so they are in
+    content's agree class. This settles critique F-31: its premise held for the title and field name only;
   - it rewrites the one `parseLossless` tree before the renderer map and the token-to-leaf map read it, so the editor's colouring
     on those surfaces takes it too (AC-5.8).
   Which classes it holds is decided by M3's residue measurement under the B3 rule (M3, "Adjustments toward legacy"). Its size is
@@ -814,8 +814,11 @@ Acceptance criteria:
   raw source and never empty: the nine style letters `d f s t D F R S T` and the bare form. The engine returns a timestamp node for
   all nine and for the bare form (critique Appendix). `R` renders relative time, asserted under a fixed clock against a literal
   (QAF-20). The other six existing formats keep today's
-  output. `s` and `S` render what AN-8 reads Discord drawing, or, if AN-8's limb is not completed, as the bare form does (X-24). An
-  invalid style letter stays text (AC-4.3).
+  output. `s` renders as `Intl.DateTimeFormat` with `{ dateStyle: 'short', timeStyle: 'short' }`, and `S` with `{ dateStyle:
+  'short', timeStyle: 'medium' }`, in the viewer's locale and time zone. Discord drew `<t:1700000000:s>` as `11/14/23, 10:13 PM`
+  and `:S` as `11/14/23, 10:13:20 PM` for an `en-US`, UTC reader (AN-8 limb 1, observed; the option sets are a high-confidence
+  inference that reproduces those strings exactly under Node). The literals are asserted for `en-US` and UTC. Other locales are
+  X-19's locale-wording residue. An invalid style letter stays text (AC-4.3).
 - **AC-4.8 Spoiler pieces reveal together (D-14's visible form).** Where the engine splits one spoiler into several rendered pieces,
   revealing any piece reveals every piece of that spoiler, on every surface. The visible form treats the split as invisible only
   because this holds.
@@ -922,9 +925,17 @@ Acceptance criteria:
 - **AC-6.3 (S-08; F-18).** A guild emoji picked from the picker into a content line, a code line and a quote line keeps every
   character around the cursor, and inserts the emoji's text form. Walked by UAT (QA register B-4) on a build signed in as a test
   account that can use the test guild's emoji.
-  - **Provision step, from plan time**: AN-8's sign-in limb reads whether a local build can complete Discord sign-in, before M4's
-    approval and so before the UAT walk (critique SL-7). The test-account browser is the instrument (block 09:05Z item 2: the
-    `discord-test-browser` skill "may be able to drive the guild-emoji picker").
+  - **Provision step, from plan time** (critique SL-7). AN-8 limb 3 read that the redirect host passes: production's OAuth
+    application accepts `http://127.0.0.1:3000/api/auth/callback/discord` and refuses `localhost:3000`, and `.env.local`'s
+    `NEXTAUTH_URL` names 127.0.0.1. A complete sign-in was not executed, because no Postgres listens on `127.0.0.1:5432`. So UAT's
+    build for B-4:
+    - provisions a local Postgres, pushes the schema and moves the message id sequence out of production's range before any
+      save (workspace `CLAUDE.md`, "Local builds of `website`");
+    - browses `127.0.0.1:3000`, never `localhost`;
+    - signs in as a test account through the test-account browser (block 09:05Z item 2: the `discord-test-browser` skill "may
+      be able to drive the guild-emoji picker").
+    Whether `.env.local`'s client secret is current is shown only by that code exchange. The local client id is production's
+    public one.
   - Where sign-in cannot be completed, the limit quotes that attempt, and handoff 5b19c3e4 item 1 stays its carrier.
 - **AC-6.4 (S-09; F-18).** Composition events on a phone keyboard: the box has no phone or mobile IME. What would build a place to
   read it is his own phone walk on production after deploy. That is an optional owner observation, whose quoted attestation is
@@ -951,11 +962,29 @@ Acceptance criteria:
       edits alone.
     Its count in `pnpm test` is fitted inside AC-3.3's 60 s cap, shared with AC-3.3's typed limb. The implementer records the
     count and the time at M6.
-  - **Expected value (QAF-21, CF-11; axiom E).** The expected spans are the emoji spans of Discord's native box (module 818948)
-    parse over the unit, the box doing its own join, run on the pinned wasm in `pnpm test:discord` and frozen as literals for
-    `pnpm test` (C4 re-derives them). So the oracle is independent of both the adapter and AN-6's prose. AC-2.1's oracle helper,
-    with AN-3's literal masks and its own join written from AN-6, is a positive control checked against those literals. The
-    expected spans are never computed by the adapter's parse that the lift itself reads.
+  - **Expected value (QAF-21, CF-11, CF-12; axiom E).** The expected spans are never computed by the adapter's parse that the
+    lift itself reads. They come from two sources, by surface:
+    - **Discord's native box (module 818948)**, for content and for every surface whose mask equals content's on the bits that
+      decide whether an emoji sits inside a construct: the code-block, inline-code, link and emoji bits. Those surfaces are the
+      embed description and the V2 text display (both `0x3fffffff`, equal to content), and the field value (`0x3dffffff`). The
+      field value differs from content in one bit, `0x02000000`. That is the heading bit by inference from AN-3's table, where
+      the field value differs from the description only in headings. The box is Discord's message box, so it parses under
+      content's mask. Whether it takes a flags argument is unread (CF-12). It runs on the pinned wasm in `pnpm test:discord`, the
+      box doing its own join, and its spans are frozen as literals for `pnpm test` (C4 re-derives them).
+    - **AC-2.1's oracle helper**, for the title and field name masks, where code blocks, headings, lists and (with an embed url)
+      links are off, so the box's spans could be wrong. The helper runs the engine under AN-3's literal masks with its own join
+      written from AN-6. Its positive control is the content run: over content, the helper's spans equal the box's frozen
+      literals.
+  - **Entry conditions at M6, before AC-6.5's literals freeze.**
+    - **The box exposes its spans** (critique pass 5's assumption). M3 records whether a run of module 818948 exposes the emoji
+      spans of its own parse; AN-6's table shows an emoji as an `atom` token. If it does not, the result goes to the planner
+      before M6, and the helper with its content control is not a substitute until a planning pass says so.
+    - **The lift and the box agree (QA EC-7).** The implementer runs the adapter's `parseLossless` emoji set and the box's over the
+      272 corpus and the 1,662 probe, and records how many inputs differ.
+      - On 0, the clauses agree.
+      - On any member, the lift follows the box, which is what AC-6.5's property asserts. Each member is listed.
+      - A member whose box-following form changes what D-13's option described ("the editor's lift takes its emoji from Discord's
+        formatter") goes to him through steering before M6's literals freeze.
   - **Readers (CF-2's list with CF-10's addition).** The emoji element no longer stores a `simple-markdown` node, and its readers
     move to the new shape: `renderElementFactory.tsx` (`emojiToImage`, reading `src` and `jumboable` from M4's emoji display
     helper), `flattenNodeText.ts`, `common.ts` (its two `isEmojiNode(node?.ast)` predicates), `onCopy.ts`, `getInitialValue.ts`,
@@ -1067,7 +1096,7 @@ fifth limb (QAF-22). After
 | X-11 Generator-side changes | Outside the region. AN-2 passed, so none is needed for the formatted render. The analysis's H-2 (a pooled browser's repeated `/preview` returns 304, which the generator's status check may refuse) is generator-side, and the analyst sent it to steering. | Re-scope to steering |
 | X-12 Open handoffs whose trigger this chain fires but that have nothing in the region: the tRPC leftovers (fire on the `package.json` dependency edit); the `qa-014-bc7` inventory (fires on "website test effort scoped"; its items are the analyst's and the record's); the 015 assumptions (fire on "next website effort scoped"; items 1 and 7 are used here as premise and risk) | Nothing in the region. | Each handoff, unchanged |
 | X-13 The native parser seen rendered (G-11) | AN-7 did not complete it: no session's browser holds test account 2's profile. Under D-5 it decides nothing; the native half rests on research V-4's byte identity. | Stated limit |
-| X-14 Mention kinds with no Discord observation: GAME_MENTION if AN-8 does not read its form, and any kind beyond AN-7's walk | Discord draws an id it cannot resolve as text (V-18). | Stated limit at AC-4.4; a user report goes to this row |
+| X-14 Mention kinds with no Discord observation: how Discord draws a game mention whose id it cannot resolve (AN-8 read only a resolved one, drawn as a pill with the game's name and icon), and any kind beyond AN-7's walk | Discord draws an id it cannot resolve as text (V-18); the unresolved game form is unread. | Stated limit at AC-4.4; a user report goes to this row |
 | X-17 Safari | No WebKit on the box (QAF-10). | Stated limit; a user report goes to this row |
 | X-18 The engine's differences from Discord on content's disagree class | D-5 removes Discord as the standard there; nothing detects them. | The known-differences report |
 | X-19 AC-3.1, AC-3.2 and AC-3.7 residue: rendering beyond the tree (emoji image choice, highlight colours, locale wording; research § 4 gap 4); inputs the API rewrites (whole-message edge whitespace, unusable custom emoji ids; V-19); what the loose form blurs (run-edge and code-body newlines, URL spelling); what the visible form treats as invisible (M3); box inputs replaced by an inline object (V-21, P-7); the native box's unclosed-fence-while-typing parse, where the Slate layer's `codeBlock` recognition governs instead (AN-6, AF-9) | No Discord oracle reaches them, or the Slate layer is the site's own. | Stated limit |
@@ -1075,9 +1104,25 @@ fifth limb (QAF-22). After
 | X-21 No post-release read of a generated preview image | QA declined E-4 at its re-key on revision 3 (record `24d537bf`): one post-deploy image cannot refute a race AN-2 sampled 150 times, and a fresh production image needs a production save no stage is cleared to make. | Stated limit; RK-2's pre-landing reads (AN-2, AN-8's fifth limb) |
 | X-22 A wasm fetch that hangs rather than fails leaves the message editor hidden with no message (QAF-15) | Today's behaviour on a hung JavaScript chunk, kept by M2's pending state. A timeout bound is priced in M2 and not taken. | Stated limit. B-1's Slow 4G reading is recorded beside it, and a user report goes to this row |
 | X-23 Legacy-only residue classes that fail the B3 rule | D-14: "the rest are listed". The site follows the engine there, and the embed preview differs visibly from Discord on those inputs. | The known-differences report, per surface; RK-9 |
-| X-24 What Discord draws for timestamp styles `s` and `S`, if AN-8 does not read it | No other read exists (critique SL-2). | Stated limit at AC-4.7; a user report goes to this row |
 | X-25 The jumbo-emoji rule, where neither AN-7's reads nor the corpus show Discord's rule for a case | No Discord observation for that case (CF-10). | Stated limit at M4's emoji display helper; a user report goes to this row |
 | X-26 A move of the embed or V2 surfaces to the native formatter that keeps the legacy calls and adds no reference to the switch in those modules | AC-3.8's (i) and (i′) cannot see it; the critique's pass 3 assumption names it. | Stated limit at AC-3.8; a user report goes to this row |
+
+## Finding disposition (revision 6)
+
+All three pre-code gates approved revision 5: critic `944e53f6` (cycle 1 closed), architect `681ae51`, QA `d060162`. Revision 6
+folds AN-8 and the four Planner batch rows parked at that approval:
+
+| Source | Item | Folded at |
+|---|---|---|
+| Analysis `db8199aa` | AN-8 limb 1 (`s`, `S`) | AC-4.7; X-24 withdrawn; M1 results |
+| Analysis `db8199aa`, `3681654e` | AN-8 limbs 2 and 2b (game mentions) | AC-2.3's table; M4's mask line; X-14; M1 results |
+| Analysis `db8199aa` | AN-8 limb 3 (sign-in) | AC-6.3's provision step |
+| Analysis `db8199aa` | AN-8 limb 4 (`pageerror`) | M1 results; it stays devops's at Stage 1 |
+| Critique pass 4 | F-31 | Settled by limb 2b; Planner batch discharged |
+| Architect `681ae51` | CF-12 | AC-6.5 "Expected value", the box and helper split by surface |
+| QA `d060162` | EC-7 | AC-6.5 "Entry conditions at M6" |
+| Critique pass 5 | Assumption (the box exposes its spans) | AC-6.5 "Entry conditions at M6" |
+| This pass | Content's game mentions | Agree class, not disagree (limb 2); M4's mask line |
 
 ## Finding disposition (revision 5)
 
@@ -1119,10 +1164,11 @@ Revision 4's folds, for reference:
 | Item | Source row | Disposition |
 |---|---|---|
 | G-14: which legacy parser state (`allowEmojiLinks`, a message's `webhookId`, research § 3 step 1, module 354777) AC-3.1's oracle runs under, so an emoji inside a masked-link label on a webhook-sent message has the expected value Discord draws; with the research corpus now in its Appendix C as M3's source | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` Remaining gaps row G-14 (record `a666dbd9`); `INBOX.md` last entry, researcher-slate-formatting-oracle FYI | Discharged at revision 1 into AN-4, AN-7 and AC-3.1; corpus source in M3. |
-| F-31 (LOW): M4's mask line clears `GAME_MENTION` on the five legacy-only surfaces on a premise AN-3 marks not established. Landing trigger: the planning pass that folds AN-8's GAME_MENTION limb. That pass either confirms the premise from the written form, or re-derives the mask line and AC-2.3's five values | `critiques/019-slate-formatting-discord-engine-critique.md` F-31, cycle 1 pass 4 (record `faa1b319`) | Fired: AN-8 limb 2 (analysis record `db8199aa`) shows the written form `<@$<id>>`, parsed by the legacy facade under `allowGameMentions` and drawn as a game pill on the webhook path. QA's never-parses probe used the withdrawn `<game:id>` form. It holds AC-2.3's `GAME_MENTION` bit on the five legacy-only masks until AN-8 limb 2b's per-surface read lands, then folds at the AN-8 pass. |
-| CF-12 (LOW): module 818948 is Discord's message box and parses under content's mask, while AC-6.5 runs under each surface's mask, so on the title, field name and field value its emoji spans can be the wrong expected value. A miss shows as red, not a false pass. The fold states either that 818948 takes a flags argument and runs per surface, or that it covers content and every surface whose mask matches content's on the emoji-relevant bits, with the other surfaces on the helper's join under AN-3's literal masks and the content run as its positive control. Whether 818948 takes flags is unread on this box | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 5" (record `681ae51`) | Open. Landing trigger: the planning pass that folds AN-8, before M6's approval. It holds M6's approval only. |
-| EC-7 (QA entry condition): AC-6.5's lift reads the adapter's `parseLossless` emoji nodes, while its expected spans are what native box 818948 lifts, and nobody has measured whether the two sets agree. Before AC-6.5's literals freeze at M6, the implementer runs both over the 272 corpus and the 1,662 probe and records how many inputs differ. On any member the plan states which the lift follows, and a choice that changes what D-13's option described goes to him through steering | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 5 (record `d060162`) | Open. Landing trigger: the same pass as CF-12. It holds M6's approval only. |
-| Critique pass 5 assumption: a run of module 818948 exposes the emoji spans of its own parse, which is AC-6.5's expected value. Untested; AN-6's table shows an emoji as an `atom` | `critiques/closed/019-slate-formatting-discord-engine-critique.md`, cycle 1 pass 5 (record `944e53f6`) | Open. Landing trigger: the same pass as CF-12; a miss at M3 or M6 comes back to the planner. It holds M6's approval only. |
+| F-31 (LOW): M4's mask line clears `GAME_MENTION` on the five legacy-only surfaces on a premise AN-3 marks not established. Landing trigger: the planning pass that folds AN-8's GAME_MENTION limb. That pass either confirms the premise from the written form, or re-derives the mask line and AC-2.3's five values | `critiques/019-slate-formatting-discord-engine-critique.md` F-31, cycle 1 pass 4 (record `faa1b319`) | Discharged at revision 6. The premise held for the title and field name only (AN-8 limb 2b, record `3681654e`). AC-2.3 and M4's mask line keep `GAME_MENTION` set on the description, the field value and the V2 text display. |
+| CF-12 (LOW): module 818948 is Discord's message box and parses under content's mask, while AC-6.5 runs under each surface's mask, so on the title, field name and field value its emoji spans can be the wrong expected value. A miss shows as red, not a false pass. The fold states either that 818948 takes a flags argument and runs per surface, or that it covers content and every surface whose mask matches content's on the emoji-relevant bits, with the other surfaces on the helper's join under AN-3's literal masks and the content run as its positive control. Whether 818948 takes flags is unread on this box | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 5" (record `681ae51`) | Discharged at revision 6 into AC-6.5 "Expected value", in the second form: the box for content and the surfaces matching it on emoji-relevant bits, the helper for title and field name. |
+| EC-7 (QA entry condition): AC-6.5's lift reads the adapter's `parseLossless` emoji nodes, while its expected spans are what native box 818948 lifts, and nobody has measured whether the two sets agree. Before AC-6.5's literals freeze at M6, the implementer runs both over the 272 corpus and the 1,662 probe and records how many inputs differ. On any member the plan states which the lift follows, and a choice that changes what D-13's option described goes to him through steering | `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 5 (record `d060162`) | Discharged at revision 6 into AC-6.5 "Entry conditions at M6". |
+| Critique pass 5 assumption: a run of module 818948 exposes the emoji spans of its own parse, which is AC-6.5's expected value. Untested; AN-6's table shows an emoji as an `atom` | `critiques/closed/019-slate-formatting-discord-engine-critique.md`, cycle 1 pass 5 (record `944e53f6`) | Discharged at revision 6 into AC-6.5 "Entry conditions at M6"; a miss at M3 comes back to the planner before M6. |
+| AN-8 limb 5 (slow-CPU capture; QAF-22), still running at revision 6 | `analyst-019`'s message after record `3681654e` | Open. It holds no approval. It lands in RK-2 at the next planning pass. A run with fewer than 150 of 150 formatted goes to steering at once (AN-8's not-completed text). |
 
 ## Version Management
 
