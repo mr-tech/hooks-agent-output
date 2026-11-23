@@ -62,3 +62,12 @@ document and `verification/fix-normalize-fence-loop/`. **Not covered by the swee
 `fixer-fix-normalize-fence-loop` → `code-reviewer-fix-normalize-fence-loop` (under 20 production lines: the reviewer also runs the suite,
 typecheck, red test) → QA Phase 2 at 20 or more → devops for website `master` (his word). No plan, critic, Phase 1 or UAT. Usage:
 weekly_all 3% (live, 08:49Z).
+
+## 2026-11-23T09:40Z — `codeFence.ts` is inside the write set; QA Phase 2 started
+
+The code review approved at `61e5dfe` (record `1e93f428`, Round 1 sub-entry 1b) and asked this thread to record whether the new file
+`src/components/SlateEditor/utils/codeFence.ts` is inside the determination. It is: the write set above names "any helper beside them",
+and the file sits in `utils/` beside `withNormalizeNode.ts`, `getInitialValue.ts` and `flattenNodeText.ts` (`git diff --name-status
+0411d3b 61e5dfe`, read this turn). This thread's ruling; no re-scope. Production lines are 68 (`git diff --numstat 0411d3b 61e5dfe`:
+slate.d.ts 4, codeFence.ts 20, flattenNodeText.ts 1, getInitialValue.ts 11, withNormalizeNode.ts 32), so QA Phase 2 runs. Usage:
+weekly_all 6% (live).
