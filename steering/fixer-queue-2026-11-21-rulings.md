@@ -857,3 +857,18 @@ thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fi
 - M3's CR-10 fix is with the implementer; it was M3's second rejection.
 - M4 is being built at tip `f131f06`.
 - Standing check `cd4a027c` (22:36Z).
+
+## 2026-11-23T22:20Z — plan 019 M4: large emoji answered from his rulings, told to him (this thread's)
+
+Resumed after the clear at 22:0xZ. `implementer-019` checkpointed (`3e47795f`) and was cleared at 22:19Z. Its Outstanding 0 items went to
+`planner-019`, which disposed of them as Planner batch rows under R-35 (record `52e26f25`), with no revision round:
+- **(a) Custom emoji alt:** AC-4.4's `:name:` stands. The planner's call: it moves toward Discord.
+- **(b) Large emoji:** the planner names this a product-behaviour change he hasn't seen and leaves the decision to this thread. The preview now
+  draws a message of only emoji and whitespace with large emoji, as Discord does, and the editor follows at M6. CF-10's premise that the site
+  already does this was wrong. At website `5ec0621`, `git grep -n jumbo 5ec0621 -- src` (tests excluded) shows `jumboify` only at its definition
+  (`emoji.tsx:118`), so it has no caller, and nothing today sets the large size.
+**Answered from his rulings, not put to him as a prompt.** His words at block 09:11Z set Discord's own behaviour as the specification, and his
+selection at block 15:23Z has the site use Discord's formatter. "Never large" would leave a known difference from Discord, which his standard
+rules out. So there is not more than one reasonable answer (standing file entry 2). He is told plainly and may veto. A veto is a criterion change
+to CF-10 and AC-6.5's helper limb: a revision with gate rounds on M4 and M6 (the planner's cost statement). Residue X-25 (the 27-emoji limit and
+the multi-line, quote and embed cases have no Discord observation) stays a stated limit under the M4 cap.
