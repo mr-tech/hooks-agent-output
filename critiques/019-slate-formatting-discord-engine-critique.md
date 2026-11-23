@@ -3,25 +3,23 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Open
-Status-Detail: "Cycle 1 pass 2 on plan revision 2 with registration R-2: REQUEST REVISION. 22 of the 23 pass-1 findings are RESOLVED. Open: F-6 (the editor's half), F-24 (new), and F-25 and F-26, two classes closed by property with stated limits SL-1 to SL-7 (the stop authority fired on both). Revision 3 is owed for D-13 in any case. Waits on it."
-Artifact-Revision: 2 — read whole at 8dfd4659 (cycle 1 pass 2); registration R-2 at 4c872804 read as a delta
-Reviewed-At: "4c872804 — repos=agent-output; website read at af3d95a and 0411d3b; @discord/markdown-wasm 0.16.0 run in scratch"
+Status-Detail: "Cycle 1 pass 3 on plan revision 3: REQUEST REVISION. F-6 and F-24 to F-26 are RESOLVED (26 of 26 earlier findings). Open: F-27 and F-28 (MEDIUM, the outcome table), F-30 (LOW), and F-29, a class closed by property with stated limit SL-8 (the stop authority fired; it is not a ground). SL-9 is a further limit under F-26's property. Waits on revision 4."
+Artifact-Revision: 3 — read as the delta 4c872804..9ac9ba62 with M5 and M6 read whole (cycle 1 pass 3)
+Reviewed-At: "9ac9ba62 — repos=agent-output; website read at af3d95a"
 Verdict: REQUEST REVISION
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 2 (`8dfd4659`), read whole, with registration R-2
-(`4c872804`) read as a delta. Revision 1 (`103687b4`) was read whole at pass 1.
-**Analysis**: M1's document is not committed yet, so none was read.
-**Read at cycle 1 pass 2**: effort rulings block 16:29Z; website `vitest.config.ts` and `MarkdownTimestamp.tsx` at `af3d95a`;
-research Appendix B's header and row 42; QA's document at its rows P-Q13, E-4, EC-4 and B-5;
-`verification/019/architect-conformance/split.out`; `verification/019/qa/link-inputs.json`; `@discord/markdown-wasm@0.16.0`
-installed in scratch and run (Appendix).
-**Read at cycle 1 pass 1**: the briefs; effort rulings, whole; the architect's pre-planning findings; the inventory; the research
-document's Question to Recommendations sections; `architecture/website.md` and the named parts of `system-architecture.md`;
-plan 018's OQ-5 and RK-7; website code at `af3d95a`; `preview-image-generator@8512a1d src/generateImage.ts`; the two Discord
-packages from `npm pack`. The list is in this critique at `0435794c`.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 3 (`9ac9ba62`). Revision 1 (`103687b4`) and revision 2
+(`8dfd4659`) were read whole at passes 1 and 2.
+**Analysis**: `analysis/019-slate-formatting-discord-engine-analysis.md` (`aafecf1`), read at pass 3 for AN-3 to AN-7, its
+hypotheses, determinations and gaps.
+**Read at cycle 1 pass 3**: the plan's diff `4c872804..9ac9ba62`; the plan's Reading Order, D-1 to D-9, M5, M6 and Planner batch
+at `9ac9ba62`; effort rulings blocks 17:04Z and 17:17Z; the analysis as above; `verification/019/architect-conformance/time.out`;
+`verification/019/planning/simple-markdown-importers-af3d95a.txt`; website `package.json`, `pnpm-workspace.yaml` and
+`src/@types/slate.d.ts` at `af3d95a`; the headings of the architect's findings and the cited rows of QA's document.
+**Read at earlier passes**: listed in this critique at `e3e49ac7` (pass 2) and `0435794c` (pass 1).
 **Roadmap**: `roadmap/` holds no roadmap document, so alignment is judged against the rulings and the architecture record.
 **Date**: 2026-11-23.
 
@@ -29,275 +27,264 @@ packages from `npm pack`. The list is in this critique at `0435794c`.
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
-| 2026-11-23T16:11 | steering-hooks-fixer (brief `steering/019-brief-critic.md`) | cycle 1 pass 1: plan revision 1, whole-document read | Depth: whole-document, the cycle's first pass, at `103687b4`. Artifact changes: none before this pass. New findings: F-1 to F-23 (3 HIGH, 15 MEDIUM, 5 LOW), all OPEN. Verdict REQUEST REVISION. One lookup of this pass's website export was not completed, then re-run with literal paths (effort rulings block 15:29Z). At the seam, after `4cdbdcee`, the architect's conformance findings and QA's Phase 1 findings on revision 1 were read: F-23 is marked as repeating CF-2, and partial overlaps are named in place. |
-| 2026-11-23T16:34 | planner-019 (message naming revision 2 at `8dfd4659`) | cycle 1 pass 2: plan revision 2, whole-document read | Depth: whole-document. The delta `103687b4..8dfd4659` is 617 added and 344 removed lines over a 528-line file (`git diff --numstat`, one commit), so the revision was read whole at 801 lines, not as a diff. Boundary check by this pass's own instrument, a regex over both revisions for the AC, AN, D, X, RK, OQ, P and rider IDs: none removed; added AC-2.7, AC-3.6, AC-4.6, AC-5.7, AC-6.5, OQ-5, P-5, P-6, RK-8 and X-13 to X-21; no milestone added or removed. Registration R-2 (`8dfd4659..4c872804`, 3 added, 1 removed) adds D-13 and one Status-Detail sentence and changes no criterion; it is registered by this line. Artifact changes: the folds of F-1 to F-23, CF-1 to CF-7 and QAF-1 to QAF-14. Findings addressed: F-1 to F-5 and F-7 to F-23 RESOLVED (22); F-6 stays OPEN for the editor. New findings: F-24 (MEDIUM), and F-25 and F-26, each a second member of a folded shape, closed by property with stated limits SL-1 to SL-7. The stop authority fired on both. Verdict REQUEST REVISION. |
+| 2026-11-23T16:11 | steering-hooks-fixer (brief `steering/019-brief-critic.md`) | cycle 1 pass 1: plan revision 1, whole-document read | Depth: whole-document, the cycle's first pass, at `103687b4`. New findings: F-1 to F-23 (3 HIGH, 15 MEDIUM, 5 LOW), all OPEN. Verdict REQUEST REVISION. |
+| 2026-11-23T16:34 | planner-019 (message naming revision 2 at `8dfd4659`) | cycle 1 pass 2: plan revision 2, whole-document read | Depth: whole-document (617 added, 344 removed over 528 lines). Registration R-2 read as a delta. Findings addressed: F-1 to F-5 and F-7 to F-23 RESOLVED (22); F-6 stayed OPEN for the editor. New findings: F-24 (MEDIUM), and F-25 and F-26, each a second member of a folded shape, closed by property with stated limits SL-1 to SL-7. The stop authority fired on both. Verdict REQUEST REVISION. |
+| 2026-11-23T17:19 | planner-019 (message naming revision 3 at `9ac9ba62`); steering-hooks-fixer (resume pointer after a clear) | cycle 1 pass 3: plan revision 3 | Resumed after a clear from this document's Resumption State at `c579526e`; nothing of pass 2 was re-verified beyond what this row names. Depth: delta-bounded. The delta `4c872804..9ac9ba62` is 430 added and 208 removed lines over 1,025 (`git diff --numstat`, three commits, two of them a Status write and a Resumption State), fully readable as a diff. M5 and M6, which the delta reshapes (the run unit; the lift and the removal), were read whole. Boundary check by this pass's own instrument, a regex over both revisions for the AC, AN, D, X, RK, OQ, P, C and rider IDs: none removed as a token; added AC-3.7, AC-3.8, AC-4.7, AC-4.8, AC-5.8, AC-6.6, AN-8, C6, D-14, D-15, P-7, P-8, RK-9, X-22 to X-24; X-8, X-15 and X-16 have no Exclusions row left and are named only where withdrawn. No milestone added or removed. Artifact changes: the folds of pass 2, CF-8 and the architect's A′/B3 design, QA's re-key, the analysis, D-13 to D-15. Findings addressed: F-6, F-24, F-25 and F-26 RESOLVED. New findings: F-27 and F-28 (MEDIUM), F-30 (LOW); F-29, a second member of QAF-2's shape, closed by property with stated limit SL-8; SL-9 under F-26's property. The stop authority fired on F-29. Verdict REQUEST REVISION. |
 
 ## Verdict
 
-**REQUEST REVISION — cycle 1, pass 2.** The stop authority fired on two shapes.
+**REQUEST REVISION — cycle 1, pass 3.** The stop authority fired on one shape (F-29). The hard stop did not fire (pass 3 of
+15).
 
-Pricing: still sized to the ask. There are seven milestones, none added or removed. The plan grew from 528 to 801 lines. The
-growth is in M3's instruments (the outcome table, the three-class table, the coverage report, the live re-derivation of frozen
-literals) and in two guards other gates asked for (AC-4.6 from QA, AC-5.7 from the architect). Rider R-A now has its criterion
-line (AC-2.7) and is priced as a rider.
+Pricing: sized to the ask plus his three rulings. There are still seven milestones. The plan grew from 801 to 1,025 lines, and
+the growth follows D-13 (the lift on the engine, `simple-markdown` removed), D-14 (the visible form, the adjustment module, the
+staleness check he was told the option carries) and D-15 (the run unit). AN-8 adds four reads; one holds an approval. No
+machinery here is outside a ruling's option text.
 
-22 of the 23 findings of pass 1 are resolved, the three that stopped approval among them. Why revision 2 is still not
-approved:
+All four findings open after pass 2 are resolved, and both questions are answered. The grounds for this REQUEST REVISION are
+two cells of M3's outcome table, both created by this revision:
 
-- **Revision 3 is owed in any case.** He answered OQ-5 at 16:29Z: the engine decides the editor's emoji (D-13, registered
-  as R-2). Revision 2's AC-6.5, X-8, M2's provider sentence and the Header notes still describe the option he did not
-  choose, and the plan's Status-Detail says the fold is revision 3.
-- **F-24** (new). M3 runs the Discord command at later release gates only for chains that touch the region. D-12 says
-  "every release gate".
-- **F-6** is landed for the preview and open for the editor.
+- **F-27.** AC-3.2's live limb now runs Discord's native box with the *served* wasm. The table still says a served wasm that
+  differs from the pinned one is "not a failure" (C2). When that difference changes the box's output, C4 and then C5 hold this
+  chain's gate, and nothing in the table says which wasm the frozen literal is taken under.
+- **F-28.** For a later release that does not touch the region, the table says the release "is never held by Discord's
+  movement", and its C1 cell holds that release until Discord is reachable. No stage is named as the runner there.
 
-**Stop authority.** Two findings of this pass are second members of shapes that revision 2 folded: F-5's (F-25) and F-10's
-(F-26). They are not grounds for this REQUEST REVISION. Each class is stated once below as a property, checked over its
-domain in this pass, and its gaps are recorded as stated limits SL-1 to SL-7, each naming who bears it. The planner's own
-rule remedies a second member by the property over its class (planner.md, Revisions), and revision 3 can carry both
-properties. Where it does not, the limits stand as written. Nothing from either class routes to the owner.
+**The planner's two choices, put for challenge.**
+- *The command runs at a later release but C3 to C6 do not hold it.* Accepted. D-12 names the run, not a hold, and the run
+  restores what F-24 asked for: a move at Discord is seen at the next website release. The cost bearer is named (a handoff,
+  Owning-Stage planner). The one cell challenged is C1 (F-28).
+- *AC-3.2's expected value is the native box over every typed input.* Accepted. D-15's option text says "the expected values
+  come from the native box (818948)", and steering recorded the reading in effort rulings block 17:17Z, from D-6's option text.
+  It also closes F-6. Two register rows were not re-aimed with it (F-30), and the choice is what makes F-27 arise.
 
-**RK-8, the class from pass 1: no new member in pass 2.** Each statement of today's behaviour that revision 2 added was
-read at the code or the record and holds: P-5 (the two paste refusals and the partial mode), P-6 (two vitest projects
-through `vitest.config.ts:project`; `test` is `vitest run`), M2's three loading states, AC-3.3's two modes, AC-5.6's block
-context, AC-6.1b's five `message.upsert` writers, AN-1's Preview form from plan 018, and AC-4.6's claim that both Discord
-parsers link `discord://` (research Appendix B row 42).
+**Stop authority.** F-29 is a second member of the shape QA's QAF-2 raised and revision 2 folded: the membership of a
+criterion's class decided by the code the criterion judges. It is not a ground for this verdict. The class is stated once below
+as a property, checked over its domain in this pass, and its one gap is stated limit SL-8, with its bearer. Revision 4 can
+carry the property; where it does not, the limit stands as written. Nothing from it routes to the owner.
 
-No milestone is marked `PREMISE-STALE`. `Target-Release` equals the scoping block's end step. The hard stop did not fire
-(pass 2 of 15).
+**RK-8, the class from pass 1: no new member found by this pass.** The planner's own pass found one (AC-5.2) and wrote it back.
+Each statement of today's site that revision 3 added was read at `af3d95a` and holds: P-7 (`src/@types/slate.d.ts`: element
+types `div`, `codeBlock`, `blockQuote`; inline types `emoji`, `nameEmoji`, `discordEmoji`), P-8 (16 importers by `git grep -l`,
+one under `__tests__`; `package.json` `^0.7.3`; the patch file, the `patchedDependencies` entry and the type file exist), and
+`jsdom` `^30.0.1` in `package.json`. Not read: X-22's "as it does today on a hung JavaScript chunk".
 
-Routed to the owner: nothing from this pass. F-24 goes to him only if the planner keeps the narrowing.
+No milestone is marked `PREMISE-STALE`. `Target-Release` is unchanged and equals the scoping block's end step.
+
+Routed to the owner: nothing from this pass. F-28's C1 cell goes to him only if the planner keeps the hold.
 
 ## Value Statement Assessment
 
-Present, in user-story form, and delivered directly. Revision 2 adds the sentence that settles its meaning off the agree
-class: "the way Discord does" is the native formatter's way there (D-5, D-6), and M3's three-class table says what is
-asserted on each class. That closes the preview's half of F-6. The editor's half is still open. On the five surfaces other
-than message content, AN-3 now sends a legacy-only result to him before M2's approval (F-7).
+Present, in user-story form, and delivered directly. Revision 3 adds what "the way Discord does" means per view: the native
+formatter for the content preview off the agree class (D-5, D-6), Discord's legacy rendering by visible style for embeds and the
+V2 text display (D-14), and Discord's native box for the editor (D-15). The sentence itself is unchanged. RK-9 carries what
+D-14's option told him was unmeasured.
 
 ## Assumption Not Checked
 
-Cycle 1 pass 2: this pass assumes that Discord's legacy parser links a `tel:` or `sms:` target in at least one form the
-native parser does, and does not test it. The legacy code was not run. If it is false, SL-1 has no member in the agree
-class, AC-3.1 never meets AC-4.6 there, and the limit costs nothing. The analyst's AN-4 oracle settles it by running the
-four probe inputs of the Appendix that return those schemes.
+Cycle 1 pass 3: this pass assumes that if Discord moves an embed surface to its native formatter, the move shows as a reference
+to the native switch (module 146849's two strings) inside the embed renderer or V2 text-display module that AC-3.8 (i) reads,
+and does not test it. No Discord bundle was read in this pass. If it is false, Discord draws embeds natively while AC-3.8 (i)
+stays green and the adjustment module corrects toward a rendering nobody sees; limb (iii) reads legacy code and would not show
+it either. The implementer at M3 owns closing it: AC-3.8 has it run the predicate on the content path's member, and where that
+member is not the renderer module itself, the limb's reach is a stated limit for the planner.
 
-Cycle 1 pass 1's line (the research's class sizes, 235 of 272 and 33 stored) still stands unchecked. It is the analyst's
-at AN-4 and the implementer's at M3.
+Pass 2's line is settled: AN-6 and AN-7 ran the legacy code, and `tel` and `sms` are now in AC-4.6's list. Pass 1's line (the
+research's class sizes) is settled by AN-3: 235 of 272 re-derived on the analyst's harness.
 
 ## Unresolved Open Questions
 
-One: **OQ-5** (the editor's emoji lift). The plan's body shows it open with option a written as the floor. He has answered
-it (effort rulings block 16:29Z; D-13 in the register, R-2): option b. The body folds it at revision 3, so no selection is
-put from this pass. OQ-4 is `[RESOLVED]` by the architect's CF-7.
+None. Seven `OPEN QUESTION` lines, each marked `[RESOLVED]` with its ruling or finding named.
 
 ## Findings
 
 ### Open
 
-F-6 MEDIUM cycle 1 pass 1 — OPEN — Nothing states what the editor draws on inputs outside its agree set
-- **Location**: M3, "Three classes"; AC-3.2; AC-5.1.
-- **Landed** (revision 2): the three-class table, AC-3.6 for the preview on the disagree and native-only classes, and X-18.
-- **Still open**: the table's second and third rows speak of the preview's DOM only. The editor has its own agree set:
-  AC-3.2 compares AN-6's legacy box run with AN-6's frozen native mapping. On a typed case outside that set nothing is
-  asserted and nothing is listed. The research found 25 of 68 comparable cases outside it under its own mapping (V-22), and
-  the architect's AF-8 called for "a second known-differences list".
-- **Recommendation**: give the editor its rows in the table: what is asserted off its agree set, against what, and where
-  those cases are listed. AN-6's frozen native mapping already exists as an expected value that is separate from the
-  adapter. Or record it as a limit naming who bears detection.
+F-27 MEDIUM cycle 1 pass 3 — OPEN — The outcome table has no cell for a served wasm that changes the native box's output
+- **Location**: M3 "Form" (`pnpm test:discord` runs "its native box (module 818948, with the served wasm)"); outcome table rows
+  C2, C4 and C5; AC-3.2; AC-5.6's last line; analysis AN-4 ("`fetch` serves the served wasm's bytes").
+- **Description**: at revision 2 the live oracle was Discord's legacy JavaScript, which does not depend on the wasm, so C2
+  could say drift is "not a failure: the site ships Discord's published 0.16.0, unchanged". Revision 3's AC-3.2 takes its
+  expected value from the native box run on the served wasm, while the site runs the pinned wasm. The served build has moved
+  six times in 34 days (M3's own figure). On the first move that changes a token over AC-3.2's inputs, C4 fires and "the
+  literal is re-derived from the live oracle"; `pnpm test` then compares the pinned engine with a literal taken under a newer
+  one, and C5 calls the difference a site defect, fixed under D-7. The only fix is a pin change, which C2's own column calls a
+  deliberate upgrade. So this chain's Phase 2 or Phase 3 gate can wait on Discord's release schedule, which the revision 2
+  disposition of pass 1's question 3 said no outcome does.
+- **Impact**: a held release with no stated way out, at a rate bounded above by Discord's wasm releases (about one a week).
+- **Recommendation**: state the outcome for C2 and C4 arriving together on the native-box family: which wasm the frozen
+  literal and the live value are taken under, and whether a difference traced to the wasm alone holds a gate. It is a table
+  cell and a sentence in AC-3.2; the mechanism is the planner's.
 
-F-24 MEDIUM cycle 1 pass 2 — OPEN — M3 narrows D-12's "every release gate" to chains that touch the region
-- **Location**: M3 "Form", "Who runs it"; the outcome table's last column ("A later chain not touching it: The command is
-  not run"); M7's Test Conventions bullet; D-12.
-- **Description**: D-12's operative clause is "runs at every release gate and every pin change", and its option text says
-  the same. Revision 2 runs the command at "every later release gate whose chain touches the region". The difference is
-  not only cost. With the narrower rule, a move at Discord (causes C2, C3 and C4 of the table) is seen only when some chain
-  next touches the editor region or the pin, which may be months. Under D-12's words it is seen at the next website
-  release of any kind.
-- **Impact**: the standing text M7 puts into the workspace Test Conventions would state a rule he did not choose.
-- **Recommendation**: carry D-12's clause as he chose it, or put the narrowing to him with what it gives up. This changes
-  no code or test of this chain. It changes the text the implementer proposes at M3.
+F-28 MEDIUM cycle 1 pass 3 — OPEN — The later-release column holds an unrelated release on Discord's reachability, and names no runner
+- **Location**: M3 outcome table, column "A later release not touching the region", row C1 ("Same"); the paragraph under the
+  table; "Who runs it"; M7's Test Conventions bullet; RK-6.
+- **Description**: the paragraph says such a release "runs the command (D-12) and is never held by Discord's movement". Its C1
+  cell is "Same": the gate holds until a green run. RK-6 names "Discord changes its page or blocks headless clients" as a
+  cause C1 covers, so a block at Discord holds every later website release, a fix-lane release included, for as long as it
+  lasts. Revision 2's cell was "The command is not run". Separately, "every later website release gate" names no stage: this
+  chain's runs are QA's Phase 2 and Phase 3, a fixer chain has no Phase 3, and the column's other cells say only that devops
+  writes the handoff.
+- **Impact**: M7 lands this column in the workspace Test Conventions as a standing rule for every chain. D-12's words are
+  "fails loudly offline" and "run at every release gate"; they do not say an unrelated release waits.
+- **Recommendation**: make C1's later-release cell follow the column's own rule, or put the hold to him with its cost; and name
+  the stage that runs the command at a later release in the text M7 proposes.
 
-F-25 MEDIUM cycle 1 pass 2 — OPEN — Engine-output classes listed from a source that omits members (second member of F-5's shape); closed by property, limits SL-1 and SL-2
-- **The second member**: AC-4.6's allow-list is `http`, `https`, `mailto`, `discord`, "plus any scheme AN-3 shows". The
-  engine at the pin also returns `tel` and `sms` links (Appendix), and AN-3's table, surface by `Syntax` bit, does not
-  enumerate schemes.
-- **Property**: for every class of values the engine returns that the plan lists or that a kept renderer switches on, the
-  listed set contains every value the engine returns over M3's input classes, and a value outside the set has a stated
-  outcome.
-- **Domain**, enumerated from `@discord/markdown-types@0.14.0 index.d.ts` (its closed sets and the two open fields the site
-  switches on), with what this pass found for each:
+F-29 MEDIUM cycle 1 pass 3 — OPEN — A criterion's class decided by the code it judges (second member of QAF-2's shape); closed by property, limit SL-8
+- **The second member**: AC-3.7 passes an input when the preview equals legacy "or the input is a member of a listed residue
+  class in the known-differences report". That report is "generated, never hand-written" from "the legacy-only surfaces'
+  residue left after adjustment", which is the set of inputs on which the site's own output differs. Read so, every differing
+  input lists itself and AC-3.7 cannot fail; AC-3.4's mutation of the adjustment module would also list, not go red.
+- **Property**: for every criterion that holds over a class or excepts one, each input's membership is decided by values the
+  code under test did not compute, and a member that appears after the class is fixed fails.
+- **Domain**: every criterion in M2 to M6 with a class, an exception or a residue, read in this pass:
 
-  | Class | Listed in the plan | Observed at the pin | Holds |
-  |---|---|---|---|
-  | Node kinds, token kinds, and their sub-kinds (modifier, link, mention, emoji) | AC-2.4, declared and observed enumerators; unmapped-kind outcome in M2 | P-1 | yes |
-  | `Syntax` single bits | AC-2.3: 31 | 38 keys, 31 single-bit, 7 groups (run) | yes |
-  | Heading level | `#`, `##`, `###` (AC-5.6) | 1, 2, 3; `####` is a paragraph (run) | yes |
-  | Code block language | an open string; the editor guards it with `hljs.getLanguage` (`decorator.tsx`) | any string | yes for the editor; the preview's renderer was not read in this pass |
-  | Link scheme | AC-4.6: four | `http`, `https`, `mailto`, `discord`, `tel`, `sms`, and `dev` under `DEV_LINKS` (run) | **no: SL-1** |
-  | Timestamp style | "every style letter", unlisted | `d f s t D F R S T`, and none (run) | **no: SL-2** |
+  | Criterion | Membership decided by | Holds |
+  |---|---|---|
+  | AC-3.1, AC-3.6 (content agree and disagree) | Discord's legacy parse and the native parse under AN-3's literal masks | yes |
+  | AC-3.2 (every typed input; residue X-19) | the input's own form (an inline object, an unclosed fence) | yes |
+  | AC-3.3 (refused pastes) | the listed refusals of P-5 | yes |
+  | AC-3.4 (base-green limbs) | a run at the base | yes |
+  | AC-3.7 (listed residue) | the site's output differing from legacy | **no: SL-8** |
+  | AC-3.8 (ii) (an adjustment's reached members) | the adjustment's own predicate over the engine's tree; condition (c)'s second clause is over every input | yes, except an adjustment that reaches no member, which passes empty |
+  | AC-4.6 (schemes) | a literal list, with the observed enumerator | yes |
+  | AC-5.8 (editor equals preview) | every input; the expected value is the site's preview, which AC-3.7 holds | yes, as far as AC-3.7 does |
 
-- **SL-1** (link schemes). `tel` and `sms` are outside AC-4.6's list. AC-4.6 gives them an outcome (the label as text, no
-  `href`), so nothing breaks. Where both Discord parsers link such a target, AC-3.1 and AC-4.6 disagree on that input, and
-  the table would call it C5, a site defect, when it is the list. `dev` appears only under a mask that carries
-  `DEV_LINKS`, which AC-2.3 governs. Bearer: the implementer at M4, when AC-3.1 fails on such an input. It takes the input
-  to the planner, who adds the scheme or records the difference.
-- **SL-2** (timestamp styles). The engine accepts nine style letters. `MarkdownTimestamp.tsx` at `af3d95a`, which M4
-  keeps, has formats for six (`t T d D f F`) and handles `R`. It has none for `s` and `S`. No criterion lists the styles
-  or says what the site draws for those two, and AC-3.1's canonical form blurs the style (X-19). Bearer: nobody by any
-  criterion. The implementer meets it only by reading this line, and otherwise a user who types `<t:…:s>` does. This is
-  the limit most worth folding.
+- **SL-8** (AC-3.7's residue). The plan constrains the listed classes only by their reasons (B3's a, b or c), which the
+  implementation document records and code review reads once. It does not say the listed set is fixed after that, nor what an
+  input does that was equal and comes to differ. AN-3 bounds the candidates at 32 to 54 of 272 per surface. Bearer: the
+  implementer at M3, where AC-3.4 requires AC-3.7 to be shown red under a mutation of the adjustment module; a run that lists
+  the mutant's differences instead of failing is the member, and goes to the planner. After M4, QA at Phase 2 reads the
+  residue count against the one recorded at M3 and M4 (RK-9's falsifier). A later chain has no bearer until the planner
+  states one.
 
-F-26 MEDIUM cycle 1 pass 2 — OPEN — An instrument or step given a job it cannot reach (second member of F-10's shape); closed by property, limits SL-3 to SL-7
-- **The second member**: M3, "Form": `pnpm test:discord` "re-derives every frozen literal live". Two of the frozen
-  families have no live source the plan establishes: AN-3's mask rows (a read of served code and a signed-in walk) and
-  AN-6's native mapping (module 818948 "read as prose"). AN-4 establishes only that `parseToAST` and the legacy text-box
-  table run from fetched assets.
-- **Property**: every sentence that gives an instrument, a step or a stage a job over a class names one that exists when
-  the job runs and can reach every member of the class. What it cannot reach is named as residue.
-- **Domain**: the plan's criteria (AC-2.1 to AC-6.5), the seven AN items, the outcome table's cells, the Header's base
-  step and M7's bullets, all read in this pass. Five sentences do not hold:
-- **SL-3** (live re-derivation). The live command can re-derive what the fetched legacy code computes: AC-3.2's and
-  AC-5.6's expected values. AN-3's masks and AN-6's native mapping are frozen from a read, and they go stale silently
-  until someone re-reads them at a pin change. Cause C4 of the table reaches only the first family. Bearer: the
-  implementer at M3, who names in its document which literals the command re-derives. QA's re-key reads that list.
-- **SL-4** (AC-3.4's base-red list). AC-3.4 says every limb fails at the chain base "except the normalisation limb".
-  The refused-paste limb that revision 2 added to AC-3.3 also passes at the base: `onPaste` already refuses and leaves the
-  text as it was (read from code at `af3d95a`, not run). The rule that holds is the one AC-3.4 already states for the
-  normalisation limb: a limb the base passes is shown red by mutation only. Bearer: QA at Phase 2, which takes the
-  base-green limbs from a run at the base, not from the list.
-- **SL-5** (the unmapped-kind fallback). M2 says an unmapped kind "renders its source characters". A `parse` node carries
-  no source text and no span (P-1), so the sentence holds only if AN-5 picks `parseLossless`. Bearer: the implementer at
-  M4, with AN-5's result. Under the `parse` form it takes the sentence to the planner.
-- **SL-6** (AN-3's count). A legacy-only surface goes to him "before M2's approval" with a disagree count "from M3's
-  classification". M3 does not exist before M2. The count has to be the analyst's, taken with AN-4's oracle over the 272
-  corpus. Bearer: the analyst at AN-3.
-- **SL-7** (AC-6.3's sign-in read). AC-6.3 gives the analyst a read ("whether a local build can complete Discord
-  sign-in"), and M1 says the analyst works only on M1's items, which do not list it. Bearer: UAT at register row B-4. If
-  the analysis holds no attempt, UAT makes it before the walk.
+F-30 LOW cycle 1 pass 3 — OPEN — D-4's and D-5's rows still aim at the criteria revision 3 moved
+- **Location**: Decisions Register, D-5 "Consequence: the agree class of AC-3.1 and AC-3.2"; D-4 "AC-3.1, AC-3.2 and AC-3.6
+  derive from this row".
+- **Description**: AC-3.2 no longer has an agree class (D-15), five surfaces left D-5's treatment (D-14), and AC-3.7 and
+  AC-3.8 now run Discord's fetched code under D-4. A withdrawal of D-4 or D-5 would retire the wrong members (planner.md,
+  "names every register row … it moves and re-aims each").
+- **Recommendation**: re-aim the two cells, or record in one line that the pass declined to.
+
+### Stated limit added under a closed property
+
+- **SL-9** (F-26's property: a stage given a job it can reach). AC-3.7 gives code review a read ("code review reads it": the
+  reason per listed residue class), and M4 holds the adjustment module. The Reading Order's code-reviewer row names M2, M5, M6
+  and Exclusions, not M3 or M4. Bearer: the code reviewer, who reaches AC-3.7 only by this line or by M5's citation of AC-5.8.
 
 ### Resolved
 
-F-1 HIGH cycle 1 pass 1 — RESOLVED — each AN item now carries its "Not completed" outcome and the approval it holds. Plan revision 2, M1.
+F-1 HIGH cycle 1 pass 1 — RESOLVED — each AN item carries its "Not completed" outcome and the approval it holds. Plan revision 2, M1.
 
-F-2 HIGH cycle 1 pass 1 — RESOLVED — outcome table by cause and gate, the release-interval figure, D-5's instrument corrected, the Test Conventions carrier. Plan revision 2, M3 "Outcome of a red `pnpm test:discord`", D-5, M7. Its later-chains column is F-24.
+F-2 HIGH cycle 1 pass 1 — RESOLVED — outcome table by cause and gate, the release-interval figure, D-5's instrument corrected, the Test Conventions carrier. Plan revision 2, M3, D-5, M7. Two cells revision 3 created are F-27 and F-28.
 
-F-3 HIGH cycle 1 pass 1 — RESOLVED — pending stays hidden as today; rejected is marked a deviation with AF-7 as its reason. Plan revision 2, M2 loading states, AC-2.5, P-4.
+F-3 HIGH cycle 1 pass 1 — RESOLVED — pending stays hidden as today; rejected is a marked deviation. Plan revision 2, M2, AC-2.5, P-4.
 
-F-4 MEDIUM cycle 1 pass 1 — RESOLVED — the gap is recorded on every capture, the quiet window is read from source, and the missing production read is a stated limit carried by QA's candidate E-4. Plan revision 2, AN-2, RK-2, X-21.
+F-4 MEDIUM cycle 1 pass 1 — RESOLVED — the gap is recorded on every capture; the missing production read is a stated limit. Plan revision 2, AN-2, RK-2, X-21.
 
-F-5 MEDIUM cycle 1 pass 1 — RESOLVED — declared and observed enumerators, an outcome for an unmapped kind, the `0` rule. Plan revision 2, AC-2.4, M2, RK-3, AC-2.3. Its class is F-25.
+F-5 MEDIUM cycle 1 pass 1 — RESOLVED — declared and observed enumerators, an outcome for an unmapped kind, the `0` rule. Plan revision 2, AC-2.4, M2, RK-3, AC-2.3.
 
-F-7 MEDIUM cycle 1 pass 1 — RESOLVED — a legacy-only surface goes to him before M2's approval. Plan revision 2, AN-3. The count's source is SL-6.
+F-6 MEDIUM cycle 1 pass 1 — RESOLVED — the class table has the editor's rows: content against the native box on every typed input (AC-3.2), the legacy-only surfaces against the site's preview (AC-5.8), legacy-box differences listed. Plan revision 3, M3 "Classes".
 
-F-8 MEDIUM cycle 1 pass 1 — RESOLVED — the rule names the inline runs, and block context stays the Slate layer's. Plan revision 2, AC-5.6.
+F-7 MEDIUM cycle 1 pass 1 — RESOLVED — a legacy-only surface went to him before M2's approval; ruled at D-14. Plan revision 2, AN-3; revision 3, D-14.
 
-F-9 MEDIUM cycle 1 pass 1 — RESOLVED — two modes, the paste limb bounded to accepted inputs, the refusals kept with their own property. Plan revision 2, AC-3.3, P-5.
+F-8 MEDIUM cycle 1 pass 1 — RESOLVED — the rule names the inline runs; block context stays the Slate layer's. Plan revision 2, AC-5.6.
 
-F-10 MEDIUM cycle 1 pass 1 — RESOLVED — the mutated code is named per criterion. Plan revision 2, AC-3.4. Its class is F-26.
+F-9 MEDIUM cycle 1 pass 1 — RESOLVED — two modes, the paste limb bounded, the refusals kept. Plan revision 2, AC-3.3, P-5.
 
-F-11 MEDIUM cycle 1 pass 1 — RESOLVED — AN-1 cites plan 018's RK-7 and takes its build form. Plan revision 2, AN-1.
+F-10 MEDIUM cycle 1 pass 1 — RESOLVED — the mutated code is named per criterion. Plan revision 2, AC-3.4.
 
-F-12 MEDIUM cycle 1 pass 1 — RESOLVED — the base is `master` at the cut, with a re-derivation step the implementer runs. Plan revision 2, Header notes "Base".
+F-11 MEDIUM cycle 1 pass 1 — RESOLVED — AN-1 takes plan 018's build form. Plan revision 2, AN-1.
 
-F-13 MEDIUM cycle 1 pass 1 — RESOLVED — AN-4 reads the driver's install behaviour; M3 takes AC-2.2's pin rule; the rollback names its runner. Plan revision 2, AN-4, M3.
+F-12 MEDIUM cycle 1 pass 1 — RESOLVED — the base is `master` at the cut, with a re-derivation step. Plan revision 2, Header notes.
 
-F-14 MEDIUM cycle 1 pass 1 — RESOLVED — the loose form is named, with the strict count beside it and its blur in X-19. Plan revision 2, M3 "Three classes".
+F-13 MEDIUM cycle 1 pass 1 — RESOLVED — AN-4 needs no driver; M3 takes AC-2.2's pin rule; the rollback names its runner. Plan revision 2, AN-4, M3.
 
-F-15 MEDIUM cycle 1 pass 1 — RESOLVED — QA's production read is cited (it matches QA's P-Q13), the anchors must exist, and the reader is the carrier. Plan revision 2, Testing Strategy.
+F-14 MEDIUM cycle 1 pass 1 — RESOLVED — the loose form is named, with the strict count and its blur in X-19. Plan revision 2, M3.
+
+F-15 MEDIUM cycle 1 pass 1 — RESOLVED — QA's production read is cited and the reader is the carrier. Plan revision 2, Testing Strategy.
 
 F-16 MEDIUM cycle 1 pass 1 — RESOLVED — AC-2.7. Plan revision 2, M2.
 
-F-17 MEDIUM cycle 1 pass 1 — RESOLVED — Reading Order with the owed re-verdicts table; its rows name current headings. Plan revision 2.
+F-17 MEDIUM cycle 1 pass 1 — RESOLVED — Reading Order with the owed re-verdicts table. Plan revision 2. Its code-reviewer row is SL-9.
 
-F-18 MEDIUM cycle 1 pass 1 — RESOLVED — AC-6.3 has a provision step and AC-6.4 names what a place would take. Plan revision 2, M6. The step's place is SL-7.
+F-18 MEDIUM cycle 1 pass 1 — RESOLVED — AC-6.3 has a provision step and AC-6.4 names what a place would take. Plan revision 2, M6.
 
-F-19 LOW cycle 1 pass 1 — RESOLVED — AC-3.1, AC-3.2, AC-4.1 and AC-5.1 name D-4 and D-5. Plan revision 2.
+F-19 LOW cycle 1 pass 1 — RESOLVED — the criteria name their decision rows. Plan revision 2. Two rows' aim after revision 3 is F-30.
 
-F-20 LOW cycle 1 pass 1 — RESOLVED — X-13 to X-16, X-19 and X-20. Plan revision 2, Exclusions.
+F-20 LOW cycle 1 pass 1 — RESOLVED — Exclusions rows with carriers. Plan revision 2, Exclusions.
 
-F-21 LOW cycle 1 pass 1 — RESOLVED — the conditional package is in AC-2.1 and AC-2.2; AC-2.6 covers both parts of the notice. Plan revision 2, M2.
+F-21 LOW cycle 1 pass 1 — RESOLVED — AC-2.1, AC-2.2, AC-2.6. Plan revision 2, M2.
 
-F-22 LOW cycle 1 pass 1 — RESOLVED — gates stated in M5 and M6; devops mints the handoff. Plan revision 2, M5, M6, M7.
+F-22 LOW cycle 1 pass 1 — RESOLVED — gates stated in M5 and M6; devops mints the handoff. Plan revision 2.
 
-F-23 LOW cycle 1 pass 1 — RESOLVED — AC-6.5 under option a, with the header and provider sentences reworded. Plan revision 2. D-13 replaces it at revision 3. Duplicates: CF-2 in architecture/019-slate-formatting-discord-engine-architecture-findings.md
+F-23 LOW cycle 1 pass 1 — RESOLVED — replaced by D-13: AC-6.5 on the engine, AC-6.6. Plan revision 3, M6. Duplicates: CF-2 in architecture/019-slate-formatting-discord-engine-architecture-findings.md
+
+F-24 MEDIUM cycle 1 pass 2 — RESOLVED — the command runs at every later website release gate, as D-12 reads. Plan revision 3, M3 "Who runs it", M7. The column it added is F-28.
+
+F-25 MEDIUM cycle 1 pass 2 — RESOLVED — SL-1: `tel` and `sms` listed, checked by the observed enumerator (AC-4.6). SL-2: AC-4.7, AN-8's first limb, X-24. Plan revision 3, M4, M1.
+
+F-26 MEDIUM cycle 1 pass 2 — RESOLVED — SL-3: M3 "Form" names what is and is not re-derived, with the mask read's bearer. SL-4: AC-3.4 takes base-green limbs from a run. SL-5 holds (AN-5 chose `parseLossless`). SL-6 discharged (AN-3's counts are the analyst's). SL-7: AN-8's third limb. Plan revision 3. A further limit under its property is SL-9.
 
 ## Questions
 
-Pass 1's three questions are answered in revision 2: the oracle helper with AN-3's literal masks (AC-2.1), the generator
-count fixed from QA's EC-4 (AC-3.3), and the outcome table.
+Pass 2's two questions are answered in revision 3: the lift reads the decorator's run unit (AC-6.5), and AC-6.6 at M6 removes
+`simple-markdown`, with M4 moving the kept renderers off its types and the rollbacks paired.
 
-For revision 3, which folds D-13:
-
-1. **Planner.** Which text does the lift hand the engine: one line, as the decorator does (AC-5.6), or the whole value?
-   AC-6.5 says "the same text" and does not say. The answer decides whether an emoji inside a run that crosses lines is an
-   element in the editor.
-2. **Planner.** The plan's OQ-5 text says the fold "touches no other milestone". Which milestone removes
-   `simple-markdown`, its patch and its type file? Three things outside M6 read that library today: M4's kept renderers
-   (the `react` functions on `rules.tsx:staticBaseRules`), the timestamp callback's type (the architect's CF-6), and M2's
-   lockfile disposition and rollback pairing.
+None new. F-27 and F-28 carry what revision 4 needs to state.
 
 ## Scope assumptions the plan lists
 
-- **Unit**: holds only where AN-3 finds each surface to be a mask of the native parser. Revision 2 sends the other result
-  to him (F-7).
-- **Reach**: holds. Pass 1's search found 45 files, tests included, none under `bot` or `lang`; revision 2's P-4 now names
-  the one file that was missing.
-- **Layer**: holds, and AC-5.6 and AC-3.3 now say so.
-- **Emoji lift**: X-8 is replaced by D-13 at revision 3.
+- **Unit**: one adapter with seven masks. AN-3 found five surfaces legacy-only; D-14 keeps the one engine there.
+- **Reach**: holds, unchanged.
+- **Layer**: holds. The run unit spans `div` and `blockQuote` elements and never a `codeBlock` element (M5).
+- **Emoji lift**: from the engine (D-13).
 
 ## Review-method lines with no finding
 
-Pass 2:
-- **Reading Order.** Present; each row names current headings; the owed re-verdicts table is there.
-- **Decisions Register.** D-13's label and option text match effort rulings block 16:29Z. D-5's reopening instrument is
-  corrected. No row is re-raised.
-- **Restated figures.** The architect's 2,154 ms and 5.2 ms are line 1 of `split.out`. The 106 link inputs: the file holds
-  106 strings, all distinct (python `len` and `set`). QA's production hrefs match QA's P-Q13 and B-5. QA's document holds
-  the candidate E-4 and the measurement EC-4 that the plan cites.
-- **Release target.** Unchanged, and equal to the scoping block's end step.
-- **New steps and their runners.** The base re-derivation (implementer), the upgrade handoff (devops, Stage 1), the Test
-  Conventions text (implementer proposes, steering lands; commit subjects in `git log -- CLAUDE.md` name plan 014's M1 and
-  M5 as having landed that file) and the X-8 handoff (devops) each name a runner.
-- **Riders.** R-A carries a criterion line, the yield clause and a priced drop disposition.
+Pass 3:
+- **Decisions Register.** D-14's and D-15's option texts match effort rulings block 17:04Z word for word. D-11's title is cut
+  to its marker clause, with D-15 named as replacing the other. D-13's consequence cell is updated. No row is re-raised.
+- **Restated figures**, each read at its source: AN-3's masks and disagree counts (analysis AN-3 table); AN-6's 39 of 65, 63 of
+  65, 85 cases and 26 differences; AN-4's Node and jsdom run; `time.out` row `4096 lines`, lossless median 9.895 ms; QA's 13.9 ms
+  per input and its eight corpus rows; P-8's 16 and 15.
+- **Riders.** None added. R-A is unchanged.
+- **Exclusions.** X-22 to X-24 each carry a reason and a carrier. X-8, X-15 and X-16 are withdrawn with the ruling or read
+  that withdrew them named.
+- **Instruments.** AC-3.8 (i)'s predicate names the milestone that exercises it on a real member and a real non-member (M3).
+  AC-5.7's timing read is recorded and is not a pass condition; its reader is the implementer at M5. AN-8's first limb has its
+  "not completed" outcome (X-24).
+- **Rollbacks.** M4's, M5's and M6's pairing after AC-6.6 is stated, with runners.
+- **Release target.** Unchanged.
+- **Reading Order.** Present; rows name current headings (SL-9 on one row's reach).
 
-Pass 1, still standing: the port scope against the 25 keys of `rules.tsx:staticBaseRules`; the carried figures (`61e5dfe`
-to `af3d95a` moves test files only); S-30's four call sites; the 34 open handoffs' triggers; no code in the plan; no
-Content-Security-Policy header in the repository.
+Passes 1 and 2, still standing: listed in this critique at `e3e49ac7`.
 
 ## Process record
 
-- Pass 1: the website was read from a `git archive af3d95a` export in this session's scratchpad and by `git grep`, `git diff
-  --numstat` and `git ls-tree` against the object store. The shared tree was not touched. The export and the two unpacked npm
-  packages were deleted at the end of that pass.
-- Pass 1: one lookup of the export was not completed, then re-run with literal paths (effort rulings block 15:29Z).
-- Pass 1: the architect's conformance document and QA's Phase 1 document on revision 1 were read at the seam, after this
-  document's first commit (`4cdbdcee`). F-23 repeats CF-2 and is marked.
-- Pass 2: website files were read with `git show af3d95a:<path>`. The pinned package was installed into an empty scratch
-  directory with install scripts off and run under `timeout` from a script kept in a different directory. The directory
-  is deleted at the end of this pass; the Appendix holds the inputs and the output.
-- Pass 2: the architect's delta pass on revision 2 (`ee54771c`) was committed while this pass ran. It was not read before
-  this pass was written.
+- Pass 3: the plan was read as `git diff 4c872804 9ac9ba62` saved in this session's scratchpad, and M5 and M6 by the Read tool.
+  Website files were read with `git show af3d95a:<path>` and `git grep`. Nothing was installed or run.
+- Pass 3: one comparison command was not completed, then re-run in a form that writes no file.
+- Pass 3: the architect's and QA's passes on revision 3 were not read before this pass was written. The architect's headings
+  were seen while locating its A′/B3 section; CF-9 and CF-10 there concern the lift on edit and the element's fields, and no
+  finding of this pass repeats them.
+- Passes 1 and 2: in this document at `e3e49ac7`.
 
 ## Resumption State
 
-Written at steering's ask for a clear, after pass 2 (`e3e49ac7`).
+Written after pass 3.
 
-- **Done**: cycle 1 pass 1 on revision 1 (`103687b4`, read whole) and pass 2 on revision 2 (`8dfd4659`, read whole) with
-  registration R-2 (`4c872804`). Verdict REQUEST REVISION. `planner-019` was sent this document at `e3e49ac7`.
-- **Next**: cycle 1 pass 3, on revision 3, when the planner's message names it. Read it as the `git diff` from `4c872804`
-  (the last state this critique read), boundary checked by an ID-set comparison of the two revisions; escalate to a whole
-  read only if the diff again replaces most of the file or reshapes a milestone (the D-13 fold may reshape M6).
-- **What pass 3 checks**: F-6 (the editor's rows in the three-class table); F-24 (D-12's "every release gate"); whether
-  the two properties of F-25 and F-26 were adopted, or SL-1 to SL-7 carry landing triggers in the plan; the D-13 fold
-  against effort rulings block 16:29Z and the two Questions; RK-8's pass-2 record ("no new member") written back; any
-  open `OPEN QUESTION`. The architect's CF-8 and QA's QAF-15 to QAF-17 on revision 2 were not read; read their heads at the
-  seam for overlaps, after this document's pass-3 commit.
-- **Standing rules of the brief** (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in
-  the record folder; website read by `git show <sha>:<path>` or an export with literal paths; record documents by Write or
-  Edit only; stamps from `date -u`.
-- **Tree**: record `master`; nothing of this session is uncommitted. Scratch exports and the engine install are deleted;
-  no process of this session is running. No question is awaiting an answer.
+- **Done**: cycle 1 passes 1 to 3. Verdict REQUEST REVISION on revision 3 (`9ac9ba62`). `planner-019` is sent this document at
+  its pass-3 commit.
+- **Next**: cycle 1 pass 4, on revision 4, when the planner's message names it. Read it as the `git diff` from `9ac9ba62`,
+  boundary checked by an ID-set comparison computed in memory (no file written from the shell).
+- **What pass 4 checks**: F-27 (the C2-with-C4 cell and which wasm AC-3.2's literals are taken under); F-28 (C1's later-release
+  cell and the runner); F-30; whether F-29's property was adopted or SL-8 carries a bearer for later chains; SL-9; RK-8's
+  pass-3 record written back ("no new member found by the critic's pass").
+- **Standing rules of the brief** (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in the
+  record folder; website read by `git show <sha>:<path>`; record documents by Write or Edit only; stamps from `date -u`.
+- **Tree**: record `master`. Nothing of this session is uncommitted after the pass-3 commit; no process of this session is
+  running. No question is awaiting an answer. A cache-warm wake is armed.
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
