@@ -20,6 +20,7 @@ Lane: full
 | Date | Rev | Author | Change |
 |---|---|---|---|
 | 2026-11-23T15:33 | 0 | planner-slate-formatting | Plan created from brief `steering/slate-formatting-brief-planner.md`, common brief `steering/slate-formatting-brief-common.md`, effort rulings blocks 09:07Z to 15:29Z, inventory `verification/slate-formatting-effort/scoping/inventory.md`, research `research/slate-formatting-discord-oracle-2026-11-23.md` (read at record `b668ea1d` content), architect findings `architecture/slate-formatting-preview-architecture-findings.md` (`86418be`). Scope delta: none (first revision). Size against the original ask: every in-scope inventory row is carried by a milestone or declined in Exclusions; the fuzzer is a suite deliverable (M3). |
+| 2026-11-23T15:47 | R-1 | planner-019 | Registered research G-14 as a Planner batch row; its words live in `research/closed/slate-formatting-discord-oracle-2026-11-23.md` (record `a666dbd9`), Remaining gaps G-14. |
 
 ## Header notes
 
@@ -535,7 +536,7 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
 
 | Item | Source row | Disposition |
 |---|---|---|
-| — | — | Nothing registered. |
+| G-14: which legacy parser state (`allowEmojiLinks`, a message's `webhookId`, research § 3 step 1, module 354777) AC-3.1's oracle runs under, so an emoji inside a masked-link label on a webhook-sent message has the expected value Discord draws; with the research corpus now in its Appendix C as M3's source | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` Remaining gaps row G-14 (record `a666dbd9`); `INBOX.md` last entry, researcher-slate-formatting-oracle FYI | Open: folded at the next planning pass (revision 1, batched with the critique) into AN-4/AN-7 and AC-3.1. Severity: none stated at source; it bears on an expected value, so it is treated as a criterion change. |
 
 ## Version Management
 
