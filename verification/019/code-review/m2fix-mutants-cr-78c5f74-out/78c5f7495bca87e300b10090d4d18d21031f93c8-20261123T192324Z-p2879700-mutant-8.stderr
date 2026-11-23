@@ -1,0 +1,98 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document once the load has been rejected
+AssertionError: expected { kind: { type: 'document' }, …(2) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "kind": {
+                "type": "delimiter",
+                "value": [Object],
+              },
+              "span": {
+                "end": 2,
+                "start": 0,
+              },
+              "text": "**",
+              "type": "token",
+            },
+            {
+              "children": [
+                [Object],
+              ],
+              "kind": {
+                "type": "text",
+                "value": "a",
+              },
+              "span": {
+                "end": 3,
+                "start": 2,
+              },
+              "type": "node",
+            },
+            {
+              "kind": {
+                "type": "delimiter",
+                "value": [Object],
+              },
+              "span": {
+                "end": 5,
+                "start": 3,
+              },
+              "text": "**",
+              "type": "token",
+            },
+          ],
+          "kind": {
+            "type": "modifier",
+            "value": {
+              "id": 0,
+              "kind": "bold",
+            },
+          },
+          "span": {
+            "end": 5,
+            "start": 0,
+          },
+          "type": "node",
+        },
+      ],
+      "kind": {
+        "type": "paragraph",
+      },
+      "span": {
+        "end": 5,
+        "start": 0,
+      },
+      "type": "node",
+    },
+  ],
+  "kind": {
+    "type": "document",
+  },
+  "span": {
+    "end": 5,
+    "start": 0,
+  },
+}
+
+ ❯ src/utils/markdown/__tests__/engine.not-ready.test.ts:45:54
+     43|     await engine.startEngine();
+     44|     expect(engine.engineState()).toBe('rejected');
+     45|     expect(engine.parseLossless('content', '**a**')).toBeUndefined();
+       |                                                      ^
+     46|   });
+     47|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

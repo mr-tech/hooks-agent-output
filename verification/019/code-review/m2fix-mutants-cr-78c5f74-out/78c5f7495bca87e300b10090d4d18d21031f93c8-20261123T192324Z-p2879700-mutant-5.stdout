@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T192324Z-p2879700/mutant-5
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (24 tests | 1 failed) 161ms
+     × gives the code kind the inlineCode renderer without a warning 11ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 269 passed (270)
+   Start at  19:23:50
+   Duration  3.00s (transform 1.26s, setup 14ms, import 2.52s, tests 1.26s, environment 1.24s)
+

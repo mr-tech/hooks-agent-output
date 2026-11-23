@@ -1,0 +1,10 @@
+CR-probe-route-constant KILLED 4.81
+CR-probe-route-content KILLED 2.82
+CR-probe-route-mid-swap KILLED 4.44
+CR-probe-renderer-constant KILLED 4.95
+CR-probe-renderer-mid-swap KILLED 4.86
+CR-probe-guard-removed KILLED 5.28
+CR-probe-guard-pending-admitted KILLED 2.72
+CR-probe-guard-rejected-admitted KILLED 4.05
+8 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m2fix-mutants-cr-78c5f74.json (blob 0d7e89d9bb066d5670b37f6f71d50589f21fd60b))
+exit 0

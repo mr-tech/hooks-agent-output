@@ -1,0 +1,58 @@
+[
+  {
+    "id": "CR-probe-route-constant",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "parseWasm(text, SURFACE_MASKS[surface])",
+    "new": "parseWasm(text, SURFACE_MASKS.embedTitleWithUrl)",
+    "finding": "CR-1: every surface on one fixed mask"
+  },
+  {
+    "id": "CR-probe-route-content",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "parseWasm(text, SURFACE_MASKS[surface])",
+    "new": "parseWasm(text, surface === 'embedTitleWithUrl' ? SURFACE_MASKS.embedTitleWithUrl : SURFACE_MASKS.content)",
+    "finding": "CR-1: every surface but one on the content mask"
+  },
+  {
+    "id": "CR-probe-route-mid-swap",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "parseWasm(text, SURFACE_MASKS[surface])",
+    "new": "parseWasm(text, surface === 'embedTitle' ? SURFACE_MASKS.fieldValue : SURFACE_MASKS[surface])",
+    "finding": "CR-1: one middle surface takes its neighbour's mask"
+  },
+  {
+    "id": "CR-probe-renderer-constant",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS[kind as NodeKind];",
+    "new": "if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS.link;",
+    "finding": "CR-1: every mapped kind gets one renderer"
+  },
+  {
+    "id": "CR-probe-renderer-mid-swap",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS[kind as NodeKind];",
+    "new": "if (Object.hasOwn(NODE_RENDERERS, kind)) return kind === 'code' ? NODE_RENDERERS.code_block : NODE_RENDERERS[kind as NodeKind];",
+    "finding": "CR-1: one middle kind takes its neighbour's renderer"
+  },
+  {
+    "id": "CR-probe-guard-removed",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "return state === 'resolved' ? parseWasm",
+    "new": "return true ? parseWasm",
+    "finding": "CR-2: the not-ready guard removed"
+  },
+  {
+    "id": "CR-probe-guard-pending-admitted",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "return state === 'resolved' ? parseWasm",
+    "new": "return state !== 'rejected' ? parseWasm",
+    "finding": "CR-2: the guard admits the pending state"
+  },
+  {
+    "id": "CR-probe-guard-rejected-admitted",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "return state === 'resolved' ? parseWasm",
+    "new": "return state !== 'pending' ? parseWasm",
+    "finding": "CR-2: the guard admits the rejected state"
+  }
+]

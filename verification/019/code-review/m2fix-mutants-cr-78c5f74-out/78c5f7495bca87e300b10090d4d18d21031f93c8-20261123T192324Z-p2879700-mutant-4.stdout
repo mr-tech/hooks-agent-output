@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T192324Z-p2879700/mutant-4
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (24 tests | 15 failed) 213ms
+     × gives the document kind the fragment renderer without a warning 19ms
+     × gives the paragraph kind the paragraph renderer without a warning 13ms
+     × gives the heading kind the heading renderer without a warning 1ms
+     × gives the subtext kind the subtext renderer without a warning 1ms
+     × gives the quote kind the quote renderer without a warning 1ms
+     × gives the list kind the list renderer without a warning 1ms
+     × gives the list_item kind the listItem renderer without a warning 1ms
+     × gives the empty kind the empty renderer without a warning 1ms
+     × gives the modifier kind the modifier renderer without a warning 1ms
+     × gives the text kind the text renderer without a warning 1ms
+     × gives the code kind the inlineCode renderer without a warning 1ms
+     × gives the code_block kind the codeBlock renderer without a warning 1ms
+     × gives the emoji kind the emoji renderer without a warning 1ms
+     × gives the mention kind the mention renderer without a warning 1ms
+     × gives the timestamp kind the timestamp renderer without a warning 1ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  15 failed | 255 passed (270)
+   Start at  19:23:44
+   Duration  2.80s (transform 1.28s, setup 96ms, import 2.65s, tests 1.32s, environment 1.40s)
+

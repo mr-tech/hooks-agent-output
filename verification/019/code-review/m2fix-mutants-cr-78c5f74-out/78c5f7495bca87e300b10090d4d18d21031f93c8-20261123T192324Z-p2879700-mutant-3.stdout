@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T192324Z-p2879700/mutant-3
+
+ ❯ |node| src/utils/markdown/__tests__/engine.init-states.test.ts (11 tests | 1 failed) 171ms
+     × parses the embedTitle surface under that surface's own mask 43ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 269 passed (270)
+   Start at  19:23:39
+   Duration  2.70s (transform 1.75s, setup 26ms, import 3.04s, tests 1.61s, environment 1.28s)
+

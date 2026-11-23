@@ -1,0 +1,108 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the content surface under that surface's own mask
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedDescription surface under that surface's own mask
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the v2Text surface under that surface's own mask
+AssertionError: expected [ [ 'x', 436128007 ] ] to deeply equal [ [ 'x', 1073741823 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "x",
+-     1073741823,
++     436128007,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:110:43
+    108|     await engine.startEngine();
+    109|     engine.parseLossless(surface, 'x');
+    110|     expect(wasm.parseLossless.mock.calls).toEqual([['x', mask]]);
+       |                                           ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the fieldValue surface under that surface's own mask
+AssertionError: expected [ [ 'x', 436128007 ] ] to deeply equal [ [ 'x', 1040187391 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "x",
+-     1040187391,
++     436128007,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:110:43
+    108|     await engine.startEngine();
+    109|     engine.parseLossless(surface, 'x');
+    110|     expect(wasm.parseLossless.mock.calls).toEqual([['x', mask]]);
+       |                                           ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedTitle surface under that surface's own mask
+AssertionError: expected [ [ 'x', 436128007 ] ] to deeply equal [ [ 'x', 436128127 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "x",
+-     436128127,
++     436128007,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:110:43
+    108|     await engine.startEngine();
+    109|     engine.parseLossless(surface, 'x');
+    110|     expect(wasm.parseLossless.mock.calls).toEqual([['x', mask]]);
+       |                                           ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > reaches kinds the declared unions leave out, so the observed enumerator is not the declared one
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:86:36
+     84|     expect(nodes.has('paragraph')).toBe(true);
+     85|     expect(nodes.has('text')).toBe(true);
+     86|     expect(nodes.has('list_item')).toBe(true);
+       |                                    ^
+     87|   });
+     88|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.link-schemes.test.ts > the engine link scheme allow-list > is handed an allowed scheme for every scheme the engine returns for a link
+AssertionError: expected 0 to be greater than 0
+ ❯ src/utils/markdown/__tests__/engine.link-schemes.test.ts:70:25
+     68|     ];
+     69|     const urls = inputs.flatMap(linkUrls);
+     70|     expect(urls.length).toBeGreaterThan(0);
+       |                         ^
+     71|     expect(urls.filter((url) => !isAllowedLinkUrl(url))).toEqual([]);
+     72|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+

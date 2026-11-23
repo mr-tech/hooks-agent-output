@@ -1,0 +1,243 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 15 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the document kind the fragment renderer without a warning
+AssertionError: expected 'link' to be 'fragment' // Object.is equality
+
+Expected: "fragment"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the paragraph kind the paragraph renderer without a warning
+AssertionError: expected 'link' to be 'paragraph' // Object.is equality
+
+Expected: "paragraph"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the heading kind the heading renderer without a warning
+AssertionError: expected 'link' to be 'heading' // Object.is equality
+
+Expected: "heading"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the subtext kind the subtext renderer without a warning
+AssertionError: expected 'link' to be 'subtext' // Object.is equality
+
+Expected: "subtext"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the quote kind the quote renderer without a warning
+AssertionError: expected 'link' to be 'quote' // Object.is equality
+
+Expected: "quote"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the list kind the list renderer without a warning
+AssertionError: expected 'link' to be 'list' // Object.is equality
+
+Expected: "list"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the list_item kind the listItem renderer without a warning
+AssertionError: expected 'link' to be 'listItem' // Object.is equality
+
+Expected: "listItem"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the empty kind the empty renderer without a warning
+AssertionError: expected 'link' to be 'empty' // Object.is equality
+
+Expected: "empty"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the modifier kind the modifier renderer without a warning
+AssertionError: expected 'link' to be 'modifier' // Object.is equality
+
+Expected: "modifier"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the text kind the text renderer without a warning
+AssertionError: expected 'link' to be 'text' // Object.is equality
+
+Expected: "text"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the code kind the inlineCode renderer without a warning
+AssertionError: expected 'link' to be 'inlineCode' // Object.is equality
+
+Expected: "inlineCode"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the code_block kind the codeBlock renderer without a warning
+AssertionError: expected 'link' to be 'codeBlock' // Object.is equality
+
+Expected: "codeBlock"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the emoji kind the emoji renderer without a warning
+AssertionError: expected 'link' to be 'emoji' // Object.is equality
+
+Expected: "emoji"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the mention kind the mention renderer without a warning
+AssertionError: expected 'link' to be 'mention' // Object.is equality
+
+Expected: "mention"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/15]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the timestamp kind the timestamp renderer without a warning
+AssertionError: expected 'link' to be 'timestamp' // Object.is equality
+
+Expected: "timestamp"
+Received: "link"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:108:32
+    106|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    107|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    108|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    109|     expect(warn).not.toHaveBeenCalled();
+    110|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/15]⎯
+

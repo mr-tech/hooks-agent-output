@@ -2,10 +2,10 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "22f3e58 — repos=website; M2 only, the chain branch's commit at the implementation document's Handoff-At"
+Reviewed-At: "78c5f74 — repos=website; M2 paths only (engine.ts, MarkdownProvider.tsx, the engine.* and MarkdownProvider.engine-state tests); Round 1 at 22f3e58, its fix sub-entry at 78c5f74"
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: 019 — Slate formatting: one Discord engine for the preview and the editor
@@ -20,6 +20,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T19:15 | steering-hooks-fixer (brief `steering/019-brief-code-reviewer.md`, record `c651bf75`); implementer-019 (M2 document, `Handoff-At: 22f3e58`) | Review M2 | Round 1 at website `22f3e58`, chain base `5ec0621`. REJECTED on CR-1 MEDIUM (a severity floor: two keyed selections, each with a surviving constant-answer mutant) and CR-2 MEDIUM (the adapter's parse acts differently before init in Node and in a browser). CR-3 and CR-4 are LOW. Milestone-scoped: the plan's Status is not moved. |
+| 2026-11-23T19:24 | implementer-019 (fix round 1, website `78c5f74`, record `491731bf`) | Round 1 sub-entry: confirm CR-1 and CR-2 | Round 1 sub-entry at `78c5f74`, scoped to the fix commit `78c5f74` over the M2 paths. CR-1 and CR-2 are RESOLVED: 8 of 8 probes KILLED, each on its own case by assertion, and the sweeps re-run. Verdict APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW open, each with a carrier). `805fff6` and `548b16b` (M3 test work) are not reviewed here; they belong to M3's round. |
 
 ## Scope of this round
 
@@ -83,88 +84,9 @@ None.
 
 ### Medium
 
-CR-1 MEDIUM Round 1
-- **Category**: Checks That Cannot Fail (severity floor)
-- **Title**: The adapter's two keyed lookups are each asserted on one key, so a lookup that always gives that key's answer passes
-- **Location**: `src/utils/markdown/engine.ts` `parseLossless` and `nodeRenderer`. Tests: `engine.init-states.test.ts` "parses a
-  surface under that surface's mask" and `engine.kind-maps.test.ts` "gives a mapped kind its renderer without a warning", at
-  `22f3e58`.
-- **Class**: A selection by key whose test asks for a single key cannot tell the selection apart from a constant. The behaviour the
-  adapter relies on, "each surface reaches the engine with its own mask" and "each mapped kind gets its own renderer", then has no
-  assertion that fails when it is lost.
-- **Enumeration**: `git grep -nE "\[[A-Za-z]+( as [A-Za-z]+)?\]" 22f3e58 -- src/utils/markdown/engine.ts` gives 3 hits:
-  - `parseLossless`'s `SURFACE_MASKS[surface]`, a member;
-  - `nodeRenderer`'s `NODE_RENDERERS[kind as NodeKind]`, a member;
-  - the `LosslessChild` type index, not a value lookup.
-  The predicate does not match a lookup written as `.get(key)`, a `switch`, or a lookup in another module. For `engine.ts` all three
-  are absent by read, and the adapter is the only module that holds these tables (AC-2.1).
-- **Issue**: Mutants run on `22f3e58` (`m2-mutants-cr-out/`):
-  - `CR-probe-route-content` makes every surface except `embedTitleWithUrl` parse under the content mask. It **SURVIVED** all 280
-    cases. The title would then parse a game mention that AN-8 limb 2b says Discord's legacy formatter does not, and the field value
-    would lose its own mask.
-  - `CR-probe-renderer-constant` makes every mapped kind get `link`'s renderer. It **SURVIVED**.
-  - `CR-probe-route-constant` puts every surface on the `embedTitleWithUrl` mask. It was KILLED, but only by the kind-maps and
-    link-scheme cases, whose `content` parse lost its link bits. The routing case itself passed.
+CR-1 MEDIUM Round 1 RESOLVED. Both routing cases are now `it.each` over every key (6 surfaces, 16 node kinds), with literal expected values, at website `78c5f74`. The class is gone: the enumeration (`git grep -nE "\[[A-Za-z]+( as [A-Za-z]+)?\]"` over `engine.ts`) still gives the same two lookups and the type index, and each lookup is now asserted on every key. Captured check: `verification/019/code-review/m2fix-mutants-cr-78c5f74.json`, five CR-1 probes, including two mid-table swaps. All are KILLED on the routing case itself (`m2fix-mutants-cr-78c5f74-titles.txt`). Argument: record `a8588f39`.
 
-  AC-2.3's literals reach the engine only through this routing, and M4 and M5 will consume `nodeRenderer`. So both behaviours are
-  relied on, and the severity floor applies: this finding holds the hand-off to QA. The implementation document reports M2-06 as
-  killing a routing mutant. Its mutant form (the selected mask changed for the tested surface) is the one form a single-key case
-  does catch.
-- **Required Action**:
-  - **Preferred (structural)**: make both routing tests table-driven over every key: `it.each` over the six surfaces and over the
-    16 node kinds. Each expected value is a literal written in the test, independent of the adapter. For the masks, the literals
-    are the `EXPECTED` table already in `engine.surface-masks.test.ts` (AN-3/QA-derived), never `engine.SURFACE_MASKS[...]`. For
-    the renderers, write a literal table.
-  - **Minimum**: each routing case asks for at least two keys whose answers differ. The asked key must be neither the first nor the
-    last key of its table in declaration order, so neither a fixed first-key nor a fixed last-key answer passes.
-  - **Falsity signature**: with each of `CR-probe-route-content`, `CR-probe-route-constant` and `CR-probe-renderer-constant`
-    applied, the rewritten routing case itself fails on an assertion (`toHaveBeenCalledWith` or `toBe` mismatch), not on a timeout
-    and not only through a neighbouring case. The fix round re-runs `m2-mutants-cr.json` and `m2-mutants-cr-2.json` through
-    `mutation-run.py` and records each kill's `failing_titles`.
-  - **Callers**: both functions have no product caller at `22f3e58`. The remedy is test-only and changes no caller.
-
-CR-2 MEDIUM Round 1
-- **Category**: Architecture alignment / error handling
-- **Title**: Before the engine is ready, `parseLossless` parses under Node and throws in a browser, and the adapter passes that
-  difference to every consumer
-- **Location**: `src/utils/markdown/engine.ts` `parseLossless` at `22f3e58`, over `@discord/markdown-wasm@0.16.0`
-  `src/parse.js:ensureReady`.
-- **Class**: An adapter entry point whose behaviour in the not-ready states (pending, rejected) depends on the runtime. The test
-  runtime then cannot see the outcome the browser produces.
-- **Enumeration**: There is one value entry point into the engine, `engine.ts` `parseLossless`
-  (`git grep -n "parseWasm(" 22f3e58 -- src` gives 1 hit outside the import line). It is the "one `parseLossless` call that the
-  preview, the colouring and the emoji lift all read" (plan M2). The predicate does not see a future second entry point that
-  imports `parse` (non-lossless), which AC-2.1's confinement would surface as a change to the adapter.
-- **Issue**: The package's `ensureReady` compiles the wasm synchronously when `#compile-module-sync` resolves to its `node` file.
-  Otherwise it throws `@discord/markdown-wasm is not initialised. Await init() once before parsing…`. Evidence:
-  - **Node (run):** `m2-parse-before-init-node.out` shows a parse of `**a**` with no `init()` returning a document.
-  - **Browser (read only, not run):** the `default` `compile-module-sync.js` returns `null`, so `ensureReady` throws.
-  - **vitest (read):** both of the site's projects, `node` and `dom` (jsdom), run under Node and inline no dependencies
-    (`vitest.config.ts` at `22f3e58`). So, read but not run, both resolve the `node` condition.
-
-  Consequences:
-  - In the suite, a consumer that parses while the adapter's state is `pending` or `rejected` gets a formatted tree. In Chrome it
-    gets a thrown error, and a render that throws does not show "every source character unformatted" (AC-2.5 rejected limb).
-  - The fault is invisible to every M4, M5 and M6 test that uses the real engine. `engine.kind-maps.test.ts` and
-    `engine.link-schemes.test.ts` already call `parseLossless` with no `startEngine()`, and they pass only because of the Node
-    self-init.
-  - The adapter is the one module that names the engine. It is the one place where the not-ready outcome can be made the same
-    in every runtime.
-- **Required Action**:
-  - **Preferred (structural)**: `parseLossless` reads the adapter's own `state`. Unless it is `resolved`, it returns one stated
-    not-ready outcome, the same in every runtime, without calling the engine. For example, `undefined` (the consumer renders source
-    text) or a plain-text document; the implementer picks one and states it in the adapter's type. The browser's throw is then
-    unreachable, and the "unformatted when not ready" contract is a typed value M4 and M5 must handle.
-  - **Minimum**: none weaker is acceptable. A consumer-side check on `useEngineState` at each M4 and M5 call site leaves the class
-    representable at every new caller.
-  - **Callers under the preferred form**:
-    - product callers: none at `22f3e58`;
-    - `engine.kind-maps.test.ts` (`observedKinds`) and `engine.link-schemes.test.ts` (`linkUrls`) must `await startEngine()` first.
-      That is the remedy's cost, and it makes them state the precondition they now get for free;
-    - `engine.init-states.test.ts` "parses a surface…" already awaits `startEngine()` and is unchanged.
-  - **Falsity signature**: with the real engine and `startEngine()` never called (state `pending`), and again with `init` rejected,
-    `parseLossless('content', '**a**')` returns the not-ready outcome. The case fails on an assertion at `22f3e58`, where it returns
-    a formatted document.
+CR-2 MEDIUM Round 1 RESOLVED. `parseLossless` returns `LosslessNode | undefined`, and `undefined` unless the adapter's state is `resolved`, in every runtime, at website `78c5f74`. There are still no product callers (`git grep -n "parseLossless("` outside `__tests__`: the definition only), and the single `parseWasm(` call sits behind the guard. `engine.not-ready.test.ts` runs the real engine through pending, in flight, rejected and resolved. Its pending and rejected cases discriminate because Node would otherwise self-initialise. Captured check: the same mutants file, three guard probes (guard removed, pending admitted, rejected admitted), each KILLED on the matching not-ready case. Argument: record `a8588f39`.
 
 ### Low/Info
 
@@ -213,33 +135,46 @@ CR-4 LOW Round 1
   the case fails on that assertion. Not blocking. It may land in the CR-1 and CR-2 fix round or at M3, where the oracle helper
   becomes AC-2.1's second member.
 
+## Round 1 sub-entry: fix confirmation at `78c5f74`
+
+The scope is the fix commit `78c5f74`, read by path:
+- `engine.ts`;
+- `engine.init-states`, `engine.kind-maps` and `engine.link-schemes` tests;
+- the new `engine.not-ready.test.ts`.
+
+Not reviewed here: `805fff6` and `548b16b`, which sit between `22f3e58` and `78c5f74`. They are M3 test work (vitest projects,
+the lifted corpus, the canonical form, the generator, `helpers/discordOracle.ts`) and touch no M2 product file
+(`git diff --stat 22f3e58 78c5f74`). They are reviewed in M3's round. The verdict binds to the M2 paths at `78c5f74` only.
+
+| Check | Result | Capture |
+|---|---|---|
+| `pnpm install --frozen-lockfile` in a scratch clone of `78c5f74` | exit 0 | `m2fix-install-frozen-78c5f74.log` |
+| Re-attack of the routing and the new guard: 8 probes through `mutation-run.py`. These are my three Round 1 probes re-anchored, two mid-table swaps that neither a first-key nor a last-key fixture would catch, and three guard mutants. Suite: the 8 M2 engine and provider files under `--project node --project dom` (control 270 cases, exit 0) | 8 of 8 KILLED, count `checked`. Each kill includes the routing or not-ready case that names it, by assertion, with no timeout | `m2fix-mutants-cr-78c5f74.json`, `m2fix-mutants-cr-78c5f74-out/`, `-titles.txt`, `.runner.txt` |
+| Enumerations re-run at `78c5f74` | keyed lookups: the same 2 plus the type index; `parseWasm(` calls: 1, behind the guard; product callers of `parseLossless`: 0 | (commands in the CR-1 and CR-2 lines) |
+| `convention-check.js --files` over the 5 fix files, and the ID-token class and basename form by hand | 0 FAIL, 0 CANDIDATE. The id-token and basename checks are skipped by the tool and pass by hand (0 hits; `engine.not-ready.test.ts` matches the positive form) | `m2fix-convention-check-78c5f74.txt` |
+| Expectation independence | the routing literals and the renderer table are written in the tests, not read from the adapter. The not-ready test runs the real engine, with only `init` replaced in the rejected case | n/a |
+
+I did not run the whole suite, which is QA's. The implementer reports 3026 of 3026 with exit 0 at `78c5f74`.
+
 ## Verdict
 
-**Status**: REJECTED
-**Rationale**:
-- CR-1 is a severity-floor finding. The adapter relies on per-surface mask routing and per-kind renderer lookup, and a
-  constant-answer mutant of each survives the whole M2 suite. Under the floor it blocks hand-off to QA.
-- CR-2 is a contract defect in the one module that owns the engine. It is cheapest to fix now, before M4, M5 and M6 build three
-  consumers on a parse that behaves differently under test.
+**Status**: APPROVED_WITH_COMMENTS (Round 1 sub-entry, M2 at `78c5f74`)
+**Rationale**: CR-1, the severity floor, and CR-2 are resolved in their structural form. Each is held by a captured check that fails
+if it returns. Two LOW findings remain open, each with a carrier:
+- CR-3 goes to M5 (the M5 implementer and this review's M5 round).
+- CR-4 is deferred by the implementer to M3's oracle round. Its carrier is this document's M3 round, which checks it beside AC-2.1's
+  second member, `helpers/discordOracle.ts`. If M3's round has not run when the chain closes, CR-4 moves to a handoff.
 
-Otherwise M2 is sound:
+Round 1 found M2 otherwise sound on these points:
 - the masks equal their independent literals on all 186 cells;
 - the pin and lockfile are as dispositioned;
 - R-A installs frozen in an export;
 - the link allow-list held against 4,834 payloads;
-- the init state machine's tests are discriminating (M2-10 to M2-13);
 - the comment and naming conventions are clean.
 
 ## Required Actions
 
-1. CR-1: make the routing tests for `parseLossless` and `nodeRenderer` cover every key, with literal expected values. Re-run the
-   three probes and record each kill on the routing case itself.
-2. CR-2: `parseLossless` returns one stated not-ready outcome unless the state is `resolved`. Add a real-engine test for pending and
-   for rejected. The two tests that parse without `startEngine()` await it.
-3. Optional in this round: CR-4. CR-3 is carried to M5 and is not owed now.
-
-The re-verification is a sub-entry of Round 1, scoped to the fix diff: the sweeps above re-run, and the probes re-run against the
-fixed SHA.
+None owed for M2. Optional: CR-4 at M3 (above). CR-3 at M5.
 
 ## Assumption Not Checked
 
@@ -251,7 +186,8 @@ control, which the implementer's earlier-attempt build only approximates).
 
 ## Next Steps
 
-- Implementer: CR-1 and CR-2, then a fix hand-off for this document's Round 1 sub-entry.
-- QA Phase 2 (after approval): AC-2.6 per the Assumption Not Checked above, and AC-2.5's per-surface limbs at M4 and M5.
+- QA Phase 2 (M2 at `78c5f74`): AC-2.6, per the Assumption Not Checked above. AC-2.5's per-surface limbs come at M4 and M5.
+- M3 round of this review: CR-4, and AC-2.1's second member `helpers/discordOracle.ts` against "calls the engine only with AN-3's
+  literal masks" (it derives its mask from the package's `Syntax` enum).
 - M5 implementer and this review's M5 round: CR-3.
-- M4 round of this review: the link-allow-list attack re-run against the rendered anchor (residue above).
+- M4 round of this review: the link allow-list attack re-run against the rendered anchor (residue above).

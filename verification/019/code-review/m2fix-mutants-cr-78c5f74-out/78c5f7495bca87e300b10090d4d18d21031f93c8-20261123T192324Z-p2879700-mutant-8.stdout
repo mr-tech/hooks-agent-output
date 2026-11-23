@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T192324Z-p2879700/mutant-8
+
+ ❯ |node| src/utils/markdown/__tests__/engine.not-ready.test.ts (4 tests | 1 failed) 309ms
+     × returns no document once the load has been rejected 25ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 269 passed (270)
+   Start at  19:24:02
+   Duration  3.02s (transform 2.60s, setup 29ms, import 4.08s, tests 1.96s, environment 1.48s)
+
