@@ -1,0 +1,21 @@
+chain: sessions matching '*steering-hooks-fixer' or '*steering-hooks-fixer-<n>' from 2026-11-23T08:53Z to 2026-11-23T15:31Z
+2 of 3 resolved from the registry cache (live entry gone): steering-hooks-fixer, steering-hooks-fixer
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+steering-hooks-fix [de89c5c3] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-22T07:57:31Z
+steering-hooks-fix [be654015] claude-fabl,claude-opus    152       339  30,811,791    453,621   168,591    11.04
+  own                         claude-opus                 69       169  16,736,340     88,871    55,771     5.17
+  deweeder                    claude-fabl                  3         6     215,355     23,494    13,250     1.17
+  general-purpose-sonnet      claude-sonn                 47        98   6,392,835    232,300    55,739     1.78
+  retrospective               claude-opus                 33        66   7,467,261    108,956    43,831     2.92
+                                main 69 req $5.17 · subagent 83 req $5.86 · cached seen 2026-11-23T08:14:59Z
+steering-hooks-fix [51d829bf] claude-opus,claude-sonn    143       333  23,090,604    530,202    81,582    10.28
+  own                         claude-opus                131       309  22,861,594    504,678    76,674    10.14
+  general-purpose-sonnet      claude-sonn                 12        24     229,010     25,524     4,908     0.14
+                                main 131 req $10.14 · subagent 12 req $0.14 · cached seen 2026-11-23T09:21:27Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      295       672  53,902,395    983,823   250,173    21.32
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

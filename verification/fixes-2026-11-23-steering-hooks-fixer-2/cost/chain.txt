@@ -1,0 +1,22 @@
+chain: sessions matching '*fix-normalize-fence-loop' or '*fix-normalize-fence-loop-<n>' from 2026-11-23T08:53Z to 2026-11-23T15:31Z
+4 of 4 resolved from the registry cache (live entry gone): code-reviewer-fix-normalize-fence-loop, devops-fix-normalize-fence-loop, fixer-fix-normalize-fence-loop, qa-fix-normalize-fence-loop
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-normalize-f claude-opus                 71       156  10,508,473    155,841    58,327     4.52
+                                main 71 req $4.52 · cached seen 2026-11-23T09:19:05Z
+devops-fix-normalize-fence-lo claude-sonn                 97       198  10,231,664    333,987    51,931     2.80
+  own                         claude-sonn                 62       128   8,952,256    282,556    40,327     2.43
+  browser-walker              claude-sonn                 35        70   1,279,408     51,431    11,604     0.37
+                                main 62 req $2.43 · subagent 35 req $0.37 · cached seen 2026-11-23T13:10:15Z
+fixer-fix-normalize-fence-loo claude-opus                126       271  25,741,230    252,446   117,996     9.53
+                                main 126 req $9.53 · cached seen 2026-11-23T08:56:28Z
+qa-fix-normalize-fence-loop   claude-haik,claude-opus    194       406  33,689,690    371,135   130,419    11.09
+  own                         claude-opus                149       316  31,923,894    265,495   105,427    10.62
+  browser-walker              claude-sonn                 34        68   1,492,577     63,826    15,285     0.46
+  general-purpose             claude-haik                 11        22     273,219     41,814     9,707     0.01
+                                main 149 req $10.62 · subagent 45 req $0.47 · cached seen 2026-11-23T09:41:00Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      488     1,031  80,171,057  1,113,409   358,673    27.94
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
