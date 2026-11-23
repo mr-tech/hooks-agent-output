@@ -1,0 +1,128 @@
+{
+ "previewUrl": "http://127.0.0.1:3900/preview?data=%7B%22content%22%3A%22**bold**%20%5Bmasked%5D(https%3A%2F%2Fexample.com)%20%7C%7Cspoiler%7C%7C%22%2C%22embeds%22%3A%5B%5D%7D",
+ "editorUrl": "http://127.0.0.1:3900/message/m/new",
+ "preview": [
+  {
+   "status": 200,
+   "wallMs": 750,
+   "firstFormatted": 724.7000000476837,
+   "initMs": 120.29999995231628,
+   "engineReadyMark": 384.89999997615814,
+   "engineNodes": 1,
+   "html": "<div data-md-engine=\"wasm\"><strong>bold</strong> <a href=\"https://example.com/\">masked</a> <span data-md-spoiler=\"\">spoiler</span></div>",
+   "jsTransfer": 789394,
+   "jsDecoded": 2838492,
+   "wasmEntry": [
+    {
+     "transfer": 459329,
+     "encoded": 459029,
+     "decoded": 1230190,
+     "start": 271.10000002384186,
+     "end": 325
+    }
+   ],
+   "formatted": 724.7000000476837,
+   "responses": [
+    {
+     "url": "/_next/static/media/discord_markdown_wasm_bg.2658mkht2lx08.wasm",
+     "status": 200,
+     "ce": "gzip",
+     "cl": null,
+     "ct": "application/wasm",
+     "bytes": 1230190
+    }
+   ],
+   "chunkResponses": 29,
+   "errors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED"
+   ]
+  }
+ ],
+ "editor": [
+  {
+   "status": 200,
+   "wallMs": 2001,
+   "firstFormatted": null,
+   "initMs": 244.89999997615814,
+   "engineReadyMark": 1032.6000000238419,
+   "engineNodes": 0,
+   "html": null,
+   "jsTransfer": 654028,
+   "jsDecoded": 3518936,
+   "wasmEntry": [
+    {
+     "transfer": 459329,
+     "encoded": 459029,
+     "decoded": 1230190,
+     "start": 821.5,
+     "end": 1023.9000000953674
+    }
+   ],
+   "formatted": null,
+   "responses": [
+    {
+     "url": "/_next/static/media/discord_markdown_wasm_bg.2658mkht2lx08.wasm",
+     "status": 200,
+     "ce": "gzip",
+     "cl": null,
+     "ct": "application/wasm",
+     "bytes": 1230190
+    }
+   ],
+   "chunkResponses": 67,
+   "errors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED"
+   ]
+  }
+ ],
+ "summary": {
+  "previewFirstFormattedMs": {
+   "n": 1,
+   "median": 724.7000000476837,
+   "p95": 724.7000000476837,
+   "min": 724.7000000476837,
+   "max": 724.7000000476837
+  },
+  "previewInitMs": {
+   "n": 1,
+   "median": 120.29999995231628,
+   "p95": 120.29999995231628,
+   "min": 120.29999995231628,
+   "max": 120.29999995231628
+  },
+  "editorEngineReadyMs": {
+   "n": 1,
+   "median": 1032.6000000238419,
+   "p95": 1032.6000000238419,
+   "min": 1032.6000000238419,
+   "max": 1032.6000000238419
+  },
+  "editorInitMs": {
+   "n": 1,
+   "median": 244.89999997615814,
+   "p95": 244.89999997615814,
+   "min": 244.89999997615814,
+   "max": 244.89999997615814
+  },
+  "previewFormattedCount": 1,
+  "editorInitCount": 1,
+  "previewJsTransfer": {
+   "n": 1,
+   "median": 789394,
+   "p95": 789394,
+   "min": 789394,
+   "max": 789394
+  },
+  "editorJsTransfer": {
+   "n": 1,
+   "median": 654028,
+   "p95": 654028,
+   "min": 654028,
+   "max": 654028
+  }
+ }
+}

@@ -1,0 +1,1617 @@
+{
+ "v2parts": 31,
+ "table": {
+  "CUSTOM_EMOJI": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   }
+  },
+  "COLON_EMOJI": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "UNICODE_EMOJI": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "MASKED_LINK": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "DETECTED_LINK": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "AUTO_LINK": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "CONTACT_LINK": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "USER_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "CHANNEL_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "ROLE_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "GAME_MENTION": {
+   "content (webhook)": {
+    "legacy": false,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed field value": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   }
+  },
+  "COMMAND_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": false
+   }
+  },
+  "EVERYONE_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "HERE_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "STATIC_MENTION": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "TIMESTAMP": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "CODE_BLOCK": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "CODE": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "DOUBLE_CODE": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "BOLD": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "ASTERISK_ITALIC": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "UNDERSCORE_ITALIC": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "UNDERLINE": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "STRIKETHROUGH": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "SPOILER": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "HEADING": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "LIST": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "QUOTE": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "MULTILINE_QUOTE": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "field name, embed has url": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "SUBTEXT": {
+   "content (webhook)": {
+    "legacy": true,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed field value": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": true,
+    "native": "none",
+    "rendered": true
+   }
+  },
+  "DEV_LINKS": {
+   "content (webhook)": {
+    "legacy": false,
+    "native": "mask",
+    "rendered": null
+   },
+   "embed description": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed field value": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "embed title, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "field name, embed has url": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "footer": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "author name": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   },
+   "V2 text display": {
+    "legacy": false,
+    "native": "none",
+    "rendered": false
+   }
+  }
+ }
+}

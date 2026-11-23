@@ -1,0 +1,866 @@
+{
+ "gameRe": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "rows": [
+  {
+   "bit": "CUSTOM_EMOJI",
+   "text": "x <:hooks:1566742402180456559> x",
+   "content_webhook": [
+    "customEmoji"
+   ],
+   "content_user": [
+    "customEmoji"
+   ],
+   "embed_description": [
+    "customEmoji"
+   ],
+   "embed_field_value": [
+    "customEmoji"
+   ],
+   "embed_title": [
+    "customEmoji"
+   ],
+   "embed_title_with_url": [
+    "customEmoji"
+   ],
+   "field_name": [
+    "customEmoji"
+   ],
+   "field_name_embed_has_url": [
+    "customEmoji"
+   ],
+   "text_display_webhook": [
+    "customEmoji"
+   ]
+  },
+  {
+   "bit": "COLON_EMOJI",
+   "text": "x :smile: x",
+   "content_webhook": [
+    "emoji"
+   ],
+   "content_user": [
+    "emoji"
+   ],
+   "embed_description": [
+    "emoji"
+   ],
+   "embed_field_value": [
+    "emoji"
+   ],
+   "embed_title": [
+    "emoji"
+   ],
+   "embed_title_with_url": [
+    "emoji"
+   ],
+   "field_name": [
+    "emoji"
+   ],
+   "field_name_embed_has_url": [
+    "emoji"
+   ],
+   "text_display_webhook": [
+    "emoji"
+   ]
+  },
+  {
+   "bit": "UNICODE_EMOJI",
+   "text": "x 😀 x",
+   "content_webhook": [
+    "emoji"
+   ],
+   "content_user": [
+    "emoji"
+   ],
+   "embed_description": [
+    "emoji"
+   ],
+   "embed_field_value": [
+    "emoji"
+   ],
+   "embed_title": [
+    "emoji"
+   ],
+   "embed_title_with_url": [
+    "emoji"
+   ],
+   "field_name": [
+    "emoji"
+   ],
+   "field_name_embed_has_url": [
+    "emoji"
+   ],
+   "text_display_webhook": [
+    "emoji"
+   ]
+  },
+  {
+   "bit": "MASKED_LINK",
+   "text": "x [label](https://example.com) x",
+   "content_webhook": [
+    "link"
+   ],
+   "content_user": [
+    "link"
+   ],
+   "embed_description": [
+    "link"
+   ],
+   "embed_field_value": [
+    "link"
+   ],
+   "embed_title": [
+    "link"
+   ],
+   "embed_title_with_url": [],
+   "field_name": [
+    "link"
+   ],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "link"
+   ]
+  },
+  {
+   "bit": "DETECTED_LINK",
+   "text": "x https://example.com x",
+   "content_webhook": [
+    "link"
+   ],
+   "content_user": [
+    "link"
+   ],
+   "embed_description": [
+    "link"
+   ],
+   "embed_field_value": [
+    "link"
+   ],
+   "embed_title": [
+    "link"
+   ],
+   "embed_title_with_url": [],
+   "field_name": [
+    "link"
+   ],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "link"
+   ]
+  },
+  {
+   "bit": "AUTO_LINK",
+   "text": "x <https://example.com> x",
+   "content_webhook": [
+    "link"
+   ],
+   "content_user": [
+    "link"
+   ],
+   "embed_description": [
+    "link"
+   ],
+   "embed_field_value": [
+    "link"
+   ],
+   "embed_title": [
+    "link"
+   ],
+   "embed_title_with_url": [],
+   "field_name": [
+    "link"
+   ],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "link"
+   ]
+  },
+  {
+   "bit": "CONTACT_LINK",
+   "text": "x <a@b.co> x",
+   "content_webhook": [
+    "link"
+   ],
+   "content_user": [
+    "link"
+   ],
+   "embed_description": [
+    "link"
+   ],
+   "embed_field_value": [
+    "link"
+   ],
+   "embed_title": [
+    "link"
+   ],
+   "embed_title_with_url": [],
+   "field_name": [
+    "link"
+   ],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "link"
+   ]
+  },
+  {
+   "bit": "USER_MENTION",
+   "text": "x <@1558266761101447248> x",
+   "content_webhook": [
+    "mention"
+   ],
+   "content_user": [
+    "mention"
+   ],
+   "embed_description": [
+    "mention"
+   ],
+   "embed_field_value": [
+    "mention"
+   ],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "mention"
+   ]
+  },
+  {
+   "bit": "CHANNEL_MENTION",
+   "text": "x <#1574358729577599086> x",
+   "content_webhook": [
+    "channelMention"
+   ],
+   "content_user": [
+    "channelMention"
+   ],
+   "embed_description": [
+    "channelMention"
+   ],
+   "embed_field_value": [
+    "channelMention"
+   ],
+   "embed_title": [
+    "channelMention"
+   ],
+   "embed_title_with_url": [
+    "channelMention"
+   ],
+   "field_name": [
+    "channelMention"
+   ],
+   "field_name_embed_has_url": [
+    "channelMention"
+   ],
+   "text_display_webhook": [
+    "channelMention"
+   ]
+  },
+  {
+   "bit": "ROLE_MENTION",
+   "text": "x <@&1566742402180456559> x",
+   "content_webhook": [
+    "roleMention"
+   ],
+   "content_user": [
+    "roleMention"
+   ],
+   "embed_description": [
+    "roleMention"
+   ],
+   "embed_field_value": [
+    "roleMention"
+   ],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "roleMention"
+   ]
+  },
+  {
+   "bit": "GAME_MENTION",
+   "text": "x <game:123456789012345678> x",
+   "content_webhook": [],
+   "content_user": [],
+   "embed_description": [],
+   "embed_field_value": [],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": []
+  },
+  {
+   "bit": "COMMAND_MENTION",
+   "text": "x </ping:123456789012345678> x",
+   "content_webhook": [
+    "commandMention"
+   ],
+   "content_user": [
+    "commandMention"
+   ],
+   "embed_description": [
+    "commandMention"
+   ],
+   "embed_field_value": [
+    "commandMention"
+   ],
+   "embed_title": [
+    "commandMention"
+   ],
+   "embed_title_with_url": [
+    "commandMention"
+   ],
+   "field_name": [
+    "commandMention"
+   ],
+   "field_name_embed_has_url": [
+    "commandMention"
+   ],
+   "text_display_webhook": [
+    "commandMention"
+   ]
+  },
+  {
+   "bit": "EVERYONE_MENTION",
+   "text": "x @everyone x",
+   "content_webhook": [
+    "mention"
+   ],
+   "content_user": [
+    "mention"
+   ],
+   "embed_description": [
+    "mention"
+   ],
+   "embed_field_value": [
+    "mention"
+   ],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "mention"
+   ]
+  },
+  {
+   "bit": "HERE_MENTION",
+   "text": "x @here x",
+   "content_webhook": [
+    "mention"
+   ],
+   "content_user": [
+    "mention"
+   ],
+   "embed_description": [
+    "mention"
+   ],
+   "embed_field_value": [
+    "mention"
+   ],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "mention"
+   ]
+  },
+  {
+   "bit": "STATIC_MENTION",
+   "text": "x <id:customize> x",
+   "content_webhook": [
+    "staticRouteLink"
+   ],
+   "content_user": [
+    "staticRouteLink"
+   ],
+   "embed_description": [
+    "staticRouteLink"
+   ],
+   "embed_field_value": [
+    "staticRouteLink"
+   ],
+   "embed_title": [
+    "staticRouteLink"
+   ],
+   "embed_title_with_url": [
+    "staticRouteLink"
+   ],
+   "field_name": [
+    "staticRouteLink"
+   ],
+   "field_name_embed_has_url": [
+    "staticRouteLink"
+   ],
+   "text_display_webhook": [
+    "staticRouteLink"
+   ]
+  },
+  {
+   "bit": "TIMESTAMP",
+   "text": "x <t:1700000000:f> x",
+   "content_webhook": [
+    "timestamp"
+   ],
+   "content_user": [
+    "timestamp"
+   ],
+   "embed_description": [
+    "timestamp"
+   ],
+   "embed_field_value": [
+    "timestamp"
+   ],
+   "embed_title": [
+    "timestamp"
+   ],
+   "embed_title_with_url": [
+    "timestamp"
+   ],
+   "field_name": [
+    "timestamp"
+   ],
+   "field_name_embed_has_url": [
+    "timestamp"
+   ],
+   "text_display_webhook": [
+    "timestamp"
+   ]
+  },
+  {
+   "bit": "CODE_BLOCK",
+   "text": "```\nblock\n```",
+   "content_webhook": [
+    "codeBlock"
+   ],
+   "content_user": [
+    "codeBlock"
+   ],
+   "embed_description": [
+    "codeBlock"
+   ],
+   "embed_field_value": [
+    "codeBlock"
+   ],
+   "embed_title": [
+    "inlineCode"
+   ],
+   "embed_title_with_url": [
+    "inlineCode"
+   ],
+   "field_name": [
+    "inlineCode"
+   ],
+   "field_name_embed_has_url": [
+    "inlineCode"
+   ],
+   "text_display_webhook": [
+    "codeBlock"
+   ]
+  },
+  {
+   "bit": "CODE",
+   "text": "x `code` x",
+   "content_webhook": [
+    "inlineCode"
+   ],
+   "content_user": [
+    "inlineCode"
+   ],
+   "embed_description": [
+    "inlineCode"
+   ],
+   "embed_field_value": [
+    "inlineCode"
+   ],
+   "embed_title": [
+    "inlineCode"
+   ],
+   "embed_title_with_url": [
+    "inlineCode"
+   ],
+   "field_name": [
+    "inlineCode"
+   ],
+   "field_name_embed_has_url": [
+    "inlineCode"
+   ],
+   "text_display_webhook": [
+    "inlineCode"
+   ]
+  },
+  {
+   "bit": "DOUBLE_CODE",
+   "text": "x ``a`b`` x",
+   "content_webhook": [
+    "inlineCode"
+   ],
+   "content_user": [
+    "inlineCode"
+   ],
+   "embed_description": [
+    "inlineCode"
+   ],
+   "embed_field_value": [
+    "inlineCode"
+   ],
+   "embed_title": [
+    "inlineCode"
+   ],
+   "embed_title_with_url": [
+    "inlineCode"
+   ],
+   "field_name": [
+    "inlineCode"
+   ],
+   "field_name_embed_has_url": [
+    "inlineCode"
+   ],
+   "text_display_webhook": [
+    "inlineCode"
+   ]
+  },
+  {
+   "bit": "BOLD",
+   "text": "x **bold** x",
+   "content_webhook": [
+    "strong"
+   ],
+   "content_user": [
+    "strong"
+   ],
+   "embed_description": [
+    "strong"
+   ],
+   "embed_field_value": [
+    "strong"
+   ],
+   "embed_title": [
+    "strong"
+   ],
+   "embed_title_with_url": [
+    "strong"
+   ],
+   "field_name": [
+    "strong"
+   ],
+   "field_name_embed_has_url": [
+    "strong"
+   ],
+   "text_display_webhook": [
+    "strong"
+   ]
+  },
+  {
+   "bit": "ASTERISK_ITALIC",
+   "text": "x *ital* x",
+   "content_webhook": [
+    "em"
+   ],
+   "content_user": [
+    "em"
+   ],
+   "embed_description": [
+    "em"
+   ],
+   "embed_field_value": [
+    "em"
+   ],
+   "embed_title": [
+    "em"
+   ],
+   "embed_title_with_url": [
+    "em"
+   ],
+   "field_name": [
+    "em"
+   ],
+   "field_name_embed_has_url": [
+    "em"
+   ],
+   "text_display_webhook": [
+    "em"
+   ]
+  },
+  {
+   "bit": "UNDERSCORE_ITALIC",
+   "text": "x _ital_ x",
+   "content_webhook": [
+    "em"
+   ],
+   "content_user": [
+    "em"
+   ],
+   "embed_description": [
+    "em"
+   ],
+   "embed_field_value": [
+    "em"
+   ],
+   "embed_title": [
+    "em"
+   ],
+   "embed_title_with_url": [
+    "em"
+   ],
+   "field_name": [
+    "em"
+   ],
+   "field_name_embed_has_url": [
+    "em"
+   ],
+   "text_display_webhook": [
+    "em"
+   ]
+  },
+  {
+   "bit": "UNDERLINE",
+   "text": "x __under__ x",
+   "content_webhook": [
+    "u"
+   ],
+   "content_user": [
+    "u"
+   ],
+   "embed_description": [
+    "u"
+   ],
+   "embed_field_value": [
+    "u"
+   ],
+   "embed_title": [
+    "u"
+   ],
+   "embed_title_with_url": [
+    "u"
+   ],
+   "field_name": [
+    "u"
+   ],
+   "field_name_embed_has_url": [
+    "u"
+   ],
+   "text_display_webhook": [
+    "u"
+   ]
+  },
+  {
+   "bit": "STRIKETHROUGH",
+   "text": "x ~~strike~~ x",
+   "content_webhook": [
+    "s"
+   ],
+   "content_user": [
+    "s"
+   ],
+   "embed_description": [
+    "s"
+   ],
+   "embed_field_value": [
+    "s"
+   ],
+   "embed_title": [
+    "s"
+   ],
+   "embed_title_with_url": [
+    "s"
+   ],
+   "field_name": [
+    "s"
+   ],
+   "field_name_embed_has_url": [
+    "s"
+   ],
+   "text_display_webhook": [
+    "s"
+   ]
+  },
+  {
+   "bit": "SPOILER",
+   "text": "x ||spoil|| x",
+   "content_webhook": [
+    "spoiler"
+   ],
+   "content_user": [
+    "spoiler"
+   ],
+   "embed_description": [
+    "spoiler"
+   ],
+   "embed_field_value": [
+    "spoiler"
+   ],
+   "embed_title": [
+    "spoiler"
+   ],
+   "embed_title_with_url": [
+    "spoiler"
+   ],
+   "field_name": [
+    "spoiler"
+   ],
+   "field_name_embed_has_url": [
+    "spoiler"
+   ],
+   "text_display_webhook": [
+    "spoiler"
+   ]
+  },
+  {
+   "bit": "HEADING",
+   "text": "# head",
+   "content_webhook": [
+    "heading"
+   ],
+   "content_user": [
+    "heading"
+   ],
+   "embed_description": [
+    "heading"
+   ],
+   "embed_field_value": [],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "heading"
+   ]
+  },
+  {
+   "bit": "LIST",
+   "text": "- item",
+   "content_webhook": [
+    "list"
+   ],
+   "content_user": [
+    "list"
+   ],
+   "embed_description": [
+    "list"
+   ],
+   "embed_field_value": [
+    "list"
+   ],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "list"
+   ]
+  },
+  {
+   "bit": "QUOTE",
+   "text": "> quoted",
+   "content_webhook": [
+    "blockQuote"
+   ],
+   "content_user": [
+    "blockQuote"
+   ],
+   "embed_description": [
+    "blockQuote"
+   ],
+   "embed_field_value": [
+    "blockQuote"
+   ],
+   "embed_title": [
+    "blockQuote"
+   ],
+   "embed_title_with_url": [
+    "blockQuote"
+   ],
+   "field_name": [
+    "blockQuote"
+   ],
+   "field_name_embed_has_url": [
+    "blockQuote"
+   ],
+   "text_display_webhook": [
+    "blockQuote"
+   ]
+  },
+  {
+   "bit": "MULTILINE_QUOTE",
+   "text": ">>> quoted\nrest",
+   "content_webhook": [
+    "blockQuote"
+   ],
+   "content_user": [
+    "blockQuote"
+   ],
+   "embed_description": [
+    "blockQuote"
+   ],
+   "embed_field_value": [
+    "blockQuote"
+   ],
+   "embed_title": [
+    "blockQuote"
+   ],
+   "embed_title_with_url": [
+    "blockQuote"
+   ],
+   "field_name": [
+    "blockQuote"
+   ],
+   "field_name_embed_has_url": [
+    "blockQuote"
+   ],
+   "text_display_webhook": [
+    "blockQuote"
+   ]
+  },
+  {
+   "bit": "SUBTEXT",
+   "text": "-# small",
+   "content_webhook": [
+    "subtext"
+   ],
+   "content_user": [
+    "subtext"
+   ],
+   "embed_description": [
+    "subtext"
+   ],
+   "embed_field_value": [
+    "subtext"
+   ],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "subtext"
+   ]
+  },
+  {
+   "bit": "DEV_LINKS",
+   "text": "x [dev](dev://branch/main) x",
+   "content_webhook": [],
+   "content_user": [],
+   "embed_description": [],
+   "embed_field_value": [],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": []
+  }
+ ]
+}

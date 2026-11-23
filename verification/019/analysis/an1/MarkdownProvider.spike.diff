@@ -1,0 +1,17 @@
+--- /dev/fd/63	2026-11-23 15:59:10.281670652 +0000
++++ src/providers/MarkdownProvider.tsx	2026-11-23 15:45:03.228362052 +0000
+@@ -22,7 +22,13 @@
+   const [markdown, setMarkdown] = useState<State>(prop);
+   useEffect(() => {
+     if (!markdown) {
+-      import('~/utils/markdown').then((m) => setMarkdown(m.default)).catch(console.error);
++      Promise.all([
++        import('~/utils/markdown'),
++        import('~/utils/markdown/wasmSpike').then((w) => w.loadWasmStaticParser()),
++      ]).then(([m, wasmParser]) => setMarkdown({
++        ...m.default,
++        static: { ...m.default.static, parseContent: wasmParser as any },
++      })).catch((e) => console.error('markdown-engine-init-failure', e));
+     }
+   }, []);
+   return useMemo(() => markdown, [markdown]);

@@ -1,0 +1,12 @@
+# static chunk sizes, base af3d95a vs spike (raw bytes, gzip -6 bytes via gzip -c | wc -c)
+## /tmp/claude-1000/-usr-local-bin-hooks/8ca68c2a-e1d9-4652-bda9-7e42e967044d/scratchpad/base-static/chunks
+29m7juw8-co5a.js raw=206586 gzip=58254
+38akicj0z-tc7.js raw=42672 gzip=12656
+total-js raw=4553679 files=88
+## /tmp/claude-1000/-usr-local-bin-hooks/8ca68c2a-e1d9-4652-bda9-7e42e967044d/scratchpad/spike/.next/static/chunks
+29m7juw8-co5a.js raw=206586 gzip=58254
+38akicj0z-tc7.js raw=42672 gzip=12656
+43c3agrp2xheg.js raw=6822 gzip=2857
+total-js raw=4563710 files=90
+## wasm
+discord_markdown_wasm_bg.2658mkht2lx08.wasm raw=1230190 gzip9=450875 sha256=da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0

@@ -1,0 +1,3 @@
+[{"id": "g14-unicode-label", "text": "x [🙂](https://example.com/g14a) x"},
+ {"id": "g14-custom-label", "text": "x [<:slate_oracle:1574460051593240606>](https://example.com/g14b) x"},
+ {"id": "g14-mixed-label", "text": "x [go 🙂 now](https://example.com/g14c) x"}]

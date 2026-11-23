@@ -1,0 +1,29 @@
+44 "https://example.com" | label "https://example.com/" | label-NOT-in-source
+51 "<http://example.com/a b>" | label "http://example.com/a" | label-is-source-text
+246 "\\https://example.com" | label "https://example.com/" | label-NOT-in-source
+38 "[text] (https://example.com)" | label "https://example.com/" | label-NOT-in-source
+45 "http://example.com/path?q=1#h" | label "http://example.com/path?q=1#h" | label-is-source-text
+46 "https://example.com." | label "https://example.com/" | label-NOT-in-source
+47 "https://example.com)" | label "https://example.com/" | label-NOT-in-source
+48 "(https://example.com)" | label "https://example.com/" | label-NOT-in-source
+49 "https://example.com/a(b)" | label "https://example.com/a(b)" | label-is-source-text
+50 "<https://example.com>" | label "https://example.com/" | label-NOT-in-source
+54 "https://example.com/**bold**" | label "https://example.com/**bold**" | label-is-source-text
+55 "**https://example.com**" | label "https://example.com/" | label-NOT-in-source
+56 "https://example.com/a_b_c" | label "https://example.com/a_b_c" | label-is-source-text
+57 "_https://example.com_" | label "https://example.com/" | label-NOT-in-source
+60 "<a@b.co>" | label "a@b.co" | label-is-source-text
+61 "https://example.com," | label "https://example.com/" | label-NOT-in-source
+62 "https://exa mple.com" | label "https://exa/" | label-NOT-in-source
+63 "x https://example.com y" | label "https://example.com/" | label-NOT-in-source
+64 "https://example.com's" | label "https://example.com's/" | label-NOT-in-source
+76 "||https://example.com||" | label "https://example.com/" | label-NOT-in-source
+265 "-# https://example.com" | label "https://example.com/" | label-NOT-in-source
+268 "<https://example.com> **b**" | label "https://example.com/" | label-NOT-in-source
+None "?" | label "text" | label-NOT-in-source
+None "?" | label "text" | label-NOT-in-source
+None "?" | label "text" | label-NOT-in-source
+None "?" | label "text" | label-NOT-in-source
+None "?" | label "bold" | label-NOT-in-source
+None "?" | label "a [b] c" | label-NOT-in-source
+label equals a source substring: 6 not: 22

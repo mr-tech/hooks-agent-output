@@ -1,0 +1,14 @@
+{
+ "emoji": {
+  "status": 201,
+  "id": "1574460051593240606",
+  "name": "slate_oracle",
+  "error": null
+ },
+ "command": {
+  "status": 201,
+  "id": "1574460053359034581",
+  "name": "slateping",
+  "error": null
+ }
+}

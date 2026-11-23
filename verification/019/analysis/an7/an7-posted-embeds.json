@@ -1,0 +1,101 @@
+[
+ {
+  "status": 200,
+  "message_id": "1574460114805588075",
+  "error": null,
+  "embeds": [
+   {
+    "bit": "ROLE_MENTION",
+    "with_url": false,
+    "stored": {
+     "type": "rich",
+     "title": "x <@&1568191162408505385> x",
+     "description": "x <@&1568191162408505385> x",
+     "fields": [
+      {
+       "name": "x <@&1568191162408505385> x",
+       "value": "x <@&1568191162408505385> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <@&1568191162408505385> x"
+     },
+     "footer": {
+      "text": "x <@&1568191162408505385> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "COMMAND_MENTION",
+    "with_url": false,
+    "stored": {
+     "type": "rich",
+     "title": "x </slateping:1574460053359034581> x",
+     "description": "x </slateping:1574460053359034581> x",
+     "fields": [
+      {
+       "name": "x </slateping:1574460053359034581> x",
+       "value": "x </slateping:1574460053359034581> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x </slateping:1574460053359034581> x"
+     },
+     "footer": {
+      "text": "x </slateping:1574460053359034581> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "CUSTOM_EMOJI",
+    "with_url": false,
+    "stored": {
+     "type": "rich",
+     "title": "x <:slate_oracle:1574460051593240606> x",
+     "description": "x <:slate_oracle:1574460051593240606> x",
+     "fields": [
+      {
+       "name": "x <:slate_oracle:1574460051593240606> x",
+       "value": "x <:slate_oracle:1574460051593240606> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <:slate_oracle:1574460051593240606> x"
+     },
+     "footer": {
+      "text": "x <:slate_oracle:1574460051593240606> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "BOLD",
+    "with_url": false,
+    "stored": {
+     "type": "rich",
+     "title": "**b <:slate_oracle:1574460051593240606> b**",
+     "description": "**b <:slate_oracle:1574460051593240606> b**",
+     "fields": [
+      {
+       "name": "**b <:slate_oracle:1574460051593240606> b**",
+       "value": "**b <:slate_oracle:1574460051593240606> b**",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "**b <:slate_oracle:1574460051593240606> b**"
+     },
+     "footer": {
+      "text": "**b <:slate_oracle:1574460051593240606> b**"
+     },
+     "content_scan_version": 0
+    }
+   }
+  ]
+ }
+]

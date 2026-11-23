@@ -1,0 +1,3 @@
+[{"type":"paragraph","value":[{"type":"text","value":"x "},{"type":"link","value":{"text":[{"type":"text","value":"🙂"}],"url":"https://example.com/g14a"}},{"type":"text","value":" x"}]}]
+[{"type":"paragraph","value":[{"type":"text","value":"x "},{"type":"link","value":{"text":[{"type":"text","value":"<:slate_oracle:1574460051593240606>"}],"url":"https://example.com/g14b"}},{"type":"text","value":" x"}]}]
+[{"type":"paragraph","value":[{"type":"text","value":"x "},{"type":"link","value":{"text":[{"type":"text","value":"go 🙂 now"}],"url":"https://example.com/g14c"}},{"type":"text","value":" x"}]}]

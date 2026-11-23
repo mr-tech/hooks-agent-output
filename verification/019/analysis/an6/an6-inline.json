@@ -1,0 +1,262 @@
+[
+ {
+  "name": "bold across emoji",
+  "serialized": "**a ? b**",
+  "legacy": [
+   {
+    "text": "**",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore"
+    ]
+   },
+   {
+    "text": "a ? b",
+    "start": 2,
+    "attributes": [
+     "strong"
+    ]
+   },
+   {
+    "text": "**",
+    "start": 7,
+    "attributes": [
+     "syntaxAfter"
+    ]
+   }
+  ],
+  "native": [
+   {
+    "text": "**",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_strong"
+    ]
+   },
+   {
+    "text": "a ? b",
+    "start": 2,
+    "attributes": [
+     "strong"
+    ]
+   },
+   {
+    "text": "**",
+    "start": 7,
+    "attributes": [
+     "syntaxAfter",
+     "after_strong"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "underscore italic across a named emoji whose name has _",
+  "serialized": "_a?b_",
+  "legacy": [
+   {
+    "text": "_",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore"
+    ]
+   },
+   {
+    "text": "a?b",
+    "start": 1,
+    "attributes": [
+     "em"
+    ]
+   },
+   {
+    "text": "_",
+    "start": 4,
+    "attributes": [
+     "syntaxAfter"
+    ]
+   }
+  ],
+  "native": [
+   {
+    "text": "_",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_em"
+    ]
+   },
+   {
+    "text": "a?b",
+    "start": 1,
+    "attributes": [
+     "em"
+    ]
+   },
+   {
+    "text": "_",
+    "start": 4,
+    "attributes": [
+     "syntaxAfter",
+     "after_em"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "source text of the same emoji typed as text",
+  "serialized": "_a:slight_smile:b_",
+  "legacy": [
+   {
+    "text": "_a",
+    "start": 0,
+    "attributes": []
+   },
+   {
+    "text": ":slight_smile:",
+    "start": 2,
+    "attributes": [
+     "emoji"
+    ]
+   },
+   {
+    "text": "b_",
+    "start": 16,
+    "attributes": []
+   }
+  ],
+  "native": [
+   {
+    "text": "_",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_em"
+    ]
+   },
+   {
+    "text": "a:slight_smile:b",
+    "start": 1,
+    "attributes": [
+     "em"
+    ]
+   },
+   {
+    "text": "_",
+    "start": 17,
+    "attributes": [
+     "syntaxAfter",
+     "after_em"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "spoiler across a mention",
+  "serialized": "||x ? y||",
+  "legacy": [
+   {
+    "text": "||",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_spoiler"
+    ]
+   },
+   {
+    "text": "x ? y",
+    "start": 2,
+    "attributes": [
+     "spoiler"
+    ]
+   },
+   {
+    "text": "||",
+    "start": 7,
+    "attributes": [
+     "syntaxAfter",
+     "after_spoiler"
+    ]
+   }
+  ],
+  "native": [
+   {
+    "text": "||",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_spoiler"
+    ]
+   },
+   {
+    "text": "x ? y",
+    "start": 2,
+    "attributes": [
+     "spoiler"
+    ]
+   },
+   {
+    "text": "||",
+    "start": 7,
+    "attributes": [
+     "syntaxAfter",
+     "after_spoiler"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "code span across a timestamp",
+  "serialized": "`a ? b`",
+  "legacy": [
+   {
+    "text": "`",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_inlineCode"
+    ]
+   },
+   {
+    "text": "a ? b",
+    "start": 1,
+    "attributes": [
+     "inlineCode"
+    ]
+   },
+   {
+    "text": "`",
+    "start": 6,
+    "attributes": [
+     "syntaxAfter",
+     "after_inlineCode"
+    ]
+   }
+  ],
+  "native": [
+   {
+    "text": "`",
+    "start": 0,
+    "attributes": [
+     "syntaxBefore",
+     "before_inlineCode"
+    ]
+   },
+   {
+    "text": "a ? b",
+    "start": 1,
+    "attributes": [
+     "inlineCode"
+    ]
+   },
+   {
+    "text": "`",
+    "start": 6,
+    "attributes": [
+     "syntaxAfter",
+     "after_inlineCode"
+    ]
+   }
+  ]
+ }
+]

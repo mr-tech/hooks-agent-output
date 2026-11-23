@@ -1,0 +1,1906 @@
+[
+ {
+  "id": 1,
+  "text": "# one",
+  "same": true,
+  "parse": "h1(\"one\")",
+  "lossless": "h1(\"one\")"
+ },
+ {
+  "id": 2,
+  "text": "## two",
+  "same": true,
+  "parse": "h2(\"two\")",
+  "lossless": "h2(\"two\")"
+ },
+ {
+  "id": 3,
+  "text": "### three",
+  "same": true,
+  "parse": "h3(\"three\")",
+  "lossless": "h3(\"three\")"
+ },
+ {
+  "id": 4,
+  "text": "#### four",
+  "same": true,
+  "parse": "p(\"#### four\")",
+  "lossless": "p(\"#### four\")"
+ },
+ {
+  "id": 5,
+  "text": "#nospace",
+  "same": true,
+  "parse": "p(\"#nospace\")",
+  "lossless": "p(\"#nospace\")"
+ },
+ {
+  "id": 6,
+  "text": " # leading space",
+  "same": true,
+  "parse": "p(\" # leading space\")",
+  "lossless": "p(\" # leading space\")"
+ },
+ {
+  "id": 7,
+  "text": "# trailing hashes ##",
+  "same": true,
+  "parse": "h1(\"trailing hashes ##\")",
+  "lossless": "h1(\"trailing hashes ##\")"
+ },
+ {
+  "id": 8,
+  "text": "text\n# after text",
+  "same": true,
+  "parse": "p(\"text\")h1(\"after text\")",
+  "lossless": "p(\"text\")h1(\"after text\")"
+ },
+ {
+  "id": 9,
+  "text": "text # mid line",
+  "same": true,
+  "parse": "p(\"text # mid line\")",
+  "lossless": "p(\"text # mid line\")"
+ },
+ {
+  "id": 10,
+  "text": "# **bold** head",
+  "same": true,
+  "parse": "h1(bold(\"bold\")\" head\")",
+  "lossless": "h1(bold(\"bold\")\" head\")"
+ },
+ {
+  "id": 11,
+  "text": "# # nested",
+  "same": true,
+  "parse": "h1(\"# nested\")",
+  "lossless": "h1(\"# nested\")"
+ },
+ {
+  "id": 12,
+  "text": "#  two spaces",
+  "same": true,
+  "parse": "h1(\"two spaces\")",
+  "lossless": "h1(\"two spaces\")"
+ },
+ {
+  "id": 13,
+  "text": "# a\n# b",
+  "same": true,
+  "parse": "h1(\"a\")h1(\"b\")",
+  "lossless": "h1(\"a\")h1(\"b\")"
+ },
+ {
+  "id": 14,
+  "text": "#\tTab",
+  "same": true,
+  "parse": "h1(\"Tab\")",
+  "lossless": "h1(\"Tab\")"
+ },
+ {
+  "id": 15,
+  "text": "-# sub",
+  "same": true,
+  "parse": "sub(\"sub\")",
+  "lossless": "sub(\"sub\")"
+ },
+ {
+  "id": 16,
+  "text": "-#nospace",
+  "same": true,
+  "parse": "p(\"-#nospace\")",
+  "lossless": "p(\"-#nospace\")"
+ },
+ {
+  "id": 17,
+  "text": " -# leading space",
+  "same": true,
+  "parse": "p(\" -# leading space\")",
+  "lossless": "p(\" -# leading space\")"
+ },
+ {
+  "id": 18,
+  "text": "-# -# nested",
+  "same": true,
+  "parse": "sub(\"-# nested\")",
+  "lossless": "sub(\"-# nested\")"
+ },
+ {
+  "id": 19,
+  "text": "text\n-# after",
+  "same": true,
+  "parse": "p(\"text\")sub(\"after\")",
+  "lossless": "p(\"text\")sub(\"after\")"
+ },
+ {
+  "id": 20,
+  "text": "-# **b** *i*",
+  "same": true,
+  "parse": "sub(bold(\"b\")\" \"italic(\"i\"))",
+  "lossless": "sub(bold(\"b\")\" \"italic(\"i\"))"
+ },
+ {
+  "id": 21,
+  "text": "# -# head then sub",
+  "same": true,
+  "parse": "h1(\"-# head then sub\")",
+  "lossless": "h1(\"-# head then sub\")"
+ },
+ {
+  "id": 22,
+  "text": "-# # sub then head",
+  "same": true,
+  "parse": "sub(\"# sub then head\")",
+  "lossless": "sub(\"# sub then head\")"
+ },
+ {
+  "id": 23,
+  "text": "a -# mid",
+  "same": true,
+  "parse": "p(\"a -# mid\")",
+  "lossless": "p(\"a -# mid\")"
+ },
+ {
+  "id": 24,
+  "text": "[text](https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||\"text\"))",
+  "lossless": "p(a(https://example.com/||\"text\"))"
+ },
+ {
+  "id": 25,
+  "text": "[text](http://example.com/a_b)",
+  "same": true,
+  "parse": "p(a(http://example.com/a_b||\"text\"))",
+  "lossless": "p(a(http://example.com/a_b||\"text\"))"
+ },
+ {
+  "id": 26,
+  "text": "[text](example.com)",
+  "same": true,
+  "parse": "p(\"[text](example.com)\")",
+  "lossless": "p(\"[text](example.com)\")"
+ },
+ {
+  "id": 27,
+  "text": "[text](<https://example.com>)",
+  "same": true,
+  "parse": "p(a(https://example.com/||\"text\"))",
+  "lossless": "p(a(https://example.com/||\"text\"))"
+ },
+ {
+  "id": 28,
+  "text": "[text](https://example.com \"title\")",
+  "same": true,
+  "parse": "p(a(https://example.com/|title|\"text\"))",
+  "lossless": "p(a(https://example.com/|title|\"text\"))"
+ },
+ {
+  "id": 29,
+  "text": "[**bold**](https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||bold(\"bold\")))",
+  "lossless": "p(a(https://example.com/||bold(\"bold\")))"
+ },
+ {
+  "id": 30,
+  "text": "[a [b] c](https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||\"a [b] c\"))",
+  "lossless": "p(a(https://example.com/||\"a [b] c\"))"
+ },
+ {
+  "id": 31,
+  "text": "[https://evil.com](https://example.com)",
+  "same": true,
+  "parse": "p(\"[https://evil.com](https://example.com)\")",
+  "lossless": "p(\"[https://evil.com](https://example.com)\")"
+ },
+ {
+  "id": 32,
+  "text": "[text](https://example.com/a(b)c)",
+  "same": true,
+  "parse": "p(a(https://example.com/a(b)c||\"text\"))",
+  "lossless": "p(a(https://example.com/a(b)c||\"text\"))"
+ },
+ {
+  "id": 33,
+  "text": "[](https://example.com)",
+  "same": true,
+  "parse": "p(\"[](https://example.com)\")",
+  "lossless": "p(\"[](https://example.com)\")"
+ },
+ {
+  "id": 34,
+  "text": "[ ](https://example.com)",
+  "same": true,
+  "parse": "p(\"[ ](https://example.com)\")",
+  "lossless": "p(\"[ ](https://example.com)\")"
+ },
+ {
+  "id": 35,
+  "text": "[text]( https://example.com )",
+  "same": true,
+  "parse": "p(\"[text]( \"a(https://example.com/||)\" )\")",
+  "lossless": "p(\"[text]( \"a(https://example.com/||)\" )\")"
+ },
+ {
+  "id": 36,
+  "text": "**[text](https://example.com)**",
+  "same": true,
+  "parse": "p(bold(a(https://example.com/||\"text\")))",
+  "lossless": "p(bold(a(https://example.com/||\"text\")))"
+ },
+ {
+  "id": 37,
+  "text": "[text](https://example.com)[two](https://example.org)",
+  "same": true,
+  "parse": "p(a(https://example.com/||\"text\")a(https://example.org/||\"two\"))",
+  "lossless": "p(a(https://example.com/||\"text\")a(https://example.org/||\"two\"))"
+ },
+ {
+  "id": 38,
+  "text": "[text] (https://example.com)",
+  "same": true,
+  "parse": "p(\"[text] (\"a(https://example.com/||)\")\")",
+  "lossless": "p(\"[text] (\"a(https://example.com/||)\")\")"
+ },
+ {
+  "id": 39,
+  "text": "[`code`](https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||code(\"code\")))",
+  "lossless": "p(a(https://example.com/||code(\"code\")))"
+ },
+ {
+  "id": 40,
+  "text": "[||sp||](https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||\"||sp||\"))",
+  "lossless": "p(a(https://example.com/||\"||sp||\"))"
+ },
+ {
+  "id": 41,
+  "text": "[text](ftp://example.com)",
+  "same": true,
+  "parse": "p(\"[text](ftp://example.com)\")",
+  "lossless": "p(\"[text](ftp://example.com)\")"
+ },
+ {
+  "id": 42,
+  "text": "[text](discord://-/channels/1/2)",
+  "same": true,
+  "parse": "p(a(discord://-/channels/1/2||\"text\"))",
+  "lossless": "p(a(discord://-/channels/1/2||\"text\"))"
+ },
+ {
+  "id": 43,
+  "text": "[te\nxt](https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||\"te\nxt\"))",
+  "lossless": "p(a(https://example.com/||\"te\nxt\"))"
+ },
+ {
+  "id": 44,
+  "text": "https://example.com",
+  "same": true,
+  "parse": "p(a(https://example.com/||))",
+  "lossless": "p(a(https://example.com/||))"
+ },
+ {
+  "id": 45,
+  "text": "http://example.com/path?q=1#h",
+  "same": true,
+  "parse": "p(a(http://example.com/path?q=1#h||))",
+  "lossless": "p(a(http://example.com/path?q=1#h||))"
+ },
+ {
+  "id": 46,
+  "text": "https://example.com.",
+  "same": true,
+  "parse": "p(a(https://example.com/||)\".\")",
+  "lossless": "p(a(https://example.com/||)\".\")"
+ },
+ {
+  "id": 47,
+  "text": "https://example.com)",
+  "same": true,
+  "parse": "p(a(https://example.com/||)\")\")",
+  "lossless": "p(a(https://example.com/||)\")\")"
+ },
+ {
+  "id": 48,
+  "text": "(https://example.com)",
+  "same": true,
+  "parse": "p(\"(\"a(https://example.com/||)\")\")",
+  "lossless": "p(\"(\"a(https://example.com/||)\")\")"
+ },
+ {
+  "id": 49,
+  "text": "https://example.com/a(b)",
+  "same": true,
+  "parse": "p(a(https://example.com/a(b)||))",
+  "lossless": "p(a(https://example.com/a(b)||))"
+ },
+ {
+  "id": 50,
+  "text": "<https://example.com>",
+  "same": true,
+  "parse": "p(a(https://example.com/||))",
+  "lossless": "p(a(https://example.com/||))"
+ },
+ {
+  "id": 51,
+  "text": "<http://example.com/a b>",
+  "same": true,
+  "parse": "p(\"<\"a(http://example.com/a||)\" b>\")",
+  "lossless": "p(\"<\"a(http://example.com/a||)\" b>\")"
+ },
+ {
+  "id": 52,
+  "text": "<example.com>",
+  "same": true,
+  "parse": "p(\"<example.com>\")",
+  "lossless": "p(\"<example.com>\")"
+ },
+ {
+  "id": 53,
+  "text": "www.example.com",
+  "same": true,
+  "parse": "p(\"www.example.com\")",
+  "lossless": "p(\"www.example.com\")"
+ },
+ {
+  "id": 54,
+  "text": "https://example.com/**bold**",
+  "same": true,
+  "parse": "p(a(https://example.com/**bold**||))",
+  "lossless": "p(a(https://example.com/**bold**||))"
+ },
+ {
+  "id": 55,
+  "text": "**https://example.com**",
+  "same": true,
+  "parse": "p(bold(a(https://example.com/||)))",
+  "lossless": "p(bold(a(https://example.com/||)))"
+ },
+ {
+  "id": 56,
+  "text": "https://example.com/a_b_c",
+  "same": true,
+  "parse": "p(a(https://example.com/a_b_c||))",
+  "lossless": "p(a(https://example.com/a_b_c||))"
+ },
+ {
+  "id": 57,
+  "text": "_https://example.com_",
+  "same": true,
+  "parse": "p(italic(a(https://example.com/||)))",
+  "lossless": "p(italic(a(https://example.com/||)))"
+ },
+ {
+  "id": 58,
+  "text": "steam://run/440",
+  "same": true,
+  "parse": "p(\"steam://run/440\")",
+  "lossless": "p(\"steam://run/440\")"
+ },
+ {
+  "id": 59,
+  "text": "mailto:a@b.co",
+  "same": true,
+  "parse": "p(\"mailto:a@b.co\")",
+  "lossless": "p(\"mailto:a@b.co\")"
+ },
+ {
+  "id": 60,
+  "text": "<a@b.co>",
+  "same": true,
+  "parse": "p(a(mailto:a@b.co||\"a@b.co\"))",
+  "lossless": "p(a(mailto:a@b.co||\"a@b.co\"))"
+ },
+ {
+  "id": 61,
+  "text": "https://example.com,",
+  "same": true,
+  "parse": "p(a(https://example.com/||)\",\")",
+  "lossless": "p(a(https://example.com/||)\",\")"
+ },
+ {
+  "id": 62,
+  "text": "https://exa mple.com",
+  "same": true,
+  "parse": "p(a(https://exa/||)\" mple.com\")",
+  "lossless": "p(a(https://exa/||)\" mple.com\")"
+ },
+ {
+  "id": 63,
+  "text": "x https://example.com y",
+  "same": true,
+  "parse": "p(\"x \"a(https://example.com/||)\" y\")",
+  "lossless": "p(\"x \"a(https://example.com/||)\" y\")"
+ },
+ {
+  "id": 64,
+  "text": "https://example.com's",
+  "same": true,
+  "parse": "p(a(https://example.com's/||))",
+  "lossless": "p(a(https://example.com's/||))"
+ },
+ {
+  "id": 65,
+  "text": "HTTPS://EXAMPLE.COM",
+  "same": true,
+  "parse": "p(\"HTTPS://EXAMPLE.COM\")",
+  "lossless": "p(\"HTTPS://EXAMPLE.COM\")"
+ },
+ {
+  "id": 66,
+  "text": "||sp||",
+  "same": true,
+  "parse": "p(spoiler(\"sp\"))",
+  "lossless": "p(spoiler(\"sp\"))"
+ },
+ {
+  "id": 67,
+  "text": "||a\nb||",
+  "same": true,
+  "parse": "p(spoiler(\"a\"))p(spoiler(\"b\"))",
+  "lossless": "p(spoiler(\"a\"))p(spoiler(\"b\"))"
+ },
+ {
+  "id": 68,
+  "text": "|| ||",
+  "same": true,
+  "parse": "p(spoiler(\" \"))",
+  "lossless": "p(spoiler(\" \"))"
+ },
+ {
+  "id": 69,
+  "text": "||||",
+  "same": true,
+  "parse": "p(\"||||\")",
+  "lossless": "p(\"||||\")"
+ },
+ {
+  "id": 70,
+  "text": "||**b**||",
+  "same": true,
+  "parse": "p(spoiler(bold(\"b\")))",
+  "lossless": "p(spoiler(bold(\"b\")))"
+ },
+ {
+  "id": 71,
+  "text": "**||b||**",
+  "same": true,
+  "parse": "p(bold(spoiler(\"b\")))",
+  "lossless": "p(bold(spoiler(\"b\")))"
+ },
+ {
+  "id": 72,
+  "text": "||a||b||c||",
+  "same": true,
+  "parse": "p(spoiler(\"a\")\"b\"spoiler(\"c\"))",
+  "lossless": "p(spoiler(\"a\")\"b\"spoiler(\"c\"))"
+ },
+ {
+  "id": 73,
+  "text": "|||a|||",
+  "same": true,
+  "parse": "p(\"|\"spoiler(\"a\")\"|\")",
+  "lossless": "p(\"|\"spoiler(\"a\")\"|\")"
+ },
+ {
+  "id": 74,
+  "text": "||`code`||",
+  "same": true,
+  "parse": "p(spoiler(code(\"code\")))",
+  "lossless": "p(spoiler(code(\"code\")))"
+ },
+ {
+  "id": 75,
+  "text": "`||x||`",
+  "same": true,
+  "parse": "p(code(\"||x||\"))",
+  "lossless": "p(code(\"||x||\"))"
+ },
+ {
+  "id": 76,
+  "text": "||https://example.com||",
+  "same": true,
+  "parse": "p(spoiler(a(https://example.com/||)))",
+  "lossless": "p(spoiler(a(https://example.com/||)))"
+ },
+ {
+  "id": 77,
+  "text": "||unclosed",
+  "same": true,
+  "parse": "p(\"||unclosed\")",
+  "lossless": "p(\"||unclosed\")"
+ },
+ {
+  "id": 78,
+  "text": "*i*",
+  "same": true,
+  "parse": "p(italic(\"i\"))",
+  "lossless": "p(italic(\"i\"))"
+ },
+ {
+  "id": 79,
+  "text": "_i_",
+  "same": true,
+  "parse": "p(italic(\"i\"))",
+  "lossless": "p(italic(\"i\"))"
+ },
+ {
+  "id": 80,
+  "text": "**b**",
+  "same": true,
+  "parse": "p(bold(\"b\"))",
+  "lossless": "p(bold(\"b\"))"
+ },
+ {
+  "id": 81,
+  "text": "__u__",
+  "same": true,
+  "parse": "p(underline(\"u\"))",
+  "lossless": "p(underline(\"u\"))"
+ },
+ {
+  "id": 82,
+  "text": "~~s~~",
+  "same": true,
+  "parse": "p(strikethrough(\"s\"))",
+  "lossless": "p(strikethrough(\"s\"))"
+ },
+ {
+  "id": 83,
+  "text": "***bi***",
+  "same": true,
+  "parse": "p(bold(italic(\"bi\")))",
+  "lossless": "p(bold(italic(\"bi\")))"
+ },
+ {
+  "id": 84,
+  "text": "___ui___",
+  "same": true,
+  "parse": "p(italic(underline(\"ui\")))",
+  "lossless": "p(italic(underline(\"ui\")))"
+ },
+ {
+  "id": 85,
+  "text": "__*ui*__",
+  "same": true,
+  "parse": "p(underline(italic(\"ui\")))",
+  "lossless": "p(underline(italic(\"ui\")))"
+ },
+ {
+  "id": 86,
+  "text": "**__bu__**",
+  "same": true,
+  "parse": "p(bold(underline(\"bu\")))",
+  "lossless": "p(bold(underline(\"bu\")))"
+ },
+ {
+  "id": 87,
+  "text": "*__iu__*",
+  "same": true,
+  "parse": "p(italic(underline(\"iu\")))",
+  "lossless": "p(italic(underline(\"iu\")))"
+ },
+ {
+  "id": 88,
+  "text": "***__biu__***",
+  "same": true,
+  "parse": "p(bold(italic(underline(\"biu\"))))",
+  "lossless": "p(bold(italic(underline(\"biu\"))))"
+ },
+ {
+  "id": 89,
+  "text": "**b *bi* b**",
+  "same": true,
+  "parse": "p(bold(\"b \"italic(\"bi\")\" b\"))",
+  "lossless": "p(bold(\"b \"italic(\"bi\")\" b\"))"
+ },
+ {
+  "id": 90,
+  "text": "*i **ib** i*",
+  "same": true,
+  "parse": "p(italic(\"i \"bold(\"ib\")\" i\"))",
+  "lossless": "p(italic(\"i \"bold(\"ib\")\" i\"))"
+ },
+ {
+  "id": 91,
+  "text": "* not italic*",
+  "same": true,
+  "parse": "ul(li(p(\"not italic*\")))",
+  "lossless": "ul(li(p(\"not italic*\")))"
+ },
+ {
+  "id": 92,
+  "text": "*loose *",
+  "same": true,
+  "parse": "p(italic(\"loose \"))",
+  "lossless": "p(italic(\"loose \"))"
+ },
+ {
+  "id": 93,
+  "text": "*a * b*",
+  "same": true,
+  "parse": "p(italic(\"a \")\" b*\")",
+  "lossless": "p(italic(\"a \")\" b*\")"
+ },
+ {
+  "id": 94,
+  "text": "snake_case_word",
+  "same": false,
+  "parse": "p(\"snake_case_word\")",
+  "lossless": "p(\"snake_case_\"\"word\")"
+ },
+ {
+  "id": 95,
+  "text": "_a_b_",
+  "same": true,
+  "parse": "p(italic(\"a_b\"))",
+  "lossless": "p(italic(\"a_b\"))"
+ },
+ {
+  "id": 96,
+  "text": "a*b*c",
+  "same": true,
+  "parse": "p(\"a\"italic(\"b\")\"c\")",
+  "lossless": "p(\"a\"italic(\"b\")\"c\")"
+ },
+ {
+  "id": 97,
+  "text": "**a*",
+  "same": true,
+  "parse": "p(\"*\"italic(\"a\"))",
+  "lossless": "p(\"*\"italic(\"a\"))"
+ },
+ {
+  "id": 98,
+  "text": "*a**",
+  "same": true,
+  "parse": "p(italic(\"a\")\"*\")",
+  "lossless": "p(italic(\"a\")\"*\")"
+ },
+ {
+  "id": 99,
+  "text": "****",
+  "same": true,
+  "parse": "p(\"****\")",
+  "lossless": "p(\"****\")"
+ },
+ {
+  "id": 100,
+  "text": "** b **",
+  "same": true,
+  "parse": "p(bold(\" b \"))",
+  "lossless": "p(bold(\" b \"))"
+ },
+ {
+  "id": 101,
+  "text": "__ u __",
+  "same": true,
+  "parse": "p(underline(\" u \"))",
+  "lossless": "p(underline(\" u \"))"
+ },
+ {
+  "id": 102,
+  "text": "~~a~~~",
+  "same": true,
+  "parse": "p(strikethrough(\"a\")\"~\")",
+  "lossless": "p(strikethrough(\"a\")\"~\")"
+ },
+ {
+  "id": 103,
+  "text": "~~ s ~~",
+  "same": true,
+  "parse": "p(strikethrough(\" s \"))",
+  "lossless": "p(strikethrough(\" s \"))"
+ },
+ {
+  "id": 104,
+  "text": "*a\nb*",
+  "same": true,
+  "parse": "p(italic(\"a\"))p(italic(\"b\"))",
+  "lossless": "p(italic(\"a\"))p(italic(\"b\"))"
+ },
+ {
+  "id": 105,
+  "text": "**a\n\nb**",
+  "same": true,
+  "parse": "p(bold(\"a\"))empty()p(bold(\"b\"))",
+  "lossless": "p(bold(\"a\"))empty()p(bold(\"b\"))"
+ },
+ {
+  "id": 106,
+  "text": "_a_ _b_",
+  "same": true,
+  "parse": "p(italic(\"a\")\" \"italic(\"b\"))",
+  "lossless": "p(italic(\"a\")\" \"italic(\"b\"))"
+ },
+ {
+  "id": 107,
+  "text": "*a**b**c*",
+  "same": true,
+  "parse": "p(italic(\"a\"bold(\"b\")\"c\"))",
+  "lossless": "p(italic(\"a\"bold(\"b\")\"c\"))"
+ },
+ {
+  "id": 108,
+  "text": "**a*b*c**",
+  "same": true,
+  "parse": "p(bold(\"a\"italic(\"b\")\"c\"))",
+  "lossless": "p(bold(\"a\"italic(\"b\")\"c\"))"
+ },
+ {
+  "id": 109,
+  "text": "~~**a**~~",
+  "same": true,
+  "parse": "p(strikethrough(bold(\"a\")))",
+  "lossless": "p(strikethrough(bold(\"a\")))"
+ },
+ {
+  "id": 110,
+  "text": "**~~a~~**",
+  "same": true,
+  "parse": "p(bold(strikethrough(\"a\")))",
+  "lossless": "p(bold(strikethrough(\"a\")))"
+ },
+ {
+  "id": 111,
+  "text": "_**a**_",
+  "same": true,
+  "parse": "p(italic(bold(\"a\")))",
+  "lossless": "p(italic(bold(\"a\")))"
+ },
+ {
+  "id": 112,
+  "text": "__a_",
+  "same": true,
+  "parse": "p(\"_\"italic(\"a\"))",
+  "lossless": "p(\"_\"italic(\"a\"))"
+ },
+ {
+  "id": 113,
+  "text": "_a__",
+  "same": true,
+  "parse": "p(italic(\"a\")\"_\")",
+  "lossless": "p(italic(\"a\")\"_\")"
+ },
+ {
+  "id": 114,
+  "text": "*a*b*",
+  "same": true,
+  "parse": "p(italic(\"a\")\"b*\")",
+  "lossless": "p(italic(\"a\")\"b*\")"
+ },
+ {
+  "id": 115,
+  "text": "\\*a*",
+  "same": true,
+  "parse": "p(\"*a*\")",
+  "lossless": "p(\"*a*\")"
+ },
+ {
+  "id": 116,
+  "text": "`code`",
+  "same": true,
+  "parse": "p(code(\"code\"))",
+  "lossless": "p(code(\"code\"))"
+ },
+ {
+  "id": 117,
+  "text": "``co`de``",
+  "same": true,
+  "parse": "p(code(\"co`de\"))",
+  "lossless": "p(code(\"co`de\"))"
+ },
+ {
+  "id": 118,
+  "text": "` code `",
+  "same": true,
+  "parse": "p(code(\" code \"))",
+  "lossless": "p(code(\" code \"))"
+ },
+ {
+  "id": 119,
+  "text": "`unclosed",
+  "same": true,
+  "parse": "p(\"`unclosed\")",
+  "lossless": "p(\"`unclosed\")"
+ },
+ {
+  "id": 120,
+  "text": "``",
+  "same": true,
+  "parse": "p(\"``\")",
+  "lossless": "p(\"``\")"
+ },
+ {
+  "id": 121,
+  "text": "`a``b`",
+  "same": true,
+  "parse": "p(code(\"a\")code(\"b\"))",
+  "lossless": "p(code(\"a\")code(\"b\"))"
+ },
+ {
+  "id": 122,
+  "text": "`**b**`",
+  "same": true,
+  "parse": "p(code(\"**b**\"))",
+  "lossless": "p(code(\"**b**\"))"
+ },
+ {
+  "id": 123,
+  "text": "**`b`**",
+  "same": true,
+  "parse": "p(bold(code(\"b\")))",
+  "lossless": "p(bold(code(\"b\")))"
+ },
+ {
+  "id": 124,
+  "text": "```block```",
+  "same": true,
+  "parse": "p(code_block({\"content\":\"block\"}))",
+  "lossless": "p(code_block({\"content\":\"block\"}))"
+ },
+ {
+  "id": 125,
+  "text": "```\nblock\n```",
+  "same": true,
+  "parse": "p(code_block({\"content\":\"block\\n\"}))",
+  "lossless": "p(code_block({\"content\":\"block\\n\"}))"
+ },
+ {
+  "id": 126,
+  "text": "```js\nlet a = 1;\n```",
+  "same": true,
+  "parse": "p(code_block({\"language\":\"js\",\"content\":\"let a = 1;\\n\"}))",
+  "lossless": "p(code_block({\"language\":\"js\",\"content\":\"let a = 1;\\n\"}))"
+ },
+ {
+  "id": 127,
+  "text": "```js let a```",
+  "same": true,
+  "parse": "p(code_block({\"content\":\"js let a\"}))",
+  "lossless": "p(code_block({\"content\":\"js let a\"}))"
+ },
+ {
+  "id": 128,
+  "text": "```JS\nx\n```",
+  "same": true,
+  "parse": "p(code_block({\"language\":\"JS\",\"content\":\"x\\n\"}))",
+  "lossless": "p(code_block({\"language\":\"JS\",\"content\":\"x\\n\"}))"
+ },
+ {
+  "id": 129,
+  "text": "```c++\nx\n```",
+  "same": true,
+  "parse": "p(code_block({\"language\":\"c++\",\"content\":\"x\\n\"}))",
+  "lossless": "p(code_block({\"language\":\"c++\",\"content\":\"x\\n\"}))"
+ },
+ {
+  "id": 130,
+  "text": "```notalang\nx\n```",
+  "same": true,
+  "parse": "p(code_block({\"language\":\"notalang\",\"content\":\"x\\n\"}))",
+  "lossless": "p(code_block({\"language\":\"notalang\",\"content\":\"x\\n\"}))"
+ },
+ {
+  "id": 131,
+  "text": "```\n\n\nx\n\n\n```",
+  "same": true,
+  "parse": "p(code_block({\"content\":\"\\n\\nx\\n\\n\\n\"}))",
+  "lossless": "p(code_block({\"content\":\"\\n\\nx\\n\\n\\n\"}))"
+ },
+ {
+  "id": 132,
+  "text": "a ```b``` c",
+  "same": true,
+  "parse": "p(\"a \"code_block({\"content\":\"b\"})\" c\")",
+  "lossless": "p(\"a \"code_block({\"content\":\"b\"})\" c\")"
+ },
+ {
+  "id": 133,
+  "text": "```unclosed\nx",
+  "same": true,
+  "parse": "p(\"```unclosed\")p(\"x\")",
+  "lossless": "p(\"```unclosed\")p(\"x\")"
+ },
+ {
+  "id": 134,
+  "text": "````x````",
+  "same": true,
+  "parse": "p(code_block({\"content\":\"`x\"})\"`\")",
+  "lossless": "p(code_block({\"content\":\"`x\"})\"`\")"
+ },
+ {
+  "id": 135,
+  "text": "```\n```",
+  "same": true,
+  "parse": "p(code(\"`\\n\")\"`\")",
+  "lossless": "p(code(\"`\\n\")\"`\")"
+ },
+ {
+  "id": 136,
+  "text": "```js\n```",
+  "same": true,
+  "parse": "p(code(\"`js\\n\")\"`\")",
+  "lossless": "p(code(\"`js\\n\")\"`\")"
+ },
+ {
+  "id": 137,
+  "text": "> ```\n> x\n> ```",
+  "same": true,
+  "parse": "q(p(code_block({\"content\":\"> x\\n> \"})))",
+  "lossless": "q(p(code_block({\"content\":\"> x\\n> \"})))"
+ },
+ {
+  "id": 138,
+  "text": "```a\nb```c```",
+  "same": true,
+  "parse": "p(code_block({\"language\":\"a\",\"content\":\"b\"})\"c```\")",
+  "lossless": "p(code_block({\"language\":\"a\",\"content\":\"b\"})\"c```\")"
+ },
+ {
+  "id": 139,
+  "text": "`a\nb`",
+  "same": true,
+  "parse": "p(code(\"a\\nb\"))",
+  "lossless": "p(code(\"a\\nb\"))"
+ },
+ {
+  "id": 140,
+  "text": "```**b**```",
+  "same": true,
+  "parse": "p(code_block({\"content\":\"**b**\"}))",
+  "lossless": "p(code_block({\"content\":\"**b**\"}))"
+ },
+ {
+  "id": 141,
+  "text": "> q",
+  "same": true,
+  "parse": "q(p(\"q\"))",
+  "lossless": "q(p(\"q\"))"
+ },
+ {
+  "id": 142,
+  "text": ">q",
+  "same": true,
+  "parse": "p(\">q\")",
+  "lossless": "p(\">q\")"
+ },
+ {
+  "id": 143,
+  "text": "> a\n> b",
+  "same": true,
+  "parse": "q(p(\"a\")p(\"b\"))",
+  "lossless": "q(p(\"a\")p(\"b\"))"
+ },
+ {
+  "id": 144,
+  "text": "> a\nb",
+  "same": true,
+  "parse": "q(p(\"a\"))p(\"b\")",
+  "lossless": "q(p(\"a\"))p(\"b\")"
+ },
+ {
+  "id": 145,
+  "text": ">>> a\nb\nc",
+  "same": true,
+  "parse": "q(p(\"a\")p(\"b\")p(\"c\"))",
+  "lossless": "q(p(\"a\")p(\"b\")p(\"c\"))"
+ },
+ {
+  "id": 146,
+  "text": ">>>a",
+  "same": true,
+  "parse": "p(\">>>a\")",
+  "lossless": "p(\">>>a\")"
+ },
+ {
+  "id": 147,
+  "text": "x > q",
+  "same": true,
+  "parse": "p(\"x > q\")",
+  "lossless": "p(\"x > q\")"
+ },
+ {
+  "id": 148,
+  "text": "x\n> q",
+  "same": true,
+  "parse": "p(\"x\")q(p(\"q\"))",
+  "lossless": "p(\"x\")q(p(\"q\"))"
+ },
+ {
+  "id": 149,
+  "text": "> > nested",
+  "same": true,
+  "parse": "q(p(\"> nested\"))",
+  "lossless": "q(p(\"> nested\"))"
+ },
+ {
+  "id": 150,
+  "text": "> **b**",
+  "same": true,
+  "parse": "q(p(bold(\"b\")))",
+  "lossless": "q(p(bold(\"b\")))"
+ },
+ {
+  "id": 151,
+  "text": ">  two spaces",
+  "same": true,
+  "parse": "q(p(\" two spaces\"))",
+  "lossless": "q(p(\" two spaces\"))"
+ },
+ {
+  "id": 152,
+  "text": " > leading space",
+  "same": true,
+  "parse": "p(\" > leading space\")",
+  "lossless": "p(\" > leading space\")"
+ },
+ {
+  "id": 153,
+  "text": "> a\n\n> b",
+  "same": true,
+  "parse": "q(p(\"a\"))empty()q(p(\"b\"))",
+  "lossless": "q(p(\"a\"))empty()q(p(\"b\"))"
+ },
+ {
+  "id": 154,
+  "text": "> # head",
+  "same": true,
+  "parse": "q(h1(\"head\"))",
+  "lossless": "q(h1(\"head\"))"
+ },
+ {
+  "id": 155,
+  "text": "> - item",
+  "same": true,
+  "parse": "q(ul(li(p(\"item\"))))",
+  "lossless": "q(ul(li(p(\"item\"))))"
+ },
+ {
+  "id": 156,
+  "text": ">>> # head\n- item",
+  "same": true,
+  "parse": "q(h1(\"head\")ul(li(p(\"item\"))))",
+  "lossless": "q(h1(\"head\")ul(li(p(\"item\"))))"
+ },
+ {
+  "id": 157,
+  "text": "> ",
+  "same": true,
+  "parse": "q()",
+  "lossless": "q()"
+ },
+ {
+  "id": 158,
+  "text": ">>> ",
+  "same": true,
+  "parse": "q()",
+  "lossless": "q()"
+ },
+ {
+  "id": 159,
+  "text": "> a\n>>> b",
+  "same": true,
+  "parse": "q(p(\"a\"))q(p(\"b\"))",
+  "lossless": "q(p(\"a\"))q(p(\"b\"))"
+ },
+ {
+  "id": 160,
+  "text": ">> a",
+  "same": true,
+  "parse": "p(\">> a\")",
+  "lossless": "p(\">> a\")"
+ },
+ {
+  "id": 161,
+  "text": "- a",
+  "same": true,
+  "parse": "ul(li(p(\"a\")))",
+  "lossless": "ul(li(p(\"a\")))"
+ },
+ {
+  "id": 162,
+  "text": "* a",
+  "same": true,
+  "parse": "ul(li(p(\"a\")))",
+  "lossless": "ul(li(p(\"a\")))"
+ },
+ {
+  "id": 163,
+  "text": "+ a",
+  "same": true,
+  "parse": "p(\"+ a\")",
+  "lossless": "p(\"+ a\")"
+ },
+ {
+  "id": 164,
+  "text": "- a\n- b",
+  "same": true,
+  "parse": "ul(li(p(\"a\"))li(p(\"b\")))",
+  "lossless": "ul(li(p(\"a\"))li(p(\"b\")))"
+ },
+ {
+  "id": 165,
+  "text": "1. a\n2. b",
+  "same": true,
+  "parse": "ol1(li(p(\"a\"))li(p(\"b\")))",
+  "lossless": "ol1(li(p(\"a\"))li(p(\"b\")))"
+ },
+ {
+  "id": 166,
+  "text": "5. a\n6. b",
+  "same": true,
+  "parse": "ol5(li(p(\"a\"))li(p(\"b\")))",
+  "lossless": "ol5(li(p(\"a\"))li(p(\"b\")))"
+ },
+ {
+  "id": 167,
+  "text": "1) a",
+  "same": true,
+  "parse": "p(\"1) a\")",
+  "lossless": "p(\"1) a\")"
+ },
+ {
+  "id": 168,
+  "text": "-a",
+  "same": true,
+  "parse": "p(\"-a\")",
+  "lossless": "p(\"-a\")"
+ },
+ {
+  "id": 169,
+  "text": "- a\n  - b",
+  "same": true,
+  "parse": "ul(li(p(\"a\")ul(li(p(\"b\")))))",
+  "lossless": "ul(li(p(\"a\")ul(li(p(\"b\")))))"
+ },
+ {
+  "id": 170,
+  "text": "- a\n - b",
+  "same": true,
+  "parse": "ul(li(p(\"a\"))li(p(\"b\")))",
+  "lossless": "ul(li(p(\"a\"))li(p(\"b\")))"
+ },
+ {
+  "id": 171,
+  "text": "- a\n    - b",
+  "same": true,
+  "parse": "ul(li(p(\"a\")ul(li(p(\"b\")))))",
+  "lossless": "ul(li(p(\"a\")ul(li(p(\"b\")))))"
+ },
+ {
+  "id": 172,
+  "text": "- a\n\n- b",
+  "same": true,
+  "parse": "ul(li(p(\"a\")))empty()ul(li(p(\"b\")))",
+  "lossless": "ul(li(p(\"a\")))empty()ul(li(p(\"b\")))"
+ },
+ {
+  "id": 173,
+  "text": "text\n- a",
+  "same": true,
+  "parse": "p(\"text\")ul(li(p(\"a\")))",
+  "lossless": "p(\"text\")ul(li(p(\"a\")))"
+ },
+ {
+  "id": 174,
+  "text": "text - a",
+  "same": true,
+  "parse": "p(\"text - a\")",
+  "lossless": "p(\"text - a\")"
+ },
+ {
+  "id": 175,
+  "text": "- **b**",
+  "same": true,
+  "parse": "ul(li(p(bold(\"b\"))))",
+  "lossless": "ul(li(p(bold(\"b\"))))"
+ },
+ {
+  "id": 176,
+  "text": "- a\ntext",
+  "same": true,
+  "parse": "ul(li(p(\"a\")))p(\"text\")",
+  "lossless": "ul(li(p(\"a\")))p(\"text\")"
+ },
+ {
+  "id": 177,
+  "text": "1. a\n- b",
+  "same": true,
+  "parse": "ol1(li(p(\"a\")))ul(li(p(\"b\")))",
+  "lossless": "ol1(li(p(\"a\")))ul(li(p(\"b\")))"
+ },
+ {
+  "id": 178,
+  "text": "- # head",
+  "same": true,
+  "parse": "ul(li(p(\"# head\")))",
+  "lossless": "ul(li(p(\"# head\")))"
+ },
+ {
+  "id": 179,
+  "text": "0. a",
+  "same": true,
+  "parse": "ol1(li(p(\"a\")))",
+  "lossless": "ol1(li(p(\"a\")))"
+ },
+ {
+  "id": 180,
+  "text": "1000000000000. a",
+  "same": true,
+  "parse": "ol1000000000(li(p(\"a\")))",
+  "lossless": "ol1000000000(li(p(\"a\")))"
+ },
+ {
+  "id": 181,
+  "text": "- a\n  continued",
+  "same": true,
+  "parse": "ul(li(p(\"a\")p(\"continued\")))",
+  "lossless": "ul(li(p(\"a\")p(\"continued\")))"
+ },
+ {
+  "id": 182,
+  "text": "-  two spaces",
+  "same": true,
+  "parse": "ul(li(p(\"two spaces\")))",
+  "lossless": "ul(li(p(\"two spaces\")))"
+ },
+ {
+  "id": 183,
+  "text": "1. a\n1. b",
+  "same": true,
+  "parse": "ol1(li(p(\"a\"))li(p(\"b\")))",
+  "lossless": "ol1(li(p(\"a\"))li(p(\"b\")))"
+ },
+ {
+  "id": 184,
+  "text": "- [x] task",
+  "same": true,
+  "parse": "ul(li(p(\"[x] task\")))",
+  "lossless": "ul(li(p(\"[x] task\")))"
+ },
+ {
+  "id": 185,
+  "text": "- ",
+  "same": true,
+  "parse": "p(\"- \")",
+  "lossless": "p(\"- \")"
+ },
+ {
+  "id": 186,
+  "text": "<t:1700000000>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"1700000000n\"}))",
+  "lossless": "p(timestamp({\"value\":\"1700000000n\"}))"
+ },
+ {
+  "id": 187,
+  "text": "<t:1700000000:R>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"R\"}))",
+  "lossless": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"R\"}))"
+ },
+ {
+  "id": 188,
+  "text": "<t:1700000000:F>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"F\"}))",
+  "lossless": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"F\"}))"
+ },
+ {
+  "id": 189,
+  "text": "<t:1700000000:x>",
+  "same": true,
+  "parse": "p(\"<t:1700000000:x>\")",
+  "lossless": "p(\"<t:1700000000:x>\")"
+ },
+ {
+  "id": 190,
+  "text": "<t:-1>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"-1n\"}))",
+  "lossless": "p(timestamp({\"value\":\"-1n\"}))"
+ },
+ {
+  "id": 191,
+  "text": "<t:99999999999999999>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"99999999999999999n\"}))",
+  "lossless": "p(timestamp({\"value\":\"99999999999999999n\"}))"
+ },
+ {
+  "id": 192,
+  "text": "<t:abc>",
+  "same": true,
+  "parse": "p(\"<t:abc>\")",
+  "lossless": "p(\"<t:abc>\")"
+ },
+ {
+  "id": 193,
+  "text": "<t:1700000000:s>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"s\"}))",
+  "lossless": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"s\"}))"
+ },
+ {
+  "id": 194,
+  "text": "<t:1700000000:S>",
+  "same": true,
+  "parse": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"S\"}))",
+  "lossless": "p(timestamp({\"value\":\"1700000000n\",\"style\":\"S\"}))"
+ },
+ {
+  "id": 195,
+  "text": "**<t:1700000000>**",
+  "same": true,
+  "parse": "p(bold(timestamp({\"value\":\"1700000000n\"})))",
+  "lossless": "p(bold(timestamp({\"value\":\"1700000000n\"})))"
+ },
+ {
+  "id": 196,
+  "text": "`<t:1700000000>`",
+  "same": true,
+  "parse": "p(code(\"<t:1700000000>\"))",
+  "lossless": "p(code(\"<t:1700000000>\"))"
+ },
+ {
+  "id": 197,
+  "text": "<t:1700000000:>",
+  "same": true,
+  "parse": "p(\"<t:1700000000:>\")",
+  "lossless": "p(\"<t:1700000000:>\")"
+ },
+ {
+  "id": 198,
+  "text": "<@123456789012345678>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"user\",\"value\":\"123456789012345678n\"}))",
+  "lossless": "p(mention({\"type\":\"user\",\"value\":\"123456789012345678n\"}))"
+ },
+ {
+  "id": 199,
+  "text": "<@!123456789012345678>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"user\",\"value\":\"123456789012345678n\"}))",
+  "lossless": "p(mention({\"type\":\"user\",\"value\":\"123456789012345678n\"}))"
+ },
+ {
+  "id": 200,
+  "text": "<@&123456789012345678>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"role\",\"value\":\"123456789012345678n\"}))",
+  "lossless": "p(mention({\"type\":\"role\",\"value\":\"123456789012345678n\"}))"
+ },
+ {
+  "id": 201,
+  "text": "<#123456789012345678>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"channel\",\"value\":\"123456789012345678n\"}))",
+  "lossless": "p(mention({\"type\":\"channel\",\"value\":\"123456789012345678n\"}))"
+ },
+ {
+  "id": 202,
+  "text": "@everyone",
+  "same": true,
+  "parse": "p(mention({\"type\":\"everyone\"}))",
+  "lossless": "p(mention({\"type\":\"everyone\"}))"
+ },
+ {
+  "id": 203,
+  "text": "@here",
+  "same": true,
+  "parse": "p(mention({\"type\":\"here\"}))",
+  "lossless": "p(mention({\"type\":\"here\"}))"
+ },
+ {
+  "id": 204,
+  "text": "@Everyone",
+  "same": true,
+  "parse": "p(\"@Everyone\")",
+  "lossless": "p(\"@Everyone\")"
+ },
+ {
+  "id": 205,
+  "text": "</ping:123456789012345678>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"command\",\"value\":{\"name\":\"ping\",\"id\":\"123456789012345678n\"}}))",
+  "lossless": "p(mention({\"type\":\"command\",\"value\":{\"name\":\"ping\",\"id\":\"123456789012345678n\"}}))"
+ },
+ {
+  "id": 206,
+  "text": "</a b c:123456789012345678>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"command\",\"value\":{\"name\":\"a b c\",\"id\":\"123456789012345678n\"}}))",
+  "lossless": "p(mention({\"type\":\"command\",\"value\":{\"name\":\"a b c\",\"id\":\"123456789012345678n\"}}))"
+ },
+ {
+  "id": 207,
+  "text": "<@abc>",
+  "same": true,
+  "parse": "p(\"<@abc>\")",
+  "lossless": "p(\"<@abc>\")"
+ },
+ {
+  "id": 208,
+  "text": "**<@123456789012345678>**",
+  "same": true,
+  "parse": "p(bold(mention({\"type\":\"user\",\"value\":\"123456789012345678n\"})))",
+  "lossless": "p(bold(mention({\"type\":\"user\",\"value\":\"123456789012345678n\"})))"
+ },
+ {
+  "id": 209,
+  "text": "`<@123456789012345678>`",
+  "same": true,
+  "parse": "p(code(\"<@123456789012345678>\"))",
+  "lossless": "p(code(\"<@123456789012345678>\"))"
+ },
+ {
+  "id": 210,
+  "text": "<id:customize>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"static\",\"value\":{\"type\":\"customize\"}}))",
+  "lossless": "p(mention({\"type\":\"static\",\"value\":{\"type\":\"customize\"}}))"
+ },
+ {
+  "id": 211,
+  "text": "<id:browse>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"static\",\"value\":{\"type\":\"browse\"}}))",
+  "lossless": "p(mention({\"type\":\"static\",\"value\":{\"type\":\"browse\"}}))"
+ },
+ {
+  "id": 212,
+  "text": "x@everyone",
+  "same": true,
+  "parse": "p(\"x\"mention({\"type\":\"everyone\"}))",
+  "lossless": "p(\"x\"mention({\"type\":\"everyone\"}))"
+ },
+ {
+  "id": 213,
+  "text": "<@123>",
+  "same": true,
+  "parse": "p(mention({\"type\":\"user\",\"value\":\"123n\"}))",
+  "lossless": "p(mention({\"type\":\"user\",\"value\":\"123n\"}))"
+ },
+ {
+  "id": 214,
+  "text": "@silent hi",
+  "same": true,
+  "parse": "p(\"@silent hi\")",
+  "lossless": "p(\"@silent hi\")"
+ },
+ {
+  "id": 215,
+  "text": "<:name:123456789012345678>",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"custom\",\"value\":{\"animated\":false,\"name\":\"name\",\"id\":\"123456789012345678n\"}}))",
+  "lossless": "p(emoji({\"type\":\"custom\",\"value\":{\"animated\":false,\"name\":\"name\",\"id\":\"123456789012345678n\"}}))"
+ },
+ {
+  "id": 216,
+  "text": "<a:name:123456789012345678>",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"custom\",\"value\":{\"animated\":true,\"name\":\"name\",\"id\":\"123456789012345678n\"}}))",
+  "lossless": "p(emoji({\"type\":\"custom\",\"value\":{\"animated\":true,\"name\":\"name\",\"id\":\"123456789012345678n\"}}))"
+ },
+ {
+  "id": 217,
+  "text": ":smile:",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"unicode\",\"value\":\"😄\"}))",
+  "lossless": "p(emoji({\"type\":\"unicode\",\"value\":\"😄\"}))"
+ },
+ {
+  "id": 218,
+  "text": ":notanemoji:",
+  "same": true,
+  "parse": "p(\":notanemoji:\")",
+  "lossless": "p(\":notanemoji:\")"
+ },
+ {
+  "id": 219,
+  "text": "😀",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"unicode\",\"value\":\"😀\"}))",
+  "lossless": "p(emoji({\"type\":\"unicode\",\"value\":\"😀\"}))"
+ },
+ {
+  "id": 220,
+  "text": "👍🏽",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"unicode\",\"value\":\"👍🏽\"}))",
+  "lossless": "p(emoji({\"type\":\"unicode\",\"value\":\"👍🏽\"}))"
+ },
+ {
+  "id": 221,
+  "text": ":thumbsup::skin-tone-3:",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"unicode\",\"value\":\"👍🏽\"}))",
+  "lossless": "p(emoji({\"type\":\"unicode\",\"value\":\"👍🏽\"}))"
+ },
+ {
+  "id": 222,
+  "text": "<:name:abc>",
+  "same": true,
+  "parse": "p(\"<:name:abc>\")",
+  "lossless": "p(\"<:name:abc>\")"
+ },
+ {
+  "id": 223,
+  "text": "**:smile:**",
+  "same": true,
+  "parse": "p(bold(emoji({\"type\":\"unicode\",\"value\":\"😄\"})))",
+  "lossless": "p(bold(emoji({\"type\":\"unicode\",\"value\":\"😄\"})))"
+ },
+ {
+  "id": 224,
+  "text": "`:smile:`",
+  "same": true,
+  "parse": "p(code(\":smile:\"))",
+  "lossless": "p(code(\":smile:\"))"
+ },
+ {
+  "id": 225,
+  "text": "\\:smile:",
+  "same": true,
+  "parse": "p(\":smile:\")",
+  "lossless": "p(\":smile:\")"
+ },
+ {
+  "id": 226,
+  "text": "\\😀",
+  "same": true,
+  "parse": "p(\"😀\")",
+  "lossless": "p(\"😀\")"
+ },
+ {
+  "id": 227,
+  "text": ":smile: :smile:",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"unicode\",\"value\":\"😄\"})\" \"emoji({\"type\":\"unicode\",\"value\":\"😄\"}))",
+  "lossless": "p(emoji({\"type\":\"unicode\",\"value\":\"😄\"})\" \"emoji({\"type\":\"unicode\",\"value\":\"😄\"}))"
+ },
+ {
+  "id": 228,
+  "text": "a:smile:b",
+  "same": true,
+  "parse": "p(\"a\"emoji({\"type\":\"unicode\",\"value\":\"😄\"})\"b\")",
+  "lossless": "p(\"a\"emoji({\"type\":\"unicode\",\"value\":\"😄\"})\"b\")"
+ },
+ {
+  "id": 229,
+  "text": "<:a:1><:b:2>",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"custom\",\"value\":{\"animated\":false,\"name\":\"a\",\"id\":\"1n\"}})emoji({\"type\":\"custom\",\"value\":{\"animated\":false,\"name\":\"b\",\"id\":\"2n\"}}))",
+  "lossless": "p(emoji({\"type\":\"custom\",\"value\":{\"animated\":false,\"name\":\"a\",\"id\":\"1n\"}})emoji({\"type\":\"custom\",\"value\":{\"animated\":false,\"name\":\"b\",\"id\":\"2n\"}}))"
+ },
+ {
+  "id": 230,
+  "text": "© ™",
+  "same": true,
+  "parse": "p(\"© ™\")",
+  "lossless": "p(\"© ™\")"
+ },
+ {
+  "id": 231,
+  "text": ":+1:",
+  "same": true,
+  "parse": "p(emoji({\"type\":\"unicode\",\"value\":\"👍\"}))",
+  "lossless": "p(emoji({\"type\":\"unicode\",\"value\":\"👍\"}))"
+ },
+ {
+  "id": 232,
+  "text": "\\*a\\*",
+  "same": true,
+  "parse": "p(\"*a*\")",
+  "lossless": "p(\"*a*\")"
+ },
+ {
+  "id": 233,
+  "text": "\\**a**",
+  "same": true,
+  "parse": "p(\"*\"italic(\"a\")\"*\")",
+  "lossless": "p(\"*\"italic(\"a\")\"*\")"
+ },
+ {
+  "id": 234,
+  "text": "\\_a\\_",
+  "same": true,
+  "parse": "p(\"_a_\")",
+  "lossless": "p(\"_a_\")"
+ },
+ {
+  "id": 235,
+  "text": "\\# head",
+  "same": true,
+  "parse": "p(\"# head\")",
+  "lossless": "p(\"# head\")"
+ },
+ {
+  "id": 236,
+  "text": "\\> q",
+  "same": true,
+  "parse": "p(\"> q\")",
+  "lossless": "p(\"> q\")"
+ },
+ {
+  "id": 237,
+  "text": "\\- item",
+  "same": true,
+  "parse": "p(\"- item\")",
+  "lossless": "p(\"- item\")"
+ },
+ {
+  "id": 238,
+  "text": "\\`code\\`",
+  "same": true,
+  "parse": "p(\"`code`\")",
+  "lossless": "p(\"`code`\")"
+ },
+ {
+  "id": 239,
+  "text": "\\||sp\\||",
+  "same": true,
+  "parse": "p(\"||sp||\")",
+  "lossless": "p(\"||sp||\")"
+ },
+ {
+  "id": 240,
+  "text": "\\\\",
+  "same": true,
+  "parse": "p(\"\\\")",
+  "lossless": "p(\"\\\")"
+ },
+ {
+  "id": 241,
+  "text": "\\a",
+  "same": true,
+  "parse": "p(\"\\a\")",
+  "lossless": "p(\"\\a\")"
+ },
+ {
+  "id": 242,
+  "text": "\\1",
+  "same": true,
+  "parse": "p(\"\\1\")",
+  "lossless": "p(\"\\1\")"
+ },
+ {
+  "id": 243,
+  "text": "\\",
+  "same": true,
+  "parse": "p(\"\\\")",
+  "lossless": "p(\"\\\")"
+ },
+ {
+  "id": 244,
+  "text": "\\[t](https://example.com)",
+  "same": true,
+  "parse": "p(\"[t](\"a(https://example.com/||)\")\")",
+  "lossless": "p(\"[t](\"a(https://example.com/||)\")\")"
+ },
+ {
+  "id": 245,
+  "text": "[t\\](https://example.com)",
+  "same": true,
+  "parse": "p(\"[t](\"a(https://example.com/||)\")\")",
+  "lossless": "p(\"[t](\"a(https://example.com/||)\")\")"
+ },
+ {
+  "id": 246,
+  "text": "\\https://example.com",
+  "same": true,
+  "parse": "p(\"\\\"a(https://example.com/||))",
+  "lossless": "p(\"\\\"a(https://example.com/||))"
+ },
+ {
+  "id": 247,
+  "text": "\\<@123456789012345678>",
+  "same": true,
+  "parse": "p(\"<@123456789012345678>\")",
+  "lossless": "p(\"<@123456789012345678>\")"
+ },
+ {
+  "id": 248,
+  "text": "\\<t:1700000000>",
+  "same": true,
+  "parse": "p(\"<t:1700000000>\")",
+  "lossless": "p(\"<t:1700000000>\")"
+ },
+ {
+  "id": 249,
+  "text": "\\-# sub",
+  "same": true,
+  "parse": "p(\"-# sub\")",
+  "lossless": "p(\"-# sub\")"
+ },
+ {
+  "id": 250,
+  "text": "\\~~s~~",
+  "same": true,
+  "parse": "p(\"~~s~~\")",
+  "lossless": "p(\"~~s~~\")"
+ },
+ {
+  "id": 251,
+  "text": "a\\\nb",
+  "same": true,
+  "parse": "p(\"a\\\")p(\"b\")",
+  "lossless": "p(\"a\\\")p(\"b\")"
+ },
+ {
+  "id": 252,
+  "text": "a\nb",
+  "same": true,
+  "parse": "p(\"a\")p(\"b\")",
+  "lossless": "p(\"a\")p(\"b\")"
+ },
+ {
+  "id": 253,
+  "text": "a\n\nb",
+  "same": true,
+  "parse": "p(\"a\")empty()p(\"b\")",
+  "lossless": "p(\"a\")empty()p(\"b\")"
+ },
+ {
+  "id": 254,
+  "text": "a\n\n\nb",
+  "same": true,
+  "parse": "p(\"a\")empty()empty()p(\"b\")",
+  "lossless": "p(\"a\")empty()empty()p(\"b\")"
+ },
+ {
+  "id": 255,
+  "text": "a  \nb",
+  "same": true,
+  "parse": "p(\"a  \")p(\"b\")",
+  "lossless": "p(\"a  \")p(\"b\")"
+ },
+ {
+  "id": 256,
+  "text": "  leading",
+  "same": true,
+  "parse": "p(\"  leading\")",
+  "lossless": "p(\"  leading\")"
+ },
+ {
+  "id": 257,
+  "text": "trailing  ",
+  "same": true,
+  "parse": "p(\"trailing  \")",
+  "lossless": "p(\"trailing  \")"
+ },
+ {
+  "id": 258,
+  "text": "# h\ntext\n- a\n> q\n-# s",
+  "same": true,
+  "parse": "h1(\"h\")p(\"text\")ul(li(p(\"a\")))q(p(\"q\"))sub(\"s\")",
+  "lossless": "h1(\"h\")p(\"text\")ul(li(p(\"a\")))q(p(\"q\"))sub(\"s\")"
+ },
+ {
+  "id": 259,
+  "text": "**# not head**",
+  "same": true,
+  "parse": "h1(bold(\"not head\"))",
+  "lossless": "h1(bold(\"not head\"))"
+ },
+ {
+  "id": 260,
+  "text": "*- not list*",
+  "same": true,
+  "parse": "ul(li(p(italic(\"not list\"))))",
+  "lossless": "ul(li(p(italic(\"not list\"))))"
+ },
+ {
+  "id": 261,
+  "text": "||> q||",
+  "same": true,
+  "parse": "q(p(spoiler(\"q\")))",
+  "lossless": "q(p(spoiler(\"q\")))"
+ },
+ {
+  "id": 262,
+  "text": "> ||sp||\n> **b**",
+  "same": true,
+  "parse": "q(p(spoiler(\"sp\"))p(bold(\"b\")))",
+  "lossless": "q(p(spoiler(\"sp\"))p(bold(\"b\")))"
+ },
+ {
+  "id": 263,
+  "text": "- [t](https://example.com)\n- `c`",
+  "same": true,
+  "parse": "ul(li(p(a(https://example.com/||\"t\")))li(p(code(\"c\"))))",
+  "lossless": "ul(li(p(a(https://example.com/||\"t\")))li(p(code(\"c\"))))"
+ },
+ {
+  "id": 264,
+  "text": "# [t](https://example.com)",
+  "same": true,
+  "parse": "h1(a(https://example.com/||\"t\"))",
+  "lossless": "h1(a(https://example.com/||\"t\"))"
+ },
+ {
+  "id": 265,
+  "text": "-# https://example.com",
+  "same": true,
+  "parse": "sub(a(https://example.com/||))",
+  "lossless": "sub(a(https://example.com/||))"
+ },
+ {
+  "id": 266,
+  "text": "***a** b*",
+  "same": true,
+  "parse": "p(italic(bold(\"a\")\" b\"))",
+  "lossless": "p(italic(bold(\"a\")\" b\"))"
+ },
+ {
+  "id": 267,
+  "text": "__**a__**",
+  "same": true,
+  "parse": "p(underline(\"**a\")\"**\")",
+  "lossless": "p(underline(\"**a\")\"**\")"
+ },
+ {
+  "id": 268,
+  "text": "<https://example.com> **b**",
+  "same": true,
+  "parse": "p(a(https://example.com/||)\" \"bold(\"b\"))",
+  "lossless": "p(a(https://example.com/||)\" \"bold(\"b\"))"
+ },
+ {
+  "id": 269,
+  "text": "1. a\n   - b\n2. c",
+  "same": true,
+  "parse": "ol1(li(p(\"a\")ul(li(p(\"b\"))))li(p(\"c\")))",
+  "lossless": "ol1(li(p(\"a\")ul(li(p(\"b\"))))li(p(\"c\")))"
+ },
+ {
+  "id": 270,
+  "text": "¯\\_(ツ)_/¯",
+  "same": true,
+  "parse": "p(\"¯\\_(ツ)_/¯\")",
+  "lossless": "p(\"¯\\_(ツ)_/¯\")"
+ },
+ {
+  "id": 271,
+  "text": "a​b",
+  "same": true,
+  "parse": "p(\"a​b\")",
+  "lossless": "p(\"a​b\")"
+ },
+ {
+  "id": 272,
+  "text": "\t\ttabs",
+  "same": true,
+  "parse": "p(\"\t\ttabs\")",
+  "lossless": "p(\"\t\ttabs\")"
+ }
+]

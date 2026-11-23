@@ -1,0 +1,23 @@
+[
+{
+"id": "g14-unicode-label",
+"text": "x [🙂](https://example.com/g14a) x",
+"status": 200,
+"message_id": "1574462746995597414",
+"stored": "x [🙂](https://example.com/g14a) x"
+},
+{
+"id": "g14-custom-label",
+"text": "x [<:slate_oracle:1574460051593240606>](https://example.com/g14b) x",
+"status": 200,
+"message_id": "1574462757623828531",
+"stored": "x [<:slate_oracle:1574460051593240606>](https://example.com/g14b) x"
+},
+{
+"id": "g14-mixed-label",
+"text": "x [go 🙂 now](https://example.com/g14c) x",
+"status": 200,
+"message_id": "1574462763428749425",
+"stored": "x [go 🙂 now](https://example.com/g14c) x"
+}
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1574462725508169758",
+    "html": "<span>x [🙂](https://example.com/g14a) x</span>",
+    "links": []
+  },
+  {
+    "id": "1574462731724132424",
+    "html": "<span>x [&lt;:slate_oracle:1574460051593240606&gt;](https://example.com/g14b) x</span>",
+    "links": []
+  },
+  {
+    "id": "1574462738116116560",
+    "html": "<span>x [go 🙂 now](https://example.com/g14c) x</span>",
+    "links": []
+  },
+  {
+    "id": "1574462746995597414",
+    "html": "<span>x </span><a class=\"anchor_R6ReNl anchorUnderlineOnHover_R6ReNl\" href=\"https://example.com/g14a\" rel=\"noreferrer noopener\" target=\"_blank\" title=\"\n\n(https://example.com/g14a)\"><span class=\"emojiContainer_lTEMT6 emojiContainerClickable_lTEMT6\"><img class=\"emoji\" alt=\"🙂\"></span></a><span> x</span>",
+    "links": [
+      {
+        "href": "https://example.com/g14a",
+        "label": "",
+        "imgs": 1
+      }
+    ]
+  },
+  {
+    "id": "1574462757623828531",
+    "html": "<span>x </span><a class=\"anchor_R6ReNl anchorUnderlineOnHover_R6ReNl\" href=\"https://example.com/g14b\" rel=\"noreferrer noopener\" target=\"_blank\" title=\"\n\n(https://example.com/g14b)\"><span class=\"emojiContainer_lTEMT6 emojiContainerClickable_lTEMT6\"><img class=\"emoji\" alt=\":slate_oracle:\"></span></a><span> x</span>",
+    "links": [
+      {
+        "href": "https://example.com/g14b",
+        "label": "",
+        "imgs": 1
+      }
+    ]
+  },
+  {
+    "id": "1574462763428749425",
+    "html": "<span>x </span><a class=\"anchor_R6ReNl anchorUnderlineOnHover_R6ReNl\" href=\"https://example.com/g14c\" rel=\"noreferrer noopener\" target=\"_blank\" title=\"go  now\n\n(https://example.com/g14c)\"><span>go </span><span class=\"emojiContainer_lTEMT6 emojiContainerClickable_lTEMT6\"><img class=\"emoji\" alt=\"🙂\"></span><span> now</span></a><span> x</span>",
+    "links": [
+      {
+        "href": "https://example.com/g14c",
+        "label": "go  now",
+        "imgs": 1
+      }
+    ]
+  }
+]

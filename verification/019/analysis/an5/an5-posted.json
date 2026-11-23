@@ -1,0 +1,26 @@
+[
+ {
+  "id": "an5-emoji-host",
+  "text": "https://x.y🙂 end",
+  "status": 200,
+  "message_id": "1574460481643610255",
+  "stored": "https://x.y🙂 end",
+  "error": null
+ },
+ {
+  "id": "an5-upper-host",
+  "text": "https://EXAMPLE.com/Path end",
+  "status": 200,
+  "message_id": "1574460487645659198",
+  "stored": "https://EXAMPLE.com/Path end",
+  "error": null
+ },
+ {
+  "id": "an5-auto-emoji-path",
+  "text": "<https://example.com/🙂> end",
+  "status": 200,
+  "message_id": "1574460494243299408",
+  "stored": "<https://example.com/🙂> end",
+  "error": null
+ }
+]

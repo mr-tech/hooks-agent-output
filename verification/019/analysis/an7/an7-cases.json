@@ -1,0 +1,4 @@
+[{"id": "g13-role", "bit": "ROLE_MENTION", "text": "x <@&1568191162408505385> x"},
+ {"id": "g13-command", "bit": "COMMAND_MENTION", "text": "x </slateping:1574460053359034581> x"},
+ {"id": "g13-emoji", "bit": "CUSTOM_EMOJI", "text": "x <:slate_oracle:1574460051593240606> x"},
+ {"id": "g13-emoji-in-bold", "bit": "BOLD", "text": "**b <:slate_oracle:1574460051593240606> b**"}]

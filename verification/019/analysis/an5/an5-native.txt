@@ -1,0 +1,18 @@
+"```JS\nx\n```" 
+  parse: [{"type":"paragraph","value":[{"type":"code_block","value":{"language":"JS","content":"x\n"}}]}] 
+  lossless: NODE code_block {"language":"JS","content":"x\n"} @0-11 | code_fence@0-3="```" | language@3-5="JS" | code_content@6-8="x\n" | code_fence@8-11="```"
+"```C++\nx\n```" 
+  parse: [{"type":"paragraph","value":[{"type":"code_block","value":{"language":"C++","content":"x\n"}}]}] 
+  lossless: NODE code_block {"language":"C++","content":"x\n"} @0-12 | code_fence@0-3="```" | language@3-6="C++" | code_content@7-9="x\n" | code_fence@9-12="```"
+"https://x.y🙂 end" 
+  parse: [{"type":"paragraph","value":[{"type":"link","value":{"url":"https://x.xn--y-bz3s/"}},{"type":"text","value":" end"}]}] 
+  lossless: NODE link {"kind":"detected","url":"https://x.xn--y-bz3s/"} @0-13 | url@0-13="https://x.y🙂"
+"https://EXAMPLE.com/Path end" 
+  parse: [{"type":"paragraph","value":[{"type":"link","value":{"url":"https://example.com/Path"}},{"type":"text","value":" end"}]}] 
+  lossless: NODE link {"kind":"detected","url":"https://example.com/Path"} @0-24 | url@0-24="https://EXAMPLE.com/Path"
+"<https://example.com/🙂> end" 
+  parse: [{"type":"paragraph","value":[{"type":"link","value":{"url":"https://example.com/%F0%9F%99%82"}},{"type":"text","value":" end"}]}] 
+  lossless: NODE link {"kind":"auto","url":"https://example.com/%F0%9F%99%82"} @0-24 | link_open@0-1="<" | url@1-23="https://example.com/🙂" | link_close@23-24=">"
+"<t:1700000000:f> and `<t:1:f>`" 
+  parse: [{"type":"paragraph","value":[{"type":"timestamp","value":{"value":"1700000000n","style":"f"}},{"type":"text","value":" and "},{"type":"code","value":"<t:1:f>"}]}] 
+  lossless: NODE timestamp {"value":"1700000000n","style":"f"} @0-16 | atom@0-16="<t:1700000000:f>" | code_delimiter@21-22="`" | code_content@22-29="<t:1:f>" | code_delimiter@29-30="`"

@@ -1,0 +1,34 @@
+[
+ {
+  "id": "g13-role",
+  "text": "x <@&1568191162408505385> x",
+  "status": 200,
+  "message_id": "1574460089450897601",
+  "stored": "x <@&1568191162408505385> x",
+  "error": null
+ },
+ {
+  "id": "g13-command",
+  "text": "x </slateping:1574460053359034581> x",
+  "status": 200,
+  "message_id": "1574460095876825191",
+  "stored": "x </slateping:1574460053359034581> x",
+  "error": null
+ },
+ {
+  "id": "g13-emoji",
+  "text": "x <:slate_oracle:1574460051593240606> x",
+  "status": 200,
+  "message_id": "1574460102474473483",
+  "stored": "x <:slate_oracle:1574460051593240606> x",
+  "error": null
+ },
+ {
+  "id": "g13-emoji-in-bold",
+  "text": "**b <:slate_oracle:1574460051593240606> b**",
+  "status": 200,
+  "message_id": "1574460108866457661",
+  "stored": "**b <:slate_oracle:1574460051593240606> b**",
+  "error": null
+ }
+]

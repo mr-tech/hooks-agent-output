@@ -1,0 +1,35 @@
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.js took 16ms
+
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Turbopack build encountered 1 warning:
+[next]/internal/font/google/inter_5972bc34.module.css
+Warning: Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_5972bc34.module.css
+    [next]/internal/font/google/inter_5972bc34.js
+    ./src/app/layout.tsx
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 1 error:
+[next]/internal/font/google/inter_5972bc34.module.css
+Error: next/font: error:
+Failed to fetch Inter from Google Fonts.
+If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_5972bc34.module.css
+    [next]/internal/font/google/inter_5972bc34.js
+    ./src/app/layout.tsx
+
+
+    at ignore-listed frames

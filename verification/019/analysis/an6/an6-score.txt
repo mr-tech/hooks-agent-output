@@ -1,0 +1,121 @@
+#18 "-# -# nested"
+   dom:    -:- #:-  :- -:- #:-  :- n:- e:- s:- t:- e:- d:-
+   legacy: -:- #:-  :- -:- #:-  :- n:- e:- s:- t:- e:- d:-
+   native: -:~- #:~-  :~- -:sub #:sub  :sub n:sub e:sub s:sub t:sub e:sub d:sub
+#20 "-# **b** *i*"
+   dom:    -:~- #:~-  :~- *:~- *:~- b:b+sub *:~- *:~-  :- *:~- i:i+sub *:~-
+   legacy: -:~- #:~-  :~- *:~- *:~- b:b+sub *:~- *:~-  :- *:~- i:i+sub *:~-
+   native: -:~- #:~-  :~- *:~- *:~- b:b+sub *:~- *:~-  :sub *:~- i:i+sub *:~-
+#24 "[text](https://example.com)"
+   dom:    [:- t:- e:- x:- t:- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a ):-
+   legacy: [:- t:- e:- x:- t:- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a ):-
+   native: [:~- t:a e:a x:a t:a ]:~- (:~- h:~- t:~- t:~- p:~- s:~- ::~- /:~- /:~- e:~- x:~- a:~- m:~- p:~- l:~- e:~- .:~- c:~- o:~- m:~- ):~-
+#30 "[a [b] c](https://example.com)"
+   dom:    [:- a:-  :- [:- b:- ]:-  :- c:- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a ):-
+   legacy: [:- a:-  :- [:- b:- ]:-  :- c:- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a ):-
+   native: [:~- a:a  :a [:a b:a ]:a  :a c:a ]:~- (:~- h:~- t:~- t:~- p:~- s:~- ::~- /:~- /:~- e:~- x:~- a:~- m:~- p:~- l:~- e:~- .:~- c:~- o:~- m:~- ):~-
+#37 "[text](https://example.com)[two](https://example.org)"
+   dom:    [:- t:- e:- x:- t:- ]:- (:- h:- t:- t:- p:- s:- ::- /:- /:- e:- x:- a:- m:- p:- l:- e:- .:- c:- o:- m:- ):- [:- t:- w:- o:- ]:- (:- h:- t:- t:- p:- s:- ::- /:- /:- e:- x:- a:- m:- p:- l:- e:- .:- o:- r:- g:- ):-
+   legacy: [:- t:- e:- x:- t:- ]:- (:- h:- t:- t:- p:- s:- ::- /:- /:- e:- x:- a:- m:- p:- l:- e:- .:- c:- o:- m:- ):- [:- t:- w:- o:- ]:- (:- h:- t:- t:- p:- s:- ::- /:- /:- e:- x:- a:- m:- p:- l:- e:- .:- o:- r:- g:- ):-
+   native: [:~- t:a e:a x:a t:a ]:~- (:~- h:~- t:~- t:~- p:~- s:~- ::~- /:~- /:~- e:~- x:~- a:~- m:~- p:~- l:~- e:~- .:~- c:~- o:~- m:~- ):~- [:~- t:a w:a o:a ]:~- (:~- h:~- t:~- t:~- p:~- s:~- ::~- /:~- /:~- e:~- x:~- a:~- m:~- p:~- l:~- e:~- .:~- o:~- r:~- g:~- ):~-
+#40 "[||sp||](https://example.com)"
+   dom:    [:- |:~- |:~- s:sp p:sp |:~- |:~- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a ):-
+   legacy: [:- |:~- |:~- s:sp p:sp |:~- |:~- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a ):-
+   native: [:~- |:a |:a s:a p:a |:a |:a ]:~- (:~- h:~- t:~- t:~- p:~- s:~- ::~- /:~- /:~- e:~- x:~- a:~- m:~- p:~- l:~- e:~- .:~- c:~- o:~- m:~- ):~-
+#67 "||a\nb||"
+   dom:    |:- |:- a:- b:- |:- |:-
+   legacy: |:- |:- a:- b:- |:- |:-
+   native: |:~- |:~- a:sp b:sp |:~- |:~-
+#73 "|||a|||"
+   dom:    |:~- |:~- |:sp a:sp |:~- |:~- |:-
+   legacy: |:~- |:~- |:sp a:sp |:~- |:~- |:-
+   native: |:- |:~- |:~- a:sp |:~- |:~- |:-
+#89 "**b *bi* b**"
+   dom:    *:~- *:~- b:b  :b *:~- b:b+i i:b+i *:~-  :- b:b *:~- *:~-
+   legacy: *:~- *:~- b:b  :b *:~- b:b+i i:b+i *:~-  :- b:b *:~- *:~-
+   native: *:~- *:~- b:b  :b *:~- b:b+i i:b+i *:~-  :b b:b *:~- *:~-
+#92 "*loose *"
+   dom:    *:~- l:i o:i o:i s:i e:i  :- *:~-
+   legacy: *:~- l:i o:i o:i s:i e:i  :- *:~-
+   native: *:~- l:i o:i o:i s:i e:i  :i *:~-
+#93 "*a * b*"
+   dom:    *:~- a:i  :- *:~-  :- b:- *:-
+   legacy: *:~- a:i  :- *:~-  :- b:- *:-
+   native: *:~- a:i  :i *:~-  :- b:- *:-
+#95 "_a_b_"
+   dom:    _:- a:- _:~- b:i _:~-
+   legacy: _:- a:- _:~- b:i _:~-
+   native: _:~- a:i _:i b:i _:~-
+#98 "*a**"
+   dom:    *:- a:- *:- *:-
+   legacy: *:- a:- *:- *:-
+   native: *:~- a:i *:~- *:-
+#99 "****"
+   dom:    *:~- *:i *:i *:~-
+   legacy: *:~- *:i *:i *:~-
+   native: *:- *:- *:- *:-
+#104 "*a\nb*"
+   dom:    *:- a:- b:- *:-
+   legacy: *:- a:- b:- *:-
+   native: *:~- a:i b:i *:~-
+#105 "**a\n\nb**"
+   dom:    *:- *:- a:- b:- *:- *:-
+   legacy: *:- *:- a:- b:- *:- *:-
+   native: *:~- *:~- a:b b:b *:~- *:~-
+#113 "_a__"
+   dom:    _:- a:- _:- _:-
+   legacy: _:- a:- _:- _:-
+   native: _:~- a:i _:~- _:-
+#121 "`a``b`"
+   dom:    `:~- a:c `:c `:c b:c `:~-
+   legacy: `:~- a:c `:c `:c b:c `:~-
+   native: `:~- a:c `:~- `:~- b:c `:~-
+#135 "```\n```"
+   dom:    `:~- `:~- `:~- `:~- `:~- `:~-
+   legacy: `:~- `:~- `:~- `:~- `:~- `:~-
+   native: `:~- `:~- `:c `:~- `:~- `:-
+#136 "```js\n```"
+   dom:    `:~- `:~- `:~- j:- s:- `:~- `:~- `:~-
+   legacy: `:~- `:~- `:~- j:- s:- `:~- `:~- `:~-
+   native: `:~- `:~- `:c j:c s:c `:~- `:~- `:-
+#233 "\\**a**"
+   dom:    \\:~- *:- *:- a:- *:- *:-
+   legacy: \\:~- *:- *:- a:- *:- *:-
+   native: \\:~- *:- *:~- a:i *:~- *:-
+#239 "\\||sp\\||"
+   dom:    \\:~- |:- |:- s:- p:- \\:~- |:~- |:~-
+   legacy: \\:~- |:- |:- s:- p:- \\:~- |:- |:-
+   native: \\:~- |:- |:- s:- p:- \\:~- |:- |:-
+#246 "\\https://example.com"
+   dom:    \\:~- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a
+   legacy: \\:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a
+   native: \\:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a
+#259 "**# not head**"
+   dom:    *:~- *:~- #:b  :b n:b o:b t:b  :b h:b e:b a:b d:b *:~- *:~-
+   legacy: *:~- *:~- #:b  :b n:b o:b t:b  :b h:b e:b a:b d:b *:~- *:~-
+   native: *:~- *:~- #:-  :- n:b o:b t:b  :b h:b e:b a:b d:b *:~- *:~-
+#260 "*- not list*"
+   dom:    *:~- -:i  :i n:i o:i t:i  :i l:i i:i s:i t:i *:~-
+   legacy: *:~- -:i  :i n:i o:i t:i  :i l:i i:i s:i t:i *:~-
+   native: *:~- -:-  :- n:i o:i t:i  :i l:i i:i s:i t:i *:~-
+#261 "||> q||"
+   dom:    |:~- |:~- >:sp  :sp q:sp |:~- |:~-
+   legacy: |:~- |:~- >:sp  :sp q:sp |:~- |:~-
+   native: |:~- |:~- >:-  :- q:sp |:~- |:~-
+#266 "***a** b*"
+   dom:    *:~- *:~- *:~- a:b+i *:~- *:~-  :- b:i *:~-
+   legacy: *:~- *:~- *:~- a:b+i *:~- *:~-  :- b:i *:~-
+   native: *:~- *:~- *:~- a:b+i *:~- *:~-  :i b:i *:~-
+#x2 "[text](https://example.com \"title\")"
+   dom:    [:- t:- e:- x:- t:- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a  :- \":- t:- i:- t:- l:- e:- \":- ):-
+   legacy: [:- t:- e:- x:- t:- ]:- (:- h:a t:a t:a p:a s:a ::a /:a /:a e:a x:a a:a m:a p:a l:a e:a .:a c:a o:a m:a  :- \":- t:- i:- t:- l:- e:- \":- ):-
+   native: [:~- t:a e:a x:a t:a ]:~- (:~- h:~- t:~- t:~- p:~- s:~- ::~- /:~- /:~- e:~- x:~- a:~- m:~- p:~- l:~- e:~- .:~- c:~- o:~- m:~-  :~- \":~- t:~- i:~- t:~- l:~- e:~- \":~- ):~-
+
+compared 65 skipped 20
+legacy=dom 63 [1, 4, 6, 7, 9, 11, 15, 17, 18, 20, 21, 22, 24, 30, 35, 37, 40, 44, 51, 58, 66, 67, 70, 73, 74, 78, 83, 88, 89, 92, 93, 95, 98, 99, 103, 104, 105, 113, 116, 121, 124, 135, 136, 161, 169, 177, 178, 189, 191, 214, 225, 232, 233, 245, 252, 255, 259, 260, 261, 266, 272, 'x2', 'x4']
+legacy!=dom 2 [239, 246]
+native=dom 37 [1, 4, 6, 7, 9, 11, 15, 17, 21, 22, 35, 44, 51, 58, 66, 70, 74, 78, 83, 88, 103, 116, 124, 161, 169, 177, 178, 189, 191, 214, 225, 232, 245, 252, 255, 272, 'x4']
+native!=dom 28 [18, 20, 24, 30, 37, 40, 67, 73, 89, 92, 93, 95, 98, 99, 104, 105, 113, 121, 135, 136, 233, 239, 246, 259, 260, 261, 266, 'x2']
+native=legacy 39 [1, 4, 6, 7, 9, 11, 15, 17, 21, 22, 35, 44, 51, 58, 66, 70, 74, 78, 83, 88, 103, 116, 124, 161, 169, 177, 178, 189, 191, 214, 225, 232, 239, 245, 246, 252, 255, 272, 'x4']
+native!=legacy 26 [18, 20, 24, 30, 37, 40, 67, 73, 89, 92, 93, 95, 98, 99, 104, 105, 113, 121, 135, 136, 233, 259, 260, 261, 266, 'x2']
+skipped: {"131": "block element (code line or quote) in the box", "137": "block element (code line or quote) in the box", "141": "block element (code line or quote) in the box", "146": "block element (code line or quote) in the box", "151": "block element (code line or quote) in the box", "152": "block element (code line or quote) in the box", "157": "block element (code line or quote) in the box", "186": "inline object in the box", "193": "inline object in the box", "198": "inline object in the box", "203": "inline object in the box", "208": "inline object in the box", "215": "inline object in the box", "220": "inline object in the box", "258": "block element (code line or quote) in the box", "x1": "block element (code line or quote) in the box", "x3": "block element (code line or quote) in the box", "x5": "inline object in the box", "x6": "inline object in the box", "x7": "inline object in the box"}

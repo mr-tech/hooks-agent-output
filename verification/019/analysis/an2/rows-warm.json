@@ -1,0 +1,1516 @@
+{
+ "summary": {
+  "mode": "warm",
+  "captures": 150,
+  "formattedInDom": 150,
+  "errors": 0,
+  "chrome": "Chrome/116.0.5845.96",
+  "marginMs": {
+   "min": 519.7000000476837,
+   "median": 603.3000000715256,
+   "max": 728.8000000715256
+  }
+ },
+ "rows": [
+  {
+   "message": 0,
+   "i": 0,
+   "status": 200,
+   "formattedInDom": true,
+   "firstFormatted": 784.1000000238419,
+   "gotoResolvedAt": 1435.7999999523163,
+   "marginMs": 651.6999999284744,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 1,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 770.3999999761581,
+   "gotoResolvedAt": 1322.1999999284744,
+   "marginMs": 551.7999999523163,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 2,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 599.6999999284744,
+   "gotoResolvedAt": 1121.0999999046326,
+   "marginMs": 521.3999999761581,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 3,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 604.3999999761581,
+   "gotoResolvedAt": 1222.5999999046326,
+   "marginMs": 618.1999999284744,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 4,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 622,
+   "gotoResolvedAt": 1223.1000000238419,
+   "marginMs": 601.1000000238419,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 5,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 583.5,
+   "gotoResolvedAt": 1122.8999999761581,
+   "marginMs": 539.3999999761581,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 6,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 620.5999999046326,
+   "gotoResolvedAt": 1236.5999999046326,
+   "marginMs": 616,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 7,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 606.8999999761581,
+   "gotoResolvedAt": 1129.5999999046326,
+   "marginMs": 522.6999999284744,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 8,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 629.0999999046326,
+   "gotoResolvedAt": 1234.3999999761581,
+   "marginMs": 605.3000000715256,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 9,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 602.7999999523163,
+   "gotoResolvedAt": 1124.6999999284744,
+   "marginMs": 521.8999999761581,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 10,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 585.7999999523163,
+   "gotoResolvedAt": 1122.7999999523163,
+   "marginMs": 537,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 11,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 606.5,
+   "gotoResolvedAt": 1225.3999999761581,
+   "marginMs": 618.8999999761581,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 12,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 571.5999999046326,
+   "gotoResolvedAt": 1127.7999999523163,
+   "marginMs": 556.2000000476837,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 13,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 592,
+   "gotoResolvedAt": 1130.1999999284744,
+   "marginMs": 538.1999999284744,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 14,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 578.6000000238419,
+   "gotoResolvedAt": 1114.7999999523163,
+   "marginMs": 536.1999999284744,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 15,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 649.3999999761581,
+   "gotoResolvedAt": 1315.3999999761581,
+   "marginMs": 666,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 16,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 619.7999999523163,
+   "gotoResolvedAt": 1221.7999999523163,
+   "marginMs": 602,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 17,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 596.8999999761581,
+   "gotoResolvedAt": 1117.3000000715256,
+   "marginMs": 520.4000000953674,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 18,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 594.8999999761581,
+   "gotoResolvedAt": 1215.3999999761581,
+   "marginMs": 620.5,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 19,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 604.2999999523163,
+   "gotoResolvedAt": 1124,
+   "marginMs": 519.7000000476837,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 20,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 624.3999999761581,
+   "gotoResolvedAt": 1226.5,
+   "marginMs": 602.1000000238419,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 21,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 586.7999999523163,
+   "gotoResolvedAt": 1124.7000000476837,
+   "marginMs": 537.9000000953674,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 22,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 572.7000000476837,
+   "gotoResolvedAt": 1128.2000000476837,
+   "marginMs": 555.5,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 23,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 561.7000000476837,
+   "gotoResolvedAt": 1178.2000000476837,
+   "marginMs": 616.5,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 24,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 570.7000000476837,
+   "gotoResolvedAt": 1126.2000000476837,
+   "marginMs": 555.5,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 25,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 572.5,
+   "gotoResolvedAt": 1193.8000000715256,
+   "marginMs": 621.3000000715256,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 26,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 595.1000000238419,
+   "gotoResolvedAt": 1209.8999999761581,
+   "marginMs": 614.7999999523163,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 27,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 572.3999999761581,
+   "gotoResolvedAt": 1128.6000000238419,
+   "marginMs": 556.2000000476837,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 28,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1219.8999999761581,
+   "gotoResolvedAt": 1773.1000000238419,
+   "marginMs": 553.2000000476837,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 29,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 908.5,
+   "gotoResolvedAt": 1572.6000000238419,
+   "marginMs": 664.1000000238419,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 30,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1082.2999999523163,
+   "gotoResolvedAt": 1719.5,
+   "marginMs": 637.2000000476837,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 31,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1125.2999999523163,
+   "gotoResolvedAt": 1854.1000000238419,
+   "marginMs": 728.8000000715256,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 32,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1101.6000000238419,
+   "gotoResolvedAt": 1746.7000000476837,
+   "marginMs": 645.1000000238419,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 33,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 924.5,
+   "gotoResolvedAt": 1567.5,
+   "marginMs": 643,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 34,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1035.0999999046326,
+   "gotoResolvedAt": 1684.1999999284744,
+   "marginMs": 649.1000000238419,
+   "jpegBytes": 1537
+  },
+  {
+   "message": 0,
+   "i": 35,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1255.8999999761581,
+   "gotoResolvedAt": 1855.6999999284744,
+   "marginMs": 599.7999999523163,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 36,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1052.2999999523163,
+   "gotoResolvedAt": 1705.6999999284744,
+   "marginMs": 653.3999999761581,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 37,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1112.3999999761581,
+   "gotoResolvedAt": 1720.0999999046326,
+   "marginMs": 607.6999999284744,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 38,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 854.3999999761581,
+   "gotoResolvedAt": 1484.1000000238419,
+   "marginMs": 629.7000000476837,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 39,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 766.2000000476837,
+   "gotoResolvedAt": 1412.5,
+   "marginMs": 646.2999999523163,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 40,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 895.5,
+   "gotoResolvedAt": 1509.7999999523163,
+   "marginMs": 614.2999999523163,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 41,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 737.0999999046326,
+   "gotoResolvedAt": 1336.5999999046326,
+   "marginMs": 599.5,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 42,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 868.5,
+   "gotoResolvedAt": 1517.5,
+   "marginMs": 649,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 43,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 658.1000000238419,
+   "gotoResolvedAt": 1259.7000000476837,
+   "marginMs": 601.6000000238419,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 44,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 593,
+   "gotoResolvedAt": 1116.2999999523163,
+   "marginMs": 523.2999999523163,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 45,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 592.5,
+   "gotoResolvedAt": 1129.6000000238419,
+   "marginMs": 537.1000000238419,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 46,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 621.3999999761581,
+   "gotoResolvedAt": 1230.6000000238419,
+   "marginMs": 609.2000000476837,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 47,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1072.0999999046326,
+   "gotoResolvedAt": 1721.7999999523163,
+   "marginMs": 649.7000000476837,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 48,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 703,
+   "gotoResolvedAt": 1283.1999999284744,
+   "marginMs": 580.1999999284744,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 0,
+   "i": 49,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 706.8000000715256,
+   "gotoResolvedAt": 1325.5,
+   "marginMs": 618.6999999284744,
+   "jpegBytes": 1536
+  },
+  {
+   "message": 1,
+   "i": 0,
+   "status": 200,
+   "formattedInDom": true,
+   "firstFormatted": 628.3999999761581,
+   "gotoResolvedAt": 1243.8999999761581,
+   "marginMs": 615.5,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 1,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 891,
+   "gotoResolvedAt": 1535.2000000476837,
+   "marginMs": 644.2000000476837,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 2,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1005.2999999523163,
+   "gotoResolvedAt": 1652.8999999761581,
+   "marginMs": 647.6000000238419,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 3,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 926,
+   "gotoResolvedAt": 1474.8999999761581,
+   "marginMs": 548.8999999761581,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 4,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1031.5,
+   "gotoResolvedAt": 1600.5,
+   "marginMs": 569,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 5,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1214.1000000238419,
+   "gotoResolvedAt": 1829,
+   "marginMs": 614.8999999761581,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 6,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1160.8999999761581,
+   "gotoResolvedAt": 1785.7000000476837,
+   "marginMs": 624.8000000715256,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 7,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 749.5,
+   "gotoResolvedAt": 1382.3000000715256,
+   "marginMs": 632.8000000715256,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 8,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 680.1000000238419,
+   "gotoResolvedAt": 1360,
+   "marginMs": 679.8999999761581,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 9,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 612.1000000238419,
+   "gotoResolvedAt": 1291.8999999761581,
+   "marginMs": 679.7999999523163,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 10,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 615.8999999761581,
+   "gotoResolvedAt": 1220.7999999523163,
+   "marginMs": 604.8999999761581,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 11,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 685,
+   "gotoResolvedAt": 1286.2999999523163,
+   "marginMs": 601.2999999523163,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 12,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 657.8999999761581,
+   "gotoResolvedAt": 1246.5,
+   "marginMs": 588.6000000238419,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 13,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 681.2000000476837,
+   "gotoResolvedAt": 1343.5,
+   "marginMs": 662.2999999523163,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 14,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 614,
+   "gotoResolvedAt": 1214.5,
+   "marginMs": 600.5,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 15,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 661.6999999284744,
+   "gotoResolvedAt": 1262.0999999046326,
+   "marginMs": 600.3999999761581,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 16,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 646.7000000476837,
+   "gotoResolvedAt": 1246.2000000476837,
+   "marginMs": 599.5,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 17,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 696.5,
+   "gotoResolvedAt": 1277.6000000238419,
+   "marginMs": 581.1000000238419,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 18,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 679.5,
+   "gotoResolvedAt": 1264.8000000715256,
+   "marginMs": 585.3000000715256,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 19,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 637,
+   "gotoResolvedAt": 1304.1000000238419,
+   "marginMs": 667.1000000238419,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 20,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 675.2999999523163,
+   "gotoResolvedAt": 1323.8999999761581,
+   "marginMs": 648.6000000238419,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 21,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 632.2000000476837,
+   "gotoResolvedAt": 1233.2000000476837,
+   "marginMs": 601,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 22,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 659.3999999761581,
+   "gotoResolvedAt": 1261.1999999284744,
+   "marginMs": 601.7999999523163,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 23,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 658.6999999284744,
+   "gotoResolvedAt": 1319.5999999046326,
+   "marginMs": 660.8999999761581,
+   "jpegBytes": 1922
+  },
+  {
+   "message": 1,
+   "i": 24,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 598.3999999761581,
+   "gotoResolvedAt": 1216.8999999761581,
+   "marginMs": 618.5,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 25,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 596.3000000715256,
+   "gotoResolvedAt": 1213.9000000953674,
+   "marginMs": 617.6000000238419,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 26,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 616.5999999046326,
+   "gotoResolvedAt": 1212,
+   "marginMs": 595.4000000953674,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 27,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 678.6999999284744,
+   "gotoResolvedAt": 1265.1999999284744,
+   "marginMs": 586.5,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 28,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 699.1000000238419,
+   "gotoResolvedAt": 1334.8999999761581,
+   "marginMs": 635.7999999523163,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 29,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 755.3999999761581,
+   "gotoResolvedAt": 1341.6999999284744,
+   "marginMs": 586.2999999523163,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 30,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 623.6999999284744,
+   "gotoResolvedAt": 1240.8999999761581,
+   "marginMs": 617.2000000476837,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 31,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 598.6000000238419,
+   "gotoResolvedAt": 1118.7000000476837,
+   "marginMs": 520.1000000238419,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 32,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 616.6999999284744,
+   "gotoResolvedAt": 1217.5,
+   "marginMs": 600.8000000715256,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 33,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 635.5,
+   "gotoResolvedAt": 1237.0999999046326,
+   "marginMs": 601.5999999046326,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 34,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 600,
+   "gotoResolvedAt": 1123.1999999284744,
+   "marginMs": 523.1999999284744,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 35,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 576.2000000476837,
+   "gotoResolvedAt": 1190.1000000238419,
+   "marginMs": 613.8999999761581,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 36,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 586.8999999761581,
+   "gotoResolvedAt": 1128.2000000476837,
+   "marginMs": 541.3000000715256,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 37,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 620.8999999761581,
+   "gotoResolvedAt": 1219.7999999523163,
+   "marginMs": 598.8999999761581,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 38,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 586,
+   "gotoResolvedAt": 1124.3000000715256,
+   "marginMs": 538.3000000715256,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 39,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 622.3999999761581,
+   "gotoResolvedAt": 1227.2999999523163,
+   "marginMs": 604.8999999761581,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 40,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 613.0999999046326,
+   "gotoResolvedAt": 1231.0999999046326,
+   "marginMs": 618,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 41,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 580.8999999761581,
+   "gotoResolvedAt": 1121.3000000715256,
+   "marginMs": 540.4000000953674,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 42,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 596.1999999284744,
+   "gotoResolvedAt": 1121,
+   "marginMs": 524.8000000715256,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 43,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 651,
+   "gotoResolvedAt": 1249.8000000715256,
+   "marginMs": 598.8000000715256,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 44,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 593.2000000476837,
+   "gotoResolvedAt": 1210.6000000238419,
+   "marginMs": 617.3999999761581,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 45,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 616.6000000238419,
+   "gotoResolvedAt": 1219.9000000953674,
+   "marginMs": 603.3000000715256,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 46,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 636.6000000238419,
+   "gotoResolvedAt": 1236,
+   "marginMs": 599.3999999761581,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 47,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 575.8999999761581,
+   "gotoResolvedAt": 1116,
+   "marginMs": 540.1000000238419,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 48,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 584.7000000476837,
+   "gotoResolvedAt": 1123,
+   "marginMs": 538.2999999523163,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 1,
+   "i": 49,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 587.7000000476837,
+   "gotoResolvedAt": 1123.7000000476837,
+   "marginMs": 536,
+   "jpegBytes": 1920
+  },
+  {
+   "message": 2,
+   "i": 0,
+   "status": 200,
+   "formattedInDom": true,
+   "firstFormatted": 615.3000000715256,
+   "gotoResolvedAt": 1219.5,
+   "marginMs": 604.1999999284744,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 1,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 596.3999999761581,
+   "gotoResolvedAt": 1200.8999999761581,
+   "marginMs": 604.5,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 2,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 578.2000000476837,
+   "gotoResolvedAt": 1116.2000000476837,
+   "marginMs": 538,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 3,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 600.1000000238419,
+   "gotoResolvedAt": 1217.4000000953674,
+   "marginMs": 617.3000000715256,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 4,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 585,
+   "gotoResolvedAt": 1124.2999999523163,
+   "marginMs": 539.2999999523163,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 5,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 578.5,
+   "gotoResolvedAt": 1117.3999999761581,
+   "marginMs": 538.8999999761581,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 6,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 565.2000000476837,
+   "gotoResolvedAt": 1182.1000000238419,
+   "marginMs": 616.8999999761581,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 7,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 579.2999999523163,
+   "gotoResolvedAt": 1118.3999999761581,
+   "marginMs": 539.1000000238419,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 8,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 578.6999999284744,
+   "gotoResolvedAt": 1116.0999999046326,
+   "marginMs": 537.3999999761581,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 9,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 619.5,
+   "gotoResolvedAt": 1218.9000000953674,
+   "marginMs": 599.4000000953674,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 10,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 628.3999999761581,
+   "gotoResolvedAt": 1230.6000000238419,
+   "marginMs": 602.2000000476837,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 11,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 663.0999999046326,
+   "gotoResolvedAt": 1250.8999999761581,
+   "marginMs": 587.8000000715256,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 12,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 614.7999999523163,
+   "gotoResolvedAt": 1234.6000000238419,
+   "marginMs": 619.8000000715256,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 13,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 629.0999999046326,
+   "gotoResolvedAt": 1297.7999999523163,
+   "marginMs": 668.7000000476837,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 14,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 580.1000000238419,
+   "gotoResolvedAt": 1118.7999999523163,
+   "marginMs": 538.6999999284744,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 15,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 809.2000000476837,
+   "gotoResolvedAt": 1413.6000000238419,
+   "marginMs": 604.3999999761581,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 16,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 885,
+   "gotoResolvedAt": 1458.6000000238419,
+   "marginMs": 573.6000000238419,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 17,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 648.7000000476837,
+   "gotoResolvedAt": 1218.2999999523163,
+   "marginMs": 569.5999999046326,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 18,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 607.7999999523163,
+   "gotoResolvedAt": 1228,
+   "marginMs": 620.2000000476837,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 19,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 597.6000000238419,
+   "gotoResolvedAt": 1216.3999999761581,
+   "marginMs": 618.7999999523163,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 20,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 927.5,
+   "gotoResolvedAt": 1563,
+   "marginMs": 635.5,
+   "jpegBytes": 2119
+  },
+  {
+   "message": 2,
+   "i": 21,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 980.2000000476837,
+   "gotoResolvedAt": 1574.6000000238419,
+   "marginMs": 594.3999999761581,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 22,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1029.5999999046326,
+   "gotoResolvedAt": 1675,
+   "marginMs": 645.4000000953674,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 23,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1176.8999999761581,
+   "gotoResolvedAt": 1806.2999999523163,
+   "marginMs": 629.3999999761581,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 24,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 1202.8000000715256,
+   "gotoResolvedAt": 1803.1000000238419,
+   "marginMs": 600.2999999523163,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 25,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 794.5,
+   "gotoResolvedAt": 1464.0999999046326,
+   "marginMs": 669.5999999046326,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 26,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 605.6000000238419,
+   "gotoResolvedAt": 1224,
+   "marginMs": 618.3999999761581,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 27,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 633.1999999284744,
+   "gotoResolvedAt": 1250.7999999523163,
+   "marginMs": 617.6000000238419,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 28,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 692,
+   "gotoResolvedAt": 1356.3000000715256,
+   "marginMs": 664.3000000715256,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 29,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 656.6000000238419,
+   "gotoResolvedAt": 1319.7000000476837,
+   "marginMs": 663.1000000238419,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 30,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 592.8999999761581,
+   "gotoResolvedAt": 1212.7999999523163,
+   "marginMs": 619.8999999761581,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 31,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 700.8999999761581,
+   "gotoResolvedAt": 1287.3999999761581,
+   "marginMs": 586.5,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 32,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 633,
+   "gotoResolvedAt": 1236,
+   "marginMs": 603,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 33,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 613.5,
+   "gotoResolvedAt": 1214.2999999523163,
+   "marginMs": 600.7999999523163,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 34,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 579.8000000715256,
+   "gotoResolvedAt": 1117.8999999761581,
+   "marginMs": 538.0999999046326,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 35,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 576.4000000953674,
+   "gotoResolvedAt": 1115.1000000238419,
+   "marginMs": 538.6999999284744,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 36,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 618.5999999046326,
+   "gotoResolvedAt": 1237.6999999284744,
+   "marginMs": 619.1000000238419,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 37,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 585.5999999046326,
+   "gotoResolvedAt": 1123.6999999284744,
+   "marginMs": 538.1000000238419,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 38,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 614.2999999523163,
+   "gotoResolvedAt": 1230.8999999761581,
+   "marginMs": 616.6000000238419,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 39,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 612.5,
+   "gotoResolvedAt": 1232.2999999523163,
+   "marginMs": 619.7999999523163,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 40,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 597,
+   "gotoResolvedAt": 1215.7999999523163,
+   "marginMs": 618.7999999523163,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 41,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 603.8000000715256,
+   "gotoResolvedAt": 1128,
+   "marginMs": 524.1999999284744,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 42,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 610,
+   "gotoResolvedAt": 1227.8999999761581,
+   "marginMs": 617.8999999761581,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 43,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 602.8999999761581,
+   "gotoResolvedAt": 1205.2999999523163,
+   "marginMs": 602.3999999761581,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 44,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 636.2000000476837,
+   "gotoResolvedAt": 1255.7000000476837,
+   "marginMs": 619.5,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 45,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 597.2000000476837,
+   "gotoResolvedAt": 1233.9000000953674,
+   "marginMs": 636.7000000476837,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 46,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 608.2000000476837,
+   "gotoResolvedAt": 1227.7000000476837,
+   "marginMs": 619.5,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 47,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 576.2999999523163,
+   "gotoResolvedAt": 1115.0999999046326,
+   "marginMs": 538.7999999523163,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 48,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 565.8999999761581,
+   "gotoResolvedAt": 1184.1000000238419,
+   "marginMs": 618.2000000476837,
+   "jpegBytes": 2123
+  },
+  {
+   "message": 2,
+   "i": 49,
+   "status": 304,
+   "formattedInDom": true,
+   "firstFormatted": 594.0999999046326,
+   "gotoResolvedAt": 1211,
+   "marginMs": 616.9000000953674,
+   "jpegBytes": 2123
+  }
+ ]
+}

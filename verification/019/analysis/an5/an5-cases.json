@@ -1,0 +1,3 @@
+[{"id": "an5-emoji-host", "text": "https://x.y🙂 end"},
+ {"id": "an5-upper-host", "text": "https://EXAMPLE.com/Path end"},
+ {"id": "an5-auto-emoji-path", "text": "<https://example.com/🙂> end"}]

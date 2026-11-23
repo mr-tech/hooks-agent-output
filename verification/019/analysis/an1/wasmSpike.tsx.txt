@@ -1,0 +1,45 @@
+// Analysis 019 AN-1 spike only: a minimal renderer over @discord/markdown-wasm `parse`, enough to see
+// formatted output in the preview. Not a design; lives only in a scratch export.
+import { createElement, Fragment } from 'react';
+
+import type { ReactNode } from 'react';
+
+type AnyNode = { type: string; value?: any; text?: any };
+
+function inline(nodes: any[] | undefined, key = 'k'): ReactNode[] {
+  return (nodes ?? []).map((n: AnyNode, i: number) => renderNode(n, `${key}.${i}`));
+}
+
+function renderNode(n: AnyNode, key: string): ReactNode {
+  switch (n.type) {
+    case 'text': return n.value as string;
+    case 'paragraph': return createElement(Fragment, { key }, ...inline(n.value, key));
+    case 'bold': return createElement('strong', { key }, ...inline(n.value, key));
+    case 'italic': return createElement('em', { key }, ...inline(n.value, key));
+    case 'underline': return createElement('u', { key }, ...inline(n.value, key));
+    case 'strikethrough': return createElement('s', { key }, ...inline(n.value, key));
+    case 'spoiler': return createElement('span', { key, 'data-md-spoiler': '' }, ...inline(n.value.content, key));
+    case 'code': return createElement('code', { key }, n.value);
+    case 'code_block': return createElement('pre', { key }, n.value.content);
+    case 'link': return createElement('a', { key, href: n.value.url }, ...(n.value.text ? inline(n.value.text, key) : [n.value.url]));
+    case 'heading': return createElement(`h${n.value.level}`, { key }, ...inline(n.value.content, key));
+    case 'subtext': return createElement('small', { key }, ...inline(n.value.content, key));
+    case 'quote': return createElement('blockquote', { key }, ...inline(n.value, key));
+    case 'empty': return createElement('br', { key });
+    case 'list': return createElement(n.value.type === 'ordered' ? 'ol' : 'ul', { key }, ...n.value.items.map((it: any, i: number) => createElement('li', { key: `${key}.${i}` }, ...inline(it.content, `${key}.${i}`))));
+    default: return createElement('span', { key, 'data-md-kind': n.type }, n.type);
+  }
+}
+
+export async function loadWasmStaticParser() {
+  const t0 = performance.now();
+  const wasm = await import('@discord/markdown-wasm');
+  await wasm.init();
+  (globalThis as any).__mdEngineInitMs = performance.now() - t0;
+  performance.mark('md-engine-ready');
+  return (value: string) => createElement(
+    'div',
+    { 'data-md-engine': 'wasm' },
+    ...wasm.parse(value).map((n: any, i: number) => renderNode(n, `r${i}`)),
+  );
+}

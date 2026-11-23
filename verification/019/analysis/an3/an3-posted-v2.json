@@ -1,0 +1,197 @@
+[
+ {
+  "status": 200,
+  "message_id": "1574459389019033796",
+  "error": null,
+  "bits": [
+   "CUSTOM_EMOJI",
+   "COLON_EMOJI",
+   "UNICODE_EMOJI",
+   "MASKED_LINK",
+   "DETECTED_LINK",
+   "AUTO_LINK",
+   "CONTACT_LINK",
+   "USER_MENTION",
+   "CHANNEL_MENTION",
+   "ROLE_MENTION",
+   "GAME_MENTION",
+   "COMMAND_MENTION",
+   "EVERYONE_MENTION",
+   "HERE_MENTION",
+   "STATIC_MENTION",
+   "TIMESTAMP",
+   "CODE_BLOCK",
+   "CODE",
+   "DOUBLE_CODE",
+   "BOLD",
+   "ASTERISK_ITALIC",
+   "UNDERSCORE_ITALIC",
+   "UNDERLINE",
+   "STRIKETHROUGH",
+   "SPOILER",
+   "HEADING",
+   "LIST",
+   "QUOTE",
+   "MULTILINE_QUOTE",
+   "SUBTEXT",
+   "DEV_LINKS"
+  ],
+  "stored": [
+   {
+    "type": 10,
+    "id": 1,
+    "content": "x :hooks: x"
+   },
+   {
+    "type": 10,
+    "id": 2,
+    "content": "x :smile: x"
+   },
+   {
+    "type": 10,
+    "id": 3,
+    "content": "x 😀 x"
+   },
+   {
+    "type": 10,
+    "id": 4,
+    "content": "x [label](https://example.com) x"
+   },
+   {
+    "type": 10,
+    "id": 5,
+    "content": "x https://example.com x"
+   },
+   {
+    "type": 10,
+    "id": 6,
+    "content": "x <https://example.com> x"
+   },
+   {
+    "type": 10,
+    "id": 7,
+    "content": "x <a@b.co> x"
+   },
+   {
+    "type": 10,
+    "id": 8,
+    "content": "x <@1558266761101447248> x"
+   },
+   {
+    "type": 10,
+    "id": 9,
+    "content": "x <#1574358729577599086> x"
+   },
+   {
+    "type": 10,
+    "id": 10,
+    "content": "x <@&1566742402180456559> x"
+   },
+   {
+    "type": 10,
+    "id": 11,
+    "content": "x <game:123456789012345678> x"
+   },
+   {
+    "type": 10,
+    "id": 12,
+    "content": "x </ping:123456789012345678> x"
+   },
+   {
+    "type": 10,
+    "id": 13,
+    "content": "x @everyone x"
+   },
+   {
+    "type": 10,
+    "id": 14,
+    "content": "x @here x"
+   },
+   {
+    "type": 10,
+    "id": 15,
+    "content": "x <id:customize> x"
+   },
+   {
+    "type": 10,
+    "id": 16,
+    "content": "x <t:1700000000:f> x"
+   },
+   {
+    "type": 10,
+    "id": 17,
+    "content": "```\nblock\n```"
+   },
+   {
+    "type": 10,
+    "id": 18,
+    "content": "x `code` x"
+   },
+   {
+    "type": 10,
+    "id": 19,
+    "content": "x ``a`b`` x"
+   },
+   {
+    "type": 10,
+    "id": 20,
+    "content": "x **bold** x"
+   },
+   {
+    "type": 10,
+    "id": 21,
+    "content": "x *ital* x"
+   },
+   {
+    "type": 10,
+    "id": 22,
+    "content": "x _ital_ x"
+   },
+   {
+    "type": 10,
+    "id": 23,
+    "content": "x __under__ x"
+   },
+   {
+    "type": 10,
+    "id": 24,
+    "content": "x ~~strike~~ x"
+   },
+   {
+    "type": 10,
+    "id": 25,
+    "content": "x ||spoil|| x"
+   },
+   {
+    "type": 10,
+    "id": 26,
+    "content": "# head"
+   },
+   {
+    "type": 10,
+    "id": 27,
+    "content": "- item"
+   },
+   {
+    "type": 10,
+    "id": 28,
+    "content": "> quoted"
+   },
+   {
+    "type": 10,
+    "id": 29,
+    "content": ">>> quoted\nrest"
+   },
+   {
+    "type": 10,
+    "id": 30,
+    "content": "-# small"
+   },
+   {
+    "type": 10,
+    "id": 31,
+    "content": "x [dev](dev://branch/main) x"
+   }
+  ]
+ }
+]

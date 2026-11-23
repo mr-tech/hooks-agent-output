@@ -1,0 +1,28 @@
+== stable
+  rules      id 605275 chunk web size 14487 sha eb635a59ab sha-idless 1f0ec302c3
+  facade     id 46054 chunk web size 5002 sha 6c3b3bfd00 sha-idless 74d946d4c0
+  smd        id 478676 chunk 361020 size 15685 sha cf1307d239 sha-idless 89230fee02
+  heading    id 223637 chunk web size 305 sha 7fe9779fc6 sha-idless 302994726e
+  subtext    id 683412 chunk web size 390 sha 7bae59ee79 sha-idless 8c72e8f3f7
+  list       id 873879 chunk web size 1716 sha 414be139f7 sha-idless a46ace565e
+  link       id 694403 chunk web size 3836 sha e7d9b1d533 sha-idless bdaa78fea4
+  glue       id 905779 chunk 824723 size 4917 sha 139ab105f9 sha-idless 22178af6a6
+  wasmapi    id 359787 chunk 531875 size 991 sha 118a774932 sha-idless c7d62ea932
+  flags      id 593034 chunk 531875 size 725 sha 4da994d3cb sha-idless 25de869da6
+  gate       id 146849 chunk web size 650 sha 282a7d5bf3 sha-idless 69b36cffd6
+  slatemap   id 339200 chunk web size 17480 sha a8afa7efae sha-idless e6c3df4818
+  nativedeco id 818948 chunk web size 5095 sha fc46e20d01 sha-idless 7f2e7115e8
+== canary
+  rules      id 605275 chunk web size 14487 sha eb635a59ab sha-idless 1f0ec302c3
+  facade     id 46054 chunk web size 5002 sha 6c3b3bfd00 sha-idless 74d946d4c0
+  smd        id 478676 chunk 361020 size 15685 sha cf1307d239 sha-idless 89230fee02
+  heading    id 223637 chunk web size 305 sha 7fe9779fc6 sha-idless 302994726e
+  subtext    id 683412 chunk web size 390 sha 7bae59ee79 sha-idless 8c72e8f3f7
+  list       id 873879 chunk web size 1716 sha 414be139f7 sha-idless a46ace565e
+  link       id 694403 chunk web size 3836 sha 92acb5b9dc sha-idless bdaa78fea4
+  glue       id 905779 chunk 824723 size 4917 sha 139ab105f9 sha-idless 22178af6a6
+  wasmapi    id 359787 chunk 531875 size 991 sha 118a774932 sha-idless c7d62ea932
+  flags      id 593034 chunk 531875 size 725 sha 4da994d3cb sha-idless 25de869da6
+  gate       id 146849 chunk web size 650 sha 282a7d5bf3 sha-idless 69b36cffd6
+  slatemap   id 339200 chunk web size 17480 sha a8afa7efae sha-idless e6c3df4818
+  nativedeco id 818948 chunk web size 5095 sha fc46e20d01 sha-idless 7f2e7115e8

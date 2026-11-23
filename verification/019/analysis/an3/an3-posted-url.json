@@ -1,0 +1,774 @@
+[
+ {
+  "status": 200,
+  "message_id": "1574459645030965369",
+  "error": null,
+  "embeds": [
+   {
+    "bit": "CUSTOM_EMOJI",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/custom_emoji",
+     "title": "x :hooks: x",
+     "description": "x :hooks: x",
+     "fields": [
+      {
+       "name": "x :hooks: x",
+       "value": "x :hooks: x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <:hooks:1566742402180456559> x"
+     },
+     "footer": {
+      "text": "x :hooks: x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "COLON_EMOJI",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/colon_emoji",
+     "title": "x :smile: x",
+     "description": "x :smile: x",
+     "fields": [
+      {
+       "name": "x :smile: x",
+       "value": "x :smile: x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x :smile: x"
+     },
+     "footer": {
+      "text": "x :smile: x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "UNICODE_EMOJI",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/unicode_emoji",
+     "title": "x 😀 x",
+     "description": "x 😀 x",
+     "fields": [
+      {
+       "name": "x 😀 x",
+       "value": "x 😀 x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x 😀 x"
+     },
+     "footer": {
+      "text": "x 😀 x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "MASKED_LINK",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/masked_link",
+     "title": "x [label](https://example.com) x",
+     "description": "x [label](https://example.com) x",
+     "fields": [
+      {
+       "name": "x [label](https://example.com) x",
+       "value": "x [label](https://example.com) x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x [label](https://example.com) x"
+     },
+     "footer": {
+      "text": "x [label](https://example.com) x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "DETECTED_LINK",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/detected_link",
+     "title": "x https://example.com x",
+     "description": "x https://example.com x",
+     "fields": [
+      {
+       "name": "x https://example.com x",
+       "value": "x https://example.com x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x https://example.com x"
+     },
+     "footer": {
+      "text": "x https://example.com x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "AUTO_LINK",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/auto_link",
+     "title": "x <https://example.com> x",
+     "description": "x <https://example.com> x",
+     "fields": [
+      {
+       "name": "x <https://example.com> x",
+       "value": "x <https://example.com> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <https://example.com> x"
+     },
+     "footer": {
+      "text": "x <https://example.com> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "CONTACT_LINK",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/contact_link",
+     "title": "x <a@b.co> x",
+     "description": "x <a@b.co> x",
+     "fields": [
+      {
+       "name": "x <a@b.co> x",
+       "value": "x <a@b.co> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <a@b.co> x"
+     },
+     "footer": {
+      "text": "x <a@b.co> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "USER_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/user_mention",
+     "title": "x <@1558266761101447248> x",
+     "description": "x <@1558266761101447248> x",
+     "fields": [
+      {
+       "name": "x <@1558266761101447248> x",
+       "value": "x <@1558266761101447248> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <@1558266761101447248> x"
+     },
+     "footer": {
+      "text": "x <@1558266761101447248> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "CHANNEL_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/channel_mention",
+     "title": "x <#1574358729577599086> x",
+     "description": "x <#1574358729577599086> x",
+     "fields": [
+      {
+       "name": "x <#1574358729577599086> x",
+       "value": "x <#1574358729577599086> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <#1574358729577599086> x"
+     },
+     "footer": {
+      "text": "x <#1574358729577599086> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "ROLE_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/role_mention",
+     "title": "x <@&1566742402180456559> x",
+     "description": "x <@&1566742402180456559> x",
+     "fields": [
+      {
+       "name": "x <@&1566742402180456559> x",
+       "value": "x <@&1566742402180456559> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <@&1566742402180456559> x"
+     },
+     "footer": {
+      "text": "x <@&1566742402180456559> x"
+     },
+     "content_scan_version": 0
+    }
+   }
+  ]
+ },
+ {
+  "status": 200,
+  "message_id": "1574459651720871937",
+  "error": null,
+  "embeds": [
+   {
+    "bit": "GAME_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/game_mention",
+     "title": "x <game:123456789012345678> x",
+     "description": "x <game:123456789012345678> x",
+     "fields": [
+      {
+       "name": "x <game:123456789012345678> x",
+       "value": "x <game:123456789012345678> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <game:123456789012345678> x"
+     },
+     "footer": {
+      "text": "x <game:123456789012345678> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "COMMAND_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/command_mention",
+     "title": "x </ping:123456789012345678> x",
+     "description": "x </ping:123456789012345678> x",
+     "fields": [
+      {
+       "name": "x </ping:123456789012345678> x",
+       "value": "x </ping:123456789012345678> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x </ping:123456789012345678> x"
+     },
+     "footer": {
+      "text": "x </ping:123456789012345678> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "EVERYONE_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/everyone_mention",
+     "title": "x @everyone x",
+     "description": "x @everyone x",
+     "fields": [
+      {
+       "name": "x @everyone x",
+       "value": "x @everyone x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x @everyone x"
+     },
+     "footer": {
+      "text": "x @everyone x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "HERE_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/here_mention",
+     "title": "x @here x",
+     "description": "x @here x",
+     "fields": [
+      {
+       "name": "x @here x",
+       "value": "x @here x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x @here x"
+     },
+     "footer": {
+      "text": "x @here x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "STATIC_MENTION",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/static_mention",
+     "title": "x <id:customize> x",
+     "description": "x <id:customize> x",
+     "fields": [
+      {
+       "name": "x <id:customize> x",
+       "value": "x <id:customize> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <id:customize> x"
+     },
+     "footer": {
+      "text": "x <id:customize> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "TIMESTAMP",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/timestamp",
+     "title": "x <t:1700000000:f> x",
+     "description": "x <t:1700000000:f> x",
+     "fields": [
+      {
+       "name": "x <t:1700000000:f> x",
+       "value": "x <t:1700000000:f> x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x <t:1700000000:f> x"
+     },
+     "footer": {
+      "text": "x <t:1700000000:f> x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "CODE_BLOCK",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/code_block",
+     "title": "```\nblock\n```",
+     "description": "```\nblock\n```",
+     "fields": [
+      {
+       "name": "```\nblock\n```",
+       "value": "```\nblock\n```",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "```\nblock\n```"
+     },
+     "footer": {
+      "text": "```\nblock\n```"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "CODE",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/code",
+     "title": "x `code` x",
+     "description": "x `code` x",
+     "fields": [
+      {
+       "name": "x `code` x",
+       "value": "x `code` x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x `code` x"
+     },
+     "footer": {
+      "text": "x `code` x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "DOUBLE_CODE",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/double_code",
+     "title": "x ``a`b`` x",
+     "description": "x ``a`b`` x",
+     "fields": [
+      {
+       "name": "x ``a`b`` x",
+       "value": "x ``a`b`` x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x ``a`b`` x"
+     },
+     "footer": {
+      "text": "x ``a`b`` x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "BOLD",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/bold",
+     "title": "x **bold** x",
+     "description": "x **bold** x",
+     "fields": [
+      {
+       "name": "x **bold** x",
+       "value": "x **bold** x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x **bold** x"
+     },
+     "footer": {
+      "text": "x **bold** x"
+     },
+     "content_scan_version": 0
+    }
+   }
+  ]
+ },
+ {
+  "status": 200,
+  "message_id": "1574459658402398218",
+  "error": null,
+  "embeds": [
+   {
+    "bit": "ASTERISK_ITALIC",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/asterisk_italic",
+     "title": "x *ital* x",
+     "description": "x *ital* x",
+     "fields": [
+      {
+       "name": "x *ital* x",
+       "value": "x *ital* x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x *ital* x"
+     },
+     "footer": {
+      "text": "x *ital* x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "UNDERSCORE_ITALIC",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/underscore_italic",
+     "title": "x _ital_ x",
+     "description": "x _ital_ x",
+     "fields": [
+      {
+       "name": "x _ital_ x",
+       "value": "x _ital_ x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x _ital_ x"
+     },
+     "footer": {
+      "text": "x _ital_ x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "UNDERLINE",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/underline",
+     "title": "x __under__ x",
+     "description": "x __under__ x",
+     "fields": [
+      {
+       "name": "x __under__ x",
+       "value": "x __under__ x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x __under__ x"
+     },
+     "footer": {
+      "text": "x __under__ x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "STRIKETHROUGH",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/strikethrough",
+     "title": "x ~~strike~~ x",
+     "description": "x ~~strike~~ x",
+     "fields": [
+      {
+       "name": "x ~~strike~~ x",
+       "value": "x ~~strike~~ x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x ~~strike~~ x"
+     },
+     "footer": {
+      "text": "x ~~strike~~ x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "SPOILER",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/spoiler",
+     "title": "x ||spoil|| x",
+     "description": "x ||spoil|| x",
+     "fields": [
+      {
+       "name": "x ||spoil|| x",
+       "value": "x ||spoil|| x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x ||spoil|| x"
+     },
+     "footer": {
+      "text": "x ||spoil|| x"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "HEADING",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/heading",
+     "title": "# head",
+     "description": "# head",
+     "fields": [
+      {
+       "name": "# head",
+       "value": "# head",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "# head"
+     },
+     "footer": {
+      "text": "# head"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "LIST",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/list",
+     "title": "- item",
+     "description": "- item",
+     "fields": [
+      {
+       "name": "- item",
+       "value": "- item",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "- item"
+     },
+     "footer": {
+      "text": "- item"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "QUOTE",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/quote",
+     "title": "> quoted",
+     "description": "> quoted",
+     "fields": [
+      {
+       "name": "> quoted",
+       "value": "> quoted",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "> quoted"
+     },
+     "footer": {
+      "text": "> quoted"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "MULTILINE_QUOTE",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/multiline_quote",
+     "title": ">>> quoted\nrest",
+     "description": ">>> quoted\nrest",
+     "fields": [
+      {
+       "name": ">>> quoted\nrest",
+       "value": ">>> quoted\nrest",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": ">>> quoted\nrest"
+     },
+     "footer": {
+      "text": ">>> quoted\nrest"
+     },
+     "content_scan_version": 0
+    }
+   },
+   {
+    "bit": "SUBTEXT",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/subtext",
+     "title": "-# small",
+     "description": "-# small",
+     "fields": [
+      {
+       "name": "-# small",
+       "value": "-# small",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "-# small"
+     },
+     "footer": {
+      "text": "-# small"
+     },
+     "content_scan_version": 0
+    }
+   }
+  ]
+ },
+ {
+  "status": 200,
+  "message_id": "1574459665012498443",
+  "error": null,
+  "embeds": [
+   {
+    "bit": "DEV_LINKS",
+    "with_url": true,
+    "stored": {
+     "type": "rich",
+     "url": "https://example.com/embed-url/dev_links",
+     "title": "x [dev](dev://branch/main) x",
+     "description": "x [dev](dev://branch/main) x",
+     "fields": [
+      {
+       "name": "x [dev](dev://branch/main) x",
+       "value": "x [dev](dev://branch/main) x",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "x [dev](dev://branch/main) x"
+     },
+     "footer": {
+      "text": "x [dev](dev://branch/main) x"
+     },
+     "content_scan_version": 0
+    }
+   }
+  ]
+ }
+]
