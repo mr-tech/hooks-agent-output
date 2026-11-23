@@ -1,0 +1,68 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/prev
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 3 failed) 802ms
+     × leaves nothing to clear on reopening after an emptied box is saved 57ms
+     × saves an address that loads on a later try after failing 33ms
+     × keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened 47ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:189:38
+    187|
+    188|     expect(box().value).toBe('');
+    189|     expect(button('Clear').disabled).toBe(true);
+       |                                      ^
+    190|   });
+    191|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: expected 'Enter Image URLImage URLImage not fou…' not to contain 'Image not found.'
+
+Expected: "Image not found."
+Received: "Enter Image URLImage URLImage not found.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:216:38
+    214|     await settle(URL_A, false);
+    215|     await type(URL_B);
+    216|     expect(dialog().textContent).not.toContain('Image not found.');
+       |                                      ^
+    217|     await type(URL_A);
+    218|     await settle(URL_A, true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened
+AssertionError: expected 'Enter Image URLImage URLCancelClearSa…' to contain 'Image not found.'
+
+Expected: "Image not found."
+Received: "Enter Image URLImage URLCancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:294:34
+    292|     await reopen();
+    293|
+    294|     expect(dialog().textContent).toContain('Image not found.');
+       |                                  ^
+    295|     expect(button('Save').disabled).toBe(true);
+    296|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 13 passed (16)
+   Start at  16:50:04
+   Duration  2.74s (transform 271ms, setup 30ms, import 984ms, tests 802ms, environment 779ms)
+
+exit=1

@@ -84,9 +84,27 @@
   "new": ""
  },
  {
-  "id": "cancel-keeps-error",
+  "id": "error-shows-any-failure",
   "file": "src/components/ImageUploader.tsx",
-  "old": "    onClose();\n    setImageError('');\n",
-  "new": "    onClose();\n"
+  "old": "&& failedImage === imageInput) {",
+  "new": "&& failedImage !== '') {"
+ },
+ {
+  "id": "error-on-empty-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "if (imageInput !== '' && failedImage === imageInput) {",
+  "new": "if (failedImage === imageInput) {"
+ },
+ {
+  "id": "error-messages-swapped",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "? 'Image not found.' : 'Invalid url.'",
+  "new": "? 'Invalid url.' : 'Image not found.'"
+ },
+ {
+  "id": "save-keeps-last-loaded",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setLocalImage(imageInput);\n    setImage(imageInput);",
+  "new": "    setImage(imageInput);"
  }
 ]
