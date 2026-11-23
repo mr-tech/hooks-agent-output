@@ -1,0 +1,9 @@
+const p = process.argv[2];
+const dayjs = require(require.resolve('dayjs', { paths: [p] }));
+dayjs.extend(require(require.resolve('dayjs/plugin/localizedFormat', { paths: [p] })));
+dayjs.extend(require(require.resolve('dayjs/plugin/utc', { paths: [p] })));
+const d = dayjs.unix(1700000000).utc();
+for (const f of ['LT','LTS','L','l','L LT','L LTS','l LT','l LTS']) console.log(JSON.stringify(f), '=>', JSON.stringify(d.format(f)));
+const i = (o) => new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', ...o }).format(new Date(1700000000000));
+console.log('Intl s =>', JSON.stringify(i({ dateStyle: 'short', timeStyle: 'short' })));
+console.log('Intl S =>', JSON.stringify(i({ dateStyle: 'short', timeStyle: 'medium' })));

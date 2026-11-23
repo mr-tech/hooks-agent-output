@@ -1,0 +1,11 @@
+# dayjs (website node_modules, package.json ^1.11.6) localizedFormat vs Intl en-US UTC, unix 1700000000, Node v24.14.0, 2026-11-23T17:46Z
+"LT" => "10:13 PM"
+"LTS" => "10:13:20 PM"
+"L" => "11/14/2023"
+"l" => "11/14/2023"
+"L LT" => "11/14/2023 10:13 PM"
+"L LTS" => "11/14/2023 10:13:20 PM"
+"l LT" => "11/14/2023 10:13 PM"
+"l LTS" => "11/14/2023 10:13:20 PM"
+Intl s => "11/14/23, 10:13 PM"
+Intl S => "11/14/23, 10:13:20 PM"

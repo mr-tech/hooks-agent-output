@@ -1,0 +1,3 @@
+const m = await import(process.argv[2]);
+const S = m.Syntax;
+for (const k of ['HEADING','LIST','SUBTEXT','GAME_MENTION','CODE_BLOCK','CODE','DOUBLE_CODE','MASKED_LINK','DETECTED_LINK','AUTO_LINK','CONTACT_LINK','UNICODE_EMOJI','COLON_EMOJI','CUSTOM_EMOJI']) console.log(k, S[k] === undefined ? 'absent' : '0x' + S[k].toString(16));
