@@ -1,0 +1,4 @@
+line 2000 chars, 401 text nodes: re-parse per text node 2154.2 ms per pass; parse once 5.21 ms
+line 4100 chars, 821 text nodes: re-parse per text node 8921.1 ms per pass; parse once 11.25 ms
+line 2000 chars, 51 text nodes: re-parse per text node 30.8 ms per pass; parse once 0.55 ms
+line 4120 chars, 104 text nodes: re-parse per text node 148.1 ms per pass; parse once 2.09 ms

@@ -2,9 +2,10 @@
 ID: n/a
 Origin: slate-formatting-effort
 UUID: c7a4b482
-Status: Active
+Status: Resolved
 Status-Detail: >-
-  Pre-planning review of OQ-4 (use Discord's published formatter in the product, or keep the site's own rules and test
+  Carried whole by plan 019 (AF-2 M7, AF-3 M2, AF-4 AC-2.6, AF-5 AN-1, AF-7 P-2/AN-2, AF-8 D-11, AF-9 X-9); its conformance
+  findings continue in `architecture/019-slate-formatting-discord-engine-architecture-findings.md`. Pre-planning review of OQ-4 (use Discord's published formatter in the product, or keep the site's own rules and test
   them against it). Verdict APPROVED_WITH_CHANGES for adoption: one parse engine (`@discord/markdown-wasm`, exact pin)
   behind a site-owned adapter, for the preview and the editor's colouring, in one release; the site's own renderers stay;
   the old formatter stays test-only. The owner chose B by selection at 2026-11-23T15:23Z (effort rulings, record
@@ -18,6 +19,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T15:59 | architect-019 | Closed Resolved and moved to `closed/` | Plan 019 revision 1 (record `103687b4`) carries every AF item; its conformance pass read the adopted option, which was this document's stated closing condition. The plan's own findings document is `architecture/019-slate-formatting-discord-engine-architecture-findings.md`. |
 | 2026-11-23T15:25 | architect-slate-formatting-preview | Owner's answer recorded (§ Owner's answer) | From effort rulings block "2026-11-23T15:23Z" (record `5d7fbf5e`), relayed by `steering-hooks-fixer`. Status stays Active until the conformance pass. |
 | 2026-11-23T13:13 | architect-slate-formatting-preview | Document created; pre-planning review of OQ-4 | Brief `steering/slate-formatting-preview-brief-architect.md` from `steering-hooks-fixer`. Read whole: the brief, research `research/slate-formatting-discord-oracle-2026-11-23.md` (record `2db3cc2f`), rulings blocks 09:07Z to 09:18Z, 09:32Z and 13:09Z, the scoping inventory, `architecture/website.md`. Read in part: the master document's Components, Dependencies and Problem Areas. Website read at `origin/master` `0411d3b` from a `git archive` export (the shared tree was not touched). The three npm packages were downloaded with `npm pack` and read, not run. One read was not completed: what the preview-image generator waits for before it captures (AF-7). |
 

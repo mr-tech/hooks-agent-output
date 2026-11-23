@@ -345,6 +345,27 @@ an editor calls `intercept` on both paths, or the guard's member class (plan 017
 
 ---
 
+### A-9 — Markdown parsing reaches components through one lazily loaded provider; measured Discord observations are frozen as typed literals
+
+**Grade**: agent-designed. Read at website `af3d95a` by architect-019 (plan 019 conformance pass, findings
+`architecture/019-slate-formatting-discord-engine-architecture-findings.md`). It records no intent of his. Plan 019's engine
+choice is his D-6 selection, an option agents composed, cited as its authority. Re-verify against the code.
+
+**Mechanism.** `src/providers/MarkdownProvider.tsx` `useValue` imports `~/utils/markdown` in an effect, on the client
+only, and exposes the parser map through `useMarkdown()`. Every component that renders or colours markdown reads it
+there: the `DiscordContentEditor` trio, `SlateEditor`, `DiscordMessageEditor`, `ContentBody`, `TextDisplayEditor` and
+`EmbedEditor`'s `Embed`, `EmbedTitle` and `EmbedField`. `DiscordContentEditor/Mobile.tsx` re-provides it inside its
+sheet with `passthrough`. The parsers per surface are built in one module, `src/utils/markdown/index.tsx`. No component
+imports a parse engine directly. Markdown is never rendered on the server. Separately, a Discord behaviour measured once is
+kept in the suite as typed literals with the date it was measured. The pattern is
+`src/utils/__tests__/helpers/discordV2SendCorpus.ts`, read by one test.
+
+**Consequence a change must carry**: a new parse engine, or a new surface, sits behind the provider and that one module,
+never imported by a component. Plan 019 M2's adapter takes this place. A new body of Discord-measured expected values
+that must stay offline-green follows the literal-helper form.
+
+---
+
 ## Addendum changelog
 
 | Date | Rev | Change |
@@ -365,3 +386,4 @@ an editor calls `intercept` on both paths, or the guard's member class (plan 017
 | 2026-11-20T03:39 | 14 | architect-hooks-018 | `A-4` gains "List bounds", read at website `7923a1d` in the plan 018 conformance pass: the inline `.max()` form, its zod 3.22.4 consequence for the issue count, and the `satisfies` lock on the input type (AF-1). Agent-designed. No selection of his shaped it. Plan 018 M1's form is restated here from its implementation. |
 | 2026-11-20T06:12 | 15 | architect-hooks-018 | `A-4` "List bounds" restated from plan 018's release tree (website `969d92a`, unreleased; closing pass). It names the three shared forms in `shapes.ts` (`boundedArray`, `isolatedUnion`, `cappedInput`), the bound homes (`MAX_ALLOWED_MENTION_IDS`, `MAX_RECENT_MESSAGE_IDS`, the `parse` tuple), and four consequences a later change must carry. `master` (`7923a1d`) keeps the inline `.max()` form until the release. Agent-designed; his D-9 (the error cap) is cited as its authority, an option agents composed. Process fact: the stamp gate refused this row's first write, which carried a typed, future-dated minute; it was rewritten with the `date -u` minute. |
 | 2026-11-20T13:42 | 16 | architect-hooks-018 | `A-4` "List bounds" restated from website `master` `d1bb9b0` (plan 018's release, 2026-11-20T08:07:52Z; release reconciliation). The three shared forms and the `zod` 3.22.4 pin are production; the inline `.max()` form is stated as the reason for them, with no list on `master` taking it. Agent-designed mechanism, landed by the architect. |
+| 2026-11-23T16:00 | 17 | architect-019 | Added `A-9` (agent-designed), read at website `af3d95a` in the plan 019 conformance pass: markdown parsing reaches components only through `MarkdownProvider` and `src/utils/markdown/index.tsx`, and Discord-measured expected values are frozen as typed literal helpers. His D-6 selection is cited as the plan's authority, not as intent. |
