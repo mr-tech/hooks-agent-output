@@ -14,6 +14,7 @@ Status-Detail: "AN-1's Vercel limb read and recorded (below). Stage 1 for plan 0
 |------|---------------|---------|---------|
 | 2026-11-23T16:35 | steering-hooks-fixer (brief `steering/019-brief-devops.md`; its correction message) | M1 § AN-1, fourth bullet: do branch previews build, and the plan's numbers there | Previews build, but only with a build-command override. Spike branch `spike/019-an1-wasm` pushed twice; the plain push failed its Preview build, the override commit reached READY; 20-load probe recorded. Details below. |
 | 2026-11-23T17:04 | analyst-019 (message: analysis `aafecf1` cites this record) | Delete the spike branch | `spike/019-an1-wasm` deleted at origin, locally and its worktree removed; `master` unchanged at `af3d95a`. |
+| 2026-11-23T18:14 | steering-hooks-fixer (checkpoint request) | Wrap up for a clear | Resumption State written; wake deleted. |
 
 ## Scope
 
@@ -79,6 +80,20 @@ Captures: `an1-vercel-chunks.json` (every JS response per page, with sizes), dri
 ## 4. AN-1's result
 
 AN-1's Vercel limb: **previews build, and the spike's wasm builds, is served and initialises there**, on the plan 018 build form (`SKIP_ENV_VALIDATION=1`), not on a plain push. This does not bear on the production environment, where the five variables are present.
+
+## Resumption State (checkpoint 2026-11-23T18:14Z, at steering's request)
+
+- **Done:** AN-1's devops act (sections 1 to 4), committed (`2531c04a`, `5c379323`); spike branch deleted at origin, locally and as a worktree; `analyst-019` (analysis `aafecf1`), `planner-019` and steering messaged.
+- **Next:** Stage 1 for plan 019, after the plan's implementation (steering expects it more than ten hours on). Its own brief will come. Stage 1 starts from devops.md steps 1 to 10 on the chain's committed documents; re-derive every gate from the record then, never from this state. Carry in:
+  - the plan's M7 line: no release tree holds M4 without M5, checked from the chain's commit list at Stage 1;
+  - the plan's Post-deploy observable (`https://x.y🙂` and `[a](https://x.y/🙂)` give a preview anchor whose `href` is not `…:slight_smile…`), a post-deploy row whose reader is devops at Stage 1, carried by a handoff created at Stage 1 step 8;
+  - plan 018's Preview form for any further Preview read: a branch needs `vercel.json` `{"buildCommand": "SKIP_ENV_VALIDATION=1 next build"}` to reach READY, because the Preview target lacks `DATABASE_URL` and the four `REDIS*` names (section 1);
+  - the AN-1 analysis limits that touch release: the 3 undiagnosed editor `pageerror` loads (gap G-3's residue in the analysis) and the absent Vercel base build.
+- **Website tree:** the shared tree is on `chain/fix-image-uploader-url` (held by chain 9e; HEAD `5ec0621` at 18:14Z); `master` and origin `master` at `af3d95a`. I switched nothing. No worktree of mine remains; no spike branch remains (`git ls-remote origin 'refs/heads/spike/*'` lists nothing).
+- **Uncommitted or locally mutated:** none of mine. Scratchpad holds copies only (`/tmp/claude-1000/-usr-local-bin-hooks/1a020d02-a5d7-4afd-a4c4-02cbf7077d2a/scratchpad/`): captures are committed under `verification/019/devops/`.
+- **Evidence run, not recorded:** none. The Ready spike deployment's build log was not saved (only the Error one).
+- **Questions out, unanswered:** to `steering-hooks-fixer`, whether it wants the Preview target's variable names read with `vercel env ls` (the 19:02 ruling does not cover it; not run). No answer received.
+- **Processes:** none started by this work remain. The cache-warm wake is deleted at this checkpoint and not re-armed.
 
 ## Open items
 
