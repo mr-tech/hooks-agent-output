@@ -67,8 +67,9 @@ nested-styles and instrument-lift items named in block 09:07Z map one-to-one ont
 
 ## Standing rules
 
-- A call stopped by a control: stop and message `steering-hooks-fixer`; never re-issue it in any form. The record says only "not
-  completed", with no reason.
+- A call stopped by a control: stop and message `steering-hooks-fixer`; never re-issue it in any form, except as his selection of
+  2026-11-23T15:29Z allows for website reads: shell in the record folder, exact website paths only, nothing pointing into
+  `preview-image-generator`, the re-run disclosed. The record says only "not completed", with no reason.
 - Record documents: Write, Edit or `record-edit.js` only. Stamps come from `date -u` in the same turn.
 - Never use the bare word `none` in a command.
 - The website tree is held by other chains (`chain/fix-normalize-fence-loop`, then 9e). Don't switch it. Read other SHAs from a

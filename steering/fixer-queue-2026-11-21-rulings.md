@@ -624,3 +624,12 @@ How it binds with his 09:17Z ruling: that ruling bars shipping code extracted fr
 (MIT) is a different object, and this selection admits it to the product. The old formatter stays fetched at test time, never shipped.
 Planner `planner-slate-formatting` spawned on this block (brief `steering/slate-formatting-brief-planner.md`). S-29 is in scope
 (inventory row, inside the region); QA's QAF-4 on the fence-loop chain (`qa/closed/fix-normalize-fence-loop-qa.md`) widens its trigger.
+
+## 2026-11-23T15:29Z — selection: the planner's website reads re-run from the record folder; plan ID 019
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T15:29Z — steering-hooks-fixer`. Two of the planner's read-only
+website lookups were not completed. Options: *Agent: re-run from the record folder (Recommended)* (the planner moves its shell to the
+record folder and re-runs website lookups with exact website paths only, nothing pointing into `preview-image-generator`, and notes the
+re-run in its plan; the common brief's standing rule is relaxed to match `~/.claude/CLAUDE.md`, "A blocked action is reported, never
+retried in different words", its last sentence) / *Agent: keep it from the website* / *You: look first*. **Chosen by selection: re-run
+from the record folder.** The planner minted ID 019 (record `ae3d41fb`); the plan will be `planning/019-slate-formatting-discord-engine.md`.
