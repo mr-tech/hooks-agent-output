@@ -20,3 +20,45 @@ character never reaches the parent state. Not checked: React's handling of the t
   "Agent: don't fix". Chosen: **A** (queue order kept).
 
 Determination, stage set and branch cut: when the website tree is free (after chains 7, 8, 9a, 9b), from that tip.
+
+## 2026-11-23T08:53Z — re-sweep at 0411d3b; selection prompt put: one chain with 9f, or alone
+
+Steered by `steering-hooks-fixer` (renamed from `steering-hooks`). The tree is free: website `master` `0411d3b` after the emoji chain
+(effort block 2026-11-23T08:48Z); coordinator's go for the switch received 08:49Z. Re-sweep (helper, export of `0411d3b`, run):
+`verification/fix-normalize-fence-loop/scoping/sweep-0411d3b.md`. Every limb holds: forced normalise throws after 378 iterations and one
+typed character after 126; the controls settle. Limbs: `withNormalizeNode.ts:66` (`+` leaves a bare fence's `currentLang` null), `:35`
+compare against `getInitialValue.ts:96`'s `''`, `:49-51` quote re-insert each pass. Refutation helper (separate export, run; report
+returned as text, kept at `verification/fix-normalize-fence-loop/scoping/refutation-0411d3b.md`): claim 1 HOLDS (insert at the end of the
+opening fence line settles, every other position tested throws); 9f's claim (`>>> a\nb` → `> a\n> b` on load and save) HOLDS. The two
+share an input family, not lines: 9c `withNormalizeNode.ts:35,66-71,49-50`; 9f `getInitialValue.ts:32-35,47`, `flattenNodeText.ts:13`;
+a 9f fix (a stored `>>>` marker) changes what `handleEditor` reads at `withNormalizeNode.ts:24,29`, so it could change 9c's loop for
+`>>>` inputs (read from code, not run). Bundling moves 9f ahead of 9d and 9e: queue order, his.
+
+## 2026-11-23T08:55Z — selection: one fix for both; determination and stage set
+
+Selection prompt put 08:5xZ, answered 08:54Z (ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T08:54Z —
+steering-hooks-fixer"); wording this thread's. Options: A "Agent: one fix for both (Recommended)" — "One fix, one review and one release
+covers both quote problems, tested together so neither undoes the other. The timestamp-edit and image-link fixes each move back one
+place."; B "Agent: loop fix alone" — "Keeps your order: the loop fix now, then the timestamp edit, the image link, then the quote fix. The
+loop fix gets re-tested when the quote fix lands later." Chosen by selection: **A**. 9f `fix-blockquote-rewrite` rides this chain (its
+rulings file's block 04:49 is its source: his "Agent: fix it"); order now 9c+9f, 9d, 9e (effort file).
+**Determination.** Shape: two defects, causes proven by run (re-sweep and refutation above; 9f's at 132a7ab in
+`verification/fix-blockquote-rewrite/scoping/sweep.md`, its mechanism re-run at `0411d3b`). Blast radius: every full-markdown editor
+(`ContentBody.tsx:21`, `Embed.tsx:82`, `EmbedField.tsx:92`, `TextDisplayEditor.tsx`) loops on a quote plus a bare fence, and typing fails;
+every editor rewrites `>>> ` on open (partial ones, `EmbedField.tsx:75` and `EmbedTitle.tsx:93`, delete the marker). End step: website
+`master`, Vercel production. `release-move.js --dry-run` on `master` `0411d3b` (08:5xZ): every check passed; no workflows, no sibling
+serving refs. Pipeline: the `fixer` agent.
+**Scope statement** (website, from `0411d3b`): (1) an editor value holding a quote line and a code fence with no language settles on
+normalise and accepts a typed character at every position, in every full-markdown editor; the fence's language reads the same (`''` vs
+null) in load and normalise, and the quote branch writes nothing when the text is unchanged; (2) loading a stored message and saving it
+with no edit returns its text unchanged where it holds `>>> ` (`>>> a\nb`, `>>> a`, `>>> a\n\nb`), in full and partial editors, and opening
+or leaving a box writes no changed text (his 9f answer: "Opening and leaving a box never changes its text: >>> quotes are kept as written
+everywhere, including titles and field names"); (3) together, `>>> a` + bare fence settles, and the dead `>>> ` test at
+`withNormalizeNode.ts:29` is made live or removed (fix everything). Tests per Test Conventions drive the real parser, `getInitialValue`,
+`withNormalizeNode` and `flattenNodeText`, with literal expectations, red first. Write set: `withNormalizeNode.ts`, `getInitialValue.ts`,
+`flattenNodeText.ts`, the Slate custom-types file where a node carries a `>>>` marker, any helper beside them, new tests, the fixer's
+document and `verification/fix-normalize-fence-loop/`. **Not covered by the sweeps:** React's handling of the throw in a browser, a real
+`beforeinput`, Discord's rendering of `>>>` vs `>` (the site's preview renders both as one quote, read from code). **Stage set:**
+`fixer-fix-normalize-fence-loop` → `code-reviewer-fix-normalize-fence-loop` (under 20 production lines: the reviewer also runs the suite,
+typecheck, red test) → QA Phase 2 at 20 or more → devops for website `master` (his word). No plan, critic, Phase 1 or UAT. Usage:
+weekly_all 3% (live, 08:49Z).

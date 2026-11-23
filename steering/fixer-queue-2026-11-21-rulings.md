@@ -402,3 +402,12 @@ files `git diff --name-only 0c14d5b 0411d3b -- 'src/**/__tests__/**'` lists as `
 Output under `verification/fixes-2026-11-23-steering-hooks-fixer/deweed/`. Result recorded below when the tables land.
 Chain 9c `fix-normalize-fence-loop` opens next: its sweep (at `132a7ab`) predates the emoji fix's edit of `withNormalizeNode.ts`, so a
 re-sweep runs at `origin/master` `0411d3b`; the coordinator's go is asked for the tree switch, naming that base.
+
+## 2026-11-23T08:55Z — order amended: 9f rides 9c; website tree switched to chain 9c
+
+His selection "Agent: one fix for both (Recommended)" (`steering/fix-normalize-fence-loop-rulings.md` block 08:55Z): `fix-blockquote-rewrite`
+(9f) rides `fix-normalize-fence-loop` (9c). **Order now:** 9c+9f, then 9d `fix-timestamp-edit-target`, 9e `fix-image-uploader-url`, then
+the riders and `fix-decorator-nested-styles` as the docket lists them. Tree switch, on the coordinator's go (its message 08:49Z): website
+`/usr/local/bin/hooks/website` from `master` to `chain/fix-normalize-fence-loop` (`git switch --no-track -c … origin/master`) at
+2026-11-23T08:55:46Z; before `0411d3ba146018a5a8d3e8a45398d7d04f499d18`, after `0411d3ba146018a5a8d3e8a45398d7d04f499d18` (`git rev-parse`);
+porcelain before and after `?? .playwright-mcp/` only.
