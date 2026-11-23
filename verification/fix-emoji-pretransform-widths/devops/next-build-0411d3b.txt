@@ -1,0 +1,46 @@
+Running scope as unit: run-r0d6aff6d9de54b3cabc884a70cda438f.scope
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.js took 19ms
+
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 8.9s
+  Running TypeScript ...
+  Finished TypeScript in 10.9s ...
+  Collecting page data using 17 workers ...
+⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+  Generating static pages using 17 workers (0/9) ...
+  Generating static pages using 17 workers (2/9) 
+  Generating static pages using 17 workers (4/9) 
+  Generating static pages using 17 workers (6/9) 
+✓ Generating static pages using 17 workers (9/9) in 797ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /legal/privacy
+├ ○ /legal/terms
+├ ƒ /message
+├ ƒ /message/f/[id]
+├ ƒ /message/m/[id]/edit
+├ ƒ /message/m/[id]/send
+├ ƒ /message/m/new
+└ ○ /preview
+
+Route (pages)
+┌ ƒ /api/auth/[...nextauth]
+├ ƒ /api/interactions-edge
+├ ƒ /api/interactions-server
+├ ƒ /api/messages/codes/[code]
+├ ƒ /api/trpc/[trpc]
+├ ƒ /api/v1/guilds/[guildId]/messages
+└ ƒ /api/v1/guilds/[guildId]/messages/[id]
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

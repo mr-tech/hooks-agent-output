@@ -1,0 +1,400 @@
+diff --git a/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts b/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts
+index 65801a0..b434e62 100644
+--- a/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts
++++ b/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts
+@@ -412,6 +412,27 @@ describe('editor markdown decorator rendered text for shapes whose widths cancel
+   });
+ });
+ 
++describe('editor markdown decorator rendered text for a line with an emoji left as text', () => {
++  it.each([
++    ['content', '\\🙂 **a**', '"\\\\🙂 ":- "**":S "a":strongText "**":S'],
++    ['title', '\\🙂 **a**', '"\\\\🙂 ":- "**":S "a":strongText "**":S'],
++    ['field', '\\🙂 **a**', '"\\\\🙂 ":- "**":S "a":strongText "**":S'],
++    ['content', '🙂 *a*', '"🙂 ":- "*":S "a":emText "*":S'],
++    ['title', '🙂 *a*', '"🙂 ":- "*":S "a":emText "*":S'],
++    ['field', '🙂 *a*', '"🙂 ":- "*":S "a":emText "*":S'],
++    ['content', '\\*🙂 *a*', '"\\\\*🙂 ":- "*":S "a":emText "*":S'],
++    ['title', '\\*🙂 *a*', '"\\\\*🙂 ":- "*":S "a":emText "*":S'],
++    ['field', '\\*🙂 *a*', '"\\\\*🙂 ":- "*":S "a":emText "*":S'],
++    ['content', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
++    ['title', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
++    ['field', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
++    ['content', 'a :ok🙂 *b*', '"a :ok🙂 ":- "*":S "b":emText "*":S'],
++    ['content', 'a \\🙂ok: *b*', '"a \\\\🙂ok: ":- "*":S "b":emText "*":S'],
++  ] as const)('with the %s parser colours %j as %s', (parser, text, leaves) => {
++    expect(rendered(text, parser)).toBe(leaves);
++  });
++});
++
+ describe('editor markdown decorator rendered text for a line inside a fenced code block', () => {
+   it.each([
+     ['js', 'content', 'const s = "**a**"; // *b*', '"const":hljs-keyword " s = ":- "\\"**a**\\"":hljs-string "; ":- "// *b*":hljs-comment'],
+diff --git a/src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts b/src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts
+new file mode 100644
+index 0000000..488c6d2
+--- /dev/null
++++ b/src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts
+@@ -0,0 +1,39 @@
++import {
++  describe, expect, it, vi,
++} from 'vitest';
++
++import { isEmojiElement } from '../common';
++import flattenNodeText from '../flattenNodeText';
++import getInitialValue from '../getInitialValue';
++
++import type { Element } from 'slate';
++
++import markdown from '~/utils/markdown';
++
++vi.mock('~/env.mjs', () => ({ env: {} }));
++
++const loaded = (text: string) => getInitialValue(text, markdown.interactive.parseEmoji, false);
++
++describe('editor initial value built from a stored message', () => {
++  it.each([
++    '\\🙂 **a**',
++    'a \\🙂',
++    '\\*a\\*',
++    'a :ok🙂 b',
++    'a \\🙂ok: b',
++  ])('loads %j with its text unchanged', (text) => {
++    expect(flattenNodeText(loaded(text))).toBe(text);
++  });
++
++  it.each([
++    ['a🙂 b c', ['a', '[:slight_smile:]', ' b c']],
++    ['\\*🙂 b', ['\\*', '[:slight_smile:]', ' b']],
++    ['a :ok🙂 🙂 b', ['a :ok🙂 ', '[:slight_smile:]', ' b']],
++    ['a \\🙂ok: 🙂 b', ['a \\🙂ok: ', '[:slight_smile:]', ' b']],
++  ] as const)('loads the text on each side of the emoji in %j into its own text node', (text, children) => {
++    const [first] = loaded(text) as Element[];
++    expect(first.children
++      .map((child) => (isEmojiElement(child) ? `[${child.ast.name as string}]` : (child as { text: string }).text)))
++      .toEqual(children);
++  });
++});
+diff --git a/src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx b/src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx
+new file mode 100644
+index 0000000..97fe3a6
+--- /dev/null
++++ b/src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx
+@@ -0,0 +1,66 @@
++import { createEditor, Editor, Transforms } from 'slate';
++import { withHistory } from 'slate-history';
++import { withReact } from 'slate-react';
++import {
++  describe, expect, it, vi,
++} from 'vitest';
++
++import { isEmojiElement } from '../common';
++import { withEmojis, withNormalizeNode } from '..';
++
++import type { Descendant, Element } from 'slate';
++
++import markdown from '~/utils/markdown';
++
++vi.mock('~/env.mjs', () => ({ env: {} }));
++
++const line = (type: string, lang: string, startCodeBlock: boolean, text: string) => ({
++  type, lang, startCodeBlock, empty: !text, children: [{ type: 'span', text }],
++}) as unknown as Descendant;
++
++const typedInto = (lines: Descendant[], at: number, text: string) => {
++  const editor = withNormalizeNode(
++    withEmojis(withHistory(withReact(createEditor()))),
++    false,
++    markdown.interactive.parseEmoji,
++  );
++  editor.children = lines;
++  Transforms.select(editor, Editor.end(editor, [at]));
++  Transforms.insertText(editor, text);
++  return (editor.children[at] as Element).children
++    .map((child) => (isEmojiElement(child) ? `[${child.ast.name as string}]` : (child as { text: string }).text));
++};
++
++describe('editor normalizer turning an emoji in a typed or pasted line into an emoji element', () => {
++  it('keeps every character after the emoji in a plain line', () => {
++    expect(typedInto([line('div', '', false, '')], 0, 'x🙂 abcdefghijklmnopq'))
++      .toEqual(['x', '[:slight_smile:]', ' abcdefghijklmnopq']);
++  });
++
++  it('keeps an escaped asterisk before the emoji and every character after it', () => {
++    expect(typedInto([line('div', '', false, '')], 0, '\\*🙂abc'))
++      .toEqual(['\\*', '[:slight_smile:]', 'abc']);
++  });
++
++  it('keeps an escaped emoji as text and turns the emoji after it into an element', () => {
++    expect(typedInto([line('div', '', false, '')], 0, '\\🙂🙂 abc'))
++      .toEqual(['\\🙂', '[:slight_smile:]', ' abc']);
++  });
++
++  it.each([
++    ['a :ok🙂 🙂 b', ['a :ok🙂 ', '[:slight_smile:]', ' b']],
++    ['a \\🙂ok: 🙂 b', ['a \\🙂ok: ', '[:slight_smile:]', ' b']],
++  ] as const)('keeps %j as typed where a name would run into the emoji, and turns the next emoji into an element', (text, children) => {
++    expect(typedInto([line('div', '', false, '')], 0, text)).toEqual(children);
++  });
++
++  it('keeps every character after the emoji in a fenced code line', () => {
++    const lines = [
++      line('div', '', false, '```js'),
++      line('codeBlock', 'js', true, ''),
++      line('div', '', true, '```'),
++    ];
++    expect(typedInto(lines, 1, 'x = "🙂" + 1;'))
++      .toEqual(['x = "', '[:slight_smile:]', '" + 1;']);
++  });
++});
+diff --git a/src/components/SlateEditor/utils/common.ts b/src/components/SlateEditor/utils/common.ts
+index b52e1e8..abfa09e 100644
+--- a/src/components/SlateEditor/utils/common.ts
++++ b/src/components/SlateEditor/utils/common.ts
+@@ -1,5 +1,6 @@
+ import type { EmojiNode, MarkdownTypes, StrictSingleASTNode } from 'simple-markdown';
+ import type { Element, EmojiElement, Text } from 'slate';
++import type { SurrogateSourceOffsets } from '~/utils/markdown/emoji';
+ 
+ export const EMOJI_TYPES: Set<undefined | MarkdownTypes> = new Set(['emoji', 'nameEmoji', 'discordEmoji']);
+ export function isEmojiNode(ast: undefined | StrictSingleASTNode): ast is EmojiNode {
+@@ -11,3 +12,9 @@ export function isEmojiLeaf(node: undefined | Text): node is Text & { ast: Emoji
+ export function isEmojiElement(node: undefined | Text | Element): node is EmojiElement {
+   return isEmojiNode(node?.ast);
+ }
++export function sourceOf(ast: StrictSingleASTNode): string {
++  return (ast.source as undefined | string) ?? ast.content as string;
++}
++export function sourceOffsetsOf(ast: StrictSingleASTNode[]): SurrogateSourceOffsets {
++  return (ast as unknown as { sourceOffsets: SurrogateSourceOffsets }).sourceOffsets;
++}
+diff --git a/src/components/SlateEditor/utils/decorator.tsx b/src/components/SlateEditor/utils/decorator.tsx
+index 0cdd886..60673b5 100644
+--- a/src/components/SlateEditor/utils/decorator.tsx
++++ b/src/components/SlateEditor/utils/decorator.tsx
+@@ -1,6 +1,7 @@
+ import hljs from 'highlight.js';
+ import { Editor, Text } from 'slate';
+ 
++import { sourceOf, sourceOffsetsOf } from './common';
+ import createLeaf from './createLeaf';
+ import flattenNodeText from './flattenNodeText';
+ 
+@@ -21,10 +22,6 @@ const DELIMITERS = new Map<undefined | MarkdownTypes, number>([
+   ['spoiler', 2],
+ ]);
+ 
+-function sourceOf(ast: SourcedNode): string {
+-  return ast.source ?? ast.content as string;
+-}
+-
+ function unflattened(nodes: SourcedNode[]): SourcedNode[] {
+   return nodes.map((a) => (a as { node?: SourcedNode }).node ?? a);
+ }
+@@ -225,5 +222,12 @@ export default (
+   )));
+   for (const a of unflattened(normalized)) walkAst(leaf, a);
+ 
+-  return normalizeRanges(leaf.ranges).filter((range) => range.anchor.offset < range.focus.offset);
++  const offsets = sourceOffsetsOf(ast);
++  return normalizeRanges(leaf.ranges)
++    .map((range) => ({
++      ...range,
++      anchor: { ...range.anchor, offset: offsets.at(range.anchor.offset) },
++      focus: { ...range.focus, offset: offsets.at(range.focus.offset) },
++    }))
++    .filter((range) => range.anchor.offset < range.focus.offset);
+ };
+diff --git a/src/components/SlateEditor/utils/getInitialValue.ts b/src/components/SlateEditor/utils/getInitialValue.ts
+index 9034110..78df3ab 100644
+--- a/src/components/SlateEditor/utils/getInitialValue.ts
++++ b/src/components/SlateEditor/utils/getInitialValue.ts
+@@ -1,9 +1,15 @@
+-import { isEmojiElement, isEmojiNode } from './common';
++import {
++  isEmojiElement, isEmojiNode, sourceOf, sourceOffsetsOf,
++} from './common';
+ 
+ import type { InteractiveParser } from 'simple-markdown';
+ import type { Descendant, Element, Text } from 'slate';
+ 
+-export default (input: string, parseEmoji: InteractiveParser, partialMarkdown: boolean): Descendant[] => {
++export default (
++  input: string,
++  parseEmoji: InteractiveParser,
++  partialMarkdown: boolean,
++): Descendant[] => {
+   if (input.length === 0) {
+     return [{
+       type: 'div',
+@@ -47,9 +53,13 @@ export default (input: string, parseEmoji: InteractiveParser, partialMarkdown: b
+       children = [];
+       if (text.length) {
+         const ast = parseEmoji(text);
++        const offsets = sourceOffsetsOf(ast);
+         let curText = '';
++        let offset = 0;
+         for (const node of ast) {
+-          if (isEmojiNode(node)) {
++          const start = offset;
++          offset += sourceOf(node).length;
++          if (isEmojiNode(node) && !offsets.splitsName(start) && !offsets.splitsName(offset)) {
+             children.push({ type: 'span', text: curText });
+             curText = '';
+             children.push({
+@@ -61,8 +71,7 @@ export default (input: string, parseEmoji: InteractiveParser, partialMarkdown: b
+               empty: false,
+             });
+           } else {
+-            const nodeText = node.content as string;
+-            curText += ast.at(-1) === node ? nodeText.slice(0, nodeText.length - 2) : nodeText;
++            curText += text.slice(offsets.at(start), offsets.at(offset));
+           }
+         }
+ 
+@@ -77,7 +86,7 @@ export default (input: string, parseEmoji: InteractiveParser, partialMarkdown: b
+ 
+     const node: Element = {
+       type,
+-      lang: (isCodeBlock && currentLang) || '',
++      lang: isCodeBlock && currentLang ? currentLang : '',
+       startCodeBlock: inCodeBlock,
+       children,
+       empty: !text.length,
+diff --git a/src/components/SlateEditor/utils/withNormalizeNode.ts b/src/components/SlateEditor/utils/withNormalizeNode.ts
+index 64970c9..f2bad63 100644
+--- a/src/components/SlateEditor/utils/withNormalizeNode.ts
++++ b/src/components/SlateEditor/utils/withNormalizeNode.ts
+@@ -1,6 +1,8 @@
+ import { Editor, Element, Transforms } from 'slate';
+ 
+-import { isEmojiElement, isEmojiNode } from './common';
++import {
++  isEmojiElement, isEmojiNode, sourceOf, sourceOffsetsOf,
++} from './common';
+ import flattenNodeText from './flattenNodeText';
+ 
+ import type { InteractiveParser } from 'simple-markdown';
+@@ -53,7 +55,7 @@ function handleEditor(editor: Editor, update: boolean): void {
+ 
+         Transforms.setNodes(editor, {
+           type,
+-          lang: (isFullCodeBlock && currentLang) || '',
++          lang: isFullCodeBlock && currentLang ? currentLang : '',
+           startCodeBlock: inCodeBlock,
+           children: child.children,
+         }, { at: [childLocation] });
+@@ -86,7 +88,12 @@ const BAD_APOSTROPHE_CODEPOINTS = ['\u2018', '\u2019'] as const;
+ const BAD_QUOTATION_CODEPOINTS = ['\u201C', '\u201D'] as const;
+ const BAD_CODEPOINTS = [...BAD_APOSTROPHE_CODEPOINTS, ...BAD_QUOTATION_CODEPOINTS];
+ 
+-function handleElement(editor: Editor, parseEmoji: InteractiveParser, node: CustomElement, path: Path): void {
++function handleElement(
++  editor: Editor,
++  parseEmoji: InteractiveParser,
++  node: CustomElement,
++  path: Path,
++): void {
+   const firstChild = node.children[0];
+ 
+   const nodeText = flattenNodeText(node);
+@@ -171,10 +178,12 @@ function handleElement(editor: Editor, parseEmoji: InteractiveParser, node: Cust
+ 
+       const ast = parseEmoji(childText);
+       if (ast.some(isEmojiNode)) {
++        const offsets = sourceOffsetsOf(ast);
+         let offset = 0;
+ 
+         for (const cur of ast) {
+-          if (isEmojiNode(cur)) {
++          const end = offset + sourceOf(cur).length;
++          if (isEmojiNode(cur) && !offsets.splitsName(offset) && !offsets.splitsName(end)) {
+             Transforms.insertNodes(editor, [
+               {
+                 type: 'emoji',
+@@ -186,15 +195,15 @@ function handleElement(editor: Editor, parseEmoji: InteractiveParser, node: Cust
+               },
+             ], {
+               at: {
+-                anchor: { path: [path[0], i], offset },
+-                focus: { path: [path[0], i], offset: offset + cur.content.length },
++                anchor: { path: [path[0], i], offset: offsets.at(offset) },
++                focus: { path: [path[0], i], offset: offsets.at(end) },
+                 classNames: [],
+               },
+             });
+             return;
+           }
+ 
+-          offset += (cur.content as string).length ?? 0;
++          offset = end;
+         }
+       }
+     }
+diff --git a/src/utils/markdown/emoji.tsx b/src/utils/markdown/emoji.tsx
+index 4a4597b..e9b7f73 100644
+--- a/src/utils/markdown/emoji.tsx
++++ b/src/utils/markdown/emoji.tsx
+@@ -84,6 +84,37 @@ export function translateSurrogatesToInlineEmoji(surrogates: string): string {
+   return surrogates.replace(replacer, (_, match: string) => convertSurrogateToName(match));
+ }
+ 
++export interface SurrogateSourceOffsets {
++  at: (offset: number) => number;
++  splitsName: (offset: number) => boolean;
++}
++
++export function surrogateSourceOffsets(surrogates: string): SurrogateSourceOffsets {
++  const names: Array<{ start: number, end: number, sourceEnd: number }> = [];
++  let growth = 0;
++  for (const match of surrogates.matchAll(replacer)) {
++    const start = match.index + growth;
++    const sourceEnd = match.index + match[0].length;
++    growth += convertSurrogateToName(match[0]).length - match[0].length;
++    names.push({ start, end: sourceEnd + growth, sourceEnd });
++  }
++
++  return {
++    at(offset) {
++      let shift = 0;
++      for (const { start, end, sourceEnd } of names) {
++        if (offset <= start) break;
++        if (offset < end) return sourceEnd;
++        shift = end - sourceEnd;
++      }
++      return offset - shift;
++    },
++    splitsName(offset) {
++      return names.some(({ start, end }) => start < offset && offset < end);
++    },
++  };
++}
++
+ export function jumboify(ast: Array<EmojiNode | StrictSingleASTNode>) {
+   const nonEmojiNodes = ast.some(
+     (node) => node.type !== 'emoji'
+diff --git a/src/utils/markdown/utils.ts b/src/utils/markdown/utils.ts
+index 4abca85..6371f97 100644
+--- a/src/utils/markdown/utils.ts
++++ b/src/utils/markdown/utils.ts
+@@ -1,6 +1,6 @@
+ import SimpleMarkdown from 'simple-markdown';
+ 
+-import { translateSurrogatesToInlineEmoji } from './emoji';
++import { surrogateSourceOffsets, translateSurrogatesToInlineEmoji } from './emoji';
+ 
+ import type {
+   InteractiveParser, ParserRules, StaticParser,
+@@ -64,8 +64,10 @@ export function interactiveParser<Rules extends ParserRules>(rules: Rules): Inte
+ 
+   const wrappedParser: InteractiveParser = (input = '', state = { isEmbed: false, mounted: false }) => {
+     const pretreated = translateSurrogatesToInlineEmoji(input);
+-    const ast = parser(pretreated, { ...state }) as StrictASTNode;
+-    return flattenAst(ast) as StrictSingleASTNode[];
++    const parsed = parser(pretreated, { ...state }) as StrictASTNode;
++    const ast = flattenAst(parsed) as StrictSingleASTNode[];
++    Object.defineProperty(ast, 'sourceOffsets', { value: surrogateSourceOffsets(input) });
++    return ast;
+   };
+   return wrappedParser;
+ }
