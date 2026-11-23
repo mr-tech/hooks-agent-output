@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+496	9	kept	-	no	-	only fixture where the expanded-or-void conjunct decides: a collapsed caret on cut must delete nothing
+497	8	kept	-	no	-	cut of a selected range removes the text and copies it; the removal is asserted nowhere else
+498	9	kept	-	no	-	only fixture where the cut flag alone decides: same range, copy event, text must stay
+499	9	kept	-	no	-	only fixture where the void disjunct decides: collapsed selection on an emoji is removed and copied
+500	8	kept	-	no	-	text after a converted emoji survives in a plain line; base row of the conversion
+501	8	kept	-	no	-	escape before the emoji makes source and text offsets differ; pins the offset mapping
+502	8	kept	-	no	-	escaped emoji stays text while the next one converts; pins the skip-and-continue path
+503	8	kept	-	yes	-	splitsName guard on an emoji a name runs into, with a later emoji still converted
+504	8	kept	-	yes	-	splitsName guard from the escaped-emoji side; a different conjunct input than the row before
+505	7	kept	-	no	-	conversion inside a fenced code line, through the code-block line typing; overlaps the plain-line row in part
+654	2	remove	-	no	left unasserted: nothing in production; the inventory is the spec's own directory walk	asserts the test helper's route list, exercises no production code; an empty inventory already fails the three matcher rows
+655	7	kept	-	yes	-	fails when the /message page is removed or renamed while the matcher entry stays
+656	7	kept	-	yes	-	fails when no route remains under /message/ for the wildcard entry
+657	7	kept	-	yes	-	only assertion tying the /preview matcher entry to an existing route
+658	10	kept	-	yes	-	only assertion on /message that a client-sent x-pathname is overwritten; the header decides the sessionless redirect in Redirects/Server
+659	8	kept	-	yes	-	pins that the forwarded pathname excludes the query string
+660	10	kept	-	yes	-	only assertion on the /message/(.*) route that a spoofed x-pathname is overwritten before the session redirect reads it
+661	5	remove	-	yes	660	same wildcard matcher entry and same overwrite as the edit path, other example path
+662	4	remove	-	no	left unasserted: no code in the export reads or sets x-query-params	asserts the absence of a header nothing sets or reads; fails only if forwarding is added, not on a regression of present behaviour
+1643	7	kept	-	no	-	base bold ranges: delimiter width 2 and inner class
+1644	7	kept	-	no	-	base italic ranges: delimiter width 1
+1645	7	kept	-	no	-	two runs with plain text between; cursor carries across the gap
+1646	8	kept	-	no	-	nested run inherits the parent class and its opening delimiter is syntax inside the parent
+1647	8	kept	-	no	-	adjacent delimiters of nested runs merge into one three-wide syntax range at both ends
+1648	5	remove	-	no	1647	same ranges as the bold-italic row with trailing plain text that produces no range; a width error fails the earlier row first
+1649	8	kept	-	yes	-	first-child absorption with the inner run closing early
+1650	8	kept	-	yes	-	first-child absorption with the delimiter widths swapped
+1651	8	kept	-	yes	-	last-child closing absorbed into the parent closing
+1652	7	kept	-	yes	-	three-deep adjacent delimiter recursion
+1653	7	kept	-	yes	-	underline delimiter kind sharing with italic
+1654	7	kept	-	yes	-	spoiler delimiter kind sharing with bold
+1655	8	kept	-	yes	-	masked link as both first and last child: opening absorbed, closing grown by the link
+1656	8	kept	-	yes	-	masked link as first child with text after
+1657	8	kept	-	yes	-	masked link as last child: closing bracket and parent delimiters merge
+1658	7	kept	-	yes	-	base bare URL colouring
+1659	7	kept	-	yes	-	title parser has masked links switched off; the bare URL must still colour
+1660	5	remove	-	yes	1658	field parser differs from content only by the heading rule; same input, same leaves
+1661	7	kept	-	yes	-	bare URL as first child of bold; its width places the closing delimiter
+1662	5	remove	-	yes	1661	title parser gives the same leaves; URL rule in title is pinned by the bare row
+1663	5	remove	-	yes	1661	field parser equals content off headings
+1664	8	kept	-	yes	-	URL must end before the closing bold delimiter
+1665	5	remove	-	yes	1664	same leaves under the title parser
+1666	5	remove	-	yes	1664	field parser equals content off headings
+1667	7	kept	-	yes	-	URL must end before a single closing asterisk; overlaps the bold row in part
+1668	5	remove	-	yes	1667	same leaves under the title parser
+1669	5	remove	-	yes	1667	field parser equals content off headings
+1670	7	kept	-	yes	-	string-content node followed by text at top level, the one shape the text-merge pass sees
+1671	5	remove	-	yes	1670	same leaves under the title parser
+1672	5	remove	-	yes	1670	field parser equals content off headings
+1673	7	kept	-	yes	-	base autolink: angle brackets as syntax
+1674	7	kept	-	yes	-	autolink survives the title parser with masked links off
+1675	5	remove	-	yes	1673	field parser equals content off headings
+1676	8	kept	-	yes	-	autolink opening bracket absorbed into the parent opening
+1677	5	remove	-	yes	1676	same leaves under the title parser
+1678	5	remove	-	yes	1676	field parser equals content off headings
+1679	8	kept	-	yes	-	only fixture where a non-masked link as last child has its closing absorbed by the parent
+1680	5	remove	-	yes	1679	same leaves under the title parser
+1681	5	remove	-	yes	1679	field parser equals content off headings
+1682	6	remove	-	yes	1679	last-child autolink again with a one-wide delimiter; same absorption path
+1683	5	remove	-	yes	1679	same shape under the title parser
+1684	5	remove	-	yes	1679	field parser equals content off headings
+1685	6	remove	-	yes	1673	top-level autolink as in the base row with an independent bold run after
+1686	5	remove	-	yes	1673	same shape under the title parser
+1687	5	remove	-	yes	1673	field parser equals content off headings
+1688	8	kept	-	yes	-	base masked link: label, target and three syntax pieces
+1689	8	kept	-	yes	-	title parser leaves brackets plain and colours only the URL, which must end at the parenthesis
+1690	5	remove	-	yes	1688	field parser equals content off headings
+1691	5	remove	-	yes	1656	same input and parser as the raw-range row, read through leaves
+1692	7	kept	-	yes	-	only row with a coloured child that is neither first nor last in an emphasis run
+1693	5	remove	-	yes	1656	field parser equals content off headings
+1694	5	remove	-	yes	1657	same input and parser as the raw-range row, read through leaves
+1695	6	remove	-	yes	1692	URL mid-run in title text again, other surrounding text
+1696	5	remove	-	yes	1657	field parser equals content off headings
+1697	6	remove	-	yes	1657	masked link as last child again with a one-wide delimiter
+1698	5	remove	-	yes	1692	URL mid-run in title text, italic instead of bold
+1699	5	remove	-	yes	1657	field parser equals content off headings
+1700	6	remove	-	yes	1688	top-level masked link as in the base row with an independent bold run after
+1701	5	remove	-	yes	1689	title base row with an independent bold run after
+1702	5	remove	-	yes	1688	field parser equals content off headings
+1703	8	kept	-	yes	-	target in angle brackets: target start and both syntax pieces shift by one
+1704	6	remove	-	yes	1674	autolink under the title parser again, between plain brackets
+1705	5	remove	-	yes	1703	field parser equals content off headings
+1706	6	remove	-	yes	1703	angle target is position-independent; first-child shape is the raw-range row 1656
+1707	7	kept	-	yes	-	autolink as a middle child of bold: neither bracket absorbed
+1708	5	remove	-	yes	1703	field parser equals content off headings
+1709	6	remove	-	yes	1703	angle target is position-independent; last-child shape is the raw-range row 1657
+1710	6	remove	-	yes	1707	autolink mid-run in title text again, other surrounding text
+1711	5	remove	-	yes	1703	field parser equals content off headings
+1712	6	remove	-	yes	1703	angle target again, italic parent
+1713	5	remove	-	yes	1707	autolink mid-run in title text, italic instead of bold
+1714	5	remove	-	yes	1703	field parser equals content off headings
+1715	6	remove	-	yes	1703	top-level angle-target link as in the base row with a bold run after
+1716	5	remove	-	yes	1674	title autolink with a bold run after
+1717	5	remove	-	yes	1703	field parser equals content off headings
+1718	8	kept	-	yes	-	link title text counted into the closing syntax piece
+1719	6	remove	-	yes	1689	title parser: URL between plain brackets again, ending at a space
+1720	5	remove	-	yes	1718	field parser equals content off headings
+1721	6	remove	-	yes	1718	link-title closing is position-independent; first-child shape is row 1656
+1722	5	remove	-	yes	1692	URL mid-run in title text, other trailing text
+1723	5	remove	-	yes	1718	field parser equals content off headings
+1724	6	remove	-	yes	1718	link-title closing is position-independent; last-child shape is row 1657
+1725	5	remove	-	yes	1692	URL mid-run in title text, other trailing text
+1726	5	remove	-	yes	1718	field parser equals content off headings
+1727	6	remove	-	yes	1718	link-title closing again, italic parent
+1728	5	remove	-	yes	1692	URL mid-run in title text, italic instead of bold
+1729	5	remove	-	yes	1718	field parser equals content off headings
+1730	6	remove	-	yes	1718	top-level link with title as in the base row with a bold run after
+1731	5	remove	-	yes	1689	title base row with a bold run after
+1732	5	remove	-	yes	1718	field parser equals content off headings
+1733	5	remove	-	yes	1734	user mention alone yields no range; fails only if it gains a class, which the first-child row also shows
+1734	7	kept	-	yes	-	user mention source width as first child of bold places the closing delimiter
+1735	5	remove	-	yes	1734	user mention is a contentless leaf, edge position is not read; same width check at the other end
+1736	5	remove	-	yes	1734	user mention width check again with an italic parent
+1737	6	remove	-	yes	1734	user mention width check again at top level before an independent bold run
+1738	5	remove	-	yes	1739	role mention alone yields no range; fails only if it gains a class, which the first-child row also shows
+1739	7	kept	-	yes	-	role mention source width as first child of bold places the closing delimiter
+1740	5	remove	-	yes	1739	role mention is a contentless leaf, edge position is not read; same width check at the other end
+1741	5	remove	-	yes	1739	role mention width check again with an italic parent
+1742	6	remove	-	yes	1739	role mention width check again at top level before an independent bold run
+1743	5	remove	-	yes	1744	channel mention alone yields no range; fails only if it gains a class, which the first-child row also shows
+1744	7	kept	-	yes	-	channel mention source width as first child of bold places the closing delimiter
+1745	5	remove	-	yes	1744	channel mention is a contentless leaf, edge position is not read; same width check at the other end
+1746	5	remove	-	yes	1744	channel mention width check again with an italic parent
+1747	6	remove	-	yes	1744	channel mention width check again at top level before an independent bold run
+1748	5	remove	-	yes	1749	everyone mention alone yields no range; fails only if it gains a class, which the first-child row also shows
+1749	7	kept	-	yes	-	everyone mention source width as first child of bold places the closing delimiter
+1750	5	remove	-	yes	1749	everyone mention is a contentless leaf, edge position is not read; same width check at the other end
+1751	5	remove	-	yes	1749	everyone mention width check again with an italic parent
+1752	6	remove	-	yes	1749	everyone mention width check again at top level before an independent bold run
+1753	5	remove	-	yes	1754	timestamp alone yields no range; fails only if it gains a class, which the first-child row also shows
+1754	7	kept	-	yes	-	timestamp source width as first child of bold places the closing delimiter
+1755	5	remove	-	yes	1754	timestamp is a contentless leaf, edge position is not read; same width check at the other end
+1756	5	remove	-	yes	1754	timestamp width check again with an italic parent
+1757	6	remove	-	yes	1754	timestamp width check again at top level before an independent bold run
+1758	5	remove	-	yes	1759	custom emoji alone yields no range; fails only if it gains a class, which the first-child row also shows
+1759	7	kept	-	yes	-	custom emoji source width as first child of bold places the closing delimiter
+1760	5	remove	-	yes	1759	custom emoji is a contentless leaf, edge position is not read; same width check at the other end
+1761	5	remove	-	yes	1759	custom emoji width check again with an italic parent
+1762	6	remove	-	yes	1759	custom emoji width check again at top level before an independent bold run
+1763	5	remove	-	yes	1764	emoji name alone yields no range; fails only if it gains a class, which the first-child row also shows
+1764	7	kept	-	yes	-	emoji name source width as first child of bold places the closing delimiter
+1765	5	remove	-	yes	1764	emoji name is a contentless leaf, edge position is not read; same width check at the other end
+1766	5	remove	-	yes	1764	emoji name width check again with an italic parent
+1767	6	remove	-	yes	1764	emoji name width check again at top level before an independent bold run
+1768	5	remove	-	yes	1769	escaped asterisk alone yields no range; fails only if it gains a class, which the first-child row also shows
+1769	7	kept	-	yes	-	escaped asterisk right after the bold opening: source two wide, text offsets mapped
+1770	7	kept	-	yes	-	escaped asterisk directly before the closing bold delimiter must not join it
+1771	8	kept	-	yes	-	escaped asterisk directly before a single closing asterisk: the boundary where the escape and the italic close meet
+1772	6	remove	-	yes	1769	escaped asterisk width check again at top level before an independent bold run
+1773	7	kept	-	yes	-	base inline code row: whole span including backticks takes the class, no syntax pieces

@@ -411,3 +411,17 @@ the riders and `fix-decorator-nested-styles` as the docket lists them. Tree swit
 `/usr/local/bin/hooks/website` from `master` to `chain/fix-normalize-fence-loop` (`git switch --no-track -c … origin/master`) at
 2026-11-23T08:55:46Z; before `0411d3ba146018a5a8d3e8a45398d7d04f499d18`, after `0411d3ba146018a5a8d3e8a45398d7d04f499d18` (`git rev-parse`);
 porcelain before and after `?? .playwright-mcp/` only.
+
+## 2026-11-23T08:56Z — test-case scoring beside batch retrospective `fixes-2026-11-23-steering-hooks-fixer`
+
+Website at `0411d3b` (the batch's last release), clean export. Suite 2643 cases, exit 0 (helper's JSON report, counted by python; 170
+`testResults` files; run under an 8G `systemd-run` cap). Marked: 290 cases in the six test files of `git diff --name-status 0c14d5b 0411d3b`
+ending `.test.ts[x]` that exist at `0411d3b`. The seventh, `cron.scheduled-selection.test.ts`, was deleted in the range and has no cases.
+**This thread's error:** the helper's brief named the pathspec `src/**/__tests__/**`. It misses `src/__tests__/` (git pathspec `**` does not
+match an empty directory segment), so `proxy.matcher-routes.test.ts` and `proxy.request-headers.test.ts` (9 cases) were left unmarked. This
+thread found them in the `--name-status` listing and marked them by python before any scoring. Batches c and e used the same pathspec, so
+any `src/__tests__/` file their chains changed was missed (candidate, unchecked).
+Two deweeder units: ids 496-505, 654-662 and 1643-1773 (150); 1774-1913 (140). Merged:
+`verification/fixes-2026-11-23-steering-hooks-fixer/deweed/website.tsv` (290 rows, 290 unique ids, equal to the marked set; python). Below 7:
+161 of 290 (55.5%). Covering cells: every covering id is in the merged table (0 unchecked). Nothing is deleted on this; a deletion is a
+later chain's, behind a mutation re-run. Export removed (`du -s` 10080 before; `ls -d` fails after).

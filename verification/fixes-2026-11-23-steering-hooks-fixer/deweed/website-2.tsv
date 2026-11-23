@@ -1,0 +1,141 @@
+id	score	disposition	class	generated	covering	reason
+1774	7	kept	-	yes	-	inline code opening bold: both classes, backticks not syntax, offsets after a string-content node
+1775	7	kept	-	yes	-	inline code closing bold: closing delimiter of the parent not merged into a non-delimiter last child
+1776	5	remove	-	yes	1775	italic variant of inline code closing an emphasis run; same path, other delimiter width
+1777	6	remove	-	yes	1774	inline code beside bold; code class and following offsets already pinned
+1778	5	remove	-	yes	1644	same shape as the italic-delimiters case with one letter fewer
+1779	5	remove	-	yes	1650	same shape as italic opening a bold run
+1780	7	kept	-	yes	-	italic closing a bold run: shared three-asterisk closing with syntax carrying the bold class
+1781	5	remove	-	yes	1645	italic and bold side by side, mirrored order of the earlier case
+1782	5	remove	-	yes	1643	same shape as the bold-delimiters case
+1783	5	remove	-	yes	1651	same shape as bold closing an italic run
+1784	5	remove	-	yes	1645	two bold runs side by side; side-by-side independence already pinned
+1785	7	kept	-	yes	-	underline alone: its delimiter width and class without adjacent-syntax reduction
+1786	5	remove	-	yes	1649	underline opening bold; shared opening delimiters are kind-agnostic and pinned
+1787	5	remove	-	yes	1651	underline closing bold; shared closing delimiters pinned
+1788	5	remove	-	yes	1651	underline closing italic; shared closing delimiters pinned
+1789	5	remove	-	yes	1645	underline beside bold; side-by-side independence pinned
+1790	7	kept	-	yes	-	strikethrough alone: its delimiter width and class without adjacent-syntax reduction
+1791	5	remove	-	yes	1649	strikethrough opening bold; shared opening delimiters pinned
+1792	5	remove	-	yes	1651	strikethrough closing bold; shared closing delimiters pinned
+1793	5	remove	-	yes	1651	strikethrough closing italic; shared closing delimiters pinned
+1794	5	remove	-	yes	1645	strikethrough beside bold; side-by-side independence pinned
+1795	7	kept	-	yes	-	spoiler alone: its delimiter width and class without adjacent-syntax reduction
+1796	5	remove	-	yes	1649	spoiler opening bold; shared opening delimiters pinned
+1797	5	remove	-	yes	1651	spoiler closing bold; shared closing delimiters pinned
+1798	5	remove	-	yes	1651	spoiler closing italic; shared closing delimiters pinned
+1799	5	remove	-	yes	1645	spoiler beside bold; side-by-side independence pinned
+1800	7	kept	-	yes	-	a line of plain text only yields no decoration at all
+1801	5	remove	-	yes	1643	bold run with a space in it; same shape as the bold-delimiters case
+1802	5	remove	-	yes	1643	bold run with a space in it; same shape as the bold-delimiters case
+1803	5	remove	-	yes	1644	italic run with a space in it; same shape as the italic-delimiters case
+1804	5	remove	-	yes	1645	plain text before a bold run; offsets after plain text already pinned
+1805	8	kept	-	yes	-	heading marker row: hash and space are syntax, heading text unstyled
+1806	7	kept	-	yes	-	heading after a leading space, its marker merged with the adjacent bold opening
+1807	7	kept	-	yes	-	second-level heading marker width merged with adjacent bold opening
+1808	8	kept	-	yes	-	closing hash run of a heading coloured as syntax, asserted nowhere else
+1809	7	kept	-	yes	-	subtext-like prefix: the dash stays plain and the hash run is syntax
+1810	8	kept	-	yes	-	heading marker found after leading text on the line
+1811	7	kept	-	yes	-	text after an emphasis run inside a heading stays plain
+1812	7	kept	-	yes	-	block-quote marker is left plain and the bold after it is coloured
+1813	7	kept	-	yes	-	multi-line quote marker is left plain and the bold after it is coloured
+1814	8	kept	-	yes	-	opening fence with a known language: fence is syntax, language gets its own class
+1815	7	kept	-	yes	-	bare fence: three backticks as syntax with a zero-width language
+1816	5	remove	-	yes	1800	another plain-text-only line on a plain line; no code path is exercised
+1817	7	kept	-	yes	-	underscore italic around asterisk italic: merged two-character delimiters
+1818	7	kept	-	yes	-	bold nested directly in bold: four-asterisk delimiters merged each side
+1819	7	kept	-	yes	-	heading marker repeated inside a heading merges into one syntax run
+1820	6	remove	-	yes	1818	doubled bold after a bold run; the doubled shape and side-by-side are both pinned
+1821	7	kept	-	yes	-	underline spanning heading marker, quote marker and a masked link opening; the only such mix
+1822	7	kept	-	yes	-	bold closing after a heading-like marker inside it, with trailing plain text
+1823	7	kept	-	yes	-	plain text after bold closed by a masked link: an overgrown closing would show only here
+1824	7	kept	-	yes	-	plain text after bold closed by an angle link: merged closing must stop at the delimiters
+1825	7	kept	-	yes	-	plain text after bold closed by a bare link
+1826	7	kept	-	yes	-	italic inside a masked link label inside bold: three-class leaf and label-end syntax
+1827	7	kept	-	yes	-	bold filling a masked link label inside italic: bracket merged with inner delimiters both sides
+1828	7	kept	-	yes	-	masked link whose label is itself a URL: nested link in the label
+1829	7	kept	-	yes	-	escaped character in a masked link target: target located in source text
+1830	6	remove	-	yes	1829	escaped target again, inside bold with the field parser, which shares the link rules
+1831	7	kept	-	yes	-	escaped target inside angle brackets with a title, followed by a bold run
+1832	5	remove	-	yes	1664	bare link closing bold; same shape as the per-kind row, the three parsers share these rules
+1833	5	remove	-	yes	1664	bare link closing bold; same shape as the per-kind row, the three parsers share these rules
+1834	5	remove	-	yes	1664	bare link closing bold; same shape as the per-kind row, the three parsers share these rules
+1835	5	remove	-	yes	1667	bare link closing italic; same shape as the per-kind row, the three parsers share these rules
+1836	5	remove	-	yes	1667	bare link closing italic; same shape as the per-kind row, the three parsers share these rules
+1837	5	remove	-	yes	1667	bare link closing italic; same shape as the per-kind row, the three parsers share these rules
+1838	5	remove	-	yes	1664	bare link closing a underline run; delimiter handling is kind-agnostic and the width equals bold
+1839	5	remove	-	yes	1664	bare link closing a underline run; delimiter handling is kind-agnostic and the width equals bold
+1840	5	remove	-	yes	1664	bare link closing a underline run; delimiter handling is kind-agnostic and the width equals bold
+1841	5	remove	-	yes	1664	bare link closing a strikethrough run; delimiter handling is kind-agnostic and the width equals bold
+1842	5	remove	-	yes	1664	bare link closing a strikethrough run; delimiter handling is kind-agnostic and the width equals bold
+1843	5	remove	-	yes	1664	bare link closing a strikethrough run; delimiter handling is kind-agnostic and the width equals bold
+1844	5	remove	-	yes	1664	bare link closing a spoiler run; delimiter handling is kind-agnostic and the width equals bold
+1845	5	remove	-	yes	1664	bare link closing a spoiler run; delimiter handling is kind-agnostic and the width equals bold
+1846	5	remove	-	yes	1664	bare link closing a spoiler run; delimiter handling is kind-agnostic and the width equals bold
+1847	7	kept	-	yes	-	escape, mid-line heading marker and angle link inside bold with a spare asterisk
+1848	7	kept	-	yes	-	same line under the title parser: heading marker stays plain
+1849	6	remove	-	yes	1848	field parser gives the title result here; heading omission is its only difference
+1850	7	kept	-	yes	-	unclosed underline, spoiler closed after a masked link, escape, trailing bare link
+1851	7	kept	-	yes	-	title parser: masked link not parsed, bare link runs to the spoiler closing
+1852	6	remove	-	yes	1850	field parser shares every rule this line uses; same input and result as the content row
+1853	7	kept	-	yes	-	escape and emoji name before bold holding a masked link and a spare asterisk
+1854	7	kept	-	yes	-	title parser: link text swallows the closing bracket and the spare asterisk
+1855	6	remove	-	yes	1853	field parser shares every rule this line uses; same result as the content row
+1856	7	kept	-	yes	-	heading, underline with masked link and stray delimiters, escape, underscore italic
+1857	7	kept	-	yes	-	title parser on the same line: no heading, no masked link
+1858	7	kept	-	yes	-	field parser on the same line: no heading but masked link kept, a result neither other row has
+1859	7	kept	-	yes	-	escape after a masked link inside a spoiler
+1860	7	kept	-	yes	-	title parser: bare link swallows the escape inside the spoiler
+1861	6	remove	-	yes	1859	field parser shares every rule this line uses; same result as the content row
+1862	7	kept	-	yes	-	bold italic over a quote marker and escape, then escape and a masked angle link
+1863	7	kept	-	yes	-	title parser on the same line: angle link coloured inside an unparsed mask
+1864	6	remove	-	yes	1862	field parser shares every rule this line uses; same result as the content row
+1865	7	kept	-	yes	-	bold masked link with a spare asterisk, mention, and a trailing heading marker
+1866	7	kept	-	yes	-	title parser on the same line
+1867	7	kept	-	yes	-	field parser on the same line: trailing hash stays plain, unlike the content row
+1868	7	kept	-	yes	-	heading, unclosed strikethrough, bold italic mention, masked angle link
+1869	7	kept	-	yes	-	title parser on the same line
+1870	7	kept	-	yes	-	field parser on the same line: leading hash plain but masked link kept
+1871	7	kept	-	yes	-	escaped emoji before bold: ranges mapped past the escape and the surrogate pair
+1872	6	remove	-	yes	1871	title parser shares the emoji, escape and emphasis rules; same result
+1873	6	remove	-	yes	1871	field parser shares the emoji, escape and emphasis rules; same result
+1874	7	kept	-	yes	-	emoji left as text before italic: ranges mapped past a surrogate pair with no escape
+1875	6	remove	-	yes	1874	title parser shares these rules; same result
+1876	6	remove	-	yes	1874	field parser shares these rules; same result
+1877	7	kept	-	yes	-	escaped asterisk then emoji before italic: both offset shifts together
+1878	6	remove	-	yes	1877	title parser shares these rules; same result
+1879	6	remove	-	yes	1877	field parser shares these rules; same result
+1880	7	kept	-	yes	-	emoji inside a bold run: closing delimiter placed after the surrogate pair
+1881	6	remove	-	yes	1880	title parser shares these rules; same result
+1882	6	remove	-	yes	1880	field parser shares these rules; same result
+1883	7	kept	-	yes	-	emoji running into a name on its left, before italic
+1884	7	kept	-	yes	-	escaped emoji running into a name on its right, before italic
+1885	7	kept	-	yes	-	highlighted code line: markdown inside a string and a comment is not decorated
+1886	5	remove	-	yes	1885	a line with a language returns before the parser is used; the parser argument is inert
+1887	6	remove	-	yes	1885	keyword and number scopes on another js line
+1888	5	remove	-	yes	1885	a line with a language returns before the parser is used; the parser argument is inert
+1889	7	kept	-	yes	-	bare markdown in a highlighted code line stays undecorated outside the highlighter scopes
+1890	5	remove	-	yes	1889	a line with a language returns before the parser is used; the parser argument is inert
+1891	6	remove	-	yes	1889	mention and links undecorated in a python line; same behaviour, other language data
+1892	5	remove	-	yes	1889	a line with a language returns before the parser is used; the parser argument is inert
+1893	7	kept	-	yes	-	nested highlighter scopes compose their classes on one leaf
+1894	5	remove	-	yes	1893	a line with a language returns before the parser is used; the parser argument is inert
+1895	7	kept	-	yes	-	escaped emoji inside a highlighted string: code-line offsets are not source-mapped
+1896	5	remove	-	yes	1895	a line with a language returns before the parser is used; the parser argument is inert
+1897	8	kept	-	yes	-	code line with no language: whole line takes the code-block class, markdown undecorated
+1898	6	remove	-	yes	1897	field parser keeps the code-block rule; same result as the content row
+1899	8	kept	-	yes	-	code line with an unknown language yields no decoration
+1900	5	remove	-	yes	1899	a line with a language returns before the parser is used; the parser argument is inert
+1901	7	kept	-	yes	-	first text node of a code line split by an emoji: ranges clipped to the node
+1902	8	kept	-	yes	-	text node after the emoji: ranges shifted by the preceding siblings, scope continuing across the emoji
+1903	6	remove	-	yes	1902	comment scope continuing across the emoji; same offset shift, other scope
+1904	6	remove	-	yes	1902	scopes starting after the emoji; same offset shift, easier case
+1905	10	kept	-	yes	-	stored text with an escaped emoji loads unchanged; the only assertion on the load route that stored text is not rewritten
+1906	6	remove	-	yes	1905	escaped emoji at the end of the line; same route with nothing after it
+1907	7	kept	-	yes	-	escaped asterisks with no emoji load with their backslashes
+1908	9	kept	-	yes	-	emoji running into a name on its left stays text: the one fixture where the start-of-node conjunct decides
+1909	9	kept	-	yes	-	escaped emoji running into a name on its right stays text: the one fixture where the end-of-node conjunct decides
+1910	8	kept	-	yes	-	emoji in stored text becomes an emoji element with the text split around it; asserted nowhere else for loading
+1911	7	kept	-	yes	-	escaped asterisk before the emoji: the text slice keeps the backslash
+1912	7	kept	-	yes	-	after a name-run emoji left as text, the next emoji still becomes an element
+1913	7	kept	-	yes	-	after an escaped emoji with a name, the next emoji still becomes an element
