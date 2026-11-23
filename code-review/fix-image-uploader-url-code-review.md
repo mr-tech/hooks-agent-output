@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
-Reviewed-At: 7660259 — repos=website
+Reviewed-At: e94baf7 — repos=website
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-image-uploader-url
@@ -20,6 +20,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T16:43 | steering-hooks-fixer (brief `steering/fix-image-uploader-url-brief-code-reviewer.md`) | Round 1: review the fixer's hand-off at website `7660259` | REJECTED. CR-1 MEDIUM (severity floor): Cancel now clears "Image not found." for a saved address that failed, and nothing re-sets it; shown by run, red at `7660259`, green at `af3d95a`. CR-2 LOW, CR-3 INFO. Probe under `verification/fix-image-uploader-url/code-review/`. |
+| 2026-11-23T16:52 | fixer-fix-image-uploader-url (implementation record `9a33daa2`, `Handoff-At: e94baf7`) | Round 1 sub-entry: confirm the CR-1 and CR-2 fix at website `e94baf7` | APPROVED. CR-1 is gone as a class: the stored error is removed, 0 `setImageError` hits. CR-2 is fixed at its one site. All 5 probe cases pass at `e94baf7`, exit 0. Convention check: 0 FAIL. QA Phase 2 is next (27 production lines added since `af3d95a`). |
 
 **Disclosed in this round.** The stamp gate (PostToolUse hook) refused my first write of this file because its changelog stamp was typed
 ahead of the clock (16:44 against 16:43Z). I corrected the stamp from `date -u`, which satisfies the gate. I made that correction, and
@@ -172,9 +173,50 @@ CR-3 INFO Round 1
   not an address that loaded, so both readings fit. Enter doing nothing there is the safer default (an accidental Enter does not remove
   an image). No action owed by the fixer. Put to steering as a reading of limb 1, non-blocking.
 
+## Round 1 sub-entry — fix confirmation at `e94baf7`
+
+Fix diff `7660259..e94baf7` (`a8b23ce`, `e94baf7`), read with `git show`. `git rev-parse HEAD` printed `e94baf781e59764314f4144dbb990da4c1bfb46d`
+at the start and at the end of this pass. The diff touches only `ImageUploader.tsx` (6 added, 9 removed) and the test file (23 added), and
+only CR-1 and CR-2, so it is a sub-entry of Round 1 and opens no new round. Production lines added since `af3d95a`: 27
+(`git diff --numstat af3d95a e94baf7`). QA Phase 2 follows.
+
+- **CR-1: class gone.** The Preferred remedy was taken. `imageError` is no longer state. It is derived in render as
+  `imageInput !== '' && failedImage === imageInput`, and the message is chosen by `isValidImageUrl`. Enumeration re-run over
+  `git show e94baf7:src/components/ImageUploader.tsx`: `grep -n -E "setImageError|setLocalImage|setFailedImage|imageError"` gives
+  0 `setImageError` hits. `imageError` appears only at its derivation and at `errorMessage={imageError}`. `setFailedImage` is written
+  only inside the check effect (2 sites). So no handler can put the error out of step with the check. That makes the class
+  unrepresentable, not just fixed at the flagged site.
+  - Breaking the predicate: the remaining writes outside the effect are `localImage` in `onSetImage`, `onClear` and `onCancel`.
+    - `onClear` empties the box, so the effect re-runs.
+    - `onSetImage` writes the value the box already holds.
+    - `onCancel` with the box unchanged writes the value the check already holds.
+    - `failedImage` is never reset by a handler. The error still needs the box to equal it, so it is shown only for an address whose
+      own last check failed.
+  - One window, read from code, not a finding: suppose a saved address X failed, a second address then failed, and X is typed back.
+    X shows as loaded and Save is enabled until X's re-check lands and fails. During that window Save can only re-save the saved X.
+  - Captured check: `no test` from this stage. The suite case "keeps the error of a saved address that fails to load when the dialog
+    is cancelled unedited and reopened" is the fixer's. Its fixture meets the property this review required (Cancel with the box
+    unchanged). The fixer records it red at `7660259` with the review's falsity signature (`round1/red-run-7660259.txt`, not
+    re-run here: QA's).
+- **CR-2: fixed at its one site.** `onSetImage` calls `setLocalImage(imageInput)` before `setImage`. The Enter path is unchanged: `submit`
+  exists only when `loaded`, and then the two values are already equal. For `EmbedAuthor` and `EmbedFooter`, `''` maps to `undefined`,
+  which the component's `image = ''` default turns back into `''`, so `localImage === image` holds there too. Suite case: "leaves nothing
+  to clear on reopening after an emptied box is saved", which is the fixer's.
+- **Re-attack** (the fix touches the validation message): the review probe was re-run unchanged in a `git archive` export of `e94baf7`.
+  Its harness's first 123 lines are byte-identical to the test file at `e94baf7` (`diff`, exit 0). Result: **5 passed (5), exit 0**
+  (`verification/fix-image-uploader-url/code-review/probe-run-e94baf7.txt`). P1, the CR-1 signature, and P2, the CR-2 signature, now
+  pass.
+- **Conventions at `e94baf7`.** `node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/website --since=af3d95a`: exit 0, 0 FAIL,
+  0 CANDIDATE, 18 SKIP, the same SKIPs as before (`convention-check-e94baf7.txt`). The ID-token regex over the test file:
+  `grep -c` → 0. The test file has no comment lines; the only `//` hits are in the URL constants. The new titles are spec-form.
+- **Cost named in CR-1, confirmed by the fixer's case.** A failed address's error goes as soon as another address is typed. The new
+  assertion in "saves an address that loads on a later try after failing" holds it.
+
 ## Verdict
 
-**Status**: REJECTED
+**Status (Round 1 sub-entry, `e94baf7`)**: APPROVED. CR-1 and CR-2 are dispositioned above. CR-3 INFO stays with steering, non-blocking.
+
+**Status (Round 1, `7660259`)**: REJECTED
 **Rationale**: Limbs (1) to (3) hold under hand-driven load order, and the prop contract to the five consumers is unchanged. Limb (4)'s
 Cancel reset introduces CR-1: a regression against base, shown by run, on a path the change relies on, with no assertion. Under the
 severity floor it is MEDIUM and blocks hand-off to QA. CR-2 is a small inconsistency on a path this change creates, with a one-line
@@ -195,6 +237,10 @@ flows 1, 3 and 8 of the implementation document in a real browser against a loca
 
 ## Next Steps
 
+At `e94baf7` (sub-entry): QA Phase 2 is next. Its spawn cue goes to `steering-hooks-fixer`, per the brief. QA owns the Assumption Not
+Checked above: a real-browser walk of flows 1, 3 and 8.
+
+At `7660259` (Round 1, done):
 - Implementer (`fixer-fix-image-uploader-url`): CR-1 and CR-2, then re-hand-off at a new SHA.
 - Steering (`steering-hooks-fixer`): copied on the rejection; CR-3's reading of limb 1, non-blocking.
 - QA Phase 2: not yet. It follows approval, and owns the Assumption Not Checked above (a real-browser walk of flows 1, 3 and 8).
