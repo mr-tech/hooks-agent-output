@@ -356,6 +356,13 @@ reading each. That is the cost of the stricter form, and it is stated here for R
 per-input form itself is approved. The before-adjustment figures bear on the premise D-14's option stated ("unmeasured"), so they
 go to steering as possibly his.
 
+Reconcile note (2026-11-23T22:33): the "possibly his" framing above, and in CF-19 ("it now has a before-adjustment figure"),
+treated the before-adjustment count as new to his choice. It was not new. The research-corpus counts were already in the premises
+he chose on (37, 32, 54, 37 and 37, from analysis 019 lines 209-213), and steering's effort rulings block "2026-11-23T22:33Z" reads
+them against today's 37, 33, 53, 35 and 37. The count his option called unmeasured is the after-adjustment one, and it is still not
+recorded. The error was mine: I did not read the premises block before framing the figures for steering. CF-19's required change
+(a fire line and a route) stands unchanged.
+
 ## Delta pass, revision 10 (record `890d0b78`)
 
 Read as `git diff 47348a6d 890d0b78 -- planning/019-slate-formatting-discord-engine.md`. The plan delta is AC-4.4 (D-17's table,
