@@ -1,0 +1,129 @@
+[
+ {
+  "step": "W1",
+  "action": "open /message/m/new in a clean (signed-out) browser, dismiss the login panel",
+  "expected": "editor loads with an author avatar edit control",
+  "observed": {
+   "url": "https://hooks.gg/message/m/0/edit",
+   "title": "Hooks.gg - The Ultimate Messaging Tool for Discord Community Builders",
+   "loginBtn": true,
+   "hasAvatarBtn": true
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W2",
+  "action": "click the author avatar edit control",
+  "expected": "a dialog with an address box and Cancel/Clear/Save",
+  "observed": {
+   "text": "Enter Image URL\nImage URL\nCancel\nClear\nSave",
+   "buttons": [
+    "",
+    "Cancel",
+    "Clear",
+    "Save"
+   ],
+   "inputs": 1
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W3",
+  "action": "type GOOD in the box",
+  "expected": "a preview of GOOD shows and Save is enabled",
+  "observed": {
+   "previewSrcs": [
+    "https://cdn.discordapp.com/embed/avatars/0.png"
+   ],
+   "saveDisabled": false,
+   "text": "Enter Image URL\nImage URL\nCancel\nClear\nSave"
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W4",
+  "action": "press Enter with the cursor still in the box",
+  "expected": "dialog closes and the avatar shows GOOD",
+  "observed": {
+   "focusBeforeEnter": {
+    "tag": "INPUT",
+    "id": "react-aria6165489032-_r_7l_",
+    "inOpenDialog": true,
+    "inAnyRoleDialog": true
+   },
+   "after": {
+    "src": "https://cdn.discordapp.com/embed/avatars/0.png",
+    "dialogOpen": false
+   }
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W5",
+  "action": "read document.activeElement right after the close and 400 ms later (side question)",
+  "expected": "not inside a dialog",
+  "observed": {
+   "immediately": {
+    "tag": "INPUT",
+    "id": "react-aria6165489032-_r_7l_",
+    "inOpenDialog": true,
+    "inAnyRoleDialog": true,
+    "dialogOpen": true
+   },
+   "after400ms": {
+    "tag": "BUTTON",
+    "id": "",
+    "inOpenDialog": false,
+    "inAnyRoleDialog": false,
+    "dialogOpen": false
+   }
+  },
+  "result": "RECORD"
+ },
+ {
+  "step": "W6",
+  "action": "reopen the dialog",
+  "expected": "the box shows GOOD and a preview shows",
+  "observed": {
+   "box": "https://cdn.discordapp.com/embed/avatars/0.png",
+   "previews": [
+    "https://cdn.discordapp.com/embed/avatars/0.png"
+   ]
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W7",
+  "action": "type BAD (a well-formed address that returns 404)",
+  "expected": "\"Image not found.\" shows, no preview, Save is disabled",
+  "observed": {
+   "text": "Enter Image URL\nImage URL\nImage not found.\nCancel\nClear\nSave",
+   "previews": [],
+   "saveDisabled": true
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W8",
+  "action": "press Enter with the cursor in the box",
+  "expected": "dialog stays open and the avatar is still GOOD",
+  "observed": {
+   "dialogOpen": true,
+   "avatar": "https://cdn.discordapp.com/embed/avatars/0.png"
+  },
+  "result": "PASS"
+ },
+ {
+  "step": "W9",
+  "action": "click Cancel",
+  "expected": "dialog closes and the avatar is still GOOD",
+  "observed": {
+   "dialogOpen": false,
+   "avatar": "https://cdn.discordapp.com/embed/avatars/0.png"
+  },
+  "result": "PASS"
+ },
+ {
+  "writeRequests": []
+ }
+]
