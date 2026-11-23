@@ -217,3 +217,18 @@ record `b7f2aac4`). Pre-existing; display only. Rulings
 `_` inside a renamed `slight_smile` pairing with a user-typed `_` (3 of 1,662 probe rows, `code-review/fix-emoji-pretransform-widths-code-review.md`
 line 115, record `83e02c84`); and the static (unfocused) render of `wow :ok🙂 hi` showing 🆗 + `slight_smile: hi`, since the static
 parser's rename manufactures `:ok:` (`qa/fix-emoji-pretransform-widths-qa.md` line 83).
+
+## website proxy: the `/preview` matcher entry runs the proxy where nothing reads its header (fixer chain, after 9e)
+
+`src/proxy.ts`'s matcher still lists `/preview`. The proxy sets `x-pathname`, and its only reader is imported by the message layout, so on
+`/preview` the proxy runs for nothing (the code review's CR-1, LOW, `code-review/closed/fix-middleware-dead-matcher-code-review.md`, record
+`4823fb3`). Ruled not to ride that release: `steering/fix-middleware-dead-matcher-rulings.md` block "2026-11-22T17:40". Carried under his
+"fix everything" (effort rulings block "2026-11-22T04:50"). Carrier added on the batch retrospective's item 1
+(`retrospectives/fixes-2026-11-23-steering-hooks-fixer-retrospective.md`).
+
+## website editor tests: lift the decorator chain's comparison corpus and editor-walk runner into the suite (fixer chain, after the editor fixes)
+
+The batch retrospective's recommendations 1 and 6 (`retrospectives/fixes-2026-11-23-steering-hooks-fixer-retrospective.md`): every review
+or QA catch in its seven chains came from a wider instrument than the fixer's own cases — the grammar-oracle corpus, a seeded random probe,
+mutants. Their inputs sit chain-local under `verification/fix-decorator-offsets/`. A suite case driving the real parser over that corpus
+(literal oracle, axiom E) would carry them into every later editor fix. Website test work; carried under "fix everything".
