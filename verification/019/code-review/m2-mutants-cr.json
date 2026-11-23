@@ -1,0 +1,16 @@
+[
+  {
+    "id": "CR-probe-route-constant",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "return parseWasm(text, SURFACE_MASKS[surface]);",
+    "new": "return parseWasm(text, SURFACE_MASKS.embedTitleWithUrl);",
+    "finding": "parseLossless routes every surface to one fixed mask; the only routing case asks for that mask"
+  },
+  {
+    "id": "CR-probe-route-content",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "return parseWasm(text, SURFACE_MASKS[surface]);",
+    "new": "return parseWasm(text, surface === 'embedTitleWithUrl' ? SURFACE_MASKS.embedTitleWithUrl : SURFACE_MASKS.content);",
+    "finding": "parseLossless routes every surface but the one tested to the content mask"
+  }
+]

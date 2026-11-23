@@ -1,0 +1,70 @@
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 95a0e0f..9da7fe3 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -28,6 +28,9 @@ importers:
+       '@codemirror/view':
+         specifier: ^6.9.3
+         version: 6.9.3
++      '@discord/markdown-wasm':
++        specifier: 0.16.0
++        version: 0.16.0
+       '@floating-ui/dom':
+         specifier: ^1.1.0
+         version: 1.1.0
+@@ -160,6 +163,9 @@ importers:
+       object-hash:
+         specifier: ^3.0.0
+         version: 3.0.0
++      paracord:
++        specifier: github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227
++        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+       project-utils:
+         specifier: github:hooks-gg/project-utils#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165
+         version: git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165
+@@ -326,9 +332,6 @@ importers:
+       next-remote-watch:
+         specifier: ^2.0.0
+         version: 2.0.0(next@16.4.6(@babel/core@7.29.7)(@types/node@22.15.29)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.56.2))
+-      paracord:
+-        specifier: github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227
+-        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+       postcss:
+         specifier: ^8.4.18
+         version: 8.4.31
+@@ -674,6 +677,12 @@ packages:
+     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
+     engines: {node: '>=20.19.0'}
+ 
++  '@discord/markdown-types@0.14.0':
++    resolution: {integrity: sha512-3fZ/26jd+kAYLt0cAHBccru5hxwAGgWBfMXLg8+Ki/XfTvXjDhZPvrXmama5qQBbi3CfikQ6zrrC0US8jXNv7Q==}
++
++  '@discord/markdown-wasm@0.16.0':
++    resolution: {integrity: sha512-+wFNlHyO835qxAOvaUlQA/Q6tIazDMvs1l+5H459xhKncscCMdDaz9sLzxGPfYy1UbwyCzoME1HHVQFoU8m1Gw==}
++
+   '@discoveryjs/json-ext@0.5.7':
+     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
+     engines: {node: '>=10.0.0'}
+@@ -6809,6 +6818,12 @@ snapshots:
+ 
+   '@csstools/css-tokenizer@4.0.0': {}
+ 
++  '@discord/markdown-types@0.14.0': {}
++
++  '@discord/markdown-wasm@0.16.0':
++    dependencies:
++      '@discord/markdown-types': 0.14.0
++
+   '@discoveryjs/json-ext@0.5.7': {}
+ 
+   '@edge-runtime/cookies@3.4.1': {}
+@@ -12279,7 +12294,8 @@ snapshots:
+ 
+   semver@7.7.4: {}
+ 
+-  semver@7.8.6: {}
++  semver@7.8.6:
++    optional: true
+ 
+   send@0.18.0:
+     dependencies:

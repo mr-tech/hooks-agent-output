@@ -1,0 +1,9 @@
+[
+  {
+    "id": "CR-probe-renderer-constant",
+    "file": "src/utils/markdown/engine.ts",
+    "old": "if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS[kind as NodeKind];",
+    "new": "if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS.link;",
+    "finding": "nodeRenderer answers every mapped kind with one renderer; the only mapped-kind case asks for that renderer"
+  }
+]

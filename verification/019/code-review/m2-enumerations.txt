@@ -1,0 +1,13 @@
+$ git grep -nE "\[[A-Za-z]+( as [A-Za-z]+)?\]" 22f3e58 -- src/utils/markdown/engine.ts
+22f3e58:src/utils/markdown/engine.ts:9:type LosslessChild = LosslessNode['children'][number];
+22f3e58:src/utils/markdown/engine.ts:148:  return parseWasm(text, SURFACE_MASKS[surface]);
+22f3e58:src/utils/markdown/engine.ts:152:  if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS[kind as NodeKind];
+count: 22f3e58:src/utils/markdown/engine.ts:3
+$ git grep -nE "\b(import|require)\(\s*[^'\"\` )]" 22f3e58 -- "*.ts" "*.tsx" "*.js" "*.mjs"
+22f3e58:src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:64:    const { default: handler } = await import(path) as { default: Handler };
+22f3e58:src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:78:    const { default: handler } = await import(path) as { default: Handler };
+22f3e58:src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:61:  const { default: Protocol } = await import(PROTOCOL_MODULE) as { default: SubscriberProtocol };
+22f3e58:src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts:20:  const { default: handler } = await import(path) as { default: Handler };
+22f3e58:src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:40:  const { default: handler } = await import(path) as { default: Handler };
+22f3e58:src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts:49:    const { default: handler } = await import(join(V1, route)) as { default: Handler };
+exit 0

@@ -1,0 +1,73 @@
+{
+ "sha": "22f3e58700366311e5288d404e3389bb0e1722e8",
+ "repo": "/tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/clone-22f3e58",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2-mutants-cr-2.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "src/utils/markdown/__tests__",
+  "src/providers/__tests__/MarkdownProvider.engine-state.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2-mutants-cr-2.json",
+   "blob": "33a765561d2fde09857a6e90e2e02b87e10b1b2f"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2-mutants-cr-out/22f3e58700366311e5288d404e3389bb0e1722e8-20261123T191320Z-p2746471-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2-mutants-cr-out/22f3e58700366311e5288d404e3389bb0e1722e8-20261123T191320Z-p2746471-control-1.stderr",
+   "seconds": 4.87,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 280,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "CR-probe-renderer-constant",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "nodeRenderer answers every mapped kind with one renderer; the only mapped-kind case asks for that renderer"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 280,
+   "control_tests_run": 280,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2-mutants-cr-out/22f3e58700366311e5288d404e3389bb0e1722e8-20261123T191320Z-p2746471-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2-mutants-cr-out/22f3e58700366311e5288d404e3389bb0e1722e8-20261123T191320Z-p2746471-mutant-1.stderr"
+  }
+ ],
+ "score": "0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m2-mutants-cr-2.json (blob 33a765561d2fde09857a6e90e2e02b87e10b1b2f))"
+}

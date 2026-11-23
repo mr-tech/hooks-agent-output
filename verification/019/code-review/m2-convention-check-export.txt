@@ -1,0 +1,4 @@
+SKIP package.json: not examined — extension .json is outside the examined set
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 10 file(s) examined, 1 not examined, 8 test file(s); 0 FAIL, 0 CANDIDATE, 2 SKIP
+exit 0

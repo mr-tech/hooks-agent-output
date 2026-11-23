@@ -1,0 +1,4 @@
+CR-probe-route-constant KILLED 2.97
+CR-probe-route-content SURVIVED 3.06
+1 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m2-mutants-cr.json (blob 11d70772aeefd115f4f489d652c793dd10aa98d2))
+exit 0
