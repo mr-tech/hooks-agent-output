@@ -7,7 +7,7 @@ Status-Detail: >-
   M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: 2c1590f — repos=website — M3 fix round 4 (CR-10) handed to code review; CR-5 and CR-6 stand resolved at 1698c80. The offline suite was run at M4's tip c32e058 (see the M4 document), not yet re-run at 2c1590f beyond the two discordBuild files (15 of 15, exit 0, `m3fix4-green-1.txt`)
+Handoff-At: 2c1590f — repos=website — M3 fix round 4 (CR-10) handed to code review; CR-5 and CR-6 stand resolved at 1698c80. At this SHA: the offline suite (204 files, 3348 of 3348, exit 0, `m3fix4-suite-2c1590f.{log.txt,exit}`, run under `unshare -rn`) and both typechecks (exit 0). The live controls file was not re-run
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
