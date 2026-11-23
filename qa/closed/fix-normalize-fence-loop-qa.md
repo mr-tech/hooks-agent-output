@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
 Verified-At: af3d95a — repos=website; production code identical to the reviewed 61e5dfe (the delta 61e5dfe..af3d95a is QA's test files only)
-Status: Committed
-Status-Detail: "Phase 2 PASS at website af3d95a (chain/fix-normalize-fence-loop), committed awaiting the owner's release approval. QAF-1 to QAF-3 resolved in-pass; QAF-4 routed (S-29). Verdict covers the release tip (same tree)."
+Status: Released
+Status-Detail: "Phase 2 PASS at website af3d95a; released at that commit. QAF-1 to QAF-3 resolved in-pass; QAF-4 routed (S-29)."
 Phase: 2
 ---
 
@@ -24,6 +24,7 @@ Phase: 2
 | 2026-11-23T09:42 | steering-hooks-fixer (brief `steering/fix-normalize-fence-loop-brief-qa.md`) | Phase 2 on website `61e5dfe` | Phase 2 opened. This fixer chain has no Phase 1 (the owner chose the fixer route; brief "Duties negated"), so this is Phase 2 alone. Criteria recorded before execution |
 | 2026-11-23T10:05 | — | — | Phase 2 PASS at website `af3d95a`. Production code is identical to `61e5dfe`. Suite 2696/2696, exit 0. The code review's Assumption Not Checked was executed (DOM harness and a real browser). Mutation sweep 39/49, survivors closed by QA specs to 5 equivalent. QAF-1 to QAF-3 resolved in this pass, QAF-4 routed |
 | 2026-11-23T13:11 | devops-fix-normalize-fence-loop | Document closed (Stage 1 commit) | Status: Committed. The Assumption Not Checked (production bundle against `next dev`) is carried to the deployment record's post-deploy walk |
+| 2026-11-23T15:29 | devops-fix-normalize-fence-loop | Document closed at release | Status: Released. website master moved 0411d3b -> af3d95a on origin (release-move.js exit 0); Vercel production deployment Ready; record deployment/fix-normalize-fence-loop-deployment.md |
 
 ## Stage start
 

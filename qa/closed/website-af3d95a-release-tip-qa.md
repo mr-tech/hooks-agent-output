@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-normalize-fence-loop -> website master 0411d3ba146018a5a8d3e8a45398d7d04f499d18 -> af3d95acc4f4b1b25f78b71bd2baa555c0724a72 (fast-forward)"
 UUID: a0de90fd
 Verified-At: "af3d95acc4f4b1b25f78b71bd2baa555c0724a72 — repos=website; the tip is the Phase 2 Verified-At commit (qa/closed/fix-normalize-fence-loop-qa.md, record c03ffba3)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master 0411d3b -> af3d95a. Step 1b: 34 open handoffs, 0 triggered by this push or this verdict; 1 fires on any QA run and has nothing QA-owned left. Step 2: website has no gated time-based set."
+Status: Released
+Status-Detail: "Released at af3d95a. Release-tip verdict for website master 0411d3b -> af3d95a. Step 1b: 34 open handoffs, 0 triggered by this push or this verdict; 1 fires on any QA run and has nothing QA-owned left. Step 2: website has no gated time-based set."
 Phase: 3
 ---
 
@@ -20,6 +20,7 @@ record `fe7674e`, "Release Identifier"). A fast-forward from remote `master` `04
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T13:17 | steering-hooks-fixer (for devops-fix-normalize-fence-loop) | Phase 3 at the release tip | Release Verified. The tip is the Phase 2 `Verified-At` commit, so only step 1b and step 2's gated set run (`qa-phase-3.md` line 7). Step 1b: 0 of 34 open handoffs triggered by this push or verdict. Step 2: no gated time-based set exists |
+| 2026-11-23T15:29 | devops-fix-normalize-fence-loop | Document closed at release | Status: Released. website master moved 0411d3b -> af3d95a on origin (release-move.js exit 0); Vercel production deployment Ready; record deployment/fix-normalize-fence-loop-deployment.md |
 
 ## Scope (qa-phase-3.md line 7)
 

@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
-Status: Committed
-Status-Detail: "Committed on website chain/fix-normalize-fence-loop at af3d95a (production code as handed off at 61e5dfe); code review APPROVED, QA Phase 2 PASS. Release to website master awaits the owner's approval (deployment/fix-normalize-fence-loop-deployment.md)."
+Status: Released
+Status-Detail: "Released: website master af3d95a on origin, Vercel production (deployment/closed/fix-normalize-fence-loop-deployment.md)."
 Handoff-At: 61e5dfe — repos=website
 Origin-Chain: none
 ---
@@ -291,3 +291,4 @@ For the owner's own check, in every message box except titles and field names un
 | 2026-11-23T09:19 | fixer-fix-normalize-fence-loop | The routed re-scope item's carrier recorded: S-29 of `verification/slate-formatting-effort/scoping/inventory.md`, per steering's message (reviewer started 09:19Z) |
 | 2026-11-23T09:35 | fixer-fix-normalize-fence-loop | Round 1 fix for CR-1 (one fence rule in `codeFence.ts` for the loader and the normaliser) and CR-2 (the Backspace case drives `onKeyDown`) at website `61e5dfe`. Two claims corrected with reconcile notes in Diagnosis. Handoff-At moved to `61e5dfe` |
 | 2026-11-23T13:11 | devops-fix-normalize-fence-loop | Document closed (Stage 1 commit). Chain branch tip `af3d95a`, no push and no merge to `master`. Status: Committed |
+| 2026-11-23T15:29 | devops-fix-normalize-fence-loop | Document closed at release | Status: Released. website master moved 0411d3b -> af3d95a on origin (release-move.js exit 0); Vercel production deployment Ready; record deployment/fix-normalize-fence-loop-deployment.md |
