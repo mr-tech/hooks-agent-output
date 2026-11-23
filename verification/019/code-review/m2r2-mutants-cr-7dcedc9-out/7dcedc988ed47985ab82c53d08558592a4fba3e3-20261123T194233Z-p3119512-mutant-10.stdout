@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T194233Z-p3119512/mutant-10
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 1 failed) 89ms
+     × gives the underline modifier the underline style without a warning 7ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 277 passed (278)
+   Start at  19:43:13
+   Duration  1.51s (transform 664ms, setup 14ms, import 1.28s, tests 683ms, environment 785ms)
+

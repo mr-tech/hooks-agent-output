@@ -1,0 +1,9 @@
+[
+ {
+  "id": "CR-probe-modifier-warn-label",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "warnUnmapped(`modifier.${kind}`);",
+  "new": "warnUnmapped(kind);",
+  "finding": "the unmapped modifier line loses its modifier. prefix and shares a key with node kinds"
+ }
+]

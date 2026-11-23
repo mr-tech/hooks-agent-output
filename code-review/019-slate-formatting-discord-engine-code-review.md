@@ -2,9 +2,9 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "78c5f74 — repos=website; M2 paths only (engine.ts, MarkdownProvider.tsx, the engine.* and MarkdownProvider.engine-state tests); Round 1 at 22f3e58, its fix sub-entry at 78c5f74"
+Reviewed-At: "7dcedc9 — repos=website; M2 paths only (engine.ts, MarkdownProvider.tsx, the engine.* and MarkdownProvider.engine-state tests); Round 1 at 22f3e58 and its sub-entry at 78c5f74, Round 2 at 7dcedc9"
 Status: In Review
-Round: 1
+Round: 2
 Verdict: APPROVED_WITH_COMMENTS
 ---
 
@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-23T19:15 | steering-hooks-fixer (brief `steering/019-brief-code-reviewer.md`, record `c651bf75`); implementer-019 (M2 document, `Handoff-At: 22f3e58`) | Review M2 | Round 1 at website `22f3e58`, chain base `5ec0621`. REJECTED on CR-1 MEDIUM (a severity floor: two keyed selections, each with a surviving constant-answer mutant) and CR-2 MEDIUM (the adapter's parse acts differently before init in Node and in a browser). CR-3 and CR-4 are LOW. Milestone-scoped: the plan's Status is not moved. |
 | 2026-11-23T19:24 | implementer-019 (fix round 1, website `78c5f74`, record `491731bf`) | Round 1 sub-entry: confirm CR-1 and CR-2 | Round 1 sub-entry at `78c5f74`, scoped to the fix commit `78c5f74` over the M2 paths. CR-1 and CR-2 are RESOLVED: 8 of 8 probes KILLED, each on its own case by assertion, and the sweeps re-run. Verdict APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW open, each with a carrier). `805fff6` and `548b16b` (M3 test work) are not reviewed here; they belong to M3's round. |
+| 2026-11-23T19:44 | implementer-019 (fix round 2 for QA's QAF-29 and QAF-30, website `7dcedc9`) | Review the M2 delta | Round 2 at `7dcedc9`, opened because the fix adds production code outside CR-1 and CR-2 (`MODIFIER_KINDS`, `modifierStyle`, `warnUnmapped`). The delta is reviewed as a first review over the M2 paths. No new finding. 11 of 11 probes KILLED, each on its own case. APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW, as before). `1bcab7a` (M3 oracle work) is not reviewed here. |
 
 ## Scope of this round
 
@@ -160,21 +161,50 @@ Disclosure: my R-25 plan row was first written with a typed stamp one minute ahe
 
 I did not run the whole suite, which is QA's. The implementer reports 3026 of 3026 with exit 0 at `78c5f74`.
 
+## Round 2 at `7dcedc9`
+
+The trigger is the implementer's fix round 2, for QA's QAF-29 (a nested payload union with no map) and QAF-30 (the `BITS` table not
+checked against the pin). It is recorded in `implementation/019-…-m2-implementation.md` § Fix Round 2, `Handoff-At: 7dcedc9`. The fix
+adds production code that neither CR-1 nor CR-2 covers, so this is a new round, not a sub-entry.
+
+The scope is the M2 paths in `git diff 78c5f74 7dcedc9`: `engine.ts` (+23 −4), `engine.kind-maps.test.ts` and
+`engine.surface-masks.test.ts`. `1bcab7a` is M3 oracle work and is reviewed in M3's round. That covers `discordBuild`, `discordLive`,
+their tests, `src/@types/jsdom.d.ts` and the four added lines of `helpers/discordOracle.ts`; the last is read here only as
+`engine.surface-masks`'s new import. Criteria: AC-2.4, as Revision 9 states it, for the nested `modifier` kinds.
+
+Assessment:
+- `MODIFIER_KINDS` follows the existing kind-map pattern in the same file (`satisfies Record<ModifierKind, string>`, like
+  `EMOJI_KINDS` and `MENTION_KINDS`).
+- `modifierStyle` follows `nodeRenderer`.
+- `warnUnmapped` makes the once-per-kind-per-document line one mechanism instead of a copy. Its key space is shared, and the
+  modifier labels are prefixed `modifier.`. A collision would need an engine node kind containing a dot; none is declared at the pin.
+- The values equal the keys, and nothing consumes them before M4 and M5. That is the same shape as CR-3 and is carried with it.
+- `PINNED_SINGLE_BIT_SYNTAX` filters the package's `Syntax` enum to single-bit numeric members, which skips the numeric enum's
+  reverse-mapping names and `ALL`. Comparing it with the literal `BITS` keeps the literal as the expected value and the package as
+  the thing measured, so expectations stay independent.
+
+| Check | Result | Capture |
+|---|---|---|
+| `pnpm install --frozen-lockfile` in a scratch clone of `7dcedc9` | exit 0 | `m2r2-install-frozen-7dcedc9.log` |
+| CR-1 class sweep re-run (`git grep -nE "\[[A-Za-z]+( as [A-Za-z]+)?\]"` over `engine.ts`) | 4 hits: the type index, `SURFACE_MASKS[surface]`, `NODE_RENDERERS[kind…]` and the new `MODIFIER_KINDS[kind…]`. The new lookup is asserted on all five keys with literal styles | below |
+| Re-attack: the 8 Round 1 probes, plus 3 for the new lookup and line (constant style, a mid-table swap, the `modifier.` prefix dropped), through `mutation-run.py` on `7dcedc9`. Suite: the 8 M2 files under `--project node --project dom` | 11 of 11 KILLED. Each kill includes the case that names it, by assertion. The prefix probe was first NOT-APPLIED because a shell heredoc ate its backticks; it was repaired and re-run alone over `engine.kind-maps.test.ts` (control 32, exit 0), and KILLED on the unmapped-modifier case | `m2r2-mutants-cr-7dcedc9.json`, `-warn-label.json`, `-out/`, `-titles.txt`, `*.runner.txt` |
+| `convention-check.js --files` over the 3 files, and the ID-token class by hand | 0 FAIL, 0 CANDIDATE; 0 ID-token hits | `m2r2-convention-check-7dcedc9.txt` |
+| Product callers of `modifierStyle` and `MODIFIER_KINDS` | 0 outside `__tests__` | n/a |
+
+The implementer's QAF-29 class sweep names four other nested payload unions: `LinkKind`, quote `line` or `rest`, list `ordered`,
+and `heading.level`. It leaves them unmapped at M2 because no M2 code branches on them. I agree: AC-2.4 maps kinds the renderers
+select on, and those renderers are M4's. The M4 round checks it (Assumption Not Checked, Round 2).
+
+No new finding. I did not run the whole suite. The implementer reports 3041 of 3041 with exit 0 at `7dcedc9`.
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (Round 1 sub-entry, M2 at `78c5f74`)
-**Rationale**: CR-1, the severity floor, and CR-2 are resolved in their structural form. Each is held by a captured check that fails
-if it returns. Two LOW findings remain open, each with a carrier:
-- CR-3 goes to M5 (the M5 implementer and this review's M5 round).
-- CR-4 is deferred by the implementer to M3's oracle round. Its carrier is this document's M3 round, which checks it beside AC-2.1's
-  second member, `helpers/discordOracle.ts`. If M3's round has not run when the chain closes, CR-4 moves to a handoff.
-
-Round 1 found M2 otherwise sound on these points:
-- the masks equal their independent literals on all 186 cells;
-- the pin and lockfile are as dispositioned;
-- R-A installs frozen in an export;
-- the link allow-list held against 4,834 payloads;
-- the comment and naming conventions are clean.
+**Status**: APPROVED_WITH_COMMENTS (Round 2, M2 at `7dcedc9`)
+**Rationale**: The Round 2 delta extends the adapter's own map and warning patterns without a second copy. Every keyed lookup in
+the adapter is asserted on every key, and the re-attack kills every probe on the case that names it. CR-1 and CR-2 stay resolved
+at this tree (their probes re-ran). Two LOW findings remain open, each with a carrier:
+- CR-3 goes to M5.
+- CR-4 goes to this document's M3 round, or to a handoff if the chain closes first.
 
 ## Required Actions
 
@@ -188,10 +218,15 @@ edit page's `page_client-reference-manifest.js` names in a `next build` of `22f3
 carries the text, in which case the control does not discriminate. Owner: QA Phase 2 (AC-2.6, with the plan's mechanism-removed tip
 control, which the implementer's earlier-attempt build only approximates).
 
+Round 2: This review assumes that no M4 renderer will branch on `LinkKind`, quote `line`/`rest`, list `ordered` or
+`heading.level` without its own literal table and the unmapped-kind line, and does not test it. No renderer exists yet. Falsity
+signature: an M4 renderer `switch`/lookup over one of those four whose unknown arm renders nothing or throws, instead of source
+text plus `markdown-engine-unmapped-kind`. Owner: this review's M4 round.
+
 ## Next Steps
 
-- QA Phase 2 (M2 at `78c5f74`): AC-2.6, per the Assumption Not Checked above. AC-2.5's per-surface limbs come at M4 and M5.
+- QA Phase 2 (M2 at `7dcedc9`): AC-2.6, per the Assumption Not Checked above. AC-2.5's per-surface limbs come at M4 and M5.
 - M3 round of this review: CR-4, and AC-2.1's second member `helpers/discordOracle.ts` against "calls the engine only with AN-3's
   literal masks" (it derives its mask from the package's `Syntax` enum).
 - M5 implementer and this review's M5 round: CR-3.
-- M4 round of this review: the link allow-list attack re-run against the rendered anchor (residue above).
+- M4 round of this review: the link allow-list attack re-run against the rendered anchor (residue above), and Round 2's Assumption Not Checked.

@@ -1,0 +1,52 @@
+control [(278, 0)]
+CR-probe-route-constant KILLED
+    the engine init states > parses the content surface under that surface's own mask
+    the engine init states > parses the embedDescription surface under that surface's own mask
+    the engine init states > parses the v2Text surface under that surface's own mask
+    the engine init states > parses the fieldValue surface under that surface's own mask
+    the engine init states > parses the embedTitle surface under that surface's own mask
+    the engine kind maps > reaches kinds the declared unions leave out, so the observed enumerator is not the declared one
+    the engine link scheme allow-list > is handed an allowed scheme for every scheme the engine returns for a link
+CR-probe-route-content KILLED
+    the engine init states > parses the fieldValue surface under that surface's own mask
+    the engine init states > parses the embedTitle surface under that surface's own mask
+CR-probe-route-mid-swap KILLED
+    the engine init states > parses the embedTitle surface under that surface's own mask
+CR-probe-renderer-constant KILLED
+    the engine kind maps > gives the document kind the fragment renderer without a warning
+    the engine kind maps > gives the paragraph kind the paragraph renderer without a warning
+    the engine kind maps > gives the heading kind the heading renderer without a warning
+    the engine kind maps > gives the subtext kind the subtext renderer without a warning
+    the engine kind maps > gives the quote kind the quote renderer without a warning
+    the engine kind maps > gives the list kind the list renderer without a warning
+    the engine kind maps > gives the list_item kind the listItem renderer without a warning
+    the engine kind maps > gives the empty kind the empty renderer without a warning
+    the engine kind maps > gives the modifier kind the modifier renderer without a warning
+    the engine kind maps > gives the text kind the text renderer without a warning
+    the engine kind maps > gives the code kind the inlineCode renderer without a warning
+    the engine kind maps > gives the code_block kind the codeBlock renderer without a warning
+    the engine kind maps > gives the emoji kind the emoji renderer without a warning
+    the engine kind maps > gives the mention kind the mention renderer without a warning
+    the engine kind maps > gives the timestamp kind the timestamp renderer without a warning
+CR-probe-renderer-mid-swap KILLED
+    the engine kind maps > gives the code kind the inlineCode renderer without a warning
+CR-probe-guard-removed KILLED
+    parseLossless on the real engine before it is ready > returns no document while the engine has not been started
+    parseLossless on the real engine before it is ready > returns no document while the load is in flight
+    parseLossless on the real engine before it is ready > returns no document once the load has been rejected
+CR-probe-guard-pending-admitted KILLED
+    parseLossless on the real engine before it is ready > returns no document while the engine has not been started
+    parseLossless on the real engine before it is ready > returns no document while the load is in flight
+CR-probe-guard-rejected-admitted KILLED
+    parseLossless on the real engine before it is ready > returns no document once the load has been rejected
+CR-probe-modifier-constant KILLED
+    the engine kind maps > gives the italic modifier the italic style without a warning
+    the engine kind maps > gives the underline modifier the underline style without a warning
+    the engine kind maps > gives the strikethrough modifier the strikethrough style without a warning
+    the engine kind maps > gives the spoiler modifier the spoiler style without a warning
+CR-probe-modifier-mid-swap KILLED
+    the engine kind maps > gives the underline modifier the underline style without a warning
+CR-probe-modifier-warn-label NOT-APPLIED
+control [(32, 0)]
+CR-probe-modifier-warn-label KILLED
+    the engine kind maps > gives an unmapped modifier kind no style and one warning per kind per document

@@ -1,0 +1,5 @@
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 3 file(s) examined, 0 not examined, 2 test file(s); 0 FAIL, 0 CANDIDATE, 1 SKIP
+exit 0
+## ID-token class over titles and comment lines, by hand
+0

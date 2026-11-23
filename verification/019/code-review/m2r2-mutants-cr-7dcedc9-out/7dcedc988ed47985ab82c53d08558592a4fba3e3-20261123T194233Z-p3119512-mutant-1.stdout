@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T194233Z-p3119512/mutant-1
+
+ ❯ |node| src/utils/markdown/__tests__/engine.init-states.test.ts (11 tests | 5 failed) 42ms
+     × parses the content surface under that surface's own mask 9ms
+     × parses the embedDescription surface under that surface's own mask 2ms
+     × parses the fieldValue surface under that surface's own mask 1ms
+     × parses the embedTitle surface under that surface's own mask 1ms
+     × parses the v2Text surface under that surface's own mask 1ms
+ ❯ |node| src/utils/markdown/__tests__/engine.link-schemes.test.ts (25 tests | 1 failed) 51ms
+     × is handed an allowed scheme for every scheme the engine returns for a link 6ms
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 1 failed) 69ms
+     × reaches kinds the declared unions leave out, so the observed enumerator is not the declared one 11ms
+
+ Test Files  3 failed | 5 passed (8)
+      Tests  7 failed | 271 passed (278)
+   Start at  19:42:36
+   Duration  1.24s (transform 496ms, setup 12ms, import 1.00s, tests 583ms, environment 714ms)
+

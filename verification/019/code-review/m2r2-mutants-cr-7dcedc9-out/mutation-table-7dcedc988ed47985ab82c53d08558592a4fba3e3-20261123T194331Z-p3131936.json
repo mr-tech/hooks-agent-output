@@ -1,0 +1,80 @@
+{
+ "sha": "7dcedc988ed47985ab82c53d08558592a4fba3e3",
+ "repo": "/tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/clone-7dcedc9",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-warn-label.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "src/utils/markdown/__tests__/engine.kind-maps.test.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-warn-label.json",
+   "blob": "d031f24f65baf354d5db63c6c2a491111925f3f6"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194331Z-p3131936-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194331Z-p3131936-control-1.stderr",
+   "seconds": 3.15,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 32,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "CR-probe-modifier-warn-label",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "the unmapped modifier line loses its modifier. prefix and shares a key with node kinds"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 32,
+   "control_tests_run": 32,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives an unmapped modifier kind no style and one warning per kind per document"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.29,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194331Z-p3131936-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194331Z-p3131936-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m2r2-mutants-cr-7dcedc9-warn-label.json (blob d031f24f65baf354d5db63c6c2a491111925f3f6))"
+}

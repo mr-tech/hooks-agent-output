@@ -1,0 +1,67 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the italic modifier the italic style without a warning
+AssertionError: expected 'bold' to be 'italic' // Object.is equality
+
+Expected: "italic"
+Received: "bold"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:137:33
+    135|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    136|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    137|     expect(modifierStyle(kind)).toBe(style);
+       |                                 ^
+    138|     expect(warn).not.toHaveBeenCalled();
+    139|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the underline modifier the underline style without a warning
+AssertionError: expected 'bold' to be 'underline' // Object.is equality
+
+Expected: "underline"
+Received: "bold"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:137:33
+    135|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    136|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    137|     expect(modifierStyle(kind)).toBe(style);
+       |                                 ^
+    138|     expect(warn).not.toHaveBeenCalled();
+    139|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the strikethrough modifier the strikethrough style without a warning
+AssertionError: expected 'bold' to be 'strikethrough' // Object.is equality
+
+Expected: "strikethrough"
+Received: "bold"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:137:33
+    135|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    136|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    137|     expect(modifierStyle(kind)).toBe(style);
+       |                                 ^
+    138|     expect(warn).not.toHaveBeenCalled();
+    139|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the spoiler modifier the spoiler style without a warning
+AssertionError: expected 'bold' to be 'spoiler' // Object.is equality
+
+Expected: "spoiler"
+Received: "bold"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:137:33
+    135|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    136|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    137|     expect(modifierStyle(kind)).toBe(style);
+       |                                 ^
+    138|     expect(warn).not.toHaveBeenCalled();
+    139|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

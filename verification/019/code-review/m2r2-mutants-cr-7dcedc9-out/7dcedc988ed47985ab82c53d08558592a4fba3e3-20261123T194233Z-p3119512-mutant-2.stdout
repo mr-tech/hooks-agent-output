@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/mut-work/20261123T194233Z-p3119512/mutant-2
+
+ ❯ |node| src/utils/markdown/__tests__/engine.init-states.test.ts (11 tests | 2 failed) 45ms
+     × parses the fieldValue surface under that surface's own mask 9ms
+     × parses the embedTitle surface under that surface's own mask 4ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  2 failed | 276 passed (278)
+   Start at  19:42:38
+   Duration  1.29s (transform 564ms, setup 12ms, import 1.06s, tests 466ms, environment 724ms)
+

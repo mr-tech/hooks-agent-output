@@ -1,0 +1,344 @@
+{
+ "sha": "7dcedc988ed47985ab82c53d08558592a4fba3e3",
+ "repo": "/tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/clone-7dcedc9",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "src/utils/markdown/__tests__/engine.init-states.test.ts",
+  "src/utils/markdown/__tests__/engine.kind-maps.test.ts",
+  "src/utils/markdown/__tests__/engine.link-schemes.test.ts",
+  "src/utils/markdown/__tests__/engine.not-ready.test.ts",
+  "src/utils/markdown/__tests__/engine.surface-masks.test.ts",
+  "src/utils/markdown/__tests__/engine.notice.test.ts",
+  "src/utils/markdown/__tests__/engine.import-confinement.test.ts",
+  "src/providers/__tests__/MarkdownProvider.engine-state.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9.json",
+   "blob": "3e86723583638b14ac795a9a26701b158b333c80"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-control-1.stderr",
+   "seconds": 2.18,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 278,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "CR-probe-route-constant",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1: every surface on one fixed mask"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the content surface under that surface's own mask",
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedDescription surface under that surface's own mask",
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the v2Text surface under that surface's own mask",
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the fieldValue surface under that surface's own mask",
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedTitle surface under that surface's own mask",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > reaches kinds the declared unions leave out, so the observed enumerator is not the declared one",
+    "|node| src/utils/markdown/__tests__/engine.link-schemes.test.ts > the engine link scheme allow-list > is handed an allowed scheme for every scheme the engine returns for a link"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.1,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-1.stderr"
+  },
+  {
+   "id": "CR-probe-route-content",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1: every surface but one on the content mask"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the fieldValue surface under that surface's own mask",
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedTitle surface under that surface's own mask"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-2.stderr"
+  },
+  {
+   "id": "CR-probe-route-mid-swap",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1: one middle surface takes its neighbour's mask"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedTitle surface under that surface's own mask"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-3.stderr"
+  },
+  {
+   "id": "CR-probe-renderer-constant",
+   "run": "mutant-4",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1: every mapped kind gets one renderer"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the document kind the fragment renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the paragraph kind the paragraph renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the heading kind the heading renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the subtext kind the subtext renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the quote kind the quote renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the list kind the list renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the list_item kind the listItem renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the empty kind the empty renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the modifier kind the modifier renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the text kind the text renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the code kind the inlineCode renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the code_block kind the codeBlock renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the emoji kind the emoji renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the mention kind the mention renderer without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the timestamp kind the timestamp renderer without a warning"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.79,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-4.stderr"
+  },
+  {
+   "id": "CR-probe-renderer-mid-swap",
+   "run": "mutant-5",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1: one middle kind takes its neighbour's renderer"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the code kind the inlineCode renderer without a warning"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.2,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-5.stderr"
+  },
+  {
+   "id": "CR-probe-guard-removed",
+   "run": "mutant-6",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-2: the not-ready guard removed"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document while the engine has not been started",
+    "|node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document while the load is in flight",
+    "|node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document once the load has been rejected"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-6.stderr"
+  },
+  {
+   "id": "CR-probe-guard-pending-admitted",
+   "run": "mutant-7",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-2: the guard admits the pending state"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document while the engine has not been started",
+    "|node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document while the load is in flight"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.96,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-7.stderr"
+  },
+  {
+   "id": "CR-probe-guard-rejected-admitted",
+   "run": "mutant-8",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-2: the guard admits the rejected state"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.not-ready.test.ts > parseLossless on the real engine before it is ready > returns no document once the load has been rejected"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.17,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-8.stderr"
+  },
+  {
+   "id": "CR-probe-modifier-constant",
+   "run": "mutant-9",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1 class: every modifier gets one style"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the italic modifier the italic style without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the underline modifier the underline style without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the strikethrough modifier the strikethrough style without a warning",
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the spoiler modifier the spoiler style without a warning"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-9.stderr"
+  },
+  {
+   "id": "CR-probe-modifier-mid-swap",
+   "run": "mutant-10",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-1 class: one middle modifier takes its neighbour's style"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 278,
+   "control_tests_run": 278,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the underline modifier the underline style without a warning"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m2r2-mutants-cr-7dcedc9-out/7dcedc988ed47985ab82c53d08558592a4fba3e3-20261123T194233Z-p3119512-mutant-10.stderr"
+  },
+  {
+   "id": "CR-probe-modifier-warn-label",
+   "run": "mutant-11",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "finding": "the unmapped modifier line loses its modifier. prefix and shares a key with node kinds"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": false,
+   "why": "old text occurs 0 times",
+   "outcome": "NOT-APPLIED"
+  }
+ ],
+ "score": "10 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 1, aborted 0, control-failed 0; m2r2-mutants-cr-7dcedc9.json (blob 3e86723583638b14ac795a9a26701b158b333c80))"
+}

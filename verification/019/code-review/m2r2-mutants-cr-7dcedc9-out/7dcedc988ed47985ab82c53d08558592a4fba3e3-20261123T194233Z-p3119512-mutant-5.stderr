@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the code kind the inlineCode renderer without a warning
+AssertionError: expected 'codeBlock' to be 'inlineCode' // Object.is equality
+
+Expected: "inlineCode"
+Received: "codeBlock"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:125:32
+    123|   ])('gives the %s kind the %s renderer without a warning', (kind, ren…
+    124|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    125|     expect(nodeRenderer(kind)).toBe(renderer);
+       |                                ^
+    126|     expect(warn).not.toHaveBeenCalled();
+    127|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
