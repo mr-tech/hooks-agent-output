@@ -5,8 +5,8 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 10 (record 890d0b78), AC-4.4's delta (D-17). QAF-31 LOW is open for the planner;
-  nothing blocks M4's mention code from QA. Register row B-7 minted. Implementation of M2 to M6 started 18:49Z; Phase 2 on M2
+  Phase 1 re-keyed on plan 019 Revision 11 (record ec2440d9), AC-3.7's residue-list delta. QAF-34 MEDIUM and QAF-35 LOW are
+  open for the planner; QAF-34 bears on M4's residue-list commit. QAF-31 is carried as SL-11. Register: B-1 to B-7. Implementation of M2 to M6 started 18:49Z; Phase 2 on M2
   is in its own document.
 Phase: 1
 ---
@@ -18,7 +18,7 @@ Phase: 1
 Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K threshold).
 
 - **Done.**
-  - Phase 1 on revisions 1 to 10, each re-key committed. Revision 10 (§ Re-key on Revision 10) leaves QAF-31 LOW open.
+  - Phase 1 on revisions 1 to 11, each re-key committed. Revision 11 (§ Re-key on Revision 11) leaves QAF-34 MEDIUM and QAF-35 LOW open.
   - Phase 2 on M2, in its own document, `qa/019-slate-formatting-discord-engine-m2-qa.md`. It was QA Failed at website `78c5f74`
     on QAF-29, record `0b00154b`. The refresh is QA Complete at `7dcedc9`, record `c699c85`. Plan rows R-26 and R-28.
 - **Next.**
@@ -39,8 +39,8 @@ Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K
 - **Evidence not recorded.** None.
 - **Questions out.** None.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 10 (record
-`890d0b78`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 11 (record
+`ec2440d9`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -58,6 +58,7 @@ Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K
 | 2026-11-23T18:05 | planner-019 (message: revision 9 at record `47348a6d`) | Re-key Phase 1 on revision 9 (AC-4.7's delta only, block 18:02Z) | Phase 1 re-key on AC-4.7's delta. It confirmed QAF-28's fold against P-Q19: the `vi-VN` tag, `11/14/23, 10:13 PM`, the tag mutant's `22:13 14/11/23`, the site's locale files loaded, and the tag supplied through react-aria. `cs-CZ` and `da-DK` are valid alternates (P-Q19). QAF-28 is closed, and there is no new finding. The register is swept, with no change. |
 | 2026-11-23T21:43 | planner-019 (message: revision 10 at record `890d0b78`) | Re-key Phase 1 on revision 10 (AC-4.4, D-17) | Phase 1 re-key, read as the delta from `47348a6d`. It ran the premises at the cited commits (P-Q20, `verification/019/qa/probe-r10-mention-premises.out`): `MENTION_KINDS`, the four mention rules' text and classes, `useGuild`'s throw, the list's caching and shape, and the mount sites. It re-keyed AC-4.4 as an oracle over 12 kinds × 5 list states, with coupling fixtures, NM-48 to NM-57 and NM-27 re-read. It minted B-7 for the human-observable form. The listed types include forums (15), against the Residue: QAF-31 LOW. Register swept; B-1 to B-6 cleared. |
 | 2026-11-23T21:44 | planner-019 (message: R-32 at record `223d3911`) | Phase 1, revision 10 registrations (SL-11, F-35) | QAF-31 marked as a duplicate of the critic's F-34, now SL-11, with the planner's reading checked against P-Q20. B-7 re-specified in its own cell under F-35: limb 1 (signed in) uses AC-6.3's provision step and its sign-in-not-completed clause; limb 2 (`/preview`) needs no sign-in. No new finding. |
+| 2026-11-23T22:31 | planner-019 (message: revision 11 at record `ec2440d9`) | Re-key Phase 1 on revision 11 (AC-3.7, the residue list) | Phase 1 re-key, read as the delta from `48e39a5f`. It ran the cited measurement's population (P-Q21, `verification/019/qa/probe-r11-residue-population.out`): the DOM residue compares atom-free inputs only, 1,344 or 1,545 of 2,378, which no document states. That is QAF-34 MEDIUM. It re-keyed AC-3.7's three failure clauses, the mask key and the two passing cases as sole-carrier fixtures, with a generator control, NM-58 to NM-64, and RK-9's count read by two instruments. QAF-35 LOW: family claims are ungated. Register swept; B-1 to B-7 cleared. |
 
 ## Reading
 
@@ -979,6 +980,94 @@ whose usable-emoji limb D-17 left unchanged; checked and cleared). B-7 is minted
 and not discharged: B-1 to B-7, all open.
 
 Phase 1 is keyed to revision 10. Open for the planner: QAF-31 LOW. Nothing else blocks M4's mention code from QA's side.
+
+## Re-key on Revision 11
+
+Revision 11 (record `ec2440d9`) was read as its delta from `48e39a5f`, AC-3.7's frozen residue list only: entries per input,
+surface and mask; the signature made exact; family and reason; the stale-entry failure; RK-9's unit. The trigger is M4's residue-list
+commit, which waits on this pass. A premise the revision cites was run: P-Q21, `verification/019/qa/probe-r11-residue-population.out`.
+
+### Premise run (P-Q21): the population the list is measured over
+
+The revision cites "500 of 1,344 inputs" for embedDescription and v2Text and "818 of 1,545" for embedTitle, from
+`verification/019/impl/m4-dom-residue-before.json`. In that file every surface has `n: 2378`, the whole of AC-3.7's input classes,
+which matches M3's live run. Beside it is `atomFree`: 1,344 on embedDescription, fieldValue and v2Text, and 1,545 on embedTitle and
+embedTitleWithUrl. The `count` is taken over `atomFree` only. Members per surface: 500, 501, 818, 354 and 500, each distinct, over 148,
+151, 174, 132 and 148 classes. So the DOM measurement compares only the inputs that hold no atom (mention, emoji, timestamp). Neither
+the M4 implementation document nor the plan states that exclusion (`grep` of the M4 document for `atomFree` or "atom-free": 0 hits).
+The legacy-only `m4-residue-measurement-6379abc.json` covers all 2,378 (1,190, 1,208, 1,369, 630 and 1,190 differ; these equal QA's
+M3 run at `2c1590f`). See QAF-34.
+
+### AC-3.7's list re-keyed: each failure clause carries the decision alone
+
+The check reads, per surface and mask, the site's preview against live legacy in the visible form, and the frozen list. The plan's
+three failure clauses and the two passing cases each get a fixture in which that clause alone decides. Each fixture is a planted list
+or a planted input over the real check, never a copy of its logic:
+
+| Clause | Fixture (planted) | Expected |
+|---|---|---|
+| differs, no entry | the real list with one entry removed | red, naming the input and surface |
+| entry, signature not exact | one entry's signature changed: (a) one unit's position moved, (b) one dimension added, (c) one dimension dropped, (d) one differing unit dropped | each red. (b) and (d) separate an exact comparison from a subset or superset test |
+| stale: input equals legacy | an entry planted for an input the site renders equal to legacy (an agree-class corpus member) | red, as stale |
+| stale: input not in the classes | an entry planted for a text the generator at its seed and count, the corpus and the link inputs do not hold | red, as stale |
+| mask keys the entry | an embedTitle entry planted for an input that differs under embedTitle only, filed under embedTitleWithUrl | red on both surfaces: no entry on one, stale on the other |
+| passing: listed and exact | the real list, unchanged | green |
+| passing: equal and unlisted | an agree-class input with no entry | green |
+
+**The generator control.** The plan says a change to the generator's seed or count fails loudly. One run with the count lowered by
+one input that has an entry must go red as stale on that entry. This is the positive control for "no longer in the input classes".
+
+**Independence (axiom E).** The list is measured data, committed. The check must never read the run's own known-differences report
+or a list it built in the same run (NM-63). The no-entry and stale fixtures are what discriminate against that.
+
+**RK-9's count (Phase 2).** Entries per surface and mask is read from the committed list file (a JSON count), and, by a second
+instrument of a different shape, from the live run: the number of inputs that differ after adjustment on that surface, in the
+known-differences report. When the list is complete and not stale the two are equal. A third reconciliation is the implementation
+document's family member counts per surface, which sum to the entries. Phase 2 reads all three at the tip against M4's recorded
+figure.
+
+### Named mutants added (each seen red before its test counts; seeded at M4's Phase 2 sweep)
+
+- NM-58 Residue check: a differing input with no entry passes. AC-3.7 "no entry".
+- NM-59 Residue check: the signature is compared as a subset (an entry's units and dimensions contained in the actual). AC-3.7
+  fixtures (b) and (d).
+- NM-60 Residue check: the units are compared without their positions. AC-3.7 fixture (a).
+- NM-61 Residue check: an entry whose input equals legacy passes. AC-3.7 "stale, equals legacy".
+- NM-62 Residue check: an entry whose input is outside the classes passes. AC-3.7 "stale, not in the classes", and the generator
+  control.
+- NM-63 Residue check: the list is read from the run's own report. AC-3.7 no-entry and stale fixtures.
+- NM-64 Residue check: the entry is keyed on surface without mask. AC-3.7 mask fixture.
+
+### New findings
+
+QAF-34 MEDIUM Phase 1
+AC-3.7 holds "for every input in the generator, the 272 corpus and the 106 link inputs", and revision 11's stale clause fails an entry
+"no longer in the input classes". The measurement revision 11 cites, and builds the list from, compares only atom-free inputs: 1,344 of
+2,378 on embedDescription, fieldValue and v2Text, and 1,545 of 2,378 on the two title masks (P-Q21). Neither the plan nor the M4
+implementation document states the exclusion. The 1,034 and 833 inputs per surface that hold a mention, emoji or timestamp are not
+measured. So either the list misses every differing atom-bearing input, and the M4 check fails at first run on inputs no entry can
+name; or the check narrows itself to atom-free inputs, and AC-3.7 silently covers 57 % of its class on four surfaces. The property: the
+population the list is measured over equals the population the check reads, and both are the criterion's. The visible form already
+defines an atom as a unit with its kind and resolved value (M3, "Visible form"). What is unstated is how a site atom (a resolved channel
+name under D-17, an emoji image) compares with legacy's. Ask, for the planner: AC-3.7 states the atom-bearing inputs' treatment. Either
+they are in the list's population, with the atom unit compared on kind and source text (the site's resolved values are outside legacy's
+reach), or they are excluded by a named predicate, their count per surface recorded, and the exclusion listed as an X-item with what
+else covers atom rendering (AC-4.3, AC-4.4, AC-6.3). The stale clause's "input classes" then names that population.
+
+QAF-35 LOW Phase 1
+Revision 11 has each entry name "its family, one of a named set the implementation document states", and the implementation document
+state each family's member count per surface. No failure clause reads either, so an entry with a family outside the set, or a stated
+count that disagrees with the entries, passes. The property: a family claim the reviewer samples against is true of the data. Ask: one
+offline data-shape case over the committed list, asserting that each entry's family is in the stated set and that the per-surface
+family counts sum to the entries. Seen red by a planted unknown family.
+
+### Register sweep (revision 11 moved AC-3.7's premise)
+
+Predicate: rows citing AC-3.7, AC-3.8 (ii), RK-9 or the residue. Members: none of B-1 to B-7 (checked and cleared; B-6 cites
+`test:discord`'s exit and outcome cause, which a residue failure reads as C5, unchanged in kind). No row is minted: AC-3.7 has no
+human-observable form. Rows inherited and not discharged: B-1 to B-7, all open.
+
+Phase 1 is keyed to revision 11. Open for the planner: QAF-34 MEDIUM and QAF-35 LOW. QAF-34 bears on M4's residue-list commit.
 
 ## Blocking-condition register (the chain's one register)
 
