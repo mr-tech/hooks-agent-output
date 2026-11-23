@@ -29,7 +29,7 @@ from `npm pack` (`parse.d.ts`, `package.json`, `index.d.ts`, `syntax.d.ts`).
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
-| 2026-11-23T16:11 | steering-hooks-fixer (brief `steering/019-brief-critic.md`) | cycle 1 pass 1: plan revision 1, whole-document read | Depth: whole-document, the cycle's first pass, at `103687b4`. Artifact changes: none before this pass. New findings: F-1 to F-23 (3 HIGH, 15 MEDIUM, 5 LOW), all OPEN. Verdict REQUEST REVISION. One lookup of this pass's website export was not completed, then re-run with literal paths (effort rulings block 15:29Z). |
+| 2026-11-23T16:11 | steering-hooks-fixer (brief `steering/019-brief-critic.md`) | cycle 1 pass 1: plan revision 1, whole-document read | Depth: whole-document, the cycle's first pass, at `103687b4`. Artifact changes: none before this pass. New findings: F-1 to F-23 (3 HIGH, 15 MEDIUM, 5 LOW), all OPEN. Verdict REQUEST REVISION. One lookup of this pass's website export was not completed, then re-run with literal paths (effort rulings block 15:29Z). At the seam, after `4cdbdcee`, the architect's conformance findings and QA's Phase 1 findings on revision 1 were read: F-23 is marked as repeating CF-2, and partial overlaps are named in place. |
 
 ## Verdict
 
@@ -90,8 +90,9 @@ P-2 was a candidate for this line and was run instead: `git -C preview-image-gen
 
 One: **OQ-4** (S-14: which public highlight.js 11.12.0 surface gives the token tree in place of `_emitter.rootNode`).
 The plan addresses it to the architect at conformance and to AN-6, not to the owner, and writes both outcomes: a public
-surface, or a stated limit carried by the Problem Areas row. This pass does not approve. If OQ-4 is still open at the
-approving pass, the selection is put then: "This plan has 1 unresolved open question. Approve for implementation with it
+surface, or a stated limit carried by the Problem Areas row. The architect's CF-7, read at the seam, answers it
+(`HighlightResult.value`); the plan shows it open until the planner folds that. This pass does not approve. If OQ-4 is
+still open at the approving pass, the selection is put then: "This plan has 1 unresolved open question. Approve for implementation with it
 unresolved, or have the planner address it first?"
 
 ## Findings
@@ -133,6 +134,7 @@ F-2 HIGH cycle 1 pass 1 — OPEN — A red `pnpm test:discord` at a gate has no 
     init-failure line's `version=`. The plan does not say so.
   - D-12's "every release gate" reaches later chains. No standing file tells a later chain's QA that the command exists
     or what its red means: the workspace `CLAUDE.md` Test Conventions name `pnpm test` only, and M7 lists no update.
+    The architect's CF-3 asks for that file's update for the command's form; this limb is the gate rule it would carry.
   - D-5's row names the drift alarm as the instrument that shows "Discord's switch ends". The drift alarm reads the
     native wasm's hash. The legacy parser leaving the bundle would show as a locator predicate matching no module, and
     from then on AC-3.1 and AC-3.2 have no expected values.
@@ -189,7 +191,7 @@ F-5 MEDIUM cycle 1 pass 1 — OPEN — AC-2.4 takes its class from a type file t
     gives 38; seven are the groups `EMOJI`, `LINKS`, `MENTIONS`, `CODE_SPANS`, `ITALIC`, `QUOTES` and `ALL`), 16
     `LosslessNodeKind` members and 21 `TokenKind` members (counted from the file in this pass).
   - `syntax.d.ts` says a flags value of `0` means `Syntax.ALL`. AC-2.3 compares masks "bit for bit" and does not carry
-    the rule. A surface that AN-3 finds to allow no syntax cannot be written as a mask.
+    the rule. A surface that AN-3 finds to allow no syntax cannot be written as a mask. QA's QAF-4 raises the same rule.
 - **Impact**: a pin change that adds a kind the types do not declare passes the type-check, and the plan does not say
   what the preview draws for a kind outside the map.
 - **Recommendation**: AC-2.4 names two enumerators: the declared unions, and the set of `type` values the engine returns
@@ -205,7 +207,7 @@ F-6 MEDIUM cycle 1 pass 1 — OPEN — Nothing states what the site draws on inp
   disagree (research V-18), and native-only is every input on any surface AN-3 puts there. The disagree class is also
   where the engine's output is hardest for the site's renderers: a spoiler split across blocks arrives as fragments that
   share an `id` (`@discord/markdown-types@0.14.0 index.d.ts:Spoiler`). D-5 removes Discord as the standard on that class.
-  It does not remove the plan's own sentence.
+  It does not remove the plan's own sentence. QA's QAF-8 names the native-only half for the Components V2 text display.
 - **Impact**: a rendering defect that shows only on those inputs passes every criterion, and the report would still say
   the site follows native.
 - **Recommendation**: carry the three classes as a table: class, what is asserted, against what, where the class is
@@ -360,6 +362,7 @@ F-21 LOW cycle 1 pass 1 — OPEN — The optional `@discord/markdown-react` is o
 - **Location**: M2 (first bullet; the MIT-notice bullet); AC-2.1; AC-2.2; AC-2.6.
 - **Description**: M2 lets the implementer take the package "under the same pin rule". AC-2.1's confinement and AC-2.2's
   pin name two packages. AC-2.6 searches for the copyright line, while M2's body requires the permission text as well.
+  QA's QAF-14 raises AC-2.6's predicate from another side.
 - **Recommendation**: write the conditional package into both criteria, and make AC-2.6 cover both parts of the notice.
 
 F-22 LOW cycle 1 pass 1 — OPEN — M5 and M6 state no re-derivation gate, and M7's handoff names no minting stage
@@ -369,7 +372,7 @@ F-22 LOW cycle 1 pass 1 — OPEN — M5 and M6 state no re-derivation gate, and 
   named to mint it.
 - **Recommendation**: one line in each milestone, and a named stage in M7.
 
-F-23 LOW cycle 1 pass 1 — OPEN — X-8's visible residue is stated at no milestone, and two sentences are wider than X-8 allows
+F-23 LOW cycle 1 pass 1 — OPEN — X-8's visible residue is stated at no milestone, and two sentences are wider than X-8 allows — Duplicates: CF-2 in architecture/019-slate-formatting-discord-engine-architecture-findings.md
 - **Location**: X-8; the "Emoji lift" scope assumption; Header notes ("closes on landing"); M2 (the `MarkdownProvider`
   bullet).
 - **Description**: with X-8, which text becomes an emoji element is still decided by five `simple-markdown` rules and the
@@ -385,10 +388,10 @@ F-23 LOW cycle 1 pass 1 — OPEN — X-8's visible residue is stated at no miles
 
 1. **Planner.** AC-2.1's range includes `__tests__`, and M3's classification needs the native tree. Do the tests reach the
    engine through the adapter, and with whose masks? A direct import breaks AC-2.1. The adapter's own masks would let a
-   wrong mask move an input from "fails" to "known difference".
+   wrong mask move an input from "fails" to "known difference". QA asks the mask half as QAF-2, and the editor's as QAF-1.
 2. **Planner, QA.** M3 puts the generator's properties, typing included, into `pnpm test`: at least 4,000 strings and
    2,041 fixed inputs (272 + 107 + 1,662). What does the standing suite's run time become? AN-4 reports a run time for
-   the Discord command only, and every later chain pays for the other.
+   the Discord command only, and every later chain pays for the other. QA's QAF-9 says its EC-4 measures it.
 3. **Planner.** Under F-2: is a release that waits on Discord's release schedule a design choice inside the agreed scope
    (the standing default), or a cost D-12's option should have shown him?
 
@@ -429,4 +432,7 @@ F-23 LOW cycle 1 pass 1 — OPEN — X-8's visible residue is stated at no miles
   unpacked npm packages are deleted at run end; all three can be made again from the SHA and the pinned versions.
 - One lookup of the export was not completed, then re-run with literal paths (effort rulings block 15:29Z).
 - The architect's conformance document and QA's Phase 1 document on revision 1 were committed while this pass ran. They
-  were not read before this document was written.
+  were not read before this document was written and committed (`4cdbdcee`). Read at the seam after it: QA's QAF-1 to
+  QAF-14, and the architect's CF-2 to CF-7 (CF-1 by its head only). F-23 repeats CF-2 and is marked. Partial overlaps
+  are named where they occur (F-2, F-5, F-6, F-21, Questions 1 and 2, OQ-4). No severity or finding was changed by the
+  read.
