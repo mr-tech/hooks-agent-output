@@ -120,7 +120,9 @@ aborted request might not be listed. The message was set and read through the pa
 
 The tip passes every step. On the first click at the tip the caret landed on the closing fence; the helper clicked `foo` again, and only
 that attempt is tabled. On base the keystroke was kept despite the throw, so the throw, not the text, is what discriminates there. The
-other console error on both servers is a `dark`-class hydration mismatch, which is not this chain's.
+other console error on both servers is a `dark`-class hydration mismatch, which is not this chain's. The server logs
+(`walk/next-dev-*.log`) show next-auth's session lookup (a `SELECT` in `getSessionAndUser`) refused, `ECONNREFUSED 127.0.0.1:5432`.
+No database was running, so nothing was read or written.
 
 Set up and removed: four exports under this session's scratchpad (deleted), and two `next dev` servers. SIGINT and then SIGTERM to
 their outer groups did not stop them; SIGTERM to the `timeout` process groups (pgid 3715509, 3715510) did. Afterwards `ps` shows no
