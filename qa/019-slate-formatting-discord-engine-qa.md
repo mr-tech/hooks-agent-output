@@ -5,9 +5,8 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 8 (record 7b419f5b), AC-4.7 only. QAF-26 is folded, except its unloaded-locale
-  fixture. QA's own P-Q18 wrongly said the site does not load `ja`, and AC-4.7 took `ja-JP` from it. QAF-28 MEDIUM (a severity
-  floor) asks for `vi-VN` instead. Implementation is not approved.
+  Phase 1 re-keyed on plan 019 Revision 9 (record 47348a6d), AC-4.7's delta only (effort rulings block 18:02Z). QAF-28 is
+  folded and closed. Nothing is open for QA in Phase 1. Implementation is not approved.
 Phase: 1
 ---
 
@@ -15,17 +14,16 @@ Phase: 1
 
 ## Resumption State
 
-Written 2026-11-23T18:01 at the revision 8 re-key commit.
+Written 2026-11-23T18:05 at the revision 9 re-key commit.
 
-- **Done.** Phase 1 on revisions 1 to 8, each re-key committed. Revision 8 is in § Re-key on Revision 8, raising QAF-28 and
-  correcting P-Q18.
-- **Next.** The planner folds QAF-28 (one fixture's tag and literal in AC-4.7), and this phase re-keys that delta. Phase 2 starts at the code review's
+- **Done.** Phase 1 on revisions 1 to 9, each re-key committed. Revision 9 closes QAF-28, and nothing is open.
+- **Next.** Any further AC-4.7 gap goes to `steering-hooks-fixer` before any fold (block 18:02Z). A later revision re-keys its delta. Phase 2 starts at the code review's
   committed verdict.
 - **Uncommitted or local.** Nothing in the record. The scratchpad `pkg/` holds the re-packed wasm the probes run from; it is perishable.
 - **Questions out.** None.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 8 (record
-`7b419f5b`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 9 (record
+`47348a6d`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -40,6 +38,7 @@ Written 2026-11-23T18:01 at the revision 8 re-key commit.
 | 2026-11-23T17:51 | planner-019 (message: revision 6 at record `946d4e54`) | Re-key Phase 1 on revision 6 | Phase 1 re-key, read as the word diff from `d2912590` and AN-8 limb 2b (`3681654e`). AC-2.3's six masks were re-run against AN-3's table, with its stale `GAME_MENTION` row replaced by limb 2b's run: 0 of 248 cells differ, and revision 4's masks give the three expected differences as a control. Three premises were run: `0x02000000` is HEADING, the field value's emoji spans equal content's, and Node prints `s` and `S` with the bytes Discord drew. It re-keyed AC-2.3 (NM-39), AC-4.7, AC-6.3 with B-4, and AC-6.5. It raises QAF-24 and QAF-25 (both MEDIUM) and swept the register: B-4 re-specified, the others cleared. |
 | 2026-11-23T17:56 | planner-019 (message: revision 7 at record `e0eb1e87`) | Re-key Phase 1 on revision 7 | Phase 1 re-key, read as the word diff from `946d4e54`. It confirmed the folds of QAF-24 and QAF-25 (closed), F-32, CF-13 option (a) and the heading-bit read, which agrees with P-Q14. It read the sibling `MarkdownTimestamp.tsx`, `Markdown.tsx` and `LoadLocale.tsx` at `af3d95a`, and ran the two CF-13 branches' literals and the dayjs locale resolution (P-Q18). It raises QAF-26 MEDIUM and QAF-27 LOW, and swept the register with no change. |
 | 2026-11-23T18:01 | planner-019 (message: revision 8 at record `7b419f5b`) | Re-key Phase 1 on revision 8 (AC-4.7 only) | Phase 1 re-key, read as the word diff from `e0eb1e87`. It confirmed QAF-26's folds (i) and (ii), (iii)'s resolved-locale reading, QAF-27 as a Planner batch limit, and D-16. A check of `src/utils/loadLocales.ts` at `af3d95a` found the site loads 29 dayjs locales, `ja` among them. So this document's P-Q18 premise that `ja-JP` is unloaded was wrong, and AC-4.7's `ja-JP` fixture took it. The corrected probe (P-Q19) gives `ja-JP` the same string under both readings. P-Q18 carries a dated reconcile, and QAF-28 MEDIUM (a severity floor, excepted from the cap) asks for `vi-VN` with `11/14/23, 10:13 PM`. |
+| 2026-11-23T18:05 | planner-019 (message: revision 9 at record `47348a6d`) | Re-key Phase 1 on revision 9 (AC-4.7's delta only, block 18:02Z) | Phase 1 re-key on AC-4.7's delta. It confirmed QAF-28's fold against P-Q19: the `vi-VN` tag, `11/14/23, 10:13 PM`, the tag mutant's `22:13 14/11/23`, the site's locale files loaded, and the tag supplied through react-aria. `cs-CZ` and `da-DK` are valid alternates (P-Q19). QAF-28 is closed, and there is no new finding. The register is swept, with no change. |
 
 ## Reading
 
@@ -844,6 +843,19 @@ represent the case.
 Predicate: rows citing AC-4.7 or a timestamp. Members: none. B-1 to B-6 are checked and cleared.
 
 Rows inherited and not discharged: B-1 to B-6, all open.
+
+## Re-key on Revision 9
+
+Revision 9 (record `47348a6d`) was read as AC-4.7's delta from `fb162ef1` only, per effort rulings block "2026-11-23T18:02Z"
+(record `0a794563`).
+
+| Item | Where revision 9 folds it | Check |
+|---|---|---|
+| QAF-28 | AC-4.7, the unloaded-tag fixture and the "Locale" sentence | The case is `vi-VN`, UTC, expecting `11/14/23, 10:13 PM`. The tag mutant gives `22:13 14/11/23`, with `loadLocales.ts` loaded and the tag supplied through react-aria's locale. All of it matches P-Q19. The locale sentence now cites P-Q19 and no longer P-Q18. **Closed.** |
+| Alternates | AC-4.7 | `cs-CZ` and `da-DK` resolve to `en` and differ from their tags (P-Q19), so each serves the same role. |
+
+No new finding. Register sweep: predicate, rows citing AC-4.7 or a timestamp. Members: none, so B-1 to B-6 are cleared. Rows
+inherited and not discharged: B-1 to B-6, all open.
 
 ## Blocking-condition register (the chain's one register)
 
