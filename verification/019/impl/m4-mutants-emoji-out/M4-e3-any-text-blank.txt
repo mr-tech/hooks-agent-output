@@ -1,0 +1,78 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 2 failed) 59ms
+     × is not large for text after an emoji 6ms
+     × is not large for text before an emoji 1ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 94ms
+     × as an image of the Twemoji file, with the character as its alt text 51ms
+     × small once any text sits beside it 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text
+AssertionError: expected 32 to be 22 // Object.is equality
+
+- Expected
++ Received
+
+- 22
++ 32
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:27:23
+     25|     expect(img.alt).toBe('🙂');
+     26|     expect(addressOf(img)).toBe('https://cdn.jsdelivr.net/gh/twitter/t…
+     27|     expect(img.width).toBe(22);
+       |                       ^
+     28|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     29|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > small once any text sits beside it
+AssertionError: expected [ 32 ] to deeply equal [ 22 ]
+
+- Expected
++ Received
+
+  [
+-   22,
++   32,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:72:44
+     70|   it('small once any text sits beside it', () => {
+     71|     const images = imagesOf(draw('🙂 hi'));
+     72|     expect(images.map((img) => img.width)).toEqual([22]);
+       |                                            ^
+     73|   });
+     74| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for text after an emoji
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for text before an emoji
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:59:27
+     57|     ['an emoji line above a quote', '🙂\n> x'],
+     58|   ])('is not large for %s', (_name, source) => {
+     59|     expect(jumbo(source)).toBe(false);
+       |                           ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  4 failed | 53 passed (57)
+   Start at  22:04:18
+   Duration  1.44s (transform 719ms, setup 9ms, import 1.38s, tests 215ms, environment 699ms)
+

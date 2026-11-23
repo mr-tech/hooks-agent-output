@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 1 failed) 95ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > for a custom emoji, as an image of its CDN file with the name as alt text and title
+AssertionError: expected '' to be 'wave' // Object.is equality
+
+- Expected
++ Received
+
+- wave
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:45:23
+     43|     const [img] = imagesOf(draw('a <:wave:123>'));
+     44|     expect(img.alt).toBe(':wave:');
+     45|     expect(img.title).toBe('wave');
+       |                       ^
+     46|     expect(addressOf(img)).toBe('https://cdn.discordapp.com/emojis/123…
+     47|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 56 passed (57)
+   Start at  22:04:42
+   Duration  1.46s (transform 720ms, setup 9ms, import 1.39s, tests 208ms, environment 700ms)
+

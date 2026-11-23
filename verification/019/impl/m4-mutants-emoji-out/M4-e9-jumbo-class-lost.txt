@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 1 failed) 94ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:57:75
+     55|     const [img] = imagesOf(draw('🙂'));
+     56|     expect(img.width).toBe(32);
+     57|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+       |                                                                           ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 56 passed (57)
+   Start at  22:04:35
+   Duration  1.59s (transform 743ms, setup 10ms, import 1.54s, tests 238ms, environment 805ms)
+

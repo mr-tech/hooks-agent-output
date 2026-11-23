@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 1 failed) 94ms
+     × at the embed size, 18 pixels, in an embed, even when the message holds only emoji 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > at the embed size, 18 pixels, in an embed, even when the message holds only emoji
+AssertionError: expected 32 to be 18 // Object.is equality
+
+- Expected
++ Received
+
+- 18
++ 32
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:67:23
+     65|   it('at the embed size, 18 pixels, in an embed, even when the message…
+     66|     const [img] = imagesOf(draw('🙂', true));
+     67|     expect(img.width).toBe(18);
+       |                       ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 56 passed (57)
+   Start at  22:04:32
+   Duration  1.52s (transform 766ms, setup 11ms, import 1.45s, tests 205ms, environment 688ms)
+

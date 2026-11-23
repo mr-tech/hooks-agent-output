@@ -1,0 +1,138 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 8 failed) 92ms
+     × as an image of the Twemoji file, with the character as its alt text 40ms
+     × from a typed name, as an image whose alt text is the character 3ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 3ms
+     × for an animated custom emoji, as its gif 3ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 2ms
+     × large when only emoji and spaces make up the message, for every one of them 7ms
+     × at the embed size, 18 pixels, in an embed, even when the message holds only emoji 2ms
+     × small once any text sits beside it 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text
+TypeError: Cannot read properties of undefined (reading 'alt')
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:25:16
+     23|   it('as an image of the Twemoji file, with the character as its alt t…
+     24|     const [img] = imagesOf(draw('a 🙂'));
+     25|     expect(img.alt).toBe('🙂');
+       |                ^
+     26|     expect(addressOf(img)).toBe('https://cdn.jsdelivr.net/gh/twitter/t…
+     27|     expect(img.width).toBe(22);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > from a typed name, as an image whose alt text is the character
+TypeError: Cannot read properties of undefined (reading 'alt')
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:39:16
+     37|   it('from a typed name, as an image whose alt text is the character',…
+     38|     const [img] = imagesOf(draw('a :smile:'));
+     39|     expect(img.alt).toBe('😄');
+       |                ^
+     40|   });
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > for a custom emoji, as an image of its CDN file with the name as alt text and title
+TypeError: Cannot read properties of undefined (reading 'alt')
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:44:16
+     42|   it('for a custom emoji, as an image of its CDN file with the name as…
+     43|     const [img] = imagesOf(draw('a <:wave:123>'));
+     44|     expect(img.alt).toBe(':wave:');
+       |                ^
+     45|     expect(img.title).toBe('wave');
+     46|     expect(addressOf(img)).toBe('https://cdn.discordapp.com/emojis/123…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > for an animated custom emoji, as its gif
+TypeError: Cannot read properties of undefined (reading 'src')
+ ❯ addressOf src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:20:77
+     18|
+     19| const imagesOf = (el: HTMLElement) => [...el.querySelectorAll('img')];
+     20| const addressOf = (img: HTMLImageElement) => decodeURIComponent(new UR…
+       |                                                                             ^
+     21|
+     22| describe('the preview draws an emoji', () => {
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:51:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji
+TypeError: Cannot read properties of undefined (reading 'width')
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:56:16
+     54|   it('large, at 32 pixels with the large class, when the message holds…
+     55|     const [img] = imagesOf(draw('🙂'));
+     56|     expect(img.width).toBe(32);
+       |                ^
+     57|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     58|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them
+AssertionError: expected [] to deeply equal [ 32, 32 ]
+
+- Expected
++ Received
+
+- [
+-   32,
+-   32,
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:62:44
+     60|   it('large when only emoji and spaces make up the message, for every …
+     61|     const images = imagesOf(draw('🙂 <:wave:123>'));
+     62|     expect(images.map((img) => img.width)).toEqual([32, 32]);
+       |                                            ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > at the embed size, 18 pixels, in an embed, even when the message holds only emoji
+TypeError: Cannot read properties of undefined (reading 'width')
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:67:16
+     65|   it('at the embed size, 18 pixels, in an embed, even when the message…
+     66|     const [img] = imagesOf(draw('🙂', true));
+     67|     expect(img.width).toBe(18);
+       |                ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > small once any text sits beside it
+AssertionError: expected [] to deeply equal [ 22 ]
+
+- Expected
++ Received
+
+- [
+-   22,
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:72:44
+     70|   it('small once any text sits beside it', () => {
+     71|     const images = imagesOf(draw('🙂 hi'));
+     72|     expect(images.map((img) => img.width)).toEqual([22]);
+       |                                            ^
+     73|   });
+     74| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 1 passed (9)
+   Start at  22:02:22
+   Duration  1.24s (transform 81ms, setup 22ms, import 214ms, tests 92ms, environment 734ms)
+
+exit 1

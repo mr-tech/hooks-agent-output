@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 1 failed) 55ms
+     × is not large for 27 emoji 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for 27 emoji
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:59:27
+     57|     ['an emoji line above a quote', '🙂\n> x'],
+     58|   ])('is not large for %s', (_name, source) => {
+     59|     expect(jumbo(source)).toBe(false);
+       |                           ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 56 passed (57)
+   Start at  22:04:13
+   Duration  1.39s (transform 712ms, setup 9ms, import 1.39s, tests 199ms, environment 695ms)
+

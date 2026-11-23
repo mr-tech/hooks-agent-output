@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts [ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts ]
+Error: Cannot find module '/src/utils/markdown/emojiDisplay' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:3:1
+      1| import { beforeAll, describe, expect, it, vi } from 'vitest';
+      2|
+      3| import { emojiSrc, isJumboTree } from '../emojiDisplay';
+       | ^
+      4| import { parseLossless, startEngine } from '../engine';
+      5|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  22:01:57
+   Duration  196ms (transform 36ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
+exit 1

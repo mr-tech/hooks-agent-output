@@ -6,7 +6,7 @@ Status: Active
 Status-Detail: >-
   M4 is in progress on chain/019-slate-formatting-discord-engine. Slice 1 (the preview renderer over the engine tree, the static parsers
   switched, subtext and shared spoiler reveal) and slice 2a (mentions, AC-4.4 under D-17, at website `f131f06`) are committed and not yet
-  handed to review. Not built yet: emoji display helper, timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
+  handed to review. Slice 2b (the emoji display helper and the emoji renderer, `c32e058`) is committed. Not built yet: timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
   of AC-3.1 and AC-3.6, the reader sweep for AC-4.5.
 Handoff-At: not yet handed over
 ---
@@ -29,6 +29,7 @@ for M3 is owed before M4 is handed on, see Outstanding 1).
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-23T21:33 | steering-hooks-fixer (message, session `2581957`) | Start plan 019 M4; send the flows that hold a decision before code | Flow ask sent 21:18Z. Slice 1 coded and committed. |
+| 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry) | M3 CR-10 | Fixed at `2c1590f` (M3 document, Round 4); M3 re-handed. Slice 2b (emoji) committed at `c32e058`. |
 | 2026-11-23T22:05 | steering-hooks-fixer (message) | Continue M4 after `/clear`; Revision 10's AC-4.4 (D-17) approved by all three gates, mention code released | Slice 2a: mentions coded test-first and committed at `f131f06`. |
 
 ## Implementation Summary
@@ -90,6 +91,8 @@ Slice 2a (mentions), at `f131f06`:
 | `src/components/Markdown.tsx` | reads `useGuildChannels()` and passes `channels` in the parser state |
 | `src/@types/simple-markdown.d.ts` | `State.channels` |
 
+Slice 2b (emoji), at `c32e058`: `src/utils/markdown/engine.ts` (type `EmojiValue` exported), `emoji.tsx` (`JUMBO_EMOJI_MAX` exported), `preview.tsx` (`renderEmoji`; `Ctx` carries `isEmbed` and `jumboable`; `renderLosslessTree` takes an options object).
+
 ## Files Created
 
 | Path | Purpose |
@@ -99,6 +102,8 @@ Slice 2a (mentions), at `f131f06`:
 | `src/utils/markdown/__tests__/preview.engine-tree-render.test.ts`, `preview.engine-not-ready.test.ts`, `components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx` | the specs |
 
 Slice 2a: `src/utils/markdown/__tests__/preview.mention-table.test.ts`, `src/components/__tests__/Markdown.channel-names.test.tsx`, `src/app/preview/__tests__/page.channel-names.test.tsx`; records `m4-red-6.txt`, `m4-green-6.txt`, `m4-red-7.txt`, `m4-green-7.txt`, `m4-run-8.txt`, `m4-run-9.txt`, `m4-mutants-mentions-out/`.
+
+Slice 2b: `src/utils/markdown/emojiDisplay.ts` (`emojiSrc`, `isJumboTree`: the shared helper, CF-10), `components/MarkdownEmoji.tsx`, tests `emojiDisplay.src-and-jumbo.test.ts`, `preview.emoji-draw.test.tsx`; records `m4-red-8.txt`, `m4-green-8.txt`, `m4-red-9.txt`, `m4-green-9.txt`, `m4-mutants-emoji-out/`.
 
 Records under `verification/019/impl/`: `m4-red-1.txt` to `m4-red-3.txt`, `m4-mutants-slice1.txt`, `m4-suite-slice1.{log.txt,exit}`.
 
@@ -136,6 +141,16 @@ Slice 2a (mentions). TDD Gate: `preview.mention-table` fails as expected: 38 of 
 
 The `page.channel-names` row is owed the stub-tree record and is not made; the mutants stand as its red, as for the slice 1 rows. The fifteen mutants M4-n1 to M4-n14 (NM-27, NM-48 to NM-57; one per guard) each ended red (`m4-mutants-mentions-out/summary.txt`); they ran in `scratchpad/export-m4b`, driver `scratchpad/mutate.cjs`, output to files, run under `timeout -k` with `unshare -rn`. NM-57's per-surface mutants do not exist: every one of the seven surfaces draws through the one `Markdown.tsx`, so the wiring is one site (M4-n1 is red on all seven surface cases). Fixture realism: the lists carry `fetchChannels`' shape (`{ id, name, type, threads }`); the provider value is the `Context` `GuildProvider` provides, narrowed by a cast, since `GuildProvider`'s own value needs a session and trpc.
 
+Slice 2b (emoji). TDD Gate: `emojiDisplay.src-and-jumbo` fails as expected: `Cannot find module '/src/utils/markdown/emojiDisplay'` (`m4-red-8.txt`); `preview.emoji-draw` fails as expected: 8 of 9, `TypeError: Cannot read properties of undefined (reading 'alt')`, no image drawn (`m4-red-9.txt`). Proceeding to implementation, each.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `emojiSrc` | `emojiDisplay.src-and-jumbo.test.ts` | Yes | Yes | ModuleNotFoundError (first row of the module) | Yes; mutants M4-e5 (animated ignored), M4-e6 (id through Number, past 2^53) red |
+| `isJumboTree` (26 and 27 emoji, text beside, bold, link, code, heading, quote, empty) | same | Yes | Yes by mutants M4-e1 (limit inclusive), M4-e2 (empty is jumbo), M4-e3 (any text blank), M4-e4 (other blocks ignored; the heading-above case was added after M4-e4 survived on `# 🙂`) | AssertionError by mutation | Yes |
+| `MarkdownEmoji`, `renderEmoji` | `preview.emoji-draw.test.tsx`, and the fixture case in `preview.engine-tree-render.test.ts` | Yes | Yes | TypeError, no image (`m4-red-9.txt`); mutants M4-e7 to M4-e13 each red (alt, embed size, jumbo class, no-file guard, jumbo never, title, unicode alt) | Yes |
+
+The thirteen emoji mutants M4-e1 to M4-e13 each ended red (`m4-mutants-emoji-out/summary.txt`; export `scratchpad/export-m4b`). The no-file guard (`src` empty) is not reachable through the engine at the pin: it returns `©` and `™` as text, and `©️` (with the variation selector, also `:copyright:`) as an emoji whose address is a Twemoji file. The guard stays, driven by a fixture tree that invents engine output, named so (QAF-17), and M4-e10 is red on it.
+
 The two rows marked "No" under "Test Written First?" are owed an assertion-level red against a stub-tree copy with the function bodiless, then a green at the real code. The mutants above stand as the red at the pre-change behaviour for each guard; the stub-tree record is not made. This is a TDD deviation of mine, named here. The mutants ran in an isolated export (`scratchpad/export-m4a`, a `git ls-files` copy with `node_modules` linked, driver inline, output to a file).
 
 The renderer-level scheme control uses a fixture tree that invents engine output (the engine returns no `javascript:` or `data:` link); named so, per QAF-17.
@@ -157,6 +172,8 @@ Slice 2a: `unshare -rn` vitest over `src/utils/markdown src/components src/app/p
 | `node ~/.claude/tools/convention-check.js website --since=f4060c5` | 0 FAIL, 0 CANDIDATE (the id-token basename check is SKIPPED by the tool: unchecked by tool); by hand, no ID token in a new basename, title or comment | console |
 
 ## Outstanding Items
+
+0. **Emoji, decisions to read (slice 2b).** (a) Today's `jumboify` has had no caller since `fae733f` (2023), so the site's preview never drew a large emoji; the helper now does, by the rule the corpus shows: a message of only emoji and whitespace is large (`dom-all-bot.json`: `:smile:`, a skin-toned emoji, two emoji with a space, two custom side by side are large; `**:smile:**` and `a:smile:b` are not). That is a visible change from today, stated in the plan (CF-10) and not asked. The limit (27, from `jumboify`) and the multi-line, quote and embed cases have no Discord observation: X-25. In an embed the size stays 18, as `discordEmoji` had it. (b) The plan contradicts itself on the custom emoji's `alt`: AC-4.4 says `:name:`, M4's "output unchanged" would keep `<:name:id>`. I took AC-4.4's, which is also what Discord's DOM shows (`an7-g13-dom.json`); for steering to confirm with the planner.
 
 1. **M3 fix round is owed first** (code review REJECTED M3: CR-5, CR-6 MEDIUM; CR-4's remainder, CR-7 to CR-9 LOW). M4 slice 1 is committed on the same branch at a different set of paths; the M3 fix lands as its own commits.
 2. **Mentions** are built (slice 2a). Recorded limits, per AC-4.4's Residue and SL-11: the name is the list's at fetch time (5 min client, 10 s server); category, archived-thread and unlisted ids render `#<id>`. The human-observable form (UAT B-7) needs a signed-in local production build, not run here. The bigint note: the engine gives the channel id as a `bigint`, so the lookup compares `String(id)`, exact beyond 2^53.

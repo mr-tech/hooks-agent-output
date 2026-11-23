@@ -1,0 +1,47 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 102ms
+     × as an image of the Twemoji file, with the character as its alt text 49ms
+     × from a typed name, as an image whose alt text is the character 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text
+AssertionError: expected 'x' to be '🙂' // Object.is equality
+
+Expected: "🙂"
+Received: "x"
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:25:21
+     23|   it('as an image of the Twemoji file, with the character as its alt t…
+     24|     const [img] = imagesOf(draw('a 🙂'));
+     25|     expect(img.alt).toBe('🙂');
+       |                     ^
+     26|     expect(addressOf(img)).toBe('https://cdn.jsdelivr.net/gh/twitter/t…
+     27|     expect(img.width).toBe(22);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > from a typed name, as an image whose alt text is the character
+AssertionError: expected 'x' to be '😄' // Object.is equality
+
+Expected: "😄"
+Received: "x"
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:39:21
+     37|   it('from a typed name, as an image whose alt text is the character',…
+     38|     const [img] = imagesOf(draw('a :smile:'));
+     39|     expect(img.alt).toBe('😄');
+       |                     ^
+     40|   });
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 55 passed (57)
+   Start at  22:04:45
+   Duration  1.41s (transform 715ms, setup 11ms, import 1.41s, tests 216ms, environment 687ms)
+

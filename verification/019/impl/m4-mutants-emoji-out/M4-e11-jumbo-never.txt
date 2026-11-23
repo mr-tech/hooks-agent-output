@@ -1,0 +1,57 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 97ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 9ms
+     × large when only emoji and spaces make up the message, for every one of them 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji
+AssertionError: expected 22 to be 32 // Object.is equality
+
+- Expected
++ Received
+
+- 32
++ 22
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:56:23
+     54|   it('large, at 32 pixels with the large class, when the message holds…
+     55|     const [img] = imagesOf(draw('🙂'));
+     56|     expect(img.width).toBe(32);
+       |                       ^
+     57|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     58|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them
+AssertionError: expected [ 22, 22 ] to deeply equal [ 32, 32 ]
+
+- Expected
++ Received
+
+  [
+-   32,
+-   32,
++   22,
++   22,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:62:44
+     60|   it('large when only emoji and spaces make up the message, for every …
+     61|     const images = imagesOf(draw('🙂 <:wave:123>'));
+     62|     expect(images.map((img) => img.width)).toEqual([32, 32]);
+       |                                            ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 55 passed (57)
+   Start at  22:04:40
+   Duration  1.38s (transform 688ms, setup 9ms, import 1.36s, tests 198ms, environment 664ms)
+

@@ -1,0 +1,48 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 1 failed) 58ms
+     × is the expected address for an animated custom emoji 8ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 1 failed) 192ms
+     × for an animated custom emoji, as its gif 24ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > for an animated custom emoji, as its gif
+AssertionError: expected 'https://cdn.discordapp.com/emojis/456…' to be 'https://cdn.discordapp.com/emojis/456…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/456.gif"
+Received: "https://cdn.discordapp.com/emojis/456.png"
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:51:28
+     49|   it('for an animated custom emoji, as its gif', () => {
+     50|     const [img] = imagesOf(draw('a <a:wave:456>'));
+     51|     expect(addressOf(img)).toBe('https://cdn.discordapp.com/emojis/456…
+       |                            ^
+     52|   });
+     53|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for an animated custom emoji
+AssertionError: expected 'https://cdn.discordapp.com/emojis/456…' to be 'https://cdn.discordapp.com/emojis/456…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/456.gif"
+Received: "https://cdn.discordapp.com/emojis/456.png"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  2 failed | 55 passed (57)
+   Start at  22:04:23
+   Duration  1.73s (transform 839ms, setup 13ms, import 1.65s, tests 321ms, environment 782ms)
+

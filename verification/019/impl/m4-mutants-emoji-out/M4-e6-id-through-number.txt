@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 1 failed) 65ms
+     × is the expected address for a custom emoji whose id is past 2^53 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for a custom emoji whose id is past 2^53
+AssertionError: expected 'https://cdn.discordapp.com/emojis/157…' to be 'https://cdn.discordapp.com/emojis/157…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/1574460051593240606.png"
+Received: "https://cdn.discordapp.com/emojis/1574460051593240600.png"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 56 passed (57)
+   Start at  22:04:27
+   Duration  1.70s (transform 912ms, setup 12ms, import 1.84s, tests 244ms, environment 795ms)
+
