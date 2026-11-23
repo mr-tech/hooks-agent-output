@@ -718,3 +718,12 @@ confirmation. This thread does not put it to him: D-6's option text already answ
 15:23Z, and its option "stated that on the 33 disagreeing cases the site shows the new formatter's way". D-5's listing of the
 disagreements stands beside it. Revision 3 is record `9ac9ba62`. On the same plan, `critic-019` and `analyst-019`, both cleared, had
 started on the planner's delivery before this thread's brief. Each was sent its Resumption State pointer at 17:1xZ.
+
+## 2026-11-23T17:56Z — plan 019: M4 and M6 capped at their second post-approval revision (this thread, steering.md Standing check)
+
+Revision 5 (`d2912590`) was approved by all three pre-code gates (critique `944e53f6`, architect `681ae51`, QA `d060162`). Revision 6
+(`946d4e54`) and Revision 7 (`e0eb1e87`, 17:53:44Z) each changed M4's and M6's criteria, so Revision 7 is their second revision after
+approval. **Cap:** from Revision 7's verdicts onward, each further gap below HIGH on M4 or M6 goes to the plan's Planner batch as a
+stated limit, with no revision round. A gate's severity-floor finding is excepted. M2, M3 and M5 are not capped: Revision 7 left them
+as approved. Plan 019's planning time so far runs from Revision 0, at 15:38:16Z, to Revision 7, at 17:53:44Z (`git log` of the plan).
+Told to the three gates (critic-019, architect-019, qa-019) and to the planner. Told to him at the next prompt, with the spend.
