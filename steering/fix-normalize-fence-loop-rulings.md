@@ -80,3 +80,18 @@ opening-writes-stored-text 11, getInitialValue stored-text-loads-unchanged 20, w
 deweeder unit. Table: `verification/fixes-2026-11-23-steering-hooks-fixer-2/deweed/website-1.tsv`. **Scored 62; 28 below 7** (45%),
 counted by this thread from the table (python `csv`). Every covering cell names a scored case of 7 or more (0 unscored, 0 below 7). Nothing
 is deleted on it. The export is removed.
+
+## 2026-11-23T15:49Z — chain close-out
+
+Released: website `master` `0411d3b` → `af3d95a` at 15:24:07Z on his release approval in `devops-fix-normalize-fence-loop`'s session;
+Vercel production deployment 567m70ejp Ready and aliased to hooks.gg; post-deploy walk PASS (devops's report; its record
+`deployment/closed/fix-normalize-fence-loop-deployment.md`, commit `a9c5ea0e`). Every chain document is Released in `closed/`; the
+reviewer corrected its stamp row (`0cfefc94`). Sessions stopped: fixer, QA, devops (15:3xZ) and code reviewer (15:34Z).
+Carriers read: S-29 and QAF-4 go to plan 019 M6 (effort block 15:49Z); the untraced `>>>` server-side question becomes a plan 019 row
+(same block). No handoffs were created or answered by the chain; QA's Phase 3 open-handoff sweep (`bc891df5`) fired none. No
+architecture or roadmap entry is owed. `OWNER-QUEUE.md` is unchanged by this chain (its two Vercel reads stand).
+Retrospective: `retrospectives/fixes-2026-11-23-steering-hooks-fixer-2-retrospective.md` (`b990c587`, Active), batch of one (a REJECTED
+round). Box: no Docker image or `/var/tmp` capture is this chain's (mariadb and postgres images predate it). Scratch deleted:
+this thread's `sweep-9c` (10,092 KB) and `refute-9cf` (10,100 KB) and `deweed-fence` (1,640 KB), `ls -d` failing after. Kept: `inv-run`,
+`inv-slate`, `repro2.out` and `link-out*.json`, which the Slate inventory cites. The exited chain sessions' own scratch under the website
+cwd was not deleted, because their session ids were not established.
