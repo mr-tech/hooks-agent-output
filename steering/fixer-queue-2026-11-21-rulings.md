@@ -917,10 +917,11 @@ examples were run by the helper's probe (`show.json`). The adjustment's zero rea
 untracked in the website tree and absent at `5ccb54d`, so the committed record does not reproduce the counts from a commit. The finding goes to
 `implementer-019`'s M4 document by message.
 
-## 2026-11-23T23:35Z — his ruling, relayed by the coordinator: prompts are put to him by agents
+## 2026-11-23T23:34Z — his ruling, relayed by the coordinator: prompts are put to him by agents
 
 His words, relayed verbatim by `steering-coordinator` (his words in its session at 23:31Z, `coordinator-rulings.md` block 2026-11-23T23:31:26Z):
 "Make sure that prompts are being put to me by agents." It extends block 09:30Z to the fleet. **Acted.** This thread held no question for him: the
 RK-9 prompt was answered at 23:33Z. It was relayed to all seven live 019 stage sessions by message at 23:35Z (implementer, planner, architect, QA,
 critic, code reviewer, analyst): any question for him comes to this thread by SendMessage and is put as a selection prompt, never left as prose
-in a document.
+in a document. **Disclosed:** the stamp gate refused this block's heading. This thread had typed 23:35Z, a minute ahead of the clock, and committed it
+at `2da9f09`. The heading was re-stamped from `date -u` (23:34Z). The send time "23:35Z" in this block's text means about 23:34Z.
