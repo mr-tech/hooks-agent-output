@@ -152,7 +152,7 @@ Finish the M3 parts above, record them, run `convention-check.js website --since
 Written 2026-11-23T19:3x UTC at 293K tokens, for a `/clear`.
 
 - **Done.** M2 fix round 1 (CR-1, CR-2) at `78c5f74`, recorded in the M2 document and sent to `code-reviewer-019`. M3 parts 1 to 5 committed: `805fff6`, `548b16b`, `1bcab7a`.
-- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `1bcab7a` (before this document's commit, which is record-side). The website tree holds only the foreign `?? .playwright-mcp/`.
+- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `7dcedc9` (M2 fix round 2, QA's QAF-29 and QAF-30, recorded in the M2 document; the M3 parts stand at `1bcab7a`). The cache-warm wake was re-armed at 19:36 (job `e8668210`, fires 20:31) because QA's message started a turn after the checkpoint; delete it at the next checkpoint. The website tree holds only the foreign `?? .playwright-mcp/`.
 - **Next.** Outstanding items 1 to 11 above, in this order: (3) webhook-state legacy trees and the read of their difference; (1) the visible form; (2) per-surface legacy calls and the residue measurement; (4) boxes and frozen native literals; (5) AC-3.8; (6) reports; (7) AC-3.3 and the `onChange` drive; then (9) mutants and the sweep, (10) CR-4. Before M4, M5 or M6 code, send `steering-hooks-fixer` the flows that hold a decision (brief).
 - **Approach in flight.** None. No uncommitted source work.
 - **Local state not restored.** None. No process of mine is running. Live oracle runs read from the network into memory only.
