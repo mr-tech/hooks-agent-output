@@ -358,6 +358,9 @@ Written after cycle 3 pass 1.
 - **Standing rules**: the brief's (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in the
   record folder; website read by `git show <sha>:<path>`; record documents by Write or Edit only; stamps from `date -u`.
   Steering's cap (effort rulings block 17:56Z): a gap below HIGH on M4 or M6 goes to the Planner batch as a stated limit.
+  Steering's decision on AC-4.7 (block 18:02Z, record `0a794563`): revision 9 folds the `ja-JP` fixture once; on revision 9
+  this gate reads AC-4.7's delta only, with the diff's boundary still checked; after it, any AC-4.7 gap of any severity goes
+  to `steering-hooks-fixer` before any fold.
 - **Tree**: record `master`. Nothing of this session is uncommitted after the cycle 3 pass 1 commit; no process of this
   session is running. No question is awaiting an answer. A cache-warm wake is armed for 18:11 UTC.
 
