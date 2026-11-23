@@ -1,0 +1,5 @@
+content (webhook) GAME_MENTION: table legacy=- mask=on
+masks (hex): content (webhook)=0x3fffffff; embed description=0x3ffffbff; embed field value=0x3dfffbff; embed title=0x19fec97f; embed title, embed has url=0x19fec907; field name=0x19fec97f; field name, embed has url=0x19fec907; V2 text display=0x3ffffbff
+no mask is 0: true; DEV_LINKS set in any: false
+cells 248 mismatches 1
+control (title mask with BOLD flipped): detected
