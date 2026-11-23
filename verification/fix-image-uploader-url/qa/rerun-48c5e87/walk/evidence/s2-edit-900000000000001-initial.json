@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
+  "dialog": true,
+  "box": "",
+  "preview": null,
+  "saveDisabled": true,
+  "errInvalid": false,
+  "errNotFound": false,
+  "focusInBox": false
+}

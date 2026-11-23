@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
-Verified-At: e94baf7 — repos=website
+Verified-At: 48c5e87 — repos=website
 Status: QA Failed
-Status-Detail: "Phase 2 at website e94baf7: QA Failed on QAF-1 MEDIUM (a test gap: no assertion holds Cancel's reset to the current saved image under stable callbacks). The fix is test-only and goes to fixer-fix-image-uploader-url. Shipped code is correct on every criterion run here."
+Status-Detail: "Phase 2 re-run at website 48c5e87: QA Failed on QAF-4 MEDIUM (a test gap: no assertion holds the box following a saved image that changes while the dialog is open, as Reload on 'Message Update Detected' can do). The fix is test-only and goes to fixer-fix-image-uploader-url. QAF-1 to QAF-3 are resolved, and the shipped code is correct on every criterion run here."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ block "2026-11-23T17:05Z" (CR-3 ruled inside limb 1). Brief: `steering/fix-image
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T17:19 | steering-hooks-fixer (brief 17:05Z) | Phase 2 at website `e94baf7` | Phase 2. QA Failed. Red re-run at `af3d95a`: 14 of 16 cases failed. Green at the tip: 40 of 40. Suite: 2712 of 2712, exit 0 (second run). Typecheck exit 0. Sweep: 36 of 38 killed. QAF-1 MEDIUM: a Cancel mutant survives the suite and is killed by a QA probe. Browser walk of flows 1, 3 and 8 on a local build: flows 3 and 8 hold. Flow 1's Enter step fails (QAF-2 LOW, the behaviour was already so at base). QAF-3 INFO is pre-existing residue. |
+| 2026-11-23T18:12 | steering-hooks-fixer (message of 18:0xZ) | Phase 2 re-run at website `48c5e87` (limbs 1 to 4 plus limb 5) | Phase 2. QA Failed on QAF-4 MEDIUM, a test gap on a saved image that changes while the dialog is open. QAF-1, QAF-2 and QAF-3 are resolved. Red at `e94baf7` with the tip's tests: 3 of 60 failed. Green: 60 of 60. Suite: 2717 of 2717, exit 0. Typecheck exit 0. Sweep of this round: 10 of 13 killed; two survivors are equivalent and one is QAF-4. The shared-hook differential is unchanged for the other two dialogs. Walk of flows 1 and 9: every step passes. See "Phase 2 re-run at `48c5e87`". |
 
 ## Scope of this pass
 
@@ -157,7 +158,15 @@ Under the mutant, the 40 suite cases all pass (the same run: 41 passed of 43, an
 
 ## Findings
 
-QAF-1 MEDIUM Phase 2
+Dispositions at the `48c5e87` re-run:
+
+QAF-1 MEDIUM Phase 2 RESOLVED — the case "puts the box back to the image saved in this dialog, not the one it opened with" uses a stable-callback host and kills `qa-cancel-deps-stale` at `48c5e87` (`verification/fix-image-uploader-url/qa/rerun-48c5e87/sweep/table-48c5e87.md`).
+QAF-2 LOW Phase 2 RESOLVED — his selection made it limb 5 (rulings block "2026-11-23T17:40Z"). Enter in the box saves, at `48c5e87`. Flow 1 is reworded, and walk steps 1a to 1e pass.
+QAF-3 INFO Phase 2 RESOLVED — ruled in scope under limb 4 (rulings block "2026-11-23T17:22Z") and fixed by the `shownImage` sync. Probe P3 passes at `48c5e87`, and walk steps 9a and 9b pass.
+
+The argument below is this pass's record at `e94baf7`, kept so its own verdict can still be read.
+
+QAF-1 MEDIUM Phase 2 (at e94baf7)
 - **What**: Cancel's reset to the current saved image (`onCancel`, `setImageInput(image)` / `setLocalImage(image)` with dependencies
   `[image, onClose]`) has no assertion that fails when the dependency on `image` is lost.
 - **Failure scenario**: suppose `image` is dropped from `onCancel`'s dependencies. The consumers' callbacks are stable, so `onCancel` keeps
@@ -205,10 +214,173 @@ import, or a reload after "Message Update Detected".
   the component does this whenever `image` moves underneath it.
 - **Owner**: `steering-hooks-fixer`. Whether it opens work is a scope decision.
 
-## Verdict
+## Verdict at `e94baf7` (superseded by the re-run below)
 
 **QA Failed** at website `e94baf7`, on QAF-1. The shipped behaviour is correct on every criterion this pass ran: limbs 1 to 4 in the suite
 and the probe, and flows 3 and 8 in a real browser. The failure is a missing assertion. The remedy is test-only, so it adds no production
 lines. The re-run after it covers that round's diff alone: the new case seen red under `qa-cancel-deps-stale` and green at the new tip, the
 survivor re-run, and the suite.
 Recommended next: the fixer (`fixer-fix-image-uploader-url`) for QAF-1 and QAF-2's document correction, then QA Phase 2 again on the new SHA.
+
+## Phase 2 re-run at `48c5e87`
+
+**Start.** Steering's message (18:0xZ) names the gate anchors. I re-derived them at the record:
+- the implementation document's `Handoff-At: 48c5e87` (record `74ffd334`);
+- the code review's `Reviewed-At: 48c5e87`, `Round: 3`, `Verdict: APPROVED` (record `7a09246a`, read from its header).
+
+The shared tree's `git rev-parse HEAD` printed `48c5e87eda2b…` at the start and at the end.
+Rulings read: block "2026-11-23T17:22Z" (QAF-3 in scope under limb 4) and block "2026-11-23T17:40Z" (his selection, limb 5).
+
+**Criteria this pass assesses**, fixed before executing anything: limbs 1 to 4 (above), with limb 4 now including a saved image that changed
+while the dialog was closed (QAF-3's ruling), and limb 5: in the image address dialog, Enter with focus in the address box commits as Save
+does, under limbs 1 and 2's conditions; `useDialogEnter` is shared, and the other dialogs' behaviour stays as it is.
+- Limb 5's members: loaded saves; still loading, failed by load, failed by format and emptied box do nothing. The suite cases loaded,
+  loading and failed-by-load. Walk steps 1a to 1e cover all five in a real browser.
+- The other callers: `git grep -n useDialogEnter 48c5e87 -- src`, excluding tests, gives `ConfirmationDialog` and `WarningDialog`, plus
+  `ImageUploader`. Each is in the differential below.
+
+**Round diff.** `e94baf7..48c5e87` (`2217a92`, `b97f79c`, `cae7472`, `7f0229c`, `96fb1f8`, `48c5e87`), production paths only:
+`src/components/ImageUploader.tsx` (the `shownImage` sync during render, `onSetImage`'s `setLocalImage` removed, `['input']` passed to the
+hook) and `src/utils/hooks/useDialogEnter.ts` (an optional `enableOnFormTags` passed to `useHotkeys`). `git diff --numstat af3d95a
+48c5e87` gives 33 + 8 production lines added. Blobs at `48c5e87`: `ImageUploader.tsx` `709efa13`, `useDialogEnter.ts` `928469c4`,
+`ImageUploader.saved-address.test.tsx` `2be20678`, `ImageUploader.enter-scope.test.tsx` `44051b35`. Each export was checked against
+`git rev-parse`.
+
+**TDD gate.** The fixer document's "QA Phase 2 fix round" and "Limb 5" sections carry red runs (`qa-round1/red-run-2217a92.txt`,
+`limb5/red-run-cae7472.txt`) and green runs. The gate passes, and I re-ran both below.
+
+**Test audit of the round's test changes.**
+- `saved-address`: the `Host` now passes `useCallback` callbacks (QAF-1's remedy). New cases:
+  - "puts the box back to the image saved in this dialog, not the one it opened with";
+  - "shows that image on reopening, and saves it", whose host replaces `image` through a hidden button;
+  - "saves the loaded address on Enter with focus in the box";
+  - an `it.each`, "saves nothing on Enter in the box while its address %s".
+  
+  Each Enter case asserts that focus is in the box before a real `keydown`. Expectations are literals.
+- `enter-scope`: the URL-field row changes from nothing to `{ close: 1, setImage: 1 }`, as the ruling names. The module-level
+  reassignments became hidden host buttons.
+- A naming check over the round's added titles: no ID token and no comment lines (the reviewer's `grep -c`, both 0; the convention check,
+  0 FAIL). No time-based cell.
+- The Enter-in-box refusal for a format failure has no suite case. It goes through the same `loaded` gate as the load failure (no
+  expression in the component tells format from load: `failedImage` records both). Walk step 1b covers it in a real browser.
+- One gap: QAF-4.
+
+Every run below was network-isolated (`unshare -rn`, loopback brought up for the full suite) in a `git archive` export, under
+`verification/fix-image-uploader-url/qa/rerun-48c5e87/`.
+
+| Run | Result | Capture |
+|---|---|---|
+| Red: `e94baf7` with the tip's two `ImageUploader` test files, over the three `ImageUploader` files and `WarningDialog.enter-scope` | 3 failed, 57 passed (60), exit 1. Each failure is an `AssertionError` on a literal: the URL-field Enter row (`{ close: +0, setImage: +0 … }` against `{ close: 1, setImage: 1 … }`); Enter in the box (`[]` against `[ a.png ]`); and the replaced image on reopen (`x.png` against `z.png`). The QAF-1 case passes there, because the behaviour was already right; the sweep shows it red under its mutant | `red-run-e94baf7.txt` |
+| Green at `48c5e87`, the same four files | 60 passed (60), exit 0 | `green-run-48c5e87.txt` |
+| Full suite at `48c5e87` | **2717 of 2717 passed, 173 files, exit 0** | `suite-48c5e87.json`/`.txt` |
+| Typecheck at `48c5e87` (both programs) | exit 0 | `typecheck-48c5e87.txt` |
+| My `e94baf7` probe (P1 to P3, stable host) at `48c5e87` | 3 passed, exit 0. P3, QAF-3's case, now passes | `probes/probe-run-48c5e87.txt` |
+
+**Shared-hook differential** (`probes/dialog-enter.qa-differential.test.tsx`, not a suite file). It mounts the real `WarningDialog`, the
+real `ConfirmationDialog` (through `ConfirmationProvider`) and the real `ImageUploader`, and records per scenario how often each answered.
+The same file ran at `e94baf7` and at `48c5e87`. Outputs: `probes/differential-prev.json` and `probes/differential-tip.json`. Runs:
+`probes/differential-run-{prev,tip}.txt`, both exit 0.
+
+| Scenario | `e94baf7` | `48c5e87` |
+|---|---|---|
+| Warning: Enter with focus on the dialog's text | confirm 1 | confirm 1 |
+| Warning: Enter in an `<input>` injected into the dialog | 0 | 0 |
+| Warning: Enter on Cancel | close 1, confirm 0 | close 1, confirm 0 |
+| Confirmation: Enter with focus on the dialog's text | confirm 1 | confirm 1 |
+| Confirmation: Enter in an injected `<input>` | 0 | 0 |
+| Image dialog, Enter in the box with a loaded address (positive control) | close 0, setImage 0 | **close 1, setImage 1** |
+
+`diff` of the two outputs differs only in the positive control's row. So the instrument sees a difference where one exists, and the other
+two dialogs are unchanged, including the form-field path that the new option governs.
+
+**Mutation sweep, this round only.**
+- **Range and files.** `e94baf7..48c5e87`, production paths: `src/components/ImageUploader.tsx` and `src/utils/hooks/useDialogEnter.ts`.
+- **Set.** 13 mutants in `rerun-48c5e87/sweep/mutants.json` (blob `c9847d9f`):
+  - 3 from `mutant-gen.js --range e94baf7..48c5e87`, which uses operator mutants on added lines (`mutants-gen.json`);
+  - 9 of mine (`mutants-qa.json`): each write of the sync, the sync never recording, the sync only when closed (coupling with `isOpen`),
+    the box not asking for form tags, asking for every tag, the hook dropping the option, and the hook defaulting it on for every caller;
+  - the round's closing survivor, `qa-cancel-deps-stale`, re-run.
+- **Run.** A helper ran `mutation-run.py --sha 48c5e87 --dep node_modules --timeout 240` over the three `ImageUploader` files and
+  `WarningDialog.enter-scope`. The control passed with 60 tests.
+- **Result.** 10 of 13 mutants killed, stillborn 0, aborted 0, exit 0 (`sweep/mutation-run-48c5e87.out`, table `sweep/table-48c5e87.md`).
+  `qa-cancel-deps-stale` is KILLED, which closes QAF-1.
+
+Survivors:
+- `qa-enter-tags-all` (`['input']` → `true`): **equivalent**. The dialog renders one form field, an `<input>`, and no `<textarea>` or
+  `<select>` (`grep -c -E "<textarea|<select"` over `ImageUploader.tsx`, `TextField.tsx` and `PresetDialog.tsx` at `48c5e87`: 0 each).
+- `qa-hook-tags-default-on` (the hook passes `enableOnFormTags ?? true` for every caller): **equivalent for the callers that exist**.
+  Neither `WarningDialog` nor `ConfirmationDialog` renders a form field, and `ConfirmationProps.message` is a `string`. The differential's
+  injected-input rows are the instrument that would see it, and they read 0 at both trees.
+- `qa-sync-only-when-closed` (`if (shownImage !== image && !isOpen)`): **QAF-4**.
+
+**Browser walk** (Assumptions Not Checked of review Rounds 2 and 3: flows 1 and 9).
+- **Build.**
+  - A `git archive` export of `48c5e87` (blobs as above).
+  - `pnpm install --frozen-lockfile --offline`, exit 0 (`walk/install.txt`).
+  - `.env.local` symlinked (key names and hosts only).
+  - `next dev -H 127.0.0.1 -p 3000`.
+- **Database.** `tools/uat-local-stack.sh up` reported next message id 900000000000001 (`walk/local-stack-up.txt`). The walk wrote only
+  message **900000000000001**, in two tabs. Its Pusher channel is outside production's id range.
+- **Images.** A loopback `no-store` image server on port 8765.
+- **Who walked it.** A `browser-walker` helper signed in as the test account (consent page only). It waited a minute for another session
+  to release the profile. Evidence: `walk/evidence/*.json`, 24 files.
+
+| Step | Observed | Result |
+|---|---|---|
+| 1a | Focus in the box, `red.png` loaded: Enter closes the dialog, and the avatar is `red.png` | PASS |
+| 1b, 1c | `not an image` ("Invalid url.") and `missing.png` ("Image not found."): focus in the box, Enter leaves the dialog open, and the avatar is unchanged | PASS |
+| 1d | Emptied box with an image saved: Save is enabled, Enter in the box does nothing (CR-3's ruling), and the avatar is unchanged | PASS |
+| 1e | `blue.png`: Enter in the box saves it | PASS |
+| 9a | Edit, then JSON: `avatar_url` set to `json.png`, then Load, then "Are you sure?", then Load. The avatar is `json.png`; the dialog opens on `json.png` with its preview, and Save keeps it | PASS |
+| 9b | Message saved; tab B sets `pusher.png` and saves. Tab A shows "Message Update Detected", then Reload; the avatar is `pusher.png`. The dialog opens on `pusher.png`, and Save keeps it | PASS |
+
+The walk never had the dialog open while the update arrived. That case is QAF-4, run in the probe below.
+
+**Probe P4** (`rerun-48c5e87/probes/ImageUploader.qa-probe-open.test.tsx`, the stable host of the first probe plus one case). With the
+dialog open on a loaded X, the saved image becomes Z. The case asserts that the box shows Z and that Save commits Z.
+- At `48c5e87`: 1 passed, exit 0 (`probe-open-run-48c5e87.txt`).
+- Under `qa-sync-only-when-closed`: 1 failed, `expected 'https://example.com/x.png' to be 'https://example.com/z.png'`, exit 1
+  (`probe-open-run-sync-only-when-closed.txt`).
+
+**Findings.**
+
+QAF-4 MEDIUM Phase 2
+- **What**: the sync's reach to a dialog that is **open** when the saved image changes has no assertion that fails when it is lost. The
+  implementation document claims the behaviour (Limb 4 fix, QAF-3: "A change that arrives while the dialog is open replaces the box in
+  the same way").
+- **Reachability** (read at `48c5e87`): `usePusher.ts`'s `message-update` handler calls `showConfirmation` with nothing that checks for an
+  open dialog. The prompt therefore opens over the avatar dialog, which `ImageUploader.enter-scope` itself raises in that overlap. Its
+  Reload replaces `avatar_url` while the dialog is open.
+- **Failure scenario under the surviving mutant**: the box keeps the pre-reload address, and Save writes it back over the reloaded message.
+  That is the class QAF-3's ruling put in limb 4. The suite stays 60 of 60 green, and P4 fails.
+- **Required** (test-only; the shipped code is correct): a spec-form case in `ImageUploader.saved-address.test.tsx`, for example "follows
+  an image saved by another path while the dialog is open, and saves it", using the existing `data-replace` host button with the dialog
+  left open. It is seen red under `if (shownImage !== image) {` → `if (shownImage !== image && !isOpen) {` and green at the tip.
+
+**Blocking-condition register.** No rows, for the same reason as at `e94baf7`. Flows 1 and 9, which the reviews routed here, were walked in
+this pass and not handed on.
+
+**Set up and removed.**
+- `next dev` (process group 1792401) and the image server (process group 1792406) were stopped. `ps` shows none of their pids, and 3000
+  and 8765 are not listening.
+- The container `hooks-postgres-local` was removed (`walk/local-stack-down.txt`, exit 0).
+- The exports `tip`, `prev` and `walk`, the image folder, the runner's `mwork` (empty) and the helper's launcher files were deleted after
+  a `/proc` cwd check.
+- The helper closed the browser and emptied its caches.
+- The shared tree is still at `48c5e87`, with no `vitest.transcribed.config.ts` left behind.
+
+**Disclosed in this round.** The stamp gate (a PostToolUse hook) refused my first write of this pass's changelog row, because I typed
+18:12 while the clock read 18:11Z. I re-read `date -u` (18:12) before the row stood, and the gate accepted it. I changed no other text for
+it.
+
+**Assumption Not Checked.** This pass assumes that a real image load started by the sync, when the saved image changes underneath an open
+or closed dialog, settles the same way as one started by typing, and it does not test this (the walk's 9a and 9b loaded fast, local, good
+images only). Signature of falsity: after a JSON load or a Reload that sets an address that no longer loads, the reopened dialog shows the
+preview and enables Save instead of "Image not found.". Owner: QA, at the next pass, by walking a JSON load to a 404 address. That takes a
+build, so it is not a run of under a minute.
+
+**Verdict.** **QA Failed** at website `48c5e87`, on QAF-4. Limbs 1 to 5 hold on every instrument run: suite, probes, differential and
+walk. The failure is a missing assertion on a behaviour the change claims. The remedy is test-only. The re-run after it covers that round
+alone: the new case seen red under `qa-sync-only-when-closed` and green at the new tip, that survivor re-run, the suite, and the next
+pass's Assumption Not Checked walk (above).
+Recommended next: the fixer (`fixer-fix-image-uploader-url`) for QAF-4.

@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T180515Z-p1784262/mutant-3
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 2 failed) 752ms
+       × answers only the update prompt with focus on its dialog element 56ms
+       × answers only the update prompt with focus on its message text 38ms
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (15 tests | 3 failed) 1565ms
+       × answers only the update prompt with focus on its dialog element 46ms
+       × answers only the update prompt with focus on its message text 39ms
+       × leaves the warning answerable on its own after the update prompt is answered 1043ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  5 failed | 55 passed (60)
+   Start at  18:05:30
+   Duration  3.55s (transform 739ms, setup 90ms, import 3.82s, tests 3.54s, environment 3.18s)
+

@@ -1,0 +1,132 @@
+▲ Next.js 16.4.6 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+✓ Ready in 556ms
+✓ Running next.config.js took 30ms
+
+✓ Generated AGENTS.md for AI agents. Set `agentRules: false` in next.config to disable.
+○ Compiling / ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ GET / 200 in 671ms (next.js: 247ms, application-code: 424ms)
+ GET / 200 in 69ms (next.js: 3ms, application-code: 67ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 3.2ms
+ GET /api/auth/session?hydrate=true 200 in 2.5s (next.js: 2.5s, application-code: 46ms)
+ GET /message/m/new 200 in 3.9s (next.js: 965ms, proxy.ts: 52ms, application-code: 2.9s)
+○ Compiling /message/m/[id]/edit ...
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.8ms
+ GET /api/auth/session?hydrate=true 200 in 8ms (next.js: 0.7ms, application-code: 8ms)
+ GET /message/m/0/edit 200 in 5.0s (next.js: 4.6s, proxy.ts: 15ms, application-code: 319ms)
+ GET /api/auth/providers 200 in 24ms (next.js: 7ms, application-code: 17ms)
+ GET /api/auth/csrf 200 in 27ms (next.js: 7ms, application-code: 20ms)
+ POST /api/auth/signin/discord 200 in 24ms (next.js: 1.5ms, application-code: 23ms)
+kysely:query: select "Users".* from "Users" inner join "Accounts" on "Users"."id" = "Accounts"."userId" where "Accounts"."providerAccountId" = $1 and "Accounts"."provider" = $2
+kysely:query: duration: 2.7ms
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.0ms
+kysely:query: select "Users".* from "Users" inner join "Accounts" on "Users"."id" = "Accounts"."userId" where "Accounts"."providerAccountId" = $1 and "Accounts"."provider" = $2
+kysely:query: duration: 0.7ms
+kysely:query: insert into "Users" ("name", "image", "preferences", "emailVerified") values ($1, $2, $3, $4) returning *
+kysely:query: duration: 2.6ms
+kysely:query: insert into "Accounts" ("provider", "type", "providerAccountId", "token_type", "access_token", "expires_at", "refresh_token", "scope", "userId") values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+kysely:query: duration: 1.5ms
+kysely:query: insert into "Sessions" ("sessionToken", "userId", "expires") values ($1, $2, $3) returning *
+kysely:query: duration: 1.9ms
+ GET /api/auth/callback/discord?code=H7kdReIlgTYaYCiWeZHqQReSQxHKRP&state=ZCOgrMC5YzpCmZaxMc-31BKLkbGzSQF4DiQ9gcYIrv8&iss=https%3A%2F%2Fdiscord.com 302 in 1261ms (next.js: 0.7ms, application-code: 1260ms)
+ GET /?callbackUrl=%2Fmessage 200 in 61ms (next.js: 1.1ms, application-code: 59ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.1ms
+kysely:query: select "id", "access_token", "refresh_token", "providerAccountId", "expires_at" from "Accounts" where "userId" = $1
+kysely:query: duration: 2.4ms
+ GET /api/auth/session?hydrate=true 200 in 893ms (next.js: 0.9ms, application-code: 893ms)
+ GET /message/m/new 200 in 1057ms (next.js: 62ms, proxy.ts: 4ms, application-code: 990ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.2ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.9ms
+kysely:query: select count(*) as "count" from "Messages" where "fk_users_id" = $1
+kysely:query: duration: 0.9ms
+kysely:query: insert into "Messages" ("updatedAt", "name", "data", "valid", "fk_users_id", "fk_guilds_id") values ($1, $2, $3, $4, $5, $6) returning "id", (extract(epoch from clock_timestamp()) * 1000000)::bigint::text as "savedAtMicros"
+kysely:query: duration: 4.0ms
+preview-image-failure id=900000000000001 class=network-error elapsedMs=3
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 2.1ms
+ POST /api/trpc/message.upsert 200 in 99ms (next.js: 63ms, application-code: 36ms)
+ GET /message/m/900000000000001/edit 200 in 239ms (next.js: 203ms, proxy.ts: 4ms, application-code: 32ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.4ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 1.9ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 1.0ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 0.8ms
+ GET /api/trpc/message.getOne?input=%7B%22json%22%3A%22900000000000001%22%7D 200 in 23ms (next.js: 0.9ms, application-code: 22ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.8ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 0.7ms
+kysely:query: select "preferences" from "Users" where "id" = $1
+kysely:query: duration: 0.7ms
+kysely:query: update "Users" set "preferences" = $1 where "id" = $2
+kysely:query: duration: 2.3ms
+ POST /api/trpc/user.updatePreferences 200 in 16ms (next.js: 0.6ms, application-code: 16ms)
+ GET /api/auth/csrf 304 in 3ms (next.js: 0.5ms, application-code: 2ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 0.8ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1) and ("Messages"."fk_users_id" = $2 or "Messages"."fk_guilds_id" is not null)
+kysely:query: duration: 1.0ms
+ POST /api/auth/session 200 in 8ms (next.js: 1.1ms, application-code: 6ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 8.4ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 6.4ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 3.1ms
+kysely:query: update "Messages" set "name" = $1, "data" = $2, "valid" = $3, "updatedAt" = $4 where "id" = $5 and "fk_users_id" = $6 returning "id", (extract(epoch from clock_timestamp()) * 1000000)::bigint::text as "savedAtMicros"
+kysely:query: duration: 5.8ms
+preview-image-failure id=900000000000001 class=network-error elapsedMs=19
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 5.1ms
+ POST /api/trpc/message.upsert 200 in 536ms (next.js: 0.7ms, application-code: 535ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 5.3ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1) and ("Messages"."fk_users_id" = $2 or "Messages"."fk_guilds_id" is not null)
+kysely:query: duration: 3.7ms
+ GET /api/auth/session?hydrate=true 200 in 21ms (next.js: 0.9ms, application-code: 20ms)
+ GET /message/m/900000000000001/edit 200 in 762ms (next.js: 267ms, proxy.ts: 34ms, application-code: 461ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 3.2ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 2.3ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 1.9ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 1.8ms
+ GET /api/trpc/message.getOne?input=%7B%22json%22%3A%22900000000000001%22%7D 200 in 36ms (next.js: 3ms, application-code: 33ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 10.3ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 3.6ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 2.0ms
+kysely:query: update "Messages" set "name" = $1, "data" = $2, "valid" = $3, "updatedAt" = $4 where "id" = $5 and "fk_users_id" = $6 returning "id", (extract(epoch from clock_timestamp()) * 1000000)::bigint::text as "savedAtMicros"
+kysely:query: duration: 4.7ms
+preview-image-failure id=900000000000001 class=network-error elapsedMs=11
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 8.6ms
+ POST /api/trpc/message.upsert 200 in 340ms (next.js: 1.2ms, application-code: 339ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 7.3ms
+kysely:query: select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."data", "Messages"."previewImageNonce", "Messages"."recentMessageId", "Messages"."recentThreadId", "Messages"."recentWebhookId", "Guilds"."guildId" as "guildId", "ScheduledMessages"."id" as "scheduledMessageId", "ScheduledMessages"."cron" as "scheduledMessageCron", "ScheduledMessages"."error" as "scheduledMessageError", "ScheduledMessages"."sendAt" as "scheduledMessageSendAt", "ScheduledMessages"."sent" as "scheduledMessageSent" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" left join "ScheduledMessages" on "ScheduledMessages"."fk_messages_id" = "Messages"."id" where "Messages"."id" = $1
+kysely:query: duration: 6.3ms
+kysely:query: select "userId" from "Accounts" where "provider" = $1 and "providerAccountId" = $2
+kysely:query: duration: 2.7ms
+kysely:query: select "fk_users_id" from "Messages" where "id" in ($1)
+kysely:query: duration: 3.6ms
+ GET /api/trpc/message.getOne?input=%7B%22json%22%3A%22900000000000001%22%7D 200 in 142ms (next.js: 45ms, application-code: 97ms)
+[?25h

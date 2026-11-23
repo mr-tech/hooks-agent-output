@@ -1,0 +1,9 @@
+{
+  "avatar": "http://127.0.0.1:8765/json.png",
+  "text": "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload",
+  "btns": [
+    "",
+    "Cancel",
+    "Reload"
+  ]
+}

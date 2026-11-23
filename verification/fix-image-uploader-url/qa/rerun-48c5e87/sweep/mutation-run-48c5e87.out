@@ -1,0 +1,15 @@
+ImageUploader.tsx:54:if-false KILLED 3.82
+ImageUploader.tsx:54:!== KILLED 5.52
+useDialogEnter.ts:10:true KILLED 4.86
+qa-sync-drops-box KILLED 4.41
+qa-sync-drops-local KILLED 5.53
+qa-sync-local-from-box KILLED 5.59
+qa-sync-never-records KILLED 5.89
+qa-sync-only-when-closed SURVIVED 5.15
+qa-enter-tags-dropped KILLED 4.17
+qa-enter-tags-all SURVIVED 4.27
+qa-hook-drops-tags KILLED 4.07
+qa-hook-tags-default-on SURVIVED 3.91
+qa-cancel-deps-stale KILLED 3.79
+10 of 13 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob c9847d9f0af303c4503e5c2484849e0b01458698))
+exit=0

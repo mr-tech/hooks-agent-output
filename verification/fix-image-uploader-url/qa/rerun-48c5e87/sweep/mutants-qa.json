@@ -1,0 +1,92 @@
+[
+ {
+  "id": "qa-sync-drops-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }",
+  "new": "    setShownImage(image);\n    setLocalImage(image);\n  }",
+  "op": "qa",
+  "line": 55,
+  "text": "setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }"
+ },
+ {
+  "id": "qa-sync-drops-local",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }",
+  "new": "    setShownImage(image);\n    setImageInput(image);\n  }",
+  "op": "qa",
+  "line": 55,
+  "text": "setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }"
+ },
+ {
+  "id": "qa-sync-local-from-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }",
+  "new": "    setShownImage(image);\n    setImageInput(image);\n    setLocalImage(imageInput);\n  }",
+  "op": "qa",
+  "line": 55,
+  "text": "setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }"
+ },
+ {
+  "id": "qa-sync-never-records",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }",
+  "new": "    setImageInput(image);\n    setLocalImage(image);\n  }",
+  "op": "qa",
+  "line": 55,
+  "text": "setShownImage(image);\n    setImageInput(image);\n    setLocalImage(image);\n  }"
+ },
+ {
+  "id": "qa-sync-only-when-closed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "if (shownImage !== image) {",
+  "new": "if (shownImage !== image && !isOpen) {",
+  "op": "qa",
+  "line": 54,
+  "text": "if (shownImage !== image) {"
+ },
+ {
+  "id": "qa-enter-tags-dropped",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "useDialogEnter(submit, isOpen, ['input'])",
+  "new": "useDialogEnter(submit, isOpen)",
+  "op": "qa",
+  "line": 100,
+  "text": "useDialogEnter(submit, isOpen, ['input'])"
+ },
+ {
+  "id": "qa-enter-tags-all",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "useDialogEnter(submit, isOpen, ['input'])",
+  "new": "useDialogEnter(submit, isOpen, true)",
+  "op": "qa",
+  "line": 100,
+  "text": "useDialogEnter(submit, isOpen, ['input'])"
+ },
+ {
+  "id": "qa-hook-drops-tags",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "{ enabled, enableOnFormTags }",
+  "new": "{ enabled }",
+  "op": "qa",
+  "line": 17,
+  "text": "{ enabled, enableOnFormTags }"
+ },
+ {
+  "id": "qa-hook-tags-default-on",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "{ enabled, enableOnFormTags }",
+  "new": "{ enabled, enableOnFormTags: enableOnFormTags ?? true }",
+  "op": "qa",
+  "line": 17,
+  "text": "{ enabled, enableOnFormTags }"
+ },
+ {
+  "id": "qa-cancel-deps-stale",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "}, [image, onClose]);",
+  "new": "}, [onClose]);",
+  "op": "qa",
+  "line": 77,
+  "text": "}, [image, onClose]);"
+ }
+]

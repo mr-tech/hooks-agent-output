@@ -1,0 +1,81 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/prev
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 1 failed) 2642ms
+       × with focus on its URL field runs only what that control does 109ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 2 failed) 3933ms
+     × saves the loaded address on Enter with focus in the box 265ms
+     × shows that image on reopening, and saves it 142ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its URL field runs only what that control does
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:157:24
+    155|       enter();
+    156|
+    157|       expect(counts()).toEqual({ ...NOTHING, ...expected });
+       |                        ^
+    158|     });
+    159|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the loaded address on Enter with focus in the box
+AssertionError: expected [] to deeply equal [ 'https://example.com/a.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/a.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:154:19
+    152|     enterInBox();
+    153|
+    154|     expect(saved).toEqual([URL_A]);
+       |                   ^
+    155|   });
+    156|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, an image saved by another path while the dialog is closed > shows that image on reopening, and saves it
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:289:25
+    287|     await reopen();
+    288|
+    289|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    290|     expect(preview()).toBe(URL_Z);
+    291|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  3 failed | 57 passed (60)
+   Start at  18:01:42
+   Duration  8.53s (transform 1.69s, setup 114ms, import 9.98s, tests 9.38s, environment 5.54s)
+
+exit=1

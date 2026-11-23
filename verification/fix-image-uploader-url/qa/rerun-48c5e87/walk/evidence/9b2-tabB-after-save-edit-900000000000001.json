@@ -1,0 +1,7 @@
+{
+  "url": "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "avatar": "http://127.0.0.1:8765/pusher.png",
+  "dialog": false,
+  "toasts": [],
+  "dialogs": []
+}

@@ -1,0 +1,9 @@
+127.0.0.1 - - [23/Nov/2026 18:05:53] "GET /red.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 18:07:56] "GET /red.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 18:08:14] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 18:08:14] "GET /missing.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 18:08:24] "GET /blue.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 18:09:06] "GET /json.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 18:09:29] "GET /json.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 18:09:36] "GET /pusher.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 18:09:57] "GET /pusher.png HTTP/1.1" 200 -

@@ -1,0 +1,57 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T180515Z-p1784262/mutant-2
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 3 failed) 57ms
+     × refuses https://example.com/a.png.html without loading it 34ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 9ms
+     × loads and previews a URL whose path ends in an image extension 12ms
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 21 failed) 282ms
+       × with focus on its dialog element runs only what that control does 38ms
+       × with focus on its URL field runs only what that control does 15ms
+       × with focus on its close button runs only what that control does 16ms
+       × with focus on Cancel runs only what that control does 17ms
+       × with focus on Clear runs only what that control does 17ms
+       × with focus on Save runs only what that control does 13ms
+       × sets the loaded image when Enter is pressed with focus off its buttons 14ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 13ms
+       × with focus on its dialog element runs only what that control does 12ms
+       × with focus on its URL field runs only what that control does 14ms
+       × with focus on its close button runs only what that control does 11ms
+       × with focus on Cancel runs only what that control does 13ms
+       × answers nothing, with focus still inside the visible panel 14ms
+       × answers only the update prompt with focus on its dialog element 15ms
+       × answers only the update prompt with focus on its message text 14ms
+       × answers only the image dialog with focus on its dialog element 11ms
+       × answers only the update prompt's Reload with focus on it 10ms
+       × answers nothing from a closed instance, even with focus resting in its hidden dialog 14ms
+       × answers only the open instance when the first is the open one 3ms
+       × answers only the open instance when the second is the open one 2ms
+     × keeps its URL field and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them 3ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 21 failed) 285ms
+     × saves the address the box shows when an earlier address finishes loading after it 35ms
+     × saves the loaded address on Enter with focus in the box 11ms
+     × saves nothing on Enter in the box while its address is still loading 13ms
+     × saves nothing on Enter in the box while its address has failed to load 14ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 13ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 11ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 12ms
+     × saves no image when the saved address is deleted from the box 15ms
+     × leaves nothing to clear on reopening after an emptied box is saved 15ms
+     × refuses Save for a saved address that fails to load when the dialog opens 16ms
+     × shows no preview and saves nothing on Enter once a failed address is deleted from the box 11ms
+     × saves an address that loads on a later try after failing 12ms
+     × stays available for a saved address that fails to load when the dialog opens 15ms
+     × stays cleared when the address it cleared finishes loading afterwards 16ms
+     × shows that image on reopening, and saves it 14ms
+     × puts the box and the preview back to the saved image, and reopening saves that image 12ms
+     × empties the box and the preview when no image was saved 12ms
+     × drops the error of the cancelled address when the dialog reopens 9ms
+     × keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened 6ms
+     × puts the box back to the image saved in this dialog, not the one it opened with 17ms
+     × keeps the saved image when the cancelled address finishes loading afterwards 3ms
+
+ Test Files  3 failed | 1 passed (4)
+      Tests  45 failed | 15 passed (60)
+   Start at  18:05:24
+   Duration  4.28s (transform 727ms, setup 124ms, import 3.55s, tests 1.25s, environment 2.86s)
+

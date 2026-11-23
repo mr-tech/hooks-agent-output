@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "avatar": "http://127.0.0.1:8765/blue.png",
+  "dialog": false,
+  "dialogs": [
+    "Message JSON\n{\n          \"value\": \"All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.\"\n        },\n        {\n          \"name\": \"<:userplus_ol:987453943770656768>_ _ Shared Saves\",\n          \"value\": \"Saving messages",
+    "Are you sure?\n\nThis will overwrite the current message.\n\nCancel\nLoad"
+  ],
+  "toasts": []
+}
