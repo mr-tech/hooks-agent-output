@@ -1,0 +1,30 @@
+
+/usr/local/bin/hooks/website/src/components/__tests__/ImageUploader.enter-scope.test.tsx
+   43:3  error  Error: Cannot reassign variables declared outside of the component/hook
+
+Variable `raise` is declared outside of the component/hook. Reassigning this value during render is a form of side effect, which can cause unpredictable behavior depending on when the component happens to re-render. If this variable is used in rendering, use useState instead. Otherwise, consider updating it in an effect. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#side-effects-must-run-outside-of-render).
+
+/usr/local/bin/hooks/website/src/components/__tests__/ImageUploader.enter-scope.test.tsx:43:3
+  41 | const Capture = () => {
+  42 |   const { showConfirmation } = useConfirmation();
+> 43 |   raise = () => showConfirmation({
+     |   ^^^^^ `raise` cannot be reassigned
+  44 |     enabled: true,
+  45 |     title: UPDATE,
+  46 |     message: 'This message was saved in another tab.',                react-hooks/globals
+  109:3  error  Error: Cannot reassign variables declared outside of the component/hook
+
+Variable `setOpen` is declared outside of the component/hook. Reassigning this value during render is a form of side effect, which can cause unpredictable behavior depending on when the component happens to re-render. If this variable is used in rendering, use useState instead. Otherwise, consider updating it in an effect. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#side-effects-must-run-outside-of-render).
+
+/usr/local/bin/hooks/website/src/components/__tests__/ImageUploader.enter-scope.test.tsx:109:3
+  107 | const ClosableUploader = () => {
+  108 |   const [open, set] = useState(true);
+> 109 |   setOpen = set;
+      |   ^^^^^^^ `setOpen` cannot be reassigned
+  110 |   return (
+  111 |     <ImageUploader isOpen={open} image={URL_A} onClose={calls.close} setImage={calls.setImage} />
+  112 |   );  react-hooks/globals
+
+✖ 2 problems (2 errors, 0 warnings)
+
+lint_exit=1

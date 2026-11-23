@@ -1,0 +1,41 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it
+AssertionError: expected null to be 'https://example.com/b.png' // Object.is equality
+
+- Expected:
+"https://example.com/b.png"
+
++ Received:
+null
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:142:23
+    140|     await settle(URL_A, true);
+    141|
+    142|     expect(preview()).toBe(URL_B);
+       |                       ^
+    143|     save();
+    144|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards
+AssertionError: expected null to be 'https://example.com/x.png' // Object.is equality
+
+- Expected:
+"https://example.com/x.png"
+
++ Received:
+null
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:373:23
+    371|
+    372|     expect(box().value).toBe(URL_X);
+    373|     expect(preview()).toBe(URL_X);
+       |                       ^
+    374|     save();
+    375|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

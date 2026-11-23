@@ -1,0 +1,85 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/x.png' // Object.is equality
+
+Expected: "https://example.com/x.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:306:25
+    304|     await reopen();
+    305|
+    306|     expect(box().value).toBe(URL_X);
+       |                         ^
+    307|     expect(preview()).toBe(URL_X);
+    308|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: expected 'https://example.com/y.png' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ https://example.com/y.png
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:320:25
+    318|     await reopen();
+    319|
+    320|     expect(box().value).toBe('');
+       |                         ^
+    321|     expect(preview()).toBeNull();
+    322|     expect(dialog().textContent).not.toContain('Invalid url.');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens
+AssertionError: expected 'Enter Image URLImage URLInvalid url.C…' not to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLInvalid url.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:334:38
+    332|     await reopen();
+    333|
+    334|     expect(dialog().textContent).not.toContain('Invalid url.');
+       |                                      ^
+    335|   });
+    336|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box back to the image saved in this dialog, not the one it opened with
+AssertionError: expected 'https://example.com/b.png' to be 'https://example.com/a.png' // Object.is equality
+
+Expected: "https://example.com/a.png"
+Received: "https://example.com/b.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:358:25
+    356|     await reopen();
+    357|
+    358|     expect(box().value).toBe(URL_A);
+       |                         ^
+    359|     save();
+    360|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/x.png' // Object.is equality
+
+Expected: "https://example.com/x.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:372:25
+    370|     await settle(URL_Y, true);
+    371|
+    372|     expect(box().value).toBe(URL_X);
+       |                         ^
+    373|     expect(preview()).toBe(URL_X);
+    374|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

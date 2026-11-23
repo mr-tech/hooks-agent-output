@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
 Status: Active
-Status-Detail: "QA Phase 2 fix round (QAF-1, QAF-3) handed off at website cae7472 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 32 production lines added; QAF-2 held for the owner by steering; merge is devops's at release, under the owner's release approval."
-Handoff-At: cae7472 — repos=website
+Status-Detail: "Limb 5 (Enter in the box, his 17:40Z selection) with the QA fix round handed off at website 48c5e87 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 41 production lines added; merge is devops's at release, under the owner's release approval."
+Handoff-At: 48c5e87 — repos=website
 Origin-Chain: none
 ---
 
@@ -286,13 +286,65 @@ Evidence, under `verification/fix-image-uploader-url/qa-round1/` unless named:
 - `git diff --numstat af3d95a cae7472`: **32** production lines added (`ImageUploader.tsx`). The worktrees were removed
   (`git worktree list` shows only the shared tree).
 
+## Limb 5: Enter in the address box
+
+His selection, in rulings block "2026-11-23T17:40Z" (record `031db12f`): once the address has loaded, Enter with focus in the address
+box commits as Save does, under limbs 1 and 2's conditions. `useDialogEnter.ts` is shared, so the other dialogs' Enter must not change.
+Done from `cae7472` at website `7f0229c`, `96fb1f8` and `48c5e87` (`cae7472..48c5e87`). It supersedes the Round 2 approval at `cae7472`.
+
+- **Cause** (the ruling's refutation, re-read in the library at 5.2.4). In `dist/index.js` the hotkey handler returns early when the
+  event's target is a form tag (`Z(s)`), unless `enableOnFormTags` names it (`F(s, t?.enableOnFormTags)`). `F`'s parameter defaults
+  to `false`. `useDialogEnter` passed only `{ enabled }`.
+- **Change.**
+  - `useDialogEnter` takes an optional third parameter, `enableOnFormTags`, typed `Options['enableOnFormTags']` from the library's own
+    exported type, and passes it to `useHotkeys`.
+  - `ImageUploader` passes `['input']`.
+  - `WarningDialog` and `ConfirmationDialog` pass nothing, so they hand the library `undefined`, which `F` treats exactly as its
+    `false` default. Their Enter behaviour is unchanged by construction. Neither renders a form field (`grep -c "<input\|TextField"`,
+    0 each), and `WarningDialog.enter-scope.test.tsx` passes unchanged in every run below.
+  - Enter in the box still goes through the same `submit`, which is set only when `loaded`. So limbs 1 and 2's conditions apply as
+    for Save.
+- **Tests.**
+  - `ImageUploader.enter-scope.test.tsx`: the URL-field expectation "alone, with an image loaded" changes from nothing to
+    `{ close: 1, setImage: 1 }`, per the ruling. The "with no image loaded" URL-field expectation stays nothing (limb 1).
+  - New in `ImageUploader.saved-address.test.tsx`, each a real keydown on the focused input through the `enter` helper:
+    - "saves the loaded address on Enter with focus in the box";
+    - "saves nothing on Enter in the box while its address is still loading" and "…has failed to load".
+  - The same file's two `react-hooks/globals` errors (L43 `raise = …`, L109 `setOpen = set`) were already there before this round:
+    the repo-wide `lint.txt` from the first round lists `ImageUploader.enter-scope.test.tsx:43:3` and `:109:3`, from when the file was
+    untouched. Touching the file brought them into the convention check as FAILs, so I fixed them the way the saved-address host does:
+    the update prompt and the close are pressed through hidden buttons, not reassigned module variables. The file's 21 cases have the
+    same full names and pass status before and after (JSON reporter, compared as sorted lists: `true`).
+- **Red** at `cae7472`, from a `git worktree` export with the final two test files copied in, over the three `ImageUploader` files and
+  `WarningDialog.enter-scope`: **2 failed, 58 passed (60), exit 1** (`limb5/red-run-cae7472.txt`).
+  - "with focus on its URL field runs only what that control does" (`expected { close: +0, setImage: +0, … } to deeply equal
+    { close: 1, setImage: 1, … }`).
+  - "saves the loaded address on Enter with focus in the box" (`expected [] to deeply equal [ 'https://example.com/a.png' ]`).
+
+  The two refusal cases pass there, because base also refused. The control `enter-ungated` turns them red.
+- **Green** at `48c5e87`: the same files, **60 passed (60), exit 0** (`limb5/green-run.txt`).
+- **Controls** at `48c5e87`: 23 mutants over the four files, **23 of 23 killed**, exit 0 (`controls/mutation-run-48c5e87.out`,
+  `controls/table-48c5e87.md`). New controls:
+  - `box-enter-not-requested`: `ImageUploader` passes no form tags;
+  - `hook-drops-form-tags`: the hook stops passing them.
+
+  Each kills both Enter-saves cases. The run at `7f0229c` was also 23 of 23.
+- **Suite** at `48c5e87`: **2717 passed of 2717, 173 files, exit 0** (`limb5/suite-48c5e87.json`/`.txt`).
+- **Typecheck**, both programs, in a `git worktree` export of `48c5e87`: **exit 0** (`limb5/typecheck-export.txt`).
+- **Lint**: the four changed files, `eslint --max-warnings=0` with no fix, are clean, `enter-scope` after its fix
+  (`limb5/lint-enter-scope.txt`, `limb5/lint-changed-files.txt`).
+- **Convention check**: `--since=af3d95a`, **0 FAIL, 0 CANDIDATE**, the same 18 SKIPs, exit 0 (`limb5/convention-check.txt`).
+- `git diff --numstat af3d95a 48c5e87`, production paths, added: `ImageUploader.tsx` 33 + `useDialogEnter.ts` 8 = **41**.
+- The worktrees were removed (`git worktree list` shows only the shared tree).
+
 ## User-visible flows
 
 These are for his check. They cover the image address dialog behind the author avatar, the embed author icon, the embed footer icon, the
 embed image and the embed thumbnail.
 
-1. Type or paste an image address. Save works once the preview appears, and it saves that address. Enter saves it too, but only with
-   focus outside the address box. With focus in the box, Enter does nothing, as before this fix (QAF-2, held for him).
+1. Type or paste an image address. Once the preview appears, Save, or Enter (including with the cursor still in the address box),
+   saves that address. While it is still loading, or if it fails, Enter in the box does nothing. Enter in the other dialogs (the
+   warning and confirmation prompts) works as before.
 2. Type one address, then quickly another. Whatever order they load in, the preview and Save follow the second one.
 3. Change a loaded address to something that isn't an image address, or one that doesn't load. The error shows, the preview goes, and
    Save and Enter do nothing. Typing another address takes the error away while that address loads.
@@ -308,9 +360,10 @@ embed image and the embed thumbnail.
 
 ## Handoff
 
-- **SHA**: website `cae7472` (`Handoff-At`), the QA Phase 2 fix round. Earlier hand-offs: `7660259`, then `e94baf7`.
-- **Reviews**: `code-reviewer-fix-image-uploader-url` at `cae7472`, since QAF-3 changes production. Then QA Phase 2's re-run (32 added
-  production lines).
+- **SHA**: website `48c5e87` (`Handoff-At`): limb 5 on top of the QA Phase 2 fix round. Earlier hand-offs: `7660259`, `e94baf7`,
+  then `cae7472`, whose Round 2 approval is superseded.
+- **Reviews**: `code-reviewer-fix-image-uploader-url` at `48c5e87`. Then QA Phase 2's re-run (41 added production lines).
+- **Limb 5 delivery**: the code reviewer, by SendMessage, per steering's 17:40Z message and the next-act table.
 - **QA fix round delivery**: per the next-act table, the code reviewer, by SendMessage.
 - **Round 1 delivery**: the reviewer's rejection came to this session by SendMessage. The fix goes back to it by SendMessage, the
   consuming stage per the next-act table.
@@ -325,3 +378,4 @@ embed image and the embed thumbnail.
 | 2026-11-23T16:35 | 1 | Created. Fix committed on `chain/fix-image-uploader-url` (`cfd3b7f`, `03164d5`, `ee87897`, `7660259`). Red 11 of 14 at `af3d95a`, green 14 of 14, 15 of 15 controls killed. The `eslint --fix` rewrite of 75 files was disclosed and restored. Handed off at `7660259`. |
 | 2026-11-23T16:51 | 2 | Code review Round 1 (REJECTED, CR-1, CR-2) fixed at `a8b23ce` and `e94baf7`. The error is derived from `failedImage`, and Save sets `localImage`. Red 3 of 16 at `7660259`, green 40 of 40, 18 of 18 controls killed, suite 2712 of 2712. Re-handed off at `e94baf7`. |
 | 2026-11-23T17:29 | 3 | QA Phase 2 fix round. QAF-1: the test host has stable callbacks, and a Cancel-after-Save case was added. QAF-3, ruled in by steering at 17:22Z: the dialog adopts a saved image that changes while it is mounted. CR-2's Save line was made redundant by the sync and removed. Red at `2217a92` and at `e94baf7`, green 42 of 42, 21 of 21 controls killed, suite 2714 of 2714. Flow 1's wording corrected (QAF-2). Re-handed off at `cae7472`. |
+| 2026-11-23T17:56 | 4 | Limb 5, his 17:40Z selection: Enter in the address box saves a loaded address. `useDialogEnter` takes an optional form-tag list, passed only by `ImageUploader`. The enter-scope URL-field expectation updated, and that file's two pre-existing `react-hooks/globals` errors fixed (same 21 cases). Red 2 of 60 at `cae7472`, green 60 of 60, 23 of 23 controls killed, suite 2717 of 2717. Re-handed off at `48c5e87`. |

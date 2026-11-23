@@ -124,5 +124,17 @@
   "file": "src/components/ImageUploader.tsx",
   "old": "    setImageInput(image);\n    setLocalImage(image);\n  }\n",
   "new": "    setImageInput(image);\n  }\n"
+ },
+ {
+  "id": "box-enter-not-requested",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "useDialogEnter(submit, isOpen, ['input'])",
+  "new": "useDialogEnter(submit, isOpen)"
+ },
+ {
+  "id": "hook-drops-form-tags",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "{ enabled, enableOnFormTags }",
+  "new": "{ enabled }"
  }
 ]

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T175140Z-p1562098/mutant-23
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 1 failed) 959ms
+       × with focus on its URL field runs only what that control does 56ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 1 failed) 1277ms
+     × saves the loaded address on Enter with focus in the box 77ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  2 failed | 58 passed (60)
+   Start at  17:54:20
+   Duration  3.43s (transform 877ms, setup 87ms, import 4.26s, tests 3.32s, environment 3.66s)
+

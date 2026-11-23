@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T175140Z-p1562098/mutant-21
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 2 failed) 1307ms
+     × leaves nothing to clear on reopening after an emptied box is saved 61ms
+     × shows that image on reopening, and saves it 44ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  2 failed | 58 passed (60)
+   Start at  17:54:09
+   Duration  3.53s (transform 1.04s, setup 122ms, import 4.77s, tests 3.41s, environment 3.29s)
+

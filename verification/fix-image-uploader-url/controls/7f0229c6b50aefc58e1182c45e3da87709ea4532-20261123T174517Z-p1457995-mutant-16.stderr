@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: expected 'Enter Image URLImage URLInvalid url.C…' not to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLInvalid url.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:322:38
+    320|     expect(box().value).toBe('');
+    321|     expect(preview()).toBeNull();
+    322|     expect(dialog().textContent).not.toContain('Invalid url.');
+       |                                      ^
+    323|     expect(button('Save').disabled).toBe(true);
+    324|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

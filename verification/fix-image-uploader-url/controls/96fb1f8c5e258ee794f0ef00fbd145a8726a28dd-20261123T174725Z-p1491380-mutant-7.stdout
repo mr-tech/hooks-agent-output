@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T174725Z-p1491380/mutant-7
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 1 failed) 956ms
+     × shows no preview and saves nothing on Enter once a failed address is deleted from the box 56ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 59 passed (60)
+   Start at  17:47:58
+   Duration  2.77s (transform 640ms, setup 105ms, import 3.42s, tests 2.57s, environment 3.06s)
+

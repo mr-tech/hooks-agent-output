@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/limb5/enter-scope-after.json
+exit=0

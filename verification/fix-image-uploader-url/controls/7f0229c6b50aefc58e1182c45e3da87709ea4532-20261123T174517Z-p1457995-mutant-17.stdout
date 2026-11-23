@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T174517Z-p1457995/mutant-17
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 2 failed) 216ms
+     × refuses https://example.com/a.png.html without loading it 116ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 41ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 5 failed) 988ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 43ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 37ms
+     × refuses Save for a saved address that fails to load when the dialog opens 33ms
+     × drops the error of the cancelled address when the dialog reopens 24ms
+     × keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened 26ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  7 failed | 53 passed (60)
+   Start at  17:46:33
+   Duration  2.84s (transform 805ms, setup 133ms, import 3.70s, tests 2.61s, environment 2.90s)
+

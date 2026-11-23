@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T174517Z-p1457995/mutant-11
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 2 failed) 818ms
+       × with focus on its dialog element runs only what that control does 28ms
+       × with focus on its URL field runs only what that control does 21ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (21 tests | 6 failed) 1074ms
+     × saves nothing on Enter in the box while its address has still loading 84ms
+     × saves nothing on Enter in the box while its address has failed to load 48ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 42ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 47ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 47ms
+     × shows no preview and saves nothing on Enter once a failed address is deleted from the box 51ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  8 failed | 52 passed (60)
+   Start at  17:46:06
+   Duration  3.59s (transform 1.50s, setup 176ms, import 6.10s, tests 2.84s, environment 3.00s)
+
