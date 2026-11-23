@@ -5,9 +5,8 @@ UUID: 286c730a
 Parent: slate-formatting-discord-oracle-2026-11-23.md
 Status: Active
 Status-Detail: >-
-  AN-1 to AN-7 (plan Revision 2) and AN-8 limbs 1 to 4 (plan Revision 5) have results. G-11 is not completed (X-13). AN-8 limb 5,
-  the slow-CPU generator capture, is in progress. AN-8 limb 1, which holds M4's approval, has landed: Discord draws `s` and `S`
-  as short date with short time, and short date with medium time.
+  AN-1 to AN-7 (plan Revision 2) and every AN-8 limb (1 to 5, with 2b; plan Revision 5) have results. G-11 is not completed (X-13).
+  AN-8 limb 1, which holds M4's approval, has landed. Nothing is open for the owner.
 ---
 
 # 019 — Analysis: Slate formatting on Discord's published engine (plan M1, AN-1 to AN-8)
@@ -19,6 +18,7 @@ Status-Detail: >-
 | 2026-11-23T16:36 | 1 | analyst-019 | Created from brief `steering/019-brief-analyst.md` and common brief `steering/slate-formatting-brief-common.md`, commissioned by plan 019. Work began on Revision 0 (record `09170dd0`). The plan moved to Revision 2 (`8dfd4659`) during the run, and M1 was re-read there before writing. Changes under me, all followed: AN-1 adds Playwright Firefox and the wasm's `content-type`. AN-2 adds the loading state and the puppeteer quiet window. AN-3 adds per-surface classes and the disagree counts for legacy-only surfaces. AN-4 adds G-14's state read. AN-7 adds G-14's emoji-label DOM read and D-10's premise. M1 adds lifting the research instruments (QAF-11). |
 | 2026-11-23T17:36 | 2 | analyst-019 | Resumed after `/clear` from the Resumption State at `6bf42552`, on `planner-019`'s AN-8 commission (plan Revision 3, `9ac9ba62`; scope confirmed by message `4f5801aa`). M1 was read again at Revision 5 (`8cfd2fc2`): limb 5 was added at Revision 4, and limbs 1 to 4 are unchanged. AN-8 limbs 1 to 4 were added under § Findings, with G-1 and G-3 updated and G-7 added. No earlier claim in this document was re-verified, except that AN-3's GAME_MENTION cell is withdrawn (limb 2). Limb 5 is in progress. |
 | 2026-11-23T17:40 | 3 | analyst-019 | AN-8 limb 2b added, on `planner-019`'s ask after `db8199aa`: GAME_MENTION per legacy surface, run and observed. |
+| 2026-11-23T18:00 | 4 | analyst-019 | AN-8 limb 5 added (plan Revision 4's slow-CPU capture): 300 of 300 formatted at 4x, minimum margin 562.0 ms; H-1 and G-4 updated. Every AN-8 limb now has a result. Scratch export, bundles and packages removed. |
 
 ## Resumption State
 
@@ -34,7 +34,10 @@ Written 2026-11-23T16:40Z at `steering-hooks-fixer`'s `/checkpoint`. The session
 - **Update, changelog row 2 (resumed run).** AN-8 limbs 1 to 4 are committed. The plan was read at Revision 5 (`8cfd2fc2`). Next:
   limb 5, which rebuilds the spike from `an1/wasmSpike.tsx.txt` and `an1/MarkdownProvider.spike.diff` in a scratch export, then
   runs `an2-capture.js` at 4× CPU throttle, 50 captures of each of the three messages.
-- **Approach in flight.** AN-8 limb 5, as above.
+- **Update, changelog row 4.** Limb 5 has landed, so every AN-8 limb is done and nothing is in flight. Next: none until a brief. The
+  AN-8 JPEGs are at `~/.cache/analysis-019-an8-cpu4/`, outside the record. The scratch export, the bundles and the packages are
+  removed.
+- **Approach in flight.** None.
 - **Refs.** Record `agent-output` `master`, HEAD `d503160e` before this commit. Website analysed at `af3d95a` from exports only. The
   shared tree was not touched (its HEAD read `7660259`).
 - **Uncommitted or local.** Outside the record:
@@ -469,6 +472,35 @@ Revision 4 added limb 5, which is recorded separately below.
     drivers.
   - [hypothesis, low confidence] The error belongs to the spike build or the Preview environment. Fastest disconfirming test: devops
     reads the `pageerror`'s stack on the chain's Preview at Stage 1, as the plan's not-completed outcome already routes it.
+- **Limb 5, generator capture under a slow CPU (H-1; QAF-22): 300 of 300 formatted at 4×, and the margin did not shrink.**
+  - Setup [run]:
+    - The spike was rebuilt from `an1/wasmSpike.tsx.txt` and `an1/MarkdownProvider.spike.diff`, in a scratch `git archive af3d95a`
+      export with a copied `node_modules` (`build-spike.txt`, exit 0; the wasm is bundled as
+      `.next/static/media/discord_markdown_wasm_bg.*.wasm`).
+    - `@discord/markdown-wasm@0.16.0` and `@discord/markdown-types@0.14.0` were unpacked from `npm pack` tarballs. Their sha512
+      equals the integrity in devops's `spike-package-lock.diff`.
+    - Puppeteer 21.1.0, `@puppeteer/browsers` 1.7.0 and Chrome for Testing 116.0.5845.96 are AN-2's versions.
+    - The driver is `an2-capture-cpu.js`, a copy of `an2/an2-capture.js` that sends CDP `Emulation.setCPUThrottlingRate { rate: 4 }`
+      on each page before `goto`. It ran inside `unshare -rn` beside `next start` (`in-netns.sh`, with the committed
+      `an1/spike.env`), 50 captures of each of AN-2's three messages, in AN-2's two modes.
+  - Results (`rows-cpu4-warm.json`, `rows-cpu4-cold.json`):
+
+    | Run | Formatted | First formatted, median | `goto` resolved, median | Margin min / p5 / median / p95 / max (ms) |
+    |---|---|---|---|---|
+    | AN-2 warm, 1× | 150 / 150 | 620.2 | 1,230.8 | 519.7 / 523.3 / 603.3 / 664.3 / 728.8 |
+    | AN-8 warm, 4× | 150 / 150 | 1,502.4 | 2,200.3 | 562.0 / 571.1 / 646.1 / 1,642.5 / 1,700.6 |
+    | AN-2 cold, 1× | 150 / 150 | 692.4 | 1,293.3 | 552.8 / 556.9 / 587.2 / 842.3 / 1,009.6 |
+    | AN-8 cold, 4× | 150 / 150 | 2,132.7 | 2,916.1 | 638.0 / 717.7 / 902.7 / 1,451.0 / 1,556.7 |
+
+    Per message, minimum margin at 4×: warm 566.2, 562.0 and 575.6 ms; cold 638.0, 690.8 and 682.5 ms.
+  - The throttle took effect: first formatted is 2.4× later warm and 3.1× later cold. No capture formatted late, and no margin went
+    below AN-2's 519.7 ms.
+  - [inference, medium confidence] The margin is set by network quiet after formatting, not by CPU. Compile and first render
+    finished before the last request in every capture, and the 500 ms quiet window starts after that request. CPU slowness moves
+    both ends of the margin together.
+  - H-1 is falsified at 4× on this box. It is not tested beyond 4×, nor on the production generator's host. Fewer than 150 of 150 did
+    not occur, so nothing goes to steering as an RK-2 member.
+  - The 300 JPEGs are kept at `~/.cache/analysis-019-an8-cpu4/{warm,cold}/`, outside the record.
 
 ### High-confidence inference
 
@@ -477,8 +509,8 @@ Revision 4 added limb 5, which is recorded separately below.
 
 ### Hypotheses
 
-- **H-1 (Medium).** On a slower host CPU than this box's, compile plus first render could exceed Chrome's quiet window, so the
-  generator would capture plain text.
+- **H-1 (Medium; falsified at 4× by AN-8 limb 5: 300 of 300 formatted, minimum margin 562.0 ms).** On a slower host CPU than this
+  box's, compile plus first render could exceed Chrome's quiet window, so the generator would capture plain text.
   - Fastest disconfirming test: rerun `an2-capture.js` with CPU throttling (`Emulation.setCPUThrottlingRate`, 4×) and count.
   - Missing telemetry: a page-side "formatted" mark the generator could log.
 - **H-2 (Medium; outside the region).** The production generator fails `error-status` when one pooled browser renders the same
@@ -512,7 +544,7 @@ Revision 4 added limb 5, which is recorded separately below.
 | G-2 | G-11: the native parser seen rendered, as test account 2 | Not completed: no session's browser holds test account 2's profile (`test-estate.json`: `chrome-test-account-2`; this session's browser is test account 1's) | A session launched with that profile reads `***bi***`, `# # nested`, `**# not head**`. Per plan Revision 2, this falls to Exclusions X-13 | steering |
 | G-3 | Narrowed by AN-8 limb 4: production base, 0 of 40 loads in Chrome 157. Still open: the source of the 3 `pageerror`s on the spike Preview | The spike branch is deleted, and the base was not re-run with puppeteer 21.1.0 and Chrome 116 | Devops reads the stack on the chain's Preview at Stage 1 (plan AN-8 outcome) | devops |
 | G-7 | AN-8 limb 3: whether `.env.local`'s client secret completes the code exchange | No local Postgres on 5432; Authorize not clicked | Provision a database (CLAUDE.md id-range step), run the build on 127.0.0.1:3000, sign in as test account 1 | AC-6.3's provision step |
-| G-4 | H-1 and H-2 | Not run | The tests named in each | analyst, or a re-scope for H-2 |
+| G-4 | H-2 (H-1 is falsified at 4× by AN-8 limb 5; the production generator's host is not measured) | H-2 not run | The test named in H-2; for H-1 on the real host, UAT's capture at B-1's build | a re-scope for H-2; UAT |
 | G-5 | The two `syntaxOverride_` escape cells (AN-6 rows 239 and 246) | The leaf renderer was not read | Read the leaf class component that adds `syntaxOverride_` | M3's implementer, as a residue row |
 | G-6 | The 404 URLs in the AN-1 page loads | Not read | Log response URLs on one load | low; nothing rests on it |
 
@@ -531,4 +563,12 @@ Revision 4 added limb 5, which is recorded separately below.
   - AN-8: webhook `slate-019-an8` (`1574475815230513312`), created and deleted, and its 5 messages in `#slate-oracle-walk`, kept.
 - AN-8, in scratch: Discord's stable bundle (364 scripts), `@discord/markdown-wasm@0.16.0` with `@discord/markdown-types@0.14.0`
   unpacked, Discord's detectable-games list, and production `hooks.gg`'s home JS. All of it is removed at the run's close.
+- AN-8 limb 5, in scratch:
+  - one website export at `af3d95a` with the spike applied and a copied `node_modules`, built once;
+  - puppeteer 21.1.0, installed without a browser download (Chrome for Testing 116 was already in `~/.cache/puppeteer`);
+  - `next start` on 127.0.0.1:3900 inside two network namespaces, each stopped by the wrapper's trap. `ps` afterwards shows no
+    `next start` and no Chrome 116.
+
+  The export and the puppeteer install are removed at the run's close.
+- Webhooks `slate-019-an8b` and `slate-019-an8c` were deleted, and their 3 messages are kept.
 - Removal of the scratch export, the downloaded bundle and the package unpacks is recorded at the run's close in the hand-back.
