@@ -7,9 +7,11 @@ Status-Detail: >-
   under plain Node. Discord's older parser runs from the logged-out public page. Both were run over a
   272-case corpus here, and the corpus was then checked against real Discord on the test server:
   the one account observed is drawn by the older parser, in messages and in the text box, on every
-  case (V-15, V-18, V-21, V-23). Stays Active on one thing: the owner has not said which of
-  Discord's two parsers is the standard where they disagree (OQ-1; 37 of 272 cases), and the
-  recommended arrangement's "primary" depends on it. His answer closes this document. The published
+  case (V-15, V-18, V-21, V-23). The owner has settled the standard: match Discord only where its
+  two parsers agree, and list the rest as known differences (OQ-1, 2026-11-23T13:09Z). The question
+  is settled. Stays Active on one thing: five items owed to the effort (OQ-3 with G-3, G-8, G-9,
+  G-11, G-13) have no carrier but this document until the effort's plan exists; it closes as
+  Answered when the plan's first revision is committed and carries or declines them. The published
   parser has not been seen rendered (G-11). The per-client checks of third-party clients stay not
   done by his selection of 2026-11-23T09:31Z.
 ---
@@ -24,6 +26,7 @@ Status-Detail: >-
 | 2026-11-23T09:35 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State written | Owner's selections recorded from effort rulings block "2026-11-23T09:32Z": client checks stay not done; the session restarts with the test-account browser. OQ-5 and G-6 retired on that selection. |
 | 2026-11-23T10:33 | researcher-slate-formatting-oracle | Resumed from the Resumption State (record commit `ef9c9dd4`) in a fresh session with the test-account browser; check (c) recorded as V-15 to V-17; H-1 and H-2 closed | Brief `steering/slate-formatting-oracle-brief-researcher-resume.md`. Nothing written before the resume was re-verified except what V-15 to V-17 test (H-1, H-2, and the build number of V-1, read again from the signed-in page). Check (c) ran 09:39Z to 09:40Z and was sent to `steering-hooks-fixer` before 09:45Z (message id `1f0a6563-4bbf-4bd8-977c-7dc0f9b8d99f`); this session then made no tool call from 09:45Z to 10:33Z (its turn had ended; the cache-warm wake restarted it), so this row and the findings were written 52 minutes after the result. The walk added channel `slate-oracle-walk` to the test server; `test-estate.json` updated in the same turn. |
 | 2026-11-23T10:54 | researcher-slate-formatting-oracle | Walk against real Discord recorded: V-18 to V-23 added; OQ-2, G-1, G-4, G-5 closed; G-11 to G-13 opened; § 3 rewritten as run; § 4 and Recommendations 1 and 2 revised; Resumption State rewritten; Short answer items 6 and 7 added | Of the pre-resume claims, the walk re-tested V-8's two probe artefacts and V-11's legacy text-box table (both borne out, V-18 and V-21) and V-2's "same switch for message and text box" for one account; no other earlier finding was re-run. One capture was redone: the first text-box pass carried a quote element from one case into the next, found when `>>>a` showed as a quote, and the quote cases were typed again with a check for an empty, class-less line (V-21). The first three text-box inputs went into the server search box, not the message box, and were removed without being submitted. A webhook was created and deleted in the walk channel; old scratch directories holding Discord's code and the website export were deleted. |
+| 2026-11-23T13:11 | researcher-slate-formatting-oracle | OQ-1 closed on the owner's selection; OQ-4 routed to the architect; G-11 recorded as a gap for the plan; § 4 and Recommendations brought into line | Effort rulings block "2026-11-23T13:09Z" (record commit `ab4dbaea`), read whole at this write, at `steering-hooks-fixer`'s message. G-11 was offered to this session if it could reach test account 2's profile; its browser holds test account 1's only, so the read was not made. Not closed: the Close Procedure wants a carrier outside this document for the items owed to the effort, and no plan exists yet (Status-Detail). Citation corrected in the body: the ruling that Discord's code may run as a test oracle is rulings block "2026-11-23T09:17Z", which § Context and the § 1 table had cited as "09:18Z" (the scoping block after it); `grep -n "09:18Z"` gave three body hits before, and after it gives one, the range "09:07Z to 09:18Z" in § Context, which is right as a range. The 09:32 row above keeps its wording. |
 
 ## Resumption State
 
@@ -35,8 +38,9 @@ record commit `ef9c9dd4`.
 parser the test account is served, the whole corpus as bot posts and as webhook posts against the
 rendered DOM, and the text box.
 
-**Next acts.** None of this researcher's. What is left is the owner's (OQ-1), the architect's
-(OQ-4) and the effort's (OQ-3, G-3, G-8, G-9, G-11, G-13).
+**Next acts.** One, on a cue: close this document as Answered once the effort's plan is committed
+and carries or declines the items owed to it (OQ-3 with G-3, G-8, G-9, G-11, G-13). OQ-1 is
+answered; OQ-4 is with `architect-slate-formatting-preview`.
 
 **Approach in flight.** None.
 
@@ -96,7 +100,7 @@ against real Discord, and which arrangement should the fuzzer use?
 ## Context
 
 - Owner's words and steering's readings: `steering/fixer-queue-2026-11-21-rulings.md`, blocks
-  "2026-11-23T09:07Z" to "09:18Z", read whole this session. Block 09:18Z is his ruling that an
+  "2026-11-23T09:07Z" to "09:18Z", read whole this session. Block 09:17Z is his ruling that an
   extracted Discord module may run as a test oracle if it is fetched from public assets at test time,
   never committed and never shipped.
 - Architecture: `architecture/website.md` W-3 read (one component tree for edit and preview; preview
@@ -507,7 +511,7 @@ were not run.
 | Implementation | Source | Licence | Last activity | Formats in |
 |---|---|---|---|---|
 | Native parser, `@discord/markdown-wasm` | npm; also served as a public `.wasm` | MIT | 0.16.0, 2026-11-16 | message (`parse`) and text box (`parseLossless`) |
-| Legacy rules on modified `simple-markdown` | served web bundle only | proprietary; usable under the owner's ruling of 09:18Z | in stable build 679055 | message; text box via the rule-to-Slate table |
+| Legacy rules on modified `simple-markdown` | served web bundle only | proprietary; usable under the owner's ruling of 09:17Z | in stable build 679055 | message; text box via the rule-to-Slate table |
 | `discord/SimpleAST` (Android) | GitHub | LICENSE file present, type not asserted by GitHub (helper) | pushed 2026-08-25 (helper) | message; core rules only (no heading, subtext, spoiler, masked link in the core module per the helper's read) |
 
 **Libraries** (helper's metadata; fidelity from my runs where a number is given):
@@ -590,10 +594,16 @@ What the run changed or added:
 
 **What the walk changes.** This arrangement was written before the walk and named the published
 parser "primary" because it is the one that can be pinned and run anywhere. The walk shows the only
-account observed is drawn by the other parser (V-18). Which of the two is the standard is OQ-1 and
-is not decided here; until it is, "primary" below means "cheapest to run", not "what Discord shows",
-and the three-way split in the second bullet is the part of the arrangement that holds either way:
-on this corpus 235 of 272 expected values are the same under both parsers.
+account observed is drawn by the other parser (V-18). So "primary" below means "cheapest to run",
+not "what Discord shows".
+
+**What the owner's answer changes** (OQ-1, 2026-11-23T13:09Z: match only where both parsers agree;
+the disagreeing cases are listed as known differences). The three-way split in the "Secondary"
+bullet is now the rule and not an option: an expected value exists only where both parsers return
+the same tree, which is 235 of 272 on this corpus as written and 239 of 272 over the texts Discord
+stores (V-18). Both parsers are therefore needed in every run that asserts against Discord, the
+legacy one fetched at test time as his 09:17Z ruling allows, and a run that cannot fetch it has no
+expected values to assert. The disagreeing cases (Appendix A) become the known-differences list.
 
 - **Primary: `@discord/markdown-wasm`, exact version pinned, as a development dependency.** `parse`
   for the preview's tree; `parseLossless` for the editor's marker and style ranges. Runs in the
@@ -623,7 +633,8 @@ Known gaps of this arrangement:
    could not do the same for the native parser. What stands for the native one is identity of the
    binary (V-4), not an observed render. An account that Discord has placed on the native path
    would close it.
-2. Where the two parsers disagree there is no single right answer until the owner chooses.
+2. Where the two parsers disagree there is no expected value, by the owner's choice (OQ-1): those
+   inputs are listed, not asserted, so a site defect that lives only there is not caught by the oracle.
 3. The oracle's tree is not the site's tree; a normaliser sits between them and is itself fallible.
    The effort needs its own, with its own tests, and should treat a mismatch as "candidate" until read.
 4. Rendering beyond the tree is outside any parser oracle: emoji image choice, code highlighting,
@@ -656,10 +667,10 @@ Known gaps of this arrangement:
 
 | # | Question | Whose | What would close it |
 |---|---|---|---|
-| OQ-1 | Where Discord's two parsers disagree (Appendix A), which one is the site's standard: the new parser, the old one, or "assert only where both agree and list the rest"? | Owner (product direction) | His answer. Sent to `steering-hooks-fixer` as an owner-needing item. |
+| OQ-1 | ANSWERED — the owner chose "match only where both agree"; the disagreeing cases are listed as known differences. Effort rulings `steering/fixer-queue-2026-11-21-rulings.md`, block "2026-11-23T13:09Z". § 4 states what it changes. | | |
 | OQ-2 | ANSWERED — the test account is served the legacy parser, and rendered Discord equals the legacy parser's tree on the whole corpus, for the message and in the text box's styling. V-15, V-18, V-21. The native parser has not been seen rendered (G-11). | | |
 | OQ-3 | Which parser and which syntax set does Discord use for embed description, embed title, field name, field value, footer and Components V2 text? | Analyst or the effort's first stage | Fetch the lazy chunks, read the embed renderer; or read the DOM of posted embeds in the walk. |
-| OQ-4 | Should the product adopt Discord's published parser for its preview instead of testing its own rules against it? The licence allows it; `@discord/markdown-react` exists for the rendering step. | Architect, then the owner | An architecture finding. Raised because it changes what the fuzzer has to cover; not answered here. |
+| OQ-4 | Should the product adopt Discord's published parser for its preview instead of testing its own rules against it? The licence allows it; `@discord/markdown-react` exists for the rendering step. | Architect, then the owner | ROUTED on the owner's selection "architect looks first" (same rulings block): `architect-slate-formatting-preview`, brief `steering/slate-formatting-preview-brief-architect.md`. Its recommendation goes to him before the planner sizes the work. |
 | OQ-5 | Which constructs does each independent third-party client implement, and does any format in its text box? | Retired 2026-11-23 | The owner's selection "Agent: leave them not done" (effort rulings block "2026-11-23T09:32Z"): the per-client checks stay not done and third-party clients are a footnote. |
 
 ## Remaining gaps
@@ -676,7 +687,7 @@ Known gaps of this arrangement:
 | G-8 | Module-id stability beyond 13 hours | Only three same-day builds observed | Re-run the predicate table on a later build; the drift alarm does this as a side effect | effort |
 | G-9 | The site's interactive (editor) rule set and embed rule sets against the oracle | Only the static content set was run | The effort's fuzzer | effort |
 | G-10 | The January 2025 post on Discord's Rust markdown rewrite | Host did not resolve | Fetch from another network or find the canonical URL | — |
-| G-11 | The native parser against rendered Discord, and the native text box | Test account 1 is on the legacy path; whether test account 2 is was not read (its Chrome profile is not the one this session's browser holds) | Read three discriminating cases as test account 2; failing that, an account Discord has placed in the native experiment. Until then the native parser rests on V-4 | effort (QA, whose sessions carry both profiles) |
+| G-11 | The native parser against rendered Discord, and the native text box | Test account 1 is on the legacy path; whether test account 2 is was not read (its Chrome profile is not the one this session's browser holds; offered to this session at 13:09Z and not made for that reason) | A gap for the plan: read three discriminating cases (`***bi***`, `# # nested`, `**# not head**`) in `slate-oracle-walk` as test account 2; failing that, an account Discord has placed in the native experiment. Until then the native parser rests on V-4. Under OQ-1's answer it no longer decides the standard; it decides only whether the native half of "both agree" has been seen rendered | effort (a stage whose session holds test account 2's profile) |
 | G-12 | The account's experiment assignment itself (why it is on legacy) | Not read from the signed-in page; the DOM settled the question it would have answered | Read the two experiments of V-2 from the client's experiment store | — |
 | G-13 | Rendered DOM for a role and a slash command that exist, and for a custom emoji the poster can use | The corpus used made-up ids, which Discord draws as text or rewrites (V-18, V-19) | Post those three with real ids from the test server | effort |
 
@@ -707,14 +718,14 @@ corpus and carry no account data beyond resolved names.
 
 ## Recommendations (investigation only)
 
-1. Put OQ-1 to the owner before the plan fixes acceptance criteria; it decides what "matches Discord"
-   means for 14% of this corpus. He should have V-18 in front of him when he answers: the account
-   that could be observed sees the older parser, and which one his own account sees is not known.
+1. Done: OQ-1 was put to the owner and answered (Open questions).
 2. The § 3 walk has been run once (V-15 to V-23). What it could not reach is in G-11 and G-13; the
    cheapest next read is three discriminating cases from `slate-oracle-walk` as test account 2.
-3. Ask the architect OQ-4 before the planner sizes the effort.
-4. Next: the planner (it mints the effort's ID and cites this document by name), with the architect
-   first if OQ-4 is to be answered.
+3. Done: OQ-4 is with the architect on the owner's selection (Open questions).
+4. Next: the planner, after the architect's recommendation has been to the owner (it mints the
+   effort's ID and cites this document by name). The plan should carry or decline, by name, the
+   items this document leaves to the effort: OQ-3 with G-3 (embed and Components V2 rule sets), G-8
+   (module-id stability), G-9 (the editor and embed rule sets against the oracle), G-11 and G-13.
 
 ## Appendix A — the 37 cases where Discord's two parsers disagree
 
