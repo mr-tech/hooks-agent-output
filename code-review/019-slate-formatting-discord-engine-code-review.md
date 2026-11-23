@@ -2,10 +2,10 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "1698c80 — repos=website; Round 3's sub-entry is M3's fix commit 1698c80 (its 7 paths; 93b26fd, M4, not reviewed); Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
+Reviewed-At: "2c1590f — repos=website; Round 3's latest sub-entry is M3's fix commit 2c1590f (2 paths), the previous at 1698c80 (7 paths); 93b26fd, f131f06, c32e058 (M4) not reviewed; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
 Status: In Review
 Round: 3
-Verdict: REJECTED
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: 019 — Slate formatting: one Discord engine for the preview and the editor
@@ -24,6 +24,7 @@ Verdict: REJECTED
 | 2026-11-23T19:44 | implementer-019 (fix round 2 for QA's QAF-29 and QAF-30, website `7dcedc9`) | Review the M2 delta | Round 2 at `7dcedc9`, opened because the fix adds production code outside CR-1 and CR-2 (`MODIFIER_KINDS`, `modifierStyle`, `warnUnmapped`). The delta is reviewed as a first review over the M2 paths. No new finding. 11 of 11 probes KILLED, each on its own case. APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW, as before). `1bcab7a` (M3 oracle work) is not reviewed here. |
 | 2026-11-23T21:23 | implementer-019 (M3 hand-off, `implementation/019-slate-formatting-discord-engine-m3-implementation.md`, record `f78d803b`, `Handoff-At: f4060c5`) | Review M3 | Round 3 at `f4060c5`: REJECTED on CR-5 MEDIUM (the generator's game mention is AN-8's withdrawn form, so no input exercises `GAME_MENTION`) and CR-6 MEDIUM (the oracle window keeps live XHR and WebSocket). CR-7, CR-8 and CR-9 are LOW, and CR-4 is re-verified partly resolved. CR-7's M6 carriage goes to the planner. |
 | 2026-11-23T22:00 | implementer-019 (M3 fix round 3, website `1698c80`, record `e1c265a7`); steering-hooks-fixer (resume message after `/clear`) | Round 3 sub-entry: confirm CR-5 and CR-6 | Round 3 sub-entry at `1698c80`, scoped to the fix commit's 7 paths. CR-5 and CR-6 are RESOLVED: the removal test shows `GAME_MENTION` live, and the 18-path re-attack, with a positive control, reaches the listener 0 times. A new finding, CR-10 MEDIUM (severity floor), makes the verdict REJECTED: the live control says "no request attempt" by reading `oracle.attempts`, and no assertion fails when `loadBuild`'s wiring of that list is cut (the mutant SURVIVED), or when a refused XHR is touched before `open`. `93b26fd` (M4) is not reviewed here. |
+| 2026-11-23T22:11 | implementer-019 (M3 fix round 4, website `2c1590f`, record `72b59f64`) | Round 3 sub-entry: confirm CR-10 | Round 3 sub-entry at `2c1590f`, scoped to the fix commit's 2 paths. CR-10 RESOLVED: 4 of 4 probes KILLED, the `loadBuild` disconnect among them. CR-11 LOW raised: the XHR Proxy records a member when it is called, not when it is read (`x.upload.addEventListener` and `x.readyState` unrecorded; network still closed). The record corrections are made. APPROVED_WITH_COMMENTS, and M3 goes to QA Phase 2. |
 
 ## Scope of this round
 
@@ -396,52 +397,16 @@ Record corrections owed by the implementer. They do not move the verdict:
   shared tree before the commit, and "at the same code" is a claim this review does not verify (Assumption Not Checked, Round 3
   sub-entry).
 
-CR-10 MEDIUM Round 3
-- **Category**: Checks That Cannot Fail (severity floor)
-- **Title**: The live control's "no request attempt" reads a record whose wiring and XHR coverage have no failing assertion
-- **Location**: `src/utils/markdown/__tests__/helpers/discordBuild.ts`, `loadBuild` (the `attempts` it passes to
-  `installOracleShims` and returns) and `RefusedXMLHttpRequest` in `installOracleShims`; `discord/discordLive.oracle-controls.test.ts`
-  `records no request attempt from Discord's evaluated code`, at `1698c80`.
-- **Class**: An "attempted nothing" claim drawn from a record that can be empty while an attempt was made. The claim passes
-  whether or not the record is connected and complete.
-- **Enumeration**:
-  - Readers of the record: `git grep -n "\.attempts" 1698c80 -- src` gives 1 hit, the live control.
-  - Writers: `refuse()`, called from the five replaced members.
-  - Path from writer to reader: `loadBuild` → `Oracle.attempts` → `openLive` (`helpers/discordLive.ts`) → `live.oracle.attempts`.
-    No offline case reads `attempts` from a `loadBuild` window. `discordBuild.network-refusal.test.ts` calls `installOracleShims`
-    directly with its own array, and `discordBuild.locators.test.ts`'s seven `loadBuild` calls never read `attempts`.
-  - Members of the class at `1698c80`:
-    1. the `loadBuild` wiring, where the mutant SURVIVED;
-    2. every `XMLHttpRequest` member but `open`. `RefusedXMLHttpRequest` returns `{ open }` only, so `addEventListener`,
-       `setRequestHeader`, `upload` or `overrideMimeType` touched before `open` throws a TypeError and records nothing (probe,
-       `xhr addEventListener before open`).
-  - Blind spot: a path that neither reaches the network nor records (subresources, navigation, the 7 in the probe) is outside the
-    class, because no attempt leaves. A path through a host-realm object (`crypto`, `WebAssembly`) is not seen by this predicate.
-- **Issue**:
-  - The fix's own claim is "the live control asserts the attempt list is empty, and it is: 9 of 9". That assertion is the
-    evidence that Discord's code tried no request during the live run.
-  - The network refusal itself is asserted, and resolved under CR-6. This finding is about the record.
-  - With the wiring cut, the live case passes on an empty list that no shim writes to.
-  - With an XHR client that registers a listener before `open`, the attempt is lost and the module may fail on the TypeError
-    instead of on the refusal.
-  - Whether Discord's code attempts a request in the live window at all is unmeasured.
-  - Per the severity floor, a behaviour the change relies on with no assertion that fails when it is lost is MEDIUM and blocks
-    QA.
-- **Required Action**:
-  - **Preferred**:
-    - Add an offline case that extends `discordBuild.locators.test.ts`'s `syntheticBuild` harness. One synthetic module tries
-      three things: an XHR that calls `addEventListener` first, then `open`; a `WebSocket`; and a `fetch`, each to a distinct
-      address. The case asserts that `oracle.attempts` names all three addresses.
-    - `RefusedXMLHttpRequest` records on any member access, not only on `open`. A `Proxy`, or recording at construction, would do
-      either; the address is then the `open` argument when it arrives, and the constructor name before that.
-    - Fixture property: the XHR's first touch is a member other than `open`, so an open-first refusal cannot pass the case.
-    - Falsity signature: at `1698c80` the case fails by assertion, because `attempts` lacks the XHR address. Under
-      `CR6-probe-loadbuild-attempts-disconnected` it fails with `attempts` equal to `[]`.
-  - **Minimum**:
-    - The same offline `loadBuild` case with an XHR that calls `open` first and a WebSocket. It fails under the disconnect mutant.
-    - The XHR member gap is recorded in the M3 document as a stated limit of the live control.
-  - Callers: `installOracleShims` has two callers, `loadBuild` and the refusal test, and `loadBuild` has one product-side caller,
-    `openLive`. Neither remedy changes what those callers receive except the extra records.
+CR-10 MEDIUM Round 3 RESOLVED at website `2c1590f` (severity floor met). `discordBuild.locators.test.ts` now runs a synthetic
+module through `loadBuild` and asserts `oracle.attempts` before and after the module's XHR, WebSocket and `fetch`. That is the
+failing assertion the live control's empty record lacked. `RefusedXMLHttpRequest` is a Proxy that refuses and records on any
+member *called*.
+
+The class is gone for the wiring and for called members. Captured check:
+`verification/019/code-review/m3fix4-mutants-cr-2c1590f.json` (4 of 4 KILLED). It includes
+`CR10-probe-loadbuild-attempts-disconnected`, which survived at `1698c80` and is now killed by assertion on the new case
+(`expected [] to deeply equal [ …(3) ]`). A narrower member remains, an XHR member that is *read* and not called, and it is CR-11.
+Argument: record `62c1ba99`.
 
 Disclosures for this sub-entry:
 - **Destructive-command check, twice.**
@@ -456,19 +421,77 @@ Disclosures for this sub-entry:
 Verdict, Round 3 sub-entry at `1698c80`: **REJECTED** on CR-10 (severity floor). CR-5 and CR-6 are RESOLVED. The fix is a test
 case and a few lines in `RefusedXMLHttpRequest`, and it is confirmed as a further sub-entry of Round 3.
 
+### Round 3 sub-entry: CR-10 confirmation at `2c1590f`
+
+The trigger is the implementer's fix round 4: `implementation/019-…-m3-implementation.md` § Class Sweep, Round 4, record
+`72b59f64`, `Handoff-At: 2c1590f`.
+
+Scope: the fix commit `2c1590f`, read through `git show 2c1590f`:
+- `helpers/discordBuild.ts` (+5 −1);
+- `discordBuild.locators.test.ts` (+17).
+
+Not reviewed: `f131f06` and `c32e058` (M4), which sit between `1698c80` and `2c1590f` and touch neither path.
+
+Process whose output is the evidence: as in the previous sub-entry. The probes ran in a `git archive` export of `2c1590f` with its
+own frozen install (exit 0, lockfile sha256 equal to the SHA's), under `unshare -rn`. The mutants ran through `mutation-run.py`
+on `2c1590f`.
+
+| Check | Result | Capture |
+|---|---|---|
+| Re-attack: the previous 18 paths, plus 3 XHR forms that read a member rather than call it, with the positive control | The control is logged, and the listener saw 0 of the 21. `xhr addEventListener before open` is now recorded (`XMLHttpRequest.addEventListener`). **Not recorded: `x.upload.addEventListener(...)`, where `upload` is read, returns a function and has no `addEventListener` (TypeError); and `x.readyState`, read as a function, not `0`.** `onload` set, then `open`, records by address (CR-11) | `m3fix4-oracle-window-network.mjs`, `.out` |
+| 4 probe mutants over `discordBuild.locators` and `discordBuild.network-refusal` (`--project node`): the disconnect, XHR open-only, WebSocket unrecorded, address constant | 4 of 4 KILLED, by assertion with count `checked`; the disconnect fails on the new case | `m3fix4-mutants-cr-2c1590f.json`, `-out/`, `.runner.txt` |
+| Expectation independence of the new case | The expected list is a literal, and the module runs through the real `loadBuild`. The fixture's XHR touches `addEventListener` first, which is the fixture property CR-10 asked for | n/a |
+| `convention-check.js --files` over the 2 files, and the ID-token class by hand (`grep -c`) | 0 FAIL, 0 CANDIDATE, id-token and basename SKIPped by the tool; 0 hits by hand | `m3fix4-convention-check-2c1590f.txt` |
+| Record corrections | Class Sweep: 3 `<game:` hits. Outstanding 11 says the class "was replaced rather than shifted". The live-log caveat is recorded, and Handoff-At no longer claims "at the same code" | `implementation/019-…-m3-implementation.md` at `72b59f64` |
+
+CR-11 LOW Round 3
+- **Category**: Checks That Cannot Fail
+- **Title**: The refused XHR records a member when it is called, not when it is read, so an XHR whose first touch is a property
+  read is lost from the record
+- **Location**: `src/utils/markdown/__tests__/helpers/discordBuild.ts` `installOracleShims`, the `get` trap of the
+  `RefusedXMLHttpRequest` Proxy, at `2c1590f`.
+- **Class**: the same as CR-10's: a record that can be empty while an attempt was made. The member left is the access that is
+  not a call.
+- **Enumeration**:
+  - The Proxy's `get` trap returns a throwing function for every member and records only when that function is called. Every
+    XHR property a client reads is therefore a member: `upload` (then `.addEventListener` or `.onprogress`), `readyState`,
+    `status`, `responseType`, `withCredentials` read back.
+  - By probe at `2c1590f`, 2 of 2 read forms are unrecorded (`xhr upload.addEventListener`, `xhr readyState read then open`), and
+    3 of 3 call-first and set-first forms are recorded.
+  - The predicate does not see a read whose result is only assigned to, such as `x.upload.onprogress = f`. That form records later
+    at `open`, so it is outside the class.
+- **Issue**:
+  - The implementer's claim is "any member touched, `open` or not, refuses and records". That claim holds for calls only.
+  - The network stays closed in every case, so CR-6 is unaffected. Only the live control's "no attempt" reading is overstated.
+  - The severity is not the floor's: CR-10's Minimum accepted this XHR member gap as a stated limit, and the wiring, the part
+    the floor rested on, is now asserted.
+  - Whether Discord's evaluated code reads an XHR property before `open` is an unmeasured hypothesis.
+- **Required Action**:
+  - **Preferred**: record in the `get` trap at access (or once at construction), not inside the returned function, so a read is
+    an attempt.
+  - Extend the new locators case with a second XHR whose first touch is `x.upload.addEventListener`, placed neither first nor last
+    among the module's attempts.
+  - Falsity signature: at `2c1590f` the extended case fails by assertion, because `attempts` lacks an XHR entry for it.
+  - **Minimum**: the M3 document's Class Sweep states that an XHR property read before `open` is not recorded.
+  - Callers: `installOracleShims` has the same two callers as before. Only the records they see change.
+  - Not blocking. Carrier: this document. The implementer may take it in the M4 fix round, and this review's M4 round checks it.
+
+Verdict, Round 3 sub-entry at `2c1590f`: **APPROVED_WITH_COMMENTS**. CR-5, CR-6 and CR-10 are RESOLVED. CR-11 is LOW, and CR-4,
+CR-7, CR-8 and CR-9 are LOW and open as before, each with its carrier. M3 goes to QA Phase 2 at `2c1590f`.
+
 ## Verdict
 
-**Status**: REJECTED (Round 3 sub-entry, M3 at `1698c80`). M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
-**Rationale**: in the Round 3 sub-entry above. CR-5 and CR-6 are resolved. CR-10 is a severity-floor gap in the record that the
-live control relies on.
+**Status**: APPROVED_WITH_COMMENTS (Round 3 sub-entry, M3 at `2c1590f`). M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
+**Rationale**: in the Round 3 sub-entries above. Every MEDIUM is resolved with a captured check that fails if it returns. The LOWs
+are carried.
 
 ## Required Actions
 
-Round 3 sub-entry, for the next fix:
-1. CR-10: an offline `loadBuild` case that reads `oracle.attempts` (preferred: with an XHR whose first touch is not `open`, and
-   `RefusedXMLHttpRequest` recording on any member).
-2. Correct the M3 document's Class Sweep (3 `<game:` hits) and Outstanding 11's "stale in the set".
-3. Optional as before: CR-4's remainder, CR-7's split and re-keying, CR-8, CR-9, and CR-5's preferred form.
+None blocking. Open LOWs, each with its carrier:
+- CR-11: this document, checked at M4's round.
+- CR-4's remainder, CR-8 and CR-9: M3 Outstanding 11.
+- CR-7's split and re-keying: M3 Outstanding 11. Its M6 deletion: plan R-30.
+- CR-5's preferred form (a zero cell fails the coverage run): M3 Outstanding 11.
 
 ## Assumption Not Checked
 
@@ -493,16 +516,25 @@ Round 3 sub-entry: This review assumes that the live run `m4-discord-live-cr6.lo
 the live command. Falsity signature: a live run of `discordLive.oracle-controls.test.ts` in an export of the approved SHA fails a
 case, or `oracle.attempts` is non-empty once CR-10's wiring is asserted. Owner: QA Phase 2 on M3, with the same live command.
 
+Round 3 sub-entry at `2c1590f`: This review assumes that `discord/discordLive.oracle-controls.test.ts` passes at `2c1590f`, its
+attempts case included, and does not test it. Neither the implementer nor I re-ran the live file after `2c1590f`. Falsity
+signature: in an export of `2c1590f`, the live file fails a case, or `oracle.attempts` names an address or an `XMLHttpRequest.`
+member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA.
+
 ## Next Steps
 
-- Implementer: CR-10 and the two record corrections (Required Actions), then a hand-off for a further Round 3 sub-entry.
+- QA (`qa-019`), Phase 2 on M3 at `2c1590f`:
+  - the live command and its reports, including the attempts case (Round 3's Assumption Not Checked and both sub-entries');
+  - the AC-3.4 product-function mutations (Outstanding 5);
+  - the `beforeinput` paste branch (Outstanding 7, or UAT).
+- Implementer: the LOWs in Required Actions, at its choice of round. CR-11 is checked at M4's round.
 - Planner (`planner-019`): CR-7's M6 deletion is registered (R-30). Nothing further is owed.
-- QA Phase 2 on M3, after approval: the live command and its reports (Round 3's Assumption Not Checked), at the approved SHA in an
-  export (the Round 3 sub-entry's Assumption Not Checked); the AC-3.4 product-function mutations (Outstanding 5); the
-  `beforeinput` paste branch (Outstanding 7, or UAT).
-- M4 round of this review: `93b26fd` and the rest of M4. The residue re-run with the corrected game mention is the M4 document's
-  Next step 5, before the adjustment choice.
-- M4 round of this review: the link allow-list attack re-run against the rendered anchor, and Round 2's Assumption Not Checked.
+- M4 round of this review:
+  - `93b26fd`, `f131f06`, `c32e058` and the rest of M4;
+  - CR-11;
+  - the link allow-list attack re-run against the rendered anchor;
+  - Round 2's Assumption Not Checked.
+  - The residue re-run with the corrected game mention is the M4 document's Next step 5, before the adjustment choice.
 - M5 implementer and this review's M5 round: CR-3.
 
 ## Resumption State
@@ -512,22 +544,19 @@ Written at 2026-11-23T21:33Z for a `/clear`, at steering's ask (`steering-hooks-
 - **Done.**
   - M2: Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. M2 is
     closed for review.
-  - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6. Its sub-entry at `1698c80`: CR-5 and CR-6 RESOLVED, REJECTED on CR-10
-    (severity floor). CR-7's carrier R-30 is recorded.
-  - Plan rows R-24, R-25, R-27 and R-29 are committed. The verdicts are delivered to `implementer-019` (M3 REJECTED),
-    `qa-019` (M2 approved) and `planner-019` (CR-7).
+  - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6. Sub-entry at `1698c80`: CR-5 and CR-6 RESOLVED, REJECTED on CR-10.
+    Sub-entry at `2c1590f`: CR-10 RESOLVED, CR-11 LOW raised, **APPROVED_WITH_COMMENTS**. M3 is with QA Phase 2.
+  - Plan rows R-24, R-25, R-27, R-29, R-35 and this sub-entry's row are committed. The verdicts are delivered to
+    `implementer-019`, `qa-019` (M2 and M3 approved) and `planner-019` (CR-7).
 - **Next.**
-  - On the implementer's CR-10 fix: a further Round 3 sub-entry. Re-run `m3fix-mutants-cr-1698c80.json`, re-anchored, where the
-    disconnect mutant must be KILLED; re-run `m3fix-oracle-window-network.mjs`, where `xhr addEventListener before open` must be
-    recorded (if the preferred form is taken); and check the two record corrections.
-  - Then M4, M5 and M6, each at its own document's `Handoff-At`. M4's document is already landing (record `5ad6e64d`, slice 1). The
+  - M4, M5 and M6, each at its own document's `Handoff-At`. M4's document is already landing (record `5ad6e64d`, slice 1). The
     M4 round owes the link allow-list attack against the rendered anchor, and Round 2's Assumption Not Checked. The M5 round owes
     CR-3.
 - **Approach in flight.** None.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` and is never moved by me. The
   record is on `master`.
 - **Local state.** The scratchpad holds an export of `1698c80` with its install (`x1698/`) and the mutation work directory
-  (`mwork1/`). Both are disposable. No process of mine is running.
+  (`mwork1/`), an export of `2c1590f` (`x2c15/`) and `mwork2/`. All are disposable. No process of mine is running.
 - **Evidence run but not recorded.** None. Every probe is under `verification/019/code-review/` and committed (`8da611bc`,
   `dd5b093d`, and this sub-entry's record commit). Install logs are saved as `.log.txt`, because the record ignores `*.log`.
 - **Questions sent, and to whom.** None open.

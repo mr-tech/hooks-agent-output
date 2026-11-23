@@ -1,0 +1,5 @@
+CR10-probe-loadbuild-attempts-disconnected KILLED 2.32
+CR10-probe-xhr-open-only KILLED 3.64
+CR10-probe-ws-unrecorded KILLED 2.37
+CR10-probe-address-constant KILLED 2.32
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m3fix4-mutants-cr-2c1590f.json (blob 97740b9b432f708e02476030202e21386760aa66))

@@ -1,0 +1,6 @@
+[
+ {"id": "CR10-probe-loadbuild-attempts-disconnected", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "installOracleShims(w, wasm, attempts);", "new": "installOracleShims(w, wasm, []);", "finding": "CR-10: the Oracle's attempts list is not the one the shims write (survived at 1698c80)"},
+ {"id": "CR10-probe-xhr-open-only", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "throw refuse(member === 'open' ? args[1] : `XMLHttpRequest.${String(member)}`);", "new": "if (member === 'open') throw refuse(args[1]); throw new TypeError(String(member));", "finding": "CR-10: a member other than open refuses without recording"},
+ {"id": "CR10-probe-ws-unrecorded", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "[name]: function Refused(address: unknown) { throw refuse(address); },", "new": "[name]: function Refused(address: unknown) { throw new Error(String(address)); },", "finding": "CR-10: WebSocket and EventSource refuse without recording"},
+ {"id": "CR10-probe-address-constant", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "attempts.push(String(address));", "new": "attempts.push('blocked');", "finding": "CR-6/CR-10: the record does not name the address"}
+]

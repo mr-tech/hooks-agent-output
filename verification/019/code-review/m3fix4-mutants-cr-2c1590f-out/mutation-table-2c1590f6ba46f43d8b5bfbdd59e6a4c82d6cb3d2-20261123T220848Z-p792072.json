@@ -1,0 +1,155 @@
+{
+ "sha": "2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "src/utils/markdown/__tests__/discordBuild.locators.test.ts",
+  "src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f.json",
+   "blob": "97740b9b432f708e02476030202e21386760aa66"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-control-1.stderr",
+   "seconds": 2.09,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 15,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "CR10-probe-loadbuild-attempts-disconnected",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-10: the Oracle's attempts list is not the one the shims write (survived at 1698c80)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 15,
+   "control_tests_run": 15,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-1.stderr"
+  },
+  {
+   "id": "CR10-probe-xhr-open-only",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-10: a member other than open refuses without recording"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 15,
+   "control_tests_run": 15,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.64,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-2.stderr"
+  },
+  {
+   "id": "CR10-probe-ws-unrecorded",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-10: WebSocket and EventSource refuse without recording"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 15,
+   "control_tests_run": 15,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused",
+    "|node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets a WebSocket nowhere and names its address"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.37,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-3.stderr"
+  },
+  {
+   "id": "CR10-probe-address-constant",
+   "run": "mutant-4",
+   "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts",
+   "tests": [],
+   "carried": {
+    "finding": "CR-6/CR-10: the record does not name the address"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 15,
+   "control_tests_run": 15,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused",
+    "|node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets an XMLHttpRequest nowhere and names its address",
+    "|node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets a WebSocket nowhere and names its address",
+    "|node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > records a fetch that is refused"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/code-review/m3fix4-mutants-cr-2c1590f-out/2c1590f6ba46f43d8b5bfbdd59e6a4c82d6cb3d2-20261123T220848Z-p792072-mutant-4.stderr"
+  }
+ ],
+ "score": "4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m3fix4-mutants-cr-2c1590f.json (blob 97740b9b432f708e02476030202e21386760aa66))"
+}

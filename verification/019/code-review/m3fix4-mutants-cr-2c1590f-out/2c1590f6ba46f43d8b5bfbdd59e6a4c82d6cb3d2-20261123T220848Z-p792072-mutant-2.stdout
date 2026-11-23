@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4a82279f-f5e2-4347-b7dc-2c06019c663c/scratchpad/mwork2/20261123T220848Z-p792072/mutant-2
+
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts (12 tests | 1 failed) 235ms
+     × records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused 19ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 14 passed (15)
+   Start at  22:08:55
+   Duration  1.41s (transform 303ms, setup 0ms, import 1.91s, tests 415ms, environment 0ms)
+

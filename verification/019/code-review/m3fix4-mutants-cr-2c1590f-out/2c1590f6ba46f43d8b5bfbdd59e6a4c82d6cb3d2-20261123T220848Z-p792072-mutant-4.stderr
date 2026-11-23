@@ -1,0 +1,81 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused
+AssertionError: expected [ 'blocked', 'blocked', 'blocked' ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+-   "XMLHttpRequest.addEventListener",
+-   "wss://w.test/socket",
+-   "https://f.test/data",
++   "blocked",
++   "blocked",
++   "blocked",
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordBuild.locators.test.ts:98:29
+     96|     (oracle.req('20') as () => void)();
+     97|
+     98|     expect(oracle.attempts).toEqual(['XMLHttpRequest.addEventListener'…
+       |                             ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets an XMLHttpRequest nowhere and names its address
+AssertionError: expected 'blocked' to contain '/xhr'
+
+Expected: "/xhr"
+Received: "blocked"
+
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:46:25
+     44|     });
+     45|     expect(attempts).toHaveLength(1);
+     46|     expect(attempts[0]).toContain('/xhr');
+       |                         ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets a WebSocket nowhere and names its address
+AssertionError: expected 'blocked' to contain '/ws'
+
+Expected: "/ws"
+Received: "blocked"
+
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:57:25
+     55|     });
+     56|     expect(attempts).toHaveLength(1);
+     57|     expect(attempts[0]).toContain('/ws');
+       |                         ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > records a fetch that is refused
+AssertionError: expected [ 'blocked' ] to deeply equal [ 'https://discord.com/api/v9/x' ]
+
+- Expected
++ Received
+
+  [
+-   "https://discord.com/api/v9/x",
++   "blocked",
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:64:22
+     62|     const w = oracleWindow(attempts);
+     63|     await expect(w.fetch('https://discord.com/api/v9/x')).rejects.toTh…
+     64|     expect(attempts).toEqual(['https://discord.com/api/v9/x']);
+       |                      ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the network attempts a loaded build makes > records an XHR touched before open, a WebSocket and a fetch, each as an attempt that was refused
+AssertionError: expected [ 'wss://w.test/socket', …(1) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+-   "XMLHttpRequest.addEventListener",
+    "wss://w.test/socket",
+    "https://f.test/data",
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordBuild.locators.test.ts:98:29
+     96|     (oracle.req('20') as () => void)();
+     97|
+     98|     expect(oracle.attempts).toEqual(['XMLHttpRequest.addEventListener'…
+       |                             ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

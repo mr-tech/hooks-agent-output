@@ -1,0 +1,160 @@
+{
+ "types": {
+  "fetch": "function",
+  "XMLHttpRequest": "function",
+  "WebSocket": "function",
+  "EventSource": "function",
+  "sendBeacon": "function"
+ },
+ "positiveControl": [
+  "GET /control"
+ ],
+ "results": {
+  "fetch(url)": {
+   "thrown": null,
+   "recorded": [
+    "http://127.0.0.1:33747/fetch-url"
+   ],
+   "listenerSaw": []
+  },
+  "fetch(Request-like)": {
+   "thrown": null,
+   "recorded": [
+    "http://127.0.0.1:33747/fetch-req"
+   ],
+   "listenerSaw": []
+  },
+  "fetch(x.wasm), no wasm given": {
+   "thrown": null,
+   "recorded": [
+    "http://127.0.0.1:33747/x.wasm"
+   ],
+   "listenerSaw": []
+  },
+  "xhr open+send": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:33747/xhr"
+   ],
+   "listenerSaw": []
+  },
+  "xhr addEventListener before open": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "XMLHttpRequest.addEventListener"
+   ],
+   "listenerSaw": []
+  },
+  "xhr withCredentials before open": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:33747/xhr-wc"
+   ],
+   "listenerSaw": []
+  },
+  "xhr via self": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:33747/xhr-self"
+   ],
+   "listenerSaw": []
+  },
+  "xhr upload.addEventListener": {
+   "thrown": "x.upload.addEventListener is not a function",
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "xhr readyState read then open": {
+   "thrown": "readyState function",
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "xhr onload set then open": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:33747/xhr-onload"
+   ],
+   "listenerSaw": []
+  },
+  "WebSocket": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "ws://127.0.0.1:33747/ws"
+   ],
+   "listenerSaw": []
+  },
+  "WebSocket via globalThis": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "ws://127.0.0.1:33747/ws-gt"
+   ],
+   "listenerSaw": []
+  },
+  "EventSource": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:33747/es"
+   ],
+   "listenerSaw": []
+  },
+  "sendBeacon": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:33747/beacon"
+   ],
+   "listenerSaw": []
+  },
+  "img src": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "script src": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "link stylesheet": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "iframe src": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "form submit": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "window.open": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "location.assign": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  }
+ },
+ "listenerTotal": [
+  "GET /control"
+ ],
+ "attemptsTotal": [
+  "http://127.0.0.1:33747/fetch-url",
+  "http://127.0.0.1:33747/fetch-req",
+  "http://127.0.0.1:33747/x.wasm",
+  "http://127.0.0.1:33747/xhr",
+  "XMLHttpRequest.addEventListener",
+  "http://127.0.0.1:33747/xhr-wc",
+  "http://127.0.0.1:33747/xhr-self",
+  "http://127.0.0.1:33747/xhr-onload",
+  "ws://127.0.0.1:33747/ws",
+  "ws://127.0.0.1:33747/ws-gt",
+  "http://127.0.0.1:33747/es",
+  "http://127.0.0.1:33747/beacon"
+ ]
+}
