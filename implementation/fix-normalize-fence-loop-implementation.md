@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
 Status: Active
-Status-Detail: "Handed off at website d3b98cf for code review; QA Phase 2 is owed after it (32 production lines added). A second, pre-existing defect is with steering for re-scoping and is not in this fix."
+Status-Detail: "Handed off at website d3b98cf for code review; QA Phase 2 is owed after it (32 production lines added)."
 Handoff-At: d3b98cf — repos=website
 Origin-Chain: none
 ---
@@ -209,11 +209,13 @@ For the owner's own check, in every message box except titles and field names un
   production lines were added.
 - **Who merges**: devops, at release to website `master` (Vercel production), under the owner's release approval.
 - **Routed to steering** (`steering-hooks-fixer`, at this seam): the pre-existing defect where a quote line taken into a newly opened code
-  block loses its `> `. The evidence is in Diagnosis. It is identical at base and fix, outside the statement, and not absorbed. It needs a
-  re-scope or a carrier, and that decision is not this stage's.
+  block loses its `> `. The evidence is in Diagnosis. It is identical at base and fix, outside the statement, and not absorbed.
+  Carrier: row S-29 of `verification/slate-formatting-effort/scoping/inventory.md` (record `21c0abc8`), the scope sweep of the Slate and
+  formatting effort, named by steering; that effort owns it, not this fix.
 
 ## Changelog
 
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-23T09:15 | fixer-fix-normalize-fence-loop | Created. Fix at website `9b02f38`, `f9b16de`, `d3b98cf`. Red runs, controls, verification and handoff at `d3b98cf` recorded |
+| 2026-11-23T09:19 | fixer-fix-normalize-fence-loop | The routed re-scope item's carrier recorded: S-29 of `verification/slate-formatting-effort/scoping/inventory.md`, per steering's message (reviewer started 09:19Z) |
