@@ -4,6 +4,7 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3), for planner-019's revision 3.
   Delta pass on plan 019 revision 2 (record 8dfd4659): APPROVED_WITH_CHANGES. CF-1 to CF-7 are folded as found. One new
   LOW defect against the Test Conventions: a single `discord` vitest project cannot keep the environment-by-extension
   rule (CF-8). CF-2's option b is OQ-5, at steering. Goes to planner-019; the next delta pass reads CF-8's fold.
@@ -15,6 +16,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:08 | architect-019 | § Legacy-only surfaces added: the design behind his 17:04Z selection "match how it looks" (effort rulings, record `af8b5a5a`) | Asked by `planner-019` for revision 3. My 16:5xZ message to steering named A′ and B3 without the binding detail; this section is that detail. Inputs re-read: analysis 019 (`aafecf1`) AN-3, AN-5 ("form chosen: `parseLossless` alone") and AN-6; research Appendix A; my re-derivation of AN-3's legacy outputs (description and V2 equal content's legacy output on 272 of 272 rows). |
 | 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
 | 2026-11-23T15:58 | architect-019 | Conformance pass on plan 019 revision 1 (record `103687b4`) | Brief from `steering-hooks-fixer` by message; common brief `steering/slate-formatting-brief-common.md`. The plan was read whole. Website was read at `af3d95a` from a `git archive` export, with the shell in the record folder and exact paths only (his 15:29Z selection). highlight.js 11.12.0 was read from the shared tree's installed copy, read-only. `@discord/markdown-wasm` 0.16.0 was run under Node 24.14.0 in capped scopes. Captures are in `verification/019/architect-conformance/`. The pre-planning findings (`architecture/closed/slate-formatting-preview-architecture-findings.md`) were closed Resolved in this pass, because plan 019 carries every item they raised. |
 
@@ -243,6 +245,116 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Legacy-only surfaces: visible-style equivalence (A′) and adjustments toward legacy (B3)
+
+Authority: his selection at 17:04Z, "Agent: match how it looks". That is an option agents composed, with this design as
+its content. Scope: the surfaces AN-3 classes legacy-only (embed description, embed title, embed field name and value, both
+with and without an embed url, and the V2 text display). Message content is not in it: there D-5 applies unchanged. The
+preview and the editor render from one `parseLossless` tree (analysis AN-5), so everything below is defined over that tree.
+
+### (1) What "each character's visible styles" means
+
+The comparison form is the rendered text as a sequence of **displayed units**. A unit is one displayed character, or one
+atom: a mention, an emoji or a timestamp counts as one unit with its kind and its resolved value, as research V-18 blurs
+them. Two renderings are equal when they have the same units in the same order, and each unit carries the same value on
+every dimension below.
+
+Dimensions that count:
+- **Text**: which characters are displayed. A marker that one side consumes and the other shows is a difference, for
+  example legacy dropping the trailing ` ##` of `# h ##`, or a tab against spaces.
+- **Inline style set**: bold, italic, underline, strikethrough, inline code, and spoiler membership, compared as a
+  **set**.
+- **Link**: membership and the link's `href`, compared after AC-4.6's scheme rule.
+- **Block context**: heading level (1 to 3), subtext, quote membership, code block with its highlight language class, and
+  list item with list kind, an ordered list's start number, and nesting depth.
+- **Line breaks**: where the displayed text breaks lines.
+
+Differences treated as invisible:
+- the **nesting order** of inline wrappers: `i(b(x))` equals `b(i(x))`;
+- a **run split** into adjacent runs with the same style set, at a text-node boundary or at a newline that both sides keep
+  (for example `*a\nb*` as one italic run or as two);
+- **unstyled wrappers**: `paragraph`, `text`, `empty`;
+- a **spoiler split** into pieces that reveal together. This holds only because the renderer reveals the pieces of one
+  spoiler together (`SpoilerProps.id` in `@discord/markdown-react`'s types; the site's renderer must keep it), so it is a
+  criterion on the renderer, not an assumption;
+- **inline style on whitespace** for bold and italic, which draw nothing on a space. Underline, strikethrough, spoiler and
+  inline code do draw on a space, so for them it counts;
+- **block-versus-inline nesting order** where block context and style set are the same per unit (`b(h1(x))` equals
+  `h1(b(x))`). The exception is a quote inside a spoiler, where legacy hides the quote bar: the bar is treated as a unit of
+  the quote, carrying the spoiler dimension.
+
+The instrument is M3's normaliser, extended with this form. It has its own positive controls: a member of each invisible
+class is reported equal, and a member of each counted dimension is reported different.
+
+### (2) What B3 covers: a rule, not a hand-picked list
+
+Order of work:
+1. M3 measures the visible residue first: inputs on a legacy-only surface where the engine's rendering and legacy's differ
+   in the (1) form.
+2. A residue class gets an adjustment only if all three hold:
+   - **(a) Engine-only.** It is expressible as a rewrite of the engine's lossless tree, using only that tree, its spans, and
+     re-parses of a node's own span by the engine under the same surface mask. It never re-tokenises source text with a
+     regex or a second grammar, because that would be the second recogniser D-13 retired.
+   - **(b) Structural.** The class is defined by a predicate over the engine's tree (for example, "a heading whose
+     content ends in a space and one or more `#`"), never as a list of inputs.
+   - **(c) Proven.** In `pnpm test:discord`, the adjustment moves every member of its class that the generator and corpus
+     reach from differs to equal against legacy, and moves no input from equal to differs on any surface.
+3. Everything else is listed in the known-differences report, with its surface and "the site follows the engine".
+
+Provisional reading of research Appendix A against the rule. M3's measurement decides; this list is not binding.
+- **Likely adjusted:**
+  - trailing hashes in a heading (row 7);
+  - a heading whose content starts with a marker that legacy does not take as a heading (row 11);
+  - heading and subtext nesting (rows 21 and 22), by re-parsing the node's own span;
+  - a spoiler inside a masked link's label (row 40), the same way;
+  - an ordered list followed by a bullet line that legacy keeps in the same list (row 177);
+  - tabs shown as spaces (row 272);
+  - the title surface's triple-backtick handling (AN-3 table: on a title, ``` becomes inline code).
+- **Likely listed:**
+  - unbalanced delimiters (rows 92, 93, 95, 98, 99, 113, 73), which are token-level;
+  - spaces inside a masked link's parentheses (row 35);
+  - backtick runs (rows 121, 135, 136, 137);
+  - escapes (rows 233, 245);
+  - a leading space before `#` or `>` (rows 6, 152), which on these surfaces needs a new block from text, so it is a
+    re-tokenisation.
+- **Likely invisible under (1):** rows 67, 83, 88, 104, 105, 157, 158, 255, 259 and 260.
+
+### (3) Where it sits, and the editor
+
+- **Its own module** under `src/utils/markdown/`, beside the adapter.
+  - It is called only by the adapter. The adapter selects it per surface, beside that surface's mask, and message content
+    selects none.
+  - It imports tree types only from the adapter, never from `@discord/markdown-*`, so AC-2.1's confinement holds
+    unchanged. The adapter re-exports the type aliases it needs.
+  - Each adjustment is one named, exported function with its class predicate, so the test in (4) can address it.
+- **The editor's colouring takes it too, on the same surfaces.**
+  - The preview and the colouring read one `parseLossless` tree (AN-5, M5). The adjustment rewrites that tree before both
+    the renderer map and the token-to-leaf map read it, so W-3 holds by construction.
+  - Discord has no text box for embeds or the V2 text display, so the editor on these surfaces has no Discord expected
+    value. Its standard is W-3. Criterion: on every legacy-only surface, for every input, each content character's
+    editor style set equals that character's style set in the preview, in the (1) form. Markers carry their marker
+    classes, as AN-6's table gives them.
+
+### (4) The staleness test
+
+This test lives in `pnpm test:discord`. It reads three things and adds a row C6 to M3's outcome table.
+- **(i) Routing.** It locates the embed renderer and the V2 text-display module in the fetched bundle by content predicates.
+  These are AN-3's reads: the caller of the legacy facade's `parseEmbedTitle` and `parseRichEmbedText`, and the text
+  display's call of the facade's `parse`. It asserts that neither module references the native switch, by the predicate
+  of research V-1 module 146849 (`native-markdown"` together with `enable_native_markdown`).
+  - A predicate matching zero modules or several is C3, as today.
+  - A reference to the switch is **C6: legacy-only surfaces may have moved**.
+- **(ii) Per-adjustment liveness.** For each adjustment, over its class members in the corpus and the generator, the
+  native output still differs visibly from legacy (otherwise Discord has converged and the adjustment is dead), and the
+  adjusted output still equals legacy (otherwise legacy has moved). Either failure is C6, naming the adjustment.
+- **(iii) The surface class.** AN-3's per-surface legacy calls are re-run, and description and V2 are checked to still
+  equal content's legacy output on the corpus, as re-derived here (272 of 272). A change is reported with the rows.
+
+**C6 outcome:** it holds this chain's gates and any later chain touching the region. If (i) fires, the surfaces are no
+longer legacy-only, so the adjustments may be wrong for some users. That goes to him through steering, because
+re-classing the surfaces under D-5 is his ruling, and the adjustments stay until he rules. If (ii) fires alone, the
+adjustment is removed or re-derived in the chain that runs the command.
 
 ## Problem Areas and record entries from this pass
 
