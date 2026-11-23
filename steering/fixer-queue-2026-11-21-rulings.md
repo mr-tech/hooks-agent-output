@@ -798,3 +798,20 @@ after 08:30Z (`git log --diff-filter=A --since=2026-11-23T08:30Z -- handoff/`: e
 Status-Detail says "on his approval". steering.md governs here: implementation starts without a prompt once those gates hold, and no ruling of
 his asks for a further approval (this file, searched for 019 approval). The base moved from QA's `af3d95a` to `5ec0621`, which is 9e's
 `ImageUploader.tsx` and `useDialogEnter.ts` and lies outside the region. The implementer re-baselines the suite at `5ec0621`.
+
+## 2026-11-23T21:18Z — plan 019 M4 flow ask: subtext and spoiler pieces answered from rulings; mentions put to him
+
+`implementer-019` sent three preview flows by message (21:1xZ). A `general-purpose-sonnet` refutation helper read website `5ec0621` (read from
+code, not run). It confirmed that subtext has no rule or style today, so the line shows with `-# ` (`git grep -e '-#' -e 'ubtext' 5ec0621 -- src`:
+test and png hits only). It confirmed that each `MarkdownSpoiler` keeps its own state (`MarkdownSpoiler.tsx:6,11`; `rules.tsx:440`). It
+REFUTED part of the mention premise. Roles and commands have no data. But the site holds the server's channel list (`GuildProvider.tsx:20,101-128`;
+`src/utils/redis/index.ts:291-297`), which the preview does not read today. A command mention has no rule and most likely shows as plain text,
+not a pill (`rules.tsx`, no `</` rule).
+**Subtext, this thread's, answered from his 09:11Z words** (the standard is Discord's own behaviour) and the Standing Default that a design
+choice inside the scope is the stage's. Render it as a small, muted block with the marker consumed (the implementer's option a).
+**Spoiler pieces, answered from the plan.** AC-4.8 is D-14's visible form, and D-14 is his selection (block 17:04Z). The pieces of one spoiler
+share one reveal (option a).
+**Mentions: put to him** as a selection. Showing a real role as "@unknown-role" is a product choice with several reasonable answers, and the
+helper's channel finding adds an option the plan does not have. M4's mention code waits on his answer.
+**Plan fact for the Planner batch** (the implementer's): M4's "Mirrors" line cites "guild-resolved mentions". `rules.tsx` at `5ec0621` resolves
+none.
