@@ -1,0 +1,172 @@
+[
+ {
+  "text": "```\nfoo\n```",
+  "err": null,
+  "updFirst": 1,
+  "updSecond": 1,
+  "loaderLangs": [
+   "",
+   "",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "text": "```js\nfoo\n```",
+  "err": null,
+  "updFirst": 0,
+  "updSecond": 0,
+  "loaderLangs": [
+   "",
+   "js",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "js",
+   ""
+  ]
+ },
+ {
+  "text": "```c++\nfoo\n```",
+  "err": null,
+  "updFirst": 1,
+  "updSecond": 1,
+  "loaderLangs": [
+   "",
+   "",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "text": "```c#\nfoo\n```",
+  "err": null,
+  "updFirst": 1,
+  "updSecond": 1,
+  "loaderLangs": [
+   "",
+   "",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "text": "``` js\nfoo\n```",
+  "err": null,
+  "updFirst": 1,
+  "updSecond": 1,
+  "loaderLangs": [
+   "",
+   "",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "text": "```js \nfoo\n```",
+  "err": null,
+  "updFirst": 1,
+  "updSecond": 1,
+  "loaderLangs": [
+   "",
+   "",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "text": "```js\n```a```\nfoo\n```",
+  "err": null,
+  "updFirst": 0,
+  "updSecond": 0,
+  "loaderLangs": [
+   "",
+   "",
+   "js",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   "js",
+   ""
+  ]
+ },
+ {
+  "text": "```js\nx``````\nfoo\n```",
+  "err": null,
+  "updFirst": 0,
+  "updSecond": 0,
+  "loaderLangs": [
+   "",
+   "",
+   "js",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   "js",
+   ""
+  ]
+ },
+ {
+  "text": "> a\n```c++\nfoo\n```",
+  "err": "Error: Could not completely normalize the editor after 378 iterations!",
+  "updFirst": 124,
+  "updSecond": 124,
+  "loaderLangs": [
+   "",
+   "",
+   "",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "text": "> a\n```js\n```a```\nfoo\n```",
+  "err": null,
+  "updFirst": 0,
+  "updSecond": 0,
+  "loaderLangs": [
+   "",
+   "",
+   "",
+   "js",
+   ""
+  ],
+  "normLangs": [
+   "",
+   "",
+   "",
+   "js",
+   ""
+  ]
+ }
+]

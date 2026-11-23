@@ -1,0 +1,34 @@
+// Reviewer probe: fence-language agreement between loader and normaliser, per fence form.
+import { writeFileSync } from 'fs';
+import { createEditor, Editor } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { it, vi } from 'vitest';
+import { getInitialValue, withEmojis, withNormalizeNode } from '~/components/SlateEditor/utils';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const P = markdown.interactive.parseEmoji;
+const CASES = ['```\nfoo\n```', '```js\nfoo\n```', '```c++\nfoo\n```', '```c#\nfoo\n```', '``` js\nfoo\n```', '```js \nfoo\n```',
+  '```js\n```a```\nfoo\n```', '```js\nx``````\nfoo\n```',
+  '> a\n```c++\nfoo\n```', '> a\n```js\n```a```\nfoo\n```'];
+it('fence lang', () => {
+  const g = globalThis as { __upd?: number };
+  const out = CASES.map((text) => {
+    const loaded = getInitialValue(text, P, false);
+    const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, P);
+    e.children = getInitialValue(text, P, false);
+    g.__upd = 0;
+    let err: string | null = null;
+    try { Editor.normalize(e, { force: true }); } catch (x) { err = String(x).slice(0, 70); }
+    const upd1 = g.__upd;
+    g.__upd = 0;
+    try { Editor.normalize(e, { force: true }); } catch (x) { err = err ?? String(x).slice(0, 70); }
+    return {
+      text, err, updFirst: upd1, updSecond: g.__upd,
+      loaderLangs: loaded.map((n) => ('lang' in n ? n.lang : '')),
+      normLangs: e.children.map((n) => ('lang' in n ? n.lang : '')),
+    };
+  });
+  writeFileSync(process.env.PROBE_OUT as string, JSON.stringify(out, null, 1));
+});

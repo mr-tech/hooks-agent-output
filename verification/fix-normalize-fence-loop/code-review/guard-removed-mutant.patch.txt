@@ -1,0 +1,6 @@
+57,58c57,58
+<           if (child.type !== 'blockQuote' && quotePrefix) {
+<             const content = childText.slice(quotePrefix.length);
+---
+>           if (quotePrefix) {
+>             const content = child.type === 'blockQuote' ? childText.slice(quotePrefix.length) : childText.slice(quotePrefix.length);

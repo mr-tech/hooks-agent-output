@@ -1,0 +1,88 @@
+// Reviewer probe (code-review, fix-normalize-fence-loop): differential over a seeded random corpus.
+// Run inside a git archive export (base 0411d3b or fix d3b98cf) whose withNormalizeNode.ts carries the
+// one-line __upd counter (update passes of handleEditor). Writes JSON to $PROBE_OUT.
+import { writeFileSync } from 'fs';
+
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { expect, it, vi } from 'vitest';
+
+import {
+  flattenNodeText, getInitialValue, onKeyDown, withEmojis, withNormalizeNode,
+} from '~/components/SlateEditor/utils';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const P = markdown.interactive.parseEmoji;
+const ATOMS = ['a', '', '> a', '>>> a', '>>> ', '> ', ' > a', '  >>> b', '>>> > a', '> > a', '> >>> a',
+  '```', '```js', '```c++', '``` js', '```js x', 'a```', '```a```', 'foo', '🙂 b'];
+
+let seed = 12345;
+const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+const corpus = new Set<string>();
+for (const a of ATOMS) for (const b of ATOMS) corpus.add(`${a}\n${b}`);
+while (corpus.size < 1200) {
+  const n = 1 + Math.floor(rnd() * 5);
+  corpus.add(Array.from({ length: n }, () => ATOMS[Math.floor(rnd() * ATOMS.length)]).join('\n'));
+}
+
+const make = (text: string, partial: boolean) => {
+  const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), partial, P);
+  e.children = getInitialValue(text, P, partial);
+  return e;
+};
+const shape = (nodes: unknown[]) => (nodes as Array<Record<string, unknown>>).map((n) => ({
+  type: n.type, lang: n.lang ?? '', startCodeBlock: n.startCodeBlock, quotePrefix: n.type === 'blockQuote' ? (n.quotePrefix ?? null) : null,
+}));
+const g = globalThis as { __upd?: number };
+const run = (f: () => void): string | null => { try { f(); return null; } catch (err) { return String(err).slice(0, 80); } };
+
+it('differential', () => {
+  const out: Record<string, unknown>[] = [];
+  for (const text of corpus) {
+    const r: Record<string, unknown> = { text };
+    r.loadRoundTrip = flattenNodeText(getInitialValue(text, P, false)) === text;
+    r.partialRoundTrip = flattenNodeText(getInitialValue(text, P, true)) === text;
+    const e = make(text, false);
+    g.__upd = 0;
+    r.normThrow = run(() => Editor.normalize(e, { force: true }));
+    r.normUpdatePasses = g.__upd;
+    r.normText = flattenNodeText(e.children) === text;
+    r.fixedPointMatchesLoader = JSON.stringify(shape(e.children)) === JSON.stringify(shape(getInitialValue(text, P, false)));
+    const lines = text.split('\n');
+    const edits: Record<string, unknown>[] = [];
+    for (let i = 0; i < lines.length; i++) {
+      for (const kind of ['typeEnd', 'typeStart', 'splitEnd', 'backspaceStart'] as const) {
+        const ed = make(text, false);
+        g.__upd = 0;
+        const err = run(() => {
+          Transforms.select(ed, kind.endsWith('End') ? Editor.end(ed, [i]) : Editor.start(ed, [i]));
+          if (kind.startsWith('type')) Editor.insertText(ed, 'x');
+          else if (kind === 'splitEnd') ed.insertBreak();
+          else {
+            const ev = { key: 'Backspace', defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } };
+            onKeyDown(ed, false, undefined)(ev as never);
+            if (!ev.defaultPrevented) ed.deleteBackward('character');
+          }
+        });
+        const saved = flattenNodeText(ed.children);
+        const rec: Record<string, unknown> = { i, kind, err, upd: g.__upd, saved };
+        if (kind === 'typeEnd') rec.textOk = saved === lines.map((l, j) => (j === i ? `${l}x` : l)).join('\n');
+        if (!err) {
+          const before = JSON.stringify(ed.children);
+          rec.reNormThrow = run(() => Editor.normalize(ed, { force: true }));
+          rec.settled = JSON.stringify(ed.children) === before;
+          rec.reloadMatches = JSON.stringify(shape(ed.children)) === JSON.stringify(shape(getInitialValue(saved, P, false)));
+          rec.reloadText = flattenNodeText(getInitialValue(saved, P, false)) === saved;
+        }
+        edits.push(rec);
+      }
+    }
+    r.edits = edits;
+    out.push(r);
+  }
+  writeFileSync(process.env.PROBE_OUT as string, JSON.stringify(out));
+  expect(out.length).toBe(corpus.size);
+}, 600000);
