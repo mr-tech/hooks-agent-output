@@ -1,0 +1,86 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 14 failed) 127ms
+     × with one timestamp between text 43ms
+     × with identical duplicates, the first 7ms
+     × with identical duplicates, the second 7ms
+     × with a timestamp in a code span before it 6ms
+     × with a timestamp in a code block before it 6ms
+     × with an escaped timestamp before it 4ms
+     × with an invalid style letter before it 3ms
+     × with a timestamp inside a spoiler, the first 10ms
+     × with a timestamp inside a spoiler, the second 4ms
+     × with a timestamp inside a link label, which the engine leaves as text 10ms
+     × with the bare form 3ms
+     × with three timestamps, the middle one 4ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 6ms
+     × after a timestamp is added between and after the existing ones 4ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code span before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code block before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an escaped timestamp before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an invalid style letter before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the second
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a link label, which the engine leaves as text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with the bare form
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with three timestamps, the middle one
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/press.ts:15:8
+     13| export default function press(el: HTMLElement) {
+     14|   act(() => {
+     15|     el.dispatchEvent(new PointerEvent('pointerdown', {
+       |        ^
+     16|       bubbles: true, cancelable: true, pointerId: 1, pointerType: 'mou…
+     17|     }));
+ ❯ process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.press src/components/__tests__/helpers/press.ts:14:3
+ ❯ editTimestamp src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:44:3
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:73:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added before the existing ones while the preview stays mounted
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/press.ts:15:8
+     13| export default function press(el: HTMLElement) {
+     14|   act(() => {
+     15|     el.dispatchEvent(new PointerEvent('pointerdown', {
+       |        ^
+     16|       bubbles: true, cancelable: true, pointerId: 1, pointerType: 'mou…
+     17|     }));
+ ❯ process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.press src/components/__tests__/helpers/press.ts:14:3
+ ❯ editTimestamp src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:44:3
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:81:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added between and after the existing ones
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/press.ts:15:8
+     13| export default function press(el: HTMLElement) {
+     14|   act(() => {
+     15|     el.dispatchEvent(new PointerEvent('pointerdown', {
+       |        ^
+     16|       bubbles: true, cancelable: true, pointerId: 1, pointerType: 'mou…
+     17|     }));
+ ❯ process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.press src/components/__tests__/helpers/press.ts:14:3
+ ❯ editTimestamp src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:44:3
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:89:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  14 failed | 16 passed (30)
+   Start at  22:14:35
+   Duration  2.45s (transform 992ms, setup 39ms, import 2.79s, tests 210ms, environment 1.44s)
+

@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 1 failed) 217ms
+     × formats in UTC before mount, whatever the viewer's zone 18ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in UTC before mount, whatever the viewer's zone
+AssertionError: expected [ '11/14/23, 5:13 PM' ] to deeply equal [ '11/14/23, 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13 PM",
++   "11/14/23, 5:13 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:84:54
+     82|   it('formats in UTC before mount, whatever the viewer\'s zone', () =>…
+     83|     process.env.TZ = 'America/New_York';
+     84|     expect(stampText(draw(`<t:${STAMP}:s>`, false))).toEqual(['11/14/2…
+       |                                                      ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 29 passed (30)
+   Start at  22:14:25
+   Duration  8.75s (transform 2.27s, setup 89ms, import 5.79s, tests 4.33s, environment 2.33s)
+

@@ -1,0 +1,58 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 2 failed) 291ms
+     × draws S as its text 16ms
+     × formats in the viewer's zone once mounted 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws S as its text
+AssertionError: expected [ '11/14/23, 10:13 PM' ] to deeply equal [ '11/14/23, 10:13:20 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13:20 PM",
++   "11/14/23, 10:13 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in the viewer's zone once mounted
+AssertionError: expected [ '11/14/23, 5:13 PM', …(1) ] to deeply equal [ '11/14/23, 5:13 PM', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "11/14/23, 5:13 PM",
+-   "11/14/23, 5:13:20 PM",
++   "11/14/23, 5:13 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:79:62
+     77|   it('formats in the viewer\'s zone once mounted', () => {
+     78|     process.env.TZ = 'America/New_York';
+     79|     expect(stampText(draw(`<t:${STAMP}:s> <t:${STAMP}:S>`))).toEqual([…
+       |                                                              ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 28 passed (30)
+   Start at  22:14:13
+   Duration  10.01s (transform 2.59s, setup 66ms, import 6.74s, tests 4.89s, environment 2.93s)
+

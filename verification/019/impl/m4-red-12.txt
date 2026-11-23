@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 1 failed) 730ms
+     × keeps its link syntax as text when the embed has a url 65ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.field-name-links.test.tsx > an embed field name in the preview > keeps its link syntax as text when the embed has a url
+AssertionError: expected <a href="https://z.q/"></a>
+…(1) to have a length of +0 but got 2
+
+- Expected
++ Received
+
+- 0
++ 2
+
+ ❯ src/app/preview/__tests__/page.field-name-links.test.tsx:41:40
+     39|   it('keeps its link syntax as text when the embed has a url', async (…
+     40|     const name = await fieldNames({ url: 'https://example.com' });
+     41|     expect(name.querySelectorAll('a')).toHaveLength(0);
+       |                                        ^
+     42|     expect(name.textContent).toBe(NAME);
+     43|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  22:15:19
+   Duration  3.29s (transform 992ms, setup 26ms, import 1.63s, tests 730ms, environment 745ms)
+
+exit 1

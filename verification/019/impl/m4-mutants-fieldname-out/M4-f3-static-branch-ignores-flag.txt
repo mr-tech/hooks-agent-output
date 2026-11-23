@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 1 failed) 637ms
+     × keeps its link syntax as text when the embed has a url 60ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.field-name-links.test.tsx > an embed field name in the preview > keeps its link syntax as text when the embed has a url
+AssertionError: expected <a href="https://z.q/"></a>
+…(1) to have a length of +0 but got 2
+
+- Expected
++ Received
+
+- 0
++ 2
+
+ ❯ src/app/preview/__tests__/page.field-name-links.test.tsx:41:40
+     39|   it('keeps its link syntax as text when the embed has a url', async (…
+     40|     const name = await fieldNames({ url: 'https://example.com' });
+     41|     expect(name.querySelectorAll('a')).toHaveLength(0);
+       |                                        ^
+     42|     expect(name.textContent).toBe(NAME);
+     43|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  22:17:26
+   Duration  2.86s (transform 853ms, setup 22ms, import 1.44s, tests 637ms, environment 624ms)
+

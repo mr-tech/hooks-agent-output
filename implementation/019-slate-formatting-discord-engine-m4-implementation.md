@@ -6,7 +6,7 @@ Status: Active
 Status-Detail: >-
   M4 is in progress on chain/019-slate-formatting-discord-engine. Slice 1 (the preview renderer over the engine tree, the static parsers
   switched, subtext and shared spoiler reveal) and slice 2a (mentions, AC-4.4 under D-17, at website `f131f06`) are committed and not yet
-  handed to review. Slice 2b (the emoji display helper and the emoji renderer, `c32e058`) is committed. Not built yet: timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
+  handed to review. Slice 2b (the emoji display helper and the emoji renderer, `c32e058`), slice 2c (timestamps, AC-4.3 and AC-4.7, `36924ae`) and slice 2d (the field name with an embed url, `6379abc`) are committed. Not built yet: timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
   of AC-3.1 and AC-3.6, the reader sweep for AC-4.5.
 Handoff-At: not yet handed over
 ---
@@ -29,6 +29,7 @@ for M3 is owed before M4 is handed on, see Outstanding 1).
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-23T21:33 | steering-hooks-fixer (message, session `2581957`) | Start plan 019 M4; send the flows that hold a decision before code | Flow ask sent 21:18Z. Slice 1 coded and committed. |
+| 2026-11-23T22:20 | (own order) | Slice 2c timestamps, slice 2d field name | Committed at `36924ae` and `6379abc`. |
 | 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry) | M3 CR-10 | Fixed at `2c1590f` (M3 document, Round 4); M3 re-handed. Slice 2b (emoji) committed at `c32e058`. |
 | 2026-11-23T22:05 | steering-hooks-fixer (message) | Continue M4 after `/clear`; Revision 10's AC-4.4 (D-17) approved by all three gates, mention code released | Slice 2a: mentions coded test-first and committed at `f131f06`. |
 
@@ -93,6 +94,8 @@ Slice 2a (mentions), at `f131f06`:
 
 Slice 2b (emoji), at `c32e058`: `src/utils/markdown/engine.ts` (type `EmojiValue` exported), `emoji.tsx` (`JUMBO_EMOJI_MAX` exported), `preview.tsx` (`renderEmoji`; `Ctx` carries `isEmbed` and `jumboable`; `renderLosslessTree` takes an options object).
 
+Slice 2c (timestamps), at the commit whose subject starts "feat(website): the preview draws every timestamp style": `MarkdownTimestamp.tsx` (props `timestamp`, `format`, `mounted`, `onEdit`; `s` and `S` by `Intl.DateTimeFormat`; `state` and `indexes` gone), `preview.tsx` (`renderTimestamp`, keyed by span start and source text), `Markdown.tsx` (`State.onChange(span, text)` rewrites the span), `rules.tsx` (the legacy `discordTimestamp.react` passes `mounted`, and no edit: it has no caller on a preview path), `simple-markdown.d.ts` (`onChange` signature; `indexes` removed). Slice 2d (field name with an embed url): `Embed.tsx`, `EmbedFields.tsx`, `EmbedField.tsx` (`embedHasUrl` travels from the embed's `url` to the name's parser, both the static and the editing branch), and `EmbedFields.read-only-field-index.test.tsx` (the new prop).
+
 ## Files Created
 
 | Path | Purpose |
@@ -104,6 +107,8 @@ Slice 2b (emoji), at `c32e058`: `src/utils/markdown/engine.ts` (type `EmojiValue
 Slice 2a: `src/utils/markdown/__tests__/preview.mention-table.test.ts`, `src/components/__tests__/Markdown.channel-names.test.tsx`, `src/app/preview/__tests__/page.channel-names.test.tsx`; records `m4-red-6.txt`, `m4-green-6.txt`, `m4-red-7.txt`, `m4-green-7.txt`, `m4-run-8.txt`, `m4-run-9.txt`, `m4-mutants-mentions-out/`.
 
 Slice 2b: `src/utils/markdown/emojiDisplay.ts` (`emojiSrc`, `isJumboTree`: the shared helper, CF-10), `components/MarkdownEmoji.tsx`, tests `emojiDisplay.src-and-jumbo.test.ts`, `preview.emoji-draw.test.tsx`; records `m4-red-8.txt`, `m4-green-8.txt`, `m4-red-9.txt`, `m4-green-9.txt`, `m4-mutants-emoji-out/`.
+
+Slices 2c and 2d: `preview.timestamp-styles.test.tsx`, `preview.timestamp-edit.test.tsx`, `page.field-name-links.test.tsx`; records `m4-red-10.txt`, `m4-green-10.txt`, `m4-run-11.txt`, `m4-green-11.txt`, `m4-red-12.txt`, `m4-green-12.txt`, `m4-mutants-timestamp-out/`, `m4-mutants-fieldname-out/`.
 
 Records under `verification/019/impl/`: `m4-red-1.txt` to `m4-red-3.txt`, `m4-mutants-slice1.txt`, `m4-suite-slice1.{log.txt,exit}`.
 
@@ -151,6 +156,16 @@ Slice 2b (emoji). TDD Gate: `emojiDisplay.src-and-jumbo` fails as expected: `Can
 
 The thirteen emoji mutants M4-e1 to M4-e13 each ended red (`m4-mutants-emoji-out/summary.txt`; export `scratchpad/export-m4b`). The no-file guard (`src` empty) is not reachable through the engine at the pin: it returns `©` and `™` as text, and `©️` (with the variation selector, also `:copyright:`) as an emoji whose address is a Twemoji file. The guard stays, driven by a fixture tree that invents engine output, named so (QAF-17), and M4-e10 is red on it.
 
+Slices 2c and 2d (timestamps, field name). TDD Gate: `preview.timestamp-styles` fails as expected: 14 of 15, `AssertionError: expected [] to deeply equal [ '10:13 PM' ]`, the timestamp drawn as source (`m4-red-10.txt`); `page.field-name-links` fails as expected: `AssertionError: expected <a href="https://z.q/"></a>` where the name should stay text (`m4-red-12.txt`). Proceeding to implementation, each.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `renderTimestamp`, `MarkdownTimestamp` (nine letters, bare, invalid letter, the zone, mount and locale fixtures) | `preview.timestamp-styles.test.tsx` | Yes | Yes | AssertionError (`m4-red-10.txt`) | Yes (15 of 15); mutants M4-t5 (host locale), M4-t5b (hard-coded en-US), M4-t6 (mount ignored), M4-t7 (`S` short), M4-t8 (always mounted), M4-t10 (bare form `F`) each red |
+| the span edit (`Markdown.tsx` `onChange(span, text)`, `renderTimestamp`) | `preview.timestamp-edit.test.tsx` | No: written after the code, the first run was green on 14 of 16 and the 2 reds were my fixture (the engine leaves a timestamp inside a link label as text; the case now says so) | Yes, by mutants M4-t1, M4-t2 (span off by one), M4-t3 (insert for replace), M4-t9 (no edit path), M4-t4 (no key: the re-render case red) | AssertionError by mutation | Yes (16 of 16) |
+| `embedHasUrl` to the field name parser | `page.field-name-links.test.tsx` | Yes | Yes | AssertionError (`m4-red-12.txt`); mutants M4-f1 to M4-f3 each red | Yes |
+
+The edit-test row is owed the stub-tree record and is not made; the mutants stand as its red. M4-t11 (`if (!mounted) date = date.utc()` removed) survived, and is equivalent: `date` is read only through `date.toDate()` for the initial state and the comparison, and `.utc()` does not move the instant. The six dayjs styles pre-mount format in the host zone through `dayjs(localDate)`, as before; I did not change them (the plan holds today's output for them). The edit tests drive the real popover in jsdom (open the trigger, choose the `R` button, close it; the commit is the popover's `afterLeave`) and change the format only: the calendar is a dynamic import and its date edit is not driven (the span, not the choice, is the property).
+
 The two rows marked "No" under "Test Written First?" are owed an assertion-level red against a stub-tree copy with the function bodiless, then a green at the real code. The mutants above stand as the red at the pre-change behaviour for each guard; the stub-tree record is not made. This is a TDD deviation of mine, named here. The mutants ran in an isolated export (`scratchpad/export-m4a`, a `git ls-files` copy with `node_modules` linked, driver inline, output to a file).
 
 The renderer-level scheme control uses a fixture tree that invents engine output (the engine returns no `javascript:` or `data:` link); named so, per QAF-17.
@@ -173,6 +188,7 @@ Slice 2a: `unshare -rn` vitest over `src/utils/markdown src/components src/app/p
 
 ## Outstanding Items
 
+-1. **CR-11 (LOW, M3, code review's note at `2c1590f`):** the XHR Proxy records when the returned function is called, so `x.upload.addEventListener` and a bare `x.readyState` read record nothing; the network stays closed. Not done this round; I take it with the next M3 touch or state the gap in the M3 Class Sweep if no round comes (code review checks it at M4's round).
 0. **Emoji, decisions to read (slice 2b).** (a) Today's `jumboify` has had no caller since `fae733f` (2023), so the site's preview never drew a large emoji; the helper now does, by the rule the corpus shows: a message of only emoji and whitespace is large (`dom-all-bot.json`: `:smile:`, a skin-toned emoji, two emoji with a space, two custom side by side are large; `**:smile:**` and `a:smile:b` are not). That is a visible change from today, stated in the plan (CF-10) and not asked. The limit (27, from `jumboify`) and the multi-line, quote and embed cases have no Discord observation: X-25. In an embed the size stays 18, as `discordEmoji` had it. (b) The plan contradicts itself on the custom emoji's `alt`: AC-4.4 says `:name:`, M4's "output unchanged" would keep `<:name:id>`. I took AC-4.4's, which is also what Discord's DOM shows (`an7-g13-dom.json`); for steering to confirm with the planner.
 
 1. **M3 fix round is owed first** (code review REJECTED M3: CR-5, CR-6 MEDIUM; CR-4's remainder, CR-7 to CR-9 LOW). M4 slice 1 is committed on the same branch at a different set of paths; the M3 fix lands as its own commits.

@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 1 failed) 111ms
+     × draws the bare form as f 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws the bare form as f
+AssertionError: expected [ Array(1) ] to deeply equal [ 'November 14, 2023 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "November 14, 2023 10:13 PM",
++   "Tuesday, November 14, 2023 10:13 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:60:45
+     58|
+     59|   it('draws the bare form as f', () => {
+     60|     expect(stampText(draw(`<t:${STAMP}>`))).toEqual(['November 14, 202…
+       |                                             ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 29 passed (30)
+   Start at  22:14:39
+   Duration  5.03s (transform 1.13s, setup 36ms, import 3.22s, tests 2.61s, environment 1.44s)
+

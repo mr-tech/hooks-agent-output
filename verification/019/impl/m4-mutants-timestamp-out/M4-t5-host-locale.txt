@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 1 failed) 86ms
+     × follows a locale dayjs has a file for 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > follows a locale dayjs has a file for
+AssertionError: expected [ '11/14/23, 10:13 PM' ] to deeply equal [ '14/11/2023, 22:13' ]
+
+- Expected
++ Received
+
+  [
+-   "14/11/2023, 22:13",
++   "11/14/23, 10:13 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:88:62
+     86|
+     87|   it('follows a locale dayjs has a file for', () => {
+     88|     expect(stampText(draw(`<t:${STAMP}:s>`, true, 'en-GB'))).toEqual([…
+       |                                                              ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 29 passed (30)
+   Start at  22:13:44
+   Duration  4.57s (transform 1.01s, setup 31ms, import 2.74s, tests 2.40s, environment 1.40s)
+

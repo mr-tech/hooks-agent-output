@@ -1,0 +1,12 @@
+M4-t1-end-plus-one	exit=1	6 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t2-start-plus-one	exit=1	14 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t3-insert-not-replace	exit=1	14 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t4-no-key-resync	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t5-host-locale	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t5b-hardcoded-locale	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t6-mounted-ignored	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t7-S-short	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t8-always-mounted	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t9-no-edit-path	exit=1	14 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t10-bare-form-F	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	
+M4-t11-stale-state-pre-mount-utc-dropped	exit=0	30 passed (30)	
