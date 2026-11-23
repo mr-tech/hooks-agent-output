@@ -89,3 +89,22 @@ react-hotkeys-hook ignores a keydown from a form field unless `enableOnFormTags`
 `ImageUploader.enter-scope.test.tsx` expects no call for the URL field, and that expectation changes under this ruling.
 Sequence: code review Round 2 APPROVED at `cae7472` (`7e426a06`) before this answer. That approval and the QA re-run apply to the
 next hand-off instead.
+
+## 2026-11-23T18:46Z — released at 5ec0621; chain closing; his remark on the release prompt (relayed)
+
+**Release.** His answer to devops's selection, by selection (ledger `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T18:35Z —
+devops-fix-image-uploader-url`): *Agent: release it now (Recommended)*. Devops moved website `master` from `af3d95a` to `5ec0621` at 18:36:07Z,
+and `git ls-remote origin refs/heads/master` read back `5ec0621` (this thread, 18:4xZ). The deploy and the signed-out production walk are in
+`deployment/closed/fix-image-uploader-url-deployment.md` (`08a6cd1c`, Released). The fixer's User-visible flows went to him in that prompt.
+**Closure.** The implementation, code-review, QA and deployment documents are terminal, in `closed/`. Handoff 017's F-7 trigger fired: devops
+read it in part and left it Open (owner UAT, its own carrier). The release repairs no stored message, and nothing in the data marks a wrong
+address (implementation, Residue in production), so it is not queued for him. The architecture obligation (`useDialogEnter` gains
+`enableOnFormTags`) is lodged in the record INBOX. The four chain sessions were stopped at 18:4xZ. Retrospective
+`fixes-2026-11-23-steering-hooks-fixer-3` was spawned as a subagent, with test-case scoring beside it.
+**His remark (relayed by `devops-fix-image-uploader-url` by message, not witnessed here).** In devops's words: "for the context of that prompt
+only the first 2 sentences were needed". The prompt's context paragraph had about nine sentences (the ledger block above). This adds length to
+his 18:37Z standard (effort log, 2026-11-21T18:37Z): a question's context is kept to what he needs to decide, about two sentences. It binds
+this thread's own prompts now, and it is lodged for the definitions in `~/.claude/agents/INBOX.md`. It binds the fleet only once he confirms
+the wording.
+**Disclosed:** this thread's first write of this block, and of the two inbox entries, went through a shell heredoc. The record-write gate
+refused it before anything was written, and it was re-issued with the Edit tool.
