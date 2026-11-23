@@ -443,7 +443,7 @@ D-15 and analysis `aafecf1`.
 - **AN-2's figures, from the capture.** `verification/019/analysis/an2/rows-{cold,warm}.json`: `formattedInDom` is true on 150 of
   150 in each. The minimum `marginMs` is 552.8 cold and **519.7 warm**, equal to the plan's quote.
 - **AN-3's seven masks against AN-3's own table.** `verification/019/qa/probe-mask-vs-an3-table.{mjs,out}` decodes each mask with
-  the pinned `Syntax` constants, beside the table's legacy cell (`analysis/an3/an3-table.md`), over 8 columns × 31 bits = 248
+  the pinned `Syntax` constants, beside the table's legacy cell (`verification/019/analysis/an3/an3-table.md`), over 8 columns × 31 bits = 248
   cells. **240 agree.** The 8 that differ are all `GAME_MENTION`: every native mask sets it, and the legacy formatter has no rule
   for it on any surface. So game mentions are a disagree or residue class on every surface, and AN-8's `GAME_MENTION` limb reads
   their written form. Positive control on the same run: the title mask with `BOLD` flipped is detected. AC-2.3's literals equal
