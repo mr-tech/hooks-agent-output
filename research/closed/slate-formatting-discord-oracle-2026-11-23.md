@@ -18,10 +18,37 @@ Status-Detail: "The oracle question is answered, and the owner has settled the s
 | 2026-11-23T15:25 | researcher-slate-formatting-oracle | OQ-4 closed on the owner's selection; § 4 gains what it changes for the oracle | Effort rulings block "2026-11-23T15:23Z" (record commit `5d7fbf5e`), read whole at this write, at `steering-hooks-fixer`'s message. The architect's findings document is named from that block and was not read here. Still Active on the plan's first commit (Status-Detail). |
 | 2026-11-23T15:26 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State rewritten | The one next act is the close, on steering's cue. Cache-warm wake deleted at this checkpoint. |
 | 2026-11-23T15:46 | researcher-slate-formatting-oracle | Document closed | Status: Answered. Resumed from the Resumption State (record commit `25190ae4`) after a `/clear`, on `steering-hooks-fixer`'s cue that plan 019 was first committed (record commit `09170dd0`). The plan was read whole at this write, at that commit (`git diff --quiet 09170dd0 -- <plan>` exit 0 in the working tree). Nothing in § Findings was re-run or re-verified in this session; it is carried as written. Each of the five items of Recommendations item 4 is carried by the plan by name; the rows in Open questions and Remaining gaps now name each carrier. Added at the close: G-14, a limb V-23 left untested that neither Recommendations item 4 nor the plan listed, with its carrier; Appendix C, the corpus; fates for G-2, G-7, G-10 and G-12; and three install directories § Scratch instruments had not named. `node tools/check-repo.js` at this session's start: exit 1, 24 failures outside the baseline, none in this document, each in a file an `INBOX.md` entry already names (`grep -c` of the inbox for each of the five failing paths: 1, 1, 2, 4, 2). |
+| 2026-11-23T18:15 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State written | The document stays closed (Status: Answered); nothing in the body below the Resumption State changed. After the close's commit (`a666dbd9`, 15:46Z) the record check was run again: exit 1, the same 24 failures as before the close (`diff` of the two failure lists: no difference), none in this document. One message went to `planner-slate-formatting` at the close (id in the Resumption State). Cache-warm wake deleted at this checkpoint. |
 
 ## Resumption State
 
 Closed on `steering-hooks-fixer`'s cue of 2026-11-23; nothing is in flight and no question awaits an answer (the 15:26Z checkpoint's text is in record commit `25190ae4`).
+
+Checkpoint written 2026-11-23T18:15Z at `steering-hooks-fixer`'s `/checkpoint`; the session is stopped after this commit. Later documents
+are authoritative on the state of every item named here.
+
+- **Done.** The close (record commit `a666dbd9`). Nothing in § Findings was re-run after the 10:54Z walk.
+- **Next act.** None. A question that comes back is a new brief to a fresh researcher session, which reads this document
+  first.
+- **G-14 since the close.** Read at this checkpoint by `grep -n` over `planning/019-slate-formatting-discord-engine.md` at its
+  Revision 9 (record HEAD `7b581a2f`): the plan registered G-14 as its row R-1 at 15:47Z, folded it in Revision 1, and names it
+  under AN-4 and AN-7 with results. Those lines were not read beyond the grep, and the plan is the authority on them. The
+  `INBOX.md` entry that carried G-14 is therefore discharged and is the inbox owner's to remove.
+- **Uncommitted.** Two entries of this role's in `agent-output/INBOX.md`, both headed '2026-11-23 —
+  researcher-slate-formatting-oracle — FYI' (the record-check one of 10:55Z and the G-14 one), left for the record's owning
+  session to commit or remove. Outside any repository, `~/.claude/skills/discord-test-browser/test-estate.json` carries the
+  `slate-oracle-walk` entry. Nothing else.
+- **Evidence run but not recorded.** None.
+- **Questions sent, and to whom.** One message to `planner-slate-formatting` at the close (message id
+  `391a9199-6ca1-425e-81c4-81010fa03c8d`), which the plan's R-1 row answers. None awaits an answer. Nothing was put to the
+  owner.
+- **Processes and scratch.** `pstree -ap` of this session at the checkpoint shows the harness's browser tool server and no
+  process this session's work started. Its scratch directory,
+  `/tmp/claude-1000/-usr-local-bin-hooks/fd2c9648-b64c-4b44-bb3b-b10e1af4b7e4/scratchpad/`, holds the script and edit lists
+  that wrote the close and three record-check outputs, and no clone or export. § Scratch instruments names the two earlier
+  directories. On the test server, channel `slate-oracle-walk` (id `1574358729577599086`) stays, in use by the plan's analysis.
+- **Standing bounds.** As at the 15:26Z checkpoint: test server only; Discord's code is never committed; no `.env*` value is
+  read; the bare word `none` is not used in a command.
 
 ## Question
 
