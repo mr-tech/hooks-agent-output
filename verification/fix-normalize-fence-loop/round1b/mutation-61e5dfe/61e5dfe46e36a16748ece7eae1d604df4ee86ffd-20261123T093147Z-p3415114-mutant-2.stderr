@@ -1,0 +1,116 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged
+Error: Could not completely normalize the editor after 378 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:52:12
+     50|   ])('settles on a forced normalise of %j with its text unchanged', (t…
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+       |            ^
+     53|     expect(textOf(editor)).toBe(text);
+     54|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged
+Error: Could not completely normalize the editor after 462 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:52:12
+     50|   ])('settles on a forced normalise of %j with its text unchanged', (t…
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+       |            ^
+     53|     expect(textOf(editor)).toBe(text);
+     54|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed after a multi-line quote marker followed by a bare fence
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise
+Error: Could not completely normalize the editor after 378 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:87:12
+     85|     const editor = loadedEditor(text);
+     86|     const loaded = langsOf(editor);
+     87|     Editor.normalize(editor, { force: true });
+       |            ^
+     88|     expect([textOf(editor), loaded, langsOf(editor)]).toEqual([text, l…
+     89|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+AssertionError: expected [ '>>> a\n> b\nc', Set{ +0, 1 } ] to deeply equal [ '>>> a\n> b\nc', Set{ +0 } ]
+
+- Expected
++ Received
+
+@@ -2,7 +2,8 @@
+    ">>> a
+  > b
+  c",
+    Set {
+      0,
++     1,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:113:8
+    111|     const textWrites = editor.operations.filter((op) => op.type !== 's…
+    112|     expect([textOf(editor), new Set(textWrites.map((op) => (op as { pa…
+    113|       .toEqual(['>>> a\n> b\nc', new Set([0])]);
+       |        ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+

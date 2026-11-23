@@ -1,0 +1,40 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise
+AssertionError: expected [ …(3) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+@@ -8,17 +8,17 @@
+    [
+      "",
+      "js",
+      "",
+      "",
+-     "",
++     "js",
+      "",
+    ],
+    [
+      "",
+      "js",
+-     "",
+      "",
+      "",
++     "js",
+      "",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:88:55
+     86|     const loaded = langsOf(editor);
+     87|     Editor.normalize(editor, { force: true });
+     88|     expect([textOf(editor), loaded, langsOf(editor)]).toEqual([text, l…
+       |                                                       ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

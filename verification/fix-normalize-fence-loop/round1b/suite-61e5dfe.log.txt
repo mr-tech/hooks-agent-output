@@ -1,0 +1,13 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/round1b/suite-61e5dfe.json
+exit=0

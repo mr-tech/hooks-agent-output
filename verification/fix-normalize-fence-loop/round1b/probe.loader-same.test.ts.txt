@@ -1,0 +1,13 @@
+import { writeFileSync } from 'fs';
+import { it, vi } from 'vitest';
+import getInitialValue from '../getInitialValue';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const ATOMS = ['a', '', '> a', '>>> a', '>>> ', '> ', ' > a', '  >>> b', '>>> > a', '> > a', '> >>> a',
+  '```', '```js', '```c++', '``` js', '```js x', 'a```', '```a```', 'foo', '🙂 b'];
+it('loader output over every join of up to three atoms', () => {
+  const inputs: string[] = [];
+  for (const a of ATOMS) { inputs.push(a); for (const b of ATOMS) { inputs.push(`${a}\n${b}`); for (const c of ATOMS) inputs.push(`${a}\n${b}\n${c}`); } }
+  const out = inputs.map((t) => JSON.stringify([t, getInitialValue(t, markdown.interactive.parseEmoji, false), getInitialValue(t, markdown.interactive.parseEmoji, true)]));
+  writeFileSync(process.env.PROBE_OUT as string, `${out.join('\n')}\n`);
+});

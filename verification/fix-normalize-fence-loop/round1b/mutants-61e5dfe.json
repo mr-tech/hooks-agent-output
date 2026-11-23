@@ -1,0 +1,38 @@
+[
+ {
+  "id": "R1 quote guard removed alone (M2 shape)",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (child.type !== 'blockQuote' && quotePrefix) {",
+  "new": "if (quotePrefix) {"
+ },
+ {
+  "id": "R2 quote guard and language limb removed together",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "|| (isFullCodeBlock && child.lang !== lang)\n          || (!isFullCodeBlock && child.type === 'codeBlock')\n          || (child.startCodeBlock !== fence.inCodeBlock)\n          || (isBlockQuote && child.type !== 'blockQuote')\n          || (!isBlockQuote && child.type === 'blockQuote')\n        ) {\n          return handleEditor(editor, true);\n        }\n      } else {\n        let type: Element['type'];\n        if (isFullCodeBlock) {\n          type = 'codeBlock';\n        } else if (isBlockQuote) {\n          type = 'blockQuote';\n          if (child.type !== 'blockQuote' && quotePrefix) {",
+  "new": "|| (isFullCodeBlock && child.lang !== (lang || null))\n          || (!isFullCodeBlock && child.type === 'codeBlock')\n          || (child.startCodeBlock !== fence.inCodeBlock)\n          || (isBlockQuote && child.type !== 'blockQuote')\n          || (!isBlockQuote && child.type === 'blockQuote')\n        ) {\n          return handleEditor(editor, true);\n        }\n      } else {\n        let type: Element['type'];\n        if (isFullCodeBlock) {\n          type = 'codeBlock';\n        } else if (isBlockQuote) {\n          type = 'blockQuote';\n          if (quotePrefix) {"
+ },
+ {
+  "id": "R3 language limb removed alone (normaliser compares against null for a fence with no recognised language)",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "|| (isFullCodeBlock && child.lang !== lang)",
+  "new": "|| (isFullCodeBlock && child.lang !== (lang || null))"
+ },
+ {
+  "id": "R4 opening fence read inside a block too",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "const opening = fence.inCodeBlock ? null : /",
+  "new": "const opening = /"
+ },
+ {
+  "id": "R5 language kept after a block closes",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "lang: inCodeBlock ? opening?.[1] ?? fence.lang : ''",
+  "new": "lang: opening?.[1] ?? fence.lang"
+ },
+ {
+  "id": "R6 language dropped on a line inside a block",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "opening?.[1] ?? fence.lang",
+  "new": "opening?.[1] ?? ''"
+ }
+]

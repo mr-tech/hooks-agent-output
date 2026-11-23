@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
 Status: Active
-Status-Detail: "Handed off at website d3b98cf for code review; QA Phase 2 is owed after it (32 production lines added)."
-Handoff-At: d3b98cf — repos=website
+Status-Detail: "Round 1 fix (CR-1, CR-2) handed back at website 61e5dfe for the re-review; QA Phase 2 is owed after approval (68 production lines added)."
+Handoff-At: 61e5dfe — repos=website
 Origin-Chain: none
 ---
 
@@ -47,6 +47,13 @@ rewrite dirties the editor again. Either limb alone ends the loop. Instrument: t
 iterations, and 462 with two quote lines; a typed character throws after 126). The controls: M1 and M2 (each limb removed alone) survive the
 suite, and M17 (both removed together) kills 12 cases.
 
+*Reconcile note (2026-11-23T09:35, code review Round 1, CR-1):* "Either limb alone ends the loop" held at `d3b98cf` for the bare fence only, which
+is the only form the probes and cases used. A fence whose info string falls outside `[A-Za-z0-9-]*` (` ```c++ `, `` ``` js ``) matched
+neither regex. The loader stored `''`, and the normaliser compared against null, so only the quote guard held that loop shut. It now holds
+through either limb, since the Round 1 fix at `61e5dfe` gives both callers one rule (Round 1 fix, below). Class swept: `grep -n "alone"` over
+this document gives L46, L47, L147 and L164 at the time of writing. L47, L147 and L164 state mutant outcomes on the bare-fence cases, which
+still hold. L46 is this claim.
+
 **Cause 2, the `>>> ` rewrite.** `getInitialValue.ts:32-33` drops the `>>> ` marker and keeps no record of it. `:47` drops `> `. Then
 `flattenNodeText.ts:13` writes `> ` before every quote line. So `>>> a\nb` saves as `> a\n> b`. In single-line fields
 (`partialMarkdown`), L32-33 are not gated, so the marker is deleted and `>>> a` saves as `a`. Also not gated: a `>>> ` line inside a code
@@ -62,6 +69,11 @@ cases.
   `lang: isFullCodeBlock && currentLang ? currentLang : ''` (gives `''` either way); and the closing-fence branch
   `else if (res?.[0] && inCodeBlock && currentLang)` (`''` and null are both falsy, so this is unchanged). The stored `lang` that
   `decorator.tsx:216-217` reads is unchanged.
+
+  *Reconcile note (2026-11-23T09:35, code review Round 1, CR-1(b)):* the closing-fence branch was not unchanged. With `*`, its regex also matched a
+  line inside a block that ends in ```` ``` ```` with an even fence count (```` ```a``` ````). It then reset the language to `''`, so in
+  `` ```js\n```a```\nfoo\n``` `` the normaliser rewrote `foo` from `js` to `''`, while the loader kept `js`. I read the branch for the
+  bare fence only and missed this form. The branch is removed at `61e5dfe`: the loader never had it, and both callers now use one rule.
 - *A quote line's flattened text* (`flattenNodeText`, now each line's stored marker instead of a fixed `> `). Its readers:
   - `SlateEditor/index.tsx:58-59`: the string written to the parent on open and on every edit. This is the fix.
   - `withNormalizeNode.ts`, `handleEditor` (L33): the scan. It is made live by design.
@@ -190,6 +202,64 @@ No package-manager operation ran, so the lockfile did not move. No irreversible 
 - The convention check's FAIL on `slate.d.ts:26` (`max-len`, a line that already existed and that my added field moved down one) was
   met by wrapping the type (`d3b98cf`).
 
+## Round 1 fix (CR-1, CR-2) at `61e5dfe`
+
+Findings: `code-review/fix-normalize-fence-loop-code-review.md` (record `85684d4d`), Round 1, REJECTED at `d3b98cf`.
+
+**CR-1, the language rule.** The new `src/components/SlateEditor/utils/codeFence.ts` holds the one rule, the reviewer's preferred form. Its
+parts:
+- `NO_FENCE`, the starting state.
+- `isCodeLine`: inside a block, with no fence on the line.
+- `lineLang`: the line's stored language, `''` off a code line.
+- `afterLine`: the next state. An opening fence is read only outside a block, the state toggles on an odd fence count, and the language is
+  `''` outside a block.
+
+`getInitialValue` stores `lineLang(fence, line)` and steps with `afterLine(fence, line)` over the line as typed. That gives the same match
+as the quote-stripped text, because the regex is anchored at the end. The step still runs only outside single-line fields. `handleEditor`
+compares `child.lang` with the same `lineLang(fence, childText)`, writes it, and steps the same way. The closing-fence `else if` reset is
+gone, and so are `currentLang` and `isOdd`.
+
+**The loader's output is unchanged** (`round1b/loader-same-d3b98cf-vs-61e5dfe.txt`, driver `round1b/probe.loader-same.test.ts.txt`). The
+driver joins the reviewer's 20 line atoms in every sequence of up to three, which gives 8,420 inputs, each loaded full and single-line. The
+outputs at `d3b98cf` and `61e5dfe` are byte-identical. Control: the same driver with R6 applied to `61e5dfe` differs on 182 lines. R5 moved
+0 lines, because its effect needs four lines and the corpus joins at most three. R5's own case is below.
+
+**CR-2.** The case "makes the lines after a removed multi-line quote marker plain lines" now drives `onKeyDown(editor, false, undefined)`
+with a Backspace event at the start of line 0, as the product does. Its expectation, `['a\nb', ['div', 'div']]`, is unchanged.
+
+**Tests added** (one `it.each`, 4 cases; each asserts the text, the loader's per-line languages and the normalised ones, all literals):
+
+| Input | Languages | Seen red |
+|---|---|---|
+| `> a\n```c++\nfoo\n```` | `'' '' '' ''` | At `d3b98cf` with the quote guard removed (`round1b/guard-removed-at-d3b98cf.patch.txt`), it fails on Slate's "Could not completely normalize … 378 iterations" error, not on a timeout (`round1b/lang-cases-d3b98cf-guard-removed.json`). Under R2 at `61e5dfe` |
+| `> a\n``` js\nfoo\n```` | `'' '' '' ''` | The same two |
+| `` ```js\n```a```\nfoo\n``` `` | `'' '' js ''` | At `d3b98cf`, on an assertion (`round1b/red-d3b98cf.json`). Under R4 and R6 |
+| `` ```js\nfoo\n```\n```c++\nbar\n``` `` | `'' js '' '' '' ''` | Under R5 |
+
+**Controls at `61e5dfe`** (`mutation-run.py` as before; mutants in `round1b/mutants-61e5dfe.json`, table in `round1b/mutation-61e5dfe/`;
+the control ran 319 cases, the same as every mutant):
+
+| Mutant | Outcome | Killed by |
+|---|---|---|
+| R1 quote guard removed alone (M2's shape) | KILLED | the no-rewrite case. Both non-alphanumeric cases **pass** under it, so the language rule alone now ends that loop |
+| R2 guard and language limb removed together | KILLED | 14 cases, among them both non-alphanumeric cases and every bare-fence loop case |
+| R3 language limb removed alone (compare against `lang \|\| null`) | SURVIVED | Equivalent while the guard holds, as M1 was: an update pass that writes nothing. Killed with R1 as R2 |
+| R4 opening fence read inside a block too | KILLED | the even-count fence case |
+| R5 language kept after a block closes | KILLED | the `js` then `c++` case |
+| R6 language dropped on a line inside a block | KILLED | the even-count fence case |
+
+**Verification at `61e5dfe`:**
+
+| Check | Result |
+|---|---|
+| Whole suite (`npx vitest run --reporter=json`, shared tree, memory-capped) | exit 0. 2681 cases, all passed, 171 files (`round1b/suite-61e5dfe.json`, `.log.txt`). That is 2677 + 4, with the same 171 files |
+| Typecheck (`pnpm run typecheck`, `git archive` export of `61e5dfe` with `next-env.d.ts` copied in) | exit 0 (`round1b/typecheck-61e5dfe-export.log.txt`) |
+| Lint (`npx eslint src/components/SlateEditor/utils`) | exit 0, 0 errors. The same four warnings remain, in untouched files |
+| Convention check (`--since=0411d3b`) | 0 FAIL, 0 CANDIDATE. The id-token and basename SKIP is as before, and the hand check is unchanged: the new case titles carry no ID token (`round1b/convention-check-61e5dfe.txt`) |
+| Production lines (`git diff --numstat 0411d3b 61e5dfe`, added column) | 4 + 20 + 1 + 11 + 32 = **68**. QA Phase 2 is owed |
+
+**On M13/M14:** the reviewer ruled to keep the `'> '` fallback (review, "On the fixer's open question"). It stays.
+
 ## User-visible flows
 
 For the owner's own check, in every message box except titles and field names unless stated otherwise:
@@ -204,9 +274,9 @@ For the owner's own check, in every message box except titles and field names un
 
 ## Handoff
 
-- **SHA**: website `d3b98cf` on `chain/fix-normalize-fence-loop`.
-- **Who reviews**: `code-reviewer-fix-normalize-fence-loop`, started by steering on this thread's cue. Then QA Phase 2, since 32
-  production lines were added.
+- **SHA**: website `61e5dfe` on `chain/fix-normalize-fence-loop` (Round 1 fix; first hand-off `d3b98cf`).
+- **Who reviews**: `code-reviewer-fix-normalize-fence-loop`, re-review as a sub-entry of Round 1. Then QA Phase 2, since 68 production
+  lines were added.
 - **Who merges**: devops, at release to website `master` (Vercel production), under the owner's release approval.
 - **Routed to steering** (`steering-hooks-fixer`, at this seam): the pre-existing defect where a quote line taken into a newly opened code
   block loses its `> `. The evidence is in Diagnosis. It is identical at base and fix, outside the statement, and not absorbed.
@@ -219,3 +289,4 @@ For the owner's own check, in every message box except titles and field names un
 |---|---|---|
 | 2026-11-23T09:15 | fixer-fix-normalize-fence-loop | Created. Fix at website `9b02f38`, `f9b16de`, `d3b98cf`. Red runs, controls, verification and handoff at `d3b98cf` recorded |
 | 2026-11-23T09:19 | fixer-fix-normalize-fence-loop | The routed re-scope item's carrier recorded: S-29 of `verification/slate-formatting-effort/scoping/inventory.md`, per steering's message (reviewer started 09:19Z) |
+| 2026-11-23T09:35 | fixer-fix-normalize-fence-loop | Round 1 fix for CR-1 (one fence rule in `codeFence.ts` for the loader and the normaliser) and CR-2 (the Backspace case drives `onKeyDown`) at website `61e5dfe`. Two claims corrected with reconcile notes in Diagnosis. Handoff-At moved to `61e5dfe` |

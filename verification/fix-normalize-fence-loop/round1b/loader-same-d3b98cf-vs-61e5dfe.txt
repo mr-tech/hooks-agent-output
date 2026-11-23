@@ -1,0 +1,6 @@
+inputs: 8420 (20 + 20^2 + 20^3 joins), each loaded full and single-line
+old sha256 ed54ffe683a60db625cee07353b94c621c709af4c6085b229529da4d85b59e0f
+new sha256 ed54ffe683a60db625cee07353b94c621c709af4c6085b229529da4d85b59e0f
+cmp: identical
+control (R5 applied to 61e5dfe): 0 of 8420 lines differ from d3b98cf
+control (R6 applied to 61e5dfe): 182 of 8420 lines differ from d3b98cf. R5 moved 0, its effect needs four lines, which this corpus does not join
