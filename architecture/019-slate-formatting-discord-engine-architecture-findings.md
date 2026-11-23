@@ -4,9 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Delta pass on plan 019 revision 7 (record e0eb1e87): APPROVED_WITH_CHANGES. CF-13 is resolved as option (a). CF-14 (LOW):
-  AC-4.7 must pass Intl dayjs's effective locale, not react-aria's tag, and the America/New_York case must state the mounted
-  state. It is a Planner batch row, folded before M4's code, and holds AC-4.7 only. AC-6.5 is approved.
+  Delta pass on plan 019 revision 7 (record e0eb1e87): APPROVED under steering's M4/M6 cap (rulings block 17:56Z, b95a3d43).
+  CF-13 is resolved as option (a). CF-14 (LOW: Intl should take dayjs's effective locale, and the America/New_York case should
+  state the mounted state) goes to the Planner batch as a stated limit on AC-4.7, with no revision round. It holds nothing.
   Delta pass on plan 019 revision 6 (record 946d4e54): APPROVED_WITH_CHANGES. CF-12 is resolved, and the field value's one
   differing bit, HEADING, was run and changes no emoji span. CF-13 (LOW): AC-4.7's s and S must take the timestamp component's
   locale and pre-mount UTC rule. It is a Planner batch row, folded before M4's code. It holds nothing else.
@@ -28,6 +28,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:56 | architect-019 | Revision 7 verdict re-dispositioned under steering's cap (rulings block 17:56Z, record `b95a3d43`): APPROVED for M4 and M6, with CF-14 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 7, with the original verdict kept in place. Steering's message arrived after commit `27f61730`. |
 | 2026-11-23T17:55 | architect-019 | Delta pass on plan 019 revision 7 (record `e0eb1e87`); § Delta pass, revision 7. CF-13 resolved; CF-14 raised. `website.md` A-10 gains the effective-locale sentence | Read as `git diff 946d4e54 e0eb1e87` on the plan. The dayjs locale probes ran read-only on the shared tree's installed dayjs 1.11.7; captures are in `verification/019/architect-conformance/rev7/`. |
 | 2026-11-23T17:49 | architect-019 | Delta pass on plan 019 revision 6 (record `946d4e54`); § Delta pass, revision 6. CF-12 retired to a disposition line with a reconcile note. CF-13 raised. `website.md` gains A-10 | Read as `git diff d2912590 946d4e54` on the plan, with AN-8 limb 2b (`3681654e`). Website `af3d95a` was read through `git show`/`git grep`. The heading-containment probe and its control ran on the pinned wasm; captures are in `verification/019/architect-conformance/rev6/`. Resumed after a `/clear` from the Resumption State at `14ceb6df`. |
 | 2026-11-23T17:31 | architect-019 | Delta pass on plan 019 revision 5 (record `d2912590`); § Delta pass, revision 5 | Read as `git diff e53c7cdb d2912590` (73 insertions, 35 deletions), with the limb the Owed re-verdicts table names to this gate (AC-6.5's expected value), M3 "Which wasm", and AC-2.3's six literals. |
@@ -39,7 +40,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-14** waits on the planner's fold; my next delta pass reads it.
+- **CF-14** is a stated limit carried by the plan's Planner batch, under the cap. My next pass reads only that the row exists.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
@@ -309,6 +310,13 @@ A-10 gains the effective-locale sentence in this pass.
 
 **Verdict on revision 7:** APPROVED_WITH_CHANGES. The one change is CF-14, LOW, on AC-4.7, folded before M4's code. AC-6.5 is
 approved. Nothing needs the owner.
+
+Reconcile note (2026-11-23T17:56): steering's cap ruling (effort rulings block "2026-11-23T17:56Z", record `b95a3d43`) arrived
+after this verdict was written. The verdict was right when written, since no cap was in force. Under the cap, M4 and M6 take no
+further revision round for a gap below HIGH, and CF-14 is LOW and is not a severity-floor finding. So **CF-14 goes to the plan's
+Planner batch as a stated limit on AC-4.7, with no revision round**, and the verdict on revision 7 reads as **APPROVED** for M4
+and M6. The required change above is kept as the limit's content: what an implementer reads at M4, and what a later effort
+would fold. `website.md` A-10 states the pattern in either case.
 
 ## Delta pass, revision 6 (record `946d4e54`)
 
