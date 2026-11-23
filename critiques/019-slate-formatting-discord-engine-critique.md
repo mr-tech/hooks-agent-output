@@ -334,6 +334,11 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 3 pass 1: the architect's and QA's passes on revision 8 were not read before this pass was written. At the seam their
+  commit subjects show the same `ja-JP` fixture raised by each (`architecture/…-architecture-findings.md` CF-15 at `e1e6f363`,
+  a stated limit under the cap; `qa/…-qa.md` QAF-28 at `5ca68b07`, asking `vi-VN`). F-33 was reached independently and names
+  the same member; the three meet at the planner.
+
 - Pass 4: the plan was read as `git diff 9ac9ba62 e53c7cdb` saved in this session's scratchpad; the ID comparison ran in memory.
   Nothing was installed or run.
 - Pass 4: the architect's delta pass on revision 4 was committed (`a5f78f83`) while this pass ran and was not read before
