@@ -5,8 +5,8 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 11 (record ec2440d9), AC-3.7's residue-list delta. QAF-34 MEDIUM and QAF-35 LOW are
-  open for the planner; QAF-34 bears on M4's residue-list commit. QAF-31 is carried as SL-11. Register: B-1 to B-7. Implementation of M2 to M6 started 18:49Z; Phase 2 on M2
+  Phase 1 re-keyed on plan 019 Revision 12 (record b0af4dc3), AC-3.7's atom population and RK-9. QAF-34 and QAF-35 are
+  closed; nothing is open from QA in Phase 1. QAF-31 is carried as SL-11. Register: B-1 to B-7. Implementation of M2 to M6 started 18:49Z; Phase 2 on M2
   is in its own document.
 Phase: 1
 ---
@@ -18,7 +18,7 @@ Phase: 1
 Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K threshold).
 
 - **Done.**
-  - Phase 1 on revisions 1 to 11, each re-key committed. Revision 11 (§ Re-key on Revision 11) leaves QAF-34 MEDIUM and QAF-35 LOW open.
+  - Phase 1 on revisions 1 to 12, each re-key committed. Revision 12 closes QAF-34 and QAF-35; nothing is open in Phase 1.
   - Phase 2 on M2, in its own document, `qa/019-slate-formatting-discord-engine-m2-qa.md`. It was QA Failed at website `78c5f74`
     on QAF-29, record `0b00154b`. The refresh is QA Complete at `7dcedc9`, record `c699c85`. Plan rows R-26 and R-28.
 - **Next.**
@@ -39,8 +39,8 @@ Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K
 - **Evidence not recorded.** None.
 - **Questions out.** None.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 11 (record
-`ec2440d9`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 12 (record
+`b0af4dc3`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -59,6 +59,7 @@ Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K
 | 2026-11-23T21:43 | planner-019 (message: revision 10 at record `890d0b78`) | Re-key Phase 1 on revision 10 (AC-4.4, D-17) | Phase 1 re-key, read as the delta from `47348a6d`. It ran the premises at the cited commits (P-Q20, `verification/019/qa/probe-r10-mention-premises.out`): `MENTION_KINDS`, the four mention rules' text and classes, `useGuild`'s throw, the list's caching and shape, and the mount sites. It re-keyed AC-4.4 as an oracle over 12 kinds × 5 list states, with coupling fixtures, NM-48 to NM-57 and NM-27 re-read. It minted B-7 for the human-observable form. The listed types include forums (15), against the Residue: QAF-31 LOW. Register swept; B-1 to B-6 cleared. |
 | 2026-11-23T21:44 | planner-019 (message: R-32 at record `223d3911`) | Phase 1, revision 10 registrations (SL-11, F-35) | QAF-31 marked as a duplicate of the critic's F-34, now SL-11, with the planner's reading checked against P-Q20. B-7 re-specified in its own cell under F-35: limb 1 (signed in) uses AC-6.3's provision step and its sign-in-not-completed clause; limb 2 (`/preview`) needs no sign-in. No new finding. |
 | 2026-11-23T22:31 | planner-019 (message: revision 11 at record `ec2440d9`) | Re-key Phase 1 on revision 11 (AC-3.7, the residue list) | Phase 1 re-key, read as the delta from `48e39a5f`. It ran the cited measurement's population (P-Q21, `verification/019/qa/probe-r11-residue-population.out`): the DOM residue compares atom-free inputs only, 1,344 or 1,545 of 2,378, which no document states. That is QAF-34 MEDIUM. It re-keyed AC-3.7's three failure clauses, the mask key and the two passing cases as sole-carrier fixtures, with a generator control, NM-58 to NM-64, and RK-9's count read by two instruments. QAF-35 LOW: family claims are ungated. Register swept; B-1 to B-7 cleared. |
+| 2026-11-23T22:36 | planner-019 (message: revision 12 at record `b0af4dc3`) | Re-key Phase 1 on revision 12 (AC-3.7 atoms, RK-9) | Phase 1 re-key, read as the delta from `64d3a137`. QAF-34 is closed under option (1) and QAF-35 by the family limb. The atom unit (kind and span, not resolved value) is re-keyed as three sole-carrier fixtures with NM-65 to NM-67. RK-9's rise at Phase 2 is a firing QA routes to steering. No new finding. Register swept; B-1 to B-7 cleared. |
 
 ## Reading
 
@@ -1068,6 +1069,46 @@ Predicate: rows citing AC-3.7, AC-3.8 (ii), RK-9 or the residue. Members: none o
 human-observable form. Rows inherited and not discharged: B-1 to B-7, all open.
 
 Phase 1 is keyed to revision 11. Open for the planner: QAF-34 MEDIUM and QAF-35 LOW. QAF-34 bears on M4's residue-list commit.
+
+## Re-key on Revision 12
+
+Revision 12 (record `b0af4dc3`) was read as its delta from `64d3a137`. That covers AC-3.7's atom-bearing population and atom unit,
+the family limb in "What fails", M4's every-input measurement, RK-9's fire condition and route, and the Planner batch rows for
+QAF-34, QAF-35, CF-18, CF-19, F-36 and F-37.
+
+### Folds checked
+
+| Item | Where revision 12 folds it | Check |
+|---|---|---|
+| QAF-34 | AC-3.7, "Atom-bearing inputs are in the population"; "M4's measurement covers every input"; the "Why per input" figures now name the atom-free subset | Option (1), as asked. Every input over every surface and mask, the two field-name masks included, with the entry count recorded per surface and mask, before and after adjustment, and the measurement files committed. The stale clause's "input classes" is now the whole population. **Closed.** |
+| QAF-35 | AC-3.7 "What fails", the family limb, offline in `pnpm test`, exercised at M4 on a real member and a real non-member (F-37) | As asked. **Closed.** |
+| RK-9 (CF-19) | Fires once at M4 and again on any rise; routed to steering; no threshold | QA's obligation at Phase 2 changes. Reading a count above M4's on any surface and mask is a firing that this stage routes to steering. It is not a QA finding of its own severity. A planted re-measure is not a firing. |
+
+### The atom unit re-keyed (AC-3.7 only)
+
+For AC-3.7 an atom agrees when its kind and its source span agree, and its resolved value is not compared. Each conjunct carries the
+decision alone in one fixture, over the real check:
+
+| Fixture | Expected | Mutant it kills |
+|---|---|---|
+| Same source span, different kind: an input whose span is an atom on one side and text, or an atom of another kind, on the other. A corpus member where the engine and legacy split a mention or emoji differently is the real member; a planted pair otherwise | differs | NM-65: kind not compared |
+| Same kind, different span: two atoms of one kind whose spans differ by a character | differs | NM-66: span not compared |
+| Same kind and span, different resolved value: a listed channel's name on the site against `#<id>` in legacy, or a formatted timestamp against legacy's text | equal | NM-67: resolved value compared (the revision's exclusion lost) |
+
+NM-67's fixture also guards the population: with resolved values compared, every atom-bearing input holding a channel mention or a
+timestamp would differ, and the list would fill with entries that encode an oracle's missing data rather than a rendering difference.
+Phase 2 reads the share of atom-bearing inputs among the entries per surface beside the atom-free share. A sharp jump marks this case.
+
+### Phase 2 obligations, restated
+
+The entry count is read per surface and mask, now seven cells with the two field-name masks, by the two instruments of § Re-key on
+Revision 11. The stale-entry and family limbs are read as exercised at M4, on a real member and a real non-member each, from M4's
+captures. The atom fixtures above count among AC-3.7's sole-carrier cases.
+
+No new finding. Register sweep: predicate, rows citing AC-3.7, RK-9 or the residue. Members: none of B-1 to B-7, so all are checked and
+cleared. Rows inherited and not discharged: B-1 to B-7, all open.
+
+Phase 1 is keyed to revision 12. Nothing is open for the planner from QA's side. M4's residue-list commit is not held on QA's account.
 
 ## Blocking-condition register (the chain's one register)
 
