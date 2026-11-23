@@ -501,7 +501,10 @@ sources. It reports (a) reading the code to derive the rules, separately from (b
 given: no copying Discord's code into the product; whether (b) raises a licence question is his to decide, not the researcher's; only
 publicly served assets, plus the already granted test account and test server.
 
-## 2026-11-23T09:18Z — his ruling: running Discord's own code as a test oracle is allowed, in tests only
+## 2026-11-23T09:17Z — his ruling: running Discord's own code as a test oracle is allowed, in tests only
+
+Disclosed: this heading was first typed with an estimated minute (09:18Z, ahead of the clock) and committed in `b6e1a563`. The stamp gate
+flagged it, and it was restamped from `date -u`.
 
 His question: "I mean, there shouldn't be any issue in just running the code in the test environment, right? As long as we don't actually
 ship that code." This thread's answer in chat: Discord's Terms of Service (https://discord.com/terms, read by web search this turn) bar
@@ -512,3 +515,31 @@ using it in test, so I don't see any issue."
 **Ruling as it binds this effort:** an extracted Discord markdown module may run as the fuzzer's oracle in the test environment. The
 bounds are the ones his answer accepted: it is fetched from Discord's publicly served assets at test time, never committed to any
 repository, and never shipped in the product. Told to the researcher by message.
+
+## 2026-11-23T09:18Z — scoping determination: the Slate/formatting effort (research first, then a full chain)
+
+His word opening it: block 09:07Z, with 09:10Z (links), 09:11Z (Discord parity), 09:13Z and 09:15Z (oracle sources), and 09:17Z (the oracle
+may run in tests). Inventory, which is this effort's scope sweep: `verification/slate-formatting-effort/scoping/inventory.md` (helper, code
+at `0411d3b`; 28 item rows; links probed by run on 107 inputs). Shape: a feature-sized defect class. There are many defects, some with
+cause proven by run (LF-1..LF-6, S-01's 3,641 grammar-oracle rows at the decorator chain's tip) and others unknown (S-08, S-09, S-12, S-17,
+S-18). The specification is Discord's behaviour, which the record has not yet read. No dated event. End step: website `master`, Vercel
+production; `release-move.js --dry-run` on `master` `0411d3b` passed (block "fix-normalize-fence-loop" 08:55Z, this morning).
+**Pipeline: research first, then the full chain.** The researcher `researcher-slate-formatting-oracle` (running) settles the oracle. The
+planner starts on its committed document and the inventory, and mints the ID. Then come critic, architect conformance, QA Phase 1,
+implementer, code-reviewer, QA Phase 2, UAT (user-visible editor surfaces) and devops; then the retrospective. Security is not in the set:
+the website ships to Vercel, and nothing root executes. Reasons for a full chain over a fixer: there are many defects across six areas, a
+fuzzer and oracle to build as a deliverable, an unread specification (Discord), and two owner decisions (S-07, S-15).
+**Scope statement** (website, the region in the inventory's region table: `src/components/SlateEditor/**`, `src/utils/markdown/**`,
+`src/components/Markdown*.tsx`, and the editor surfaces that mount them). The editor (typing, paste, load, save, colouring) and the preview
+render every input the way Discord does and lose no character. A fuzzer or intensive check, with a Discord-derived oracle, enumerates the
+class and stays in the suite. In: S-01..S-06, S-08..S-10, S-13, S-14, S-17, S-18, LF-1..LF-6, and every defect the fuzzer finds in the
+region. S-07 (emoji stored as `:name:`) is in, as a question for him through the plan.
+**Exclusions he sees:**
+- X-1 and X-2: chain 9c+9f, in flight.
+- S-11 (a leftover draft after a typed-back edit) and S-12 (desktop draft cost and non-Chrome caret): draft state, not formatting. They go
+  to the fixer queue.
+- S-15 (the reason-less save toast): held needing his decision (H30), not formatting.
+- S-16 (dead `hasThumbnail`): already a fixer rider.
+- 9e image dialog and the `/preview` matcher: outside the region.
+A member found later inside the region is in scope on this thread's ruling; one outside it is a re-scope. tmux category: `slate-formatting`.
+Implementation waits for the website tree, which is held by 9c+9f and then 9e in his order. Planning runs now.
