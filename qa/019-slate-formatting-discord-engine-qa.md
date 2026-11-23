@@ -14,12 +14,28 @@ Phase: 1
 
 ## Resumption State
 
-Written 2026-11-23T18:05 at the revision 9 re-key commit.
+Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K threshold).
 
-- **Done.** Phase 1 on revisions 1 to 9, each re-key committed. Revision 9 closes QAF-28, and nothing is open.
-- **Next.** Any further AC-4.7 gap goes to `steering-hooks-fixer` before any fold (block 18:02Z). A later revision re-keys its delta. Phase 2 starts at the code review's
-  committed verdict.
-- **Uncommitted or local.** Nothing in the record. The scratchpad `pkg/` holds the re-packed wasm the probes run from; it is perishable.
+- **Done.**
+  - Phase 1 on revisions 1 to 9, each re-key committed. Nothing is open in Phase 1.
+  - Phase 2 on M2, in its own document, `qa/019-slate-formatting-discord-engine-m2-qa.md`. It was QA Failed at website `78c5f74`
+    on QAF-29, record `0b00154b`. The refresh is QA Complete at `7dcedc9`, record `c699c85`. Plan rows R-26 and R-28.
+- **Next.**
+  - Phase 2 on each later milestone (M3 to M6), each in its own `qa/019-…-m<n>-qa.md`. Each starts at that milestone's committed
+    code review verdict at its `Reviewed-At`, never at a hand-off message.
+  - Carried into those passes:
+    - AC-2.5's surface limbs, at M4 and M5;
+    - AC-2.1's oracle-helper mask clause (`Syntax.ALL & ~Syntax.DEV_LINKS`), at M3, the code review's item first;
+    - QAF-27's `<t:…:s> <t:…:f>` member, at the AC-4.3 audit;
+    - the effort-final mutation sweep over `git diff 5ec0621..<final tip>` production paths, with mutant-gen.
+  - Any further AC-4.7 gap goes to `steering-hooks-fixer` before any fold (block 18:02Z). M4 and M6 are capped below HIGH, except
+    a severity floor (block 17:56Z).
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `7dcedc9`. It is not mine to
+  switch.
+- **Approach in flight.** None.
+- **Uncommitted or local.** Nothing in the record. The exports were deleted. The scratchpad `pkg/` holds `npm pack` of the
+  markdown-wasm 0.16.0 and types 0.14.0 packages, which the probes run from; it is perishable and can be re-packed.
+- **Evidence not recorded.** None.
 - **Questions out.** None.
 
 **Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 9 (record
