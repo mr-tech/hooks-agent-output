@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-emoji-pretransform-widths
 UUID: 27c7b0a0
 Status: Active
-Status-Detail: "Stage 1 done and Phase 2A readiness recorded; nothing pushed. Owed before the first ref moves: QA's open-handoff sweep (Phase 3 step 1b) and the owner's release approval. Post-deploy row B-1 rides handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md."
+Status-Detail: "Stage 1 done and Phase 2A readiness recorded; nothing pushed. QA's Phase 3 step 1b is recorded (Release Verified at 0411d3b); the owner's release approval is owed before the first ref moves. Post-deploy row B-1 rides handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md."
 ---
 
 # Deployment Record: fix-emoji-pretransform-widths
@@ -19,6 +19,7 @@ Status-Detail: "Stage 1 done and Phase 2A readiness recorded; nothing pushed. Ow
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T08:33 | `steering-hooks-fixer` (brief above) | Stage 1 and Phase 2A for `chain/fix-emoji-pretransform-widths` at `0411d3b` | Stage 1 done: the three stage documents carry Status `Committed` and are in `closed/` (record `ab4454d8`); two handoffs created. Tip build exit 0. Nothing pushed. The brief arrived with its gate documents named and read. Disclosure: the record's stamp gate refused two typed changelog stamps one minute ahead of the clock; I restamped them from `date -u`. |
+| 2026-11-23T08:37 | `qa-fix-emoji-pretransform-widths` (message, QA Phase 3 `Release Verified` at `0411d3b`, record `4f43628b`) | Step 1b and release-tip verdict | Re-read at the record: committed, `Verified-At 0411d3b`, tree equal to Phase 2's. Dry run with `--qa-record` exit 0. The release ask is put to the owner next. |
 
 ## Stage 1 verification (website, at 0411d3b)
 
@@ -64,8 +65,8 @@ Included: chain `fix-emoji-pretransform-widths` only. Execution mode: **Mode A, 
 | # | Step | Abort criterion | Result |
 |---|---|---|---|
 | 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `febf20e39905c977b0d42081137817cb7b704478` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | `febf20e…` at 08:30Z; to be re-read just before the move |
-| 2 | QA's step 1b recorded for this tip | no record → the move takes neither `--qa-record` nor `--reason`; stop | pending |
-| 3 | `cd /usr/local/bin/hooks && node ~/.claude/tools/release-move.js website master 0411d3ba146018a5a8d3e8a45398d7d04f499d18 --dry-run --reason "<Phase 2 Verified-At covers the tip; step 1b record>"` | exit ≠ 0 → stop | a dry run without evidence exited 0 earlier this run ("every check passed; nothing moved"; the real move refuses without `--qa-record` or `--reason`) |
+| 2 | QA's step 1b recorded for this tip | no record → the move takes neither `--qa-record` nor `--reason`; stop | `qa/website-0411d3b-release-tip-qa.md`, `Release Verified`, `Verified-At 0411d3b`, record `4f43628b`; step 1b: 35 open handoffs, exactly 1 triggered by this push (B-1's carrier), 7 other candidates not triggered. Abort criterion not met |
+| 3 | `cd /usr/local/bin/hooks && node ~/.claude/tools/release-move.js website master 0411d3ba146018a5a8d3e8a45398d7d04f499d18 --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-0411d3b-release-tip-qa.md` | exit ≠ 0 → stop | a dry run with the QA record exited 0 after step 2 ("evidence qa-record …; every check passed; nothing moved"); a dry run without evidence exited 0 earlier this run ("every check passed; nothing moved"; the real move refuses without `--qa-record` or `--reason`) |
 | 4 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | pending |
 | 5 | the same command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | pending |
 | 6 | `git ls-remote origin refs/heads/master` equals `0411d3b…`; tree on `master`, `git status --porcelain` shows no tracked change | any difference → route to the owner | pending |
@@ -88,6 +89,6 @@ Unchanged on purpose: an emoji inserted into the editor is still saved and copie
 
 ## Open at this point
 
-- QA's step 1b record for this tip (requested of steering).
+- QA's step 1b record for this tip: received and recorded (row 2 above). Its Assumption Not Checked, that a push of `master` serves the pushed commit, is the named deploy-mechanism risk above; B-1 is its falsity signature.
 - The owner's release approval, put by this session once the above is recorded.
 - Forward items: B-1 and its guidance limbs, `handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md`; the guild-emoji picker and mobile IME, `handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md`; CR-2, CR-3 and the `_`-pairing and static-render rows, `TODO.md` item "website editor: nested formatting loses the outer style" (steering's).
