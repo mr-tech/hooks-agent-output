@@ -7,9 +7,9 @@ Status-Detail: >-
   Pre-planning review of OQ-4 (use Discord's published formatter in the product, or keep the site's own rules and test
   them against it). Verdict APPROVED_WITH_CHANGES for adoption: one parse engine (`@discord/markdown-wasm`, exact pin)
   behind a site-owned adapter, for the preview and the editor's colouring, in one release; the site's own renderers stay;
-  the old formatter stays test-only. Waits on the owner's answer, which steering puts to him as a prompt. The planner
-  inherits this document when it mints the effort's ID; it closes when the plan's conformance pass has read the adopted
-  option.
+  the old formatter stays test-only. The owner chose B by selection at 2026-11-23T15:23Z (effort rulings, record
+  `5d7fbf5e`); `planner-slate-formatting` plans from it. The planner inherits this document when it mints the effort's ID;
+  it closes when the plan's conformance pass has read the adopted option.
 ---
 
 # Slate formatting effort — use Discord's formatter, or test against it (OQ-4)
@@ -18,6 +18,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T15:25 | architect-slate-formatting-preview | Owner's answer recorded (§ Owner's answer) | From effort rulings block "2026-11-23T15:23Z" (record `5d7fbf5e`), relayed by `steering-hooks-fixer`. Status stays Active until the conformance pass. |
 | 2026-11-23T13:13 | architect-slate-formatting-preview | Document created; pre-planning review of OQ-4 | Brief `steering/slate-formatting-preview-brief-architect.md` from `steering-hooks-fixer`. Read whole: the brief, research `research/slate-formatting-discord-oracle-2026-11-23.md` (record `2db3cc2f`), rulings blocks 09:07Z to 09:18Z, 09:32Z and 13:09Z, the scoping inventory, `architecture/website.md`. Read in part: the master document's Components, Dependencies and Problem Areas. Website read at `origin/master` `0411d3b` from a `git archive` export (the shared tree was not touched). The three npm packages were downloaded with `npm pack` and read, not run. One read was not completed: what the preview-image generator waits for before it captures (AF-7). |
 
 ## Question
@@ -280,6 +281,17 @@ web client runs.
   deliberately; and a build check first. The old formatter stays in tests only.
 - **Agent: keep the site's rules, test them against it.** Nothing new ships. Every rule is fixed by hand to match
   Discord, in both rule sets, and later changes at Discord are found only by the tests.
+
+## Owner's answer
+
+By selection, effort rulings block "2026-11-23T15:23Z" (ledger `steering/selection-ledger/2026-11-23.md`, same block;
+record `5d7fbf5e`). Options as put: *Agent: use Discord's formatter (Recommended)* / *Agent: keep the site's rules* /
+*Agent: don't change either yet*. **Chosen: use Discord's formatter.** This is option B with integration requirements 1
+to 7, an option agents composed; it is his choice among them, not his stated intent. Steering's reading of how it binds
+with his 09:17Z ruling, from the same block: that ruling bars shipping code extracted from Discord's served bundle; the
+published npm package is a different object, and this selection admits it to the product; the old formatter stays
+fetched at test time, never shipped. The option text stated that on the 33 disagreeing cases the site shows the new
+formatter's way, which the test account does not see today.
 
 ## Problem Areas lodged (master document)
 
