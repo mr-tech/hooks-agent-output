@@ -20,6 +20,31 @@ Status-Detail: >-
 |---|---|---|---|
 | 2026-11-23T16:36 | 1 | analyst-019 | Created from brief `steering/019-brief-analyst.md` and common brief `steering/slate-formatting-brief-common.md`, commissioned by plan 019. Work began on Revision 0 (record `09170dd0`). The plan moved to Revision 2 (`8dfd4659`) during the run, and M1 was re-read there before writing. Changes under me, all followed: AN-1 adds Playwright Firefox and the wasm's `content-type`. AN-2 adds the loading state and the puppeteer quiet window. AN-3 adds per-surface classes and the disagree counts for legacy-only surfaces. AN-4 adds G-14's state read. AN-7 adds G-14's emoji-label DOM read and D-10's premise. M1 adds lifting the research instruments (QAF-11). |
 
+## Resumption State
+
+Written 2026-11-23T16:40Z at `steering-hooks-fixer`'s `/checkpoint`. The session is cleared after this commit.
+
+- **Done.** AN-1 to AN-7 and OQ-4, every result in § Findings, committed in `aafecf1`. Deliveries:
+  - to `planner-019`, message `7181587c-ea9e-4a8f-a0ee-46f2d4d02844`;
+  - to `steering-hooks-fixer`, message `41263451-81ab-44b4-a950-8fa3eb223746`, carrying the AN-3 and D-11 owner items, G-11, and H-2;
+  - to `devops-019`, message `67c2f824-d77c-4edc-86b8-e3c3a6befe70`: `2531c04a` is cited, and the spike branch can be deleted.
+- **Next.** No act is owed. The next brief comes from steering. A likely trigger is his answer to AN-3 or D-11, or the planner
+  asking for gap G-1 (GAME_MENTION) or the hypotheses H-1 or H-2. Plan 019 was at Revision 2 (`8dfd4659`) when read; at
+  `d503160e` its Revision 3 is held for those two answers. Read the plan as a diff from Revision 2.
+- **Approach in flight.** None.
+- **Refs.** Record `agent-output` `master`, HEAD `d503160e` before this commit. Website analysed at `af3d95a` from exports only. The
+  shared tree was not touched (its HEAD read `7660259`).
+- **Uncommitted or local.** Outside the record:
+  - `~/.claude/skills/discord-test-browser/test-estate.json` carries this run's estate changes (emoji `slate_oracle`, command
+    `/slateping`, the messages);
+  - the 300 AN-2 JPEGs are at `~/.cache/analysis-019-an2-jpegs/`.
+  - This session's scratch holds only copies of committed probes.
+- **Evidence run and not recorded.** None.
+- **Processes.** None of this run's are running: the servers were stopped by their wrapper's trap, and the browser is closed.
+- **Re-running the Node oracle.** Discord's assets must be fetched again into scratch: `curl` of `discord.com/app` and its scripts, as
+  in § Methodology. The probes are in `verification/019/analysis/an4/` and `an6/`, and jsdom is at
+  `/usr/local/bin/hooks/website/node_modules/jsdom`.
+
 ## Value Statement and Business Objective
 
 Plan 019's value statement, quoted: "As a Hooks user composing a Discord message, I want the editor's colouring and the preview to
