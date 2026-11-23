@@ -8,8 +8,8 @@ Status-Detail: >-
   started 2026-11-23T18:49Z by implementer-019 on chain/019-slate-formatting-discord-engine (steering's recorded start, effort
   rulings block 18:48Z); M7 is devops's. Steering bounds later changes: M4 and M6 are
   capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z).
-  Revision 10 folds his mentions selection (D-17) into AC-4.4 and corrects M4's Mirrors line. It awaits a delta read by the
-  critic, the architect and QA. M4's mention code is held until all three have passed it; the rest of M4 is not held.
+  Revision 10 folds his mentions selection (D-17) into AC-4.4 and corrects M4's Mirrors line. The critic (71b981ad), the
+  architect (b8d11f1b) and QA (f79d7f77) have all approved it, so M4's mention code is released.
 Revision: 10
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
