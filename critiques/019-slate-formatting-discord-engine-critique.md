@@ -2,17 +2,20 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Resolved
-Status-Detail: "Cycle 2 pass 2 on plan revision 7: APPROVED, and closed at that pass. F-1 to F-32 are RESOLVED, each verified landed. A later revision that changes a criterion's text opens cycle 3."
-Artifact-Revision: 7 — read as the delta 946d4e54..e0eb1e87 (cycle 2 pass 2)
-Reviewed-At: "e0eb1e87 — repos=agent-output; website read at af3d95a"
+Status: Open
+Status-Detail: "Cycle 3 pass 1 on plan revision 8: APPROVED. F-1 to F-32 are RESOLVED. F-33 (MEDIUM, AC-4.7's ja-JP fixture names a locale the site does load) is a further member of RK-8's class, closed by property with stated limit SL-10; the stop authority fired and no revision round is asked. This document stays Open until the plan's Planner batch carries SL-10."
+Artifact-Revision: 8 — read as the delta e0eb1e87..7b419f5b (cycle 3 pass 1)
+Reviewed-At: "7b419f5b — repos=agent-output; website read at af3d95a"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 7 (`e0eb1e87`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 7 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 8 (`7b419f5b`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 8 as deltas.
+**Read at cycle 3 pass 1**: the plan's diff `e0eb1e87..7b419f5b`; effort rulings blocks 17:56Z and 17:58Z; website
+`src/utils/loadLocales.ts` and its two importers, `MarkdownTimestamp.tsx` at its picker lines, and `pnpm-lock.yaml`'s dayjs
+entry, all at `af3d95a`; `verification/019/qa/probe-r7-timestamp-locale.out`; GLOSSARY, "Severity floor".
 **Read at cycle 2 pass 2**: the plan's diff `946d4e54..e0eb1e87`; `verification/019/planning/timestamp-s-S-dayjs-vs-intl.txt`;
 website `MarkdownTimestamp.tsx` and `src/components/LoadLocale.tsx` at `af3d95a`.
 **Read at cycle 2 pass 1**: the plan's diff `d2912590..946d4e54`; the analysis's AN-8 section at `3681654e` (limbs 1, 2 and
@@ -40,8 +43,41 @@ for the 15,480 figure.
 | 2026-11-23T17:44 | planner-019 (message naming revision 6 at `946d4e54`) | cycle 2 pass 1: plan revision 6 | Reopened from `critiques/closed/` for cycle 2, which revision 6 opens by changing criterion text. Depth: delta-bounded; the delta `d2912590..946d4e54` is 99 added and 43 removed lines (`git diff --numstat`, four commits, three of them registrations R-7 to R-10), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed as a token (X-24 has no Exclusions row left and is named only where withdrawn); added EC-7, QA's entry condition. Artifact changes: AN-8 limbs 1 to 4 and 2b folded (AC-2.3's mask table, M4's mask line, AC-4.7, AC-6.3's provision step, X-14); AC-6.5's expected value split by surface with two entry conditions at M6 (the architect's CF-12, QA's EC-7, this critique's pass-5 assumption). Findings addressed: F-31 RESOLVED, read against the analysis. New finding: F-32 (LOW), OPEN. Verdict APPROVED. |
 | 2026-11-23T17:54 | planner-019 (message naming revision 7 at `e0eb1e87`) | cycle 2 pass 2: plan revision 7 | Depth: delta-bounded; the delta `946d4e54..e0eb1e87` is 55 added and 18 removed lines (`git diff --numstat`, three commits, two of them registrations R-11 and R-12), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed, none added. Artifact changes: AC-4.7 marks `s` and `S` a deviation from the sibling table with its reason, follows the sibling in UTC before mount and in locale, and says what its test sets (the architect's CF-13, QA's QAF-25); AC-6.5's helper gains a mask control (QA's QAF-24) and cites the heading bit as read. Findings addressed: F-32 RESOLVED. New findings: none. Verdict APPROVED. |
 | 2026-11-23T17:54 | critic-019 | Document closed | Status: Resolved. Every finding, F-1 to F-32, is RESOLVED and verified landed. |
+| 2026-11-23T18:00 | planner-019 (message naming revision 8 at `7b419f5b`); steering-hooks-fixer (the M4 and M6 revision cap, effort rulings block 17:56Z) | cycle 3 pass 1: plan revision 8 | Reopened from `critiques/closed/` for cycle 3, which revision 8 opens by changing AC-4.7's text. Depth: delta-bounded; the delta `e0eb1e87..7b419f5b` is 60 added and 16 removed lines (`git diff --numstat`, four commits, three of them registrations R-13 to R-15), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-16. Artifact changes: AC-4.7 names the resolved dayjs locale and lists a fixture per branch (QA's QAF-26, the architect's CF-14); D-16 registers his picker selection; steering's revision cap is recorded as a scope constraint; QAF-27 is a stated limit. New finding: F-33 (MEDIUM), a further member of RK-8's class, closed by property with stated limit SL-10; the stop authority fired. Verdict APPROVED. Correction of this critique's own cycle 2 pass 2: it read the picker's key mapping and reported the cited sibling behaviours as holding, and did not read the clause "already omits `R`", which was false; steering found it. |
 
 ## Verdict
+
+**APPROVED — cycle 3, pass 1.** The stop authority fired on one shape (F-33). The hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings; revision 8 touches AC-4.7 only and adds no criterion, milestone or
+instrument.
+
+What holds in revision 8's delta:
+- **D-16** matches effort rulings block 17:58Z word for word, and the picker line now reads as the code does: six table keys
+  and a separate `R` button (`MarkdownTimestamp.tsx` at `af3d95a`, read in this pass).
+- **Steering's revision cap** is recorded as a scope constraint with its date, its reason and what voids it. Its premise
+  holds: revision 8 is M4's third revision since revision 5's approval.
+- **The locale rule** closes this critique's cycle 2 pass 2 assumption: `Intl` takes the locale dayjs resolves to, so `s` and
+  `S` render in the six siblings' language. Every one of the 29 dayjs locale names `loadLocales.ts` loads is a tag `Intl`
+  accepts and resolves to the same language (run in this pass, Node 24.14.0, ICU 78.2: 0 of 29 rejected).
+- **The `en-GB` literal** is right: `14/11/2023, 22:13` (same run).
+
+**Stop authority: F-33.** AC-4.7's fifth fixture is "a tag the site has no file for, `ja-JP`", expected to give the `en` form.
+The site loads a `ja` file (`src/utils/loadLocales.ts` at `af3d95a` imports `dayjs/locale/ja`), and dayjs 1.11.7 resolves
+`ja-JP` to `ja` when it is loaded. So with the site's own loader the fixture exercises the loaded branch, its literal is wrong,
+and the mutant it is meant to catch (the tag passed to `Intl`) gives the same text as correct code. This is one more member
+of the class RK-8 has predicted since pass 1, a statement of what the site does today that the base contradicts; six earlier
+members were each folded singly. It is not sent back for a revision round. The class is stated below as a property over
+AC-4.7, checked in this pass, and its one gap is stated limit SL-10 with its bearer. That is also where steering's cap would
+send it; under the GLOSSARY's definition it is a severity-floor finding and so excepted from the cap, but the stop authority
+binds this gate first.
+
+**RK-8, the class from pass 1.** One new member in this pass (F-33). One member appeared in revision 7 and was found by
+steering, not by this critique's pass on that revision (the `R` button; corrected in revision 8).
+
+No milestone is marked `PREMISE-STALE`. `Target-Release` is unchanged. No `OPEN QUESTION` is unresolved. Routed to the owner:
+nothing.
+
+The cycle 2 verdicts follow, as written at their passes.
 
 **APPROVED — cycle 2, pass 2.** Neither the stop authority nor the hard stop fired (pass 2 of 15 in this cycle). Pricing: sized
 to the ask plus his three rulings, unchanged; revision 7 adds no criterion, milestone or instrument.
@@ -138,7 +174,14 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
-Cycle 2 pass 2: this pass assumes that every locale react-aria reports to `LoadLocale` is one dayjs has loaded, and does not
+Cycle 3 pass 1: this pass assumes that `dayjs.locale()`, read when a timestamp renders, is the locale `LoadLocale` set for
+that viewer, and does not test it. dayjs keeps one locale per process, and nothing was rendered in this pass. If it is false
+(a server render that serves two viewers, or a route that renders a timestamp without `LoadLocale` above it), `s` and `S`
+take another locale than the viewer's before mount and change at hydration. The six sibling styles have the same exposure
+today, so the two would still agree with each other. The implementer at M4 owns closing it, with AC-4.7's pre-mount fixture.
+
+Cycle 2 pass 2 (settled at plan revision 8: `Intl` takes dayjs's resolved locale, so an unloaded tag gives the siblings'
+language): this pass assumes that every locale react-aria reports to `LoadLocale` is one dayjs has loaded, and does not
 test it. `src/utils/loadLocales.ts` at `af3d95a` names dayjs locale files (`git grep -c "dayjs/locale"`: 29 lines in that file);
 which locales those cover against what a browser can report was not read. If it is false, a viewer in an unloaded locale sees
 `s` and `S` in their own language from `Intl` and the six sibling styles in dayjs's fallback, in one message. The implementer
@@ -172,7 +215,31 @@ None.
 
 ### Open
 
-None.
+F-33 MEDIUM cycle 3 pass 1 — OPEN — AC-4.7's unloaded-tag fixture names a locale the site loads (a further member of RK-8's class); closed by property, limit SL-10
+- **Location**: M4, AC-4.7 "Locale" ("For `ja-JP`, dayjs falls back to `en`") and "What the test sets" ("a tag the site has no
+  file for, `ja-JP`, UTC: `s` is `11/14/23, 10:13 PM`"); `website@af3d95a src/utils/loadLocales.ts`.
+- **The member**: `loadLocales.ts` imports 29 dayjs locale files, `ja` among them, and the two message routes import it.
+  dayjs 1.11.7 (the locked version) resolves a tag it has no file for to its language part when that is loaded, so `ja-JP`
+  resolves to `ja`. Under `ja`, `Intl` gives `2023/11/14 22:13`, the same text the tag-passing mutant gives. QA's probe read
+  `ja-JP` as `en` because it had not loaded `ja`; the same probe shows `de-DE` resolving to `de`.
+- **Property**: every statement in AC-4.7 of what the site does today is one the base shows, and each branch's fixture is a
+  member of that branch under the site's own locale loader.
+- **Domain**, AC-4.7's statements about the base, each read at `af3d95a` in this pass:
+
+  | Statement | Read | Holds |
+  |---|---|---|
+  | The six styles are the keys of `TIMESTAMP_TO_DAYJS_FORMAT`, formatted by dayjs | the table and its use | yes |
+  | Before mount the date is formatted in UTC | `if (!state.mounted) date = date.utc()` | yes |
+  | `LoadLocale` hands dayjs react-aria's tag | `LoadLocale.tsx` | yes |
+  | The picker offers the six keys and a separate `R` button | the map over the keys and the `R` button after it | yes |
+  | `en-GB` is a locale loaded through the site's dayjs path | `dayjs/locale/en-gb` in `loadLocales.ts` | yes |
+  | `ja-JP` is a tag the site has no file for | `dayjs/locale/ja` is imported | **no: SL-10** |
+
+- **SL-10** (the unloaded-tag fixture). A tag outside the 29 decides the branch: the architect's CF-14 names `vi-VN`, for which
+  correct code gives `11/14/23, 10:13 PM` and the tag-passing mutant gives `22:13 14/11/23` (run in this pass). Bearer: the
+  implementer at M4, who writes that fixture with a tag whose language part `loadLocales.ts` does not import, and QA at Phase 2,
+  which shows the mutant red on it under the site's loader. The paragraph's `ja-JP` example stays wrong in the plan's text
+  until a pass that moves M4's code corrects it.
 
 ### Resolved
 
@@ -276,7 +343,18 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 2 pass 2 (APPROVED on plan revision 7, `e0eb1e87`); nothing is in flight, and a later criterion-changing revision opens cycle 3 from that SHA.
+Written after cycle 3 pass 1.
+
+- **Done**: cycles 1 and 2 (closed at `944e53f6` and `16ca70fe`) and cycle 3 pass 1. Verdict APPROVED on revision 8
+  (`7b419f5b`). This document was reopened from `critiques/closed/` for cycle 3.
+- **Next**: the planner's registration of SL-10 as a Planner batch row, or a revision that corrects the `ja-JP` fixture. Read
+  either as the `git diff` of the plan from `7b419f5b`, boundary checked by the in-memory ID comparison (no file written from
+  the shell). A registration is one boundary line; then set `Resolved` and close this document (`record-closure` skill).
+- **Standing rules**: the brief's (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in the
+  record folder; website read by `git show <sha>:<path>`; record documents by Write or Edit only; stamps from `date -u`.
+  Steering's cap (effort rulings block 17:56Z): a gap below HIGH on M4 or M6 goes to the Planner batch as a stated limit.
+- **Tree**: record `master`. Nothing of this session is uncommitted after the cycle 3 pass 1 commit; no process of this
+  session is running. No question is awaiting an answer. A cache-warm wake is armed for 18:11 UTC.
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
