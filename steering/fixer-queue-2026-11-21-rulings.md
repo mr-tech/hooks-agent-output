@@ -686,3 +686,26 @@ for © (and for `™` alone), each with an empty `src`. Result: confirmed, execu
 (the `src` is empty) is unread.
 Disclosure (this round): `record-write-gate-hook` refused a shell `sed` stamp edit of `steering/019-brief-devops.md`. The same edit was
 made with the Edit tool, the form the gate names, and committed in `dad314e2`.
+
+## 2026-11-23T17:04Z — selection: plan 019 AN-3 (legacy-only surfaces) and D-11's reopening (put 17:0xZ, answered 17:04Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T17:04Z — steering-hooks-fixer`. Both questions come from analysis
+019 (`analysis/019-slate-formatting-discord-engine-analysis.md`, record `aafecf1`): AN-3, and AN-6 firing D-11's reopening class. The
+costs are `architect-019`'s (message 16:5xZ). The wording is this thread's.
+- **Embeds and V2 text.** Options: *Agent: match how it looks (Recommended)*. The engine stays the only parser. Legacy-only surfaces
+  are judged by each character's visible styles, not tree shape. A visible residue gets a hand-written adjustment toward legacy (the
+  architect's B3), and the rest are listed. Cost: one adjustment module, stale if Discord moves embeds to native, with a test flagging
+  that. How many differences remain is unmeasured. The other options were *Agent: list the differences* (D-5 as for content; each row
+  is wrong for every user) and *Agent: old rules for embeds* (it undoes part of D-13 and adds a second rule set). **Chosen by
+  selection: match how it looks** (the architect's A′ with B3 for the visible residue).
+- **Line breaks in the editor.** Options: *Agent: style across lines (Recommended)*. The editor colours runs across line breaks, like the
+  preview and Discord's native box. It re-parses a run of adjacent lines on each edit (about 10 ms for 4,096 multi-line characters on
+  this box), the change is confined to M5, and the expected values come from the native box (818948). The other option was *Agent: keep
+  each line alone* (Discord's legacy box; the editor and preview differ). **Chosen by selection: style across lines.** This replaces
+  D-11's cross-line limb; the heading and list limb (no marker colouring) stands.
+Premises read this turn: AN-3's per-surface disagree counts (analysis lines 209-213: description 37, field value 32, title and field
+name 54, with url 37, V2 37); legacy box against the DOM, 63 of 65 (analysis line 311); `verification/019/architect-conformance/time.out`,
+row `4096 lines`, lossless median 9.895 ms. A `general-purpose-sonnet` refutation helper read the captures and could not re-run them,
+because the harness needs a Discord build that is not on this box. A, the native box styles across breaks, is confirmed from
+`an6-textbox.json`, with one caveat: the harness feeds legacy one line at a time. B, embeds legacy-only, is confirmed from the code read
+and from the DOM on the heading and subtext cases; no captured inline-disagree case exists.
