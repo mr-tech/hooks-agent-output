@@ -472,3 +472,12 @@ formatting there." Classed as a requirement (links are in scope) plus an observa
 named. Acted on: the inventory helper was told by message to add a section on every link form the editor and preview handle — bare URLs,
 `<url>`, masked `[text](url)`, links within or next to styles, emoji and punctuation — with probes run where it can. Links are a named
 limb of the effort's scope and of its fuzzer.
+
+## 2026-11-23T09:11Z — his words: the editor is meant to match Discord, and he expects many bugs
+
+His words, in this session: "I tried my best to get the Slate implementation to be the same as Discord's, but Slate is really difficult to
+use. So there's undoubtedly a ton of bugs in the implementation." This sets the effort's standard: the specification is Discord's own
+formatting behaviour, and the effort expects many defects, so a hand-picked case list is not enough. This thread's reading for the
+determination: the fuzzer needs an oracle for "what Discord does". Candidates are Discord's rendering read on the agents' own test server
+(guild `1566742402180456559`, his "Outbound messages" grant) through the test-account browser, and a reference parser checked against those
+readings. Choosing between them is the plan's question, raised at the determination.
