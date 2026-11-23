@@ -1,0 +1,24 @@
+members 38 single-bit 31 CUSTOM_EMOJI,COLON_EMOJI,UNICODE_EMOJI,MASKED_LINK,DETECTED_LINK,AUTO_LINK,CONTACT_LINK,USER_MENTION,CHANNEL_MENTION,ROLE_MENTION,GAME_MENTION,COMMAND_MENTION,EVERYONE_MENTION,HERE_MENTION,STATIC_MENTION,TIMESTAMP,CODE_BLOCK,CODE,DOUBLE_CODE,BOLD,ASTERISK_ITALIC,UNDERSCORE_ITALIC,UNDERLINE,STRIKETHROUGH,SPOILER,HEADING,LIST,QUOTE,MULTILINE_QUOTE,SUBTEXT,DEV_LINKS
+groups EMOJI=7 LINKS=120 MENTIONS=32640 CODE_SPANS=393216 ITALIC=3145728 QUOTES=402653184 ALL=2147483647
+"<javascript:alert(1)>" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"<javascript:alert(1)>"}]}]
+"[a](javascript:alert(1))" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"[a](javascript:alert(1))"}]}]
+"<data:text/html,x>" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"<data:text/html,x>"}]}]
+"[a](data:text/html,x)" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"[a](data:text/html,x)"}]}]
+"<vbscript:x>" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"<vbscript:x>"}]}]
+"[a](JaVaScRiPt:alert(1))" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"[a](JaVaScRiPt:alert(1))"}]}]
+"<ftp://x.y>" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"<ftp://x.y>"}]}]
+"<foo:/bar>" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"<foo:/bar>"}]}]
+"<mailto:a@b.c>" => {"type":"link","value":{"url":"mailto:a@b.c"}}
+"<a@b.c>" => {"type":"link","value":{"text":[{"type":"text","value":"a@b.c"}],"url":"mailto:a@b.c"}}
+"dev://branch/main" => {"type":"link","value":{"url":"dev://branch/main"}}
+"<dev://branch/main>" => {"type":"link","value":{"url":"dev://branch/main"}}
+"[a](https://x.y)" => {"type":"link","value":{"text":[{"type":"text","value":"a"}],"url":"https://x.y/"}}
+"https://x.y🙂" => {"type":"link","value":{"url":"https://x.xn--y-bz3s/"}}
+"[a](https://x.y \"t\")" => {"type":"link","value":{"text":[{"type":"text","value":"a"}],"url":"https://x.y/","title":"t"}}
+"[a](<https://x.y>)" => {"type":"link","value":{"text":[{"type":"text","value":"a"}],"url":"https://x.y/"}}
+"[a](https://x.y/\u0000z)" => (no link) [{"type":"paragraph","value":[{"type":"text","value":"[a](https://x.y/\u0000z)"}]}]
+"[a](https://x.y/ z)" => {"type":"link","value":{"url":"https://x.y/"}}
+"https://x.y!" => {"type":"link","value":{"url":"https://x.y!/"}}
+"https://x.y/(a)" => {"type":"link","value":{"url":"https://x.y/(a)"}}
+flags0==ALL true
+devlinks on ["{\"type\":\"link\",\"value\":{\"url\":\"dev://branch/main\"}}"] off []

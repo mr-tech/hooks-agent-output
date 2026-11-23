@@ -1,0 +1,10 @@
+Post-deploy row instrument, minted read-only run (QA Phase 1, plan 019). 2026-11-23T16:01Z
+Subject: production https://hooks.gg/message/m/0/edit (route 0), test-account Chrome profile, nothing saved, nothing sent.
+Steps: open the content editor; Ctrl+A; type (pressSequentially) the text: https://x.y🙂 [a](https://x.y/🙂) ; blur + Escape so the static preview renders.
+Read: [...document.querySelectorAll('main a[href]')].map(a=>[a.getAttribute('href'),a.textContent]).filter(([h])=>h.includes('x.y'))
+Editor text before blur: "https://x.y🙂 [a](https://x.y/🙂)"
+Result:
+  ["https://x.y:slight_smile","https://x.y:slight_smile"]
+  ["https://x.y/:slight_smile:","a"]
+Side effect: the profile's route-0 local draft (previously a quote "a" / "b") now holds the probe text. Local storage only; no server write (no save, no send).
+Running commit of production: not read here (Vercel deployment not inspected); the release record names af3d95a released at 2026-11-23T15:29Z.
