@@ -485,6 +485,17 @@ CR-7, CR-8 and CR-9 are LOW and open as before, each with its carrier. M3 goes t
 **Rationale**: in the Round 3 sub-entries above. Every MEDIUM is resolved with a captured check that fails if it returns. The LOWs
 are carried.
 
+Reconcile note, 2026-11-23T22:38: the M3 verdict read the plan at Revision 10. Revisions 11 (22:28) and 12 (`b0af4dc3`, 22:34) revise AC-3.7's
+frozen residue list: its per-input entries, atom-bearing population, family check and RK-9. That list is built by M4's
+residue-list commit, and Round 3 left AC-3.7 out of its criteria. No criterion this verdict verified moved, so it does not expire.
+
+Revision 12's Reading Order row for `code-reviewer` adds "AC-3.7's families, their reasons and counts, and sampled entries". That
+read is owed at the commit that lands the list, and goes to this review's M4 round.
+
+Steering capped M3 past Revision 12 (rulings block 2026-11-23T22:35Z, `41101e7`). A further M3 gap below HIGH is therefore routed
+to `planner-019` for the Planner batch as a stated limit, with no review round. A severity-floor finding is excepted. CR-11 and the
+other open M3 LOWs were raised before the cap and keep the carriers named below.
+
 ## Required Actions
 
 None blocking. Open LOWs, each with its carrier:
@@ -534,6 +545,8 @@ member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA
   - CR-11;
   - the link allow-list attack re-run against the rendered anchor;
   - Round 2's Assumption Not Checked.
+  - AC-3.7's families, reasons, counts and sampled entries, per Revision 12's Reading Order, at the residue-list commit.
+  - Any new M3 gap below HIGH goes to `planner-019`'s Planner batch, under the 22:35Z cap.
   - The residue re-run with the corrected game mention is the M4 document's Next step 5, before the adjustment choice.
 - M5 implementer and this review's M5 round: CR-3.
 
