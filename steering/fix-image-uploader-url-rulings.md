@@ -71,3 +71,21 @@ fresh `_key`s are assigned, so they are unaffected. It is inside the swept regio
 "reopening shows the saved image". So it is in this round, with a red test through the real component.
 **QAF-2, held for him.** Pressing Enter inside the address box does nothing, at base and at the tip. His words (block 04:44) name Save
 only. Whether Enter should save is a product choice, put to him by selection.
+
+## 2026-11-23T17:40Z — selection: Enter in the address box (QAF-2) (put 17:3xZ, answered 17:40Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T17:40Z — steering-hooks-fixer`. The wording is this thread's.
+Options: *Agent: Enter in the box saves* ("Once the address has loaded, Enter in the box saves it, like clicking Save. A bad or
+still-loading address still can't be saved. It goes into this fix round: a small change to the image dialog only, plus updating one
+existing test that records today's behaviour. Other dialogs don't change.") / *Agent: leave Enter as it is*. **Chosen by selection:
+Enter in the box saves.** This adds a limb 5 to the scope statement: in the image address dialog, Enter with focus in the address box
+commits as Save does, under limbs 1 and 2's conditions. The write set is unchanged (`ImageUploader.tsx`, its helper, its tests);
+`useDialogEnter.ts` is shared with the other dialog, so any change there must leave that dialog's behaviour as it is.
+Premises read this turn: a `general-purpose-sonnet` refutation helper mounted the real component in exports of `af3d95a` and
+`e94baf7`. Enter in the box gave 0 `setImage` calls at both SHAs, and the claim was confirmed. The cause read from code is that
+react-hotkeys-hook ignores a keydown from a form field unless `enableOnFormTags` is set (`useDialogEnter.ts`;
+`ImageUploader.tsx:95`). Plan 017 kept this behaviour as it already was, before and after
+(`planning/closed/017-existing-items-backlog.md:1154`); it was not his choice. The existing test
+`ImageUploader.enter-scope.test.tsx` expects no call for the URL field, and that expectation changes under this ruling.
+Sequence: code review Round 2 APPROVED at `cae7472` (`7e426a06`) before this answer. That approval and the QA re-run apply to the
+next hand-off instead.
