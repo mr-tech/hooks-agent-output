@@ -848,3 +848,12 @@ Added premise, the planner's (read at `5ec0621`): `/preview`, the route the imag
 "#<id>" (today's form).
 Critic effort: `tmux-agent effort-level critic-019 medium` was refused because the critic was busy on the planner's send. It is retried at the
 critic's next idle.
+
+## 2026-11-23T22:05Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (22:0xZ) asked for `/checkpoint`: prefix about 253K at 22:04Z, past the 225K steering threshold. The critic was
+set to medium at 21:42Z (the retry above). Revision 10 is approved by all three gates (Status `b9dadaf0`). The Resumption State is in this
+thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`). In flight:
+- M3's CR-10 fix is with the implementer; it was M3's second rejection.
+- M4 is being built at tip `f131f06`.
+- Standing check `cd4a027c` (22:36Z).
