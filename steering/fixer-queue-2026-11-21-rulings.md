@@ -656,3 +656,10 @@ messages stay his to check. (3) The fence-loop chain's three differential driver
 differential, the fixer's loader-identity driver, under `verification/fix-normalize-fence-loop/`) are candidate seeds for the fuzzer
 and for the instrument-lift item. The planner carries or declines them.
 Critic, architect conformance and QA Phase 1 start on the revision that registers these answers.
+
+## 2026-11-23T15:55Z — website tree: cut `chain/fix-image-uploader-url` (9e) on the coordinator's go
+
+Go from `steering-coordinator` (item 10, 15:5xZ), naming base `af3d95a`. Before: website on `master` at `af3d95a`, porcelain
+`?? .playwright-mcp/` only (read through a file). Command: `git switch --no-track -c chain/fix-image-uploader-url origin/master`, at
+15:55:18Z. After: `chain/fix-image-uploader-url` at `af3d95a`, no upstream. The lockfile is unchanged (same commit). Determination: the
+chain's rulings, block "2026-11-23T15:54Z" (`83bc1cab`). Plan 019's implementation takes the tree after this chain.
