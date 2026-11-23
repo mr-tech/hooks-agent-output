@@ -1,0 +1,16 @@
+af3d95a:src/@types/simple-markdown.d.ts
+af3d95a:src/@types/slate.d.ts
+af3d95a:src/components/DiscordContentEditor/index.tsx
+af3d95a:src/components/Markdown.tsx
+af3d95a:src/components/SlateEditor/index.tsx
+af3d95a:src/components/SlateEditor/utils/common.ts
+af3d95a:src/components/SlateEditor/utils/createLeaf.ts
+af3d95a:src/components/SlateEditor/utils/decorator.tsx
+af3d95a:src/components/SlateEditor/utils/getInitialValue.ts
+af3d95a:src/components/SlateEditor/utils/withNormalizeNode.ts
+af3d95a:src/providers/MarkdownProvider.tsx
+af3d95a:src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts
+af3d95a:src/utils/markdown/emoji.tsx
+af3d95a:src/utils/markdown/index.tsx
+af3d95a:src/utils/markdown/rules.tsx
+af3d95a:src/utils/markdown/utils.ts

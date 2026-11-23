@@ -4,11 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Revision 2, read by all three gates (critic REQUEST REVISION, e3e49ac7; architect APPROVED_WITH_CHANGES, ee54771c; QA re-key,
-  6dace3fa). M1's analysis has landed (aafecf1). Revision 3 is held for his answers on AN-3 (embeds and the V2 text display are
-  legacy-only) and on AN-6's cross-line read (D-11's reopening class), both with steering, then folds every event since revision 2.
-  Implementation is not approved; M2's approval is held on AN-3.
-Revision: 2
+  Revision 3, for the critic (cycle 1 pass 3), the architect's delta pass and QA Phase 1's re-key. Implementation is not approved.
+  M1's AN-1 to AN-7 have landed (analysis aafecf1) and hold no approval. AN-8 (four residual reads) holds M4's approval on its
+  timestamp-style limb only. M2 waits on the three gates passing one revision, and on the website tree (fixer queue, effort rulings).
+Revision: 3
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -26,52 +25,19 @@ Lane: full
 | 2026-11-23T16:24 | 2 | planner-019 | Folds the three gates' verdicts on revision 1, one batch: the critique (`critiques/019-slate-formatting-discord-engine-critique.md`, record `0435794c`, F-1 to F-23), the conformance pass (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`, record `78d7ec06`, CF-1 to CF-7), and QA Phase 1 (`qa/019-slate-formatting-discord-engine-qa.md`, record `75f479a1`, QAF-1 to QAF-14). The arguments live in those documents; § Finding disposition maps each finding to where it is folded. OQ-4 is resolved by CF-7. CF-2's option (b) is OQ-5, at steering as a scope delta, with option (a) written as the floor. Scope delta: M5 gains a per-element parse cache with a counted criterion (CF-1); M6 gains AC-6.5, the editor's emoji lift held equal to the engine (CF-2 a); M3 gains a red-command outcome table and the vitest project form (F-2, CF-3), and the three-class table (F-6); M2 keeps today's hidden-until-ready loading state (F-3) and gains a link scheme allow-list (QAF-5) and R-A's criterion; M7 gains the Test Conventions update. No milestone was added or removed; the plan is the original ask plus the three in-region additions of revision 1. |
 | 2026-11-23T16:30 | R-2 | planner-019 | Registered D-13 (OQ-5, CF-2 option b); its words live in effort rulings block "2026-11-23T16:29Z — selection: plan 019 OQ-5" (record `213d34ec`) and the ledger block it cites. |
 | 2026-11-23T16:39 | R-3 | planner-019 | Status write: revision 3 held for his answers on AN-3 and D-11's reopening; the events it will fold are the critique pass 2 (`e3e49ac7`), the architect's delta pass (`ee54771c`), QA's re-key (`6dace3fa`), devops's AN-1 Preview record (`2531c04a`) and the analysis (`aafecf1`). |
+| 2026-11-23T17:15 | 3 | planner-019 | Folds, as one batch: critique pass 2 (`e3e49ac7`: F-6, F-24 to F-26 with SL-1 to SL-7, Q1, Q2); the architect's delta pass (`ee54771c`, CF-8) and its A′/B3 design (`1c78753`); QA's re-key (`6dace3fa`: QAF-15 to QAF-17, EC-4, NM-30); devops's AN-1 Preview record (`2531c04a`); analysis 019 (`aafecf1`); and D-13 to D-15 (effort rulings blocks 16:29Z, `213d34ec`, and 17:04Z, `af8b5a5a`). § Finding disposition (revision 3) maps each to its place, and the arguments live in those documents. F-24 is folded as D-12 reads ("every release gate"), not put to him. One shell edit of this file was refused by the record-write gate and re-made with Edit. Scope delta: M2 drops the conditional `@discord/markdown-react` and takes seven masks. M3 gains the visible form, the B3 adjustment rule, AC-3.7 and AC-3.8 with outcome row C6, two `discord-*` projects, and a later-release column that runs but does not hold. M4 gains the adjustment module, AC-4.7 (timestamp styles) and AC-4.8 (spoiler pieces). M5 moves from per-line to per-run-unit parsing with inline objects as one `?`, and gains AC-5.8. M6 rewrites AC-6.5 onto the engine and gains AC-6.6 (`simple-markdown` removed). M1 gains AN-8. No milestone was added or removed. Size: the original ask plus revision 1's three in-region additions, now with his three rulings' reach (the editor's emoji, embeds judged by visible style, cross-line colouring), each inside the region. |
 
 ## Resumption State
 
-Written 2026-11-23T16:35 at steering's ask (checkpoint for a clear). Plan at revision 2 (record `8dfd4659`), plus registration R-2 (D-13).
+Written at revision 3's commit. Revisions 0 to 3 and registrations R-1 to R-3 are committed. Revision 3 goes to `critic-019`
+(cycle 1 pass 3), `architect-019` (delta pass) and `qa-019` (re-key), each by message naming the plan and its SHA. Next is their
+three verdicts, folded as one batch. AN-8 goes to `analyst-019` by message at the same commit.
 
-**Done.** Revisions 0 to 2 are committed, and so are registrations R-1 (G-14) and R-2 (D-13, OQ-5 answered: the engine decides
-emoji, CF-2 option b). Revision 2 was sent to `critic-019`, `architect-slate-formatting-preview` and `qa-019`. The architect's delta
-pass on revision 2 is APPROVED_WITH_CHANGES on CF-8 LOW (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`
-§ "Delta pass, revision 2", record `ee54771`).
+**Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
+runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
 
-**Next.** Revision 3, once the critic's verdict and QA Phase 1's re-key on revision 2 both arrive, as one batch with:
-- **D-13**: AC-6.5 becomes "the lift's emoji ranges come from the adapter's `parseLossless` emoji nodes". It names the six readers of
-  the element's `ast` (CF-2's list: `renderElementFactory.tsx` `emojiToImage`, `flattenNodeText.ts`, `onCopy.ts`,
-  `getInitialValue.ts`, `withNormalizeNode.ts`, `src/@types/slate.d.ts`), with a criterion that `simple-markdown`, its `patches/`
-  entry and `src/@types/simple-markdown.d.ts` leave the product (a module-graph read, as AC-2.1). It also:
-  - drops X-8 and the M7 X-8 handoff;
-  - rewrites the Header notes' Problem Area and Packaging lines (closes; removed);
-  - rewrites M2's provider sentence (no `parseEmoji`);
-  - rewrites the "Emoji lift" scope assumption;
-  - marks OQ-5 `[RESOLVED]`;
-  - adds the © member (Appendix B row 230) to AC-6.5.
-- **CF-8**: M3's `discord` project becomes two projects through `project()`, `discord-node` (`__tests__/discord/**/*.test.ts`, node)
-  and `discord-dom` (`__tests__/discord/**/*.test.tsx`, jsdom, with the same setup file). `test:discord` runs both, and M7's Test
-  Conventions text names both.
-- QA's re-key on revision 2 (`qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 2, record `6dace3fa`), which
-  arrived during this checkpoint:
-  - **QAF-15** MEDIUM: the pending state needs a bound, a timeout to the plain-text state, or a stated limit. AN-1 measures under
-    Slow 4G, and B-1 carries the throttled read.
-  - **QAF-16** MEDIUM: AC-3.3 reads the text the message receives through `onChange`, not `editor.children`. The drive must be shown
-    to emit first.
-  - **QAF-17** LOW: AC-4.6's refusing control is a fixture node, named as invented engine output.
-  - **EC-4**: 1.12 ms per character; 5.1 ms median and 44 ms p95 per input; 3.77 s over the 272 corpus. A projection of about 55 s
-    added for 4,000 generator inputs; fix AC-3.3's count from it.
-  - Its 8 base-red corpus rows (143, 144, 153, 159, 219, 220, 258, 262) are candidates for AC-3.4.
-  This leaves only the critic's verdict outstanding.
-- RK-8: write back pass 2's member count from the critique.
-- Update the Reading Order's owed re-verdicts table, and the finding-disposition table for revision 3.
-After committing, send to the critic, the architect (delta) and QA (re-key), each by SendMessage naming the plan and SHA.
-
-**Approach in flight.** None. No uncommitted edit.
-
-**Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show`. The shell runs from
-`/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
-
-**Questions sent, and to whom.** All to `steering-hooks-fixer`. OQ-1 to OQ-3 are answered (D-10 to D-12), and OQ-5 is answered
-(D-13). None is open.
+**Questions sent, and to whom.** All to `steering-hooks-fixer`. OQ-1 to OQ-3 and OQ-5 are answered (D-10 to D-13), and the two
+analysis questions are answered (D-14, D-15). None is open.
 
 ## Reading Order
 
@@ -91,9 +57,9 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| Every criterion and section revision 2 rewrote (§ Finding disposition) | revision 2 commit | critic (pass 2) | owed |
-| AC-5.7 per-element cache; AC-6.5 lift equality; M3's project form; X-8 under option (a) | revision 2 commit | architect (delta pass) | owed |
-| Every acceptance criterion revision 2 changed, re-keyed into QA's register | revision 2 commit | QA Phase 1 (re-key) | owed |
+| Every criterion and section revision 3 rewrote (§ Finding disposition (revision 3)) | revision 3 commit | critic (cycle 1 pass 3) | owed |
+| D-14's legacy-visible criteria (AC-3.7, the adjustment module); D-15's run unit (M5, AC-5.6, AC-5.7); D-13's lift and removal (AC-6.5, AC-6.6); CF-8's two projects | revision 3 commit | architect (delta pass) | owed |
+| Every acceptance criterion revision 3 added or changed, re-keyed into QA's register, and QA's E-4 mint-or-decline now that AN-2 has landed | revision 3 commit | QA Phase 1 (re-key) | owed |
 
 ## Header notes
 
@@ -119,14 +85,16 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
   dependency, so the architect's conformance pass is a named step of the chain. Read before this line: `system-architecture.md`
   Components (website), Dependencies, Problem Areas, D-001 and D-003; `website.md` W-3 and W-4. Lines the chain closes or
   invalidates, for the deployment record to route:
-  - The Problem Area "The site's markdown is a hand-kept copy of Discord's rules in two rule sets" (Medium). Whether it closes on
-    landing while the emoji lift stays on `simple-markdown` (option a, X-8) is the architect's closing pass to rule. Under option b
-    it closes.
+  - The Problem Area "The site's markdown is a hand-kept copy of Discord's rules in two rule sets" (Medium) closes on landing:
+    `simple-markdown` leaves the product (D-13, AC-6.6). The adjustment module D-14 adds is a new, smaller hand-kept surface, and
+    the architect's closing pass rules whether it is lodged as its own Problem Area.
   - The Problem Area "The editor reads highlight.js's private emitter tree" (Low) closes on landing (CF-7, AC-5.4).
-  - The Components line "Packaging: pnpm with a patched dependency (`simple-markdown` via `patches/`)" stays true under option a
-    and is removed under option b.
-  - The Dependencies line gains the package and its exact pin. The Quality Attributes "Tests" line gains the two-command form (M7).
-  - D-001 and W-3 are held: one engine for both views, and AC-6.5 holds the editor's emoji equal to the preview's.
+  - The Components line "Packaging: pnpm with a patched dependency (`simple-markdown` via `patches/`)" is removed (AC-6.6).
+  - The Dependencies line gains the package and its exact pin, and loses `simple-markdown`. The Quality Attributes "Tests" line
+    gains the command form of M3 (M7).
+  - D-001 and W-3 are held: one engine for both views, and the editor's emoji come from the same engine (D-13).
+  - The architect's lodged candidate "The Slate emoji element stores a `simple-markdown` node" does not arise under D-13 (its delta
+    pass on revision 2).
 - **QA sequencing.** QA Phase 1 runs before implementation, as the stage set requires (block 09:18Z).
 - **Disclosure.** Two read-only website lookups made in revision 0's pass were not completed, then re-run (effort rulings block
   15:29Z).
@@ -138,9 +106,12 @@ does, and to keep every character I type, paste or load, so that what I build on
 
 This serves his words at 09:07Z and 09:11Z (D-1, D-3): every Slate formatting fix in one effort, held to Discord's behaviour, with a
 fuzzer or intensive check over the edge cases. The plan delivers the value itself. Preview and editor move together (AF-2), and the
-fuzzer lands in the suite. No core part is deferred. The value statement carries no measured figure. On inputs where Discord's two
-formatters disagree, "the way Discord does" means the native formatter's way (D-5, D-6). The three-class table in M3 states what is
-asserted on each class.
+fuzzer lands in the suite. No core part is deferred. The value statement carries no measured figure. What "the way Discord does"
+means differs by surface and by view, and the class table in M3 states what is asserted on each class:
+- **Message content, in the preview.** Where Discord's two formatters disagree, it means the native formatter's way (D-5, D-6).
+- **Embed and V2 text surfaces.** Discord draws these with its legacy formatter only (AN-3). There it means what each character
+  visibly looks like in Discord's legacy rendering (D-14).
+- **The editor.** It means Discord's native text box, across line breaks included (D-15).
 
 ## Decisions Register
 
@@ -159,9 +130,11 @@ except D-8.
 | D-8 | A timestamp edit in the preview always changes the timestamp clicked, in both cases (code-span miscount, re-render index), with tests for each and for normal editing. | 2026-11-22 | By selection, option A: "Agent: fix both (Recommended)". Option text, agent-authored (`steering-hooks`): "Editing a timestamp always changes the one you clicked, in both cases, with tests for each and for normal editing." Ledger `steering/selection-ledger/2026-11-22.md`, block of 04:0xZ. Carried from `steering/fix-timestamp-edit-target-rulings.md` block "2026-11-22T04:03", moved into this effort by effort block 09:07Z. | Owner withdrawal only. Consequence: AC-4.3. |
 | D-9 | The third-party clients' per-client checks stay not done. Third-party clients are a footnote. | 2026-11-23 | By selection: "Agent: leave them not done (Recommended)". Ledger, 2026-11-23 file, block "2026-11-23T09:31Z — steering-hooks-fixer"; effort rulings block 09:32Z. | Owner withdrawal only. Consequence: Exclusions X-10. |
 | D-10 | An emoji typed or pasted as a character is saved and sent as that character. Messages already saved with `:name:` stay as they are. | 2026-11-23 | By selection: "Agent: store the character (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "save and send 🙂 as typed; messages already saved as `:name:` stay". The option stated that whether Discord's own box sends the character is unchecked, and that AN-7 reads it. Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T15:48Z — steering-hooks-fixer"; effort rulings block 15:49Z. | Owner withdrawal, or AN-7 finding that Discord's box sends the `:name:` form. That read is the option's stated unchecked premise; the result goes back to him. Consequence: AC-6.2. |
-| D-11 | The editor follows Discord's text box. No heading or list marker is coloured, and each line is styled alone, so a run that crosses a line break is not styled across it. | 2026-11-23 | By selection: "Agent: follow Discord's box (Recommended)". Option text, agent-authored: "no heading or list marker colouring; each line styled alone". Same ledger block; effort rulings block 15:49Z. | Owner withdrawal, or AN-6 finding that Discord's native box styles one of these. That would be a premise the option rested on (research V-11, V-21) proving false. Consequence: AC-5.6. |
+| D-11 | The editor colours no heading or list marker. (The ruling's second clause, "each line styled alone", is replaced by D-15.) | 2026-11-23 | By selection: "Agent: follow Discord's box (Recommended)". Option text, agent-authored: "no heading or list marker colouring; each line styled alone". Same ledger block; effort rulings block 15:49Z. | Owner withdrawal, or a read finding that Discord's native box styles a heading or list marker. AN-6 read that it does not (analysis `aafecf1`, AN-6 table: `list_marker` and `heading_marker` take no attributes). AN-6 fired this class for the cross-line clause, which he ruled at D-15. Consequence: AC-5.6's marker limb. |
 | D-12 | `pnpm test` stays green offline. A separate command holds every comparison against Discord; it fails loudly offline and runs at every release gate and every pin change. | 2026-11-23 | By selection: "Agent: separate Discord command (Recommended)". Option text, agent-authored: "`pnpm test` offline-green; a separate command holds every Discord comparison, fails loudly offline, run at every release gate and pin change". Same ledger block; effort rulings block 15:49Z. | Owner withdrawal only. Consequence: M3's project form and its outcome table; AC-3.5. |
-| D-13 | The editor's emoji lift takes its emoji from Discord's formatter (CF-2 option b), so `simple-markdown` leaves the site. This widens D-6's reach from the preview and the editor's colouring to the editor's emoji lift. | 2026-11-23 | By selection: "Agent: engine decides emoji (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The editor's lift takes its emoji from Discord's formatter, and the old formatter library leaves the site; the cost is the stored emoji shape, with six readers." The other option was "Agent: keep editor's own emoji check". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T16:29Z — steering-hooks-fixer"; effort rulings block "2026-11-23T16:29Z — selection: plan 019 OQ-5" (record `213d34ec`), which records the premise read (engine `parse("© ™")` is plain text; the site's lift makes © an emoji element). | Owner withdrawal only. Consequence: AC-6.5 and X-8 are re-written at the next planning pass (revision 3). |
+| D-13 | The editor's emoji lift takes its emoji from Discord's formatter (CF-2 option b), so `simple-markdown` leaves the site. This widens D-6's reach from the preview and the editor's colouring to the editor's emoji lift. | 2026-11-23 | By selection: "Agent: engine decides emoji (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The editor's lift takes its emoji from Discord's formatter, and the old formatter library leaves the site; the cost is the stored emoji shape, with six readers." The other option was "Agent: keep editor's own emoji check". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T16:29Z — steering-hooks-fixer"; effort rulings block "2026-11-23T16:29Z — selection: plan 019 OQ-5" (record `213d34ec`), which records the premise read (engine `parse("© ™")` is plain text; the site's lift makes © an emoji element). | Owner withdrawal only. Consequence: AC-6.5 and AC-6.6; X-8 is withdrawn. |
+| D-14 | On the embed surfaces (description, title, field name, field value) and the V2 text display, which Discord draws with its legacy formatter only, the site still parses with the engine alone. The preview there is judged by each character's visible styles against Discord's legacy rendering, not by tree shape. A visible difference is either corrected toward legacy by one hand-written adjustment module or listed. A test flags the module as stale if Discord moves embeds to the native formatter. | 2026-11-23 | By selection: "Agent: match how it looks (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The engine stays the only parser. Legacy-only surfaces are judged by each character's visible styles, not tree shape. A visible residue gets a hand-written adjustment toward legacy (the architect's B3), and the rest are listed. Cost: one adjustment module, stale if Discord moves embeds to native, with a test flagging that. How many differences remain is unmeasured." The other options were "Agent: list the differences" and "Agent: old rules for embeds". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T17:04Z — steering-hooks-fixer"; effort rulings block "2026-11-23T17:04Z — selection: plan 019 AN-3 (legacy-only surfaces) and D-11's reopening" (record `af8b5a5a`), which carries the cost text he saw. A′ and B3 are the architect's terms (agent-authored), read in § M3 "Legacy-visible standard". | Owner withdrawal. Or the option's own stop condition, "stale if Discord moves embeds to native", observable through AC-3.8's staleness check (a native-formatter reference in the served embed or V2 renderer). That returns the surface to D-5's treatment, through him. Consequence: AC-3.7, AC-3.8, the adjustment module in M4, and X-23. |
+| D-15 | The editor colours inline runs across line breaks, as Discord's native box does, over each run of adjacent line and quote elements. Its expected values come from the native box (module 818948). This replaces D-11's "each line styled alone"; D-11's marker clause stands. | 2026-11-23 | By selection: "Agent: style across lines (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The editor colours runs across line breaks, like the preview and Discord's native box. It re-parses a run of adjacent lines on each edit (about 10 ms for 4,096 multi-line characters on this box), the change is confined to M5, and the expected values come from the native box (818948)." The other option was "Agent: keep each line alone". Same ledger block and effort rulings block (record `af8b5a5a`). | Owner withdrawal. Or the option's stated cost proving false: AC-5.7's timing read at M5 showing the per-edit re-parse materially above "about 10 ms for 4,096 multi-line characters". That goes back to him. Consequence: M5's run unit, AC-3.2's expected value, AC-5.6, AC-5.7. |
 
 The scope statement is quoted verbatim from block 09:18Z in § Objective. It narrows nothing that may be reconsidered beyond what it
 says. It carries no expiry: a member found later inside the region is in scope on steering's ruling (same block), and a member
@@ -176,10 +149,14 @@ Discord-derived oracle, enumerates the class and stays in the suite. In: S-01..S
 LF-1..LF-6, and every defect the fuzzer finds in the region. S-07 (emoji stored as `:name:`) is in, as a question for him through
 the plan." Steering added S-29 inside the region (common brief), and S-30 and two widenings at block 15:49Z.
 
-His standard (D-3), narrowed by D-5 and reframed by this plan for criteria: the preview and the editor are judged against Discord
-only on inputs where Discord's legacy and native formatters agree. On the other classes, the site's renderers are judged against
-the native formatter's tree (M3's three-class table), and a generated known-differences list names each case. Original wording beside
-the reframe: "the editor is meant to match Discord" (block 09:11Z heading, steering's).
+His standard (D-3), narrowed by D-5, D-14 and D-15 and reframed by this plan for criteria:
+- The message-content preview is judged against Discord only on inputs where Discord's legacy and native formatters agree. On the
+  rest, its renderers are judged against the engine's own tree.
+- The embed and V2 previews are judged by visible style against Discord's legacy rendering, the only one Discord uses there.
+- The editor is judged against Discord's native text box.
+
+M3's class table states each, and a generated known-differences list names every case not held to Discord. Original wording
+beside the reframe: "the editor is meant to match Discord" (block 09:11Z heading, steering's).
 
 ### Inventory carriage (every in-scope row)
 
@@ -212,12 +189,15 @@ the reframe: "the editor is meant to match Discord" (block 09:11Z heading, steer
 | The fence-loop chain's three differential drivers | M3, as seeds and lifted instruments | Effort block 15:49Z item 3: the reviewer's 20-atom differential (`verification/fix-normalize-fence-loop/code-review/probe.differential.test.tsx.txt`), QA's seeded random differential (`…/qa/probe.random-differential.test.tsx.txt`, with `…/qa/probe.wrong-edit-replay.test.tsx.txt`), the fixer's loader-identity driver (`…/round1b/probe.loader-same.test.ts.txt`). All three are carried. |
 
 The research's items left to the effort, by name (research Recommendations item 4, and G-14 added at its close):
-- **Research OQ-3 / G-3** (embed and Components V2 rule sets): AN-3 and the M2 masks.
-- **G-8** (module-id stability): AN-4 and M3's predicate-based locator, which fails loudly (outcome table, C3).
+- **Research OQ-3 / G-3** (embed and Components V2 rule sets): settled by AN-3 (legacy only), ruled by D-14, carried by the M2 masks
+  and AC-3.7.
+- **G-8** (module-id stability): settled by AN-4 on stable 679055 and canary 679159; M3's predicate-based locator fails loudly
+  (outcome table, C3).
 - **G-9** (editor and embed rule sets against the oracle): M3, over every surface.
-- **G-11** (the native parser seen rendered, read as test account 2): AN-7; if not completed, Exclusions X-13.
-- **G-13** (real role, command and usable emoji ids): AN-7; if not completed, Exclusions X-14.
-- **G-14** (emoji inside a masked-link label on a webhook message): AN-4, AN-7, AC-3.1.
+- **G-11** (the native parser seen rendered, read as test account 2): not completed in AN-7; Exclusions X-13.
+- **G-13** (real role, command and usable emoji ids): read in AN-7; AC-4.4 carries it. GAME_MENTION's written form is AN-8.
+- **G-14** (emoji inside a masked-link label on a webhook message): AN-4 read the state, and AN-7 found the class to be a
+  legacy/native disagreement on the webhook path. It is in AC-3.6's class and the known-differences report.
 
 ## Assumptions and open questions
 
@@ -250,6 +230,16 @@ Premises read or run:
   (`getInitialValue`).
 - **P-6 (read)**: the vitest config at `af3d95a` declares two projects, `node` and `dom`, through `vitest.config.ts:project`, and
   `package.json` `test` is `vitest run`.
+- **P-7 (read)**: the only Slate inline element at `af3d95a` is the emoji element (`src/@types/slate.d.ts`: `EmojiElement.type` is
+  `emoji`, `nameEmoji` or `discordEmoji`; `CustomElement.type` is `div`, `codeBlock` or `blockQuote`). Mentions and timestamps are
+  text. Discord's two boxes serialise every inline object as one `?` before parsing (analysis `aafecf1` AN-6, run).
+- **P-8 (read)**: `simple-markdown` at `af3d95a`. 16 files under `src` import it, 15 of them outside `__tests__`
+  (`verification/019/planning/simple-markdown-importers-af3d95a.txt`, `git grep -l`, counted by `grep -c`). Beyond `src`, it is in
+  `package.json` (`^0.7.3`), `patches/simple-markdown@0.7.3.patch`, and the `pnpm-workspace.yaml` `patchedDependencies` entry.
+  M4's kept renderers (`src/utils/markdown/rules.tsx`, `utils.ts`) are among the importers.
+
+Results of M1 (analysis `analysis/019-slate-formatting-discord-engine-analysis.md`, record `aafecf1`; Vercel limb
+`deployment/019-slate-formatting-discord-engine-deployment.md`, record `2531c04a`), each in M1 under its item.
 
 OPEN QUESTION [RESOLVED] OQ-1 (S-07): he chose "store the character" (D-10); M6 AC-6.2 carries it.
 
@@ -260,23 +250,22 @@ OPEN QUESTION [RESOLVED] OQ-3 (the oracle offline): he chose "separate Discord c
 
 OPEN QUESTION [RESOLVED] OQ-4 (S-14): the architect's CF-7 names the public surface, `HighlightResult.value`; M5 AC-5.4 carries it.
 
-**OPEN QUESTION OQ-5 (CF-2 option b; a scope delta, at steering).** After M4, the preview recognises emoji through the engine,
-while the editor's emoji lift still recognises them through `simple-markdown` (X-8). Research Appendix B row 230 is a measured
-member: `©` is an emoji in the site's rules and plain text in both Discord parsers. Option a, written in this revision as the floor,
-keeps the lift and holds it equal to the engine by AC-6.5. Option b, the architect's recommendation, takes the lift's ranges from
-`parseLossless` emoji nodes, and then `simple-markdown`, its patch and its type file leave the product. The cost is that every reader
-of the Slate emoji element's `ast` moves (CF-2's list). The planner reads b as outside D-6's reach ("the preview and the editor's
-colouring"; AF-9 kept the Slate layer the site's own). It went to steering by message on 2026-11-23. A ruling for b is folded as its
-own revision; it replaces AC-6.5's form and X-8, and touches no other milestone.
+OPEN QUESTION [RESOLVED] OQ-5 (the editor's emoji lift): he chose "engine decides emoji" (D-13); M6 AC-6.5 and AC-6.6 carry it.
+
+OPEN QUESTION [RESOLVED] AN-3's legacy-only surfaces: he chose "match how it looks" (D-14); M3 AC-3.7 and AC-3.8, and M4's
+adjustment module, carry it.
+
+OPEN QUESTION [RESOLVED] D-11's reopening (AN-6, cross-line runs): he chose "style across lines" (D-15); M5 carries it.
 
 Scope assumptions that a design predating the plan (the architect's findings) makes:
 - **Unit**: one adapter for all six surfaces (content, embed description, embed title, field name, field value, Components V2 text
-  display), distinguished by `Syntax` mask. It holds only where AN-3 finds each surface to be a mask of the native parser. The other
-  result goes to him (AN-3).
+  display), distinguished by `Syntax` mask. AN-3 found the five non-content surfaces legacy-only. D-14 keeps the one engine there,
+  with a per-surface adjustment module the adapter calls.
 - **Reach**: the read-only preview branches and `/preview` move with the editor surfaces.
 - **Layer**: the Slate block layer (quote and fence recognition, `flattenNodeText`, code-line and fence-line context) stays the
-  site's own (AF-9). AC-5.6 and AC-3.3 say so.
-- **Emoji lift**: option a (X-8, AC-6.5) until OQ-5 is ruled.
+  site's own (AF-9). AC-5.6 and AC-3.3 say so. D-15's run unit spans adjacent `div` and `blockQuote` elements, never a `codeBlock`
+  element (M5).
+- **Emoji lift**: from the engine (D-13, AC-6.5).
 
 ## Plan
 
@@ -362,11 +351,39 @@ build first moves message ids out of production's range (workspace `CLAUDE.md`).
   - D-10's premise: 🙂 typed into Discord's box and sent to the test server, and the stored content read. If it is `:name:`, that goes
     back to him (D-10's reopening class).
   - G-14: a masked link whose label is a Unicode emoji, and one whose label is a custom emoji the poster can use, posted to
-    `slate-oracle-walk` as the bot and through a webhook, with both DOMs read. This is the oracle check for AC-3.1's emoji-label
-    class.
+    `slate-oracle-walk` as the bot and through a webhook, with both DOMs read. This is the oracle check for the emoji-label class.
   - **Not completed**, per limb: G-11 becomes Exclusions X-13; G-13 becomes X-14, and AC-4.4's unresolved-kind rendering takes its
-    source text; D-10 stands as chosen, its premise unread (X-15); G-14's DOM check becomes X-16, and AC-3.1 asserts that class
-    against AN-4's read alone. None of these holds an approval.
+    source text. The D-10 and G-14 limbs completed (Results below). None of these holds an approval.
+
+- **AN-8 Four residual reads (commissioned at revision 3; REQUIRED before M4's approval).** Outputs under
+  `verification/019/analysis/an8/`, added to the same analysis document.
+  - **Timestamp styles `s` and `S`** (critique F-25, SL-2). The engine accepts nine style letters, `d f s t D F R S T`, and the bare
+    form (critique Appendix). `MarkdownTimestamp.tsx` at `af3d95a` formats six of them and handles `R`. Post `<t:1700000000:s>` and
+    `<t:1700000000:S>` to `slate-oracle-walk` through a webhook, and read the drawn text as test account 1.
+  - **GAME_MENTION's written form** (analysis gap G-1). Read the regex export of module 856896 in the Node oracle, then post one
+    case.
+  - **Local-build sign-in** (AC-6.3's provision step; critique SL-7). Can a local production build complete Discord sign-in?
+    Check the NextAuth Discord provider's redirect host against the OAuth application, reading key names and hosts only.
+  - **The editor-page `pageerror`** (analysis gap G-3; devops's record § 3). Load production `hooks.gg` `/message/m/new` 20 times
+    in fresh contexts, and record whether the same `pageerror` appears at the base, with its message and stack.
+  - **Not completed**, per limb:
+    - `s` and `S`: AC-4.7's two letters render as the bare `<t:…>` form does, and the read stays a stated limit (X-24).
+    - GAME_MENTION: it stays X-14.
+    - Sign-in: AC-6.3's walk is a stated limit quoting the attempt, carried by handoff 5b19c3e4 item 1.
+    - `pageerror`: it stays a stated limit, and devops reads it on the chain's Preview at Stage 1.
+    Only the first limb holds M4's approval.
+
+Results of M1 (analysis `aafecf1`, read at revision 3; AN-1's Vercel limb from devops's record `2531c04a`):
+
+| Item | Result | Outcome applied |
+|---|---|---|
+| AN-1 | PASS in Chrome 157 and Playwright Firefox 144: `compileStreaming` is bundled, `initSync` is not needed, `/preview` is formatted 20 of 20. On the Vercel Preview (the plan 018 `SKIP_ENV_VALIDATION=1` form; a plain push fails env validation, F-11 confirmed), the wasm is served `application/wasm`, br, 447,426 bytes, and `/preview` is formatted 20 of 20 with a median of 1,214 ms | M2's approval is not held. RK-1 is falsified on this box and on Vercel Preview. RK-7's figure is measured: 459,029 bytes gzip-served locally, 447,426 br on Vercel |
+| AN-2 | PASS: 150 of 150 formatted, pooled and cold; minimum margin before `networkidle0` 519.7 ms | M4's approval is not held. RK-2 now has a measured margin and a slower-CPU hypothesis (analysis H-1) |
+| AN-3 | Content is the only surface on both formatters. Description, field value, title and field name (with and without an embed url), and the V2 text display are legacy-only; footer and author are plain. Native masks: content and description `0x3fffffff`, field value `0x3dffffff`, title and field name `0x19fecd7f` (`0x19fecd07` when the embed has a url), V2 text display `0x3fffffff`. Disagree counts over 272: 37, 37, 32, 54 (37), 37 | Put to him; ruled at D-14. AC-2.3 takes the seven masks |
+| AN-4 | The legacy facade and both box tables run under Node 24 in jsdom 30.0.1 with no browser: 272 rows in about 1.5 s, plus a 1.80 s fetch. All 13 predicates are unique on stable 679055 and canary 679159. G-14: a webhook message is parsed with `allowLinks` and `allowEmojiLinks` true | M3's approval is not held. F-13's driver clause does not arise |
+| AN-5 | `parseLossless` alone: S-10 needs its span, and its nodes rebuild `parse`'s tree on 271 of 272 (the last row is a text-node split). A bare or `<…>` link's label is the normalised `url` | M4's approval is not held. `@discord/markdown-react` is not taken |
+| AN-6 | The native box (818948) parses each run of adjacent line and quote elements as one text, so a run crosses line breaks; markers take no style; a masked link's label is styled `link` and its URL is syntax, the reverse of the legacy box. Native and legacy boxes agree on 39 of 65 comparable cases; the legacy table matches the box DOM on 63 of 65. Both boxes read an inline object as one `?` | D-11's reopening class fired; ruled at D-15. M5's approval is not held. The native box is run, not only read |
+| AN-7 | G-13 read on real ids. D-10's premise holds: U+1F642 is stored as typed. G-14: a masked link with an emoji label is a link only on the webhook path, drawn by legacy with the emoji as an image, while native leaves the emoji as text. G-11 not completed | X-13 applies. X-15 and X-16 are withdrawn (their reads landed). The G-14 class is a disagreement (AC-3.6) |
 
 Acceptance: each AN item states a result with its capture path, or is marked not completed, and the outcome written above for that
 item applies. An item that holds an approval is shown as held in this plan's Status-Detail until it lands.
@@ -377,16 +394,23 @@ Mirrors: `website@af3d95a src/providers/MarkdownProvider.tsx:useValue` for the l
 src/components/DiscordMessageEditor/index.tsx` for its loading gate, which is kept (F-3). The exact-pin form follows
 `"@vercel/functions": "3.11.3"` and `"zod": "3.22.4"` in `package.json`, and plan 018 M2-b's lockfile disposition.
 
-- Add `@discord/markdown-wasm` `0.16.0`, exact, in `dependencies`. `@discord/markdown-react` is taken only if AN-5 leaves the preview
-  on `parse`, and then under the same rules (AC-2.1, AC-2.2).
+- Add `@discord/markdown-wasm` `0.16.0`, exact, in `dependencies`. `@discord/markdown-react` is not taken (AN-5).
 - One adapter module under `src/utils/markdown/` owns:
-  - the call to `init` (or `initSync`, per AN-1);
-  - the per-surface `Syntax` masks from AN-3, one named constant per surface;
+  - the call to `init` (AN-1: the bundled `compileStreaming` form serves; `initSync` is not needed);
+  - the per-surface `Syntax` masks from AN-3, one named constant per mask (seven: content, description, field value, title and
+    field name, the same with an embed url, and the V2 text display);
+  - the one `parseLossless` call that the preview, the colouring and the emoji lift all read (AN-5, D-13);
+  - the per-surface selection of D-14's adjustment module (M4), which content never selects;
   - the node-kind → renderer map, and the token-kind → leaf-class map;
   - the link scheme allow-list (AC-4.6).
-- `MarkdownProvider` exposes the adapter's ready state, plus the lift's `parseEmoji` under option a. The loading behaviour, by state:
+- `MarkdownProvider` exposes the adapter's ready state and its parse. It no longer exposes `parseEmoji` or any `simple-markdown`
+  parser (D-13). The loading behaviour, by state:
   - **Pending**: as today. The message editor stays hidden until ready (`DiscordMessageEditor` `show`), and the surfaces that render
-    `null` without the parser keep doing so (`DiscordContentEditor/index.tsx`, `EmbedField.tsx`). Not a deviation.
+    `null` without the parser keep doing so (`DiscordContentEditor/index.tsx`, `EmbedField.tsx`). Not a deviation. A fetch that
+    hangs rather than fails never reaches Rejected, so the editor stays hidden, as it does today on a hung JavaScript chunk. That
+    is a stated limit, X-22 (QAF-15). The bound alternative, a timeout into Rejected, adds a mechanism whose value would have to
+    outlast the slowest legitimate load (Firefox p95 6.2 s on loopback, AN-1; Slow 4G unmeasured). It would take an AN-1 re-run
+    under throttling and one more gate round, and it is not taken.
   - **Resolved**: every surface renders formatted.
   - **Rejected**: every surface shows its source text unformatted, never an empty block, and one line `markdown-engine-init-failure
     version=0.16.0 reason=<error name>` goes to `console.error` per document. This is a deviation from today, where a failed import
@@ -410,10 +434,10 @@ Acceptance criteria:
     never imports the adapter's mask constants.
   The instrument is a module-graph read, not a path list. It is exercised on one real member and one planted non-member before any
   sweep relies on it.
-- **AC-2.2 Pin.** `package.json` names `0.16.0` (and `@discord/markdown-react`'s version, if taken) with no range operator.
+- **AC-2.2 Pin.** `package.json` names `0.16.0` with no range operator.
   `pnpm-lock.yaml` resolves each package and `@discord/markdown-types@0.14.0` with integrity hashes. Every other pin the lockfile
   moves is listed and dispositioned in the implementation document, from a diff of the base and tip lockfiles (plan 018 M2-b form).
-- **AC-2.3 Mask table.** Each of the six surface masks equals AN-3's row for that surface over all 31 single-bit `Syntax` members
+- **AC-2.3 Mask table.** Each of the seven masks (M2's adapter list) equals AN-3's value for that surface over all 31 single-bit `Syntax` members
   (`@discord/markdown-types@0.14.0 syntax.d.ts:Syntax`), `DEV_LINKS` included. Expected values are literals from AN-3. No mask
   equals `0`, which the engine reads as `Syntax.ALL` (`syntax.d.ts`; QA P-Q3). A surface AN-3 finds is not markdown (footer, author)
   never calls the engine (QAF-4).
@@ -433,7 +457,8 @@ Acceptance criteria:
   second line, with all six surfaces mounted.
   - Human-observable form: on a local production build, with the wasm request blocked in Chrome devtools, the editor and the preview
     show the plain text; unblocked and reloaded, `**a**` is bold. Walked by UAT (QA register B-1), in Chrome and Firefox. Safari is
-    Exclusions X-17.
+    Exclusions X-17. B-1 also records the editor's time-to-shown under Chrome devtools "Slow 4G". That reading is for X-22, not a
+    pass condition (QAF-15).
 - **AC-2.6 Notice (F-21, QAF-14).** At the tip, both the copyright line and the first sentence of the MIT permission text appear in a
   JavaScript file the editor page loads, read from the page's network list or the build manifest, not only in a sourcemap
   (`grep -rc` over that file). At the base the package is absent, so the base read is not a control. The control is a tip build with
@@ -451,44 +476,92 @@ Mirrors: the instruments of inventory § 3 and the fence-loop drivers, lifted ra
 workspace `CLAUDE.md` Test Conventions, which bind this milestone's test work. The project form mirrors `website@af3d95a
 vitest.config.ts:project`.
 
-**Form (D-12, CF-3).**
-- A third vitest project, `discord`, declared through the existing `project()` factory. Its include is a path the `node` and `dom`
-  projects do not collect: a `__tests__/discord/` directory that those two projects exclude. The exact glob is the implementer's.
-- `package.json`: `test` becomes `vitest run --project node --project dom`, and `test:discord` is `vitest run --project discord`.
-- **`pnpm test`** holds the properties (AC-3.3), the finite maps and masks (AC-2.3, AC-2.4), the frozen Discord-derived literals
-  (AC-3.2's and AC-5.6's expected values from AN-6, AC-2.3's from AN-3), and the frozen inputs. It runs offline. "Offline" means a
-  network namespace with only loopback up (`unshare -rn` with `lo` up; QA P-Q1, QAF-13).
-- **`pnpm test:discord`** fetches the legacy oracle and holds AC-3.1, AC-3.6 and the drift alarm. It re-derives every frozen literal
-  live and fails where a live value departs from the frozen one, naming both (QAF-6a).
-- Who runs it: QA Phase 2 and Phase 3 of this chain, every pin change, and every later release gate whose chain touches the region,
-  under the outcome table below.
+**Form (D-12, CF-3, CF-8).**
+- Two more vitest projects, declared through the existing `project()` factory, which keep the environment-by-extension rule:
+  `discord-node` (`__tests__/discord/**/*.test.ts`, `node`) and `discord-dom` (`__tests__/discord/**/*.test.tsx`, `jsdom`, with
+  the `dom` project's setup file). The `node` and `dom` projects exclude `__tests__/discord/`.
+- `package.json`: `test` becomes `vitest run --project node --project dom`, and `test:discord` is `vitest run --project discord-node
+  --project discord-dom`.
+- **`pnpm test`** holds the properties (AC-3.3), the finite maps and masks (AC-2.3, AC-2.4), the frozen Discord-derived literals,
+  and the frozen inputs. The literals are the legacy trees and visible forms (AC-3.1, AC-3.7), the native box's per-character
+  classes (AC-3.2, AC-5.6) and AN-3's masks. It runs offline. "Offline" means a network namespace with only loopback up (`unshare
+  -rn` with `lo` up; QA P-Q1, QAF-13).
+- **`pnpm test:discord`** fetches Discord's served build and runs its legacy facade, its legacy box table and its native box (module
+  818948, with the served wasm) under Node in jsdom (AN-4). It holds AC-3.1, AC-3.2's live limb, AC-3.6, AC-3.7, AC-3.8 and the
+  drift alarm. It fails where a live value departs from a frozen one, naming both (QAF-6a). What it can re-derive, and what it
+  cannot (critique F-26, SL-3):
+  - **Re-derived live**: the legacy trees, the legacy visible forms per surface, the native box's classes, and the surface class
+    check (AC-3.8 iii).
+  - **Not re-derived**: AN-3's masks. They are frozen from a read of served code. No running Discord function emits them, so they
+    go stale silently between reads. Their bearer is the code read that a pin change (outcome table, C2's pin column) and every C6
+    owe. The implementer lists, in its implementation document, which frozen families the command re-derives, and QA's re-key reads
+    that list.
+- Who runs it (D-12, "every release gate and every pin change"): QA Phase 2 and Phase 3 of this chain, every pin change, and every
+  later website release gate, whether or not that chain touches the region (critique F-24), under the outcome table below.
 
 **Outcome of a red `pnpm test:discord` (F-2).** The served build has moved about weekly: `npm view @discord/markdown-wasm time`
 shows six releases, 0.11.0 on 2026-10-13 to 0.16.0 on 2026-11-16, at intervals of 2, 8, 3, 9 and 12 days (critic's read,
 2026-11-23).
 
-| Cause | This chain, Phase 2 or 3 | A pin change | A later chain touching the region | A later chain not touching it |
+| Cause | This chain, Phase 2 or 3 | A pin change | A later chain touching the region | A later release not touching the region |
 |---|---|---|---|---|
-| C1 fetch fails (loopback-only namespace or a real outage) | The gate re-runs when reachable and holds until a green run. The release waits on the network, not on Discord's schedule. | Same | Same | The command is not run |
-| C2 drift alarm: the served wasm ≠ the pinned wasm | Reported in the run output with both hashes. Not a failure: the site ships Discord's published 0.16.0, unchanged. The gate records it, and devops at Stage 1 writes an upgrade handoff (Owning-Stage planner, Review-Trigger "when the pin is next changed, or the next chain touching the region opens") | The upgrade itself is a deliberate change (AF-3). It re-runs the whole command and moves AC-2.2's pin, AC-2.3's and AC-2.4's counts and the `version=` lines | Recorded; the handoff is cited | — |
-| C3 a locator predicate matches zero modules or several | Holds the gate. The implementer repairs the predicate in this chain. If the legacy parser is gone from the served bundle, D-5's stop condition has fired: it goes to him through steering, and AC-3.1 and AC-3.2 lose their oracle until he rules | Same | Holds that chain's gate; repair is that chain's | — |
-| C4 a frozen literal departs from its live value | Holds the gate. The literal is re-derived from the live oracle in this chain, and the change is read before it is frozen | Same | Same | — |
-| C5 the site differs from the oracle on the agree class | A defect: it holds the gate, and is fixed (D-7) | A defect of the new pin or of the site | A defect: it holds | — |
+| C1 fetch fails (loopback-only namespace or a real outage) | The gate re-runs when reachable and holds until a green run. The release waits on the network, not on Discord's schedule. | Same | Same | Same |
+| C2 drift alarm: the served wasm ≠ the pinned wasm | Reported in the run output with both hashes. Not a failure: the site ships Discord's published 0.16.0, unchanged. The gate records it, and devops at Stage 1 writes an upgrade handoff (Owning-Stage planner, Review-Trigger "when the pin is next changed, or the next chain touching the region opens") | The upgrade itself is a deliberate change (AF-3). It re-runs the whole command, moves AC-2.2's pin, AC-2.3's and AC-2.4's counts and the `version=` lines, and re-reads AN-3's masks from the served code | Recorded; the handoff is cited | Recorded; the handoff is cited, or written if none is open |
+| C3 a locator predicate matches zero modules or several | Holds the gate. The implementer repairs the predicate in this chain. If the legacy parser is gone from the served bundle, D-5's stop condition has fired: it goes to him through steering, and AC-3.1, AC-3.7 and the legacy limbs lose their oracle until he rules | Same | Holds that chain's gate; repair is that chain's | Does not hold the release. Devops writes a handoff (Owning-Stage planner, Review-Trigger "the next chain touching the region opens"). If the legacy parser is gone, it goes to him through steering, as in this chain |
+| C4 a frozen literal departs from its live value | Holds the gate. The literal is re-derived from the live oracle in this chain, and the change is read before it is frozen | Same | Same | Does not hold the release; a handoff as for C3 |
+| C5 the site differs from the oracle on a class held to Discord | A defect: it holds the gate, and is fixed (D-7) | A defect of the new pin or of the site | A defect: it holds | Does not hold the release, since that chain changed nothing the oracle reads; a handoff as for C3 |
+| C6 legacy-only surfaces may have moved (AC-3.8 i), or an adjustment is dead or stale (AC-3.8 ii) | Holds the gate. If (i) fires, it goes to him through steering, because re-classing the surfaces under D-5 is his ruling (D-14's stop condition), and the adjustments stay until he rules. If (ii) fires alone, the adjustment is removed or re-derived in this chain | Same | Same | Does not hold the release; (i) goes to him through steering, and (ii) is a handoff as for C3 |
 
-The gate rule for later chains is carried after this chain closes by the workspace `CLAUDE.md` Test Conventions update in M7.
+A later release not touching the region runs the command (D-12) and is never held by Discord's movement. The website at that tip
+is the one the previous region chain's gates passed, so a red there is news about Discord, and its carrier is a handoff. The gate
+rule for later chains is carried after this chain closes by the workspace `CLAUDE.md` Test Conventions update in M7.
 
-**Three classes (F-6).** Each input is classified on the text Discord would store (research V-19 trimming applied), in the research's
-**loose** canonical form (research § Methodology: newlines at run and code-body edges trimmed; `http(s)` URLs in Discord's stored
-spelling). The strict-form disagree count is reported beside it (F-14).
+**Classes (F-6).** Each input is classified on the text Discord would store (research V-19 trimming applied). Content's classes use
+the research's **loose** canonical form (research § Methodology: newlines at run and code-body edges trimmed; `http(s)` URLs in
+Discord's stored spelling), with the strict-form disagree count reported beside it (F-14). The legacy-only surfaces use the
+**visible form** (below).
 
-| Class | What is asserted | Against what | Where it is listed |
-|---|---|---|---|
-| agree (legacy ≡ native) | Preview DOM (AC-3.1) and editor classes (AC-3.2) | The legacy tree, and AN-6's frozen literals | The run's counts |
-| disagree | The site's rendered DOM equals the engine's own tree, the renderers' fidelity (AC-3.6) | The engine's tree through the test normaliser. The renderer is the code under test, and its expected value is computed by the engine and the normaliser, not by the renderer | The known-differences report |
-| native-only (a surface AN-3 finds with no legacy rule set, such as the V2 text display) | As disagree (AC-3.6) | As disagree | The known-differences report, with the surface named |
+| View and surface | Class | What is asserted | Against what | Where it is listed |
+|---|---|---|---|---|
+| Preview, content | agree (legacy ≡ native) | Preview DOM (AC-3.1) | The legacy tree | The run's counts |
+| Preview, content | disagree, the G-14 emoji-label class included | Renderer fidelity: the site's DOM equals the engine's own tree (AC-3.6) | The engine's tree through the test normaliser. The renderer is the code under test, and the engine and the normaliser compute its expected value, not the renderer | The known-differences report |
+| Preview, the five legacy-only surfaces (AN-3) | every input | Visible-form equality with legacy, except listed residue (AC-3.7) | Discord's legacy rendering for that surface, run live, in the visible form | Residue: the known-differences report, with the surface and "the site follows the engine" |
+| Editor, content | every typed input | Per-character classes and marker flags (AC-3.2) | Discord's native box (818948), run live (D-15) | Legacy-box differences: the known-differences report, editor section |
+| Editor, the five legacy-only surfaces | every input | Each content character's editor style set equals its preview style set, in the visible form (AC-5.8; the architect's W-3 criterion) | The site's own preview, which AC-3.7 holds to legacy. Discord has no text box for these surfaces | — |
 
-Nothing asserts that the engine matches Discord on the disagree or native-only classes: D-5 removes that standard there. Such an
-engine difference is detected by no one, and that is accepted as X-18.
+No surface is native-only (AN-3). Nothing asserts that the engine matches Discord on content's disagree class: D-5 removes that
+standard there. Such an engine difference is detected by no one, and that is accepted as X-18.
+
+**Visible form (D-14; architect findings record `1c78753`, § "Legacy-only surfaces", part 1).** A rendering is a sequence of
+displayed units. A unit is one displayed character, or one atom (a mention, an emoji or a timestamp, with its kind and resolved
+value).
+- Two renderings are equal when they have the same units in order, and each unit agrees on:
+  - the displayed text, so a marker one side consumes is a difference;
+  - the inline style set: bold, italic, underline, strikethrough, inline code and spoiler, compared as a set;
+  - link membership and `href`, after AC-4.6;
+  - block context: heading level, subtext, quote, code block with its language class, and list kind, start number and depth;
+  - line-break positions.
+- These differences are invisible:
+  - inline nesting order;
+  - a run split at a text-node boundary, or at a newline both sides keep;
+  - `paragraph`, `text` and `empty` wrappers;
+  - a spoiler split into pieces that reveal together, which holds only because the renderer reveals them together (AC-4.8);
+  - bold or italic on whitespace;
+  - block-versus-inline nesting order, except a quote inside a spoiler, whose bar carries the spoiler.
+- The form is part of M3's normaliser. Its positive controls report one member of each invisible class equal, and one member of
+  each counted dimension different.
+
+**Adjustments toward legacy (D-14; the architect's B3, same section, part 2).** M3 first measures the visible residue on each
+legacy-only surface. A residue class gets an adjustment in M4's module only when all three of these hold:
+- **(a) engine-only**: it is a rewrite of the engine's lossless tree, using that tree, its spans, and engine re-parses of a node's
+  own span under the same mask, never a regex or second grammar over source text;
+- **(b) structural**: a predicate over the tree defines the class, never a list of inputs;
+- **(c) proven**: in `pnpm test:discord`, it moves every reached member of its class from differs to equal, and moves no input
+  from equal to differs on any surface.
+
+Every other residue class is listed. The architect's row-by-row reading of research Appendix A is provisional, and the measurement
+decides. The count of residue members, before and after adjustment, per surface, is recorded in the implementation document at M3
+and M4. D-14's option stated it was unmeasured.
 
 What it holds besides:
 - **Generator.** A seeded generator over the syntax class: every `Syntax` bit's constructs, nested to depth 3, with delimiters
@@ -508,7 +581,8 @@ What it holds besides:
   (S-13). None keeps a review-round or chain name.
 - **Coverage report (QAF-8).** Per (`Syntax` bit × surface), the count of agree-class members that contain that construct. A cell at
   0 is named as unexamined in the run output.
-- **Known-differences report (CF-4).** Generated from the disagree and native-only classes, never hand-written. It is written to a
+- **Known-differences report (CF-4).** Generated, never hand-written, from three sources: content's disagree class, the legacy-only
+  surfaces' residue left after adjustment, and the editor's differences from Discord's legacy box. It is written to a
   website-local path that `.gitignore` excludes. The stage that runs the command copies it into `verification/019/`.
 - **Drift alarm.** It fetches `discord.com/app`, locates the wasm by the glue predicate (research V-1), and compares its SHA-256
   with the pinned wasm's. A mismatch is reported (C2).
@@ -518,19 +592,26 @@ What it holds besides:
   a member is read.
 
 Acceptance criteria:
-- **AC-3.1 Preview oracle (D-4, D-5).** For every input in the agree class, on every surface whose mask AN-3 settles, the preview's
-  rendered DOM in loose canonical form equals the legacy tree's.
+- **AC-3.1 Preview oracle, content (D-4, D-5).** For every input in content's agree class, the content preview's rendered DOM in
+  loose canonical form equals the legacy tree's.
   - The expected value is the legacy tree, computed by Discord's fetched code under the parse state a webhook-sent message gets
     (AN-4's G-14 read).
   - Membership in the agree class is decided by the legacy and native parses, both run with AN-3's literal masks, never the
     adapter's constants (QAF-2).
   - The native parse decides membership only, never the expected value (axiom E).
-  - Input classes: the generator's output at the committed seed and count, the 272 corpus, the 106 link inputs, and masked links
-    whose label holds an emoji. Residue: X-19.
-- **AC-3.2 Editor oracle (D-4, D-5; QAF-1).** For every typed-case input, membership is decided by comparing AN-6's legacy box run
-  with AN-6's frozen native mapping (a mapping written from AN-6's prose read, separate from the adapter). The adapter's token map
-  never enters membership or expected value. On the agree members, the editor's per-character style set and marker flag equal the
-  legacy run's. Residue: X-19. Heading, list and cross-line limbs follow D-11 (AC-5.6).
+  - Input classes: the generator's output at the committed seed and count, the 272 corpus, and the 106 link inputs. A masked link
+    with an emoji label is in the disagree class on the webhook path (AN-7), so AC-3.6 holds it. Residue: X-19.
+- **AC-3.2 Editor oracle, content (D-4, D-15; QAF-1).** For every typed input, the content editor's per-character style set and
+  marker flag equal those of Discord's native box (module 818948), run on the fetched build under Node in jsdom over the same text
+  and the same run of adjacent line and quote elements (AN-4, AN-6).
+  - The adapter's token map never enters the expected value.
+  - `pnpm test` holds the native box's output as frozen literals, and `pnpm test:discord` re-derives them live (C4).
+  - The legacy box's output over the same inputs is reported beside it, and its differences go to the known-differences report:
+    26 of 65 comparable cases at AN-6, the masked-link reversal among them.
+  - Input classes: AN-6's 85 captured typed cases, the 272 corpus as typed text, and the generator's typed limb, each with emoji
+    elements present where the input has them.
+  - Residue: X-19, and the box inputs replaced by an inline object (an emoji element is one `?` to the box, P-7).
+  - Marker limbs follow D-11 and cross-line limbs follow D-15 (AC-5.6).
 - **AC-3.3 Round trip (no Discord oracle; research gap 7).** These are properties of the site over the generator, the corpus, the
   1,662-line probe corpus and the lifted block-layer seeds, in each editor mode (F-9):
   - **full mode** (content, embed description, field value, V2 text display) and **partial mode** (`partialMarkdown`: embed title,
@@ -541,22 +622,56 @@ Acceptance criteria:
     in partial mode; a paste over 6,000 characters in either mode) are kept as today's failure-path behaviour, and after a refused paste
     the editor's text equals its text before the paste;
   - normalisation settles, and a forced re-normalise after settling performs zero operations (QAF-9).
-  The generator count that `pnpm test` runs is fixed from QA's EC-4 measurement of per-input cost, taken before implementation
-  approval, and the plan records the figure and the suite's added wall time beside it (critic Q2).
+  - **Where the text is read (QAF-16).** The typed and pasted limbs read the value `SlateEditor`'s `onChange` hands the message,
+    which save and send consume. They never read `editor.children`. The drive is shown to reach `onChange` before any count, by a
+    positive control: typing `a` into an empty editor yields a write of `a`. QA's EC-4 drive did not reach it. The implementer reads
+    why, and names the drive it uses in the implementation document.
+  - **Count (critic Q2; EC-4).** The typed limb in `pnpm test` runs the 272 corpus, the lifted seeds and 1,000 generator inputs at
+    the committed seed. At EC-4's mounted mean of 13.9 ms per input (QA's document, record `6dace3fa`), the generator part adds about
+    14 s. That is a projection from 272 inputs, not a measurement. The full generator count runs in `pnpm test:discord`. The cap
+    the count serves: `pnpm test`'s added wall time for AC-3.3 stays under 60 s on this box. The implementer re-times with the
+    `onChange` drive at M3 and records the figure. Where it exceeds the cap, the generator count drops to fit, and the plan
+    records the new count at its next pass.
 - **AC-3.4 Seen red (F-10).** Each criterion is shown failing under a restored mutation of the code it exercises. For AC-3.1, AC-3.2
   and AC-3.6, that is the adapter's maps, masks and renderers. For AC-3.3, it is the function each property drives (`getInitialValue`,
-  `flattenNodeText`, `withNormalizeNode`, the paste handler). Each limb also fails at the chain base on at least one named input,
-  except the normalisation limb, which the base already passes: that limb is shown red by mutation only.
+  `flattenNodeText`, `withNormalizeNode`, the paste handler). For AC-3.7 it is the adjustment module and the adapter's surface
+  selection.
+  - A limb that fails at the chain base is shown red there on at least one named input. Which limbs pass at the base is taken from
+    a run at the base, not from a list (critique SL-4). A limb the base passes is shown red by mutation only. Known so far: the
+    normalisation limb, and the refused-paste limb (read from `onPaste` at `af3d95a`, not run).
+  - Named base-red candidates for the typed limb: EC-4's eight corpus rows, 143, 144, 153, 159, 219, 220, 258 and 262 (QA's
+    document, record `6dace3fa`). They are candidates until the `onChange` drive is shown red on them.
 - **AC-3.5 Fetch failure is loud (D-12).** In the loopback-only namespace, `pnpm test:discord` exits non-zero, naming the fetch, and
   reports no pass count, while `pnpm test` exits 0. A predicate matching zero modules or more than one fails, naming the predicate.
-- **AC-3.6 Renderer fidelity on the other classes (F-6).** For every disagree and native-only input on every surface, the preview's
+- **AC-3.6 Renderer fidelity, content's disagree class (F-6).** For every input in content's disagree class, the content preview's
   DOM in loose canonical form equals the engine's tree in the same form.
+- **AC-3.7 Legacy-visible equality on legacy-only surfaces (D-14).** On each of the five legacy-only surfaces, run under each of
+  its masks, for every input in the generator, the 272 corpus and the 106 link inputs:
+  - the preview's rendering, in the visible form, equals Discord's legacy rendering of that surface in the visible form, or
+  - the input is a member of a listed residue class in the known-differences report.
+  The expected value is computed by Discord's fetched legacy code, with that surface's own call and state (AN-3), and never by the
+  engine or the adjustment module (axiom E). A class is listed only with its reason, one of: condition (a) or (b) fails, or an
+  adjustment was tried and failed (c). The implementation document records the reason per listed class, and code review reads it.
+- **AC-3.8 Staleness check (D-14's stop condition; architect findings `1c78753`, part 4).** `pnpm test:discord` reads three things,
+  and any failure is outcome C6:
+  - **(i) routing**: it locates the embed renderer and the V2 text-display module in the fetched bundle by AN-3's content
+    predicates, and asserts that neither references the native switch. The switch is found by research V-1's predicate for module
+    146849 (`native-markdown"` together with `enable_native_markdown`). A predicate matching zero modules or several is C3;
+  - **(ii) per adjustment**: over its reached class members, the engine's unadjusted output still differs visibly from legacy (the
+    adjustment is not dead), and the adjusted output still equals legacy (legacy has not moved);
+  - **(iii) the surface class**: AN-3's per-surface legacy calls are re-run, and the description's and V2's legacy output still
+    equals content's legacy output on the corpus (272 of 272 at AN-3).
+  Limb (i)'s predicate is exercised before any run relies on it. The real member is a module that references the switch; AN-3
+  names the content path's modules 997141 and 538355, and which of them carries the reference is unread. The real non-member is
+  the embed renderer chunk AN-3 read on build 679055, where `grep -c` is 0. M3 runs the predicate on both and records which module
+  is the member.
 
 The decorator tests at the base (`decorator.emphasis-syntax-ranges.test.ts`) assert the width inference M5 deletes. Each case is
 re-based on the token map, or retired under the Test Conventions' "superseded implementation" class with its named covering case
 (integration requirement 7).
 
-Anything M3 adds to `package.json` (a browser driver, per AN-4) takes AC-2.2's exact pin and lockfile disposition (F-13).
+AN-4 needs no browser driver. The oracle runs in `jsdom`, already a direct dev dependency (`package.json` at `af3d95a`: `"jsdom":
+"^30.0.1"`). Anything M3 does add to `package.json` takes AC-2.2's exact pin and lockfile disposition (F-13).
 
 Rollback: revert its commits, run by the implementer before release or devops after. The production effect is none, except the
 `test` script's change, which the revert restores.
@@ -569,9 +684,21 @@ src/utils/markdown/rules.tsx:staticBaseRules`, each rule's `react` output). The 
 goes through the adapter with its surface mask: `Markdown.tsx`, `ContentBody`, `TextDisplayEditor`, `Embed`, `EmbedTitle`,
 `EmbedField`, the `DiscordContentEditor` read-only branch, and `/preview`. The timestamp callback's signature change and its readers
 follow the architect's CF-6.
+- The kept renderers' `react` functions in `rules.tsx` and `utils.ts` are re-expressed over the adapter's node types, so they leave
+  `simple-markdown`'s types (P-8). Their output is unchanged. The removal of the package itself is AC-6.6, at M6, the last milestone
+  that removes a reader (critic Q2).
+- **The adjustment module (D-14; architect findings `1c78753`, part 3).** It is its own module under `src/utils/markdown/`, beside
+  the adapter, and has these properties:
+  - only the adapter calls it, selecting it per legacy-only surface beside that surface's mask, and content selects none;
+  - it imports tree types only from the adapter, never from `@discord/markdown-*`, so AC-2.1 holds unchanged;
+  - each adjustment is one named, exported function with its class predicate, so AC-3.8 (ii) can address it;
+  - it rewrites the one `parseLossless` tree before the renderer map and the token-to-leaf map read it, so the editor's colouring
+    on those surfaces takes it too (AC-5.8).
+  Which classes it holds is decided by M3's residue measurement under the B3 rule (M3, "Adjustments toward legacy"). Its size is
+  recorded at M4.
 
 Acceptance criteria:
-- **AC-4.1 (D-5).** AC-3.1 and AC-3.6 hold for the preview, on every surface.
+- **AC-4.1 (D-5, D-14).** AC-3.1 and AC-3.6 hold for the content preview, and AC-3.7 for the preview on the five legacy-only surfaces.
 - **AC-4.2 Links.** For every link the engine returns, the anchor's `href` is the engine's `url`, subject to AC-4.6, and the visible
   label is the one AN-5 establishes Discord draws. The source text's emoji are never rewritten to `:name:` in a target or a label,
   over LF-1's class: every link form × an emoji before, inside and after.
@@ -589,21 +716,38 @@ Acceptance criteria:
   - timestamps added before, between or after existing ones.
   `localDate` follows a re-render whose source changes that timestamp. The target comes from a span, never from a count or a search
   over the raw string.
-- **AC-4.4 Mentions.** Every mention kind in AC-2.4's declared class renders something visible. A kind the site cannot resolve
-  renders as Discord draws an unresolved one (research V-18: "@unknown-role", "/ping"). A kind with no Discord observation renders
-  its source text (Exclusions X-14).
+- **AC-4.4 Mentions.** Every mention kind in AC-2.4's declared class renders something visible. A resolved role, command or usable
+  custom emoji renders as Discord drew it with real test-server ids (AN-7, G-13: a role as "@Streamers", a command as "/slateping",
+  an emoji as an image whose `alt` is `:name:`). A kind the site cannot resolve renders as Discord draws an unresolved one (research
+  V-18: "@unknown-role", "/ping"). A kind with no Discord observation renders its source text (Exclusions X-14).
 - **AC-4.5** The static emoji pre-transform (`utils.ts:staticParserFor`) has no caller on a preview path, read by AC-2.1's
   module-graph instrument.
-- **AC-4.6 Link schemes (QAF-5).** Every rendered `href`, over the generator and the fixed inputs, has a scheme in the adapter's
-  allow-list: `http`, `https`, `mailto`, `discord` (both Discord parsers link `discord://`, research Appendix B row 42), plus any
-  scheme AN-3 shows Discord links on a surface. A link whose scheme is outside the list renders its label as text with no `href`.
-  Controls run both ways: a planted `javascript:` url is refused, and an allowed one is kept.
+- **AC-4.6 Link schemes (QAF-5; critique F-25, SL-1).** Every rendered `href`, over the generator and the fixed inputs, has a scheme
+  in the adapter's allow-list: `http`, `https`, `mailto`, `discord`, `tel` and `sms`. Those are every scheme the engine returned at
+  the pin under `Syntax.ALL` over the critique's probe inputs (critique Appendix, run at 0.16.0). `dev` is returned only under a
+  mask carrying `DEV_LINKS`, which none of the seven carries (AN-3).
+  - A link whose scheme is outside the list renders its label as text with no `href`.
+  - The list is checked by AC-2.4's observed enumerator: every scheme the engine returns over M3's input classes is either in the
+    list or has that stated outcome. A scheme newly returned at a pin change is a C2 re-run item.
+  - Controls run both ways. The engine-level control: the engine returns no link for `javascript:`, `data:` or `vbscript:` (critique
+    Appendix). The renderer-level control: a tree node carrying a `javascript:` url, handed to the renderer, is refused, and an
+    allowed one is kept. That node is a fixture inventing engine output, and the implementation document names it as such (QAF-17).
+- **AC-4.7 Timestamp styles (critique F-25, SL-2).** Every timestamp form the engine accepts renders as a timestamp element, never as
+  raw source and never empty: the nine style letters `d f s t D F R S T` and the bare form. The engine returns a timestamp node for
+  all nine and for the bare form (critique Appendix). `R` renders relative time. The other six existing formats keep today's
+  output. `s` and `S` render what AN-8 reads Discord drawing, or, if AN-8's limb is not completed, as the bare form does (X-24). An
+  invalid style letter stays text (AC-4.3).
+- **AC-4.8 Spoiler pieces reveal together (D-14's visible form).** Where the engine splits one spoiler into several rendered pieces,
+  revealing any piece reveals every piece of that spoiler, on every surface. The visible form treats the split as invisible only
+  because this holds.
 
 Re-derivation gate: this milestone changes product behaviour (the preview's rendering of stored messages). When M4 ships on the chain
 branch, every downstream milestone not yet authorised for execution is marked `PREMISE-STALE`, until one paragraph re-argues its
 premise as a plan revision.
 
-Rollback: revert M4's commits together with M5's, never one alone (AF-2). Devops after release, the implementer before it.
+Rollback: revert M4's commits together with M5's, never one alone (AF-2), and with M6's once AC-6.6 has removed `simple-markdown`,
+since M4's revert restores readers of that package. Devops after release, the implementer before it. The revert restores
+`package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml` and the patch file, and its diff is read before it is committed.
 
 ### M5 — The editor's colouring on `parseLossless` (S-01 to S-05, S-14, S-18, LF-1 editor side, LF-5, LF-6 editor side)
 
@@ -611,40 +755,59 @@ Mirrors: Discord's own native box, which decorates from `parseLossless` tokens (
 in AN-6, never copied). The `decorator` contract is kept: `(editor, mounted, isEmbed, parser) → ([node, path]) → Range[]`
 (`website@af3d95a src/components/SlateEditor/utils/decorator.tsx` default export), with the surface mask in place of the parser.
 
-- The decorator parses each line element's text as stored, emoji elements counted as their source text, and maps token spans onto
-  the line's text nodes. The parse is cached per element per change, so a line is parsed once however many text nodes it holds
-  (CF-1). The architect measured why: 2,154 ms per pass re-parsing per text node, against 5.2 ms parsing once, on a 2,000-character
-  line with 401 text nodes (`verification/019/architect-conformance/split.out`). The cache form is the implementer's; a WeakMap
-  keyed on the element is the architect's example.
+- **The run unit (D-15).** The decorator parses each run of adjacent `div` and `blockQuote` elements as one text, as Discord's
+  native box does (AN-6): the elements are joined by `\n`, and a quote element contributes its `> ` prefix. Token spans are mapped
+  back onto each element's text nodes, so an inline run whose delimiters sit on different lines styles both lines. A `codeBlock`
+  element ends a run and keeps the Slate layer's code-line context and highlight.js (AF-9).
+- **Inline objects (analysis determination 1, P-7).** An emoji element counts as one `?` in the parsed text, as both Discord boxes
+  serialise an inline object. It does not count as its source text. So `**a <emoji> b**` is bold across the emoji, and an emoji's
+  name never reaches the parser.
+- **One parse per unit (CF-1).** The parse is cached per run unit per change, so a unit is parsed once however many text nodes it
+  holds. The architect measured why: 2,154 ms per pass re-parsing per text node, against 5.2 ms parsing once, on a 2,000-character
+  line with 401 text nodes (`verification/019/architect-conformance/split.out`). D-15's option priced the run re-parse at about
+  10 ms for 4,096 multi-line characters (`verification/019/architect-conformance/time.out`, row `4096 lines`, lossless median
+  9.895 ms). The cache form is the implementer's.
 - Width inference (`openingWidth`, `closingWidth`, `growMaskedLinkClosing`, `reduceAdjacentSyntax`), the interactive rule set's
   markdown path and `surrogateSourceOffsets` leave the colouring path.
 - Code lines take highlight.js's public `HighlightResult.value` and scan its closed HTML grammar (`<span class>`, `</span>`, five
   escaped entities) with no DOM, in place of `_emitter.rootNode` (CF-7).
 
 Acceptance criteria:
-- **AC-5.1 (D-5).** AC-3.2 holds over every surface's editor.
-- **AC-5.2 Split invariance.** For every line, the class set of each character is the same however the line's text is divided into
-  Slate text nodes by emoji elements, mentions or timestamps. This covers S-01's class and every inline-object split.
+- **AC-5.1 (D-15, D-14).** AC-3.2 holds over the content editor, and AC-5.8 over the editors of the five legacy-only surfaces.
+- **AC-5.2 Split invariance.** For every run unit, the class set of each character is the same however its text is divided into
+  Slate text nodes: by emoji elements (the only inline element, P-7), and by decorator leaf boundaries. This covers S-01's class.
 - **AC-5.3 In range.** No decorator range ends past its text node's end, and none is zero-length (S-03, S-04). This holds over the
   generator, the corpus, and the code lines of every language `hljs.listLanguages()` returns at highlight.js 11.12.0 (193, QA's read
   at `af3d95a`).
 - **AC-5.4 Code lines (S-02, S-14).** A nested highlight scope keeps its outer scope's class on every character it covers, for every
   language whose grammar nests. The expected value is highlight.js's HTML for the whole line, parsed by jsdom's `DOMParser`, never by
   the decorator's scanner. No highlight.js member outside its public typings is read.
-- **AC-5.5 Real browser (S-18).** In Chrome, on a local production build, no character in AN-6's discriminating cases is coloured
-  differently from its jsdom class list. Walked by UAT (QA register B-3), with captures under `verification/019/uat/`.
-- **AC-5.6 (D-11; F-8).** The rule covers the inline runs: the five `ModifierKind` members, inline code, and links.
-  - Each line's inline-run classes are computed from that line's text alone, so an inline run whose delimiters sit on different
-    lines styles neither line.
+- **AC-5.5 Real browser (S-18).** In Chrome, on a local production build, no character in AN-6's 65 comparable cases (the
+  line-crossing cases 104, 105 and 67 among them) is coloured differently from its jsdom class list. Walked by UAT (QA register B-3), with captures under `verification/019/uat/`.
+- **AC-5.6 (D-11, D-15; F-8).** The rule covers the inline runs: the five `ModifierKind` members, inline code, and links.
+  - Each run unit's inline-run classes are computed from the unit's joined text, so an inline run whose delimiters sit on different
+    lines of one unit styles the characters between them on both lines, as the native box does (D-15). A `codeBlock` element
+    between two lines ends the unit, and a run never crosses it.
   - No character of a heading marker (`#`, `##`, `###` and its space) or a list marker (`-`, `*`, `1.` and the like, with its space)
-    carries a style class.
-  - The subtext marker `-# ` carries the marker class Discord's box gives it (research V-21).
+    carries a style class (D-11).
+  - The subtext marker `-# ` and the whitespace after it carry the open-marker class (AN-6 table, `subtext_marker`).
+  - A masked link's label carries the `link` class and its destination carries marker classes (AN-6 table), the native box's form.
   - Code-line, fence-line and quote-line context comes from the Slate layer, as today (`ancestor.lang`, `startCodeBlock`), and keeps
     its styling.
-  Expected values are AN-6's frozen literals on its agree set.
-- **AC-5.7 One parse per element (CF-1).** In one decorate pass over an editor value, the engine is called at most once per line
-  element, whatever the number of text nodes in it. This is counted, not timed. It is shown red against the form without the
-  cache, on a line with at least 50 text nodes.
+  Expected values are the native box's output (AC-3.2), frozen in `pnpm test` and re-derived live in `pnpm test:discord`.
+- **AC-5.7 One parse per unit (CF-1).** In one decorate pass over an editor value, the engine is called at most once per run unit,
+  whatever the number of text nodes in it. This is counted, not timed, through a pass-through mock of the adapter's engine call
+  (AC-2.1 keeps the adapter the sole importer).
+  - It is shown red against the form without the cache, on a unit of at least 50 text nodes.
+  - Stale limb (QA NM-30): after an edit to one element, the next decorate pass re-parses that element's unit once, with the new
+    text, and no other unit.
+  - Timing read for D-15's reopening class: at M5, the per-edit re-parse of a 4,096-character multi-line unit is timed on this box,
+    median of 20, and recorded beside the option's "about 10 ms". The reading is not a pass condition, and a material excess goes
+    to him through steering.
+- **AC-5.8 Editor equals preview on legacy-only surfaces (D-14; the architect's W-3 criterion).** On each of the five legacy-only
+  surfaces, for every input in the generator and the 272 corpus, each content character's editor style set equals that
+  character's style set in the same surface's preview, in the visible form. Markers carry their marker classes, as AN-6's table
+  gives them. Discord has no text box for these surfaces, so this is the standard there.
 
 Re-derivation gate: M5 changes what the editor shows. When it ships on the chain branch, M6 and M7, if not yet authorised, are marked
 `PREMISE-STALE` until re-argued.
@@ -680,24 +843,39 @@ Acceptance criteria:
 - **AC-6.3 (S-08; F-18).** A guild emoji picked from the picker into a content line, a code line and a quote line keeps every
   character around the cursor, and inserts the emoji's text form. Walked by UAT (QA register B-4) on a build signed in as a test
   account that can use the test guild's emoji.
-  - **Provision step, from plan time**: before the UAT walk, the analyst reads whether a local build can complete Discord sign-in.
-    This checks the NextAuth Discord provider's redirect host against the OAuth application, reading key names and hosts only, never
-    values. It runs alongside AN-7 with the test-account browser (block 09:05Z item 2: the `discord-test-browser` skill "may be able
-    to drive the guild-emoji picker").
+  - **Provision step, from plan time**: AN-8's sign-in limb reads whether a local build can complete Discord sign-in, before M4's
+    approval and so before the UAT walk (critique SL-7). The test-account browser is the instrument (block 09:05Z item 2: the
+    `discord-test-browser` skill "may be able to drive the guild-emoji picker").
   - Where sign-in cannot be completed, the limit quotes that attempt, and handoff 5b19c3e4 item 1 stays its carrier.
 - **AC-6.4 (S-09; F-18).** Composition events on a phone keyboard: the box has no phone or mobile IME. What would build a place to
   read it is his own phone walk on production after deploy. That is an optional owner observation, whose quoted attestation is
   complete evidence, carried by handoff 5b19c3e4 item 2. Its `Review-Trigger` fires on this chain's edit of `setOnInsert`, if M6
   makes one.
-- **AC-6.5 Emoji lift equals the engine (CF-2 option a; QAF-12; F-23).** Over the generator, the corpus and the 1,662-line probe, the
-  set of character ranges the Slate lift turns into emoji elements equals the set of `emoji` nodes the engine returns for the same
-  text under that surface's mask. `emoji.tsx` is fixed until it holds (research Appendix B row 230's `©` is a member). Under OQ-5's
-  option b, this criterion is replaced by the lift reading the engine directly.
+- **AC-6.5 The emoji lift reads the engine (D-13; CF-2 b; QAF-12).** The lift (`getInitialValue` on load, `withNormalizeNode`
+  `handleElement` on edit) takes its emoji ranges from the `emoji` nodes of the adapter's one `parseLossless` parse.
+  - **Which text it hands the engine (critic Q1).** The lift reads the same run unit the decorator parses (M5, D-15), with existing
+    emoji elements as one `?` each. So the colouring and the lift read one parse, and an emoji inside a construct that spans lines
+    is an element exactly when the engine's parse of the unit calls it an emoji.
+  - **Property.** Over the generator, the corpus and the 1,662-line probe, under each surface's mask, the set of character ranges
+    turned into emoji elements equals the set of `emoji` node spans that parse returns. Research Appendix B row 230 is a member:
+    `©` and `™` stay text.
+  - **Readers.** The emoji element no longer stores a `simple-markdown` node. Its readers move to the new shape: CF-2's six,
+    `renderElementFactory.tsx` (`emojiToImage`), `flattenNodeText.ts`, `onCopy.ts`, `getInitialValue.ts`, `withNormalizeNode.ts` and
+    `src/@types/slate.d.ts`. AC-6.2's round trip over every emoji form is the behavioural check that no reader lost a character.
+- **AC-6.6 `simple-markdown` leaves the product (D-13; critic Q2).** At the tip:
+  - no module in the repository outside `node_modules` and `.next` imports `simple-markdown`, read by AC-2.1's module-graph
+    instrument (the population is P-8's 16 files at `af3d95a`);
+  - `package.json` has no `simple-markdown` entry, `patches/simple-markdown@0.7.3.patch` is deleted, `pnpm-workspace.yaml` has no
+    `patchedDependencies` entry for it, and `src/@types/simple-markdown.d.ts` is deleted;
+  - `pnpm install --frozen-lockfile` exits 0 in an export, and AC-2.2's lockfile diff dispositions the pins it removes.
+  The base test file `rules.multi-line-code-block.test.ts` imports its types. It is re-based on the adapter or retired under the
+  Test Conventions' "superseded implementation" class, with its covering case named.
 
 Re-derivation gate: M6 changes a stored representation (D-10's saved emoji). When it ships on the chain branch, M7, if not yet
 authorised, is marked `PREMISE-STALE` until re-argued.
 
-Rollback: revert its commits; the implementer or devops, as above.
+Rollback: revert its commits; the implementer or devops, as above. Reverting M6 alone leaves the site building, because nothing
+after M4 reads `simple-markdown`. Reverting M4 or M5 after AC-6.6 has landed takes M6 with it (M4's rollback).
 
 ### M7 — Release
 
@@ -705,13 +883,13 @@ The same release carries M2 to M7 (AF-2). No release tree holds M4 without M5, c
 list.
 - Name what the deploy moves: website `master` from the chain base to the tip.
 - Record updates, proposed in this chain and landed by their owners:
-  - The workspace `CLAUDE.md` Test Conventions (canonical `agent-output/CLAUDE.md`) gain the two-command form, the definition of
-    offline, and the outcome table's rule for later chains (CF-3, F-2). The sentence "runs the whole suite" changes with them. The
+  - The workspace `CLAUDE.md` Test Conventions (canonical `agent-output/CLAUDE.md`) gain the two-command form with its two
+    `discord-*` projects (CF-8), the definition of offline, D-12's rule that `pnpm test:discord` runs at every website release gate
+    and every pin change, and the outcome table's later-release column (CF-3, F-2, F-24). The sentence "runs the whole suite"
+    changes with them. The
     implementer proposes the text in its implementation document at M3, and steering lands it in the record at release.
   - The architect's closing pass: the Problem Area rows (Header notes), the Dependencies line, and the Quality Attributes "Tests"
     line.
-- The X-8 handoff (option a only) is minted by devops at Stage 1: Owning-Stage planner, Review-Trigger "when the Slate emoji lift
-  (`parseEmoji`, `getInitialValue`, `withNormalizeNode` `handleElement`) is next edited".
 - The tip-moving housekeeping lands in one commit before QA Phase 3.
 
 ## Testing Strategy
@@ -720,12 +898,13 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
 - **Test types**: unit tests (Node) for the adapter's maps, masks and allow-list; DOM tests for the renderers and the mounted editor;
   property tests over the generator; the `discord` project (D-12); and real-browser walks by UAT on a local production build.
 - **Hosts and instruments**: this box has Chrome through the browser-walker, Playwright Firefox, and the test-account browser (qa and
-  uat). Puppeteer at the generator's pin runs in an export. Discord reads use the test-account browser on guild
+  uat). Puppeteer at the generator's pin runs in an export. Discord's oracle code (the legacy facade, both box tables, the native
+  box) runs under Node in jsdom (AN-4), with no browser. Discord reads use the test-account browser on guild
   `1566742402180456559`. There is no WebKit (X-17).
-- **Probe versus gate**: AN-1, AN-2 and AN-6 are pre-landing probes. AC-2.5, AC-4.2, AC-5.5 and AC-6.3 are post-landing walks (QA
+- **Probe versus gate**: AN-1 to AN-8 are pre-landing probes. AC-2.5, AC-4.2, AC-5.5 and AC-6.3 are post-landing walks (QA
   register B-1 to B-4).
-- **Tools changed by this chain and used by its own gates**: the normaliser (M3), with its positive control and second instrument as
-  stated there. The `test` script itself changes: QA Phase 2 runs the chain base's `vitest run` beside the tip's two commands, and
+- **Tools changed by this chain and used by its own gates**: the normaliser (M3), in its loose canonical form and its visible form,
+  each with its positive controls and second instrument as stated there. The `test` script itself changes: QA Phase 2 runs the chain base's `vitest run` beside the tip's two commands, and
   compares the files collected by path membership.
 - **Post-deploy observable** (his link report, D-2; QA register B-5). On production `hooks.gg`, in the route-0 editor, typing
   `https://x.y🙂 [a](https://x.y/🙂)` gives two preview anchors. Each must exist, and neither `href` contains `:slight_smile`. QA read
@@ -743,9 +922,11 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
 
 ## Risks
 
-- **RK-1** The wasm does not build or serve under Turbopack (AF-5). Falsifier: AN-1.
-- **RK-2** The generator captures `/preview` before the formatted render (P-2). Falsifier: AN-2's count, and its gap distribution
-  as the margin. After release, X-21 applies until QA mints E-4.
+- **RK-1** The wasm does not build or serve under Turbopack (AF-5). Falsifier: AN-1, which passed locally and on a Vercel Preview.
+  What remains open is production's build, read at release.
+- **RK-2** The generator captures `/preview` before the formatted render (P-2). AN-2 passed 150 of 150, with a minimum margin of
+  519.7 ms on this box. Open: a slower host CPU (analysis H-1; its test is a 4× CPU-throttled re-run of `an2-capture.js`). After
+  release, X-21 applies until QA mints E-4.
 - **RK-3** The package's tree shape changes between releases (V-12). The exact pin, the adapter and AC-2.4's two enumerators
   catch it: the type-check catches declared kinds, and the observed enumerator plus the unmapped-kind line catch undeclared ones.
 - **RK-4** Users on Discord's legacy path see the disagreeing cases drawn differently from the site (V-18: 33 of the 272 stored
@@ -754,13 +935,21 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
   corpus is unread (`handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` item 7 shares the class). This is accepted
   under D-3.
 - **RK-6** The oracle fetch breaks: Discord changes its page or blocks headless clients. The outcome table's C1 and C3 cover it.
-- **RK-7** Bundle cost on mobile: about 451 KB gzip of lazily loaded wasm. AN-1 measures it.
+- **RK-7** Bundle cost on mobile: the lazily loaded wasm is 459,029 bytes served gzip locally and 447,426 bytes br on Vercel
+  (AN-1). The editor page also pays it (analysis I-2). Accepted, since D-6's option text named the build check, and X-22 carries
+  the hung-fetch case.
 - **RK-8 (standing prediction, the critic's class, cycle 1 pass 1).** The class: "a statement in M2 to M6 of what the site does
   today (a loading state, an editor mode, a refusal, an input the block layer supplies, a build target) is contradicted by the code
   at the base or by a closed plan." Falsifier: a later pass or stage finds one more member. The members so far are F-3, F-8, F-9 and
   F-11, each folded in revision 2 by a premise read at `af3d95a` (P-4, P-5, P-6, AN-1's Vercel limb). Record per review pass:
   - pass 1: four members;
-  - pass 2: (to be written back when the pass reports).
+  - pass 2: none (critique record `e3e49ac7`, § Verdict, "RK-8, the class from pass 1: no new member in pass 2");
+  - planning pass 3: one member, found by this pass's read of `src/@types/slate.d.ts` at `af3d95a`. AC-5.2 said mentions and
+    timestamps divide a line into text nodes, but the emoji element is the only inline element (P-7). It is folded into AC-5.2.
+- **RK-9 (D-14's unmeasured residue).** On the legacy-only surfaces, the visible residue left after adjustment is large enough that
+  embed previews differ visibly from Discord on ordinary inputs. Falsifier: M3's residue count per surface, before and after
+  adjustment, recorded at M3 and M4. The architect's provisional reading of research Appendix A puts the token-level classes
+  (unbalanced delimiters, backtick runs, escapes) in the listed set. Accepted under D-14, which stated the count was unmeasured.
 
 ## Exclusions
 
@@ -773,71 +962,56 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
 | X-5 S-16 | Already a fixer rider (block 09:18Z). | The fixer queue in `steering/fixer-queue-2026-11-21-rulings.md` block 09:18Z |
 | X-6 9e and the `/preview` matcher | Outside the region. | `TODO.md` |
 | X-7 S-19 to S-28 | Fixed; their tests stand. | Stated limit (inventory § 1) |
-| X-8 The Slate emoji lift stays on `simple-markdown` (option a), held equal to the engine by AC-6.5 | The lift is the Slate layer (AF-9), read as outside D-6's reach; OQ-5 is at steering. | The handoff devops mints at M7 |
 | X-9 Slate block structure from `parseLossless` | A later effort (AF-9). | `system-architecture.md` Problem Areas row |
 | X-10 Third-party clients | D-9. | Research G-6 |
-| X-11 Generator-side changes | Outside the region; AN-2 decides whether one is needed. | Re-scope to steering |
+| X-11 Generator-side changes | Outside the region. AN-2 passed, so none is needed for the formatted render. The analysis's H-2 (a pooled browser's repeated `/preview` returns 304, which the generator's status check may refuse) is generator-side, and the analyst sent it to steering. | Re-scope to steering |
 | X-12 Open handoffs whose trigger this chain fires but that have nothing in the region: the tRPC leftovers (fire on the `package.json` dependency edit); the `qa-014-bc7` inventory (fires on "website test effort scoped"; its items are the analyst's and the record's); the 015 assumptions (fire on "next website effort scoped"; items 1 and 7 are used here as premise and risk) | Nothing in the region. | Each handoff, unchanged |
-| X-13 The native parser seen rendered (G-11), if AN-7 cannot read test account 2 | No session's browser holds that profile. Under D-5 it decides nothing; the native half rests on research V-4's byte identity. | Stated limit |
-| X-14 Mention kinds with no Discord observation (G-13 not completed, and any kind beyond the walk) | Discord draws an id it cannot resolve as text (V-18). | Stated limit at AC-4.4; a user report goes to this row |
-| X-15 D-10's premise unread, if AN-7 does not complete it | The option stated it unchecked. | D-10's reopening class |
-| X-16 The emoji-label DOM check (G-14), if AN-7 does not complete it | AC-3.1 asserts that class against AN-4's code read alone. | Stated limit |
+| X-13 The native parser seen rendered (G-11) | AN-7 did not complete it: no session's browser holds test account 2's profile. Under D-5 it decides nothing; the native half rests on research V-4's byte identity. | Stated limit |
+| X-14 Mention kinds with no Discord observation: GAME_MENTION if AN-8 does not read its form, and any kind beyond AN-7's walk | Discord draws an id it cannot resolve as text (V-18). | Stated limit at AC-4.4; a user report goes to this row |
 | X-17 Safari | No WebKit on the box (QAF-10). | Stated limit; a user report goes to this row |
-| X-18 The engine's differences from Discord on the disagree and native-only classes | D-5 removes Discord as the standard there; nothing detects them. | The known-differences report |
-| X-19 AC-3.1 and AC-3.2 residue: rendering beyond the tree (emoji image choice, highlight colours, locale wording; research § 4 gap 4); inputs the API rewrites (whole-message edge whitespace, unusable custom emoji ids; V-19); what the loose form blurs (run-edge and code-body newlines, URL spelling); box inputs replaced by an inline object (V-21) | No Discord oracle reaches them. | Stated limit |
+| X-18 The engine's differences from Discord on content's disagree class | D-5 removes Discord as the standard there; nothing detects them. | The known-differences report |
+| X-19 AC-3.1, AC-3.2 and AC-3.7 residue: rendering beyond the tree (emoji image choice, highlight colours, locale wording; research § 4 gap 4); inputs the API rewrites (whole-message edge whitespace, unusable custom emoji ids; V-19); what the loose form blurs (run-edge and code-body newlines, URL spelling); what the visible form treats as invisible (M3); box inputs replaced by an inline object (V-21, P-7); the native box's unclosed-fence-while-typing parse, where the Slate layer's `codeBlock` recognition governs instead (AN-6, AF-9) | No Discord oracle reaches them, or the Slate layer is the site's own. | Stated limit |
 | X-20 Production messages already rewritten from `>>>` to `> ` | Production data, his (effort block 15:49Z). | His check, per that block |
-| X-21 No post-release read of a generated preview image until QA mints E-4 | Its instrument waits on AN-2. | QA's candidate E-4 (QA document) |
+| X-21 No post-release read of a generated preview image until QA mints E-4 | AN-2 has landed, so QA mints or declines E-4 at its re-key on revision 3. | QA's candidate E-4 (QA document) |
+| X-22 A wasm fetch that hangs rather than fails leaves the message editor hidden with no message (QAF-15) | Today's behaviour on a hung JavaScript chunk, kept by M2's pending state. A timeout bound is priced in M2 and not taken. | Stated limit. B-1's Slow 4G reading is recorded beside it, and a user report goes to this row |
+| X-23 Legacy-only residue classes that fail the B3 rule | D-14: "the rest are listed". The site follows the engine there, and the embed preview differs visibly from Discord on those inputs. | The known-differences report, per surface; RK-9 |
+| X-24 What Discord draws for timestamp styles `s` and `S`, if AN-8 does not read it | No other read exists (critique SL-2). | Stated limit at AC-4.7; a user report goes to this row |
 
-## Finding disposition (revision 2)
+## Finding disposition (revision 3)
 
-| Finding | Folded at |
-|---|---|
-| F-1 | M1, a "Not completed" outcome per item |
-| F-2 | M3 outcome table; D-5's instrument; M7's Test Conventions update |
-| F-3 | M2 loading states; P-4 |
-| F-4 | AN-2 gap on every capture; RK-2; X-21 |
-| F-5 | AC-2.4's two enumerators; the unmapped-kind line; RK-3; AC-2.3's `0` rule |
-| F-6 | M3's three-class table; AC-3.6; X-18 |
-| F-7 | AN-3's legacy-only clause |
-| F-8 | AC-5.6 |
-| F-9 | AC-3.3's modes; P-5 |
-| F-10 | AC-3.4 |
-| F-11 | AN-1's Vercel limb |
-| F-12 | Header notes, Base re-derivation step |
-| F-13 | AN-4's install read; M3's pin rule and rollback |
-| F-14 | M3, the loose form; X-19 |
-| F-15 | Testing Strategy, post-deploy observable |
-| F-16 | AC-2.7 |
-| F-17 | Reading Order |
-| F-18 | AC-6.3 provision step; AC-6.4 |
-| F-19 | AC-3.1, AC-3.2, AC-4.1 and AC-5.1 name D-4 and D-5; D-4 and D-5's rows name the criteria |
-| F-20 | X-13 to X-16, X-19, X-20 |
-| F-21 | AC-2.1, AC-2.2, AC-2.6 |
-| F-22 | The gates in M5 and M6; M7's minting stage |
-| F-23 | AC-6.5; the Header notes Problem Area line; M2's provider sentence |
-| Critic Q1 | AC-2.1's oracle helper, with literal masks |
-| Critic Q2 | AC-3.3, the count fixed from EC-4 |
-| Critic Q3 | The outcome table: no outcome makes a release wait on Discord's schedule except C3's legacy-gone case, which is D-5's own stop condition |
-| CF-1 | M5 cache; AC-5.7 |
-| CF-2 | AC-6.5 (option a); OQ-5 (option b) |
-| CF-3 | M3 form; M7 |
-| CF-4 | M3 known-differences report |
-| CF-5, CF-6 | P-4; M4 (carried as written in the architect's document) |
-| CF-7 | M5; AC-5.4; OQ-4 resolved |
-| QAF-1 | AC-3.2; AN-6 |
-| QAF-2 | AC-3.1; AC-2.1 |
-| QAF-3 | AC-2.5 |
-| QAF-4 | AC-2.3; AN-3 |
-| QAF-5 | AC-4.6 |
-| QAF-6 | M3 form (frozen and live literals); Normaliser |
-| QAF-7 | AC-4.3 |
-| QAF-8 | M3 coverage report; three-class table (V2 text display native-only) |
-| QAF-9 | AC-3.3 |
-| QAF-10 | AN-1; AC-2.5; X-17 |
-| QAF-11 | M3 fixed inputs; M1 lift of scratch instruments |
-| QAF-12 | AC-6.2; AC-6.5 |
-| QAF-13 | M3, the definition of offline; AC-3.5 |
-| QAF-14 | AC-2.6 |
+Revision 2's dispositions of F-1 to F-23, CF-1 to CF-7 and QAF-1 to QAF-14 were checked by their gates (critique `e3e49ac7`
+§ Resolved; architect `ee54771c` § Delta pass; QA `6dace3fa` § Re-key). This table covers what revision 3 folds.
+
+| Source | Item | Folded at |
+|---|---|---|
+| Critique pass 2 | F-6 (the editor's rows) | M3 class table, editor rows; AC-3.2; AC-5.8 |
+| Critique pass 2 | F-24 | M3 "Who runs it" and the outcome table's later-release column, as D-12 reads; M7 |
+| Critique pass 2 | F-25, SL-1 | AC-4.6: `tel` and `sms` listed, with the observed-enumerator check |
+| Critique pass 2 | F-25, SL-2 | AC-4.7; AN-8's first limb; X-24 |
+| Critique pass 2 | F-26, SL-3 | M3 form, "re-derived live" and "not re-derived" |
+| Critique pass 2 | F-26, SL-4 | AC-3.4, base-green limbs from a run at the base |
+| Critique pass 2 | F-26, SL-5 | Holds: AN-5 chose `parseLossless`, which carries spans and source text |
+| Critique pass 2 | F-26, SL-6 | Discharged: AN-3's counts came from the analyst's oracle over the corpus |
+| Critique pass 2 | F-26, SL-7 | AC-6.3's provision step is AN-8's third limb |
+| Critique pass 2 | Q1 | AC-6.5, "Which text it hands the engine" |
+| Critique pass 2 | Q2 | AC-6.6; M4's renderer types; M4 and M6 rollback pairing |
+| Critique pass 2 | RK-8 pass 2 | RK-8 |
+| Architect delta | CF-8 | M3 form: `discord-node` and `discord-dom`; M7 |
+| Architect `1c78753` | A′, B3, W-3, C6 | M3 "Visible form" and "Adjustments toward legacy"; AC-3.7, AC-3.8, AC-5.8; M4's adjustment module; outcome row C6 |
+| QA re-key | QAF-15 | M2 pending state; X-22; AC-2.5's B-1 reading |
+| QA re-key | QAF-16 | AC-3.3, "Where the text is read" |
+| QA re-key | QAF-17 | AC-4.6's two controls |
+| QA re-key | EC-4 | AC-3.3 "Count"; AC-3.4's eight candidates |
+| QA re-key | NM-30 | AC-5.7's stale limb |
+| Analysis `aafecf1` | AN-1 to AN-7 results | M1 results table; RK-1, RK-2, RK-7; X-13 and X-14 restated; X-15 and X-16 withdrawn (their reads landed) |
+| Analysis | Determination 1 (inline object as one `?`) | M5 "Inline objects"; P-7; AC-6.5 |
+| Analysis | Determination 2 (cross-line runs) | D-15; M5 run unit; AC-5.6 |
+| Analysis | Determination 3 (legacy-only surfaces) | D-14 |
+| Analysis | Determination 4 (masked-link styling reversed) | AC-5.6's masked-link limb; AC-3.2's known-differences line |
+| Analysis | Gaps G-1, G-3 | AN-8 |
+| Analysis | H-1 | RK-2 |
+| Analysis | H-2 | X-11 (outside the region; steering) |
+| Rulings | D-13, D-14, D-15 | Decisions Register; AC-6.5, AC-6.6; AC-3.7, AC-3.8; M5 |
 
 ## Planner batch
 
