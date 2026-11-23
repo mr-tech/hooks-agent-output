@@ -7,7 +7,7 @@ Status-Detail: >-
   M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: f4060c5 — repos=website — M3 handed to code review; the offline suite, the live suite, both typechecks and the convention check were run at this SHA (see Test Execution Results)
+Handoff-At: 1698c80 — repos=website — M3 fix round 3 (CR-5, CR-6) handed to code review; the offline suite (199 files, 3214 of 3214, exit 0), both typechecks and the convention check were run at this SHA; the live controls file passed 9 of 9 at the same code (m4-discord-live-cr6.log.txt)
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -26,6 +26,7 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-23T21:42 | code-reviewer-019 (message, Round 3, record `dd5b093d`) | Fix CR-5 and CR-6 (MEDIUM); CR-4 remainder, CR-7 to CR-9 optional | CR-5 and CR-6 fixed in the commit named under Handoff-At's next move; CR-4 remainder, CR-7 to CR-9 not done this round (Outstanding 11). |
 | 2026-11-23T21:13 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 M3 from the Resumption State | Items 5, 6, 7, 9, 10, 11 and the residue grouping, commits `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`. M3 handed to code review. |
 | 2026-11-23T20:08 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 with M3 | Outstanding items 3, 1, 2 (surface calls and measurement) and 4 (boxes, frozen native literals), commits `9ad0939`, `dff2f0d`, `00148c8`, `492b813`, `c113084`. Checkpoint at 231K tokens. |
 | 2026-11-23T19:08 | steering-hooks-fixer (message, record `1189b7e0`) | Continue with M3 | Parts 1 to 5 below, commits `805fff6`, `548b16b`, `78c5f74` (M2 fix), `1bcab7a`. Checkpoint at 293K tokens (`cc-usage.py sessions`). |
@@ -163,7 +164,16 @@ second rerun: r20b and c3 killed). Final: 27 of 29 distinct helper mutants kille
 
 ## Class Sweep
 
-No reviewer finding in this milestone yet. Two gates fired in this round and were satisfied by changing the work, disclosed here:
+Round 3 (fix round for CR-5 and CR-6). Red runs: `verification/019/impl/m4-red-4.txt` (CR-5), `m4-red-5.txt` (CR-6); mutants `m4-mutants-m3fix.txt`; live run `m4-discord-live-cr6.log.txt`.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| CR-5 (a construct written from a withdrawn premise) | `git grep -n "<game:" -- src` (the reviewer's removal test over the generator's first 200 inputs is the instrument of record; mine is this text predicate for the one form) | 4 hits after the fix: `markdownGenerator.ts:53` (the untagged near-miss), `discordReports.report-forms.test.ts:26` (asserts the form names no bit), `markdownGenerator.seeded-inputs.test.ts:156` (selects the near-miss), `mountedBaseRed.json:17` (one held-out text built from the old generator form) | The first three are the near-miss by design. The fourth is a frozen held-out text and stays as data: the generator no longer makes it, and the first run after the change shows whether a held-out member lost its match (Outstanding 11). |
+| CR-6 (a sandbox shim that closes one network API and leaves others live) | `git grep -c "XMLHttpRequest\|WebSocket\|EventSource\|sendBeacon" -- src/utils/markdown/__tests__` | 5 in `helpers/discordBuild.ts` (the four constructors replaced, plus the recorder), the new test file names them | `XMLHttpRequest`, `WebSocket`, `EventSource` and `navigator.sendBeacon` each refuse and record; `fetch` records; the live control asserts the attempt list is empty (it is: `m4-discord-live-cr6.log.txt`, 9 of 9) |
+
+Residual after the fix: 0 live network constructors in the oracle window (the test drives each). Not done from CR-5's preferred form: the coverage run failing on a zero cell for a carried bit, and the residue measurement's re-run with the corrected game mention (Outstanding 11).
+
+Earlier rounds: no reviewer finding in this milestone. Two gates fired in this round and were satisfied by changing the work, disclosed here:
 - `engine.import-confinement.test.ts` (AC-2.1: the adapter and at most one oracle helper name an engine package) failed on the tree at `418af30`
   because my `helpers/discordReports.ts` imported `@discord/markdown-wasm` as a second oracle helper. Fixed by taking `SYNTAX_ALL` from `discordOracle.ts`.
   Why I had not seen it: I committed `418af30` after the markdown tests only, and ran the whole offline suite for the first time after it.
@@ -254,6 +264,8 @@ frozen probe-state legacy trees (`discordLegacyTrees.json`, kept for the one-inp
 8. **The one site-source reading of the oracle's lazy-chunk fetch is network-bound:** `pnpm test:discord` needs the network; in a loopback-only namespace it fails loudly (`discordOffline.fetch-failure.test.ts`), and `pnpm test` runs offline and exits 0 (above).
 9. Self-diagnosis, method level (two defects of mine reached a gate): (a) I committed `418af30` after running only the markdown tests, so the engine-confinement test (a whole-suite guard on a rule I knew, AC-2.1's second oracle helper) first ran after the commit; I ran the property rather than the suite that holds the guard. Whole offline suite before each commit that adds an importer. (b) I began the residue measurement (earlier part) by comparing visible forms on the generator and read the 50% difference as signal before reading ten minimal examples; shrink and print first, count after. (c) The first edit comparison of the boxes counted `before_<style>` classes the plan's score does not use (1,991 of 2,463 differing); I read AN-6's scoring script before trusting the figure (1,545 after).
 10. The `.next` stale validator hazard did not arise (`pnpm run typecheck` exit 0, no build in this part).
+
+11. **Fix round 3, not done:** CR-5's preferred form (the coverage run fails on a zero cell for a bit the surface's mask carries, naming masked-off cells) and the residue measurement re-run with the corrected game mention (`m3-residue-measurement-492b813.json` is built on the old generator); CR-4's remainder; CR-7's split and re-keying; CR-8, CR-9. The generator's mention list changed length, so its seeded draw shifted: 11 generator texts now fail at the editor base on quote and fence structure, the same class as before (held out; collected on the unchanged editor in both modes, typed and pasted agree and single-line mode holds on every input; `m4-base-red-generator-m3fix.json`). The earlier 10 are stale in the set and no longer arise. The re-run is M4's own input (its adjustment choice), so it is taken at M4's measurement step.
 
 ## Next Steps
 

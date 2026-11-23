@@ -1,0 +1,59 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts (3 tests | 3 failed) 135ms
+     × lets an XMLHttpRequest nowhere and names its address 111ms
+     × lets a WebSocket nowhere and names its address 13ms
+     × records a fetch that is refused 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets an XMLHttpRequest nowhere and names its address
+TypeError: installOracleShims is not a function
+ ❯ oracleWindow src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:17:3
+     15|   });
+     16|   const w = dom.window as unknown as OracleWindow;
+     17|   installOracleShims(w, undefined, attempts);
+       |   ^
+     18|   return w;
+     19| }
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:37:17
+ ❯ withListener src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:27:18
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:36:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets a WebSocket nowhere and names its address
+TypeError: installOracleShims is not a function
+ ❯ oracleWindow src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:17:3
+     15|   });
+     16|   const w = dom.window as unknown as OracleWindow;
+     17|   installOracleShims(w, undefined, attempts);
+       |   ^
+     18|   return w;
+     19| }
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:54:17
+ ❯ withListener src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:27:18
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:53:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > records a fetch that is refused
+TypeError: installOracleShims is not a function
+ ❯ oracleWindow src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:17:3
+     15|   });
+     16|   const w = dom.window as unknown as OracleWindow;
+     17|   installOracleShims(w, undefined, attempts);
+       |   ^
+     18|   return w;
+     19| }
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:65:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  21:36:35
+   Duration  940ms (transform 46ms, setup 0ms, import 651ms, tests 135ms, environment 0ms)
+
