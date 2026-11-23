@@ -351,7 +351,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 3 pass 2 (APPROVED on plan revision 9, `47348a6d`); nothing is in flight. A later criterion-changing revision opens cycle 4 from that SHA, under steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Closed at cycle 3 pass 2 (APPROVED on plan revision 9, `47348a6d`); checkpoint written at steering's ask on 2026-11-23, with nothing in flight, nothing uncommitted, no process running and no question awaiting an answer. A later criterion-changing revision opens cycle 4: move this file back from `critiques/closed/`, read the plan as the `git diff` from `47348a6d` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
