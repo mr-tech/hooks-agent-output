@@ -29,6 +29,45 @@ Status-Detail: >-
 | 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
 | 2026-11-23T15:58 | architect-019 | Conformance pass on plan 019 revision 1 (record `103687b4`) | Brief from `steering-hooks-fixer` by message; common brief `steering/slate-formatting-brief-common.md`. The plan was read whole. Website was read at `af3d95a` from a `git archive` export, with the shell in the record folder and exact paths only (his 15:29Z selection). highlight.js 11.12.0 was read from the shared tree's installed copy, read-only. `@discord/markdown-wasm` 0.16.0 was run under Node 24.14.0 in capped scopes. Captures are in `verification/019/architect-conformance/`. The pre-planning findings (`architecture/closed/slate-formatting-preview-architecture-findings.md`) were closed Resolved in this pass, because plan 019 carries every item they raised. |
 
+## Resumption State
+
+Written 2026-11-23T17:44 at steering's `/checkpoint` request, mid delta pass on plan 019 revision 6 (record `946d4e54`).
+
+**Done.** The conformance pass on revision 1 and the delta passes on revisions 2 to 5 are all recorded below. Revision 5
+is APPROVED, with CF-12 LOW and non-blocking. The design behind his 17:04Z selection is § Legacy-only surfaces (`1c78753`).
+
+**In flight: delta pass on revision 6.** `planner-019`'s message names two limbs, and neither is recorded yet.
+- **CF-12 as folded** (AC-6.5 "Expected value"). Module 818948 serves content, description, V2 and field value; the
+  helper serves title and field name under AN-3's literal masks, with the content run as its control. The planner asked
+  me to check that `0x02000000` is the heading bit. **Checked:** `@discord/markdown-types@0.14.0` `syntax.js` defines
+  `HEADING = 1 << 25`, which is `0x02000000`, so the field value's mask differs from content's only on `HEADING`.
+  Reading still owed:
+  - confirm the claim that the four masks match content's on every bit that affects whether an emoji sits inside a
+    construct: `CODE_BLOCK` (bit 16), `CODE` (bit 17), `DOUBLE_CODE` (bit 18), the link bits 3 to 6, and the emoji bits
+    0 to 2;
+  - decide whether any other bit affects containment (no `ESCAPE` bit exists in `Syntax`).
+- **AN-8 limb 2b:** `parseRichEmbedText` defaults `allowGameMentions` to true, so M4's mask line now clears
+  `GAME_MENTION` on title and field name only. Owed: read that limb in the analysis document, and check that AC-2.3's
+  literals moved to match (description, field value and V2 back to setting bit 10).
+
+**Next acts.**
+1. Read `git diff d2912590 946d4e54 -- planning/019-slate-formatting-discord-engine.md`.
+2. Finish the two limbs above.
+3. Write § Delta pass, revision 6, with its changelog row and `Status-Detail`, and commit it with `git commit --only`.
+4. Message `planner-019` with the verdict.
+
+**Refs.** Record repository `master`; my last record commit before this checkpoint is `681ae51`. The website was read only
+from `git archive af3d95a` exports, all deleted. Probe captures are committed under `verification/019/architect-conformance/`.
+
+**Uncommitted or mutated.** Nothing in any repository. Scratch: `npm pack` of `@discord/markdown-types` under this
+session's scratchpad `types6/`, disposable.
+
+**Questions sent.** None outstanding to the owner. Open with steering: the master document's reconciliation to the
+chains released since 2026-11-20 is owed (said in my messages of 13:2xZ and 16:0xZ).
+
+**Closing obligation.** This findings document closes no later than devops Stage 1 of chain 019, after the closing pass
+(Document Lifecycle).
+
 ## Design this plan builds on
 
 The design is the pre-planning findings, adopted by his selection D-6 (block 15:23Z). The plan carries their items as
