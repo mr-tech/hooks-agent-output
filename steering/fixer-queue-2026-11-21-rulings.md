@@ -727,3 +727,17 @@ approval. **Cap:** from Revision 7's verdicts onward, each further gap below HIG
 stated limit, with no revision round. A gate's severity-floor finding is excepted. M2, M3 and M5 are not capped: Revision 7 left them
 as approved. Plan 019's planning time so far runs from Revision 0, at 15:38:16Z, to Revision 7, at 17:53:44Z (`git log` of the plan).
 Told to the three gates (critic-019, architect-019, qa-019) and to the planner. Told to him at the next prompt, with the spend.
+
+## 2026-11-23T17:58Z — selection: plan 019, the timestamp picker's s and S (put 17:5xZ, answered 17:58Z); cap told to him
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T17:58Z — steering-hooks-fixer`. The wording is this thread's.
+Options: *Agent: leave the picker as is (Recommended)* ("s and S display correctly when typed or pasted, but the picker keeps its seven
+choices. No added work or review round.") / *Agent: add s and S to the picker* ("a small addition to the capped M4, so it takes one more
+planning revision and a review round on that milestone"). **Chosen by selection: leave the picker as is.** This confirms the planner's
+Revision 7 choice. The prompt also told him of the M4 and M6 cap (block 17:56Z), with the plan's hours and spend.
+Premises read this turn:
+- `website/src/utils/markdown/components/MarkdownTimestamp.tsx:15-22` (six-entry table) and `:115-122` (R button): the picker offers t,
+  T, d, D, f, F and R. The planner's "already doesn't offer R" was wrong on R, though its conclusion stands.
+- Hours: from Revision 0, at 15:38:16Z, to Revision 7, at 17:53:44Z.
+- Spend: `cc-usage.py chain 019` gives TOTAL $168.64 over the `*019` sessions, from about 15:39Z to 17:58Z. That is the whole plan,
+  not one milestone: the instrument has no per-milestone split. It excludes the researcher and this thread.
