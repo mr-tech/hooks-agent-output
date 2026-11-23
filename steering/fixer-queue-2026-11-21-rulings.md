@@ -573,3 +573,19 @@ Disclosure: this block's first write went through the shell and the record-write
 Asked why the two Slate questions came as a plain message (steering.md, Prompting the owner: plain text while another chain can still
 move), he said: *"That rule is overridden. You are meant to prompt me."* This thread now puts every question to him as a selection
 prompt, whether or not another chain can move. The two Slate questions (block 09:26Z) are re-put as a selection prompt at once.
+
+## 2026-11-23T09:32Z — selection: the two Slate research questions (put 09:30Z, answered 09:31Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T09:31Z — steering-hooks-fixer`.
+- **Clients** — options: *Agent: leave them not done (Recommended)* (the researcher records the client checks as not done; third-party
+  clients a footnote; nothing else runs) / *You: have it finish them* (he names the search form). **Chosen by selection: Agent: leave
+  them not done.**
+- **Real Discord** — options: *Agent: make it a QA check (Recommended)* / *You: restart researcher with browser* (the research waits) /
+  *Agent: drop the check*. **Answered in his words, not by selection:** *"Why am I being told to restart the researcher with the browser
+  when you can just restart the researcher with the browser? Do"*. So this thread restarts `researcher-slate-formatting-oracle` with
+  the test-account browser: its `/checkpoint`, `tmux-agent stop`, then a fresh spawn whose launch line carries `--browser`.
+Premise read this turn: the `launch` function (`~/.bash_aliases` line 415) takes `--browser` anywhere after the name and adds
+`--mcp-config ~/.claude/mcp/browser.json`; `tmux-agent spawn` (line 235) types `${TMUX_AGENT_LAUNCH:-launch}` before its arguments, so a
+wrapper set in that variable appends `--browser`. The grant file `~/.claude/state/discord-test-browser.granted` (2026-11-08) is standing
+permission. My 09:26Z option "You: start the researcher again" was wrong: the mechanism was this thread's, and searching `launch`'s
+definition before asking would have caught it.
