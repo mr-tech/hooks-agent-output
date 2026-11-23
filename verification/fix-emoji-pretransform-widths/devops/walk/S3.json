@@ -1,0 +1,27 @@
+{
+ "url": "https://hooks.gg/message/m/0/edit",
+ "lines": [
+  {
+   "text": "```js",
+   "emojiCount": 0,
+   "alts": []
+  },
+  {
+   "text": "x = 1;﻿ // abcdefghijklmnopq",
+   "emojiCount": 1,
+   "alts": [
+    ":slight_smile:"
+   ]
+  },
+  {
+   "text": "﻿",
+   "emojiCount": 1,
+   "alts": [
+    ":slight_smile:"
+   ]
+  }
+ ],
+ "innerText": "```js\nx = 1;\n﻿\n // abcdefghijklmnopq",
+ "picked": "mouse click at 662,533 (slightly smiling face)",
+ "console": []
+}

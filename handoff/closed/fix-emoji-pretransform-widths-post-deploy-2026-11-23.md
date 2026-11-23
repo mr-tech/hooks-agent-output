@@ -1,7 +1,7 @@
 ---
 UUID: 0ed42776
-Status: Open
-Status-Detail: "Carries the chain's post-deploy register row B-1 (paste read on the production message editor after the website master release) and its two guidance limbs. Open until a read decides each; blocks nothing before the release act."
+Status: Addressed
+Status-Detail: "Executed after the release: B-1 PASS and both guidance limbs PASS on hooks.gg production, signed out, nothing saved (verification/fix-emoji-pretransform-widths/devops/walk/)."
 Owning-Stage: devops (the chain's devops stage, run in the session that executes the release, through a browser-walker helper)
 Review-Trigger: When Vercel production serves a deployment whose commit contains website 0411d3b, the deploy event of the website master release of fix-emoji-pretransform-widths.
 ---
@@ -29,7 +29,7 @@ Source: `qa/fix-emoji-pretransform-widths-qa.md` (now `qa/closed/`), "Blocking-c
 | Predicted value | Fixed: the line reads `x`, emoji, ` abcdefghijklmnopq`. Unfixed (base, as measured in `verification/fix-emoji-pretransform-widths/qa/walk-r2/base-step2.json`): `x`, emoji, `lmnopq`. One observation decides it, because the unfixed form loses 11 letters deterministically |
 | Failure mode | If production still shows `x`, emoji, `lmnopq`, the fix did not reach the deployed build, and users still lose text after a pasted emoji |
 | Owner | devops |
-| State | open |
+| State | EXECUTED, PASS (see Result) |
 
 ### Item 2 — guidance limbs in the same walk (not register rows)
 
@@ -41,6 +41,15 @@ Composed by `steering-hooks-fixer` for this walk, in the same session as B-1:
 
 Nothing is saved in any step. Captures go under `verification/fix-emoji-pretransform-widths/devops/`; screenshots stay uncommitted.
 If a real browser is not available, the row is recorded "not run" and says so.
+
+## Result
+
+Run by a `browser-walker` helper through headless Chromium, signed out at `https://hooks.gg/message/m/0/edit` (reached from `/message/m/new`), real clipboard paste (`navigator.clipboard.writeText`, then `Control+V`), after production served a deployment built from the push (Vercel production list: `hooks-gg-website-c8t6ruw19-hooks-gg.vercel.app`, Ready, 34s). Nothing was saved or sent; console empty on every step.
+
+- **B-1 PASS.** Paste `x🙂 abcdefghijklmnopq`: line text `x`, emoji element (alt `:slight_smile:`), ` abcdefghijklmnopq`, all 17 letters present; `innerText` `x\n\ufeff\n abcdefghijklmnopq`. The unfixed form (`lmnopq` only) did not appear. Evidence `verification/fix-emoji-pretransform-widths/devops/walk/S1.json`.
+- **Guidance limb 1 PASS.** Paste `wow :ok🙂 hi`: one line, text exactly `wow :ok🙂 hi`, 0 emoji images. `S2.json`.
+- **Guidance limb 2 PASS (standard emoji only).** In a `js` fence line after `x = 1;`, a standard emoji picked from the picker by mouse (slightly smiling face), then ` // abcdefghijklmnopq` typed after it: `x = 1;` intact, the emoji present, all 17 letters present. `S3.json`, `S3-afterpick.json`. Observation, not a finding: typing the fence opened no rendered code block in the signed-out editor, so the line was read as a plain line in the editor; the emoji element reads as a zero-width placeholder character plus an image. Guild emoji and mobile IME are not covered: `handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md`.
+- `err.json` and `err.png` in the walk folder are from a failed first attempt of step S3 and are not evidence.
 
 ## Evidence
 
@@ -58,3 +67,4 @@ If a real browser is not available, the row is recorded "not run" and says so.
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-23T08:26 | `devops-fix-emoji-pretransform-widths` | Created at Stage 1. B-1 carried in full. No timed read: the walk runs in the release session after the deploy, so no crontab line is installed. |
+| 2026-11-23T08:45 | `devops-fix-emoji-pretransform-widths` | Executed after the release: B-1 PASS, both guidance limbs PASS (Result above). Status: Addressed; closed to `handoff/closed/`. |

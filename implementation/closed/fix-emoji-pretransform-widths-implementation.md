@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-emoji-pretransform-widths
 UUID: 27c7b0a0
-Status: Committed
-Status-Detail: "Committed at website chain/fix-emoji-pretransform-widths tip 0411d3b (devops Stage 1); the release to website master awaits the owner's approval."
+Status: Released
+Status-Detail: "Released: website master moved febf20e -> 0411d3b on origin (devops Phase 2D, 2026-11-23T08:38Z); deployment record deployment/fix-emoji-pretransform-widths-deployment.md."
 Handoff-At: 0411d3b — repos=website
 Origin-Chain: none
 ---
@@ -312,3 +312,4 @@ Unchanged on purpose: an emoji inserted into the editor is still saved and copie
 | 2026-11-22T23:31 | Round 2 (CR-1, review Round 1 REJECTED at `c2fee5c`): straddling emoji nodes are left unconverted, committed at `0411d3b`; red at `c2fee5c`, 17 controls KILLED, reviewer's probe 0 regressions; `Handoff-At: 0411d3b`. CR-2 not taken (outside the write set). |
 | 2026-11-22T23:47 | Resumption State written at the usage-gate checkpoint; code review APPROVED_WITH_COMMENTS at `0411d3b` (record `83e02c84`); QA Phase 2 owed. |
 | 2026-11-23T08:27 | `devops-fix-emoji-pretransform-widths` Stage 1: committed state recorded at website `chain/fix-emoji-pretransform-widths` tip `0411d3b`, no push; document closed to `implementation/closed/`. |
+| 2026-11-23T08:41 | `devops-fix-emoji-pretransform-widths` Phase 2D: released with website `master` at `0411d3b` (origin read back 08:38Z); the chain branch is merged and deleted. |

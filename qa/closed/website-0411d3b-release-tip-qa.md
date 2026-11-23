@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-emoji-pretransform-widths -> website master febf20e39905c977b0d42081137817cb7b704478 -> 0411d3ba146018a5a8d3e8a45398d7d04f499d18 (fast-forward)"
 UUID: c9a84d4f
 Verified-At: "0411d3ba146018a5a8d3e8a45398d7d04f499d18 — repos=website; the tip's tree d4f88461 is the Phase 2 Verified-At tree (qa/closed/fix-emoji-pretransform-widths-qa.md, record b3537900)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master febf20e -> 0411d3b. Step 1b ran: 35 open handoffs; 8 match the sweep predicate and 1 is triggered by this push (this chain's post-deploy carrier, B-1, read after the deploy). Step 2: website has no gated time-based set."
+Status: Released
+Status-Detail: "Released with website master febf20e -> 0411d3b (devops Phase 2D). Release-tip verdict for website master febf20e -> 0411d3b. Step 1b ran: 35 open handoffs; 8 match the sweep predicate and 1 is triggered by this push (this chain's post-deploy carrier, B-1, read after the deploy). Step 2: website has no gated time-based set."
 Phase: 3
 ---
 
@@ -19,6 +19,7 @@ Phase: 3
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T08:36 | `steering-hooks-fixer` for `devops-fix-emoji-pretransform-widths` | Phase 3 at the release tip `0411d3b` | Phase 3. The tip is the Phase 2 tree, so steps 1b and 2 ran. Step 1b: 1 of 35 open handoffs is triggered by this push, and it is post-deploy by construction. Step 2: there is no gated time-based set. **Release Verified.** |
+| 2026-11-23T08:41 | `devops-fix-emoji-pretransform-widths` | Released at the push of website `master` to `0411d3b` (origin read back, 08:38Z) | Status: Released; closed to `qa/closed/` with its deployment record. |
 
 ## Scope (qa-phase-3.md, first line)
 

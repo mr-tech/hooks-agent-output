@@ -1,0 +1,22 @@
+{
+ "url": "https://hooks.gg/message/m/0/edit",
+ "lines": [
+  {
+   "text": "x﻿ abcdefghijklmnopq",
+   "emojiCount": 1,
+   "alts": [
+    ":slight_smile:"
+   ]
+  },
+  {
+   "text": "﻿",
+   "emojiCount": 1,
+   "alts": [
+    ":slight_smile:"
+   ]
+  }
+ ],
+ "innerText": "x\n﻿\n abcdefghijklmnopq",
+ "pasted": "x🙂 abcdefghijklmnopq",
+ "console": []
+}
