@@ -3,16 +3,22 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 4 pass 1 on plan revision 10: APPROVED, and closed at that pass. F-1 to F-33 are RESOLVED, each verified landed. F-34 is closed by property with stated limit SL-11. F-35 is closed as landed-by-author: its landing is the plan's Planner batch row, folded before the UAT anchor. A later revision that changes a criterion's text opens cycle 5."
-Artifact-Revision: 10 — read as the delta 47348a6d..890d0b78 (cycle 4 pass 1)
-Reviewed-At: "890d0b78 — repos=agent-output; website read at 5ec0621 and 7dcedc9"
+Status-Detail: "Cycle 5 pass 1 on plan revision 11: APPROVED, and closed at that pass. F-1 to F-33 are RESOLVED, each verified landed. F-34 (SL-11) and F-35 are Planner batch rows in the plan (R-32). F-36 and F-37 are closed as landed-by-author: their landing is the plan's Planner batch, folded at the seam after the last milestone's QA Phase 2. A later revision that changes a criterion's text opens cycle 6."
+Artifact-Revision: 11 — read as the delta 890d0b78..ec2440d9 (cycle 5 pass 1)
+Reviewed-At: "ec2440d9 — repos=agent-output; no website source read in this pass"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 10 (`890d0b78`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 10 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 11 (`ec2440d9`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 11 as deltas.
+**Read at cycle 5 pass 1**: the plan's diff `890d0b78..ec2440d9`; the plan at `ec2440d9` at AC-3.7 whole, AC-3.4, AC-3.8,
+"Adjustments toward legacy", M4's adjustment-module lines, outcome rows C5 and C6, RK-9, X-23 and the Reading Order; the two
+measurement files the revision cites, `verification/019/impl/m4-residue-measurement-6379abc.json` and
+`m4-dom-residue-before.json`, with their run logs, as they stand in the working tree (neither is in `HEAD` at `047add44`);
+the M4 implementation document and the code-review document at their lines naming AC-3.7; the effort rulings file's block
+headings from 22:00Z.
 **Read at cycle 4 pass 1**: the plan's diff `47348a6d..890d0b78`; effort rulings blocks 21:18Z, 21:31Z and 21:38Z; the plan's
 AC-6.3, AN-8 sign-in limb, Testing Strategy, Reading Order, X-14 and RK-8 as they stand at `890d0b78`; website at `5ec0621`:
 `src/utils/markdown/rules.tsx` (the four mention rules), `src/providers/GuildProvider.tsx` whole,
@@ -57,7 +63,57 @@ for the 15,480 figure.
 | 2026-11-23T21:41 | planner-019 (message naming revision 10 at `890d0b78`) | cycle 4 pass 1: plan revision 10 | Resumed after a clear from this document's Resumption State; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 4 opens because revision 10 changes AC-4.4's text. Depth: delta-bounded; the delta `47348a6d..890d0b78` is 100 added and 17 removed lines (`git diff --numstat`, 13 commits, 12 of them registrations R-19 to R-30), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-17. The diff, read whole, changes no criterion but AC-4.4; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-17, G-13's carriage line, M4's Mirrors line and Planner batch rows. Artifact changes: AC-4.4 is D-17's decision table over the eight mention kinds, with its list source, deviations, residue and walk; the resolved-role and resolved-command limbs are gone. New findings: F-34 (LOW), one more member of RK-8's class, closed by property with stated limit SL-11, the stop authority firing; F-35 (MEDIUM), for the Planner batch. Verdict APPROVED. |
 | 2026-11-23T21:41 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-34 is closed by property. F-35 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
+| 2026-11-23T22:32 | planner-019 (message naming revision 11 at `ec2440d9`) | cycle 5 pass 1: plan revision 11 | Cycle 5 opens because revision 11 changes AC-3.7's text. Depth: delta-bounded; the delta `890d0b78..ec2440d9` is 49 added and 17 removed lines (`git diff --numstat`, 10 commits, 9 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed, none added. The diff, read whole, changes no criterion but AC-3.7; its other hunks are the header, the changelog, the owed re-verdicts table and Planner batch rows, which register this critique's F-34 and F-35 among others. Artifact changes: AC-3.7's frozen residue list holds one literal entry per differing input, per surface and mask, each with a family and a reason; a stale entry fails; RK-9's count is entries per surface. New findings: F-36 (MEDIUM) and F-37 (LOW), both for the Planner batch. Verdict APPROVED. |
+| 2026-11-23T22:32 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-36 and F-37 close as landed-by-author, their discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 5, pass 1.** Neither the stop authority nor the hard stop fired (pass 1 of 15 in this cycle). Pricing: sized
+to the ask plus his rulings; revision 11 changes the form of one test-data list and adds no criterion, milestone or instrument.
+
+M4's residue-list commit is released by this gate. The architect's and QA's reads of revision 11 are separate.
+
+What holds in revision 11's delta:
+- **The literal form is the stricter one.** An input that differs with no entry fails, and so does an entry whose difference
+  is not exactly its signature. That is the property F-29 closed on, with the class an entry names narrowed to one input.
+- **A stale entry fails**, so the list cannot keep an excuse the site no longer needs, and a change of generator, seed or
+  count is loud.
+- **The figures are the file's.** This pass tallied `m4-dom-residue-before.json` by its own count of class members: 500, 501,
+  818, 354 and 500 differing inputs, in 148, 151, 174, 132 and 148 classes, each member distinct. They match the plan.
+- **No standing verdict expires.** The site-DOM limb of AC-3.7 and the list are M4's work (M4 implementation document, "Not
+  built yet"; code-review document, Round 3), so M3's review at `2c1590f` did not rest on the list's form.
+- **The adjustment rule is untouched.** B3's condition (b) and AC-3.8 (ii) still address an adjustment by its own tree
+  predicate. The list's entries no longer carry one.
+- **The family set has its producing step**: the implementation document at M4 states each family once, with its reason and
+  its member count per surface.
+
+Two findings go to the Planner batch and take no revision round, since after implementation approval only a HIGH or CRITICAL
+finding does:
+- **F-36** (MEDIUM). The revision's figures read "500 of 1,344 inputs". The file's own fields say 1,344 is the inputs with no
+  atom, out of 2,378. AC-3.7 covers all 2,378, so the entry count the list will reach is not stated.
+- **F-37** (LOW). Three wordings the revision left behind.
+
+Stated limits under F-29's property, with their bearers:
+- A commit that re-measures the list changes thousands of literal lines. Its reviewer reads the families and their counts and
+  samples entries, as AC-3.7 says. A change inside entries that are already listed, made in that same commit, is seen only
+  where a sampled entry shows it. Code review of that commit bears it, and reports a family whose count moved without a stated
+  cause.
+- AC-3.7 now speaks for the generator at its committed seed and count. It says nothing about another seed until the list is
+  re-measured for it.
+
+**RK-9.** The count before adjustment is now measured on the inputs without atoms: 37% on the description, field value and V2
+text display, 53% on the title, and 23% on the title with an embed url (500, 501 and 500 of 1,344; 818 and 354 of 1,545). The
+corpus members among them are 37, 33, 53, 35 and 37, close to the counts AN-3 gave before D-14 was selected (37, 32, 54, 37,
+37). D-14 accepted the residue as unmeasured, and no evidence in its reopening class is new, so nothing is re-raised. The
+count after adjustment, at M4, is still RK-9's read.
+
+**RK-8, the class from pass 1: no new member found by this pass.** The plan's R-35 row records one the implementer found
+(`jumboify` has no caller).
+
+No milestone is marked `PREMISE-STALE` by this delta. `Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 lines
+without `[RESOLVED]` or `[CLOSED]`, counted in memory over the plan at `ec2440d9`). Routed to the owner: nothing.
+
+The cycle 4 verdict follows, as written at that pass.
 
 **APPROVED — cycle 4, pass 1.** The stop authority fired on one shape (F-34). The hard stop did not fire (pass 1 of 15 in this
 cycle). Pricing: sized to the ask plus his rulings; revision 10 changes one criterion inside M4 on his 21:31Z selection, removes
@@ -251,6 +307,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 5 pass 1: this pass assumes that the site's rendering can be compared with legacy in the visible form on an input that
+holds an atom (a mention, an emoji or a timestamp), so that the list gets entries for those inputs too, and does not test it.
+No document says why `m4-dom-residue-before.json` counts only its `atomFree` inputs, and no test was run in this pass. If it
+is false, M4's list holds entries for 1,344 of 2,378 inputs per surface (1,545 on the title), and AC-3.7 passes while saying
+nothing about the rest. The signature is a list whose inputs include none with an atom. The implementer owns closing it at
+M4's list commit, and QA at Phase 2 reads the number of inputs compared per surface against 2,378.
+
 Cycle 4 pass 1: this pass assumes that the bot whose token `getApi` uses on UAT's local build is a member of the test guild
 `1566742402180456559`, so that `getWebhooksAndChannels` returns that guild's channels there, and does not test it. Reading it
 takes the build's credentials and a signed-in session, which this pass did not have. If it is false, the walk shows
@@ -306,6 +369,43 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 5 pass 1
+
+F-36 MEDIUM cycle 5 pass 1 — closed as landed-by-author; discharging document: the plan's Planner batch
+- **Title**: AC-3.7's "Why per input" figures are over the inputs without atoms, and the entry count the list will reach is
+  not stated.
+- **Location**: plan revision 11, AC-3.7 "Why per input" and its last bullet (RK-9's count);
+  `verification/019/impl/m4-dom-residue-before.json`, fields `n`, `atomFree` and `count`;
+  `verification/019/impl/m4-residue-measurement-6379abc.json`.
+- **Description**: the plan says "500 of 1,344 inputs differ" and "818 of 1,545". In the file, `n` is 2,378 on every surface
+  and 1,344 and 1,545 are `atomFree`. AC-3.7 is stated over every input in the generator, the 272 corpus and the 106 link
+  inputs, under each mask. So the DOM measurement leaves 1,034 inputs unread on the description, field value and V2 text
+  display, and 833 on the title. The other cited file, which this pass takes to be the tree-level comparison, counts 1,190,
+  1,208, 1,369, 630 and 1,190 of 2,378. The files hold five cells; the field name, with and without an embed url, has none.
+  Neither file is in `HEAD`.
+- **Impact**: RK-9's falsifier is now "entries per surface", and QA reads the tip's count against M4's. With 43% of the
+  inputs unmeasured in the visible form on three surfaces (1,034 of 2,378), the list may be two to three times the size
+  the revision's figures suggest, and nobody can say which from the plan. The choice of the literal form does not turn on
+  it.
+- **Recommendation**: at the fold, the figures name their subset; the implementation document at M4 records the entry count
+  per surface and mask over all 2,378 inputs, which is the count RK-9 reads; the implementer commits the two files.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2. The count itself lands with
+  M4's list commit.
+
+F-37 LOW cycle 5 pass 1 — closed as landed-by-author; discharging document: the plan's Planner batch
+- **Title**: three wordings revision 11 left behind.
+- **Location**: plan revision 11, changelog row 11; Reading Order, the `code-reviewer` row; AC-3.7 "What fails".
+- **Description**: (1) The changelog row says the change is not put to him because it tightens a test instrument. A change to
+  a criterion of an open milestone rides his last selection on it only when the row names that selection, and the row does
+  not name D-14, whose words are "the rest are listed". (2) The `code-reviewer` row still routes to "AC-3.7's listed classes
+  and their reasons", and the reviewer now reads families and samples entries. (3) The stale-entry limb is a new check on
+  the list, and the plan names no milestone that runs it against a real stale entry and a real live one before a run relies
+  on it.
+- **Impact**: each costs one reader a look elsewhere. None changes what is built.
+- **Recommendation**: at the fold, the row names D-14, the Reading Order row says families, and M4 is named as where the
+  stale-entry check is seen to fail on a stale entry.
+- **Landing trigger**: the same fold.
 
 ### Closed at cycle 4 pass 1
 
@@ -442,6 +542,12 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 5 pass 1: the plan was read as `git diff 890d0b78 ec2440d9` saved in this session's scratchpad, and the plan's other
+  sections from `git show ec2440d9` held in memory. The record-write gate refused one command that saved that export to the
+  scratchpad through a shell variable, reading the path as a record document; it was re-run with nothing written but a text
+  extract at a literal scratchpad path. The tally of the measurement files ran in memory. QA's re-key on revision 11
+  (`047add44`) was committed while this pass ran and was not read before this pass was written.
+
 - Cycle 4 pass 1: the plan was read as `git diff 47348a6d 890d0b78` saved in this session's scratchpad, with website source
   exported there by `git -C /usr/local/bin/hooks/website show`; the ID comparison ran in memory. Nothing was installed or
   run. The architect's and QA's reads of revision 10 were not read before this pass was written. `node tools/check-repo.js`
@@ -461,7 +567,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 4 pass 1 (APPROVED on plan revision 10, `890d0b78`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-35 and SL-11 for the Planner batch, F-34 for RK-8's record) and `implementer-019` (M4's mention code is released by this gate). A later criterion-changing revision opens cycle 5: read the plan as the `git diff` from `890d0b78` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Closed at cycle 5 pass 1 (APPROVED on plan revision 11, `ec2440d9`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-36 and F-37 for the Planner batch) and `implementer-019` (M4's residue-list commit is released by this gate). A later criterion-changing revision opens cycle 6: read the plan as the `git diff` from `ec2440d9` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
