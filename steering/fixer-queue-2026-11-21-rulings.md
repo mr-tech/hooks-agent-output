@@ -763,3 +763,11 @@ fails red against correct code and never passes falsely, and it is not a product
 **Decision: stated limit.** It goes to the plan's Planner batch as a limit for M4's implementer: the vi-VN case resets dayjs to `en`
 first, or runs in its own test module. Weighed: a fold would cost a fourth consecutive AC-4.7 revision and a gate round. The limit
 fails loudly at implementation, where the implementer meets it in the first run, and the remedy is stated.
+
+## 2026-11-23T18:24Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (18:2xZ) asked for `/checkpoint`: prefix 302,317 at 18:24Z, past the 225K steering threshold. The
+Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`). In flight:
+- 9e at `5ec0621`: `qa-fix-image-uploader-url` is on the Phase 2 re-run, with devops next on a PASS.
+- Plan 019 Rev 9 (`47348a6d`) is APPROVED by all three gates. Its implementation waits on the website tree after 9e's release.
+- Plan 019's planner and critic are cleared; devops-019 and the researcher are stopped.
