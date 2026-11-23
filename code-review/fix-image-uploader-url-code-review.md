@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
-Reviewed-At: cae7472 — repos=website
+Reviewed-At: 48c5e87 — repos=website
 Status: In Review
-Round: 2
+Round: 3
 Verdict: APPROVED
 ---
 
@@ -22,6 +22,7 @@ Verdict: APPROVED
 | 2026-11-23T16:43 | steering-hooks-fixer (brief `steering/fix-image-uploader-url-brief-code-reviewer.md`) | Round 1: review the fixer's hand-off at website `7660259` | REJECTED. CR-1 MEDIUM (severity floor): Cancel now clears "Image not found." for a saved address that failed, and nothing re-sets it; shown by run, red at `7660259`, green at `af3d95a`. CR-2 LOW, CR-3 INFO. Probe under `verification/fix-image-uploader-url/code-review/`. |
 | 2026-11-23T16:52 | fixer-fix-image-uploader-url (implementation record `9a33daa2`, `Handoff-At: e94baf7`) | Round 1 sub-entry: confirm the CR-1 and CR-2 fix at website `e94baf7` | APPROVED. CR-1 is gone as a class: the stored error is removed, 0 `setImageError` hits. CR-2 is fixed at its one site. All 5 probe cases pass at `e94baf7`, exit 0. Convention check: 0 FAIL. QA Phase 2 is next (27 production lines added since `af3d95a`). |
 | 2026-11-23T17:32 | fixer-fix-image-uploader-url (implementation record `761dd803`, `Handoff-At: cae7472`) | Round 2: the QA Phase 2 fix round (QAF-1 test only, QAF-3 production, rulings block 17:22Z) at website `cae7472` | APPROVED. The sync of the saved image during render covers every state seeded from `image` (3 of 3). Removing CR-2's line holds: P2 passes, and all 5 consumers feed back what they were sent. The probes pass 10 of 10 at `cae7472`; the round-2 probe fails 3 of 5 at `e94baf7` (control). CR-4 and CR-5 are INFO. QA Phase 2's re-run is next (32 production lines added). |
+| 2026-11-23T17:58 | fixer-fix-image-uploader-url (implementation record `74ffd334`, `Handoff-At: 48c5e87`) | Round 3: limb 5, Enter in the address box (his 17:40Z selection), at website `48c5e87`. Round 2's approval at `cae7472` is superseded | APPROVED. The shared `useDialogEnter`'s 2 other callers behave the same, shown by execution (probe Q1 and Q2 identical at `cae7472` and `48c5e87`; Q3 discriminates). The probes pass 13 of 13 at `48c5e87`. QA Phase 2's re-run is next (41 production lines added since `af3d95a`). |
 
 **Disclosed in this round.** The stamp gate (PostToolUse hook) refused my first write of this file because its changelog stamp was typed
 ahead of the clock (16:44 against 16:43Z). I corrected the stamp from `date -u`, which satisfies the gate. I made that correction, and
@@ -276,9 +277,59 @@ CR-5 INFO Round 2
   not established here. Flow 9 of the implementation document covers only the closed case. This needs no change; it is recorded for QA's
   walk.
 
+## Round 3 — limb 5 at `48c5e87`
+
+The delta `cae7472..48c5e87` (`7f0229c`, `96fb1f8`, `48c5e87`) adds a limb, so this is a new round, reviewed as a first review of that
+tree. `git rev-parse HEAD` printed `48c5e87eda2ba0b553b7bbd83e3e8c34e7f96405` at the start and at the end.
+- Criterion, as rulings block "2026-11-23T17:40Z" states it at round open: in the image address dialog, Enter with focus in the address
+  box commits as Save does, under limbs 1 and 2's conditions. `useDialogEnter.ts` is shared, so the other dialogs' behaviour must not
+  change.
+- Numstat for the delta: `ImageUploader.tsx` 1 added, 1 removed; `useDialogEnter.ts` 8 added, 2 removed. In the test files,
+  `ImageUploader.saved-address` 29 added and `ImageUploader.enter-scope` 13 added, 11 removed. Production lines added since `af3d95a`:
+  33 + 8 = **41**.
+
+- **Change.** `useDialogEnter` takes an optional third argument, `enableOnFormTags`, which it passes to react-hotkeys-hook's options.
+  `ImageUploader` passes `['input']`. Enter still answers only through `submit`, which exists only when `loaded`, so limbs 1 and 2 bound
+  it as before. The installed library is `react-hotkeys-hook` 5.2.4, and `pnpm-lock.yaml` is unchanged from `af3d95a`
+  (`git diff --quiet`). Its form-tag check (`dist/index.js`, the function the bundle names `F`, signature `(e, r = !1)`) treats an
+  omitted value as `false`, so passing `undefined` matches omitting the option.
+- **Shared-hook callers.** `git grep -n "useDialogEnter" 48c5e87 -- src`, excluding tests, gives 3 callers:
+  - `ConfirmationDialog` (`useDialogEnter(onConfirm)`) and `WarningDialog` (`useDialogEnter(onConfirm, open)`) do not pass the argument.
+    Neither renders children or form fields (`grep` for `children`, `<input`, `TextField`, `<textarea` and `<select`: no hits).
+  - `ImageUploader` is the one caller that changes.
+
+  The no-change claim is settled by execution, not by that reading. The probe `review-probe-dialog-enter.test.tsx` mounts the real hook
+  inside a `role="dialog"` with an input and a button, in `git archive` exports of both trees:
+  - Q1 (two-argument caller, Enter in an input: no answer) and Q2 (two-argument caller, Enter on a button: answers) pass at both
+    `cae7472` and `48c5e87`.
+  - Q3 (`['input']`, Enter in an input: answers) fails at `cae7472` (`expected [] to deeply equal [ 'tags' ]`, exit 1:
+    `probe-dialog-enter-run-cae7472.txt`) and passes at `48c5e87`, so the probe tells the two trees apart.
+- **No `<form>`** wraps the field (`TextField.tsx` renders a bare `<input>`; `PresetDialog` and `ImageUploader` have no `<form>`), so
+  Enter in the box sets off no native submit beside the hotkey.
+- **Tests.**
+  - `ImageUploader.saved-address` adds "saves the loaded address on Enter with focus in the box" and an `it.each`, "saves nothing on
+    Enter in the box while its address %s" (still loading; failed to load). Each case asserts focus is in the box before Enter, and the
+    expectations are literals.
+  - `ImageUploader.enter-scope` changes the URL-field row from `{}` to `{ close: 1, setImage: 1 }`. The ruling names that change.
+  - The other `enter-scope` edits replace module-level mutable callbacks (`raise`, `setOpen`) with hidden host buttons. That is
+    test-only, with the same calls and the same rows otherwise.
+  - The ID-token `grep -c` gives 0 in both files, and the diff adds 0 comment lines (`grep -c` on `^\+\s*(//|/\*)`).
+  - `convention-check.js --since=af3d95a` at `48c5e87`: exit 0, 4 files examined, 0 FAIL, 0 CANDIDATE, the same 18 SKIPs
+    (`convention-check-48c5e87.txt`).
+- **Regression probes.** The Round 1 and Round 2 probes, re-run beside the hook probe at `48c5e87`: **13 passed (13), exit 0**
+  (`probe-run-48c5e87.txt`).
+- **CR-3**, still with steering: limb 5's wording ("Once the address has loaded, Enter in the box saves it") leaves the emptied box out.
+  Enter on an emptied box with an image saved still saves nothing (P3 passes), while Save removes the image. No change follows from
+  this round.
+- **Read from code, not run:** the library has no IME composition check (no `isComposing` in `dist/index.js`). An Enter that confirms an
+  IME composition in the box would answer. It would save only if the composed text equals an address that has already loaded, because
+  composing changes the box and so clears `loaded`. INFO, no action.
+
 ## Verdict
 
-**Status (Round 2, `cae7472`)**: APPROVED. No finding blocks. CR-4 and CR-5 are INFO, with no action owed by the fixer.
+**Status (Round 3, `48c5e87`)**: APPROVED. No finding blocks. It supersedes Round 2's approval at `cae7472`.
+
+**Status (Round 2, `cae7472`)**: APPROVED, superseded by Round 3. No finding blocks. CR-4 and CR-5 are INFO, with no action owed by the fixer.
 
 **Status (Round 1 sub-entry, `e94baf7`)**: APPROVED. CR-1 and CR-2 are dispositioned above. CR-3 INFO stays with steering, non-blocking.
 
@@ -306,7 +357,15 @@ prop while the dialog stays mounted, as steering's reachability read says. It te
 either action, the avatar dialog reopens on the old address, and Save writes it back (flow 9). Owner: QA Phase 2, by walking flow 9
 against a local build.
 
+Round 3: this review assumes that in a real browser the Enter keydown in the address box reaches react-hotkeys-hook's document listener
+with the input as its target, as jsdom delivers it, and that nothing in react-aria's `useTextField` stops it first. It does not test this
+in a browser. Falsity signature: with a loaded address and focus in the box, Enter leaves the dialog open and saves nothing (flow 1).
+Owner: QA Phase 2, by walking flow 1 in a real browser against a local build.
+
 ## Next Steps
+
+At `48c5e87` (Round 3): QA Phase 2's re-run is next, at 41 production lines. The spawn cue goes to `steering-hooks-fixer`. QA also
+takes Round 3's assumption below.
 
 At `cae7472` (Round 2): QA Phase 2's re-run is next. The spawn cue goes to `steering-hooks-fixer`, per the brief. Round 2's
 assumption: it assumes that the editor's reload and JSON load hand the Author dialog a new `image` prop in one render, and it does not

@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6fa4596-1476-4c4b-88f5-2ac9bc277a63/scratchpad/ex-cae7472
+
+ ❯ |dom| src/components/__tests__/useDialogEnter.review-probe.test.tsx (3 tests | 1 failed) 69ms
+     × Q3 input-tag caller: Enter in an input answers 13ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/useDialogEnter.review-probe.test.tsx > review probe: useDialogEnter callers without the third argument > Q3 input-tag caller: Enter in an input answers
+AssertionError: expected [] to deeply equal [ 'tags' ]
+
+- Expected
++ Received
+
+- [
+-   "tags",
+- ]
++ []
+
+ ❯ src/components/__tests__/useDialogEnter.review-probe.test.tsx:49:19
+     47|     await act(async () => {});
+     48|     focusAndEnter('[data-field]');
+     49|     expect(calls).toEqual(['tags']);
+       |                   ^
+     50|   });
+     51| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  17:58:07
+   Duration  1.35s (transform 70ms, setup 33ms, import 106ms, tests 69ms, environment 956ms)
+
+exit 1
