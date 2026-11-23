@@ -663,3 +663,10 @@ Go from `steering-coordinator` (item 10, 15:5xZ), naming base `af3d95a`. Before:
 `?? .playwright-mcp/` only (read through a file). Command: `git switch --no-track -c chain/fix-image-uploader-url origin/master`, at
 15:55:18Z. After: `chain/fix-image-uploader-url` at `af3d95a`, no upstream. The lockfile is unchanged (same commit). Determination: the
 chain's rulings, block "2026-11-23T15:54Z" (`83bc1cab`). Plan 019's implementation takes the tree after this chain.
+
+## 2026-11-23T15:56Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (15:5xZ) asked for `/checkpoint` once the 9e cut landed (prefix 275,030 at 15:39Z, past the 225K steering
+threshold). The Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`). In
+flight: `fixer-fix-image-uploader-url` (9e, from `af3d95a`); plan 019 Rev 1 under `critic-019`, `qa-019` Phase 1 and the architect's
+conformance pass, and `analyst-019` on M1.
