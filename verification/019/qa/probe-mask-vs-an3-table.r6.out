@@ -1,0 +1,11 @@
+gm-surfaces cases: 3; legacy GAME_MENTION per surface: content (webhook)=true; embed description=true; embed field value=true; embed title=false; embed title, embed has url=false; field name=false; field name, embed has url=false; V2 text display=true
+r6 cells 248 mismatches 0
+control-r4 embed description GAME_MENTION: legacy=on mask=off
+control-r4 embed field value GAME_MENTION: legacy=on mask=off
+control-r4 V2 text display GAME_MENTION: legacy=on mask=off
+control-r4 cells 248 mismatches 3
+r6 masks (hex): content (webhook)=0x3fffffff; embed description=0x3fffffff; embed field value=0x3dffffff; embed title=0x19fec97f; embed title, embed has url=0x19fec907; field name=0x19fec97f; field name, embed has url=0x19fec907; V2 text display=0x3fffffff
+no mask is 0: true; DEV_LINKS set in any: false
+GAME_MENTION = 0x400
+control-bold-flip embed title BOLD: legacy=on mask=off
+control-bold-flip cells 248 mismatches 1

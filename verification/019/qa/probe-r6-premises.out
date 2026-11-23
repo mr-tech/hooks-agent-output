@@ -1,0 +1,20 @@
+(1) 0x02000000 = HEADING
+(1) content 0x3fffffff clears vs content: (none)
+(1) embed description 0x3fffffff clears vs content: (none)
+(1) embed field value 0x3dffffff clears vs content: HEADING
+(1) title / field name 0x19fec97f clears vs content: USER_MENTION,ROLE_MENTION,GAME_MENTION,EVERYONE_MENTION,HERE_MENTION,CODE_BLOCK,HEADING,LIST,SUBTEXT
+(1) title / field name, url 0x19fec907 clears vs content: MASKED_LINK,DETECTED_LINK,AUTO_LINK,CONTACT_LINK,USER_MENTION,ROLE_MENTION,GAME_MENTION,EVERYONE_MENTION,HERE_MENTION,CODE_BLOCK,HEADING,LIST,SUBTEXT
+(1) V2 text display 0x3fffffff clears vs content: (none)
+(2) inputs 417 (corpus 272, links 106, grid 39); with an emoji node under content: 41
+(2) embed description: inputs whose emoji spans differ from content's: 0; grid constructs: (none); first: 
+(2) embed field value: inputs whose emoji spans differ from content's: 0; grid constructs: (none); first: 
+(2) title / field name: inputs whose emoji spans differ from content's: 0; grid constructs: (none); first: 
+(2) title / field name, url: inputs whose emoji spans differ from content's: 11; grid constructs: maskedLinkLabel,urlPath,autoLink; first: "https://x.y🙂" | "[🙂](https://x.y)" | "https://x.y/🙂"
+(2) V2 text display: inputs whose emoji spans differ from content's: 0; grid constructs: (none); first: 
+(2) control, content with EMOJI cleared: differing grid inputs 24 of 39
+(3) node v24.14.0, ICU 78.2, tz env (unset)
+(3) s="11/14/23, 10:13 PM" cps 0031 0031 002f 0031 0034 002f 0032 0033 002c 0020 0031 0030 003a 0031 0033 0020 0050 004d
+(3) S="11/14/23, 10:13:20 PM" cps 0031 0031 002f 0031 0034 002f 0032 0033 002c 0020 0031 0030 003a 0031 0033 003a 0032 0030 0020 0050 004d
+(3) drawn "11/14/23, 10:13 PM" cps 0031 0031 002f 0031 0034 002f 0032 0033 002c 0020 0031 0030 003a 0031 0033 0020 0050 004d
+(3) drawn "11/14/23, 10:13:20 PM" cps 0031 0031 002f 0031 0034 002f 0032 0033 002c 0020 0031 0030 003a 0031 0033 003a 0032 0030 0020 0050 004d
+(3) default-locale call (no locale, no timeZone): "11/14/23, 10:13 PM"
