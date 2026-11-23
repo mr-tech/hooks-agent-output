@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-624 documents · 18 numbered chains · 425 unnumbered.
+741 documents · 19 numbered chains · 536 unnumbered.
 
 ---
 
@@ -179,6 +179,17 @@ closed. A document's path changes when it closes; its name does not.
 | security | `security/closed/018-next-upgrade-save-size-cap-security-audit.md` | Review Complete — APPROVED at website d1bb9b0, which is the released commit: website master moved to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). H-002 and M-001 are CLOSED in security/closed/website-deps-review-security-audit.md. On production, devops read Next.js 16.4.6 (B-7 PASS) and UAT read an over-limit save refused with 1 issue (B-6 PASS); security made no request to production. L-001 LOW stays OPEN, not blocking: a tRPC batch lets one request carry about 1,050 capped saves; carried by item 1 of handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md, with I-2 (item 5) and I-3 (its closing paragraph). I-1 and I-4 are stated limits. |
 | UAT | `uat/closed/018-next-upgrade-save-size-cap-uat.md` | Released — Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). APPROVED FOR RELEASE at website d1bb9b0 (plan revision 8). Pre-release rows B-1 to B-4, B-9 and M5-d EXECUTED; B-5 discharged by devops (READY, deployment record). Post-deploy rows ride the devops handoff with UAT-1's B-7 instrument. |
 
+### 019 — 5 open, 1 closed
+
+| Stage | Location | Status |
+|---|---|---|
+| analysis | `analysis/019-slate-formatting-discord-engine-analysis.md` | Active — AN-1 to AN-7 (plan Revision 2) and AN-8 limbs 1 to 4 (plan Revision 5) have results. G-11 is not completed (X-13). AN-8 limb 5, the slow-CPU generator capture, is in progress. AN-8 limb 1, which holds M4's approval, has landed: Discord draws `s` and `S` as short date with short time, and short date with medium time. |
+| architecture | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` | Active — Delta pass on plan 019 revision 5 (record d2912590): APPROVED. CF-11 is folded as recommended. CF-12 (LOW, non-blocking) asks which mask module 818948 runs under on the non-content surfaces. Delta pass on plan 019 revision 4 (record e53c7cdb): APPROVED. CF-9 and CF-10 are folded as found. CF-11 (LOW, a recommendation the planner may fold or decline with its reason) is on AC-6.5's expected spans. Delta pass on plan 019 revision 3 (record 9ac9ba62): APPROVED_WITH_CHANGES on two LOW findings (CF-9 the emoji lift on edit, CF-10 the emoji element's derived fields). A′/B3, CF-8, the run unit and D-13's removal are carried as designed. § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3). Delta pass on plan 019 revision 2 (record 8dfd4659): APPROVED_WITH_CHANGES. CF-1 to CF-7 are folded as found. One new LOW defect against the Test Conventions: a single `discord` vitest project cannot keep the environment-by-extension rule (CF-8). CF-2's option b is OQ-5, at steering. Goes to planner-019; the next delta pass reads CF-8's fold. |
+| critique | `critiques/closed/019-slate-formatting-discord-engine-critique.md` | Resolved — Cycle 1 pass 5 on plan revision 5: APPROVED, and closed at that pass. F-1 to F-30 are RESOLVED. F-31 (LOW) carries its landing trigger in the plan's Planner batch (the planning pass that folds AN-8's GAME_MENTION limb) and closes there as landed-by-author. A later revision that changes a criterion's text opens cycle 2. |
+| deployment | `deployment/019-slate-formatting-discord-engine-deployment.md` | Active — AN-1's Vercel limb read and recorded (below). Stage 1 for plan 019 has not started; its brief comes later. The spike branch is deleted (17:04Z) after the analysis cited these numbers. |
+| plan | `planning/019-slate-formatting-discord-engine.md` | Active — Revision 5 is approved by all three pre-code gates (critic 944e53f6, architect 681ae51, QA d060162): ready for implementation from M2, on his approval, except AC-2.3's GAME_MENTION bit on the five legacy-only masks. AN-8 limb 2 (db8199aa) falsified that bit's premise (F-31 fired), and its per-surface read (limb 2b) is with the analyst. M4's and M6's approval are held on the planning pass that folds AN-8 with Planner batch rows F-31, CF-12, EC-7 and the critic's pass 5 assumption. M2's start also waits on the website tree (fixer queue). |
+| QA | `qa/019-slate-formatting-discord-engine-qa.md` | Awaiting Implementation — Phase 1 re-keyed on plan 019 Revision 5 (record d2912590). QAF-1 to QAF-23 are folded, verified in the re-key sections, and there is no new finding. EC-7 is added for AC-6.5. Register B-1 to B-6 is swept, with no change. Implementation is not approved. |
+
 ### 1 — 0 open, 8 closed
 
 | Stage | Location | Status |
@@ -310,6 +321,7 @@ they are the ID-less artifacts that root new efforts.
 | Kind | Location | Status |
 |---|---|---|
 | analysis | `analysis/test-inventory-2026-08-26.md` | Active |
+| architecture | `architecture/closed/slate-formatting-preview-architecture-findings.md` | Resolved — Carried whole by plan 019 (AF-2 M7, AF-3 M2, AF-4 AC-2.6, AF-5 AN-1, AF-7 P-2/AN-2, AF-8 D-11, AF-9 X-9); its conformance findings continue in `architecture/019-slate-formatting-discord-engine-architecture-findings.md`. Pre-planning review of OQ-4 (use Discord's published formatter in the product, or keep the site's own rules and test them against it). Verdict APPROVED_WITH_CHANGES for adoption: one parse engine (`@discord/markdown-wasm`, exact pin) behind a site-owned adapter, for the preview and the editor's colouring, in one release; the site's own renderers stay; the old formatter stays test-only. The owner chose B by selection at 2026-11-23T15:23Z (effort rulings, record `5d7fbf5e`); `planner-slate-formatting` plans from it. The planner inherits this document when it mints the effort's ID; it closes when the plan's conformance pass has read the adopted option. |
 | architecture | `architecture/preview-image-generator.md` | Active |
 | architecture | `architecture/system-architecture.md` | Active |
 | architecture | `architecture/website.md` | Active |
@@ -317,16 +329,22 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/001-components-v2-state-management-code-review.md` | — |
 | code review | `code-review/closed/012-carry-forward-to-post-refresh-pass.md` | — |
 | code review | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin, the reviewed commit. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
+| code review | `code-review/closed/fix-api-extractor-devdep-code-review.md` | Released — Released: the reviewed commit a47e683 is project-utils master (pushed 2026-11-22T07:22Z; deployment/fix-api-extractor-devdep-deployment.md). Verdict unchanged. |
 | code review | `code-review/closed/fix-api-secret-compare-code-review.md` | Released — Round 1 APPROVED_WITH_COMMENTS at website 0c14d5b, released to origin/master 2026-11-21T18:35Z; Assumption Not Checked carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md. |
+| code review | `code-review/closed/fix-cut-collapsed-caret-code-review.md` | Committed — Verdict APPROVED at 8845b7e; the chain is committed on website chain/fix-cut-collapsed-caret, release awaits the owner's approval (deployment/fix-cut-collapsed-caret-deployment.md). |
+| code review | `code-review/closed/fix-decorator-offsets-code-review.md` | Released — Released with the chain: website master at febf20e, 2026-11-22T22:44:37Z; verdict APPROVED at febf20e unchanged. Record: deployment/closed/fix-decorator-offsets-deployment.md. |
 | code review | `code-review/closed/fix-delete-dead-cron-code-review.md` | Released — Round 1 APPROVED at website 132a7ab; released to website master at that SHA (deployment/closed/fix-delete-dead-cron-deployment.md). The Assumption Not Checked on the dashboard cron list is carried by handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md. |
 | code review | `code-review/closed/fix-desktop-draft-as-typed-code-review.md` | Committed — Round 1 APPROVED_WITH_COMMENTS at b68f94c; CR-1 corrected by the fixer (record f25ef260). Committed at Stage 1 by devops; not released. The Assumption Not Checked was discharged at route 0 by QA's walk; its saved-message residue is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md. |
 | code review | `code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md` | Committed — Round 1 verdict APPROVED_WITH_COMMENTS at website 1ad625e; committed state recorded by devops. CR-1 rides its handoff; the Assumption Not Checked rides the production look (deployment record, runbook row 7). |
+| code review | `code-review/closed/fix-emoji-pretransform-widths-code-review.md` | Committed — Committed with the chain at website 0411d3b (devops Stage 1); release awaits the owner's approval. |
 | code review | `code-review/closed/fix-get-one-absent-not-found-code-review.md` | Committed — Round 1 APPROVED at website b663b35; QA Phase 2 PASS at b663b35; committed at devops Stage 1, release is devops's on the owner's approval. Assumption Not Checked carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md. |
-| code review | `code-review/closed/fix-git-dependency-pins-code-review.md` | Committed — Rounds 1 and 2 APPROVED, no findings. Project-utils half released at 40ba5d3; website 3859c29 awaits its master release (deployment record deployment/fix-git-dependency-pins-deployment.md). |
+| code review | `code-review/closed/fix-git-dependency-pins-code-review.md` | Released — Rounds 1 and 2 APPROVED, no findings. Project-utils released at 40ba5d3 (2026-11-21T23:15Z) and website at 3859c29 (2026-11-22T17:04Z, production Ready); deployment/closed/fix-git-dependency-pins-deployment.md. The two Assumptions Not Checked are carried or closed there. |
 | code review | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` | Released — Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473. |
 | code review | `code-review/closed/fix-import-save-conflict-code-review.md` | Committed — Round 1 APPROVED through sub-entry 2 at website b829314; the chain is released (website master b829314, 2026-11-21T08:53:57Z, deployment/fix-import-save-conflict-deployment.md). |
 | code review | `code-review/closed/fix-message-not-found-code-review.md` | Committed |
 | code review | `code-review/closed/fix-message-page-header-decode-code-review.md` | Released — Round 1 APPROVED at 7923a1d; released: website master 7923a1d at 2026-11-20T02:34:40Z. CR-1 carrier: steering/website-deps-review-rulings.md block 2026-11-20T02:18Z. Assumption Not Checked carrier: handoff/message-page-header-decode-post-deploy-2026-11-20.md row P-1. |
+| code review | `code-review/closed/fix-middleware-dead-matcher-code-review.md` | Committed — Round 1 APPROVED_WITH_COMMENTS at website 453de76; the work is committed on its chain branch, not pushed; CR-1 ruled outside this release (rulings block 17:40). |
+| code review | `code-review/closed/fix-normalize-fence-loop-code-review.md` | Released — Round 1 sub-entry 1b APPROVED at 61e5dfe; released at website af3d95a. |
 | code review | `code-review/closed/fix-personal-message-access-code-review.md` | Committed — Committed with the chain at website chain/fix-personal-message-access 983681c (devops Stage 1); verdict APPROVED at that SHA stands. The Assumption Not Checked rides handoff/fix-personal-message-access-post-deploy-2026-11-20.md (B-2, B-1). |
 | code review | `code-review/closed/fix-recent-message-ids-code-review.md` | Committed |
 | code review | `code-review/closed/fix-trpc-batch-limit-code-review.md` | Released |
@@ -334,25 +352,32 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
 | code review | `code-review/closed/fix-website-dependency-audit-code-review.md` | Released — Closed by devops at the chain's release (crontab line installed 2026-11-21T01:11Z, no push; deployment/closed/fix-website-dependency-audit-deployment.md). The Assumption Not Checked below travels to handoff/fix-website-dependency-audit-first-run-2026-11-21.md, row B-1, read by scheduled reader R1. |
 | code review | `code-review/closed/fix-website-save-gate-embeds-code-review.md` | Committed — Committed with the chain at website 0e3d903 (devops Stage 1, 2026-11-11T10:12Z); verdict APPROVED_WITH_COMMENTS unchanged. |
+| code review | `code-review/fix-image-uploader-url-code-review.md` | In Review |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
 | deployment | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin (push by devops, Mode A, on the owner's 'merge it' and 'Push now'). Fix branch merged and deleted. Phase 2D complete. |
+| deployment | `deployment/closed/fix-api-extractor-devdep-deployment.md` | Released — project-utils master moved 40ba5d3 to a47e683 at 2026-11-22T07:22Z (read back by git ls-remote); deploys nothing; fix branch deleted. Nothing open on this release. |
 | deployment | `deployment/closed/fix-api-secret-compare-deployment.md` | Released — Website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35:45Z on the owner's approval (Mode A). Deploy evidenced by the push. B-1 and the Statbot-ids assumption are carried on handoff/fix-api-secret-compare-post-deploy-2026-11-21.md. |
+| deployment | `deployment/closed/fix-cut-collapsed-caret-deployment.md` | Released — Released 2026-11-22T20:13Z: website master 453de76 -> 8845b7e on origin (release-move.js exit 0; ls-remote read back); Vercel deployment dpl_3JEEF7Vs… Ready, built from 8845b7e, aliased hooks.gg. Real-browser Ctrl+X walk passed on the production alias origin. Fix branch merged and deleted. |
+| deployment | `deployment/closed/fix-decorator-offsets-deployment.md` | Released — Released 2026-11-22T22:44:37Z: website master febf20e39905c977b0d42081137817cb7b704478; Vercel production deployment Ready and serving hooks.gg; B-1 executed PASS. Release identifier is that SHA. |
+| deployment | `deployment/closed/fix-delete-dead-cron-deployment.md` | Released — Released: website master moved 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's approval. The first production deployment errored (five settings missing at the build); the owner's redeploy at 2026-11-22T16:55:59Z built 132a7ab and is Ready at hooks.gg. The dashboard Cron Jobs read is carried by handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md, which this record does not wait on. |
 | deployment | `deployment/closed/fix-desktop-draft-as-typed-deployment.md` | Released — Released 2026-11-21T11:32:56Z to 11:33:01Z: website master b663b35 -> b68f94c on origin (release-move.js exit 0; ls-remote read back at 11:33:03Z), on the owner's release approval. Chain branch merged and deleted. P-1 (saved-message route) is carried by handoff 4bbe68a5, not yet read; the baseline is read. |
 | deployment | `deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md` | Released — Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (release-move.js exit 0; ls-remote read back). Fix branch merged and deleted. The production look (the code review's Assumption Not Checked) was not done by this session, which had no test-account browser; it rides handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md and does not hold this record open. |
+| deployment | `deployment/closed/fix-emoji-pretransform-widths-deployment.md` | Released — Released 2026-11-23T08:38Z: website master febf20e -> 0411d3b on origin (release-move.js exit 0; ls-remote read back). Chain branch merged and deleted. B-1 executed PASS on hooks.gg production. The guild-emoji picker and mobile IME limbs ride handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md; they do not hold this record open. |
 | deployment | `deployment/closed/fix-get-one-absent-not-found-deployment.md` | Released — Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. B-1 (hooks.gg test-account read) is carried by handoff b5c69a32, not yet read. |
+| deployment | `deployment/closed/fix-git-dependency-pins-deployment.md` | Released — Both releases done: project-utils master 749606d to 40ba5d3 (2026-11-21T23:15Z) and website master 132a7ab to 3859c29 (2026-11-22T17:04Z, on the owner's approval). Production deployment dpl_8oenan2E9c2YzyeB3kVrZvtD43XC is Ready, built from 3859c29 and serving hooks.gg. Forward items carried by two handoffs; architecture notice is steering's. |
 | deployment | `deployment/closed/fix-import-save-conflict-deployment.md` | Released — Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Row PD-1 is open in handoff/fix-import-save-conflict-post-deploy-2026-11-21.md (qa). |
 | deployment | `deployment/closed/fix-message-not-found-deployment.md` | Released — Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Row B-1 is open in handoff/fix-message-not-found-post-deploy-2026-11-21.md (qa). |
 | deployment | `deployment/closed/fix-message-page-header-decode-deployment.md` | Released — Released: website master moved 983681c to 7923a1d at 2026-11-20T02:34:40Z on the owner's release approval, read back at origin. Post-deploy row P-1 is carried by handoff/message-page-header-decode-post-deploy-2026-11-20.md (reader P1R); this record does not wait on it. |
+| deployment | `deployment/closed/fix-middleware-dead-matcher-deployment.md` | Released — Released 2026-11-22T18:41Z: website master 3859c29 -> 453de76 on origin (release-move.js exit 0; ls-remote read back); Vercel deployment Ready, built from 453de76, serving hooks.gg. Fix branch merged and deleted. Proxy region placement and latency unmeasured. |
+| deployment | `deployment/closed/fix-normalize-fence-loop-deployment.md` | Released — Released 2026-11-23T15:24Z: website master 0411d3b -> af3d95a on origin (release-move.js exit 0; ls-remote read back). Vercel production deployment Ready, aliased to hooks.gg. Post-deploy walk PASS. Chain branch merged and deleted. QAF-4 and the quote-into-code-block loss ride S-29, not this record. |
 | deployment | `deployment/closed/fix-personal-message-access-deployment.md` | Released — Released 2026-11-20T01:33:58Z: website master 787bec5 -> 983681c on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. B-2, B-1 and the owner's residue read ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md; they do not hold this record open. |
 | deployment | `deployment/closed/fix-recent-message-ids-deployment.md` | Released — Released 2026-11-21T06:45:05Z: website master 76da25c -> 6f76c6d on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. P-1 (production log read) and P-2 (hooks.gg test-account read) both read, neither falsified; P-2 handoff Addressed. |
 | deployment | `deployment/closed/fix-trpc-batch-limit-deployment.md` | Released — Released: website master moved d1bb9b0 to 76da25c at 2026-11-21T00:45:05Z on the owner's release approval, read back at origin. The one post-deploy read could not decide the code review's Assumption Not Checked; it is carried by handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md, which this record does not wait on. |
 | deployment | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` | Released — Released 2026-10-10: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirmed Vercel live. Every register row terminal: B-3 PASS (401, 16:52Z); B-4 PASS (owner's observation, 2026-11-10). Phase 2D complete. |
 | deployment | `deployment/closed/fix-website-dependency-audit-deployment.md` | Released — Crontab line installed 2026-11-21T01:11Z; no push and no serving ref (record origin deploys nothing). The first scheduled run (06:43Z) and both Assumptions Not Checked are carried on handoff/fix-website-dependency-audit-first-run-2026-11-21.md and read by reader R1. |
 | deployment | `deployment/closed/fix-website-save-gate-embeds-deployment.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (release-move.js exit 0; ls-remote read back). Fix branch merged and deleted. The owner's hooks.gg check and optional live-database read ride handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md; they do not hold this record open. |
-| deployment | `deployment/fix-delete-dead-cron-deployment.md` | Active — Reopened. Website master was pushed 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's approval, but Vercel's production deployment of that push errored (build: five required settings absent at prerender), so production still serves the previous release. Awaiting the cause and the owner's decision; see Correction. |
-| deployment | `deployment/fix-git-dependency-pins-deployment.md` | Active — Release 1 of 2 done: project-utils master moved to 40ba5d3 at 23:15Z. Release 2 (website master, tip 3859c29): Stage 1 done, no release ask yet, held until a Ready production deployment of 132a7ab serves hooks.gg (steering brief). |
 | handoff | `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` | Open · priority normal — Carrier of plan 017's post-deploy rows B-6 to B-11 (QA's register) and the forward items that only production can decide, opened at devops Stage 1; both releases are live (E-WEBSITE-PUSH 2026-11-19T20:11Z, E-GENERATOR-PUSH 20:14Z, E-GENERATOR-START 20:15Z) and B-11 is executed; B-6 to B-10 are unread but B-7's first post-website read is 0 failures. B-7 is read by the scheduled headless reader B7R and B-10 by B10R (kit verification/017/post-deploy/kit/); B-6, B-8 and B-9 were moved to a test-account session by his selection (017 rulings block 2026-11-20T02:41Z) and executed PASS on 2026-11-20 (aaccb15), their item handoffs closed Addressed; B-11 is devops's at each deploy. Open: B-7 and B-10. No row gates the release act or the commit. |
 | handoff | `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` | Open · priority normal — The red test for a portaled popover's first load inside an open dialog discriminates only while its first case is the file's first render of Child.tsx. Owed: make every case a first load. Blocks nothing; the fix it guards is a static import. |
 | handoff | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | Open · priority normal — Two chain-012 items were each explicitly routed to "handoff material under D18" and no handoff was ever created, so both survived only inside documents that are now in `closed/`. This document is that destination, written after the fact. Both concern the same file - `src/scripts/backfillValid.ts` in `website` - and both are unclosed for the same underlying reason: **no DB-backed instrument exists in this environment**, so neither can be settled by the unit suite that closed everything else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known, bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings. A third item, from chain 013, was added on 2026-11-11 by owner selection (Item 3). |
@@ -368,7 +393,9 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/deleted-message-url-serves-blank-editor-2026-11-20.md` | Addressed · priority low — Discharged by fixer chain fix-message-not-found, released to website master f4baebb at 2026-11-21T07:51:38Z, on his selection of a not-found state (steering/fixer-queue-2026-11-21-rulings.md, 05:50Z Q1): a deleted message's edit and send pages show the one notice. The page itself still answers HTTP 200; the notice is rendered client-side. |
 | handoff | `handoff/closed/editor-error-lines-render-text-unasserted-2026-11-11.md` | Addressed · priority normal — Discharged by plan 017 M1-c (plan disposition table, planning/closed/017-existing-items-backlog.md line 1348): every error line DiscordMessageEditor renders is asserted by literal text, each case seen red under a mutant of its own (qa/closed/017-existing-items-backlog-m1-qa.md line 219, QA Complete at website 8147661). Released at website master 787bec5 (2026-11-19T20:11Z). |
 | handoff | `handoff/closed/editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md` | Addressed · priority normal — Discharged by fixer chain fix-message-not-found, released to website master f4baebb at 2026-11-21T07:51:38Z: a refused load shows the one not-found notice with a link back to his messages, and is not retried. |
+| handoff | `handoff/closed/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md` | Addressed · priority normal — Discharged: B-1 executed PASS on production hooks.gg after the deploy of website master at febf20e (walk 2026-11-22, results in verification/fix-decorator-offsets/devops/walk/results.json); both browser-side Assumptions Not Checked answered true. |
 | handoff | `handoff/closed/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md` | Addressed · priority normal — P-1 read on hooks.gg 11:36:35Z-11:37:33Z by qa-fix-desktop-draft-as-typed: HOLDS. On saved message 6008, at desktop width in a fresh tab, typed content and author-name text came back after a reload and the leave prompt fired; the pre-push baseline was lost and no prompt. This settles QA's Assumption Not Checked. Closed Addressed by qa on steering-hooks' brief. The source handoff (f1356f4b) is steering's to close at the chain's closure. |
+| handoff | `handoff/closed/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md` | Addressed · priority normal — Executed after the release: B-1 PASS and both guidance limbs PASS on hooks.gg production, signed out, nothing saved (verification/fix-emoji-pretransform-widths/devops/walk/). |
 | handoff | `handoff/closed/fix-get-one-absent-not-found-post-deploy-2026-11-21.md` | Addressed · priority normal — B-1 read on hooks.gg 10:13:30Z-10:14:17Z by qa-fix-get-one-absent-not-found: HOLDS on both limbs (absent numbers answer the one 404; /edit shows the notice without the editor bar), which also settles the review's and QA's Assumption Not Checked. Closed Addressed by steering-hooks at the chain's closure, with e450d19c and 7c3e91a4. |
 | handoff | `handoff/closed/fix-import-save-conflict-post-deploy-2026-11-21.md` | Addressed · priority normal — PD-1 terminal on its 09:00Z read, closed on the owner's selection (steering/fix-import-save-conflict-rulings.md, block 2026-11-21T09:02Z). The release serves the fix; the Message Link limb's blank import is carried by handoff/message-link-import-returns-empty-message-2026-11-21.md. |
 | handoff | `handoff/closed/fix-message-not-found-post-deploy-2026-11-21.md` | Addressed · priority normal — B-1 for fixer chain fix-message-not-found: the server and own-message limbs passed at 07:53Z-07:56Z; the absent-number limb failed then and was re-read after fixer chain fix-get-one-absent-not-found's release (website b663b35), HOLDS at 10:13Z-10:14Z (handoff b5c69a32, record aefd6beb). Closed Addressed by steering-hooks. |
@@ -397,10 +424,12 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | Addressed · priority normal — Fixed and verified on production: website master 1ad625e (chain fix-dialog-closes-on-first-portal-load, push 2026-11-18T22:41Z); the production look on hooks.gg as the test account passed all four flows (Upload Message and Save As with Save To, the top-bar menus, the colour picker) with hooks.gg serving 1ad625e's bundle (uat rows 22:53, agent-output efc6e21). Residue carried elsewhere: the red test's order dependence, handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md. |
 | handoff | `handoff/closed/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` | Addressed · priority normal — Addressed at agent-output 3cb97ea: the Problem Areas row is restated from website 983681c as counting before each insert, where the count enforces the cap; the X-16 race and the unindexed columns stand. Other entries the fix made false were reconciled in the same commit (Components, Runtime Flow 1b, website.md A-6, the diagram). |
 | handoff | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | Addressed · priority normal — Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
+| handoff | `handoff/closed/website-git-dependencies-resolve-unpinned-2026-11-20.md` | Addressed · priority normal — Addressed by fixer chain fix-git-dependency-pins: website master 3859c29 (released 2026-11-22, production deployment dpl_8oenan2E9c2YzyeB3kVrZvtD43XC Ready at hooks.gg) names both git dependencies by full commit in package.json: project-utils 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 and paracord 3f203086ae38699f26dbee90dadbb395a96be227. Record: deployment/closed/fix-git-dependency-pins-deployment.md. |
 | handoff | `handoff/closed/website-tests-not-beside-their-module-2026-11-08.md` | Addressed · priority normal — Discharged by plan 017 M1-a and X-13 (plan disposition table, planning/closed/017-existing-items-backlog.md line 1347): M1-a moved the files beside their modules; X-13, accepted by the owner, keeps cron.scheduled-selection and interactions-edge.signature-before-parse in src/server/api/__tests__/ because a test file under src/pages/api/ would be built as an API route. M1 QA Complete at website 8147661; released at website master 787bec5 (2026-11-19T20:11Z). |
 | handoff | `handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` | Open · priority normal — The cron endpoint's key is the fixed string 'vercel' in source. Left out of the access-defects fixer chain; no stage owns it yet. |
 | handoff | `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md` | Open · priority normal — Carries the chain's post-deploy register row B-1 (bot Get JSON read after the website master deploy) and the code review's Assumption Not Checked (Statbot single-message ids). Open until a read decides each; blocks nothing before the release act. |
 | handoff | `handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md` | Open · priority normal — Two limits that fix-desktop-draft-as-typed ships with, unmeasured and unobserved: the per-keystroke draft-write cost on desktop, and caret behaviour in browsers other than Chrome. Neither gates the release; neither is a finding of the chain. |
+| handoff | `handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md` | Open · priority normal — Two unverified paths of the emoji fix: a guild (custom) emoji chosen from the picker, and mobile keyboard composition (IME). Neither can be driven from the pipeline's box. Open until a signed-in guild session or a phone walk reads them. |
 | handoff | `handoff/fix-import-save-conflict-unchecked-hazards-2026-11-21.md` | Open · priority normal — Hazard lines the scoping sweep of fixer chain fix-import-save-conflict did not cover and no stage of the chain checked; the chain is released (website master b829314). Nothing here is known broken. |
 | handoff | `handoff/hydrated-recent-ids-not-canonicalised-2026-11-21.md` | Open · priority normal — A stored recent-message id in non-canonical digits (leading zeros) passes the hydration's filter unchanged, so the recent strip cannot match its row; owed: the hydration passes on messageIdShape's canonical output, with duplicates removed. Blocks nothing. |
 | handoff | `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` | Open · priority normal — Five eslint findings in website src/app/message/m/[id]/_layout/Navigation.tsx (2 errors, 3 warnings) were already present at b829314. fix-get-one-absent-not-found left them untouched: shipped as is, recorded as debt. A later chain fixes them. Until then, convention-check reports 5 FAIL for any chain that touches the file. |
@@ -413,6 +442,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md` | Open · priority normal — Item 1 (the drain under load) is observed: plan 017's generator deploy stop at 2026-11-19T20:15:08Z drained a process holding a pool in 812 ms against the 12000 ms kill_timeout, no SIGKILL. Item 2 (Chromium after a SIGKILL'd stop with live browsers) is still unobserved: that stop ended in SIGINT, so no SIGKILL happened, and section [5] shows 0 orphaned Chromium. It stays open for item 2 only. Nothing blocks on it. |
 | handoff | `handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md` | Open · priority normal — Carries chain 015's RK-8 past the chain: preview-image-generator's M8-d fix reaches a private member of generic-pool (_waitingClientsQueue, with a callable dequeue), which a generic-pool release within the ^3.9.0 range can rename or remove. The owner accepted the reach with a startup guard (D36, rulings 09:25Z). Minted at Stage 1 so CR-39, AF-32 and L-C9-4 have a carrier when the plan closes. |
 | handoff | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` | Open · priority normal — Five host-posture findings on the preview-image-generator production host (H-001 to M-002 of security/015-preview-image-generator-security-audit.md), accepted by the owner as recorded on 2026-11-08 (rulings 09:43Z: no effort, no mitigation). This record carries them past chain 015's closure; nothing is owed until the trigger fires. |
+| handoff | `handoff/project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md` | Open · priority normal — project-utils no longer installs prisma-kysely at runtime (released 2026-11-21). A tree outside the workspace that loads prisma-kysely through project-utils fails at its next re-pin. Known unread: /usr/local/bin/hooks-deprecated/cdn. Waits on a re-pin of such a tree. |
 | handoff | `handoff/pusher-message-update-channels-are-public-2026-11-19.md` | Open · priority normal — Pusher channels message-update-<id> are public and carry a save hash only. Left out of the access-defects fixer chain; no stage owns it yet. |
 | handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Item 1 (BC-7/AC8's terminal write) discharged by QA 2026-11-11. Left: the ID-less test inventory that chain 014 consumed is still Active (the analyst's), and item 3's vocabulary note. Nothing blocks on either. |
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
@@ -422,21 +452,27 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md` | Open · priority normal — Owed after the fix-delete-dead-cron release reaches Vercel production: the owner reads the website project's Cron Jobs list in the Vercel dashboard and reports whether it is empty. Nothing else can read that list. |
 | handoff | `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` | Open · priority normal — Two post-release falsifiers from plan 018's Risks table that only later events can decide: RK-3 (a stored message above a new list bound cannot be re-saved with Save, which shows a reason-less toast) and RK-5 (the lint stack sits on an ESLint major npm marks deprecated). Plan 018 is released; both are stated limits he accepted (D-10, X-16). |
 | handoff | `handoff/website-api-handler-hardening-2026-10-10.md` | Open · priority normal — Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release. |
-| handoff | `handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md` | Open · priority normal — Website's two git dependencies, paracord and project-utils, are named without a commit in package.json and held only by pnpm-lock.yaml. A lockfile regeneration re-resolves paracord (3f20308 to 1b7cadb, a second zod tree moves) and can move project-utils. Frozen installs, which Vercel and the QA exports use, are unaffected. Carried from plan 018's closure; pre-existing, outside H-002. |
+| handoff | `handoff/website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md` | Open · priority normal — Website lists paracord under devDependencies while runtime source imports it. Predates fix-git-dependency-pins and works while the production install includes devDependencies. Noted by the code review and not raised there. Waits on a change to how the site's production install treats devDependencies. |
 | handoff | `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` | Open · priority normal — Items 1 to 3 discharged by fixer chain fix-trpc-batch-limit (website master 76da25c, pushed 2026-11-21T00:45:05Z): batching refused, the middleware sets x-pathname on bare /message and no longer writes x-query-params, the dead overrides key deleted. Item 6 discharged by fixer chain fix-website-dependency-audit (tools/website-dependency-audit.js, daily crontab line 43 6 * * * installed 2026-11-21T01:11Z; its first run carried by handoff/fix-website-dependency-audit-first-run-2026-11-21.md). Items 4, 5 and 7 wait on their own triggers. |
 | handoff | `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` | Open · priority normal — Website master 76da25c (pushed 2026-11-21T00:45:05Z) refuses any /api/trpc request naming more than one call, with a 400. Whether any caller outside the site's own client sends one is unknown: the one post-deploy read taken (a 5-minute window) could not decide it. Owed: a read that can see it, when one of the triggers fires. |
 | implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
+| implementation | `implementation/closed/fix-api-extractor-devdep-implementation.md` | Released — Released: project-utils master a47e683 pushed 2026-11-22T07:22Z (deployment/fix-api-extractor-devdep-deployment.md). The Change section's lockfile sentence 'the work stops here for steering's ruling' is superseded by the 07:10 ruling (agent-output 832632c) and the two hoisted bumps are admitted; the body sentence is left as written (review CR-2). |
 | implementation | `implementation/closed/fix-api-secret-compare-implementation.md` | Released — Released: website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35Z (deployment/closed/fix-api-secret-compare-deployment.md); post-deploy reads carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md. |
+| implementation | `implementation/closed/fix-cut-collapsed-caret-implementation.md` | Released — Released 2026-11-22T20:13Z: website master 453de76 -> 8845b7e; record in deployment/closed/fix-cut-collapsed-caret-deployment.md. |
+| implementation | `implementation/closed/fix-decorator-offsets-implementation.md` | Released — Released: website master moved to febf20e at 22:44:37Z on 2026-11-22 on the owner's approval; Vercel production deployment Ready and serving hooks.gg. Record: deployment/closed/fix-decorator-offsets-deployment.md. |
 | implementation | `implementation/closed/fix-delete-dead-cron-implementation.md` | Released — Released: website master moved 0c14d5b to 132a7ab on the owner's release approval (deployment/closed/fix-delete-dead-cron-deployment.md); the fix branch is merged and deleted. |
 | implementation | `implementation/closed/fix-desktop-draft-as-typed-implementation.md` | Released — Released 2026-11-21T11:33Z: website master b663b35 -> b68f94c on origin (release-move.js exit 0), on the owner's release word; chain branch merged and deleted. Outstanding items 1 and 2 discharged by QA's route-0 walk; the saved-message route is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md, not yet read; item 3 is carried by handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md. |
 | implementation | `implementation/closed/fix-dialog-closes-on-first-portal-load-implementation.md` | Released — Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md). Production look owed, carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. |
+| implementation | `implementation/closed/fix-emoji-pretransform-widths-implementation.md` | Released — Released: website master moved febf20e -> 0411d3b on origin (devops Phase 2D, 2026-11-23T08:38Z); deployment record deployment/fix-emoji-pretransform-widths-deployment.md. |
 | implementation | `implementation/closed/fix-get-one-absent-not-found-implementation.md` | Released — Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin, on the owner's release approval. |
-| implementation | `implementation/closed/fix-git-dependency-pins-implementation.md` | Committed — Both halves committed and approved in code review. Project-utils 40ba5d3 is on project-utils master (released, devops record deployment/fix-git-dependency-pins-deployment.md). Website 3859c29 on chain/fix-git-dependency-pins awaits its master release (devops, his word), held until a production build passes (rulings block 23:58). |
+| implementation | `implementation/closed/fix-git-dependency-pins-implementation.md` | Released — Released in two pushes on the owner's approval where one was needed: project-utils master 749606d to 40ba5d3 (2026-11-21T23:15Z) and website master 132a7ab to 3859c29 (2026-11-22T17:04Z; production deployment Ready, serving hooks.gg). Record: deployment/closed/fix-git-dependency-pins-deployment.md. Both fix branches merged and deleted. |
 | implementation | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` | Released — Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined. |
 | implementation | `implementation/closed/fix-import-save-conflict-implementation.md` | Released — Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Post-deploy row PD-1 is open in handoff/fix-import-save-conflict-post-deploy-2026-11-21.md (qa). |
 | implementation | `implementation/closed/fix-message-link-import-empty-implementation.md` | Abandoned — Closed on the owner's ruling (steering/fix-message-link-import-empty-rulings.md, block 2026-11-21T10:38Z, record 2cd06470): no code; the empty link import is a known limit for now, carried by handoff/message-link-import-loads-only-mentioning-messages-2026-11-21.md; link-preview embeds stay dropped. |
 | implementation | `implementation/closed/fix-message-not-found-implementation.md` | Released — Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb on origin (production change 6b539e5, QA test cases f4baebb). Record: deployment/closed/fix-message-not-found-deployment.md. |
 | implementation | `implementation/closed/fix-message-page-header-decode-implementation.md` | Released — Released: website master moved 983681c to 7923a1d at 2026-11-20T02:34:40Z on the owner's release approval (deployment/closed/fix-message-page-header-decode-deployment.md). Post-deploy row P-1 and the observation on middleware.ts:17-21: carriers named in the Stage 1 row below. |
+| implementation | `implementation/closed/fix-middleware-dead-matcher-implementation.md` | Released — Released 2026-11-22T18:41Z: website master = 453de76 on origin; recorded in deployment/closed/fix-middleware-dead-matcher-deployment.md. |
+| implementation | `implementation/closed/fix-normalize-fence-loop-implementation.md` | Released — Released: website master af3d95a on origin, Vercel production (deployment/closed/fix-normalize-fence-loop-deployment.md). |
 | implementation | `implementation/closed/fix-personal-message-access-implementation.md` | Released — Released 2026-11-20T01:33:58Z: website master 787bec5 -> 983681c on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Code review Round 2 APPROVED, QA Phase 2 refresh PASS and security APPROVED, all at 983681c. The residue read and post-deploy rows B-2, B-1 ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md. |
 | implementation | `implementation/closed/fix-recent-message-ids-implementation.md` | Released — Released: website master moved 76da25c -> 6f76c6d on 2026-11-21T06:45:05Z (deployment/fix-recent-message-ids-deployment.md); the chain branch is merged and deleted. |
 | implementation | `implementation/closed/fix-trpc-batch-limit-implementation.md` | Released — Released: website master 76da25c, pushed 2026-11-21T00:45:05Z (deployment/closed/fix-trpc-batch-limit-deployment.md). |
@@ -444,15 +480,19 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
 | implementation | `implementation/closed/fix-website-dependency-audit-implementation.md` | Released — Code review APPROVED at c5508c7 (bf39906); QA Complete at ead3ea1 (8762f1b); review markers reviewed at 67f0285. Crontab line installed 2026-11-21T01:11Z, no push. The first scheduled run (06:43Z) is read by reader R1 on handoff/fix-website-dependency-audit-first-run-2026-11-21.md. |
 | implementation | `implementation/closed/fix-website-save-gate-embeds-implementation.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md. |
+| implementation | `implementation/fix-image-uploader-url-implementation.md` | Active — QA Phase 2 fix round (QAF-1, QAF-3) handed off at website cae7472 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 32 production lines added; QAF-2 held for the owner by steering; merge is devops's at release, under the owner's release approval. |
 | process improvement | `process-improvement/closed/012-013-batch7-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/023-012-013-batch7-*.md. First pi run over this repository; 012 and 013 retrospectives Processed and moved to closed/. |
 | process improvement | `process-improvement/closed/014-batch10-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/014-batch10-*.md. Retrospective 014 Processed and moved to closed/. Definitions ~/.claude/agents 96a3980; skill ~/.claude/agent-skills c6dd817. |
 | QA | `qa/closed/fix-api-secret-compare-qa.md` | Released — Phase 2 PASS at website 0c14d5b, released to origin/master 2026-11-21T18:35Z (the release-tip verdict: the tip's tree is this record's Verified-At tree); register B-1 (post-deploy, devops) carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md. |
+| QA | `qa/closed/fix-decorator-offsets-qa.md` | Released — Released with the chain: website master at febf20e, 2026-11-22T22:44:37Z; this Phase 2 verdict (QA Complete at febf20e) covered the release tip. QAF-1 and QAF-2 resolved; stated limits under the cap (rulings 22:27). Row B-1 executed PASS after the deploy (handoff/closed/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md). |
 | QA | `qa/closed/fix-desktop-draft-as-typed-qa.md` | Committed — Pre-release browser walk PASS at website b68f94c: flows 1-4 hold in Chrome at route 0; base b663b35 loses the same text. No findings. Committed at Stage 1 by devops; not released. Its Assumption Not Checked (the saved-message route) is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md, run by a qa-role session after the push, not left to the owner's walk. |
+| QA | `qa/closed/fix-emoji-pretransform-widths-qa.md` | Committed — Phase 2 PASS at website 0411d3b, committed with the chain (devops Stage 1). Post-deploy row B-1 is carried by handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md. |
 | QA | `qa/closed/fix-get-one-absent-not-found-qa.md` | Committed — Phase 2 PASS at website b663b35, 0 findings; committed at devops Stage 1. Post-deploy row B-1 (this register) is carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md; it does not gate the release act. |
 | QA | `qa/closed/fix-hooks-record-shared-engine-qa.md` | Released — Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473. |
 | QA | `qa/closed/fix-import-save-conflict-qa.md` | Committed — Phase 2 refresh PASS at website b829314; the chain is released (website master b829314, 2026-11-21T08:53:57Z, deployment/fix-import-save-conflict-deployment.md). Post-deploy row PD-1 is carried by handoff/fix-import-save-conflict-post-deploy-2026-11-21.md. |
 | QA | `qa/closed/fix-message-link-import-empty-production-read.md` | Committed — Closed on the owner ruling 2026-11-21T10:37Z (steering/fix-message-link-import-empty-rulings.md, commit 2cd06470): the empty link import is a known limit for now; no code, no release, no further read owed. |
 | QA | `qa/closed/fix-message-not-found-qa.md` | Committed — Phase 2 PASS at website f4baebb (chain/fix-message-not-found), released with master at f4baebb on 2026-11-21T07:51:38Z. Post-deploy row B-1 is open, carried by handoff/fix-message-not-found-post-deploy-2026-11-21.md (Owning-Stage qa). |
+| QA | `qa/closed/fix-normalize-fence-loop-qa.md` | Released — Phase 2 PASS at website af3d95a; released at that commit. QAF-1 to QAF-3 resolved in-pass; QAF-4 routed (S-29). |
 | QA | `qa/closed/fix-personal-message-access-qa.md` | Committed — Committed with the chain at website chain/fix-personal-message-access 983681c (devops Stage 1); Phase 2 verdict PASS at that SHA stands. Register rows B-1, B-2 are post-deploy, gate nothing, and ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md. |
 | QA | `qa/closed/fix-recent-message-ids-qa.md` | Committed — Phase 2 PASS at website 6f76c6d (QAF-1 to QAF-4 resolved, 7 of 7 refresh mutants killed, suite 2283/2283 exit 0); committed on chain/fix-recent-message-ids, release in deployment/fix-recent-message-ids-deployment.md. |
 | QA | `qa/closed/fix-v1-guild-messages-auth-qa.md` | Committed — Production behaviour verified at website 7606149. QAF-1 discharged at ddbd750; release-tip verdict in qa/website-2026-10-10-release-tip-qa.md. B-1 and B-2 EXECUTED (deployment record). B-3 and B-4 carried by handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
@@ -460,6 +500,7 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/fix-website-save-gate-embeds-qa.md` | Committed — Phase 2 PASS at website 0e3d903, committed with the chain (devops Stage 1, 2026-11-11T10:12Z). QAF-1 resolved in the pass. Assumption Not Checked (Pusher on hooks.gg) is carried by deployment/fix-website-save-gate-embeds-deployment.md, Owner checks. |
 | QA | `qa/closed/release-4a7126b-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` above is untouched. The tip certified here reached production (`a151fb4` -> `4a7126b`, 04:14:02 UTC, deployment record §11) and was later superseded as the serving tip by `b56570d` (§16). **§5's process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made, and `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the blocking-condition register closed and `NOT EXECUTED` nowhere. **BC-18/BC-19 reached that state AFTER the release act rather than before it**, which the deployment record records as a sequencing ruling by the owner, not a withdrawal - stated here so no reader takes this closure for the condition having been honoured in the order §5 wrote it. The `Assumption Not Checked` above is a standing suite-quality question and is **not** closed by this move. |
 | QA | `qa/closed/release-b56570d-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` and `Criteria-At` above are untouched. **The tip certified here IS the released tree**: `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC (deployment record §16), where deployed, verified and the UAT anchor are one object. **§6's three process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made; `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the register closed and `NOT EXECUTED` nowhere; and **CR25-1/CR25-2 remain OPEN residual** under the standing *"record it, leave it"* ruling - unchanged by this closure and not closed by it. The `Assumption Not Checked` above was discharged by devops at the console immediately before the push (§16), which is where it was owed. |
+| QA | `qa/closed/website-0411d3b-release-tip-qa.md` | Released — Released with website master febf20e -> 0411d3b (devops Phase 2D). Release-tip verdict for website master febf20e -> 0411d3b. Step 1b ran: 35 open handoffs; 8 match the sweep predicate and 1 is triggered by this push (this chain's post-deploy carrier, B-1, read after the deploy). Step 2: website has no gated time-based set. |
 | QA | `qa/closed/website-2026-10-10-release-tip-qa.md` | Released — Released: website master moved to ddbd750, the tip this document verified (deployment/fix-v1-guild-messages-auth-deployment.md, changelog 2026-10-10T16:52). B-1 and B-2 are terminal; B-3 and B-4 ride handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. The verdict of record stays 'Release Verified at ddbd750' in the Changelog. |
 | QA | `qa/closed/website-2026-11-11-release-tip-qa.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (devops, deployment/fix-website-save-gate-embeds-deployment.md). The Assumption Not Checked (remote master unmoved until the push) is closed there: ls-remote 6d78b19 at 10:13:23Z and release-move's fast-forward check passed. |
 | QA | `qa/closed/website-395510e-release-tip-qa.md` | Released — Release Verified at website 395510e (tree 28b8af26), a fast-forward of origin/master 0e3d903. Step 1b: 0 of 22 open handoffs are triggered by this verdict or a website production push. Step 2: this workspace has no gated time-based set. Pushed 2026-11-11T18:29:46Z on the owner's release answer; origin/master read back 395510e. |
@@ -469,14 +510,17 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/website-787bec5-generator-8512a1d-release-tip-qa.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
 | QA | `qa/closed/website-7923a1d-d1bb9b0-release-tip-qa.md` | Released — Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). Release Verified at website d1bb9b0, the Phase 2 tree. Step 1b: 30 open handoffs, 9 pattern matches, 1 member fires on this release's push (the 018 post-deploy carrier; it reads after the push, no pre-release act owed); the mutant-equivalence handoff's trigger did not fire. No gated time-based set exists in website. |
 | QA | `qa/closed/website-983681c-7923a1d-release-tip-qa.md` | Released — Released: devops moved website master 983681c -> 7923a1d at 2026-11-20T02:34:40Z on this record (release-move.js --qa-record). The verdict was Release Verified at 7923a1d. |
+| QA | `qa/closed/website-af3d95a-release-tip-qa.md` | Released — Released at af3d95a. Release-tip verdict for website master 0411d3b -> af3d95a. Step 1b: 34 open handoffs, 0 triggered by this push or this verdict; 1 fires on any QA run and has nothing QA-owned left. Step 2: website has no gated time-based set. |
 | QA | `qa/closed/website-b663b35-release-tip-qa.md` | Released — Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin (release-move.js exit 0 on this record). Release-tip verdict for website master b829314 -> b663b35. Steps 1b and 2 ran. Of 30 open handoffs, 1 names a website release (the lockfile pin check), and it ran and holds. There is no gated time-based set. |
 | QA | `qa/closed/website-b68f94c-release-tip-qa.md` | Released — Released 2026-11-21T11:33Z: website master moved b663b35 -> b68f94c on origin. Release-tip verdict for website master b663b35 -> b68f94c. Steps 1b and 2 ran. Of 30 open handoffs, 2 name this website release: the lockfile pin check ran and holds, and this chain's post-deploy carrier fires after the push. There is no gated time-based set. |
 | QA | `qa/closed/website-b829314-release-tip-qa.md` | Released — Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0 on this record). Release-tip verdict for website master f4baebb -> b829314. Steps 1b and 2 ran. Of 28 open handoffs, 1 names a website release (the lockfile pin check); it ran and holds. There is no gated time-based set. |
 | QA | `qa/closed/website-f4baebb-release-tip-qa.md` | Released — Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb. Release-tip verdict for that push. Steps 1b and 2 ran. Of 29 open handoffs, 1 names a website release (the lockfile pin check), which ran and holds; 1 fires on every QA run and leaves nothing for QA. There is no gated time-based set. |
+| QA | `qa/fix-image-uploader-url-qa.md` | QA Failed — Phase 2 at website e94baf7: QA Failed on QAF-1 MEDIUM (a test gap: no assertion holds Cancel's reset to the current saved image under stable callbacks). The fix is test-only and goes to fixer-fix-image-uploader-url. Shipped code is correct on every criterion run here. |
 | research | `research/closed/components-v2-description-text-limit-2026-11-11.md` | Answered — Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and TODO.md, section "Website fix: bound V2 description fields at 1024 characters". |
 | research | `research/closed/components-v2-editing-flows-2026-08-23.md` | Answered — Determination reached and executable: the load-edit-save-send-preview loop is Components V2 capable; every secondary surface that re-serialises message data (Save As, JSON view/copy/Load, import from Discord URL / webhook URL / bot code, cross-tab change hash) is V2-blind through two 2023 helpers the V2 chain never touched. One seam, five sites, three of them silent. Ready for a planner to cite; incidence in production and one UI-level confirmation remain open (Gaps table). |
 | research | `research/closed/components-v2-send-validity-2026-11-11.md` | Answered — Measured on the agents' test server: 76 Components V2 shapes, 52 refused by Discord. The website's send check blocks 6 of the 52 and lets 46 through; it has no test for emptiness inside a component. Whether and how the send check should change is the owner's question (OQ-1), carried by handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md. |
 | research | `research/closed/json-editor-flag-mint-2026-08-23.md` | Answered — All three of the handoff's questions have determinations by execution: the JSON editing path (edit-page modal and new-message paste alike) stores a 5712-shaped record from hand-typed flags, through the same upsert the composer uses; the stored population is two rows. Origin of those two rows is not attributable from the tree. Assessed suitable as a rider on the components-v2 editing effort — it is a sub-case of that effort's invariant, not a separate one. |
+| research | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` | Answered — The oracle question is answered, and the owner has settled the standard (match Discord only where its two parsers agree) and the engine (the site uses the published parser). Plan 019, planning/019-slate-formatting-discord-engine.md, Revision 0, carries by name the five items this document left to the effort (OQ-3 with G-3, G-8, G-9, G-11, G-13). A sixth limb found at the close, G-14 (an emoji inside a link label on a webhook message), is carried by an entry in the record's INBOX.md. Two things stay unestablished and are stated as such: the published parser seen rendered in Discord (G-11) and the share of users on each parser (G-2). |
 | research | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` | Answered — (a) ANSWERED, Proven: production answers the list endpoint with no key — one sanctioned GET returned HTTP 200 application/json from the Next.js handler (x-matched-path on the route, no 404 rewrite, no edge block). The deployed exposure is LIVE. (b) owner-needing: key equality (statbot HOOKS_API_KEY vs website STATBOT_API_KEY) cannot be established by any instrument available to this run without exposing a secret, and is additionally unobservable through the live system because the only code that compares the two keys is unreachable in production. The instrument that could settle it is named below and marked owner-needing. |
 | research | `research/codebase-bug-evaluation-2026-11-08.md` | Active — Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context. 50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a running editor and are listed with their disconfirming tests, not counted. The owner answered all three intent questions on 2026-11-08 (username required by design, so no defect; get_message open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5). |
 | research | `research/competitive-feature-landscape-2026-11-08.md` | Active — Landscape and scored feature list delivered (Findings F1–F15, Scored list S1–S33). Value now rests on a census of user demand: 1,098 forum posts / 10,734 forum messages and 3,438 channel messages across four Discord communities (ours included), checked post by post against Discord's own message counts. Owner ruled 2026-11-08: Q1 bot sending for interactive buttons ("sure"), Q2 no paid tier, ever ("a loss leader for Statbot"). Not Answered: no Hooks.gg usage data exists (G1), and the owner has not yet selected items to plan against. Stays Active until he does; the planner then cites this document and it closes Answered. |
@@ -489,6 +533,8 @@ they are the ID-less artifacts that root new efforts.
 | retrospective | `retrospectives/fixer-batch-2026-11-21-retrospective.md` | Active — Fixer-batch retrospective over fix-message-page-header-decode (website 983681c..7923a1d), fix-trpc-batch-limit (website d1bb9b0..76da25c) and fix-website-dependency-audit (record tools, crontab line 2026-11-21T01:11Z), written after all three chains closed out. Rests until pi runs on the owner's command. |
 | retrospective | `retrospectives/fixes-2026-11-21-steering-hooks-3-retrospective.md` | Active — Fixer-batch retrospective over fix-message-link-import-empty (diagnosis only, closed on a known limit, no release) and fix-desktop-draft-as-typed (website b663b35..b68f94c, released, P-1 holds); both closed out. |
 | retrospective | `retrospectives/fixes-2026-11-21-steering-hooks-4-retrospective.md` | Active — Fixer-batch retrospective (batch of one) over fix-api-secret-compare (website b68f94c..0c14d5b, released 18:35:45Z after one QA Failed and one REJECTED round); awaiting pi on the owner's word. |
+| retrospective | `retrospectives/fixes-2026-11-23-steering-hooks-fixer-2-retrospective.md` | Active — Fixer-batch retrospective over one chain, fix-normalize-fence-loop (9c with 9f riding; released website af3d95a 2026-11-23T15:24Z); awaiting pi on the owner's word. |
+| retrospective | `retrospectives/fixes-2026-11-23-steering-hooks-fixer-retrospective.md` | Active — Fixer-batch retrospective over seven chains of effort fixer-queue-2026-11-21 (released 2026-11-21T23:18Z to 2026-11-23T08:38Z); awaiting pi on the owner's word. |
 | security | `security/closed/fix-message-page-header-decode-security-audit.md` | Review Complete — APPROVED at website 7923a1d, which is website master at origin since 2026-11-20T02:34:40Z (deployment/closed/fix-message-page-header-decode-deployment.md). The change closes H-001 of security/website-deps-review-security-audit.md. No finding against the change. One read is still owed after the release, the production /_next/image request without the direct sharp: row P-1 of handoff/message-page-header-decode-post-deploy-2026-11-20.md, Owning-Stage devops. |
 | security | `security/closed/fix-personal-message-access-security-audit.md` | Review Complete — Review Complete 2026-11-20: security review of the personal-message access fix, APPROVED at website 983681c, which is the SHA released (website master, ls-remote read at closure). M-001 (MEDIUM, the getOne delete race) was fixed and verified at 983681c and is closed. RC-2, the post-deploy read of the session path on production, is carried by handoff/fix-personal-message-access-post-deploy-2026-11-20.md. I-2 (website dependency advisories) is carried by the INBOX.md entry and opened as its own review on the owner's selection. |
 | security | `security/closed/website-deps-review-security-audit.md` | Review Complete — Review delivered and its three findings CLOSED. The verdict BLOCKED_PENDING_REMEDIATION binds to website 983681c and is discharged: H-001 (HIGH) closed by the release of website 7923a1d (2026-11-20T02:34:40Z), H-002 (HIGH) and M-001 (MEDIUM) by the release of website d1bb9b0 (2026-11-20T08:07:52Z, deployment/closed/018-next-upgrade-save-size-cap-deployment.md). The dependency set production now runs is approved by security/closed/018-next-upgrade-save-size-cap-security-audit.md. On production, devops read Next.js 16.4.6 (row B-7 PASS) and UAT read an over-limit save refused with 1 issue (row B-6 PASS), both in handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md; security made no request to production. What the review leaves is carried by handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md and one INBOX.md entry for the architect. |
@@ -511,6 +557,10 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/018-brief-security.md` | — |
 | steering | `steering/018-brief-uat.md` | — |
 | steering | `steering/018-rulings.md` | — |
+| steering | `steering/019-brief-analyst.md` | — |
+| steering | `steering/019-brief-critic.md` | — |
+| steering | `steering/019-brief-devops.md` | — |
+| steering | `steering/019-brief-qa.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/architect-hooks-017-closing.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/architect-hooks-017-release-tip-delta.md` | — |
@@ -540,6 +590,10 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
 | steering | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | steering | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
+| steering | `steering/fix-api-extractor-devdep-brief-code-reviewer.md` | — |
+| steering | `steering/fix-api-extractor-devdep-brief-devops.md` | — |
+| steering | `steering/fix-api-extractor-devdep-brief-fixer.md` | — |
+| steering | `steering/fix-api-extractor-devdep-rulings.md` | — |
 | steering | `steering/fix-api-secret-compare-brief-code-reviewer.md` | — |
 | steering | `steering/fix-api-secret-compare-brief-common.md` | — |
 | steering | `steering/fix-api-secret-compare-brief-devops.md` | — |
@@ -547,6 +601,18 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-api-secret-compare-brief-qa-postdeploy.md` | — |
 | steering | `steering/fix-api-secret-compare-brief-qa.md` | — |
 | steering | `steering/fix-api-secret-compare-rulings.md` | — |
+| steering | `steering/fix-blockquote-rewrite-rulings.md` | — |
+| steering | `steering/fix-cut-collapsed-caret-brief-code-reviewer.md` | — |
+| steering | `steering/fix-cut-collapsed-caret-brief-common.md` | — |
+| steering | `steering/fix-cut-collapsed-caret-brief-devops.md` | — |
+| steering | `steering/fix-cut-collapsed-caret-brief-fixer.md` | — |
+| steering | `steering/fix-cut-collapsed-caret-rulings.md` | — |
+| steering | `steering/fix-decorator-offsets-brief-code-reviewer.md` | — |
+| steering | `steering/fix-decorator-offsets-brief-common.md` | — |
+| steering | `steering/fix-decorator-offsets-brief-devops.md` | — |
+| steering | `steering/fix-decorator-offsets-brief-fixer.md` | — |
+| steering | `steering/fix-decorator-offsets-brief-qa.md` | — |
+| steering | `steering/fix-decorator-offsets-rulings.md` | — |
 | steering | `steering/fix-delete-dead-cron-brief-code-reviewer.md` | — |
 | steering | `steering/fix-delete-dead-cron-brief-common.md` | — |
 | steering | `steering/fix-delete-dead-cron-brief-devops.md` | — |
@@ -560,6 +626,14 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-desktop-draft-as-typed-rulings.md` | — |
 | steering | `steering/fix-dialog-closes-on-first-portal-load-brief-common.md` | — |
 | steering | `steering/fix-dialog-closes-on-first-portal-load-rulings.md` | — |
+| steering | `steering/fix-embed-thumbnail-layout-rulings.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-brief-code-reviewer.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-brief-common.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-brief-devops.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-brief-fixer.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-brief-qa-resume.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-brief-qa.md` | — |
+| steering | `steering/fix-emoji-pretransform-widths-rulings.md` | — |
 | steering | `steering/fix-get-one-absent-not-found-brief-code-reviewer-resume.md` | — |
 | steering | `steering/fix-get-one-absent-not-found-brief-code-reviewer.md` | — |
 | steering | `steering/fix-get-one-absent-not-found-brief-common.md` | — |
@@ -574,6 +648,11 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-git-dependency-pins-brief-devops.md` | — |
 | steering | `steering/fix-git-dependency-pins-brief-fixer.md` | — |
 | steering | `steering/fix-git-dependency-pins-rulings.md` | — |
+| steering | `steering/fix-image-uploader-url-brief-code-reviewer.md` | — |
+| steering | `steering/fix-image-uploader-url-brief-common.md` | — |
+| steering | `steering/fix-image-uploader-url-brief-fixer.md` | — |
+| steering | `steering/fix-image-uploader-url-brief-qa.md` | — |
+| steering | `steering/fix-image-uploader-url-rulings.md` | — |
 | steering | `steering/fix-import-save-conflict-brief-code-reviewer.md` | — |
 | steering | `steering/fix-import-save-conflict-brief-common.md` | — |
 | steering | `steering/fix-import-save-conflict-brief-devops.md` | — |
@@ -595,6 +674,17 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-message-page-header-decode-brief-devops.md` | — |
 | steering | `steering/fix-message-page-header-decode-brief-fixer.md` | — |
 | steering | `steering/fix-message-page-header-decode-brief-qa.md` | — |
+| steering | `steering/fix-middleware-dead-matcher-brief-code-reviewer.md` | — |
+| steering | `steering/fix-middleware-dead-matcher-brief-common.md` | — |
+| steering | `steering/fix-middleware-dead-matcher-brief-devops.md` | — |
+| steering | `steering/fix-middleware-dead-matcher-brief-fixer.md` | — |
+| steering | `steering/fix-middleware-dead-matcher-rulings.md` | — |
+| steering | `steering/fix-normalize-fence-loop-brief-code-reviewer.md` | — |
+| steering | `steering/fix-normalize-fence-loop-brief-common.md` | — |
+| steering | `steering/fix-normalize-fence-loop-brief-devops.md` | — |
+| steering | `steering/fix-normalize-fence-loop-brief-fixer.md` | — |
+| steering | `steering/fix-normalize-fence-loop-brief-qa.md` | — |
+| steering | `steering/fix-normalize-fence-loop-rulings.md` | — |
 | steering | `steering/fix-personal-message-access-brief-architect.md` | — |
 | steering | `steering/fix-personal-message-access-brief-code-reviewer.md` | — |
 | steering | `steering/fix-personal-message-access-brief-common.md` | — |
@@ -611,6 +701,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-recent-message-ids-brief-qa.md` | — |
 | steering | `steering/fix-recent-message-ids-brief-uat.md` | — |
 | steering | `steering/fix-recent-message-ids-rulings.md` | — |
+| steering | `steering/fix-timestamp-edit-target-rulings.md` | — |
 | steering | `steering/fix-trpc-batch-limit-brief-code-reviewer.md` | — |
 | steering | `steering/fix-trpc-batch-limit-brief-common.md` | — |
 | steering | `steering/fix-trpc-batch-limit-brief-devops.md` | — |
@@ -656,6 +747,12 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/selection-ledger/2026-11-19.md` | — |
 | steering | `steering/selection-ledger/2026-11-20.md` | — |
 | steering | `steering/selection-ledger/2026-11-21.md` | — |
+| steering | `steering/selection-ledger/2026-11-22.md` | — |
+| steering | `steering/slate-formatting-brief-common.md` | — |
+| steering | `steering/slate-formatting-brief-planner.md` | — |
+| steering | `steering/slate-formatting-oracle-brief-researcher-resume.md` | — |
+| steering | `steering/slate-formatting-oracle-brief-researcher.md` | — |
+| steering | `steering/slate-formatting-preview-brief-architect.md` | — |
 | steering | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` | — |
 | steering | `steering/v1-guild-messages-auth-rulings.md` | — |
 | steering | `steering/website-deps-review-brief-security.md` | — |
@@ -699,6 +796,7 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/018/qa/post-deploy-b8/walk-2.md` | — |
 | verification | `verification/018/qa/post-deploy-b8/walk-3.md` | — |
 | verification | `verification/018/qa/post-deploy-b8/walk.md` | — |
+| verification | `verification/019/analysis/an3/an3-table.md` | — |
 | verification | `verification/access-defects/scoping/refutation.md` | — |
 | verification | `verification/access-defects/scoping/residue-refutation.md` | — |
 | verification | `verification/access-defects/scoping/sweep.md` | — |
@@ -710,6 +808,9 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/fix-api-secret-compare/scoping/premises-b68f94c.md` | — |
 | verification | `verification/fix-api-secret-compare/scoping/refutation-empty-token.md` | — |
 | verification | `verification/fix-api-secret-compare/scoping/sweep.md` | — |
+| verification | `verification/fix-blockquote-rewrite/scoping/sweep.md` | — |
+| verification | `verification/fix-cut-collapsed-caret/scoping/sweep.md` | — |
+| verification | `verification/fix-decorator-offsets/scoping/sweep.md` | — |
 | verification | `verification/fix-delete-dead-cron/scoping/sweep-origin-0c14d5b.md` | — |
 | verification | `verification/fix-delete-dead-cron/scoping/sweep.md` | — |
 | verification | `verification/fix-desktop-draft-as-typed/devops/baseline/production-baseline-2026-11-21.md` | — |
@@ -718,8 +819,20 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/fix-desktop-draft-as-typed/scoping/sweep.md` | — |
 | verification | `verification/fix-dialog-closes-on-first-portal-load/post-deploy/build-identity.md` | — |
 | verification | `verification/fix-dialog-closes-on-first-portal-load/scoping/sweep.md` | — |
+| verification | `verification/fix-embed-thumbnail-layout/scoping/sweep.md` | — |
+| verification | `verification/fix-emoji-pretransform-widths/scoping/sweep.md` | — |
 | verification | `verification/fix-get-one-absent-not-found/scoping/sweep.md` | — |
 | verification | `verification/fix-git-dependency-pins/scoping/sweep.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-2217a92.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-7660259.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-a8b23ce.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-b97f79c.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-cae7472.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-e94baf7.md` | — |
+| verification | `verification/fix-image-uploader-url/qa/sweep/table-e94baf7.md` | — |
+| verification | `verification/fix-image-uploader-url/scoping/refutation-af3d95a.md` | — |
+| verification | `verification/fix-image-uploader-url/scoping/sweep-af3d95a.md` | — |
+| verification | `verification/fix-image-uploader-url/scoping/sweep.md` | — |
 | verification | `verification/fix-import-save-conflict/qa/pd1/pd1-steps.md` | — |
 | verification | `verification/fix-import-save-conflict/qa/walk/walk-steps.md` | — |
 | verification | `verification/fix-import-save-conflict/scoping/sweep.md` | — |
@@ -727,11 +840,20 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/fix-message-not-found/scoping/sweep.md` | — |
 | verification | `verification/fix-message-page-header-decode/post-deploy/kit/briefs/P1R.md` | — |
 | verification | `verification/fix-message-page-header-decode/scoping/sweep.md` | — |
+| verification | `verification/fix-middleware-dead-matcher/scoping/sweep-proxy.md` | — |
+| verification | `verification/fix-middleware-dead-matcher/scoping/sweep.md` | — |
+| verification | `verification/fix-normalize-fence-loop/devops/walk/results.md` | — |
+| verification | `verification/fix-normalize-fence-loop/qa/walk/walk-results.md` | — |
+| verification | `verification/fix-normalize-fence-loop/scoping/refutation-0411d3b.md` | — |
+| verification | `verification/fix-normalize-fence-loop/scoping/sweep-0411d3b.md` | — |
+| verification | `verification/fix-normalize-fence-loop/scoping/sweep.md` | — |
 | verification | `verification/fix-recent-message-ids/scoping/sweep.md` | — |
+| verification | `verification/fix-timestamp-edit-target/scoping/sweep.md` | — |
 | verification | `verification/fix-trpc-batch-limit/scoping/sweep.md` | — |
 | verification | `verification/fix-website-dependency-audit/post-deploy/kit/briefs/R1.md` | — |
 | verification | `verification/fixer-queue-2026-11-21/scoping/inventory.md` | — |
 | verification | `verification/fixer-queue-2026-11-21/scoping/refutation-decision-items.md` | — |
+| verification | `verification/slate-formatting-effort/scoping/inventory.md` | — |
 | verification | `verification/website-deps-review/scoping/sweep-next-upgrade.md` | — |
 | verification | `verification/website-deps-review/scoping/sweep-unbounded-input.md` | — |
 
@@ -959,6 +1081,16 @@ they are the ID-less artifacts that root new efforts.
 | `018-next-upgrade-save-size-cap-uat.md` | `uat/closed/018-next-upgrade-save-size-cap-uat.md` |
 | `018-next-upgrade-save-size-cap.md` | `planning/closed/018-next-upgrade-save-size-cap.md` |
 | `018-rulings.md` | `steering/018-rulings.md` |
+| `019-brief-analyst.md` | `steering/019-brief-analyst.md` |
+| `019-brief-critic.md` | `steering/019-brief-critic.md` |
+| `019-brief-devops.md` | `steering/019-brief-devops.md` |
+| `019-brief-qa.md` | `steering/019-brief-qa.md` |
+| `019-slate-formatting-discord-engine-analysis.md` | `analysis/019-slate-formatting-discord-engine-analysis.md` |
+| `019-slate-formatting-discord-engine-architecture-findings.md` | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` |
+| `019-slate-formatting-discord-engine-critique.md` | `critiques/closed/019-slate-formatting-discord-engine-critique.md` |
+| `019-slate-formatting-discord-engine-deployment.md` | `deployment/019-slate-formatting-discord-engine-deployment.md` |
+| `019-slate-formatting-discord-engine-qa.md` | `qa/019-slate-formatting-discord-engine-qa.md` |
+| `019-slate-formatting-discord-engine.md` | `planning/019-slate-formatting-discord-engine.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/closed/2026-04-07-plan-006.md` |
 | `2026-04-07-plan-007.md` | `deployment/closed/2026-04-07-plan-007.md` |
@@ -972,6 +1104,8 @@ they are the ID-less artifacts that root new efforts.
 | `2026-11-19.md` | `steering/selection-ledger/2026-11-19.md` |
 | `2026-11-20.md` | `steering/selection-ledger/2026-11-20.md` |
 | `2026-11-21.md` | `steering/selection-ledger/2026-11-21.md` |
+| `2026-11-22.md` | `steering/selection-ledger/2026-11-22.md` |
+| `an3-table.md` | `verification/019/analysis/an3/an3-table.md` |
 | `analyst-hooks-017.md` | `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` |
 | `anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` | `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` |
 | `architect-016-brief.md` | `steering/queue-hooks-briefs/architect-016-brief.md` |
@@ -1035,6 +1169,13 @@ they are the ID-less artifacts that root new efforts.
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
 | `fix-agent-comment-sweep-merge-implementation.md` | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` |
+| `fix-api-extractor-devdep-brief-code-reviewer.md` | `steering/fix-api-extractor-devdep-brief-code-reviewer.md` |
+| `fix-api-extractor-devdep-brief-devops.md` | `steering/fix-api-extractor-devdep-brief-devops.md` |
+| `fix-api-extractor-devdep-brief-fixer.md` | `steering/fix-api-extractor-devdep-brief-fixer.md` |
+| `fix-api-extractor-devdep-code-review.md` | `code-review/closed/fix-api-extractor-devdep-code-review.md` |
+| `fix-api-extractor-devdep-deployment.md` | `deployment/closed/fix-api-extractor-devdep-deployment.md` |
+| `fix-api-extractor-devdep-implementation.md` | `implementation/closed/fix-api-extractor-devdep-implementation.md` |
+| `fix-api-extractor-devdep-rulings.md` | `steering/fix-api-extractor-devdep-rulings.md` |
 | `fix-api-secret-compare-brief-code-reviewer.md` | `steering/fix-api-secret-compare-brief-code-reviewer.md` |
 | `fix-api-secret-compare-brief-common.md` | `steering/fix-api-secret-compare-brief-common.md` |
 | `fix-api-secret-compare-brief-devops.md` | `steering/fix-api-secret-compare-brief-devops.md` |
@@ -1047,12 +1188,32 @@ they are the ID-less artifacts that root new efforts.
 | `fix-api-secret-compare-post-deploy-2026-11-21.md` | `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md` |
 | `fix-api-secret-compare-qa.md` | `qa/closed/fix-api-secret-compare-qa.md` |
 | `fix-api-secret-compare-rulings.md` | `steering/fix-api-secret-compare-rulings.md` |
+| `fix-blockquote-rewrite-rulings.md` | `steering/fix-blockquote-rewrite-rulings.md` |
+| `fix-cut-collapsed-caret-brief-code-reviewer.md` | `steering/fix-cut-collapsed-caret-brief-code-reviewer.md` |
+| `fix-cut-collapsed-caret-brief-common.md` | `steering/fix-cut-collapsed-caret-brief-common.md` |
+| `fix-cut-collapsed-caret-brief-devops.md` | `steering/fix-cut-collapsed-caret-brief-devops.md` |
+| `fix-cut-collapsed-caret-brief-fixer.md` | `steering/fix-cut-collapsed-caret-brief-fixer.md` |
+| `fix-cut-collapsed-caret-code-review.md` | `code-review/closed/fix-cut-collapsed-caret-code-review.md` |
+| `fix-cut-collapsed-caret-deployment.md` | `deployment/closed/fix-cut-collapsed-caret-deployment.md` |
+| `fix-cut-collapsed-caret-implementation.md` | `implementation/closed/fix-cut-collapsed-caret-implementation.md` |
+| `fix-cut-collapsed-caret-rulings.md` | `steering/fix-cut-collapsed-caret-rulings.md` |
+| `fix-decorator-offsets-brief-code-reviewer.md` | `steering/fix-decorator-offsets-brief-code-reviewer.md` |
+| `fix-decorator-offsets-brief-common.md` | `steering/fix-decorator-offsets-brief-common.md` |
+| `fix-decorator-offsets-brief-devops.md` | `steering/fix-decorator-offsets-brief-devops.md` |
+| `fix-decorator-offsets-brief-fixer.md` | `steering/fix-decorator-offsets-brief-fixer.md` |
+| `fix-decorator-offsets-brief-qa.md` | `steering/fix-decorator-offsets-brief-qa.md` |
+| `fix-decorator-offsets-code-review.md` | `code-review/closed/fix-decorator-offsets-code-review.md` |
+| `fix-decorator-offsets-deployment.md` | `deployment/closed/fix-decorator-offsets-deployment.md` |
+| `fix-decorator-offsets-implementation.md` | `implementation/closed/fix-decorator-offsets-implementation.md` |
+| `fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md` | `handoff/closed/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md` |
+| `fix-decorator-offsets-qa.md` | `qa/closed/fix-decorator-offsets-qa.md` |
+| `fix-decorator-offsets-rulings.md` | `steering/fix-decorator-offsets-rulings.md` |
 | `fix-delete-dead-cron-brief-code-reviewer.md` | `steering/fix-delete-dead-cron-brief-code-reviewer.md` |
 | `fix-delete-dead-cron-brief-common.md` | `steering/fix-delete-dead-cron-brief-common.md` |
 | `fix-delete-dead-cron-brief-devops.md` | `steering/fix-delete-dead-cron-brief-devops.md` |
 | `fix-delete-dead-cron-brief-fixer.md` | `steering/fix-delete-dead-cron-brief-fixer.md` |
 | `fix-delete-dead-cron-code-review.md` | `code-review/closed/fix-delete-dead-cron-code-review.md` |
-| `fix-delete-dead-cron-deployment.md` | `deployment/fix-delete-dead-cron-deployment.md` |
+| `fix-delete-dead-cron-deployment.md` | `deployment/closed/fix-delete-dead-cron-deployment.md` |
 | `fix-delete-dead-cron-implementation.md` | `implementation/closed/fix-delete-dead-cron-implementation.md` |
 | `fix-delete-dead-cron-rulings.md` | `steering/fix-delete-dead-cron-rulings.md` |
 | `fix-desktop-draft-as-typed-brief-code-reviewer.md` | `steering/fix-desktop-draft-as-typed-brief-code-reviewer.md` |
@@ -1072,6 +1233,20 @@ they are the ID-less artifacts that root new efforts.
 | `fix-dialog-closes-on-first-portal-load-deployment.md` | `deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md` |
 | `fix-dialog-closes-on-first-portal-load-implementation.md` | `implementation/closed/fix-dialog-closes-on-first-portal-load-implementation.md` |
 | `fix-dialog-closes-on-first-portal-load-rulings.md` | `steering/fix-dialog-closes-on-first-portal-load-rulings.md` |
+| `fix-embed-thumbnail-layout-rulings.md` | `steering/fix-embed-thumbnail-layout-rulings.md` |
+| `fix-emoji-pretransform-widths-brief-code-reviewer.md` | `steering/fix-emoji-pretransform-widths-brief-code-reviewer.md` |
+| `fix-emoji-pretransform-widths-brief-common.md` | `steering/fix-emoji-pretransform-widths-brief-common.md` |
+| `fix-emoji-pretransform-widths-brief-devops.md` | `steering/fix-emoji-pretransform-widths-brief-devops.md` |
+| `fix-emoji-pretransform-widths-brief-fixer.md` | `steering/fix-emoji-pretransform-widths-brief-fixer.md` |
+| `fix-emoji-pretransform-widths-brief-qa-resume.md` | `steering/fix-emoji-pretransform-widths-brief-qa-resume.md` |
+| `fix-emoji-pretransform-widths-brief-qa.md` | `steering/fix-emoji-pretransform-widths-brief-qa.md` |
+| `fix-emoji-pretransform-widths-code-review.md` | `code-review/closed/fix-emoji-pretransform-widths-code-review.md` |
+| `fix-emoji-pretransform-widths-deployment.md` | `deployment/closed/fix-emoji-pretransform-widths-deployment.md` |
+| `fix-emoji-pretransform-widths-implementation.md` | `implementation/closed/fix-emoji-pretransform-widths-implementation.md` |
+| `fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md` | `handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md` |
+| `fix-emoji-pretransform-widths-post-deploy-2026-11-23.md` | `handoff/closed/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md` |
+| `fix-emoji-pretransform-widths-qa.md` | `qa/closed/fix-emoji-pretransform-widths-qa.md` |
+| `fix-emoji-pretransform-widths-rulings.md` | `steering/fix-emoji-pretransform-widths-rulings.md` |
 | `fix-get-one-absent-not-found-brief-code-reviewer-resume.md` | `steering/fix-get-one-absent-not-found-brief-code-reviewer-resume.md` |
 | `fix-get-one-absent-not-found-brief-code-reviewer.md` | `steering/fix-get-one-absent-not-found-brief-code-reviewer.md` |
 | `fix-get-one-absent-not-found-brief-common.md` | `steering/fix-get-one-absent-not-found-brief-common.md` |
@@ -1091,13 +1266,21 @@ they are the ID-less artifacts that root new efforts.
 | `fix-git-dependency-pins-brief-devops.md` | `steering/fix-git-dependency-pins-brief-devops.md` |
 | `fix-git-dependency-pins-brief-fixer.md` | `steering/fix-git-dependency-pins-brief-fixer.md` |
 | `fix-git-dependency-pins-code-review.md` | `code-review/closed/fix-git-dependency-pins-code-review.md` |
-| `fix-git-dependency-pins-deployment.md` | `deployment/fix-git-dependency-pins-deployment.md` |
+| `fix-git-dependency-pins-deployment.md` | `deployment/closed/fix-git-dependency-pins-deployment.md` |
 | `fix-git-dependency-pins-implementation.md` | `implementation/closed/fix-git-dependency-pins-implementation.md` |
 | `fix-git-dependency-pins-rulings.md` | `steering/fix-git-dependency-pins-rulings.md` |
 | `fix-hooks-record-shared-engine-code-review.md` | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` |
 | `fix-hooks-record-shared-engine-implementation.md` | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` |
 | `fix-hooks-record-shared-engine-qa.md` | `qa/closed/fix-hooks-record-shared-engine-qa.md` |
 | `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` |
+| `fix-image-uploader-url-brief-code-reviewer.md` | `steering/fix-image-uploader-url-brief-code-reviewer.md` |
+| `fix-image-uploader-url-brief-common.md` | `steering/fix-image-uploader-url-brief-common.md` |
+| `fix-image-uploader-url-brief-fixer.md` | `steering/fix-image-uploader-url-brief-fixer.md` |
+| `fix-image-uploader-url-brief-qa.md` | `steering/fix-image-uploader-url-brief-qa.md` |
+| `fix-image-uploader-url-code-review.md` | `code-review/fix-image-uploader-url-code-review.md` |
+| `fix-image-uploader-url-implementation.md` | `implementation/fix-image-uploader-url-implementation.md` |
+| `fix-image-uploader-url-qa.md` | `qa/fix-image-uploader-url-qa.md` |
+| `fix-image-uploader-url-rulings.md` | `steering/fix-image-uploader-url-rulings.md` |
 | `fix-import-save-conflict-brief-code-reviewer.md` | `steering/fix-import-save-conflict-brief-code-reviewer.md` |
 | `fix-import-save-conflict-brief-common.md` | `steering/fix-import-save-conflict-brief-common.md` |
 | `fix-import-save-conflict-brief-devops.md` | `steering/fix-import-save-conflict-brief-devops.md` |
@@ -1136,6 +1319,24 @@ they are the ID-less artifacts that root new efforts.
 | `fix-message-page-header-decode-deployment.md` | `deployment/closed/fix-message-page-header-decode-deployment.md` |
 | `fix-message-page-header-decode-implementation.md` | `implementation/closed/fix-message-page-header-decode-implementation.md` |
 | `fix-message-page-header-decode-security-audit.md` | `security/closed/fix-message-page-header-decode-security-audit.md` |
+| `fix-middleware-dead-matcher-brief-code-reviewer.md` | `steering/fix-middleware-dead-matcher-brief-code-reviewer.md` |
+| `fix-middleware-dead-matcher-brief-common.md` | `steering/fix-middleware-dead-matcher-brief-common.md` |
+| `fix-middleware-dead-matcher-brief-devops.md` | `steering/fix-middleware-dead-matcher-brief-devops.md` |
+| `fix-middleware-dead-matcher-brief-fixer.md` | `steering/fix-middleware-dead-matcher-brief-fixer.md` |
+| `fix-middleware-dead-matcher-code-review.md` | `code-review/closed/fix-middleware-dead-matcher-code-review.md` |
+| `fix-middleware-dead-matcher-deployment.md` | `deployment/closed/fix-middleware-dead-matcher-deployment.md` |
+| `fix-middleware-dead-matcher-implementation.md` | `implementation/closed/fix-middleware-dead-matcher-implementation.md` |
+| `fix-middleware-dead-matcher-rulings.md` | `steering/fix-middleware-dead-matcher-rulings.md` |
+| `fix-normalize-fence-loop-brief-code-reviewer.md` | `steering/fix-normalize-fence-loop-brief-code-reviewer.md` |
+| `fix-normalize-fence-loop-brief-common.md` | `steering/fix-normalize-fence-loop-brief-common.md` |
+| `fix-normalize-fence-loop-brief-devops.md` | `steering/fix-normalize-fence-loop-brief-devops.md` |
+| `fix-normalize-fence-loop-brief-fixer.md` | `steering/fix-normalize-fence-loop-brief-fixer.md` |
+| `fix-normalize-fence-loop-brief-qa.md` | `steering/fix-normalize-fence-loop-brief-qa.md` |
+| `fix-normalize-fence-loop-code-review.md` | `code-review/closed/fix-normalize-fence-loop-code-review.md` |
+| `fix-normalize-fence-loop-deployment.md` | `deployment/closed/fix-normalize-fence-loop-deployment.md` |
+| `fix-normalize-fence-loop-implementation.md` | `implementation/closed/fix-normalize-fence-loop-implementation.md` |
+| `fix-normalize-fence-loop-qa.md` | `qa/closed/fix-normalize-fence-loop-qa.md` |
+| `fix-normalize-fence-loop-rulings.md` | `steering/fix-normalize-fence-loop-rulings.md` |
 | `fix-personal-message-access-brief-architect.md` | `steering/fix-personal-message-access-brief-architect.md` |
 | `fix-personal-message-access-brief-code-reviewer.md` | `steering/fix-personal-message-access-brief-code-reviewer.md` |
 | `fix-personal-message-access-brief-common.md` | `steering/fix-personal-message-access-brief-common.md` |
@@ -1163,6 +1364,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-recent-message-ids-post-deploy-2026-11-21.md` | `handoff/closed/fix-recent-message-ids-post-deploy-2026-11-21.md` |
 | `fix-recent-message-ids-qa.md` | `qa/closed/fix-recent-message-ids-qa.md` |
 | `fix-recent-message-ids-rulings.md` | `steering/fix-recent-message-ids-rulings.md` |
+| `fix-timestamp-edit-target-rulings.md` | `steering/fix-timestamp-edit-target-rulings.md` |
 | `fix-trpc-batch-limit-brief-code-reviewer.md` | `steering/fix-trpc-batch-limit-brief-code-reviewer.md` |
 | `fix-trpc-batch-limit-brief-common.md` | `steering/fix-trpc-batch-limit-brief-common.md` |
 | `fix-trpc-batch-limit-brief-devops.md` | `steering/fix-trpc-batch-limit-brief-devops.md` |
@@ -1205,6 +1407,8 @@ they are the ID-less artifacts that root new efforts.
 | `fixer-uat-local-stack-brief.md` | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` |
 | `fixes-2026-11-21-steering-hooks-3-retrospective.md` | `retrospectives/fixes-2026-11-21-steering-hooks-3-retrospective.md` |
 | `fixes-2026-11-21-steering-hooks-4-retrospective.md` | `retrospectives/fixes-2026-11-21-steering-hooks-4-retrospective.md` |
+| `fixes-2026-11-23-steering-hooks-fixer-2-retrospective.md` | `retrospectives/fixes-2026-11-23-steering-hooks-fixer-2-retrospective.md` |
+| `fixes-2026-11-23-steering-hooks-fixer-retrospective.md` | `retrospectives/fixes-2026-11-23-steering-hooks-fixer-retrospective.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `get-one-absent-number-fails-without-not-found-2026-11-19.md` | `handoff/closed/get-one-absent-number-fails-without-not-found-2026-11-19.md` |
 | `get-one-absent-number-still-500-in-production-2026-11-21.md` | `handoff/closed/get-one-absent-number-still-500-in-production-2026-11-21.md` |
@@ -1215,6 +1419,7 @@ they are the ID-less artifacts that root new efforts.
 | `implementer-hooks-017-resume.md` | `steering/backlog-2026-11-18-briefs/implementer-hooks-017-resume.md` |
 | `implementer-hooks-017.md` | `steering/backlog-2026-11-18-briefs/implementer-hooks-017.md` |
 | `inventory.md` | `verification/fixer-queue-2026-11-21/scoping/inventory.md` |
+| `inventory.md` | `verification/slate-formatting-effort/scoping/inventory.md` |
 | `json-editor-bad-configurations-2026-08-23.md` | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` |
 | `json-editor-flag-mint-2026-08-23.md` | `research/closed/json-editor-flag-mint-2026-08-23.md` |
 | `leave-prompt-and-field-results.md` | `verification/fix-desktop-draft-as-typed/qa/leave-prompt-and-field-results.md` |
@@ -1255,6 +1460,7 @@ they are the ID-less artifacts that root new efforts.
 | `preview-image-generator.md` | `architecture/preview-image-generator.md` |
 | `prod-preview-read.md` | `verification/018/qa/m2-hljs-resolution/prod-preview-read.md` |
 | `production-baseline-2026-11-21.md` | `verification/fix-desktop-draft-as-typed/devops/baseline/production-baseline-2026-11-21.md` |
+| `project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md` | `handoff/project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md` |
 | `PROTOCOL.md` | `verification/017/post-deploy/kit/PROTOCOL.md` |
 | `providers-query-params-header-decode-throws-2026-11-08.md` | `handoff/closed/providers-query-params-header-decode-throws-2026-11-08.md` |
 | `pusher-message-update-channels-are-public-2026-11-19.md` | `handoff/pusher-message-update-channels-are-public-2026-11-19.md` |
@@ -1270,6 +1476,8 @@ they are the ID-less artifacts that root new efforts.
 | `record-engine-fixer-brief.md` | `steering/record-engine-briefs/record-engine-fixer-brief.md` |
 | `record-engine-qa-brief.md` | `steering/record-engine-briefs/record-engine-qa-brief.md` |
 | `record-tools-shared-engine-rulings.md` | `steering/record-tools-shared-engine-rulings.md` |
+| `refutation-0411d3b.md` | `verification/fix-normalize-fence-loop/scoping/refutation-0411d3b.md` |
+| `refutation-af3d95a.md` | `verification/fix-image-uploader-url/scoping/refutation-af3d95a.md` |
 | `refutation-decision-items.md` | `verification/fixer-queue-2026-11-21/scoping/refutation-decision-items.md` |
 | `refutation-empty-token.md` | `verification/fix-api-secret-compare/scoping/refutation-empty-token.md` |
 | `refutation.md` | `verification/access-defects/scoping/refutation.md` |
@@ -1280,6 +1488,7 @@ they are the ID-less artifacts that root new efforts.
 | `researcher-v2-validity-brief.md` | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` |
 | `residue-refutation.md` | `verification/access-defects/scoping/residue-refutation.md` |
 | `results.md` | `verification/017/uat/walk-8/results.md` |
+| `results.md` | `verification/fix-normalize-fence-loop/devops/walk/results.md` |
 | `RUN.md` | `verification/013/probe-cr25-mutation-error-readability/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr26-delimiter-class-eliminated/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr27-settledmode-reachability/RUN.md` |
@@ -1293,26 +1502,52 @@ they are the ID-less artifacts that root new efforts.
 | `setup-edit-snapshot.md` | `verification/017/uat/walk-2/setup-edit-snapshot.md` |
 | `setup-snapshot.md` | `verification/017/uat/walk-2/setup-snapshot.md` |
 | `signed-out-guards-sweep.md` | `verification/backlog-2026-11-18/scoping/signed-out-guards-sweep.md` |
+| `slate-formatting-brief-common.md` | `steering/slate-formatting-brief-common.md` |
+| `slate-formatting-brief-planner.md` | `steering/slate-formatting-brief-planner.md` |
+| `slate-formatting-discord-oracle-2026-11-23.md` | `research/closed/slate-formatting-discord-oracle-2026-11-23.md` |
+| `slate-formatting-oracle-brief-researcher-resume.md` | `steering/slate-formatting-oracle-brief-researcher-resume.md` |
+| `slate-formatting-oracle-brief-researcher.md` | `steering/slate-formatting-oracle-brief-researcher.md` |
+| `slate-formatting-preview-architecture-findings.md` | `architecture/closed/slate-formatting-preview-architecture-findings.md` |
+| `slate-formatting-preview-brief-architect.md` | `steering/slate-formatting-preview-brief-architect.md` |
 | `statbot-api-key-env-schema-2026-11-21.md` | `handoff/statbot-api-key-env-schema-2026-11-21.md` |
 | `step1-edit-snapshot.md` | `verification/017/qa-phase1/g6-walk/step1-edit-snapshot.md` |
 | `summary.md` | `verification/018/planning/base-validation/summary.md` |
+| `sweep-0411d3b.md` | `verification/fix-normalize-fence-loop/scoping/sweep-0411d3b.md` |
+| `sweep-af3d95a.md` | `verification/fix-image-uploader-url/scoping/sweep-af3d95a.md` |
 | `sweep-next-upgrade.md` | `verification/website-deps-review/scoping/sweep-next-upgrade.md` |
 | `sweep-origin-0c14d5b.md` | `verification/fix-delete-dead-cron/scoping/sweep-origin-0c14d5b.md` |
+| `sweep-proxy.md` | `verification/fix-middleware-dead-matcher/scoping/sweep-proxy.md` |
 | `sweep-unbounded-input.md` | `verification/website-deps-review/scoping/sweep-unbounded-input.md` |
 | `sweep.md` | `verification/access-defects/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-api-secret-compare/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-blockquote-rewrite/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-cut-collapsed-caret/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-decorator-offsets/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-delete-dead-cron/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-desktop-draft-as-typed/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-dialog-closes-on-first-portal-load/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-embed-thumbnail-layout/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-emoji-pretransform-widths/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-get-one-absent-not-found/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-git-dependency-pins/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-image-uploader-url/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-import-save-conflict/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-message-link-import-empty/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-message-not-found/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-message-page-header-decode/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-middleware-dead-matcher/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-normalize-fence-loop/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-recent-message-ids/scoping/sweep.md` |
+| `sweep.md` | `verification/fix-timestamp-edit-target/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-trpc-batch-limit/scoping/sweep.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
+| `table-2217a92.md` | `verification/fix-image-uploader-url/controls/table-2217a92.md` |
+| `table-7660259.md` | `verification/fix-image-uploader-url/controls/table-7660259.md` |
+| `table-a8b23ce.md` | `verification/fix-image-uploader-url/controls/table-a8b23ce.md` |
+| `table-b97f79c.md` | `verification/fix-image-uploader-url/controls/table-b97f79c.md` |
+| `table-cae7472.md` | `verification/fix-image-uploader-url/controls/table-cae7472.md` |
+| `table-e94baf7.md` | `verification/fix-image-uploader-url/controls/table-e94baf7.md` |
+| `table-e94baf7.md` | `verification/fix-image-uploader-url/qa/sweep/table-e94baf7.md` |
 | `table.md` | `verification/018/planning/abort-form-probe/table.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
 | `typed-back-edit-leaves-saved-message-draft-2026-11-21.md` | `handoff/typed-back-edit-leaves-saved-message-draft-2026-11-21.md` |
@@ -1338,9 +1573,11 @@ they are the ID-less artifacts that root new efforts.
 | `walk-3.md` | `verification/018/qa/post-deploy-b8/walk-3.md` |
 | `walk-brief-production.md` | `verification/016/uat/walk-brief-production.md` |
 | `walk-brief.md` | `verification/016/uat/walk-brief.md` |
+| `walk-results.md` | `verification/fix-normalize-fence-loop/qa/walk/walk-results.md` |
 | `walk-steps.md` | `verification/fix-import-save-conflict/qa/walk/walk-steps.md` |
 | `walk.md` | `verification/018/qa/post-deploy-b8/walk.md` |
 | `website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` | `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` |
+| `website-0411d3b-release-tip-qa.md` | `qa/closed/website-0411d3b-release-tip-qa.md` |
 | `website-2026-10-10-release-tip-qa.md` | `qa/closed/website-2026-10-10-release-tip-qa.md` |
 | `website-2026-11-11-release-tip-qa.md` | `qa/closed/website-2026-11-11-release-tip-qa.md` |
 | `website-395510e-release-tip-qa.md` | `qa/closed/website-395510e-release-tip-qa.md` |
@@ -1350,6 +1587,7 @@ they are the ID-less artifacts that root new efforts.
 | `website-787bec5-generator-8512a1d-release-tip-qa.md` | `qa/closed/website-787bec5-generator-8512a1d-release-tip-qa.md` |
 | `website-7923a1d-d1bb9b0-release-tip-qa.md` | `qa/closed/website-7923a1d-d1bb9b0-release-tip-qa.md` |
 | `website-983681c-7923a1d-release-tip-qa.md` | `qa/closed/website-983681c-7923a1d-release-tip-qa.md` |
+| `website-af3d95a-release-tip-qa.md` | `qa/closed/website-af3d95a-release-tip-qa.md` |
 | `website-api-handler-hardening-2026-10-10.md` | `handoff/website-api-handler-hardening-2026-10-10.md` |
 | `website-b663b35-release-tip-qa.md` | `qa/closed/website-b663b35-release-tip-qa.md` |
 | `website-b68f94c-release-tip-qa.md` | `qa/closed/website-b68f94c-release-tip-qa.md` |
@@ -1358,7 +1596,8 @@ they are the ID-less artifacts that root new efforts.
 | `website-deps-review-rulings.md` | `steering/website-deps-review-rulings.md` |
 | `website-deps-review-security-audit.md` | `security/closed/website-deps-review-security-audit.md` |
 | `website-f4baebb-release-tip-qa.md` | `qa/closed/website-f4baebb-release-tip-qa.md` |
-| `website-git-dependencies-resolve-unpinned-2026-11-20.md` | `handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md` |
+| `website-git-dependencies-resolve-unpinned-2026-11-20.md` | `handoff/closed/website-git-dependencies-resolve-unpinned-2026-11-20.md` |
+| `website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md` | `handoff/website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md` |
 | `website-tests-not-beside-their-module-2026-11-08.md` | `handoff/closed/website-tests-not-beside-their-module-2026-11-08.md` |
 | `website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` | `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` |
 | `website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` | `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` |
