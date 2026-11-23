@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/5ad516d8-caaa-4a80-9893-00dab7da1ea8/scratchpad/exp-af3d95a
+
+ ❯ |dom| src/components/SlateEditor/__tests__/typingCostV2.probe.test.tsx (1 test | 1 failed) 146ms
+   × typing cost 130ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/typingCostV2.probe.test.tsx > typing cost
+Error: Could not set focus, editor seems stuck with pending operations
+ ❯ Object.focus node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:436:12
+ ❯ focus node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:442:18
+ ❯ src/components/SlateEditor/__tests__/typingCostV2.probe.test.tsx:68:20
+     66|     const t0 = now();
+     67|     typeInto(editor, text, (f) => act(f));
+     68|     act(() => { vi.runOnlyPendingTimers(); });
+       |                    ^
+     69|     const mountedMs = now() - t0;
+     70|     const mountedEqual = flattenNodeText(editor.children) === text;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  16:29:45
+   Duration  9.97s (transform 1.33s, setup 84ms, import 4.60s, tests 146ms, environment 4.37s)
+

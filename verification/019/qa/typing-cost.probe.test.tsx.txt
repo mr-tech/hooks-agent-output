@@ -1,0 +1,91 @@
+// QA Phase 1 instrument, plan 019 EC-4: per-input cost of typing an input one character at a time into a
+// mounted SlateEditor (jsdom, the dom project), against a headless editor with the same plugins.
+// Copied into a `git archive` export as src/components/SlateEditor/__tests__/typingCost.probe.test.tsx and run there
+// with PROBE_IN (a JSON array of strings) and PROBE_OUT set. Not a suite test.
+// Typing: each code point is one act(() => editor.insertText(ch)); "\n" is editor.insertBreak(). The mounted editor
+// instance is read from slate-dom's ELEMENT_TO_NODE map on the [data-slate-editor] element. This is a model-level
+// keystroke with React's render and the decorator, not a browser beforeinput event.
+// Side reading (not an oracle verdict): whether the last onChange write equals the input.
+import { readFileSync, writeFileSync } from 'node:fs';
+import { act } from 'react';
+import { createEditor, Editor, Transforms } from 'slate';
+import { ELEMENT_TO_NODE } from 'slate-dom';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { it, vi } from 'vitest';
+
+import SlateEditor from '..';
+import { flattenNodeText, withEmojis, withNormalizeNode } from '../utils';
+
+import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+import { EmojiPickerContext } from '~/components/EmojiPicker/utils';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('~/providers/MarkdownProvider', async () => {
+  const { default: loaded } = await import('~/utils/markdown');
+  return { useMarkdown: () => loaded };
+});
+
+const closedPicker = {
+  setOnInsert: () => {}, setShowPicker: () => {}, showPicker: false, insertEmoji: () => {},
+};
+
+const inputs: string[] = JSON.parse(readFileSync(process.env.PROBE_IN as string, 'utf8'));
+
+function typeInto(editor: Editor, text: string, wrap: (f: () => void) => void) {
+  for (const ch of Array.from(text)) {
+    wrap(() => { if (ch === '\n') editor.insertBreak(); else editor.insertText(ch); });
+  }
+}
+
+it('typing cost', () => {
+  vi.useFakeTimers();
+  const rows: { i: number, chars: number, mountedMs: number, headlessMs: number, mountedEqual: boolean, headlessEqual: boolean }[] = [];
+  inputs.forEach((text, i) => {
+    const writes: string[] = [];
+    mountDom(
+      <EmojiPickerContext value={closedPicker}>
+        <SlateEditor
+          initialValue=''
+          onChange={(value) => { writes.push(value); }}
+          emojiParser={markdown.interactive.parseEmoji}
+          contentParser={markdown.interactive.parseContent}
+          partialMarkdown={false}
+          aria-label='message content'
+        />
+      </EmojiPickerContext>,
+    );
+    act(() => { vi.runOnlyPendingTimers(); });
+    const el = document.querySelector('[data-slate-editor]') as HTMLElement;
+    const editor = ELEMENT_TO_NODE.get(el) as unknown as Editor;
+    act(() => { Transforms.select(editor, Editor.end(editor, [])); });
+    const t0 = performance.now();
+    typeInto(editor, text, (f) => act(f));
+    act(() => { vi.runOnlyPendingTimers(); });
+    const mountedMs = performance.now() - t0;
+    const mountedEqual = (writes.at(-1) ?? '') === text;
+    unmountDom();
+
+    const h = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, markdown.interactive.parseEmoji);
+    h.children = [{ type: 'div', lang: '', startCodeBlock: false, empty: true, children: [{ type: 'span', text: '' }] } as never];
+    Transforms.select(h, Editor.end(h, []));
+    const t1 = performance.now();
+    typeInto(h, text, (f) => f());
+    const headlessMs = performance.now() - t1;
+    rows.push({ i, chars: Array.from(text).length, mountedMs, headlessMs, mountedEqual, headlessEqual: flattenNodeText(h.children) === text });
+  });
+  vi.useRealTimers();
+  const q = (xs: number[], p: number) => { const s = [...xs].sort((a, b) => a - b); return s[Math.min(s.length - 1, Math.floor(p * s.length))]; };
+  const m = rows.map((r) => r.mountedMs);
+  const hm = rows.map((r) => r.headlessMs);
+  const chars = rows.reduce((a, r) => a + r.chars, 0);
+  writeFileSync(process.env.PROBE_OUT as string, JSON.stringify({
+    inputs: rows.length, chars,
+    mounted: { totalMs: m.reduce((a, b) => a + b, 0), medianMs: q(m, 0.5), p95Ms: q(m, 0.95), maxMs: Math.max(...m), perCharMs: m.reduce((a, b) => a + b, 0) / chars },
+    headless: { totalMs: hm.reduce((a, b) => a + b, 0), medianMs: q(hm, 0.5), p95Ms: q(hm, 0.95), maxMs: Math.max(...hm), perCharMs: hm.reduce((a, b) => a + b, 0) / chars },
+    mountedNotEqual: rows.filter((r) => !r.mountedEqual).map((r) => r.i),
+    headlessNotEqual: rows.filter((r) => !r.headlessEqual).map((r) => r.i),
+    rows,
+  }, null, 1));
+}, 1_200_000);

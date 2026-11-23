@@ -1,0 +1,78 @@
+{
+ "inputs": 3,
+ "chars": 13,
+ "mounted": {
+  "totalMs": 71.56924400000025,
+  "medianMs": 15.586615000000165,
+  "p95Ms": 43.91532200000074,
+  "maxMs": 43.91532200000074,
+  "perCharMs": 5.505326461538481
+ },
+ "headless": {
+  "totalMs": 26.485584999998537,
+  "medianMs": 4.534352999999101,
+  "p95Ms": 18.719154999998864,
+  "maxMs": 18.719154999998864,
+  "perCharMs": 2.0373526923075795
+ },
+ "mountedNotEqual": [
+  2
+ ],
+ "lastWriteNotEqual": 3,
+ "zeroWrites": 0,
+ "headlessNotEqual": [
+  2
+ ],
+ "rows": [
+  {
+   "i": 0,
+   "chars": 5,
+   "mountedMs": 12.067306999999346,
+   "headlessMs": 4.534352999999101,
+   "mountedEqual": true,
+   "lastWriteEqual": false,
+   "writes": 1,
+   "headlessEqual": true
+  },
+  {
+   "i": 1,
+   "chars": 7,
+   "mountedMs": 15.586615000000165,
+   "headlessMs": 18.719154999998864,
+   "mountedEqual": true,
+   "lastWriteEqual": false,
+   "writes": 1,
+   "headlessEqual": true
+  },
+  {
+   "i": 2,
+   "chars": 1,
+   "mountedMs": 43.91532200000074,
+   "headlessMs": 3.2320770000005723,
+   "mountedEqual": false,
+   "lastWriteEqual": false,
+   "writes": 1,
+   "headlessEqual": false
+  }
+ ],
+ "writesSample": [
+  {
+   "text": "# one",
+   "last": "",
+   "count": 1,
+   "first": ""
+  },
+  {
+   "text": "# a\n# b",
+   "last": "",
+   "count": 1,
+   "first": ""
+  },
+  {
+   "text": "😀",
+   "last": "",
+   "count": 1,
+   "first": ""
+  }
+ ]
+}
