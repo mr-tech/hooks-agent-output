@@ -1,0 +1,67 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > holds one entry for every declared member of the modifier kinds
+AssertionError: expected [ 'bold', 'italic', 'spoiler', …(1) ] to deeply equal [ 'bold', 'italic', 'spoiler', …(2) ]
+
+- Expected
++ Received
+
+  [
+    "bold",
+    "italic",
+    "spoiler",
+    "strikethrough",
+-   "underline",
+  ]
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:83:37
+     81|     ['modifier kinds', MODIFIER_KINDS, DECLARED_MODIFIER_KINDS],
+     82|   ])('holds one entry for every declared member of the %s', (_title, m…
+     83|     expect(Object.keys(map).sort()).toEqual([...declared].sort());
+       |                                     ^
+     84|   });
+     85|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > holds an entry for every modifier kind the engine returns, on its nodes and on its delimiter tokens
+AssertionError: expected [ 'underline' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "underline",
++ ]
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:94:72
+     92|   it('holds an entry for every modifier kind the engine returns, on it…
+     93|     const { modifiers } = observedKinds();
+     94|     expect([...modifiers].filter((kind) => !(kind in MODIFIER_KINDS)))…
+       |                                                                        ^
+     95|     expect([...modifiers].sort()).toEqual([...DECLARED_MODIFIER_KINDS]…
+     96|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the underline modifier the underline style without a warning
+AssertionError: expected undefined to be 'underline' // Object.is equality
+
+- Expected:
+"underline"
+
++ Received:
+undefined
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:137:33
+    135|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    136|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    137|     expect(modifierStyle(kind)).toBe(style);
+       |                                 ^
+    138|     expect(warn).not.toHaveBeenCalled();
+    139|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

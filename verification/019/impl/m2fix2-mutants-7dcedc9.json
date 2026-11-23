@@ -1,0 +1,9 @@
+[
+  {"id": "QAF29-spoiler-entry-removed", "file": "src/utils/markdown/engine.ts", "old": "  spoiler: 'spoiler',\n} as const satisfies Record<ModifierKind, string>;", "new": "} as const satisfies Partial<Record<ModifierKind, string>>;"},
+  {"id": "QAF29-underline-entry-removed", "file": "src/utils/markdown/engine.ts", "old": "  underline: 'underline',\n  strikethrough", "new": "  strikethrough"},
+  {"id": "QAF29-unmapped-modifier-silent", "file": "src/utils/markdown/engine.ts", "old": "  warnUnmapped(`modifier.${kind}`);\n", "new": ""},
+  {"id": "QAF29-unmapped-modifier-warns-every-call", "file": "src/utils/markdown/engine.ts", "old": "function warnUnmapped(label: string) {\n  if (!warnedKinds.has(label)) {", "new": "function warnUnmapped(label: string) {\n  if (label.startsWith('modifier.') || !warnedKinds.has(label)) {"},
+  {"id": "QAF29-modifier-style-wrong-entry", "file": "src/utils/markdown/engine.ts", "old": "  italic: 'italic',\n  underline", "new": "  italic: 'bold',\n  underline"},
+  {"id": "QAF30-bit-value-changed", "file": "src/utils/markdown/__tests__/engine.surface-masks.test.ts", "old": "SPOILER: 0x1000000,", "new": "SPOILER: 0x1000001,"},
+  {"id": "QAF30-bit-removed", "file": "src/utils/markdown/__tests__/engine.surface-masks.test.ts", "old": "  DEV_LINKS: 0x40000000,\n", "new": ""}
+]

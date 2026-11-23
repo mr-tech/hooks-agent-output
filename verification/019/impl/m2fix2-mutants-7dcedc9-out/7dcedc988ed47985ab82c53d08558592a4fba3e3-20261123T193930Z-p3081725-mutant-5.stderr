@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the italic modifier the italic style without a warning
+AssertionError: expected 'bold' to be 'italic' // Object.is equality
+
+Expected: "italic"
+Received: "bold"
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:137:33
+    135|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    136|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    137|     expect(modifierStyle(kind)).toBe(style);
+       |                                 ^
+    138|     expect(warn).not.toHaveBeenCalled();
+    139|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

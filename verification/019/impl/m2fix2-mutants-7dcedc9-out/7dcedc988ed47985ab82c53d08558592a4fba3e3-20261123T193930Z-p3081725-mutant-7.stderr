@@ -1,0 +1,32 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.surface-masks.test.ts > the engine surface masks > lists exactly the single-bit syntax members of the pinned package, by name and value
+AssertionError: expected { CUSTOM_EMOJI: 1, …(29) } to deeply equal { CUSTOM_EMOJI: 1, …(30) }
+
+- Expected
++ Received
+
+@@ -8,11 +8,10 @@
+    "COLON_EMOJI": 2,
+    "COMMAND_MENTION": 2048,
+    "CONTACT_LINK": 64,
+    "CUSTOM_EMOJI": 1,
+    "DETECTED_LINK": 16,
+-   "DEV_LINKS": 1073741824,
+    "DOUBLE_CODE": 262144,
+    "EVERYONE_MENTION": 4096,
+    "GAME_MENTION": 1024,
+    "HEADING": 33554432,
+    "HERE_MENTION": 8192,
+
+ ❯ src/utils/markdown/__tests__/engine.surface-masks.test.ts:64:18
+     62|
+     63|   it('lists exactly the single-bit syntax members of the pinned packag…
+     64|     expect(BITS).toEqual(PINNED_SINGLE_BIT_SYNTAX);
+       |                  ^
+     65|     expect(Object.keys(BITS)).toHaveLength(31);
+     66|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

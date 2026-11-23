@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/990555ae-2f9c-45bb-9eea-031c7658c0b1/scratchpad/mw2/20261123T193930Z-p3081725/mutant-4
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 1 failed) 103ms
+     × gives an unmapped modifier kind no style and one warning per kind per document 11ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  1 failed | 347 passed (348)
+   Start at  19:39:52
+   Duration  1.74s (transform 2.38s, setup 0ms, import 5.45s, tests 1.05s, environment 2ms)
+

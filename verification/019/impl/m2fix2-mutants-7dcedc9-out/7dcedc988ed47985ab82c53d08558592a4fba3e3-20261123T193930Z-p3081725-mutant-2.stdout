@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/990555ae-2f9c-45bb-9eea-031c7658c0b1/scratchpad/mw2/20261123T193930Z-p3081725/mutant-2
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 3 failed) 85ms
+     × holds one entry for every declared member of the modifier kinds 8ms
+     × holds an entry for every modifier kind the engine returns, on its nodes and on its delimiter tokens 4ms
+     × gives the underline modifier the underline style without a warning 1ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  3 failed | 345 passed (348)
+   Start at  19:39:46
+   Duration  1.82s (transform 2.72s, setup 0ms, import 5.45s, tests 816ms, environment 2ms)
+

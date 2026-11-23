@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/990555ae-2f9c-45bb-9eea-031c7658c0b1/scratchpad/mw2/20261123T193930Z-p3081725/mutant-1
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 3 failed) 119ms
+     × holds one entry for every declared member of the modifier kinds 13ms
+     × holds an entry for every modifier kind the engine returns, on its nodes and on its delimiter tokens 9ms
+     × gives the spoiler modifier the spoiler style without a warning 2ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  3 failed | 345 passed (348)
+   Start at  19:39:42
+   Duration  2.36s (transform 4.44s, setup 0ms, import 8.21s, tests 1.33s, environment 2ms)
+

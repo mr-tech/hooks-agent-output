@@ -6,7 +6,7 @@ Status: Active
 Status-Detail: >-
   M2 coded and committed on chain/019-slate-formatting-discord-engine; code review round 1 REJECTED 22f3e58 (CR-1, CR-2); fix round 1
   committed at 78c5f74 and handed back. M3 in progress (own document when handed off).
-Handoff-At: 78c5f74 — repos=website — fix round 1 over 22f3e58 (the M3 commits 805fff6 and 548b16b sit between them and touch no M2 file but add one test helper that names the engine, AC-2.1's second member; review by path over src/utils/markdown/engine.ts and its engine.* tests)
+Handoff-At: 7dcedc9 — repos=website — fix round 2 (QA Phase 2 QAF-29, QAF-30) over 78c5f74; fix round 1 was 78c5f74 over 22f3e58 (the M3 commits 805fff6 and 548b16b sit between them and touch no M2 file but add one test helper that names the engine, AC-2.1's second member; review by path over src/utils/markdown/engine.ts and its engine.* tests)
 ---
 
 # Implementation 019 — M2: the engine and its adapter
@@ -27,6 +27,7 @@ QA Phase 1: `qa/019-slate-formatting-discord-engine-qa.md` (record `26f3a3c`). C
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-23T18:48 | steering-hooks-fixer (brief `steering/019-brief-implementer.md`) | Implement M2 to M6 | Plan Status set to In Progress (R-23, record `123448ca`). Baseline at `5ec0621`, the pinned install and build, then M2: commits `1005eec` and `22f3e58`. |
+| 2026-11-23T19:40 | qa-019 (message; QA record `0b00154b`, plan row R-26) | Fix round 2: QAF-29 MEDIUM, QAF-30 LOW | Fix commit `7dcedc9`. Section "Fix Round 2" below. |
 | 2026-11-23T19:24 | code-reviewer-019 (message; review record `a8588f39`) | Fix round 1: CR-1, CR-2 | Fix commit `78c5f74`. Section "Fix Round 1" below. CR-3 carried to M5. CR-4 deferred to M3's oracle round (stated below). |
 | 2026-11-23T19:06 | implementer-019 | Checkpoint | Session prefix at 289,182 tokens (`cc-usage.py sessions`), past the 225K seam threshold, after M2. Resumption State written. M3 to M6 are not started. |
 
@@ -297,6 +298,36 @@ first three parts (project form, lifted inputs, generator, normaliser) and this 
 
 CR-4 (optional): not done this round. The AST walk for non-literal `import(...)` and `require(...)` lands with M3's oracle helper, which
 becomes AC-2.1's second member (the real-tree confinement case already admits it: `helpers/discordOracle.ts`).
+
+## Fix Round 2 (QA Phase 2 `0b00154b`, over `78c5f74`)
+
+Fix commit `7dcedc9`.
+
+- **QAF-29.** `engine.ts` gains `MODIFIER_KINDS` (five entries, `satisfies Record<ModifierKind, string>`) and `modifierStyle(kind)`, which
+  returns the style or writes `markdown-engine-unmapped-kind kind=modifier.<kind> version=0.16.0` once per kind per document. It shares
+  `warnUnmapped` with `nodeRenderer`, so the once-per-kind set is one. Values equal keys for now; M4 and M5 give them their meaning.
+  `engine.kind-maps.test.ts` holds: a declared check against the literal five; an observed check that collects the `modifier` node kinds and the
+  `delimiter` token kinds over the input classes, requires each in the map and requires the observed set to be exactly the five; five mapped
+  cases with literal styles; and the unmapped case.
+- **QAF-30.** `engine.surface-masks.test.ts` compares its `BITS` table with the pinned package's single-bit `Syntax` members by name and
+  value, through `PINNED_SINGLE_BIT_SYNTAX` in the one engine-naming test helper (`helpers/discordOracle.ts`; AC-2.1 holds).
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `MODIFIER_KINDS` (declared, observed) | `engine.kind-maps.test.ts` | Yes | Yes | TypeError (the export absent, `m2fix2-red-1.txt`; first row for the symbol); then assertion, QAF29-spoiler-entry-removed and QAF29-underline-entry-removed | Yes |
+| `modifierStyle` (five styles, one warning per kind) | same | Yes | Yes | TypeError (`modifierStyle is not a function`); then assertion, QAF29-unmapped-modifier-silent, -warns-every-call, -wrong-entry | Yes |
+| `BITS` against the pinned package | `engine.surface-masks.test.ts` | Yes | Yes | assertion, QAF30-bit-value-changed (KILLED). QAF30-bit-removed was recorded **ABORTED** by the runner because the case count fell with the removed table row (`count: mismatch`); the case itself fails on the comparison | Yes |
+
+Mutants: `m2fix2-mutants-7dcedc9.json`, `.runner.txt`, `-out/` (through `mutation-run.py`, isolated exports): 6 of 6 KILLED, 1 ABORTED as above.
+
+Class sweep (QAF-29: a union nested in the types the adapter does not map):
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-29 | `grep -nE '^export type [A-Za-z]+ =\|^\s+\| "[a-z_]+"$\|Node<"[a-z_]+", "' node_modules/.pnpm/@discord+markdown-types@0.14.0/node_modules/@discord/markdown-types/index.d.ts`, then the nested payload unions read by `grep -nE '"line" \| "rest"\|LinkKind =\|ordered\|ModifierKind ='` | 46 lines (`m2fix2-class-sweep-7dcedc9.txt`); five nested payload unions: `ModifierKind` (5), `LinkKind` (4: detected, auto, contact, masked), quote `line` or `rest`, list `ordered` or `unordered`, `heading.level` | `ModifierKind`: fixed. The other four are payload variants of one node kind each (`link`, `quote`, `list`, `heading`), read by that kind's renderer, which is M4's; AC-2.4 asks for no map over them. They are named here so the M4 round maps each with a literal table and the same unmapped-kind line if the renderer branches on them. Not mapped at M2 |
+
+Results: `unshare -rn` (lo up) `npx vitest run --project node --project dom --reporter=json`, tree at `7dcedc9`: 3041 of 3041 passed, 186 `testResults` entries,
+exit 0 (`m2fix2-suite-7dcedc9-offline.{json,log.txt,exit}`). `pnpm run typecheck` exit 0. `convention-check.js website --since=1bcab7a`: 0 FAIL, 0 CANDIDATE.
 
 ## Resumption State
 

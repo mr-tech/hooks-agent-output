@@ -1,0 +1,74 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 8 failed) 260ms
+     × holds one entry for every declared member of the modifier kinds 14ms
+     × holds an entry for every modifier kind the engine returns, on its nodes and on its delimiter tokens 32ms
+     × gives the bold modifier the bold style without a warning 1ms
+     × gives the italic modifier the italic style without a warning 1ms
+     × gives the underline modifier the underline style without a warning 0ms
+     × gives the strikethrough modifier the strikethrough style without a warning 0ms
+     × gives the spoiler modifier the spoiler style without a warning 0ms
+     × gives an unmapped modifier kind no style and one warning per kind per document 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > holds one entry for every declared member of the modifier kinds
+TypeError: Cannot convert undefined or null to object
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:79:19
+     77|     ['modifier kinds', MODIFIER_KINDS, DECLARED_MODIFIER_KINDS],
+     78|   ])('holds one entry for every declared member of the %s', (_title, m…
+     79|     expect(Object.keys(map).sort()).toEqual([...declared].sort());
+       |                   ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > holds an entry for every modifier kind the engine returns, on its nodes and on its delimiter tokens
+TypeError: Cannot use 'in' operator to search for 'bold' in undefined
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:90:46
+     88|   it('holds an entry for every modifier kind the engine returns, on it…
+     89|     const { modifiers } = observedKinds();
+     90|     expect([...modifiers].filter((kind) => !(kind in MODIFIER_KINDS)))…
+       |                                              ^
+     91|     expect([...modifiers].sort()).toEqual([...DECLARED_MODIFIER_KINDS]…
+     92|   });
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:90:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the bold modifier the bold style without a warning
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the italic modifier the italic style without a warning
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the underline modifier the underline style without a warning
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the strikethrough modifier the strikethrough style without a warning
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives the spoiler modifier the spoiler style without a warning
+TypeError: modifierStyle is not a function
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:133:12
+    131|   ])('gives the %s modifier the %s style without a warning', (kind, st…
+    132|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    133|     expect(modifierStyle(kind)).toBe(style);
+       |            ^
+    134|     expect(warn).not.toHaveBeenCalled();
+    135|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives an unmapped modifier kind no style and one warning per kind per document
+TypeError: fresh.modifierStyle is not a function
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:141:18
+    139|     const fresh = await import('../engine');
+    140|     const warn = vi.spyOn(console, 'warn').mockImplementation(() => un…
+    141|     expect(fresh.modifierStyle('glitter')).toBeUndefined();
+       |                  ^
+    142|     expect(fresh.modifierStyle('glitter')).toBeUndefined();
+    143|     expect(fresh.modifierStyle('wave')).toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 24 passed (32)
+   Start at  19:37:11
+   Duration  791ms (transform 138ms, setup 0ms, import 168ms, tests 260ms, environment 0ms)
+

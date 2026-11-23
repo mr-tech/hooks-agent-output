@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/990555ae-2f9c-45bb-9eea-031c7658c0b1/scratchpad/mw2/20261123T193930Z-p3081725/mutant-7
+
+ ❯ |node| src/utils/markdown/__tests__/engine.surface-masks.test.ts (192 tests | 1 failed) 47ms
+     × lists exactly the single-bit syntax members of the pinned package, by name and value 12ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  1 failed | 341 passed (342)
+   Start at  19:40:01
+   Duration  1.82s (transform 2.47s, setup 0ms, import 5.41s, tests 870ms, environment 1ms)
+

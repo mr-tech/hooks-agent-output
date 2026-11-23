@@ -1,0 +1,46 @@
+12:export type Text = Node<"text", string>;
+13:export type Paragraph = Node<"paragraph", Inline[]>;
+15:export type Code = Node<"code", string>;
+23:export type Spoiler = Node<"spoiler", { id: number; content: ModifierContent }>;
+24:export type Strikethrough = Node<"strikethrough", ModifierContent>;
+25:export type Underline = Node<"underline", ModifierContent>;
+26:export type Italic = Node<"italic", ModifierContent>;
+27:export type Bold = Node<"bold", ModifierContent>;
+29:export type Modifier = Bold | Italic | Spoiler | Strikethrough | Underline;
+31:export type Link = Node<
+40:export type UserMention = Node<"user", bigint>;
+41:export type ChannelMention = Node<"channel", bigint>;
+42:export type RoleMention = Node<"role", bigint>;
+43:export type GameMention = Node<"game", bigint>;
+44:export type CommandMention = Node<"command", { name: string; id: bigint }>;
+45:export type EveryoneMention = EmptyNode<"everyone">;
+46:export type HereMention = EmptyNode<"here">;
+47:export type StaticMention = Node<
+55:export type Mention = Node<
+67:export type Timestamp = Node<"timestamp", { value: bigint; style?: string }>;
+69:export type CustomEmoji = Node<
+73:export type UnicodeEmoji = Node<"unicode", string>;
+74:export type Emoji = Node<"emoji", CustomEmoji | UnicodeEmoji>;
+76:export type CodeBlock = Node<
+81:export type Inline =
+90:export type Heading = Node<
+98:export type ListItem = { content: (List | Paragraph)[] };
+99:export type List = Node<
+107:export type Empty = EmptyNode<"empty">;
+108:export type Quote = Node<"quote", Block[]>;
+109:export type Subtext = Node<"subtext", { content: Inline[] }>;
+111:export type Block = Empty | Heading | List | Quote | Subtext;
+113:export type NodeType = Inline["type"] | Block["type"];
+119:export type Span = { start: number; end: number };
+121:export type ModifierKind =
+122:	| "bold"
+123:	| "italic"
+124:	| "underline"
+125:	| "strikethrough"
+129:export type LinkKind = "detected" | "auto" | "contact" | "masked";
+131:export type LosslessNodeKind =
+137:	| Node<"quote", "line" | "rest">
+155:export type TokenKind =
+185:export type Token = { kind: TokenKind; text: string; span: Span };
+187:export type LosslessNode = {
+193:export type LosslessChild =

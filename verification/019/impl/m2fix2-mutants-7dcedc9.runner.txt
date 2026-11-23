@@ -1,0 +1,8 @@
+QAF29-spoiler-entry-removed KILLED 4.45
+QAF29-underline-entry-removed KILLED 3.0
+QAF29-unmapped-modifier-silent KILLED 2.97
+QAF29-unmapped-modifier-warns-every-call KILLED 2.88
+QAF29-modifier-style-wrong-entry KILLED 2.98
+QAF30-bit-value-changed KILLED 2.84
+QAF30-bit-removed ABORTED 3.17
+6 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 1, control-failed 0; m2fix2-mutants-7dcedc9.json (blob 1263d5c3691bd5d8bb6b902c344a6d6850935f4b))

@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts > the engine kind maps > gives an unmapped modifier kind no style and one warning per kind per document
+AssertionError: expected [] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+- [
+-   "markdown-engine-unmapped-kind kind=modifier.glitter version=0.16.0",
+-   "markdown-engine-unmapped-kind kind=modifier.wave version=0.16.0",
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/engine.kind-maps.test.ts:148:60
+    146|     expect(fresh.modifierStyle('glitter')).toBeUndefined();
+    147|     expect(fresh.modifierStyle('wave')).toBeUndefined();
+    148|     expect(warn.mock.calls.map((call) => String(call[0]))).toEqual([
+       |                                                            ^
+    149|       'markdown-engine-unmapped-kind kind=modifier.glitter version=0.1…
+    150|       'markdown-engine-unmapped-kind kind=modifier.wave version=0.16.0…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

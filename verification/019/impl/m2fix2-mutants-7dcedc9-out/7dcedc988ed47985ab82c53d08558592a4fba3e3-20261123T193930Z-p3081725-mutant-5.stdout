@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/990555ae-2f9c-45bb-9eea-031c7658c0b1/scratchpad/mw2/20261123T193930Z-p3081725/mutant-5
+
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 1 failed) 104ms
+     × gives the italic modifier the italic style without a warning 7ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  1 failed | 347 passed (348)
+   Start at  19:39:55
+   Duration  1.79s (transform 2.77s, setup 0ms, import 5.84s, tests 957ms, environment 2ms)
+
