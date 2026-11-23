@@ -884,3 +884,16 @@ adjustment, which is the number his option said was unmeasured, is not yet recor
 one, with a route to him, and CF-18 MEDIUM asks for the 1,034 and 833 atom-bearing inputs to be measured or excluded (record `744abb20`).
 **Held:** it goes to him once the after-adjustment count is recorded and the planner has folded CF-19, if that count crosses the line, or if the
 fold routes it to him. Otherwise he is told the figure in plain words with M4's release.
+
+## 2026-11-23T22:35Z — plan 019: M3 capped at its second post-approval revision (this thread, steering.md Standing check)
+
+`planner-019` committed Revision 12 (`b0af4dc3`, changelog row 22:34). It folds the gates' reads of Revision 11 (QA `047add44`, architect `744abb20`,
+critic `08caeb87` APPROVED). Revisions 11 (22:28) and 12 (22:34) both revise AC-3.7, an M3 criterion. So M3 has taken its second revision since
+Revision 9's approval, and **this thread caps M3**, as it did M4 and M6 at block 17:56Z. Past Revision 12, each further M3 gap below HIGH goes to the
+plan's Planner batch as a stated limit, with no revision round. A gate's severity-floor finding is excepted. AC-3.7 has now been revised in two
+consecutive revisions (11, 12); a revision of it in the next one is decided by this thread before the fold (block 18:02Z's rule).
+**D-14 hold superseded in part** (block 22:33Z). Revision 12 has RK-9 fire once at M4. The implementer sends this thread the after-adjustment counts
+per surface, and the counts go to him as a selection prompt, with no threshold set (the planner: D-14 reopens only on his withdrawal).
+**Told to him at his next prompt**, with spend and hours. `python3 ~/.claude/tools/cc-usage.py chain 019 --since 2026-11-23T18:48`: TOTAL $88.93,
+1,416 requests, over every 019 session from implementation start (block 18:48Z) to 22:35Z (3 h 47 m). The tool does not split spend by milestone, so
+this is the whole chain's figure over that window.
