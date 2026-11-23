@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4a82279f-f5e2-4347-b7dc-2c06019c663c/scratchpad/mwork1/20261123T215744Z-p646236/mutant-3
+
+ ❯ |node| src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts (20 tests | 2 failed) 99ms
+     × tags a bit only on text that holds that bit's construct 11ms
+     × writes the game mention in the form the parser reads, and its near-miss as untagged text 1ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 41 passed (43)
+   Start at  21:57:52
+   Duration  945ms (transform 167ms, setup 0ms, import 854ms, tests 257ms, environment 0ms)
+

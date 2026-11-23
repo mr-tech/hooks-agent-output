@@ -1,0 +1,8 @@
+CR5-probe-withdrawn-form-back KILLED 2.02
+CR5-probe-real-form-dropped KILLED 2.07
+CR5-probe-near-miss-tagged KILLED 2.03
+CR6-probe-address-constant KILLED 2.03
+CR6-probe-fetch-resolves KILLED 2.37
+CR6-probe-loadbuild-attempts-disconnected SURVIVED 2.51
+CR6-probe-ws-records-then-connects KILLED 2.14
+6 of 7 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m3fix-mutants-cr-1698c80.json (blob fd45a8f9af1d31372f5b2e3adf8b56e51c3551ec))

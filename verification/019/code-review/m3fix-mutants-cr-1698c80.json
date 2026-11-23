@@ -1,0 +1,9 @@
+[
+ {"id": "CR5-probe-withdrawn-form-back", "file": "src/utils/markdown/__tests__/helpers/markdownGenerator.ts", "old": "p(`<@$${ID}>`, 'GAME_MENTION'),\n  p(`<game:${ID}>`),", "new": "p(`<game:${ID}>`, 'GAME_MENTION'),", "finding": "CR-5: the generator returns to the withdrawn form"},
+ {"id": "CR5-probe-real-form-dropped", "file": "src/utils/markdown/__tests__/helpers/markdownGenerator.ts", "old": "p(`<@$${ID}>`, 'GAME_MENTION'),\n", "new": "", "finding": "CR-5: the real form is not generated at all"},
+ {"id": "CR5-probe-near-miss-tagged", "file": "src/utils/markdown/__tests__/helpers/markdownGenerator.ts", "old": "p(`<game:${ID}>`),", "new": "p(`<game:${ID}>`, 'GAME_MENTION'),", "finding": "CR-5: the near-miss carries the bit's tag"},
+ {"id": "CR6-probe-address-constant", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "attempts.push(String(address));", "new": "attempts.push('blocked');", "finding": "CR-6: the record does not name the address"},
+ {"id": "CR6-probe-fetch-resolves", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": ": Promise.reject(refuse(input)));", "new": ": (refuse(input), Promise.resolve(new Response(''))));", "finding": "CR-6: fetch records but answers"},
+ {"id": "CR6-probe-loadbuild-attempts-disconnected", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "installOracleShims(w, wasm, attempts);", "new": "installOracleShims(w, wasm, []);", "finding": "CR-6: the Oracle's attempts list is not the one the shims write"},
+ {"id": "CR6-probe-ws-records-then-connects", "file": "src/utils/markdown/__tests__/helpers/discordBuild.ts", "old": "[name]: function Refused(address: unknown) { throw refuse(address); },", "new": "[name]: function Refused(address: unknown) { refuse(address); return {}; },", "finding": "CR-6: WebSocket and EventSource record but do not refuse"}
+]

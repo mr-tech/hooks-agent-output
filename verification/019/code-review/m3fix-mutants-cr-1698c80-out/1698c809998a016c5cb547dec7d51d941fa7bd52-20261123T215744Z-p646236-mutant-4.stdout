@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4a82279f-f5e2-4347-b7dc-2c06019c663c/scratchpad/mwork1/20261123T215744Z-p646236/mutant-4
+
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts (3 tests | 3 failed) 128ms
+     × lets an XMLHttpRequest nowhere and names its address 104ms
+     × lets a WebSocket nowhere and names its address 12ms
+     × records a fetch that is refused 11ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 40 passed (43)
+   Start at  21:57:54
+   Duration  930ms (transform 184ms, setup 0ms, import 850ms, tests 214ms, environment 0ms)
+

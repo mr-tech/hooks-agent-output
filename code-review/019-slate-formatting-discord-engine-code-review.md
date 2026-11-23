@@ -2,7 +2,7 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "f4060c5 — repos=website; Round 3 is M3 at f4060c5 (every M3 path in 22f3e58..f4060c5); M2 closed at Round 2, 7dcedc9"
+Reviewed-At: "1698c80 — repos=website; Round 3's sub-entry is M3's fix commit 1698c80 (its 7 paths; 93b26fd, M4, not reviewed); Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
 Status: In Review
 Round: 3
 Verdict: REJECTED
@@ -23,6 +23,7 @@ Verdict: REJECTED
 | 2026-11-23T19:24 | implementer-019 (fix round 1, website `78c5f74`, record `491731bf`) | Round 1 sub-entry: confirm CR-1 and CR-2 | Round 1 sub-entry at `78c5f74`, scoped to the fix commit `78c5f74` over the M2 paths. CR-1 and CR-2 are RESOLVED: 8 of 8 probes KILLED, each on its own case by assertion, and the sweeps re-run. Verdict APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW open, each with a carrier). `805fff6` and `548b16b` (M3 test work) are not reviewed here; they belong to M3's round. |
 | 2026-11-23T19:44 | implementer-019 (fix round 2 for QA's QAF-29 and QAF-30, website `7dcedc9`) | Review the M2 delta | Round 2 at `7dcedc9`, opened because the fix adds production code outside CR-1 and CR-2 (`MODIFIER_KINDS`, `modifierStyle`, `warnUnmapped`). The delta is reviewed as a first review over the M2 paths. No new finding. 11 of 11 probes KILLED, each on its own case. APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW, as before). `1bcab7a` (M3 oracle work) is not reviewed here. |
 | 2026-11-23T21:23 | implementer-019 (M3 hand-off, `implementation/019-slate-formatting-discord-engine-m3-implementation.md`, record `f78d803b`, `Handoff-At: f4060c5`) | Review M3 | Round 3 at `f4060c5`: REJECTED on CR-5 MEDIUM (the generator's game mention is AN-8's withdrawn form, so no input exercises `GAME_MENTION`) and CR-6 MEDIUM (the oracle window keeps live XHR and WebSocket). CR-7, CR-8 and CR-9 are LOW, and CR-4 is re-verified partly resolved. CR-7's M6 carriage goes to the planner. |
+| 2026-11-23T22:00 | implementer-019 (M3 fix round 3, website `1698c80`, record `e1c265a7`); steering-hooks-fixer (resume message after `/clear`) | Round 3 sub-entry: confirm CR-5 and CR-6 | Round 3 sub-entry at `1698c80`, scoped to the fix commit's 7 paths. CR-5 and CR-6 are RESOLVED: the removal test shows `GAME_MENTION` live, and the 18-path re-attack, with a positive control, reaches the listener 0 times. A new finding, CR-10 MEDIUM (severity floor), makes the verdict REJECTED: the live control says "no request attempt" by reading `oracle.attempts`, and no assertion fails when `loadBuild`'s wiring of that list is cut (the mutant SURVIVED), or when a refused XHR is touched before `open`. `93b26fd` (M4) is not reviewed here. |
 
 ## Scope of this round
 
@@ -229,74 +230,31 @@ files are mine. Nothing in this round drove `pnpm test:discord` or fetched Disco
 
 ### Findings (Round 3)
 
-CR-5 MEDIUM Round 3
-- **Category**: Checks That Cannot Fail
-- **Title**: The generator writes a game mention in the form AN-8 withdrew, so no input in any class exercises `GAME_MENTION`
-- **Location**: `src/utils/markdown/__tests__/helpers/markdownGenerator.ts` `MENTIONS` (the `GAME_MENTION` piece);
-  `markdownGenerator.seeded-inputs.test.ts` `NEEDLES.GAME_MENTION` and the needle list; `discordReports` coverage cells, at `f4060c5`.
-- **Class**: An input-class construct written from a superseded premise. The input carries the bit's tag but not the bit's
-  construct, so a criterion's coverage of that bit is zero while the generator's own test passes.
-- **Enumeration**:
-  - **Run:** the removal test over the generator's first 200 inputs (`m3-generator-bit-tags.out`) finds, in the catalogue, one
-    construct tag that is dead and not by design: `GAME_MENTION` on `<game:id>`.
-  - **Implementer's count:** the coverage report finds 7 zero cells (Findings 5): `GAME_MENTION` on all six surfaces, and
-    `CODE_BLOCK` on `embedTitle`. The latter is legitimate, because the title mask clears the bit.
-  - **Corpus:** 0 inputs hold `<@$` (`grep -c '<@\$'` over `discordCorpus.json`).
-  - **Blind spot:** the predicate does not see a construct whose form is right but which is always swallowed by its context, such
-    as one only ever generated inside code. It also does not run on the 106 link inputs.
-- **Issue**:
-  - AN-8 limb 2 established the game mention's written form as `<@$<id>>`, and showed that `<game:id>` "stay[s] text" (analysis,
-    § Findings, limb 2). M2's `engine.kind-maps.test.ts` already uses `<@$4>`.
-  - The generator kept the research's withdrawn guess, and its test transcribes the same premise (`/<game:\d+>/`). The test checks
-    the generator against itself, not against the parser.
-  - Consequences: AC-3.7 and the residue measurement (Findings 4, which M4 starts from) contain no game mention on any surface.
-    That includes the description, field value and V2 surfaces, where AN-8 limb 2b says legacy draws a pill. It also includes the
-    title and field-name masks, whose one distinguishing bit from AN-3 is exactly `GAME_MENTION`. The coverage report calls the
-    cell unexamined and gives the withdrawn form as the reason.
-- **Required Action**:
-  - **Preferred (structural)**: the coverage report fails the run on a zero cell for a bit that the surface's literal mask carries.
-    It names cells whose bit the mask clears as "masked off", the way `CODE_BLOCK` on `embedTitle` already is. A construct then
-    cannot silently fall out of coverage.
-  - **Minimum**:
-    - The generator writes `<@$<id>>` for `GAME_MENTION`, and keeps `<game:id>` as an untagged near-miss.
-    - The generator test's needle comes from AN-8's form, not from the generator.
-    - The residue measurement (Findings 4) is re-run, and the M3 document's counts are updated.
-  - **Falsity signature**: at `f4060c5`, a report-form case asserting that no carried bit has a zero cell fails by assertion on
-    `GAME_MENTION` × content. After the fix it passes, and a planted generator that drops the game-mention piece makes it fail
-    again.
+CR-5 MEDIUM Round 3 RESOLVED. At website `1698c80`, the generator writes `GAME_MENTION` as `<@$<id>>` and keeps `<game:id>` as
+an untagged near-miss. The generator test's needle comes from AN-8's form (`/<@\$\d+>/`), and `constructsOf` is asserted to name
+`GAME_MENTION` for the real form and no bit for the near-miss. That last check runs the real engine's removal test, so its expected
+value is independent of the generator. The class is gone:
+- the removal test at `1698c80` (`m3fix-generator-bit-tags.out`) has no `GAME_MENTION` among the catalogue's dead tags;
+- 4 of 5 tagged inputs change the parse when the bit is removed (the fifth is a composed input, bookkeeping as in Round 3);
+- 5 of 5 near-misses are inert and untagged;
+- `git grep -n "<game:" 1698c80 -- src` gives 3 hits, all the near-miss by design.
 
-CR-6 MEDIUM Round 3
-- **Category**: Architecture / test isolation
-- **Title**: The oracle window refuses `fetch` but keeps jsdom's live `XMLHttpRequest` and `WebSocket`, so Discord's evaluated code
-  can reach the network during `pnpm test:discord`
-- **Location**: `src/utils/markdown/__tests__/helpers/discordBuild.ts` `installShims` and `loadBuild` at `f4060c5`.
-- **Class**: A sandbox shim that closes one network API of the window and leaves others live. The oracle's output can then depend
-  on live server responses as well as the served build, and the window can send requests that no test intends.
-- **Enumeration**: the window's network-capable globals at jsdom 30.0.1, by probe (`m3-oracle-window-network.out`):
-  - `fetch`: refused, except the pinned wasm;
-  - `XMLHttpRequest`: **live**;
-  - `WebSocket`: **live**;
-  - `EventSource` and `navigator.sendBeacon`: absent.
-  - Subresource loading (`<img>`, `<script src>`, `<link>`) is off by jsdom's default `resources` option and is not set by `loadBuild`.
-  - The predicate does not cover a network path reached through a host-realm object the shims hand in (`crypto`, `WebAssembly`,
-    `TextEncoder`). jsdom is not a security sandbox, and D-4 accepts running Discord's code in tests.
-- **Issue**:
-  - The shim's refusal message says "oracle: network disabled", and the plan's model is that the expected values come from the
-    fetched build alone.
-  - At `f4060c5`, any XHR or WebSocket that Discord's evaluated modules open goes to the network. That includes the facade's
-    dependencies, the boxes, and the lazy chunks `loadLazyChunks` evaluates.
-  - Whether they do is an **unmeasured hypothesis**. The probe shows the channel is open, not that Discord's code uses it. If any
-    module does (experiments, telemetry, the gateway), the oracle's values and its request footprint depend on Discord's servers
-    and not on the build.
-- **Required Action**:
-  - **Preferred (structural)**: `installShims` replaces every network-capable constructor in the window (`XMLHttpRequest`,
-    `WebSocket`, and `EventSource` and `sendBeacon` should a jsdom upgrade add them) with one that records the attempted URL and
-    throws. The `Oracle` exposes the recorded attempts, and the live controls assert that the list is empty, or name its members
-    as known.
-  - **Minimum**: the same replacement for `XMLHttpRequest` and `WebSocket`.
-  - **Falsity signature**: an offline case that builds the window through `loadBuild`, and attempts XHR and WebSocket to a loopback
-    listener from inside it. At `f4060c5` it fails by assertion: the listener saw `POST /xhr` and `UPGRADE /ws`. After the fix the
-    listener sees nothing and the attempts are recorded. `m3-oracle-window-network.mjs` is the instrument to adapt.
+Captured checks that fail if the class returns: `verification/019/code-review/m3fix-mutants-cr-1698c80.json` (KILLED: the
+withdrawn form put back, the real form dropped, the near-miss tagged). The preferred form (a zero cell for a carried bit fails the
+coverage run) was not built. The residue measurement's re-run is carried by `implementation/019-…-m4-implementation.md` Next step 5,
+ahead of M4's adjustment choice, which is where the Round 3 rejection said the cost fell. Argument: record `dd5b093d`.
+
+CR-6 MEDIUM Round 3 RESOLVED for the network class. At website `1698c80`, `installOracleShims` replaces `fetch`,
+`XMLHttpRequest`, `WebSocket`, `EventSource` and `navigator.sendBeacon` with refusals.
+
+Re-attacked from first principles, network-isolated, with a positive control (a host-realm request that the listener logs):
+- 18 paths from inside a `loadBuild` window, including the XHR through `self`, the WebSocket through `globalThis`, a Request-like
+  `fetch`, a `.wasm` URL with no wasm given, `img`, `script`, `link`, `iframe`, form submit, `window.open` and `location.assign`;
+- the listener saw 0 of them (`m3fix-oracle-window-network.mjs`, `.out`).
+
+Captured checks: `discordBuild.network-refusal.test.ts`, plus `m3fix-mutants-cr-1698c80.json`. KILLED in that file: the address
+not recorded, `fetch` answering, and WebSocket recording without refusing. The record half of the preferred form has a gap, which
+is CR-10. Argument: record `dd5b093d`.
 
 CR-7 LOW Round 3
 - **Category**: Maintainability (held-out sets)
@@ -324,6 +282,8 @@ CR-7 LOW Round 3
     under the M6 cap (a stated limit, below HIGH), and is routed to `planner-019`.
   - Falsity signature for the split: with each limb's red set alone, the typed limb runs the 22 pasted-only members, and passes.
   - Not blocking.
+  - **Carrier for the M6 deletion**: plan R-30 (`planner-019`, a Planner batch row under the M6 cap). The check is
+    `git grep -c "BASE_RED\|holdsEmoji"`, which prints nothing at M6's tip. The split and the re-keying stay open (M3 Outstanding 11).
 
 CR-8 LOW Round 3
 - **Category**: DRY / AC-2.1 wording
@@ -394,19 +354,121 @@ Verdict, Round 3: **REJECTED** on CR-5 and CR-6.
 Both fixes are small. CR-4, CR-7, CR-8 and CR-9 are LOW: CR-7's carriage goes to the planner, and the rest may land in the same
 fix round.
 
+### Round 3 sub-entry: fix confirmation at `1698c80`
+
+The trigger is the implementer's fix round 3: `implementation/019-…-m3-implementation.md`, record `e1c265a7`, `Handoff-At:
+1698c80`. Steering's resume message after my `/clear` confirmed the route.
+
+Scope: the fix commit `1698c80`. These are its 7 paths, read through `git show 1698c80`:
+- `helpers/discordBuild.ts`, `helpers/markdownGenerator.ts`;
+- `discordBuild.network-refusal.test.ts` (new), `discordReports.report-forms.test.ts`, `markdownGenerator.seeded-inputs.test.ts`,
+  `discord/discordLive.oracle-controls.test.ts`;
+- `SlateEditor/__tests__/helpers/data/mountedBaseRed.json`.
+
+Not reviewed here: `93b26fd`, which sits between `f4060c5` and `1698c80`. It is M4 product work (`preview.tsx`, the spoiler and code
+block components, the editors) and touches none of the 7 paths (`git show --stat`). It belongs to M4's round.
+
+Re-verified at the end of the review: the chain branch had moved to `f131f06` (M4, the preview's channel mention). `git diff --stat
+1698c80 f131f06` over the 7 paths is empty, so the verdict stands at `1698c80`, and what is about to run carries the same 7 files.
+
+The fix stays inside CR-5 and CR-6, so this is a sub-entry and not Round 4. The plan is at Revision 10. Its delta from Revision 9
+is AC-4.4 and D-17, both M4, so no M3 criterion moved.
+
+Process whose output is the evidence: the implementer's committed helpers, run by my probes in a `git archive` export of
+`1698c80`. The export has its own frozen install (exit 0; its lockfile sha256 equals `1698c80`'s), and every probe ran under
+`unshare -rn`. The mutants ran through `mutation-run.py` on `1698c80`, with the shared tree's `node_modules` as `--dep`; that
+tree's lockfile hash equals `1698c80`'s.
+
+| Check | Result | Capture |
+|---|---|---|
+| CR-6 re-attack: 18 paths from inside a `loadBuild` window to a loopback listener, plus a positive control from the host realm. Oracles: the listener's log and `oracle.attempts` | The control is logged. The listener saw 0 of the 18. The record lists 10 of the 18 addresses: 3 `fetch`, 3 XHR, 2 WebSocket, `EventSource` and `sendBeacon`. Not recorded: the XHR whose first touch is `addEventListener`, which throws `x.addEventListener is not a function` before `open` (CR-10); and the 7 subresource and navigation paths, which jsdom never loads and which therefore neither reach the network nor record | `m3fix-oracle-window-network.mjs`, `.out` |
+| CR-5 removal test over the generator's first 200 inputs | `GAME_MENTION` is not among the catalogue's dead tags. Of the 5 tagged inputs, 4 are live. All 5 near-misses are untagged and inert | `m3fix-generator-bit-tags.mjs`, `.out` |
+| 7 probe mutants, suite = the 3 offline files the fix touches under `--project node` | 6 KILLED, each by assertion with count `checked`. **SURVIVED: `CR6-probe-loadbuild-attempts-disconnected`** (`loadBuild` hands the shims a fresh `[]`) (CR-10) | `m3fix-mutants-cr-1698c80.json`, `-out/`, `.runner.txt`, `.cmd.txt` |
+| CR-5 sweep re-run: `git grep -n "<game:" 1698c80 -- src` | **3 hits, not the 4 the implementation document's Class Sweep lists.** The fourth, `mountedBaseRed.json:17`, is not in the file at `1698c80` | below |
+| `mountedBaseRed.json`, by class, `f4060c5` against `1698c80` | `corpus`, `atoms` and `block` are identical. In `generator`, 8 members were removed and 9 added (10 to 11), and the new set equals `m4-base-red-generator-m3fix.json`'s typed set | below |
+| `convention-check.js --files` over the 6 code files in the export, and the ID-token class by hand (`grep -c`) | 0 FAIL, 0 CANDIDATE; id-token and basename are SKIPped by the tool because there is no record above the export. By hand: 0 ID-token hits, and `discordBuild.network-refusal.test.ts` matches the positive form | `m3fix-convention-check-1698c80.txt` |
+
+Record corrections owed by the implementer. They do not move the verdict:
+- The Class Sweep's fourth `<game:` hit does not exist.
+- Outstanding 11's "the earlier 10 are stale in the set" is wrong: the set was replaced, and 2 of the old members recur in the new
+  one.
+- `m4-discord-live-cr6.log.txt` stamps its run at 21:37, but the fix commit is stamped 21:46. The run therefore came from the
+  shared tree before the commit, and "at the same code" is a claim this review does not verify (Assumption Not Checked, Round 3
+  sub-entry).
+
+CR-10 MEDIUM Round 3
+- **Category**: Checks That Cannot Fail (severity floor)
+- **Title**: The live control's "no request attempt" reads a record whose wiring and XHR coverage have no failing assertion
+- **Location**: `src/utils/markdown/__tests__/helpers/discordBuild.ts`, `loadBuild` (the `attempts` it passes to
+  `installOracleShims` and returns) and `RefusedXMLHttpRequest` in `installOracleShims`; `discord/discordLive.oracle-controls.test.ts`
+  `records no request attempt from Discord's evaluated code`, at `1698c80`.
+- **Class**: An "attempted nothing" claim drawn from a record that can be empty while an attempt was made. The claim passes
+  whether or not the record is connected and complete.
+- **Enumeration**:
+  - Readers of the record: `git grep -n "\.attempts" 1698c80 -- src` gives 1 hit, the live control.
+  - Writers: `refuse()`, called from the five replaced members.
+  - Path from writer to reader: `loadBuild` → `Oracle.attempts` → `openLive` (`helpers/discordLive.ts`) → `live.oracle.attempts`.
+    No offline case reads `attempts` from a `loadBuild` window. `discordBuild.network-refusal.test.ts` calls `installOracleShims`
+    directly with its own array, and `discordBuild.locators.test.ts`'s seven `loadBuild` calls never read `attempts`.
+  - Members of the class at `1698c80`:
+    1. the `loadBuild` wiring, where the mutant SURVIVED;
+    2. every `XMLHttpRequest` member but `open`. `RefusedXMLHttpRequest` returns `{ open }` only, so `addEventListener`,
+       `setRequestHeader`, `upload` or `overrideMimeType` touched before `open` throws a TypeError and records nothing (probe,
+       `xhr addEventListener before open`).
+  - Blind spot: a path that neither reaches the network nor records (subresources, navigation, the 7 in the probe) is outside the
+    class, because no attempt leaves. A path through a host-realm object (`crypto`, `WebAssembly`) is not seen by this predicate.
+- **Issue**:
+  - The fix's own claim is "the live control asserts the attempt list is empty, and it is: 9 of 9". That assertion is the
+    evidence that Discord's code tried no request during the live run.
+  - The network refusal itself is asserted, and resolved under CR-6. This finding is about the record.
+  - With the wiring cut, the live case passes on an empty list that no shim writes to.
+  - With an XHR client that registers a listener before `open`, the attempt is lost and the module may fail on the TypeError
+    instead of on the refusal.
+  - Whether Discord's code attempts a request in the live window at all is unmeasured.
+  - Per the severity floor, a behaviour the change relies on with no assertion that fails when it is lost is MEDIUM and blocks
+    QA.
+- **Required Action**:
+  - **Preferred**:
+    - Add an offline case that extends `discordBuild.locators.test.ts`'s `syntheticBuild` harness. One synthetic module tries
+      three things: an XHR that calls `addEventListener` first, then `open`; a `WebSocket`; and a `fetch`, each to a distinct
+      address. The case asserts that `oracle.attempts` names all three addresses.
+    - `RefusedXMLHttpRequest` records on any member access, not only on `open`. A `Proxy`, or recording at construction, would do
+      either; the address is then the `open` argument when it arrives, and the constructor name before that.
+    - Fixture property: the XHR's first touch is a member other than `open`, so an open-first refusal cannot pass the case.
+    - Falsity signature: at `1698c80` the case fails by assertion, because `attempts` lacks the XHR address. Under
+      `CR6-probe-loadbuild-attempts-disconnected` it fails with `attempts` equal to `[]`.
+  - **Minimum**:
+    - The same offline `loadBuild` case with an XHR that calls `open` first and a WebSocket. It fails under the disconnect mutant.
+    - The XHR member gap is recorded in the M3 document as a stated limit of the live control.
+  - Callers: `installOracleShims` has two callers, `loadBuild` and the refusal test, and `loadBuild` has one product-side caller,
+    `openLive`. Neither remedy changes what those callers receive except the extra records.
+
+Disclosures for this sub-entry:
+- **Destructive-command check, twice.**
+  - My first mutation-run line began with `rm -rf` on shell-variable paths, and the check refused it. Nothing was deleted: the
+    directories did not yet exist. I dropped the removal and used a new literal work directory.
+  - The second line held no removal, and the check still refused it, because it could not parse a `$CMD` expansion. Its message
+    allows a non-deleting command to be re-sent in plain syntax. I wrote the mutants file with the Write tool and called the runner
+    with literal arguments.
+  - Neither refusal was routed around a removal.
+- **Stamp gate.** It refused my estimated changelog stamp of 22:05. I restamped the row from `date -u`.
+
+Verdict, Round 3 sub-entry at `1698c80`: **REJECTED** on CR-10 (severity floor). CR-5 and CR-6 are RESOLVED. The fix is a test
+case and a few lines in `RefusedXMLHttpRequest`, and it is confirmed as a further sub-entry of Round 3.
+
 ## Verdict
 
-**Status**: REJECTED (Round 3, M3 at `f4060c5`). M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
-**Rationale**: in Round 3 above. CR-5 and CR-6 are cheap to fix and change what M4 starts from.
+**Status**: REJECTED (Round 3 sub-entry, M3 at `1698c80`). M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
+**Rationale**: in the Round 3 sub-entry above. CR-5 and CR-6 are resolved. CR-10 is a severity-floor gap in the record that the
+live control relies on.
 
 ## Required Actions
 
-Round 3, for the M3 fix round:
-1. CR-5: the generator's game mention takes AN-8's form, and the coverage report fails on a zero cell for a bit the surface's mask
-   carries (preferred). Re-run the residue measurement.
-2. CR-6: close `XMLHttpRequest` and `WebSocket` in the oracle window, with a recording refusal and an offline loopback case.
-3. Optional in the same round: CR-4's remainder, CR-7's split and re-keying, CR-8 and CR-9. CR-7's M6 deletion is the planner's to
-   register.
+Round 3 sub-entry, for the next fix:
+1. CR-10: an offline `loadBuild` case that reads `oracle.attempts` (preferred: with an XHR whose first touch is not `open`, and
+   `RefusedXMLHttpRequest` recording on any member).
+2. Correct the M3 document's Class Sweep (3 `<game:` hits) and Outstanding 11's "stale in the set".
+3. Optional as before: CR-4's remainder, CR-7's split and re-keying, CR-8, CR-9, and CR-5's preferred form.
 
 ## Assumption Not Checked
 
@@ -426,12 +488,20 @@ differences 1,545 of 2,463) are what `pnpm test:discord` produces at `f4060c5`, 
 command. Falsity signature: a live run at `f4060c5` whose `discord-reports/` files show different counts from the document's.
 Owner: QA Phase 2 on M3, which runs the command (D-12) and copies the reports into `verification/019/`.
 
+Round 3 sub-entry: This review assumes that the live run `m4-discord-live-cr6.log.txt` (9 of 9) ran the code committed at
+`1698c80`, and does not test it. The run is stamped 21:37, before the commit's 21:46, and ran in the shared tree; I did not run
+the live command. Falsity signature: a live run of `discordLive.oracle-controls.test.ts` in an export of the approved SHA fails a
+case, or `oracle.attempts` is non-empty once CR-10's wiring is asserted. Owner: QA Phase 2 on M3, with the same live command.
+
 ## Next Steps
 
-- Implementer: the M3 fix round for CR-5 and CR-6 (optionally CR-4, CR-7, CR-8 and CR-9), then a hand-off for Round 3's sub-entry.
-- Planner (`planner-019`): CR-7's deletion of the three hold-outs as an M6 exit condition, a Planner batch row under the M6 cap.
-- QA Phase 2 on M3, after approval: the live command and its reports (Round 3's Assumption Not Checked); the AC-3.4 product-function
-  mutations (Outstanding 5); the `beforeinput` paste branch (Outstanding 7, or UAT).
+- Implementer: CR-10 and the two record corrections (Required Actions), then a hand-off for a further Round 3 sub-entry.
+- Planner (`planner-019`): CR-7's M6 deletion is registered (R-30). Nothing further is owed.
+- QA Phase 2 on M3, after approval: the live command and its reports (Round 3's Assumption Not Checked), at the approved SHA in an
+  export (the Round 3 sub-entry's Assumption Not Checked); the AC-3.4 product-function mutations (Outstanding 5); the
+  `beforeinput` paste branch (Outstanding 7, or UAT).
+- M4 round of this review: `93b26fd` and the rest of M4. The residue re-run with the corrected game mention is the M4 document's
+  Next step 5, before the adjustment choice.
 - M4 round of this review: the link allow-list attack re-run against the rendered anchor, and Round 2's Assumption Not Checked.
 - M5 implementer and this review's M5 round: CR-3.
 
@@ -442,24 +512,23 @@ Written at 2026-11-23T21:33Z for a `/clear`, at steering's ask (`steering-hooks-
 - **Done.**
   - M2: Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. M2 is
     closed for review.
-  - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6.
+  - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6. Its sub-entry at `1698c80`: CR-5 and CR-6 RESOLVED, REJECTED on CR-10
+    (severity floor). CR-7's carrier R-30 is recorded.
   - Plan rows R-24, R-25, R-27 and R-29 are committed. The verdicts are delivered to `implementer-019` (M3 REJECTED),
     `qa-019` (M2 approved) and `planner-019` (CR-7).
 - **Next.**
-  - On the implementer's M3 fix hand-off: Round 3's sub-entry, scoped to the fix diff. A fix touching beyond CR-5 and CR-6 (and the
-    optional LOWs) opens Round 4 instead.
-  - Re-attack CR-6 with `verification/019/code-review/m3-oracle-window-network.mjs`, which must show the listener seeing nothing.
-  - Re-run `m3-generator-bit-tags.mjs`, where `GAME_MENTION` must be live, and `m3-importers-of-reattack.mjs` if CR-4 is touched.
-  - Record CR-7's M6 carrier as plan R-30 (record `9caf57ff`, `planner-019`'s registration; its check is `git grep -c
-    "BASE_RED\|holdsEmoji"` printing nothing at M6's tip), and collapse resolved findings to disposition lines.
+  - On the implementer's CR-10 fix: a further Round 3 sub-entry. Re-run `m3fix-mutants-cr-1698c80.json`, re-anchored, where the
+    disconnect mutant must be KILLED; re-run `m3fix-oracle-window-network.mjs`, where `xhr addEventListener before open` must be
+    recorded (if the preferred form is taken); and check the two record corrections.
   - Then M4, M5 and M6, each at its own document's `Handoff-At`. M4's document is already landing (record `5ad6e64d`, slice 1). The
     M4 round owes the link allow-list attack against the rendered anchor, and Round 2's Assumption Not Checked. The M5 round owes
     CR-3.
 - **Approach in flight.** None.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` and is never moved by me. The
   record is on `master`.
-- **Local state.** No scratch clone remains (all deleted). No process of mine is running.
+- **Local state.** The scratchpad holds an export of `1698c80` with its install (`x1698/`) and the mutation work directory
+  (`mwork1/`). Both are disposable. No process of mine is running.
 - **Evidence run but not recorded.** None. Every probe is under `verification/019/code-review/` and committed (`8da611bc`,
-  `dd5b093d`). Install logs are saved as `.log.txt`, because the record ignores `*.log`.
+  `dd5b093d`, and this sub-entry's record commit). Install logs are saved as `.log.txt`, because the record ignores `*.log`.
 - **Questions sent, and to whom.** None open.
-- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
+- **Cache-warm wake.** Armed at 21:49Z (resume), for 22:44 local.

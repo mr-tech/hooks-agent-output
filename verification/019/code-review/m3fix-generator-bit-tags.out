@@ -1,0 +1,97 @@
+{
+ "inputs": 200,
+ "tagsChecked": 723,
+ "deadTags": 206,
+ "byBit": {
+  "UNICODE_EMOJI": 39,
+  "TIMESTAMP": 10,
+  "COLON_EMOJI": 9,
+  "CUSTOM_EMOJI": 15,
+  "CODE_BLOCK": 2,
+  "BOLD": 11,
+  "SPOILER": 9,
+  "CODE": 31,
+  "USER_MENTION": 5,
+  "UNDERLINE": 7,
+  "LIST": 4,
+  "UNDERSCORE_ITALIC": 6,
+  "STRIKETHROUGH": 10,
+  "DETECTED_LINK": 9,
+  "AUTO_LINK": 2,
+  "DOUBLE_CODE": 10,
+  "HERE_MENTION": 1,
+  "ASTERISK_ITALIC": 7,
+  "STATIC_MENTION": 4,
+  "MASKED_LINK": 6,
+  "DEV_LINKS": 1,
+  "HEADING": 2,
+  "COMMAND_MENTION": 1,
+  "GAME_MENTION": 1,
+  "EVERYONE_MENTION": 2,
+  "ROLE_MENTION": 1,
+  "QUOTE": 1
+ },
+ "deadInCatalogueRange": [
+  {
+   "text": "❤",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "<t:1700000000:x>",
+   "bit": "TIMESTAMP"
+  },
+  {
+   "text": "<t:1700000000:Z>",
+   "bit": "TIMESTAMP"
+  },
+  {
+   "text": "<https://x.y/🙂>",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "https://x.y🙂",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "[a](https://x.y/🙂)",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "[🙂](https://x.y)",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "[:smile:](https://x.y)",
+   "bit": "COLON_EMOJI"
+  },
+  {
+   "text": "[<:hooks:1558266761101447248>](https://x.y)",
+   "bit": "CUSTOM_EMOJI"
+  },
+  {
+   "text": "[a 🙂 b](https://x.y)",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "https://example.com/a_b🙂",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "[a](https://example.com/a_b/🙂)",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "[🙂](https://example.com/a_b)",
+   "bit": "UNICODE_EMOJI"
+  },
+  {
+   "text": "[:smile:](https://example.com/a_b)",
+   "bit": "COLON_EMOJI"
+  },
+  {
+   "text": "[<:hooks:1558266761101447248>](https://example.com/a_b)",
+   "bit": "CUSTOM_EMOJI"
+  }
+ ]
+}
+{"gameMentionTagged":5,"gameMentionLive":4,"nearMissUntagged":5,"nearMissInertUnderRemoval":5,"nearMissTaggedGame":0}

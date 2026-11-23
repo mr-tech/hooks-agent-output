@@ -1,0 +1,17 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > lets a WebSocket nowhere and names its address
+AssertionError: expected [Function] to throw an error
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:53:80
+     51|     await withListener(async (origin, hits) => {
+     52|       const w = oracleWindow(attempts);
+     53|       expect(() => new (w.WebSocket as typeof WebSocket)(`ws://${origi…
+       |                                                                                ^
+     54|       expect(hits).toEqual([]);
+     55|     });
+ ❯ withListener src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:26:18
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:51:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

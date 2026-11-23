@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4a82279f-f5e2-4347-b7dc-2c06019c663c/scratchpad/mwork1/20261123T215744Z-p646236/mutant-5
+
+ ❯ |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts (3 tests | 1 failed) 193ms
+     × records a fetch that is refused 26ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 42 passed (43)
+   Start at  21:57:57
+   Duration  1.18s (transform 195ms, setup 0ms, import 1.02s, tests 310ms, environment 0ms)
+

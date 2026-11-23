@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4a82279f-f5e2-4347-b7dc-2c06019c663c/scratchpad/mwork1/20261123T215744Z-p646236/mutant-2
+
+ ❯ |node| src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts (20 tests | 3 failed) 86ms
+     × tags every Syntax bit at least once 9ms
+     × generates every mention kind, the five static ones included 8ms
+     × writes the game mention in the form the parser reads, and its near-miss as untagged text 1ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 40 passed (43)
+   Start at  21:57:50
+   Duration  916ms (transform 149ms, setup 0ms, import 835ms, tests 264ms, environment 0ms)
+

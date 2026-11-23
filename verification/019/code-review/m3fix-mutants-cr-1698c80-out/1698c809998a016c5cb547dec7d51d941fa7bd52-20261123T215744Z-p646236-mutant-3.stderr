@@ -1,0 +1,111 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts > generateInputs > tags a bit only on text that holds that bit's construct
+AssertionError: expected [ …(69) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "GAME_MENTION: \"<game:1558266761101447248>\"",
++   "GAME_MENTION: \"-# <game:1558266761101447248> <a@b.co>\\n> 🙂 https://x.y\\n- `*\\\\<x\\\\< 2 < 3*`\"",
++   "GAME_MENTION: \"> <game:1558266761101447248>:smile:\"",
++   "GAME_MENTION: \"-# ||**👍🏽 [a](https://example.com/a_b/🙂)** tail  @everyone|| https://x.y/a*b*c 🙂\\n## ``__\\\\(x\\\\( <:hooks:1558266761101447248>__ <game:1558266761101447248>``\"",
++   "GAME_MENTION: \"- ~~***<@&1558266761101447248> ©*** <game:1558266761101447248> \\\\|x\\\\|\\né</ping:1558266761101447248>\"",
++   "GAME_MENTION: \"### ~~*<game:1558266761101447248><@&1558266761101447248>*~~ 🪿\\n`https://x.y 🙂 <t:1700000000:f>` \\\\>x\\\\>\\n[a 🙂 b](https://x.y/a*b*c)\"",
++   "GAME_MENTION: \"1. <id:guide> <id:linked-roles>\\n## ````<game:1558266761101447248> https://x.y/a*b*c🙂```  lead` [a 🙂 b](https://x.y/a*b*c) [a](https://example.com/a_b/🙂)\\n-# *hello world*\"",
++   "GAME_MENTION: \"# **||日本||** https://example.com/a_b 🙂\\n❤️\\n> <game:1558266761101447248> <t:1700000000:x>\"",
++   "GAME_MENTION: \"- *__<t:1700000000:f> [🙂](https://x.y)__ <a@b.co> https://x.y 🙂* \\\\)x\\\\)\\n# <game:1558266761101447248>\"",
++   "GAME_MENTION: \"-# _https://example.com\\n-# **https://x.y/a*b*c🙂** word [<:hooks:1558266761101447248>](https://example.com/a_b)\\n___~~1️⃣~~ 1️⃣ <game:1558266761101447248>\"",
++   "GAME_MENTION: \"https://example.com/a_b 🙂 <game:1558266761101447248>\\n> ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)\\n-# <id:guide>https://x.y 🙂\"",
++   "GAME_MENTION: \"__``**<t:1700000000:R>**`` C++ <game:1558266761101447248>\\n  - [🙂](https://x.y)\"",
++   "GAME_MENTION: \"-# **`<game:1558266761101447248> <t:1700000000:Z>`** https://x.y🙂\\n# ||``👨‍👩‍👧 https://x.y🙂``||\"",
++   "GAME_MENTION: \"1. ~~||🇬🇧|| <game:1558266761101447248> ™~~ https://x.y/a*b*c🙂 <a@b.co>\"",
++   "GAME_MENTION: \"### <game:1558266761101447248> <#1558266761101447248>\\n``~~_\\\\]x\\\\]_~~ <t:1700000000:d><t:-1:f>``\\n1. __*https://example.com/path?q=1&r=2#fword*__\"",
++   "GAME_MENTION: \"## __``<game:1558266761101447248>https://example.com/a_b 🙂``__\\n### [text](<https://example.com>)<t:1700000000:f>\"",
++   "GAME_MENTION: \"# <game:1558266761101447248>\\n_`\\\\*x\\\\*` <a:dance:1558266761101447248>🙂 https://x.y/a*b*c_\"",
++   "GAME_MENTION: \">>> > ||[:smile:](https://x.y)|| <t:1700000000:s><@&1558266761101447248>\\n# `<t:1700000000:S>`\\n-# ||~~[:smile:](https://x.y/a*b*c)<game:1558266761101447248> 🙂 https://x.y<@!1558266761101447248>\"",
++   "GAME_MENTION: \"### ``__``<game:1558266761101447248><t:1700000000:d>`` <id:guide><t:1700000000:s>__ snake_case\"",
++   "GAME_MENTION: \"  - ~~__[text](<https://example.com>)__ [<:hooks:1558266761101447248>](https://x.y) <game:1558266761101447248>~~ [:smile:](https://x.y) https://x.y/a*b*c🙂\"",
++   "GAME_MENTION: \"`***<@1558266761101447248>** https://x.y.* 日本 <a:dance:1558266761101447248>` [:smile:](https://x.y/a*b*c)\\n## *[a [b] c](https://example.com)<game:1558266761101447248>*\"",
++   "GAME_MENTION: \"<:hooks:1558266761101447248> <t:1700000000:s>\\n### **\\\\<x\\\\< <t:1700000000:F>\\n_<game:1558266761101447248> <t:1700000000:f>\"",
++   "GAME_MENTION: \"1. ```[<:hooks:1558266761101447248>](https://x.y)` 2 < 3`` [text](https://example.com)a\\n<game:1558266761101447248> [a 🙂 b](https://x.y/a*b*c)\"",
++   "GAME_MENTION: \"__C++__\\n@everyone\\n# __|||| lead|| \\\\<x\\\\<__ <game:1558266761101447248> [🙂](https://example.com/a_b)\"",
++   "GAME_MENTION: \">>> ## <game:1558266761101447248>\\n# ```<#1558266761101447248>```\"",
++   "GAME_MENTION: \"||_||<https://x.y/🙂> <t:1700000000:F>|| \\\\`x\\\\`|| <game:1558266761101447248> hello world\\n<a:dance:1558266761101447248>\\n1. ````<id:linked-roles> é [a 🙂 b](https://example.com/a_b)``\"",
++   "GAME_MENTION: \"- `👍🏽 <game:1558266761101447248> https://x.y/a*b*c 🙂\"",
++   "GAME_MENTION: \"  - ``[a](https://x.y/a*b*c/🙂)``\\n- <t:1700000000:R> \\\\]x\\\\]\\nsnake_case<game:1558266761101447248>\"",
++   "GAME_MENTION: \">>> -# ~~*~~🙂~~ 👨‍👩‍👧*~~ C++<game:1558266761101447248>\"",
++   "GAME_MENTION: \"1. ~~\\\\`x\\\\`~~ <@1558266761101447248> <game:1558266761101447248>\\n- *<id:browse> <t:1700000000:d>*\"",
++   "GAME_MENTION: \">>> ## __👍🏽__\\n1. **__<t:-1:f> 1️⃣__**\\n1. _||_<game:1558266761101447248>\\\\(x\\\\(_ <t:1700000000:t> C++|| </ping:1558266761101447248> <t:1700000000:T>_\"",
++   "GAME_MENTION: \"<t:1700000000:t>\\n🙂 https://x.y\\n-# `*_🇬🇧 <game:1558266761101447248>_*\"",
++   "GAME_MENTION: \"  - <game:1558266761101447248> x_y\\n### \\\\`x\\\\` <@&1558266761101447248>\\n__**\\\\<x\\\\<**__\"",
++   "GAME_MENTION: \"-# __<id:customize>__\\n- ||*日本*||\\n1. `**<t:1700000000:t> <:hooks:1558266761101447248>** </ping:1558266761101447248> <game:1558266761101447248>\"",
++   "GAME_MENTION: \"  - ````<https://x.y> <@&1558266761101447248> <game:1558266761101447248>``\\n``**<t:1700000000:F> ©**``\\n**<t:1700000000> <t:1700000000:Z>**\"",
++   "GAME_MENTION: \"~~`*<t:1700000000:d> <https://x.y/🙂>* ™ \\\\_x\\\\_` https://example.com/a_b 🙂~~\\n1. __*<game:1558266761101447248>* \\\\*x\\\\* <t:1700000000:d> 🏴󠁧󠁢󠁥󠁮󠁧󠁿_ [text](https://example.com \\\"a title\\\") <id:browse>\"",
++   "GAME_MENTION: \"  - ____[a 🙂 b](https://x.y)é__ <t:1700000000:S>__\\n### __||https://example.com/a_b🙂 [<:hooks:1558266761101447248>](https://x.y/a*b*c)||_ https://example.com https://x.y/a*b*c🙂_ <@!1558266761101447248> <@&1558266761101447248>\\n  - _<game:1558266761101447248> https://x.y/a(b)c_\"",
++   "GAME_MENTION: \"## ****`<t:1700000000:R> [a 🙂 b](https://example.com/a_b)`** <:hooks:1558266761101447248>\\n<t:1700000000:R>\\n- *``_<game:1558266761101447248> a_*\"",
++   "GAME_MENTION: \"1. __||<game:1558266761101447248>||__ <t:1700000000:s>\"",
++   "GAME_MENTION: \"```py\\n# ||https://example.com\\\\*x\\\\*|| <game:1558266761101447248> [text](https://example.com \\\"a title\\\")\\n```\"",
++   "GAME_MENTION: \">>> # `**<:hooks:1558266761101447248>** 日本 \\\\<x\\\\<\\n> ||`~~<t:1700000000:D> <game:1558266761101447248>~~ <id:browse>||\"",
++   "GAME_MENTION: \"### _👍🏽_\\n-# [🙂](https://x.y) <game:1558266761101447248>\\n~~<https://x.y> https://x.y/a*b*c🙂~~\"",
++   "GAME_MENTION: \"<t:1700000000:x> 🙂 https://x.y\\n# *``||👍🏽<game:1558266761101447248>|| C++ \\\\>x\\\\>`` \\\\`x\\\\` https://example.com/a_b 🙂* https://x.y/a*b*c 🙂 [<:hooks:1558266761101447248>](https://x.y/a*b*c)\\n</ping:1558266761101447248>\"",
++   "GAME_MENTION: \"- `__`\\\\~x\\\\~ https://x.y/a*b*c 🙂` <game:1558266761101447248> 🙂 https://x.y__ x_y\\n> </ping:1558266761101447248>\\n## ``[a](https://x.y/a*b*c/🙂) [a 🙂 b](https://example.com/a_b)`` [a 🙂 b](https://x.y/a*b*c)\"",
++   "GAME_MENTION: \"<game:1558266761101447248><t:1700000000:s>\\n~~*~~https://x.y 🙂 tail ~~~~ <id:browse> <t:1700000000:Z>\\n  - https://x.y.\"",
++   "GAME_MENTION: \"  - `https://x.y/a*b*c🙂` <game:1558266761101447248> [dev](dev://branch/main)\\n👍🏽 2 < 3\"",
++   "GAME_MENTION: \"### **||<t:1700000000:Z> <a:dance:1558266761101447248>||*\\n> ~~``~~<t:1700000000:D>~~ :smile:https://x.y/a*b*c🙂~~ <t:1700000000:x> ❤️\\n  - ````<game:1558266761101447248> hello world``\"",
++   "GAME_MENTION: \"-# *<game:1558266761101447248> [a](https://x.y/a*b*c/🙂)\"",
++   "GAME_MENTION: \">>> _\\\\>x\\\\>_ https://example.com snake_case\\n❤️ <game:1558266761101447248>\\n1. https://x.y.\"",
++   "GAME_MENTION: \"- [text](https://example.com \\\"a title\\\")<t:1700000000:F>\\n### __``~~snake_case https://x.y 🙂~~ snake_case <game:1558266761101447248> [<:hooks:1558266761101447248>](https://example.com/a_b)\\n# \\\\|x\\\\|\"",
++   "GAME_MENTION: \"_**<game:1558266761101447248> <t:1700000000:T>**_\\n**<@1558266761101447248> [text](https://example.com)** C++\\n_**`[🙂](https://example.com/a_b) [🙂](https://x.y/a*b*c)`**_\"",
++   "GAME_MENTION: \"*````<game:1558266761101447248>````\\n1. __🙂 https://x.y__\\n# \\\\~x\\\\~ :smile:\"",
++   "GAME_MENTION: \"### ||🙂||\\n1. *~~<game:1558266761101447248>~~ https://example.com <id:guide>*\\na[**bold** label](https://example.com)\"",
++   "GAME_MENTION: \"- <a:dance:1558266761101447248> [:smile:](https://x.y/a*b*c)\\n### **~~🪿~~\\n1. ||||<game:1558266761101447248>|||| hello world\"",
++   "GAME_MENTION: \"> ~~*:🙂: [🙂](https://x.y/a*b*c)*\\n1. *<game:1558266761101447248> C++* 🙂\\n# ****`<:hooks:1558266761101447248> https://example.com** word <@&1558266761101447248>**\"",
++   "GAME_MENTION: \"*<game:1558266761101447248>*\\n1. ``*`[🙂](https://example.com/a_b)[**bold** label](https://example.com)`\"",
++   "GAME_MENTION: \"``**<t:1700000000>** 🇬🇧``\\n[dev](dev://branch/main) <game:1558266761101447248>\\n[🙂](https://x.y) \\\\#x\\\\#\"",
++   "GAME_MENTION: \"# __*``<t:1700000000:t>[**bold** label](https://example.com)``*\\n- ~~<https://x.y>~~ <game:1558266761101447248>\\n_*__❤️__* [text](https://example.com \\\"a title\\\") snake_case_\"",
++   "GAME_MENTION: \"# ||<game:1558266761101447248> a*b hello world\\n-# ||||<t:-1:f> [🙂](https://x.y/a*b*c)[a](https://example.com/a_b/🙂)|| <t:1700000000:T> <:hooks:1558266761101447248>\"",
++   "GAME_MENTION: \"  - `<game:1558266761101447248>` <https://x.y>\"",
++   "GAME_MENTION: \">>> ### ||~~<game:1558266761101447248>~~ [a [b] c](https://example.com) [a 🙂 b](https://x.y)||\"",
++   "GAME_MENTION: \"-# <game:1558266761101447248>\\n> <@1558266761101447248>\"",
++   "GAME_MENTION: \"<game:1558266761101447248> \\\\:x\\\\:\"",
++   "GAME_MENTION: \"<t:1700000000:S><game:1558266761101447248>\\n****`[<:hooks:1558266761101447248>](https://example.com/a_b)[<:hooks:1558266761101447248>](https://x.y)**\\n```*snake_case https://example.com/a_b🙂* <t:1700000000:s> 2 < 3```\"",
++   "GAME_MENTION: \"~~`` lead [text](https://example.com) <game:1558266761101447248> <t:1700000000>~~\\n# __\\\\(x\\\\( \\\\~x\\\\~\"",
++   "GAME_MENTION: \"# ``\\\\|x\\\\|[a 🙂 b](https://x.y/a*b*c)\\n  - _<game:1558266761101447248>_\"",
++   "GAME_MENTION: \"> _||__<@1558266761101447248> <game:1558266761101447248>|| word_\"",
++   "GAME_MENTION: \"*||<t:1700000000:x><t:1700000000:F> <t:-1:f>* <id:linked-roles>🙂\\n-# <game:1558266761101447248> 👨‍👩‍👧\\n__~~https://x.y🙂~~ [text](<https://example.com>) [:smile:](https://x.y)\"",
++   "GAME_MENTION: \"# `**❤ snake_case <game:1558266761101447248> snake_case` :smile:🙂 https://example.com/a_b\\n``*[:smile:](https://example.com/a_b) [text](https://example.com \\\"a title\\\")*`` <t:1700000000:t> https://x.y/a(b)c\\n  - *\\\\_x\\\\_\"",
++ ]
+
+ ❯ src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts:89:19
+     87|   it('tags a bit only on text that holds that bit\'s construct', () =>…
+     88|     const wrong = sample.flatMap((g) => g.bits.filter((b) => !NEEDLES[…
+     89|     expect(wrong).toEqual([]);
+       |                   ^
+     90|   });
+     91|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts > generateInputs > writes the game mention in the form the parser reads, and its near-miss as untagged text
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts:155:58
+    153|     const tagged = sample.filter((g) => g.bits.includes('GAME_MENTION'…
+    154|     expect(tagged.length).toBeGreaterThan(0);
+    155|     expect(tagged.every((g) => /<@\$\d+>/.test(g.text))).toBe(true);
+       |                                                          ^
+    156|     const nearMiss = sample.filter((g) => g.text.includes('<game:') &&…
+    157|     expect(nearMiss.length).toBeGreaterThan(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

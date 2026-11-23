@@ -1,0 +1,139 @@
+{
+ "types": {
+  "fetch": "function",
+  "XMLHttpRequest": "function",
+  "WebSocket": "function",
+  "EventSource": "function",
+  "sendBeacon": "function"
+ },
+ "positiveControl": [
+  "GET /control"
+ ],
+ "results": {
+  "fetch(url)": {
+   "thrown": null,
+   "recorded": [
+    "http://127.0.0.1:35693/fetch-url"
+   ],
+   "listenerSaw": []
+  },
+  "fetch(Request-like)": {
+   "thrown": null,
+   "recorded": [
+    "http://127.0.0.1:35693/fetch-req"
+   ],
+   "listenerSaw": []
+  },
+  "fetch(x.wasm), no wasm given": {
+   "thrown": null,
+   "recorded": [
+    "http://127.0.0.1:35693/x.wasm"
+   ],
+   "listenerSaw": []
+  },
+  "xhr open+send": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:35693/xhr"
+   ],
+   "listenerSaw": []
+  },
+  "xhr addEventListener before open": {
+   "thrown": "x.addEventListener is not a function",
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "xhr withCredentials before open": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:35693/xhr-wc"
+   ],
+   "listenerSaw": []
+  },
+  "xhr via self": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:35693/xhr-self"
+   ],
+   "listenerSaw": []
+  },
+  "WebSocket": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "ws://127.0.0.1:35693/ws"
+   ],
+   "listenerSaw": []
+  },
+  "WebSocket via globalThis": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "ws://127.0.0.1:35693/ws-gt"
+   ],
+   "listenerSaw": []
+  },
+  "EventSource": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:35693/es"
+   ],
+   "listenerSaw": []
+  },
+  "sendBeacon": {
+   "thrown": "oracle: network disabled",
+   "recorded": [
+    "http://127.0.0.1:35693/beacon"
+   ],
+   "listenerSaw": []
+  },
+  "img src": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "script src": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "link stylesheet": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "iframe src": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "form submit": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "window.open": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  },
+  "location.assign": {
+   "thrown": null,
+   "recorded": [],
+   "listenerSaw": []
+  }
+ },
+ "listenerTotal": [
+  "GET /control"
+ ],
+ "attemptsTotal": [
+  "http://127.0.0.1:35693/fetch-url",
+  "http://127.0.0.1:35693/fetch-req",
+  "http://127.0.0.1:35693/x.wasm",
+  "http://127.0.0.1:35693/xhr",
+  "http://127.0.0.1:35693/xhr-wc",
+  "http://127.0.0.1:35693/xhr-self",
+  "ws://127.0.0.1:35693/ws",
+  "ws://127.0.0.1:35693/ws-gt",
+  "http://127.0.0.1:35693/es",
+  "http://127.0.0.1:35693/beacon"
+ ]
+}

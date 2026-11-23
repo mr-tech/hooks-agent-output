@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts > the oracle window refuses every network path and records the attempt > records a fetch that is refused
+AssertionError: promise resolved "Response { status: 200, statusText: '', headers: Headers { 'content-type': 'text/plain;charset=UTF-8' }, body: ReadableStream { locked: false, state: 'closed', supportsBYOB: true }, bodyUsed: false, ok: true, redirected: false, type: 'default', url: '' }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
+- }
++ Response {}
+
+ ❯ src/utils/markdown/__tests__/discordBuild.network-refusal.test.ts:63:58
+     61|     const attempts: string[] = [];
+     62|     const w = oracleWindow(attempts);
+     63|     await expect(w.fetch('https://discord.com/api/v9/x')).rejects.toTh…
+       |                                                          ^
+     64|     expect(attempts).toEqual(['https://discord.com/api/v9/x']);
+     65|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
