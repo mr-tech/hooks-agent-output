@@ -1,0 +1,76 @@
+{
+ "rows": [
+  {
+   "bit": "gm-bare",
+   "text": "<@$700136079562375258>",
+   "content_webhook": [
+    "gameMention"
+   ],
+   "content_user": [
+    "gameMention"
+   ],
+   "embed_description": [],
+   "embed_field_value": [],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "gameMention"
+   ]
+  },
+  {
+   "bit": "gm-inline",
+   "text": "x <@$700136079562375258> x",
+   "content_webhook": [
+    "gameMention"
+   ],
+   "content_user": [
+    "gameMention"
+   ],
+   "embed_description": [],
+   "embed_field_value": [],
+   "embed_title": [],
+   "embed_title_with_url": [],
+   "field_name": [],
+   "field_name_embed_has_url": [],
+   "text_display_webhook": [
+    "gameMention"
+   ]
+  },
+  {
+   "bit": "gm-in-bold",
+   "text": "**x <@$700136079562375258> x**",
+   "content_webhook": [
+    "gameMention",
+    "strong"
+   ],
+   "content_user": [
+    "gameMention",
+    "strong"
+   ],
+   "embed_description": [
+    "strong"
+   ],
+   "embed_field_value": [
+    "strong"
+   ],
+   "embed_title": [
+    "strong"
+   ],
+   "embed_title_with_url": [
+    "strong"
+   ],
+   "field_name": [
+    "strong"
+   ],
+   "field_name_embed_has_url": [
+    "strong"
+   ],
+   "text_display_webhook": [
+    "gameMention",
+    "strong"
+   ]
+  }
+ ]
+}

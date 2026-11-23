@@ -1,0 +1,44 @@
+{
+  "1574479443819241703": {
+    "pills": 2,
+    "embedTitle": [
+      {
+        "text": "title <@$700136079562375258> t",
+        "pill": false,
+        "html": "<span>title &lt;@$700136079562375258&gt; t</span>"
+      }
+    ],
+    "embedDescription": [
+      {
+        "text": "desc ⁠VALORANT@game VALORANT d",
+        "pill": true,
+        "html": "<span>desc </span><span><span class=\"wrapper_NDaLCQ interactive\" data-mention-game-id=\"700136079562375258\" tabindex=\"0\" role=\"button\"><span class=\"nowrap_omevcu\"><span aria-hidden=\"true\" class=\"iconWrapper_cuLZqL\"><img alt=\"\" class=\"icon_cuLZqL icon_lXrdH_\" height=\"32\" loading=\"lazy\" width=\"32\" src=\"https://cdn.discordapp.com/app-icons/700136079562375258/11f81959f4fdd76ca6c39c59eac256c1.png?size=32&amp;keep_aspect_ratio=false\"></span>⁠</span><span class=\"name_cuLZqL\">VALORANT</span></span></span><span id=\"_r_5b_\" class=\"hiddenVisually_FX8kaC\">@game VALORANT</span><span> d</span>"
+      }
+    ],
+    "fieldName": [
+      {
+        "text": "fname <@$700136079562375258> n",
+        "pill": false,
+        "html": "<span>fname &lt;@$700136079562375258&gt; n</span>"
+      }
+    ],
+    "fieldValue": [
+      {
+        "text": "fvalue ⁠VALORANT@game VALORANT v",
+        "pill": true,
+        "html": "<span>fvalue </span><span><span class=\"wrapper_NDaLCQ interactive\" data-mention-game-id=\"700136079562375258\" tabindex=\"0\" role=\"button\"><span class=\"nowrap_omevcu\"><span aria-hidden=\"true\" class=\"iconWrapper_cuLZqL\"><img alt=\"\" class=\"icon_cuLZqL icon_lXrdH_\" height=\"32\" loading=\"lazy\" width=\"32\" src=\"https://cdn.discordapp.com/app-icons/700136079562375258/11f81959f4fdd76ca6c39c59eac256c1.png?size=32&amp;keep_aspect_ratio=false\"></span>⁠</span><span class=\"name_cuLZqL\">VALORANT</span></span></span><span id=\"_r_5c_\" class=\"hiddenVisually_FX8kaC\">@game VALORANT</span><span> v</span>"
+      }
+    ],
+    "all": "slate-019-an8bAPP — 5:39 PMMonday, November 23, 2026 at 5:39 PMan8 2b embedtitle <@$700136079562375258> tdesc ⁠VALORANT@game VALORANT dfname <@$700136079562375258> nfvalue ⁠VALORANT@game VALORANT v",
+    "v2": null
+  },
+  "1574479445455011992": {
+    "pills": 1,
+    "embedTitle": [],
+    "embedDescription": [],
+    "fieldName": [],
+    "fieldValue": [],
+    "all": "[5:39 PM] Monday, November 23, 2026 at 5:39 PMan8 2b v2 ⁠VALORANT@game VALORANT end,",
+    "v2": "<div class=\"message_SY_P2T cozyMessage_SY_P2T wrapper_2i8Bfm cozy_2i8Bfm zalgo_2i8Bfm\" role=\"article\" data-list-item-id=\"chat-messages___chat-messages-1574358729577599086-1574479445455011992\" tabindex=\"-1\" aria-setsize=\"-1\" aria-roledescription=\"Message\" aria-labelledby=\"message-username-1574479443819241703 uid_1 message-accessories-1574479445455011992 uid_2 message-timestamp-1574479445455011992\"><div class=\"contents_2i8Bfm\"><span class=\"latin24CompactTimeStamp_2i8Bfm timestamp_2i8Bfm timestampVisibleOnHover_2i8Bfm alt_2i8Bfm\"><span><time id=\"message-timestamp-1574479445455011992\" datetime=\"2026-11-23T17:39:12.210Z\"><i class=\"separator_2i8Bfm\" aria-hidden=\"true\">[</i>5:39 PM<i class=\"separator_2i8Bfm\" aria-hidden=\"true\">] </i></time></span><span id=\"_r_5d_\" class=\"hiddenVisually_FX8kaC\">Monday, November 23, 2026 at 5:39 PM</span></span><div id=\"message-content-1574479445455011992\" class=\"markup_ku1OHH messageContent_2i8Bfm\"></div></div><div id=\"message-accessories-1574479445455011992\" class=\"container_YUQhib\"><div style=\"width: 100%;\"><div class=\"container_uEFz2z isComponentsV2_uEFz2z\"><div class=\"markup_ku1OHH markdownContainer_UknCYp\"><span>an8 2b v2 </span><span><span class=\"wrapper_NDaLCQ interactive\" data-mention-game-id=\"700136079562375258\" tabindex=\"0\" role=\"button\"><span class=\"nowrap_omevcu\"><span aria-hidden=\"true\" class=\"iconWrapper_cuLZqL\"><img alt=\"\" class=\"icon_cuLZqL icon_lXrdH_\" height=\"32\" loading=\"lazy\" width=\"32\" src=\"https://cdn.discordapp.com/app-icons/700136079562375258/11f81959f4fdd76ca6c39c59eac256c1.png?size=32&amp;keep_aspect_ratio=false\"></span>⁠</span><span class=\"name_cuLZqL\">VALORANT</span></span></span><span id=\"_r_5e_\" class=\"hiddenVisually_FX8kaC\">@game VALORANT</span><span> end</span></div><span class=\"hiddenVisually_FX8kaC\">,</span></div></div></div></div>"
+  }
+}

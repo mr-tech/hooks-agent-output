@@ -18,6 +18,7 @@ Status-Detail: >-
 |---|---|---|---|
 | 2026-11-23T16:36 | 1 | analyst-019 | Created from brief `steering/019-brief-analyst.md` and common brief `steering/slate-formatting-brief-common.md`, commissioned by plan 019. Work began on Revision 0 (record `09170dd0`). The plan moved to Revision 2 (`8dfd4659`) during the run, and M1 was re-read there before writing. Changes under me, all followed: AN-1 adds Playwright Firefox and the wasm's `content-type`. AN-2 adds the loading state and the puppeteer quiet window. AN-3 adds per-surface classes and the disagree counts for legacy-only surfaces. AN-4 adds G-14's state read. AN-7 adds G-14's emoji-label DOM read and D-10's premise. M1 adds lifting the research instruments (QAF-11). |
 | 2026-11-23T17:36 | 2 | analyst-019 | Resumed after `/clear` from the Resumption State at `6bf42552`, on `planner-019`'s AN-8 commission (plan Revision 3, `9ac9ba62`; scope confirmed by message `4f5801aa`). M1 was read again at Revision 5 (`8cfd2fc2`): limb 5 was added at Revision 4, and limbs 1 to 4 are unchanged. AN-8 limbs 1 to 4 were added under § Findings, with G-1 and G-3 updated and G-7 added. No earlier claim in this document was re-verified, except that AN-3's GAME_MENTION cell is withdrawn (limb 2). Limb 5 is in progress. |
+| 2026-11-23T17:40 | 3 | analyst-019 | AN-8 limb 2b added, on `planner-019`'s ask after `db8199aa`: GAME_MENTION per legacy surface, run and observed. |
 
 ## Resumption State
 
@@ -395,6 +396,41 @@ Revision 4 added limb 5, which is recorded separately below.
     So a webhook message is parsed with game mentions on.
   - The research's `<game:id>` guess was wrong, so AN-3's "NOT DISCRIMINATING" cell for GAME_MENTION is withdrawn. The form above
     discriminates.
+- **Limb 2b, GAME_MENTION per legacy surface** (`planner-019`'s message after `db8199aa`; critique F-31). A game mention parses and
+  draws as a pill in the description, the field value and the V2 text display. It stays literal text in the title and the field
+  name, with or without an embed url.
+
+  | Surface variant | Legacy call (AN-3's) | Legacy tree holds `gameMention` [run] | Drawn [observed] |
+  |---|---|---|---|
+  | Content, webhook | `parseToAST`, webhook state | yes | pill (limb 2) |
+  | Embed description | `parseRichEmbedText`'s rules, `allowHeading` true | yes | pill |
+  | Embed field value | same, `allowHeading` false | yes | pill |
+  | Embed title, no url | `parseEmbedTitle` | no | literal `<@$…>` |
+  | Embed title, with url | `parseEmbedTitleWithoutLinks` | no | literal `<@$…>` (inside the title link) |
+  | Field name, no url | `renderTitle`, so `parseEmbedTitle` | no | literal `<@$…>` |
+  | Field name, embed has url | `parseEmbedTitleWithoutLinks` | no | literal `<@$…>` |
+  | V2 text display, webhook | `parse` with `{allowList, allowHeading, allowLinks, allowGameMentions, previewLinkTarget}` | yes | pill |
+
+  - [run] `gm-surfaces.js` is AN-3's surface driver (`an4/legacy-node.js` loader plus `an3/an3-tail.js.part`) over
+    `gm-surface-cases.json`: bare, inline, and inside `**…**`. It ran isolated, and gives the same result for all three cases
+    (`gm-surfaces.json`).
+  - [observed] Three messages went through webhooks `slate-019-an8b` and `slate-019-an8c`, each created and deleted (HTTP 204):
+    - embed `1574479443819241703`, with no url;
+    - V2 display `1574479445455011992`, flag 32768 with `with_components=true`;
+    - embed `1574479694529695908`, with url `https://example.com/an8b`.
+
+    Each was read as test account 1 (`gm-posted-surfaces*.json`, `gm-surfaces-dom.json`, `gm-surfaces-url-dom.json`). The pill is
+    the same `[data-mention-game-id]` element as in content.
+  - [read] Why the embed rows say yes: in build 679055 the facade defines `parseRichEmbedText` as `(e,t,n,i) =>
+    M()(e,t,{allowGameMentions:!0,...n},i)`, so game mentions are on by default. The embed renderer (lazy chunk
+    `2420b0c09d1ff9a5.js`) passes no `allowGameMentions` key. The V2 display's options object `nW` (lazy chunk
+    `e940c8e032f54075.js`) sets it to true.
+  - [run] Control: `gm-surfaces-readstate.js` drops `allowGameMentions` from the rich state and calls the rules directly, bypassing
+    the facade's default. It gives no `gameMention` in the description or field value (`gm-surfaces-readstate.json`). That
+    disagrees with the observation, so the default is the reason, and AN-3's rich state (`allowGameMentions: true`) is Discord's
+    effective state.
+  - This falsifies "legacy never parses a game mention" for the description, the field value and the V2 text display. It holds
+    for the title and the field name. Which masks that changes is the planner's.
 - **Limb 3, local-build sign-in.** The redirect host passes: production's OAuth application accepts `http://127.0.0.1:3000`. A
   complete sign-in was not executed.
   - [read] `src/server/auth.ts` at `af3d95a` uses next-auth 4's `DiscordProvider` with `clientId` `NEXT_PUBLIC_DISCORD_CLIENT_ID`,

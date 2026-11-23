@@ -1,0 +1,42 @@
+{
+ "embed": {
+  "status": 200,
+  "message_id": "1574479694529695908",
+  "sent": {
+   "content": "an8 2b embed-url",
+   "allowed_mentions": {
+    "parse": []
+   },
+   "embeds": [
+    {
+     "url": "https://example.com/an8b",
+     "title": "title <@$700136079562375258> t",
+     "description": "desc <@$700136079562375258> d",
+     "fields": [
+      {
+       "name": "fname <@$700136079562375258> n",
+       "value": "fvalue <@$700136079562375258> v"
+      }
+     ]
+    }
+   ]
+  },
+  "stored_embeds": [
+   {
+    "type": "rich",
+    "url": "https://example.com/an8b",
+    "title": "title <@$700136079562375258> t",
+    "description": "desc <@$700136079562375258> d",
+    "fields": [
+     {
+      "name": "fname <@$700136079562375258> n",
+      "value": "fvalue <@$700136079562375258> v",
+      "inline": false
+     }
+    ],
+    "content_scan_version": 0
+   }
+  ],
+  "stored_components": []
+ }
+}

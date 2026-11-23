@@ -1,0 +1,37 @@
+{
+  "id": "1574479694529695908",
+  "pills": 2,
+  "embedTitle": [
+    {
+      "text": "title <@$700136079562375258> t",
+      "pill": false,
+      "link": true
+    },
+    {
+      "text": "title <@$700136079562375258> t",
+      "pill": false,
+      "link": true
+    }
+  ],
+  "embedDescription": [
+    {
+      "text": "desc ⁠VALORANT@game VALORANT d",
+      "pill": true,
+      "link": false
+    }
+  ],
+  "fieldName": [
+    {
+      "text": "fname <@$700136079562375258> n",
+      "pill": false,
+      "link": false
+    }
+  ],
+  "fieldValue": [
+    {
+      "text": "fvalue ⁠VALORANT@game VALORANT v",
+      "pill": true,
+      "link": false
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+ "embed": {
+  "status": 200,
+  "message_id": "1574479443819241703",
+  "sent": {
+   "content": "an8 2b embed",
+   "allowed_mentions": {
+    "parse": []
+   },
+   "embeds": [
+    {
+     "title": "title <@$700136079562375258> t",
+     "description": "desc <@$700136079562375258> d",
+     "fields": [
+      {
+       "name": "fname <@$700136079562375258> n",
+       "value": "fvalue <@$700136079562375258> v"
+      }
+     ]
+    }
+   ]
+  },
+  "stored_embeds": [
+   {
+    "type": "rich",
+    "title": "title <@$700136079562375258> t",
+    "description": "desc <@$700136079562375258> d",
+    "fields": [
+     {
+      "name": "fname <@$700136079562375258> n",
+      "value": "fvalue <@$700136079562375258> v",
+      "inline": false
+     }
+    ],
+    "content_scan_version": 0
+   }
+  ],
+  "stored_components": []
+ },
+ "v2": {
+  "status": 200,
+  "message_id": "1574479445455011992",
+  "sent": {
+   "flags": 32768,
+   "allowed_mentions": {
+    "parse": []
+   },
+   "components": [
+    {
+     "type": 10,
+     "content": "an8 2b v2 <@$700136079562375258> end"
+    }
+   ]
+  },
+  "stored_embeds": [],
+  "stored_components": [
+   {
+    "type": 10,
+    "id": 1,
+    "content": "an8 2b v2 <@$700136079562375258> end"
+   }
+  ]
+ }
+}
