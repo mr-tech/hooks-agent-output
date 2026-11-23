@@ -2,19 +2,22 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Resolved
-Status-Detail: "Cycle 1 pass 5 on plan revision 5: APPROVED, and closed at that pass. F-1 to F-30 are RESOLVED. F-31 (LOW) carries its landing trigger in the plan's Planner batch (the planning pass that folds AN-8's GAME_MENTION limb) and closes there as landed-by-author. A later revision that changes a criterion's text opens cycle 2."
-Artifact-Revision: 5 — read as the delta e53c7cdb..d2912590 (cycle 1 pass 5)
-Reviewed-At: "d2912590 — repos=agent-output; website read at af3d95a"
+Status: Open
+Status-Detail: "Cycle 2 pass 1 on plan revision 6: APPROVED. F-1 to F-31 are RESOLVED. F-32 (LOW, AC-4.7's form for the s and S timestamp styles against the site's existing format table) is open with no landing trigger in the plan yet; this document stays Open until the plan records one or the fix lands, before M4 is coded."
+Artifact-Revision: 6 — read as the delta d2912590..946d4e54 (cycle 2 pass 1)
+Reviewed-At: "946d4e54 — repos=agent-output; website read at af3d95a"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 5 (`d2912590`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 and 5 as deltas (passes 4 and 5).
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 6 (`946d4e54`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 6 as deltas.
+**Read at cycle 2 pass 1**: the plan's diff `d2912590..946d4e54`; the analysis's AN-8 section at `3681654e` (limbs 1, 2 and
+2b); website `src/utils/markdown/components/MarkdownTimestamp.tsx` at `af3d95a`.
 **Read at cycle 1 pass 5**: the plan's diff `e53c7cdb..d2912590`; `verification/019/qa/probe-mask-vs-an3-table.r4.out`.
-**Analysis**: `analysis/019-slate-formatting-discord-engine-analysis.md` (`aafecf1`). AN-8's results have not landed.
+**Analysis**: `analysis/019-slate-formatting-discord-engine-analysis.md` (`3681654e`). AN-8's limbs 1 to 4 and 2b have landed;
+limb 5 has not.
 **Read at cycle 1 pass 4**: the plan's diff `9ac9ba62..e53c7cdb`; the analysis at its wasm-hash lines and AN-3's GAME_MENTION
 row; QA's document at `24d537bf` for its GAME_MENTION finding; `verification/019/qa/probe-mask-vs-an3-table.out`; QA's P-Q9 row
 for the 15,480 figure.
@@ -32,8 +35,34 @@ for the 15,480 figure.
 | 2026-11-23T17:27 | planner-019 (message naming revision 4 at `e53c7cdb`) | cycle 1 pass 4: plan revision 4 | Depth: delta-bounded. The delta `9ac9ba62..e53c7cdb` is 132 added and 75 removed lines over 1,083 (`git diff --numstat`, three commits, two of them registrations R-4 and R-5), fully readable as a diff; it reshapes no milestone. Boundary check by this pass's own instrument, the ID regex over both revisions computed in memory: none removed; added X-25 and X-26; no criterion ID added, and AC-2.3, AC-3.2, AC-3.7, AC-3.8, AC-4.7 and AC-6.5 changed in place, as the owed re-verdicts table lists. Artifact changes: the folds of pass 3, the architect's CF-9 and CF-10, QA's QAF-18 to QAF-22 and its GAME_MENTION mask finding. Findings addressed: F-27 to F-30 RESOLVED; SL-8 and SL-9 landed; the pass-3 assumption answered by AC-3.8 (i′) and X-26. New finding: F-31 (LOW), OPEN with a landing trigger. Verdict APPROVED. |
 | 2026-11-23T17:31 | planner-019 (message naming revision 5 at `d2912590`) | cycle 1 pass 5: plan revision 5 | Depth: delta-bounded. The delta `e53c7cdb..d2912590` is 73 added and 35 removed lines (`git diff --numstat`, two commits, one of them registration R-6), fully readable as a diff; it reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed, none added. Artifact changes: AC-2.3 states six mask literals (and "seven masks" is corrected to six); AC-6.5's expected spans come from Discord's native box, with emoji edits added to its typed-edit class (the architect's CF-11, QA's QAF-23); M3's drift rule holds no gate on a live native-box departure under drift; F-31 is a Planner batch row and M4's mask line marks its premise not established. Findings addressed: F-31 carries its landing trigger in the plan. New findings: none. Verdict APPROVED. |
 | 2026-11-23T17:31 | critic-019 | Document closed | Status: Resolved. Every finding is RESOLVED or, for F-31, carries a landing trigger recorded in the plan's Planner batch. |
+| 2026-11-23T17:44 | planner-019 (message naming revision 6 at `946d4e54`) | cycle 2 pass 1: plan revision 6 | Reopened from `critiques/closed/` for cycle 2, which revision 6 opens by changing criterion text. Depth: delta-bounded; the delta `d2912590..946d4e54` is 99 added and 43 removed lines (`git diff --numstat`, four commits, three of them registrations R-7 to R-10), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed as a token (X-24 has no Exclusions row left and is named only where withdrawn); added EC-7, QA's entry condition. Artifact changes: AN-8 limbs 1 to 4 and 2b folded (AC-2.3's mask table, M4's mask line, AC-4.7, AC-6.3's provision step, X-14); AC-6.5's expected value split by surface with two entry conditions at M6 (the architect's CF-12, QA's EC-7, this critique's pass-5 assumption). Findings addressed: F-31 RESOLVED, read against the analysis. New finding: F-32 (LOW), OPEN. Verdict APPROVED. |
 
 ## Verdict
+
+**APPROVED — cycle 2, pass 1.** Neither the stop authority nor the hard stop fired (pass 1 of 15 in this cycle). Pricing: sized
+to the ask plus his three rulings, unchanged; revision 6 adds no criterion, milestone or instrument, and withdraws one stated
+limit (X-24).
+
+What this pass read in revision 6's delta:
+- **F-31 is settled.** AN-8 limb 2b ran Discord's legacy code per surface and read the drawn result: a game mention is a pill
+  on the description, the field value and the V2 text display, and literal text on the title and field name. AC-2.3's table
+  and M4's mask line now say exactly that, and content's game mentions are in the agree class (limb 2, four cases).
+- **The pass-5 assumption** is an entry condition at M6: M3 records whether the box exposes its emoji spans, and a miss goes
+  to the planner before M6's literals freeze.
+- **AC-6.5's expected value** is split by surface, with the box for content and the three surfaces whose masks match it on the
+  bits that matter, and the oracle helper for the title and field name. A wrong split shows as red, not as a false pass.
+- **AC-6.3's provision step** names what UAT's build needs (a local Postgres, the `127.0.0.1` host, the id-sequence move).
+
+One finding is open and does not hold approval: **F-32** (LOW). AC-4.7 writes `s` and `S` as `Intl.DateTimeFormat` option sets
+"in the viewer's locale and time zone". The six styles beside them come from one dayjs format table, and the plan does not
+say the two new ones depart from it or why. It needs to land before M4 is coded.
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+No milestone is marked `PREMISE-STALE`. `Target-Release` is unchanged and equals the scoping block's end step. No `OPEN
+QUESTION` is unresolved. Routed to the owner: nothing.
+
+Cycle 1's verdicts follow, as written at their passes.
 
 **APPROVED — cycle 1, pass 5.** Neither the stop authority nor the hard stop fired (pass 5 of 15). Pricing: sized to the ask
 plus his three rulings, unchanged; revision 5 adds no criterion, milestone or instrument.
@@ -86,7 +115,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
-Cycle 1 pass 5: this pass assumes that a run of Discord's native box (module 818948) exposes the emoji spans of its own parse,
+Cycle 2 pass 1: this pass assumes that `0x02000000`, the one bit by which the field value's mask differs from content's, is
+the heading bit, and does not test it. The plan marks it an inference from AN-3's table, and `@discord/markdown-types` is not
+in the workspace to read. If it is false and the bit is one that decides whether an emoji sits inside a construct, AC-6.5 goes
+red on field-value inputs with no site defect, because the box's spans were taken under content's mask. The implementer at M2
+owns closing it: AC-2.3 checks each mask over all 31 single-bit members with the package installed.
+
+Cycle 1 pass 5 (now an entry condition at M6; plan revision 6, AC-6.5): this pass assumes that a run of Discord's native box (module 818948) exposes the emoji spans of its own parse,
 and does not test it. The analysis's AN-6 table describes the box's output as leaf attributes per token, where an emoji is an
 `atom` carrying the enclosing styles, not a span marked as an emoji. If it is false, M3's implementer finds no emoji span to
 freeze for AC-6.5, and the expected value falls back to the oracle helper that revision 5 made the positive control. The
@@ -108,20 +143,24 @@ None.
 
 ### Open
 
-F-31 LOW cycle 1 pass 4 — OPEN, landing trigger named — The mask line clears `GAME_MENTION` on a premise the analysis marks not established
-- **Location**: M4, the adjustment module's mask line ("legacy never parses a game mention there"); AC-2.3; M1 AN-8's
-  GAME_MENTION limb and its "not completed" outcome.
-- **Description**: the line rests on QA's probe, which reads the analysis's AN-3 table. That table's GAME_MENTION row says "not
-  established (G-1)": `<game:id>` is plain text in both parsers, and the regex export of module 856896 was not read. AN-8's
-  second limb is the read. Its "not completed" outcome says only that the kind stays X-14, not what the mask line does. No
-  generator input can show a wrong bit, because the written form is unknown.
-- **Impact**: small. A game mention in an embed is the only input reached.
-- **Recommendation**: when AN-8 is folded, state the mask line against its result: kept where legacy has no rule on those
-  surfaces, restored where it has one, and marked unread where the limb is not completed.
-- **Landing trigger**: the planning pass that folds AN-8's GAME_MENTION limb, recorded at plan revision 5 in the Planner batch
-  (row F-31) and in M4's mask line. It closes there as landed-by-author, in that revision; it is not critic-verified.
+F-32 LOW cycle 2 pass 1 — OPEN — AC-4.7 gives `s` and `S` a form that departs from the six sibling styles without saying so
+- **Location**: M4, AC-4.7 ("`s` renders as `Intl.DateTimeFormat` with `{ dateStyle: 'short', timeStyle: 'short' }` … in the
+  viewer's locale and time zone"); `website@af3d95a src/utils/markdown/components/MarkdownTimestamp.tsx:TIMESTAMP_TO_DAYJS_FORMAT`.
+- **Description**: the six styles the same criterion says "keep today's output" are entries of one dayjs format table (`t`
+  `LT`, `T` `LTS`, `d` `L`, `D` `LL`, `f` `LLL`, `F` `LLLL`), formatted by dayjs. The plan writes the two new styles as a
+  different formatter with a locale rule, and neither cites the table as the sibling nor marks the departure with its reason
+  (planner.md, "mirrors the siblings"). The option sets are the analysis's description of what Discord does, marked there as an
+  inference; the criterion's own evidence is the two drawn strings.
+- **Impact**: one component would format seven styles one way and two another, and whether the two follow the viewer's locale
+  while the others do not is decided by this sentence and not by a stated choice.
+- **Recommendation**: state the required output (the two literals for `en-US` and UTC, which the criterion already asserts) and
+  either name the dayjs table as the sibling the new entries join, or mark the `Intl` form a deviation with its reason.
+- **Landing**: before M4 is coded. The plan's next planning pass (the fold of AN-8 limb 5) is the natural one; a Planner batch
+  row naming it lets this document close.
 
 ### Resolved
+
+F-31 LOW cycle 1 pass 4 — RESOLVED — AN-8 limb 2b read it per surface: `GAME_MENTION` stays set on the description, field value and V2 masks and is cleared on title and field name only. Plan revision 6, AC-2.3, M4's mask line, Planner batch row F-31 discharged. Read against analysis `3681654e` at cycle 2 pass 1.
 
 F-1 HIGH cycle 1 pass 1 — RESOLVED — each AN item carries its "Not completed" outcome and the approval it holds. Plan revision 2, M1.
 
@@ -219,7 +258,17 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 1 pass 5 (APPROVED on plan revision 5, `d2912590`); nothing is in flight, and a later criterion-changing revision opens cycle 2 from that SHA.
+Written after cycle 2 pass 1.
+
+- **Done**: cycle 1 (passes 1 to 5, closed at `944e53f6`) and cycle 2 pass 1. Verdict APPROVED on revision 6 (`946d4e54`).
+  This document was reopened from `critiques/closed/` for cycle 2.
+- **Next**: the planner's next pass. Read it as the `git diff` from `946d4e54`, boundary checked by the in-memory ID
+  comparison (no file written from the shell). It checks F-32. Where F-32 has landed or carries a Planner batch row and no
+  other finding is open, set `Resolved` and close this document again (`record-closure` skill).
+- **Standing rules of the brief** (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in the
+  record folder; website read by `git show <sha>:<path>`; record documents by Write or Edit only; stamps from `date -u`.
+- **Tree**: record `master`. Nothing of this session is uncommitted after the cycle 2 pass 1 commit; no process of this
+  session is running. No question is awaiting an answer. A cache-warm wake is armed for 18:11 UTC.
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
