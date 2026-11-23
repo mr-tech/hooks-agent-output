@@ -1,0 +1,63 @@
+id	score	disposition	class	generated	covering	reason
+309	8	kept	-	yes	-	Earliest fixture of a single-line quote above a bare fence; a forced normalise that loops, throws or rewrites the text fails here, a failure the user would see.
+310	5	remove	-	yes	309	Same whole-editor check as the quote plus bare fence case with one plain line added; no branch of the normaliser depends on that line.
+311	7	kept	-	yes	-	Multi-line quote taking in a fence, where fence lines are quote lines with an empty marker and the code line is not; overlaps the bare-fence settle case only in part.
+312	8	kept	-	yes	-	Earliest fixture where a continuation line of a multi-line quote carries an empty marker; a default "> " applied to it changes the text.
+313	5	remove	-	yes	312	Marker line alone; the same load and flatten path as the two-line multi-line quote, which fails first on any change that drops or alters the marker.
+314	6	remove	-	yes	312	Blank line inside a multi-line quote takes the same empty-marker path as the continuation line; nothing in the normaliser treats it apart at a forced normalise.
+315	7	kept	-	yes	-	Earliest fixture of a line inside a multi-line quote that carries its own "> " marker, which load strips and must restore.
+316	6	remove	-	yes	329	Text-only assertion cannot see a language disagreement between load and normalise; the language of a js fence is asserted by the two-block language case.
+317	7	kept	-	yes	-	Typing at the start of a quote line's content after load: asserts the character lands after the marker and the normalise it triggers leaves the rest alone.
+318	5	remove	-	yes	317	Same quote line, other edge; the whole-editor check and the marker handling are the same as at the line's start.
+319	6	remove	-	yes	320	Character before the opening fence leaves every line's classification as loaded; the typed-fence case that does change state is the end-edge one.
+320	7	kept	-	yes	-	Typing after the bare opening fence gives it a language, so the check pass must run the update pass under a quote line; text asserted, overlapping the typed-language case in part.
+321	6	remove	-	yes	317	Typing in the code line changes no classification; the check runs over the whole editor wherever the character lands, as in the quote-line case.
+322	5	remove	-	yes	317	Same code line, other edge; no classification change and the same whole-editor check.
+323	6	remove	-	yes	317	Character before the closing fence leaves the fence toggle and every line's type unchanged; same whole-editor check.
+324	5	remove	-	yes	317	Character after the closing fence leaves the toggle unchanged (no language read while inside a block); same whole-editor check.
+325	6	remove	-	no	311	Typing in the code line under a multi-line quote changes no classification; the settle case on the same text runs the same check.
+326	8	kept	-	yes	-	Pins the language-token boundary: "c++" is not a language, asserted as a literal at load and after normalise, nowhere else.
+327	8	kept	-	yes	-	Pins the boundary that a space after the fence gives no language, literal at load and after normalise, nowhere else.
+328	9	kept	-	yes	-	The one fixture where a paired inline fence inside an open block decides: the block stays open and keeps its language for the next line.
+329	8	kept	-	yes	-	Pins the language reset at a closing fence: the second block, whose fence names no valid language, must not inherit js.
+330	8	kept	-	no	-	Only assertion that every line after a multi-line marker stays a quote line through a forced normalise.
+331	8	kept	-	yes	-	Typed multi-line marker turns a plain line into a quote line with the marker moved out of the line's text and kept in the flattened text; asserted nowhere else.
+332	7	kept	-	yes	-	Same conversion through the single-line marker pattern, a separate replace in the marker derivation; overlaps the multi-line case in part.
+333	8	kept	-	no	-	Only assertion that a language typed onto an opening fence reaches the code lines below it, with literal languages.
+334	8	kept	-	no	-	Only assertion of the starts-inside-a-block flag, before and after a fence typed above flips which fence opens.
+335	7	kept	-	no	-	Unique scenario of a multi-line marker typed above an existing quote line and a plain line; text literal plus the lines that received text writes.
+336	8	kept	-	no	-	Only assertion that splitting a line of a multi-line quote does not copy the marker onto the new line; fails if the split override is removed.
+337	9	kept	-	no	-	The one fixture where the not-a-code-line conjunct of the multi-line quote test decides in the normaliser: a marker inside a code block must not quote the lines after it.
+338	8	kept	-	no	-	Only assertion that an existing quote line keeps its own stored marker when a multi-line quote is opened above it.
+339	8	kept	-	no	-	Only case driving Backspace at the start of a quote line: marker removed and the lines it had taken in return to plain.
+631	8	kept	-	yes	-	Only assertion on the mounted editor that opening a full-markdown message reports the stored text once and unchanged.
+632	5	remove	-	yes	312	Mount adds only the wiring the first mounted case asserts; the marker-only text loads through the path the two-line settle case keeps.
+633	5	remove	-	yes	312	Mount runs no normalise; the blank-line text is the same load and flatten path as the kept multi-line quote settle case.
+634	6	remove	-	yes	309	Mount runs no normalise, so this is load and flatten of the quote plus bare fence text, which the settle case asserts with a normalise on top.
+635	6	remove	-	yes	311	Mount runs no normalise; the same text is settled, with a normalise, by the multi-line quote plus fence case.
+636	5	remove	-	yes	309	Two single-line quote lines carry no state between them; the single-line marker round trip is in the quote plus bare fence settle case.
+637	5	remove	-	yes	2686	Same text as the direct load case for a multi-line quote starting below a plain line; mount adds only the wiring already asserted.
+638	5	remove	-	yes	631	Plain text exercises only the write-once wiring, which the first mounted case fails on first.
+639	9	kept	-	yes	-	The one fixture where the single-line-box conjunct of the multi-line marker test alone decides: without it the marker is stripped from a line that is never a quote line.
+640	5	remove	-	yes	639	Dropping the single-line-box gate on a "> " line still round-trips the text through the stored marker, so only the shared wiring can fail it.
+641	5	remove	-	yes	639	A newline in a single-line box is outside the field's input class (Enter and multi-line paste are refused); the first line repeats the marker-only case.
+2677	7	kept	-	yes	-	Escaped emoji ahead of emphasis: load must slice source text by source offsets so the backslash survives.
+2678	5	remove	-	yes	2677	Same escaped-emoji slice with the emoji at the end of the line; other example data.
+2679	7	kept	-	yes	-	Escaped asterisks with no emoji: a different parser rule whose source is longer than its content; overlaps the escaped-emoji case in part.
+2680	7	kept	-	yes	-	Name-like text running into an emoji; whether dropping the name-split guard loses text here is not decidable from the code.
+2681	7	kept	-	yes	-	Escaped emoji running into a trailing name colon; the other side of the name-split guard, not decidable from the code.
+2682	5	remove	-	yes	312	Same text and same load-then-flatten assertion as the earlier settle case, which builds its editor from this function.
+2683	5	remove	-	yes	312	Marker-only line; the two-line settle case loads through the same branch and fails first.
+2684	5	remove	-	yes	312	Blank line inside a multi-line quote takes the continuation-line path the two-line settle case keeps.
+2685	5	remove	-	yes	315	Same text and same load-then-flatten assertion as the earlier settle case.
+2686	7	kept	-	yes	-	Earliest fixture where a multi-line quote starts below a plain line, which must stay plain and unmarked.
+2687	5	remove	-	yes	309	Two single-line quote lines; the single-line marker round trip at load is in the quote plus bare fence settle case.
+2688	9	kept	-	yes	-	The one fixture where the not-a-code-line conjunct of the multi-line marker test decides at load: without it the marker is stripped from a code line.
+2689	8	kept	-	yes	-	Pins the leading-space boundary of the single-line marker: the stored marker must keep the space, asserted nowhere else.
+2690	7	kept	-	yes	-	Leading spaces before a multi-line marker, a separate pattern and strip from the single-line one; overlaps it in part.
+2691	5	remove	-	yes	639	Same text and same single-line-box load as the earlier mounted case, which calls this function with the same flag.
+2692	5	remove	-	yes	639	A newline in a single-line field is outside the field's input class; the first line repeats the marker-only case.
+2693	8	kept	-	yes	-	Only assertion of the node structure load builds around an emoji: text before, emoji element, text after, as literals.
+2694	7	kept	-	yes	-	Escaped asterisk before an emoji: the text node before the element must keep the backslash; overlaps the plain structure case in part.
+2695	8	kept	-	yes	-	Decision row at load: an emoji a name runs into stays text while the next emoji becomes an element; literal nodes, asserted nowhere else on the load route.
+2696	8	kept	-	yes	-	Decision row at load for the other side: an escaped emoji followed by a name colon stays text and the next emoji becomes an element.

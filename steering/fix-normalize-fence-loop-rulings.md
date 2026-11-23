@@ -71,3 +71,12 @@ and the file sits in `utils/` beside `withNormalizeNode.ts`, `getInitialValue.ts
 0411d3b 61e5dfe`, read this turn). This thread's ruling; no re-scope. Production lines are 68 (`git diff --numstat 0411d3b 61e5dfe`:
 slate.d.ts 4, codeFence.ts 20, flattenNodeText.ts 1, getInitialValue.ts 11, withNormalizeNode.ts 32), so QA Phase 2 runs. Usage:
 weekly_all 6% (live).
+
+## 2026-11-23T15:37Z — test-case scoring for the batch retrospective `fixes-2026-11-23-steering-hooks-fixer-2`
+
+Commit scored: website `af3d95a` (the release tip). Case list from a clean export: 2,696 executed cases (vitest exit 0, `numTotalTests`
+2696), 62 marked in the three test files the chain changed (`git diff --name-status 0411d3b af3d95a`, `.test.ts[x]`): SlateEditor
+opening-writes-stored-text 11, getInitialValue stored-text-loads-unchanged 20, withNormalizeNode quote-and-fence-lines-settle 31. One
+deweeder unit. Table: `verification/fixes-2026-11-23-steering-hooks-fixer-2/deweed/website-1.tsv`. **Scored 62; 28 below 7** (45%),
+counted by this thread from the table (python `csv`). Every covering cell names a scored case of 7 or more (0 unscored, 0 below 7). Nothing
+is deleted on it. The export is removed.
