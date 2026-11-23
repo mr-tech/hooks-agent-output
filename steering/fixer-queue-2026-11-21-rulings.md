@@ -491,3 +491,12 @@ markdown logic). Website already depends on `simple-markdown` `^0.7.3` (`package
 `researcher-slate-formatting-oracle`, brief `steering/slate-formatting-oracle-brief-researcher.md`, upstream of the effort's plan. It reports
 which clients and parsers exist, how faithful each is to Discord's current rendering, and how to verify that against Discord on the test
 server.
+
+## 2026-11-23T09:15Z — his words: look at Discord's own code
+
+His words, in this session: "Oh, actually, now that I think about it, we could probably just look at the Discord's own code to figure that
+out, couldn't we?" Classed as a requirement (a source to search) plus a mechanism claim to establish: that Discord's own client code is
+readable. Acted on: the researcher was sent an addendum by message. Discord's publicly served web-client bundle comes first among its
+sources. It reports (a) reading the code to derive the rules, separately from (b) running an extracted module as a test oracle. Bounds
+given: no copying Discord's code into the product; whether (b) raises a licence question is his to decide, not the researcher's; only
+publicly served assets, plus the already granted test account and test server.
