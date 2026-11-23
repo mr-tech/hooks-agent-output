@@ -154,6 +154,10 @@ the lifted corpus, the canonical form, the generator, `helpers/discordOracle.ts`
 | `convention-check.js --files` over the 5 fix files, and the ID-token class and basename form by hand | 0 FAIL, 0 CANDIDATE. The id-token and basename checks are skipped by the tool and pass by hand (0 hits; `engine.not-ready.test.ts` matches the positive form) | `m2fix-convention-check-78c5f74.txt` |
 | Expectation independence | the routing literals and the renderer table are written in the tests, not read from the adapter. The not-ready test runs the real engine, with only `init` replaced in the rejected case | n/a |
 
+Disclosure: my R-25 plan row was first written with a typed stamp one minute ahead of the clock. The stamp gate
+(`stamp-gate-hook`) and `plan-row-commit.js` refused it. I restamped it from `date -u` through `record-edit.js` (`{now}`) and committed it as
+`1de99085`. That met the gate; it was not a workaround.
+
 I did not run the whole suite, which is QA's. The implementer reports 3026 of 3026 with exit 0 at `78c5f74`.
 
 ## Verdict
