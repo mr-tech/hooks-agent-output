@@ -1,0 +1,7 @@
+node v24.14.0, ICU 78.2, dayjs (no version field)
+s en-US UTC (pre-mount, any viewer zone): "11/14/23, 10:13 PM"
+s en-US America/New_York (mounted): "11/14/23, 5:13 PM"; S: "11/14/23, 5:13:20 PM"
+tag en-US -> dayjs en: Intl(tag) "11/14/23, 10:13 PM"; Intl(resolved) "11/14/23, 10:13 PM"; readings agree
+tag en-GB -> dayjs en-gb: Intl(tag) "14/11/2023, 22:13"; Intl(resolved) "14/11/2023, 22:13"; readings agree
+tag de-DE -> dayjs de: Intl(tag) "14.11.23, 22:13"; Intl(resolved) "14.11.23, 22:13"; readings agree
+tag ja-JP -> dayjs en: Intl(tag) "2023/11/14 22:13"; Intl(resolved) "11/14/23, 10:13 PM"; readings DIFFER

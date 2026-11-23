@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 6 (record 946d4e54). AC-2.3's six masks match the corrected per-surface reading in
-  0 of 248 cells. QAF-24 (AC-6.5's helper control) and QAF-25 (AC-4.7's viewer locale and time zone) are new, both MEDIUM.
-  B-4 is re-specified. Implementation is not approved.
+  Phase 1 re-keyed on plan 019 Revision 7 (record e0eb1e87). QAF-24 and QAF-25 are folded and closed. QAF-26 MEDIUM (AC-4.7's
+  pre-mount and locale branches have no fixture that alone decides them, and the locale has two readings) and QAF-27 LOW (an
+  `s` timestamp member for AC-4.3's class; Planner batch under the 17:56Z cap) are new. The register is swept, with no change. Implementation is not approved.
 Phase: 1
 ---
 
@@ -15,16 +15,16 @@ Phase: 1
 
 ## Resumption State
 
-Written 2026-11-23T17:51 at the revision 6 re-key commit.
+Written 2026-11-23T17:56 at the revision 7 re-key commit.
 
-- **Done.** Phase 1 on revisions 1 to 6, each re-key committed. Revision 6 is in § Re-key on Revision 6, raising QAF-24 and QAF-25.
-- **Next.** The planner folds QAF-24 and QAF-25 at its next revision, and this phase re-keys that delta. Phase 2 starts at the code review's
+- **Done.** Phase 1 on revisions 1 to 7, each re-key committed. Revision 7 is in § Re-key on Revision 7, raising QAF-26 and QAF-27.
+- **Next.** The planner folds QAF-26 and QAF-27 at its next revision, and this phase re-keys that delta. Phase 2 starts at the code review's
   committed verdict.
 - **Uncommitted or local.** Nothing in the record. The scratchpad `pkg/` holds the re-packed wasm the probes run from; it is perishable.
 - **Questions out.** None.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 6 (record
-`946d4e54`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 7 (record
+`e0eb1e87`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -37,6 +37,7 @@ Written 2026-11-23T17:51 at the revision 6 re-key commit.
 | 2026-11-23T17:27 | planner-019 (message: revision 4 at record `e53c7cdb`) | Re-key Phase 1 on revision 4 | Phase 1 re-key, read as the word diff from `9ac9ba62`. It confirmed the folds of QAF-18 to QAF-22 and E-4. It re-measured the masks with `GAME_MENTION` cleared on the five legacy-only surfaces (1 of 248 cells differs, content's, as intended) and published AC-2.3's seven literals. It re-keyed AC-3.2, AC-3.7, AC-3.8 (i′), AC-4.7, AC-6.5 (CF-9) and the emoji display helper (CF-10). It swept the register, with B-1 and B-6 re-specified, and raises QAF-23. One command was refused by the record-write gate and re-issued in a read-only form (disclosed in the section). |
 | 2026-11-23T17:31 | planner-019 (message: revision 5 at record `d2912590`) | Re-key Phase 1 on revision 5 | Phase 1 re-key, read as the word diff from `e53c7cdb`. It confirmed the folds of QAF-23, AC-2.3's six literals and CF-11's expected value, and reconciled the mask count to six. It adds EC-7 (the box's emoji spans against `parseLossless`'s emoji nodes, measured before AC-6.5's literals freeze) and swept the register with no change. No new finding. |
 | 2026-11-23T17:51 | planner-019 (message: revision 6 at record `946d4e54`) | Re-key Phase 1 on revision 6 | Phase 1 re-key, read as the word diff from `d2912590` and AN-8 limb 2b (`3681654e`). AC-2.3's six masks were re-run against AN-3's table, with its stale `GAME_MENTION` row replaced by limb 2b's run: 0 of 248 cells differ, and revision 4's masks give the three expected differences as a control. Three premises were run: `0x02000000` is HEADING, the field value's emoji spans equal content's, and Node prints `s` and `S` with the bytes Discord drew. It re-keyed AC-2.3 (NM-39), AC-4.7, AC-6.3 with B-4, and AC-6.5. It raises QAF-24 and QAF-25 (both MEDIUM) and swept the register: B-4 re-specified, the others cleared. |
+| 2026-11-23T17:56 | planner-019 (message: revision 7 at record `e0eb1e87`) | Re-key Phase 1 on revision 7 | Phase 1 re-key, read as the word diff from `946d4e54`. It confirmed the folds of QAF-24 and QAF-25 (closed), F-32, CF-13 option (a) and the heading-bit read, which agrees with P-Q14. It read the sibling `MarkdownTimestamp.tsx`, `Markdown.tsx` and `LoadLocale.tsx` at `af3d95a`, and ran the two CF-13 branches' literals and the dayjs locale resolution (P-Q18). It raises QAF-26 MEDIUM and QAF-27 LOW, and swept the register with no change. |
 
 ## Reading
 
@@ -718,6 +719,81 @@ AN-8. Members: B-1 (local build; AN-8 limb 5), B-2 and B-3 (local build), and B-
 
 Rows inherited and not discharged: B-1 to B-6, all open.
 
+## Re-key on Revision 7
+
+Revision 7 (record `e0eb1e87`, with R-11 at `5960e792` and R-12 at `afd62e33`) was read as its word diff from `946d4e54`. The
+website was read at `af3d95a` by `git -C website show` (`MarkdownTimestamp.tsx`, `Markdown.tsx`, `LoadLocale.tsx`, `rules.tsx`'s
+timestamp rule, the `dayjs/locale` imports of `src/utils/loadLocales.ts`).
+
+| Item | Where revision 7 folds it | Check |
+|---|---|---|
+| QAF-24 | AC-6.5, the helper's second control | The url-variant link fixtures, each with a Unicode, a `:name:` and a custom emoji, and NM-44 red on them. **Closed.** |
+| QAF-25 | AC-4.7, "What the test sets" | The test sets locale and zone itself. It asserts the `en-US` UTC literals and `America/New_York`'s `11/14/23, 5:13 PM`. The planner's `S` there, `11/14/23, 5:13:20 PM`, is reproduced in P-Q18. **Closed**, but see QAF-26 for the branches revision 7 adds. |
+| F-32 | AC-4.7, a marked deviation | dayjs cannot give Discord's text, so `s` and `S` leave `TIMESTAMP_TO_DAYJS_FORMAT` with a stated reason. No test consequence beyond AC-4.7's literals. |
+| CF-13 (a) | AC-4.7, "Everything else follows the sibling" | Two new branches, UTC while `state.mounted` is false and the locale from `LoadLocale`. They are QAF-26. |
+| Heading bit | AC-6.5, read and measured | Agrees with P-Q14 (`0x02000000 = HEADING`) and P-Q15. |
+| AC-2.3 | unchanged, released | Nothing to re-key. |
+
+**P-Q18 (run; `probe-r7-timestamp-locale.cjs`, `.out`).** Node v24.14.0, ICU 78.2, dayjs 1.11.7 read from the shared tree's
+installed `node_modules`, under `unshare -rn`:
+- Pre-mount, `en-US`, UTC: `s` is `11/14/23, 10:13 PM`.
+- Mounted, `en-US`, `America/New_York`: `s` is `11/14/23, 5:13 PM` and `S` is `11/14/23, 5:13:20 PM`.
+- "The locale `LoadLocale` sets for dayjs" has two readings: the tag react-aria hands `dayjs.locale()`, or the locale dayjs
+  resolves it to.
+  - They agree for `en-US` (dayjs `en`), `en-GB` (`en-gb`, giving `14/11/2023, 22:13`) and `de-DE` (`de`, giving
+    `14.11.23, 22:13`).
+  - They differ for `ja-JP`, a locale the site does not load into dayjs: dayjs falls back to `en`. The tag gives
+    `2023/11/14 22:13`, and the resolved locale gives `11/14/23, 10:13 PM`.
+
+**Read, for AC-4.3 (QAF-27).** At `af3d95a`, two sites restrict the style letter to `[tTdDfFR]`:
+- `rules.tsx`'s timestamp match. So `<t:…:s>` is text today and takes no timestamp index.
+- `MarkdownTimestamp.tsx`'s replace regex, which `Markdown.tsx` counts by `index`.
+
+Once `s` and `S` render as timestamps, any surviving copy of that regex makes the i-th rendered timestamp and the i-th regex match
+diverge. An edit would then rewrite the wrong timestamp in the user's message. AC-4.3 already removes the count: the target comes
+from a span, and CF-6 changes the callback. So this is a coverage point, not a defect in the plan.
+
+### New findings
+
+QAF-26 MEDIUM Phase 1
+AC-4.7's CF-13 fold adds two behaviours, and no stated assertion fails when either is lost:
+- **UTC while `state.mounted` is false.** Every stated case pins a zone, so a component that ignores `mounted` passes all of them.
+  The en-US UTC case passes because its zone is already UTC, and the New York case passes if it runs mounted. NM-45 is that
+  component.
+- **The locale from `LoadLocale`.** Every stated case is `en-US`, which is also the default. So a component that passes `'en-US'`,
+  or no locale at all, passes (NM-46).
+
+The locale clause is also ambiguous, and P-Q18 shows the two readings differ for any locale the site does not load into dayjs.
+For `ja-JP`, the sibling's dayjs output is English, while `Intl` given the tag is Japanese. Under the contract-first order, the
+contract is the thing to fix, not a guard behind it.
+
+*Asked*:
+- (i) A pre-mount case, `state.mounted` false with the zone set to `America/New_York`, expecting `11/14/23, 10:13 PM`. The mounted
+  New York case stays, and NM-45 is shown red on the pair.
+- (ii) A non-default locale case, with dayjs's locale set through the path `LoadLocale` uses. For `en-GB` and UTC the expected
+  value is `14/11/2023, 22:13`. NM-46 is shown red on it.
+- (iii) AC-4.7 names which reading it means. Either the tag (`useLocale`'s value), or dayjs's resolved locale, which "follows the
+  sibling" suggests. If dayjs's, a `ja-JP` case expects `11/14/23, 10:13 PM`. If the tag, it expects `2023/11/14 22:13`.
+
+The literals are ICU 78.2's, so the test records the Node it ran under.
+*Routing*: this is a severity-floor finding, a behaviour the criterion claims with no assertion that fails when it is lost. So it is excepted from M4's revision cap (effort rulings block "2026-11-23T17:56Z", record `b95a3d43`) and is asked as a revision item.
+
+QAF-27 LOW Phase 1
+AC-4.3's message class lists timestamps inside code, duplicates, escapes, invalid letters, spoilers, link labels and added ones.
+It names no member where an `s` or `S` timestamp precedes the edited one. That member is new with AC-4.7, because `<t:…:s>` is
+text at `af3d95a`. It is also the only input that reddens a surviving `[tTdDfFR]` copy in the replace or match path (the read
+above). The span-addressed design makes the member pass by construction, so the ask is a named fixture, not a change.
+*Asked*: AC-4.3's class gains `<t:1700000000:s> <t:1700000000:f>`, editing the second (the `f`, i = 1), expecting only the `f`
+rewritten. NM-47 is the replace regex left at `[tTdDfFR]`, red on it.
+*Routing*: LOW on M4, under the cap (block "2026-11-23T17:56Z"). It goes to the plan's Planner batch as a stated limit, with no revision round. QA Phase 2 looks for the member when it audits AC-4.3, and records its absence as residue.
+
+### Register sweep (revision 7's moved premises)
+
+Predicate: rows whose instrument or predicted value cites AC-4.7, AC-4.3, AC-6.5's helper, or a timestamp. Members: none. B-1
+to B-6 are checked and cleared: B-2 and B-5 read link hrefs, B-3 colours, B-4 the picker, and none renders a timestamp style.
+
+Rows inherited and not discharged: B-1 to B-6, all open.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -755,6 +831,12 @@ the way Discord's native text box does in a browser, and it does not test that. 
 No account on the native path has been seen (G-11 not completed, X-13). If an account on the native path shows its text box
 colouring a case differently from the module's jsdom output, the editor's frozen literals encode the wrong standard. **Owner: the
 analyst**, through AN-7's G-11 limb, carried as X-13 until an account on the native path is available.
+
+Revision 7 re-key: this pass assumes that react-aria's `useLocale` in the browser returns the viewer's language (so `LoadLocale`'s
+tag is the viewer's), and it does not test that, because no browser runs here. If it returns a fixed default, every viewer sees
+`en-US` text for `s` and `S` whatever the browser's language, and QAF-26's locale case proves only the wiring. **Owner: uat**,
+which reads one `s` timestamp in the preview under a non-`en-US` browser language on its build, beside the `f` sibling's
+language.
 
 Revision 6 re-key: this pass assumes that B-4's local build, with a fresh local Postgres, lists the test guild's emoji in the
 picker once signed in, and it does not test that. Whether the picker's guild list comes from the session's `guilds` scope alone or
