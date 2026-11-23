@@ -265,8 +265,7 @@ Written 2026-11-23 at the end of M2, for a `/clear`.
   `steering-hooks-fixer` the flows that hold a decision (brief). Run `node ~/.claude/tools/convention-check.js website
   --since=5ec0621` before each hand-off.
 - **Approach in flight.** None. No uncommitted work in the website tree.
-- **Local state not restored.** Scratch export `exp-1005eec` under the session scratchpad (`/tmp/claude-1000/-usr-local-bin-hooks-website/509fc1c2-318e-4f35-9be6-f19bfb7c18dc/scratchpad/`),
-  with a symlinked `node_modules`; delete it when the next sweep has its own. No process of mine is running.
+- **Local state not restored.** None. The scratch export `exp-1005eec` was deleted (its `node_modules` was a symlink; the shared tree's is intact). No process of mine is running.
 - **Evidence run but not recorded.** None: every capture is under `verification/019/impl/` (to be committed with this document).
 - **Questions sent, and to whom.** None.
 - **Cache-warm wake.** Armed at 18:49 (job `af676f9b`); deleted at this checkpoint.
