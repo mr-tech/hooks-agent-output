@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
 Status: Active
-Status-Detail: "Limb 5 (Enter in the box, his 17:40Z selection) with the QA fix round handed off at website 48c5e87 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 41 production lines added; merge is devops's at release, under the owner's release approval."
-Handoff-At: 48c5e87 — repos=website
+Status-Detail: "QA re-run fix (QAF-4, test only) handed off at website 5ec0621 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 41 production lines added; merge is devops's at release, under the owner's release approval."
+Handoff-At: 5ec0621 — repos=website
 Origin-Chain: none
 ---
 
@@ -337,6 +337,27 @@ Done from `cae7472` at website `7f0229c`, `96fb1f8` and `48c5e87` (`cae7472..48c
 - `git diff --numstat af3d95a 48c5e87`, production paths, added: `ImageUploader.tsx` 33 + `useDialogEnter.ts` 8 = **41**.
 - The worktrees were removed (`git worktree list` shows only the shared tree).
 
+## QA re-run fix (QAF-4)
+
+The QA Phase 2 re-run at `48c5e87` (`qa/fix-image-uploader-url-qa.md`, section "Phase 2 re-run at `48c5e87`", record `7c7ef6d0`)
+failed on QAF-4 MEDIUM, a test-only gap. QAF-1 to QAF-3 are resolved. No test held my QAF-3 claim that a saved image changing while the
+dialog is open replaces the box. QA's mutant `if (shownImage !== image) {` → `if (shownImage !== image && !isOpen) {` survived. The path
+is reachable: the Reload on "Message Update Detected" changes `avatar_url` with the avatar dialog open beneath the prompt.
+
+Fixed at website `5ec0621`, test only (`48c5e87..5ec0621`: the test file, 16 lines added). New case, in its own `describe`:
+"follows that image in the box and the preview, and saves it". With X saved and A typed, the host replaces the saved image with Z
+while the dialog stays open. The box and the preview show Z, and Save commits Z.
+
+Evidence, under `verification/fix-image-uploader-url/qa-round2/` unless named:
+- **Green** at `5ec0621`: the three `ImageUploader` files and `WarningDialog.enter-scope`, **61 passed (61), exit 0** (`green-run.txt`).
+- **Red under the mutant**: QA's survivor was added as `saved-change-only-while-closed`. At `5ec0621` it is killed by this case and by
+  no other. All **24 of 24** controls are killed, exit 0 (`controls/mutation-run-5ec0621.out`, `controls/table-5ec0621.md`).
+- **Suite** at `5ec0621`: **2718 passed of 2718, 173 files, exit 0** (`suite-5ec0621.json`/`.txt`).
+- **Typecheck**, both programs, in a `git worktree` export: **exit 0** (`typecheck-export.txt`).
+- **Lint**: the test file, with no fix, exit 0 (`lint-changed-files.txt`).
+- **Convention check**: `--since=af3d95a`, 0 FAIL, 0 CANDIDATE (`convention-check.txt`).
+- Production lines are unchanged at 41. The worktree was removed.
+
 ## User-visible flows
 
 These are for his check. They cover the image address dialog behind the author avatar, the embed author icon, the embed footer icon, the
@@ -360,7 +381,9 @@ embed image and the embed thumbnail.
 
 ## Handoff
 
-- **SHA**: website `48c5e87` (`Handoff-At`): limb 5 on top of the QA Phase 2 fix round. Earlier hand-offs: `7660259`, `e94baf7`,
+- **QAF-4 (test only)**: handed off at website `5ec0621` (`Handoff-At`) to the code reviewer by SendMessage, per the next-act table
+  ("a fix round after `QA Failed` included, test-only or not"). Then QA's re-run.
+- **SHA before QAF-4**: website `48c5e87`: limb 5 on top of the QA Phase 2 fix round. Earlier hand-offs: `7660259`, `e94baf7`,
   then `cae7472`, whose Round 2 approval is superseded.
 - **Reviews**: `code-reviewer-fix-image-uploader-url` at `48c5e87`. Then QA Phase 2's re-run (41 added production lines).
 - **Limb 5 delivery**: the code reviewer, by SendMessage, per steering's 17:40Z message and the next-act table.
@@ -379,3 +402,4 @@ embed image and the embed thumbnail.
 | 2026-11-23T16:51 | 2 | Code review Round 1 (REJECTED, CR-1, CR-2) fixed at `a8b23ce` and `e94baf7`. The error is derived from `failedImage`, and Save sets `localImage`. Red 3 of 16 at `7660259`, green 40 of 40, 18 of 18 controls killed, suite 2712 of 2712. Re-handed off at `e94baf7`. |
 | 2026-11-23T17:29 | 3 | QA Phase 2 fix round. QAF-1: the test host has stable callbacks, and a Cancel-after-Save case was added. QAF-3, ruled in by steering at 17:22Z: the dialog adopts a saved image that changes while it is mounted. CR-2's Save line was made redundant by the sync and removed. Red at `2217a92` and at `e94baf7`, green 42 of 42, 21 of 21 controls killed, suite 2714 of 2714. Flow 1's wording corrected (QAF-2). Re-handed off at `cae7472`. |
 | 2026-11-23T17:56 | 4 | Limb 5, his 17:40Z selection: Enter in the address box saves a loaded address. `useDialogEnter` takes an optional form-tag list, passed only by `ImageUploader`. The enter-scope URL-field expectation updated, and that file's two pre-existing `react-hooks/globals` errors fixed (same 21 cases). Red 2 of 60 at `cae7472`, green 60 of 60, 23 of 23 controls killed, suite 2717 of 2717. Re-handed off at `48c5e87`. |
+| 2026-11-23T18:17 | 5 | QA re-run fix, QAF-4 (test only): a case for a saved image that changes while the dialog is open. QA's survivor killed, 24 of 24 controls, green 61 of 61, suite 2718 of 2718. Re-handed off at `5ec0621`. |

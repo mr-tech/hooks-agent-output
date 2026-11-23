@@ -1,0 +1,54 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:222:38
+    220|
+    221|     expect(box().value).toBe('');
+    222|     expect(button('Clear').disabled).toBe(true);
+       |                                      ^
+    223|   });
+    224|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, an image saved by another path while the dialog is closed > shows that image on reopening, and saves it
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:289:25
+    287|     await reopen();
+    288|
+    289|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    290|     expect(preview()).toBe(URL_Z);
+    291|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, an image saved by another path while the dialog is open > follows that image in the box and the preview, and saves it
+AssertionError: expected 'https://example.com/a.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:305:25
+    303|     await act(async () => {});
+    304|
+    305|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    306|     expect(preview()).toBe(URL_Z);
+    307|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

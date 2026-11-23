@@ -1,0 +1,50 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its URL field runs only what that control does
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:157:24
+    155|       enter();
+    156|
+    157|       expect(counts()).toEqual({ ...NOTHING, ...expected });
+       |                        ^
+    158|     });
+    159|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the loaded address on Enter with focus in the box
+AssertionError: expected [] to deeply equal [ 'https://example.com/a.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/a.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:154:19
+    152|     enterInBox();
+    153|
+    154|     expect(saved).toEqual([URL_A]);
+       |                   ^
+    155|   });
+    156|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

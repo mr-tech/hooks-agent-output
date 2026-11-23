@@ -136,5 +136,11 @@
   "file": "src/utils/hooks/useDialogEnter.ts",
   "old": "{ enabled, enableOnFormTags }",
   "new": "{ enabled }"
+ },
+ {
+  "id": "saved-change-only-while-closed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (shownImage !== image) {",
+  "new": "  if (shownImage !== image && !isOpen) {"
  }
 ]

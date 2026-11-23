@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T181437Z-p1927281/mutant-9
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (22 tests | 1 failed) 1197ms
+     × empties the box and the preview when no image was saved 51ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 60 passed (61)
+   Start at  18:15:19
+   Duration  3.43s (transform 756ms, setup 80ms, import 4.31s, tests 3.06s, environment 3.78s)
+

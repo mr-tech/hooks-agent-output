@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, an image saved by another path while the dialog is open > follows that image in the box and the preview, and saves it
+AssertionError: expected 'https://example.com/a.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:305:25
+    303|     await act(async () => {});
+    304|
+    305|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    306|     expect(preview()).toBe(URL_Z);
+    307|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
