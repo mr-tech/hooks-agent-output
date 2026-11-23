@@ -1,0 +1,48 @@
+## package.json at 78c5f74
+19:  "dependencies": {
+25:    "@discord/markdown-wasm": "0.16.0",
+70:    "paracord": "github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227",
+99:  "devDependencies": {
+## base 5ec0621
+18:  "dependencies": {
+96:  "devDependencies": {
+125:    "paracord": "github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227",
+## lockfile numstat
+20	4	pnpm-lock.yaml
+## lockfile diff
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 95a0e0f..9da7fe3 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -30,0 +31,3 @@ importers:
++      '@discord/markdown-wasm':
++        specifier: 0.16.0
++        version: 0.16.0
+@@ -162,0 +166,3 @@ importers:
++      paracord:
++        specifier: github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227
++        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+@@ -329,3 +334,0 @@ importers:
+-      paracord:
+-        specifier: github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227
+-        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+@@ -676,0 +680,6 @@ packages:
++  '@discord/markdown-types@0.14.0':
++    resolution: {integrity: sha512-3fZ/26jd+kAYLt0cAHBccru5hxwAGgWBfMXLg8+Ki/XfTvXjDhZPvrXmama5qQBbi3CfikQ6zrrC0US8jXNv7Q==}
++
++  '@discord/markdown-wasm@0.16.0':
++    resolution: {integrity: sha512-+wFNlHyO835qxAOvaUlQA/Q6tIazDMvs1l+5H459xhKncscCMdDaz9sLzxGPfYy1UbwyCzoME1HHVQFoU8m1Gw==}
++
+@@ -6811,0 +6821,6 @@ snapshots:
++  '@discord/markdown-types@0.14.0': {}
++
++  '@discord/markdown-wasm@0.16.0':
++    dependencies:
++      '@discord/markdown-types': 0.14.0
++
+@@ -12282 +12297,2 @@ snapshots:
+-  semver@7.8.6: {}
++  semver@7.8.6:
++    optional: true
+discord-markdown-wasm-0.16.0.tgz sha512-+wFNlHyO835qxAOvaUlQA/Q6tIazDMvs1l+5H459xhKncscCMdDaz9sLzxGPfYy1UbwyCzoME1HHVQFoU8m1Gw==
+discord-markdown-types-0.14.0.tgz sha512-3fZ/26jd+kAYLt0cAHBccru5hxwAGgWBfMXLg8+Ki/XfTvXjDhZPvrXmama5qQBbi3CfikQ6zrrC0US8jXNv7Q==

@@ -1,0 +1,31 @@
+files: src/utils/markdown/__tests__/engine.import-confinement.test.ts src/utils/markdown/__tests__/engine.init-states.test.ts src/utils/markdown/__tests__/engine.kind-maps.test.ts src/utils/markdown/__tests__/engine.link-schemes.test.ts src/utils/markdown/__tests__/engine.not-ready.test.ts src/utils/markdown/__tests__/engine.notice.test.ts src/utils/markdown/__tests__/engine.surface-masks.test.ts src/providers/__tests__/MarkdownProvider.engine-state.test.tsx src/utils/markdown/__tests__/helpers/importersOf.ts
+## basenames vs positive form (test files only)
+engine.import-confinement.test.ts 1
+engine.init-states.test.ts 1
+engine.kind-maps.test.ts 1
+engine.link-schemes.test.ts 1
+engine.not-ready.test.ts 1
+engine.notice.test.ts 1
+engine.surface-masks.test.ts 1
+MarkdownProvider.engine-state.test.tsx 1
+## ID-token class over title and comment lines (count per file)
+src/utils/markdown/__tests__/engine.import-confinement.test.ts 0
+src/utils/markdown/__tests__/engine.init-states.test.ts 0
+src/utils/markdown/__tests__/engine.kind-maps.test.ts 0
+src/utils/markdown/__tests__/engine.link-schemes.test.ts 0
+src/utils/markdown/__tests__/engine.not-ready.test.ts 0
+src/utils/markdown/__tests__/engine.notice.test.ts 0
+src/utils/markdown/__tests__/engine.surface-masks.test.ts 0
+src/providers/__tests__/MarkdownProvider.engine-state.test.tsx 0
+src/utils/markdown/__tests__/helpers/importersOf.ts 0
+## time-based cells (setTimeout, Date.now, useFakeTimers, sleep)
+src/utils/markdown/__tests__/helpers/importersOf.ts:0
+src/utils/markdown/__tests__/engine.kind-maps.test.ts:0
+src/utils/markdown/__tests__/engine.link-schemes.test.ts:0
+src/utils/markdown/__tests__/engine.import-confinement.test.ts:0
+src/utils/markdown/__tests__/engine.init-states.test.ts:0
+src/utils/markdown/__tests__/engine.notice.test.ts:0
+src/providers/__tests__/MarkdownProvider.engine-state.test.tsx:0
+src/utils/markdown/__tests__/engine.surface-masks.test.ts:0
+src/utils/markdown/__tests__/engine.not-ready.test.ts:0
+2

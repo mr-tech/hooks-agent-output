@@ -1,0 +1,8 @@
+inputs 472 x masks 4; map keys: node=16 token=21 emoji=2 mention=8 staticMention=5
+node: observed 16 [code,code_block,document,emoji,empty,heading,link,list,list_item,mention,modifier,paragraph,quote,subtext,text,timestamp]; not a map key: (none); map keys never observed: (none)
+token: observed 21 [atom,code_content,code_delimiter,code_fence,delimiter,destination_close,destination_open,escape,heading_marker,indent,language,line_ending,link_close,link_open,list_marker,quote_prefix,subtext_marker,text,title,url,whitespace]; not a map key: (none); map keys never observed: (none)
+emoji: observed 2 [custom,unicode]; not a map key: (none); map keys never observed: (none)
+mention: observed 8 [channel,command,everyone,game,here,role,static,user]; not a map key: (none); map keys never observed: (none)
+staticMention: observed 5 [browse,customize,guide,home,linked_roles]; not a map key: (none); map keys never observed: (none)
+parse() type values observed (all nesting levels): bold,browse,channel,code,code_block,command,custom,customize,emoji,empty,everyone,game,guide,heading,here,home,italic,link,linked_roles,list,mention,ordered,paragraph,quote,role,spoiler,static,strikethrough,subtext,text,timestamp,underline,unicode,unordered,user
+control: planted node kind reported missing: true
