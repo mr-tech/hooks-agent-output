@@ -279,6 +279,26 @@ Content-Security-Policy header in the repository.
 - Pass 2: the architect's delta pass on revision 2 (`ee54771c`) was committed while this pass ran. It was not read before
   this pass was written.
 
+## Resumption State
+
+Written at steering's ask for a clear, after pass 2 (`e3e49ac7`).
+
+- **Done**: cycle 1 pass 1 on revision 1 (`103687b4`, read whole) and pass 2 on revision 2 (`8dfd4659`, read whole) with
+  registration R-2 (`4c872804`). Verdict REQUEST REVISION. `planner-019` was sent this document at `e3e49ac7`.
+- **Next**: cycle 1 pass 3, on revision 3, when the planner's message names it. Read it as the `git diff` from `4c872804`
+  (the last state this critique read), boundary checked by an ID-set comparison of the two revisions; escalate to a whole
+  read only if the diff again replaces most of the file or reshapes a milestone (the D-13 fold may reshape M6).
+- **What pass 3 checks**: F-6 (the editor's rows in the three-class table); F-24 (D-12's "every release gate"); whether
+  the two properties of F-25 and F-26 were adopted, or SL-1 to SL-7 carry landing triggers in the plan; the D-13 fold
+  against effort rulings block 16:29Z and the two Questions; RK-8's pass-2 record ("no new member") written back; any
+  open `OPEN QUESTION`. The architect's CF-8 and QA's QAF-15 to QAF-17 on revision 2 were not read; read their heads at the
+  seam for overlaps, after this document's pass-3 commit.
+- **Standing rules of the brief** (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell in
+  the record folder; website read by `git show <sha>:<path>` or an export with literal paths; record documents by Write or
+  Edit only; stamps from `date -u`.
+- **Tree**: record `master`; nothing of this session is uncommitted. Scratch exports and the engine install are deleted;
+  no process of this session is running. No question is awaiting an answer.
+
 ## Appendix — engine probes (cycle 1 pass 2)
 
 `@discord/markdown-wasm@0.16.0` with `@discord/markdown-types@0.14.0`, `npm install --ignore-scripts`, Node 24.14.0, `parse`
