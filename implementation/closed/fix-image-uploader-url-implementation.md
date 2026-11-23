@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
-Status: Active
-Status-Detail: "QA re-run fix (QAF-4, test only) handed off at website 5ec0621 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 41 production lines added; merge is devops's at release, under the owner's release approval."
+Status: Committed
+Status-Detail: "Committed on website chain/fix-image-uploader-url at 5ec0621 (Stage 1, 2026-11-23T18:33Z); code review Round 3 APPROVED and QA Phase 2 QA Complete at 5ec0621. The merge to master is devops's Stage 2, under the owner's release approval."
 Handoff-At: 5ec0621 — repos=website
 Origin-Chain: none
 ---
@@ -403,3 +403,4 @@ embed image and the embed thumbnail.
 | 2026-11-23T17:29 | 3 | QA Phase 2 fix round. QAF-1: the test host has stable callbacks, and a Cancel-after-Save case was added. QAF-3, ruled in by steering at 17:22Z: the dialog adopts a saved image that changes while it is mounted. CR-2's Save line was made redundant by the sync and removed. Red at `2217a92` and at `e94baf7`, green 42 of 42, 21 of 21 controls killed, suite 2714 of 2714. Flow 1's wording corrected (QAF-2). Re-handed off at `cae7472`. |
 | 2026-11-23T17:56 | 4 | Limb 5, his 17:40Z selection: Enter in the address box saves a loaded address. `useDialogEnter` takes an optional form-tag list, passed only by `ImageUploader`. The enter-scope URL-field expectation updated, and that file's two pre-existing `react-hooks/globals` errors fixed (same 21 cases). Red 2 of 60 at `cae7472`, green 60 of 60, 23 of 23 controls killed, suite 2717 of 2717. Re-handed off at `48c5e87`. |
 | 2026-11-23T18:17 | 5 | QA re-run fix, QAF-4 (test only): a case for a saved image that changes while the dialog is open. QA's survivor killed, 24 of 24 controls, green 61 of 61, suite 2718 of 2718. Re-handed off at `5ec0621`. |
+| 2026-11-23T18:33 | 6 | devops-fix-image-uploader-url, Stage 1: chain committed on `chain/fix-image-uploader-url` at `5ec0621` (tree `e29ea947…`); Status Committed; document closed. |

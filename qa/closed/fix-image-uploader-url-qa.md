@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
 Verified-At: 5ec0621 — repos=website
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 5ec0621 (limbs 1 to 5). QAF-1 to QAF-4 resolved, no open finding, no register rows. A change to production code expires it; a plan-level verdict does not authorise a release (devops's step, under the owner's release approval)."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website 5ec0621 (limbs 1 to 5) carried to the commit: chain committed on chain/fix-image-uploader-url at 5ec0621 (Stage 1, 2026-11-23T18:33Z). No open finding, no register rows. Its last Assumption Not Checked (the production build) is carried by deployment/fix-image-uploader-url-deployment.md, the post-release walk."
 Phase: 2
 ---
 
@@ -23,6 +23,7 @@ block "2026-11-23T17:05Z" (CR-3 ruled inside limb 1). Brief: `steering/fix-image
 | 2026-11-23T17:19 | steering-hooks-fixer (brief 17:05Z) | Phase 2 at website `e94baf7` | Phase 2. QA Failed. Red re-run at `af3d95a`: 14 of 16 cases failed. Green at the tip: 40 of 40. Suite: 2712 of 2712, exit 0 (second run). Typecheck exit 0. Sweep: 36 of 38 killed. QAF-1 MEDIUM: a Cancel mutant survives the suite and is killed by a QA probe. Browser walk of flows 1, 3 and 8 on a local build: flows 3 and 8 hold. Flow 1's Enter step fails (QAF-2 LOW, the behaviour was already so at base). QAF-3 INFO is pre-existing residue. |
 | 2026-11-23T18:12 | steering-hooks-fixer (message of 18:0xZ) | Phase 2 re-run at website `48c5e87` (limbs 1 to 4 plus limb 5) | Phase 2. QA Failed on QAF-4 MEDIUM, a test gap on a saved image that changes while the dialog is open. QAF-1, QAF-2 and QAF-3 are resolved. Red at `e94baf7` with the tip's tests: 3 of 60 failed. Green: 60 of 60. Suite: 2717 of 2717, exit 0. Typecheck exit 0. Sweep of this round: 10 of 13 killed; two survivors are equivalent and one is QAF-4. The shared-hook differential is unchanged for the other two dialogs. Walk of flows 1 and 9: every step passes. See "Phase 2 re-run at `48c5e87`". |
 | 2026-11-23T18:24 | steering-hooks-fixer (message of 18:2xZ) | Phase 2 re-run at website `5ec0621` (QAF-4, test-only) | Phase 2. **QA Complete (PASS).** Production is byte-identical to `48c5e87`. The new case kills `qa-sync-only-when-closed` and is the only case it reddens. Green: 61 of 61. Suite: 2718 of 2718, exit 0. Typecheck exit 0. The owed walk passes: a JSON load to a 404 address, and Reload while the dialog is open. See "Phase 2 re-run at `5ec0621`". |
+| 2026-11-23T18:33 | devops-fix-image-uploader-url (Stage 1) | Close at the chain's commit | Status Committed; `Verified-At: 5ec0621` carried into the commit record. The Phase 2 verdict covers the release tip (the tip is the verified commit). Document closed. |
 
 ## Scope of this pass
 

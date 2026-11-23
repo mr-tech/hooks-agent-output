@@ -1,0 +1,599 @@
+diff --git a/src/components/ImageUploader.tsx b/src/components/ImageUploader.tsx
+index 90aaa99..709efa1 100644
+--- a/src/components/ImageUploader.tsx
++++ b/src/components/ImageUploader.tsx
+@@ -47,43 +47,57 @@ const ImageUploader: FC<Props> = ({
+   isOpen, ringMask, image = '', aspectRatio,
+   onClose, setImage,
+ }) => {
+-  const [imageError, setImageError] = useState('');
+   const [imageInput, setImageInput] = useState(image);
+   const [localImage, setLocalImage] = useState(image);
++  const [failedImage, setFailedImage] = useState('');
++  const [shownImage, setShownImage] = useState(image);
++  if (shownImage !== image) {
++    setShownImage(image);
++    setImageInput(image);
++    setLocalImage(image);
++  }
++  const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;
++  let imageError = '';
++  if (imageInput !== '' && failedImage === imageInput) {
++    imageError = isValidImageUrl(imageInput) ? 'Image not found.' : 'Invalid url.';
++  }
+ 
+   const onSetImage = useCallback(() => {
+     onClose();
+-    setImage(localImage);
+-  }, [setImage, onClose, localImage]);
++    setImage(imageInput);
++  }, [setImage, onClose, imageInput]);
+   const onClear = useCallback(() => {
+-    setImageError('');
+     setImageInput('');
+     setLocalImage('');
+   }, []);
+   const onCancel = useCallback(() => {
+     onClose();
+-    if (image === '' && localImage) setLocalImage('');
+-  }, [image, localImage, setLocalImage, onClose]);
++    setImageInput(image);
++    setLocalImage(image);
++  }, [image, onClose]);
+ 
+-  useEffect(voided(async () => {
+-    if (imageInput) {
+-      if (await checkImage(imageInput)) {
++  useEffect(() => {
++    let current = true;
++    voided(async () => {
++      if (!imageInput) return;
++      const found = await checkImage(imageInput);
++      if (!current) return;
++      if (found) {
+         setLocalImage(imageInput);
+-        setImageError('');
++        setFailedImage('');
+       } else {
+-        setImageError(isValidImageUrl(imageInput) ? 'Image not found.' : 'Invalid url.');
++        setFailedImage(imageInput);
+       }
+-    } else {
+-      setImageError('');
+-    }
+-  }), [imageInput]);
++    })();
++    return () => { current = false; };
++  }, [imageInput]);
+ 
+   // usePasteImage(setLocalImage, isOpen, () => { toast.error('Invalid image file.', { delay: 2000 }); });
+ 
+   let submit: (() => void) | undefined;
+-  if (localImage) submit = onSetImage;
++  if (loaded) submit = onSetImage;
+ 
+-  const ref = useDialogEnter(submit, isOpen);
++  const ref = useDialogEnter(submit, isOpen, ['input']);
+ 
+   return (
+     <PresetDialog
+@@ -107,7 +121,7 @@ const ImageUploader: FC<Props> = ({
+             value={imageInput}
+             errorMessage={imageError}
+           />
+-          {!localImage ? null : (
++          {!loaded ? null : (
+             <div
+               style={{
+                 width: '16rem',
+@@ -144,7 +158,7 @@ const ImageUploader: FC<Props> = ({
+             <Button
+               preset='success'
+               onPress={onSetImage}
+-              isDisabled={!localImage && !image}
++              isDisabled={imageInput ? !loaded : !image}
+             >
+               <CheckIcon className={styles.icon} />
+               Save
+diff --git a/src/components/__tests__/ImageUploader.enter-scope.test.tsx b/src/components/__tests__/ImageUploader.enter-scope.test.tsx
+index ee04644..44051b3 100644
+--- a/src/components/__tests__/ImageUploader.enter-scope.test.tsx
++++ b/src/components/__tests__/ImageUploader.enter-scope.test.tsx
+@@ -36,18 +36,16 @@ const calls = {
+   otherSetImage: vi.fn(),
+   updateConfirm: vi.fn(),
+ };
+-let raise: () => void = () => undefined;
+-
+ const Capture = () => {
+   const { showConfirmation } = useConfirmation();
+-  raise = () => showConfirmation({
++  const raise = () => showConfirmation({
+     enabled: true,
+     title: UPDATE,
+     message: 'This message was saved in another tab.',
+     confirmText: 'Reload',
+     onConfirm: calls.updateConfirm,
+   });
+-  return null;
++  return <button type="button" data-raise hidden onClick={raise}>raise</button>;
+ };
+ 
+ function dialogs(title: string) {
+@@ -102,16 +100,20 @@ const NOTHING = {
+   close: 0, setImage: 0, otherClose: 0, otherSetImage: 0, updateConfirm: 0,
+ };
+ 
+-let setOpen: (open: boolean) => void = () => undefined;
+-
+ const ClosableUploader = () => {
+   const [open, set] = useState(true);
+-  setOpen = set;
+   return (
+-    <ImageUploader isOpen={open} image={URL_A} onClose={calls.close} setImage={calls.setImage} />
++    <>
++      <button type="button" data-close-uploader hidden onClick={() => set(false)}>close</button>
++      <ImageUploader isOpen={open} image={URL_A} onClose={calls.close} setImage={calls.setImage} />
++    </>
+   );
+ };
+ 
++function pressHidden(selector: string) {
++  act(() => { (document.body.querySelector(selector) as HTMLElement).click(); });
++}
++
+ async function mountUploader({ image, withUpdate }: { image?: string, withUpdate: boolean }) {
+   mountDom(
+     <ConfirmationProvider>
+@@ -122,7 +124,7 @@ async function mountUploader({ image, withUpdate }: { image?: string, withUpdate
+   );
+   await act(async () => {});
+   if (withUpdate) {
+-    act(() => { raise(); });
++    pressHidden('[data-raise]');
+     await act(async () => {});
+   }
+ }
+@@ -140,7 +142,7 @@ describe('ImageUploader, the Enter key', () => {
+   describe('alone, with an image loaded', () => {
+     it.each([
+       ['its dialog element', () => dialogOf(IMAGE_TITLE), { close: 1, setImage: 1 }],
+-      ['its URL field', () => dialogOf(IMAGE_TITLE).querySelector('input') as HTMLElement, {}],
++      ['its URL field', () => dialogOf(IMAGE_TITLE).querySelector('input') as HTMLElement, { close: 1, setImage: 1 }],
+       ['its close button', () => controlOf(dialogOf(IMAGE_TITLE), 'close modal'), { close: 1 }],
+       ['Cancel', () => controlOf(dialogOf(IMAGE_TITLE), 'Cancel'), { close: 1 }],
+       ['Clear', () => controlOf(dialogOf(IMAGE_TITLE), 'Clear'), {}],
+@@ -201,7 +203,7 @@ describe('ImageUploader, the Enter key', () => {
+       await act(async () => {});
+       await act(async () => {});
+       focusAndCheck(dialogOf(IMAGE_TITLE));
+-      act(() => { setOpen(false); });
++      pressHidden('[data-close-uploader]');
+       expect(dialogOf(IMAGE_TITLE).contains(document.activeElement)).toBe(true);
+ 
+       enter();
+diff --git a/src/components/__tests__/ImageUploader.saved-address.test.tsx b/src/components/__tests__/ImageUploader.saved-address.test.tsx
+new file mode 100644
+index 0000000..a138fda
+--- /dev/null
++++ b/src/components/__tests__/ImageUploader.saved-address.test.tsx
+@@ -0,0 +1,394 @@
++import { act, useCallback, useState } from 'react';
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import ImageUploader from '../ImageUploader';
++
++import click from './helpers/click';
++import enter from './helpers/enter';
++import { mountDom, unmountDom } from './helpers/dom';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++const TITLE = 'Enter Image URL';
++const URL_A = 'https://example.com/a.png';
++const URL_B = 'https://example.com/b.png';
++const URL_X = 'https://example.com/x.png';
++const URL_Y = 'https://example.com/y.png';
++const URL_Z = 'https://example.com/z.png';
++
++const pending: FakeImage[] = [];
++
++class FakeImage {
++  width = 0;
++
++  url = '';
++
++  onload: (() => void) | null = null;
++
++  onerror: (() => void) | null = null;
++
++  set src(url: string) {
++    this.url = url;
++    pending.push(this);
++  }
++}
++
++async function settle(url: string, loads: boolean) {
++  const matching = pending.filter((i) => i.url === url);
++  expect(matching.length, `no pending load of ${url}`).toBeGreaterThan(0);
++  matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
++  await act(async () => {
++    matching.forEach((i) => {
++      if (loads) {
++        Reflect.set(i, 'width', 1);
++        i.onload?.();
++      } else {
++        i.onerror?.();
++      }
++    });
++  });
++  await act(async () => {});
++}
++
++const saved: string[] = [];
++
++const Host = ({ initial }: { initial?: string }) => {
++  const [isOpen, setOpen] = useState(true);
++  const [image, setImage] = useState(initial);
++  const close = useCallback(() => setOpen(false), []);
++  const commit = useCallback((url: string) => { saved.push(url); setImage(url); }, []);
++  return (
++    <>
++      <button type="button" data-reopen onClick={() => setOpen(true)}>reopen</button>
++      <button type="button" data-replace onClick={() => setImage(URL_Z)}>replace</button>
++      <ImageUploader
++        isOpen={isOpen}
++        image={image}
++        onClose={close}
++        setImage={commit}
++      />
++    </>
++  );
++};
++
++function dialog() {
++  const found = Array.from(document.body.querySelectorAll<HTMLElement>('[role="dialog"]'))
++    .find((d) => d.textContent?.includes(TITLE) && !d.hidden);
++  expect(found, 'no open image dialog').toBeTruthy();
++  return found as HTMLElement;
++}
++
++function button(text: string) {
++  const found = Array.from(dialog().querySelectorAll<HTMLButtonElement>('button'))
++    .find((b) => b.textContent?.includes(text));
++  expect(found, `no "${text}" button`).toBeTruthy();
++  return found as HTMLButtonElement;
++}
++
++const box = () => dialog().querySelector('input') as HTMLInputElement;
++const preview = () => dialog().querySelector<HTMLImageElement>('img[alt="upload preview"]')?.getAttribute('src') ?? null;
++
++async function type(value: string) {
++  act(() => {
++    Reflect.set(HTMLInputElement.prototype, 'value', value, box());
++    box().dispatchEvent(new Event('input', { bubbles: true }));
++  });
++  await act(async () => {});
++}
++
++const save = () => click(button('Save'), { detail: 0 });
++
++function enterOnDialog() {
++  act(() => { dialog().focus(); });
++  enter();
++}
++
++function enterInBox() {
++  act(() => { box().focus(); });
++  expect(document.activeElement).toBe(box());
++  enter();
++}
++
++async function open(initial?: string) {
++  mountDom(<Host initial={initial} />);
++  await act(async () => {});
++}
++
++async function reopen() {
++  click(document.body.querySelector('[data-reopen]') as HTMLElement);
++  await act(async () => {});
++}
++
++beforeEach(() => {
++  pending.length = 0;
++  saved.length = 0;
++  vi.stubGlobal('Image', FakeImage);
++});
++afterEach(() => {
++  unmountDom();
++  vi.unstubAllGlobals();
++});
++
++describe('ImageUploader, the address it saves', () => {
++  it('saves the address the box shows when an earlier address finishes loading after it', async () => {
++    await open();
++    await type(URL_A);
++    await type(URL_B);
++    await settle(URL_B, true);
++    await settle(URL_A, true);
++
++    expect(preview()).toBe(URL_B);
++    save();
++
++    expect(saved).toEqual([URL_B]);
++  });
++
++  it('saves the loaded address on Enter with focus in the box', async () => {
++    await open();
++    await type(URL_A);
++    await settle(URL_A, true);
++    enterInBox();
++
++    expect(saved).toEqual([URL_A]);
++  });
++
++  it.each([
++    ['is still loading', null],
++    ['has failed to load', false],
++  ] as const)('saves nothing on Enter in the box while its address %s', async (_name, loads) => {
++    await open();
++    await type(URL_A);
++    await settle(URL_A, true);
++    await type(URL_B);
++    if (loads !== null) await settle(URL_B, loads);
++    enterInBox();
++
++    expect(saved).toEqual([]);
++  });
++
++  it('keeps Save and Enter off while the address in the box is still loading, then saves it once loaded', async () => {
++    await open();
++    await type(URL_A);
++    await settle(URL_A, true);
++    await type(URL_B);
++
++    expect(button('Save').disabled).toBe(true);
++    enterOnDialog();
++    expect(saved).toEqual([]);
++
++    await settle(URL_B, true);
++    save();
++
++    expect(saved).toEqual([URL_B]);
++  });
++
++  it.each([
++    ['an address that is not an image address', 'not an image', null, 'Invalid url.'],
++    ['an image address that fails to load', URL_B, false, 'Image not found.'],
++  ] as const)('refuses Save and Enter for %s typed after a loaded one', async (_name, typed, loads, error) => {
++    await open();
++    await type(URL_A);
++    await settle(URL_A, true);
++    await type(typed);
++    if (loads !== null) await settle(typed, loads);
++
++    expect(dialog().textContent).toContain(error);
++    expect(preview()).toBeNull();
++    expect(button('Save').disabled).toBe(true);
++    enterOnDialog();
++
++    expect(saved).toEqual([]);
++  });
++
++  it('saves no image when the saved address is deleted from the box', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type('');
++    save();
++
++    expect(saved).toEqual(['']);
++  });
++
++  it('leaves nothing to clear on reopening after an emptied box is saved', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type('');
++    save();
++    await reopen();
++
++    expect(box().value).toBe('');
++    expect(button('Clear').disabled).toBe(true);
++  });
++
++  it('refuses Save for a saved address that fails to load when the dialog opens', async () => {
++    await open(URL_X);
++    await settle(URL_X, false);
++
++    expect(dialog().textContent).toContain('Image not found.');
++    expect(button('Save').disabled).toBe(true);
++  });
++  it('shows no preview and saves nothing on Enter once a failed address is deleted from the box', async () => {
++    await open();
++    await type(URL_A);
++    await settle(URL_A, false);
++    await type('');
++
++    expect(preview()).toBeNull();
++    enterOnDialog();
++
++    expect(saved).toEqual([]);
++  });
++
++  it('saves an address that loads on a later try after failing', async () => {
++    await open();
++    await type(URL_A);
++    await settle(URL_A, false);
++    await type(URL_B);
++    expect(dialog().textContent).not.toContain('Image not found.');
++    await type(URL_A);
++    await settle(URL_A, true);
++    save();
++
++    expect(saved).toEqual([URL_A]);
++  });
++});
++
++describe('ImageUploader, Clear', () => {
++  it('stays available for a saved address that fails to load when the dialog opens', async () => {
++    await open(URL_X);
++    await settle(URL_X, false);
++
++    expect(button('Clear').disabled).toBe(false);
++  });
++
++  it('stays cleared when the address it cleared finishes loading afterwards', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type(URL_A);
++    click(button('Clear'), { detail: 0 });
++    await settle(URL_A, true);
++
++    expect(box().value).toBe('');
++    expect(preview()).toBeNull();
++    save();
++
++    expect(saved).toEqual(['']);
++  });
++});
++
++describe('ImageUploader, an image saved by another path while the dialog is closed', () => {
++  it('shows that image on reopening, and saves it', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    click(button('Cancel'), { detail: 0 });
++    click(document.body.querySelector('[data-replace]') as HTMLElement);
++    await reopen();
++
++    expect(box().value).toBe(URL_Z);
++    expect(preview()).toBe(URL_Z);
++    save();
++
++    expect(saved).toEqual([URL_Z]);
++  });
++});
++
++describe('ImageUploader, an image saved by another path while the dialog is open', () => {
++  it('follows that image in the box and the preview, and saves it', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type(URL_A);
++    click(document.body.querySelector('[data-replace]') as HTMLElement);
++    await act(async () => {});
++
++    expect(box().value).toBe(URL_Z);
++    expect(preview()).toBe(URL_Z);
++    save();
++
++    expect(saved).toEqual([URL_Z]);
++  });
++});
++
++describe('ImageUploader, Cancel', () => {
++  it('puts the box and the preview back to the saved image, and reopening saves that image', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type(URL_Y);
++    await settle(URL_Y, true);
++    click(button('Cancel'), { detail: 0 });
++    await reopen();
++
++    expect(box().value).toBe(URL_X);
++    expect(preview()).toBe(URL_X);
++    save();
++
++    expect(saved).toEqual([URL_X]);
++  });
++
++  it('empties the box and the preview when no image was saved', async () => {
++    await open();
++    await type(URL_Y);
++    await settle(URL_Y, true);
++    click(button('Cancel'), { detail: 0 });
++    await reopen();
++
++    expect(box().value).toBe('');
++    expect(preview()).toBeNull();
++    expect(dialog().textContent).not.toContain('Invalid url.');
++    expect(button('Save').disabled).toBe(true);
++  });
++
++  it('drops the error of the cancelled address when the dialog reopens', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type('not an image');
++    expect(dialog().textContent).toContain('Invalid url.');
++    click(button('Cancel'), { detail: 0 });
++    await reopen();
++
++    expect(dialog().textContent).not.toContain('Invalid url.');
++  });
++
++  it('keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened', async () => {
++    await open(URL_X);
++    await settle(URL_X, false);
++    click(button('Cancel'), { detail: 0 });
++    await reopen();
++
++    expect(dialog().textContent).toContain('Image not found.');
++    expect(button('Save').disabled).toBe(true);
++  });
++
++  it('puts the box back to the image saved in this dialog, not the one it opened with', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type(URL_A);
++    await settle(URL_A, true);
++    save();
++    await reopen();
++    await type(URL_B);
++    click(button('Cancel'), { detail: 0 });
++    await reopen();
++
++    expect(box().value).toBe(URL_A);
++    save();
++
++    expect(saved).toEqual([URL_A, URL_A]);
++  });
++
++  it('keeps the saved image when the cancelled address finishes loading afterwards', async () => {
++    await open(URL_X);
++    await settle(URL_X, true);
++    await type(URL_Y);
++    click(button('Cancel'), { detail: 0 });
++    await reopen();
++    await settle(URL_Y, true);
++
++    expect(box().value).toBe(URL_X);
++    expect(preview()).toBe(URL_X);
++    save();
++
++    expect(saved).toEqual([URL_X]);
++  });
++});
+diff --git a/src/utils/hooks/useDialogEnter.ts b/src/utils/hooks/useDialogEnter.ts
+index b8cf122..928469c 100644
+--- a/src/utils/hooks/useDialogEnter.ts
++++ b/src/utils/hooks/useDialogEnter.ts
+@@ -3,12 +3,18 @@
+ import { useRef } from 'react';
+ import { useHotkeys } from 'react-hotkeys-hook';
+ 
+-export default (answer: (() => void) | undefined, enabled = true) => {
++import type { Options } from 'react-hotkeys-hook';
++
++export default (
++  answer: (() => void) | undefined,
++  enabled = true,
++  enableOnFormTags?: Options['enableOnFormTags'],
++) => {
+   const ref = useRef<HTMLDivElement>(null);
+ 
+   useHotkeys(['enter'], () => {
+     if (ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)) answer?.();
+-  }, { enabled }, [enabled, answer]);
++  }, { enabled, enableOnFormTags }, [enabled, answer]);
+ 
+   return ref;
+ };

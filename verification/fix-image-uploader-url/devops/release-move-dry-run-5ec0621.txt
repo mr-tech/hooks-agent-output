@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   5ec06212d73073ab556e46582c3b23e3468da3a3
+remote   origin/master af3d95acc4f4b1b25f78b71bd2baa555c0724a72
+local    master af3d95acc4f4b1b25f78b71bd2baa555c0724a72
+untracked 17 path(s) left alone
+evidence reason QA Phase 2 verdict at Verified-At 5ec0621 covers the tip: tip tree equals the verified tree (qa/fix-image-uploader-url-qa.md)
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved

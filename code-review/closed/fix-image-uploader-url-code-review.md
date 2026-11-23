@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
 Reviewed-At: 5ec0621 — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Committed with the chain on website chain/fix-image-uploader-url at 5ec0621 (Stage 1, 2026-11-23T18:33Z); Round 3 APPROVED stands."
 Round: 3
 Verdict: APPROVED
 ---
@@ -24,6 +25,7 @@ Verdict: APPROVED
 | 2026-11-23T17:32 | fixer-fix-image-uploader-url (implementation record `761dd803`, `Handoff-At: cae7472`) | Round 2: the QA Phase 2 fix round (QAF-1 test only, QAF-3 production, rulings block 17:22Z) at website `cae7472` | APPROVED. The sync of the saved image during render covers every state seeded from `image` (3 of 3). Removing CR-2's line holds: P2 passes, and all 5 consumers feed back what they were sent. The probes pass 10 of 10 at `cae7472`; the round-2 probe fails 3 of 5 at `e94baf7` (control). CR-4 and CR-5 are INFO. QA Phase 2's re-run is next (32 production lines added). |
 | 2026-11-23T17:58 | fixer-fix-image-uploader-url (implementation record `74ffd334`, `Handoff-At: 48c5e87`) | Round 3: limb 5, Enter in the address box (his 17:40Z selection), at website `48c5e87`. Round 2's approval at `cae7472` is superseded | APPROVED. The shared `useDialogEnter`'s 2 other callers behave the same, shown by execution (probe Q1 and Q2 identical at `cae7472` and `48c5e87`; Q3 discriminates). The probes pass 13 of 13 at `48c5e87`. QA Phase 2's re-run is next (41 production lines added since `af3d95a`). |
 | 2026-11-23T18:19 | fixer-fix-image-uploader-url (implementation record `a9614a7f`, `Handoff-At: 5ec0621`) | Round 3 sub-entry: QAF-4, a test-only fix, at website `5ec0621` | APPROVED. The delta is test-only (non-test paths are identical, `git diff --quiet`); 1 case added, spec-form, with literal expectations. Convention check: 0 FAIL. QA's re-run is next. |
+| 2026-11-23T18:33 | devops-fix-image-uploader-url (Stage 1) | Close at the chain's commit | Status Committed; chain committed on `chain/fix-image-uploader-url` at website `5ec0621`; document closed. |
 
 **Disclosed in this round.** The stamp gate (PostToolUse hook) refused my first write of this file because its changelog stamp was typed
 ahead of the clock (16:44 against 16:43Z). I corrected the stamp from `date -u`, which satisfies the gate. I made that correction, and
