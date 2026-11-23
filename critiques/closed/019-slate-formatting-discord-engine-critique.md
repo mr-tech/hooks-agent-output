@@ -3,16 +3,23 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 3 pass 2 on plan revision 9: APPROVED, and closed at that pass. F-1 to F-33 are RESOLVED, each verified landed. By steering's decision (effort rulings block 18:02Z), any further AC-4.7 gap goes to steering before a fold. A later revision that changes a criterion's text opens cycle 4."
-Artifact-Revision: 9 — read as the delta 7b419f5b..47348a6d, AC-4.7's delta only (cycle 3 pass 2)
-Reviewed-At: "47348a6d — repos=agent-output; website read at af3d95a"
+Status-Detail: "Cycle 4 pass 1 on plan revision 10: APPROVED, and closed at that pass. F-1 to F-33 are RESOLVED, each verified landed. F-34 is closed by property with stated limit SL-11. F-35 is closed as landed-by-author: its landing is the plan's Planner batch row, folded before the UAT anchor. A later revision that changes a criterion's text opens cycle 5."
+Artifact-Revision: 10 — read as the delta 47348a6d..890d0b78 (cycle 4 pass 1)
+Reviewed-At: "890d0b78 — repos=agent-output; website read at 5ec0621 and 7dcedc9"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 9 (`47348a6d`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 9 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 10 (`890d0b78`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 10 as deltas.
+**Read at cycle 4 pass 1**: the plan's diff `47348a6d..890d0b78`; effort rulings blocks 21:18Z, 21:31Z and 21:38Z; the plan's
+AC-6.3, AN-8 sign-in limb, Testing Strategy, Reading Order, X-14 and RK-8 as they stand at `890d0b78`; website at `5ec0621`:
+`src/utils/markdown/rules.tsx` (the four mention rules), `src/providers/GuildProvider.tsx` whole,
+`src/providers/WebhookProvider.tsx:useValue`, `src/utils/redis/index.ts:fetchChannels`, `src/app/_components/Providers.tsx`,
+`src/app/message/layout.tsx`, the `src/app` layout and preview listing, `src/constants/index.ts` (the channel-type sets); website
+at `7dcedc9`: `src/utils/markdown/engine.ts` (`MENTION_KINDS`, `STATIC_MENTION_KINDS`);
+`verification/019/analysis/an3/an3-dom2.json` for the channel's drawn form.
 **Read at cycle 3 pass 2**: the plan's diff `7b419f5b..47348a6d`; effort rulings block 18:02Z.
 **Read at cycle 3 pass 1**: the plan's diff `e0eb1e87..7b419f5b`; effort rulings blocks 17:56Z and 17:58Z; website
 `src/utils/loadLocales.ts` and its two importers, `MarkdownTimestamp.tsx` at its picker lines, and `pnpm-lock.yaml`'s dayjs
@@ -47,8 +54,59 @@ for the 15,480 figure.
 | 2026-11-23T18:00 | planner-019 (message naming revision 8 at `7b419f5b`); steering-hooks-fixer (the M4 and M6 revision cap, effort rulings block 17:56Z) | cycle 3 pass 1: plan revision 8 | Reopened from `critiques/closed/` for cycle 3, which revision 8 opens by changing AC-4.7's text. Depth: delta-bounded; the delta `e0eb1e87..7b419f5b` is 60 added and 16 removed lines (`git diff --numstat`, four commits, three of them registrations R-13 to R-15), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-16. Artifact changes: AC-4.7 names the resolved dayjs locale and lists a fixture per branch (QA's QAF-26, the architect's CF-14); D-16 registers his picker selection; steering's revision cap is recorded as a scope constraint; QAF-27 is a stated limit. New finding: F-33 (MEDIUM), a further member of RK-8's class, closed by property with stated limit SL-10; the stop authority fired. Verdict APPROVED. Correction of this critique's own cycle 2 pass 2: it read the picker's key mapping and reported the cited sibling behaviours as holding, and did not read the clause "already omits `R`", which was false; steering found it. |
 | 2026-11-23T18:04 | planner-019 (message naming revision 9 at `47348a6d`); steering-hooks-fixer (effort rulings block 18:02Z: read AC-4.7's delta only) | cycle 3 pass 2: plan revision 9 | Depth: delta-bounded, and bounded further to AC-4.7 by steering's decision. The delta `7b419f5b..47348a6d` is 52 added and 18 removed lines (`git diff --numstat`, four commits, three of them registrations R-16 to R-18). Boundary check: the in-memory ID regex over both revisions shows none removed and none added, and the diff, read whole, changes no criterion but AC-4.7; its other hunks are the header, the owed re-verdicts table, steering's 18:02Z constraint beside the Decisions Register, RK-8's record, the disposition table and Planner batch rows. Findings addressed: F-33 RESOLVED, SL-10 discharged into AC-4.7's text. New findings: none. Verdict APPROVED. |
 | 2026-11-23T18:04 | critic-019 | Document closed | Status: Resolved. Every finding, F-1 to F-33, is RESOLVED and verified landed. |
+| 2026-11-23T21:41 | planner-019 (message naming revision 10 at `890d0b78`) | cycle 4 pass 1: plan revision 10 | Resumed after a clear from this document's Resumption State; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 4 opens because revision 10 changes AC-4.4's text. Depth: delta-bounded; the delta `47348a6d..890d0b78` is 100 added and 17 removed lines (`git diff --numstat`, 13 commits, 12 of them registrations R-19 to R-30), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-17. The diff, read whole, changes no criterion but AC-4.4; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-17, G-13's carriage line, M4's Mirrors line and Planner batch rows. Artifact changes: AC-4.4 is D-17's decision table over the eight mention kinds, with its list source, deviations, residue and walk; the resolved-role and resolved-command limbs are gone. New findings: F-34 (LOW), one more member of RK-8's class, closed by property with stated limit SL-11, the stop authority firing; F-35 (MEDIUM), for the Planner batch. Verdict APPROVED. |
+| 2026-11-23T21:41 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-34 is closed by property. F-35 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
 ## Verdict
+
+**APPROVED — cycle 4, pass 1.** The stop authority fired on one shape (F-34). The hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings; revision 10 changes one criterion inside M4 on his 21:31Z selection, removes
+two limbs and adds one lookup over data the site already holds. The thread lookup and the `#` prefix are the planner's readings
+inside his option's words, recorded as his to veto (effort rulings block 21:38Z).
+
+M4's mention code is released by this gate. The architect's and QA's reads of revision 10 are separate.
+
+What holds in revision 10's delta:
+- **D-17** carries the option text of effort rulings block 21:31Z word for word, with the three options not chosen, and its
+  reopening clause quotes the option's own cost sentence. AC-4.4 names the row.
+- **The decision table is total.** `MENTION_KINDS` at `7dcedc9` has eight members (`user`, `channel`, `role`, `game`, `command`,
+  `everyone`, `here`, `static`) and `STATIC_MENTION_KINDS` five. Each has a row, and `channel` has both of its cases.
+- **"Today's form" is what the code draws.** At `5ec0621` the four rules `discordChannel`, `discordRole`, `discordUser` and
+  `discordEveryone` each render their capture and resolve no id. The classes in the table are the classes in the rules, and
+  `rules.tsx` has no command rule.
+- **The list is where the plan says.** `GuildProvider` is mounted once, in `Providers`, which only `src/app/message/layout.tsx`
+  uses. `src/app/preview/page.tsx` sits outside it, and `useGuild` throws without the provider. With no session, no guild or
+  no data, `channels` is an empty array, so every "no list in reach" case in row 2 reduces to "the id is not on the list".
+- **The residue's timings** are the code's: `staleTime` of 5 minutes with `refetchOnWindowFocus: false`, and `expireSeconds: 10`
+  in `fetchChannels`.
+- **The deviations are marked**: the `#` prefix in place of Discord's icon (the capture shows an icon, then
+  `slate-oracle-walk`), and the lookup inside `threads`, which `attachChannelsToWebhooks` does not do.
+
+**Stop authority: F-34.** AC-4.4's residue says "Forum, category and archived thread ids are not on the list". Forum ids are on
+it: `fetchChannels` keeps a channel whose type is in `TEXT_CHANNEL_TYPES` or `VOICE_CHANNEL_TYPES`, and
+`src/constants/index.ts` at `5ec0621` defines those as `[0, 5, 15]` and `[2, 13]`, with `FORUM_CHANNEL_TYPE = 15`. This is one
+more member of RK-8's class, a statement of what the site does today that the base contradicts. It is not sent back for a
+revision. The table itself is right, because its rows turn on list membership and never on channel type. The class is stated
+below as a property over revision 10's delta, checked in this pass, and its one gap is stated limit SL-11 with its bearer.
+
+**RK-8, the class from pass 1.** One new member in this pass (F-34). The planner writes it into RK-8's record at the fold.
+
+**F-35** (MEDIUM) does not hold approval and takes no revision round: after implementation approval, and under steering's cap
+on M4 (block 17:56Z), a gap below HIGH is a Planner batch row. AC-4.4's walk names UAT as its runner, but no surface UAT reads
+routes to it, and it has no clause for a build that cannot sign in.
+
+Readings recorded, not findings:
+- The clause "no mention renders the text `unknown`" is read as a consequence of the table. A channel whose own name is
+  `unknown` renders `#unknown` under row 1.
+- Preview images are screenshots of `/preview` (architecture W-4), so a channel mention in a preview image stays `#<id>` while
+  the message editor's preview shows the name. AC-4.4 states this in row 2 and in its walk.
+- M1's AN-7 line still says "AC-4.4's unresolved-kind rendering takes its source text". AN-7 completed, so that outcome never
+  applied.
+
+No milestone is marked `PREMISE-STALE` by this delta. `Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 lines
+without `[RESOLVED]` or `[CLOSED]`, counted in memory over the plan at `890d0b78`). Routed to the owner: nothing.
+
+The cycle 3 verdicts follow, as written at their passes.
 
 **APPROVED — cycle 3, pass 2.** Neither the stop authority nor the hard stop fired (pass 2 of 15 in this cycle). Pricing: sized
 to the ask plus his rulings; revision 9 changes one fixture and one sentence of AC-4.7.
@@ -193,6 +251,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 4 pass 1: this pass assumes that the bot whose token `getApi` uses on UAT's local build is a member of the test guild
+`1566742402180456559`, so that `getWebhooksAndChannels` returns that guild's channels there, and does not test it. Reading it
+takes the build's credentials and a signed-in session, which this pass did not have. If it is false, the walk shows
+`#1574358729577599086` in the message editor's preview, which is also what a broken lookup shows, so the walk cannot tell the
+two apart. UAT owns closing it at the build's provision step: the channel list is seen non-empty in the site's own channel
+picker before AC-4.4's walk is read. AC-6.3's guild-emoji walk rests on the same bot membership.
+
 Cycle 3 pass 2: this pass assumes that the suite's DOM environment lets a test set the locale react-aria's `useLocale` reports
 to `LoadLocale`, and does not test it. No test was written or run in this pass. If it is false, M4's implementer cannot drive
 the `vi-VN` and `en-GB` fixtures the way AC-4.7 requires and would have to call `dayjs.locale` directly, which the criterion
@@ -241,6 +306,46 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 4 pass 1
+
+F-34 LOW cycle 4 pass 1 — RESOLVED, closed by property with stated limit SL-11
+- **Title**: AC-4.4's residue says forum ids are not on the channel list, and they are.
+- **Location**: plan revision 10, AC-4.4 "Residue"; `website@5ec0621 src/constants/index.ts:TEXT_CHANNEL_TYPES`,
+  `src/utils/redis/index.ts:fetchChannels`.
+- **Description**: `TEXT_CHANNEL_TYPES` is `[0, 5, 15]` and `FORUM_CHANNEL_TYPE` is 15, so `fetchChannels` keeps forum
+  channels, and their active posts arrive as `threads`. The residue sentence puts forum ids outside the list.
+- **Impact**: a fixture or a walk written from the sentence expects `#<id>` for a forum id that the table's row 1 names.
+  The table decides, so the cost is one wrong expectation, found when it goes red.
+- **The property, in place of a revision**: every statement in revision 10's delta about what the site does at a named
+  commit holds at that commit. Its domain is the statements the delta makes, listed here from the diff: the four mention
+  rules and their classes; no command rule; `WebhookProvider.tsx:useValue` reads `useGuild().channels`;
+  `attachChannelsToWebhooks` finds by `id` over top-level channels; `fetchChannels` returns named text and voice channels
+  with their active threads; `GuildProvider` is mounted only through `src/app/message/layout.tsx`; `useGuild` throws
+  outside it; the two cache timings; the members of `MENTION_KINDS` and `STATIC_MENTION_KINDS`; forum, category and
+  archived thread ids are off the list. Each was read at its commit in this pass. All hold but the last, and of the last,
+  the category and archived-thread parts hold (`/threads/active` returns active threads only).
+- **SL-11**: the residue sentence is read as "category ids, archived thread ids, and ids of channel types outside
+  `[0, 5, 15, 2, 13]`". A forum id on the list renders its name under row 1. The M4 implementer and QA Phase 2 bear it:
+  they take list membership from `fetchChannels`' filter, never from the sentence. A user report goes to AC-4.4.
+- **Residue of the property**: statements the plan makes about the site outside this delta were not re-read in this pass.
+
+F-35 MEDIUM cycle 4 pass 1 — closed as landed-by-author; discharging document: the plan's Planner batch
+- **Title**: AC-4.4's walk names UAT, and nothing UAT reads routes to it.
+- **Location**: plan revision 10, AC-4.4 "Human-observable form"; Reading Order, the `uat` row; Testing Strategy, "Probe
+  versus gate"; AC-6.3 "Provision step".
+- **Description**: the walk is "on a local production build signed in to the test guild … Walked by UAT on that build before
+  release". The `uat` row of the Reading Order names AC-4.2 for M4 and not AC-4.4. Testing Strategy lists the post-landing
+  walks as AC-2.5, AC-4.2, AC-5.5 and AC-6.3 (QA register B-1 to B-4), and AC-4.4 is not among them. The signed-in build
+  is the one AC-6.3's provision step describes, where a complete sign-in was not executed (AN-8 limb 3), and AC-6.3 says what
+  happens when sign-in cannot be completed. AC-4.4 cites neither that step nor a fallback.
+- **Impact**: UAT reads its row and the B-1 to B-4 list, so 1 of the 5 walks the plan now names would be missed, and the
+  channel-name limb would release on suite evidence alone. Where sign-in fails, AC-4.4 has no stated limit to fall to, while
+  its `/preview` half needs no sign-in and can still be walked.
+- **Recommendation**: at the Planner batch fold, the `uat` row and the walk list name AC-4.4; the walk cites AC-6.3's
+  provision step and takes its "where sign-in cannot be completed" clause for the signed-in half; QA registers the walk.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2, before the UAT anchor. The
+  planner registers the row from this pass.
 
 ### Resolved
 
@@ -337,6 +442,11 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 4 pass 1: the plan was read as `git diff 47348a6d 890d0b78` saved in this session's scratchpad, with website source
+  exported there by `git -C /usr/local/bin/hooks/website show`; the ID comparison ran in memory. Nothing was installed or
+  run. The architect's and QA's reads of revision 10 were not read before this pass was written. `node tools/check-repo.js`
+  at session start printed one failure outside this document (the M4 implementation document's `Handoff-At`).
+
 - Cycle 3 pass 1: the architect's and QA's passes on revision 8 were not read before this pass was written. At the seam their
   commit subjects show the same `ja-JP` fixture raised by each (`architecture/…-architecture-findings.md` CF-15 at `e1e6f363`,
   a stated limit under the cap; `qa/…-qa.md` QAF-28 at `5ca68b07`, asking `vi-VN`). F-33 was reached independently and names
@@ -351,7 +461,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 3 pass 2 (APPROVED on plan revision 9, `47348a6d`); checkpoint written at steering's ask on 2026-11-23, with nothing in flight, nothing uncommitted, no process running and no question awaiting an answer. A later criterion-changing revision opens cycle 4: move this file back from `critiques/closed/`, read the plan as the `git diff` from `47348a6d` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Closed at cycle 4 pass 1 (APPROVED on plan revision 10, `890d0b78`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-35 and SL-11 for the Planner batch, F-34 for RK-8's record) and `implementer-019` (M4's mention code is released by this gate). A later criterion-changing revision opens cycle 5: read the plan as the `git diff` from `890d0b78` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
