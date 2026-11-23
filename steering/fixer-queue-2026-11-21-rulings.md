@@ -589,3 +589,21 @@ Premise read this turn: the `launch` function (`~/.bash_aliases` line 415) takes
 wrapper set in that variable appends `--browser`. The grant file `~/.claude/state/discord-test-browser.granted` (2026-11-08) is standing
 permission. My 09:26Z option "You: start the researcher again" was wrong: the mechanism was this thread's, and searching `launch`'s
 definition before asking would have caught it.
+
+## 2026-11-23T13:09Z — selection: Slate standard and use-or-test (put ~09:41Z, answered 13:09Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T13:09Z — steering-hooks-fixer`.
+- **Standard** (OQ-1, where Discord's old and new formatters disagree) — options: *Agent: match only where both agree (Recommended)* (the
+  fuzzer and tests hold the site to Discord only where they agree; the disagreeing cases listed as known differences until Discord's
+  switch ends; needs the old formatter fetched at test time, which his 09:17Z ruling allows) / *Agent: match the new formatter* /
+  *Agent: match the old formatter*. **Chosen by selection: match only where both agree.**
+- **Use or test** (OQ-4) — options: *Agent: architect looks first (Recommended)* (an architect session weighs using vs testing against
+  Discord's formatter; its recommendation comes to him as a prompt before the planner sizes the work; planning waits) / *Agent: test
+  against it only* / *Agent: use it in the preview*. **Chosen by selection: architect looks first.**
+Premises: the package, its MIT licence, its Node run and its byte match with discord.com's served wasm were read by this thread's
+refutation helper (09:41Z, not refuted); old-vs-new disagreement was not re-run by it (COULD NOT CHECK); the test account seeing the old
+formatter was the researcher's read, marked so in the option text. **Correction after his answer:** the prompt said 37 of 272 disagree;
+the researcher's full real-Discord walk (research doc, record `2db3cc2f`, V-18/V-23) reports 33 of the stored texts disagree, all 272
+rendered the old way, and both agree on 235. The correction does not change the scope he chose (the agree-only rule stands; only the size
+of the exception list moves), so his answer holds. The check that would have caught it: waiting for the walk's committed count.
+The prompt was open from about 09:41Z to 13:09Z, and the fence-loop QA PASS cue waited behind it.
