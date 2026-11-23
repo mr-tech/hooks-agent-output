@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
-Status: Active
-Status-Detail: "Round 1 fix (CR-1, CR-2) handed back at website 61e5dfe for the re-review; QA Phase 2 is owed after approval (68 production lines added)."
+Status: Committed
+Status-Detail: "Committed on website chain/fix-normalize-fence-loop at af3d95a (production code as handed off at 61e5dfe); code review APPROVED, QA Phase 2 PASS. Release to website master awaits the owner's approval (deployment/fix-normalize-fence-loop-deployment.md)."
 Handoff-At: 61e5dfe — repos=website
 Origin-Chain: none
 ---
@@ -290,3 +290,4 @@ For the owner's own check, in every message box except titles and field names un
 | 2026-11-23T09:15 | fixer-fix-normalize-fence-loop | Created. Fix at website `9b02f38`, `f9b16de`, `d3b98cf`. Red runs, controls, verification and handoff at `d3b98cf` recorded |
 | 2026-11-23T09:19 | fixer-fix-normalize-fence-loop | The routed re-scope item's carrier recorded: S-29 of `verification/slate-formatting-effort/scoping/inventory.md`, per steering's message (reviewer started 09:19Z) |
 | 2026-11-23T09:35 | fixer-fix-normalize-fence-loop | Round 1 fix for CR-1 (one fence rule in `codeFence.ts` for the loader and the normaliser) and CR-2 (the Backspace case drives `onKeyDown`) at website `61e5dfe`. Two claims corrected with reconcile notes in Diagnosis. Handoff-At moved to `61e5dfe` |
+| 2026-11-23T13:11 | devops-fix-normalize-fence-loop | Document closed (Stage 1 commit). Chain branch tip `af3d95a`, no push and no merge to `master`. Status: Committed |

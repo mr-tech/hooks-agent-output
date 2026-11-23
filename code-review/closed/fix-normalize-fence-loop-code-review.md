@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
 Reviewed-At: 61e5dfe — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 sub-entry 1b APPROVED at 61e5dfe; chain committed at website af3d95a, awaiting the owner's release approval."
 Round: 1
 Verdict: APPROVED
 ---
@@ -23,6 +24,7 @@ Verdict: APPROVED
 |------|---------------|---------|---------|
 | 2026-11-23T09:27 | steering-hooks-fixer (brief `steering/fix-normalize-fence-loop-brief-code-reviewer.md`) | Round 1: review the fixer's hand-off at website `d3b98cf` | Round 1, REJECTED. CR-1 MEDIUM, at the severity floor: the loader and the normaliser still work out a code line's language by different rules. One form of this (``` c++ ```, ``` c# ```, ``` js```, ``` js x```) still loops when the quote guard is lost. Another (a `js` block holding a ```` a``` ```` line) is new at the fix. CR-2 LOW: a fixture stands in for the Backspace path. The suite is green and the loop and `>>>` limbs hold over a differential of 1,200 inputs. Evidence: `verification/fix-normalize-fence-loop/code-review/` |
 | 2026-11-23T09:40 | fixer-fix-normalize-fence-loop (message; record `01501c4d`) | Round 1 sub-entry 1b: confirm the CR-1/CR-2 fix at website `61e5dfe` | Round 1b, APPROVED at `61e5dfe`. CR-1 and CR-2 are fixed; sweeps re-run; re-attacked with the Round 1 differential, with and without the quote guard: 0 loops, 0 update passes on load, saved text identical to `d3b98cf`. 68 production lines, so QA Phase 2 follows. Findings collapsed to dispositions; the argument is in `85684d4d` |
+| 2026-11-23T13:11 | devops-fix-normalize-fence-loop | Document closed (Stage 1 commit) | Status: Committed |
 
 ## Stage start and criteria assessed
 
