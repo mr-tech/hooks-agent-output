@@ -4,10 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  M3 (the fuzzer and oracle) in progress on chain/019-slate-formatting-discord-engine: project form, lifted inputs, seeded generator,
-  canonical-form normaliser, the live oracle, the webhook-state trees, the visible form, the per-surface legacy calls, the residue measurement
-  and the two text boxes are committed. Not yet handed to code review. The remaining parts are in the Resumption State.
-Handoff-At: c113084 — repos=website — M3 in progress, not handed to review; this is the chain-branch tip at the second checkpoint
+  M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
+  Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
+  jsdom paste drive does not show (Outstanding 7).
+Handoff-At: f4060c5 — repos=website — M3 handed to code review; the offline suite, the live suite, both typechecks and the convention check were run at this SHA (see Test Execution Results)
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -16,7 +16,7 @@ Handoff-At: c113084 — repos=website — M3 in progress, not handed to review; 
 
 `agent-output/planning/019-slate-formatting-discord-engine.md`, Revision 9 (record `47348a6d`), milestone M3. QA Phase 1:
 `qa/019-slate-formatting-discord-engine-qa.md` (record `26f3a3c`). Chain branch `chain/019-slate-formatting-discord-engine`, base `5ec0621`.
-M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.md` (round 1 fix `78c5f74`).
+M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.md` (round 1 fix `78c5f74`, round 2 `7dcedc9`).
 
 ## Date
 
@@ -26,39 +26,50 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-23T21:13 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 M3 from the Resumption State | Items 5, 6, 7, 9, 10, 11 and the residue grouping, commits `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`. M3 handed to code review. |
 | 2026-11-23T20:08 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 with M3 | Outstanding items 3, 1, 2 (surface calls and measurement) and 4 (boxes, frozen native literals), commits `9ad0939`, `dff2f0d`, `00148c8`, `492b813`, `c113084`. Checkpoint at 231K tokens. |
 | 2026-11-23T19:08 | steering-hooks-fixer (message, record `1189b7e0`) | Continue with M3 | Parts 1 to 5 below, commits `805fff6`, `548b16b`, `78c5f74` (M2 fix), `1bcab7a`. Checkpoint at 293K tokens (`cc-usage.py sessions`). |
 
 ## Implementation Summary
 
-M3 makes the comparison against Discord a standing instrument. So far:
-1. The two vitest projects `discord-node` and `discord-dom`, and `pnpm test:discord` (D-12). `pnpm test` runs `--project node --project dom`,
-   and those two projects exclude `__tests__/discord/`.
-2. The lifted inputs: the 272-case corpus with categories, the 106 link inputs, the 85 typed cases, and the 272 frozen legacy trees (as data under
-   `src/utils/markdown/__tests__/helpers/data/`).
-3. A seeded generator over the 31 `Syntax` bits (depth 3, balanced and unbalanced, every link form, emoji placement, emoji form, timestamp style,
-   mention kind and block kind of the plan), prefix-stable per index.
-4. The canonical-form normaliser (a TypeScript port of the research's `norm.py`). Its positive control is the research's Appendix A: over the
-   272 corpus, the loose form reports exactly the 37 Appendix A ids as different and no other. The strict form reports 13 more (edge newlines).
-5. The live oracle: fetch of `discord.com/app` and its scripts into memory (nothing written to disk, so nothing under the tree), jsdom load, content
-   locators for seven modules (exactly one match or a named failure), the legacy facade, and the drift alarm. Run live, it re-derives all 272 frozen
-   legacy trees (JSON-equal) and finds the served wasm's SHA-256 equal to the pinned one (`da7b9e5e…57fb0`).
+M3 makes the comparison against Discord a standing instrument, and puts the site's editor round trip under property tests over the same
+inputs. It changes no product behaviour. Its product-tree change is one type declaration, `src/@types/jsdom.d.ts` (jsdom ships none; no
+dependency was added), the two vitest projects, and the `package.json` scripts.
 
-Nothing here changes product behaviour. The only product-tree change is the type declaration `src/@types/jsdom.d.ts` (jsdom ships none; no
-dependency was added).
+Delivered in M3, in the order the plan lists them:
+1. **Form (D-12).** Projects `discord-node` and `discord-dom`; `pnpm test` runs `--project node --project dom` and excludes
+   `__tests__/discord/`; `pnpm test:discord` runs the live comparison.
+2. **Lifted inputs.** The 272-case corpus with categories, the 106 link inputs, the 85 typed cases, the 272 frozen legacy trees (probe state) and
+   the 272 + 106 frozen legacy trees under the webhook state, the frozen native-box literals (272 corpus plus 7 extra typed inputs).
+3. **Seeded generator** over the 31 `Syntax` bits, prefix-stable per index.
+4. **Canonical-form normaliser** (port of the research's `norm.py`); positive control is Appendix A: the loose form reports the 37 Appendix A ids and
+   no other, the strict form 13 more.
+5. **Live oracle** (fetch of `discord.com/app` and its scripts into memory, jsdom load, seven content locators, the legacy facade, the drift alarm)
+   and, since this round, the **lazy chunks** the embed renderer and the V2 text display live in.
+6. **Visible form** (D-14) with a control for each invisible class and each counted dimension; **per-surface legacy calls**; **residue measurement**
+   and its structural grouping; the **native and legacy text boxes** and the frozen native-box literals.
+7. **AC-3.8 (i), (i′)** routing and legacy calls (this round); (iii) is a test in `discordSurfaces.oracle-controls.test.ts`; (ii) per adjustment is M4's.
+8. **Coverage report and known-differences report**, generated by the live run to `discord-reports/` (gitignored).
+9. **AC-3.3 round trip** over the generator, the corpus, the 1,662-line probe and the lifted block-layer seeds, in full and partial mode: load then
+   save, typed, pasted, normalisation settles, forced re-normalise performs zero operations, the typed-edit differential (15,480 edits), reading the
+   value `onChange` hands the message, with its positive control and the reason the earlier drive did not reach it.
+10. **CR-4** (the import scan reads every non-literal `import()` and `require()` from the syntax tree) and **AC-3.5** as a test.
 
 ## Milestones Completed
 
-None complete. M3 parts done: 1 to 5 above. See Resumption State for what is owed.
+M3 (all parts above). Not in M3: the site-DOM limbs of AC-3.1, AC-3.6, AC-3.7 (M4, where the renderers exist; AC-4.1 says so), AC-3.2's editor side (M5), AC-3.8 (ii) (M4's adjustments), the frozen residue list as test data (M4).
 
 ## Entry Conditions
 
 | Condition | Where satisfied | Pinned by |
 |---|---|---|
-| Stage start | effort rulings block 18:48Z; QA Phase 1 `26f3a3c`; steering message `1189b7e0` to continue with M3 | n/a |
-| AN-4 locator and lifted corpus | `verification/019/analysis/an4/`, `verification/019/qa/{corpus-272,link-inputs}.json` | `discordInputs.lifted-data.test.ts`, `discordBuild.locators.test.ts`, `discordLive.oracle-controls.test.ts` |
-| EC-1 (the comparand exists on the live path; one agree member, one non-member) | `discordLive.oracle-controls.test.ts` | the agree case (corpus 1) and the Appendix A case (corpus 83) |
-| EC-3 (offline form) | `m3-offline-discord.txt`: `unshare -rn` with `lo` up, `test:discord` exit 1, naming `https://discord.com/app`, 5 skipped, no pass count | AC-3.5's live limb is the named test run, not yet a test file (see Outstanding) |
+| Stage start | effort rulings block 18:48Z; QA Phase 1 `26f3a3c`; steering message `1189b7e0` and the 20:08 and 21:2x continuations | n/a |
+| AN-4 locator and lifted corpus | `verification/019/analysis/an4/`, `verification/019/qa/{corpus-272,link-inputs}.json` | `discordInputs.lifted-data.test.ts`, `discordBuild.locators.test.ts`, `discord/discordLive.oracle-controls.test.ts` |
+| EC-1 (the comparand exists on the live path; one agree member, one non-member) | `discord/discordLive.oracle-controls.test.ts` | the agree case (corpus 1) and the Appendix A case (corpus 83) |
+| EC-3 (offline form) | `m3-offline-discord.txt`: `unshare -rn` with `lo` up, `test:discord` exit 1, naming `https://discord.com/app`, 5 skipped, no pass count | `discord/discordOffline.fetch-failure.test.ts` (AC-3.5 as a case; this round) |
+| EC-4 (drive reaches `onChange`; timing against 60 s; the eight rows) | `SlateEditor.typed-text-reaches-the-message.test.tsx`; the cause is in Findings 1; figures under Test Execution Results | the positive control `typing a yields a write of a`, and the negative control for the synchronous drive; rows in `m3-base-red-named-1f0b768.json` |
+| AC-3.8 limb (i) predicate run on a real member and a non-member | `discord/discordRouting.oracle-controls.test.ts`; the run is under Findings 3 | the case `shows the switch predicate holding for a real member ... and failing for a real non-member` |
+| CR-4 (non-literal `import()` and `require()`) | `helpers/importersOf.ts` | `engine.import-confinement.test.ts`, planted `import(name)`, `import('@discord/' + n)`, `require(name)`, `require('@discord/' + n)` and four non-members |
 
 ## Files Modified
 
@@ -66,115 +77,184 @@ None complete. M3 parts done: 1 to 5 above. See Resumption State for what is owe
 |---|---|
 | `vitest.config.ts` | two Discord projects; `node` and `dom` exclude `__tests__/discord/`; `configDefaults.exclude` kept in every project |
 | `package.json` | `test` runs `--project node --project dom`; `test:discord` added |
+| `.gitignore` | `/discord-reports/` |
+| `src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts` | tightened with the load property over six input classes in both modes |
+| `src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx` | tightened with the normalise-and-settle property and the typed-edit differential |
+| `src/utils/markdown/__tests__/helpers/importersOf.ts`, `engine.import-confinement.test.ts` | CR-4 |
 
 ## Files Created
 
 | Path | Purpose |
 |---|---|
 | `src/__tests__/vitest.config.discord-projects.test.ts` | the project form and the two scripts |
-| `src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts`, `helpers/discordInputs.ts`, `helpers/data/discord{Corpus,LinkInputs,TypedCases,LegacyTrees}.json` | lifted inputs |
-| `src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts`, `helpers/markdownGenerator.ts` | seeded generator and `mulberry32` |
-| `src/utils/markdown/__tests__/canonicalForm.appendix-a.test.ts`, `helpers/canonicalForm.ts`, `helpers/discordOracle.ts` | normaliser; the engine-naming oracle helper (AC-2.1's one allowed second member) |
-| `src/utils/markdown/__tests__/discordBuild.locators.test.ts`, `helpers/discordBuild.ts` | fetch, load, locate; failure kinds `fetch`, `startup`, `predicate`, `wasm` |
-| `src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts`, `helpers/discordLive.ts` | the live oracle controls and the drift alarm |
+| `src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts`, `helpers/discordInputs.ts`, `helpers/data/discord{Corpus,LinkInputs,TypedCases,LegacyTrees,LegacyTreesWebhook,NativeBox}.json` | lifted inputs and frozen literals |
+| `.../markdownGenerator.seeded-inputs.test.ts`, `helpers/markdownGenerator.ts` | seeded generator and `mulberry32` |
+| `.../canonicalForm.appendix-a.test.ts`, `helpers/canonicalForm.ts`, `helpers/discordOracle.ts`, `discordOracle.surface-masks.test.ts` | normaliser; the engine-naming oracle helper (AC-2.1's one allowed second member) |
+| `.../discordBuild.locators.test.ts`, `helpers/discordBuild.ts` | fetch, load, locate, lazy chunks; failure kinds `fetch`, `startup`, `predicate`, `wasm` |
+| `.../discord/discordLive.oracle-controls.test.ts`, `helpers/discordLive.ts` | the live oracle controls and the drift alarm |
+| `.../visibleForm.controls.test.ts`, `helpers/visibleForm.ts` | the visible form |
+| `.../discord/discordSurfaces.oracle-controls.test.ts`, `helpers/discordSurfaces.ts` | the five surfaces' own legacy calls |
+| `.../discord/discordBoxes.oracle-controls.test.ts`, `helpers/discordBoxes.ts` | the two text boxes |
+| `.../discord/discordRouting.oracle-controls.test.ts`, `discordRouting.predicates.test.ts`, `helpers/discordRouting.ts` | AC-3.8 (i), (i′) |
+| `.../discord/discordReports.run.test.ts`, `discordReports.report-forms.test.ts`, `helpers/discordReports.ts`, `helpers/discordReportBuild.ts` | coverage report and known-differences report |
+| `.../discord/discordOffline.fetch-failure.test.ts` | AC-3.5 as a case |
+| `src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx`, `...typed-generated-text...`, `...typed-block-text...`, `SlateEditor.pasted-text-reaches-the-message.test.tsx`, `roundTripInputs.classes.test.ts` | AC-3.3 mounted limbs and the input classes |
+| `src/components/SlateEditor/__tests__/helpers/{mountedEditor.tsx,roundTripInputs.ts,blockLayerEdits.ts}`, `helpers/data/{mountedBaseRed,blockLayerEditsBaseRed}.json` | the mounted drive, the input classes, the typed-edit enumeration, and the held-out base-red sets |
 | `src/@types/jsdom.d.ts` | a minimal declaration for jsdom |
+
+Record files (all under `verification/019/impl/`): `m3-red-1` to `m3-red-21`, `m3-mutants-*`, `m3-base-red-*`, `m3-residue-*`, `m3-suite-offline-*`, `m3-discord-live-8d7b344.log.txt`, `m3-typecheck-f4060c5.*`, `m3-convention-check-f4060c5.txt`.
 
 ## Patterns Extended
 
 | Surface | Pattern extended |
 |---|---|
 | Project form | `vitest.config.ts:project()` (the factory is kept; it now also carries the default exclude) |
-| Test helpers | `src/**/__tests__/helpers/` (the M2 `importersOf.ts` precedent); the single engine-naming helper `discordOracle.ts` |
+| Test helpers | `src/**/__tests__/helpers/` (the M2 `importersOf.ts` precedent); the single engine-naming helper `discordOracle.ts` (this round, `discordReports.ts` took `SYNTAX_ALL` from it, because the confinement test caught a second importer) |
 | Config test | `src/__tests__/proxy.matcher-routes.test.ts`, a test of a root-level file placed in `src/__tests__/` |
-| RNG | none exists in the repo; `mulberry32` is written once in `helpers/markdownGenerator.ts` (the probes' copies are not in the tree) |
+| RNG | none exists in the repo; `mulberry32` is written once in `helpers/markdownGenerator.ts`; the block-layer seeds use the same `mulberry32`, the probe's LCG is kept as it was |
+| Mounted editor drive | `SlateEditor.opening-writes-stored-text.test.tsx` (`mountDom`, fake timers, `onChange` writes); the typed and pasted tests extend it with the editor read from `slate-dom`'s `ELEMENT_TO_NODE` (QA's EC-4 probe) |
+| Editor properties | tightened the existing `getInitialValue.stored-text-loads-unchanged.test.ts` and `withNormalizeNode.quote-and-fence-lines-settle.test.tsx`; the mounted limbs extend the existing `SlateEditor.*` test of the same surface rather than a new file per limb |
 
 User-visible surfaces: M3 touches none. No flow is put to the owner.
 
 ## TDD Compliance
 
-First reds are under `verification/019/impl/` (`m3-red-1.txt` to `m3-red-6.txt`). Each is the module-absent or assertion red of the first row of its module.
+First reds are under `verification/019/impl/` (`m3-red-1.txt` to `m3-red-21.txt`). Rows 1 to 12 are the earlier parts (see the first two changelog rows); rows 13 onward are this round.
 
-TDD Gate, as reported: `vitest.config.discord-projects.test.ts` fails as expected (four assertion failures: `[ 'dom', 'node' ]` for four names;
-`'vitest run'` for the new script). `discordInputs.lifted-data` fails with `Cannot find module './helpers/discordInputs'`. `markdownGenerator.seeded-inputs`
-fails with `Cannot find module './helpers/markdownGenerator'`. `canonicalForm.appendix-a` fails with `Cannot find module './helpers/canonicalForm'`.
-`discordBuild.locators` fails with `Cannot find module './helpers/discordBuild'`. `discordLive.oracle-controls` fails with
-`Cannot find module '../helpers/discordLive'`. Proceeding to implementation, each.
+TDD Gate, this round: `discordBuild.locators` lazy-chunk cases fail as expected (`TypeError: loadLazyChunks is not a function`, `m3-red-13.txt`); a second assertion-level red when the fixture's table holds an exponent-spelled id (`3e3:"cc03"`: `predicate "lazy chunk name table" matched 0 tables`, the real build's five such ids). `discordRouting.predicates` fails with `Cannot find module './helpers/discordRouting'` (`m3-red-14.txt`). `discordReports.report-forms` fails with module absent (`m3-red-15.txt`), then `knownDifferencesMarkdown is not a function` (`m3-red-16.txt`), then five assertion failures when the box comparison is tightened to AN-6's per-character form (style set and marker flag; `m3-red-17.txt`). `SlateEditor.typed-text-reaches-the-message` fails with the helper module absent (`m3-red-18.txt`). `roundTripInputs.classes` fails with `holdsEmoji` undefined (`m3-red-19.txt`) and `blockLayerEdits is not a function` (`m3-red-20.txt`). `engine.import-confinement` fails on the planted non-literal loads (`m3-red-21.txt`). Proceeding to implementation, each.
 
 | Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
 |---|---|---|---|---|---|
 | `project()` + the two Discord projects and scripts | `vitest.config.discord-projects.test.ts` | Yes | Yes | AssertionError (`m3-red-1.txt`) | Yes |
 | `CORPUS`, `LINK_INPUTS`, `TYPED_CASES` | `discordInputs.lifted-data.test.ts` | Yes | Yes | ModuleNotFoundError (first row of the module; `m3-red-2.txt`) | Yes |
-| `mulberry32`, `generateInputs`, `SYNTAX_BITS` | `markdownGenerator.seeded-inputs.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-3.txt`). **Per-behaviour assertion reds are owed** (a mutant per row; see Outstanding) | Yes |
-| `canonFromNative`, `canonFromLegacy`, `nativeParse` | `canonicalForm.appendix-a.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-4.txt`). **Per-behaviour assertion reds are owed** | Yes |
-| `fetchBuild`, `loadBuild`, `locate`, `OracleError` | `discordBuild.locators.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-5.txt`). **Per-behaviour assertion reds are owed** | Yes |
-| `openLive`, `legacyParse`, `driftReport` | `discord/discordLive.oracle-controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-6.txt`). **Per-behaviour assertion reds are owed** | Yes |
+| `mulberry32`, `generateInputs`, `SYNTAX_BITS` | `markdownGenerator.seeded-inputs.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-3.txt`); assertion reds by mutants M3-r3a to M3-r3d (`m3-mutants-helpers-1f0b768.txt`, `m3-mutants-helpers-rerun-8d7b344.txt`): r3a killed; r3c killed; r3b and r3d survived the first run and are killed by the two cases added this round (`leads with the catalogue`, `draws %s both balanced and unbalanced`) | Yes |
+| `canonFromNative`, `canonFromLegacy`, `nativeParse`, `storedLinkTarget` | `canonicalForm.appendix-a.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-4.txt`); mutants M3-r4a killed; r4b survived, killed by the three `storedLinkTarget` cases added this round; r4c survives as equivalent (Outstanding 6) | Yes |
+| `fetchBuild`, `loadBuild`, `locate`, `OracleError`, `lazyChunkNames`, `loadLazyChunks` | `discordBuild.locators.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-5.txt`); this round `TypeError ... is not a function` and an exponent-id assertion (`m3-red-13.txt`); mutants M3-r5a to M3-r5d killed; lazy-chunk mutant (`evaluates no chunk`) killed (`m3-mutants-routing.txt`) | Yes |
+| `openLive`, `legacyParse`, `driftReport` | `discord/discordLive.oracle-controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-6.txt`); mutants M3-r6b killed; r6a (drift verdict inverted) survived, killed by `says the two are equal exactly when their hashes are` | Yes |
 | `LEGACY_TREES_WEBHOOK` + the live webhook limbs | `discordInputs.lifted-data.test.ts`, `discord/discordLive.oracle-controls.test.ts` | Yes | Yes | TypeError reading `corpus` of undefined (`m3-red-7.txt`); mutant: webhook state with `allowEmojiLinks: false` fails both live cases (`m3-mutant-webhook-state.txt`) | Yes |
-| `visibleFromNative`, `visibleFromLegacy`, `visibleDifferences` | `visibleForm.controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-8.txt`); assertion reds by one mutant per behaviour, run in place and restored (whitespace-drop, style sort, quote-in-spoiler bar, leading and trailing edge trim, list item index, stored href, code body trim, list item block, label-less link display): each fails a named case (console, recorded in this table only; the driver was inline `sed`) | Yes |
-| `LEGACY_SURFACES`, `legacySurfaceParse`, `richRuleIds` | `discord/discordSurfaces.oracle-controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-9.txt`); assertion reds, six mutants (`m3-mutants-surfaces.txt`), one equivalent edit as the driver's control | Yes |
-| `SURFACE_MASK_LITERALS`, `nativeSurfaceParse` | `discordOracle.surface-masks.test.ts` | Yes | Yes | AssertionError and TypeError, `nativeSurfaceParse is not a function` (`m3-red-10.txt`) | Yes |
+| `visibleFromNative`, `visibleFromLegacy`, `visibleDifferences` | `visibleForm.controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-8.txt`); assertion reds by one mutant per behaviour, run in place and restored (listed in the earlier changelog row of this document's first checkpoint; console only) | Yes |
+| `LEGACY_SURFACES`, `legacySurfaceParse`, `richRuleIds` | `discord/discordSurfaces.oracle-controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-9.txt`); six mutants (`m3-mutants-surfaces.txt`) | Yes |
+| `SURFACE_MASK_LITERALS`, `nativeSurfaceParse` | `discordOracle.surface-masks.test.ts` | Yes | Yes | AssertionError and TypeError (`m3-red-10.txt`) | Yes |
 | `openBoxes`, `legacyBox`, `nativeBox` | `discord/discordBoxes.oracle-controls.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-11.txt`); three mutants (`m3-mutants-boxes.txt`) | Yes |
 | `NATIVE_BOX_FROZEN` | `discordInputs.lifted-data.test.ts` | Yes | Yes | TypeError reading `map` of undefined (`m3-red-12.txt`) | Yes |
+| `referencesSwitch`, `callsFacade`, `routingReport`, `ROUTING_PREDICATES` | `discordRouting.predicates.test.ts`, `discord/discordRouting.oracle-controls.test.ts` | Yes | Yes | ModuleNotFoundError (first row of the module; `m3-red-14.txt`); assertion reds by mutants M1 (`referencesSwitch` always false), M2 (`callsFacade` always true), M3 (id boundary dropped), all killed (`m3-mutants-routing.txt`); the live cases pass at first run, so their red is the mutants only | Yes |
+| `constructsOf`, `coverageMarkdown`, `knownDifferencesMarkdown`, `boxDifferences`, `buildReports` | `discordReports.report-forms.test.ts`, `discord/discordReports.run.test.ts` | Yes | Yes | ModuleNotFoundError (`m3-red-15.txt`); `knownDifferencesMarkdown is not a function` (`m3-red-16.txt`); five assertion reds for the style-set form (`m3-red-17.txt`); mutants M3-r16a to M3-r16d killed | Yes |
+| `typeText`, `mountEditor`, `pasteText`, `typedMismatches`, `pastedMismatches` | `SlateEditor.typed-text-reaches-the-message.test.tsx`, `SlateEditor.pasted-text-reaches-the-message.test.tsx` | Yes | Yes | ModuleNotFoundError (`m3-red-18.txt`); the synchronous drive is shown red by its own control (writes stay `['']`); the property limbs are red at the base on the held-out inputs (`m3-base-red-mounted-418af30.json`); mutants M3-r20a and M3-r20b killed (r20b after the second-line check was added, `m3-mutants-helpers-rerun2.txt`) | Yes |
+| `holdsEmoji`, `atomJoins`, `probeLines`, `blockLayerTexts`, `blockLayerEdits` | `roundTripInputs.classes.test.ts` | Yes | Yes | `holdsEmoji` undefined (`m3-red-19.txt`); `blockLayerEdits is not a function` (`m3-red-20.txt`); mutants M3-r18a, r18b, r19b killed; r19a survives as equivalent (Outstanding 6) | Yes |
+| load property, normalise-and-settle property, typed-edit property | `getInitialValue.stored-text-loads-unchanged.test.ts`, `withNormalizeNode.quote-and-fence-lines-settle.test.tsx` | Yes (tightened existing) | Yes | Pass at the base on emoji-free inputs (Findings 2); red at the base on the held-out classes, on their named inputs (`m3-base-red-named-1f0b768.json`, `m3-base-red-edits-68f3656.json`); mutants of the functions each drives are owed to QA's sweep (Outstanding 5) | Yes |
+| non-literal `import()` and `require()` scan | `engine.import-confinement.test.ts` | Yes | Yes | assertion (`m3-red-21.txt`); mutants M3-c1 to M3-c5 killed (c3 on its second run, after its anchor was corrected) | Yes |
+| AC-3.5 as a case | `discord/discordOffline.fetch-failure.test.ts` | Yes | Yes | passes at first run (the behaviour was shown in an earlier part); mutant M3-o1 (the failure does not name the page) killed | Yes |
 
-Premise corrections made while writing (each fixed in the test, recorded for the reviewer): the legacy box names its styles `strong`, `em` and `link` (native `strong`, `em`, `link`), not `bold`, `italic`, `url`; the legacy box writes a tab as one space and ends a line holding an inline object with a newline-only entry; the native box has no entry for a body line inside a fence (a `null` or empty block); a native label-less link carries the engine's normalised url, whose display text is not in the lossy tree (the visible form strips the slash a host-only url gains); the typed cases include `x<n>`-keyed extras beyond corpus ids;
-Appendix A is the **loose**-form disagreement set (the strict form adds 13 cases); several generator needles were narrower than the constructs they name.
+Premise corrections made while writing (each fixed in the test, recorded for the reviewer): the legacy box names its styles `strong`, `em` and `link` (not
+`bold`, `italic`, `url`) and a bare url `url`; the legacy box writes a tab as one space and ends a line holding an inline object with a newline-only entry;
+the native box has no entry for a body line inside a fence; a native label-less link carries the engine's normalised url; the typed cases include `x<n>`-keyed
+extras; Appendix A is the **loose**-form disagreement set; `parse(text, 0)` falls back to the default mask, so a construct is detected by removing its bit
+from `ALL`; the two boxes' `before_<style>` and `after_<style>` classes are not part of AN-6's score (style set and marker flag only), so the per-character
+comparison follows AN-6's `an6-score.py`; the chunk table of the served runtime spells five ids in exponent form (`232e3`).
+
+Self-check sweep. `node ~/.claude/tools/mutant-gen.js --repo . --range 22f3e58..1f0b768`: it writes 4 mutants, all on `src/utils/markdown/engine.ts` (M2's
+fix rounds, whose mutants were run at `78c5f74` and `7dcedc9`); M3's own changes outside test directories (`vitest.config.ts`, `package.json`,
+`src/@types/jsdom.d.ts`) give it no candidate, and every other changed file is a test file or a helper under `__tests__`, which the tool names and skips
+(`m3-selfcheck-mutant-gen-1f0b768.txt`, `m3-selfcheck-mutants-1f0b768.json`). Because the helpers are themselves M3's code, I made hand mutants of the
+helper guards in an isolated export of the tip (`git archive`, node_modules linked, driver `m3-mutants-helpers.js`, output to files, process group killed at 240 s):
+first run 23 mutants, 16 killed, 7 survived (r3b, r3d, r4b, r4c, r6a, r19a, r20b); after the tightening, the 7 re-run with 6 new ones (rerun: 12 run, 9 killed;
+second rerun: r20b and c3 killed). Final: 27 of 29 distinct helper mutants killed (this round's 23 first-run mutants plus the 6 CR-4 and offline mutants; the routing, surfaces, boxes and webhook mutants of the earlier parts are separate files), 2 survivors dispositioned in Outstanding 6. Each file is under
+`verification/019/impl/m3-mutants-helpers*`.
 
 ## Class Sweep
 
-No reviewer finding in this milestone yet.
+No reviewer finding in this milestone yet. Two gates fired in this round and were satisfied by changing the work, disclosed here:
+- `engine.import-confinement.test.ts` (AC-2.1: the adapter and at most one oracle helper name an engine package) failed on the tree at `418af30`
+  because my `helpers/discordReports.ts` imported `@discord/markdown-wasm` as a second oracle helper. Fixed by taking `SYNTAX_ALL` from `discordOracle.ts`.
+  Why I had not seen it: I committed `418af30` after the markdown tests only, and ran the whole offline suite for the first time after it.
+- `convention-check.js` now runs ESLint, and reported 75 FAILs on files committed earlier in M3 (`object-curly-newline`, `import/order`, `max-len`, `quotes`,
+  `prefer-destructuring`, `no-unsafe-return`). Satisfied by `eslint --fix` over the M3 files and by wrapping the 26 over-long lines by hand; no rule was
+  disabled and no config changed. Now 0 FAIL, 0 CANDIDATE (`m3-convention-check-f4060c5.txt`).
 
 ## Test Execution Results
 
 | Command | Result | Capture |
 |---|---|---|
-| `unshare -rn` (lo up) `npx vitest run --project node --project dom`, tree at `78c5f74` | 3026 of 3026 passed, 185 `testResults` entries, exit 0 | `m2fix-suite-78c5f74-offline.{json,log.txt,exit}` |
-| `npx vitest run --project node src/utils/markdown`, tree at `1bcab7a` | 340 passed | console |
-| `npx vitest run --project discord-node` (network), tree at `1bcab7a` | 5 of 5 passed | `m3-green-1.txt` |
-| the same inside `unshare -rn` (lo up) | exit 1, `OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed`, 5 skipped | `m3-offline-discord.txt` |
-| `npx tsc --noEmit -p tsconfig.test.json` | clean | console |
-| `node ~/.claude/tools/convention-check.js website --since=78c5f74` | 0 FAIL, 0 CANDIDATE at `1bcab7a`. The id-token basename check is SKIPPED by the tool (unchecked by tool; by hand, no basename or title holds an ID token) | console |
-| `npx vitest run --project discord-node` (network), tree at `c113084` | discordLive 7, discordSurfaces 7, discordBoxes 10 and the earlier files, all passed when last run per file; the whole `test:discord` was not re-run as one command at `c113084` | console |
-| `npx vitest run --project node` per file: `visibleForm.controls` 36, `discordInputs.lifted-data` 6, `discordOracle.surface-masks` 3 | passed | console |
+| `unshare -rn` (lo up) `npx vitest run --project node --project dom`, tree at `f4060c5` (the handoff tip) | **exit 0**; 195 test files, 3183 of 3183 passed; wall 63.5 s (vitest "Duration" 62.5 s) | `m3-suite-offline-f4060c5.{log.txt,exit}` |
+| the same, tree at `8d7b344` | exit 0; 195 files, 3183 of 3183 passed; wall 61.9 s | `m3-suite-offline-8d7b344.{log.txt,exit}` |
+| the same, tree at `68f3656` (AC-3.3 limbs just landed, typed limb in three files) | exit 0; 195 files, 3171 passed; wall 70.3 s | `m3-suite-offline-ac33.{log.txt,exit}` |
+| the same, tree at `7dcedc9` (M2's last suite, before M3's AC-3.3) | exit 0; 3041 tests, 186 files; wall 36.1 s (from the JSON's per-file end times) | `m2fix2-suite-7dcedc9-offline.json` |
+| `npx vitest run --project discord-node` (network), tree at `f4060c5` | exit 0; 6 files, 37 of 37 passed, 13.6 s | `m3-discord-live-f4060c5.log.txt` (and `m3-discord-live-8d7b344.log.txt`, same result) |
+| the same inside `unshare -rn` (lo up), the controls file | exit 1, `OracleError: ... fetching https://discord.com/app failed: fetch failed`, 5 skipped, no pass count | `m3-offline-discord.txt`; now also the case `discordOffline.fetch-failure.test.ts` |
+| `pnpm run typecheck` (both tsc programs), tree at `f4060c5` | exit 0 | `m3-typecheck-f4060c5.{log,exit}` |
+| `node ~/.claude/tools/convention-check.js website --since=5ec0621` at `f4060c5` | 0 FAIL, 0 CANDIDATE, 29 SKIP (`.json`, `.png`, `.yaml`, `.gitignore`, and the foreign `.playwright-mcp/` listing). The tool reports the id-token basename check as SKIPPED ("states an ID-token class this checker does not implement verbatim"): unchecked by tool. By hand: no basename, title or comment of an M3 file holds an ID token (grep with the workspace class over the 40 changed `.ts`, `.tsx`, `.json` files, 0 hits) | `m3-convention-check-f4060c5.txt` |
 
-The whole offline suite was not re-run at `c113084`, and `tsc --noEmit -p tsconfig.test.json` printed nothing after the box commit (earlier runs printed "No errors found"); both are owed before hand-off.
+**AC-3.3 timing (EC-4; the cap is 60 s of added `pnpm test` wall time).** Whole offline suite 63.5 s at `f4060c5` (61.9 s at `8d7b344`) against 36.1 s at `7dcedc9`: M3 adds **27.4 s**, the AC-3.3 limbs
+being most of it, under the cap. The box has 18 cores, so this is wall time with the files in parallel. The per-limb costs, from the collecting run at the base (sequential, one
+mounted editor per input, `m3-base-red-mounted-418af30.json`): typed full + line over the corpus 12.8 s (268 and 221 emoji-free inputs, 28.7 ms and 23 ms per input), over 1,000
+generator inputs 32.7 s (355 and 220 inputs, 63 and 47 ms per input), over the atom pairs 11.5 s, over 300 block texts 14.7 s; pasted limbs about 20 s in all. The mounted mean per input is
+**2.2 to 2.6 times EC-4's 13.9 ms** (the `onChange` drive awaits an asynchronous act per keystroke). I therefore split the typed limb into three files so they run in parallel; the
+generator count stays at the plan's 1,000 (the plan's rule is to drop the count when the cap is exceeded, and it is not exceeded).
+
+**Which frozen Discord-derived families the live command re-derives, and which it does not (the plan asks for this list; QA's re-key reads it).**
+Re-derived live, in `pnpm test:discord`: the 272 + 106 legacy trees under the webhook state (`discordLive.oracle-controls`), the probe-state trees' one differing input class
+(emoji in a link label), the legacy visible forms of the five surfaces' calls (their legacy trees equal content's over the corpus: `discordSurfaces.oracle-controls`), the 279 native-box
+literals on the pinned wasm (`discordBoxes.oracle-controls`), the routing and legacy calls (`discordRouting.oracle-controls`), the served-versus-pinned wasm hash. Not re-derived (frozen
+from a read of served code): AN-3's six literal masks (`SURFACE_MASK_LITERALS`, held in `discordOracle.surface-masks.test.ts`), the 85 typed cases' text (they are inputs), and the
+frozen probe-state legacy trees (`discordLegacyTrees.json`, kept for the one-input difference check only).
+
+## Findings (what I read, for the reviewer and QA)
+
+1. **Why EC-4's drive reached no `onChange` write (QAF-16).** `SlateEditor` writes to the message from a `useEffect` on the flattened text of its `descendants` state, which is set by
+   Slate's `onValueChange` handler. Slate reports a change from a microtask queued after the operation applies. A synchronous `act(() => editor.insertText(ch))` returns before that
+   microtask runs, so the write arrives after the act, outside it, and the editor gets no further render inside the drive. The drive that reaches it is `await act(async () => { editor.insertText(ch) })`
+   per keystroke, then one async act running the pending timers. Controls (`SlateEditor.typed-text-reaches-the-message.test.tsx`): typing `a` into an empty editor yields the write
+   `a`, in both modes; typing `ab` yields exactly `['', 'a', 'ab']`; the synchronous drive yields `['']` and the write `a` arrives only after an awaited microtask. The drive reads
+   `writes.at(-1)`, never `editor.children` (the one `editor.children` read is the line-break control, which checks the model has two lines, as a sanity check of the drive and not of the property).
+2. **Which limbs pass at the base, from a run at the base, not from a list (AC-3.4, critique SL-4).** The editor is unchanged by M3, so the tip is the base for it. Over six input
+   classes in both modes (`m3-base-red-named-1f0b768.json`): (a) every emoji-free input of the corpus (268), links (99), the first 1,000 generator inputs (355), the probe (893), the
+   atom joins (7,239) and 3,000 seeded block texts loads and saves unchanged, normalises with its text unchanged, and a second forced normalise performs zero operations, with 0 throws;
+   (b) **every input holding an emoji is base-red on load and save** (corpus 2 of 4 emoji inputs: `😀` loads and saves as `:grinning:`, `👍🏽` as `:thumbsup:🏽`; links 3 of 7; generator 490 of
+   645; probe 549 of 769; atom joins 899 of 1,181), which is AC-6.2's lift, so the emoji class is held out of the properties by an independent predicate (`holdsEmoji`, a regular expression, with controls);
+   (c) **typed and pasted are base-red on quote and fence structure**: the six emoji-free corpus rows of EC-4 (143, 144, 153, 159, 258, 262: `> a\n> b` is saved `> a\n> > b`,
+   `> a\nb` as `> a\n> b`, `> a\n>>> b` as `> a\n> >>> b`, `> ||sp||\n> **b**` as `> ||sp||\n> > **b**`), 10 of 355 generator inputs, 114 of 380 atom pairs (typed 95), 63 of 300 block texts (typed 60).
+   The pasted limb fails on the same inputs as the typed limb, plus 19 atom pairs and 3 block texts it alone fails. Single-line mode holds on every input, typed and pasted. (d) The typed-edit differential
+   enumerates **15,480 edits** over the first 800 block-layer texts, the count the plan states, and **346 of them are wrong at the base**, the count QAF-4 states: the lift is faithful.
+3. **AC-3.8 (i), (i′) on the served build (679109, stable, 2026-11-23).** The embed renderer and the V2 text display are in lazy chunks, not the entry scripts, so `loadLazyChunks` reads the runtime's
+   name table (6,711 chunks including the exponent-spelled ids), fetches them in batches of 64 (166 MB, about 11 s on this box, kept only when a chunk holds every needle of a predicate) and
+   evaluates the matching ones into the oracle window. Predicates (each located by exactly one module, else C3): the native switch `native-markdown"` + `enable_native_markdown`
+   (module 146849); the embed renderer `renderEmbedTitle=` + `renderEmbedDescription=` + `parseRichEmbedText` (module 190854); the V2 text display
+   `allowList:!0,allowHeading:!0,allowLinks:!0,allowGameMentions:!0,previewLinkTarget:!0` + `TEXT_DISPLAY` (module 736157). The switch predicate was run on a **real member**: five modules require
+   module 146849 (68059, 84046, 88484, 538355, 925065), 538355 being AN-3's content path (it also requires 997141); and on **real non-members**: the embed renderer and the V2 text display both
+   reference neither the switch's id nor `enable_native_markdown`. The embed renderer calls the facade's `parseEmbedTitle`, `parseEmbedTitleWithoutLinks` and `parseRichEmbedText`, and the V2 text display
+   calls its `parse`, each seen as a property call on the alias the module bound to the facade's module id. AN-3's chunk file names (`2420b0c09d1ff9a5.js`, `e940c8e032f54075.js`) are gone from this build: the chunk
+   hashes moved, which is why the locator is by content.
+4. **Residue grouping (item 2's remainder; M4's start reads it).** The 232, 234, 210, 169 and 232 minimal differing inputs per surface (`m3-residue-measurement-492b813.json`) are grouped by a text family each (a
+   regular expression over the minimal input, in order, first match wins: `m3-residue-grouping-driver.py.txt`, output `m3-residue-grouping-492b813.{txt,json}`). **This is a report grouping over text, not the
+   structural predicates M4 needs**: the tree predicates (D-14 (b)) are M4's. Description (and V2, which is identical) counts, minimal inputs and members: host-only or dotless http(s) url 38 and 351; emoji in a masked link
+   9 and 272; empty masked link or destination holding markup 7 and 46; empty quote marker 6 and 68; `<id:...>` chip 2 and 36; emoji, zwj, keycap or flag sequence 22 and 40; list item after a newline with an unusual content
+   character 39 and 83; code span built of backtick runs 22 and 31; empty or odd heading 9 and 34; spoiler runs 6 and 15; strikethrough runs 2 and 12; unbalanced or empty emphasis run 51 and 157; timestamp, mention and
+   special-token chips 14 and 30; whitespace-only 2 and 2; ungrouped 3 and 4 (`<(:/x>`, ``` ``~` ```, `` `|`` ``). Field value is the same except no heading family and three more strikethrough members; title lacks masked links, lists
+   and headings (its mask excludes them) and holds the host-only family at 59 minimal inputs and 876 members; title-with-url lacks the host-only family. A family is not a class with a predicate: for example the 171-member host
+   `http://x` is a dotless host the engine links and legacy does not, and the 148-member emoji-in-label class is G-14's.
+5. **Coverage report and known-differences report** (`discord/discordReports.run.test.ts`, over the corpus, the link inputs and 2,000 generator inputs at seed 20261123: 2,378 inputs; the editor adds the 85 typed cases).
+   A construct is detected by removing its bit from `ALL` and comparing parses. Seven cells have no agree member and are named in the run output (stderr) and the report: `GAME_MENTION` on all six surfaces (the generator's
+   `<game:id>` is plain text in both parsers, AN-8: no input holds the bit by the removal test) and `CODE_BLOCK` on `embedTitle` (the title mask excludes it). Known differences: content disagree class 1,116 of 2,378 in the loose form
+   (37 of the 272 corpus, the Appendix A set) and 195 more in the strict form only; residue 1,181, 1,191, 1,380, 642, 1,181 of 2,378 for the description, field value, title, title with url and V2 text display (the measurement's
+   counts, reproduced); editor, legacy box against native box per character (style set and marker flag): 1,545 of 2,463 differ, of which 28 of the 85 typed cases (AN-6 had 26 of 65 comparable, with 20 set aside for elements the
+   typed text cases do not have) and 46 of 272 corpus. The report files are written to `website/discord-reports/`, git-ignored; the stage that runs the command copies them into `verification/019/`.
+6. **jsdom lacks `HTMLElement.isContentEditable`**, which slate-dom's `hasEditableTarget` reads, so a dispatched `paste` is ignored unless the helper defines `isContentEditable` on the editable's element
+   (one `Object.defineProperty` in `mountEditor`). The API is absent, not inert, in jsdom (the environment-fidelity convention's worse case does not apply); it does mean the pasted limb exercises slate-react's
+   `onPaste` branch, the one used where `beforeinput` is unsupported, and not the `beforeinput` `insertFromPaste` branch a real browser takes (Outstanding 7).
 
 ## Outstanding Items
 
-Owed at M3 (the plan's list). Status at `c113084`: item 3 done; item 1 done; item 2's legacy calls and measurement done, its frozen residue list is data committed at M4; item 4's boxes, 85 typed cases and frozen native literals done, its legacy-box differences report waits on item 6; items 5, 6, 7, 9, 10, 11 not started:
-1. **Visible-form normaliser** (D-14) with its positive controls (one member of each invisible class equal, one of each counted dimension different).
-2. **The legacy calls per legacy-only surface** (`parseEmbedTitle`, `parseRichEmbedText`, the V2 `parse`; AN-3) in the live oracle, then **residue measurement** per surface (engine vs legacy, visible form), the count recorded here, and the **frozen residue list** data. The adjustments belong to M4.
-3. **Legacy trees under the webhook state** (`LEGACY_STATE_WEBHOOK`, `allowEmojiLinks: true`, G-14). The frozen file `discordLegacyTrees.json` is under the probe state (`allowEmojiLinks: false`, the AN-4 capture). AC-3.1's membership uses the webhook state: regenerate and freeze, and read the difference (expected: the emoji-in-link-label class only).
-4. **The native box and the legacy box in the live oracle** (module `nativeBox` `p0`; `textBox` `.markdown`), the 85 typed cases, **frozen native-box literals** for `pnpm test` (AC-3.2), and the legacy-box differences for the known-differences report. The site's editor side of AC-3.2 is M5's.
-5. **AC-3.8** (routing, legacy calls, per-adjustment, surface class), including the (i) predicate run on a real member and a non-member (`gate` module 146849's predicate `native-markdown"` + `enable_native_markdown`), recorded here.
-6. **The coverage report** (Syntax bit × surface, agree-class members) and the **known-differences report** (generated, written to a website-local path that `.gitignore` excludes; add the ignore entry).
-7. **AC-3.3 round trip** over the generator, corpus, the 1,662-line probe and the lifted block-layer seeds, in full and partial mode (load-save, typed, pasted, normalisation settles, forced re-normalise performs zero operations), reading the value `onChange` hands the message; the `onChange` drive with its positive control (typing `a` yields a write of `a`); the timing against the 60 s cap (`EC-4`); the base-red limbs shown red on named inputs (EC-4's rows 143, 144, 153, 159, 219, 220, 258, 262). **Decision for the reviewer and QA:** limbs that fail at the chain base cannot land red in a green suite, and a known-wrong expected value is not admitted (axiom D). I plan to land the property tests with the classes that hold at the base, record each base-red limb as a captured red run on its named inputs, and land the failing members with the milestone that fixes them (M6, AC-6.1). This is a reading, not a plan deviation; it goes to the planner if QA disagrees.
-8. **AC-3.1, AC-3.6, AC-3.7 limbs that read the site's preview DOM** are owed at M4, where the renderers exist (AC-4.1 states it). M3 builds the instrument and the oracle side. Same for AC-3.2's editor side at M5.
-9. **Per-behaviour assertion reds** for rows 3 to 6 of the TDD table (a named mutant per row, run in an isolated export through `mutation-run.py`; the M2 driver `m2-mutants.js` and `m2fix-mutants-78c5f74.json` are the forms), and the **self-check sweep** `mutant-gen.js` over the M3 diff.
-10. **CR-4** (the import scan's AST walk for non-literal `import()`/`require()`, planted `import(name)` and `import('@discord/' + n)` in the control) is deferred to here, since `discordOracle.ts` is now AC-2.1's second member.
-11. **AC-3.5 as a test file**: the offline exit and naming is shown by a run; add a case that runs `test:discord`'s fetch in a loopback namespace, or state it as a run only.
-12. **Measurement recorded** (item 2). Instrument: the visible form over the engine's `parse` under each surface's literal mask against Discord's legacy call for that surface, over 2,378 inputs (272 corpus, 106 link inputs, 2,000 generator inputs at seed 20261123). Differing inputs: description 1,181, field value 1,191, title 1,380, title with embed url 642, V2 text display 1,181. Over the 272 corpus alone: 37, 33, 53, 36, 37 (the loose-form counts of AN-3 are 37, 32, 54, 37, 37). Each differing input is shrunk by delta-debugging to a minimal differing input, 232, 234, 210, 169 and 232 distinct minimal inputs per surface: `verification/019/impl/m3-residue-measurement-492b813.json` (driver `m3-residue-driver-492b813.test.ts.txt`). The largest classes on the description: a host with no dot linked by the engine and not by legacy (`http://x`, 171 inputs), an emoji in a link label (148), an empty quote marker (`>`, 63), `<id:linked-roles>` (35), unbalanced emphasis runs (`****`, `a_b_`, `____`), an empty heading (`#  `), spoiler runs (`|||||`), list items with a lone escape. They are not yet grouped into structural classes with predicates and signatures: that grouping, and the choice of which classes get an adjustment under (a), (b), (c), is M4's start. **Known limit of the visible form:** a native label-less link's display text is the engine's normalised url, so a source spelled with a path-only slash difference cannot be told from the url; the form strips only the slash a host-only url gains.
-13. Self-diagnosis, method level: I began item 2 by comparing visible forms on the generator and read the 50% difference as signal before reading ten minimal examples; the first reading showed one artefact of my own form (the label-less link display text), found only because I shrank the inputs and printed units. Shrink and print first, count after.
-14. The `.next` stale validator hazard did not arise this session (typecheck was clean).
+1. **Site-DOM limbs** of AC-3.1, AC-3.6, AC-3.7 are M4's (the renderers are M4's); AC-3.2's editor side is M5's; AC-3.8 (ii) per adjustment and the frozen residue list as data are M4's. The residue grouping in Findings 4 is the input to M4's choice of which classes get an adjustment under (a), (b), (c).
+2. **Decision for the reviewer and QA, plan reading (Outstanding 7 of the earlier document):** limbs that fail at the chain base cannot land red in a green suite, and a known-wrong expected value is not admitted (axiom D). I landed each property over the inputs that hold at the base and **held out the inputs that fail**: the emoji class (by `holdsEmoji`, an independent predicate), the 6 + 10 + 114 + 63 base-red typed and pasted texts (data `helpers/data/mountedBaseRed.json`, a set of texts) and the 346 wrong edits (data `helpers/data/blockLayerEditsBaseRed.json`, a set of enumeration indices). Each held-out member was shown red at the base in a captured run on its named input (Findings 2, `m3-base-red-*`). No test asserts a held-out member stays wrong (that would be a pin, axiom D). M6 (AC-6.1, AC-6.2) deletes the hold-outs and lands the members. This is a reading, not a plan deviation; it goes to the planner if QA disagrees. A residual risk I name: a held-out set is a list that can hide a regression on one of its members; the captured runs, and M6's deletion, are the bound.
+3. **Count of the generator in the mounted limb** is the plan's 1,000 (emoji-free: 355 full-mode, 220 single-line); the emoji-bearing 645 are base-red and held out. QA Phase 2 reads the timing at the tip against Test Execution Results.
+4. **`pnpm test:discord` fetches 166 MB of lazy chunks** (about 11 s on this box) to find two modules. It is a standing cost of every run of the live command; the alternative, locating the lazy chunk by its dependent in the entry scripts, needs a predicate the entry scripts do not carry (the entry has no reference to the renderer's chunk id by a stable name). A reviewer may prefer a bounded fetch; it needs a stable pointer I did not find.
+5. **Mutant sweeps of the property tests' target functions** (`getInitialValue`, `flattenNodeText`, `withNormalizeNode`, the paste handler) as AC-3.4 asks ("each criterion is shown failing under a restored mutation of the code it exercises") are **owed to QA's Phase 2 sweep**: they are mutations of product source, which this milestone does not change, and the sweep that decides a verdict is QA's. The properties' red at the base on the held-out members is the evidence I have for the typed and pasted limbs; the load and normalise limbs, which pass at the base, have no mutation shown by me. I named this as owed rather than running a product-source mutation without an isolated export for the editor's whole suite.
+6. **Two surviving helper mutants, both equivalent over the committed input classes:** M3-r4c (the strict form also applies `storedUrl` to a link target): the native tree already carries the stored spelling, and so do the frozen legacy trees, so the strict and loose forms agree on every url in the corpus, the link inputs and the generator; the function itself is covered by its own three cases. M3-r19a (`blockLayerEdits` skips no line): every line of the first 800 seeded texts is one the loader keeps, so the skip never fires over the committed class; the count control (15,480) would catch a change in the class.
+7. **What the jsdom paste drive does not show:** Findings 6. A browser walk (QA Phase 2 or UAT) would be the instrument for the `beforeinput` branch; M3 has none.
+8. **The one site-source reading of the oracle's lazy-chunk fetch is network-bound:** `pnpm test:discord` needs the network; in a loopback-only namespace it fails loudly (`discordOffline.fetch-failure.test.ts`), and `pnpm test` runs offline and exits 0 (above).
+9. Self-diagnosis, method level (two defects of mine reached a gate): (a) I committed `418af30` after running only the markdown tests, so the engine-confinement test (a whole-suite guard on a rule I knew, AC-2.1's second oracle helper) first ran after the commit; I ran the property rather than the suite that holds the guard. Whole offline suite before each commit that adds an importer. (b) I began the residue measurement (earlier part) by comparing visible forms on the generator and read the 50% difference as signal before reading ten minimal examples; shrink and print first, count after. (c) The first edit comparison of the boxes counted `before_<style>` classes the plan's score does not use (1,991 of 2,463 differing); I read AN-6's scoring script before trusting the figure (1,545 after).
+10. The `.next` stale validator hazard did not arise (`pnpm run typecheck` exit 0, no build in this part).
 
 ## Next Steps
 
-Finish the M3 parts above, record them, run `convention-check.js website --since=5ec0621`, commit, set `Handoff-At`, hand M3 to code review. M2's fix round (`78c5f74`) is with `code-reviewer-019` for its Round 1 sub-entry.
-
-## Resumption State
-
-Written 2026-11-23T20:1x UTC at 231K tokens, for a `/clear`, at the second checkpoint.
-
-- **Done since the first checkpoint.** Item 3 (`9ad0939`: `LEGACY_TREES_WEBHOOK`, 272 corpus and 106 link trees under the webhook state; the webhook state differs from the probe state on exactly one link input, `[🙂](https://x.y)`, and on no corpus input; the difference class is an emoji in a link label), item 1 (`dff2f0d`, `492b813`: `helpers/visibleForm.ts` with its controls), item 2's calls (`00148c8`: `helpers/discordSurfaces.ts`, the rich rule set read from the facade module's own source, `SURFACE_MASK_LITERALS` and `nativeSurfaceParse` in `discordOracle.ts`) and measurement (Outstanding 12), item 4's boxes (`c113084`: `helpers/discordBoxes.ts`, `data/discordNativeBox.json` for 272 corpus plus 7 `x<n>` typed extras, re-derived live in `discordBoxes.oracle-controls.test.ts`).
-- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `c113084`. The website tree holds only the foreign `?? .playwright-mcp/`. The record repository holds my uncommitted `verification/019/impl/m3-*` files, committed with this document.
-- **Next, in order.**
-  1. Group the measurement's minimal inputs into structural classes per surface (read `m3-residue-measurement-492b813.json`), and record the grouping here. The frozen residue list as test data is M4's.
-  2. Item 4's remainder: the legacy-box differences for the known-differences report (both boxes over the 85 typed cases and the corpus; AN-6 gives 26 of 65 comparable disagree).
-  3. Item 5 (AC-3.8): routing, legacy calls, per adjustment and surface class. Part (iii) is already a test (description and V2 trees equal content's over the 272 corpus, in `discordSurfaces.oracle-controls.test.ts`). Part (i) needs the predicate `native-markdown"` + `enable_native_markdown` run on one real member and one real non-member, and the V2 and embed renderer chunks located by AN-3's content predicates (the chunk is lazy: check whether `fetchBuild` must also fetch lazy chunks; the first lazy chunk names are in `verification/019/analysis/an3/`).
-  4. Item 6: coverage report and known-differences report, written to a website-local path that `.gitignore` excludes (add the ignore entry).
-  5. Item 7: AC-3.3 round trip with the `onChange` drive and its positive control, timing against 60 s, base-red limbs.
-  6. Items 9 (self-check sweep `mutant-gen.js` over the M3 diff in an isolated export; per-row mutants for rows 3 to 6 of the first TDD table, which are only partly done), 10 (CR-4), 11 (AC-3.5 as a case).
-  7. Before hand-off: `pnpm test` offline whole suite, `tsc --noEmit -p tsconfig.test.json` (and `pnpm run typecheck`), `node ~/.claude/tools/convention-check.js website --since=5ec0621`, set `Handoff-At`, hand to code review.
-- **Approach in flight.** None. No uncommitted source work. Scratch files only under the session scratchpad; the driver tests `zzDriver.*` were removed from the tree.
-- **Local state not restored.** None. No process of mine runs.
-- **Evidence run but not recorded.** Per-behaviour mutant runs for `visibleForm.ts` were run in place and restored with output to the console only (rows in the TDD table name them); `m3-mutants-surfaces.txt`, `m3-mutants-boxes.txt`, `m3-mutant-webhook-state.txt` and `m3-red-7` to `m3-red-12` are committed with this document.
-- **Questions sent, and to whom.** None open. A question for QA at hand-off: item 7's landing of base-red limbs (Outstanding 7). No flow ask is owed until M4 code starts.
-- **Cache-warm wake.** Job `204e1e48` (armed 19:54) deleted at this checkpoint. Arm a new one on the next turn.
+Code review of M3 at `f4060c5`, in this order of risk: the held-out sets (Outstanding 2), the lazy-chunk fetch (Outstanding 4), the `isContentEditable` shim (Findings 6). Then QA Phase 2 on the chain, the mutation sweeps owed (Outstanding 5), and the effort's M4 flows: M4 and M6 each owe the owner a flow ask before code (the brief); M4 begins by choosing, from Findings 4, which residue classes get an adjustment.

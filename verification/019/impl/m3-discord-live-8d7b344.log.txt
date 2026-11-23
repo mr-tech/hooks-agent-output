@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+coverage: unexamined cells: GAME_MENTION / content, GAME_MENTION / embedDescription, GAME_MENTION / fieldValue, GAME_MENTION / embedTitle, GAME_MENTION / embedTitleWithUrl, GAME_MENTION / v2Text, CODE_BLOCK / embedTitle
+
+ Test Files  6 passed (6)
+      Tests  37 passed (37)
+   Start at  21:07:32
+   Duration  13.75s (transform 564ms, setup 0ms, import 6.90s, tests 32.07s, environment 1ms)
+

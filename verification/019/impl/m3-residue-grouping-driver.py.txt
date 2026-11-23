@@ -1,0 +1,36 @@
+import json,re,sys
+d=json.load(open(sys.argv[1]))
+EMO=re.compile('[\U0001F300-\U0001FAFF☀-➿©™‍️\U000e0000-\U000e007f⃣\U0001F1E6-\U0001F1FF]')
+RULES=[
+ ('R01 host-only or dotless http(s) url (engine links, legacy does not)', lambda s: re.match(r'^http://',s) is not None),
+ ('R02 emoji inside a masked link (label or destination, incl :shortcode: and <:custom:id>)', lambda s: re.search(r'\[[^\]]*\]\(',s) is not None and (EMO.search(s) or re.search(r':\w+:|<a?:\w+:\d+>',s)) is not None),
+ ('R03 empty masked link or destination holding markup ([](...), []() with markup)', lambda s: re.search(r'\[[^\]]*\]\(',s) is not None),
+ ('R04 empty quote marker / quote with one-char body', lambda s: re.match(r'^>',s) is not None),
+ ('R05 <id:...> guild navigation chip', lambda s: s.startswith('<id:') or '<id:' in s),
+ ('R06 emoji/zwj/keycap/flag sequence or lone emoji-adjacent char', lambda s: EMO.search(s) is not None and not re.search(r'[*_~|`]',s)),
+ ('R07 list item after a newline with one unusual content char', lambda s: re.search(r'\n ?[-*] |^\d+\. |\n\d+\. |^- ',s) is not None),
+ ('R08 code span built of backtick runs (`` ` `` shapes)', lambda s: '`' in s and not re.search(r'[*_~|]',s)),
+ ('R09 empty/odd heading (# runs)', lambda s: re.search(r'^\s*#',s) is not None or '\n#' in s),
+ ('R10 spoiler runs/pieces (|| ... ||)', lambda s: '||' in s),
+ ('R11 strikethrough runs (~~)', lambda s: '~~' in s),
+ ('R12 unbalanced or empty emphasis run (*, _ , ** , __)', lambda s: re.search(r'[*_]',s) is not None),
+ ('R13 timestamp / mention / special-token chips (<t:..>, <h:..>, <s:..>, <f:..>, <a@..>, @everyone, @silent, <:e:id>)', lambda s: re.search(r'<[a-z@/:]|@|:\w+:',s) is not None),
+ ('R14 whitespace-only or control content (tab, trailing spaces)', lambda s: s.strip()=='' or re.fullmatch(r'[\t\s]+',s) is not None or s.endswith('  ') or s.startswith('  ')),
+]
+out={}
+for surf,v in d.items():
+    cl=v['classes']
+    groups={}
+    for k,m in cl.items():
+        for name,f in RULES:
+            if f(k):
+                groups.setdefault(name,[]).append((k,len(m))); break
+        else:
+            groups.setdefault('UNGROUPED',[]).append((k,len(m)))
+    out[surf]=groups
+    print('==',surf,'differing',v['count'],'minimal',len(cl))
+    for name,_ in RULES+[('UNGROUPED',None)]:
+        g=groups.get(name,[])
+        if g: print('  %-4d minimal %-5d members  %s'%(len(g),sum(c for _,c in g),name))
+    if 'UNGROUPED' in groups: print('   UNGROUPED:',[k for k,_ in groups['UNGROUPED']])
+json.dump({s:{n:[[k,c] for k,c in g] for n,g in gs.items()} for s,gs in out.items()},open(sys.argv[2],'w'),ensure_ascii=False,indent=1)

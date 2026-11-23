@@ -1,0 +1,3 @@
+M3-r20b a typed line break is a character: KILLED
+M3-c3 a template with no substitution is not a literal: KILLED
+2 of 2 killed

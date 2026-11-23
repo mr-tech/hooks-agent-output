@@ -1,0 +1,4 @@
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/roundTripInputs.classes.test.ts > the input classes of the round-trip properties > says an input holds an emoji when it holds a pictograph, a flag, a skin tone, a keycap or a presentation selector, and not otherwise
+TypeError: undefined is not a function
+      Tests  1 failed | 4 passed (5)

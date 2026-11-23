@@ -1,0 +1,98 @@
+{
+ "load": {
+  "corpus": {
+   "n": 272,
+   "emojiInputs": 4,
+   "emojiFailing": 2,
+   "plainFailing": 0,
+   "examples": [
+    "😀",
+    "👍🏽"
+   ]
+  },
+  "links": {
+   "n": 106,
+   "emojiInputs": 7,
+   "emojiFailing": 3,
+   "plainFailing": 0,
+   "examples": [
+    "🙂https://x.y",
+    "🙂 [a](https://x.y)",
+    "[🙂](https://x.y)"
+   ]
+  },
+  "generator1000": {
+   "n": 1000,
+   "emojiInputs": 645,
+   "emojiFailing": 490,
+   "plainFailing": 0,
+   "examples": [
+    "🙂",
+    "👨‍👩‍👧",
+    "👍🏽",
+    "1️⃣",
+    "🇬🇧"
+   ]
+  },
+  "probe1662": {
+   "n": 1662,
+   "emojiInputs": 769,
+   "emojiFailing": 549,
+   "plainFailing": 0,
+   "examples": [
+    "x🙂 abcdefghijklmnopq",
+    "🙂 *a*",
+    "👍🏻 *a*",
+    "❤️:b:a:skin-tone-1a_:a",
+    "❤️:oka:m🔥:x.\\"
+   ]
+  },
+  "atoms3": {
+   "n": 8420,
+   "emojiInputs": 1181,
+   "emojiFailing": 899,
+   "plainFailing": 0,
+   "examples": [
+    "a\na\n🙂 b",
+    "a\n\n🙂 b",
+    "a\n> a\n🙂 b",
+    "a\n>>> a\n🙂 b",
+    "a\n>>> \n🙂 b"
+   ]
+  }
+ },
+ "typed": {
+  "143": {
+   "text": "> a\n> b",
+   "last": "> a\n> > b"
+  },
+  "144": {
+   "text": "> a\nb",
+   "last": "> a\n> b"
+  },
+  "153": {
+   "text": "> a\n\n> b",
+   "last": "> a\n> \n> > b"
+  },
+  "159": {
+   "text": "> a\n>>> b",
+   "last": "> a\n> >>> b"
+  },
+  "219": {
+   "text": "😀",
+   "last": ":grinning:"
+  },
+  "220": {
+   "text": "👍🏽",
+   "last": ":thumbsup:🏽"
+  },
+  "258": {
+   "text": "# h\ntext\n- a\n> q\n-# s",
+   "last": "# h\ntext\n- a\n> q\n> -# s"
+  },
+  "262": {
+   "text": "> ||sp||\n> **b**",
+   "last": "> ||sp||\n> > **b**"
+  }
+ }
+}

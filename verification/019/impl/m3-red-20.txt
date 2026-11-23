@@ -1,0 +1,4 @@
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts > the input classes of the round-trip properties > enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps
+TypeError: blockLayerEdits is not a function
+      Tests  1 failed | 5 passed (6)

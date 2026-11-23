@@ -1,0 +1,24 @@
+M3-r3a mulberry32 constant: KILLED
+M3-r3b every nested wrapper closed: SURVIVED
+M3-r3c every index mixes the same offset: KILLED
+M3-r3d catalogue never leads: SURVIVED
+M3-r4a loose form trims only the leading newlines: KILLED
+M3-r4b stored url keeps the host case: SURVIVED
+M3-r4c strict form stores the url too: SURVIVED
+M3-r5a startup accepts several calls: KILLED
+M3-r5b locate accepts several modules: KILLED
+M3-r5c a refused script is read as a body: KILLED
+M3-r5d chunk table reads decimal ids only: KILLED
+M3-r6a drift reported when equal: SURVIVED
+M3-r6b clean tree keeps originalMatch: KILLED
+M3-r16a unexamined cell is one with a single member: KILLED
+M3-r16b a marker is not a marker: KILLED
+M3-r16c a construct is named when the parse is unchanged: KILLED
+M3-r16d box attribute order matters: KILLED
+M3-r18a probe holds 100 fenced lines fewer: KILLED
+M3-r18b block texts hold one line fewer: KILLED
+M3-r19a edits skip no line: SURVIVED
+M3-r19b edits count the quote prefix as text: KILLED
+M3-r20a typing waits for no change report: KILLED
+M3-r20b a typed line break is a character: SURVIVED
+16 of 23 killed

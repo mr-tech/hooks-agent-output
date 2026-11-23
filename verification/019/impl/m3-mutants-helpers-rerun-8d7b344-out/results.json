@@ -1,0 +1,54 @@
+[
+ {
+  "name": "M3-r3b every nested wrapper closed",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-r3d catalogue never leads",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-r4b stored url keeps the host case",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-r4c strict form stores the url too",
+  "outcome": "SURVIVED"
+ },
+ {
+  "name": "M3-r6a drift reported when equal",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-r19a edits skip no line",
+  "outcome": "SURVIVED"
+ },
+ {
+  "name": "M3-r20b a typed line break is a character",
+  "outcome": "SURVIVED"
+ },
+ {
+  "name": "M3-c1 an import() call is not a load",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-c2 a require() call is not a load",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-c3 a template with no substitution is not a literal",
+  "outcome": "NOT-APPLIED (anchor absent)"
+ },
+ {
+  "name": "M3-c4 only a top-level call is read",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-c5 a production file is never reported",
+  "outcome": "KILLED"
+ },
+ {
+  "name": "M3-o1 the fetch failure does not name the page",
+  "outcome": "KILLED"
+ }
+]

@@ -1,0 +1,16 @@
+M1 referencesSwitch always false:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module references the native switch > holds for a module that requires the switch module by its id
+M1 referencesSwitch always false:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module references the native switch > holds for a module that names the switch's setting
+M1 referencesSwitch always false:  Test Files  1 failed (1)
+M1 referencesSwitch always false:       Tests  2 failed | 6 passed (8)
+M2 callsFacade always true:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module calls a member of the legacy facade > does not hold for a member the module names only as part of a longer member name
+M2 callsFacade always true:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module calls a member of the legacy facade > does not hold for a call on an alias bound to another module
+M2 callsFacade always true:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module calls a member of the legacy facade > does not hold when the module never requires the facade
+M2 callsFacade always true:  Test Files  1 failed (1)
+M2 callsFacade always true:       Tests  3 failed | 5 passed (8)
+M3 id boundary dropped in referencesSwitch:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module references the native switch > does not hold for a module that requires another id with the same digits inside it
+M3 id boundary dropped in referencesSwitch:  FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > whether a module references the native switch > does not hold for a module that mentions the id outside a require call
+M3 id boundary dropped in referencesSwitch:  Test Files  1 failed (1)
+M3 id boundary dropped in referencesSwitch:       Tests  2 failed | 6 passed (8)
+M4 loadLazyChunks evaluates no chunk:  FAIL  |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the lazy chunks of a served build > makes the modules of the chunks that hold a predicate's needles locatable, and leaves the chunks that hold only part of it unloaded
+M4 loadLazyChunks evaluates no chunk:  Test Files  1 failed (1)
+M4 loadLazyChunks evaluates no chunk:       Tests  1 failed | 10 passed (11)

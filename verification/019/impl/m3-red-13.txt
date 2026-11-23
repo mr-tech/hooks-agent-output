@@ -1,0 +1,25 @@
+    114|     await loadLazyChunks(oracle, lazyBuild(), [['alpha', 'beta']], ser…
+       |           ^
+    115|     expect(locate(oracle, 'beta module', ['alpha', 'beta'])).toBe('20'…
+    116|     expect(oracle.ids).toContain('20');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordBuild.locators.test.ts > the lazy chunks of a served build > names the chunk and the status when a chunk is refused
+TypeError: loadLazyChunks is not a function
+ ❯ src/utils/markdown/__tests__/discordBuild.locators.test.ts:124:25
+    122|     const serve = () => Promise.resolve(response(503));
+    123|     const oracle = loadBuild(lazyBuild());
+    124|     const error = await loadLazyChunks(oracle, lazyBuild(), [['alpha']…
+       |                         ^
+    125|     expect((error as OracleError).kind).toBe('fetch');
+    126|     expect((error as OracleError).message).toContain('/assets/');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 7 passed (11)
+   Start at  20:28:38
+   Duration  918ms (transform 45ms, setup 0ms, import 605ms, tests 161ms, environment 0ms)
+

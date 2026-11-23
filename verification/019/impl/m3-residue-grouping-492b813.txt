@@ -1,0 +1,77 @@
+== embedDescription differing 1181 minimal 232
+  38   minimal 351   members  R01 host-only or dotless http(s) url (engine links, legacy does not)
+  9    minimal 272   members  R02 emoji inside a masked link (label or destination, incl :shortcode: and <:custom:id>)
+  7    minimal 46    members  R03 empty masked link or destination holding markup ([](...), []() with markup)
+  6    minimal 68    members  R04 empty quote marker / quote with one-char body
+  2    minimal 36    members  R05 <id:...> guild navigation chip
+  22   minimal 40    members  R06 emoji/zwj/keycap/flag sequence or lone emoji-adjacent char
+  39   minimal 83    members  R07 list item after a newline with one unusual content char
+  22   minimal 31    members  R08 code span built of backtick runs (`` ` `` shapes)
+  9    minimal 34    members  R09 empty/odd heading (# runs)
+  6    minimal 15    members  R10 spoiler runs/pieces (|| ... ||)
+  2    minimal 12    members  R11 strikethrough runs (~~)
+  51   minimal 157   members  R12 unbalanced or empty emphasis run (*, _ , ** , __)
+  14   minimal 30    members  R13 timestamp / mention / special-token chips (<t:..>, <h:..>, <s:..>, <f:..>, <a@..>, @everyone, @silent, <:e:id>)
+  2    minimal 2     members  R14 whitespace-only or control content (tab, trailing spaces)
+  3    minimal 4     members  UNGROUPED
+   UNGROUPED: ['<(:/x>', '``~`', '`|``']
+== fieldValue differing 1191 minimal 234
+  40   minimal 357   members  R01 host-only or dotless http(s) url (engine links, legacy does not)
+  9    minimal 277   members  R02 emoji inside a masked link (label or destination, incl :shortcode: and <:custom:id>)
+  8    minimal 46    members  R03 empty masked link or destination holding markup ([](...), []() with markup)
+  6    minimal 69    members  R04 empty quote marker / quote with one-char body
+  2    minimal 37    members  R05 <id:...> guild navigation chip
+  22   minimal 40    members  R06 emoji/zwj/keycap/flag sequence or lone emoji-adjacent char
+  43   minimal 99    members  R07 list item after a newline with one unusual content char
+  23   minimal 33    members  R08 code span built of backtick runs (`` ` `` shapes)
+  6    minimal 15    members  R10 spoiler runs/pieces (|| ... ||)
+  3    minimal 14    members  R11 strikethrough runs (~~)
+  52   minimal 165   members  R12 unbalanced or empty emphasis run (*, _ , ** , __)
+  15   minimal 32    members  R13 timestamp / mention / special-token chips (<t:..>, <h:..>, <s:..>, <f:..>, <a@..>, @everyone, @silent, <:e:id>)
+  2    minimal 3     members  R14 whitespace-only or control content (tab, trailing spaces)
+  3    minimal 4     members  UNGROUPED
+   UNGROUPED: ['<(:/x>', '``~`', '`|``']
+== embedTitle differing 1380 minimal 210
+  59   minimal 876   members  R01 host-only or dotless http(s) url (engine links, legacy does not)
+  1    minimal 1     members  R03 empty masked link or destination holding markup ([](...), []() with markup)
+  9    minimal 68    members  R04 empty quote marker / quote with one-char body
+  1    minimal 36    members  R05 <id:...> guild navigation chip
+  21   minimal 42    members  R06 emoji/zwj/keycap/flag sequence or lone emoji-adjacent char
+  41   minimal 100   members  R08 code span built of backtick runs (`` ` `` shapes)
+  6    minimal 16    members  R10 spoiler runs/pieces (|| ... ||)
+  2    minimal 12    members  R11 strikethrough runs (~~)
+  49   minimal 180   members  R12 unbalanced or empty emphasis run (*, _ , ** , __)
+  17   minimal 41    members  R13 timestamp / mention / special-token chips (<t:..>, <h:..>, <s:..>, <f:..>, <a@..>, @everyone, @silent, <:e:id>)
+  1    minimal 2     members  R14 whitespace-only or control content (tab, trailing spaces)
+  3    minimal 6     members  UNGROUPED
+   UNGROUPED: ['<(:/x>', '``~`', '`|``']
+== embedTitleWithUrl differing 642 minimal 169
+  14   minimal 105   members  R04 empty quote marker / quote with one-char body
+  1    minimal 52    members  R05 <id:...> guild navigation chip
+  20   minimal 28    members  R06 emoji/zwj/keycap/flag sequence or lone emoji-adjacent char
+  48   minimal 143   members  R08 code span built of backtick runs (`` ` `` shapes)
+  1    minimal 1     members  R09 empty/odd heading (# runs)
+  7    minimal 26    members  R10 spoiler runs/pieces (|| ... ||)
+  4    minimal 26    members  R11 strikethrough runs (~~)
+  64   minimal 245   members  R12 unbalanced or empty emphasis run (*, _ , ** , __)
+  7    minimal 8     members  R13 timestamp / mention / special-token chips (<t:..>, <h:..>, <s:..>, <f:..>, <a@..>, @everyone, @silent, <:e:id>)
+  1    minimal 2     members  R14 whitespace-only or control content (tab, trailing spaces)
+  2    minimal 6     members  UNGROUPED
+   UNGROUPED: ['``~`', '`|``']
+== v2Text differing 1181 minimal 232
+  38   minimal 351   members  R01 host-only or dotless http(s) url (engine links, legacy does not)
+  9    minimal 272   members  R02 emoji inside a masked link (label or destination, incl :shortcode: and <:custom:id>)
+  7    minimal 46    members  R03 empty masked link or destination holding markup ([](...), []() with markup)
+  6    minimal 68    members  R04 empty quote marker / quote with one-char body
+  2    minimal 36    members  R05 <id:...> guild navigation chip
+  22   minimal 40    members  R06 emoji/zwj/keycap/flag sequence or lone emoji-adjacent char
+  39   minimal 83    members  R07 list item after a newline with one unusual content char
+  22   minimal 31    members  R08 code span built of backtick runs (`` ` `` shapes)
+  9    minimal 34    members  R09 empty/odd heading (# runs)
+  6    minimal 15    members  R10 spoiler runs/pieces (|| ... ||)
+  2    minimal 12    members  R11 strikethrough runs (~~)
+  51   minimal 157   members  R12 unbalanced or empty emphasis run (*, _ , ** , __)
+  14   minimal 30    members  R13 timestamp / mention / special-token chips (<t:..>, <h:..>, <s:..>, <f:..>, <a@..>, @everyone, @silent, <:e:id>)
+  2    minimal 2     members  R14 whitespace-only or control content (tab, trailing spaces)
+  3    minimal 4     members  UNGROUPED
+   UNGROUPED: ['<(:/x>', '``~`', '`|``']
