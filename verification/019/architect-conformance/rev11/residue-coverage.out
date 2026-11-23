@@ -1,0 +1,5 @@
+{"surface":"embedDescription","inputsRun":2378,"domMeasured":1344,"domExcluded":1034,"domDiffering":500,"domClasses":148,"domCorpusDiffering":37,"losslessDiffering":1190}
+{"surface":"fieldValue","inputsRun":2378,"domMeasured":1344,"domExcluded":1034,"domDiffering":501,"domClasses":151,"domCorpusDiffering":33,"losslessDiffering":1208}
+{"surface":"embedTitle","inputsRun":2378,"domMeasured":1545,"domExcluded":833,"domDiffering":818,"domClasses":174,"domCorpusDiffering":53,"losslessDiffering":1369}
+{"surface":"embedTitleWithUrl","inputsRun":2378,"domMeasured":1545,"domExcluded":833,"domDiffering":354,"domClasses":132,"domCorpusDiffering":35,"losslessDiffering":630}
+{"surface":"v2Text","inputsRun":2378,"domMeasured":1344,"domExcluded":1034,"domDiffering":500,"domClasses":148,"domCorpusDiffering":37,"losslessDiffering":1190}

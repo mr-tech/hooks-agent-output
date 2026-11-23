@@ -4,6 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 11 (record ec2440d9, AC-3.7's residue list): APPROVED_WITH_CHANGES. CF-18 (MEDIUM): the
+  measurement behind the per-input list left out the inputs containing atoms (1,034 of 2,378 per rich surface), so AC-3.7 must
+  measure them or state them as an excluded class before M4's residue-list commit. CF-19 (LOW): RK-9 needs a fire condition
+  and a route.
   Delta pass on plan 019 revision 10 (record 890d0b78, AC-4.4 / D-17): APPROVED. CF-17 (LOW: how the channel lookup reaches the
   renderer; recommended form is parser state, fed by a non-throwing GuildProvider accessor) is a stated limit under the M4 cap.
   It holds nothing.
@@ -37,6 +41,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T22:31 | architect-019 | Delta pass on plan 019 revision 11 (record `ec2440d9`); § Delta pass, revision 11. CF-18 MEDIUM and CF-19 LOW raised | Read as `git diff 890d0b78 ec2440d9` on the plan, with the implementer's residue captures and website `0b9f76f`/`6379abc`. The tabulation is in `verification/019/architect-conformance/rev11/`. |
 | 2026-11-23T21:40 | architect-019 | Delta pass on plan 019 revision 10 (record `890d0b78`); § Delta pass, revision 10. CF-17 raised and, under the M4 cap, made a stated limit. A Problem Area is lodged for the master document | Read as `git diff 47348a6d 890d0b78` on the plan. Website `5ec0621` and the chain's `93b26fd` were read through `git show`/`git grep`; steering blocks 21:18Z to 21:38Z were read. CF-16's open item is closed (steering 18:06Z made it a stated limit, plan R-21). |
 | 2026-11-23T18:05 | architect-019 | Delta pass on plan 019 revision 9 (record `47348a6d`), AC-4.7 delta only (block 18:02Z); § Delta pass, revision 9. CF-15 resolved; CF-16 raised and routed to steering | Read as AC-4.7's hunks of `git diff 7b419f5b 47348a6d`. The locale-order probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev9/`. |
 | 2026-11-23T18:00 | architect-019 | Delta pass on plan 019 revision 8 (record `7b419f5b`); § Delta pass, revision 8. CF-14 resolved. CF-15 raised and, under the cap, made a stated limit. `website.md` A-10's picker sentence corrected | Read as `git diff e0eb1e87 7b419f5b` on the plan. The dayjs `ja` resolution probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev8/`. |
@@ -52,6 +57,7 @@ Status-Detail: >-
 
 ## Open items
 
+- **CF-18 and CF-19** wait on the planner's fold; my next delta pass reads it.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
   at the reconciliation below.
@@ -286,6 +292,69 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 11 (record `ec2440d9`)
+
+Read as `git diff 890d0b78 ec2440d9 -- planning/019-slate-formatting-discord-engine.md`. The plan delta is AC-3.7's frozen residue
+list. Registration rows R-31 to R-36 were read as rows, and the Planner batch rows added since revision 10 as rows. Read beside it,
+in place: the Visible form and the B3 rule (conditions a to c), RK-9, and D-14's option text. The measurement's captures in
+`verification/019/impl/` were read: `m4-residue-measurement-6379abc.json`, `m4-dom-residue-before.json` and its logs. The website
+chain branch was read through `git show`/`git grep`: `0b9f76f`'s `canonFromDom.ts`, and `6379abc`. My tabulation of the captures
+is `verification/019/architect-conformance/rev11/residue-coverage.out`.
+
+**The per-input form fits the design.** B3's condition (b) governs what may be **adjusted**: a tree predicate, never an input
+list. The frozen list governs what is **listed**. Making the list literal per input does not weaken (b), and the adjustment module
+keeps its predicates. A literal input is the narrowest entry the list can hold, and the stale-entry failure closes the silent-shrink
+path that a predicate list left open. Families with a stated reason keep the list reviewable as classes. It follows the current
+pattern for Discord-measured data, typed literals committed as test data (`website.md` A-9). Its size is in CF-18.
+
+### CF-18 MEDIUM — The measurement behind the list covers only inputs without atoms, and AC-3.7 claims every input
+
+AC-3.7 runs "for every input in the generator, the 272 corpus and the 106 link inputs", and revision 11 builds one entry per
+differing input "from M3's residue measurement". The measurement the plan quotes is `m4-dom-residue-before.json`. It ran 2,378
+inputs per surface but measured the visible form only on the `atomFree` inputs:
+
+| Surface | Inputs run | DOM-measured | Not measured (contain an atom) | Differing (of measured) | Corpus inputs differing |
+|---|---|---|---|---|---|
+| embed description, V2 text | 2,378 | 1,344 | 1,034 | 500 | 37 |
+| field value | 2,378 | 1,344 | 1,034 | 501 | 33 |
+| embed title | 2,378 | 1,545 | 833 | 818 | 53 |
+| embed title with url | 2,378 | 1,545 | 833 | 354 | 35 |
+
+The plan's "500 of 1,344" states the measured denominator, but neither the plan nor the M4 implementation document says that 1,034
+inputs per rich surface (43%) were left out. Nor does either say how AC-3.7 treats them.
+
+The visible form defines atoms as units: "a mention, an emoji or a timestamp, with its kind and resolved value". `canonFromDom.ts`
+at `0b9f76f` reads emoji images and mention pills. So the exclusion was the measurement's choice, not a limit of the form. Unless
+the plan states the treatment, it has two outcomes:
+- the AC-3.7 run includes the atom inputs, and every differing one fails as C5 with no entry, which is loud;
+- the driver keeps the `atomFree` filter, and AC-3.7 silently holds 57% of its stated class. That is a claimed behaviour with no
+  assertion that fails when it is lost.
+
+**Required change**, before M4's residue-list commit, which revision 11 holds on these gates:
+- (a) **Measure atoms too** (recommended): the list is built from a measurement over every input in the classes, atoms included,
+  in the visible form's atom units; or
+- (b) **Exclude them, stated**: AC-3.7 names the atom-bearing inputs as an excluded class, with its count per surface, its reason,
+  and a test that fails if the filter widens.
+
+AC-3.7 is an M3 criterion, so M4's cap does not reach it. It goes to the planner.
+
+### CF-19 LOW — RK-9 has a measured falsifier but no line at which it fires
+
+RK-9's falsifier is "M3's residue count per surface, before and after adjustment", and revision 11 makes it an exact count of
+entries. RK-9 states no count that falsifies it, and no one it goes to when it does. D-14's option told him "How many differences
+remain is unmeasured", and it now has a before-adjustment figure (table above). **Required change:** RK-9 names its fire condition,
+for example a share of the 272 corpus inputs still differing after adjustment, and routes a firing to steering. LOW: no product
+behaviour changes. It goes to the planner, as AC-3.7's reach.
+
+**Size of the list (no finding).** The list holds 2,673 entries before adjustment from the atom-free DOM measurement alone. That
+count is the sum of the "differing" column above, with V2 counted beside the description. A re-measure, for example after Discord
+drift or a generator change, rewrites them in one reviewed commit, and code review samples entries against families rather than
+reading each. That is the cost of the stricter form, and it is stated here for RK-9's reader.
+
+**Verdict on revision 11:** APPROVED_WITH_CHANGES. CF-18 MEDIUM must be settled before M4's residue-list commit. CF-19 is LOW. The
+per-input form itself is approved. The before-adjustment figures bear on the premise D-14's option stated ("unmeasured"), so they
+go to steering as possibly his.
 
 ## Delta pass, revision 10 (record `890d0b78`)
 
