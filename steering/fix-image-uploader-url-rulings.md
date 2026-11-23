@@ -19,3 +19,32 @@ shown, Save enabled, Save/Enter → A; (c) saved X, type Y, Cancel, reopen — b
   fixes."; B "Agent: fix 1 and 2 only"; C "Agent: don't fix". Chosen: **A**.
 
 Determination, stage set and branch cut: when the website tree is free (after chains 7, 8, 9a-9d), from that tip.
+
+## 2026-11-23T15:54Z — re-sweep, refutation and determination at `af3d95a` (steered now by `steering-hooks-fixer`)
+
+Steering moved to `steering-hooks-fixer` (the thread's rename, effort rulings header). 9d left the fixer queue for plan 019 (effort block
+09:07Z), so 9e is next on the tree. `src/components/ImageUploader.tsx` is unchanged from `132a7ab` to `af3d95a` (`git diff --stat`, empty).
+- **Sweep** (helper, briefed with the property alone): `verification/fix-image-uploader-url/scoping/sweep-af3d95a.md`. One shared
+  component, `ImageUploader.tsx`, serves five consumers (author avatar, embed author icon, embed footer icon, embed image, embed thumbnail).
+  Save and Enter commit `localImage` (L56), never the box's `imageInput`. Four failure modes read from code: F1, an invalid box leaves the
+  last checked address committed (L74, L84, L146); F2, an out-of-order check overwrites the newer result (L68-79, no staleness guard); **F3
+  (new), Clear can be undone by a pending check** (L58-62, L71); F4, with an existing image, Cancel keeps the last checked address (L65).
+  The existing tests stub `Image` with `queueMicrotask`, so they never reach these paths. `project-utils` has no image-input component.
+- **Refutation** (helper, briefed with the claims alone, run through the real component): `verification/fix-image-uploader-url/scoping/
+  refutation-af3d95a.md`. (a), (b) and (c) NOT REFUTED; the control holds; exit 0.
+**Determination.** Shape: one defect class in one component, with cause proven by run for (a) to (c) and read from code for F3. Blast
+radius: the five image-address dialogs. No dated event. Specification: his 04:44 selection, "Save always saves exactly what the box shows
+and only once it has loaded; a bad address can't be saved; Cancel puts the box back to the saved image." End step: website `master`, Vercel
+production (needs his word). `release-move.js --dry-run` on `master` `af3d95a` (15:5xZ): every check passed; no workflows; no sibling
+serving refs. Pipeline: the `fixer` agent.
+**Scope statement** (website, from `af3d95a`): in the image address dialog, (1) Save and Enter commit exactly the address the box shows,
+and only once that address has loaded; (2) an address that fails the check, by format or by load, cannot be saved; (3) a slower, earlier
+check never overwrites a later one, and none lands after Clear (F3, in scope under "fix everything", effort block 04:50); (4) Cancel puts
+the box and the preview back to the saved image, with or without one saved, and reopening shows the saved image. Tests per Test Conventions
+mount the real component, drive load order with a hand-resolved `Image`, and assert the committed value with literal expectations, red
+first. Write set: `src/components/ImageUploader.tsx`, any helper beside it, its tests under `src/components/__tests__/`, the fixer's
+document and `verification/fix-image-uploader-url/`. **Not covered by the sweeps:** the parents' `set` wiring, server-side validation,
+behaviour on a real remount, and real image load times.
+**Stage set:** `fixer-fix-image-uploader-url` → `code-reviewer-fix-image-uploader-url` (under 20 production lines: the reviewer also runs
+the suite, typecheck, red test) → QA Phase 2 at 20 or more → devops for website `master` (his word). No plan, critic, Phase 1 or UAT.
+Coordinator's go for the tree: received 15:5xZ (item 10), naming base `af3d95a`. Usage: weekly_all 14% (live, 15:26Z).
