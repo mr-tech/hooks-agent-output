@@ -1,0 +1,78 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6fa4596-1476-4c4b-88f5-2ac9bc277a63/scratchpad/ex-af3d95a
+
+ ❯ |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx (5 tests | 3 failed) 300ms
+     × P1b a saved address that failed keeps Save off after Cancel and reopen 49ms
+     × P2 after deleting the saved address by hand and saving, reopening shows Clear off for the empty box 37ms
+     × P3 Enter on an emptied box with a saved image saves nothing while Save saves empty 41ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx > review probe > P1b a saved address that failed keeps Save off after Cancel and reopen
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.review-probe.test.tsx:141:37
+    139|     click(button('Cancel'), { detail: 0 });
+    140|     await reopen();
+    141|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    142|   });
+    143|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx > review probe > P2 after deleting the saved address by hand and saving, reopening shows Clear off for the empty box
+AssertionError: expected [ 'https://example.com/x.png' ] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+  [
+-   "",
++   "https://example.com/x.png",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.review-probe.test.tsx:149:19
+    147|     await type('');
+    148|     save();
+    149|     expect(saved).toEqual(['']);
+       |                   ^
+    150|     await reopen();
+    151|     expect(box().value).toBe('');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx > review probe > P3 Enter on an emptied box with a saved image saves nothing while Save saves empty
+AssertionError: expected [ 'https://example.com/x.png' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://example.com/x.png",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.review-probe.test.tsx:160:19
+    158|     await type('');
+    159|     enterOnDialog();
+    160|     expect(saved).toEqual([]);
+       |                   ^
+    161|     expect(button('Save').disabled).toBe(false);
+    162|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 2 passed (5)
+   Start at  16:40:00
+   Duration  1.97s (transform 250ms, setup 21ms, import 872ms, tests 300ms, environment 640ms)
+
+exit 1

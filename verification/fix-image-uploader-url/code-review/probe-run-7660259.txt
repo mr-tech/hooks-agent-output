@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6fa4596-1476-4c4b-88f5-2ac9bc277a63/scratchpad/ex-7660259
+
+ ❯ |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx (5 tests | 2 failed) 320ms
+     × P1 keeps "Image not found." for a saved address that failed, after Cancel and reopen 150ms
+     × P2 after deleting the saved address by hand and saving, reopening shows Clear off for the empty box 59ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx > review probe > P1 keeps "Image not found." for a saved address that failed, after Cancel and reopen
+AssertionError: expected 'Enter Image URLImage URLCancelClearSa…' to contain 'Image not found.'
+
+Expected: "Image not found."
+Received: "Enter Image URLImage URLCancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.review-probe.test.tsx:133:34
+    131|     await reopen();
+    132|     expect(box().value).toBe(URL_X);
+    133|     expect(dialog().textContent).toContain('Image not found.');
+       |                                  ^
+    134|   });
+    135|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe.test.tsx > review probe > P2 after deleting the saved address by hand and saving, reopening shows Clear off for the empty box
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.review-probe.test.tsx:152:38
+    150|     await reopen();
+    151|     expect(box().value).toBe('');
+    152|     expect(button('Clear').disabled).toBe(true);
+       |                                      ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  16:40:03
+   Duration  1.99s (transform 226ms, setup 23ms, import 821ms, tests 320ms, environment 695ms)
+
+exit 1
