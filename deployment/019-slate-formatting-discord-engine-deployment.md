@@ -3,7 +3,7 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Active
-Status-Detail: "AN-1's Vercel limb read and recorded (below). Stage 1 for plan 019 has not started; its brief comes later. The spike branch spike/019-an1-wasm stays at origin until the analysis cites these numbers, then is deleted."
+Status-Detail: "AN-1's Vercel limb read and recorded (below). Stage 1 for plan 019 has not started; its brief comes later. The spike branch is deleted (17:04Z) after the analysis cited these numbers."
 ---
 
 # Deployment — plan 019, Slate formatting on Discord's engine (website `master`)
@@ -13,6 +13,7 @@ Status-Detail: "AN-1's Vercel limb read and recorded (below). Stage 1 for plan 0
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T16:35 | steering-hooks-fixer (brief `steering/019-brief-devops.md`; its correction message) | M1 § AN-1, fourth bullet: do branch previews build, and the plan's numbers there | Previews build, but only with a build-command override. Spike branch `spike/019-an1-wasm` pushed twice; the plain push failed its Preview build, the override commit reached READY; 20-load probe recorded. Details below. |
+| 2026-11-23T17:04 | analyst-019 (message: analysis `aafecf1` cites this record) | Delete the spike branch | `spike/019-an1-wasm` deleted at origin, locally and its worktree removed; `master` unchanged at `af3d95a`. |
 
 ## Scope
 
@@ -81,5 +82,5 @@ AN-1's Vercel limb: **previews build, and the spike's wasm builds, is served and
 
 ## Open items
 
-- The spike branch is deleted at origin and locally once the analysis document cites these numbers (`git push origin --delete spike/019-an1-wasm`, `git worktree remove`, `git branch -D spike/019-an1-wasm`). Deleting deploys nothing. Not yet done.
+- **Done 2026-11-23T17:04Z:** the spike branch is deleted at origin, in the local repository and as a worktree, after the analysis (record `aafecf1`, section AN-1, cites this document at `2531c04a`; `git grep` over that record found the citation). `git ls-remote origin 'refs/heads/spike/*'` lists nothing; `master` is `af3d95a`. Deleting deployed nothing.
 - The two spike deployments stay on the Vercel project until Vercel's own retention; no delete is made (a deployment delete is outside the look-only ruling).
