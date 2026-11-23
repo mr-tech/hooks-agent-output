@@ -1,0 +1,7 @@
+FAIL comment vitest.config.ts:4 — 3 comment(s) outside the comment-gate allowlist; first: "// Shared once so no project below can be written without it — see `project()`." (full list: node /home/dev/.claude/tools/comment-gate.js /tmp/claude-1000/-usr-local-bin-hooks-website/5273f70c-c7ff-4fb2-a32e-0698d83e65b8/scratchpad/clone-f4060c5 --files vitest.config.ts --tests)
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 40 file(s) examined, 0 not examined, 38 test file(s); 1 FAIL, 0 CANDIDATE, 1 SKIP
+exit 1
+## ID-token class by hand over basenames, titles and comment lines
+0
+grep exit 1

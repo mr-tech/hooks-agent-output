@@ -2,10 +2,10 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "7dcedc9 — repos=website; M2 paths only (engine.ts, MarkdownProvider.tsx, the engine.* and MarkdownProvider.engine-state tests); Round 1 at 22f3e58 and its sub-entry at 78c5f74, Round 2 at 7dcedc9"
+Reviewed-At: "f4060c5 — repos=website; Round 3 is M3 at f4060c5 (every M3 path in 22f3e58..f4060c5); M2 closed at Round 2, 7dcedc9"
 Status: In Review
-Round: 2
-Verdict: APPROVED_WITH_COMMENTS
+Round: 3
+Verdict: REJECTED
 ---
 
 # Code Review: 019 — Slate formatting: one Discord engine for the preview and the editor
@@ -22,6 +22,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-23T19:15 | steering-hooks-fixer (brief `steering/019-brief-code-reviewer.md`, record `c651bf75`); implementer-019 (M2 document, `Handoff-At: 22f3e58`) | Review M2 | Round 1 at website `22f3e58`, chain base `5ec0621`. REJECTED on CR-1 MEDIUM (a severity floor: two keyed selections, each with a surviving constant-answer mutant) and CR-2 MEDIUM (the adapter's parse acts differently before init in Node and in a browser). CR-3 and CR-4 are LOW. Milestone-scoped: the plan's Status is not moved. |
 | 2026-11-23T19:24 | implementer-019 (fix round 1, website `78c5f74`, record `491731bf`) | Round 1 sub-entry: confirm CR-1 and CR-2 | Round 1 sub-entry at `78c5f74`, scoped to the fix commit `78c5f74` over the M2 paths. CR-1 and CR-2 are RESOLVED: 8 of 8 probes KILLED, each on its own case by assertion, and the sweeps re-run. Verdict APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW open, each with a carrier). `805fff6` and `548b16b` (M3 test work) are not reviewed here; they belong to M3's round. |
 | 2026-11-23T19:44 | implementer-019 (fix round 2 for QA's QAF-29 and QAF-30, website `7dcedc9`) | Review the M2 delta | Round 2 at `7dcedc9`, opened because the fix adds production code outside CR-1 and CR-2 (`MODIFIER_KINDS`, `modifierStyle`, `warnUnmapped`). The delta is reviewed as a first review over the M2 paths. No new finding. 11 of 11 probes KILLED, each on its own case. APPROVED_WITH_COMMENTS (CR-3 and CR-4 LOW, as before). `1bcab7a` (M3 oracle work) is not reviewed here. |
+| 2026-11-23T21:23 | implementer-019 (M3 hand-off, `implementation/019-slate-formatting-discord-engine-m3-implementation.md`, record `f78d803b`, `Handoff-At: f4060c5`) | Review M3 | Round 3 at `f4060c5`: REJECTED on CR-5 MEDIUM (the generator's game mention is AN-8's withdrawn form, so no input exercises `GAME_MENTION`) and CR-6 MEDIUM (the oracle window keeps live XHR and WebSocket). CR-7, CR-8 and CR-9 are LOW, and CR-4 is re-verified partly resolved. CR-7's M6 carriage goes to the planner. |
 
 ## Scope of this round
 
@@ -197,18 +198,215 @@ select on, and those renderers are M4's. The M4 round checks it (Assumption Not 
 
 No new finding. I did not run the whole suite. The implementer reports 3041 of 3041 with exit 0 at `7dcedc9`.
 
+## Round 3 at `f4060c5` (M3)
+
+The trigger is the implementer's M3 hand-off: `implementation/019-slate-formatting-discord-engine-m3-implementation.md`, record
+`f78d803b`, `Handoff-At: f4060c5`, chain base `5ec0621`.
+
+Scope: every M3 path in `git diff 22f3e58 f4060c5`, which is 50 files (+3,366 −6, of which 3,049 lines are not data). M2's
+`engine.ts` and `engine.*` files are excluded except `engine.import-confinement.test.ts` and its helper, which carry CR-4's fix.
+Read through `git show f4060c5:<path>`. Probes ran in a scratch clone of `f4060c5` with its own frozen install (`pnpm install
+--frozen-lockfile`, exit 0, `m3-install-frozen-f4060c5.log`).
+
+Criteria assessed, as Revision 9 states them at round open: the M3 form, the outcome table, the classes, the visible form, the
+generator, the fixed inputs, the lifted seeds, the reports, the drift alarm, the normaliser, AC-3.3, AC-3.4, AC-3.5 and AC-3.8 (i),
+(i′) and (iii). The site-DOM limbs of AC-3.1, AC-3.6 and AC-3.7, AC-3.2's editor side and AC-3.8 (ii) are M4's and M5's, as the
+implementation document says. They are not assessed here. The plan has moved since Revision 9 by registration rows only (R-23 to
+R-28), which change no criterion.
+
+Process whose output is the evidence: the implementer's committed helpers, run by my probes in the clone. The predicates and planted
+files are mine. Nothing in this round drove `pnpm test:discord` or fetched Discord. Every probe ran under `unshare -rn`.
+
+### Checks run this round
+
+| Check | Result | Capture |
+|---|---|---|
+| The oracle window's network channels. The window is built through `loadBuild` exactly (its options and `installShims`), with a minimal runtime script. From inside it, `fetch`, `XMLHttpRequest`, `WebSocket` and `sendBeacon` are tried against a loopback listener the probe owns. Oracle: the listener's log | `fetch` is refused, as the shim intends. **`POST /xhr` and a WebSocket `UPGRADE /ws` reach the listener** (CR-6). `EventSource` and `sendBeacon` are absent | `m3-oracle-window-network.mjs`, `.out` |
+| The removal test over the generator's first 200 inputs: for each tagged bit, does `Syntax.ALL & ~bit` change the pinned engine's parse? | In the catalogue range, `<game:1558266761101447248>` tagged `GAME_MENTION` changes nothing (CR-5). The other dead tags are a link-embedded emoji, the deliberately invalid timestamp styles `x` and `Z`, and composed inputs where a construct sits inside code or is unbalanced. Those are bookkeeping, not claims the coverage report reads (it uses the removal test itself) | `m3-generator-bit-tags.mjs`, `.out` |
+| CR-4 re-attack: planted `createRequire(import.meta.url)(n)`, `module.require(n)`, an aliased `require` and a concatenated engine import under `__tests__/`, run through `importersOf` and the real-tree rule | The three non-test forms are **not reported**. The test-file concatenated engine import is reported, then **exempted** by the real-tree rule (CR-4, reopened) | `m3-importers-of-reattack.mjs`, `.out` |
+| `convention-check.js --files` over the 40 M3 `.ts`, `.tsx`, `.mjs` and `.js` files, and the ID-token class by hand | 0 CANDIDATE, 0 ID-token hits. The one FAIL is pre-existing, not this change's: 3 comments in `vitest.config.ts` that are present at `22f3e58` (`git show 22f3e58:vitest.config.ts`, 3 comment lines). `--files` judges whole files, and the implementer's `--since` run judges added lines only. ESLint is clean | `m3-convention-check-f4060c5.txt` |
+| The game-mention form in the inputs | `git grep` over the generator and its test: `<game:${ID}>` and `NEEDLES.GAME_MENTION = /<game:\d+>/`. The 272 corpus holds 0 inputs with `<@$` | (commands in CR-5) |
+
+### Findings (Round 3)
+
+CR-5 MEDIUM Round 3
+- **Category**: Checks That Cannot Fail
+- **Title**: The generator writes a game mention in the form AN-8 withdrew, so no input in any class exercises `GAME_MENTION`
+- **Location**: `src/utils/markdown/__tests__/helpers/markdownGenerator.ts` `MENTIONS` (the `GAME_MENTION` piece);
+  `markdownGenerator.seeded-inputs.test.ts` `NEEDLES.GAME_MENTION` and the needle list; `discordReports` coverage cells, at `f4060c5`.
+- **Class**: An input-class construct written from a superseded premise. The input carries the bit's tag but not the bit's
+  construct, so a criterion's coverage of that bit is zero while the generator's own test passes.
+- **Enumeration**:
+  - **Run:** the removal test over the generator's first 200 inputs (`m3-generator-bit-tags.out`) finds, in the catalogue, one
+    construct tag that is dead and not by design: `GAME_MENTION` on `<game:id>`.
+  - **Implementer's count:** the coverage report finds 7 zero cells (Findings 5): `GAME_MENTION` on all six surfaces, and
+    `CODE_BLOCK` on `embedTitle`. The latter is legitimate, because the title mask clears the bit.
+  - **Corpus:** 0 inputs hold `<@$` (`grep -c '<@\$'` over `discordCorpus.json`).
+  - **Blind spot:** the predicate does not see a construct whose form is right but which is always swallowed by its context, such
+    as one only ever generated inside code. It also does not run on the 106 link inputs.
+- **Issue**:
+  - AN-8 limb 2 established the game mention's written form as `<@$<id>>`, and showed that `<game:id>` "stay[s] text" (analysis,
+    § Findings, limb 2). M2's `engine.kind-maps.test.ts` already uses `<@$4>`.
+  - The generator kept the research's withdrawn guess, and its test transcribes the same premise (`/<game:\d+>/`). The test checks
+    the generator against itself, not against the parser.
+  - Consequences: AC-3.7 and the residue measurement (Findings 4, which M4 starts from) contain no game mention on any surface.
+    That includes the description, field value and V2 surfaces, where AN-8 limb 2b says legacy draws a pill. It also includes the
+    title and field-name masks, whose one distinguishing bit from AN-3 is exactly `GAME_MENTION`. The coverage report calls the
+    cell unexamined and gives the withdrawn form as the reason.
+- **Required Action**:
+  - **Preferred (structural)**: the coverage report fails the run on a zero cell for a bit that the surface's literal mask carries.
+    It names cells whose bit the mask clears as "masked off", the way `CODE_BLOCK` on `embedTitle` already is. A construct then
+    cannot silently fall out of coverage.
+  - **Minimum**:
+    - The generator writes `<@$<id>>` for `GAME_MENTION`, and keeps `<game:id>` as an untagged near-miss.
+    - The generator test's needle comes from AN-8's form, not from the generator.
+    - The residue measurement (Findings 4) is re-run, and the M3 document's counts are updated.
+  - **Falsity signature**: at `f4060c5`, a report-form case asserting that no carried bit has a zero cell fails by assertion on
+    `GAME_MENTION` × content. After the fix it passes, and a planted generator that drops the game-mention piece makes it fail
+    again.
+
+CR-6 MEDIUM Round 3
+- **Category**: Architecture / test isolation
+- **Title**: The oracle window refuses `fetch` but keeps jsdom's live `XMLHttpRequest` and `WebSocket`, so Discord's evaluated code
+  can reach the network during `pnpm test:discord`
+- **Location**: `src/utils/markdown/__tests__/helpers/discordBuild.ts` `installShims` and `loadBuild` at `f4060c5`.
+- **Class**: A sandbox shim that closes one network API of the window and leaves others live. The oracle's output can then depend
+  on live server responses as well as the served build, and the window can send requests that no test intends.
+- **Enumeration**: the window's network-capable globals at jsdom 30.0.1, by probe (`m3-oracle-window-network.out`):
+  - `fetch`: refused, except the pinned wasm;
+  - `XMLHttpRequest`: **live**;
+  - `WebSocket`: **live**;
+  - `EventSource` and `navigator.sendBeacon`: absent.
+  - Subresource loading (`<img>`, `<script src>`, `<link>`) is off by jsdom's default `resources` option and is not set by `loadBuild`.
+  - The predicate does not cover a network path reached through a host-realm object the shims hand in (`crypto`, `WebAssembly`,
+    `TextEncoder`). jsdom is not a security sandbox, and D-4 accepts running Discord's code in tests.
+- **Issue**:
+  - The shim's refusal message says "oracle: network disabled", and the plan's model is that the expected values come from the
+    fetched build alone.
+  - At `f4060c5`, any XHR or WebSocket that Discord's evaluated modules open goes to the network. That includes the facade's
+    dependencies, the boxes, and the lazy chunks `loadLazyChunks` evaluates.
+  - Whether they do is an **unmeasured hypothesis**. The probe shows the channel is open, not that Discord's code uses it. If any
+    module does (experiments, telemetry, the gateway), the oracle's values and its request footprint depend on Discord's servers
+    and not on the build.
+- **Required Action**:
+  - **Preferred (structural)**: `installShims` replaces every network-capable constructor in the window (`XMLHttpRequest`,
+    `WebSocket`, and `EventSource` and `sendBeacon` should a jsdom upgrade add them) with one that records the attempted URL and
+    throws. The `Oracle` exposes the recorded attempts, and the live controls assert that the list is empty, or name its members
+    as known.
+  - **Minimum**: the same replacement for `XMLHttpRequest` and `WebSocket`.
+  - **Falsity signature**: an offline case that builds the window through `loadBuild`, and attempts XHR and WebSocket to a loopback
+    listener from inside it. At `f4060c5` it fails by assertion: the listener saw `POST /xhr` and `UPGRADE /ws`. After the fix the
+    listener sees nothing and the attempts are recorded. `m3-oracle-window-network.mjs` is the instrument to adapt.
+
+CR-7 LOW Round 3
+- **Category**: Maintainability (held-out sets)
+- **Title**: The base-red hold-outs are shared between the typed and pasted limbs and keyed by edit position, and the plan's M6
+  names no deletion of them
+- **Location**: `src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts` `mountedInputs` and `MOUNTED_BASE_RED`;
+  `helpers/blockLayerEdits.ts` `EDITS_BASE_RED`; `helpers/data/{mountedBaseRed,blockLayerEditsBaseRed}.json`, at `f4060c5`.
+- **Class**: A hold-out from a property that is wider than the limb's own red set, or keyed so that its members can change meaning,
+  and that has no carrier naming its removal.
+- **Enumeration**: there are three hold-outs in the tree (`git grep -n "BASE_RED\|holdsEmoji" f4060c5 -- src`):
+  - `MOUNTED_BASE_RED`: one set per class, applied to both the typed and pasted limbs. The implementation document says pasted
+    fails on 19 atom pairs and 3 block texts that typed passes, so typed is held out of 22 inputs it passes;
+  - `EDITS_BASE_RED`: 346 indices into `blockLayerEdits(800)`, an enumeration whose per-line edit count comes from the loader's
+    output (`node.quotePrefix`). The 15,480 count control catches a size change, not a reorder;
+  - `holdsEmoji`: 645 of 1,000 generator inputs and 549 of 769 probe inputs held out of the load and normalise limbs.
+- **Issue**:
+  - Outstanding 2's reading is sound. The base-red members cannot land red in a green suite, and no test pins them wrong (axiom D).
+  - But a hold-out is a list that can hide a regression on its own members, and these are wider than their limbs' red sets.
+  - Nothing in the plan's M6 says the three are deleted. I checked by `grep` of the plan for `held out`, `BASE_RED` and
+    `mountedBaseRed`: 0 hits.
+- **Required Action**:
+  - Split `MOUNTED_BASE_RED` by limb, typed and pasted, each holding only its own red members.
+  - Key `EDITS_BASE_RED` by `(text, line, offset)` rather than by index.
+  - Carry the deletion of all three hold-outs as an M6 exit condition. This is the planner's to register, as a Planner batch row
+    under the M6 cap (a stated limit, below HIGH), and is routed to `planner-019`.
+  - Falsity signature for the split: with each limb's red set alone, the typed limb runs the 22 pasted-only members, and passes.
+  - Not blocking.
+
+CR-8 LOW Round 3
+- **Category**: DRY / AC-2.1 wording
+- **Title**: The oracle helper's default content mask is computed from the package's `Syntax` enum beside the literal of the same
+  value
+- **Location**: `src/utils/markdown/__tests__/helpers/discordOracle.ts` `CONTENT_MASK_LITERAL` and `SURFACE_MASK_LITERALS.content`,
+  at `f4060c5`.
+- **Class**: One mask held twice in the oracle helper, once as AN-3's literal and once derived from the pinned package. At a pin
+  change that moves `Syntax.ALL`, the two diverge silently. AC-2.1 says the helper "calls the engine only with AN-3's literal masks".
+- **Enumeration**: `git grep -n "Syntax\.\(ALL\|DEV_LINKS\)" f4060c5 -- 'src/**/__tests__/**'` finds the helper's
+  `CONTENT_MASK_LITERAL` and `SYNTAX_ALL`. `SYNTAX_ALL` is the removal test's base and is correctly derived, since the coverage
+  report needs the package's full set. `CONTENT_MASK_LITERAL` is the member.
+- **Required Action**: `nativeParse`'s default becomes `SURFACE_MASK_LITERALS.content`, and `CONTENT_MASK_LITERAL` is deleted or
+  defined as that literal. Not blocking.
+
+CR-9 LOW Round 3
+- **Category**: Placement (Test Conventions)
+- **Title**: The jsdom type declaration sits in `src/@types/`, which the production program includes, so production code
+  importing the dev-only `jsdom` now type-checks
+- **Location**: `src/@types/jsdom.d.ts` at `f4060c5`.
+- **Class**: A test-only declaration placed where the production `tsconfig.json` (which includes `src/**/*.ts`) reads it. That
+  removes the type error which, without types, stops a production import of a dev-only package. `eslint.config.mjs` sets
+  `import/no-extraneous-dependencies` with `devDependencies` left at its default (allowed), so lint does not catch it either.
+- **Enumeration**: `git ls-tree --name-only f4060c5 src/@types/` lists 7 files. `jsdom.d.ts` is the only one for a package used
+  only under `__tests__` (`git grep -n "from 'jsdom'" f4060c5 -- src bot` gives 1 hit, `helpers/discordBuild.ts`).
+- **Required Action**: move the declaration under `src/utils/markdown/__tests__/helpers/` (`tsconfig.test.json` includes
+  `src/**/__tests__/**/*.ts`), keeping it free of top-level imports so it stays ambient. Falsity signature: after the move,
+  `pnpm run typecheck` still exits 0, and a scratch production file importing `jsdom` fails the base program with TS7016. Not
+  blocking.
+
+CR-4 LOW Round 1, re-verified in Round 3: **partly resolved**.
+- **What is fixed:** `loadsNonLiteral` now reads every `import(...)` and bare `require(...)` call whose argument is not a string
+  literal. Its control plants five members and five non-members.
+- **What remains, by re-attack** (`m3-importers-of-reattack.out`):
+  - `createRequire(import.meta.url)(n)`, `module.require(n)` and an aliased `const r = require; r(n)` are not reported;
+  - the real-tree case `has no file outside the test directories that loads a module by a specifier the scan cannot read` exempts
+    every path under `__tests__`. A test file `import('@discord/markdown-' + n)` is seen, then exempted. AC-2.1's confinement
+    covers test files too: one helper only.
+- **Required Action** (as Round 1 asked):
+  - the real-tree case names its accepted unresolvables (the six server-test loads Round 1 listed), so that a seventh, in any
+    directory, fails;
+  - `loadsNonLiteral` also reports a call whose callee is a call of `createRequire` and any `.require(` member call.
+  - Not blocking.
+
+INFO, Round 3, no action owed:
+- **Lazy-chunk fetch (Outstanding 4).** 166 MB per live run is a standing cost of the command, not a defect, and no stable pointer is
+  known. Accepted as stated.
+- **The `isContentEditable` shim (Findings 6).** It is an absent API defined, not an inert one, and the `beforeinput` paste branch it
+  does not reach is routed to QA Phase 2 or UAT (Outstanding 7).
+- **Outstanding 5.** The AC-3.4 mutations of `getInitialValue`, `flattenNodeText`, `withNormalizeNode` and the paste handler are
+  QA's Phase 2 sweep.
+- **The two surviving helper mutants (Outstanding 6).** They are accepted as equivalent over the committed classes on the reasons
+  given. M3-r19a's equivalence rests on the loader keeping every line, which the 15,480 count control watches.
+
+Other surfaces I read and found sound:
+- **Visible form:** `visibleForm.ts` implements each invisible class and counted dimension the plan lists (bold and italic on
+  whitespace, quote-in-spoiler as `q*`, list kind, start number and depth).
+- **Routing predicates:** they bind facade calls through the module alias, and the switch through the require call or the flag
+  name.
+- **Form:** the project form keeps `project()` and the default exclude.
+- **Typed drive:** the `onChange` drive reads `writes`, never `editor.children`, except the stated line-break sanity check.
+- **Pasted limb:** its refusal cases assert the toast text and the unchanged write.
+
+Verdict, Round 3: **REJECTED** on CR-5 and CR-6.
+- **CR-5:** M4 starts from the residue measurement, and both its adjustment choice and AC-3.7 have no game mention in them today.
+- **CR-6:** the oracle is M3's deliverable, and its expected values must come from the build alone.
+
+Both fixes are small. CR-4, CR-7, CR-8 and CR-9 are LOW: CR-7's carriage goes to the planner, and the rest may land in the same
+fix round.
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (Round 2, M2 at `7dcedc9`)
-**Rationale**: The Round 2 delta extends the adapter's own map and warning patterns without a second copy. Every keyed lookup in
-the adapter is asserted on every key, and the re-attack kills every probe on the case that names it. CR-1 and CR-2 stay resolved
-at this tree (their probes re-ran). Two LOW findings remain open, each with a carrier:
-- CR-3 goes to M5.
-- CR-4 goes to this document's M3 round, or to a handoff if the chain closes first.
+**Status**: REJECTED (Round 3, M3 at `f4060c5`). M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
+**Rationale**: in Round 3 above. CR-5 and CR-6 are cheap to fix and change what M4 starts from.
 
 ## Required Actions
 
-None owed for M2. Optional: CR-4 at M3 (above). CR-3 at M5.
+Round 3, for the M3 fix round:
+1. CR-5: the generator's game mention takes AN-8's form, and the coverage report fails on a zero cell for a bit the surface's mask
+   carries (preferred). Re-run the residue measurement.
+2. CR-6: close `XMLHttpRequest` and `WebSocket` in the oracle window, with a recording refusal and an offline loopback case.
+3. Optional in the same round: CR-4's remainder, CR-7's split and re-keying, CR-8 and CR-9. CR-7's M6 deletion is the planner's to
+   register.
 
 ## Assumption Not Checked
 
@@ -223,10 +421,16 @@ Round 2: This review assumes that no M4 renderer will branch on `LinkKind`, quot
 signature: an M4 renderer `switch`/lookup over one of those four whose unknown arm renders nothing or throws, instead of source
 text plus `markdown-engine-unmapped-kind`. Owner: this review's M4 round.
 
+Round 3: This review assumes that the counts in the M3 document's Findings 4 and 5 (residue per surface; 1,116 loose disagree; box
+differences 1,545 of 2,463) are what `pnpm test:discord` produces at `f4060c5`, and does not test it. I did not run the live
+command. Falsity signature: a live run at `f4060c5` whose `discord-reports/` files show different counts from the document's.
+Owner: QA Phase 2 on M3, which runs the command (D-12) and copies the reports into `verification/019/`.
+
 ## Next Steps
 
-- QA Phase 2 (M2 at `7dcedc9`): AC-2.6, per the Assumption Not Checked above. AC-2.5's per-surface limbs come at M4 and M5.
-- M3 round of this review: CR-4, and AC-2.1's second member `helpers/discordOracle.ts` against "calls the engine only with AN-3's
-  literal masks" (it derives its mask from the package's `Syntax` enum).
+- Implementer: the M3 fix round for CR-5 and CR-6 (optionally CR-4, CR-7, CR-8 and CR-9), then a hand-off for Round 3's sub-entry.
+- Planner (`planner-019`): CR-7's deletion of the three hold-outs as an M6 exit condition, a Planner batch row under the M6 cap.
+- QA Phase 2 on M3, after approval: the live command and its reports (Round 3's Assumption Not Checked); the AC-3.4 product-function
+  mutations (Outstanding 5); the `beforeinput` paste branch (Outstanding 7, or UAT).
+- M4 round of this review: the link allow-list attack re-run against the rendered anchor, and Round 2's Assumption Not Checked.
 - M5 implementer and this review's M5 round: CR-3.
-- M4 round of this review: the link allow-list attack re-run against the rendered anchor (residue above), and Round 2's Assumption Not Checked.
