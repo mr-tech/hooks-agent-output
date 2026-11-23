@@ -781,3 +781,20 @@ This log is past 40 KB (`wc -c`: 74,692) and had no declarative companion, which
 checked that all 36 cited headings are present (`grep -qxF` per heading), corrected the commission's `/clear` limb to "in force", and left
 the 07:06 folder-trust request unsettled. **This thread's error:** it placed that file with `cp`, a shell copy, instead of Write, against
 the record-write rule in its docket. The content is the reviewed draft, unchanged.
+
+## 2026-11-23T18:48Z — 9e released and closing; website tree to plan 019; implementation start
+
+**9e** `fix-image-uploader-url` was released at website `5ec0621` (18:36:07Z, his selection to devops). Its close-out is in
+`steering/fix-image-uploader-url-rulings.md`, block 18:46Z. Retrospective `fixes-2026-11-23-steering-hooks-fixer-3` is running, with
+test-case scoring beside it. The fixer batch count since that retro is 0.
+**Tree switch, on the coordinator's go** (message 18:4xZ, item 10, base named `origin/master` `5ec0621`). In `/usr/local/bin/hooks/website`
+at 18:47:45Z (`date -u`), `git switch --no-track -c chain/019-slate-formatting-discord-engine origin/master` ran. Before: `master` at
+`5ec06212d730`. After: `chain/019-slate-formatting-discord-engine` at `5ec06212d730`. Porcelain before and after shows only
+`?? .playwright-mcp/`, which is foreign and held. `pnpm-lock.yaml` is the same across the switch (`git diff --quiet 5ec0621 origin/master`).
+**Implementation start for plan 019, this thread's (steering.md, Implementer).** Revision 9 (`47348a6d`) is approved by all three pre-code
+gates: critic `c1e40234` (critique closed), architect `559253f1`, QA Phase 1 `26f3a3c` (`qa/019-*.md`, Verified-At `af3d95a`, the Phase 1
+baseline). The plan's `OPEN QUESTION` lines are all RESOLVED (`grep 'OPEN QUESTION' | grep -vc RESOLVED`: 0). No `handoff/` record was added
+after 08:30Z (`git log --diff-filter=A --since=2026-11-23T08:30Z -- handoff/`: empty), and Revision 9 is at 18:15Z. M2 starts. The plan's
+Status-Detail says "on his approval". steering.md governs here: implementation starts without a prompt once those gates hold, and no ruling of
+his asks for a further approval (this file, searched for 019 approval). The base moved from QA's `af3d95a` to `5ec0621`, which is 9e's
+`ImageUploader.tsx` and `useDialogEnter.ts` and lies outside the region. The implementer re-baselines the suite at `5ec0621`.
