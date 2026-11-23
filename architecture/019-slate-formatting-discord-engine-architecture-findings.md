@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 12 (record b0af4dc3): APPROVED_WITH_CHANGES. CF-18 and CF-19 are resolved; the atom narrowing
+  fits D-14's visible form. CF-20 (LOW): the atom clause must say "kind and identifying fields", not "source span", because legacy
+  trees carry no spans. Fold before M4's residue-list commit.
   Delta pass on plan 019 revision 11 (record ec2440d9, AC-3.7's residue list): APPROVED_WITH_CHANGES. CF-18 (MEDIUM): the
   measurement behind the per-input list left out the inputs containing atoms (1,034 of 2,378 per rich surface), so AC-3.7 must
   measure them or state them as an excluded class before M4's residue-list commit. CF-19 (LOW): RK-9 needs a fire condition
@@ -41,6 +44,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T22:36 | architect-019 | Delta pass on plan 019 revision 12 (record `b0af4dc3`); § Delta pass, revision 12. CF-18 and CF-19 resolved; CF-20 LOW raised | Read as `git diff ec2440d9 b0af4dc3` on the plan, against § Legacy-only surfaces part (1). Website chain tip `0b9f76f`: `canonicalForm.ts` and `canonFromDom.ts`, read through `git grep`/`git show`. |
 | 2026-11-23T22:31 | architect-019 | Delta pass on plan 019 revision 11 (record `ec2440d9`); § Delta pass, revision 11. CF-18 MEDIUM and CF-19 LOW raised | Read as `git diff 890d0b78 ec2440d9` on the plan, with the implementer's residue captures and website `0b9f76f`/`6379abc`. The tabulation is in `verification/019/architect-conformance/rev11/`. |
 | 2026-11-23T21:40 | architect-019 | Delta pass on plan 019 revision 10 (record `890d0b78`); § Delta pass, revision 10. CF-17 raised and, under the M4 cap, made a stated limit. A Problem Area is lodged for the master document | Read as `git diff 47348a6d 890d0b78` on the plan. Website `5ec0621` and the chain's `93b26fd` were read through `git show`/`git grep`; steering blocks 21:18Z to 21:38Z were read. CF-16's open item is closed (steering 18:06Z made it a stated limit, plan R-21). |
 | 2026-11-23T18:05 | architect-019 | Delta pass on plan 019 revision 9 (record `47348a6d`), AC-4.7 delta only (block 18:02Z); § Delta pass, revision 9. CF-15 resolved; CF-16 raised and routed to steering | Read as AC-4.7's hunks of `git diff 7b419f5b 47348a6d`. The locale-order probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev9/`. |
@@ -57,7 +61,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-18 and CF-19** wait on the planner's fold; my next delta pass reads it.
+- **CF-20** waits on the planner's fold; my next delta pass reads it.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
   at the reconciliation below.
@@ -292,6 +296,54 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 12 (record `b0af4dc3`)
+
+Read as `git diff ec2440d9 b0af4dc3 -- planning/019-slate-formatting-discord-engine.md` (42 insertions, 9 deletions), against my
+§ Legacy-only surfaces part (1), the atom-unit definition. The website chain tip `0b9f76f` was read through `git grep`:
+`src/utils/markdown/__tests__/helpers/canonicalForm.ts` (both the engine-side and the legacy-side atom mapping) and
+`canonFromDom.ts`.
+
+**Does the narrowing fit D-14's visible form?** Yes in substance. Part (1) defines an atom as one unit "with its kind and its
+resolved value". D-14 judges "each character's visible styles": whether the same source text becomes the same construct in the
+same place. The resolved value (D-17 names, image choice, locale wording) is site data the legacy oracle cannot hold, and the plan
+names the criteria that cover it (AC-4.3, AC-4.4, AC-4.7, CF-10). Restricting AC-3.7 to kind plus identity keeps the dimension D-14
+cares about and drops one no oracle can judge. That is the same move part (1) already makes for emoji image choice and highlight
+colours, which research § 4 gap 4 leaves to X-19. AC-5.8 keeps the full form. Part (1) is not amended, because AC-3.7's restriction
+is stated where it applies. CF-18 is resolved.
+
+### CF-20 LOW — "Kind and source span" cannot be computed on the legacy side; the instrument compares kind and identity
+
+The legacy side has no spans. Its frozen trees (`helpers/data/discordLegacyTrees.json` at `0b9f76f`) carry no `span`, `end`,
+`index` or `offset` key; the only `start` keys are 7 list start numbers (key tally, run this pass). The chain's own instrument
+already compares atoms by kind and identifying fields, not spans. `canonicalForm.ts` at `0b9f76f` maps both trees
+to nodes like these:
+- `m channel:<id>`, `m role:<id>`, `m user:<id>`;
+- `e c:<id>:<name>:<animated>` or `e u:<value>`;
+- `ts <timestamp>:<style>`.
+
+The unit's position comes from its place in the sequence. A span on the legacy side could only come from re-deriving positions
+over the source, which is a second grammar of the kind the B3 rule forbids for adjustments.
+
+Separately, `canonFromDom.ts` reads a mention pill as `dom:<text>`, its displayed text. Under D-17 that text is a channel name,
+so the DOM side has to recover the kind and id from the element, for example a data attribute, not from its text.
+
+**Required change**, before M4's residue-list commit: AC-3.7's atom clause reads "an atom unit agrees when its kind and its
+identifying fields agree (a mention's kind and id; an emoji's custom id, name and animated flag, or its Unicode value; a
+timestamp's value and style)", with position given by the unit's place in the sequence. The DOM reader takes those fields from
+the rendered element. LOW: a wrong reading fails loudly, because legacy has no span to compare. AC-3.7 is M3, so the cap does not
+reach it. It goes to the planner.
+
+**CF-19 as folded (RK-9).** It fires once at M4 with the per-surface counts over the corpus and over all inputs, put to him by
+steering, and again on any rise above M4's. No threshold is set, because whether the count is too large is his judgement under
+D-14's reopening class. That meets CF-19, whose ask was a fire condition and a route; a share was only my example. It matches
+steering's hold in effort rulings block 22:33Z. CF-19 is resolved.
+
+**Read beside them.** The family check (QAF-35), with its planted member and non-member at M4, and M4's measurement over every
+input, field name masks included, raise no conformance question.
+
+**Verdict on revision 12:** APPROVED_WITH_CHANGES. CF-20 is LOW, to fold before M4's residue-list commit. CF-18 and CF-19 are
+resolved. Nothing needs the owner.
 
 ## Delta pass, revision 11 (record `ec2440d9`)
 
