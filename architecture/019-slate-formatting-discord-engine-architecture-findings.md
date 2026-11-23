@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 7 (record e0eb1e87): APPROVED_WITH_CHANGES. CF-13 is resolved as option (a). CF-14 (LOW):
+  AC-4.7 must pass Intl dayjs's effective locale, not react-aria's tag, and the America/New_York case must state the mounted
+  state. It is a Planner batch row, folded before M4's code, and holds AC-4.7 only. AC-6.5 is approved.
   Delta pass on plan 019 revision 6 (record 946d4e54): APPROVED_WITH_CHANGES. CF-12 is resolved, and the field value's one
   differing bit, HEADING, was run and changes no emoji span. CF-13 (LOW): AC-4.7's s and S must take the timestamp component's
   locale and pre-mount UTC rule. It is a Planner batch row, folded before M4's code. It holds nothing else.
@@ -25,6 +28,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T17:55 | architect-019 | Delta pass on plan 019 revision 7 (record `e0eb1e87`); § Delta pass, revision 7. CF-13 resolved; CF-14 raised. `website.md` A-10 gains the effective-locale sentence | Read as `git diff 946d4e54 e0eb1e87` on the plan. The dayjs locale probes ran read-only on the shared tree's installed dayjs 1.11.7; captures are in `verification/019/architect-conformance/rev7/`. |
 | 2026-11-23T17:49 | architect-019 | Delta pass on plan 019 revision 6 (record `946d4e54`); § Delta pass, revision 6. CF-12 retired to a disposition line with a reconcile note. CF-13 raised. `website.md` gains A-10 | Read as `git diff d2912590 946d4e54` on the plan, with AN-8 limb 2b (`3681654e`). Website `af3d95a` was read through `git show`/`git grep`. The heading-containment probe and its control ran on the pinned wasm; captures are in `verification/019/architect-conformance/rev6/`. Resumed after a `/clear` from the Resumption State at `14ceb6df`. |
 | 2026-11-23T17:31 | architect-019 | Delta pass on plan 019 revision 5 (record `d2912590`); § Delta pass, revision 5 | Read as `git diff e53c7cdb d2912590` (73 insertions, 35 deletions), with the limb the Owed re-verdicts table names to this gate (AC-6.5's expected value), M3 "Which wasm", and AC-2.3's six literals. |
 | 2026-11-23T17:26 | architect-019 | Delta pass on plan 019 revision 4 (record `e53c7cdb`); § Delta pass, revision 4 | Read as `git diff 9ac9ba62 e53c7cdb` (132 insertions, 75 deletions), with the limbs the Owed re-verdicts table names to this gate: CF-9 and CF-10 as folded, the `GAME_MENTION` mask line, and AC-3.8 (i′). |
@@ -35,7 +39,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-13** waits on the planner's fold; my next delta pass reads it.
+- **CF-14** waits on the planner's fold; my next delta pass reads it.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
@@ -267,6 +271,44 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 7 (record `e0eb1e87`)
+
+Read as `git diff 946d4e54 e0eb1e87 -- planning/019-slate-formatting-discord-engine.md` (55 insertions, 18 deletions). The probes ran
+on the shared tree's installed dayjs 1.11.7 (website `af3d95a` declares `^1.11.6`), read-only, under Node 24.14.0. Captures are in
+`verification/019/architect-conformance/rev7/`.
+
+**CF-13 as folded (AC-4.7).** Option (a): UTC before mount, the dayjs locale, and only the formatter departs, for F-32's reason.
+The picker stays keyed on `TIMESTAMP_TO_DAYJS_FORMAT`, so it lists neither `s` nor `S`, as it already omits `R`. That follows the
+current form, and the plan flags it to steering as his to overturn. CF-13 is resolved, apart from the one ambiguity in CF-14,
+which my own wording put there.
+
+**AC-6.5.** The heading read cites `verification/019/architect-conformance/rev6/` correctly. QAF-24's mask control on url-variant
+link fixtures closes the gap the content control leaves, a helper that ignores its mask. No finding.
+
+### CF-14 LOW — "The locale `LoadLocale` sets for dayjs" names two different values
+
+`LoadLocale.tsx` calls `dayjs.locale(locale)` with react-aria's tag. The locale dayjs then uses is not always that tag:
+- `en-US` becomes `en`;
+- a tag with no file in `loadLocales.ts` leaves the global locale unchanged, `en` from the start (`dayjs-effective-locale.out`).
+
+For a viewer whose tag the site has no file for, the six sibling letters render in English. `Intl` given react-aria's tag renders
+`s` and `S` in the viewer's language. For example, `vi-VN` gives `22:13 14/11/23` beside the siblings' `10:13 PM`
+(`intl-locale-source.out`; `cs-CZ` and `da-DK` likewise). `Intl` given dayjs's effective locale gives `11/14/23, 10:13 PM`, the
+siblings' language. My CF-13 text, "the locale `LoadLocale` hands dayjs", carries the same ambiguity. The error was mine.
+
+**Required change** (follow the current pattern): AC-4.7 names dayjs's effective locale, `dayjs.locale()` read at render, or the
+formatted instance's `.locale()`, as the tag passed to `Intl`, not the value `LoadLocale` passes in. A test case under a tag
+`loadLocales.ts` has no file for (for example `vi-VN`) asserts the `en` form. Beside it: QAF-25's `America/New_York` case expects
+`5:13 PM`, which holds only with `state.mounted` true. Under the UTC-before-mount rule the unmounted render is `10:13 PM`, so the
+case states the mounted state.
+
+**Severity and carrier.** LOW: a viewer in a locale the site lacks sees two languages in one message's timestamps; nothing is lost.
+It holds M4's AC-4.7 only. It is a Planner batch row, folded before M4's code, and my next delta pass reads the fold. `website.md`
+A-10 gains the effective-locale sentence in this pass.
+
+**Verdict on revision 7:** APPROVED_WITH_CHANGES. The one change is CF-14, LOW, on AC-4.7, folded before M4's code. AC-6.5 is
+approved. Nothing needs the owner.
 
 ## Delta pass, revision 6 (record `946d4e54`)
 

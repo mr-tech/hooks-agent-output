@@ -1,0 +1,3 @@
+after unloaded pt-BR, dayjs.locale() = en
+after loaded de, dayjs.locale() = de
+after en-US (react-aria form), dayjs.locale() = en

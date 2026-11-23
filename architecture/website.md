@@ -377,10 +377,11 @@ the UTC rule is an inference. Re-verify against the code.
   same map's keys build the component's format picker.
 - Before mount (`!state.mounted`) the date is formatted in UTC; after mount, in the browser's zone.
 - The locale is dayjs's global one, set by `src/components/LoadLocale.tsx` from react-aria's `useLocale()`. It is limited to the
-  locale files `src/utils/loadLocales.ts` imports.
+  locale files `src/utils/loadLocales.ts` imports. So the locale in effect (`dayjs.locale()`) is not always react-aria's tag:
+  `en-US` becomes `en`, and a tag with no file leaves the global locale unchanged, `en` from the start (dayjs 1.11.7, run).
 
 **Consequence a change must carry**: a new style letter, or a new formatting mechanism such as `Intl.DateTimeFormat`, takes the
-same locale source and the same pre-mount UTC rule as the existing letters, and states whether the picker lists it. By
+locale in effect (`dayjs.locale()`, not react-aria's tag) and the same pre-mount UTC rule as the existing letters, and states whether the picker lists it. By
 inference, the UTC rule keeps the first client render equal to the server's.
 
 ---
@@ -407,3 +408,4 @@ inference, the UTC rule keeps the first client render equal to the server's.
 | 2026-11-20T13:42 | 16 | architect-hooks-018 | `A-4` "List bounds" restated from website `master` `d1bb9b0` (plan 018's release, 2026-11-20T08:07:52Z; release reconciliation). The three shared forms and the `zod` 3.22.4 pin are production; the inline `.max()` form is stated as the reason for them, with no list on `master` taking it. Agent-designed mechanism, landed by the architect. |
 | 2026-11-23T16:00 | 17 | architect-019 | Added `A-9` (agent-designed), read at website `af3d95a` in the plan 019 conformance pass: markdown parsing reaches components only through `MarkdownProvider` and `src/utils/markdown/index.tsx`, and Discord-measured expected values are frozen as typed literal helpers. His D-6 selection is cited as the plan's authority, not as intent. |
 | 2026-11-23T17:50 | 18 | architect-019 | Added `A-10` (agent-designed), read at website `af3d95a` in the plan 019 delta pass on revision 6 (CF-13): Discord timestamps render in `MarkdownTimestamp`, with react-aria's locale through dayjs and UTC before mount. The reason given for the UTC rule is marked an inference. No selection of his shaped it. |
+| 2026-11-23T17:55 | 19 | architect-019 | `A-10` gains the effective-locale sentence from the plan 019 delta pass on revision 7 (CF-14). dayjs's locale in effect is not always react-aria's tag, and the consequence now names `dayjs.locale()`. Run on dayjs 1.11.7. Agent-designed. |
