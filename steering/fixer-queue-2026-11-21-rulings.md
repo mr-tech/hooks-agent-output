@@ -500,3 +500,15 @@ readable. Acted on: the researcher was sent an addendum by message. Discord's pu
 sources. It reports (a) reading the code to derive the rules, separately from (b) running an extracted module as a test oracle. Bounds
 given: no copying Discord's code into the product; whether (b) raises a licence question is his to decide, not the researcher's; only
 publicly served assets, plus the already granted test account and test server.
+
+## 2026-11-23T09:18Z — his ruling: running Discord's own code as a test oracle is allowed, in tests only
+
+His question: "I mean, there shouldn't be any issue in just running the code in the test environment, right? As long as we don't actually
+ship that code." This thread's answer in chat: Discord's Terms of Service (https://discord.com/terms, read by web search this turn) bar
+reverse engineering and decompiling without written consent or legal permission, and license the software "solely to access our
+services", so the risk is low in practice but not zero; committing extracted code to the repository would raise it. Two options were put
+in plain text: run it in tests only, fetched at test time and never committed; or read and rewrite. His reply: "Yeah, I mean, we're just
+using it in test, so I don't see any issue."
+**Ruling as it binds this effort:** an extracted Discord markdown module may run as the fuzzer's oracle in the test environment. The
+bounds are the ones his answer accepted: it is fetched from Discord's publicly served assets at test time, never committed to any
+repository, and never shipped in the product. Told to the researcher by message.
