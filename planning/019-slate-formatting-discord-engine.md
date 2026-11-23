@@ -29,6 +29,7 @@ Lane: full
 | 2026-11-23T17:18 | R-4 | planner-019 | Recorded the architect's delta pass on revision 3 in the owed re-verdicts table: APPROVED_WITH_CHANGES on CF-9 and CF-10, in `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 3" (record `48e51d92`). |
 | 2026-11-23T17:20 | R-5 | planner-019 | Recorded QA's Phase 1 re-key on revision 3 in the owed re-verdicts table: QAF-18 to QAF-22, and E-4 declined, in `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 3 (record `24d537bf`). |
 | 2026-11-23T17:25 | 4 | planner-019 | Folds the three gates' verdicts on revision 3 as one batch: critique pass 3 (`af0b21d8`: F-27 to F-30, SL-8, SL-9, and the pass's assumption), the architect's delta pass (`48e51d92`: CF-9, CF-10), and QA's re-key (`24d537bf`: QAF-18 to QAF-22, the `GAME_MENTION` mask cells, E-4 declined). F-27 and QAF-18 are one fold, and so are F-29 and QAF-19; § Finding disposition (revision 4) maps each, and the arguments live in those documents. AN-8's results have not landed and are not folded. Scope delta: M3's native box runs on the pinned wasm, the later-release column holds no release on any cause with devops as its runner, AC-3.7 excuses only a frozen residue signature, and AC-3.8 gains (i′) and an empty-adjustment clause. M4 gains the emoji display helper and the `GAME_MENTION` mask line. M6's AC-6.5 gains re-deciding on edit, a typed-edit property and an independent expected value. M1's AN-8 gains a fifth limb, the slow-CPU capture. D-4 and D-5 are re-aimed. No milestone was added or removed. Size: unchanged from revision 3, the original ask plus revision 1's three in-region additions and his three rulings' reach. |
+| 2026-11-23T17:27 | R-6 | planner-019 | Recorded the architect's delta pass on revision 4 in the owed re-verdicts table: APPROVED, with CF-11 LOW non-blocking, in `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 4" (record `a5f78f8`). |
 
 ## Resumption State
 
@@ -61,7 +62,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
 | Every criterion and section revision 4 rewrote (§ Finding disposition (revision 4)) | revision 4 commit | critic (cycle 1 pass 4) | owed |
-| CF-9 and CF-10 as folded (AC-6.5, M4's emoji display helper); the `GAME_MENTION` mask line; AC-3.8 (i′) | revision 4 commit | architect (delta pass) | owed |
+| CF-9 and CF-10 as folded (AC-6.5, M4's emoji display helper); the `GAME_MENTION` mask line; AC-3.8 (i′) | revision 4 commit | architect (delta pass) | APPROVED, with CF-11 LOW non-blocking (record `a5f78f8`); CF-11 is folded at the next revision with the other gates' verdicts |
 | Every acceptance criterion revision 4 changed (AC-2.3, AC-3.2, AC-3.7, AC-3.8, AC-4.7, AC-6.5), re-keyed into QA's register | revision 4 commit | QA Phase 1 (re-key) | owed |
 
 ## Header notes
