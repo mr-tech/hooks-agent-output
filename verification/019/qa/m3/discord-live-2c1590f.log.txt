@@ -1,0 +1,2 @@
+coverage: unexamined cells: GAME_MENTION / content, GAME_MENTION / embedDescription, GAME_MENTION / fieldValue, GAME_MENTION / v2Text, CODE_BLOCK / embedTitle
+JSON report written to /usr/local/bin/hooks/agent-output/verification/019/qa/m3/discord-live-2c1590f.json

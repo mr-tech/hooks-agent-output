@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-18
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 19303ms
+     × hands the message that text in a full-markdown editor 11300ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 20267ms
+     × hands the message that text in a full-markdown editor 3860ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 2 failed) 24051ms
+     × keeps every line after a multi-line quote marker as a quote line 10ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 3ms
+
+ Test Files  3 failed | 3 passed (6)
+      Tests  4 failed | 100 passed (104)
+   Start at  22:35:37
+   Duration  56.68s (transform 2.18s, setup 68ms, import 9.83s, tests 139.76s, environment 4.23s)
+

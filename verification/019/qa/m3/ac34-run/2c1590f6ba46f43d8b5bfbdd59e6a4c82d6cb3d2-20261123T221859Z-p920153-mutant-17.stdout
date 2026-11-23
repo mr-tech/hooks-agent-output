@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 17003ms
+     × hands the message that text in a full-markdown editor 10970ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 20189ms
+     × hands the message that text in a full-markdown editor 10225ms
+     × hands the message that text in a full-markdown editor 9236ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 21005ms
+     × hands the message that text in a full-markdown editor 4386ms
+     × hands the message that text in a full-markdown editor 4389ms
+     × hands the message that text in a full-markdown editor 3064ms
+     × hands the message that text in a full-markdown editor 3241ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 4 failed) 23111ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 19ms
+     × writes no text to the lines a typed multi-line quote marker takes in 5ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 6ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 11610ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 40012ms
+     × hands the message that text in a full-markdown editor 30518ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  12 failed | 92 passed (104)
+   Start at  22:34:52
+   Duration  43.57s (transform 3.49s, setup 131ms, import 13.41s, tests 129.09s, environment 5.92s)
+

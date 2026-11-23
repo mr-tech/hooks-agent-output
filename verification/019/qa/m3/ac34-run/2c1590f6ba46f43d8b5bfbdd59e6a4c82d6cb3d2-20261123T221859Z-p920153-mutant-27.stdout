@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-27
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 22392ms
+     × refuses a multi-line paste in a single-line editor, naming it, and leaves the text as it was 29ms
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  1 failed | 103 passed (104)
+   Start at  22:44:16
+   Duration  53.45s (transform 2.63s, setup 87ms, import 11.10s, tests 143.07s, environment 5.17s)
+

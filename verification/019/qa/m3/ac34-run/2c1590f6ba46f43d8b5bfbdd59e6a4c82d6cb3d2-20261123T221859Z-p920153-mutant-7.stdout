@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 1 failed) 25548ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 14992ms
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  1 failed | 103 passed (104)
+   Start at  22:25:38
+   Duration  52.43s (transform 2.45s, setup 102ms, import 10.17s, tests 140.73s, environment 4.51s)
+

@@ -1,0 +1,567 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(37) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "
++ ``` 
++ >> js
++ #b||
++ > #
++ ``` \\#",
++   ">> _>>>  
++ ``` ||
++ >
++  a#
++  > 
++ > \\ js",
++   "```c++~~*
++ > 
++ > ||aa
++ ``` \\",
++   "```js~~*||
++  > >>> 
++ >
++ ```c++ ```
++ >>> ",
++   "```jsa|| 
++  > 
++ >> ||
++ >>>  ```
++ ``` ```",
++   "_`b
++ ```js*
++ > 
++ >> a`~~
++  > 
++ >> \\~~_",
++   "```
++  > *#||
++ ```js ",
++   "#>>> 
++ ```js*```||
++ >> ```
++ ```c++_
++ >>>  > ```
++ >> a`",
++   "```c++*>>> \\
++ > b
++ ```c++
++ ```_a_
++ > \\ ",
++   "
++ ``` 
++ >> jsjs
++ > #
++ >
++ >>> ||> > ",
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">> b
++ ```c++
++ js
++ > 
++  
++ >>  ",
++   "```c++* `
++ > >>> js#
++
++ ```c++ ",
++   ">||
++ ```c++
++  >  
++ ```c++```
++ >>> > `",
++   ">> >>> 
++ _```
++ >  ||
++ ```js",
++   "``` *#*
++  > _||#
++ > #a~~",
++   "```jsa```> 
++ ``` ```||_
++ ````~~
++ > aa
++  > `*",
++   ">b
++ > ||```
++  > > ",
++   "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   "
++ ```
++ >> b`
++ > *\\
++ ```c++`b`
++ ``` ",
++   "```
++ > 
++ ~~a
++ *",
++   "``` 
++ >#*_
++ ```c++``
++ ```bb
++  > _
++  > a",
++   "```js~~`
++ >  
++  _`
++ ``` b#js
++ ```js~~_js",
++   ">js||
++ b
++ ```js
++  > ` b
++ > ~~
++ _",
++   "```c++ 
++ b
++ > 
++ >>> ##
++ >b
++ ```",
++   ">> a
++ ```jsa\\
++  > *
++ >> js ",
++   " > \\```_
++ _ 
++ ```>>> ",
++   "> ```>>> > 
++ ``` ",
++   "``` `b
++ > ||
++  > __",
++   "
++ ``` `> 
++ > a
++ `> ",
++   "``` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++   "```c++_> > 
++ > \\_
++ ~~
++ >>> > ```\\",
++   "```c++
++  > 
++
++ ```
++ ```b ",
++   "``` b
++ >> \\> 
++ > 
++ > `a\\",
++   ">>  
++ ``````~~```
++ > js
++ ```js
++
++ ```> ",
++   " > ```a
++ ~~\\
++ > >>> ",
++   "b
++ ```c++||
++ >_\\
++  > a`\\
++ `",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(36) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "
++ ``` 
++ >> js
++ #b||
++ > #
++ ``` \\#",
++   ">> _>>>  
++ ``` ||
++ >
++  a#
++  > 
++ > \\ js",
++   "```c++~~*
++ > 
++ > ||aa
++ ``` \\",
++   "```js~~*||
++  > >>> 
++ >
++ ```c++ ```
++ >>> ",
++   "```jsa|| 
++  > 
++ >> ||
++ >>>  ```
++ ``` ```",
++   "_`b
++ ```js*
++ > 
++ >> a`~~
++  > 
++ >> \\~~_",
++   "```
++  > *#||
++ ```js ",
++   "```c++*>>> \\
++ > b
++ ```c++
++ ```_a_
++ > \\ ",
++   "
++ ``` 
++ >> jsjs
++ > #
++ >
++ >>> ||> > ",
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">> b
++ ```c++
++ js
++ > 
++  
++ >>  ",
++   "```c++* `
++ > >>> js#
++
++ ```c++ ",
++   ">||
++ ```c++
++  >  
++ ```c++```
++ >>> > `",
++   ">> >>> 
++ _```
++ >  ||
++ ```js",
++   "``` *#*
++  > _||#
++ > #a~~",
++   "```jsa```> 
++ ``` ```||_
++ ````~~
++ > aa
++  > `*",
++   ">b
++ > ||```
++  > > ",
++   "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   "
++ ```
++ >> b`
++ > *\\
++ ```c++`b`
++ ``` ",
++   "```
++ > 
++ ~~a
++ *",
++   "``` 
++ >#*_
++ ```c++``
++ ```bb
++  > _
++  > a",
++   "```js~~`
++ >  
++  _`
++ ``` b#js
++ ```js~~_js",
++   ">js||
++ b
++ ```js
++  > ` b
++ > ~~
++ _",
++   "```c++ 
++ b
++ > 
++ >>> ##
++ >b
++ ```",
++   ">> a
++ ```jsa\\
++  > *
++ >> js ",
++   " > \\```_
++ _ 
++ ```>>> ",
++   "> ```>>> > 
++ ``` ",
++   "``` `b
++ > ||
++  > __",
++   "
++ ``` `> 
++ > a
++ `> ",
++   "``` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++   "```c++_> > 
++ > \\_
++ ~~
++ >>> > ```\\",
++   "```c++
++  > 
++
++ ```
++ ```b ",
++   "``` b
++ >> \\> 
++ > 
++ > `a\\",
++   ">>  
++ ``````~~```
++ > js
++ ```js
++
++ ```> ",
++   " > ```a
++ ~~\\
++ > >>> ",
++   "b
++ ```c++||
++ >_\\
++  > a`\\
++ `",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise
+AssertionError: expected [ '```js\n```a```\nfoo\n```', …(2) ] to deeply equal [ '```js\n```a```\nfoo\n```', …(2) ]
+
+- Expected
++ Received
+
+@@ -10,9 +10,9 @@
+      "",
+    ],
+    [
+      "",
+      "",
+-     "js",
++     "",
+      "",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:92:55
+     90|     const loaded = langsOf(editor);
+     91|     Editor.normalize(editor, { force: true });
+     92|     expect([textOf(editor), loaded, langsOf(editor)]).toEqual([text, l…
+       |                                                       ^
+     93|   });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise
+AssertionError: expected [ …(3) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+@@ -13,11 +13,11 @@
+      "",
+      "",
+    ],
+    [
+      "",
+-     "js",
++     "",
+      "",
+      "",
+      "",
+      "",
+    ],
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:92:55
+     90|     const loaded = langsOf(editor);
+     91|     Editor.normalize(editor, { force: true });
+     92|     expect([textOf(editor), loaded, langsOf(editor)]).toEqual([text, l…
+       |                                                       ^
+     93|   });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives the code lines the language typed onto their opening fence
+AssertionError: expected [ '```js\nfoo\n```', [ '', '', '' ] ] to deeply equal [ '```js\nfoo\n```', [ '', 'js', '' ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    "```js
+  foo
+  ```",
+    [
+      "",
+-     "js",
++     "",
+      "",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:115:47
+    113|     Transforms.select(editor, Editor.end(editor, [0]));
+    114|     Transforms.insertText(editor, 'js');
+    115|     expect([textOf(editor), langsOf(editor)]).toEqual(['```js\nfoo\n``…
+       |                                               ^
+    116|   });
+    117|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > marks which fence lines start inside a code block once a fence typed above them opens one
+AssertionError: expected [ 'a```\n```\n```', …(3) ] to deeply equal [ 'a```\n```\n```', …(3) ]
+
+- Expected
++ Received
+
+@@ -12,9 +12,9 @@
+      false,
+      true,
+    ],
+    [
+      false,
+-     true,
++     false,
+      false,
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:125:8
+    123|     const after = (editor.children as Element[]).map((child) => child.…
+    124|     expect([textOf(editor), typesOf(editor), before, after])
+    125|       .toEqual(['a```\n```\n```', ['div', 'div', 'div'], [false, false…
+       |        ^
+    126|   });
+    127|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the lines after a code block holding a multi-line quote marker as plain lines
+AssertionError: expected [ 'div', 'blockQuote', …(2) ] to deeply equal [ 'div', 'codeBlock', 'div', 'div' ]
+
+- Expected
++ Received
+
+  [
+    "div",
+-   "codeBlock",
+-   "div",
+-   "div",
++   "blockQuote",
++   "blockQuote",
++   "blockQuote",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:147:29
+    145|     const editor = loadedEditor('```\n>>> a\n```\nb');
+    146|     Editor.normalize(editor, { force: true });
+    147|     expect(typesOf(editor)).toEqual(['div', 'codeBlock', 'div', 'div']…
+       |                             ^
+    148|   });
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+

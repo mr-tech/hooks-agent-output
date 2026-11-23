@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-4
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (32 tests | 8 failed) 7142ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 58ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 17ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 105ms
+     × loads each text of the 1,662-line probe corpus that holds no emoji with its text unchanged 139ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 48ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 17ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 88ms
+     × loads each text of the 1,662-line probe corpus that holds no emoji with its text unchanged 130ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 14689ms
+     × hands the message that text in a full-markdown editor 9184ms
+     × hands the message that text in a single-line editor 5271ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 18471ms
+     × hands the message that text in a full-markdown editor 3516ms
+     × hands the message that text in a single-line editor 2303ms
+     × hands the message that text in a full-markdown editor 4255ms
+     × hands the message that text in a single-line editor 1824ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 8 failed) 21023ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 218ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 52ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 369ms
+     × keeps the text of each emoji-free text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 635ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 151ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 47ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 298ms
+     × keeps the text of each emoji-free text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 554ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 40167ms
+     × hands the message that text in a full-markdown editor 29763ms
+     × hands the message that text in a single-line editor 10403ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  24 failed | 80 passed (104)
+   Start at  22:23:18
+   Duration  42.88s (transform 2.35s, setup 107ms, import 10.22s, tests 119.01s, environment 4.37s)
+

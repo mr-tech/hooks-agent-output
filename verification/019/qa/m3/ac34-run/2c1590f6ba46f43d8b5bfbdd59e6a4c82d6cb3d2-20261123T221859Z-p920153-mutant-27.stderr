@@ -1,0 +1,28 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > refuses a multi-line paste in a single-line editor, naming it, and leaves the text as it was
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    [
+      "This field does not support multiple lines.",
+    ],
+-   "before",
++   "beforea
++ b",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:33:72
+     31|     const mounted = mountEditor('before', true);
+     32|     await pasteText(mounted, 'a\nb');
+     33|     expect([error.mock.calls.map((c) => c[0]), mounted.writes.at(-1)])…
+       |                                                                        ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

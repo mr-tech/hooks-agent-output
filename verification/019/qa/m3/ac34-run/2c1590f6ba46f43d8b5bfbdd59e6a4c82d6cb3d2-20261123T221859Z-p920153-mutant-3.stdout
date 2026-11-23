@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-3
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (32 tests | 12 failed) 7913ms
+     × loads ">>> a\nb" with its text unchanged 9ms
+     × loads ">>> a" with its text unchanged 2ms
+     × loads ">>> a\n\nb" with its text unchanged 3ms
+     × loads ">>> a\n> b" with its text unchanged 2ms
+     × loads "x\n>>> a\nb" with its text unchanged 2ms
+     × loads " > a" with its text unchanged 1ms
+     × loads "  >>> a\nb" with its text unchanged 2ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 42ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 14ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 87ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 1838ms
+     × loads each text of 3,000 seeded block-layer texts that holds no emoji with its text unchanged 929ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 17689ms
+     × hands the message that text in a full-markdown editor 10400ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 21761ms
+     × hands the message that text in a full-markdown editor 9321ms
+     × hands the message that text in a full-markdown editor 11390ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 22423ms
+     × hands the message that text in a full-markdown editor 3262ms
+     × hands the message that text in a full-markdown editor 5060ms
+     × hands the message that text in a full-markdown editor 3522ms
+     × hands the message that text in a full-markdown editor 3845ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 17 failed) 22489ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 9ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 1ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 2ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 6ms
+     × writes no text to the lines a typed multi-line quote marker takes in 4ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 5ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 3ms
+     × makes the lines after a removed multi-line quote marker plain lines 3ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 201ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 61ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 457ms
+     × keeps the text of each emoji-free text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 277ms
+     × keeps the text of each emoji-free text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 3778ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 11333ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 58024ms
+     × hands the message that text in a full-markdown editor 34421ms
+
+ Test Files  6 failed (6)
+      Tests  37 failed | 67 passed (104)
+   Start at  22:22:15
+   Duration  60.63s (transform 2.58s, setup 118ms, import 9.82s, tests 150.30s, environment 4.06s)
+

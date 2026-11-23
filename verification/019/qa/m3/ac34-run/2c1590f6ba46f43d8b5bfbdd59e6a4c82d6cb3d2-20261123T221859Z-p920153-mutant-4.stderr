@@ -1,0 +1,2322 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 24 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a single-line editor
+AssertionError: expected [ ':smile:', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   ":thumbsup::skin-tone-3:",
++   "**:smile:**",
++   "`:smile:`",
++   ":smile: :smile:",
++   "a:smile:b",
++   "<:a:1><:b:2>",
++   ":+1:",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(48) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   "<t:1700000000>
++ ## [:smile:](https://x.y/a*b*c)",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "- <t:1700000000:D>
++ -# _https://x.y/a(b)c_
++ 1. __||``\\]x\\] <id:browse>`` [:smile:](https://x.y/a*b*c)__",
++   "  - __\\<x\\<__
++ ### <t:1700000000:f>
++ 1. [:smile:](https://x.y/a*b*c) <id:home>",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   "-# <id:customize> \\*x\\*
++ 1. ``_<t:-1:f> https://example.com_ [:smile:](https://example.com/a_b)``
++ - ||`\\`x\\`` <t:1700000000:x>|| snake_case [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   "### ``[:smile:](https://example.com/a_b)`` <@$1558266761101447248> <game:1558266761101447248>
++   - <@!1558266761101447248>
++ ### _`<t:1700000000:D>[a [b] c](https://example.com)`_",
++   "1. ___\\)x\\) [:smile:](https://x.y/a*b*c)__ <a@b.co> </ping:1558266761101447248>
++ ||**_[**bold** label](https://example.com)**",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "- [<:hooks:1558266761101447248>](https://x.y)
++ -# \\<x\\< \\*x\\*
++ # ``*<t:-1:f>*`` hello world",
++   ">>>   - `a\\`x\\`` <t:1700000000:F>
++ ### __\\:x\\:__ [:smile:](https://x.y/a*b*c)[:smile:](https://x.y)
++ ## \\(x\\(",
++   "[:smile:](https://example.com/a_b) C++",
++   "__~~<:hooks:1558266761101447248>~~
++ ``<t:1700000000:F> <t:-1:f>``",
++   "- *~~\\:x\\:~~ [:smile:](https://x.y/a*b*c)*
++   - `*``\\_x\\_\\|x\\|``*`
++ # <t:-1:f>",
++   "### <game:1558266761101447248> <#1558266761101447248>
++ ``~~_\\]x\\]_~~ <t:1700000000:d><t:-1:f>``
++ 1. __*https://example.com/path?q=1&r=2#fword*__",
++   "```JS
++ __[:smile:](https://x.y)__",
++   "1. \\>x\\>
++ word <https://x.y>
++ -# ``*[:smile:](https://x.y) @here*``",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "<id:guide>[dev](dev://branch/main)
++ _``<@1558266761101447248>https://example.com/path?q=1&r=2#f`` [:smile:](https://x.y/a*b*c) \\]x\\]_
++ ``[**bold** label](https://example.com)[text](<https://example.com>)``",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "`***<@1558266761101447248>** https://x.y.* 日本 <a:dance:1558266761101447248>` [:smile:](https://x.y/a*b*c)
++ ## *[a [b] c](https://example.com)<game:1558266761101447248>*",
++   "1. <t:1700000000:f>
++ ### ___``<t:-1:f>___",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "-# [:smile:](https://x.y/a*b*c)
++ `a*b`",
++   "```ts
++ ***[:smile:](https://x.y)***
++ ```",
++   "-# `**\\>x\\>[<:hooks:1558266761101447248>](https://x.y/a*b*c)**` hello world
++ # **__<t:1700000000:D> [<:hooks:1558266761101447248>](https://example.com/a_b) <t:1700000000:F>** [:smile:](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y/a*b*c)
++ ~~hello world~~",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "```C++
++ 1. **<#1558266761101447248> [:smile:](https://x.y/a*b*c)**
++ ```",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "# :smile:",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   ">>> *__\\>x\\> [:smile:](https://x.y)__*
++ 1. _\\:x\\:_",
++   "  - [:smile:](https://x.y/a*b*c) <id:linked-roles>
++ > __***\\<x\\< 日本***__ ax_y",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a single-line editor
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(22) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b) C++",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "# :smile:",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(48) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   "<t:1700000000>
++ ## [:smile:](https://x.y/a*b*c)",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "- <t:1700000000:D>
++ -# _https://x.y/a(b)c_
++ 1. __||``\\]x\\] <id:browse>`` [:smile:](https://x.y/a*b*c)__",
++   "  - __\\<x\\<__
++ ### <t:1700000000:f>
++ 1. [:smile:](https://x.y/a*b*c) <id:home>",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   "-# <id:customize> \\*x\\*
++ 1. ``_<t:-1:f> https://example.com_ [:smile:](https://example.com/a_b)``
++ - ||`\\`x\\`` <t:1700000000:x>|| snake_case [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   "### ``[:smile:](https://example.com/a_b)`` <@$1558266761101447248> <game:1558266761101447248>
++   - <@!1558266761101447248>
++ ### _`<t:1700000000:D>[a [b] c](https://example.com)`_",
++   "1. ___\\)x\\) [:smile:](https://x.y/a*b*c)__ <a@b.co> </ping:1558266761101447248>
++ ||**_[**bold** label](https://example.com)**",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "- [<:hooks:1558266761101447248>](https://x.y)
++ -# \\<x\\< \\*x\\*
++ # ``*<t:-1:f>*`` hello world",
++   ">>>   - `a\\`x\\`` <t:1700000000:F>
++ ### __\\:x\\:__ [:smile:](https://x.y/a*b*c)[:smile:](https://x.y)
++ ## \\(x\\(",
++   "[:smile:](https://example.com/a_b) C++",
++   "__~~<:hooks:1558266761101447248>~~
++ ``<t:1700000000:F> <t:-1:f>``",
++   "- *~~\\:x\\:~~ [:smile:](https://x.y/a*b*c)*
++   - `*``\\_x\\_\\|x\\|``*`
++ # <t:-1:f>",
++   "### <game:1558266761101447248> <#1558266761101447248>
++ ``~~_\\]x\\]_~~ <t:1700000000:d><t:-1:f>``
++ 1. __*https://example.com/path?q=1&r=2#fword*__",
++   "```JS
++ __[:smile:](https://x.y)__",
++   "1. \\>x\\>
++ word <https://x.y>
++ -# ``*[:smile:](https://x.y) @here*``",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "<id:guide>[dev](dev://branch/main)
++ _``<@1558266761101447248>https://example.com/path?q=1&r=2#f`` [:smile:](https://x.y/a*b*c) \\]x\\]_
++ ``[**bold** label](https://example.com)[text](<https://example.com>)``",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "`***<@1558266761101447248>** https://x.y.* 日本 <a:dance:1558266761101447248>` [:smile:](https://x.y/a*b*c)
++ ## *[a [b] c](https://example.com)<game:1558266761101447248>*",
++   "1. <t:1700000000:f>
++ ### ___``<t:-1:f>___",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "-# [:smile:](https://x.y/a*b*c)
++ `a*b`",
++   "```ts
++ ***[:smile:](https://x.y)***
++ ```",
++   "-# `**\\>x\\>[<:hooks:1558266761101447248>](https://x.y/a*b*c)**` hello world
++ # **__<t:1700000000:D> [<:hooks:1558266761101447248>](https://example.com/a_b) <t:1700000000:F>** [:smile:](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y/a*b*c)
++ ~~hello world~~",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "```C++
++ 1. **<#1558266761101447248> [:smile:](https://x.y/a*b*c)**
++ ```",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "# :smile:",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   ">>> *__\\>x\\> [:smile:](https://x.y)__*
++ 1. _\\:x\\:_",
++   "  - [:smile:](https://x.y/a*b*c) <id:linked-roles>
++ > __***\\<x\\< 日本***__ ax_y",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a single-line editor
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(22) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b) C++",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "# :smile:",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+AssertionError: expected [ ':smile:', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   ":thumbsup::skin-tone-3:",
++   "**:smile:**",
++   "`:smile:`",
++   ":smile: :smile:",
++   "a:smile:b",
++   "<:a:1><:b:2>",
++   ":+1:",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation
+AssertionError: expected [ ':smile:', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   ":thumbsup::skin-tone-3:",
++   "**:smile:**",
++   "`:smile:`",
++   ":smile: :smile:",
++   "a:smile:b",
++   "<:a:1><:b:2>",
++   ":+1:",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:195:23
+    193|       return !kept || editor.operations.length !== operations;
+    194|     });
+    195|     expect(unsettled).toEqual([]);
+       |                       ^
+    196|   }, 60_000);
+    197| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+AssertionError: expected [ ':smile:https://x.y' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:https://x.y",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:195:23
+    193|       return !kept || editor.operations.length !== operations;
+    194|     });
+    195|     expect(unsettled).toEqual([]);
+       |                       ^
+    196|   }, 60_000);
+    197| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(50) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   "<t:1700000000>
++ ## [:smile:](https://x.y/a*b*c)",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "- <t:1700000000:D>
++ -# _https://x.y/a(b)c_
++ 1. __||``\\]x\\] <id:browse>`` [:smile:](https://x.y/a*b*c)__",
++   "  - __\\<x\\<__
++ ### <t:1700000000:f>
++ 1. [:smile:](https://x.y/a*b*c) <id:home>",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   "-# <id:customize> \\*x\\*
++ 1. ``_<t:-1:f> https://example.com_ [:smile:](https://example.com/a_b)``
++ - ||`\\`x\\`` <t:1700000000:x>|| snake_case [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   "### ``[:smile:](https://example.com/a_b)`` <@$1558266761101447248> <game:1558266761101447248>
++   - <@!1558266761101447248>
++ ### _`<t:1700000000:D>[a [b] c](https://example.com)`_",
++   "1. ___\\)x\\) [:smile:](https://x.y/a*b*c)__ <a@b.co> </ping:1558266761101447248>
++ ||**_[**bold** label](https://example.com)**",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "- [<:hooks:1558266761101447248>](https://x.y)
++ -# \\<x\\< \\*x\\*
++ # ``*<t:-1:f>*`` hello world",
++   ">>>   - `a\\`x\\`` <t:1700000000:F>
++ ### __\\:x\\:__ [:smile:](https://x.y/a*b*c)[:smile:](https://x.y)
++ ## \\(x\\(",
++   "[:smile:](https://example.com/a_b) C++",
++   "__~~<:hooks:1558266761101447248>~~
++ ``<t:1700000000:F> <t:-1:f>``",
++   "- *~~\\:x\\:~~ [:smile:](https://x.y/a*b*c)*
++   - `*``\\_x\\_\\|x\\|``*`
++ # <t:-1:f>",
++   "### <game:1558266761101447248> <#1558266761101447248>
++ ``~~_\\]x\\]_~~ <t:1700000000:d><t:-1:f>``
++ 1. __*https://example.com/path?q=1&r=2#fword*__",
++   "```JS
++ __[:smile:](https://x.y)__",
++   "1. \\>x\\>
++ word <https://x.y>
++ -# ``*[:smile:](https://x.y) @here*``",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "<id:guide>[dev](dev://branch/main)
++ _``<@1558266761101447248>https://example.com/path?q=1&r=2#f`` [:smile:](https://x.y/a*b*c) \\]x\\]_
++ ``[**bold** label](https://example.com)[text](<https://example.com>)``",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "`***<@1558266761101447248>** https://x.y.* 日本 <a:dance:1558266761101447248>` [:smile:](https://x.y/a*b*c)
++ ## *[a [b] c](https://example.com)<game:1558266761101447248>*",
++   "1. <t:1700000000:f>
++ ### ___``<t:-1:f>___",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "-# [:smile:](https://x.y/a*b*c)
++ `a*b`",
++   "```ts
++ ***[:smile:](https://x.y)***
++ ```",
++   "-# `**\\>x\\>[<:hooks:1558266761101447248>](https://x.y/a*b*c)**` hello world
++ # **__<t:1700000000:D> [<:hooks:1558266761101447248>](https://example.com/a_b) <t:1700000000:F>** [:smile:](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y/a*b*c)
++ ~~hello world~~",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "```C++
++ 1. **<#1558266761101447248> [:smile:](https://x.y/a*b*c)**
++ ```",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`
++ \\]x\\]
++ -# ~~<t:1700000000:f><@$1558266761101447248>~~",
++   "# :smile:",
++   "x_y é
++ > 日本:smile:
++ > ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   ">>> *__\\>x\\> [:smile:](https://x.y)__*
++ 1. _\\:x\\:_",
++   "  - [:smile:](https://x.y/a*b*c) <id:linked-roles>
++ > __***\\<x\\< 日本***__ ax_y",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:195:23
+    193|       return !kept || editor.operations.length !== operations;
+    194|     });
+    195|     expect(unsettled).toEqual([]);
+       |                       ^
+    196|   }, 60_000);
+    197| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/24]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each emoji-free text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each emoji-free text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation
+AssertionError: expected [ ' o:a:ok', ':a:up:100a*', …(403) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   " o:a:ok",
++   ":a:up:100a*",
++   "<:x:123>:_:m",
++   "\\:m:ao:*<:x:123>:up_",
++   "\\ :up:up:o:ok:o",
++   "o::x:xthumbsup:~~",
++   ":::a:othumbsup:",
++   ":b:b:ok",
++   "thumbsup::up:m",
++   "o:thumbsup::a",
++   ":ok:~~",
++   ":id:.:100",
++   ":ok:\\:o:",
++   "#ok::m:cool_:m",
++   ":ok:up",
++   "#<:x:123>",
++   ":id:up",
++   "thumbsup::100:ok:",
++   ":skin-tone-1\\:100:id:cool:a",
++   "<:x:123>",
++   ":#:upthumbsup::a:ok:",
++   ":100:ok:",
++   "*:x:x*",
++   ":cool::m:x",
++   ":cool:skin-tone-1:cool:skin-tone-1:x*:b",
++   ":ok::up:ok :oo::m",
++   "<:x:123>:skin-tone-1 _:100thumbsup:",
++   "*:ok::cool:x",
++   " a:o:ook::up.",
++   ":x:id",
++   ":thumbsup:",
++   ":skin-tone-1:skin-tone-1 o: thumbsup:a:up",
++   "<:x:123>:o:m#:idok::a",
++   "##thumbsup:.::cool:o",
++   "<:x:123>:100:x:a:",
++   "ok::ok:o#a<:x:123>ok:",
++   "<:x:123>:ok::b:ok::ok:m",
++   "\\:okathumbsup:o:o:",
++   ":x:o~~:x_",
++   ":ok::cool\\<:x:123>",
++   "#_:m:id:id*:a:skin-tone-1",
++   "<:x:123>:o:a",
++   "o::a:ok: ",
++   ":100:ok::up:m:m",
++   ":cool:a",
++   "thumbsup::ok:up",
++   "*:ok::skin-tone-1:a:ok<:x:123>thumbsup:a",
++   ":b::a:id:skin-tone-1:o:ok:",
++   ":m :a:100a~~.:x",
++   ":a:id:m",
++   ":x~~:100:a:id.",
++   "thumbsup::up:ok:",
++   "ok:#.<:x:123>:a:m:a*",
++   ":a:skin-tone-1.",
++   ":a~~:ok:ok:#a#thumbsup:",
++   ":id:o:cool:",
++   ":b:skin-tone-1\\",
++   ":ok:*",
++   ":100:100",
++   ":o:id:100",
++   ":ok:bthumbsup:#",
++   "<:x:123> ",
++   "_:up:ok:*",
++   "thumbsup::m:100:up:a:b:id",
++   "<:x:123>:up:100o:",
++   "ok::ok:\\",
++   ":cool:ok:m:a",
++   ":100:100:a",
++   "<:x:123>~~:b:ok::x thumbsup:",
++   "<:x:123>\\:cool",
++   "*:ok:",
++   ":id:ok",
++   ":cool:100:id:bthumbsup:",
++   "#::m:cool",
++   ":m:xthumbsup::x",
++   "#o:thumbsup::b:m",
++   ":100:oo:",
++   "__ok::100:skin-tone-1",
++   ":100#:x:100ok::a:skin-tone-1ok:",
++   ".:100:100:ok.:x",
++   "\\.:cool:id:ok:id\\",
++   ":b:mok::m:ok thumbsup::ok",
++   ".:id:o<:x:123>:o:id",
++   ":xok::o:cool",
++   ":id<:x:123>:xok::id:x:ok:a",
++   ":ok:x:skin-tone-1",
++   ":ok::up:id",
++   "~~:ok:<:x:123><:x:123>",
++   ":cool:100:\\#",
++   ".:up:100o:_",
++   ":ok:a:ok::a:id:ok:",
++   "<:x:123>:100.:ok::x\\<:x:123>:100",
++   ":up:skin-tone-1 :100~~ ",
++   ":ok:o:",
++   "o::ok:.:up",
++   ":cool:ok:*:100:a__",
++   ":a:m:ida:x:x",
++   "~~:x:ok:",
++   "<:x:123>.:b_:o.a:m",
++   ":o_:b:o:cool:okok: ",
++   ":*:o:100::x<:x:123> ",
++   ":100:skin-tone-1",
++   ":cool:b:cool:up",
++   " ok::b:cool<:x:123>:skin-tone-1_",
++   "thumbsup:a:a<:x:123>:a",
++   ":100:ok:",
++   "o::cool:up:a.:ok::ok:_",
++   "_:upa :ok:id",
++   ":thumbsup::m:id#",
++   ":id:id:a:up# thumbsup::id",
++   "<:x:123>",
++   ":x:up:o<:x:123> a",
++   "ok::cool:bo::skin-tone-1 :b:b",
++   "o::cool:coola_:o",
++   ":ok:x\\:ok:m",
++   "::up:b\\",
++   "thumbsup:o: :m#\\",
++   "thumbsup:\\ :a:x~~",
++   ":o_:a<:x:123>a:up_",
++   "*~~:ok::b#",
++   "thumbsup::id:skin-tone-1",
++   ":ok::b",
++   "<:x:123>:skin-tone-1:x _a",
++   "a~~o::ok:<:x:123>:o:100:cool",
++   "#~~o::b:athumbsup:",
++   "\\*thumbsup:a:m",
++   "o:ok:a<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "<:x:123>~~*:id:ok",
++   "<:x:123>o:#:100",
++   "thumbsup:::oka:100:ok:ok:",
++   ":ok:x:cool",
++   "*_:m:x# ",
++   ":b:a:b~~",
++   "<:x:123>ok:",
++   ":b~~:up:x:100_",
++   "<:x:123>",
++   "a:a:a ",
++   ":m:upao:*",
++   ":id*:skin-tone-1thumbsup:ok:*",
++   ":a:a:up:a",
++   "\\ :cool:up:skin-tone-1:id:oka",
++   ":ok:_\\:b:mthumbsup::a",
++   ":ok:#:xa~~",
++   ":m:ok::100",
++   ":ok: :up",
++   ":ok_ok:_:a:100*:a",
++   "<:x:123>o:",
++   ":skin-tone-1:b:ok::m~~",
++   "ok:~~:ok:ok::o#",
++   ":ok:100:ok::b*::id ",
++   ":ok:ok:id",
++   "\\:xthumbsup:ok::a:m<:x:123>:cool",
++   "<:x:123>:cool",
++   ":o:up:m:ok\\:o:skin-tone-1:ok",
++   "thumbsup::a:id_..",
++   "ok:#o:~~:a:ok::\\",
++   ":ok:",
++   " :100:ok::skin-tone-1:cool",
++   ":skin-tone-1:ma<:x:123>ok:",
++   ":ok:ma#",
++   "<:x:123>*",
++   "a\\_:ok:",
++   "~~:ok:#:a\\:ok:",
++   " :o:oko:",
++   ":o:a:100:cool#:cool<:x:123>:cool",
++   ":100:ok::up",
++   "<:x:123>:a.ok::b",
++   "<:x:123>:m :a:id",
++   "\\ <:x:123>:ba:100",
++   "*:cool:ok:",
++   ":ok:~~",
++   "*:ok:m",
++   "<:x:123>:thumbsup:ok:",
++   ":b:a::100:id:b",
++   "*:ok::a:o",
++   "ok:.thumbsup::x:x",
++   "<:x:123>_:x",
++   ":skin-tone-1.:o:ok:",
++   "<:x:123>",
++   "a:ok:",
++   "*thumbsup: :ok:a",
++   ":b:skin-tone-1:id:100:o~~:id:skin-tone-1",
++   ":id:skin-tone-1::a",
++   ":cool:cool:<:x:123>:cool:skin-tone-1:",
++   "<:x:123>:a",
++   "_:id:100",
++   ":a:up",
++   "<:x:123>",
++   "#o:o:thumbsup:*:cool",
++   ":cool :b:oo: :",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "thumbsup::cool:m:id",
++   ":ok:100o:ok:",
++   "a:b:skin-tone-1~~#<:x:123>",
++   "<:x:123>:o:x:mthumbsup:",
++   "thumbsup:thumbsup::  :100",
++   ":ok:<:x:123>",
++   ":x:up\\",
++   "#:x:cool:ok::up:ok~~",
++   ":id:skin-tone-1:100o::skin-tone-1:m ",
++   ":100:ok::othumbsup: ",
++   ":b:x~~:bo:",
++   "<:x:123>",
++   ":ok:",
++   "thumbsup::skin-tone-1:cool:o:a:x*",
++   "~~_<:x:123>.: :up",
++   "thumbsup:ok:a:id:b",
++   "#<:x:123>thumbsup:*_thumbsup:",
++   ":a:bo:",
++   ":id:id",
++   ":x:",
++   ":up::ok#:ok",
++   "#_*_:ok::id:ok:",
++   "<:x:123><:x:123>",
++   ":100:bthumbsup::cool::x",
++   "~~:ok::o:athumbsup::ok",
++   ":x:skin-tone-1<:x:123>ok: \\:x",
++   ":cool:100:ok",
++   ":bthumbsup::ook::o:ok",
++   "<:x:123>:ok:a:100:a#",
++   ":m:xa:100",
++   ":100:xok::m",
++   ":a:m_:m",
++   ":b:x*:cool::",
++   ":a:o:b:a:skin-tone-1",
++   "..#:b:o#:100",
++   ":up:ok~~##:cool:",
++   ":id:skin-tone-1ok::up",
++   "a<:x:123>#o::ok",
++   "~~_:xo::b:skin-tone-1",
++   ":ok:",
++   "*:a::skin-tone-1*o:_",
++   "~~#:ok:#::m:cool",
++   "ok::m:ok",
++   "*ok::id:up :up_:a",
++   "ok:#_ :ok:.",
++   "thumbsup::a:skin-tone-1*:id",
++   ":m<:x:123> :ok:o::up:o_",
++   "o:ok:",
++   "ok:~~~~:cool:cool:o:x",
++   ":ok:ok:<:x:123>",
++   ":idaa.:ok:up:x:o",
++   ":id:ok::a<:x:123> :",
++   "a:x:100 :b:ok",
++   "::o::upok::ok::ok",
++   "~~:ok::up:xthumbsup:ok:\\#",
++   ":id::100:ok:*<:x:123>:b",
++   "<:x:123>::m:a:idthumbsup::b#",
++   ":m:b:",
++   "a.*:skin-tone-1:a:x:b:o",
++   "<:x:123>",
++   ":up.~~:up:ok::ok~~",
++   "\\<:x:123>:m:100:ok:",
++   ":o: :o",
++   ":100:o:skin-tone-1:m:up\\#",
++   ":a:x<:x:123>.",
++   ":a:up<:x:123>*:100:m:ok:a",
++   ":a:ok",
++   "<:x:123>",
++   "~~:x:o:b",
++   ":a\\a:id<:x:123>*.thumbsup:",
++   ":id:up:o:b:a~~::cool",
++   ":ok:ok::up:b",
++   " ~~:ok:thumbsup::b",
++   ":b:x<:x:123>~~#:m:id:100",
++   "<:x:123>thumbsup:",
++   "ok::x_~~:skin-tone-1:cool:up_",
++   ":a:id ",
++   "<:x:123>.",
++   ":o:b~~#o:",
++   ".~~:cool:x",
++   ":ok::up\\_",
++   ":m:cool:ok::ok:\\a:mok:",
++   ":o:o~~:a",
++   ":b:a",
++   " <:x:123>",
++   "ok::skin-tone-1:o*:ok:",
++   "ok::o:skin-tone-1a:b",
++   ":x:b_*thumbsup:",
++   "thumbsup:a:up*a:skin-tone-1thumbsup:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":id:ok::o",
++   "ok::x<:x:123>_~~ok:<:x:123>.",
++   "::ok:",
++   ":cool:x",
++   ":up:up",
++   ":m:okok:",
++   "aok:a:cool#",
++   "a~~\\:ido::ok:::b",
++   ":cool:xa:o\\:a",
++   ":ao::skin-tone-1:idthumbsup::m:skin-tone-1:b",
++   "thumbsup::a:100thumbsup:a:ok",
++   ":up:id:ok:a\\",
++   "ok:thumbsup: ",
++   "_:ok:ok::b",
++   ":ok:a::",
++   ":o:thumbsup:",
++   "ok:ok:a:skin-tone-1:ok:skin-tone-1:cool",
++   ":x:b~~:o*~~:up",
++   ":up:up :b",
++   ":x:skin-tone-1",
++   ":id~~:m:id:x:o\\.",
++   ".a:ok:#:a",
++   ":ok:ok:",
++   " \\ok::cool:ba<:x:123>:m",
++   "o:thumbsup:",
++   "thumbsup::100:100:idthumbsup::id",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   ":id .:o:\\",
++   ":ok:\\:100 :b",
++   ":up:skin-tone-1~~:cool",
++   "a<:x:123>",
++   "<:x:123>",
++   ":b:skin-tone-1\\:id",
++   ":100:id:ok::ok::aa:o",
++   "o::up:cool:id:",
++   ":100:up:up:m:b:up:coola",
++   ":cool:a\\:o",
++   ":ok::ida<:x:123>",
++   "#:id:b:skin-tone-1:up<:x:123>_",
++   ":ok:.o::ok:\\~~:id",
++   "<:x:123>:a:m*.o:",
++   ":o:100\\\\ao:\\:x",
++   ":x*:100<:x:123>:a:skin-tone-1:skin-tone-1:up",
++   ":ok:~~~~a:cool\\ok:",
++   ":o:id:m<:x:123>:a_:b",
++   ":x:id:id:up:skin-tone-1o::skin-tone-1",
++   ":x:id:ok.~~:m  ",
++   ":id:",
++   ":skin-tone-1_:m :up:a:a<:x:123>",
++   ":xthumbsup:\\*<:x:123>ok:thumbsup:",
++   ":a:cool:ok:ok:",
++   " _#o::a:a",
++   ":x:id:skin-tone-1:id:b ",
++   "\\:cool*:o::o",
++   "~~._:ok::b",
++   ":ok:skin-tone-1",
++   ":a:x",
++   ":cool:o:a:b",
++   "<:x:123>:cool:skin-tone-1::100:a_",
++   ":ok::x:coola\\",
++   ":ok:a:b",
++   ":b:o",
++   ":o:b",
++   "<:x:123>:m",
++   ":o:oao: :id",
++   ":cool:id\\_thumbsup::o\\",
++   ":up::upo::skin-tone-1#:m:cool",
++   ":o:100:cool*:b:a#_",
++   ":ok::a\\ ",
++   ":ok::",
++   ":id:ok::o a:m",
++   ":ok::cool:100:m~~",
++   "<:x:123>:ok:<:x:123>",
++   ":ok:::a::x",
++   "*:up:up:a_:skin-tone-1~~a",
++   ":o:b.",
++   ":\\:oko:ok:\\#",
++   ":ok: #_:skin-tone-1",
++   ":cool:100a.a",
++   "<:x:123>#~~a:skin-tone-1:cool:b",
++   ".:up:b:up:cool:m:id",
++   ":ok:",
++   " :o\\ :x:a_",
++   "_:id:o:o",
++   ":ok::x~~",
++   "*\\<:x:123>_:skin-tone-1",
++   "#~~:cool:ok:a",
++   "\\.:bok::ok:thumbsup::ok",
++   ":ok:~~_",
++   ":ok:<:x:123>o:::cool_\\",
++   "ok::100:id:id ",
++   ":skin-tone-1:cool:o:ok:",
++   ":o:cool~~:100thumbsup:",
++   " o:a:ok
++ ```js
++ :a:up:100a*
++ ```",
++   "\\:m:ao:*<:x:123>:up_
++ ```js
++ :cool
++ ```",
++   "#:skin-tone-1:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "ok::
++ ```js
++ o::x:xthumbsup:~~
++ ```",
++   "thumbsup::up:m
++ ```js
++ :*o:
++ ```",
++   ":ok:~~
++ ```js
++ #
++ ```",
++   ":ok:up
++ ```js
++ thumbsup: :skin-tone-1:id:m.
++ ```",
++   "#<:x:123>
++ ```js
++ :id:up
++ ```",
++   "thumbsup::100:ok:
++ ```js
++ :skin-tone-1\\:100:id:cool:a
++ ```",
++   ":#:upthumbsup::a:ok:
++ ```js
++ ok:
++ ```",
++   "~~\\
++ ```js
++ :cool::m:x
++ ```",
++   ":ok::up:ok :oo::m
++ ```js
++ :id
++ ```",
++   "<:x:123>:skin-tone-1 _:100thumbsup:
++ ```js
++ *:ok::cool:x
++ ```",
++   " a:o:ook::up.
++ ```js
++ :cool#
++ ```",
++   "*
++ ```js
++ ##thumbsup:.::cool:o
++ ```",
++   ".:x<:x:123>::ok athumbsup:
++ ```js
++ \\:okathumbsup:o:o:
++ ```",
++   ":x:o~~:x_
++ ```js
++ :up
++ ```",
++   "<:x:123>:o:a
++ ```js
++ .
++ ```",
++   "thumbsup::ok:up
++ ```js
++ :ido:~~:a_
++ ```",
++   ":cool
++ ```js
++ :b::a:id:skin-tone-1:o:ok:
++ ```",
++   "ok:#.<:x:123>:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   "#:m~~ :up
++ ```js
++ :b:skin-tone-1\\
++ ```",
++   ":100:100
++ ```js
++ :o:id:100
++ ```",
++   "ao:*\\:cool
++ ```js
++ :ok:bthumbsup:#
++ ```",
++   "ok::ok:\\
++ ```js
++ :up~~:o:x<:x:123>:up
++ ```",
++   ":100:100:a
++ ```js
++ <:x:123>~~:b:ok::x thumbsup:
++ ```",
++   ":cool:100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":m:xthumbsup::x
++ ```js
++ :b
++ ```",
++   ":bthumbsup::up#
++ ```js
++ :100:oo:
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:195:23
+    193|       return !kept || editor.operations.length !== operations;
+    194|     });
+    195|     expect(unsettled).toEqual([]);
+       |                       ^
+    196|   }, 60_000);
+    197| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/24]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the 272-case corpus that holds no emoji with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the 272-case corpus that holds no emoji with its text unchanged
+AssertionError: expected [ ':smile:', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   ":thumbsup::skin-tone-3:",
++   "**:smile:**",
++   "`:smile:`",
++   ":smile: :smile:",
++   "a:smile:b",
++   "<:a:1><:b:2>",
++   ":+1:",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:21
+     75|     const changed = texts().filter((text) => !holdsEmoji(text))
+     76|       .filter((text) => flattenNodeText(getInitialValue(text, markdown…
+     77|     expect(changed).toEqual([]);
+       |                     ^
+     78|   });
+     79| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/24]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the 106 link inputs that holds no emoji with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the 106 link inputs that holds no emoji with its text unchanged
+AssertionError: expected [ ':smile:https://x.y' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:https://x.y",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:21
+     75|     const changed = texts().filter((text) => !holdsEmoji(text))
+     76|       .filter((text) => flattenNodeText(getInitialValue(text, markdown…
+     77|     expect(changed).toEqual([]);
+       |                     ^
+     78|   });
+     79| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/24]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of 1,000 generator inputs that holds no emoji with its text unchanged
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(47) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   "<t:1700000000>
++ ## [:smile:](https://x.y/a*b*c)",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "- <t:1700000000:D>
++ -# _https://x.y/a(b)c_
++ 1. __||``\\]x\\] <id:browse>`` [:smile:](https://x.y/a*b*c)__",
++   "  - __\\<x\\<__
++ ### <t:1700000000:f>
++ 1. [:smile:](https://x.y/a*b*c) <id:home>",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   "-# <id:customize> \\*x\\*
++ 1. ``_<t:-1:f> https://example.com_ [:smile:](https://example.com/a_b)``
++ - ||`\\`x\\`` <t:1700000000:x>|| snake_case [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   "### ``[:smile:](https://example.com/a_b)`` <@$1558266761101447248> <game:1558266761101447248>
++   - <@!1558266761101447248>
++ ### _`<t:1700000000:D>[a [b] c](https://example.com)`_",
++   "1. ___\\)x\\) [:smile:](https://x.y/a*b*c)__ <a@b.co> </ping:1558266761101447248>
++ ||**_[**bold** label](https://example.com)**",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "- [<:hooks:1558266761101447248>](https://x.y)
++ -# \\<x\\< \\*x\\*
++ # ``*<t:-1:f>*`` hello world",
++   ">>>   - `a\\`x\\`` <t:1700000000:F>
++ ### __\\:x\\:__ [:smile:](https://x.y/a*b*c)[:smile:](https://x.y)
++ ## \\(x\\(",
++   "[:smile:](https://example.com/a_b) C++",
++   "__~~<:hooks:1558266761101447248>~~
++ ``<t:1700000000:F> <t:-1:f>``",
++   "- *~~\\:x\\:~~ [:smile:](https://x.y/a*b*c)*
++   - `*``\\_x\\_\\|x\\|``*`
++ # <t:-1:f>",
++   "### <game:1558266761101447248> <#1558266761101447248>
++ ``~~_\\]x\\]_~~ <t:1700000000:d><t:-1:f>``
++ 1. __*https://example.com/path?q=1&r=2#fword*__",
++   "1. \\>x\\>
++ word <https://x.y>
++ -# ``*[:smile:](https://x.y) @here*``",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "<id:guide>[dev](dev://branch/main)
++ _``<@1558266761101447248>https://example.com/path?q=1&r=2#f`` [:smile:](https://x.y/a*b*c) \\]x\\]_
++ ``[**bold** label](https://example.com)[text](<https://example.com>)``",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "`***<@1558266761101447248>** https://x.y.* 日本 <a:dance:1558266761101447248>` [:smile:](https://x.y/a*b*c)
++ ## *[a [b] c](https://example.com)<game:1558266761101447248>*",
++   "1. <t:1700000000:f>
++ ### ___``<t:-1:f>___",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "-# [:smile:](https://x.y/a*b*c)
++ `a*b`",
++   "-# `**\\>x\\>[<:hooks:1558266761101447248>](https://x.y/a*b*c)**` hello world
++ # **__<t:1700000000:D> [<:hooks:1558266761101447248>](https://example.com/a_b) <t:1700000000:F>** [:smile:](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y/a*b*c)
++ ~~hello world~~",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`
++ \\]x\\]
++ -# ~~<t:1700000000:f><@$1558266761101447248>~~",
++   "# :smile:",
++   "x_y é
++ > 日本:smile:
++ > ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   ">>> *__\\>x\\> [:smile:](https://x.y)__*
++ 1. _\\:x\\:_",
++   "  - [:smile:](https://x.y/a*b*c) <id:linked-roles>
++ > __***\\<x\\< 日本***__ ax_y",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:21
+     75|     const changed = texts().filter((text) => !holdsEmoji(text))
+     76|       .filter((text) => flattenNodeText(getInitialValue(text, markdown…
+     77|     expect(changed).toEqual([]);
+       |                     ^
+     78|   });
+     79| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/24]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the 1,662-line probe corpus that holds no emoji with its text unchanged
+AssertionError: expected [ ' o:a:ok', ':a:up:100a*', …(394) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   " o:a:ok",
++   ":a:up:100a*",
++   "<:x:123>:_:m",
++   "\\:m:ao:*<:x:123>:up_",
++   "\\ :up:up:o:ok:o",
++   "o::x:xthumbsup:~~",
++   ":::a:othumbsup:",
++   ":b:b:ok",
++   "thumbsup::up:m",
++   "o:thumbsup::a",
++   ":ok:~~",
++   ":id:.:100",
++   ":ok:\\:o:",
++   "#ok::m:cool_:m",
++   ":ok:up",
++   "#<:x:123>",
++   ":id:up",
++   "thumbsup::100:ok:",
++   ":skin-tone-1\\:100:id:cool:a",
++   "<:x:123>",
++   ":#:upthumbsup::a:ok:",
++   ":100:ok:",
++   "*:x:x*",
++   ":cool::m:x",
++   ":cool:skin-tone-1:cool:skin-tone-1:x*:b",
++   ":ok::up:ok :oo::m",
++   "<:x:123>:skin-tone-1 _:100thumbsup:",
++   "*:ok::cool:x",
++   " a:o:ook::up.",
++   ":x:id",
++   ":thumbsup:",
++   ":skin-tone-1:skin-tone-1 o: thumbsup:a:up",
++   "<:x:123>:o:m#:idok::a",
++   "##thumbsup:.::cool:o",
++   "<:x:123>:100:x:a:",
++   "ok::ok:o#a<:x:123>ok:",
++   "<:x:123>:ok::b:ok::ok:m",
++   "\\:okathumbsup:o:o:",
++   ":x:o~~:x_",
++   ":ok::cool\\<:x:123>",
++   "#_:m:id:id*:a:skin-tone-1",
++   "<:x:123>:o:a",
++   "o::a:ok: ",
++   ":100:ok::up:m:m",
++   ":cool:a",
++   "thumbsup::ok:up",
++   "*:ok::skin-tone-1:a:ok<:x:123>thumbsup:a",
++   ":b::a:id:skin-tone-1:o:ok:",
++   ":m :a:100a~~.:x",
++   ":a:id:m",
++   ":x~~:100:a:id.",
++   "thumbsup::up:ok:",
++   "ok:#.<:x:123>:a:m:a*",
++   ":a:skin-tone-1.",
++   ":a~~:ok:ok:#a#thumbsup:",
++   ":id:o:cool:",
++   ":b:skin-tone-1\\",
++   ":ok:*",
++   ":100:100",
++   ":o:id:100",
++   ":ok:bthumbsup:#",
++   "<:x:123> ",
++   "_:up:ok:*",
++   "thumbsup::m:100:up:a:b:id",
++   "<:x:123>:up:100o:",
++   "ok::ok:\\",
++   ":cool:ok:m:a",
++   ":100:100:a",
++   "<:x:123>~~:b:ok::x thumbsup:",
++   "<:x:123>\\:cool",
++   "*:ok:",
++   ":id:ok",
++   ":cool:100:id:bthumbsup:",
++   "#::m:cool",
++   ":m:xthumbsup::x",
++   "#o:thumbsup::b:m",
++   ":100:oo:",
++   "__ok::100:skin-tone-1",
++   ":100#:x:100ok::a:skin-tone-1ok:",
++   ".:100:100:ok.:x",
++   "\\.:cool:id:ok:id\\",
++   ":b:mok::m:ok thumbsup::ok",
++   ".:id:o<:x:123>:o:id",
++   ":xok::o:cool",
++   ":id<:x:123>:xok::id:x:ok:a",
++   ":ok:x:skin-tone-1",
++   ":ok::up:id",
++   "~~:ok:<:x:123><:x:123>",
++   ":cool:100:\\#",
++   ".:up:100o:_",
++   ":ok:a:ok::a:id:ok:",
++   "<:x:123>:100.:ok::x\\<:x:123>:100",
++   ":up:skin-tone-1 :100~~ ",
++   ":ok:o:",
++   "o::ok:.:up",
++   ":cool:ok:*:100:a__",
++   ":a:m:ida:x:x",
++   "~~:x:ok:",
++   "<:x:123>.:b_:o.a:m",
++   ":o_:b:o:cool:okok: ",
++   ":*:o:100::x<:x:123> ",
++   ":100:skin-tone-1",
++   ":cool:b:cool:up",
++   " ok::b:cool<:x:123>:skin-tone-1_",
++   "thumbsup:a:a<:x:123>:a",
++   ":100:ok:",
++   "o::cool:up:a.:ok::ok:_",
++   "_:upa :ok:id",
++   ":thumbsup::m:id#",
++   ":id:id:a:up# thumbsup::id",
++   "<:x:123>",
++   ":x:up:o<:x:123> a",
++   "ok::cool:bo::skin-tone-1 :b:b",
++   "o::cool:coola_:o",
++   ":ok:x\\:ok:m",
++   "::up:b\\",
++   "thumbsup:o: :m#\\",
++   "thumbsup:\\ :a:x~~",
++   ":o_:a<:x:123>a:up_",
++   "*~~:ok::b#",
++   "thumbsup::id:skin-tone-1",
++   ":ok::b",
++   "<:x:123>:skin-tone-1:x _a",
++   "a~~o::ok:<:x:123>:o:100:cool",
++   "#~~o::b:athumbsup:",
++   "\\*thumbsup:a:m",
++   "o:ok:a<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "<:x:123>~~*:id:ok",
++   "<:x:123>o:#:100",
++   "thumbsup:::oka:100:ok:ok:",
++   ":ok:x:cool",
++   "*_:m:x# ",
++   ":b:a:b~~",
++   "<:x:123>ok:",
++   ":b~~:up:x:100_",
++   "<:x:123>",
++   "a:a:a ",
++   ":m:upao:*",
++   ":id*:skin-tone-1thumbsup:ok:*",
++   ":a:a:up:a",
++   "\\ :cool:up:skin-tone-1:id:oka",
++   ":ok:_\\:b:mthumbsup::a",
++   ":ok:#:xa~~",
++   ":m:ok::100",
++   ":ok: :up",
++   ":ok_ok:_:a:100*:a",
++   "<:x:123>o:",
++   ":skin-tone-1:b:ok::m~~",
++   "ok:~~:ok:ok::o#",
++   ":ok:100:ok::b*::id ",
++   ":ok:ok:id",
++   "\\:xthumbsup:ok::a:m<:x:123>:cool",
++   "<:x:123>:cool",
++   ":o:up:m:ok\\:o:skin-tone-1:ok",
++   "thumbsup::a:id_..",
++   "ok:#o:~~:a:ok::\\",
++   ":ok:",
++   " :100:ok::skin-tone-1:cool",
++   ":skin-tone-1:ma<:x:123>ok:",
++   ":ok:ma#",
++   "<:x:123>*",
++   "a\\_:ok:",
++   "~~:ok:#:a\\:ok:",
++   " :o:oko:",
++   ":o:a:100:cool#:cool<:x:123>:cool",
++   ":100:ok::up",
++   "<:x:123>:a.ok::b",
++   "<:x:123>:m :a:id",
++   "\\ <:x:123>:ba:100",
++   "*:cool:ok:",
++   ":ok:~~",
++   "*:ok:m",
++   "<:x:123>:thumbsup:ok:",
++   ":b:a::100:id:b",
++   "*:ok::a:o",
++   "ok:.thumbsup::x:x",
++   "<:x:123>_:x",
++   ":skin-tone-1.:o:ok:",
++   "<:x:123>",
++   "a:ok:",
++   "*thumbsup: :ok:a",
++   ":b:skin-tone-1:id:100:o~~:id:skin-tone-1",
++   ":id:skin-tone-1::a",
++   ":cool:cool:<:x:123>:cool:skin-tone-1:",
++   "<:x:123>:a",
++   "_:id:100",
++   ":a:up",
++   "<:x:123>",
++   "#o:o:thumbsup:*:cool",
++   ":cool :b:oo: :",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "thumbsup::cool:m:id",
++   ":ok:100o:ok:",
++   "a:b:skin-tone-1~~#<:x:123>",
++   "<:x:123>:o:x:mthumbsup:",
++   "thumbsup:thumbsup::  :100",
++   ":ok:<:x:123>",
++   ":x:up\\",
++   "#:x:cool:ok::up:ok~~",
++   ":id:skin-tone-1:100o::skin-tone-1:m ",
++   ":100:ok::othumbsup: ",
++   ":b:x~~:bo:",
++   "<:x:123>",
++   ":ok:",
++   "thumbsup::skin-tone-1:cool:o:a:x*",
++   "~~_<:x:123>.: :up",
++   "thumbsup:ok:a:id:b",
++   "#<:x:123>thumbsup:*_thumbsup:",
++   ":a:bo:",
++   ":id:id",
++   ":x:",
++   ":up::ok#:ok",
++   "#_*_:ok::id:ok:",
++   "<:x:123><:x:123>",
++   ":100:bthumbsup::cool::x",
++   "~~:ok::o:athumbsup::ok",
++   ":x:skin-tone-1<:x:123>ok: \\:x",
++   ":cool:100:ok",
++   ":bthumbsup::ook::o:ok",
++   "<:x:123>:ok:a:100:a#",
++   ":m:xa:100",
++   ":100:xok::m",
++   ":a:m_:m",
++   ":b:x*:cool::",
++   ":a:o:b:a:skin-tone-1",
++   "..#:b:o#:100",
++   ":up:ok~~##:cool:",
++   ":id:skin-tone-1ok::up",
++   "a<:x:123>#o::ok",
++   "~~_:xo::b:skin-tone-1",
++   ":ok:",
++   "*:a::skin-tone-1*o:_",
++   "~~#:ok:#::m:cool",
++   "ok::m:ok",
++   "*ok::id:up :up_:a",
++   "ok:#_ :ok:.",
++   "thumbsup::a:skin-tone-1*:id",
++   ":m<:x:123> :ok:o::up:o_",
++   "o:ok:",
++   "ok:~~~~:cool:cool:o:x",
++   ":ok:ok:<:x:123>",
++   ":idaa.:ok:up:x:o",
++   ":id:ok::a<:x:123> :",
++   "a:x:100 :b:ok",
++   "::o::upok::ok::ok",
++   "~~:ok::up:xthumbsup:ok:\\#",
++   ":id::100:ok:*<:x:123>:b",
++   "<:x:123>::m:a:idthumbsup::b#",
++   ":m:b:",
++   "a.*:skin-tone-1:a:x:b:o",
++   "<:x:123>",
++   ":up.~~:up:ok::ok~~",
++   "\\<:x:123>:m:100:ok:",
++   ":o: :o",
++   ":100:o:skin-tone-1:m:up\\#",
++   ":a:x<:x:123>.",
++   ":a:up<:x:123>*:100:m:ok:a",
++   ":a:ok",
++   "<:x:123>",
++   "~~:x:o:b",
++   ":a\\a:id<:x:123>*.thumbsup:",
++   ":id:up:o:b:a~~::cool",
++   ":ok:ok::up:b",
++   " ~~:ok:thumbsup::b",
++   ":b:x<:x:123>~~#:m:id:100",
++   "<:x:123>thumbsup:",
++   "ok::x_~~:skin-tone-1:cool:up_",
++   ":a:id ",
++   "<:x:123>.",
++   ":o:b~~#o:",
++   ".~~:cool:x",
++   ":ok::up\\_",
++   ":m:cool:ok::ok:\\a:mok:",
++   ":o:o~~:a",
++   ":b:a",
++   " <:x:123>",
++   "ok::skin-tone-1:o*:ok:",
++   "ok::o:skin-tone-1a:b",
++   ":x:b_*thumbsup:",
++   "thumbsup:a:up*a:skin-tone-1thumbsup:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":id:ok::o",
++   "ok::x<:x:123>_~~ok:<:x:123>.",
++   "::ok:",
++   ":cool:x",
++   ":up:up",
++   ":m:okok:",
++   "aok:a:cool#",
++   "a~~\\:ido::ok:::b",
++   ":cool:xa:o\\:a",
++   ":ao::skin-tone-1:idthumbsup::m:skin-tone-1:b",
++   "thumbsup::a:100thumbsup:a:ok",
++   ":up:id:ok:a\\",
++   "ok:thumbsup: ",
++   "_:ok:ok::b",
++   ":ok:a::",
++   ":o:thumbsup:",
++   "ok:ok:a:skin-tone-1:ok:skin-tone-1:cool",
++   ":x:b~~:o*~~:up",
++   ":up:up :b",
++   ":x:skin-tone-1",
++   ":id~~:m:id:x:o\\.",
++   ".a:ok:#:a",
++   ":ok:ok:",
++   " \\ok::cool:ba<:x:123>:m",
++   "o:thumbsup:",
++   "thumbsup::100:100:idthumbsup::id",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   ":id .:o:\\",
++   ":ok:\\:100 :b",
++   ":up:skin-tone-1~~:cool",
++   "a<:x:123>",
++   "<:x:123>",
++   ":b:skin-tone-1\\:id",
++   ":100:id:ok::ok::aa:o",
++   "o::up:cool:id:",
++   ":100:up:up:m:b:up:coola",
++   ":cool:a\\:o",
++   ":ok::ida<:x:123>",
++   "#:id:b:skin-tone-1:up<:x:123>_",
++   ":ok:.o::ok:\\~~:id",
++   "<:x:123>:a:m*.o:",
++   ":o:100\\\\ao:\\:x",
++   ":x*:100<:x:123>:a:skin-tone-1:skin-tone-1:up",
++   ":ok:~~~~a:cool\\ok:",
++   ":o:id:m<:x:123>:a_:b",
++   ":x:id:id:up:skin-tone-1o::skin-tone-1",
++   ":x:id:ok.~~:m  ",
++   ":id:",
++   ":skin-tone-1_:m :up:a:a<:x:123>",
++   ":xthumbsup:\\*<:x:123>ok:thumbsup:",
++   ":a:cool:ok:ok:",
++   " _#o::a:a",
++   ":x:id:skin-tone-1:id:b ",
++   "\\:cool*:o::o",
++   "~~._:ok::b",
++   ":ok:skin-tone-1",
++   ":a:x",
++   ":cool:o:a:b",
++   "<:x:123>:cool:skin-tone-1::100:a_",
++   ":ok::x:coola\\",
++   ":ok:a:b",
++   ":b:o",
++   ":o:b",
++   "<:x:123>:m",
++   ":o:oao: :id",
++   ":cool:id\\_thumbsup::o\\",
++   ":up::upo::skin-tone-1#:m:cool",
++   ":o:100:cool*:b:a#_",
++   ":ok::a\\ ",
++   ":ok::",
++   ":id:ok::o a:m",
++   ":ok::cool:100:m~~",
++   "<:x:123>:ok:<:x:123>",
++   ":ok:::a::x",
++   "*:up:up:a_:skin-tone-1~~a",
++   ":o:b.",
++   ":\\:oko:ok:\\#",
++   ":ok: #_:skin-tone-1",
++   ":cool:100a.a",
++   "<:x:123>#~~a:skin-tone-1:cool:b",
++   ".:up:b:up:cool:m:id",
++   ":ok:",
++   " :o\\ :x:a_",
++   "_:id:o:o",
++   ":ok::x~~",
++   "*\\<:x:123>_:skin-tone-1",
++   "#~~:cool:ok:a",
++   "\\.:bok::ok:thumbsup::ok",
++   ":ok:~~_",
++   ":ok:<:x:123>o:::cool_\\",
++   "ok::100:id:id ",
++   ":skin-tone-1:cool:o:ok:",
++   ":o:cool~~:100thumbsup:",
++   " o:a:ok
++ ```js
++ :a:up:100a*
++ ```",
++   "\\:m:ao:*<:x:123>:up_
++ ```js
++ :cool
++ ```",
++   "thumbsup::up:m
++ ```js
++ :*o:
++ ```",
++   ":ok:~~
++ ```js
++ #
++ ```",
++   ":ok:up
++ ```js
++ thumbsup: :skin-tone-1:id:m.
++ ```",
++   "#<:x:123>
++ ```js
++ :id:up
++ ```",
++   "thumbsup::100:ok:
++ ```js
++ :skin-tone-1\\:100:id:cool:a
++ ```",
++   ":#:upthumbsup::a:ok:
++ ```js
++ ok:
++ ```",
++   ":ok::up:ok :oo::m
++ ```js
++ :id
++ ```",
++   "<:x:123>:skin-tone-1 _:100thumbsup:
++ ```js
++ *:ok::cool:x
++ ```",
++   " a:o:ook::up.
++ ```js
++ :cool#
++ ```",
++   ":x:o~~:x_
++ ```js
++ :up
++ ```",
++   "<:x:123>:o:a
++ ```js
++ .
++ ```",
++   "thumbsup::ok:up
++ ```js
++ :ido:~~:a_
++ ```",
++   "ok:#.<:x:123>:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   ":100:100
++ ```js
++ :o:id:100
++ ```",
++   "ok::ok:\\
++ ```js
++ :up~~:o:x<:x:123>:up
++ ```",
++   ":100:100:a
++ ```js
++ <:x:123>~~:b:ok::x thumbsup:
++ ```",
++   ":cool:100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":m:xthumbsup::x
++ ```js
++ :b
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:21
+     75|     const changed = texts().filter((text) => !holdsEmoji(text))
+     76|       .filter((text) => flattenNodeText(getInitialValue(text, markdown…
+     77|     expect(changed).toEqual([]);
+       |                     ^
+     78|   });
+     79| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/24]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of 1,000 generator inputs that holds no emoji with its text unchanged
+AssertionError: expected [ ':smile:', '<t:-1:f>', …(50) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ":smile:",
++   "<t:-1:f>",
++   "[:smile:](https://x.y)",
++   "[:smile:](https://example.com/a_b)",
++   "[:smile:](https://x.y/a*b*c)",
++   "## <t:-1:f><t:1700000000:R>",
++   "<t:1700000000>
++ ## [:smile:](https://x.y/a*b*c)",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "- <t:1700000000:D>
++ -# _https://x.y/a(b)c_
++ 1. __||``\\]x\\] <id:browse>`` [:smile:](https://x.y/a*b*c)__",
++   "  - __\\<x\\<__
++ ### <t:1700000000:f>
++ 1. [:smile:](https://x.y/a*b*c) <id:home>",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   "-# <id:customize> \\*x\\*
++ 1. ``_<t:-1:f> https://example.com_ [:smile:](https://example.com/a_b)``
++ - ||`\\`x\\`` <t:1700000000:x>|| snake_case [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   "### ``[:smile:](https://example.com/a_b)`` <@$1558266761101447248> <game:1558266761101447248>
++   - <@!1558266761101447248>
++ ### _`<t:1700000000:D>[a [b] c](https://example.com)`_",
++   "1. ___\\)x\\) [:smile:](https://x.y/a*b*c)__ <a@b.co> </ping:1558266761101447248>
++ ||**_[**bold** label](https://example.com)**",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++   "- [<:hooks:1558266761101447248>](https://x.y)
++ -# \\<x\\< \\*x\\*
++ # ``*<t:-1:f>*`` hello world",
++   ">>>   - `a\\`x\\`` <t:1700000000:F>
++ ### __\\:x\\:__ [:smile:](https://x.y/a*b*c)[:smile:](https://x.y)
++ ## \\(x\\(",
++   "[:smile:](https://example.com/a_b) C++",
++   "__~~<:hooks:1558266761101447248>~~
++ ``<t:1700000000:F> <t:-1:f>``",
++   "- *~~\\:x\\:~~ [:smile:](https://x.y/a*b*c)*
++   - `*``\\_x\\_\\|x\\|``*`
++ # <t:-1:f>",
++   "### <game:1558266761101447248> <#1558266761101447248>
++ ``~~_\\]x\\]_~~ <t:1700000000:d><t:-1:f>``
++ 1. __*https://example.com/path?q=1&r=2#fword*__",
++   "```JS
++ __[:smile:](https://x.y)__",
++   "1. \\>x\\>
++ word <https://x.y>
++ -# ``*[:smile:](https://x.y) @here*``",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "<id:guide>[dev](dev://branch/main)
++ _``<@1558266761101447248>https://example.com/path?q=1&r=2#f`` [:smile:](https://x.y/a*b*c) \\]x\\]_
++ ``[**bold** label](https://example.com)[text](<https://example.com>)``",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "`***<@1558266761101447248>** https://x.y.* 日本 <a:dance:1558266761101447248>` [:smile:](https://x.y/a*b*c)
++ ## *[a [b] c](https://example.com)<game:1558266761101447248>*",
++   "1. <t:1700000000:f>
++ ### ___``<t:-1:f>___",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "-# [:smile:](https://x.y/a*b*c)
++ `a*b`",
++   "```ts
++ ***[:smile:](https://x.y)***
++ ```",
++   "-# `**\\>x\\>[<:hooks:1558266761101447248>](https://x.y/a*b*c)**` hello world
++ # **__<t:1700000000:D> [<:hooks:1558266761101447248>](https://example.com/a_b) <t:1700000000:F>** [:smile:](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y/a*b*c)
++ ~~hello world~~",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   ":smile:",
++   "```C++
++ 1. **<#1558266761101447248> [:smile:](https://x.y/a*b*c)**
++ ```",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`
++ \\]x\\]
++ -# ~~<t:1700000000:f><@$1558266761101447248>~~",
++   "# :smile:",
++   "x_y é
++ > 日本:smile:
++ > ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   ">>> *__\\>x\\> [:smile:](https://x.y)__*
++ 1. _\\:x\\:_",
++   "  - [:smile:](https://x.y/a*b*c) <id:linked-roles>
++ > __***\\<x\\< 日本***__ ax_y",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "<t:-1:f> <a@b.co>",
++   "> ||`[:smile:](https://x.y/a*b*c)` <t:1700000000:S>",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:21
+     75|     const changed = texts().filter((text) => !holdsEmoji(text))
+     76|       .filter((text) => flattenNodeText(getInitialValue(text, markdown…
+     77|     expect(changed).toEqual([]);
+       |                     ^
+     78|   });
+     79| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/24]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the 1,662-line probe corpus that holds no emoji with its text unchanged
+AssertionError: expected [ ' o:a:ok', ':a:up:100a*', …(403) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   " o:a:ok",
++   ":a:up:100a*",
++   "<:x:123>:_:m",
++   "\\:m:ao:*<:x:123>:up_",
++   "\\ :up:up:o:ok:o",
++   "o::x:xthumbsup:~~",
++   ":::a:othumbsup:",
++   ":b:b:ok",
++   "thumbsup::up:m",
++   "o:thumbsup::a",
++   ":ok:~~",
++   ":id:.:100",
++   ":ok:\\:o:",
++   "#ok::m:cool_:m",
++   ":ok:up",
++   "#<:x:123>",
++   ":id:up",
++   "thumbsup::100:ok:",
++   ":skin-tone-1\\:100:id:cool:a",
++   "<:x:123>",
++   ":#:upthumbsup::a:ok:",
++   ":100:ok:",
++   "*:x:x*",
++   ":cool::m:x",
++   ":cool:skin-tone-1:cool:skin-tone-1:x*:b",
++   ":ok::up:ok :oo::m",
++   "<:x:123>:skin-tone-1 _:100thumbsup:",
++   "*:ok::cool:x",
++   " a:o:ook::up.",
++   ":x:id",
++   ":thumbsup:",
++   ":skin-tone-1:skin-tone-1 o: thumbsup:a:up",
++   "<:x:123>:o:m#:idok::a",
++   "##thumbsup:.::cool:o",
++   "<:x:123>:100:x:a:",
++   "ok::ok:o#a<:x:123>ok:",
++   "<:x:123>:ok::b:ok::ok:m",
++   "\\:okathumbsup:o:o:",
++   ":x:o~~:x_",
++   ":ok::cool\\<:x:123>",
++   "#_:m:id:id*:a:skin-tone-1",
++   "<:x:123>:o:a",
++   "o::a:ok: ",
++   ":100:ok::up:m:m",
++   ":cool:a",
++   "thumbsup::ok:up",
++   "*:ok::skin-tone-1:a:ok<:x:123>thumbsup:a",
++   ":b::a:id:skin-tone-1:o:ok:",
++   ":m :a:100a~~.:x",
++   ":a:id:m",
++   ":x~~:100:a:id.",
++   "thumbsup::up:ok:",
++   "ok:#.<:x:123>:a:m:a*",
++   ":a:skin-tone-1.",
++   ":a~~:ok:ok:#a#thumbsup:",
++   ":id:o:cool:",
++   ":b:skin-tone-1\\",
++   ":ok:*",
++   ":100:100",
++   ":o:id:100",
++   ":ok:bthumbsup:#",
++   "<:x:123> ",
++   "_:up:ok:*",
++   "thumbsup::m:100:up:a:b:id",
++   "<:x:123>:up:100o:",
++   "ok::ok:\\",
++   ":cool:ok:m:a",
++   ":100:100:a",
++   "<:x:123>~~:b:ok::x thumbsup:",
++   "<:x:123>\\:cool",
++   "*:ok:",
++   ":id:ok",
++   ":cool:100:id:bthumbsup:",
++   "#::m:cool",
++   ":m:xthumbsup::x",
++   "#o:thumbsup::b:m",
++   ":100:oo:",
++   "__ok::100:skin-tone-1",
++   ":100#:x:100ok::a:skin-tone-1ok:",
++   ".:100:100:ok.:x",
++   "\\.:cool:id:ok:id\\",
++   ":b:mok::m:ok thumbsup::ok",
++   ".:id:o<:x:123>:o:id",
++   ":xok::o:cool",
++   ":id<:x:123>:xok::id:x:ok:a",
++   ":ok:x:skin-tone-1",
++   ":ok::up:id",
++   "~~:ok:<:x:123><:x:123>",
++   ":cool:100:\\#",
++   ".:up:100o:_",
++   ":ok:a:ok::a:id:ok:",
++   "<:x:123>:100.:ok::x\\<:x:123>:100",
++   ":up:skin-tone-1 :100~~ ",
++   ":ok:o:",
++   "o::ok:.:up",
++   ":cool:ok:*:100:a__",
++   ":a:m:ida:x:x",
++   "~~:x:ok:",
++   "<:x:123>.:b_:o.a:m",
++   ":o_:b:o:cool:okok: ",
++   ":*:o:100::x<:x:123> ",
++   ":100:skin-tone-1",
++   ":cool:b:cool:up",
++   " ok::b:cool<:x:123>:skin-tone-1_",
++   "thumbsup:a:a<:x:123>:a",
++   ":100:ok:",
++   "o::cool:up:a.:ok::ok:_",
++   "_:upa :ok:id",
++   ":thumbsup::m:id#",
++   ":id:id:a:up# thumbsup::id",
++   "<:x:123>",
++   ":x:up:o<:x:123> a",
++   "ok::cool:bo::skin-tone-1 :b:b",
++   "o::cool:coola_:o",
++   ":ok:x\\:ok:m",
++   "::up:b\\",
++   "thumbsup:o: :m#\\",
++   "thumbsup:\\ :a:x~~",
++   ":o_:a<:x:123>a:up_",
++   "*~~:ok::b#",
++   "thumbsup::id:skin-tone-1",
++   ":ok::b",
++   "<:x:123>:skin-tone-1:x _a",
++   "a~~o::ok:<:x:123>:o:100:cool",
++   "#~~o::b:athumbsup:",
++   "\\*thumbsup:a:m",
++   "o:ok:a<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "<:x:123>~~*:id:ok",
++   "<:x:123>o:#:100",
++   "thumbsup:::oka:100:ok:ok:",
++   ":ok:x:cool",
++   "*_:m:x# ",
++   ":b:a:b~~",
++   "<:x:123>ok:",
++   ":b~~:up:x:100_",
++   "<:x:123>",
++   "a:a:a ",
++   ":m:upao:*",
++   ":id*:skin-tone-1thumbsup:ok:*",
++   ":a:a:up:a",
++   "\\ :cool:up:skin-tone-1:id:oka",
++   ":ok:_\\:b:mthumbsup::a",
++   ":ok:#:xa~~",
++   ":m:ok::100",
++   ":ok: :up",
++   ":ok_ok:_:a:100*:a",
++   "<:x:123>o:",
++   ":skin-tone-1:b:ok::m~~",
++   "ok:~~:ok:ok::o#",
++   ":ok:100:ok::b*::id ",
++   ":ok:ok:id",
++   "\\:xthumbsup:ok::a:m<:x:123>:cool",
++   "<:x:123>:cool",
++   ":o:up:m:ok\\:o:skin-tone-1:ok",
++   "thumbsup::a:id_..",
++   "ok:#o:~~:a:ok::\\",
++   ":ok:",
++   " :100:ok::skin-tone-1:cool",
++   ":skin-tone-1:ma<:x:123>ok:",
++   ":ok:ma#",
++   "<:x:123>*",
++   "a\\_:ok:",
++   "~~:ok:#:a\\:ok:",
++   " :o:oko:",
++   ":o:a:100:cool#:cool<:x:123>:cool",
++   ":100:ok::up",
++   "<:x:123>:a.ok::b",
++   "<:x:123>:m :a:id",
++   "\\ <:x:123>:ba:100",
++   "*:cool:ok:",
++   ":ok:~~",
++   "*:ok:m",
++   "<:x:123>:thumbsup:ok:",
++   ":b:a::100:id:b",
++   "*:ok::a:o",
++   "ok:.thumbsup::x:x",
++   "<:x:123>_:x",
++   ":skin-tone-1.:o:ok:",
++   "<:x:123>",
++   "a:ok:",
++   "*thumbsup: :ok:a",
++   ":b:skin-tone-1:id:100:o~~:id:skin-tone-1",
++   ":id:skin-tone-1::a",
++   ":cool:cool:<:x:123>:cool:skin-tone-1:",
++   "<:x:123>:a",
++   "_:id:100",
++   ":a:up",
++   "<:x:123>",
++   "#o:o:thumbsup:*:cool",
++   ":cool :b:oo: :",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "thumbsup::cool:m:id",
++   ":ok:100o:ok:",
++   "a:b:skin-tone-1~~#<:x:123>",
++   "<:x:123>:o:x:mthumbsup:",
++   "thumbsup:thumbsup::  :100",
++   ":ok:<:x:123>",
++   ":x:up\\",
++   "#:x:cool:ok::up:ok~~",
++   ":id:skin-tone-1:100o::skin-tone-1:m ",
++   ":100:ok::othumbsup: ",
++   ":b:x~~:bo:",
++   "<:x:123>",
++   ":ok:",
++   "thumbsup::skin-tone-1:cool:o:a:x*",
++   "~~_<:x:123>.: :up",
++   "thumbsup:ok:a:id:b",
++   "#<:x:123>thumbsup:*_thumbsup:",
++   ":a:bo:",
++   ":id:id",
++   ":x:",
++   ":up::ok#:ok",
++   "#_*_:ok::id:ok:",
++   "<:x:123><:x:123>",
++   ":100:bthumbsup::cool::x",
++   "~~:ok::o:athumbsup::ok",
++   ":x:skin-tone-1<:x:123>ok: \\:x",
++   ":cool:100:ok",
++   ":bthumbsup::ook::o:ok",
++   "<:x:123>:ok:a:100:a#",
++   ":m:xa:100",
++   ":100:xok::m",
++   ":a:m_:m",
++   ":b:x*:cool::",
++   ":a:o:b:a:skin-tone-1",
++   "..#:b:o#:100",
++   ":up:ok~~##:cool:",
++   ":id:skin-tone-1ok::up",
++   "a<:x:123>#o::ok",
++   "~~_:xo::b:skin-tone-1",
++   ":ok:",
++   "*:a::skin-tone-1*o:_",
++   "~~#:ok:#::m:cool",
++   "ok::m:ok",
++   "*ok::id:up :up_:a",
++   "ok:#_ :ok:.",
++   "thumbsup::a:skin-tone-1*:id",
++   ":m<:x:123> :ok:o::up:o_",
++   "o:ok:",
++   "ok:~~~~:cool:cool:o:x",
++   ":ok:ok:<:x:123>",
++   ":idaa.:ok:up:x:o",
++   ":id:ok::a<:x:123> :",
++   "a:x:100 :b:ok",
++   "::o::upok::ok::ok",
++   "~~:ok::up:xthumbsup:ok:\\#",
++   ":id::100:ok:*<:x:123>:b",
++   "<:x:123>::m:a:idthumbsup::b#",
++   ":m:b:",
++   "a.*:skin-tone-1:a:x:b:o",
++   "<:x:123>",
++   ":up.~~:up:ok::ok~~",
++   "\\<:x:123>:m:100:ok:",
++   ":o: :o",
++   ":100:o:skin-tone-1:m:up\\#",
++   ":a:x<:x:123>.",
++   ":a:up<:x:123>*:100:m:ok:a",
++   ":a:ok",
++   "<:x:123>",
++   "~~:x:o:b",
++   ":a\\a:id<:x:123>*.thumbsup:",
++   ":id:up:o:b:a~~::cool",
++   ":ok:ok::up:b",
++   " ~~:ok:thumbsup::b",
++   ":b:x<:x:123>~~#:m:id:100",
++   "<:x:123>thumbsup:",
++   "ok::x_~~:skin-tone-1:cool:up_",
++   ":a:id ",
++   "<:x:123>.",
++   ":o:b~~#o:",
++   ".~~:cool:x",
++   ":ok::up\\_",
++   ":m:cool:ok::ok:\\a:mok:",
++   ":o:o~~:a",
++   ":b:a",
++   " <:x:123>",
++   "ok::skin-tone-1:o*:ok:",
++   "ok::o:skin-tone-1a:b",
++   ":x:b_*thumbsup:",
++   "thumbsup:a:up*a:skin-tone-1thumbsup:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":id:ok::o",
++   "ok::x<:x:123>_~~ok:<:x:123>.",
++   "::ok:",
++   ":cool:x",
++   ":up:up",
++   ":m:okok:",
++   "aok:a:cool#",
++   "a~~\\:ido::ok:::b",
++   ":cool:xa:o\\:a",
++   ":ao::skin-tone-1:idthumbsup::m:skin-tone-1:b",
++   "thumbsup::a:100thumbsup:a:ok",
++   ":up:id:ok:a\\",
++   "ok:thumbsup: ",
++   "_:ok:ok::b",
++   ":ok:a::",
++   ":o:thumbsup:",
++   "ok:ok:a:skin-tone-1:ok:skin-tone-1:cool",
++   ":x:b~~:o*~~:up",
++   ":up:up :b",
++   ":x:skin-tone-1",
++   ":id~~:m:id:x:o\\.",
++   ".a:ok:#:a",
++   ":ok:ok:",
++   " \\ok::cool:ba<:x:123>:m",
++   "o:thumbsup:",
++   "thumbsup::100:100:idthumbsup::id",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   ":id .:o:\\",
++   ":ok:\\:100 :b",
++   ":up:skin-tone-1~~:cool",
++   "a<:x:123>",
++   "<:x:123>",
++   ":b:skin-tone-1\\:id",
++   ":100:id:ok::ok::aa:o",
++   "o::up:cool:id:",
++   ":100:up:up:m:b:up:coola",
++   ":cool:a\\:o",
++   ":ok::ida<:x:123>",
++   "#:id:b:skin-tone-1:up<:x:123>_",
++   ":ok:.o::ok:\\~~:id",
++   "<:x:123>:a:m*.o:",
++   ":o:100\\\\ao:\\:x",
++   ":x*:100<:x:123>:a:skin-tone-1:skin-tone-1:up",
++   ":ok:~~~~a:cool\\ok:",
++   ":o:id:m<:x:123>:a_:b",
++   ":x:id:id:up:skin-tone-1o::skin-tone-1",
++   ":x:id:ok.~~:m  ",
++   ":id:",
++   ":skin-tone-1_:m :up:a:a<:x:123>",
++   ":xthumbsup:\\*<:x:123>ok:thumbsup:",
++   ":a:cool:ok:ok:",
++   " _#o::a:a",
++   ":x:id:skin-tone-1:id:b ",
++   "\\:cool*:o::o",
++   "~~._:ok::b",
++   ":ok:skin-tone-1",
++   ":a:x",
++   ":cool:o:a:b",
++   "<:x:123>:cool:skin-tone-1::100:a_",
++   ":ok::x:coola\\",
++   ":ok:a:b",
++   ":b:o",
++   ":o:b",
++   "<:x:123>:m",
++   ":o:oao: :id",
++   ":cool:id\\_thumbsup::o\\",
++   ":up::upo::skin-tone-1#:m:cool",
++   ":o:100:cool*:b:a#_",
++   ":ok::a\\ ",
++   ":ok::",
++   ":id:ok::o a:m",
++   ":ok::cool:100:m~~",
++   "<:x:123>:ok:<:x:123>",
++   ":ok:::a::x",
++   "*:up:up:a_:skin-tone-1~~a",
++   ":o:b.",
++   ":\\:oko:ok:\\#",
++   ":ok: #_:skin-tone-1",
++   ":cool:100a.a",
++   "<:x:123>#~~a:skin-tone-1:cool:b",
++   ".:up:b:up:cool:m:id",
++   ":ok:",
++   " :o\\ :x:a_",
++   "_:id:o:o",
++   ":ok::x~~",
++   "*\\<:x:123>_:skin-tone-1",
++   "#~~:cool:ok:a",
++   "\\.:bok::ok:thumbsup::ok",
++   ":ok:~~_",
++   ":ok:<:x:123>o:::cool_\\",
++   "ok::100:id:id ",
++   ":skin-tone-1:cool:o:ok:",
++   ":o:cool~~:100thumbsup:",
++   " o:a:ok
++ ```js
++ :a:up:100a*
++ ```",
++   "\\:m:ao:*<:x:123>:up_
++ ```js
++ :cool
++ ```",
++   "#:skin-tone-1:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "ok::
++ ```js
++ o::x:xthumbsup:~~
++ ```",
++   "thumbsup::up:m
++ ```js
++ :*o:
++ ```",
++   ":ok:~~
++ ```js
++ #
++ ```",
++   ":ok:up
++ ```js
++ thumbsup: :skin-tone-1:id:m.
++ ```",
++   "#<:x:123>
++ ```js
++ :id:up
++ ```",
++   "thumbsup::100:ok:
++ ```js
++ :skin-tone-1\\:100:id:cool:a
++ ```",
++   ":#:upthumbsup::a:ok:
++ ```js
++ ok:
++ ```",
++   "~~\\
++ ```js
++ :cool::m:x
++ ```",
++   ":ok::up:ok :oo::m
++ ```js
++ :id
++ ```",
++   "<:x:123>:skin-tone-1 _:100thumbsup:
++ ```js
++ *:ok::cool:x
++ ```",
++   " a:o:ook::up.
++ ```js
++ :cool#
++ ```",
++   "*
++ ```js
++ ##thumbsup:.::cool:o
++ ```",
++   ".:x<:x:123>::ok athumbsup:
++ ```js
++ \\:okathumbsup:o:o:
++ ```",
++   ":x:o~~:x_
++ ```js
++ :up
++ ```",
++   "<:x:123>:o:a
++ ```js
++ .
++ ```",
++   "thumbsup::ok:up
++ ```js
++ :ido:~~:a_
++ ```",
++   ":cool
++ ```js
++ :b::a:id:skin-tone-1:o:ok:
++ ```",
++   "ok:#.<:x:123>:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   "#:m~~ :up
++ ```js
++ :b:skin-tone-1\\
++ ```",
++   ":100:100
++ ```js
++ :o:id:100
++ ```",
++   "ao:*\\:cool
++ ```js
++ :ok:bthumbsup:#
++ ```",
++   "ok::ok:\\
++ ```js
++ :up~~:o:x<:x:123>:up
++ ```",
++   ":100:100:a
++ ```js
++ <:x:123>~~:b:ok::x thumbsup:
++ ```",
++   ":cool:100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":m:xthumbsup::x
++ ```js
++ :b
++ ```",
++   ":bthumbsup::up#
++ ```js
++ :100:oo:
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:21
+     75|     const changed = texts().filter((text) => !holdsEmoji(text))
+     76|       .filter((text) => flattenNodeText(getInitialValue(text, markdown…
+     77|     expect(changed).toEqual([]);
+       |                     ^
+     78|   });
+     79| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/24]⎯
+

@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-14
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 14015ms
+     × hands the message that text in a full-markdown editor 8052ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 16770ms
+     × hands the message that text in a full-markdown editor 9100ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 18047ms
+     × hands the message that text in a full-markdown editor 3310ms
+     × hands the message that text in a full-markdown editor 3245ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 2 failed) 20435ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 11ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 3ms
+
+ Test Files  4 failed | 2 passed (6)
+      Tests  6 failed | 98 passed (104)
+   Start at  22:32:05
+   Duration  44.63s (transform 2.52s, setup 96ms, import 10.80s, tests 117.64s, environment 4.34s)
+

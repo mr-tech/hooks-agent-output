@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-1
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (32 tests | 13 failed) 7757ms
+     × loads ">>> a\nb" with its text unchanged 6ms
+     × loads ">>> a" with its text unchanged 2ms
+     × loads ">>> a\n\nb" with its text unchanged 1ms
+     × loads ">>> a\n> b" with its text unchanged 2ms
+     × loads "x\n>>> a\nb" with its text unchanged 1ms
+     × loads "> a\n> b" with its text unchanged 1ms
+     × loads " > a" with its text unchanged 1ms
+     × loads "  >>> a\nb" with its text unchanged 1ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 44ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 18ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 111ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 2145ms
+     × loads each text of 3,000 seeded block-layer texts that holds no emoji with its text unchanged 1068ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 18109ms
+     × hands the message that text in a full-markdown editor 10933ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 22744ms
+     × hands the message that text in a full-markdown editor 9881ms
+     × hands the message that text in a full-markdown editor 12010ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 23204ms
+     × hands the message that text in a full-markdown editor 4133ms
+     × hands the message that text in a full-markdown editor 4460ms
+     × hands the message that text in a full-markdown editor 3640ms
+     × hands the message that text in a full-markdown editor 4483ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 31 failed) 26874ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 31ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 4ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 6ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 4ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 3ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 3ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 6ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 3ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 3ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 3ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 3ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 4ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 2ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 2ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 2ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 4ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 3ms
+     × keeps every line after a multi-line quote marker as a quote line 3ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 6ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 12ms
+     × writes no text to the lines a typed multi-line quote marker takes in 5ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 6ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 4ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 231ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 73ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 435ms
+     × keeps the text of each emoji-free text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 421ms
+     × keeps the text of each emoji-free text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 5016ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 14554ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 48543ms
+     × hands the message that text in a full-markdown editor 36793ms
+
+ Test Files  6 failed (6)
+      Tests  52 failed | 52 passed (104)
+   Start at  22:20:15
+   Duration  51.58s (transform 2.98s, setup 100ms, import 11.86s, tests 147.23s, environment 4.58s)
+

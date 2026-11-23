@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 19622ms
+     × hands the message that text in a full-markdown editor 13105ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 23404ms
+     × hands the message that text in a full-markdown editor 12905ms
+     × hands the message that text in a full-markdown editor 9736ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 23434ms
+     × hands the message that text in a full-markdown editor 7663ms
+     × hands the message that text in a full-markdown editor 4008ms
+     × hands the message that text in a full-markdown editor 2938ms
+     × hands the message that text in a full-markdown editor 3301ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 5 failed) 24963ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 56ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 18ms
+     × writes no text to the lines a typed multi-line quote marker takes in 11ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 5ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 11213ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 50811ms
+     × hands the message that text in a full-markdown editor 34902ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  13 failed | 91 passed (104)
+   Start at  22:33:53
+   Duration  57.33s (transform 8.74s, setup 85ms, import 27.54s, tests 152.43s, environment 8.12s)
+

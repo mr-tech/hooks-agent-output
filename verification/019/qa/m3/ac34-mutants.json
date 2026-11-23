@@ -1,0 +1,205 @@
+[
+  {
+    "id": "F1",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;",
+    "new": "if (node.type === 'blockQuote') return text;",
+    "limb": "save drops the quote prefix"
+  },
+  {
+    "id": "F2",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": ".map((n) => flattenText(n, allowEmoji)).join('\\n')",
+    "new": ".map((n) => flattenText(n, allowEmoji)).join('')",
+    "limb": "save joins lines with no newline"
+  },
+  {
+    "id": "F3",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "`${node.quotePrefix ?? '> '}${text}`",
+    "new": "`> ${text}`",
+    "limb": "save writes the default prefix for every quote"
+  },
+  {
+    "id": "F4",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "return allowEmoji ? node.ast.content : '';",
+    "new": "return '';",
+    "limb": "save drops an emoji (held-out class expected to survive)"
+  },
+  {
+    "id": "G1",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "!inMultilineBlockQuote && /^ *>>> /.test(text);",
+    "new": "!inMultilineBlockQuote && /^>>> /.test(text);",
+    "limb": "load misses an indented >>>"
+  },
+  {
+    "id": "G2",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "text = text.replace(/^ *> /, '');",
+    "new": "text = text.replace(/^> /, '');",
+    "limb": "load keeps an indented quote marker in the text"
+  },
+  {
+    "id": "G3",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "inMultilineBlockQuote = inMultilineBlockQuote || multilineStart;",
+    "new": "inMultilineBlockQuote = multilineStart;",
+    "limb": "load ends a >>> quote after one line"
+  },
+  {
+    "id": "G4",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "quotePrefix: line.slice(0, line.length - text.length) }",
+    "new": "quotePrefix: '> ' }",
+    "limb": "load records the default prefix"
+  },
+  {
+    "id": "G5",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "if (!partialMarkdown) fence = afterLine(fence, line);",
+    "new": "fence = afterLine(fence, line);",
+    "limb": "load tracks fences in partial mode"
+  },
+  {
+    "id": "G6",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock",
+    "new": "const multilineStart: boolean = !isCodeBlock",
+    "limb": "load reads >>> in partial mode"
+  },
+  {
+    "id": "G7",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "empty: !text.length,",
+    "new": "empty: false,",
+    "limb": "load marks no line empty"
+  },
+  {
+    "id": "G8",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "const isBlockQuote = !partialMarkdown && !isCodeBlock && (",
+    "new": "const isBlockQuote = !partialMarkdown && (",
+    "limb": "load reads a quote inside a fence"
+  },
+  {
+    "id": "W1",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "|| (child.startCodeBlock !== fence.inCodeBlock)",
+    "new": "|| false",
+    "limb": "normalise misses a moved fence"
+  },
+  {
+    "id": "W2",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "|| (isBlockQuote && child.type !== 'blockQuote')",
+    "new": "|| false",
+    "limb": "normalise misses a new quote"
+  },
+  {
+    "id": "W3",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "|| (!isBlockQuote && child.type === 'blockQuote')",
+    "new": "|| false",
+    "limb": "normalise misses a removed quote"
+  },
+  {
+    "id": "W4",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "const content = childText.slice(quotePrefix.length);",
+    "new": "const content = childText;",
+    "limb": "normalise keeps the marker in a new quote"
+  },
+  {
+    "id": "W5",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "quotePrefix: isBlockQuote ? quotePrefix : undefined,",
+    "new": "quotePrefix: isBlockQuote ? '> ' : undefined,",
+    "limb": "normalise records the default prefix"
+  },
+  {
+    "id": "W6",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "inMultilineBlockQuote = inMultilineBlockQuote || (!isFullCodeBlock",
+    "new": "inMultilineBlockQuote = (!isFullCodeBlock",
+    "limb": "normalise ends a >>> quote after one line"
+  },
+  {
+    "id": "W7",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "if (!nodeText && !node.empty) {",
+    "new": "if (!nodeText) {",
+    "limb": "normalise re-marks an empty line every pass"
+  },
+  {
+    "id": "W8",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "if (lastChild?.type === 'span' && node.children.length > 1 && !lastChild.text",
+    "new": "if (false && lastChild?.type === 'span' && node.children.length > 1 && !lastChild.text",
+    "limb": "normalise keeps a trailing empty span (emoji layouts)"
+  },
+  {
+    "id": "W9",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "Transforms.insertText(editor, apostrophe ? \"'\" : '\"', {",
+    "new": "Transforms.insertText(editor, apostrophe ? '\"' : \"'\", {",
+    "limb": "smart-quote repair swaps the two"
+  },
+  {
+    "id": "W10",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "fence = afterLine(fence, childText);",
+    "new": "fence = NO_FENCE;",
+    "limb": "normalise never enters a fence"
+  },
+  {
+    "id": "W11",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "quotePrefix: quotePrefix.replace(/^ *>>> /, '')",
+    "new": "quotePrefix",
+    "limb": "a split >>> line carries >>> to the new line"
+  },
+  {
+    "id": "W12",
+    "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+    "old": "if (!partialMarkdown) return handleEditor(editor, false);",
+    "new": "return handleEditor(editor, false);",
+    "limb": "partial mode runs block normalisation"
+  },
+  {
+    "id": "P1",
+    "file": "src/components/SlateEditor/index.tsx",
+    "old": "if (partialMarkdown && pastedText.includes('\\n')) {",
+    "new": "if (false) {",
+    "limb": "partial mode accepts a multi-line paste"
+  },
+  {
+    "id": "P2",
+    "file": "src/components/SlateEditor/index.tsx",
+    "old": "} else if (pastedText.length > MAX_PASTE_LENGTH) {",
+    "new": "} else if (false) {",
+    "limb": "an over-long paste is accepted"
+  },
+  {
+    "id": "P3",
+    "file": "src/components/SlateEditor/index.tsx",
+    "old": "toast.error('This field does not support multiple lines.');\n              e.preventDefault();",
+    "new": "toast.error('This field does not support multiple lines.');",
+    "limb": "the multi-line refusal warns but inserts"
+  },
+  {
+    "id": "P4",
+    "file": "src/components/SlateEditor/index.tsx",
+    "old": "pastedText.length > MAX_PASTE_LENGTH",
+    "new": "pastedText.length >= MAX_PASTE_LENGTH",
+    "limb": "a paste of exactly the limit is refused"
+  },
+  {
+    "id": "P5",
+    "file": "src/components/SlateEditor/index.tsx",
+    "old": "pastedText.length > MAX_PASTE_LENGTH",
+    "new": "pastedText.length > MAX_PASTE_LENGTH + 1",
+    "limb": "a paste one over the limit is accepted"
+  }
+]

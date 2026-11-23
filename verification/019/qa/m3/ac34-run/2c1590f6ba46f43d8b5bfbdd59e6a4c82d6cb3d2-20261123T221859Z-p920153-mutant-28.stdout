@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-28
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 16930ms
+     × accepts a paste of 6,000 characters in a full-markdown editor 20ms
+     × accepts a paste of 6,000 characters in a single-line editor 13ms
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  2 failed | 102 passed (104)
+   Start at  22:45:11
+   Duration  39.13s (transform 2.04s, setup 139ms, import 9.15s, tests 109.03s, environment 4.12s)
+

@@ -1,0 +1,31 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > marks which fence lines start inside a code block once a fence typed above them opens one
+AssertionError: expected [ 'a```\n```\n```', …(3) ] to deeply equal [ 'a```\n```\n```', …(3) ]
+
+- Expected
++ Received
+
+@@ -12,9 +12,9 @@
+      false,
+      true,
+    ],
+    [
+      false,
+-     true,
+      false,
++     true,
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:125:8
+    123|     const after = (editor.children as Element[]).map((child) => child.…
+    124|     expect([textOf(editor), typesOf(editor), before, after])
+    125|       .toEqual(['a```\n```\n```', ['div', 'div', 'div'], [false, false…
+       |        ^
+    126|   });
+    127|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-23
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 16350ms
+     × hands the message that text in a full-markdown editor 9546ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 19629ms
+     × hands the message that text in a full-markdown editor 8571ms
+     × hands the message that text in a full-markdown editor 10210ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 20377ms
+     × hands the message that text in a full-markdown editor 4038ms
+     × hands the message that text in a full-markdown editor 4191ms
+     × hands the message that text in a full-markdown editor 3241ms
+     × hands the message that text in a full-markdown editor 3210ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 1 failed) 22304ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 18ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 46147ms
+     × hands the message that text in a full-markdown editor 31246ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  9 failed | 95 passed (104)
+   Start at  22:40:17
+   Duration  49.60s (transform 3.63s, setup 86ms, import 13.15s, tests 132.17s, environment 5.62s)
+

@@ -1,0 +1,98 @@
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+
+> website@ test:discord /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/m3x
+> vitest run --project discord-node --project discord-dom
+
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/m3x
+
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts (5 tests | 5 skipped) 31ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts (7 tests | 7 skipped) 27ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts (9 tests | 9 skipped) 24ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts (10 tests | 10 skipped) 23ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordReports.run.test.ts (4 tests | 4 skipped) 26ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts:13:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts:14:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordReports.run.test.ts [ src/utils/markdown/__tests__/discord/discordReports.run.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordReports.run.test.ts:17:30
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts:14:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts:13:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  3 passed | 35 skipped (38)
+   Start at  22:17:02
+   Duration  2.19s (transform 487ms, setup 0ms, import 6.10s, tests 135ms, environment 1ms)
+
+ ELIFECYCLE  Command failed with exit code 1.

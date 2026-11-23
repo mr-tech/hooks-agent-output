@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-10
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (32 tests | 7 failed) 6390ms
+     × loads ">>> a" into a single-line field with its text unchanged 7ms
+     × loads ">>> a\nb" into a single-line field with its text unchanged 3ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 43ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 20ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 118ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 2100ms
+     × loads each text of 3,000 seeded block-layer texts that holds no emoji with its text unchanged 1047ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 5 failed) 19702ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 126ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 49ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 280ms
+     × keeps the text of each emoji-free text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 249ms
+     × keeps the text of each emoji-free text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 3313ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  12 failed | 92 passed (104)
+   Start at  22:28:05
+   Duration  38.87s (transform 2.65s, setup 68ms, import 10.24s, tests 109.05s, environment 4.29s)
+

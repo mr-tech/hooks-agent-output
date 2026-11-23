@@ -1,0 +1,84 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (32 tests | 20 failed) 15463ms
+     × loads ">>> a\nb" with its text unchanged 24ms
+     × loads ">>> a\n\nb" with its text unchanged 2ms
+     × loads ">>> a\n> b" with its text unchanged 2ms
+     × loads "x\n>>> a\nb" with its text unchanged 3ms
+     × loads "> a\n> b" with its text unchanged 2ms
+     × loads "```\n>>> a\n```" with its text unchanged 1ms
+     × loads "  >>> a\nb" with its text unchanged 1ms
+     × loads ">>> a\nb" into a single-line field with its text unchanged 1ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 77ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 44ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 300ms
+     × loads each text of the 1,662-line probe corpus that holds no emoji with its text unchanged 257ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 4213ms
+     × loads each text of 3,000 seeded block-layer texts that holds no emoji with its text unchanged 2797ms
+     × loads each text of the 272-case corpus that holds no emoji with its text unchanged 124ms
+     × loads each text of the 106 link inputs that holds no emoji with its text unchanged 47ms
+     × loads each text of 1,000 generator inputs that holds no emoji with its text unchanged 249ms
+     × loads each text of the 1,662-line probe corpus that holds no emoji with its text unchanged 316ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 4566ms
+     × loads each text of 3,000 seeded block-layer texts that holds no emoji with its text unchanged 2327ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 33697ms
+     × hands the message a line break typed as a new line 104ms
+     × hands the message that text in a full-markdown editor 23580ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 37095ms
+     × hands the message that text in a full-markdown editor 20137ms
+     × hands the message that text in a full-markdown editor 15930ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 37482ms
+     × keeps a multi-line paste as lines in a full-markdown editor 89ms
+     × hands the message that text in a full-markdown editor 8145ms
+     × hands the message that text in a full-markdown editor 11188ms
+     × hands the message that text in a full-markdown editor 3523ms
+     × hands the message that text in a full-markdown editor 3217ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 39 failed) 37731ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 76ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 6ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 12ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 34ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 7ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 3ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 11ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 5ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 2ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 6ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 4ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 4ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 3ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 2ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 2ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 8ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 3ms
+     × gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise 4ms
+     × gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise 12ms
+     × gives the code lines the language typed onto their opening fence 13ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 14ms
+     × writes no text to the lines a typed multi-line quote marker takes in 20ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 4ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 4ms
+     × makes the lines after a removed multi-line quote marker plain lines 10ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 363ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 93ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 543ms
+     × keeps the text of each emoji-free text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 1140ms
+     × keeps the text of each emoji-free text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 491ms
+     × keeps the text of each emoji-free text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 6748ms
+     × keeps the text of each emoji-free text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 302ms
+     × keeps the text of each emoji-free text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 135ms
+     × keeps the text of each emoji-free text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 1003ms
+     × keeps the text of each emoji-free text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 957ms
+     × keeps the text of each emoji-free text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 797ms
+     × keeps the text of each emoji-free text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 8805ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 16047ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 60437ms
+     × hands the message that text in a full-markdown editor 47430ms
+
+ Test Files  6 failed (6)
+      Tests  69 failed | 35 passed (104)
+   Start at  22:21:08
+   Duration  65.26s (transform 3.78s, setup 96ms, import 20.84s, tests 221.90s, environment 4.50s)
+

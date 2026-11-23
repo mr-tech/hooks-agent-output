@@ -1,0 +1,29 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > makes the lines after a removed multi-line quote marker plain lines
+AssertionError: expected [ 'a\nb', [ 'div', 'blockQuote' ] ] to deeply equal [ 'a\nb', [ 'div', 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    "a
+  b",
+    [
+      "div",
+-     "div",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:161:47
+    159|     Transforms.select(editor, Editor.start(editor, [0]));
+    160|     pressBackspace(editor);
+    161|     expect([textOf(editor), typesOf(editor)]).toEqual(['a\nb', ['div',…
+       |                                               ^
+    162|   });
+    163| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

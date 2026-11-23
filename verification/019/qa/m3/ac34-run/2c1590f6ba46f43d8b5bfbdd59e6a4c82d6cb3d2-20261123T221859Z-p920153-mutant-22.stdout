@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/13333d84-b38e-427f-915e-f48ce23268a4/scratchpad/ac34-work/20261123T221859Z-p920153/mutant-22
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 22175ms
+     × hands the message that text in a full-markdown editor 12116ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 26597ms
+     × hands the message that text in a full-markdown editor 4414ms
+     × hands the message that text in a full-markdown editor 5066ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 27452ms
+     × hands the message that text in a full-markdown editor 15406ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (44 tests | 5 failed) 35185ms
+     × gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise 32ms
+     × gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise 7ms
+     × gives the code lines the language typed onto their opening fence 4ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 3ms
+     × keeps the lines after a code block holding a multi-line quote marker as plain lines 5ms
+
+ Test Files  4 failed | 2 passed (6)
+      Tests  9 failed | 95 passed (104)
+   Start at  22:39:06
+   Duration  68.49s (transform 3.46s, setup 83ms, import 13.55s, tests 183.93s, environment 5.65s)
+
