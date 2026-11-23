@@ -434,3 +434,32 @@ Owner: QA Phase 2 on M3, which runs the command (D-12) and copies the reports in
   mutations (Outstanding 5); the `beforeinput` paste branch (Outstanding 7, or UAT).
 - M4 round of this review: the link allow-list attack re-run against the rendered anchor, and Round 2's Assumption Not Checked.
 - M5 implementer and this review's M5 round: CR-3.
+
+## Resumption State
+
+Written at 2026-11-23T21:33Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, 345K tokens).
+
+- **Done.**
+  - M2: Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. M2 is
+    closed for review.
+  - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6.
+  - Plan rows R-24, R-25, R-27 and R-29 are committed. The verdicts are delivered to `implementer-019` (M3 REJECTED),
+    `qa-019` (M2 approved) and `planner-019` (CR-7).
+- **Next.**
+  - On the implementer's M3 fix hand-off: Round 3's sub-entry, scoped to the fix diff. A fix touching beyond CR-5 and CR-6 (and the
+    optional LOWs) opens Round 4 instead.
+  - Re-attack CR-6 with `verification/019/code-review/m3-oracle-window-network.mjs`, which must show the listener seeing nothing.
+  - Re-run `m3-generator-bit-tags.mjs`, where `GAME_MENTION` must be live, and `m3-importers-of-reattack.mjs` if CR-4 is touched.
+  - Record CR-7's M6 carrier as plan R-30 (record `9caf57ff`, `planner-019`'s registration; its check is `git grep -c
+    "BASE_RED\|holdsEmoji"` printing nothing at M6's tip), and collapse resolved findings to disposition lines.
+  - Then M4, M5 and M6, each at its own document's `Handoff-At`. M4's document is already landing (record `5ad6e64d`, slice 1). The
+    M4 round owes the link allow-list attack against the rendered anchor, and Round 2's Assumption Not Checked. The M5 round owes
+    CR-3.
+- **Approach in flight.** None.
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` and is never moved by me. The
+  record is on `master`.
+- **Local state.** No scratch clone remains (all deleted). No process of mine is running.
+- **Evidence run but not recorded.** None. Every probe is under `verification/019/code-review/` and committed (`8da611bc`,
+  `dd5b093d`). Install logs are saved as `.log.txt`, because the record ignores `*.log`.
+- **Questions sent, and to whom.** None open.
+- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
