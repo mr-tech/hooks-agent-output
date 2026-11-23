@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-35
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 1 failed) 1417ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 79ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 6 failed) 1520ms
+     × saves the address the box shows when an earlier address finishes loading after it 295ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 127ms
+     × saves no image when the saved address is deleted from the box 63ms
+     × leaves nothing to clear on reopening after an emptied box is saved 129ms
+     × saves an address that loads on a later try after failing 129ms
+     × stays cleared when the address it cleared finishes loading afterwards 72ms
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  7 failed | 33 passed (40)
+   Start at  17:13:36
+   Duration  6.00s (transform 1.99s, setup 174ms, import 7.33s, tests 3.32s, environment 4.67s)
+

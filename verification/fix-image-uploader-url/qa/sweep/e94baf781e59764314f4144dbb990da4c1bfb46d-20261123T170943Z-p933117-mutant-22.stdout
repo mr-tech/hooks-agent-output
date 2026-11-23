@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-22
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 1 failed) 795ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 75ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 39 passed (40)
+   Start at  17:12:24
+   Duration  2.51s (transform 488ms, setup 48ms, import 2.59s, tests 1.90s, environment 2.06s)
+

@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-15
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 1 failed) 605ms
+     × loads and previews a URL whose path ends in an image extension 96ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 4 failed) 1716ms
+     × saves the address the box shows when an earlier address finishes loading after it 273ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 124ms
+     × saves an address that loads on a later try after failing 87ms
+     × keeps the saved image when the cancelled address finishes loading afterwards 88ms
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 7 failed) 1899ms
+       × with focus on its dialog element runs only what that control does 284ms
+       × with focus on Save runs only what that control does 85ms
+       × sets the loaded image when Enter is pressed with focus off its buttons 74ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 80ms
+       × answers only the image dialog with focus on its dialog element 101ms
+       × answers only the open instance when the first is the open one 74ms
+       × answers only the open instance when the second is the open one 86ms
+
+ Test Files  3 failed (3)
+      Tests  12 failed | 28 passed (40)
+   Start at  17:11:53
+   Duration  5.40s (transform 1.21s, setup 255ms, import 5.75s, tests 4.22s, environment 3.52s)
+

@@ -1,0 +1,25 @@
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:144:37
+    142|     await type(URL_B);
+    143|
+    144|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    145|     enterOnDialog();
+    146|     expect(saved).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

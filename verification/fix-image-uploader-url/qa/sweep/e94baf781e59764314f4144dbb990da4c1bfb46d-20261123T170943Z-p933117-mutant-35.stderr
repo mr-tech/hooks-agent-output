@@ -1,0 +1,152 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'https://example.com/a.png' ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   "https://example.com/a.png",
++   "",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:179:30
+    177|       enter();
+    178|
+    179|       expect(calls.setImage).toHaveBeenCalledWith(URL_A);
+       |                              ^
+    180|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+    181|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it
+AssertionError: expected [ '' ] to deeply equal [ 'https://example.com/b.png' ]
+
+- Expected
++ Received
+
+  [
+-   "https://example.com/b.png",
++   "",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:135:19
+    133|     save();
+    134|
+    135|     expect(saved).toEqual([URL_B]);
+       |                   ^
+    136|   });
+    137|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected [ '' ] to deeply equal [ 'https://example.com/b.png' ]
+
+- Expected
++ Received
+
+  [
+-   "https://example.com/b.png",
++   "",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:151:19
+    149|     save();
+    150|
+    151|     expect(saved).toEqual([URL_B]);
+       |                   ^
+    152|   });
+    153|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box
+AssertionError: expected [ 'https://example.com/x.png' ] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+  [
+-   "",
++   "https://example.com/x.png",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:178:19
+    176|     save();
+    177|
+    178|     expect(saved).toEqual(['']);
+       |                   ^
+    179|   });
+    180|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:189:38
+    187|
+    188|     expect(box().value).toBe('');
+    189|     expect(button('Clear').disabled).toBe(true);
+       |                                      ^
+    190|   });
+    191|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: expected [ '' ] to deeply equal [ 'https://example.com/a.png' ]
+
+- Expected
++ Received
+
+  [
+-   "https://example.com/a.png",
++   "",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:221:19
+    219|     save();
+    220|
+    221|     expect(saved).toEqual([URL_A]);
+       |                   ^
+    222|   });
+    223| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards
+AssertionError: expected [ 'https://example.com/x.png' ] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+  [
+-   "",
++   "https://example.com/x.png",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:244:19
+    242|     save();
+    243|
+    244|     expect(saved).toEqual(['']);
+       |                   ^
+    245|   });
+    246| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+

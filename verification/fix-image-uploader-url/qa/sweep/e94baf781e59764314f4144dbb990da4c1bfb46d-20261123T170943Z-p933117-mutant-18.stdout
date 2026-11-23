@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-18
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 3 failed) 261ms
+     × refuses https://example.com/a.png.html without loading it 154ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 53ms
+     × loads and previews a URL whose path ends in an image extension 52ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 5 failed) 862ms
+     × saves the address the box shows when an earlier address finishes loading after it 171ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 55ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 37ms
+     × puts the box and the preview back to the saved image, and reopening saves that image 43ms
+     × keeps the saved image when the cancelled address finishes loading afterwards 43ms
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  8 failed | 32 passed (40)
+   Start at  17:12:09
+   Duration  2.54s (transform 377ms, setup 50ms, import 2.48s, tests 1.90s, environment 2.08s)
+

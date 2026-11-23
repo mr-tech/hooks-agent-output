@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-34
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 3 failed) 354ms
+     × refuses https://example.com/a.png.html without loading it 200ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 72ms
+     × loads and previews a URL whose path ends in an image extension 79ms
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 11 failed) 1583ms
+     × saves the address the box shows when an earlier address finishes loading after it 294ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 120ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 170ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 59ms
+     × shows no preview and saves nothing on Enter once a failed address is deleted from the box 55ms
+     × saves an address that loads on a later try after failing 86ms
+     × stays cleared when the address it cleared finishes loading afterwards 62ms
+     × puts the box and the preview back to the saved image, and reopening saves that image 37ms
+     × empties the box and the preview when no image was saved 75ms
+     × drops the error of the cancelled address when the dialog reopens 60ms
+     × keeps the saved image when the cancelled address finishes loading afterwards 84ms
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 1 failed) 1927ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 85ms
+
+ Test Files  3 failed (3)
+      Tests  15 failed | 25 passed (40)
+   Start at  17:13:27
+   Duration  5.80s (transform 1.02s, setup 78ms, import 5.82s, tests 3.86s, environment 4.02s)
+

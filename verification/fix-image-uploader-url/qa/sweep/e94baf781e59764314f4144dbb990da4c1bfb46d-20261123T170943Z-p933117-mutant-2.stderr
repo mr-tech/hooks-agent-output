@@ -1,0 +1,143 @@
+stderr | src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:144:37
+    142|     await type(URL_B);
+    143|
+    144|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    145|     enterOnDialog();
+    146|     expect(saved).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+AssertionError: expected 'https://example.com/a.png' to be null
+
+- Expected:
+null
+
++ Received:
+"https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:165:23
+    163|
+    164|     expect(dialog().textContent).toContain(error);
+    165|     expect(preview()).toBeNull();
+       |                       ^
+    166|     expect(button('Save').disabled).toBe(true);
+    167|     enterOnDialog();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:197:37
+    195|
+    196|     expect(dialog().textContent).toContain('Image not found.');
+    197|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    198|   });
+    199|   it('shows no preview and saves nothing on Enter once a failed addres…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+AssertionError: expected [ '' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:208:19
+    206|     enterOnDialog();
+    207|
+    208|     expect(saved).toEqual([]);
+       |                   ^
+    209|   });
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:295:37
+    293|
+    294|     expect(dialog().textContent).toContain('Image not found.');
+    295|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    296|   });
+    297|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+AssertionError: expected <img draggable="false" …(2)></img> to be null
+
+- Expected:
+null
+
++ Received:
+<img
+  alt="upload preview"
+  class="h-full min-h-fit"
+  draggable="false"
+/>
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:61:70
+     59|     expect(loads).toEqual([]);
+     60|     expect(document.body.textContent).toContain('Invalid url.');
+     61|     expect(document.body.querySelector('img[alt="upload preview"]')).t…
+       |                                                                      ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+

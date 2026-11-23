@@ -1,0 +1,6 @@
+{
+  "dialogOpen": true,
+  "active": "INPUT:http://127.0.0.1:8765/red.png",
+  "box": "http://127.0.0.1:8765/red.png",
+  "avatar": "https://cdn.discordapp.com/embed/avatars/0.png"
+}

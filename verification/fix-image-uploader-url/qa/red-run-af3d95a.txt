@@ -1,0 +1,262 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/base
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 14 failed) 650ms
+     × saves the address the box shows when an earlier address finishes loading after it 119ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 44ms
+     × refuses Save and Enter for an address that is not an image address typed after a loaded one 45ms
+     × refuses Save and Enter for an image address that fails to load typed after a loaded one 53ms
+     × saves no image when the saved address is deleted from the box 42ms
+     × leaves nothing to clear on reopening after an emptied box is saved 40ms
+     × refuses Save for a saved address that fails to load when the dialog opens 19ms
+     × saves an address that loads on a later try after failing 30ms
+     × stays cleared when the address it cleared finishes loading afterwards 26ms
+     × puts the box and the preview back to the saved image, and reopening saves that image 34ms
+     × empties the box and the preview when no image was saved 43ms
+     × drops the error of the cancelled address when the dialog reopens 37ms
+     × keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened 30ms
+     × keeps the saved image when the cancelled address finishes loading afterwards 36ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it
+AssertionError: expected 'https://example.com/a.png' to be 'https://example.com/b.png' // Object.is equality
+
+Expected: "https://example.com/b.png"
+Received: "https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:132:23
+    130|     await settle(URL_A, true);
+    131|
+    132|     expect(preview()).toBe(URL_B);
+       |                       ^
+    133|     save();
+    134|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:144:37
+    142|     await type(URL_B);
+    143|
+    144|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    145|     enterOnDialog();
+    146|     expect(saved).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+AssertionError: expected 'https://example.com/a.png' to be null
+
+- Expected:
+null
+
++ Received:
+"https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:165:23
+    163|
+    164|     expect(dialog().textContent).toContain(error);
+    165|     expect(preview()).toBeNull();
+       |                       ^
+    166|     expect(button('Save').disabled).toBe(true);
+    167|     enterOnDialog();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box
+AssertionError: expected [ 'https://example.com/x.png' ] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+  [
+-   "",
++   "https://example.com/x.png",
+  ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:178:19
+    176|     save();
+    177|
+    178|     expect(saved).toEqual(['']);
+       |                   ^
+    179|   });
+    180|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:189:38
+    187|
+    188|     expect(box().value).toBe('');
+    189|     expect(button('Clear').disabled).toBe(true);
+       |                                      ^
+    190|   });
+    191|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:197:37
+    195|
+    196|     expect(dialog().textContent).toContain('Image not found.');
+    197|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    198|   });
+    199|   it('shows no preview and saves nothing on Enter once a failed addres…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: expected 'Enter Image URLImage URLImage not fou…' not to contain 'Image not found.'
+
+Expected: "Image not found."
+Received: "Enter Image URLImage URLImage not found.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:216:38
+    214|     await settle(URL_A, false);
+    215|     await type(URL_B);
+    216|     expect(dialog().textContent).not.toContain('Image not found.');
+       |                                      ^
+    217|     await type(URL_A);
+    218|     await settle(URL_A, true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards
+AssertionError: expected 'https://example.com/a.png' to be null
+
+- Expected:
+null
+
++ Received:
+"https://example.com/a.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:241:23
+    239|
+    240|     expect(box().value).toBe('');
+    241|     expect(preview()).toBeNull();
+       |                       ^
+    242|     save();
+    243|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/x.png' // Object.is equality
+
+Expected: "https://example.com/x.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:257:25
+    255|     await reopen();
+    256|
+    257|     expect(box().value).toBe(URL_X);
+       |                         ^
+    258|     expect(preview()).toBe(URL_X);
+    259|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: expected 'https://example.com/y.png' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ https://example.com/y.png
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:271:25
+    269|     await reopen();
+    270|
+    271|     expect(box().value).toBe('');
+       |                         ^
+    272|     expect(preview()).toBeNull();
+    273|     expect(dialog().textContent).not.toContain('Invalid url.');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens
+AssertionError: expected 'Enter Image URLImage URLInvalid url.C…' not to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLInvalid url.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:285:38
+    283|     await reopen();
+    284|
+    285|     expect(dialog().textContent).not.toContain('Invalid url.');
+       |                                      ^
+    286|   });
+    287|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:295:37
+    293|
+    294|     expect(dialog().textContent).toContain('Image not found.');
+    295|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    296|   });
+    297|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/14]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/x.png' // Object.is equality
+
+Expected: "https://example.com/x.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:306:25
+    304|     await settle(URL_Y, true);
+    305|
+    306|     expect(box().value).toBe(URL_X);
+       |                         ^
+    307|     expect(preview()).toBe(URL_X);
+    308|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/14]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  14 failed | 2 passed (16)
+   Start at  17:08:03
+   Duration  3.10s (transform 221ms, setup 23ms, import 1.27s, tests 650ms, environment 993ms)
+
+exit=1

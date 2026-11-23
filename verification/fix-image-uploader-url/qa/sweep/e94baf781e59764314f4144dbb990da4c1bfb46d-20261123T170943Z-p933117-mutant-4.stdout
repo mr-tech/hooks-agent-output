@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-4
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (16 tests | 4 failed) 750ms
+     × keeps Save and Enter off while the address in the box is still loading, then saves it once loaded 61ms
+     × refuses Save for a saved address that fails to load when the dialog opens 24ms
+     × shows no preview and saves nothing on Enter once a failed address is deleted from the box 48ms
+     × keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened 29ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  4 failed | 36 passed (40)
+   Start at  17:10:11
+   Duration  2.33s (transform 389ms, setup 45ms, import 2.31s, tests 1.58s, environment 1.94s)
+

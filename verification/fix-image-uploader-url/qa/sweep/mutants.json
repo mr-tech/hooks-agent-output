@@ -1,0 +1,344 @@
+[
+ {
+  "id": "ImageUploader.tsx:53:!==",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "geInput !== '' && l",
+  "new": "geInput === '' && l",
+  "op": "!==",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "ImageUploader.tsx:53:&&",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "' && l",
+  "new": "' || l",
+  "op": "&&",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "ImageUploader.tsx:53:===",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "lImage === imageI",
+  "new": "lImage !== imageI",
+  "op": "===",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "ImageUploader.tsx:53:&&:2",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "t && f",
+  "new": "t || f",
+  "op": "&&",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "ImageUploader.tsx:53:!==:2",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "dImage !== imageI",
+  "new": "dImage === imageI",
+  "op": "!==",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "ImageUploader.tsx:55:if-false",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "\n  if (ima",
+  "new": "\n  if (false && ima",
+  "op": "if-false",
+  "line": 55,
+  "text": "if (imageInput !== '' && failedImage === imageInput) {"
+ },
+ {
+  "id": "ImageUploader.tsx:55:!==",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "geInput !== '' && f",
+  "new": "geInput === '' && f",
+  "op": "!==",
+  "line": 55,
+  "text": "if (imageInput !== '' && failedImage === imageInput) {"
+ },
+ {
+  "id": "ImageUploader.tsx:55:&&",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "' && f",
+  "new": "' || f",
+  "op": "&&",
+  "line": 55,
+  "text": "if (imageInput !== '' && failedImage === imageInput) {"
+ },
+ {
+  "id": "ImageUploader.tsx:55:===",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "dImage === imageI",
+  "new": "dImage !== imageI",
+  "op": "===",
+  "line": 55,
+  "text": "if (imageInput !== '' && failedImage === imageInput) {"
+ },
+ {
+  "id": "ImageUploader.tsx:75:true",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " true;",
+  "new": " false;",
+  "op": "true",
+  "line": 75,
+  "text": "let current = true;"
+ },
+ {
+  "id": "ImageUploader.tsx:77:if-false",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "   if (!im",
+  "new": "   if (false && !im",
+  "op": "if-false",
+  "line": 77,
+  "text": "if (!imageInput) return;"
+ },
+ {
+  "id": "ImageUploader.tsx:77:not",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " (!im",
+  "new": " (im",
+  "op": "not",
+  "line": 77,
+  "text": "if (!imageInput) return;"
+ },
+ {
+  "id": "ImageUploader.tsx:79:if-false",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (!c",
+  "new": "  if (false && !c",
+  "op": "if-false",
+  "line": 79,
+  "text": "if (!current) return;"
+ },
+ {
+  "id": "ImageUploader.tsx:79:not",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "(!c",
+  "new": "(c",
+  "op": "not",
+  "line": 79,
+  "text": "if (!current) return;"
+ },
+ {
+  "id": "ImageUploader.tsx:80:if-false",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " if (f",
+  "new": " if (false && f",
+  "op": "if-false",
+  "line": 80,
+  "text": "if (found) {"
+ },
+ {
+  "id": "ImageUploader.tsx:87:false",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " false;",
+  "new": " true;",
+  "op": "false",
+  "line": 87,
+  "text": "return () => { current = false; };"
+ },
+ {
+  "id": "ImageUploader.tsx:93:if-false",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " if (l",
+  "new": " if (false && l",
+  "op": "if-false",
+  "line": 93,
+  "text": "if (loaded) submit = onSetImage;"
+ },
+ {
+  "id": "ImageUploader.tsx:119:not",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " {!lo",
+  "new": " {lo",
+  "op": "not",
+  "line": 119,
+  "text": "{!loaded ? null : ("
+ },
+ {
+  "id": "ImageUploader.tsx:156:not",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " !l",
+  "new": " l",
+  "op": "not",
+  "line": 156,
+  "text": "isDisabled={imageInput ? !loaded : !image}"
+ },
+ {
+  "id": "ImageUploader.tsx:156:not:2",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " !i",
+  "new": " i",
+  "op": "not",
+  "line": 156,
+  "text": "isDisabled={imageInput ? !loaded : !image}"
+ },
+ {
+  "id": "qa-loaded-drop-nonempty",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;",
+  "new": "const loaded = localImage === imageInput && failedImage !== imageInput;",
+  "op": "qa",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "qa-loaded-drop-matches-local",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;",
+  "new": "const loaded = imageInput !== '' && failedImage !== imageInput;",
+  "op": "qa",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "qa-loaded-drop-not-failed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;",
+  "new": "const loaded = imageInput !== '' && localImage === imageInput;",
+  "op": "qa",
+  "line": 53,
+  "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+ },
+ {
+  "id": "qa-error-drop-nonempty",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "if (imageInput !== '' && failedImage === imageInput) {",
+  "new": "if (failedImage === imageInput) {",
+  "op": "qa",
+  "line": 55,
+  "text": "if (imageInput !== '' && failedImage === imageInput) {"
+ },
+ {
+  "id": "qa-error-any-failure",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "if (imageInput !== '' && failedImage === imageInput) {",
+  "new": "if (imageInput !== '' && failedImage !== '') {",
+  "op": "qa",
+  "line": 55,
+  "text": "if (imageInput !== '' && failedImage === imageInput) {"
+ },
+ {
+  "id": "qa-save-rule-loaded-only",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "isDisabled={imageInput ? !loaded : !image}",
+  "new": "isDisabled={!loaded}",
+  "op": "qa",
+  "line": 156,
+  "text": "isDisabled={imageInput ? !loaded : !image}"
+ },
+ {
+  "id": "qa-save-rule-empty-always-on",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "isDisabled={imageInput ? !loaded : !image}",
+  "new": "isDisabled={imageInput ? !loaded : false}",
+  "op": "qa",
+  "line": 156,
+  "text": "isDisabled={imageInput ? !loaded : !image}"
+ },
+ {
+  "id": "qa-save-commits-local",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setImage(imageInput);\n",
+  "new": "    setImage(localImage);\n",
+  "op": "qa",
+  "line": 62,
+  "text": "setImage(imageInput);"
+ },
+ {
+  "id": "qa-save-keeps-local",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setLocalImage(imageInput);\n    setImage",
+  "new": "    setImage",
+  "op": "qa",
+  "line": 61,
+  "text": "setLocalImage(imageInput);\n    setImage"
+ },
+ {
+  "id": "qa-cancel-keeps-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setImageInput(image);\n",
+  "new": "",
+  "op": "qa",
+  "line": 70,
+  "text": "setImageInput(image);"
+ },
+ {
+  "id": "qa-cancel-keeps-local",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setImageInput(image);\n    setLocalImage(image);\n",
+  "new": "    setImageInput(image);\n",
+  "op": "qa",
+  "line": 70,
+  "text": "setImageInput(image);\n    setLocalImage(image);"
+ },
+ {
+  "id": "qa-success-keeps-failed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "        setFailedImage('');\n",
+  "new": "",
+  "op": "qa",
+  "line": 82,
+  "text": "setFailedImage('');"
+ },
+ {
+  "id": "qa-failure-not-recorded",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "        setFailedImage(imageInput);\n",
+  "new": "",
+  "op": "qa",
+  "line": 84,
+  "text": "setFailedImage(imageInput);"
+ },
+ {
+  "id": "qa-effect-runs-once",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  }, [imageInput]);",
+  "new": "  }, []);",
+  "op": "qa",
+  "line": 88,
+  "text": "}, [imageInput]);"
+ },
+ {
+  "id": "qa-save-deps-stale",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "}, [setImage, onClose, imageInput]);",
+  "new": "}, [setImage, onClose]);",
+  "op": "qa",
+  "line": 63,
+  "text": "}, [setImage, onClose, imageInput]);"
+ },
+ {
+  "id": "qa-cancel-deps-stale",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "}, [image, onClose]);",
+  "new": "}, [onClose]);",
+  "op": "qa",
+  "line": 72,
+  "text": "}, [image, onClose]);"
+ },
+ {
+  "id": "qa-enter-never",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "if (loaded) submit = onSetImage;",
+  "new": "if (false) submit = onSetImage;",
+  "op": "qa",
+  "line": 93,
+  "text": "if (loaded) submit = onSetImage;"
+ },
+ {
+  "id": "qa-preview-on-local",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "{!loaded ? null : (",
+  "new": "{!localImage ? null : (",
+  "op": "qa",
+  "line": 119,
+  "text": "{!loaded ? null : ("
+ }
+]

@@ -1,0 +1,90 @@
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:144:37
+    142|     await type(URL_B);
+    143|
+    144|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    145|     enterOnDialog();
+    146|     expect(saved).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:197:37
+    195|
+    196|     expect(dialog().textContent).toContain('Image not found.');
+    197|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    198|   });
+    199|   it('shows no preview and saves nothing on Enter once a failed addres…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+AssertionError: expected [ '' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:208:19
+    206|     enterOnDialog();
+    207|
+    208|     expect(saved).toEqual([]);
+       |                   ^
+    209|   });
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:295:37
+    293|
+    294|     expect(dialog().textContent).toContain('Image not found.');
+    295|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    296|   });
+    297|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

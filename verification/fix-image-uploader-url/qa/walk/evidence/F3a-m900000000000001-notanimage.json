@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "dialog": true,
+  "box": "not an image",
+  "preview": null,
+  "save": {
+    "disabled": true,
+    "ariaDisabled": null,
+    "dataDisabled": null
+  },
+  "clear": {
+    "disabled": false,
+    "ariaDisabled": null,
+    "dataDisabled": null
+  },
+  "invalid": true,
+  "notFound": false,
+  "avatar": "http://127.0.0.1:8765/blue.png"
+}

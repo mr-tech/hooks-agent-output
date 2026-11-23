@@ -1,0 +1,324 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Save runs only what that control does
+AssertionError: expected <div class="relative z-10" …(7)>…(2)</div> to be <button …(4)>…(1)</button> // Object.is equality
+
+- Expected
++ Received
+
+@@ -1,6 +1,128 @@
++ <div
++   aria-labelledby="react-aria-_r_2b_-title"
++   aria-modal="true"
++   class="relative z-10"
++   data-headlessui-state="open"
++   data-open=""
++   id="react-aria-_r_2b_"
++   role="dialog"
++   tabindex="-1"
++ >
++   <div
++     aria-hidden="true"
++     class="fixed inset-0 bg-black/60"
++   />
++   <div
++     class="fixed inset-0 overflow-y-auto"
++   >
++     <div
++       class="flex justify-center items-center min-h-screen xs:p-4"
++     >
++       <div
++         class="flex flex-col gap-4 max-w-xl w-full rounded bg-secondary p-4 shadow drop-shadow dark:bg-primary xs:w-96 sm:w-3/4"
++         data-headlessui-state="open"
++         data-open=""
++         id="headlessui-dialog-panel-_r_2i_"
++       >
++         <div
++           class="flex justify-between w-full"
++         >
++           <h2
++             class="font-bold"
++             data-headlessui-state="open"
++             data-open=""
++             id="react-aria-_r_2b_-title"
++           >
++             Enter Image URL
++           </h2>
+            <button
++             aria-label="close modal"
++             class="disabled:opacity-50"
++             data-react-aria-pressable="true"
++             tabindex="0"
++             type="button"
++           >
++             <svg
++               aria-hidden="true"
++               class="h-6 w-6 text-mute"
++               fill="currentColor"
++               viewBox="0 0 20 20"
++               xmlns="http://www.w3.org/2000/svg"
++             >
++               <path
++                 d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
++               />
++             </svg>
++           </button>
++         </div>
++         <div
++           class="contents"
++         >
++           <div
++             class="flex flex-col gap-2"
++           >
++             <div
++               class="flex flex-col grow gap-1"
++             >
++               <div
++                 class="flex items-center gap-1"
++               >
++                 <label
++                   class="inline-block text-sm"
++                   for="react-aria-_r_2k_"
++                   id="react-aria-_r_2m_"
++                 >
++                   Image URL
++                 </label>
++               </div>
++               <input
++                 aria-labelledby="react-aria-_r_2m_"
++                 class="bg-input w-full py-1 px-2 rounded no-drag !transition-none focus:placeholder:text-transparent disabled:opacity-50"
++                 id="react-aria-_r_2k_"
++                 inputmode="url"
++                 placeholder="https://example.com/image.png"
++                 tabindex="0"
++                 type="text"
++                 value="https://example.com/a.png"
++               />
++             </div>
++             <div
++               class="flex justify-center items-center relative m-auto h-fit max-w-[16rem] overflow-hidden rounded"
++               style="width: 16rem; height: fit-content;"
++             >
++               <img
++                 alt="upload preview"
++                 class="h-full min-h-fit"
++                 draggable="false"
++                 src="https://example.com/a.png"
++               />
++             </div>
++           </div>
++           <div
++             class="flex justify-between gap-2 w-full"
++           >
++             <button
++               class="flex items-center justify-center gap-1 py-2 px-4 font-bold text-blue-400 enabled:hover:underline enabled:focus:underline decoration-1 enabled:cursor-pointer rounded transition-colors disabled:opacity-50"
++               data-react-aria-pressable="true"
++               tabindex="0"
++               type="button"
++             >
++               Cancel
++             </button>
++             <div
++               class="flex gap-2"
++             >
++               <button
++                 class="flex items-center justify-center gap-1 py-2 px-4 text-sm rounded transition bg-secondary dark:bg-tertiary enabled:hover:bg-tertiary dark:enabled:hover:bg-zinc-700 shadow disabled:saturate-0 rounded transition-colors disabled:opacity-50"
++                 data-react-aria-pressable="true"
++                 tabindex="0"
++                 type="button"
++               >
++                 Clear
++               </button>
++               <button
+                  class="flex items-center justify-center gap-1 py-2 px-4 transition-[filter,_background-color] rounded text-white font-semibold highlight-white/20 dark:highlight-white/20 bg-green-500 enabled:hover:bg-green-600 disabled:saturate-0 rounded transition-colors disabled:opacity-50"
+                  data-react-aria-pressable="true"
+                  disabled=""
+                  type="button"
+                >
+@@ -17,5 +139,12 @@
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  Save
+                </button>
++             </div>
++           </div>
++         </div>
++       </div>
++     </div>
++   </div>
++ </div>
+
+ ❯ focusAndCheck src/components/__tests__/ImageUploader.enter-scope.test.tsx:91:34
+     89| function focusAndCheck(el: HTMLElement) {
+     90|   act(() => { el.focus(); });
+     91|   expect(document.activeElement).toBe(el);
+       |                                  ^
+     92| }
+     93|
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:151:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it
+AssertionError: expected [] to deeply equal [ 'https://example.com/b.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/b.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:135:19
+    133|     save();
+    134|
+    135|     expect(saved).toEqual([URL_B]);
+       |                   ^
+    136|   });
+    137|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:144:37
+    142|     await type(URL_B);
+    143|
+    144|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    145|     enterOnDialog();
+    146|     expect(saved).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:166:37
+    164|     expect(dialog().textContent).toContain(error);
+    165|     expect(preview()).toBeNull();
+    166|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    167|     enterOnDialog();
+    168|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:197:37
+    195|
+    196|     expect(dialog().textContent).toContain('Image not found.');
+    197|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    198|   });
+    199|   it('shows no preview and saves nothing on Enter once a failed addres…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: expected [] to deeply equal [ 'https://example.com/a.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/a.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:221:19
+    219|     save();
+    220|
+    221|     expect(saved).toEqual([URL_A]);
+       |                   ^
+    222|   });
+    223| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image
+AssertionError: expected [] to deeply equal [ 'https://example.com/x.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/x.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:261:19
+    259|     save();
+    260|
+    261|     expect(saved).toEqual([URL_X]);
+       |                   ^
+    262|   });
+    263|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:295:37
+    293|
+    294|     expect(dialog().textContent).toContain('Image not found.');
+    295|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    296|   });
+    297|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards
+AssertionError: expected [] to deeply equal [ 'https://example.com/x.png' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/x.png",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:310:19
+    308|     save();
+    309|
+    310|     expect(saved).toEqual([URL_X]);
+       |                   ^
+    311|   });
+    312| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+

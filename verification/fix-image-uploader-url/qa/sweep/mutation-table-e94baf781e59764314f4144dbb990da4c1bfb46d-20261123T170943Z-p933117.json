@@ -1,0 +1,1222 @@
+{
+ "sha": "e94baf781e59764314f4144dbb990da4c1bfb46d",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/mutants.json",
+ "command": [
+  "sh",
+  "-c",
+  "sed \"s/__dirname/process.cwd()/\" vitest.config.ts > vitest.transcribed.config.ts && npx vitest run --no-cache --configLoader runner --config vitest.transcribed.config.ts src/components/__tests__/ImageUploader.saved-address.test.tsx src/components/__tests__/ImageUploader.enter-scope.test.tsx src/components/__tests__/ImageUploader.url-validation.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/mutants.json",
+   "blob": "21266cb39eb5c111277dba0be91a187650904cbd"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-control-1.stderr",
+   "seconds": 4.62,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 40,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "ImageUploader.tsx:53:!==",
+   "run": "mutant-1",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Save runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 8.28,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-1.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:53:&&",
+   "run": "mutant-2",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 8.52,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-2.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:53:===",
+   "run": "mutant-3",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Save runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.67,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-3.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:53:&&:2",
+   "run": "mutant-4",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.48,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-4.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:53:!==:2",
+   "run": "mutant-5",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Save runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.49,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-5.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:55:if-false",
+   "run": "mutant-6",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 55,
+    "text": "if (imageInput !== '' && failedImage === imageInput) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 10.61,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-6.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:55:!==",
+   "run": "mutant-7",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 55,
+    "text": "if (imageInput !== '' && failedImage === imageInput) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-7.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:55:&&",
+   "run": "mutant-8",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 55,
+    "text": "if (imageInput !== '' && failedImage === imageInput) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 14.7,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-8.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:55:===",
+   "run": "mutant-9",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 55,
+    "text": "if (imageInput !== '' && failedImage === imageInput) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 8.16,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-9.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:75:true",
+   "run": "mutant-10",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 75,
+    "text": "let current = true;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 7.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-10.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:77:if-false",
+   "run": "mutant-11",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 77,
+    "text": "if (!imageInput) return;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 6.78,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-11.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:77:not",
+   "run": "mutant-12",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 77,
+    "text": "if (!imageInput) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays available for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.82,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-12.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:79:if-false",
+   "run": "mutant-13",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 79,
+    "text": "if (!current) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-13.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:79:not",
+   "run": "mutant-14",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 79,
+    "text": "if (!current) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.92,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-14.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:80:if-false",
+   "run": "mutant-15",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 80,
+    "text": "if (found) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Save runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 7.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-15.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:87:false",
+   "run": "mutant-16",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 87,
+    "text": "return () => { current = false; };"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.46,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-16.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:93:if-false",
+   "run": "mutant-17",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 93,
+    "text": "if (loaded) submit = onSetImage;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.74,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-17.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:119:not",
+   "run": "mutant-18",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 119,
+    "text": "{!loaded ? null : ("
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.75,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-18.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-18.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:156:not",
+   "run": "mutant-19",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 156,
+    "text": "isDisabled={imageInput ? !loaded : !image}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Save runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.87,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-19.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-19.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:156:not:2",
+   "run": "mutant-20",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 156,
+    "text": "isDisabled={imageInput ? !loaded : !image}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.6,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-20.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-20.stderr"
+  },
+  {
+   "id": "qa-loaded-drop-nonempty",
+   "run": "mutant-21",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.61,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-21.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-21.stderr"
+  },
+  {
+   "id": "qa-loaded-drop-matches-local",
+   "run": "mutant-22",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-22.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-22.stderr"
+  },
+  {
+   "id": "qa-loaded-drop-not-failed",
+   "run": "mutant-23",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 53,
+    "text": "const loaded = imageInput !== '' && localImage === imageInput && failedImage !== imageInput;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.83,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-23.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-23.stderr"
+  },
+  {
+   "id": "qa-error-drop-nonempty",
+   "run": "mutant-24",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 55,
+    "text": "if (imageInput !== '' && failedImage === imageInput) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.56,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-24.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-24.stderr"
+  },
+  {
+   "id": "qa-error-any-failure",
+   "run": "mutant-25",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 55,
+    "text": "if (imageInput !== '' && failedImage === imageInput) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.42,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-25.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-25.stderr"
+  },
+  {
+   "id": "qa-save-rule-loaded-only",
+   "run": "mutant-26",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 156,
+    "text": "isDisabled={imageInput ? !loaded : !image}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 8.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-26.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-26.stderr"
+  },
+  {
+   "id": "qa-save-rule-empty-always-on",
+   "run": "mutant-27",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 156,
+    "text": "isDisabled={imageInput ? !loaded : !image}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 9.59,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-27.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-27.stderr"
+  },
+  {
+   "id": "qa-save-commits-local",
+   "run": "mutant-28",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 62,
+    "text": "setImage(imageInput);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.83,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-28.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-28.stderr"
+  },
+  {
+   "id": "qa-save-keeps-local",
+   "run": "mutant-29",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 61,
+    "text": "setLocalImage(imageInput);\n    setImage"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.4,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-29.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-29.stderr"
+  },
+  {
+   "id": "qa-cancel-keeps-box",
+   "run": "mutant-30",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 70,
+    "text": "setImageInput(image);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.33,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-30.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-30.stderr"
+  },
+  {
+   "id": "qa-cancel-keeps-local",
+   "run": "mutant-31",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 70,
+    "text": "setImageInput(image);\n    setLocalImage(image);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.37,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-31.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-31.stderr"
+  },
+  {
+   "id": "qa-success-keeps-failed",
+   "run": "mutant-32",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 82,
+    "text": "setFailedImage('');"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-32.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-32.stderr"
+  },
+  {
+   "id": "qa-failure-not-recorded",
+   "run": "mutant-33",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 84,
+    "text": "setFailedImage(imageInput);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-33.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-33.stderr"
+  },
+  {
+   "id": "qa-effect-runs-once",
+   "run": "mutant-34",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 88,
+    "text": "}, [imageInput]);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it",
+    "|dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 8.83,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-34.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-34.stderr"
+  },
+  {
+   "id": "qa-save-deps-stale",
+   "run": "mutant-35",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 63,
+    "text": "}, [setImage, onClose, imageInput]);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 8.9,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-35.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-35.stderr"
+  },
+  {
+   "id": "qa-cancel-deps-stale",
+   "run": "mutant-36",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 72,
+    "text": "}, [image, onClose]);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.26,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-36.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-36.stderr"
+  },
+  {
+   "id": "qa-enter-never",
+   "run": "mutant-37",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 93,
+    "text": "if (loaded) submit = onSetImage;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-37.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-37.stderr"
+  },
+  {
+   "id": "qa-preview-on-local",
+   "run": "mutant-38",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "qa",
+    "line": 119,
+    "text": "{!loaded ? null : ("
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 40,
+   "control_tests_run": 40,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one",
+    "|dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.55,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-38.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-image-uploader-url/qa/sweep/e94baf781e59764314f4144dbb990da4c1bfb46d-20261123T170943Z-p933117-mutant-38.stderr"
+  }
+ ],
+ "score": "36 of 38 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 21266cb39eb5c111277dba0be91a187650904cbd))"
+}

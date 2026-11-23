@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/tip
+
+ ❯ |dom| src/components/__tests__/ImageUploader.qa-probe.test.tsx (3 tests | 1 failed) 295ms
+   × P3 saved image changed elsewhere while closed: reopening shows it 66ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.qa-probe.test.tsx > P3 saved image changed elsewhere while closed: reopening shows it
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.qa-probe.test.tsx:82:23
+     80|   act(() => { external(Z); });
+     81|   await reopen();
+     82|   expect(box().value).toBe(Z);
+       |                       ^
+     83| });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  17:14:51
+   Duration  2.38s (transform 340ms, setup 32ms, import 1.13s, tests 295ms, environment 774ms)
+
+exit=1

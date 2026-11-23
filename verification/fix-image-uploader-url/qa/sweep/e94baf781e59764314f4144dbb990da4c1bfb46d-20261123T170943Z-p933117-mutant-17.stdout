@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/mwork/20261123T170943Z-p933117/mutant-17
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 6 failed) 685ms
+       × with focus on its dialog element runs only what that control does 114ms
+       × sets the loaded image when Enter is pressed with focus off its buttons 26ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 32ms
+       × answers only the image dialog with focus on its dialog element 33ms
+       × answers only the open instance when the first is the open one 24ms
+       × answers only the open instance when the second is the open one 22ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  6 failed | 34 passed (40)
+   Start at  17:12:05
+   Duration  2.40s (transform 449ms, setup 68ms, import 2.43s, tests 1.61s, environment 2.03s)
+

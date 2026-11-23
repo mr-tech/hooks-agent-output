@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: expected 'Enter Image URLImage URLImage not fou…' not to contain 'Image not found.'
+
+Expected: "Image not found."
+Received: "Enter Image URLImage URLImage not found.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:216:38
+    214|     await settle(URL_A, false);
+    215|     await type(URL_B);
+    216|     expect(dialog().textContent).not.toContain('Image not found.');
+       |                                      ^
+    217|     await type(URL_A);
+    218|     await settle(URL_A, true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: expected 'Enter Image URLImage URLInvalid url.C…' not to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLInvalid url.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:273:38
+    271|     expect(box().value).toBe('');
+    272|     expect(preview()).toBeNull();
+    273|     expect(dialog().textContent).not.toContain('Invalid url.');
+       |                                      ^
+    274|     expect(button('Save').disabled).toBe(true);
+    275|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

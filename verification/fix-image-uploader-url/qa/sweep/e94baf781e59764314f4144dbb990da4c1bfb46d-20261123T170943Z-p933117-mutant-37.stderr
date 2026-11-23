@@ -1,0 +1,137 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:155:24
+    153|       enter();
+    154|
+    155|       expect(counts()).toEqual({ ...NOTHING, ...expected });
+       |                        ^
+    156|     });
+    157|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'https://example.com/a.png' ]
+
+Number of calls: 0
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:165:30
+    163|       enter();
+    164|
+    165|       expect(calls.setImage).toHaveBeenCalledWith(URL_A);
+       |                              ^
+    166|     });
+    167|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'https://example.com/a.png' ]
+
+Number of calls: 0
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:179:30
+    177|       enter();
+    178|
+    179|       expect(calls.setImage).toHaveBeenCalledWith(URL_A);
+       |                              ^
+    180|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+    181|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:235:24
+    233|       enter();
+    234|
+    235|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+       |                        ^
+    236|       expect(dialogs(UPDATE)).toHaveLength(1);
+    237|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:299:24
+    297|         ? { ...NOTHING, close: 1, setImage: 1 }
+    298|         : { ...NOTHING, otherClose: 1, otherSetImage: 1 };
+    299|       expect(counts()).toEqual(expected);
+       |                        ^
+    300|     });
+    301|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+    "close": 0,
+-   "otherClose": 1,
+-   "otherSetImage": 1,
++   "otherClose": 0,
++   "otherSetImage": 0,
+    "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:299:24
+    297|         ? { ...NOTHING, close: 1, setImage: 1 }
+    298|         : { ...NOTHING, otherClose: 1, otherSetImage: 1 };
+    299|       expect(counts()).toEqual(expected);
+       |                        ^
+    300|     });
+    301|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

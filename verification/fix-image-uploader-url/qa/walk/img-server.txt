@@ -1,0 +1,18 @@
+127.0.0.1 - - [23/Nov/2026 17:13:41] "GET /red.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 17:15:20] "GET /red.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 17:15:47] "GET /blue.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 17:16:14] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 17:16:14] "GET /missing.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 17:16:24] "GET /red.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 17:16:43] "GET /saved.png HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 17:17:04] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 17:17:04] "GET /saved.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 17:17:08] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 17:17:08] "GET /saved.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 17:17:08] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 17:17:08] "GET /saved.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 17:17:08] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 17:17:08] "GET /saved.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 17:17:08] code 404, message File not found
+127.0.0.1 - - [23/Nov/2026 17:17:08] "GET /saved.png HTTP/1.1" 404 -
+127.0.0.1 - - [23/Nov/2026 17:17:29] "GET /saved.png HTTP/1.1" 200 -

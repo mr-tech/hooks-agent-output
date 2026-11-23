@@ -1,0 +1,252 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'https://example.com/a.png' ]
+
+Number of calls: 0
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:179:30
+    177|       enter();
+    178|
+    179|       expect(calls.setImage).toHaveBeenCalledWith(URL_A);
+       |                              ^
+    180|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+    181|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves the address the box shows when an earlier address finishes loading after it
+AssertionError: no pending load of https://example.com/b.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:129:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: no pending load of https://example.com/a.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:141:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+AssertionError: no pending load of https://example.com/a.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:160:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:174:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > leaves nothing to clear on reopening after an emptied box is saved
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:183:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:194:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+AssertionError: no pending load of https://example.com/a.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:202:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves an address that loads on a later try after failing
+AssertionError: no pending load of https://example.com/a.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:214:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays available for a saved address that fails to load when the dialog opens
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:228:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:235:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:251:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: no pending load of https://example.com/y.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:267:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:279:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the error of a saved address that fails to load when the dialog is cancelled unedited and reopened
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:290:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards
+AssertionError: no pending load of https://example.com/x.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.saved-address.test.tsx:39:56
+     37| async function settle(url: string, loads: boolean) {
+     38|   const matching = pending.filter((i) => i.url === url);
+     39|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     40|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     41|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:300:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+AssertionError: expected 'Enter Image URLImage URLCancelClearSa…' to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLCancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:60:39
+     58|
+     59|     expect(loads).toEqual([]);
+     60|     expect(document.body.textContent).toContain('Invalid url.');
+       |                                       ^
+     61|     expect(document.body.querySelector('img[alt="upload preview"]')).t…
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/20]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension
+AssertionError: expected [] to deeply equal [ 'https://example.com/a.png?size=2' ]
+
+- Expected
++ Received
+
+- [
+-   "https://example.com/a.png?size=2",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:67:19
+     65|     await enterUrl('https://example.com/a.png?size=2');
+     66|
+     67|     expect(loads).toEqual(['https://example.com/a.png?size=2']);
+       |                   ^
+     68|     expect(document.body.textContent).not.toContain('Invalid url.');
+     69|     expect(document.body.querySelector('img[alt="upload preview"]')).n…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/20]⎯
+

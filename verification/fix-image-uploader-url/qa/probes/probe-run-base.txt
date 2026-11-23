@@ -1,0 +1,48 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/44c7fe27-44e1-425e-b2b2-21d383050173/scratchpad/base
+
+ ❯ |dom| src/components/__tests__/ImageUploader.qa-probe.test.tsx (3 tests | 2 failed) 309ms
+   × P2 stable callbacks: Cancel after a Save puts the box back to the address saved last 101ms
+   × P3 saved image changed elsewhere while closed: reopening shows it 54ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.qa-probe.test.tsx > P2 stable callbacks: Cancel after a Save puts the box back to the address saved last
+AssertionError: expected 'https://example.com/b.png' to be 'https://example.com/a.png' // Object.is equality
+
+Expected: "https://example.com/a.png"
+Received: "https://example.com/b.png"
+
+ ❯ src/components/__tests__/ImageUploader.qa-probe.test.tsx:73:23
+     71|   click(button('Cancel'), { detail: 0 });
+     72|   await reopen();
+     73|   expect(box().value).toBe(A);
+       |                       ^
+     74| });
+     75|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.qa-probe.test.tsx > P3 saved image changed elsewhere while closed: reopening shows it
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.qa-probe.test.tsx:82:23
+     80|   act(() => { external(Z); });
+     81|   await reopen();
+     82|   expect(box().value).toBe(Z);
+       |                       ^
+     83| });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  17:14:55
+   Duration  2.53s (transform 397ms, setup 30ms, import 1.22s, tests 309ms, environment 819ms)
+
+exit=1
