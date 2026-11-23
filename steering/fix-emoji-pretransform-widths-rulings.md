@@ -72,3 +72,13 @@ Fixer's round 2 at `0411d3b` (83 production lines). Reviewer's cue by message ~2
 Disclosed by the reviewer: its sub-entry was written with a Python heredoc (its changelog row). QA brief
 `steering/fix-emoji-pretransform-widths-brief-qa.md`; `qa-fix-emoji-pretransform-widths` started with `tmux-agent spawn`. weekly_all 97%
 (23:34Z, live).
+
+## 2026-11-23T08:25Z — resumed; QA Phase 2 PASS at 0411d3b; devops started
+
+Resumed 08:15Z (effort block of that minute); `qa-fix-emoji-pretransform-widths` spawned fresh with
+`steering/fix-emoji-pretransform-widths-brief-qa-resume.md`. QA's cue by message ~08:2xZ: `qa/fix-emoji-pretransform-widths-qa.md`
+(record `b3537900`, read: Status QA Complete, `Verified-At 0411d3ba…`); browser walk 5/5 at the tip, 5/5 fail at base; no findings; B-1
+post-deploy for devops. QA's Assumption Not Checked (emoji picker click path; guild emoji; mobile IME) routed by this thread: the
+standard-emoji picker limb to devops's post-deploy walk, the other two to devops's Stage 1 handoff, owned by this thread. Disclosed by QA:
+one pass section written by a shell-run script (its changelog). Website HEAD `0411d3b` (`git rev-parse`); no `.github/workflows` (`ls -d`
+fails). Devops brief `steering/fix-emoji-pretransform-widths-brief-devops.md`; `devops-fix-emoji-pretransform-widths` started.
