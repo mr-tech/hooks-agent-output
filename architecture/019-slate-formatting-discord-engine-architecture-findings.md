@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 9 (record 47348a6d, AC-4.7 delta only): APPROVED. CF-15 is resolved. CF-16 (LOW: the vi-VN
+  fixture's expected value depends on test order, since dayjs's locale is global) is at steering-hooks-fixer for decision
+  under block 18:02Z.
   Delta pass on plan 019 revision 8 (record 7b419f5b): APPROVED. CF-14 is resolved. CF-15 (LOW: AC-4.7's ja-JP fixture names a
   locale the site loads, so use a tag with no file, e.g. vi-VN) is a stated limit in the Planner batch under the cap. It holds
   nothing.
@@ -31,6 +34,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T18:05 | architect-019 | Delta pass on plan 019 revision 9 (record `47348a6d`), AC-4.7 delta only (block 18:02Z); § Delta pass, revision 9. CF-15 resolved; CF-16 raised and routed to steering | Read as AC-4.7's hunks of `git diff 7b419f5b 47348a6d`. The locale-order probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev9/`. |
 | 2026-11-23T18:00 | architect-019 | Delta pass on plan 019 revision 8 (record `7b419f5b`); § Delta pass, revision 8. CF-14 resolved. CF-15 raised and, under the cap, made a stated limit. `website.md` A-10's picker sentence corrected | Read as `git diff e0eb1e87 7b419f5b` on the plan. The dayjs `ja` resolution probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev8/`. |
 | 2026-11-23T17:56 | architect-019 | Revision 7 verdict re-dispositioned under steering's cap (rulings block 17:56Z, record `b95a3d43`): APPROVED for M4 and M6, with CF-14 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 7, with the original verdict kept in place. Steering's message arrived after commit `27f61730`. |
 | 2026-11-23T17:55 | architect-019 | Delta pass on plan 019 revision 7 (record `e0eb1e87`); § Delta pass, revision 7. CF-13 resolved; CF-14 raised. `website.md` A-10 gains the effective-locale sentence | Read as `git diff 946d4e54 e0eb1e87` on the plan. The dayjs locale probes ran read-only on the shared tree's installed dayjs 1.11.7; captures are in `verification/019/architect-conformance/rev7/`. |
@@ -44,7 +48,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-15** is a stated limit carried by the plan's Planner batch, under the cap. My next pass reads only that the row exists.
+- **CF-16** is at `steering-hooks-fixer` for decision (block 18:02Z). Its decision says whether it folds or becomes a stated limit.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
@@ -276,6 +280,39 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 9 (record `47348a6d`)
+
+Read as AC-4.7's delta only, from `git diff 7b419f5b 47348a6d -- planning/019-slate-formatting-discord-engine.md`, as steering's
+effort rulings block "2026-11-23T18:02Z" (record `0a794563`) bounds it. The dayjs probe ran read-only on the shared tree's
+installed dayjs 1.11.7. The capture is in `verification/019/architect-conformance/rev9/`.
+
+**CF-15 as folded.** The unloaded-tag fixture is `vi-VN`: `loadLocales.ts` imports 29 dayjs locales, and `vi` is not one of
+them. The site's locale files are loaded, and the tag comes through react-aria. `11/14/23, 10:13 PM` against the mutant's
+`22:13 14/11/23` matches `rev7/intl-locale-source.out`. CF-15 is resolved.
+
+### CF-16 LOW — The `vi-VN` fixture's expected value depends on test order
+
+dayjs's locale is one process-wide global. `LoadLocale` sets it on render, and a tag with no file leaves it unchanged. So a
+`vi-VN` render resolves to `en` only when nothing earlier in the same module set another locale:
+- run first, `vi-VN` resolves to `en` and `s` reads `11/14/23, 10:13 PM`;
+- run after the `en-GB` case, dayjs stays `en-gb` and a correct implementation reads `14/11/2023, 22:13`
+  (`locale-order.out`).
+
+vitest runs a file's cases in one module context, so AC-4.7's `en-GB` and `vi-VN` cases share that global. A wrong order is red
+against correct code. That is loud, never a false pass, so the finding is LOW.
+
+The change it asks for: the `vi-VN` case resets dayjs to `en` first, or runs in a module of its own.
+
+The same run bears on the critic's cycle 3 pass 1 assumption ("`dayjs.locale()` read at render is the locale `LoadLocale` set
+for that viewer"). After a loaded locale, an unloaded tag leaves dayjs on the earlier locale. The six siblings read the same
+global, so `s` and `S` still match them, and there is no product defect.
+
+**Routed** to `steering-hooks-fixer` under block 18:02Z, which decides any further AC-4.7 gap before a fold. It is not sent to the
+planner.
+
+**Verdict on revision 9:** APPROVED. CF-15 is resolved. CF-16 is LOW and at steering for decision; it holds nothing of mine.
+Nothing needs the owner from me.
 
 ## Delta pass, revision 8 (record `7b419f5b`)
 
