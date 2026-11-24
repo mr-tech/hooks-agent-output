@@ -1,0 +1,8 @@
+{"emoji":0,"lines":200,"surface":"embedDescription","fill":"a","n":200,"medianMs":0.5,"minMs":0.4,"maxMs":0.8,"firstMs":0.7,"load":"1.96 3.21 5.32"}
+{"emoji":0,"lines":1000,"surface":"embedDescription","fill":"a","n":1000,"medianMs":1.8,"minMs":1.2,"maxMs":11.5,"firstMs":1.8,"load":"1.96 3.21 5.32"}
+{"emoji":200,"lines":200,"surface":"embedDescription","fill":"a🙂","n":200,"medianMs":0.7,"minMs":0.6,"maxMs":1,"firstMs":0.9,"load":"1.96 3.21 5.32"}
+{"emoji":1000,"lines":1000,"surface":"embedDescription","fill":"a🙂","n":1000,"medianMs":9.3,"minMs":8.9,"maxMs":10.8,"firstMs":9.2,"load":"1.96 3.21 5.32"}
+{"emoji":0,"lines":200,"surface":"content","fill":"a","n":200,"medianMs":0.3,"minMs":0.2,"maxMs":0.5,"firstMs":0.2,"load":"1.96 3.21 5.32"}
+{"emoji":0,"lines":1000,"surface":"content","fill":"a","n":1000,"medianMs":1.9,"minMs":1.7,"maxMs":2.3,"firstMs":1.8,"load":"1.96 3.21 5.32"}
+{"emoji":200,"lines":200,"surface":"content","fill":"a🙂","n":200,"medianMs":0.8,"minMs":0.7,"maxMs":0.8,"firstMs":0.8,"load":"1.96 3.21 5.32"}
+{"emoji":1000,"lines":1000,"surface":"content","fill":"a🙂","n":1000,"medianMs":4.7,"minMs":3.4,"maxMs":9.8,"firstMs":9.8,"load":"1.96 3.21 5.32"}
