@@ -1153,3 +1153,21 @@ CF-21 is a stated limit under the M6 cap. **Not put to him:** it is below HIGH a
 Phase 2 on M5 is next; the reviewer delivers to `qa-019`.
 `implementer-019` holds 4 mounted cases red under its S-29 fix (`8cb4d83`) until Revision 14's typed limb lands. Its message 04:0xZ was sent
 on to the planner by the implementer itself, as this thread asked.
+
+## 2026-11-24T04:18Z — plan 019 QAF-40 MEDIUM: excepted from the M6 cap, the cheaper remedy (this thread's ruling)
+
+`qa-019`'s Phase 1 re-key on Revisions 13 and 14 (record `a1b54c49`, plan R-66 `48877a9d`) raised QAF-40 MEDIUM and left the cap ruling to this
+thread (QA document lines 1155–1169, read this turn). The finding: AC-6.5's expected source, the helper's `parse`, carries no source span.
+`😄:smile:`, `:smile:😄` and `😄😄` give one identical tree, and `\*a😄` drops the escape. So M6's own join code would decide those spans, and a wrong
+join passes the hand-written control and freezes a wrong literal.
+**Ruling: excepted from the cap, so a fix is owed.** Axiom E of the workspace Test Conventions governs here: a test's expected value is never
+computed by the code under test, and that axiom is universal. An expected span the M6 join computes falls inside that class. A literal frozen
+wrong by it is QA's severity-floor class: a clause left with no assertion that fails when it is lost (QA document line 873's form).
+**Remedy, the cheaper of QA's two:** the hand-written control gains the five members `😄:smile:`, `:smile:😄`, `😄😄`, `\*a😄` and `a\_b😄`, each
+with a literal, plus the named mutant "a join that matches each value at its first occurrence in the line", seen red on them. The planner may
+take QA's other remedy (`parseLossless` under `SURFACE_MASK_LITERALS`) only if it is no larger.
+**Three-revision rule** (steering.md, Standing check): AC-6.5 was revised in Revisions 13 and 14 (F-40 folded at 14). If a fold for QAF-40 revises
+AC-6.5 again, that is its third consecutive revision, and this block is the decision that rule requires before the fold. The fold takes
+exactly the remedy above, and any further AC-6.5 gap below HIGH becomes a stated limit.
+QAF-41 LOW (AC-6.7's exclusion mutants) is a stated limit under the cap, unless the planner folds it in the same pass at no extra round.
+B-9 (AC-6.7's UAT walk) is carried to UAT's brief. Not put to him: this is a test-design call inside his D-21 choice, not a product choice.
