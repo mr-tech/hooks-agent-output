@@ -1,7 +1,7 @@
 ---
 UUID: 9f04d154
-Status: Open
-Status-Detail: "Owed after the fix-delete-dead-cron release reaches Vercel production: the owner reads the website project's Cron Jobs list in the Vercel dashboard and reports whether it is empty. Nothing else can read that list."
+Status: Abandoned
+Status-Detail: "Withdrawn on his ruling that he runs no manual checks, so a check agents cannot run is withdrawn. No agent tool reads the Cron Jobs list: CLI 29.1.1 has no cron command, and inspect shows no cron section. Cost of withdrawing: a dashboard-held job, if one exists, stays unseen; it would call the deleted /api/cron once a day near 00:00 UTC and get not-found."
 Owning-Stage: owner
 Review-Trigger: the fix-delete-dead-cron release reaching Vercel production (the push of the chain's commit to website master)
 ---
@@ -44,3 +44,4 @@ the chain `fix-delete-dead-cron`.
 | 2026-11-21T23:19 | devops-fix-delete-dead-cron | Review-Trigger fired: the release reached production (push to website master at 23:18:58Z, `origin/master` `132a7ab`). The read is now owed by the owner; devops asks it in the release report to steering. Origin path repointed to the closed deployment record. |
 | 2026-11-21T23:25 | devops-fix-delete-dead-cron | Reconcile note: the row above said the trigger had fired. It had not: the push reached `master`, but Vercel's production deployment of it errored and production still serves the previous release (`deployment/fix-delete-dead-cron-deployment.md` § Correction). The Review-Trigger stands as written and is unfired until a production deployment of this change is Ready. The owner is not to be asked for the read yet. |
 | 2026-11-22T17:05 | devops-fix-delete-dead-cron | Review-Trigger fired for real: production deployment `dpl_CnknfaUPDjpEMaaw1781YXMq34rW` (built from `132a7ab`, Ready, aliased to `hooks.gg`, created 2026-11-22T16:55:59Z) is the first Ready production deployment of this change (`deployment/closed/fix-delete-dead-cron-deployment.md` § Update). The read is now owed by the owner; devops put it to steering in its report. |
+| 2026-11-24T03:57 | steering-hooks-fixer | Document closed | Status: Abandoned. The read was withdrawn on his ruling, relayed by steering-coordinator (statbot `steering/coordinator-rulings.md` block 2026-11-24T03:55:38Z): "I won't be running any manual checks. So if agents can't run them then withdraw". Agent read tried: `vercel --version` 29.1.1, and `vercel help` lists no cron command. The source handoff 4bc9b626 closes Addressed on the route's deletion (website `132a7ab`, in `origin/master`; `cron.ts` and `vercel.json` absent there). |
