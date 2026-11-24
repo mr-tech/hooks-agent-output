@@ -1745,7 +1745,7 @@ Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fix
   SL-29 member, tip beside `af3d95a` on the same probe, box load beside each: paste `a` and `a🙂` through `insertData`, and
   opening and closing a fence on the `a🙂` texts, each at 200 and 1,000 lines. CR-25 stays unresolved while any member is several
   times the base, whatever the count limbs read. Paste base medians: `verification/019/planning/paste-refute/out-af3d95a.jsonl`.
-  **Premise defect, sent to planner-019 and steering at 21:0xZ:** `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl` shows
+  **Premise defect, sent to planner-019 and steering at 20:58Z:** `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl` shows
   that all four `a🙂` fence members at 200 and 1,000 lines (and every `a` member at those sizes) carry `Error: Could not completely
   normalize` at the base. Each base median there (16.2 to 48.1 ms) times the iteration-cap throw, not a completed keystroke, so
   "several times the base" has no valid denominator for the fence members. The paste members' base runs have no errors. The fence
