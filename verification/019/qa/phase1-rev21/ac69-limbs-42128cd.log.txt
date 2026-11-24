@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/tipx
+
+ROW 40 | gt make | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":1} | z=BAD line 0: ">>> az"
+ROW 40 | gt unmake (Backspace after the third >) | throw=no | write=BAD("a") | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":0} | z=BAD line 0: "za"
+ROW 40 | fence make, line 2 | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":3} | z=ok
+ROW 40 | fence unmake, line 2 | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":2} | z=ok
+ROW 40 | closing delimiter make, middle line | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[20,0],"offset":3} | z=ok
+ROW 40 | closing delimiter unmake, middle line | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[20,0],"offset":2} | z=ok
+ROW 123 | gt make | throw=Could not completely normalize the edito | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":1} | z=BAD line 0: ">>> az"
+ROW 123 | gt unmake (Backspace after the third >) | throw=Could not completely normalize the edito | write=BAD("a") | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":0} | z=BAD line 0: "za"
+ROW 123 | fence make, line 2 | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":3} | z=ok
+ROW 123 | fence unmake, line 2 | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":2} | z=ok
+ROW 123 | closing delimiter make, middle line | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[61,0],"offset":3} | z=ok
+ROW 123 | closing delimiter unmake, middle line | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[61,0],"offset":2} | z=ok
+ROW 200 | gt make | throw=Could not completely normalize the edito | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":1} | z=BAD line 0: ">>> az"
+ROW 200 | gt unmake (Backspace after the third >) | throw=Could not completely normalize the edito | write=BAD("a") | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":0} | z=BAD line 0: "za"
+ROW 200 | fence make, line 2 | throw=Could not completely normalize the edito timers:Cannot resolve a DOM point from Slate point: {"pat | write=BAD(none) | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":3} | z=ok
+ROW 200 | fence unmake, line 2 | throw=Could not completely normalize the edito | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":2} | z=ok
+ROW 200 | closing delimiter make, middle line | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[100,0],"offset":3} | z=ok
+ROW 200 | closing delimiter unmake, middle line | throw=no | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[100,0],"offset":2} | z=ok
+ROW 1000 | gt make | throw=Could not completely normalize the edito | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":1} | z=BAD line 0: ">>> az"
+ROW 1000 | gt unmake (Backspace after the third >) | throw=Could not completely normalize the edito | write=BAD("a") | freshLoadDiffLines=0 | collapsed=true sel={"path":[0,0],"offset":0} | z=BAD line 0: "za"
+ROW 1000 | fence make, line 2 | throw=Could not completely normalize the edito timers:Cannot resolve a DOM point from Slate point: {"pat | write=BAD(none) | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":3} | z=ok
+ROW 1000 | fence unmake, line 2 | throw=Could not completely normalize the edito | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[2,0],"offset":2} | z=ok
+ROW 1000 | closing delimiter make, middle line | throw=Could not completely normalize the edito timers:Cannot resolve a DOM point from Slate point: {"pat | write=BAD(none) | freshLoadDiffLines=0 | collapsed=true sel={"path":[500,0],"offset":3} | z=ok
+ROW 1000 | closing delimiter unmake, middle line | throw=Could not completely normalize the edito | write=ok | freshLoadDiffLines=0 | collapsed=true sel={"path":[500,0],"offset":2} | z=ok
+QA-AC69
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  14:41:08
+   Duration  12.13s (transform 339ms, setup 21ms, import 1.05s, tests 10.34s, environment 602ms)
+

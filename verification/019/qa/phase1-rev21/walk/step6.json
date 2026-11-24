@@ -1,0 +1,4 @@
+{"K1":{"json_before_reload":"embeds[0].description starts \">>> az\\na\\na...\"","reload":{"n":2000,"first3":["az","a","a"],"zLine":0,"line0Class":"blockQuoteContainer"}},
+"K2":{"json_before_reload":"\"a\\na\\n```z\\na\\na...\"","reload":{"n":2000,"first3":["a","a","```z"],"zLine":2}},
+"K3":{"json_after_reload (before-reload read lost to interrupted script)":"\"a\\na\\n``z\\na...\"","reload":{"n":2000,"first3":["a","a","``z"],"zLine":2}},
+"json_menu":"JSON view is under Edit > JSON (View menu holds only View Mode, Compact Style)"}

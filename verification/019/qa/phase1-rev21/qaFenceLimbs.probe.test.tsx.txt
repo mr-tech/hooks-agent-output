@@ -1,0 +1,82 @@
+import { act } from 'react';
+import { Editor, Transforms } from 'slate';
+import { afterEach, it, vi } from 'vitest';
+
+import getInitialValue from '../utils/getInitialValue';
+import isEmojiElement from '../utils/common';
+import { mountEditor } from './helpers/mountedEditor';
+import onKeyDown from '../utils/onKeyDown';
+
+import type { KeyboardEvent } from 'react';
+
+import type { Element } from 'slate';
+
+import { unmountDom } from '~/components/__tests__/helpers/dom';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('~/providers/MarkdownProvider', async () => (await import('./helpers/markdownProviderMock')).default(true));
+
+afterEach(() => { unmountDom(); vi.useRealTimers(); });
+
+const as = (n: number) => Array.from({ length: n }, () => 'a');
+const sig = (lines: Element[]) => lines.map((l) => `${l.type}|${l.quotePrefix ?? ''}|${l.startCodeBlock}|${l.lang}|${l.children.filter(isEmojiElement).length}`);
+
+type Case = { name: string; lines: string[]; line: number; at: 'start' | 'end'; key: 'insert' | 'backspace'; ch?: string; expected: string[]; zExpected: string[] };
+
+function cases(n: number): Case[] {
+  const out: Case[] = [];
+  const mid = Math.floor(n / 2);
+  {
+    const lines = ['>> a', ...as(n - 1)];
+    out.push({ name: 'gt make', lines, line: 0, at: 'start', key: 'insert', ch: '>', expected: ['>>> a', ...as(n - 1)], zExpected: ['>>>z a', ...as(n - 1)] });
+    const l2 = ['>>> a', ...as(n - 1)];
+    out.push({ name: 'gt unmake (Backspace after the third >)', lines: l2, line: 0, at: 'start', key: 'backspace', expected: ['>> a', ...as(n - 1)], zExpected: ['>>z a', ...as(n - 1)] });
+  }
+  {
+    const base = ['a', 'a', '``', ...as(n - 3)];
+    out.push({ name: 'fence make, line 2', lines: base, line: 2, at: 'end', key: 'insert', ch: '`', expected: ['a', 'a', '```', ...as(n - 3)], zExpected: ['a', 'a', '```z', ...as(n - 3)] });
+    const open = ['a', 'a', '```', ...as(n - 3)];
+    out.push({ name: 'fence unmake, line 2', lines: open, line: 2, at: 'end', key: 'backspace', expected: ['a', 'a', '``', ...as(n - 3)], zExpected: ['a', 'a', '``z', ...as(n - 3)] });
+    const closeMake = ['a', 'a', '```', ...as(mid - 3), '``', ...as(n - mid - 1)];
+    const closeMade = ['a', 'a', '```', ...as(mid - 3), '```', ...as(n - mid - 1)];
+    const closeMadeZ = ['a', 'a', '```', ...as(mid - 3), '```z', ...as(n - mid - 1)];
+    out.push({ name: 'closing delimiter make, middle line', lines: closeMake, line: mid, at: 'end', key: 'insert', ch: '`', expected: closeMade, zExpected: closeMadeZ });
+    out.push({ name: 'closing delimiter unmake, middle line', lines: closeMade, line: mid, at: 'end', key: 'backspace', expected: closeMake, zExpected: ['a', 'a', '```', ...as(mid - 3), '``z', ...as(n - mid - 1)] });
+  }
+  return out;
+}
+
+it('AC-6.9 limbs at this tree', async () => {
+  const rows: string[] = [];
+  for (const n of [40, 123, 200, 1000]) {
+    for (const c of cases(n)) {
+      const m = mountEditor(c.lines.join('\n'), false);
+      await act(async () => {
+        Transforms.select(m.editor, c.at === 'start' ? Editor.start(m.editor, [c.line]) : Editor.end(m.editor, [c.line]));
+      });
+      let threw = '';
+      const w0 = m.writes.length;
+      try {
+        await act(async () => { if (c.key === 'insert') m.editor.insertText(c.ch!); else { const ev = { key: 'Backspace', defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } }; onKeyDown(m.editor, false, undefined)(ev as unknown as KeyboardEvent<HTMLDivElement>); if (!ev.defaultPrevented) m.editor.deleteBackward('character'); } });
+      } catch (e) { threw = (e as Error).message.slice(0, 40); }
+      try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (e) { threw += ` timers:${(e as Error).message.slice(0, 50)}`; }
+      const write = m.writes.length > w0 ? m.writes[m.writes.length - 1] : '(no write)';
+      const writeOk = write === c.expected.join('\n');
+      const load = sig(getInitialValue(c.expected.join('\n'), 'content', false) as Element[]);
+      const now = sig(m.editor.children as Element[]);
+      const loadDiff = load.reduce((k, s, i) => k + (s === now[i] ? 0 : 1), 0) + Math.abs(load.length - now.length);
+      const sel = m.editor.selection;
+      const collapsed = sel ? sel.anchor.path.join('.') === sel.focus.path.join('.') && sel.anchor.offset === sel.focus.offset : false;
+      let zThrew = '';
+      const w1 = m.writes.length;
+      try { await act(async () => { m.editor.insertText('z'); }); } catch (e) { zThrew = (e as Error).message.slice(0, 30); }
+      try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (e) { zThrew += ` timers:${(e as Error).message.slice(0, 50)}`; }
+      const zWrite = m.writes.length > w1 ? m.writes[m.writes.length - 1] : '(no write)';
+      const zOk = zWrite === c.zExpected.join('\n');
+      const zLine = zWrite.split('\n').findIndex((l) => l.includes('z'));
+      process.stdout.write(`ROW ${n} | ${c.name} | throw=${threw || 'no'} | write=${writeOk ? 'ok' : `BAD(${write === '(no write)' ? 'none' : JSON.stringify(write.split('\n')[c.line])})`} | freshLoadDiffLines=${loadDiff} | collapsed=${collapsed} sel=${JSON.stringify(sel?.anchor)} | z=${zOk ? 'ok' : `BAD line ${zLine}: ${JSON.stringify(zWrite.split('\n')[zLine] ?? '')}`}${zThrew ? ` zThrew=${zThrew}` : ''}\n`);
+      try { unmountDom(); } catch { /* */ }
+    }
+  }
+  process.stdout.write(`QA-AC69\n${rows.join('\n')}\n`);
+}, 900_000);

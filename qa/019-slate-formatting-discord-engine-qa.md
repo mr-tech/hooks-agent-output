@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 20 (record cf7e4d91, AC-6.8's corpus bound removed and fenced-quote texts added). The
-  fenced-quote texts are red at 119471f (P-Q25). No new finding. QAF-42 LOW (R-69) stands; QAF-45 is folded as SL-22.
-  Register: B-1 to B-10.
+  Phase 1 re-keyed on plan 019 Revision 21 (record 81523bd6, D-24, AC-6.9). P-Q26 at 42128cd reads AC-6.9's limbs. QAF-52
+  MEDIUM is open for the planner (the >>> keystrokes' caret points and texts); QAF-42 LOW (R-69) stays open. Register: B-1
+  to B-11.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -83,6 +83,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T07:22 | planner-019 (messages: Revision 17 at `34850209`, Revision 18 at `18e434e6`; steering block 07:15Z) | Phase 1 re-key on Revisions 17 and 18, as one | § Re-key on Revisions 17 and 18. QAF-43 and QAF-44 closed. P-Q23 at `119471f`: the `vi.mock` observer sees the production builds (the positive control counts 2 at the tip). A merge in the class dirties one line, so its literal is 1. The two-unit keystroke in the class is Enter mid code line, which dirties two code-line units: NM-72's fixture, literal 2. A merge that removes a fence delimiter visits its line twice and is SL-19's residue. No new finding. |
 | 2026-11-24T07:25 | planner-019 (message: Revision 19 at `4a68f286`, steering block 07:21Z) | Phase 1 re-key on Revision 19 | § Re-key on Revision 19. The cross-size equality and the bound of 4 can fail at the tip. The floor is held by the control. NM-72 is dispositioned: the count cannot redden it, and inside the class it is equivalent in behaviour (code lines hold no element). P-Q24: typing the `>` that makes `>>> ` re-types every following line in one drain. **QAF-45 LOW**: that keystroke is outside the class and outside the residue. |
 | 2026-11-24T07:45 | planner-019 (message: Revision 20 at `cf7e4d91`, steering block 07:42Z) | Phase 1 re-key on Revision 20 | § Re-key on Revision 20. P-Q25: the fenced-quote texts are many-unit, and at `119471f` they build 201 at 200 lines and 2,049 at 2,048, so they are red by differing counts. The bound's removal is agreed: the sized texts hold every unit structure. AC-6.8 is added to the register's user-report line. No new finding. |
+| 2026-11-24T14:48 | planner-019 (message: Revision 21 at `81523bd6`, D-24, steering block 14:33Z) | Phase 1 re-key on Revision 21 | § Re-key on Revision 21. P-Q26 at `42128cd`, a mounted editor: every AC-6.9 limb reached except the growth limb, and each of no-throw and caret carries a failing case alone. **QAF-52 MEDIUM**: the `>>>` keystrokes' expected texts and caret points cannot be reached in the editor's marker model. Named mutants NM-73 to NM-77. **B-11** minted (AC-6.9's walk), with its instrument run at `42128cd` by the browser-walker. Disclosed: the stamp gate refused this row's first write, whose stamp I typed a minute ahead of the clock. Its stamp now matches a `date -u` read made for it. |
 
 ## Reading
 
@@ -1447,6 +1448,104 @@ there, dated, with its text. Rows inherited and not discharged: B-1 to B-10.
 
 Phase 1 is keyed to Revision 20. No new finding. Open for the planner: QAF-42 LOW (R-69). QAF-45 LOW is folded as SL-22.
 
+## Re-key on Revision 21
+
+Revision 21 (record `81523bd6`) was read as its diff from `cf7e4d91` (`git show 81523bd6`). It adds D-24 and AC-6.9: the
+code-fence and `>>>` keystrokes settle without Slate's iteration error, write their text, match a fresh load, and leave the caret
+where the next character lands. It also adds cost limbs outside the suite and a human-observable walk. Outstanding 2's and
+CR-23's batch rows are discharged into it. No other criterion moves.
+
+**Premise run in this pass (P-Q26)** (`verification/019/qa/phase1-rev21/`, `qaFenceLimbs.probe.test.tsx.txt`,
+`ac69-limbs-42128cd.log.txt`, exit 0). Website `42128cd`, in a blob-identical export (680 of 680), `unshare -rn`. The editor is
+mounted through `mountEditor` (the `content` surface, full mode), and every limb is read through it:
+- the throw, including a deferred one from the timer flush;
+- the last `onChange` write against a literal-built expected text;
+- line signatures (type, prefix, fence state, emoji count) against `getInitialValue` of the expected text;
+- the selection;
+- a following `z` against a literal-built expected text.
+
+Backspace goes through `onKeyDown`, as the browser routes it. Sizes are 40, 123, 200 and 1,000 lines.
+
+| Keystroke | 40 | 123 | 200 | 1,000 |
+|---|---|---|---|---|
+| `>` making `>>> a` (line 0) | caret red: the `z` gives `>>> az` | throw; caret red | throw; caret red | throw; caret red |
+| Backspace after the marker (line 0) | writes `a`, not `>> a` | throw; writes `a` | throw; writes `a` | throw; writes `a` |
+| third backtick, line 2 | all green | all green | throw, **no write**, deferred DOM-point error | the same |
+| Backspace on ```` ``` ````, line 2 | all green | all green | throw; write, load and caret green | the same |
+| closing delimiter made, middle line | all green | all green | all green (99 lines change) | throw, no write |
+| closing delimiter unmade, middle line | all green | all green | all green | throw; others green |
+
+- **The fresh-load limb accepts real members.** At 40 lines every keystroke's lines equal a fresh load, so the entry condition's
+  premise holds for every keystroke here. At this tree it is never red, even after a throw, because the model ends correct.
+- **Each conjunct, as the sole failing limb.** No-throw is the only red limb on Backspace on ```` ``` ```` at 200 lines and up.
+  Caret is the only red limb on `>` at 40 lines. Write is red only together with no-throw (the third backtick at 200 lines). Fresh
+  load is never red here. The write and fresh-load limbs therefore need planted members (NM-73, NM-74).
+- **The growth limb's red needs a mutant.** CR-23's per-dirty-line settle measured 42.1 ms at 200 lines and 415.7 ms at 2,048
+  (`fence-toggle.out.txt`, record `602344ec`). That ratio, 9.9, passes the 20× bound, because the throw cuts the drain at 126
+  iterations at both sizes. The plan's "about 100 times" holds only for a tree that settles. No existing tree shows it, so the
+  limb is shown red at Phase 2 by NM-76 on the fixed tree.
+- **Size note, not a finding.** On `content` at N = 1,000, the `>>>` text is 2,003 characters and the fence texts about 2,001,
+  just past content's 2,000. The editor shows a limit error and still takes the keystroke, so the test exercises a text a user
+  can reach. The saved form is refused at the limit.
+
+**QAF-52 MEDIUM Phase 1**
+AC-6.9's two `>>>` keystrokes name caret points and expected texts that the editor's marker model cannot produce:
+- **Typing.** The keystroke is "`>` typed at the start of `>> a` on line 0, making `>>> a`". Its caret limb says "after the
+  typed character", so a `z` gives `>>>z a`. But once the line is a quote, its `>>> ` is the line's `quotePrefix`, not text.
+  No text point lies between the third `>` and the space. The nearest point is the start of the line's text, and a `z` there
+  gives `>>> za`.
+  - Measured at `42128cd` at every size, 40 included, where nothing throws: the selection stays at `[0,0]` offset 1, after the
+    `a`, and the `z` gives `>>> az`. The browser walk agrees: the description's JSON reads `>>> az`.
+  - The model probe also reads `[0,0]` offset 1 at the chain base `af3d95a` (`m6/fix/browser/model-selection-af3d95a.out.txt`),
+    so this is pre-existing.
+- **Unmaking.** The keystroke is "Backspace after that `>`, unmaking it", expected `>> a`. In this editor, `onKeyDown`'s
+  `normalizeBackspace` handles a Backspace at the start of a quote line's text by setting the line back to `div`, as it did at the
+  chain base. That writes `a` and removes the whole marker. No Backspace removes one `>`.
+
+As written, the caret limb fails every fix that keeps the marker model, and the unmake keystroke's write limb fails the editor's
+own Backspace behaviour. The implementer would either fail the criterion or remodel the marker by accident.
+
+Property wanted: the planner states both keystrokes in the model's terms.
+- For typing: the point is the start of the line's text, after the marker, and the `z` expectation is `>>> za`. The fix is
+  owed to move the caret from after the `a` to that point. That move is a real defect, and the only conjunct that fails on its
+  own at 40 lines.
+- For unmaking: either keep the existing Backspace (the expected text `a`, with a `z` giving `za`, and that keystroke still
+  retypes every line below, so it stays in the no-throw class), or name a change to Backspace as scope.
+
+It is a MEDIUM, not a floor: the plan's text is the defect, not the code.
+
+**Coverage obligations for Phase 2** (in the round's tree):
+- **NM-73:** the normalise wrapped in a try/catch that swallows the cap error. No-throw goes green. It must go red on the write
+  limb (the third backtick at 200 lines) or on fresh load. If no limb goes red, the no-throw limb is the only thing guarding the
+  fix's real mechanism.
+- **NM-74:** the fix's retyping of the lines below skipped, leaving them untyped. Fresh load is red alone ("a fix that avoids the
+  throw by leaving lines untyped fails this limb").
+- **NM-75:** the selection moved to the document's end after the keystroke. Caret is red alone. QAF-52's restated point is
+  observed separately, red at `42128cd`.
+- **NM-76:** CR-23's settle (`sharing = [...unit.lineStarts.keys()]` once per dirty line) restored in the fixed tree. Growth is
+  red, by an assertion with a non-zero exit, never exit 124.
+- **NM-77:** one extra forced `Editor.normalize` over the whole document per keystroke. That is linear, so growth stays green
+  and the ceiling goes red.
+- **The red mode:** a planted ceiling of 0.001 ms exits non-zero within its green run time.
+- **Both directions per sub-class:** each of the four fence keystrokes and the two `>>>` keystrokes has a member that throws at
+  `42128cd` (above) and a member that settles (40 lines). The suite's cases cover both sizes.
+
+**Register (B-11, below).** The plan's walk is minted as B-11. Its instrument was run at `42128cd` by the browser-walker
+helper (`verification/019/qa/phase1-rev21/walk/`: `run-K*.js`, `K*-steps1-5.json`, `step6.json`):
+- The embed description's editor was identified by Enter adding a line. A real paste loaded 2,000 lines, and the caret was
+  placed on the first attempt after an 800 ms wait. The JSON view is under Edit > JSON.
+- The `>>>` keystroke, the third backtick and Backspace on ```` ``` ```` each raised the cap error once.
+- `>>>`'s `z` landed after the `a` (`>>> az`). The two fence `z`s landed after the keystroke. Each draft kept its text across a
+  reload.
+- The walk read the JSON only after the `z`, so it could not see the third backtick's own dropped write. B-11 therefore reads
+  the JSON before the `z` as well.
+
+Register sweep. The predicate is rows citing AC-6.8 or AC-6.9, or a code-fence or `>>>` keystroke. B-10 is checked: AC-6.8
+does not move, and its walk types plain characters at the end of line 1,000, so it is cleared. B-11 is new. No other row cites
+these. The user-report line gains AC-6.9. Rows inherited and not discharged: B-1 to B-11.
+
+Phase 1 is keyed to Revision 21. **QAF-52 MEDIUM** goes to the planner, open. QAF-42 LOW (R-69) stays open.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -1466,6 +1565,7 @@ Stage 1 handoff) are authoritative on each row's execution state.
 | B-8 | observable pre-release | AC-3.3 ("pasting it whole yields the same text", and "after a refused paste the editor's text equals its text before the paste") on the branch a real browser takes: Chrome's `beforeinput` `insertFromPaste`, which the jsdom drive does not reach (M3 Findings 6, Outstanding 7; QA M3 pass) | Stage browser on a local production build of the tip that carries M6's editor: the clipboard set to the member's text, then Ctrl+V into the content editor (full mode) and into the embed title (partial mode). Read the value the message holds through the site's JSON view, which reads what `onChange` handed it; nothing is saved | UAT through the stage browser / the owner | M6 built locally: the editor's paste path stops changing at M6. No sign-in is needed for a new message's editor; if the build requires one, B-4's provisioning applies first | Full mode: for three emoji-free corpus inputs in the pasted limb's passing set, one holding a `> ` quote, one a `>>> ` quote and one a fence, the JSON value equals the pasted text character for character. Partial mode: pasting `a\nb` into the title leaves its text as it was, with the toast; a paste of 6,001 characters into content leaves it as it was. One differing character refutes by construction | If Chrome's paste path inserts text other than the way the `onPaste` fallback the suite drives does, a pasted quote or fence is saved altered, and no test sees it | uat | UAT document for 019 (the inputs named there by corpus index) | open. Saves nothing; a walk that saves runs the workspace's local-build sequence first, as B-4. Not run at minting: no M6 build exists. |
 | B-9 | observable pre-release | AC-6.7's human-observable form (D-22; SL-15; SL-16 (1)): in the content editor, Enter after a `> ` line carries the marker, a paste adds none, and the named gesture ends a continued quote | Stage browser on UAT's local production build of the M6 tip, which carries the quote-carry change. Into a new message's content editor: (1) type `> a`, Enter, `b`; (2) paste `> a⏎b` into an empty editor; (3) type `> a`, Enter, the gesture implementer-019 names to end the quote, then `b`. After each, read the preview, and read the value through the site's JSON view, which reads what `onChange` handed it. Nothing is saved | UAT through the stage browser / the owner | M6's quote-carry change built locally, and the implementer's gesture named in its M6 document. Where the build cannot sign in, the fallback is AC-6.7's production check after deploy (SL-15). That makes it a post-deploy row carried by devops' handoff. | (1) `b` is drawn inside the quote, and the JSON value is `> a\n> b`. (2) `b` is drawn outside the quote, and the value is `> a\nb`. (3) `b` is drawn outside the quote, and the value is `> a\nb`. One differing value refutes by construction | If Enter does not carry, a user's second quoted line falls out of the quote, unlike Discord's box (QA's walk, step 1). If a paste carries, pasted text is saved altered. If the gesture does not end the quote, a user cannot leave a quote by the means the site offers | uat | UAT document for 019 | open. Not run at minting: no build holds the carry change, and the gesture is not yet named. Saves nothing; a walk that saves runs the workspace's local-build sequence first, as B-4. Dependency: the gesture's name, from implementer-019's M6 document |
 | B-10 | observable pre-release | AC-6.8's human-observable form (D-23): typing in a 2,000-line embed description shows no lag a person can see | Stage browser on UAT's local production build of M6's fix-round tip. Into a new message's embed description, paste 2,000 one-character lines (3,999 characters, under the 4,096 limit). Then type ten characters at the end of line 1,000 and time each keystroke to paint with the devtools Performance panel; a stopwatch is the fallback. Nothing is saved | UAT through the stage browser / the owner. No sign-in is needed for a new message's editor; if the build requires one, B-4's provisioning applies first | CR-20's fix round has code review's sub-entry, and its tree is built locally | **Fixed:** each keystroke paints within one frame or so, with no pause a person sees. **Unfixed (`119471f`, measured in node, P-Q22):** about 1.8 s per keystroke at 2,048 lines, 0.43 s at 1,000. A single keystroke that visibly stalls refutes by construction | If typing stalls in a long embed description, a user writing a long announcement sees the editor freeze after each key | uat | UAT document for 019 | open. Not run at minting: no build of the fix round exists, and the browser figure is not yet measured (AC-6.8's residue). Production after deploy is the plan's check; it is the fallback if the local build cannot run. Depends on: none |
+| B-11 | observable pre-release | AC-6.9's human-observable form (D-24): opening and closing a code block near the top of a 2,000-line embed description, and typing `>>>` at its top, show no console error, the next character lands at the caret, and the draft keeps the keystroke | Stage browser on UAT's local production build of M6's second fix-round tip, with a new message's first embed description. Identify it by Enter adding a line. Real-paste 2,000 lines per case: K1 `>> a` then 1,999 `a`; K2 `a`, `a`, two backticks, then 1,997 `a`; K3 the same with three backticks. Place the caret (K1 at line 0's start, K2 and K3 at line 2's end), wait at least 800 ms, and read the DOM caret before the key. Then type `>`, a backtick, or Backspace, and listen for `pageerror` and console errors. **Read Edit > JSON before the next key**, then type `z`, read the line holding it, read the JSON again, then reload and read the first 3 lines. Nothing is saved. The script: `verification/019/qa/phase1-rev21/walk/run-K*.js` | UAT through the stage browser / the owner. No sign-in is needed for a new message's editor | The second fix round has code review's sub-entry and its tree is built locally | **Fixed:** no page or console error in any case. The JSON before `z` already holds the keystroke (K1 `>>> a`, K2 three backticks, K3 two). The `z` lands at the caret: in K1 per QAF-52's restated point (`>>> za` if the planner takes the default), in K2 and K3 as `` ```z `` and `` ``z ``. The reload shows the same. **Unfixed (measured at `42128cd` at minting):** the cap error once per case. K1's `z` gives `>>> az`. K2's and K3's `z` land right, and the drafts keep the text (K2's write before `z` unread). One error or one misplaced `z` refutes by construction | If the error stays, a user who opens or closes a code block near the top of a long description hits an editor error, and the block's write can be lost until the next key. If the `z` lands after the `a`, the next character a user types after `>>>` goes in the wrong place | uat | UAT document for 019 | open. Minted with its instrument run at `42128cd` (§ Re-key on Revision 21). Depends on: QAF-52's restatement for K1's expected point. If QAF-52 is withdrawn, K1's prediction is re-written from the plan's literal |
 
 Candidate held, not minted: a production preview image of a formatted message shows formatted text (E-4, RK-2). Its instrument is
 not established until AN-2 reports. It is minted at the re-key after AN-2 lands, or declined there with the reason.
@@ -1476,7 +1576,8 @@ Rows inherited and not discharged: B-1 to B-6, all open (no implementation exist
 **User reports recorded against the register (revisions 13 and 14).** No instrument reads these, so they are not rows. A user
 report of an emoji that Discord's client lifts or leaves as text, where the engine decides otherwise, is recorded here under
 AC-6.5, dated, with its text and the stage that read it. So is a user report that a continued quote cannot be ended, under
-AC-6.7 (B-9). So is a user report of a pause on an input outside AC-6.8's sized texts, under AC-6.8 (B-10; revision 20).
+AC-6.7 (B-9). So is a user report of a pause on an input outside AC-6.8's sized texts, under AC-6.8 (B-10; revision 20). So is a
+user report of an editor error or a misplaced character after a code-fence or `>>>` keystroke, under AC-6.9 (B-11; revision 21).
 None is recorded yet.
 
 ## Assumption Not Checked
