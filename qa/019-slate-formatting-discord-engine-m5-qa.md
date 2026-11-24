@@ -180,3 +180,44 @@ verdict. The plan's Status is not moved. Rows inherited and not discharged: B-1 
 **Assumption Not Checked.** This pass assumes that x8's guard of the quote prefix carries over to M6's `runUnit.ts`, where
 `unitAround` moves. It does not test that, because it runs M5's source. Falsity signature: at M6's tip, the prefix line removed
 from `runUnit.ts` survives the suite. **Owner: QA at M6's Phase 2**, which re-runs m5-d2 in its M6 form.
+
+## Resumption State
+
+Written 2026-11-24T05:39 at steering's ask (`/checkpoint`, about 342K tokens), at a seam: every pass is committed.
+
+- **Done.**
+  - **M3:** QA Complete at `81c68b2` (refresh over round 8, `qa/019-slate-formatting-discord-engine-m3-qa.md`).
+  - **M4:** QA Complete at `e58f2ed`, re-anchored at `2e36107` by this document's differential (M4 document, reconcile 04:13).
+  - **M5:** QA Complete on `2e36107` with `cf126ea`'s test paths (this document). QAF-39 is closed.
+  - **Phase 1:** re-keyed to plan Revision 15 (`qa/019-slate-formatting-discord-engine-qa.md`). QAF-40 and QAF-41 are closed.
+    QAF-42 LOW is registered as R-69. B-9 is minted. Reconciles are at 04:21 and 04:24.
+  - Discord quote probe: `verification/019/qa/discord-quote-probe/walk.md` (`1e84abe1`; reconcile at 04:10).
+  - Plan rows R-58, R-65, R-66, R-68 and R-75. Records: `cece4c72`, `e47a438e`, `1e84abe1`, `263aa3c6`, `a1b54c49`,
+    `3b264329`, `5a1108d0`, `2f91ea71` and `e668730b`, plus this commit.
+- **Next: M6 Phase 2**, when M6's code review verdict lands. Stage start is the review's committed `Reviewed-At`. Run in a
+  `git archive` export of the reviewed SHA, with a frozen offline install and `next-env.d.ts` copied in. Owed:
+  - the TDD gate; the whole offline suite (JSON and exit code); typecheck; live; `pnpm test:discord` offline; `next build`
+    with the network (offline it fails only on `next/font`);
+  - **m5-d2 in its M6 form**: remove the quote-prefix line from `runUnit.ts`, the new home of `unitAround`. It must redden
+    `decorator.native-box-classes` on x8. This is the Assumption Not Checked above;
+  - **NM-68 and NM-69** red on QAF-42's fixture forms (`>>> a⏎> b⏎c`, `` ```⏎> x⏎y ``, or an explicit Enter); R-69;
+  - **SL-17 (F-43)**: each AC-6.5 escape member (`\*a😄`, `a\_b😄`) is either reddened by a mutant the implementer names, or
+    gets a line under AC-6.5's row in the register saying it is held by its literal alone;
+  - AC-6.5's control: the five QAF-40 members and the first-occurrence join mutant red; NM-44 red;
+  - **R-74**: AC-5.8's BOX_READS_ELEMENT_AS_QUESTION_MARK members by id: `link:61`, `gen:870`, `gen:1677`;
+  - the M6 document's **Outstanding 4**: the fence-parity inputs (`hasCleanFences`) left out of AC-6.5's loaded-text
+    property under X-19. Measure them per surface and judge whether they narrow the criterion's class;
+  - M3's W8 (and W9, W12, both in `withNormalizeNode`, which M6 changes);
+  - CR-7's exit check (the 194 `MOUNTED_BASE_RED` inputs; `EDITS_BASE_RED` gone);
+  - an M4 and M5 differential if M6 touches their paths (M6's `8cb4d83`, `c3af0ac` and `f58a816` touch `decorator.tsx`,
+    `unitStyles.ts`, `SlateEditor/index.tsx` and the desktop and mobile editors);
+  - the Irreversible Side-Effect Register: M6 changes `flattenNodeText` and the save path (E-2), so a bounded mutation sweep on
+    those guards is owed.
+- **Watch.** `preview.engine-not-ready` hits vitest's 5 s default under a 117-file load; run alone it passes. A sweep's control
+  can fail on it. If so, re-run with the named killing files.
+- **Approach in flight.** None.
+- **Local state.** Website is on `chain/019-slate-formatting-discord-engine`, HEAD `9719d02`, the implementer's. I wrote nothing
+  there. All scratch exports are deleted. No process of mine is running.
+- **Evidence run but not recorded.** None.
+- **Questions sent.** None open.
+- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
