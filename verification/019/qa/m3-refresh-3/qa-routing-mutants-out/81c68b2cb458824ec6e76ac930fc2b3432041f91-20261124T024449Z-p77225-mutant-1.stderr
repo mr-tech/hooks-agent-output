@@ -1,0 +1,63 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -3,11 +3,11 @@
+      "parseEmbedTitle": false,
+      "parseEmbedTitleWithoutLinks": false,
+      "parseRichEmbedText": false,
+    },
+    "embedId": "200",
+-   "embedReferencesSwitch": true,
++   "embedReferencesSwitch": false,
+    "switchId": "100",
+    "switchReferrers": [
+      "200",
+      "300",
+    ],
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:137:20
+    135|   ])('reports %s', async (_name, shape, expected) => {
+    136|     const report = await routingReport(stubLive(shape), served);
+    137|     expect(report).toEqual({
+       |                    ^
+    138|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    139|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the embed behind the switch, only its description call left
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -3,11 +3,11 @@
+      "parseEmbedTitle": false,
+      "parseEmbedTitleWithoutLinks": false,
+      "parseRichEmbedText": true,
+    },
+    "embedId": "200",
+-   "embedReferencesSwitch": true,
++   "embedReferencesSwitch": false,
+    "switchId": "100",
+    "switchReferrers": [
+      "200",
+    ],
+    "v2CallsParse": true,
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:137:20
+    135|   ])('reports %s', async (_name, shape, expected) => {
+    136|     const report = await routingReport(stubLive(shape), served);
+    137|     expect(report).toEqual({
+       |                    ^
+    138|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    139|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

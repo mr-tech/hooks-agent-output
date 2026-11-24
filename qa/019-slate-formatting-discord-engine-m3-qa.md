@@ -2,12 +2,12 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Verified-At: "d6aab03 — repos=website; refresh pass over fix rounds 6 and 7 (9a5f4fe, b04c09f, d6aab03, test-only; code review Round 3 sub-entry at d6aab03, APPROVED_WITH_COMMENTS), git-archive export with its own frozen offline install; the tree also holds M5's 921eeb8, 6f4d48f, 65b8e2c and 3ffb2b4, outside this verdict; earlier passes at 2c1590f and e58f2ed"
-Status: QA Failed
+Verified-At: "81c68b2 — repos=website; refresh pass over fix round 8 (81c68b2, test-only; code review's fix confirmation of QAF-38 at 81c68b2, APPROVED_WITH_COMMENTS), git-archive export with its own frozen offline install; earlier passes at 2c1590f, e58f2ed and d6aab03"
+Status: QA Complete
 Status-Detail: >-
-  Refresh over fix rounds 6 and 7, run at d6aab03. QAF-36 is closed: three QA mutants are killed offline, the wiring one included.
-  M3 still fails, on QAF-38 MEDIUM, a severity floor excepted from the cap. routingReport, which AC-3.8 (i) and (i′) read, is
-  QAF-36's class: all six field mutants survive the live run. One fix round is owed, then a refresh pass over its diff.
+  Refresh over fix round 8, run at 81c68b2. QAF-38 is closed: all six routingReport field mutants are KILLED offline, each by an
+  AssertionError on a stub-build case. Every M3 finding is now closed (QAF-32, QAF-33's write limb, QAF-36, QAF-38). M3 passes,
+  milestone-scoped. The plan's Status is not moved.
 Phase: 2
 ---
 
@@ -27,6 +27,7 @@ APPROVED_WITH_COMMENTS at `Reviewed-At: 2c1590f` (record `6c55e994`; plan R-36 a
 | 2026-11-23T22:48 | code-reviewer-019 (message: M3 APPROVED_WITH_COMMENTS, record `6c55e994`, Reviewed-At website `2c1590f`) | QA Phase 2 on M3 | Phase 2: milestone-scoped pass on M3 at `2c1590f`, in an export. Steering's Phase 2 brief has not arrived, so this pass read the Decisions Register, the 22:35Z M3 cap and the code review's Assumption Not Checked lines itself. Offline 3348 of 3348, exit 0. Live 38 of 38, exit 0, the attempts case included. Typecheck exit 0 with Next's generated declaration copied in. Findings 5 reproduced at `f4060c5`. AC-3.4: 22 of 29 product mutants killed, 7 survivors dispositioned. Verdict **QA Failed** on QAF-32 and QAF-33, both MEDIUM severity floors. B-8 appended for the `beforeinput` paste branch. One command was stopped by the built-in destructive-command check and re-issued with literal paths (§ Execution). |
 | 2026-11-24T01:08 | implementer-019 (message: fix round 5 at `380e82d`), code-reviewer-019 (message: Round 3 sub-entry at `380e82d` APPROVED_WITH_COMMENTS, record `d31214e4`) | Phase 2 refresh pass over fix round 5 | Phase 2 refresh at `e58f2ed`, which contains `380e82d` (§ Refresh pass). Frozen offline install exit 0. Offline 3454 of 3454, exit 0. Whole `pnpm test:discord` offline: exit 1, names the page, no pass count. Live: 41 of 41, exit 0, with the drift message on stderr and at the report head. **QAF-32 closed**: a planted file that passes offline turns its case red. **QAF-33's write limb closed.** **QAF-36 MEDIUM raised**: a QA mutant forcing the comparison to "equal" survives, 15 of 15 live. Verdict **QA Failed** on QAF-36. The M3 Assumption Not Checked (the install) is settled by the frozen install. |
 | 2026-11-24T02:11 | code-reviewer-019 (message: CR-15 confirmed, M3 APPROVED_WITH_COMMENTS at `d6aab03`, record `fed65ffa`) | Refresh pass over fix rounds 6 and 7; the code review's two items (the whole offline suite, `routingReport`'s fields) | Refresh at `d6aab03` (§ Refresh pass, rounds 6 and 7). Frozen offline install exit 0. Offline 3,268 of 3,268 over 223 files, exit 0. Live 41 of 41, exit 0. The whole `pnpm test:discord` offline: exit 1, names the page, no pass count. **QAF-36 closed**: 3 of 3 QA mutants KILLED offline. **QAF-38 MEDIUM raised**: 0 of 6 `routingReport` field mutants killed live. Verdict **QA Failed** on QAF-38. |
+| 2026-11-24T02:50 | code-reviewer-019 (message: QAF-38 fix confirmed, M3 APPROVED_WITH_COMMENTS at `81c68b2`, record `47e4ccf5`) | Refresh pass over fix round 8; the code review's two items (the whole offline suite, QAF-38's closure) | Phase 2 refresh at `81c68b2` (§ Refresh pass, round 8). Frozen offline install exit 0. Offline 3,272 of 3,272 over 223 files, exit 0. Typecheck exit 0. Live 41 of 41, exit 0. The whole `pnpm test:discord` offline: exit 1, names the page, no pass count. **QAF-38 closed**: 6 of 6 QA mutants KILLED offline. Verdict **QA Complete**, milestone-scoped. |
 
 ## Scope and stage start
 
@@ -284,39 +285,49 @@ message per legacy surface through the test-account browser against the build se
 **Handoff.** To `implementer-019`: QAF-38, with its red run under QA-R1 to QA-R6 recorded. Then code review re-verdicts the round,
 and QA runs a refresh pass over its diff.
 
-## Resumption State
+## Refresh pass — fix round 8 (`81c68b2`), run at `81c68b2`
 
-Written at steering's ask (`/checkpoint`, about 346K context), at a seam: every pass is committed.
+- **Stage start.** The code review's committed fix confirmation of QAF-38, APPROVED_WITH_COMMENTS at `Reviewed-At: 81c68b2`
+  (record `47e4ccf5`, plan R-57 at `f50fcc0e`), re-derived from the record. Two items are left to this pass: the whole offline
+  suite at the fix SHA (the code review's Assumption Not Checked), and QAF-38's closure.
+- **Scope.** Round 8's diff over M3 paths, `d6aab03..81c68b2`: `helpers/discordRouting.ts` (`routingReport` takes an injected
+  `fetcher`, defaulting to `fetch`, and passes it to `loadLazyChunks`) and `discordRouting.predicates.test.ts` (one `it.each` of
+  four stub-build shapes). Both are test code.
+- **Tree.** Website `81c68b2`, exported by `git archive`, with its own `pnpm install --frozen-lockfile --offline` (exit 0) and
+  Next's `next-env.d.ts` copied in. The two changed files' blobs in the export equal `81c68b2`'s (`export-blobs-81c68b2.txt`).
+  The mutation runner exports `81c68b2` itself for each run and binds the shared tree's `node_modules` read-only. The shared
+  tree's `pnpm-lock.yaml` and `package.json` equal `81c68b2`'s. The shared tree was not switched or written.
 
-- **Done.**
-  - **M3:** refresh passes at `e58f2ed` (round 5) and `d6aab03` (rounds 6 and 7), both QA Failed. QAF-32, QAF-33 (write limb) and
-    QAF-36 are closed. QAF-38 MEDIUM is open: `routingReport`'s fields, a severity floor.
-  - **M4:** `qa/019-slate-formatting-discord-engine-m4-qa.md`, QA Complete at `e58f2ed` (plan R-51). QAF-37 LOW is registered by
-    the planner as R-52. Its 02:09 reconcile says M5's `921eeb8` touches four M4 paths, so a differential-scoped M4 refresh is owed
-    with M5's Phase 2, before UAT.
-  - Plan rows are R-49, R-50, R-51 and R-56. Records `908aeee0`, `5f87a15` and `08b8193`, plus this commit.
-- **Next.**
-  - **(1)** Stage start, when code review commits a verdict on M3 fix round 8 at website `81c68b2` (implementer record
-    `d43e2b40`, "Round 8"). Read `Reviewed-At` in `code-review/019-slate-formatting-discord-engine-code-review.md`; at this
-    checkpoint it still reads `d6aab03`. Then run the refresh over round 8's diff (`d6aab03..81c68b2`, M3 paths), in a fresh
-    `git archive` export of the reviewed SHA with `pnpm install --frozen-lockfile --offline` and `next-env.d.ts` copied in:
-    - re-run `verification/019/qa/m3-refresh-2/qa-routing-mutants.json` through `mutation-run.py`, with suite
-      `discordRouting.predicates.test.ts` offline under `unshare -rn` (the new stub case must kill all six);
-    - the whole offline suite (`--project node --project dom`, JSON, exit code);
-    - the live command;
-    - `pnpm test:discord` offline, whole (exit non-zero, the page named, `grep -c -E '[0-9]+ passed'` 0).
-    Watch `preview.engine-not-ready`: the implementer saw a 5,000 ms timeout once under a parallel load. If it fails in an
-    isolated run, raise it. Write the section "Refresh pass — fix round 8", close QAF-38 if every mutant is KILLED, update the
-    header, write the plan row (next R number above the table's highest), commit, and message `implementer-019`.
-  - **(2)** M5 Phase 2, when its code review verdict lands. It carries the M4 differential refresh: execute `e58f2ed` and the M5
-    tip over the preview surface, the five legacy surfaces and the edit page. It also takes G5, W12 and W9 from this document, and
-    the case drop from 3,460 to 3,268 that code review routed to M5's round.
-  - **(3)** Phase 3 owes: re-read one AN-3 posted message per legacy surface (this document's last Assumption Not Checked), and
-    `pnpm test:discord` at the release tip (CR-14).
-- **Approach in flight.** None.
-- **Local state.** Website on `chain/019-slate-formatting-discord-engine`, HEAD `81c68b2`, with M5's uncommitted work belonging to
-  the implementer. I wrote nothing there. All scratch exports are deleted. No process of mine is running.
-- **Evidence run but not recorded.** None. Every capture is committed under `verification/019/qa/m3-refresh/`,
-  `m3-refresh-2/` and `m4/`.
-- **Questions sent.** None open. The owner has given no waiver of the TDD gate, and none is needed now.
-- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
+| Command, captures under `verification/019/qa/m3-refresh-3/` | Result |
+|---|---|
+| `unshare -rn` (lo up) `npx vitest run --project node --project dom --reporter=json` (`suite-offline-81c68b2.*`) | **exit 0**; 223 files, 3,272 of 3,272 (3,268 at `d6aab03` plus round 8's four cases); 0 files under `__tests__/discord/`; 89 s (02:45:43Z to 02:47:12Z). `preview.engine-not-ready` passed both cases, the slower in 1.6 s, with no timeout |
+| `unshare -rn` (lo up) `pnpm run typecheck`, both `tsc` programs (`typecheck-81c68b2.*`) | **exit 0** |
+| live `npx vitest run --project discord-node --project discord-dom` (`discord-live-81c68b2.*`) | **exit 0**; 6 files, 41 of 41; stderr `wasm: served … da7b9e5e…57fb0, pinned … da7b9e5e…57fb0: equal` |
+| `unshare -rn` (lo up) `pnpm test:discord`, whole (`discord-offline-81c68b2.*`) | **exit 1**; `https://discord.com/app` on 6 lines; `grep -c -E '[0-9]+ passed'`: **0** |
+| QA routing mutants (`qa-routing-mutants.json`, blob `2bee410e`, unchanged from `m3-refresh-2/`; `mutation-run.py --sha 81c68b2 --dep node_modules`, `unshare -rn`, suite `discordRouting.predicates.test.ts` alone, offline) | **6 of 6 KILLED**, the control passing 12 of 12; every kill an `AssertionError` on `toEqual`. Cases reddened: QA-R1 the both-behind-switch and embed-alone shapes; QA-R2 both-behind-switch and V2-alone; QA-R3 both-behind-switch, embed-alone and V2-alone; QA-R4 both-behind-switch and embed-alone; QA-R5 both-behind-switch and V2-alone; QA-R6 both-behind-switch and V2-alone |
+
+**QAF-38.** Each `routingReport` field now carries the decision offline. The expected values are literals per shape,
+independent of the code. Each field takes a value in some shape that the shapes around it do not give it: the embed-alone shape
+moves `embedReferencesSwitch` without `v2ReferencesSwitch`, the V2-alone shape the reverse, and each of the three embed calls is
+the only one left true in one shape. Today's shape gives today's values. The stub `Live` and its stubbed fetcher are named as
+stubs in the implementer's Round 8 section, and its TDD row records the four cases red with the fetcher not injected. The test
+file carries no ID tokens. The case "today's shape" reddens under none of QA-R1 to QA-R6, as expected: each mutant forces
+today's value. The code review's further eight mutants (`mutants-r8.json`) cover the operand swaps, `switchReferrers` and the
+fetcher not passed on. **Closed.** The code review notes that the class sweep's population is 8 functions, not 7. That moves
+nothing here.
+
+**Verdict.** **QA Complete**, milestone-scoped, for M3 at website `81c68b2`. Every M3 finding is closed: QAF-32, QAF-33's write
+limb, QAF-36 and QAF-38. Every criterion the first pass passed stays passed on this run. A later change to an M3 path expires
+this verdict. Rows inherited and not discharged: B-1 to B-8. The plan's Status is not moved.
+
+**Assumption Not Checked.** This pass assumes the stub modules' source shapes (`stubLive`) stand for how Discord's live build
+writes a switch reference and a facade call. It does not test that, because it runs no live build under a changed routing. Falsity
+signature: on a live build where Discord has routed a surface through the native switch, `routingReport` still reads
+`embedReferencesSwitch` or `v2ReferencesSwitch` as `false`, because the predicates' patterns miss the build's actual form. The
+live `discordRouting.oracle-controls.test.ts` runs the predicates against today's build. No build with changed routing exists to
+run them against. **Owner: QA at Phase 3**, which re-runs the live routing controls at the release tip. This sits beside the
+standing AN-3 re-read named in the previous refresh pass.
+
+**Handoff.** To `implementer-019` and steering: M3 passes, milestone-scoped. Next for QA: M5's Phase 2 when its code review
+verdict lands. It carries the M4 differential refresh, which executes `e58f2ed` and the M5 tip over the preview surface, the five
+legacy surfaces and the edit page, along with G5, W12, W9 and the case-count drop that code review routed to M5.

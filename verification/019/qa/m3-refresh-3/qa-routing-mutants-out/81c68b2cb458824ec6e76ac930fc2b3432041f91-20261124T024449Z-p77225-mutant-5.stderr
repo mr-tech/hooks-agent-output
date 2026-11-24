@@ -1,0 +1,61 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -1,10 +1,10 @@
+  {
+    "embedCalls": {
+      "parseEmbedTitle": false,
+      "parseEmbedTitleWithoutLinks": false,
+-     "parseRichEmbedText": false,
++     "parseRichEmbedText": true,
+    },
+    "embedId": "200",
+    "embedReferencesSwitch": true,
+    "switchId": "100",
+    "switchReferrers": [
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:137:20
+    135|   ])('reports %s', async (_name, shape, expected) => {
+    136|     const report = await routingReport(stubLive(shape), served);
+    137|     expect(report).toEqual({
+       |                    ^
+    138|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    139|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the V2 text behind the switch, only the title without links left
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -1,10 +1,10 @@
+  {
+    "embedCalls": {
+      "parseEmbedTitle": false,
+      "parseEmbedTitleWithoutLinks": true,
+-     "parseRichEmbedText": false,
++     "parseRichEmbedText": true,
+    },
+    "embedId": "200",
+    "embedReferencesSwitch": false,
+    "switchId": "100",
+    "switchReferrers": [
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:137:20
+    135|   ])('reports %s', async (_name, shape, expected) => {
+    136|     const report = await routingReport(stubLive(shape), served);
+    137|     expect(report).toEqual({
+       |                    ^
+    138|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    139|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

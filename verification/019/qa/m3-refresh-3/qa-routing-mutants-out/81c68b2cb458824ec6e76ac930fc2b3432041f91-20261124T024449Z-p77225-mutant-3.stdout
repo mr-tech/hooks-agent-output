@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1b2c4c75-4b3c-410c-899a-14d7c1470a50/scratchpad/mwork/20261124T024449Z-p77225/mutant-3
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 3 failed) 34ms
+     × reports both surfaces behind the switch, no call to the facade 17ms
+     × reports only the embed behind the switch, only its description call left 3ms
+     × reports only the V2 text behind the switch, only the title without links left 3ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 9 passed (12)
+   Start at  02:44:57
+   Duration  839ms (transform 64ms, setup 0ms, import 642ms, tests 34ms, environment 0ms)
+
