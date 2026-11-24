@@ -551,4 +551,6 @@ Written 2026-11-24 after Fix Round 2's hand-off to code review.
 - **For the planner and steering (sent with the hand-off).** The ceilings hold, thinly: 78 to 88 ms against 104 at 2,048 lines, and one closing-delimiter growth reading of 18.5 against 20. Backspace unmaking `>>>` throws from 122 lines at `42128cd`, not 123.
 - **Local state not restored.** Scratchpad exports only (`export-42128cd`, `export-dev`, `export-mut`, `export-ceil`, `export-nov`, `export-scan`, `cfgdir`, `sweep-work*`, probe files): nothing in the shared tree. No process of mine is running. Two `git grep` runs of another session held the box at load 38 until 18:35Z and are gone.
 - **Questions sent.** None open. Disclosure sent to steering-hooks-fixer (the SIGTERM to foreign self-test processes); it asked for it to be written into this document, which it now is.
-- **Cache-warm wake.** Armed; re-arm it on each wake.
+- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `85ece66`; `git status` lists only the foreign `?? .playwright-mcp/`. Agent-output: the foreign modified `verification/019/impl/m6-fix-bench-fix.{time,txt}`, `INBOX.md` and untracked captures are not mine and are left.
+- **Evidence run but not recorded.** None. The early timing readings at load 38 (0.25 s at 200 lines, 1.9 s at 2,048) are named in Fix Round 2 as taken on a loaded box and not kept.
+- **Cache-warm wake.** Deleted at this checkpoint (steering asked, 19:20Z). Arm a new one on the next turn.
