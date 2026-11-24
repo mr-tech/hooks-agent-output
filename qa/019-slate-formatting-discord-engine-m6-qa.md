@@ -284,7 +284,9 @@ Written at steering's ask (`/checkpoint`, about 413K tokens), at a seam: every p
   - **the full 1,000 generator inputs once, `MOUNTED_GENERATOR_COUNT=1000`, with its exit code** (planner-019, R-92: AC-3.3's
     full count has no home in `pnpm test:discord`; `pnpm test` runs 400). It is owed again at Phase 3 on the release tip;
   - Outstanding 1 (3 of 161,136 differences, `\` typed on an unclosed fence's opening line) is residue in QAF-48's class;
-  - QAF-51's browser look: `>` typed at the start of `>> a` on a message of 123 lines, in the round's build;
+  - QAF-51's browser look: `>` typed at the start of `>> a` on a message of 123 lines, in the round's build. Record the result
+    as a changelog row in `handoff/slate-quote-marker-normalize-iteration-cap-2026-11-24.md` (R-93, `50715407`). If the editor
+    stops taking input, raise QAF-51's severity here and message planner-019 and steering: it may be a release question;
   - **typed-generated alone, once, before the suite** (this document's Assumption Not Checked: no extra writes, no timeout);
   - **AC-3.3's 60 s cap:** both whole suites back to back, `2e36107` and the fix tip, against the chain base's 31.1 s;
   - **AC-6.8:**
