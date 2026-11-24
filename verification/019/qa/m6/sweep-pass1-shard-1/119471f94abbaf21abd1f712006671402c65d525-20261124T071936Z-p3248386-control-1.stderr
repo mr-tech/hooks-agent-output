@@ -1,0 +1,181 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+Error: Test timed out in 300000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:16:14
+     14|     ['a full-markdown editor', false],
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+       |              ^
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+     18|   }, 300_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a single-line editor
+AssertionError: expected [ …(134) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "<:hooks:1558266761101447248>",
++   "<@&1558266761101447248>",
++   "<id:linked-roles>",
++   "<t:1700000000:T>",
++   "<t:1700000000:Z>",
++   "https://x.y/a(b)c",
++   "[text](https://example.com)",
++   "[**bold** label](https://example.com)",
++   "https://x.y 🙂",
++   "[:smile:](https://x.y)",
++   "[a 🙂 b](https://x.y)",
++   "https://example.com/a_b🙂",
++   "[:smile:](https://example.com/a_b)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "\\(x\\(",
++   "🙂 https://x.y/a*b*c",
++   "||**[text](https://example.com \"a title\") \\(x\\(* https://example.com/a_b🙂 <https://x.y/🙂>|| https://x.y.<t:1700000000:d>",
++   "**``<id:home>`` [a [b] c](https://example.com)**",
++   "# \\)x\\) [a 🙂 b](https://x.y)",
++   "-# ```*@everyone <t:1700000000:R>* [a](https://example.com/a_b/🙂)```",
++   "  - **[text](<https://example.com>)**",
++   "**_https://x.y/a(b)c [a 🙂 b](https://example.com/a_b)_ C++[text](https://example.com)** <@$1558266761101447248>",
++   "- ~~[text](https://example.com \"a title\") \\(x\\(~~",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "## ~~a*b~~ \\>x\\>https://x.y🙂",
++   "**_||\\_x\\_||_ [text](https://example.com)[text](https://example.com \"a title\")**",
++   "# _<id:home> \\*x\\*_",
++   "*__[a 🙂 b](https://x.y/a*b*c) <@$1558266761101447248>  leadtail *",
++   "- https://x.y🙂 hello world",
++   "# ___<t:1700000000:Z>___ <t:1700000000:F><a@b.co>",
++   "`<id:guide>` [🙂](https://x.y) \\*x\\*",
++   "  - 日本",
++   "- ~~[a](https://x.y/🙂) [a](https://x.y/🙂)~~",
++   "-# `<t:1700000000:D><t:1700000000:s>",
++   ">>> -# ~~``hello world<t:1700000000:d>``~~",
++   "> https://example.com/a_b🙂",
++   "  - ~~<t:1700000000:D> 日本~~ [:smile:](https://x.y/a*b*c) :🙂:",
++   "-# \\~x\\~ [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "1. __❤️__ 🇬🇧 \\`x\\`",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   "# _<https://x.y/🙂> \\(x\\(_ [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "> [<:hooks:1558266761101447248>](https://x.y)",
++   "  - ~~\\#x\\# <:hooks:1558266761101447248> :🙂:",
++   "- <@&1558266761101447248> https://x.y 🙂",
++   "  - ~~__**[a 🙂 b](https://x.y/a*b*c)[a](https://x.y/🙂) [:smile:](https://example.com/a_b) @herehttps://example.com/a_b🙂",
++   "- <a:dance:1558266761101447248>",
++   "## **~~*👨‍👩‍👧 [<:hooks:1558266761101447248>](https://x.y)* https://x.y.[text](https://example.com \"a title\")~~ <a@b.co>**",
++   "<t:1700000000:D> [<:hooks:1558266761101447248>](https://x.y)",
++   "> https://x.y/a*b*c 🙂<@&1558266761101447248>",
++   ">>> - ~~_~~[🙂](https://x.y/a*b*c)~~_~~ <t:1700000000:x>©",
++   "-# ~~***©* @everyone[**bold** label](https://example.com)~~ https://x.y/a*b*c🙂 <a:dance:1558266761101447248>",
++   "`||~~</ping:1558266761101447248> 日本 </ping:1558266761101447248>`",
++   "> ```[a 🙂 b](https://x.y/a*b*c) <t:1700000000>```",
++   "# ~~<@1558266761101447248> https://example.com/path?q=1&r=2#f~~",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b)",
++   ">>> 1. <id:guide> [text](https://example.com \"a title\")",
++   "_``||🏴󠁧󠁢󠁥󠁮󠁧󠁿 https://example.com/a_b 🙂|| <https://x.y>`` https://x.y 🙂[a 🙂 b](https://x.y/a*b*c)_",
++   "<:hooks:1558266761101447248>",
++   "``<t:1700000000:Z>x_y`` [a 🙂 b](https://x.y)",
++   "# <a:dance:1558266761101447248>",
++   "<https://x.y>",
++   "  - ||||**<t:-1:f> [:smile:](https://example.com/a_b)** [dev](dev://branch/main) https://example.com/a_b 🙂|| </ping:1558266761101447248> ™||",
++   "**__<id:browse> a__**",
++   "*❤️[a 🙂 b](https://x.y)* <#1558266761101447248>",
++   "**_`🪿`_ [a](https://x.y/a*b*c/🙂)**",
++   "__<#1558266761101447248>__",
++   "# *~~https://example.com/a_b🙂 [🙂](https://x.y)~~ a*b*",
++   "### ``__``<game:1558266761101447248><t:1700000000:d>`` <id:guide><t:1700000000:s>__ snake_case",
++   "# ____**\\)x\\)**____",
++   ">>> - **[<:hooks:1558266761101447248>](https://x.y/a*b*c) [<:hooks:1558266761101447248>](https://example.com/a_b)**",
++   "[:smile:](https://x.y/a*b*c) [a [b] c](https://example.com)",
++   "[a 🙂 b](https://example.com/a_b) <id:home>",
++   "# <@&1558266761101447248>🙂 https://x.y/a*b*c",
++   "## __`[a [b] c](https://example.com)`__ <#1558266761101447248> \\:x\\:",
++   "## ~~___[text](https://example.com) tail ___~~",
++   "  - ~~__[text](<https://example.com>)__ [<:hooks:1558266761101447248>](https://x.y) <game:1558266761101447248>~~ [:smile:](https://x.y) https://x.y/a*b*c🙂",
++   "> __\\:x\\:",
++   "- ~~[dev](dev://branch/main) ❤️~~",
++   "-# ~~__`é <#1558266761101447248>`__ \\`x\\`<https://x.y> <t:-1:f>[<:hooks:1558266761101447248>](https://x.y)",
++   "### *``~~https://x.y/a(b)c~~`` :smile:* :smile:",
++   "1. \\`x\\`",
++   "_**[<:hooks:1558266761101447248>](https://x.y)** <:hooks:1558266761101447248> https://example.com_",
++   "- ||**https://x.y/a(b)c[a [b] c](https://example.com)* https://x.y. <t:1700000000:F>||",
++   "*``[a [b] c](https://example.com)`` https://example.com*",
++   "## x_y [a 🙂 b](https://x.y/a*b*c)",
++   "  - *`[a](https://x.y/a*b*c/🙂)<t:1700000000:f>` [🙂](https://example.com/a_b)*",
++   "### </ping:1558266761101447248>[<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "~~~~\\~x\\~ <https://x.y>~~~~ <t:1700000000:d>",
++   "## ****\\|x\\| https://example.com* <#1558266761101447248> [<:hooks:1558266761101447248>](https://x.y)*",
++   "\\[x\\[ <a@b.co>",
++   "  - __[dev](dev://branch/main) \\|x\\| [a [b] c](https://example.com) 🙂 https://x.y",
++   "# *<id:linked-roles> [dev](dev://branch/main) <https://x.y/🙂>",
++   "# ||_日本 <t:1700000000:d>_",
++   "- `x_y [**bold** label](https://example.com)` \\[x\\[",
++   "## x_y [a 🙂 b](https://example.com/a_b)",
++   "### 🇬🇧",
++   "-# _____[:smile:](https://example.com/a_b)<@&1558266761101447248>_ @here__ 🪿 \\>x\\>",
++   "### <@!1558266761101447248> \\)x\\)",
++   "*https://x.y/a*b*c 🙂 [text](<https://example.com>)* ™ <@!1558266761101447248>",
++   "  - ~~**<t:1700000000:T> <t:1700000000:Z>~~ snake_case",
++   "## ``**[a 🙂 b](https://x.y) https://x.y.**`` <t:1700000000:x>",
++   "1. **a [a](https://x.y/a*b*c/🙂)",
++   "__**[<:hooks:1558266761101447248>](https://x.y)** [text](https://example.com)",
++   "- `👍🏽 <game:1558266761101447248> https://x.y/a*b*c 🙂",
++   "``\\:x\\: 🏴󠁧󠁢󠁥󠁮󠁧󠁿`` <@&1558266761101447248> [a](https://example.com/a_b/🙂)",
++   "__日本 https://x.y/a(b)c__",
++   "-# __~~<id:linked-roles>~~ \\*x\\* tail __",
++   ">>>   - ||``🪿https://x.y/a(b)c`` x_y [🙂](https://x.y/a*b*c)",
++   "- ~~*❤️ 2 < 3 🙂 https://x.y/a*b*c~~ 日本<@!1558266761101447248>",
++   "`~~\\<x\\<~~ <t:1700000000:s>` <t:1700000000:s>https://x.y/a*b*c🙂",
++   "# _`</ping:1558266761101447248> https://example.com`_ [🙂](https://example.com/a_b)",
++   "- https://example.com/path?q=1&r=2#f",
++   "  - *__``<id:guide> [:smile:](https://x.y/a*b*c)`` a https://example.com/path?q=1&r=2#f__ <t:1700000000:S>[<:hooks:1558266761101447248>](https://x.y/a*b*c)*",
++   "https://example.com/a_b 🙂",
++   "_https://example.com/a_b🙂 👍🏽_",
++   "1. <id:browse> [:smile:](https://x.y/a*b*c)",
++   "- ````**🪿 👨‍👩‍👧````",
++   "___<t:1700000000:f>",
++   "||``<t:1700000000:d>1️⃣``||",
++   "- ||\\(x\\( https://example.com [a [b] c](https://example.com)",
++   "  - __<id:linked-roles>[:smile:](https://x.y/a*b*c)__ \\#x\\#",
++   "  - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "-# __```🏴󠁧󠁢󠁥󠁮󠁧󠁿<t:1700000000:s>` <t:1700000000:d>[a 🙂 b](https://example.com/a_b)__ <@&1558266761101447248>",
++   "~~</ping:1558266761101447248>~~ <t:1700000000:T>",
++   "  - <@$1558266761101447248>",
++   "-# ____C++ [:smile:](https://x.y/a*b*c)[text](<https://example.com>)_ [dev](dev://branch/main) \\:x\\:__ \\>x\\>",
++   "1. __||<game:1558266761101447248>||__ <t:1700000000:s>",
++   "-# [text](https://example.com \"a title\")",
++   "~~```<:hooks:1558266761101447248>```~~ [:smile:](https://x.y)",
++   "> ||__[<:hooks:1558266761101447248>](https://example.com/a_b)<id:home>__ \\~x\\~ <t:1700000000>|| x_y",
++   "# ____**<t:-1:f>**__ [:smile:](https://x.y/a*b*c) [🙂](https://x.y)__",
++   "____`🪿` a [a](https://x.y/🙂)__ ❤ snake_case",
++   "||__||[a [b] c](https://example.com) <t:1700000000:Z>||__||",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

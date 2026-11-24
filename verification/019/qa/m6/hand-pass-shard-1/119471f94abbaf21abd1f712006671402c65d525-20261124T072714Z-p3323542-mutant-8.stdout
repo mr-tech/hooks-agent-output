@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-1/20261124T072714Z-p3323542/mutant-8
+
+ ❯ |node| src/utils/markdown/__tests__/discordEmojiSpans.frozen-literals.test.ts (6 tests | 2 failed) 1206ms
+     × are re-derived by the oracle helper on the pinned wasm, input for input, on embedTitle 251ms
+     × are re-derived by the oracle helper on the pinned wasm, input for input, on embedTitleWithUrl 342ms
+ ❯ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts (113 tests | 8 failed) 64ms
+     × finds the emoji of a Unicode emoji in a masked link as plain text: "[🙂](https://x.y)" 11ms
+     × finds the emoji of a Unicode emoji in a bare address as plain text: "https://x.y/🙂" 1ms
+     × finds the emoji of a Unicode emoji in an address in angle brackets as plain text: "<https://x.y/🙂>" 1ms
+     × finds the emoji of a Unicode emoji in an address with the emoji directly after its host as plain text: "https://x.y🙂" 1ms
+     × finds the emoji of an emoji typed as a name in a masked link as plain text: "[:smile:](https://x.y)" 1ms
+     × finds the emoji of an emoji typed as a name in a bare address as plain text: "https://x.y/:smile:" 1ms
+     × finds the emoji of an emoji typed as a name in an address in angle brackets as plain text: "<https://x.y/:smile:>" 0ms
+     × finds the emoji of a custom emoji in a masked link as plain text: "[<:n:123>](https://x.y)" 0ms
+
+ Test Files  2 failed | 232 passed (234)
+      Tests  10 failed | 3641 passed (3651)
+   Start at  07:52:12
+   Duration  126.77s (transform 7.00s, setup 651ms, import 112.86s, tests 261.30s, environment 75.38s)
+

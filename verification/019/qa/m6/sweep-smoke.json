@@ -1,0 +1,16 @@
+[
+ {
+  "id": "qa-m5-d2-runUnit-no-quote-prefix",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "    if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';\n",
+  "new": "    // quote prefix left out\n",
+  "limb": "the run unit leaves each quote line's prefix out (m5-d2 in its M6 home)"
+ },
+ {
+  "id": "qa-NM-68-carry-ignores-multiline-quote",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "const quoted = text.startsWith(QUOTE_MARKER) && !inMultilineBlockQuote;",
+  "new": "const quoted = text.startsWith(QUOTE_MARKER);",
+  "limb": "AC-6.7: a carry that ignores >>>"
+ }
+]

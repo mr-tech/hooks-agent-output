@@ -1,0 +1,115 @@
+{
+ "sha": "119471f94abbaf21abd1f712006671402c65d525",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "30000",
+  "--hookTimeout",
+  "30000",
+  "--exclude",
+  "**/SlateEditor.typed-generated-text-reaches-the-message.test.tsx",
+  "--exclude",
+  "**/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke.json",
+   "blob": "ca0c8808f47194933a7a35d6db659e84043def9e"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke-out/119471f94abbaf21abd1f712006671402c65d525-20261124T071227Z-p3148033-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke-out/119471f94abbaf21abd1f712006671402c65d525-20261124T071227Z-p3148033-control-1.stderr",
+   "seconds": 137.46,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 3651,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "qa-m5-d2-runUnit-no-quote-prefix",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/runUnit.ts",
+   "tests": [],
+   "carried": {
+    "limb": "the run unit leaves each quote line's prefix out (m5-d2 in its M6 home)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3651,
+   "control_tests_run": 3651,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box on every input, an emoji element's source characters left out"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 132.67,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke-out/119471f94abbaf21abd1f712006671402c65d525-20261124T071227Z-p3148033-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke-out/119471f94abbaf21abd1f712006671402c65d525-20261124T071227Z-p3148033-mutant-1.stderr"
+  },
+  {
+   "id": "qa-NM-68-carry-ignores-multiline-quote",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "limb": "AC-6.7: a carry that ignores >>>"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3651,
+   "control_tests_run": 3651,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 132.89,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke-out/119471f94abbaf21abd1f712006671402c65d525-20261124T071227Z-p3148033-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-smoke-out/119471f94abbaf21abd1f712006671402c65d525-20261124T071227Z-p3148033-mutant-2.stderr"
+  }
+ ],
+ "score": "2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-smoke.json (blob ca0c8808f47194933a7a35d6db659e84043def9e))"
+}

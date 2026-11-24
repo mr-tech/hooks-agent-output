@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-2/20261124T072716Z-p3323815/mutant-4
+
+
+ Test Files  234 passed (234)
+      Tests  3651 passed (3651)
+   Start at  07:39:36
+   Duration  205.88s (transform 10.28s, setup 1.98s, import 160.90s, tests 422.54s, environment 119.24s)
+

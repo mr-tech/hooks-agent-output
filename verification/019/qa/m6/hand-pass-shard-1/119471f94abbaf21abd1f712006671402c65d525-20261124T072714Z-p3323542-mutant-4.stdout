@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-1/20261124T072714Z-p3323542/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 37474ms
+     × hands the message that text in a full-markdown editor 15782ms
+
+ Test Files  1 failed | 233 passed (234)
+      Tests  1 failed | 3650 passed (3651)
+   Start at  07:39:29
+   Duration  204.58s (transform 10.38s, setup 2.33s, import 163.70s, tests 410.60s, environment 122.14s)
+

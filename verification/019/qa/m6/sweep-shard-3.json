@@ -1,0 +1,806 @@
+[
+ {
+  "id": "qa-NM-69-carry-ignores-unquoted-fence",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "return quoted && (!insideFence || fenceQuoted);",
+  "new": "return quoted;",
+  "limb": "AC-6.7: a carry that ignores the unquoted fence"
+ },
+ {
+  "id": "qa-W9-smart-quote-swap",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "Transforms.insertText(editor, apostrophe ? \"'\" : '\"', {",
+  "new": "Transforms.insertText(editor, apostrophe ? '\"' : \"'\", {",
+  "limb": "M3 W9: smart-quote repair swaps the two"
+ },
+ {
+  "id": "qa-E2-save-drops-element",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return '';",
+  "limb": "E-2: the saved text drops every element"
+ },
+ {
+  "id": "Desktop.tsx:90:||",
+  "file": "src/components/DiscordContentEditor/Desktop.tsx",
+  "old": "d || e",
+  "new": "d && e",
+  "op": "||",
+  "line": 90,
+  "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+ },
+ {
+  "id": "Mobile.tsx:93:||",
+  "file": "src/components/DiscordContentEditor/Mobile.tsx",
+  "old": "' || !",
+  "new": "' && !",
+  "op": "||",
+  "line": 93,
+  "text": "{engine === 'pending' || !markdown ? null : ("
+ },
+ {
+  "id": "common.ts:4:===",
+  "file": "src/components/SlateEditor/utils/common.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 4,
+  "text": "return node?.type === 'emoji';"
+ },
+ {
+  "id": "decorator.tsx:18:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "ce(0, p",
+  "new": "ce(1, p",
+  "op": "num",
+  "line": 18,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+ },
+ {
+  "id": "decorator.tsx:21:false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 21,
+  "text": "const styles: CharStyle[] = scanHighlight(value).map((classNames) => ({ classNames, syntax: false }));"
+ },
+ {
+  "id": "decorator.tsx:31:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h === b",
+  "new": "h !== b",
+  "op": "===",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:32:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 1;",
+  "new": " 2;",
+  "op": "num",
+  "line": 32,
+  "text": "for (let i = 1; i <= length; i += 1) {"
+ },
+ {
+  "id": "decorator.tsx:34:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h && s",
+  "new": "h || s",
+  "op": "&&",
+  "line": 34,
+  "text": "if (i < length && same(current, styles[from + i])) continue;"
+ },
+ {
+  "id": "decorator.tsx:62:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "k);\n    if (!styles) retu",
+  "new": "k);\n    if (styles) retu",
+  "op": "not",
+  "line": 62,
+  "text": "if (!styles) return undefined;"
+ },
+ {
+  "id": "decorator.tsx:71:||",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ") || p",
+  "new": ") && p",
+  "op": "||",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:76:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "e === '",
+  "new": "e !== '",
+  "op": "===",
+  "line": 76,
+  "text": "if (line.type === 'codeBlock') return [];"
+ },
+ {
+  "id": "decorator.tsx:85:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t);\n    if (!styles)",
+  "new": "t);\n    if (false && !styles)",
+  "op": "if-false",
+  "line": 85,
+  "text": "if (!styles) return [];"
+ },
+ {
+  "id": "decorator.tsx:88:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ": 1),",
+  "new": ": 2),",
+  "op": "num",
+  "line": 88,
+  "text": ".reduce((width, child) => width + (Text.isText(child) ? child.text.length : 1), 0);"
+ },
+ {
+  "id": "emojiLift.ts:44:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "r === '",
+  "new": "r !== '",
+  "op": "===",
+  "line": 44,
+  "text": "if (renderer === 'emoji') layout.emojis.push(spanOf(node, text, shift));"
+ },
+ {
+  "id": "emojiLift.ts:50:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "256",
+  "new": "257",
+  "op": "num",
+  "line": 50,
+  "text": "const LAYOUT_CACHE_LIMIT = 256;"
+ },
+ {
+  "id": "emojiLift.ts:65:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  if (la",
+  "new": "  if (false && la",
+  "op": "if-false",
+  "line": 65,
+  "text": "if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {"
+ },
+ {
+  "id": "emojiLift.ts:92:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  layout.emojis.s",
+  "new": "  (Array.isArray(layout.emojis) ? layout.emojis.slice(0, 1) : layout.emojis).s",
+  "op": "walk-first",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:102:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "n layout.emojis.f",
+  "new": "n (Array.isArray(layout.emojis) ? layout.emojis.slice(0, 1) : layout.emojis).f",
+  "op": "walk-first",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:108:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " lines.",
+  "new": " (Array.isArray(lines) ? lines.slice(0, 1) : lines).",
+  "op": "walk-first",
+  "line": 108,
+  "text": "lines.forEach((line, first) => {"
+ },
+ {
+  "id": "emojiLift.ts:112:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  unit.lineStarts.f",
+  "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(0, 1) : unit.lineStarts).f",
+  "op": "walk-first",
+  "line": 112,
+  "text": "unit.lineStarts.forEach((lineStart, index) => {"
+ },
+ {
+  "id": "emojiLift.ts:126:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 126,
+  "text": "let offset = 0;"
+ },
+ {
+  "id": "getInitialValue.ts:39:if-false",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "e if (is",
+  "new": "e if (false && is",
+  "op": "if-false",
+  "line": 39,
+  "text": "} else if (isBlockQuote) {"
+ },
+ {
+  "id": "highlightScan.ts:14:num",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": "0",
+  "new": "1",
+  "op": "num",
+  "line": 14,
+  "text": "for (let i = 0; i < text.length; i += 1) out.push([...open]);"
+ },
+ {
+  "id": "onKeyDown.ts:34:===",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "d === t",
+  "new": "d !== t",
+  "op": "===",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:35:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "anchor.path[1] === 0 && a",
+  "new": "anchor.path[2] === 0 && a",
+  "op": "num",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:36:if-false",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": " if (a",
+  "new": " if (false && a",
+  "op": "if-false",
+  "line": 36,
+  "text": "if (afterCarriedMarker) {"
+ },
+ {
+  "id": "runUnit.ts:7:&&",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "' && i",
+  "new": "' || i",
+  "op": "&&",
+  "line": 7,
+  "text": "const placeholder = (child: Descendant, emojiAs: 'placeholder' | 'source') => (emojiAs === 'source' && isEmojiElement(child) ? child.source : '?');"
+ },
+ {
+  "id": "runUnit.ts:17:num:2",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "-= 1;\n ",
+  "new": "-= 2;\n ",
+  "op": "num",
+  "line": 17,
+  "text": "while (isRun(first - 1)) first -= 1;"
+ },
+ {
+  "id": "runUnit.ts:24:if-false",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": " if (i",
+  "new": " if (false && i",
+  "op": "if-false",
+  "line": 24,
+  "text": "if (index > first) text += '\\n';"
+ },
+ {
+  "id": "runUnit.ts:27:walk-last",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "element.children",
+  "new": "(Array.isArray(element.children) ? element.children.slice(-1) : element.children)",
+  "op": "walk-last",
+  "line": 27,
+  "text": "text += element.children.map((child) => (Text.isText(child) ? child.text : placeholder(child, emojiAs))).join('');"
+ },
+ {
+  "id": "unitStyles.ts:21:false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "x: false };",
+  "new": "x: true };",
+  "op": "false",
+  "line": 21,
+  "text": "const NONE: CharStyle = { classNames: [], syntax: false };"
+ },
+ {
+  "id": "unitStyles.ts:42:false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "], false);\n",
+  "new": "], true);\n",
+  "op": "false",
+  "line": 42,
+  "text": "walk.paint(token, ['lang'], false);"
+ },
+ {
+  "id": "unitStyles.ts:59:if-false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": " if (r",
+  "new": " if (false && r",
+  "op": "if-false",
+  "line": 59,
+  "text": "if (renderer === 'modifier') {"
+ },
+ {
+  "id": "unitStyles.ts:73:true",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": " true ",
+  "new": " false ",
+  "op": "true",
+  "line": 73,
+  "text": "? { ...walk, inCodeBlock: true }"
+ },
+ {
+  "id": "unitStyles.ts:80:if-false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": " if (\n",
+  "new": " if (false && \n",
+  "op": "if-false",
+  "line": 80,
+  "text": "} else if ("
+ },
+ {
+  "id": "unitStyles.ts:81:===:3",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "pe === 't",
+  "new": "pe !== 't",
+  "op": "===",
+  "line": 81,
+  "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+ },
+ {
+  "id": "unitStyles.ts:87:===",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "pe === 'l",
+  "new": "pe !== 'l",
+  "op": "===",
+  "line": 87,
+  "text": "if (child.kind.type === 'link_close') inner.linkClosed = true;"
+ },
+ {
+  "id": "unitStyles.ts:105:num",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "0",
+  "new": "1",
+  "op": "num",
+  "line": 105,
+  "text": "for (let i = Math.max(token.span.start - shift, 0); i < end; i += 1) styles[i] = style;"
+ },
+ {
+  "id": "withNormalizeNode.ts:52:true",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " true,",
+  "new": " false,",
+  "op": "true",
+  "line": 52,
+  "text": "return handleEditor(editor, true, surface);"
+ },
+ {
+  "id": "withNormalizeNode.ts:87:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (!update)",
+  "new": "\n  if (update)",
+  "op": "not",
+  "line": 87,
+  "text": "if (!update) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:90:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "     if (resol",
+  "new": "     if (false && resol",
+  "op": "if-false",
+  "line": 90,
+  "text": "if (resolveEmoji(editor, surface, i)) return undefined;"
+ },
+ {
+  "id": "withNormalizeNode.ts:110:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(!l",
+  "new": "(l",
+  "op": "not",
+  "line": 110,
+  "text": "if (!layout) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:115:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " !h",
+  "new": " h",
+  "op": "not",
+  "line": 115,
+  "text": "&& !holdsSpan(layout, lineStart + starts[i], lineStart + starts[i] + sourceWidthOf(child)));"
+ },
+ {
+  "id": "withNormalizeNode.ts:121:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= line.children.r",
+  "new": "= (Array.isArray(line.children) ? line.children.slice(0, 1) : line.children).r",
+  "op": "walk-first",
+  "line": 121,
+  "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "withNormalizeNode.ts:123:num:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "n.length; i += 1) {\n    const f",
+  "new": "n.length; i += 2) {\n    const f",
+  "op": "num",
+  "line": 123,
+  "text": "for (let i = 0; i < line.children.length; i += 1) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:128:<=",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t <= t",
+  "new": "t < t",
+  "op": "<=",
+  "line": 128,
+  "text": ": spans.find((emoji) => emoji.start - lineStart >= from && emoji.end - lineStart <= to);"
+ },
+ {
+  "id": "withNormalizeNode.ts:146:>",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "h > 2",
+  "new": "h >= 2",
+  "op": ">",
+  "line": 146,
+  "text": "return point.path.length > 2 ? before + 1 : before + point.offset;"
+ },
+ {
+  "id": "withNormalizeNode.ts:151:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "> !is",
+  "new": "> is",
+  "op": "not",
+  "line": 151,
+  "text": "const at = line.children.findIndex((child, i) => !isEmojiElement(child) && flat <= starts[i] + widthOf(child));"
+ },
+ {
+  "id": "withNormalizeNode.ts:152:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= -1) r",
+  "new": "= -2) r",
+  "op": "num",
+  "line": 152,
+  "text": "if (at === -1) return Editor.end(editor, [lineIndex]);"
+ },
+ {
+  "id": "withNormalizeNode.ts:161:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") || !",
+  "new": ") && !",
+  "op": "||",
+  "line": 161,
+  "text": "if (!Text.isText(prev) || !Text.isText(next)) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:176:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "r.path[0] === lineIndex",
+  "new": "r.path[0] !== lineIndex",
+  "op": "===",
+  "line": 176,
+  "text": "const anchored = selection?.anchor.path[0] === lineIndex ? moved(selection.anchor) : undefined;"
+ },
+ {
+  "id": "withNormalizeNode.ts:187:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (sel",
+  "new": "\n  if (false && sel",
+  "op": "if-false",
+  "line": 187,
+  "text": "if (selection) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:310:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t i = 0; i <=",
+  "new": "t i = 1; i <=",
+  "op": "num",
+  "line": 310,
+  "text": "for (let i = 0; i <= lineIndex; i += 1) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:314:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e && /",
+  "new": "e || /",
+  "op": "&&",
+  "line": 314,
+  "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!code && /^ *>>> /.test(text));"
+ },
+ {
+  "id": "withNormalizeNode.ts:317:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "d && (",
+  "new": "d || (",
+  "op": "&&",
+  "line": 317,
+  "text": "return quoted && (!insideFence || fenceQuoted);"
+ },
+ {
+  "id": "withNormalizeNode.ts:320:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e && f",
+  "new": "e || f",
+  "op": "&&",
+  "line": 320,
+  "text": "if (!insideFence && fence.inCodeBlock) fenceQuoted = text.startsWith(QUOTE_MARKER);"
+ },
+ {
+  "id": "withNormalizeNode.ts:328:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (li",
+  "new": "  if (false && li",
+  "op": "if-false",
+  "line": 328,
+  "text": "if (line.carried) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:333:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t && c",
+  "new": "t || c",
+  "op": "&&",
+  "line": 333,
+  "text": "if (markerKept && content.startsWith(QUOTE_MARKER)) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:341:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t || (",
+  "new": "t && (",
+  "op": "||",
+  "line": 341,
+  "text": "if (!markerKept || (content !== '' && content !== '>')) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:347:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "eturn false;\n}\n\ne",
+  "new": "eturn true;\n}\n\ne",
+  "op": "false",
+  "line": 347,
+  "text": "return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:364:>=",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x >= 0",
+  "new": "x > 0",
+  "op": ">=",
+  "line": 364,
+  "text": "const carries = !partialMarkdown && lineIndex >= 0 && carriesMarker(editor, lineIndex);"
+ },
+ {
+  "id": "withNormalizeNode.ts:367:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x + 1];\n ",
+  "new": "x + 2];\n ",
+  "op": "num",
+  "line": 367,
+  "text": "const at = [lineIndex + 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:374:true",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "{ carried: true }, { at })",
+  "new": "{ carried: false }, { at })",
+  "op": "true",
+  "line": 374,
+  "text": "Transforms.setNodes(editor, { carried: true }, { at });"
+ },
+ {
+  "id": "MarkdownCodeBlock.tsx:7:&&",
+  "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+  "old": "&&",
+  "new": "||",
+  "op": "&&",
+  "line": 7,
+  "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+ },
+ {
+  "id": "MarkdownEmoji.tsx:23:false",
+  "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 23,
+  "text": "draggable={false}"
+ },
+ {
+  "id": "MarkdownSpoiler.tsx:30:!==",
+  "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+  "old": "d !== n",
+  "new": "d === n",
+  "op": "!==",
+  "line": 30,
+  "text": "const isShared = shared !== null && id !== undefined;"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:45:if-false",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "  if (!m",
+  "new": "  if (false && !m",
+  "op": "if-false",
+  "line": 45,
+  "text": "if (!mounted) date = date.utc();"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:65:not",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": " !o",
+  "new": " o",
+  "op": "not",
+  "line": 65,
+  "text": "|| !onEdit"
+ },
+ {
+  "id": "emojiDisplay.ts:12:walk-first",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(0, 1) : node.children)",
+  "op": "walk-first",
+  "line": 12,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.flatMap((child) => (child.type === 'node' ? [child] : []));"
+ },
+ {
+  "id": "emojiDisplay.ts:13:===:2",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "() === ''",
+  "new": "() !== ''",
+  "op": "===",
+  "line": 13,
+  "text": "const isBlank = (node: LosslessNode) => node.kind.type === 'text' && node.kind.value.trim() === '';"
+ },
+ {
+  "id": "emojiDisplay.ts:21:===",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "e) === 'e",
+  "new": "e) !== 'e",
+  "op": "===",
+  "line": 21,
+  "text": "if (nodeRenderer(inline.kind.type) === 'emoji') count += 1;"
+ },
+ {
+  "id": "emojiDisplay.ts:24:if-false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "e if (re",
+  "new": "e if (false && re",
+  "op": "if-false",
+  "line": 24,
+  "text": "} else if (renderer !== 'empty') {"
+ },
+ {
+  "id": "emojiDisplay.ts:28:&&",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "0 && c",
+  "new": "0 || c",
+  "op": "&&",
+  "line": 28,
+  "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+ },
+ {
+  "id": "engine.ts:162:if-false",
+  "file": "src/utils/markdown/engine.ts",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 162,
+  "text": "if (!warnedKinds.has(label)) {"
+ },
+ {
+  "id": "preview.tsx:22:walk-first",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "> node.children.f",
+  "new": "> (Array.isArray(node.children) ? node.children.slice(0, 1) : node.children).f",
+  "op": "walk-first",
+  "line": 22,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.filter((child): child is Child & { type: 'node' } => child.type === 'node');"
+ },
+ {
+  "id": "preview.tsx:23:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "e((child) => child.type === 'token' && child.kind.t",
+  "new": "e((child) => child.type !== 'token' && child.kind.t",
+  "op": "===",
+  "line": 23,
+  "text": "const hasLineEnding = (node: LosslessNode) => node.children.some((child) => child.type === 'token' && child.kind.type === 'line_ending');"
+ },
+ {
+  "id": "preview.tsx:42:walk-first",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "= channels.f",
+  "new": "= (Array.isArray(channels) ? channels.slice(0, 1) : channels).f",
+  "op": "walk-first",
+  "line": 42,
+  "text": "const top = channels.find((channel) => channel.id === id);"
+ },
+ {
+  "id": "preview.tsx:44:walk-last",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "channels.flatMap((channel) => channel.threads ?? [])",
+  "new": "(Array.isArray(channels.flatMap((channel) => channel.threads ?? [])) ? channels.flatMap((channel) => channel.threads ?? []).slice(-1) : channels.flatMap((channel) => channel.threads ?? []))",
+  "op": "walk-last",
+  "line": 44,
+  "text": "return channels.flatMap((channel) => channel.threads ?? []).find((thread) => thread.id === id)?.name;"
+ },
+ {
+  "id": "preview.tsx:50:not",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "(!s",
+  "new": "(s",
+  "op": "not",
+  "line": 50,
+  "text": "if (!src) return sourceOf(node, ctx);"
+ },
+ {
+  "id": "preview.tsx:52:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "pe === 'c",
+  "new": "pe !== 'c",
+  "op": "===",
+  "line": 52,
+  "text": "return emoji.type === 'custom'"
+ },
+ {
+  "id": "preview.tsx:79:num",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "(1,",
+  "new": "(2,",
+  "op": "num",
+  "line": 79,
+  "text": "const bracketed = sourceOf(node, ctx).slice(1, -1);"
+ },
+ {
+  "id": "preview.tsx:98:walk-first",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "actNode {\n  return nodes.map((node, i) => (",
+  "new": "actNode {\n  return (Array.isArray(nodes) ? nodes.slice(0, 1) : nodes).map((node, i) => (",
+  "op": "walk-first",
+  "line": 98,
+  "text": "return nodes.map((node, i) => ("
+ },
+ {
+  "id": "preview.tsx:101:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": ") === '",
+  "new": ") !== '",
+  "op": "===",
+  "line": 101,
+  "text": "{i < nodes.length - 1 && rendererOf(node) === 'paragraph' && hasLineEnding(node) ? '\\n' : null}"
+ },
+ {
+  "id": "preview.tsx:109:===:2",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": " kind === 'cont",
+  "new": " kind !== 'cont",
+  "op": "===",
+  "line": 109,
+  "text": "if ((kind === 'masked' || kind === 'contact') && labelNodes.length > 0) return renderInline(labelNodes, ctx);"
+ },
+ {
+  "id": "preview.tsx:110:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "(kind === 'cont",
+  "new": "(kind !== 'cont",
+  "op": "===",
+  "line": 110,
+  "text": "if (kind === 'contact') {"
+ },
+ {
+  "id": "preview.tsx:111:===:2",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "pe === 'u",
+  "new": "pe !== 'u",
+  "op": "===",
+  "line": 111,
+  "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+ },
+ {
+  "id": "preview.tsx:205:if-false",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": ");\n    if (state =",
+  "new": ");\n    if (false && state =",
+  "op": "if-false",
+  "line": 205,
+  "text": "if (state === 'pending') return null;"
+ }
+]

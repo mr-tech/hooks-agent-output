@@ -1,0 +1,226 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(24) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```c++_
++ >>> *
++  _
++ > ```\\
++ ```c++ba
++ ``` b",
++   "
++ ``` 
++ >> js
++ #b||
++ > #
++ ``` \\#",
++   "```c++~~*
++ > 
++ > ||aa
++ ``` \\",
++   "_`b
++ ```js*
++ > 
++ >> a`~~
++  > 
++ >> \\~~_",
++   "\\_
++ > 
++ ```c++jsb
++ > 
++ ```jsjsa ",
++   "```c++*>>> \\
++ > b
++ ```c++
++ ```_a_
++ > \\ ",
++   "
++ ``` 
++ >> jsjs
++ > #
++ >
++ >>> ||> > ",
++   "> > 
++ ```js`_js
++ > ```
++
++ ```",
++   ">> b
++ ```c++
++ js
++ > 
++  
++ >>  ",
++   "```c++* `
++ > >>> js#
++
++ ```c++ ",
++   ">> >>> 
++ _```
++ >  ||
++ ```js",
++   "```jsa```> 
++ ``` ```||_
++ ````~~
++ > aa
++  > `*",
++   "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   "
++ ```
++ >> b`
++ > *\\
++ ```c++`b`
++ ``` ",
++   "```
++ > 
++ ~~a
++ *",
++   "```js~~`
++ >  
++  _`
++ ``` b#js
++ ```js~~_js",
++   ">js||
++ b
++ ```js
++  > ` b
++ > ~~
++ _",
++   "```c++ 
++ b
++ > 
++ >>> ##
++ >b
++ ```",
++   "``` `b
++ > ||
++  > __",
++   "> _ #
++ ```c++> ||js
++ > > ```
++  
++ >>> ~~`",
++   "
++ ``` `> 
++ > a
++ `> ",
++   "``` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++   "```c++_> > 
++ > \\_
++ ~~
++ >>> > ```\\",
++   ">>  
++ ``````~~```
++ > js
++ ```js
++
++ ```> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```C++
++ > `||[a](https://example.com/a_b/🙂)||`
++ ```",
++   "```C++
++ > ~~_© :smile:~~
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a code line inside a fence opened on a plain line saves what the table says
+AssertionError: expected '```\n> x\n> \n```' to be '```\n> x\n\n```' // Object.is equality
+
+- Expected
++ Received
+
+  ```
+  > x
+-
++ > 
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:61:49
+     59|     ['at the end of a quoted code line that follows another one in a f…
+     60|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     61|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     62|   });
+     63| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says
+AssertionError: expected '```\n> x\n> y\n> ' to be '```\n> x\n> y\n' // Object.is equality
+
+- Expected
++ Received
+
+  ```
+  > x
+  > y
+-
++ > 
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:61:49
+     59|     ['at the end of a quoted code line that follows another one in a f…
+     60|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     61|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     62|   });
+     63| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

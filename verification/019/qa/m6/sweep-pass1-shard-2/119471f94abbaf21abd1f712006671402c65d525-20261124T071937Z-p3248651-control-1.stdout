@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/sweep-pass1-shard-2/20261124T071937Z-p3248651/control-1
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 352539ms
+     × hands the message that text in a full-markdown editor 300033ms
+     × hands the message that text in a single-line editor 52504ms
+
+ Test Files  1 failed | 233 passed (234)
+      Tests  2 failed | 3649 passed (3651)
+   Start at  07:19:38
+   Duration  356.35s (transform 17.90s, setup 3.93s, import 272.65s, tests 780.36s, environment 172.10s)
+

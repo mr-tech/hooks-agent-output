@@ -1,0 +1,806 @@
+[
+ {
+  "id": "qa-carry-on-paste",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "apply({ ...op, properties: { ...op.properties, quotePrefix: '', carried: undefined } });",
+  "new": "apply(op);",
+  "limb": "AC-6.7: every split, a paste's included, carries the prefix"
+ },
+ {
+  "id": "qa-W12-partial-runs-block-normalise",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown) return handleEditor(editor, false, surface);",
+  "new": "return handleEditor(editor, false, surface);",
+  "limb": "M3 W12: partial mode runs block normalisation"
+ },
+ {
+  "id": "qa-E2-quote-prefix-default",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;",
+  "new": "if (node.type === 'blockQuote') return `> ${text}`;",
+  "limb": "E-2: a quote line saves '> ' whatever its prefix (>>> lost)"
+ },
+ {
+  "id": "Desktop.tsx:90:===",
+  "file": "src/components/DiscordContentEditor/Desktop.tsx",
+  "old": "ne === 'p",
+  "new": "ne !== 'p",
+  "op": "===",
+  "line": 90,
+  "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+ },
+ {
+  "id": "Mobile.tsx:93:not",
+  "file": "src/components/DiscordContentEditor/Mobile.tsx",
+  "old": " !m",
+  "new": " m",
+  "op": "not",
+  "line": 93,
+  "text": "{engine === 'pending' || !markdown ? null : ("
+ },
+ {
+  "id": "decorator.tsx:17:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (h",
+  "new": " if (false && h",
+  "op": "if-false",
+  "line": 17,
+  "text": "if (hljs.getLanguage(line.lang) === undefined) return [];"
+ },
+ {
+  "id": "decorator.tsx:18:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "-1)",
+  "new": "-2)",
+  "op": "num",
+  "line": 18,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+ },
+ {
+  "id": "decorator.tsx:25:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "512",
+  "new": "513",
+  "op": "num",
+  "line": 25,
+  "text": "const STYLE_CACHE_LIMIT = 512;"
+ },
+ {
+  "id": "decorator.tsx:31:&&:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h && a",
+  "new": "h || a",
+  "op": "&&",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:32:<=",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "<=",
+  "new": "<",
+  "op": "<=",
+  "line": 32,
+  "text": "for (let i = 1; i <= length; i += 1) {"
+ },
+ {
+  "id": "decorator.tsx:35:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (cu",
+  "new": "  if (false && cu",
+  "op": "if-false",
+  "line": 35,
+  "text": "if (current.syntax || current.classNames.length) {"
+ },
+ {
+  "id": "decorator.tsx:63:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (s",
+  "new": " if (false && s",
+  "op": "if-false",
+  "line": 63,
+  "text": "if (styleCache.size >= STYLE_CACHE_LIMIT) {"
+ },
+ {
+  "id": "decorator.tsx:71:!==",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h !== 2",
+  "new": "h === 2",
+  "op": "!==",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:78:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (p",
+  "new": " if (false && p",
+  "op": "if-false",
+  "line": 78,
+  "text": "if (pass?.children !== editor.children) pass = { children: editor.children, units: new Map() };"
+ },
+ {
+  "id": "decorator.tsx:85:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t);\n    if (!styles) retu",
+  "new": "t);\n    if (styles) retu",
+  "op": "not",
+  "line": 85,
+  "text": "if (!styles) return [];"
+ },
+ {
+  "id": "decorator.tsx:88:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 0)",
+  "new": " 1)",
+  "op": "num",
+  "line": 88,
+  "text": ".reduce((width, child) => width + (Text.isText(child) ? child.text.length : 1), 0);"
+ },
+ {
+  "id": "emojiLift.ts:45:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(0, 1) : node.children)",
+  "op": "walk-first",
+  "line": 45,
+  "text": "node.children.forEach((child) => {"
+ },
+ {
+  "id": "emojiLift.ts:56:false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "= false,\n",
+  "new": "= true,\n",
+  "op": "false",
+  "line": 56,
+  "text": "startsInCodeBlock = false,"
+ },
+ {
+  "id": "emojiLift.ts:65:>=",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "e >= L",
+  "new": "e > L",
+  "op": ">=",
+  "line": 65,
+  "text": "if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {"
+ },
+ {
+  "id": "emojiLift.ts:92:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  layout.emojis.s",
+  "new": "  (Array.isArray(layout.emojis) ? layout.emojis.slice(-1) : layout.emojis).s",
+  "op": "walk-last",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:102:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "n layout.emojis.f",
+  "new": "n (Array.isArray(layout.emojis) ? layout.emojis.slice(-1) : layout.emojis).f",
+  "op": "walk-last",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:108:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " lines.",
+  "new": " (Array.isArray(lines) ? lines.slice(-1) : lines).",
+  "op": "walk-last",
+  "line": 108,
+  "text": "lines.forEach((line, first) => {"
+ },
+ {
+  "id": "emojiLift.ts:112:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  unit.lineStarts.f",
+  "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(-1) : unit.lineStarts).f",
+  "op": "walk-last",
+  "line": 112,
+  "text": "unit.lineStarts.forEach((lineStart, index) => {"
+ },
+ {
+  "id": "emojiLift.ts:127:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " spans.",
+  "new": " (Array.isArray(spans) ? spans.slice(0, 1) : spans).",
+  "op": "walk-first",
+  "line": 127,
+  "text": "spans.forEach((span) => {"
+ },
+ {
+  "id": "highlightScan.ts:10:if-false",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": " if (s",
+  "new": " if (false && s",
+  "op": "if-false",
+  "line": 10,
+  "text": "if (scope !== undefined) open.push(scope);"
+ },
+ {
+  "id": "highlightScan.ts:14:<",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": " < ",
+  "new": " <= ",
+  "op": "<",
+  "line": 14,
+  "text": "for (let i = 0; i < text.length; i += 1) out.push([...open]);"
+ },
+ {
+  "id": "onKeyDown.ts:34:true",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": " true ",
+  "new": " false ",
+  "op": "true",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:35:===",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "ath[1] === 0 && a",
+  "new": "ath[1] !== 0 && a",
+  "op": "===",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:37:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": ": 0 }",
+  "new": ": 1 }",
+  "op": "num",
+  "line": 37,
+  "text": "const [from, to] = [{ path: anchor.path, offset: 0 }, anchor];"
+ },
+ {
+  "id": "runUnit.ts:14:!==",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "t !== u",
+  "new": "t === u",
+  "op": "!==",
+  "line": 14,
+  "text": "return element !== undefined && element.type !== 'codeBlock';"
+ },
+ {
+  "id": "runUnit.ts:19:num",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "+ 1))",
+  "new": "+ 2))",
+  "op": "num",
+  "line": 19,
+  "text": "while (isRun(last + 1)) last += 1;"
+ },
+ {
+  "id": "runUnit.ts:24:>",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": " > ",
+  "new": " >= ",
+  "op": ">",
+  "line": 24,
+  "text": "if (index > first) text += '\\n';"
+ },
+ {
+  "id": "unitParse.ts:14:num",
+  "file": "src/components/SlateEditor/utils/unitParse.ts",
+  "old": "- 1 +",
+  "new": "- 2 +",
+  "op": "num",
+  "line": 14,
+  "text": "const fences = text.split(FENCE).length - 1 + (startsInCodeBlock ? 1 : 0);"
+ },
+ {
+  "id": "unitStyles.ts:32:if-false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "k':\n      if (walk.linkC",
+  "new": "k':\n      if (false && walk.linkC",
+  "op": "if-false",
+  "line": 32,
+  "text": "if (walk.linkClosed) walk.paint(token, [], true);"
+ },
+ {
+  "id": "unitStyles.ts:45:false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": ": stack, false);\n      ",
+  "new": ": stack, true);\n      ",
+  "op": "false",
+  "line": 45,
+  "text": "walk.paint(token, walk.inCodeBlock ? ['codeBlockText'] : stack, false);"
+ },
+ {
+  "id": "unitStyles.ts:59:===",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "er === 'm",
+  "new": "er !== 'm",
+  "op": "===",
+  "line": 59,
+  "text": "if (renderer === 'modifier') {"
+ },
+ {
+  "id": "unitStyles.ts:74:false",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "k, inCodeBlock: false, linkClosed: fa",
+  "new": "k, inCodeBlock: true, linkClosed: fa",
+  "op": "false",
+  "line": 74,
+  "text": ": { ...walk, inCodeBlock: false, linkClosed: false };"
+ },
+ {
+  "id": "unitStyles.ts:81:===",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "er === 's",
+  "new": "er !== 's",
+  "op": "===",
+  "line": 81,
+  "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+ },
+ {
+  "id": "unitStyles.ts:82:&&",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": "  && p",
+  "new": "  || p",
+  "op": "&&",
+  "line": 82,
+  "text": "&& previous.kind.type === 'subtext_marker'"
+ },
+ {
+  "id": "unitStyles.ts:87:true",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": " true;",
+  "new": " false;",
+  "op": "true",
+  "line": 87,
+  "text": "if (child.kind.type === 'link_close') inner.linkClosed = true;"
+ },
+ {
+  "id": "unitStyles.ts:105:<",
+  "file": "src/components/SlateEditor/utils/unitStyles.ts",
+  "old": " < ",
+  "new": " <= ",
+  "op": "<",
+  "line": 105,
+  "text": "for (let i = Math.max(token.span.start - shift, 0); i < end; i += 1) styles[i] = style;"
+ },
+ {
+  "id": "withNormalizeNode.ts:58:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ";\n          if (child.type =",
+  "new": ";\n          if (false && child.type =",
+  "op": "if-false",
+  "line": 58,
+  "text": "if (child.type === 'blockQuote' && child.quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:88:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n    if (resol",
+  "new": "\n    if (false && resol",
+  "op": "if-false",
+  "line": 88,
+  "text": "if (resolveCarried(editor)) return undefined;"
+ },
+ {
+  "id": "withNormalizeNode.ts:98:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "m = 0;\n  ",
+  "new": "m = 1;\n  ",
+  "op": "num",
+  "line": 98,
+  "text": "let from = 0;"
+ },
+ {
+  "id": "withNormalizeNode.ts:110:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "rn false;\n ",
+  "new": "rn true;\n ",
+  "op": "false",
+  "line": 110,
+  "text": "if (!layout) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:116:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (rev",
+  "new": "\n  if (false && rev",
+  "op": "if-false",
+  "line": 116,
+  "text": "if (reverted !== -1) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:121:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= line.children.r",
+  "new": "= (Array.isArray(line.children) ? line.children.slice(-1) : line.children).r",
+  "op": "walk-last",
+  "line": 121,
+  "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "withNormalizeNode.ts:128:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " spans.",
+  "new": " (Array.isArray(spans) ? spans.slice(0, 1) : spans).",
+  "op": "walk-first",
+  "line": 128,
+  "text": ": spans.find((emoji) => emoji.start - lineStart >= from && emoji.end - lineStart <= to);"
+ },
+ {
+  "id": "withNormalizeNode.ts:129:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (sp",
+  "new": "  if (false && sp",
+  "op": "if-false",
+  "line": 129,
+  "text": "if (span) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:146:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " 2 ",
+  "new": " 3 ",
+  "op": "num",
+  "line": 146,
+  "text": "return point.path.length > 2 ? before + 1 : before + point.offset;"
+ },
+ {
+  "id": "withNormalizeNode.ts:151:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") && f",
+  "new": ") || f",
+  "op": "&&",
+  "line": 151,
+  "text": "const at = line.children.findIndex((child, i) => !isEmojiElement(child) && flat <= starts[i] + widthOf(child));"
+ },
+ {
+  "id": "withNormalizeNode.ts:159:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t - 1];\n ",
+  "new": "t - 2];\n ",
+  "op": "num",
+  "line": 159,
+  "text": "const prev = line.children[at - 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:161:not:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " !T",
+  "new": " T",
+  "op": "not",
+  "line": 161,
+  "text": "if (!Text.isText(prev) || !Text.isText(next)) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:177:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "s.path[0] === l",
+  "new": "s.path[1] === l",
+  "op": "num",
+  "line": 177,
+  "text": "const focused = selection?.focus.path[0] === lineIndex ? moved(selection.focus) : undefined;"
+ },
+ {
+  "id": "withNormalizeNode.ts:190:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t === u",
+  "new": "t !== u",
+  "op": "===",
+  "line": 190,
+  "text": "flat === undefined ? kept : pointAtOffset(editor, lineIndex, merged, flat)"
+ },
+ {
+  "id": "withNormalizeNode.ts:310:<=",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "i <= l",
+  "new": "i < l",
+  "op": "<=",
+  "line": 310,
+  "text": "for (let i = 0; i <= lineIndex; i += 1) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:315:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (i ",
+  "new": "  if (false && i ",
+  "op": "if-false",
+  "line": 315,
+  "text": "if (i === lineIndex) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:317:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "& (!ins",
+  "new": "& (ins",
+  "op": "not",
+  "line": 317,
+  "text": "return quoted && (!insideFence || fenceQuoted);"
+ },
+ {
+  "id": "withNormalizeNode.ts:322:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "eturn false;\n}\n\nf",
+  "new": "eturn true;\n}\n\nf",
+  "op": "false",
+  "line": 322,
+  "text": "return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:330:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "h = line.type === 'blockQuote' ",
+  "new": "h = line.type !== 'blockQuote' ",
+  "op": "===",
+  "line": 330,
+  "text": "const markerLength = line.type === 'blockQuote' ? (line.quotePrefix ?? '').length : QUOTE_MARKER.length;"
+ },
+ {
+  "id": "withNormalizeNode.ts:335:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "m = line.type === 'blockQuote' ",
+  "new": "m = line.type !== 'blockQuote' ",
+  "op": "===",
+  "line": 335,
+  "text": "const from = line.type === 'blockQuote' ? start : { path: start.path, offset: markerLength };"
+ },
+ {
+  "id": "withNormalizeNode.ts:341:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "nt !== ''",
+  "new": "nt === ''",
+  "op": "!==",
+  "line": 341,
+  "text": "if (!markerKept || (content !== '' && content !== '>')) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:363:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "th[0] :",
+  "new": "th[1] :",
+  "op": "num",
+  "line": 363,
+  "text": "const lineIndex = editor.selection ? Range.start(editor.selection).path[0] : -1;"
+ },
+ {
+  "id": "withNormalizeNode.ts:364:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= 0 &",
+  "new": "= 1 &",
+  "op": "num",
+  "line": 364,
+  "text": "const carries = !partialMarkdown && lineIndex >= 0 && carriesMarker(editor, lineIndex);"
+ },
+ {
+  "id": "withNormalizeNode.ts:368:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t[0]]",
+  "new": "t[1]]",
+  "op": "num",
+  "line": 368,
+  "text": "const created = editor.children[at[0]] as Element;"
+ },
+ {
+  "id": "withNormalizeNode.ts:385:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (!p",
+  "new": "  if (false && !p",
+  "op": "if-false",
+  "line": 385,
+  "text": "if (!partialMarkdown) return handleEditor(editor, false, surface);"
+ },
+ {
+  "id": "MarkdownCodeBlock.tsx:7:!==",
+  "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 7,
+  "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+ },
+ {
+  "id": "MarkdownEmoji.tsx:24:&&",
+  "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+  "old": "&&",
+  "new": "||",
+  "op": "&&",
+  "line": 24,
+  "text": "className={classNames('discord-visualizer__emoji', jumboable && 'discord-visualizer__emoji-jumboable')}"
+ },
+ {
+  "id": "MarkdownSpoiler.tsx:30:&&",
+  "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+  "old": "l && i",
+  "new": "l || i",
+  "op": "&&",
+  "line": 30,
+  "text": "const isShared = shared !== null && id !== undefined;"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:45:not",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "(!m",
+  "new": "(m",
+  "op": "not",
+  "line": 45,
+  "text": "if (!mounted) date = date.utc();"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:76:if-false",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "  if (!o",
+  "new": "  if (false && !o",
+  "op": "if-false",
+  "line": 76,
+  "text": "if (!onEdit) {"
+ },
+ {
+  "id": "emojiDisplay.ts:12:walk-last",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(-1) : node.children)",
+  "op": "walk-last",
+  "line": 12,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.flatMap((child) => (child.type === 'node' ? [child] : []));"
+ },
+ {
+  "id": "emojiDisplay.ts:16:num",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 16,
+  "text": "let count = 0;"
+ },
+ {
+  "id": "emojiDisplay.ts:21:num",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "1",
+  "new": "2",
+  "op": "num",
+  "line": 21,
+  "text": "if (nodeRenderer(inline.kind.type) === 'emoji') count += 1;"
+ },
+ {
+  "id": "emojiDisplay.ts:24:!==",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 24,
+  "text": "} else if (renderer !== 'empty') {"
+ },
+ {
+  "id": "emojiDisplay.ts:28:<",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "<",
+  "new": "<=",
+  "op": "<",
+  "line": 28,
+  "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+ },
+ {
+  "id": "engine.ts:162:not",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "!",
+  "new": "",
+  "op": "not",
+  "line": 162,
+  "text": "if (!warnedKinds.has(label)) {"
+ },
+ {
+  "id": "preview.tsx:22:walk-last",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "> node.children.f",
+  "new": "> (Array.isArray(node.children) ? node.children.slice(-1) : node.children).f",
+  "op": "walk-last",
+  "line": 22,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.filter((child): child is Child & { type: 'node' } => child.type === 'node');"
+ },
+ {
+  "id": "preview.tsx:23:&&",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "child.type === 'token' && child.kind.type === 'l",
+  "new": "child.type === 'token' || child.kind.type === 'l",
+  "op": "&&",
+  "line": 23,
+  "text": "const hasLineEnding = (node: LosslessNode) => node.children.some((child) => child.type === 'token' && child.kind.type === 'line_ending');"
+ },
+ {
+  "id": "preview.tsx:42:walk-last",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "= channels.f",
+  "new": "= (Array.isArray(channels) ? channels.slice(-1) : channels).f",
+  "op": "walk-last",
+  "line": 42,
+  "text": "const top = channels.find((channel) => channel.id === id);"
+ },
+ {
+  "id": "preview.tsx:44:walk-first:2",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "n channels.f",
+  "new": "n (Array.isArray(channels) ? channels.slice(0, 1) : channels).f",
+  "op": "walk-first",
+  "line": 44,
+  "text": "return channels.flatMap((channel) => channel.threads ?? []).find((thread) => thread.id === id)?.name;"
+ },
+ {
+  "id": "preview.tsx:51:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "e === t",
+  "new": "e !== t",
+  "op": "===",
+  "line": 51,
+  "text": "const common = { src, jumboable: ctx.jumboable === true, isEmbed: ctx.isEmbed === true };"
+ },
+ {
+  "id": "preview.tsx:66:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "ted === tru",
+  "new": "ted !== tru",
+  "op": "===",
+  "line": 66,
+  "text": "mounted={ctx.mounted === true}"
+ },
+ {
+  "id": "preview.tsx:79:num:2",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "-1)",
+  "new": "-2)",
+  "op": "num",
+  "line": 79,
+  "text": "const bracketed = sourceOf(node, ctx).slice(1, -1);"
+ },
+ {
+  "id": "preview.tsx:98:walk-last",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "actNode {\n  return nodes.map((node, i) => (",
+  "new": "actNode {\n  return (Array.isArray(nodes) ? nodes.slice(-1) : nodes).map((node, i) => (",
+  "op": "walk-last",
+  "line": 98,
+  "text": "return nodes.map((node, i) => ("
+ },
+ {
+  "id": "preview.tsx:101:&&:2",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "' && h",
+  "new": "' || h",
+  "op": "&&",
+  "line": 101,
+  "text": "{i < nodes.length - 1 && rendererOf(node) === 'paragraph' && hasLineEnding(node) ? '\\n' : null}"
+ },
+ {
+  "id": "preview.tsx:109:&&",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": ") && l",
+  "new": ") || l",
+  "op": "&&",
+  "line": 109,
+  "text": "if ((kind === 'masked' || kind === 'contact') && labelNodes.length > 0) return renderInline(labelNodes, ctx);"
+ },
+ {
+  "id": "preview.tsx:111:walk-first",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "= node.children.f",
+  "new": "= (Array.isArray(node.children) ? node.children.slice(0, 1) : node.children).f",
+  "op": "walk-first",
+  "line": 111,
+  "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+ },
+ {
+  "id": "preview.tsx:112:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "?.type === 'token",
+  "new": "?.type !== 'token",
+  "op": "===",
+  "line": 112,
+  "text": "return token?.type === 'token' ? token.text : url;"
+ },
+ {
+  "id": "preview.tsx:205:===",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "te === 'p",
+  "new": "te !== 'p",
+  "op": "===",
+  "line": 205,
+  "text": "if (state === 'pending') return null;"
+ }
+]

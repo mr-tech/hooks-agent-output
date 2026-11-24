@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-1/20261124T072714Z-p3323542/control-1
+
+
+ Test Files  234 passed (234)
+      Tests  3651 passed (3651)
+   Start at  07:27:16
+   Duration  167.23s (transform 9.61s, setup 845ms, import 134.89s, tests 348.42s, environment 90.22s)
+

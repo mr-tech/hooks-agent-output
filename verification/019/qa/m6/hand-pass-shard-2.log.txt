@@ -1,0 +1,8 @@
+qa-NM-68-carry-ignores-multiline-quote KILLED 177.79
+qa-carry-on-paste KILLED 220.83
+qa-typed-marker-not-taken-in KILLED 171.6
+qa-W9-smart-quote-swap SURVIVED 207.32
+qa-S29-prefix-not-kept KILLED 194.29
+qa-E2-save-writes-title KILLED 194.45
+qa-E2-quote-prefix-default KILLED 167.72
+6 of 7 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; hand-shard-2.json (blob e07e2b10cda8178aeef64f49655af216d4d937dd))

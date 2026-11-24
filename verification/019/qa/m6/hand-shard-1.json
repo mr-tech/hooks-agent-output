@@ -1,0 +1,58 @@
+[
+ {
+  "id": "qa-m5-d2-runUnit-no-quote-prefix",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "    if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';\n",
+  "new": "    // quote prefix left out\n",
+  "limb": "the run unit leaves each quote line's prefix out (m5-d2 in its M6 home)"
+ },
+ {
+  "id": "qa-NM-69-carry-ignores-unquoted-fence",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "return quoted && (!insideFence || fenceQuoted);",
+  "new": "return quoted;",
+  "limb": "AC-6.7: a carry that ignores the unquoted fence"
+ },
+ {
+  "id": "qa-carry-never-fires",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!carries) return;",
+  "new": "return;",
+  "limb": "AC-6.7: Enter never carries"
+ },
+ {
+  "id": "qa-W8-trailing-empty-span-kept",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (lastChild?.type === 'span' && node.children.length > 1 && !lastChild.text",
+  "new": "if (false && lastChild?.type === 'span' && node.children.length > 1 && !lastChild.text",
+  "limb": "M3 W8: normalise keeps a trailing empty span"
+ },
+ {
+  "id": "qa-W12-partial-runs-block-normalise",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown) return handleEditor(editor, false, surface);",
+  "new": "return handleEditor(editor, false, surface);",
+  "limb": "M3 W12: partial mode runs block normalisation"
+ },
+ {
+  "id": "qa-E2-save-writes-alt",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return allowEmoji ? node.alt : '';",
+  "limb": "E-2 / AC-6.2: the saved text writes an element's alt"
+ },
+ {
+  "id": "qa-E2-save-drops-element",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return '';",
+  "limb": "E-2: the saved text drops every element"
+ },
+ {
+  "id": "qa-NM-44-helper-ignores-mask",
+  "file": "src/utils/markdown/__tests__/helpers/discordOracle.ts",
+  "old": "collectEmojiSpans(parseLossless(text, SURFACE_MASK_LITERALS[surface]), out);",
+  "new": "collectEmojiSpans(parseLossless(text, SURFACE_MASK_LITERALS.content), out);",
+  "limb": "AC-6.5 control: the oracle helper ignores its mask"
+ }
+]

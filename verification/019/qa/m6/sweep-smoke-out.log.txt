@@ -1,0 +1,3 @@
+qa-m5-d2-runUnit-no-quote-prefix KILLED 132.67
+qa-NM-68-carry-ignores-multiline-quote KILLED 132.89
+2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-smoke.json (blob ca0c8808f47194933a7a35d6db659e84043def9e))

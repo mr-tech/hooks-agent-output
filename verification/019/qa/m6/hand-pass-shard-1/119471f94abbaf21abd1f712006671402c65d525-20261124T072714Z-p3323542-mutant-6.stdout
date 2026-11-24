@@ -1,0 +1,140 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-1/20261124T072714Z-p3323542/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 42959ms
+     × hands the message that text in a full-markdown editor 4136ms
+     × hands the message that text in a single-line editor 2670ms
+     × hands the message that text in a full-markdown editor 18131ms
+     × hands the message that text in a single-line editor 5541ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 4 failed) 256ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 111ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 46ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 17ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 29ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 8 failed) 13062ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 109ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 28ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 448ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 528ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 36ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 21ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 344ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 414ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 20418ms
+     × hands the message that text in a full-markdown editor 10454ms
+     × hands the message that text in a single-line editor 9715ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 94 failed) 8268ms
+     × equals the stored text of an emoji typed as a name once the editor opens it 53ms
+     × equals the stored text of a skin-toned name once the editor opens it 24ms
+     × equals a Unicode emoji typed one character at a time 58ms
+     × equals a ZWJ sequence typed one character at a time 62ms
+     × equals a skin-tone sequence typed one character at a time 50ms
+     × equals a keycap typed one character at a time 62ms
+     × equals a flag typed one character at a time 55ms
+     × equals a tag sequence typed one character at a time 111ms
+     × equals a heart with emoji presentation typed one character at a time 94ms
+     × equals a heart with text presentation typed one character at a time 26ms
+     × equals an emoji newer than the site's table typed one character at a time 34ms
+     × equals an emoji typed as a name typed one character at a time 106ms
+     × equals a skin-toned name typed one character at a time 293ms
+     × equals a colon-wrapped emoji typed one character at a time 57ms
+     × equals a custom emoji typed one character at a time 98ms
+     × equals an animated custom emoji typed one character at a time 115ms
+     × equals an emoji in a link label typed one character at a time 193ms
+     × equals an emoji in a link address typed one character at a time 212ms
+     × equals a name in a link address typed one character at a time 304ms
+     × equals an emoji between words typed one character at a time 58ms
+     × equals two emoji side by side typed one character at a time 43ms
+     × equals an emoji inside bold typed one character at a time 115ms
+     × equals an emoji inside inline code typed one character at a time 60ms
+     × equals an emoji inside a code block typed one character at a time 124ms
+     × equals an emoji after a backslash typed one character at a time 36ms
+     × equals a Unicode emoji pasted whole 40ms
+     × equals a ZWJ sequence pasted whole 27ms
+     × equals a skin-tone sequence pasted whole 27ms
+     × equals a keycap pasted whole 29ms
+     × equals a flag pasted whole 27ms
+     × equals a tag sequence pasted whole 28ms
+     × equals a heart with emoji presentation pasted whole 36ms
+     × equals a heart with text presentation pasted whole 39ms
+     × equals an emoji newer than the site's table pasted whole 50ms
+     × equals an emoji typed as a name pasted whole 37ms
+     × equals a skin-toned name pasted whole 39ms
+     × equals a colon-wrapped emoji pasted whole 36ms
+     × equals a custom emoji pasted whole 36ms
+     × equals an animated custom emoji pasted whole 73ms
+     × equals an emoji in a link label pasted whole 42ms
+     × equals an emoji in a link address pasted whole 41ms
+     × equals a name in a link address pasted whole 36ms
+     × equals an emoji between words pasted whole 36ms
+     × equals two emoji side by side pasted whole 38ms
+     × equals an emoji inside bold pasted whole 35ms
+     × equals an emoji inside inline code pasted whole 48ms
+     × equals an emoji inside a code block pasted whole 54ms
+     × equals an emoji after a backslash pasted whole 35ms
+     × equals the stored text of an emoji typed as a name once the editor opens it 22ms
+     × equals the stored text of a skin-toned name once the editor opens it 23ms
+     × equals a Unicode emoji typed one character at a time 39ms
+     × equals a ZWJ sequence typed one character at a time 86ms
+     × equals a skin-tone sequence typed one character at a time 36ms
+     × equals a keycap typed one character at a time 47ms
+     × equals a flag typed one character at a time 48ms
+     × equals a tag sequence typed one character at a time 109ms
+     × equals a heart with emoji presentation typed one character at a time 52ms
+     × equals a heart with text presentation typed one character at a time 32ms
+     × equals an emoji newer than the site's table typed one character at a time 41ms
+     × equals an emoji typed as a name typed one character at a time 101ms
+     × equals a skin-toned name typed one character at a time 274ms
+     × equals a colon-wrapped emoji typed one character at a time 71ms
+     × equals a custom emoji typed one character at a time 97ms
+     × equals an animated custom emoji typed one character at a time 120ms
+     × equals an emoji in a link label typed one character at a time 216ms
+     × equals an emoji in a link address typed one character at a time 217ms
+     × equals a name in a link address typed one character at a time 354ms
+     × equals an emoji between words typed one character at a time 100ms
+     × equals two emoji side by side typed one character at a time 55ms
+     × equals an emoji inside bold typed one character at a time 127ms
+     × equals an emoji inside inline code typed one character at a time 73ms
+     × equals an emoji after a backslash typed one character at a time 73ms
+     × equals a Unicode emoji pasted whole 38ms
+     × equals a ZWJ sequence pasted whole 43ms
+     × equals a skin-tone sequence pasted whole 41ms
+     × equals a keycap pasted whole 57ms
+     × equals a flag pasted whole 51ms
+     × equals a tag sequence pasted whole 55ms
+     × equals a heart with emoji presentation pasted whole 54ms
+     × equals a heart with text presentation pasted whole 70ms
+     × equals an emoji newer than the site's table pasted whole 91ms
+     × equals an emoji typed as a name pasted whole 73ms
+     × equals a skin-toned name pasted whole 57ms
+     × equals a colon-wrapped emoji pasted whole 54ms
+     × equals a custom emoji pasted whole 57ms
+     × equals an animated custom emoji pasted whole 58ms
+     × equals an emoji in a link label pasted whole 49ms
+     × equals an emoji in a link address pasted whole 59ms
+     × equals a name in a link address pasted whole 84ms
+     × equals an emoji between words pasted whole 75ms
+     × equals two emoji side by side pasted whole 64ms
+     × equals an emoji inside bold pasted whole 77ms
+     × equals an emoji inside inline code pasted whole 55ms
+     × equals an emoji after a backslash pasted whole 51ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 10 failed) 1874ms
+     × loads an emoji typed as a name as one emoji element that saves as the typed text 12ms
+     × loads a skin-toned name as one emoji element that saves as the typed text 3ms
+     × loads each text of the 272-case corpus with its text unchanged 31ms
+     × loads each text of the 106 link inputs with its text unchanged 9ms
+     × loads each text of 1,000 generator inputs with its text unchanged 204ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 114ms
+     × loads each text of the 272-case corpus with its text unchanged 11ms
+     × loads each text of the 106 link inputs with its text unchanged 5ms
+     × loads each text of 1,000 generator inputs with its text unchanged 113ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 84ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 197113ms
+     × hands the message that text in a full-markdown editor 179886ms
+     × hands the message that text in a single-line editor 17224ms
+
+ Test Files  7 failed | 227 passed (234)
+      Tests  124 failed | 3527 passed (3651)
+   Start at  07:46:04
+   Duration  199.87s (transform 10.37s, setup 1.64s, import 156.49s, tests 419.69s, environment 104.43s)
+

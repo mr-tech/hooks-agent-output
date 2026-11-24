@@ -1,0 +1,3 @@
+wasm: served wasm sha256 da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0, pinned wasm sha256 da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0: equal
+coverage: unexamined cells: GAME_MENTION / content, GAME_MENTION / embedDescription, GAME_MENTION / fieldValue, GAME_MENTION / v2Text, CODE_BLOCK / embedTitle
+JSON report written to /usr/local/bin/hooks/agent-output/verification/019/qa/m6/discord-live-119471f.json

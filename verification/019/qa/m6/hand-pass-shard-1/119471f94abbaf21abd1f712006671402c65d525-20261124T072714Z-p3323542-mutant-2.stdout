@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-1/20261124T072714Z-p3323542/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 30622ms
+     × hands the message that text in a full-markdown editor 15712ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 2 failed) 130ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 11ms
+     × at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 210926ms
+     × hands the message that text in a full-markdown editor 194872ms
+
+ Test Files  3 failed | 231 passed (234)
+      Tests  4 failed | 3647 passed (3651)
+   Start at  07:33:03
+   Duration  213.84s (transform 10.44s, setup 3.14s, import 168.25s, tests 435.54s, environment 118.05s)
+

@@ -1,0 +1,1319 @@
+{
+ "sha": "119471f94abbaf21abd1f712006671402c65d525",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-shard-2.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "30000",
+  "--hookTimeout",
+  "30000",
+  "--exclude",
+  "**/SlateEditor.typed-generated-text-reaches-the-message.test.tsx",
+  "--exclude",
+  "**/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-shard-2.json",
+   "blob": "c5c50557d8be9d61d5959590f6c600f0168090e2"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-pass1-shard-2/119471f94abbaf21abd1f712006671402c65d525-20261124T071937Z-p3248651-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/sweep-pass1-shard-2/119471f94abbaf21abd1f712006671402c65d525-20261124T071937Z-p3248651-control-1.stderr",
+   "seconds": 357.85,
+   "exit": 1,
+   "timedOut": false,
+   "tests_run": 3651,
+   "tests": [],
+   "passed": false
+  }
+ },
+ "mutants": [
+  {
+   "id": "qa-NM-68-carry-ignores-multiline-quote",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "limb": "AC-6.7: a carry that ignores >>>"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "qa-W8-trailing-empty-span-kept",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "limb": "M3 W8: normalise keeps a trailing empty span"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "qa-E2-save-writes-title",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+   "tests": [],
+   "carried": {
+    "limb": "E-2 / AC-6.2: the saved text writes an element's title"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "Desktop.tsx:90:not",
+   "run": "mutant-4",
+   "file": "src/components/DiscordContentEditor/Desktop.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 90,
+    "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "Mobile.tsx:93:===",
+   "run": "mutant-5",
+   "file": "src/components/DiscordContentEditor/Mobile.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 93,
+    "text": "{engine === 'pending' || !markdown ? null : ("
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "Markdown.tsx:25:num",
+   "run": "mutant-6",
+   "file": "src/components/Markdown.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 25,
+    "text": "onChange(value.slice(0, span.start) + newText + value.slice(span.end));"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:18:walk-last",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 18,
+    "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:21:walk-last",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 21,
+    "text": "const styles: CharStyle[] = scanHighlight(value).map((classNames) => ({ classNames, syntax: false }));"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:31:&&",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 31,
+    "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:31:===:2",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 31,
+    "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:34:<",
+   "run": "mutant-11",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "<",
+    "line": 34,
+    "text": "if (i < length && same(current, styles[from + i])) continue;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:62:if-false",
+   "run": "mutant-12",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 62,
+    "text": "if (!styles) return undefined;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:71:not",
+   "run": "mutant-13",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 71,
+    "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:76:if-false",
+   "run": "mutant-14",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 76,
+    "text": "if (line.type === 'codeBlock') return [];"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:80:not",
+   "run": "mutant-15",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 80,
+    "text": "if (!unit) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "decorator.tsx:87:num",
+   "run": "mutant-16",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 87,
+    "text": "const before = line.children.slice(0, childIndex)"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:44:if-false",
+   "run": "mutant-17",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 44,
+    "text": "if (renderer === 'emoji') layout.emojis.push(spanOf(node, text, shift));"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:46:===",
+   "run": "mutant-18",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 46,
+    "text": "if (child.type === 'node') collect(child, text, shift, layout);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:62:not",
+   "run": "mutant-19",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 62,
+    "text": "if (!parsed) return undefined;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:87:num",
+   "run": "mutant-20",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 87,
+    "text": "export const widthOf = (child: Descendant): number => (Text.isText(child) ? child.text.length : 1);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:92:===:2",
+   "run": "mutant-21",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 92,
+    "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:102:<=",
+   "run": "mutant-22",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "<=",
+    "line": 102,
+    "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:109:||",
+   "run": "mutant-23",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 109,
+    "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiLift.ts:116:if-false",
+   "run": "mutant-24",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 116,
+    "text": "if (spans.length) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "flattenNodeText.ts:11:if-false",
+   "run": "mutant-25",
+   "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 11,
+    "text": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "highlightScan.ts:11:===",
+   "run": "mutant-26",
+   "file": "src/components/SlateEditor/utils/highlightScan.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 11,
+    "text": "else if (token === '</span>') open.pop();"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "onKeyDown.ts:34:&&",
+   "run": "mutant-27",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 34,
+    "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "onKeyDown.ts:35:&&",
+   "run": "mutant-28",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "onKeyDown.ts:35:===:2",
+   "run": "mutant-29",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "runUnit.ts:7:===",
+   "run": "mutant-30",
+   "file": "src/components/SlateEditor/utils/runUnit.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 7,
+    "text": "const placeholder = (child: Descendant, emojiAs: 'placeholder' | 'source') => (emojiAs === 'source' && isEmojiElement(child) ? child.source : '?');"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "runUnit.ts:17:num",
+   "run": "mutant-31",
+   "file": "src/components/SlateEditor/utils/runUnit.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 17,
+    "text": "while (isRun(first - 1)) first -= 1;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "runUnit.ts:22:num",
+   "run": "mutant-32",
+   "file": "src/components/SlateEditor/utils/runUnit.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 22,
+    "text": "for (let index = first; index <= last; index += 1) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "runUnit.ts:27:walk-first",
+   "run": "mutant-33",
+   "file": "src/components/SlateEditor/utils/runUnit.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 27,
+    "text": "text += element.children.map((child) => (Text.isText(child) ? child.text : placeholder(child, emojiAs))).join('');"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitParse.ts:15:num",
+   "run": "mutant-34",
+   "file": "src/components/SlateEditor/utils/unitParse.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 15,
+    "text": "const shift = startsInCodeBlock ? OPENED.length : 0;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:39:true",
+   "run": "mutant-35",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 39,
+    "text": "walk.paint(token, [], true);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:49:false",
+   "run": "mutant-36",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 49,
+    "text": "else walk.paint(token, stack, false);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:72:===",
+   "run": "mutant-37",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 72,
+    "text": "const inner = renderer === 'codeBlock'"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:78:===",
+   "run": "mutant-38",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 78,
+    "text": "if (child.type === 'node') {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:81:&&:2",
+   "run": "mutant-39",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 81,
+    "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:87:if-false",
+   "run": "mutant-40",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 87,
+    "text": "if (child.kind.type === 'link_close') inner.linkClosed = true;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:99:not",
+   "run": "mutant-41",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 99,
+    "text": "if (!parsed) return undefined;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "unitStyles.ts:107:false:2",
+   "run": "mutant-42",
+   "file": "src/components/SlateEditor/utils/unitStyles.ts",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 107,
+    "text": "walkNode(tree, [], { paint, inCodeBlock: false, linkClosed: false });"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:87:if-false",
+   "run": "mutant-43",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 87,
+    "text": "if (!update) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:89:num:2",
+   "run": "mutant-44",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 89,
+    "text": "for (let i = 0; i < editor.children.length; i += 1) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:110:if-false",
+   "run": "mutant-45",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 110,
+    "text": "if (!layout) return false;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:115:&&",
+   "run": "mutant-46",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 115,
+    "text": "&& !holdsSpan(layout, lineStart + starts[i], lineStart + starts[i] + sourceWidthOf(child)));"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:118:true",
+   "run": "mutant-47",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 118,
+    "text": "return true;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:123:<",
+   "run": "mutant-48",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "<",
+    "line": 123,
+    "text": "for (let i = 0; i < line.children.length; i += 1) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:128:&&",
+   "run": "mutant-49",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 128,
+    "text": ": spans.find((emoji) => emoji.start - lineStart >= from && emoji.end - lineStart <= to);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:145:num",
+   "run": "mutant-50",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 145,
+    "text": "const before = startsOf(line)[point.path[1]];"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:151:walk-last",
+   "run": "mutant-51",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 151,
+    "text": "const at = line.children.findIndex((child, i) => !isEmojiElement(child) && flat <= starts[i] + widthOf(child));"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:152:===",
+   "run": "mutant-52",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 152,
+    "text": "if (at === -1) return Editor.end(editor, [lineIndex]);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:161:not",
+   "run": "mutant-53",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 161,
+    "text": "if (!Text.isText(prev) || !Text.isText(next)) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:176:num",
+   "run": "mutant-54",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 176,
+    "text": "const anchored = selection?.anchor.path[0] === lineIndex ? moved(selection.anchor) : undefined;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:183:num",
+   "run": "mutant-55",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 183,
+    "text": "const end = { path: [lineIndex, at - 1], offset: prev.text.length };"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:309:false",
+   "run": "mutant-56",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 309,
+    "text": "let inMultilineBlockQuote = false;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:314:not",
+   "run": "mutant-57",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 314,
+    "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!code && /^ *>>> /.test(text));"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:316:not",
+   "run": "mutant-58",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 316,
+    "text": "const quoted = text.startsWith(QUOTE_MARKER) && !inMultilineBlockQuote;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:320:not",
+   "run": "mutant-59",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 320,
+    "text": "if (!insideFence && fence.inCodeBlock) fenceQuoted = text.startsWith(QUOTE_MARKER);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:326:num:2",
+   "run": "mutant-60",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 326,
+    "text": "for (let i = 0; i < editor.children.length; i += 1) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:333:if-false",
+   "run": "mutant-61",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 333,
+    "text": "if (markerKept && content.startsWith(QUOTE_MARKER)) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:341:not",
+   "run": "mutant-62",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 341,
+    "text": "if (!markerKept || (content !== '' && content !== '>')) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:343:true",
+   "run": "mutant-63",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 343,
+    "text": "return true;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:364:&&",
+   "run": "mutant-64",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 364,
+    "text": "const carries = !partialMarkdown && lineIndex >= 0 && carriesMarker(editor, lineIndex);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:366:not",
+   "run": "mutant-65",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 366,
+    "text": "if (!carries) return;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "withNormalizeNode.ts:371:true",
+   "run": "mutant-66",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 371,
+    "text": "Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carried: true }, { at });"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "MarkdownCodeBlock.tsx:7:if-false",
+   "run": "mutant-67",
+   "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 7,
+    "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "MarkdownEmoji.tsx:17:if-false",
+   "run": "mutant-68",
+   "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 17,
+    "text": "else if (jumboable) size = '32';"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "MarkdownSpoiler.tsx:28:false",
+   "run": "mutant-69",
+   "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 28,
+    "text": "const [ownVisible, setOwnVisible] = useState(false);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "MarkdownSpoiler.tsx:39:not",
+   "run": "mutant-70",
+   "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 39,
+    "text": "else setOwnVisible(!ownVisible);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "MarkdownTimestamp.tsx:65:||",
+   "run": "mutant-71",
+   "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 65,
+    "text": "|| !onEdit"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiDisplay.ts:7:===",
+   "run": "mutant-72",
+   "file": "src/utils/markdown/emojiDisplay.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 7,
+    "text": "return emoji.type === 'custom'"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiDisplay.ts:13:&&",
+   "run": "mutant-73",
+   "file": "src/utils/markdown/emojiDisplay.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 13,
+    "text": "const isBlank = (node: LosslessNode) => node.kind.type === 'text' && node.kind.value.trim() === '';"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiDisplay.ts:21:if-false",
+   "run": "mutant-74",
+   "file": "src/utils/markdown/emojiDisplay.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 21,
+    "text": "if (nodeRenderer(inline.kind.type) === 'emoji') count += 1;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiDisplay.ts:22:false",
+   "run": "mutant-75",
+   "file": "src/utils/markdown/emojiDisplay.ts",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 22,
+    "text": "else if (!isBlank(inline)) return false;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "emojiDisplay.ts:28:num",
+   "run": "mutant-76",
+   "file": "src/utils/markdown/emojiDisplay.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 28,
+    "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "engine.ts:158:===",
+   "run": "mutant-77",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 158,
+    "text": "return state === 'resolved' ? parseWasm(text, SURFACE_MASKS[surface]) : undefined;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "engine.ts:186:false",
+   "run": "mutant-78",
+   "file": "src/utils/markdown/engine.ts",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 186,
+    "text": "return false;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:23:walk-last",
+   "run": "mutant-79",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 23,
+    "text": "const hasLineEnding = (node: LosslessNode) => node.children.some((child) => child.type === 'token' && child.kind.type === 'line_ending');"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:41:not",
+   "run": "mutant-80",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 41,
+    "text": "if (!channels) return undefined;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:44:walk-first",
+   "run": "mutant-81",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 44,
+    "text": "return channels.flatMap((channel) => channel.threads ?? []).find((thread) => thread.id === id)?.name;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:50:if-false",
+   "run": "mutant-82",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 50,
+    "text": "if (!src) return sourceOf(node, ctx);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:51:true:2",
+   "run": "mutant-83",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 51,
+    "text": "const common = { src, jumboable: ctx.jumboable === true, isEmbed: ctx.isEmbed === true };"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:75:===",
+   "run": "mutant-84",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 75,
+    "text": "const atom = (kind: string, id?: string | bigint) => ({ 'data-mention-kind': kind, 'data-mention-id': id === undefined ? '' : String(id) });"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:94:walk-last",
+   "run": "mutant-85",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 94,
+    "text": "return nodes.map((node, i) => <Fragment key={i}>{renderNode(node, ctx)}</Fragment>);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:101:&&",
+   "run": "mutant-86",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 101,
+    "text": "{i < nodes.length - 1 && rendererOf(node) === 'paragraph' && hasLineEnding(node) ? '\\n' : null}"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:109:||",
+   "run": "mutant-87",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 109,
+    "text": "if ((kind === 'masked' || kind === 'contact') && labelNodes.length > 0) return renderInline(labelNodes, ctx);"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:110:if-false",
+   "run": "mutant-88",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 110,
+    "text": "if (kind === 'contact') {"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:111:&&",
+   "run": "mutant-89",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 111,
+    "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview.tsx:145:===",
+   "run": "mutant-90",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 145,
+    "text": "return type === 'ordered' ? <ol start={value}>{items}</ol> : <ul>{items}</ul>;"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  }
+ ],
+ "score": "0 of 0 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 90; sweep-shard-2.json (blob c5c50557d8be9d61d5959590f6c600f0168090e2))"
+}

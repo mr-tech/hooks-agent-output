@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/hand-pass-shard-2/20261124T072716Z-p3323815/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 30353ms
+     × hands the message that text in a full-markdown editor 13893ms
+     × hands the message that text in a full-markdown editor 15497ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 41813ms
+     × hands the message that text in a full-markdown editor 3881ms
+     × hands the message that text in a full-markdown editor 17243ms
+     × hands the message that text in a full-markdown editor 6315ms
+     × hands the message that text in a full-markdown editor 5096ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 1 failed) 12145ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 13ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 17329ms
+     × hands the message that text in a full-markdown editor 10178ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 3 failed) 148ms
+     × in the middle of the first line of a multi-line quote saves what the table says 11ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 9ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 216257ms
+     × hands the message that text in a full-markdown editor 198506ms
+
+ Test Files  6 failed | 228 passed (234)
+      Tests  12 failed | 3639 passed (3651)
+   Start at  07:33:03
+   Duration  219.18s (transform 10.35s, setup 3.11s, import 166.10s, tests 441.94s, environment 118.25s)
+

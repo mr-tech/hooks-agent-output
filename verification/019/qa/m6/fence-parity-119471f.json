@@ -1,0 +1,675 @@
+{
+ "inputs": 3040,
+ "content": {
+  "left": 52,
+  "differing": 7,
+  "rangesNotOnCodeLine": 6,
+  "rows": [
+   {
+    "key": "gen:222",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     }
+    ]
+   },
+   {
+    "key": "gen:358",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[125,127]",
+      "line": 1,
+      "type": "div",
+      "lineText": "### ````__<id:customize> https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿`` \\)x\\)https://x.y/a*b*c 🙂``"
+     }
+    ]
+   },
+   {
+    "key": "gen:364",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[66,95]",
+      "line": 0,
+      "type": "div",
+      "lineText": "  - __````<#1558266761101447248> <t:1700000000:s>``__ <id:browse> <a:dance:1558266761101447248>"
+     },
+     {
+      "side": "engine only",
+      "range": "[96,98]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     },
+     {
+      "side": "engine only",
+      "range": "[99,107]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     }
+    ]
+   },
+   {
+    "key": "gen:469",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[54,56]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - ```🙂 https://x.y<t:1700000000:Z>"
+     }
+    ]
+   },
+   {
+    "key": "gen:626",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[75,77]",
+      "line": 1,
+      "type": "div",
+      "lineText": "-# _```snake_case <t:-1:f>\\]x\\]``_ 🙂 <@!1558266761101447248>"
+     }
+    ]
+   },
+   {
+    "key": "gen:698",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[65,73]",
+      "line": 0,
+      "type": "div",
+      "lineText": "```<a:dance:1558266761101447248>[a](https://example.com/a_b/🙂)` 👨‍👩‍👧 \\:x\\:"
+     }
+    ]
+   },
+   {
+    "key": "gen:786",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[23,25]",
+      "line": 0,
+      "type": "blockQuote",
+      "lineText": ">>> ## ````@here 1️⃣`` ❤️"
+     },
+     {
+      "side": "engine only",
+      "range": "[28,30]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "# 🙂 https://x.y/a*b*chttps://example.com/a_b🙂"
+     },
+     {
+      "side": "engine only",
+      "range": "[78,80]",
+      "line": 2,
+      "type": "codeBlock",
+      "lineText": "# **🪿**"
+     }
+    ]
+   }
+  ]
+ },
+ "embedDescription": {
+  "left": 52,
+  "differing": 7,
+  "rangesNotOnCodeLine": 6,
+  "rows": [
+   {
+    "key": "gen:222",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     }
+    ]
+   },
+   {
+    "key": "gen:358",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[125,127]",
+      "line": 1,
+      "type": "div",
+      "lineText": "### ````__<id:customize> https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿`` \\)x\\)https://x.y/a*b*c 🙂``"
+     }
+    ]
+   },
+   {
+    "key": "gen:364",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[66,95]",
+      "line": 0,
+      "type": "div",
+      "lineText": "  - __````<#1558266761101447248> <t:1700000000:s>``__ <id:browse> <a:dance:1558266761101447248>"
+     },
+     {
+      "side": "engine only",
+      "range": "[96,98]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     },
+     {
+      "side": "engine only",
+      "range": "[99,107]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     }
+    ]
+   },
+   {
+    "key": "gen:469",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[54,56]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - ```🙂 https://x.y<t:1700000000:Z>"
+     }
+    ]
+   },
+   {
+    "key": "gen:626",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[75,77]",
+      "line": 1,
+      "type": "div",
+      "lineText": "-# _```snake_case <t:-1:f>\\]x\\]``_ 🙂 <@!1558266761101447248>"
+     }
+    ]
+   },
+   {
+    "key": "gen:698",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[65,73]",
+      "line": 0,
+      "type": "div",
+      "lineText": "```<a:dance:1558266761101447248>[a](https://example.com/a_b/🙂)` 👨‍👩‍👧 \\:x\\:"
+     }
+    ]
+   },
+   {
+    "key": "gen:786",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[23,25]",
+      "line": 0,
+      "type": "blockQuote",
+      "lineText": ">>> ## ````@here 1️⃣`` ❤️"
+     },
+     {
+      "side": "engine only",
+      "range": "[28,30]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "# 🙂 https://x.y/a*b*chttps://example.com/a_b🙂"
+     },
+     {
+      "side": "engine only",
+      "range": "[78,80]",
+      "line": 2,
+      "type": "codeBlock",
+      "lineText": "# **🪿**"
+     }
+    ]
+   }
+  ]
+ },
+ "fieldValue": {
+  "left": 52,
+  "differing": 7,
+  "rangesNotOnCodeLine": 6,
+  "rows": [
+   {
+    "key": "gen:222",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     }
+    ]
+   },
+   {
+    "key": "gen:358",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[125,127]",
+      "line": 1,
+      "type": "div",
+      "lineText": "### ````__<id:customize> https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿`` \\)x\\)https://x.y/a*b*c 🙂``"
+     }
+    ]
+   },
+   {
+    "key": "gen:364",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[66,95]",
+      "line": 0,
+      "type": "div",
+      "lineText": "  - __````<#1558266761101447248> <t:1700000000:s>``__ <id:browse> <a:dance:1558266761101447248>"
+     },
+     {
+      "side": "engine only",
+      "range": "[96,98]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     },
+     {
+      "side": "engine only",
+      "range": "[99,107]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     }
+    ]
+   },
+   {
+    "key": "gen:469",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[54,56]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - ```🙂 https://x.y<t:1700000000:Z>"
+     }
+    ]
+   },
+   {
+    "key": "gen:626",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[75,77]",
+      "line": 1,
+      "type": "div",
+      "lineText": "-# _```snake_case <t:-1:f>\\]x\\]``_ 🙂 <@!1558266761101447248>"
+     }
+    ]
+   },
+   {
+    "key": "gen:698",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[65,73]",
+      "line": 0,
+      "type": "div",
+      "lineText": "```<a:dance:1558266761101447248>[a](https://example.com/a_b/🙂)` 👨‍👩‍👧 \\:x\\:"
+     }
+    ]
+   },
+   {
+    "key": "gen:786",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[23,25]",
+      "line": 0,
+      "type": "blockQuote",
+      "lineText": ">>> ## ````@here 1️⃣`` ❤️"
+     },
+     {
+      "side": "engine only",
+      "range": "[28,30]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "# 🙂 https://x.y/a*b*chttps://example.com/a_b🙂"
+     },
+     {
+      "side": "engine only",
+      "range": "[78,80]",
+      "line": 2,
+      "type": "codeBlock",
+      "lineText": "# **🪿**"
+     }
+    ]
+   }
+  ]
+ },
+ "embedTitle": {
+  "left": 52,
+  "differing": 3,
+  "rangesNotOnCodeLine": 3,
+  "rows": [
+   {
+    "key": "gen:222",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     }
+    ]
+   },
+   {
+    "key": "gen:469",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[54,56]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - ```🙂 https://x.y<t:1700000000:Z>"
+     }
+    ]
+   },
+   {
+    "key": "gen:698",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[65,73]",
+      "line": 0,
+      "type": "div",
+      "lineText": "```<a:dance:1558266761101447248>[a](https://example.com/a_b/🙂)` 👨‍👩‍👧 \\:x\\:"
+     }
+    ]
+   }
+  ]
+ },
+ "embedTitleWithUrl": {
+  "left": 52,
+  "differing": 11,
+  "rangesNotOnCodeLine": 13,
+  "rows": [
+   {
+    "key": "gen:123",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[82,84]",
+      "line": 2,
+      "type": "div",
+      "lineText": "````[a](https://x.y/🙂)"
+     }
+    ]
+   },
+   {
+    "key": "gen:189",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[80,82]",
+      "line": 2,
+      "type": "div",
+      "lineText": "# `[🙂](https://x.y) é"
+     }
+    ]
+   },
+   {
+    "key": "gen:222",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     },
+     {
+      "side": "engine only",
+      "range": "[49,77]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     }
+    ]
+   },
+   {
+    "key": "gen:358",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[155,157]",
+      "line": 2,
+      "type": "div",
+      "lineText": "- ||`日本 https://x.y/a*b*c🙂`||"
+     }
+    ]
+   },
+   {
+    "key": "gen:437",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[51,53]",
+      "line": 1,
+      "type": "div",
+      "lineText": "# ~~~~||<id:linked-roles> a*b|| hello world [a 🙂 b](https://example.com/a_b)~~"
+     }
+    ]
+   },
+   {
+    "key": "gen:469",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[54,56]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - ```🙂 https://x.y<t:1700000000:Z>"
+     }
+    ]
+   },
+   {
+    "key": "gen:538",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[9,16]",
+      "line": 1,
+      "type": "div",
+      "lineText": "__[:smile:](https://x.y)__"
+     }
+    ]
+   },
+   {
+    "key": "gen:598",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "div",
+      "lineText": "# x_y https://x.y🙂"
+     }
+    ]
+   },
+   {
+    "key": "gen:698",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[65,73]",
+      "line": 0,
+      "type": "div",
+      "lineText": "```<a:dance:1558266761101447248>[a](https://example.com/a_b/🙂)` 👨‍👩‍👧 \\:x\\:"
+     },
+     {
+      "side": "engine only",
+      "range": "[146,148]",
+      "line": 2,
+      "type": "div",
+      "lineText": "- `||é|| [a](https://x.y/a*b*c/🙂) \\:x\\:"
+     }
+    ]
+   },
+   {
+    "key": "gen:765",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[10,38]",
+      "line": 1,
+      "type": "div",
+      "lineText": "1. [<:hooks:1558266761101447248>](https://x.y) \\(x\\("
+     }
+    ]
+   },
+   {
+    "key": "gen:895",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[59,61]",
+      "line": 0,
+      "type": "div",
+      "lineText": "-# __```🏴󠁧󠁢󠁥󠁮󠁧󠁿<t:1700000000:s>` <t:1700000000:d>[a 🙂 b](https://example.com/a_b)__ <@&1558266761101447248>"
+     }
+    ]
+   }
+  ]
+ },
+ "v2Text": {
+  "left": 52,
+  "differing": 7,
+  "rangesNotOnCodeLine": 6,
+  "rows": [
+   {
+    "key": "gen:222",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[21,23]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "  - _*__\\~x\\~* 🙂 https://example.com/a_b [<:hooks:1558266761101447248>](https://x.y/a*b*c)_ C++ snake_case"
+     }
+    ]
+   },
+   {
+    "key": "gen:358",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[125,127]",
+      "line": 1,
+      "type": "div",
+      "lineText": "### ````__<id:customize> https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿`` \\)x\\)https://x.y/a*b*c 🙂``"
+     }
+    ]
+   },
+   {
+    "key": "gen:364",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[66,95]",
+      "line": 0,
+      "type": "div",
+      "lineText": "  - __````<#1558266761101447248> <t:1700000000:s>``__ <id:browse> <a:dance:1558266761101447248>"
+     },
+     {
+      "side": "engine only",
+      "range": "[96,98]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     },
+     {
+      "side": "engine only",
+      "range": "[99,107]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "🙂 👨‍👩‍👧"
+     }
+    ]
+   },
+   {
+    "key": "gen:469",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[54,56]",
+      "line": 1,
+      "type": "div",
+      "lineText": "  - ```🙂 https://x.y<t:1700000000:Z>"
+     }
+    ]
+   },
+   {
+    "key": "gen:626",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[75,77]",
+      "line": 1,
+      "type": "div",
+      "lineText": "-# _```snake_case <t:-1:f>\\]x\\]``_ 🙂 <@!1558266761101447248>"
+     }
+    ]
+   },
+   {
+    "key": "gen:698",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[65,73]",
+      "line": 0,
+      "type": "div",
+      "lineText": "```<a:dance:1558266761101447248>[a](https://example.com/a_b/🙂)` 👨‍👩‍👧 \\:x\\:"
+     }
+    ]
+   },
+   {
+    "key": "gen:786",
+    "diff": [
+     {
+      "side": "engine only",
+      "range": "[23,25]",
+      "line": 0,
+      "type": "blockQuote",
+      "lineText": ">>> ## ````@here 1️⃣`` ❤️"
+     },
+     {
+      "side": "engine only",
+      "range": "[28,30]",
+      "line": 1,
+      "type": "codeBlock",
+      "lineText": "# 🙂 https://x.y/a*b*chttps://example.com/a_b🙂"
+     },
+     {
+      "side": "engine only",
+      "range": "[78,80]",
+      "line": 2,
+      "type": "codeBlock",
+      "lineText": "# **🪿**"
+     }
+    ]
+   }
+  ]
+ }
+}

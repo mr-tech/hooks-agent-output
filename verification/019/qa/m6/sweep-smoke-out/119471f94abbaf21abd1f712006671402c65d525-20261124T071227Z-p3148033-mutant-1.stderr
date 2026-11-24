@@ -1,0 +1,37 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box on every input, an emoji element's source characters left out
+AssertionError: expected [ '>>> a\n> _\n> _b_' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ > _
++ > _b_",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:111:23
+    109|     expect(compared).toBeGreaterThan(200);
+    110|     expect(withElement).toBeGreaterThanOrEqual(10);
+    111|     expect(differing).toEqual([]);
+       |                       ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

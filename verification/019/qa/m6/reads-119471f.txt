@@ -1,0 +1,84 @@
+## CR-7 exit check: git grep -c 'BASE_RED\|holdsEmoji' 119471f -- src (exit code; output)
+exit=1
+## positive control: same at f4060c5
+f4060c5:src/components/SlateEditor/__tests__/helpers/blockLayerEdits.ts:1
+f4060c5:src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts:4
+f4060c5:src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts:3
+f4060c5:src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:2
+f4060c5:src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:4
+exit=0
+## AC-6.6 simple-markdown importers outside node_modules (git grep -l, whole repo)
+119471f:src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts
+exit=0
+## control at 2e36107
+2e36107:package.json
+2e36107:patches/simple-markdown@0.7.3.patch
+2e36107:pnpm-lock.yaml
+2e36107:pnpm-workspace.yaml
+2e36107:src/@types/simple-markdown.d.ts
+2e36107:src/@types/slate.d.ts
+2e36107:src/components/DiscordContentEditor/index.tsx
+2e36107:src/components/Markdown.tsx
+2e36107:src/components/SlateEditor/index.tsx
+2e36107:src/components/SlateEditor/utils/common.ts
+2e36107:src/components/SlateEditor/utils/getInitialValue.ts
+2e36107:src/components/SlateEditor/utils/withNormalizeNode.ts
+2e36107:src/providers/MarkdownProvider.tsx
+2e36107:src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts
+2e36107:src/utils/markdown/emoji.tsx
+2e36107:src/utils/markdown/index.tsx
+2e36107:src/utils/markdown/preview.tsx
+2e36107:src/utils/markdown/rules.tsx
+2e36107:src/utils/markdown/utils.ts
+exit=0
+patches/simple-markdown@0.7.3.patch present_at_tip_exit=128
+patches/simple-markdown@0.7.3.patch present_at_base_exit=0
+pnpm-workspace.yaml present_at_tip_exit=128
+pnpm-workspace.yaml present_at_base_exit=0
+src/@types/simple-markdown.d.ts present_at_tip_exit=128
+src/@types/simple-markdown.d.ts present_at_base_exit=0
+## package.json simple-markdown / emoji-regex at tip
+59:    "emoji-regex": "^10.2.1",
+## lockfile diff 2e36107..119471f numstat
+0	15	pnpm-lock.yaml
+## AC-6.1b saveMessage( sites, non-test, at 5ec0621 and 119471f
+-- 5ec0621
+5ec0621:src/app/message/m/[id]/_layout/Navigation.tsx:143:      onPress: () => saveMessage(),
+5ec0621:src/app/message/m/[id]/_layout/Navigation.tsx:294:                        onPress={() => saveMessage()}
+5ec0621:src/app/message/m/[id]/edit/page.tsx:65:          void saveMessage();
+5ec0621:src/app/message/m/[id]/edit/page.tsx:221:                          onPress={() => saveMessage()}
+-- 119471f
+119471f:src/app/message/m/[id]/_layout/Navigation.tsx:143:      onPress: () => saveMessage(),
+119471f:src/app/message/m/[id]/_layout/Navigation.tsx:294:                        onPress={() => saveMessage()}
+119471f:src/app/message/m/[id]/edit/page.tsx:65:          void saveMessage();
+119471f:src/app/message/m/[id]/edit/page.tsx:221:                          onPress={() => saveMessage()}
+## message.upsert / upsert writers at tip
+119471f:src/utils/maps/UpsertMapMap.ts:55:    values.upsert(innerKey, value);
+119471f:src/utils/redis/index.ts:64:  WAITING_MAP.upsert(key, { deferred, timeout });
+119471f:src/utils/redis/index.ts:304:          threadMap.upsert(t.parent_id, { id: t.id, name: t.name });
+## upsert( writers with message context, non-test, tip and base
+-- 5ec0621
+5ec0621:src/app/message/_components/NewMessageModal.tsx:77:  } = api.message.upsert.useMutation({
+5ec0621:src/app/message/f/[id]/page.tsx:125:  const { mutate: upsertMessage, isPending: isMessageLoading } = api.message.upsert.useMutation({
+5ec0621:src/app/message/m/[id]/_components/SaveAsMenu.tsx:45:  } = api.message.upsert.useMutation({
+5ec0621:src/app/message/m/new/page.tsx:40:  } = api.message.upsert.useMutation({
+5ec0621:src/providers/MessageProvider/index.tsx:258:  const { mutate: upsertMessage, isPending: isSaving } = api.message.upsert.useMutation({
+-- 119471f
+119471f:src/app/message/_components/NewMessageModal.tsx:77:  } = api.message.upsert.useMutation({
+119471f:src/app/message/f/[id]/page.tsx:125:  const { mutate: upsertMessage, isPending: isMessageLoading } = api.message.upsert.useMutation({
+119471f:src/app/message/m/[id]/_components/SaveAsMenu.tsx:45:  } = api.message.upsert.useMutation({
+119471f:src/app/message/m/new/page.tsx:40:  } = api.message.upsert.useMutation({
+119471f:src/providers/MessageProvider/index.tsx:258:  const { mutate: upsertMessage, isPending: isSaving } = api.message.upsert.useMutation({
+## simpleMarkdown.absent-from-product test: lines naming simple-markdown
+1:import { existsSync, readFileSync } from 'fs';
+2:import { resolve } from 'path';
+3:import { describe, expect, it } from 'vitest';
+5:import importersOf from './helpers/importersOf';
+10:describe('the package simple-markdown', () => {
+11:  it('is imported by no module of the website outside node_modules and .next', () => {
+12:    const scan = importersOf(WEBSITE_ROOT, ['simple-markdown']);
+13:    expect([scan.importers, scan.unresolvable.filter((name) => !name.split('/').includes('__tests__'))]).toEqual([[], []]);
+18:    const named = ['dependencies', 'devDependencies', 'optionalDependencies'].filter((field) => manifest[field]?.['simple-markdown'] !== undefined);
+25:      existsSync(resolve(WEBSITE_ROOT, 'patches/simple-markdown@0.7.3.patch')),
+26:      workspace.includes('simple-markdown'),
+27:      existsSync(resolve(WEBSITE_ROOT, 'src/@types/simple-markdown.d.ts')),

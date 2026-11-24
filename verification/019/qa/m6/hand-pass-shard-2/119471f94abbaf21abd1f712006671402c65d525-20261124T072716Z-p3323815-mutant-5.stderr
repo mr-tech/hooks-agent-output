@@ -1,0 +1,4795 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line
+AssertionError: expected [ '```\n`x``', 'codeBlock' ] to deeply equal [ '```\n> `x``', 'codeBlock' ]
+
+- Expected
++ Received
+
+  [
+    "```
+- > `x``",
++ `x``",
+    "codeBlock",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:161:53
+    159|     Transforms.select(editor, Editor.after(editor, start, { distance: …
+    160|     Transforms.insertText(editor, 'x');
+    161|     expect([textOf(editor), typesOf(editor)[line]]).toEqual([expected,…
+       |                                                     ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line
+AssertionError: expected [ '```\n`x``', 'codeBlock' ] to deeply equal [ '```\n>>> `x``', 'codeBlock' ]
+
+- Expected
++ Received
+
+  [
+    "```
+- >>> `x``",
++ `x``",
+    "codeBlock",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:161:53
+    159|     Transforms.select(editor, Editor.after(editor, start, { distance: …
+    160|     Transforms.insertText(editor, 'x');
+    161|     expect([textOf(editor), typesOf(editor)[line]]).toEqual([expected,…
+       |                                                     ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    "```c++_
+  >>> *
+   _
+- > `x``\\
++ `x``\\
+  ```c++ba
+  ``` b",
+    "codeBlock",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:161:53
+    159|     Transforms.select(editor, Editor.after(editor, start, { distance: …
+    160|     Transforms.insertText(editor, 'x');
+    161|     expect([textOf(editor), typesOf(editor)[line]]).toEqual([expected,…
+       |                                                     ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+AssertionError: expected [ Array(346) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "expected": "```c++_
++ >>> *
++  _
++ > `x``\\
++ ```c++ba
++ ``` b",
++     "line": 3,
++     "offset": 1,
++     "text": "```c++_
++ >>> *
++  _
++ > ```\\
++ ```c++ba
++ ``` b",
++   },
++   {
++     "expected": "```c++_
++ >>> *
++  _
++ > ``x`\\
++ ```c++ba
++ ``` b",
++     "line": 3,
++     "offset": 2,
++     "text": "```c++_
++ >>> *
++  _
++ > ```\\
++ ```c++ba
++ ``` b",
++   },
++   {
++     "expected": "`x``js
++ ```c++*js||
++ > _
++ > `",
++     "line": 0,
++     "offset": 1,
++     "text": "```js
++ ```c++*js||
++ > _
++ > `",
++   },
++   {
++     "expected": "``x`js
++ ```c++*js||
++ > _
++ > `",
++     "line": 0,
++     "offset": 2,
++     "text": "```js
++ ```c++*js||
++ > _
++ > `",
++   },
++   {
++     "expected": "```js
++ `x``c++*js||
++ > _
++ > `",
++     "line": 1,
++     "offset": 1,
++     "text": "```js
++ ```c++*js||
++ > _
++ > `",
++   },
++   {
++     "expected": "```js
++ ``x`c++*js||
++ > _
++ > `",
++     "line": 1,
++     "offset": 2,
++     "text": "```js
++ ```c++*js||
++ > _
++ > `",
++   },
++   {
++     "expected": ">
++ `x``c++```>>> >>> 
++ > *>>> `
++ >> ",
++     "line": 1,
++     "offset": 1,
++     "text": ">
++ ```c++```>>> >>> 
++ > *>>> `
++ >> ",
++   },
++   {
++     "expected": ">
++ ``x`c++```>>> >>> 
++ > *>>> `
++ >> ",
++     "line": 1,
++     "offset": 2,
++     "text": ">
++ ```c++```>>> >>> 
++ > *>>> `
++ >> ",
++   },
++   {
++     "expected": ">
++ ```c++`x``>>> >>> 
++ > *>>> `
++ >> ",
++     "line": 1,
++     "offset": 7,
++     "text": ">
++ ```c++```>>> >>> 
++ > *>>> `
++ >> ",
++   },
++   {
++     "expected": ">
++ ```c++``x`>>> >>> 
++ > *>>> `
++ >> ",
++     "line": 1,
++     "offset": 8,
++     "text": ">
++ ```c++```>>> >>> 
++ > *>>> `
++ >> ",
++   },
++   {
++     "expected": "```jsa|| 
++  > 
++ >> ||
++ >>>  `x``
++ ``` ```",
++     "line": 3,
++     "offset": 2,
++     "text": "```jsa|| 
++  > 
++ >> ||
++ >>>  ```
++ ``` ```",
++   },
++   {
++     "expected": "```jsa|| 
++  > 
++ >> ||
++ >>>  ``x`
++ ``` ```",
++     "line": 3,
++     "offset": 3,
++     "text": "```jsa|| 
++  > 
++ >> ||
++ >>>  ```
++ ``` ```",
++   },
++   {
++     "expected": "```c++> _~~
++ >>> js~~`x``
++ `> a",
++     "line": 1,
++     "offset": 5,
++     "text": "```c++> _~~
++ >>> js~~```
++ `> a",
++   },
++   {
++     "expected": "```c++> _~~
++ >>> js~~``x`
++ `> a",
++     "line": 1,
++     "offset": 6,
++     "text": "```c++> _~~
++ >>> js~~```
++ `> a",
++   },
++   {
++     "expected": "`x``js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++   },
++   {
++     "expected": "``x`js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++   },
++   {
++     "expected": "```js\\`
++ `x``c++js
++  > a#
++ >||_
++ >>> ",
++     "line": 1,
++     "offset": 1,
++     "text": "```js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++   },
++   {
++     "expected": "```js\\`
++ ``x`c++js
++  > a#
++ >||_
++ >>> ",
++     "line": 1,
++     "offset": 2,
++     "text": "```js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++   },
++   {
++     "expected": ">
++ ``` #_
++ > b`x`` ",
++     "line": 2,
++     "offset": 2,
++     "text": ">
++ ``` #_
++ > b``` ",
++   },
++   {
++     "expected": ">
++ ``` #_
++ > b``x` ",
++     "line": 2,
++     "offset": 3,
++     "text": ">
++ ``` #_
++ > b``` ",
++   },
++   {
++     "expected": ">>> `
++
++ > js#
++ ``` `||js
++ > >>> `x``",
++     "line": 4,
++     "offset": 5,
++     "text": ">>> `
++
++ > js#
++ ``` `||js
++ > >>> ```",
++   },
++   {
++     "expected": ">>> `
++
++ > js#
++ ``` `||js
++ > >>> ``x`",
++     "line": 4,
++     "offset": 6,
++     "text": ">>> `
++
++ > js#
++ ``` `||js
++ > >>> ```",
++   },
++   {
++     "expected": ">`>>> 
++ `x`` b 
++ ``` **b
++ >>> jsb",
++     "line": 1,
++     "offset": 1,
++     "text": ">`>>> 
++ ``` b 
++ ``` **b
++ >>> jsb",
++   },
++   {
++     "expected": ">`>>> 
++ ``x` b 
++ ``` **b
++ >>> jsb",
++     "line": 1,
++     "offset": 2,
++     "text": ">`>>> 
++ ``` b 
++ ``` **b
++ >>> jsb",
++   },
++   {
++     "expected": ">`>>> 
++ ``` b 
++ `x`` **b
++ >>> jsb",
++     "line": 2,
++     "offset": 1,
++     "text": ">`>>> 
++ ``` b 
++ ``` **b
++ >>> jsb",
++   },
++   {
++     "expected": ">`>>> 
++ ``` b 
++ ``x` **b
++ >>> jsb",
++     "line": 2,
++     "offset": 2,
++     "text": ">`>>> 
++ ``` b 
++ ``` **b
++ >>> jsb",
++   },
++   {
++     "expected": "``````
++ ```c++>>> a\\
++  > `x``",
++     "line": 2,
++     "offset": 1,
++     "text": "``````
++ ```c++>>> a\\
++  > ```",
++   },
++   {
++     "expected": "``````
++ ```c++>>> a\\
++  > ``x`",
++     "line": 2,
++     "offset": 2,
++     "text": "``````
++ ```c++>>> a\\
++  > ```",
++   },
++   {
++     "expected": "`x``js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++     "line": 0,
++     "offset": 1,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "``x`js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++     "line": 0,
++     "offset": 2,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "```js> 
++ `x``jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++     "line": 1,
++     "offset": 1,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "```js> 
++ ``x`jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++     "line": 1,
++     "offset": 2,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "```js> 
++ ```jsb`x``js
++ ```  ||
++ >>> js b
++ ```js*js",
++     "line": 1,
++     "offset": 7,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "```js> 
++ ```jsb``x`js
++ ```  ||
++ >>> js b
++ ```js*js",
++     "line": 1,
++     "offset": 8,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "```js> 
++ ```jsb```js
++ `x``  ||
++ >>> js b
++ ```js*js",
++     "line": 2,
++     "offset": 1,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": "```js> 
++ ```jsb```js
++ ``x`  ||
++ >>> js b
++ ```js*js",
++     "line": 2,
++     "offset": 2,
++     "text": "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   },
++   {
++     "expected": ">~~
++ >> 
++ `x``# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++     "line": 2,
++     "offset": 1,
++     "text": ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++   },
++   {
++     "expected": ">~~
++ >> 
++ ``x`# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++     "line": 2,
++     "offset": 2,
++     "text": ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++   },
++   {
++     "expected": ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ `x``c++>>> ~~
++  > ",
++     "line": 4,
++     "offset": 1,
++     "text": ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++   },
++   {
++     "expected": ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ ``x`c++>>> ~~
++  > ",
++     "line": 4,
++     "offset": 2,
++     "text": ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++   },
++   {
++     "expected": "> > 
++ ```js`_js
++ > `x``
++
++ ```",
++     "line": 2,
++     "offset": 1,
++     "text": "> > 
++ ```js`_js
++ > ```
++
++ ```",
++   },
++   {
++     "expected": "> > 
++ ```js`_js
++ > ``x`
++
++ ```",
++     "line": 2,
++     "offset": 2,
++     "text": "> > 
++ ```js`_js
++ > ```
++
++ ```",
++   },
++   {
++     "expected": "`x``jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++   },
++   {
++     "expected": "``x`jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++   },
++   {
++     "expected": "```jsa> 
++ `x``js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++     "line": 1,
++     "offset": 1,
++     "text": "```jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++   },
++   {
++     "expected": "```jsa> 
++ ``x`js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++     "line": 1,
++     "offset": 2,
++     "text": "```jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++   },
++   {
++     "expected": "`x`` ` 
++ ```
++  > ",
++     "line": 0,
++     "offset": 1,
++     "text": "``` ` 
++ ```
++  > ",
++   },
++   {
++     "expected": "``x` ` 
++ ```
++  > ",
++     "line": 0,
++     "offset": 2,
++     "text": "``` ` 
++ ```
++  > ",
++   },
++   {
++     "expected": "``` ` 
++ `x``
++  > ",
++     "line": 1,
++     "offset": 1,
++     "text": "``` ` 
++ ```
++  > ",
++   },
++   {
++     "expected": "``` ` 
++ ``x`
++  > ",
++     "line": 1,
++     "offset": 2,
++     "text": "``` ` 
++ ```
++  > ",
++   },
++   {
++     "expected": "`x``jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++     "line": 0,
++     "offset": 1,
++     "text": "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   },
++   {
++     "expected": "``x`jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++     "line": 0,
++     "offset": 2,
++     "text": "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   },
++   {
++     "expected": "```jsa||a
++ > 
++ >>> 
++ >> _`x``
++ *||
++  > \\ ",
++     "line": 3,
++     "offset": 5,
++     "text": "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   },
++   {
++     "expected": "```jsa||a
++ > 
++ >>> 
++ >> _``x`
++ *||
++  > \\ ",
++     "line": 3,
++     "offset": 6,
++     "text": "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   },
++   {
++     "expected": "`x``*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++     "line": 0,
++     "offset": 1,
++     "text": "```*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++   },
++   {
++     "expected": "``x`*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++     "line": 0,
++     "offset": 2,
++     "text": "```*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++   },
++   {
++     "expected": "```*`x``
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++     "line": 0,
++     "offset": 5,
++     "text": "```*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++   },
++   {
++     "expected": "```*``x`
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++     "line": 0,
++     "offset": 6,
++     "text": "```*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++   },
++   {
++     "expected": "`x`` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++     "line": 0,
++     "offset": 1,
++     "text": "``` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++   },
++   {
++     "expected": "``x` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++     "line": 0,
++     "offset": 2,
++     "text": "``` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++   },
++   {
++     "expected": "``` js_*
++ `b||
++ `x``
++ >>> 
++ ``` ##",
++     "line": 2,
++     "offset": 1,
++     "text": "``` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++   },
++   {
++     "expected": "``` js_*
++ `b||
++ ``x`
++ >>> 
++ ``` ##",
++     "line": 2,
++     "offset": 2,
++     "text": "``` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++   },
++   {
++     "expected": "`x``c++aa`
++ ``` #
++ > #",
++     "line": 0,
++     "offset": 1,
++     "text": "```c++aa`
++ ``` #
++ > #",
++   },
++   {
++     "expected": "``x`c++aa`
++ ``` #
++ > #",
++     "line": 0,
++     "offset": 2,
++     "text": "```c++aa`
++ ``` #
++ > #",
++   },
++   {
++     "expected": "```c++aa`
++ `x`` #
++ > #",
++     "line": 1,
++     "offset": 1,
++     "text": "```c++aa`
++ ``` #
++ > #",
++   },
++   {
++     "expected": "```c++aa`
++ ``x` #
++ > #",
++     "line": 1,
++     "offset": 2,
++     "text": "```c++aa`
++ ``` #
++ > #",
++   },
++   {
++     "expected": "``` 
++
++ >js
++  > *js`x``
++ ```\\b",
++     "line": 3,
++     "offset": 4,
++     "text": "``` 
++
++ >js
++  > *js```
++ ```\\b",
++   },
++   {
++     "expected": "``` 
++
++ >js
++  > *js``x`
++ ```\\b",
++     "line": 3,
++     "offset": 5,
++     "text": "``` 
++
++ >js
++  > *js```
++ ```\\b",
++   },
++   {
++     "expected": "`x``js```a*
++  > > > _
++ ```js",
++     "line": 0,
++     "offset": 1,
++     "text": "```js```a*
++  > > > _
++ ```js",
++   },
++   {
++     "expected": "``x`js```a*
++  > > > _
++ ```js",
++     "line": 0,
++     "offset": 2,
++     "text": "```js```a*
++  > > > _
++ ```js",
++   },
++   {
++     "expected": "```js`x``a*
++  > > > _
++ ```js",
++     "line": 0,
++     "offset": 6,
++     "text": "```js```a*
++  > > > _
++ ```js",
++   },
++   {
++     "expected": "```js``x`a*
++  > > > _
++ ```js",
++     "line": 0,
++     "offset": 7,
++     "text": "```js```a*
++  > > > _
++ ```js",
++   },
++   {
++     "expected": "`x`` *`
++ ```
++ > 
++ ```a",
++     "line": 0,
++     "offset": 1,
++     "text": "``` *`
++ ```
++ > 
++ ```a",
++   },
++   {
++     "expected": "``x` *`
++ ```
++ > 
++ ```a",
++     "line": 0,
++     "offset": 2,
++     "text": "``` *`
++ ```
++ > 
++ ```a",
++   },
++   {
++     "expected": "``` *`
++ `x``
++ > 
++ ```a",
++     "line": 1,
++     "offset": 1,
++     "text": "``` *`
++ ```
++ > 
++ ```a",
++   },
++   {
++     "expected": "``` *`
++ ``x`
++ > 
++ ```a",
++     "line": 1,
++     "offset": 2,
++     "text": "``` *`
++ ```
++ > 
++ ```a",
++   },
++   {
++     "expected": "
++ `x`` 
++ ```js*
++  > ||
++ >> **js
++ *",
++     "line": 1,
++     "offset": 1,
++     "text": "
++ ``` 
++ ```js*
++  > ||
++ >> **js
++ *",
++   },
++   {
++     "expected": "
++ ``x` 
++ ```js*
++  > ||
++ >> **js
++ *",
++     "line": 1,
++     "offset": 2,
++     "text": "
++ ``` 
++ ```js*
++  > ||
++ >> **js
++ *",
++   },
++   {
++     "expected": "
++ ``` 
++ `x``js*
++  > ||
++ >> **js
++ *",
++     "line": 2,
++     "offset": 1,
++     "text": "
++ ``` 
++ ```js*
++  > ||
++ >> **js
++ *",
++   },
++   {
++     "expected": "
++ ``` 
++ ``x`js*
++  > ||
++ >> **js
++ *",
++     "line": 2,
++     "offset": 2,
++     "text": "
++ ``` 
++ ```js*
++  > ||
++ >> **js
++ *",
++   },
++   {
++     "expected": "```js~~
++ >>> \\||`x``
++ ```~~js
++ ~~
++ ``` ",
++     "line": 1,
++     "offset": 4,
++     "text": "```js~~
++ >>> \\||```
++ ```~~js
++ ~~
++ ``` ",
++   },
++   {
++     "expected": "```js~~
++ >>> \\||``x`
++ ```~~js
++ ~~
++ ``` ",
++     "line": 1,
++     "offset": 5,
++     "text": "```js~~
++ >>> \\||```
++ ```~~js
++ ~~
++ ``` ",
++   },
++   {
++     "expected": "> _ #
++ `x``c++> ||js
++ > > ```
++  
++ >>> ~~`",
++     "line": 1,
++     "offset": 1,
++     "text": "> _ #
++ ```c++> ||js
++ > > ```
++  
++ >>> ~~`",
++   },
++   {
++     "expected": "> _ #
++ ``x`c++> ||js
++ > > ```
++  
++ >>> ~~`",
++     "line": 1,
++     "offset": 2,
++     "text": "> _ #
++ ```c++> ||js
++ > > ```
++  
++ >>> ~~`",
++   },
++   {
++     "expected": "> _ #
++ ```c++> ||js
++ > > `x``
++  
++ >>> ~~`",
++     "line": 2,
++     "offset": 3,
++     "text": "> _ #
++ ```c++> ||js
++ > > ```
++  
++ >>> ~~`",
++   },
++   {
++     "expected": "> _ #
++ ```c++> ||js
++ > > ``x`
++  
++ >>> ~~`",
++     "line": 2,
++     "offset": 4,
++     "text": "> _ #
++ ```c++> ||js
++ > > ```
++  
++ >>> ~~`",
++   },
++   {
++     "expected": "`x``_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++     "line": 0,
++     "offset": 1,
++     "text": "```_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++   },
++   {
++     "expected": "``x`_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++     "line": 0,
++     "offset": 2,
++     "text": "```_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++   },
++   {
++     "expected": "```_
++ >> _
++ `x``  `*
++ >>> 
++ > \\",
++     "line": 2,
++     "offset": 1,
++     "text": "```_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++   },
++   {
++     "expected": "```_
++ >> _
++ ``x`  `*
++ >>> 
++ > \\",
++     "line": 2,
++     "offset": 2,
++     "text": "```_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++   },
++   {
++     "expected": "`x``js_\\
++ ```c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```js_\\
++ ```c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++   },
++   {
++     "expected": "``x`js_\\
++ ```c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```js_\\
++ ```c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++   },
++   {
++     "expected": "```js_\\
++ `x``c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++     "line": 1,
++     "offset": 1,
++     "text": "```js_\\
++ ```c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++   },
++   {
++     "expected": "```js_\\
++ ``x`c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++     "line": 1,
++     "offset": 2,
++     "text": "```js_\\
++ ```c++
++ > \\_
++ ```js~~ 
++ ```js> ",
++   },
++   {
++     "expected": "`x`` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++     "line": 0,
++     "offset": 1,
++     "text": "``` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++   },
++   {
++     "expected": "``x` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++     "line": 0,
++     "offset": 2,
++     "text": "``` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++   },
++   {
++     "expected": "``` 
++ > ||a 
++ ``x``* 
++ >\\a
++ > \\",
++     "line": 2,
++     "offset": 2,
++     "text": "``` 
++ > ||a 
++ ````* 
++ >\\a
++ > \\",
++   },
++   {
++     "expected": "```c++_> > 
++ > \\_
++ ~~
++ >>> > `x``\\",
++     "line": 3,
++     "offset": 1,
++     "text": "```c++_> > 
++ > \\_
++ ~~
++ >>> > ```\\",
++   },
++   {
++     "expected": "```c++_> > 
++ > \\_
++ ~~
++ >>> > ``x`\\",
++     "line": 3,
++     "offset": 2,
++     "text": "```c++_> > 
++ > \\_
++ ~~
++ >>> > ```\\",
++   },
++   {
++     "expected": "`x`` _`
++ ```c++||
++ >>> b",
++     "line": 0,
++     "offset": 1,
++     "text": "``` _`
++ ```c++||
++ >>> b",
++   },
++   {
++     "expected": "``x` _`
++ ```c++||
++ >>> b",
++     "line": 0,
++     "offset": 2,
++     "text": "``` _`
++ ```c++||
++ >>> b",
++   },
++   {
++     "expected": "``` _`
++ `x``c++||
++ >>> b",
++     "line": 1,
++     "offset": 1,
++     "text": "``` _`
++ ```c++||
++ >>> b",
++   },
++   {
++     "expected": "``` _`
++ ``x`c++||
++ >>> b",
++     "line": 1,
++     "offset": 2,
++     "text": "``` _`
++ ```c++||
++ >>> b",
++   },
++   {
++     "expected": "`x`` ` `
++ *>>> b
++ ```||a
++ ||
++ >a
++  >  ",
++     "line": 0,
++     "offset": 1,
++     "text": "``` ` `
++ *>>> b
++ ```||a
++ ||
++ >a
++  >  ",
++   },
++   {
++     "expected": "``x` ` `
++ *>>> b
++ ```||a
++ ||
++ >a
++  >  ",
++     "line": 0,
++     "offset": 2,
++     "text": "``` ` `
++ *>>> b
++ ```||a
++ ||
++ >a
++  >  ",
++   },
++   {
++     "expected": "``` ` `
++ *>>> b
++ `x``||a
++ ||
++ >a
++  >  ",
++     "line": 2,
++     "offset": 1,
++     "text": "``` ` `
++ *>>> b
++ ```||a
++ ||
++ >a
++  >  ",
++   },
++   {
++     "expected": "``` ` `
++ *>>> b
++ ``x`||a
++ ||
++ >a
++  >  ",
++     "line": 2,
++     "offset": 2,
++     "text": "``` ` `
++ *>>> b
++ ```||a
++ ||
++ >a
++  >  ",
++   },
++   {
++     "expected": "a#a
++ `x``js_
++ ```js`
++ ```
++ ```
++ > ",
++     "line": 1,
++     "offset": 1,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ``x`js_
++ ```js`
++ ```
++ ```
++ > ",
++     "line": 1,
++     "offset": 2,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ```js_
++ `x``js`
++ ```
++ ```
++ > ",
++     "line": 2,
++     "offset": 1,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ```js_
++ ``x`js`
++ ```
++ ```
++ > ",
++     "line": 2,
++     "offset": 2,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ```js_
++ ```js`
++ `x``
++ ```
++ > ",
++     "line": 3,
++     "offset": 1,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ```js_
++ ```js`
++ ``x`
++ ```
++ > ",
++     "line": 3,
++     "offset": 2,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ```js_
++ ```js`
++ ```
++ `x``
++ > ",
++     "line": 4,
++     "offset": 1,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "a#a
++ ```js_
++ ```js`
++ ```
++ ``x`
++ > ",
++     "line": 4,
++     "offset": 2,
++     "text": "a#a
++ ```js_
++ ```js`
++ ```
++ ```
++ > ",
++   },
++   {
++     "expected": "`x``c++>>> \\
++ ```c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++     "line": 0,
++     "offset": 1,
++     "text": "```c++>>> \\
++ ```c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++   },
++   {
++     "expected": "``x`c++>>> \\
++ ```c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++     "line": 0,
++     "offset": 2,
++     "text": "```c++>>> \\
++ ```c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++   },
++   {
++     "expected": "```c++>>> \\
++ `x``c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++     "line": 1,
++     "offset": 1,
++     "text": "```c++>>> \\
++ ```c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++   },
++   {
++     "expected": "```c++>>> \\
++ ``x`c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++     "line": 1,
++     "offset": 2,
++     "text": "```c++>>> \\
++ ```c++*> `
++ >>> 
++ ```c++b*
++ ```\\```",
++   },
++   {
++     "expected": "```>>> *#
++  > `x``",
++     "line": 1,
++     "offset": 1,
++     "text": "```>>> *#
++  > ```",
++   },
++   {
++     "expected": "```>>> *#
++  > ``x`",
++     "line": 1,
++     "offset": 2,
++     "text": "```>>> *#
++  > ```",
++   },
++   {
++     "expected": "`x``  #
++ _
++
++ ```~~ >>> 
++ > \\> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```  #
++ _
++
++ ```~~ >>> 
++ > \\> ",
++   },
++   {
++     "expected": "``x`  #
++ _
++
++ ```~~ >>> 
++ > \\> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```  #
++ _
++
++ ```~~ >>> 
++ > \\> ",
++   },
++   {
++     "expected": "```  #
++ _
++
++ `x``~~ >>> 
++ > \\> ",
++     "line": 3,
++     "offset": 1,
++     "text": "```  #
++ _
++
++ ```~~ >>> 
++ > \\> ",
++   },
++   {
++     "expected": "```  #
++ _
++
++ ``x`~~ >>> 
++ > \\> ",
++     "line": 3,
++     "offset": 2,
++     "text": "```  #
++ _
++
++ ```~~ >>> 
++ > \\> ",
++   },
++   {
++     "expected": "`x``js```*
++  >  > ||
++ a
++ >>> ||*||",
++     "line": 0,
++     "offset": 1,
++     "text": "```js```*
++  >  > ||
++ a
++ >>> ||*||",
++   },
++   {
++     "expected": "``x`js```*
++  >  > ||
++ a
++ >>> ||*||",
++     "line": 0,
++     "offset": 2,
++     "text": "```js```*
++  >  > ||
++ a
++ >>> ||*||",
++   },
++   {
++     "expected": "```js`x``*
++  >  > ||
++ a
++ >>> ||*||",
++     "line": 0,
++     "offset": 6,
++     "text": "```js```*
++  >  > ||
++ a
++ >>> ||*||",
++   },
++   {
++     "expected": "```js``x`*
++  >  > ||
++ a
++ >>> ||*||",
++     "line": 0,
++     "offset": 7,
++     "text": "```js```*
++  >  > ||
++ a
++ >>> ||*||",
++   },
++   {
++     "expected": " > _
++ >a\\
++ `x`` b>>> 
++ ```c++>>> 
++  > 
++ ```",
++     "line": 2,
++     "offset": 1,
++     "text": " > _
++ >a\\
++ ``` b>>> 
++ ```c++>>> 
++  > 
++ ```",
++   },
++   {
++     "expected": " > _
++ >a\\
++ ``x` b>>> 
++ ```c++>>> 
++  > 
++ ```",
++     "line": 2,
++     "offset": 2,
++     "text": " > _
++ >a\\
++ ``` b>>> 
++ ```c++>>> 
++  > 
++ ```",
++   },
++   {
++     "expected": " > _
++ >a\\
++ ``` b>>> 
++ `x``c++>>> 
++  > 
++ ```",
++     "line": 3,
++     "offset": 1,
++     "text": " > _
++ >a\\
++ ``` b>>> 
++ ```c++>>> 
++  > 
++ ```",
++   },
++   {
++     "expected": " > _
++ >a\\
++ ``` b>>> 
++ ``x`c++>>> 
++  > 
++ ```",
++     "line": 3,
++     "offset": 2,
++     "text": " > _
++ >a\\
++ ``` b>>> 
++ ```c++>>> 
++  > 
++ ```",
++   },
++   {
++     "expected": "`x``c++jsa_
++ ``` ||
++ >|| ||
++ > 
++ >>>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```c++jsa_
++ ``` ||
++ >|| ||
++ > 
++ >>>> ",
++   },
++   {
++     "expected": "``x`c++jsa_
++ ``` ||
++ >|| ||
++ > 
++ >>>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```c++jsa_
++ ``` ||
++ >|| ||
++ > 
++ >>>> ",
++   },
++   {
++     "expected": "```c++jsa_
++ `x`` ||
++ >|| ||
++ > 
++ >>>> ",
++     "line": 1,
++     "offset": 1,
++     "text": "```c++jsa_
++ ``` ||
++ >|| ||
++ > 
++ >>>> ",
++   },
++   {
++     "expected": "```c++jsa_
++ ``x` ||
++ >|| ||
++ > 
++ >>>> ",
++     "line": 1,
++     "offset": 2,
++     "text": "```c++jsa_
++ ``` ||
++ >|| ||
++ > 
++ >>>> ",
++   },
++   {
++     "expected": "`x``jsb#_
++
++ >> ```>>> 
++
++ > ",
++     "line": 0,
++     "offset": 1,
++     "text": "```jsb#_
++
++ >> ```>>> 
++
++ > ",
++   },
++   {
++     "expected": "``x`jsb#_
++
++ >> ```>>> 
++
++ > ",
++     "line": 0,
++     "offset": 2,
++     "text": "```jsb#_
++
++ >> ```>>> 
++
++ > ",
++   },
++   {
++     "expected": "```jsb#_
++
++ >> `x``>>> 
++
++ > ",
++     "line": 2,
++     "offset": 4,
++     "text": "```jsb#_
++
++ >> ```>>> 
++
++ > ",
++   },
++   {
++     "expected": "```jsb#_
++
++ >> ``x`>>> 
++
++ > ",
++     "line": 2,
++     "offset": 5,
++     "text": "```jsb#_
++
++ >> ```>>> 
++
++ > ",
++   },
++   {
++     "expected": "`x``c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++     "line": 0,
++     "offset": 1,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "``x`c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++     "line": 0,
++     "offset": 2,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "```c++
++ > _*`x``
++
++ ```#```
++ >>> ||`\\",
++     "line": 1,
++     "offset": 3,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "```c++
++ > _*``x`
++
++ ```#```
++ >>> ||`\\",
++     "line": 1,
++     "offset": 4,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "```c++
++ > _*```
++
++ `x``#```
++ >>> ||`\\",
++     "line": 3,
++     "offset": 1,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "```c++
++ > _*```
++
++ ``x`#```
++ >>> ||`\\",
++     "line": 3,
++     "offset": 2,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "```c++
++ > _*```
++
++ ```#`x``
++ >>> ||`\\",
++     "line": 3,
++     "offset": 5,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "```c++
++ > _*```
++
++ ```#``x`
++ >>> ||`\\",
++     "line": 3,
++     "offset": 6,
++     "text": "```c++
++ > _*```
++
++ ```#```
++ >>> ||`\\",
++   },
++   {
++     "expected": "`x``c++js*```
++  > 
++ js`
++ >>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```c++js*```
++  > 
++ js`
++ >>> ",
++   },
++   {
++     "expected": "``x`c++js*```
++  > 
++ js`
++ >>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```c++js*```
++  > 
++ js`
++ >>> ",
++   },
++   {
++     "expected": "```c++js*`x``
++  > 
++ js`
++ >>> ",
++     "line": 0,
++     "offset": 10,
++     "text": "```c++js*```
++  > 
++ js`
++ >>> ",
++   },
++   {
++     "expected": "```c++js*``x`
++  > 
++ js`
++ >>> ",
++     "line": 0,
++     "offset": 11,
++     "text": "```c++js*```
++  > 
++ js`
++ >>> ",
++   },
++   {
++     "expected": "`x``jsa
++ >>> >>> 
++ b\\
++ ```
++ >>> 
++ ```||>>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```jsa
++ >>> >>> 
++ b\\
++ ```
++ >>> 
++ ```||>>> ",
++   },
++   {
++     "expected": "``x`jsa
++ >>> >>> 
++ b\\
++ ```
++ >>> 
++ ```||>>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```jsa
++ >>> >>> 
++ b\\
++ ```
++ >>> 
++ ```||>>> ",
++   },
++   {
++     "expected": "```jsa
++ >>> >>> 
++ b\\
++ `x``
++ >>> 
++ ```||>>> ",
++     "line": 3,
++     "offset": 1,
++     "text": "```jsa
++ >>> >>> 
++ b\\
++ ```
++ >>> 
++ ```||>>> ",
++   },
++   {
++     "expected": "```jsa
++ >>> >>> 
++ b\\
++ ``x`
++ >>> 
++ ```||>>> ",
++     "line": 3,
++     "offset": 2,
++     "text": "```jsa
++ >>> >>> 
++ b\\
++ ```
++ >>> 
++ ```||>>> ",
++   },
++   {
++     "expected": "`x``>>> 
++ >> *a
++ ``` >>> ~~>>> 
++  > 
++ ```
++ >",
++     "line": 0,
++     "offset": 1,
++     "text": "```>>> 
++ >> *a
++ ``` >>> ~~>>> 
++  > 
++ ```
++ >",
++   },
++   {
++     "expected": "``x`>>> 
++ >> *a
++ ``` >>> ~~>>> 
++  > 
++ ```
++ >",
++     "line": 0,
++     "offset": 2,
++     "text": "```>>> 
++ >> *a
++ ``` >>> ~~>>> 
++  > 
++ ```
++ >",
++   },
++   {
++     "expected": "```>>> 
++ >> *a
++ `x`` >>> ~~>>> 
++  > 
++ ```
++ >",
++     "line": 2,
++     "offset": 1,
++     "text": "```>>> 
++ >> *a
++ ``` >>> ~~>>> 
++  > 
++ ```
++ >",
++   },
++   {
++     "expected": "```>>> 
++ >> *a
++ ``x` >>> ~~>>> 
++  > 
++ ```
++ >",
++     "line": 2,
++     "offset": 2,
++     "text": "```>>> 
++ >> *a
++ ``` >>> ~~>>> 
++  > 
++ ```
++ >",
++   },
++   {
++     "expected": "```
++  > js`x``",
++     "line": 1,
++     "offset": 3,
++     "text": "```
++  > js```",
++   },
++   {
++     "expected": "```
++  > js``x`",
++     "line": 1,
++     "offset": 4,
++     "text": "```
++  > js```",
++   },
++   {
++     "expected": " > ` >>> 
++ `x``jsa#
++ ```js*``
++ >>> 
++ >*```",
++     "line": 1,
++     "offset": 1,
++     "text": " > ` >>> 
++ ```jsa#
++ ```js*``
++ >>> 
++ >*```",
++   },
++   {
++     "expected": " > ` >>> 
++ ``x`jsa#
++ ```js*``
++ >>> 
++ >*```",
++     "line": 1,
++     "offset": 2,
++     "text": " > ` >>> 
++ ```jsa#
++ ```js*``
++ >>> 
++ >*```",
++   },
++   {
++     "expected": " > ` >>> 
++ ```jsa#
++ `x``js*``
++ >>> 
++ >*```",
++     "line": 2,
++     "offset": 1,
++     "text": " > ` >>> 
++ ```jsa#
++ ```js*``
++ >>> 
++ >*```",
++   },
++   {
++     "expected": " > ` >>> 
++ ```jsa#
++ ``x`js*``
++ >>> 
++ >*```",
++     "line": 2,
++     "offset": 2,
++     "text": " > ` >>> 
++ ```jsa#
++ ```js*``
++ >>> 
++ >*```",
++   },
++   {
++     "expected": "```c++
++  >  
++ > `x``
++ >`\\
++ ```c++```\\`
++ ",
++     "line": 2,
++     "offset": 1,
++     "text": "```c++
++  >  
++ > ```
++ >`\\
++ ```c++```\\`
++ ",
++   },
++   {
++     "expected": "```c++
++  >  
++ > ``x`
++ >`\\
++ ```c++```\\`
++ ",
++     "line": 2,
++     "offset": 2,
++     "text": "```c++
++  >  
++ > ```
++ >`\\
++ ```c++```\\`
++ ",
++   },
++   {
++     "expected": "*
++ `x``js_>>> 
++ ```c++
++ >>> a*> ",
++     "line": 1,
++     "offset": 1,
++     "text": "*
++ ```js_>>> 
++ ```c++
++ >>> a*> ",
++   },
++   {
++     "expected": "*
++ ``x`js_>>> 
++ ```c++
++ >>> a*> ",
++     "line": 1,
++     "offset": 2,
++     "text": "*
++ ```js_>>> 
++ ```c++
++ >>> a*> ",
++   },
++   {
++     "expected": "*
++ ```js_>>> 
++ `x``c++
++ >>> a*> ",
++     "line": 2,
++     "offset": 1,
++     "text": "*
++ ```js_>>> 
++ ```c++
++ >>> a*> ",
++   },
++   {
++     "expected": "*
++ ```js_>>> 
++ ``x`c++
++ >>> a*> ",
++     "line": 2,
++     "offset": 2,
++     "text": "*
++ ```js_>>> 
++ ```c++
++ >>> a*> ",
++   },
++   {
++     "expected": "`x`` 
++ >> __ 
++  
++ ```c++~~
++ >>> 
++  > ",
++     "line": 0,
++     "offset": 1,
++     "text": "``` 
++ >> __ 
++  
++ ```c++~~
++ >>> 
++  > ",
++   },
++   {
++     "expected": "``x` 
++ >> __ 
++  
++ ```c++~~
++ >>> 
++  > ",
++     "line": 0,
++     "offset": 2,
++     "text": "``` 
++ >> __ 
++  
++ ```c++~~
++ >>> 
++  > ",
++   },
++   {
++     "expected": "``` 
++ >> __ 
++  
++ `x``c++~~
++ >>> 
++  > ",
++     "line": 3,
++     "offset": 1,
++     "text": "``` 
++ >> __ 
++  
++ ```c++~~
++ >>> 
++  > ",
++   },
++   {
++     "expected": "``` 
++ >> __ 
++  
++ ``x`c++~~
++ >>> 
++  > ",
++     "line": 3,
++     "offset": 2,
++     "text": "``` 
++ >> __ 
++  
++ ```c++~~
++ >>> 
++  > ",
++   },
++   {
++     "expected": "```> 
++  > `x``>>> js
++ >>> b```
++ ```#
++ ``` > ",
++     "line": 1,
++     "offset": 1,
++     "text": "```> 
++  > ```>>> js
++ >>> b```
++ ```#
++ ``` > ",
++   },
++   {
++     "expected": "```> 
++  > ``x`>>> js
++ >>> b```
++ ```#
++ ``` > ",
++     "line": 1,
++     "offset": 2,
++     "text": "```> 
++  > ```>>> js
++ >>> b```
++ ```#
++ ``` > ",
++   },
++   {
++     "expected": "> #
++ > 
++ >
++ `x``||```
++ >>> b",
++     "line": 3,
++     "offset": 1,
++     "text": "> #
++ > 
++ >
++ ```||```
++ >>> b",
++   },
++   {
++     "expected": "> #
++ > 
++ >
++ ``x`||```
++ >>> b",
++     "line": 3,
++     "offset": 2,
++     "text": "> #
++ > 
++ >
++ ```||```
++ >>> b",
++   },
++   {
++     "expected": "> #
++ > 
++ >
++ ```||`x``
++ >>> b",
++     "line": 3,
++     "offset": 6,
++     "text": "> #
++ > 
++ >
++ ```||```
++ >>> b",
++   },
++   {
++     "expected": "> #
++ > 
++ >
++ ```||``x`
++ >>> b",
++     "line": 3,
++     "offset": 7,
++     "text": "> #
++ > 
++ >
++ ```||```
++ >>> b",
++   },
++   {
++     "expected": "> ``x``>>> 
++ a*
++ ```js
++  > 
++ >> 
++ b>>> `",
++     "line": 0,
++     "offset": 2,
++     "text": "> ````>>> 
++ a*
++ ```js
++  > 
++ >> 
++ b>>> `",
++   },
++   {
++     "expected": "> ````>>> 
++ a*
++ `x``js
++  > 
++ >> 
++ b>>> `",
++     "line": 2,
++     "offset": 1,
++     "text": "> ````>>> 
++ a*
++ ```js
++  > 
++ >> 
++ b>>> `",
++   },
++   {
++     "expected": "> ````>>> 
++ a*
++ ``x`js
++  > 
++ >> 
++ b>>> `",
++     "line": 2,
++     "offset": 2,
++     "text": "> ````>>> 
++ a*
++ ```js
++  > 
++ >> 
++ b>>> `",
++   },
++   {
++     "expected": "`x``#*a
++ >>  *
++ ```js*#a
++ >>>  ",
++     "line": 0,
++     "offset": 1,
++     "text": "```#*a
++ >>  *
++ ```js*#a
++ >>>  ",
++   },
++   {
++     "expected": "``x`#*a
++ >>  *
++ ```js*#a
++ >>>  ",
++     "line": 0,
++     "offset": 2,
++     "text": "```#*a
++ >>  *
++ ```js*#a
++ >>>  ",
++   },
++   {
++     "expected": "```#*a
++ >>  *
++ `x``js*#a
++ >>>  ",
++     "line": 2,
++     "offset": 1,
++     "text": "```#*a
++ >>  *
++ ```js*#a
++ >>>  ",
++   },
++   {
++     "expected": "```#*a
++ >>  *
++ ``x`js*#a
++ >>>  ",
++     "line": 2,
++     "offset": 2,
++     "text": "```#*a
++ >>  *
++ ```js*#a
++ >>>  ",
++   },
++   {
++     "expected": "```c++js 
++ ```> \\
++  > _js```
++ >b```
++ ```js_||
++ >>> \\`x``",
++     "line": 5,
++     "offset": 2,
++     "text": "```c++js 
++ ```> \\
++  > _js```
++ >b```
++ ```js_||
++ >>> \\```",
++   },
++   {
++     "expected": "```c++js 
++ ```> \\
++  > _js```
++ >b```
++ ```js_||
++ >>> \\``x`",
++     "line": 5,
++     "offset": 3,
++     "text": "```c++js 
++ ```> \\
++  > _js```
++ >b```
++ ```js_||
++ >>> \\```",
++   },
++   {
++     "expected": "`x`````
++ >>>  `b",
++     "line": 0,
++     "offset": 1,
++     "text": "``````
++ >>>  `b",
++   },
++   {
++     "expected": "``x````
++ >>>  `b",
++     "line": 0,
++     "offset": 2,
++     "text": "``````
++ >>>  `b",
++   },
++   {
++     "expected": "````x``
++ >>>  `b",
++     "line": 0,
++     "offset": 4,
++     "text": "``````
++ >>>  `b",
++   },
++   {
++     "expected": "`````x`
++ >>>  `b",
++     "line": 0,
++     "offset": 5,
++     "text": "``````
++ >>>  `b",
++   },
++   {
++     "expected": "`x``js`b
++ ~~
++
++ ``` >>> 
++ > _> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```js`b
++ ~~
++
++ ``` >>> 
++ > _> ",
++   },
++   {
++     "expected": "``x`js`b
++ ~~
++
++ ``` >>> 
++ > _> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```js`b
++ ~~
++
++ ``` >>> 
++ > _> ",
++   },
++   {
++     "expected": "```js`b
++ ~~
++
++ `x`` >>> 
++ > _> ",
++     "line": 3,
++     "offset": 1,
++     "text": "```js`b
++ ~~
++
++ ``` >>> 
++ > _> ",
++   },
++   {
++     "expected": "```js`b
++ ~~
++
++ ``x` >>> 
++ > _> ",
++     "line": 3,
++     "offset": 2,
++     "text": "```js`b
++ ~~
++
++ ``` >>> 
++ > _> ",
++   },
++   {
++     "expected": "> `x`````#
++ >> *
++ > ",
++     "line": 0,
++     "offset": 1,
++     "text": "> ``````#
++ >> *
++ > ",
++   },
++   {
++     "expected": "> ``x````#
++ >> *
++ > ",
++     "line": 0,
++     "offset": 2,
++     "text": "> ``````#
++ >> *
++ > ",
++   },
++   {
++     "expected": "> ````x``#
++ >> *
++ > ",
++     "line": 0,
++     "offset": 4,
++     "text": "> ``````#
++ >> *
++ > ",
++   },
++   {
++     "expected": "> `````x`#
++ >> *
++ > ",
++     "line": 0,
++     "offset": 5,
++     "text": "> ``````#
++ >> *
++ > ",
++   },
++   {
++     "expected": "`x``
++ ``` ||b
++ > ",
++     "line": 0,
++     "offset": 1,
++     "text": "```
++ ``` ||b
++ > ",
++   },
++   {
++     "expected": "``x`
++ ``` ||b
++ > ",
++     "line": 0,
++     "offset": 2,
++     "text": "```
++ ``` ||b
++ > ",
++   },
++   {
++     "expected": "```
++ `x`` ||b
++ > ",
++     "line": 1,
++     "offset": 1,
++     "text": "```
++ ``` ||b
++ > ",
++   },
++   {
++     "expected": "```
++ ``x` ||b
++ > ",
++     "line": 1,
++     "offset": 2,
++     "text": "```
++ ``` ||b
++ > ",
++   },
++   {
++     "expected": " > >>> 
++ >```> 
++ >> 
++ > 
++ >>> `x``>>> ",
++     "line": 4,
++     "offset": 1,
++     "text": " > >>> 
++ >```> 
++ >> 
++ > 
++ >>> ```>>> ",
++   },
++   {
++     "expected": " > >>> 
++ >```> 
++ >> 
++ > 
++ >>> ``x`>>> ",
++     "line": 4,
++     "offset": 2,
++     "text": " > >>> 
++ >```> 
++ >> 
++ > 
++ >>> ```>>> ",
++   },
++   {
++     "expected": "`x``jsjs
++ ```c++>>> ##
++ >>> \\bjs",
++     "line": 0,
++     "offset": 1,
++     "text": "```jsjs
++ ```c++>>> ##
++ >>> \\bjs",
++   },
++   {
++     "expected": "``x`jsjs
++ ```c++>>> ##
++ >>> \\bjs",
++     "line": 0,
++     "offset": 2,
++     "text": "```jsjs
++ ```c++>>> ##
++ >>> \\bjs",
++   },
++   {
++     "expected": "```jsjs
++ `x``c++>>> ##
++ >>> \\bjs",
++     "line": 1,
++     "offset": 1,
++     "text": "```jsjs
++ ```c++>>> ##
++ >>> \\bjs",
++   },
++   {
++     "expected": "```jsjs
++ ``x`c++>>> ##
++ >>> \\bjs",
++     "line": 1,
++     "offset": 2,
++     "text": "```jsjs
++ ```c++>>> ##
++ >>> \\bjs",
++   },
++   {
++     "expected": "a`x``
++ ```~~>>> 
++  > 
++ >
++ ```js``` `",
++     "line": 0,
++     "offset": 2,
++     "text": "a```
++ ```~~>>> 
++  > 
++ >
++ ```js``` `",
++   },
++   {
++     "expected": "a``x`
++ ```~~>>> 
++  > 
++ >
++ ```js``` `",
++     "line": 0,
++     "offset": 3,
++     "text": "a```
++ ```~~>>> 
++  > 
++ >
++ ```js``` `",
++   },
++   {
++     "expected": "a```
++ `x``~~>>> 
++  > 
++ >
++ ```js``` `",
++     "line": 1,
++     "offset": 1,
++     "text": "a```
++ ```~~>>> 
++  > 
++ >
++ ```js``` `",
++   },
++   {
++     "expected": "a```
++ ``x`~~>>> 
++  > 
++ >
++ ```js``` `",
++     "line": 1,
++     "offset": 2,
++     "text": "a```
++ ```~~>>> 
++  > 
++ >
++ ```js``` `",
++   },
++   {
++     "expected": "`x``
++ ```c++#~~
++ >>>>  
++  > 
++ ``` || ",
++     "line": 0,
++     "offset": 1,
++     "text": "```
++ ```c++#~~
++ >>>>  
++  > 
++ ``` || ",
++   },
++   {
++     "expected": "``x`
++ ```c++#~~
++ >>>>  
++  > 
++ ``` || ",
++     "line": 0,
++     "offset": 2,
++     "text": "```
++ ```c++#~~
++ >>>>  
++  > 
++ ``` || ",
++   },
++   {
++     "expected": "```
++ `x``c++#~~
++ >>>>  
++  > 
++ ``` || ",
++     "line": 1,
++     "offset": 1,
++     "text": "```
++ ```c++#~~
++ >>>>  
++  > 
++ ``` || ",
++   },
++   {
++     "expected": "```
++ ``x`c++#~~
++ >>>>  
++  > 
++ ``` || ",
++     "line": 1,
++     "offset": 2,
++     "text": "```
++ ```c++#~~
++ >>>>  
++  > 
++ ``` || ",
++   },
++   {
++     "expected": ">> `
++ `x`````> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++     "line": 1,
++     "offset": 1,
++     "text": ">> `
++ ``````> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++   },
++   {
++     "expected": ">> `
++ ``x````> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++     "line": 1,
++     "offset": 2,
++     "text": ">> `
++ ``````> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++   },
++   {
++     "expected": ">> `
++ ````x``> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++     "line": 1,
++     "offset": 4,
++     "text": ">> `
++ ``````> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++   },
++   {
++     "expected": ">> `
++ `````x`> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++     "line": 1,
++     "offset": 5,
++     "text": ">> `
++ ``````> 
++ > #>>> 
++ > `*
++ >`
++ ```* >>> ",
++   },
++   {
++     "expected": "\\||`
++ `x``||
++ ```js
++  > 
++ #\\*
++ ``` # ",
++     "line": 1,
++     "offset": 1,
++     "text": "\\||`
++ ```||
++ ```js
++  > 
++ #\\*
++ ``` # ",
++   },
++   {
++     "expected": "\\||`
++ ``x`||
++ ```js
++  > 
++ #\\*
++ ``` # ",
++     "line": 1,
++     "offset": 2,
++     "text": "\\||`
++ ```||
++ ```js
++  > 
++ #\\*
++ ``` # ",
++   },
++   {
++     "expected": "\\||`
++ ```||
++ `x``js
++  > 
++ #\\*
++ ``` # ",
++     "line": 2,
++     "offset": 1,
++     "text": "\\||`
++ ```||
++ ```js
++  > 
++ #\\*
++ ``` # ",
++   },
++   {
++     "expected": "\\||`
++ ```||
++ ``x`js
++  > 
++ #\\*
++ ``` # ",
++     "line": 2,
++     "offset": 2,
++     "text": "\\||`
++ ```||
++ ```js
++  > 
++ #\\*
++ ``` # ",
++   },
++   {
++     "expected": "`x``js
++ >js
++ ``` `||`
++ b> `
++ `
++ >>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```js
++ >js
++ ``` `||`
++ b> `
++ `
++ >>> ",
++   },
++   {
++     "expected": "``x`js
++ >js
++ ``` `||`
++ b> `
++ `
++ >>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```js
++ >js
++ ``` `||`
++ b> `
++ `
++ >>> ",
++   },
++   {
++     "expected": "```js
++ >js
++ `x`` `||`
++ b> `
++ `
++ >>> ",
++     "line": 2,
++     "offset": 1,
++     "text": "```js
++ >js
++ ``` `||`
++ b> `
++ `
++ >>> ",
++   },
++   {
++     "expected": "```js
++ >js
++ ``x` `||`
++ b> `
++ `
++ >>> ",
++     "line": 2,
++     "offset": 2,
++     "text": "```js
++ >js
++ ``` `||`
++ b> `
++ `
++ >>> ",
++   },
++   {
++     "expected": "``` `
++ >>> a>>> `x``
++ ```c++```\\
++ ```js> `
++ >>> 
++ #",
++     "line": 1,
++     "offset": 6,
++     "text": "``` `
++ >>> a>>> ```
++ ```c++```\\
++ ```js> `
++ >>> 
++ #",
++   },
++   {
++     "expected": "``` `
++ >>> a>>> ``x`
++ ```c++```\\
++ ```js> `
++ >>> 
++ #",
++     "line": 1,
++     "offset": 7,
++     "text": "``` `
++ >>> a>>> ```
++ ```c++```\\
++ ```js> `
++ >>> 
++ #",
++   },
++   {
++     "expected": " > a~~
++ ```a
++ > `\\`x``
++ >> ",
++     "line": 2,
++     "offset": 3,
++     "text": " > a~~
++ ```a
++ > `\\```
++ >> ",
++   },
++   {
++     "expected": " > a~~
++ ```a
++ > `\\``x`
++ >> ",
++     "line": 2,
++     "offset": 4,
++     "text": " > a~~
++ ```a
++ > `\\```
++ >> ",
++   },
++   {
++     "expected": "`x``js#
++ ```
++ > js*
++ ",
++     "line": 0,
++     "offset": 1,
++     "text": "```js#
++ ```
++ > js*
++ ",
++   },
++   {
++     "expected": "``x`js#
++ ```
++ > js*
++ ",
++     "line": 0,
++     "offset": 2,
++     "text": "```js#
++ ```
++ > js*
++ ",
++   },
++   {
++     "expected": "```js#
++ `x``
++ > js*
++ ",
++     "line": 1,
++     "offset": 1,
++     "text": "```js#
++ ```
++ > js*
++ ",
++   },
++   {
++     "expected": "```js#
++ ``x`
++ > js*
++ ",
++     "line": 1,
++     "offset": 2,
++     "text": "```js#
++ ```
++ > js*
++ ",
++   },
++   {
++     "expected": "#
++ ```>>> ~~a
++ >>>> 
++ ```c++#```
++ > ||`x``",
++     "line": 4,
++     "offset": 3,
++     "text": "#
++ ```>>> ~~a
++ >>>> 
++ ```c++#```
++ > ||```",
++   },
++   {
++     "expected": "#
++ ```>>> ~~a
++ >>>> 
++ ```c++#```
++ > ||``x`",
++     "line": 4,
++     "offset": 4,
++     "text": "#
++ ```>>> ~~a
++ >>>> 
++ ```c++#```
++ > ||```",
++   },
++   {
++     "expected": "`x``#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "``x`#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "```#js`x``
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++     "line": 0,
++     "offset": 7,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "```#js``x`
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++     "line": 0,
++     "offset": 8,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "```#js```
++ >`\\
++ `x``> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++     "line": 2,
++     "offset": 1,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "```#js```
++ >`\\
++ ``x`> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++     "line": 2,
++     "offset": 2,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ `x``jsjs#_
++ >  >>> ",
++     "line": 4,
++     "offset": 1,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ``x`jsjs#_
++ >  >>> ",
++     "line": 4,
++     "offset": 2,
++     "text": "```#js```
++ >`\\
++ ```> a\\
++ >> \\
++ ```jsjs#_
++ >  >>> ",
++   },
++   {
++     "expected": ">`x``
++ ```js*
++ >>> *> > ",
++     "line": 0,
++     "offset": 2,
++     "text": ">```
++ ```js*
++ >>> *> > ",
++   },
++   {
++     "expected": ">``x`
++ ```js*
++ >>> *> > ",
++     "line": 0,
++     "offset": 3,
++     "text": ">```
++ ```js*
++ >>> *> > ",
++   },
++   {
++     "expected": ">```
++ `x``js*
++ >>> *> > ",
++     "line": 1,
++     "offset": 1,
++     "text": ">```
++ ```js*
++ >>> *> > ",
++   },
++   {
++     "expected": ">```
++ ``x`js*
++ >>> *> > ",
++     "line": 1,
++     "offset": 2,
++     "text": ">```
++ ```js*
++ >>> *> > ",
++   },
++   {
++     "expected": " > a> \\
++ `x`` 
++ > #>>> *
++ ```js
++  > `*
++ #",
++     "line": 1,
++     "offset": 1,
++     "text": " > a> \\
++ ``` 
++ > #>>> *
++ ```js
++  > `*
++ #",
++   },
++   {
++     "expected": " > a> \\
++ ``x` 
++ > #>>> *
++ ```js
++  > `*
++ #",
++     "line": 1,
++     "offset": 2,
++     "text": " > a> \\
++ ``` 
++ > #>>> *
++ ```js
++  > `*
++ #",
++   },
++   {
++     "expected": " > a> \\
++ ``` 
++ > #>>> *
++ `x``js
++  > `*
++ #",
++     "line": 3,
++     "offset": 1,
++     "text": " > a> \\
++ ``` 
++ > #>>> *
++ ```js
++  > `*
++ #",
++   },
++   {
++     "expected": " > a> \\
++ ``` 
++ > #>>> *
++ ``x`js
++  > `*
++ #",
++     "line": 3,
++     "offset": 2,
++     "text": " > a> \\
++ ``` 
++ > #>>> *
++ ```js
++  > `*
++ #",
++   },
++   {
++     "expected": "`x`` ||
++ ``` > > 
++ >>> ~~b||",
++     "line": 0,
++     "offset": 1,
++     "text": "``` ||
++ ``` > > 
++ >>> ~~b||",
++   },
++   {
++     "expected": "``x` ||
++ ``` > > 
++ >>> ~~b||",
++     "line": 0,
++     "offset": 2,
++     "text": "``` ||
++ ``` > > 
++ >>> ~~b||",
++   },
++   {
++     "expected": "``` ||
++ `x`` > > 
++ >>> ~~b||",
++     "line": 1,
++     "offset": 1,
++     "text": "``` ||
++ ``` > > 
++ >>> ~~b||",
++   },
++   {
++     "expected": "``` ||
++ ``x` > > 
++ >>> ~~b||",
++     "line": 1,
++     "offset": 2,
++     "text": "``` ||
++ ``` > > 
++ >>> ~~b||",
++   },
++   {
++     "expected": ">> **
++ ```js~~b
++  > #js`x``
++
++ ",
++     "line": 2,
++     "offset": 4,
++     "text": ">> **
++ ```js~~b
++  > #js```
++
++ ",
++   },
++   {
++     "expected": ">> **
++ ```js~~b
++  > #js``x`
++
++ ",
++     "line": 2,
++     "offset": 5,
++     "text": ">> **
++ ```js~~b
++  > #js```
++
++ ",
++   },
++   {
++     "expected": " > ~~
++ `x``*
++ ```||a
++ > *
++ >>> bab
++ ```js> > ",
++     "line": 1,
++     "offset": 1,
++     "text": " > ~~
++ ```*
++ ```||a
++ > *
++ >>> bab
++ ```js> > ",
++   },
++   {
++     "expected": " > ~~
++ ``x`*
++ ```||a
++ > *
++ >>> bab
++ ```js> > ",
++     "line": 1,
++     "offset": 2,
++     "text": " > ~~
++ ```*
++ ```||a
++ > *
++ >>> bab
++ ```js> > ",
++   },
++   {
++     "expected": " > ~~
++ ```*
++ `x``||a
++ > *
++ >>> bab
++ ```js> > ",
++     "line": 2,
++     "offset": 1,
++     "text": " > ~~
++ ```*
++ ```||a
++ > *
++ >>> bab
++ ```js> > ",
++   },
++   {
++     "expected": " > ~~
++ ```*
++ ``x`||a
++ > *
++ >>> bab
++ ```js> > ",
++     "line": 2,
++     "offset": 2,
++     "text": " > ~~
++ ```*
++ ```||a
++ > *
++ >>> bab
++ ```js> > ",
++   },
++   {
++     "expected": "`x``js||
++ ```js_
++
++  > #||
++ ```js\\",
++     "line": 0,
++     "offset": 1,
++     "text": "```js||
++ ```js_
++
++  > #||
++ ```js\\",
++   },
++   {
++     "expected": "``x`js||
++ ```js_
++
++  > #||
++ ```js\\",
++     "line": 0,
++     "offset": 2,
++     "text": "```js||
++ ```js_
++
++  > #||
++ ```js\\",
++   },
++   {
++     "expected": "```js||
++ `x``js_
++
++  > #||
++ ```js\\",
++     "line": 1,
++     "offset": 1,
++     "text": "```js||
++ ```js_
++
++  > #||
++ ```js\\",
++   },
++   {
++     "expected": "```js||
++ ``x`js_
++
++  > #||
++ ```js\\",
++     "line": 1,
++     "offset": 2,
++     "text": "```js||
++ ```js_
++
++  > #||
++ ```js\\",
++   },
++   {
++     "expected": "
++ > ~~`x``a
++ ``` _
++ \\_~~
++ >>> *> 
++ >  \\",
++     "line": 1,
++     "offset": 3,
++     "text": "
++ > ~~```a
++ ``` _
++ \\_~~
++ >>> *> 
++ >  \\",
++   },
++   {
++     "expected": "
++ > ~~``x`a
++ ``` _
++ \\_~~
++ >>> *> 
++ >  \\",
++     "line": 1,
++     "offset": 4,
++     "text": "
++ > ~~```a
++ ``` _
++ \\_~~
++ >>> *> 
++ >  \\",
++   },
++   {
++     "expected": "
++ > ~~```a
++ `x`` _
++ \\_~~
++ >>> *> 
++ >  \\",
++     "line": 2,
++     "offset": 1,
++     "text": "
++ > ~~```a
++ ``` _
++ \\_~~
++ >>> *> 
++ >  \\",
++   },
++   {
++     "expected": "
++ > ~~```a
++ ``x` _
++ \\_~~
++ >>> *> 
++ >  \\",
++     "line": 2,
++     "offset": 2,
++     "text": "
++ > ~~```a
++ ``` _
++ \\_~~
++ >>> *> 
++ >  \\",
++   },
++   {
++     "expected": ">> > ||
++ ```c++ ~~a
++ > `x``
++  > # ```",
++     "line": 2,
++     "offset": 1,
++     "text": ">> > ||
++ ```c++ ~~a
++ > ```
++  > # ```",
++   },
++   {
++     "expected": ">> > ||
++ ```c++ ~~a
++ > ``x`
++  > # ```",
++     "line": 2,
++     "offset": 2,
++     "text": ">> > ||
++ ```c++ ~~a
++ > ```
++  > # ```",
++   },
++   {
++     "expected": "`x``c++||||
++ ```b~~ 
++ >>> js> a
++  > ~~a",
++     "line": 0,
++     "offset": 1,
++     "text": "```c++||||
++ ```b~~ 
++ >>> js> a
++  > ~~a",
++   },
++   {
++     "expected": "``x`c++||||
++ ```b~~ 
++ >>> js> a
++  > ~~a",
++     "line": 0,
++     "offset": 2,
++     "text": "```c++||||
++ ```b~~ 
++ >>> js> a
++  > ~~a",
++   },
++   {
++     "expected": "```c++||||
++ `x``b~~ 
++ >>> js> a
++  > ~~a",
++     "line": 1,
++     "offset": 1,
++     "text": "```c++||||
++ ```b~~ 
++ >>> js> a
++  > ~~a",
++   },
++   {
++     "expected": "```c++||||
++ ``x`b~~ 
++ >>> js> a
++  > ~~a",
++     "line": 1,
++     "offset": 2,
++     "text": "```c++||||
++ ```b~~ 
++ >>> js> a
++  > ~~a",
++   },
++   {
++     "expected": "`x``js
++  > 
++  > _>>> 
++ ```js \\js
++  > >  
++ ``` >>> \\`",
++     "line": 0,
++     "offset": 1,
++     "text": "```js
++  > 
++  > _>>> 
++ ```js \\js
++  > >  
++ ``` >>> \\`",
++   },
++   {
++     "expected": "``x`js
++  > 
++  > _>>> 
++ ```js \\js
++  > >  
++ ``` >>> \\`",
++     "line": 0,
++     "offset": 2,
++     "text": "```js
++  > 
++  > _>>> 
++ ```js \\js
++  > >  
++ ``` >>> \\`",
++   },
++   {
++     "expected": "```js
++  > 
++  > _>>> 
++ `x``js \\js
++  > >  
++ ``` >>> \\`",
++     "line": 3,
++     "offset": 1,
++     "text": "```js
++  > 
++  > _>>> 
++ ```js \\js
++  > >  
++ ``` >>> \\`",
++   },
++   {
++     "expected": "```js
++  > 
++  > _>>> 
++ ``x`js \\js
++  > >  
++ ``` >>> \\`",
++     "line": 3,
++     "offset": 2,
++     "text": "```js
++  > 
++  > _>>> 
++ ```js \\js
++  > >  
++ ``` >>> \\`",
++   },
++   {
++     "expected": "`x``js__a
++ ``` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++     "line": 0,
++     "offset": 1,
++     "text": "```js__a
++ ``` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++   },
++   {
++     "expected": "``x`js__a
++ ``` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++     "line": 0,
++     "offset": 2,
++     "text": "```js__a
++ ``` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++   },
++   {
++     "expected": "```js__a
++ `x`` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++     "line": 1,
++     "offset": 1,
++     "text": "```js__a
++ ``` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++   },
++   {
++     "expected": "```js__a
++ ``x` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++     "line": 1,
++     "offset": 2,
++     "text": "```js__a
++ ``` > >>> ||
++ #*> 
++ >>> 
++ js
++ > > ```",
++   },
++   {
++     "expected": "`x``b#
++ ```js> *
++  > 
++ >||",
++     "line": 0,
++     "offset": 1,
++     "text": "```b#
++ ```js> *
++  > 
++ >||",
++   },
++   {
++     "expected": "``x`b#
++ ```js> *
++  > 
++ >||",
++     "line": 0,
++     "offset": 2,
++     "text": "```b#
++ ```js> *
++  > 
++ >||",
++   },
++   {
++     "expected": "```b#
++ `x``js> *
++  > 
++ >||",
++     "line": 1,
++     "offset": 1,
++     "text": "```b#
++ ```js> *
++  > 
++ >||",
++   },
++   {
++     "expected": "```b#
++ ``x`js> *
++  > 
++ >||",
++     "line": 1,
++     "offset": 2,
++     "text": "```b#
++ ```js> *
++  > 
++ >||",
++   },
++   {
++     "expected": "~~bb
++ ```>>> `
++ > *~~`x``",
++     "line": 2,
++     "offset": 4,
++     "text": "~~bb
++ ```>>> `
++ > *~~```",
++   },
++   {
++     "expected": "~~bb
++ ```>>> `
++ > *~~``x`",
++     "line": 2,
++     "offset": 5,
++     "text": "~~bb
++ ```>>> `
++ > *~~```",
++   },
++   {
++     "expected": ">> \\||
++ `x`` 
++
++ ``` a*
++
++ > ",
++     "line": 1,
++     "offset": 1,
++     "text": ">> \\||
++ ``` 
++
++ ``` a*
++
++ > ",
++   },
++   {
++     "expected": ">> \\||
++ ``x` 
++
++ ``` a*
++
++ > ",
++     "line": 1,
++     "offset": 2,
++     "text": ">> \\||
++ ``` 
++
++ ``` a*
++
++ > ",
++   },
++   {
++     "expected": ">> \\||
++ ``` 
++
++ `x`` a*
++
++ > ",
++     "line": 3,
++     "offset": 1,
++     "text": ">> \\||
++ ``` 
++
++ ``` a*
++
++ > ",
++   },
++   {
++     "expected": ">> \\||
++ ``` 
++
++ ``x` a*
++
++ > ",
++     "line": 3,
++     "offset": 2,
++     "text": ">> \\||
++ ``` 
++
++ ``` a*
++
++ > ",
++   },
++   {
++     "expected": ">``x``~~
++ >>> 
++ >>> 
++ > 
++ ```c++ #js
++ >>>  js",
++     "line": 0,
++     "offset": 3,
++     "text": ">````~~
++ >>> 
++ >>> 
++ > 
++ ```c++ #js
++ >>>  js",
++   },
++   {
++     "expected": ">````~~
++ >>> 
++ >>> 
++ > 
++ `x``c++ #js
++ >>>  js",
++     "line": 4,
++     "offset": 1,
++     "text": ">````~~
++ >>> 
++ >>> 
++ > 
++ ```c++ #js
++ >>>  js",
++   },
++   {
++     "expected": ">````~~
++ >>> 
++ >>> 
++ > 
++ ``x`c++ #js
++ >>>  js",
++     "line": 4,
++     "offset": 2,
++     "text": ">````~~
++ >>> 
++ >>> 
++ > 
++ ```c++ #js
++ >>>  js",
++   },
++   {
++     "expected": "`x``||
++ ``` a#
++  > _*
++ ``` ```",
++     "line": 0,
++     "offset": 1,
++     "text": "```||
++ ``` a#
++  > _*
++ ``` ```",
++   },
++   {
++     "expected": "``x`||
++ ``` a#
++  > _*
++ ``` ```",
++     "line": 0,
++     "offset": 2,
++     "text": "```||
++ ``` a#
++  > _*
++ ``` ```",
++   },
++   {
++     "expected": "```||
++ `x`` a#
++  > _*
++ ``` ```",
++     "line": 1,
++     "offset": 1,
++     "text": "```||
++ ``` a#
++  > _*
++ ``` ```",
++   },
++   {
++     "expected": "```||
++ ``x` a#
++  > _*
++ ``` ```",
++     "line": 1,
++     "offset": 2,
++     "text": "```||
++ ``` a#
++  > _*
++ ``` ```",
++   },
++   {
++     "expected": "`x``  a
++ ```a
++ >>> #",
++     "line": 0,
++     "offset": 1,
++     "text": "```  a
++ ```a
++ >>> #",
++   },
++   {
++     "expected": "``x`  a
++ ```a
++ >>> #",
++     "line": 0,
++     "offset": 2,
++     "text": "```  a
++ ```a
++ >>> #",
++   },
++   {
++     "expected": "```  a
++ `x``a
++ >>> #",
++     "line": 1,
++     "offset": 1,
++     "text": "```  a
++ ```a
++ >>> #",
++   },
++   {
++     "expected": "```  a
++ ``x`a
++ >>> #",
++     "line": 1,
++     "offset": 2,
++     "text": "```  a
++ ```a
++ >>> #",
++   },
++   {
++     "expected": ">>> > 
++ `x``c++>>> 
++ >>> `||*
++  > 
++ ```> 
++ > \\>>> ",
++     "line": 1,
++     "offset": 1,
++     "text": ">>> > 
++ ```c++>>> 
++ >>> `||*
++  > 
++ ```> 
++ > \\>>> ",
++   },
++   {
++     "expected": ">>> > 
++ ``x`c++>>> 
++ >>> `||*
++  > 
++ ```> 
++ > \\>>> ",
++     "line": 1,
++     "offset": 2,
++     "text": ">>> > 
++ ```c++>>> 
++ >>> `||*
++  > 
++ ```> 
++ > \\>>> ",
++   },
++   {
++     "expected": ">>> > 
++ ```c++>>> 
++ >>> `||*
++  > 
++ `x``> 
++ > \\>>> ",
++     "line": 4,
++     "offset": 1,
++     "text": ">>> > 
++ ```c++>>> 
++ >>> `||*
++  > 
++ ```> 
++ > \\>>> ",
++   },
++   {
++     "expected": ">>> > 
++ ```c++>>> 
++ >>> `||*
++  > 
++ ``x`> 
++ > \\>>> ",
++     "line": 4,
++     "offset": 2,
++     "text": ">>> > 
++ ```c++>>> 
++ >>> `||*
++  > 
++ ```> 
++ > \\>>> ",
++   },
++   {
++     "expected": ">
++ js
++ >#`x``||
++ >>> ajsa
++ ``` #`a
++ >>> >>>  b",
++     "line": 2,
++     "offset": 3,
++     "text": ">
++ js
++ >#```||
++ >>> ajsa
++ ``` #`a
++ >>> >>>  b",
++   },
++   {
++     "expected": ">
++ js
++ >#``x`||
++ >>> ajsa
++ ``` #`a
++ >>> >>>  b",
++     "line": 2,
++     "offset": 4,
++     "text": ">
++ js
++ >#```||
++ >>> ajsa
++ ``` #`a
++ >>> >>>  b",
++   },
++   {
++     "expected": ">
++ js
++ >#```||
++ >>> ajsa
++ `x`` #`a
++ >>> >>>  b",
++     "line": 4,
++     "offset": 1,
++     "text": ">
++ js
++ >#```||
++ >>> ajsa
++ ``` #`a
++ >>> >>>  b",
++   },
++   {
++     "expected": ">
++ js
++ >#```||
++ >>> ajsa
++ ``x` #`a
++ >>> >>>  b",
++     "line": 4,
++     "offset": 2,
++     "text": ">
++ js
++ >#```||
++ >>> ajsa
++ ``` #`a
++ >>> >>>  b",
++   },
++   {
++     "expected": "`x`` ` 
++ ```
++ >>> 
++ ```js
++  > _\\\\",
++     "line": 0,
++     "offset": 1,
++     "text": "``` ` 
++ ```
++ >>> 
++ ```js
++  > _\\\\",
++   },
++   {
++     "expected": "``x` ` 
++ ```
++ >>> 
++ ```js
++  > _\\\\",
++     "line": 0,
++     "offset": 2,
++     "text": "``` ` 
++ ```
++ >>> 
++ ```js
++  > _\\\\",
++   },
++   {
++     "expected": "``` ` 
++ `x``
++ >>> 
++ ```js
++  > _\\\\",
++     "line": 1,
++     "offset": 1,
++     "text": "``` ` 
++ ```
++ >>> 
++ ```js
++  > _\\\\",
++   },
++   {
++     "expected": "``` ` 
++ ``x`
++ >>> 
++ ```js
++  > _\\\\",
++     "line": 1,
++     "offset": 2,
++     "text": "``` ` 
++ ```
++ >>> 
++ ```js
++  > _\\\\",
++   },
++   {
++     "expected": ">> `x``*```
++ > ~~
++ >>> ",
++     "line": 0,
++     "offset": 4,
++     "text": ">> ```*```
++ > ~~
++ >>> ",
++   },
++   {
++     "expected": ">> ``x`*```
++ > ~~
++ >>> ",
++     "line": 0,
++     "offset": 5,
++     "text": ">> ```*```
++ > ~~
++ >>> ",
++   },
++   {
++     "expected": ">> ```*`x``
++ > ~~
++ >>> ",
++     "line": 0,
++     "offset": 8,
++     "text": ">> ```*```
++ > ~~
++ >>> ",
++   },
++   {
++     "expected": ">> ```*``x`
++ > ~~
++ >>> ",
++     "line": 0,
++     "offset": 9,
++     "text": ">> ```*```
++ > ~~
++ >>> ",
++   },
++   {
++     "expected": "``` 
++ >>> #`x``
++ >
++ ```c++```||~~
++ ```c++#a~~",
++     "line": 1,
++     "offset": 2,
++     "text": "``` 
++ >>> #```
++ >
++ ```c++```||~~
++ ```c++#a~~",
++   },
++   {
++     "expected": "``` 
++ >>> #``x`
++ >
++ ```c++```||~~
++ ```c++#a~~",
++     "line": 1,
++     "offset": 3,
++     "text": "``` 
++ >>> #```
++ >
++ ```c++```||~~
++ ```c++#a~~",
++   },
++   {
++     "expected": ">\\``x``
++ ```b
++  > ",
++     "line": 0,
++     "offset": 4,
++     "text": ">\\````
++ ```b
++  > ",
++   },
++   {
++     "expected": ">\\````
++ `x``b
++  > ",
++     "line": 1,
++     "offset": 1,
++     "text": ">\\````
++ ```b
++  > ",
++   },
++   {
++     "expected": ">\\````
++ ``x`b
++  > ",
++     "line": 1,
++     "offset": 2,
++     "text": ">\\````
++ ```b
++  > ",
++   },
++   {
++     "expected": "`x``
++ ``` \\js
++ >>> ",
++     "line": 0,
++     "offset": 1,
++     "text": "```
++ ``` \\js
++ >>> ",
++   },
++   {
++     "expected": "``x`
++ ``` \\js
++ >>> ",
++     "line": 0,
++     "offset": 2,
++     "text": "```
++ ``` \\js
++ >>> ",
++   },
++   {
++     "expected": "```
++ `x`` \\js
++ >>> ",
++     "line": 1,
++     "offset": 1,
++     "text": "```
++ ``` \\js
++ >>> ",
++   },
++   {
++     "expected": "```
++ ``x` \\js
++ >>> ",
++     "line": 1,
++     "offset": 2,
++     "text": "```
++ ``` \\js
++ >>> ",
++   },
++   {
++     "expected": "> ba
++ >> *
++ `x``bb||
++ ```c++js||
++
++ > ",
++     "line": 2,
++     "offset": 1,
++     "text": "> ba
++ >> *
++ ```bb||
++ ```c++js||
++
++ > ",
++   },
++   {
++     "expected": "> ba
++ >> *
++ ``x`bb||
++ ```c++js||
++
++ > ",
++     "line": 2,
++     "offset": 2,
++     "text": "> ba
++ >> *
++ ```bb||
++ ```c++js||
++
++ > ",
++   },
++   {
++     "expected": "> ba
++ >> *
++ ```bb||
++ `x``c++js||
++
++ > ",
++     "line": 3,
++     "offset": 1,
++     "text": "> ba
++ >> *
++ ```bb||
++ ```c++js||
++
++ > ",
++   },
++   {
++     "expected": "> ba
++ >> *
++ ```bb||
++ ``x`c++js||
++
++ > ",
++     "line": 3,
++     "offset": 2,
++     "text": "> ba
++ >> *
++ ```bb||
++ ```c++js||
++
++ > ",
++   },
++   {
++     "expected": ">>>> _ 
++ `x``js>>> 
++ ```c++a
++  ~~
++ > ",
++     "line": 1,
++     "offset": 1,
++     "text": ">>>> _ 
++ ```js>>> 
++ ```c++a
++  ~~
++ > ",
++   },
++   {
++     "expected": ">>>> _ 
++ ``x`js>>> 
++ ```c++a
++  ~~
++ > ",
++     "line": 1,
++     "offset": 2,
++     "text": ">>>> _ 
++ ```js>>> 
++ ```c++a
++  ~~
++ > ",
++   },
++   {
++     "expected": ">>>> _ 
++ ```js>>> 
++ `x``c++a
++  ~~
++ > ",
++     "line": 2,
++     "offset": 1,
++     "text": ">>>> _ 
++ ```js>>> 
++ ```c++a
++  ~~
++ > ",
++   },
++   {
++     "expected": ">>>> _ 
++ ```js>>> 
++ ``x`c++a
++  ~~
++ > ",
++     "line": 2,
++     "offset": 2,
++     "text": ">>>> _ 
++ ```js>>> 
++ ```c++a
++  ~~
++ > ",
++   },
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:221:19
+    219|       return textOf(editor) !== edit.expected;
+    220|     });
+    221|     expect(wrong).toEqual([]);
+       |                   ^
+    222|   }, 120_000);
+    223| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

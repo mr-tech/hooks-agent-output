@@ -1,0 +1,51 @@
+[
+ {
+  "id": "qa-NM-68-carry-ignores-multiline-quote",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "const quoted = text.startsWith(QUOTE_MARKER) && !inMultilineBlockQuote;",
+  "new": "const quoted = text.startsWith(QUOTE_MARKER);",
+  "limb": "AC-6.7: a carry that ignores >>>"
+ },
+ {
+  "id": "qa-carry-on-paste",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "apply({ ...op, properties: { ...op.properties, quotePrefix: '', carried: undefined } });",
+  "new": "apply(op);",
+  "limb": "AC-6.7: every split, a paste's included, carries the prefix"
+ },
+ {
+  "id": "qa-typed-marker-not-taken-in",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (markerKept && content.startsWith(QUOTE_MARKER)) {",
+  "new": "if (false) {",
+  "limb": "AC-6.7: a typed > on a carried marker is not taken in"
+ },
+ {
+  "id": "qa-W9-smart-quote-swap",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "Transforms.insertText(editor, apostrophe ? \"'\" : '\"', {",
+  "new": "Transforms.insertText(editor, apostrophe ? '\"' : \"'\", {",
+  "limb": "M3 W9: smart-quote repair swaps the two"
+ },
+ {
+  "id": "qa-S29-prefix-not-kept",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (child.type === 'blockQuote' && child.quotePrefix) {",
+  "new": "if (false) {",
+  "limb": "AC-6.1 S-29: a quote line turned into code loses its marker"
+ },
+ {
+  "id": "qa-E2-save-writes-title",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return allowEmoji ? node.title : '';",
+  "limb": "E-2 / AC-6.2: the saved text writes an element's title"
+ },
+ {
+  "id": "qa-E2-quote-prefix-default",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;",
+  "new": "if (node.type === 'blockQuote') return `> ${text}`;",
+  "limb": "E-2: a quote line saves '> ' whatever its prefix (>>> lost)"
+ }
+]

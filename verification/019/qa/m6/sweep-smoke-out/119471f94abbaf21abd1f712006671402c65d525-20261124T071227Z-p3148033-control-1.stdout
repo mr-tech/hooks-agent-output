@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7e5518eb-32a7-485b-b981-e822cac6bbeb/scratchpad/sweep-work/sweep-smoke-out/20261124T071227Z-p3148033/control-1
+
+
+ Test Files  234 passed (234)
+      Tests  3651 passed (3651)
+   Start at  07:12:28
+   Duration  136.15s (transform 8.62s, setup 715ms, import 120.95s, tests 283.30s, environment 81.73s)
+
