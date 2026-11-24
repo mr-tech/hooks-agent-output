@@ -1,0 +1,490 @@
+{
+ "sha": "42128cd55fce5705665f6d4db2f5ce88e98742ac",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-2/src_components_SlateEditor_utils_onKeyDown.ts.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "related",
+  "--run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "60000",
+  "--hookTimeout",
+  "60000",
+  "src/components/SlateEditor/utils/onKeyDown.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-2/src_components_SlateEditor_utils_onKeyDown.ts.mutants.json",
+   "blob": "0fa030f8e62866b2a1a50e54e720e270f3d5af1f"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-control-1.stderr",
+   "seconds": 53.12,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 604,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "onKeyDown.ts:33:num",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 33,
+    "text": "const line = Node.get(editor, [anchor.path[0]]) as Element;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 44.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-1.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:34:&&",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 34,
+    "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > makes the lines after a removed multi-line quote marker plain lines",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a plain line types the line as typed once the carried marker is taken in or removed",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two angle brackets with no space types the line as typed once the carried marker is taken in or removed",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 53.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-2.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:34:===",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 34,
+    "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 54.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-3.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:34:true",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 34,
+    "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 52.57,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-4.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:34:&&:2",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 34,
+    "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a plain line types the line as typed once the carried marker is taken in or removed",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two angle brackets with no space types the line as typed once the carried marker is taken in or removed",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 53.33,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-5.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:34:!==",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 34,
+    "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 52.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-6.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:&&",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 54.7,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-7.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:num",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 54.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-8.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:===",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 53.58,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-9.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:num:2",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 55.53,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-10.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:&&:2",
+   "run": "mutant-11",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 52.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-11.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:===:2",
+   "run": "mutant-12",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 55.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-12.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:36:if-false",
+   "run": "mutant-13",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 36,
+    "text": "if (afterCarriedMarker) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared by Backspace after the carried marker of a code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 52.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-13.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:37:num",
+   "run": "mutant-14",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 37,
+    "text": "const [from, to] = [{ path: anchor.path, offset: 0 }, anchor];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 54.21,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-14.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:39:num",
+   "run": "mutant-15",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 39,
+    "text": "Transforms.setNodes(editor, { carried: undefined }, { at: [anchor.path[0]] });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 604,
+   "control_tests_run": 604,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 54.16,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_components_SlateEditor_utils_onKeyDown.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T131114Z-p1928265-mutant-15.stderr"
+  }
+ ],
+ "score": "14 of 15 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_SlateEditor_utils_onKeyDown.ts.mutants.json (blob 0fa030f8e62866b2a1a50e54e720e270f3d5af1f))"
+}

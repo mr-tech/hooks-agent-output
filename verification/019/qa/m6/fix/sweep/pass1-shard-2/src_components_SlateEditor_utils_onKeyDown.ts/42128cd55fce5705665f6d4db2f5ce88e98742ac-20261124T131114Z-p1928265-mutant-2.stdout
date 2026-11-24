@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_onKeyDown.ts/20261124T131114Z-p1928265/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 18782ms
+     × hands the message that text in a full-markdown editor 8849ms
+     × hands the message that text in a full-markdown editor 9307ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 10893ms
+     × hands the message that text in a full-markdown editor 6097ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 1 failed) 7997ms
+     × makes the lines after a removed multi-line quote marker plain lines 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 5 failed) 126ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 13ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 4ms
+     × leaves an empty line when the carried marker is removed with Backspace 5ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 2ms
+     × leaves a caret at the end of a second text node of the line alone 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 46532ms
+     × hands the message that text in a full-markdown editor 39728ms
+
+ Test Files  5 failed | 33 passed (38)
+      Tests  10 failed | 594 passed (604)
+   Start at  13:12:56
+   Duration  48.55s (transform 2.54s, setup 235ms, import 30.62s, tests 125.88s, environment 28.55s)
+

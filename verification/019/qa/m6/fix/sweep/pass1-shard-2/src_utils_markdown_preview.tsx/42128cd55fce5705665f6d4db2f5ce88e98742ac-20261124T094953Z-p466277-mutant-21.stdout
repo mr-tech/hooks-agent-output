@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-21
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 16778ms
+     × on embedDescription, every content character carries the style set its preview gives it 4563ms
+     × on fieldValue, every content character carries the style set its preview gives it 3548ms
+     × on embedTitle, every content character carries the style set its preview gives it 2945ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 2666ms
+     × on v2Text, every content character carries the style set its preview gives it 3048ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 2755ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 384ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 210ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 215ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 247ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 213ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 209ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 193ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 197ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 166ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 212ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 192ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 193ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 3 failed) 366ms
+     × unicode emoji 13ms
+     × custom emoji 4ms
+     × animated custom emoji 3ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 8 failed) 62ms
+     × as an image of the Twemoji file, with the character as its alt text 25ms
+     × from a typed name, as an image whose alt text is the character 3ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 4ms
+     × for an animated custom emoji, as its gif 4ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 3ms
+     × large when only emoji and spaces make up the message, for every one of them 7ms
+     × at the embed size, 18 pixels, in an embed, even when the message holds only emoji 2ms
+     × small once any text sits beside it 3ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 67ms
+     × as its source text, with no image, for a fixture tree that invents engine output 10ms
+
+ Test Files  5 failed | 38 passed (43)
+      Tests  29 failed | 637 passed (666)
+   Start at  10:13:13
+   Duration  54.46s (transform 2.98s, setup 312ms, import 39.65s, tests 138.37s, environment 30.70s)
+

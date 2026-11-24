@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/tipx
+
+GT-TIP
+2 content: ok before={"div":2} after={"blockQuote":2} text-ok=true sel={"path":[0,0],"offset":1}
+2 embedDescription: ok before={"div":2} after={"blockQuote":2} text-ok=true sel={"path":[0,0],"offset":1}
+3 content: ok before={"div":3} after={"blockQuote":3} text-ok=true sel={"path":[0,0],"offset":1}
+3 embedDescription: ok before={"div":3} after={"blockQuote":3} text-ok=true sel={"path":[0,0],"offset":1}
+5 content: ok before={"div":5} after={"blockQuote":5} text-ok=true sel={"path":[0,0],"offset":1}
+5 embedDescription: ok before={"div":5} after={"blockQuote":5} text-ok=true sel={"path":[0,0],"offset":1}
+10 content: ok before={"div":10} after={"blockQuote":10} text-ok=true sel={"path":[0,0],"offset":1}
+10 embedDescription: ok before={"div":10} after={"blockQuote":10} text-ok=true sel={"path":[0,0],"offset":1}
+40 content: ok before={"div":40} after={"blockQuote":40} text-ok=true sel={"path":[0,0],"offset":1}
+40 embedDescription: ok before={"div":40} after={"blockQuote":40} text-ok=true sel={"path":[0,0],"offset":1}
+100 content: ok before={"div":100} after={"blockQuote":100} text-ok=true sel={"path":[0,0],"offset":1}
+100 embedDescription: ok before={"div":100} after={"blockQuote":100} text-ok=true sel={"path":[0,0],"offset":1}
+122 content: ok before={"div":122} after={"blockQuote":122} text-ok=true sel={"path":[0,0],"offset":1}
+122 embedDescription: ok before={"div":122} after={"blockQuote":122} text-ok=true sel={"path":[0,0],"offset":1}
+123 content: THROW before={"div":123} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":123} text-ok=true sel={"path":[0,0],"offset":1}
+123 embedDescription: THROW before={"div":123} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":123} text-ok=true sel={"path":[0,0],"offset":1}
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  09:55:11
+   Duration  1.45s (transform 185ms, setup 29ms, import 345ms, tests 273ms, environment 662ms)
+

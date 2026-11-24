@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_Markdown.tsx/20261124T132726Z-p2046126/control-1
+
+
+ Test Files  25 passed (25)
+      Tests  265 passed (265)
+   Start at  13:27:31
+   Duration  16.33s (transform 2.31s, setup 215ms, import 23.99s, tests 13.89s, environment 19.42s)
+

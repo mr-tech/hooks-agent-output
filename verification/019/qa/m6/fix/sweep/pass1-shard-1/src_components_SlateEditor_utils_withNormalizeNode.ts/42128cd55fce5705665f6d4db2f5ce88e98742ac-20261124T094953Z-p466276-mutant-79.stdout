@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-79
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 18626ms
+     × hands the message that text in a full-markdown editor 9276ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 7 failed) 97ms
+     × at the end of a quote line saves what the table says 24ms
+     × in the middle of a quote line saves what the table says 3ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 4ms
+     × at the end of a quote line that opens a fence saves what the table says 2ms
+     × at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says 3ms
+     × is set on the line Enter makes from a quote line 4ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 2ms
+
+ Test Files  2 failed | 36 passed (38)
+      Tests  8 failed | 596 passed (604)
+   Start at  11:03:03
+   Duration  47.59s (transform 2.76s, setup 307ms, import 30.75s, tests 123.79s, environment 28.25s)
+

@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_emojiDisplay.ts/20261124T124355Z-p1725426/mutant-3
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 1 failed) 94ms
+     × as an image of the Twemoji file, with the character as its alt text 47ms
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 3 failed) 64ms
+     × is large for emoji surrounded by spaces 7ms
+     × is not large for text before an emoji 1ms
+     × is not large for 27 emoji 1ms
+
+ Test Files  2 failed | 58 passed (60)
+      Tests  4 failed | 983 passed (987)
+   Start at  12:47:28
+   Duration  58.49s (transform 2.87s, setup 331ms, import 41.20s, tests 147.97s, environment 34.34s)
+

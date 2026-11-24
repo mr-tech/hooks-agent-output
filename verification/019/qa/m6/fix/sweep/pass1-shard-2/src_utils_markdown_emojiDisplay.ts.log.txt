@@ -1,0 +1,24 @@
+emojiDisplay.ts:7:=== KILLED 67.19
+emojiDisplay.ts:12:walk-first KILLED 70.65
+emojiDisplay.ts:12:walk-last KILLED 63.83
+emojiDisplay.ts:12:=== KILLED 67.05
+emojiDisplay.ts:13:=== KILLED 62.98
+emojiDisplay.ts:13:&& KILLED 111.18
+emojiDisplay.ts:13:===:2 KILLED 65.75
+emojiDisplay.ts:16:num KILLED 66.96
+emojiDisplay.ts:19:if-false KILLED 66.51
+emojiDisplay.ts:19:=== KILLED 67.15
+emojiDisplay.ts:21:if-false KILLED 66.05
+emojiDisplay.ts:21:=== KILLED 67.23
+emojiDisplay.ts:21:num KILLED 66.38
+emojiDisplay.ts:22:if-false KILLED 67.39
+emojiDisplay.ts:22:not KILLED 66.29
+emojiDisplay.ts:22:false KILLED 66.04
+emojiDisplay.ts:24:if-false KILLED 66.76
+emojiDisplay.ts:24:!== KILLED 66.94
+emojiDisplay.ts:25:false KILLED 67.0
+emojiDisplay.ts:28:> KILLED 64.22
+emojiDisplay.ts:28:num KILLED 57.18
+emojiDisplay.ts:28:&& KILLED 66.46
+emojiDisplay.ts:28:< KILLED 67.64
+23 of 23 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_emojiDisplay.ts.mutants.json (blob aa8052780f06cddeead704f6cfc6354b1acf5e8b))

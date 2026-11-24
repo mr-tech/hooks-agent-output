@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 1178ms
+     × on embedDescription, every content character carries the style set its preview gives it 430ms
+     × on fieldValue, every content character carries the style set its preview gives it 238ms
+     × on embedTitle, every content character carries the style set its preview gives it 177ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 156ms
+     × on v2Text, every content character carries the style set its preview gives it 169ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 9572ms
+     × hands the message that text in a full-markdown editor 218ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 3 failed) 13129ms
+     × hands the message that text in a full-markdown editor 2292ms
+     × hands the message that text in a single-line editor 1506ms
+     × hands the message that text in a full-markdown editor 96ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 16400ms
+     × hands the message that text in a full-markdown editor 10511ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 9395ms
+     × hands the message that text in a full-markdown editor 5474ms
+     × hands the message that text in a single-line editor 3770ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 2 failed) 108ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 77ms
+     × draws a masked link label as link text on the content surface 20ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 195ms
+     × on content, over every input of the generator and the corpus 67ms
+     × on embedDescription, over every input of the generator and the corpus 25ms
+     × on fieldValue, over every input of the generator and the corpus 26ms
+     × on embedTitle, over every input of the generator and the corpus 17ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 18ms
+     × on v2Text, over every input of the generator and the corpus 17ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 7 failed) 58ms
+     × marks bold delimiters as syntax and the inside as bold 15ms
+     × draws a masked link label as link text and the brackets and destination as syntax 8ms
+     × draws a bare link address as link text 1ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 1ms
+     × carries italic across a line break and gives the break itself no class 1ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 2ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 108ms
+     × matches the frozen box on every input, an emoji element's source characters left out 70ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 7ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 3 failed) 65ms
+     × carries bold across an emoji element 18ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 2ms
+
+ Test Files  10 failed | 36 passed (46)
+      Tests  32 failed | 623 passed (655)
+   Start at  12:17:51
+   Duration  37.74s (transform 2.57s, setup 292ms, import 31.84s, tests 82.21s, environment 28.49s)
+

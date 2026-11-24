@@ -1,0 +1,270 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 7458ms
+     × on embedDescription, every content character carries the style set its preview gives it 1896ms
+     × on fieldValue, every content character carries the style set its preview gives it 1423ms
+     × on embedTitle, every content character carries the style set its preview gives it 1423ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1310ms
+     × on v2Text, every content character carries the style set its preview gives it 1400ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 15 failed) 83ms
+     × with one timestamp between text 30ms
+     × with identical duplicates, the first 4ms
+     × with identical duplicates, the second 3ms
+     × with a timestamp in a code span before it 4ms
+     × with a timestamp in a code block before it 2ms
+     × with an escaped timestamp before it 3ms
+     × with an invalid style letter before it 2ms
+     × with a timestamp inside a spoiler, the first 3ms
+     × with a timestamp inside a spoiler, the second 3ms
+     × with a timestamp inside a link label, which the engine leaves as text 10ms
+     × with the bare form 3ms
+     × with three timestamps, the middle one 3ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 5ms
+     × after a timestamp is added between and after the existing ones 2ms
+     × shows the new time, not the one it first drew 1ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 1205ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 164ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 121ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 93ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 88ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 81ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 73ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 70ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 79ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 75ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 73ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 71ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 75ms
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (62 tests | 5 failed) 6114ms
+     × renders the editor with the message for a JSON object 5241ms
+     × shows no error line and no red border for embeds over 6000 characters 31ms
+     × shows no error line and no red border for Text Displays over 4000 characters 34ms
+     × shows no error line and no red border for an empty username 19ms
+     × shows no error line and no red border for a username Discord does not allow 18ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 37 failed) 153ms
+     × plain text 29ms
+     × bold 5ms
+     × italic 4ms
+     × underline 3ms
+     × strikethrough 5ms
+     × spoiler 3ms
+     × inline code 3ms
+     × heading 2ms
+     × subtext 3ms
+     × quote 3ms
+     × unordered list 5ms
+     × ordered list from three 2ms
+     × masked link 10ms
+     × bare link 2ms
+     × code block with a language 1ms
+     × code block with none 2ms
+     × unicode emoji 2ms
+     × custom emoji 3ms
+     × animated custom emoji 2ms
+     × a line break 3ms
+     × a user mention 3ms
+     × a user mention with the nickname mark 2ms
+     × a role mention 1ms
+     × a channel mention with no list 2ms
+     × everyone 1ms
+     × here 1ms
+     × a timestamp, by its seconds and style 3ms
+     × a timestamp with no style 3ms
+     × puts a bold run inside a quote inside the quote node 3ms
+     × "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree 8ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 4ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 5ms
+     × gives the same visible form string for the same rendering 5ms
+     × reads a channel mention by its id when the preview shows the channel's name 1ms
+     × reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well 1ms
+     × tells a timestamp of one value from a timestamp of another 3ms
+     × tells a mention of one id from a mention of another, and one kind from another 2ms
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 2 failed) 10051ms
+     × draws its links as links when the embed has no url 5041ms
+     × keeps its link syntax as text when the embed has a url 5008ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 15 failed) 83ms
+     × draws t as its text 29ms
+     × draws T as its text 3ms
+     × draws d as its text 3ms
+     × draws D as its text 4ms
+     × draws f as its text 4ms
+     × draws F as its text 3ms
+     × draws s as its text 3ms
+     × draws S as its text 3ms
+     × draws the bare form as f 4ms
+     × draws R as the time from a fixed clock, three hours on 5ms
+     × leaves an invalid style letter as text and draws no timestamp 3ms
+     × formats in the viewer's zone once mounted 2ms
+     × formats in UTC before mount, whatever the viewer's zone 2ms
+     × follows a locale dayjs has a file for 4ms
+     × reads in the language dayjs resolves to, not the tag, where dayjs has no file for the tag 3ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 9 failed) 55ms
+     × as an image of the Twemoji file, with the character as its alt text 22ms
+     × as the character itself, with no image, where Twemoji has none 5ms
+     × from a typed name, as an image whose alt text is the character 3ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 3ms
+     × for an animated custom emoji, as its gif 3ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 3ms
+     × large when only emoji and spaces make up the message, for every one of them 5ms
+     × at the embed size, 18 pixels, in an embed, even when the message holds only emoji 2ms
+     × small once any text sits beside it 4ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 3 failed) 54ms
+     × reveals every piece when any one piece is clicked 38ms
+     × hides every piece again when a revealed piece is clicked 5ms
+     × leaves a different spoiler hidden 4ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 5 failed) 51ms
+     × names a listed channel 32ms
+     × names a thread under a listed channel 3ms
+     × keeps the id form when the list is empty 3ms
+     × shows the new name when the list changes under a mounted preview 3ms
+     × renders, and draws the channel in its id form 2ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 75 failed) 201ms
+     × renders as the table says when the list state is noProvider 18ms
+     × renders as the table says when the list state is empty 1ms
+     × renders as the table says when the list state is withoutId 1ms
+     × renders as the table says when the list state is topLevel 1ms
+     × renders as the table says when the list state is threadOnly 1ms
+     × is given a listed forum channel its name 1ms
+     × is given an active post under a listed forum channel its name 1ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × names a thread of the second listed channel, and one of the first, in the same list 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 0ms
+     × is named on the fieldValue surface when the list holds it 0ms
+     × is named on the v2Text surface when the list holds it 0ms
+     × renders user as today's form when the list state is noProvider 1ms
+     × renders user as today's form when the list state is empty 1ms
+     × renders user as today's form when the list state is withoutId 0ms
+     × renders user as today's form when the list state is topLevel 0ms
+     × renders user as today's form when the list state is threadOnly 0ms
+     × renders role as today's form when the list state is noProvider 1ms
+     × renders role as today's form when the list state is empty 0ms
+     × renders role as today's form when the list state is withoutId 0ms
+     × renders role as today's form when the list state is topLevel 0ms
+     × renders role as today's form when the list state is threadOnly 1ms
+     × renders game as today's form when the list state is noProvider 1ms
+     × renders game as today's form when the list state is empty 1ms
+     × renders game as today's form when the list state is withoutId 1ms
+     × renders game as today's form when the list state is topLevel 1ms
+     × renders game as today's form when the list state is threadOnly 0ms
+     × renders command as today's form when the list state is noProvider 1ms
+     × renders command as today's form when the list state is empty 0ms
+     × renders command as today's form when the list state is withoutId 1ms
+     × renders command as today's form when the list state is topLevel 0ms
+     × renders command as today's form when the list state is threadOnly 1ms
+     × renders everyone as today's form when the list state is noProvider 1ms
+     × renders everyone as today's form when the list state is empty 0ms
+     × renders everyone as today's form when the list state is withoutId 1ms
+     × renders everyone as today's form when the list state is topLevel 0ms
+     × renders everyone as today's form when the list state is threadOnly 0ms
+     × renders here as today's form when the list state is noProvider 0ms
+     × renders here as today's form when the list state is empty 0ms
+     × renders here as today's form when the list state is withoutId 0ms
+     × renders here as today's form when the list state is topLevel 0ms
+     × renders here as today's form when the list state is threadOnly 1ms
+     × renders home as today's form when the list state is noProvider 1ms
+     × renders home as today's form when the list state is empty 0ms
+     × renders home as today's form when the list state is withoutId 0ms
+     × renders home as today's form when the list state is topLevel 0ms
+     × renders home as today's form when the list state is threadOnly 0ms
+     × renders browse as today's form when the list state is noProvider 1ms
+     × renders browse as today's form when the list state is empty 1ms
+     × renders browse as today's form when the list state is withoutId 0ms
+     × renders browse as today's form when the list state is topLevel 0ms
+     × renders browse as today's form when the list state is threadOnly 0ms
+     × renders customize as today's form when the list state is noProvider 1ms
+     × renders customize as today's form when the list state is empty 1ms
+     × renders customize as today's form when the list state is withoutId 1ms
+     × renders customize as today's form when the list state is topLevel 1ms
+     × renders customize as today's form when the list state is threadOnly 1ms
+     × renders guide as today's form when the list state is noProvider 0ms
+     × renders guide as today's form when the list state is empty 0ms
+     × renders guide as today's form when the list state is withoutId 0ms
+     × renders guide as today's form when the list state is topLevel 1ms
+     × renders guide as today's form when the list state is threadOnly 1ms
+     × renders linked_roles as today's form when the list state is noProvider 0ms
+     × renders linked_roles as today's form when the list state is empty 1ms
+     × renders linked_roles as today's form when the list state is withoutId 0ms
+     × renders linked_roles as today's form when the list state is topLevel 0ms
+     × renders linked_roles as today's form when the list state is threadOnly 0ms
+     × keeps the typed form of a user mention that carries a bang 0ms
+     × keeps a role mention in its form when the role id is a listed channel id 0ms
+     × keeps a user mention in its form when the user id is a listed channel id 1ms
+     × draws every one of the 60 cells as something visible 12ms
+ ❯ |node| src/utils/markdown/__tests__/preview.fenced-code-block-draw.test.ts (27 tests | 26 failed) 65ms
+     × renders a code block for a tag and two lines 19ms
+     × renders a code block for no tag and two lines 2ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 1ms
+     × renders a code block for no tag and one line 1ms
+     × renders a code block for a one-line fence 1ms
+     × renders a code block for an empty line inside, no tag 1ms
+     × renders a code block for an empty line inside, a tag 1ms
+     × renders a code block for two empty lines inside 1ms
+     × renders a code block for a whitespace-only line inside, no tag 1ms
+     × renders a code block for a whitespace-only line inside, a tag 1ms
+     × renders a code block for text before and an empty line inside 1ms
+     × renders a code block for text after and an empty line inside 0ms
+     × renders a code block for a tag and two lines 0ms
+     × renders a code block for no tag and two lines 0ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 0ms
+     × renders a code block for no tag and one line 1ms
+     × renders a code block for a one-line fence 0ms
+     × renders a code block for an empty line inside, no tag 0ms
+     × renders a code block for an empty line inside, a tag 0ms
+     × renders a code block for two empty lines inside 0ms
+     × renders a code block for a whitespace-only line inside, no tag 1ms
+     × renders a code block for a whitespace-only line inside, a tag 1ms
+     × renders a code block for text before and an empty line inside 1ms
+     × renders a code block for text after and an empty line inside 1ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 24 failed) 69ms
+     × draws bold 19ms
+     × draws italic 2ms
+     × draws underline 1ms
+     × draws strikethrough 1ms
+     × draws inline code 1ms
+     × draws plain text 1ms
+     × draws a heading 1ms
+     × draws a second-level heading 1ms
+     × keeps a line break between two lines of text 2ms
+     × draws a masked link as an anchor whose href is the engine url and whose label is its text 7ms
+     × draws a bare link with the normalised url as its label 1ms
+     × draws a quote line with its bar 1ms
+     × draws an ordered list from its first number 1ms
+     × draws an unordered list 0ms
+     × draws a code block with its body and a language it does not know as plain 0ms
+     × draws a subtext line as a small block with its marker consumed 1ms
+     × keeps a blank line between two paragraphs 1ms
+     × keeps a https link as an anchor 1ms
+     × keeps a mailto link as an anchor 0ms
+     × draws a javascript link as its label with no href 0ms
+     × draws a data link as its label with no href 0ms
+     × as its source text, with no image, for a fixture tree that invents engine output 0ms
+     × as its address, for a masked link in a fixture tree that invents engine output 1ms
+     × as its address, for a contact link in a fixture tree that invents engine output 0ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 70151ms
+     × names the channel after content  when the guild list is in reach 5046ms
+     × names the channel after title  when the guild list is in reach 5008ms
+     × names the channel after description  when the guild list is in reach 5010ms
+     × names the channel after field name  when the guild list is in reach 5008ms
+     × names the channel after field value  when the guild list is in reach 5007ms
+     × names the channel after linked title  when the guild list is in reach 5008ms
+     × names the channel after text display  when the guild list is in reach 5006ms
+     × shows the channel id after content , and still renders, with no guild provider 5006ms
+     × shows the channel id after title , and still renders, with no guild provider 5010ms
+     × shows the channel id after description , and still renders, with no guild provider 5007ms
+     × shows the channel id after field name , and still renders, with no guild provider 5010ms
+     × shows the channel id after field value , and still renders, with no guild provider 5006ms
+     × shows the channel id after linked title , and still renders, with no guild provider 5008ms
+     × shows the channel id after text display , and still renders, with no guild provider 5008ms
+
+ Test Files  14 failed | 29 passed (43)
+      Tests  247 failed | 419 passed (666)
+   Start at  09:53:46
+   Duration  101.70s (transform 2.99s, setup 256ms, import 40.01s, tests 209.45s, environment 30.55s)
+

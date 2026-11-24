@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-6
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 114ms
+     × matches the frozen box on every input, an emoji element's source characters left out 86ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 51ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 7ms
+
+ Test Files  2 failed | 44 passed (46)
+      Tests  2 failed | 653 passed (655)
+   Start at  12:04:13
+   Duration  55.66s (transform 2.61s, setup 277ms, import 33.55s, tests 146.64s, environment 30.60s)
+

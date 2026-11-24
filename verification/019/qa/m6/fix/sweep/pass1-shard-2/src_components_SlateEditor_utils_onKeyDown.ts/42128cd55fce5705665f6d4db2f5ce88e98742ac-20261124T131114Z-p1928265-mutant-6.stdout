@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_onKeyDown.ts/20261124T131114Z-p1928265/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 18708ms
+     × hands the message that text in a full-markdown editor 9208ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 2 failed) 90ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 8ms
+     × is cleared by Backspace after the carried marker of a code line 2ms
+
+ Test Files  2 failed | 36 passed (38)
+      Tests  3 failed | 601 passed (604)
+   Start at  13:16:31
+   Duration  47.49s (transform 2.58s, setup 222ms, import 30.53s, tests 123.84s, environment 27.94s)
+

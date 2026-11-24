@@ -1,0 +1,203 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_runUnit.ts/20261124T123758Z-p1681687/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 134ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 36ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 13ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 23ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 16ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 14ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 14ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 123ms
+     × hands the message that text in a full-markdown editor 91ms
+     × hands the message that text in a single-line editor 31ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 976ms
+     × on embedDescription, every content character carries the style set its preview gives it 338ms
+     × on fieldValue, every content character carries the style set its preview gives it 201ms
+     × on embedTitle, every content character carries the style set its preview gives it 162ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 123ms
+     × on v2Text, every content character carries the style set its preview gives it 145ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 10 failed) 6089ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 75ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 37ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 42ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 20ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 31ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 39ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 21ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 20ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 18ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 28ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 6 failed) 7241ms
+     × hands the message that text in a full-markdown editor 1853ms
+     × hands the message that text in a single-line editor 1197ms
+     × hands the message that text in a full-markdown editor 477ms
+     × hands the message that text in a single-line editor 544ms
+     × hands the message that text in a full-markdown editor 161ms
+     × hands the message that text in a single-line editor 125ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 6988ms
+     × hands the message that text in a full-markdown editor 3976ms
+     × hands the message that text in a single-line editor 2880ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 9401ms
+     × hands the message that text in a full-markdown editor 581ms
+     × hands the message that text in a single-line editor 277ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 96 failed) 2673ms
+     × equals the stored text of a colon-wrapped emoji once the editor opens it 15ms
+     × equals the stored text of an emoji between words once the editor opens it 6ms
+     × equals the stored text of an emoji inside bold once the editor opens it 7ms
+     × equals a Unicode emoji typed one character at a time 31ms
+     × equals a ZWJ sequence typed one character at a time 27ms
+     × equals a skin-tone sequence typed one character at a time 12ms
+     × equals a keycap typed one character at a time 36ms
+     × equals a flag typed one character at a time 20ms
+     × equals a tag sequence typed one character at a time 10ms
+     × equals a heart with emoji presentation typed one character at a time 29ms
+     × equals a heart with text presentation typed one character at a time 26ms
+     × equals an emoji newer than the site's table typed one character at a time 11ms
+     × equals an emoji typed as a name typed one character at a time 27ms
+     × equals a skin-toned name typed one character at a time 21ms
+     × equals a colon-wrapped emoji typed one character at a time 10ms
+     × equals a custom emoji typed one character at a time 24ms
+     × equals an animated custom emoji typed one character at a time 23ms
+     × equals an emoji in a link label typed one character at a time 11ms
+     × equals an emoji in a link address typed one character at a time 51ms
+     × equals a name in a link address typed one character at a time 54ms
+     × equals an emoji between words typed one character at a time 21ms
+     × equals two emoji side by side typed one character at a time 19ms
+     × equals an emoji inside bold typed one character at a time 10ms
+     × equals an emoji inside inline code typed one character at a time 17ms
+     × equals an emoji inside a code block typed one character at a time 44ms
+     × equals an emoji after a backslash typed one character at a time 20ms
+     × equals a Unicode emoji pasted whole 26ms
+     × equals a ZWJ sequence pasted whole 26ms
+     × equals a skin-tone sequence pasted whole 22ms
+     × equals a keycap pasted whole 22ms
+     × equals a flag pasted whole 22ms
+     × equals a tag sequence pasted whole 20ms
+     × equals a heart with emoji presentation pasted whole 26ms
+     × equals a heart with text presentation pasted whole 21ms
+     × equals an emoji newer than the site's table pasted whole 21ms
+     × equals an emoji typed as a name pasted whole 19ms
+     × equals a skin-toned name pasted whole 20ms
+     × equals a colon-wrapped emoji pasted whole 21ms
+     × equals a custom emoji pasted whole 19ms
+     × equals an animated custom emoji pasted whole 20ms
+     × equals an emoji in a link label pasted whole 19ms
+     × equals an emoji in a link address pasted whole 13ms
+     × equals a name in a link address pasted whole 12ms
+     × equals an emoji between words pasted whole 23ms
+     × equals two emoji side by side pasted whole 23ms
+     × equals an emoji inside bold pasted whole 23ms
+     × equals an emoji inside inline code pasted whole 24ms
+     × equals an emoji inside a code block pasted whole 25ms
+     × equals an emoji after a backslash pasted whole 33ms
+     × equals the stored text of a colon-wrapped emoji once the editor opens it 7ms
+     × equals the stored text of an emoji between words once the editor opens it 6ms
+     × equals the stored text of an emoji inside bold once the editor opens it 6ms
+     × equals a Unicode emoji typed one character at a time 16ms
+     × equals a ZWJ sequence typed one character at a time 26ms
+     × equals a skin-tone sequence typed one character at a time 22ms
+     × equals a keycap typed one character at a time 21ms
+     × equals a flag typed one character at a time 21ms
+     × equals a tag sequence typed one character at a time 19ms
+     × equals a heart with emoji presentation typed one character at a time 19ms
+     × equals a heart with text presentation typed one character at a time 20ms
+     × equals an emoji newer than the site's table typed one character at a time 20ms
+     × equals an emoji typed as a name typed one character at a time 28ms
+     × equals a skin-toned name typed one character at a time 21ms
+     × equals a colon-wrapped emoji typed one character at a time 20ms
+     × equals a custom emoji typed one character at a time 21ms
+     × equals an animated custom emoji typed one character at a time 20ms
+     × equals an emoji in a link label typed one character at a time 22ms
+     × equals an emoji in a link address typed one character at a time 24ms
+     × equals a name in a link address typed one character at a time 31ms
+     × equals an emoji between words typed one character at a time 23ms
+     × equals two emoji side by side typed one character at a time 25ms
+     × equals an emoji inside bold typed one character at a time 26ms
+     × equals an emoji inside inline code typed one character at a time 23ms
+     × equals an emoji after a backslash typed one character at a time 23ms
+     × equals a Unicode emoji pasted whole 40ms
+     × equals a ZWJ sequence pasted whole 34ms
+     × equals a skin-tone sequence pasted whole 26ms
+     × equals a keycap pasted whole 26ms
+     × equals a flag pasted whole 25ms
+     × equals a tag sequence pasted whole 27ms
+     × equals a heart with emoji presentation pasted whole 33ms
+     × equals a heart with text presentation pasted whole 27ms
+     × equals an emoji newer than the site's table pasted whole 26ms
+     × equals an emoji typed as a name pasted whole 25ms
+     × equals a skin-toned name pasted whole 27ms
+     × equals a colon-wrapped emoji pasted whole 24ms
+     × equals a custom emoji pasted whole 34ms
+     × equals an animated custom emoji pasted whole 29ms
+     × equals an emoji in a link label pasted whole 30ms
+     × equals an emoji in a link address pasted whole 28ms
+     × equals a name in a link address pasted whole 28ms
+     × equals an emoji between words pasted whole 29ms
+     × equals two emoji side by side pasted whole 35ms
+     × equals an emoji inside bold pasted whole 30ms
+     × equals an emoji inside inline code pasted whole 30ms
+     × equals an emoji after a backslash pasted whole 29ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (54 tests | 13 failed) 1928ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 29ms
+       × builds as many for insert at the middle of a line in the longest message as in the shortest 25ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 20ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 19ms
+       × builds as many for backspace at the middle of a line in the longest message as in the shortest 39ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 13ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 18ms
+       × builds as many for delete at the middle of a line in the longest message as in the shortest 22ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 14ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 32ms
+       × builds as many for enter at the middle of a line in the longest message as in the shortest 28ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 24ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 82ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 15 failed) 318ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 43ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 21ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 17ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 21ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 19ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 15ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 19ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 14ms
+     × puts an emoji in a link label back to text once "](" is typed after it 20ms
+     × puts a caret in front of the element at the same place in the text 12ms
+     × puts a caret right in front of the element at the same place in the text 20ms
+     × puts a caret on the element at the same place in the text 20ms
+     × puts a caret after the element and a typed backtick at the same place in the text 17ms
+     × puts a caret on a second element at the same place in the text 16ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 16ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 200ms
+     × on content, over every input of the generator and the corpus 64ms
+     × on embedDescription, over every input of the generator and the corpus 30ms
+     × on fieldValue, over every input of the generator and the corpus 27ms
+     × on embedTitle, over every input of the generator and the corpus 13ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 14ms
+     × on v2Text, over every input of the generator and the corpus 21ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 112ms
+     × matches the frozen box on every input, an emoji element's source characters left out 75ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 95ms
+     × parses a unit of 51 text nodes once 13ms
+     × parses a unit of three lines once, and a unit after a code block once more 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 13 failed) 66ms
+     × carries bold across an emoji element 15ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 1ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 6ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 1ms
+
+ Test Files  14 failed | 35 passed (49)
+      Tests  179 failed | 555 passed (734)
+     Errors  86 errors
+   Start at  12:52:15
+   Duration  35.85s (transform 4.09s, setup 962ms, import 44.75s, tests 53.23s, environment 29.35s)
+

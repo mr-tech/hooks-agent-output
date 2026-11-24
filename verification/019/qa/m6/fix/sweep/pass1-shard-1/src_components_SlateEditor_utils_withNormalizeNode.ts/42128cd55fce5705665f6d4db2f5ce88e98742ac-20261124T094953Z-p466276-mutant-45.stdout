@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-45
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 1 failed) 81ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 10ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  1 failed | 603 passed (604)
+   Start at  10:34:22
+   Duration  49.69s (transform 2.56s, setup 244ms, import 31.33s, tests 127.88s, environment 28.74s)
+

@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 18818ms
+     × on embedDescription, every content character carries the style set its preview gives it 4948ms
+     × on fieldValue, every content character carries the style set its preview gives it 3956ms
+     × on embedTitle, every content character carries the style set its preview gives it 3388ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3179ms
+     × on v2Text, every content character carries the style set its preview gives it 3339ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 125ms
+     × matches the frozen box on every input, an emoji element's source characters left out 93ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+
+ Test Files  2 failed | 44 passed (46)
+      Tests  7 failed | 648 passed (655)
+   Start at  12:05:14
+   Duration  56.36s (transform 2.66s, setup 269ms, import 33.62s, tests 149.22s, environment 30.55s)
+

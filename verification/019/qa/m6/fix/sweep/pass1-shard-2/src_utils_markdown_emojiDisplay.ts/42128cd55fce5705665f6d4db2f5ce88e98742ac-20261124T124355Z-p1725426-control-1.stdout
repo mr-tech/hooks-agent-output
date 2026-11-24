@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_emojiDisplay.ts/20261124T124355Z-p1725426/control-1
+
+
+ Test Files  60 passed (60)
+      Tests  987 passed (987)
+   Start at  12:44:00
+   Duration  63.71s (transform 2.87s, setup 308ms, import 41.94s, tests 167.14s, environment 35.14s)
+

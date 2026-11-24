@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-37
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 14497ms
+     × on embedDescription, every content character carries the style set its preview gives it 3150ms
+     × on fieldValue, every content character carries the style set its preview gives it 2756ms
+     × on embedTitle, every content character carries the style set its preview gives it 2745ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3028ms
+     × on v2Text, every content character carries the style set its preview gives it 2811ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 2725ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 413ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 234ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 245ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 182ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 186ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 196ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 175ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 197ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 206ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 189ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 182ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 194ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 317ms
+     × a line break 11ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 11ms
+ ❯ |node| src/utils/markdown/__tests__/preview.fenced-code-block-draw.test.ts (27 tests | 2 failed) 71ms
+     × renders a code block for text after and an empty line inside 6ms
+     × renders a code block for text after and an empty line inside 1ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 2 failed) 64ms
+     × keeps a line break between two lines of text 6ms
+     × keeps a blank line between two paragraphs 1ms
+
+ Test Files  5 failed | 38 passed (43)
+      Tests  23 failed | 643 passed (666)
+   Start at  10:29:00
+   Duration  51.02s (transform 2.69s, setup 284ms, import 38.30s, tests 127.53s, environment 29.69s)
+

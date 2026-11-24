@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_flattenNodeText.ts/20261124T133947Z-p2134008/control-1
+
+
+ Test Files  46 passed (46)
+      Tests  698 passed (698)
+   Start at  13:39:51
+   Duration  46.08s (transform 2.31s, setup 241ms, import 28.89s, tests 119.87s, environment 26.35s)
+

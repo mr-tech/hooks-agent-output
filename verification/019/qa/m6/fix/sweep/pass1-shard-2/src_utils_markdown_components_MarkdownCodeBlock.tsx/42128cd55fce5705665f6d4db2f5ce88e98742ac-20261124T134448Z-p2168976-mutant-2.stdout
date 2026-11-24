@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/20261124T134448Z-p2168976/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 6639ms
+     × on embedDescription, every content character carries the style set its preview gives it 208ms
+     × on fieldValue, every content character carries the style set its preview gives it 156ms
+     × on v2Text, every content character carries the style set its preview gives it 72ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 2 failed) 2217ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 17ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 5ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 60ms
+     × draws a code block with its body and a language it does not know as plain 5ms
+
+ Test Files  3 failed | 40 passed (43)
+      Tests  6 failed | 660 passed (666)
+   Start at  13:46:29
+   Duration  41.64s (transform 2.22s, setup 216ms, import 33.72s, tests 99.15s, environment 26.08s)
+

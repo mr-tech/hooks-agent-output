@@ -1,0 +1,11 @@
+[
+ {
+  "id": "emoji.tsx:5:num",
+  "file": "src/utils/markdown/emoji.tsx",
+  "old": "27",
+  "new": "28",
+  "op": "num",
+  "line": 5,
+  "text": "export const JUMBO_EMOJI_MAX = 27;"
+ }
+]

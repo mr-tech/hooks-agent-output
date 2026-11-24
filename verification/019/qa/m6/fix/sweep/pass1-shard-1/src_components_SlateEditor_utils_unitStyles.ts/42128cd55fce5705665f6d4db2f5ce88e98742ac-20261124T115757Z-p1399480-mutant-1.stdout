@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-1
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 121ms
+     × matches the frozen box on every input, an emoji element's source characters left out 91ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 2 failed) 58ms
+     × colours no heading marker and no list marker 8ms
+     × carries italic across a line break and gives the break itself no class 2ms
+
+ Test Files  2 failed | 44 passed (46)
+      Tests  3 failed | 652 passed (655)
+   Start at  11:59:03
+   Duration  56.62s (transform 2.51s, setup 275ms, import 32.91s, tests 150.94s, environment 30.26s)
+

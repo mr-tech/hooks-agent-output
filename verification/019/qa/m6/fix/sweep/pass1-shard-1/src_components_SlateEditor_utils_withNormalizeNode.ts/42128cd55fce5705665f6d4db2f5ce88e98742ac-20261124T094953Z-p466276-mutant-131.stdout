@@ -1,0 +1,62 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-131
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (54 tests | 52 failed) 295810ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7797ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 7749ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7829ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 6935ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 8469ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 7027ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 7215ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 7213ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7755ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 7942ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7803ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7464ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7704ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 7713ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 15768ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 15857ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7883ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 7220ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7223ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7298ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7255ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 7333ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 7215ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 7253ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7893ms
+       × builds as many for insert at the middle of a line in the longest message as in the shortest 7896ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 7883ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7632ms
+       × builds as many for backspace at the middle of a line in the longest message as in the shortest 7906ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7778ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7856ms
+       × builds as many for delete at the middle of a line in the longest message as in the shortest 7812ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 7815ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 7910ms
+       × builds as many for enter at the middle of a line in the longest message as in the shortest 7758ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 7917ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 27ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 28ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 24ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 23ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 22ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 66ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 55ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 43ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 31ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 34ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 35ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 33ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 35ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 49ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 36ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 30ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  52 failed | 552 passed (604)
+   Start at  11:49:40
+   Duration  327.30s (transform 2.79s, setup 290ms, import 31.38s, tests 423.51s, environment 28.48s)
+

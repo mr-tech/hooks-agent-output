@@ -1,0 +1,63 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_flattenNodeText.ts/20261124T133947Z-p2134008/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 14451ms
+     × hands the message that text in a full-markdown editor 6687ms
+     × hands the message that text in a full-markdown editor 7209ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 14748ms
+     × hands the message that text in a full-markdown editor 1986ms
+     × hands the message that text in a full-markdown editor 3248ms
+     × hands the message that text in a full-markdown editor 2957ms
+     × hands the message that text in a full-markdown editor 3514ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 17 failed) 6953ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 8ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 1ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 1ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 5ms
+     × writes no text to the lines a typed multi-line quote marker takes in 4ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 3ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 1ms
+     × makes the lines after a removed multi-line quote marker plain lines 1ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 56ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 18ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 307ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 67ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 680ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 4289ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8988ms
+     × hands the message that text in a full-markdown editor 5430ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 36630ms
+     × hands the message that text in a full-markdown editor 31586ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx (11 tests | 5 failed) 181ms
+     × writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box 71ms
+     × writes ">>> a" back to the message unchanged, once, in a full-markdown box 12ms
+     × writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box 16ms
+     × writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box 16ms
+     × writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box 11ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 2 failed) 75ms
+     × in the middle of the first line of a multi-line quote saves what the table says 8ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 2ms
+ ❯ |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts (5 tests | 1 failed) 42ms
+     × enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps 32ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 12 failed) 1208ms
+     × loads ">>> a\nb" with its text unchanged 6ms
+     × loads ">>> a" with its text unchanged 1ms
+     × loads ">>> a\n\nb" with its text unchanged 1ms
+     × loads ">>> a\n> b" with its text unchanged 1ms
+     × loads "x\n>>> a\nb" with its text unchanged 1ms
+     × loads " > a" with its text unchanged 1ms
+     × loads "  >>> a\nb" with its text unchanged 1ms
+     × loads each text of the 272-case corpus with its text unchanged 19ms
+     × loads each text of the 106 link inputs with its text unchanged 6ms
+     × loads each text of 1,000 generator inputs with its text unchanged 119ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 276ms
+     × loads each text of 3,000 seeded block-layer texts with its text unchanged 143ms
+
+ Test Files  9 failed | 37 passed (46)
+      Tests  45 failed | 653 passed (698)
+   Start at  13:44:02
+   Duration  46.32s (transform 2.25s, setup 225ms, import 28.94s, tests 121.22s, environment 26.39s)
+

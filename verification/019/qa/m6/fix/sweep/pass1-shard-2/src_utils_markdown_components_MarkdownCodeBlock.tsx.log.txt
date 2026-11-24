@@ -1,0 +1,5 @@
+MarkdownCodeBlock.tsx:7:if-false KILLED 48.15
+MarkdownCodeBlock.tsx:7:&& KILLED 45.91
+MarkdownCodeBlock.tsx:7:!== KILLED 45.96
+MarkdownCodeBlock.tsx:8:true SURVIVED 47.82
+3 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_components_MarkdownCodeBlock.tsx.mutants.json (blob 5d876d295a770cd3189b05b7704c16d8c1ffa1dd))

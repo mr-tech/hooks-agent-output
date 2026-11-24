@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-129
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 2 failed) 9488ms
+     × keeps "> a" a plain line while it is typed 9ms
+     × keeps ">>> a" a plain line while it is typed 2ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  2 failed | 602 passed (604)
+   Start at  11:47:50
+   Duration  49.32s (transform 2.78s, setup 296ms, import 32.06s, tests 128.65s, environment 28.46s)
+

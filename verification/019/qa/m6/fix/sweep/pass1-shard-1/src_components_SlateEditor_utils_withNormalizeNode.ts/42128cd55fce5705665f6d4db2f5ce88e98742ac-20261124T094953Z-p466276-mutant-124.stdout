@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-124
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 18188ms
+     × hands the message that text in a full-markdown editor 2610ms
+     × hands the message that text in a full-markdown editor 4403ms
+     × hands the message that text in a full-markdown editor 3816ms
+     × hands the message that text in a full-markdown editor 3328ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 18553ms
+     × hands the message that text in a full-markdown editor 8629ms
+     × hands the message that text in a full-markdown editor 9239ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 10915ms
+     × hands the message that text in a full-markdown editor 6224ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 1 failed) 8761ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 11ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 3 failed) 98ms
+     × in the middle of the first line of a multi-line quote saves what the table says 8ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 5ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 45982ms
+     × hands the message that text in a full-markdown editor 39399ms
+
+ Test Files  6 failed | 32 passed (38)
+      Tests  12 failed | 592 passed (604)
+   Start at  11:43:19
+   Duration  48.18s (transform 2.61s, setup 233ms, import 31.14s, tests 124.96s, environment 28.67s)
+

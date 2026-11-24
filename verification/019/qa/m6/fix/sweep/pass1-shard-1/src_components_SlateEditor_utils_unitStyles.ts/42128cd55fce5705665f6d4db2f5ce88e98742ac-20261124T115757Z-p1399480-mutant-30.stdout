@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-30
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 18754ms
+     × on embedDescription, every content character carries the style set its preview gives it 4671ms
+     × on fieldValue, every content character carries the style set its preview gives it 3938ms
+     × on embedTitle, every content character carries the style set its preview gives it 3653ms
+     × on v2Text, every content character carries the style set its preview gives it 3278ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 133ms
+     × draws a masked link label as link text on the content surface 31ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 123ms
+     × matches the frozen box on every input, an emoji element's source characters left out 93ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 54ms
+     × draws a masked link label as link text and the brackets and destination as syntax 14ms
+
+ Test Files  4 failed | 42 passed (46)
+      Tests  7 failed | 648 passed (655)
+   Start at  12:26:57
+   Duration  55.75s (transform 2.63s, setup 313ms, import 33.37s, tests 147.53s, environment 30.44s)
+

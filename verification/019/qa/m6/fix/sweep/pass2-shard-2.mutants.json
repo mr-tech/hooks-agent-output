@@ -1,0 +1,200 @@
+[
+  {
+    "id": "preview.tsx:23:walk-last",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "> node.children.s",
+    "new": "> (Array.isArray(node.children) ? node.children.slice(-1) : node.children).s",
+    "op": "walk-last",
+    "line": 23,
+    "text": "const hasLineEnding = (node: LosslessNode) => node.children.some((child) => child.type === 'token' && child.kind.type === 'line_ending');"
+  },
+  {
+    "id": "preview.tsx:23:&&",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "child.type === 'token' && child.kind.type === 'l",
+    "new": "child.type === 'token' || child.kind.type === 'l",
+    "op": "&&",
+    "line": 23,
+    "text": "const hasLineEnding = (node: LosslessNode) => node.children.some((child) => child.type === 'token' && child.kind.type === 'line_ending');"
+  },
+  {
+    "id": "preview.tsx:110:if-false",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": " if (k",
+    "new": " if (false && k",
+    "op": "if-false",
+    "line": 110,
+    "text": "if (kind === 'contact') {"
+  },
+  {
+    "id": "preview.tsx:111:walk-first",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "= node.children.f",
+    "new": "= (Array.isArray(node.children) ? node.children.slice(0, 1) : node.children).f",
+    "op": "walk-first",
+    "line": 111,
+    "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+  },
+  {
+    "id": "preview.tsx:111:walk-last",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "= node.children.f",
+    "new": "= (Array.isArray(node.children) ? node.children.slice(-1) : node.children).f",
+    "op": "walk-last",
+    "line": 111,
+    "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+  },
+  {
+    "id": "preview.tsx:111:===",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "d((child) => child.type === 'token' && child.kind.t",
+    "new": "d((child) => child.type !== 'token' && child.kind.t",
+    "op": "===",
+    "line": 111,
+    "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+  },
+  {
+    "id": "preview.tsx:111:&&",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "child.type === 'token' && child.kind.type === 'u",
+    "new": "child.type === 'token' || child.kind.type === 'u",
+    "op": "&&",
+    "line": 111,
+    "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+  },
+  {
+    "id": "preview.tsx:111:===:2",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "pe === 'u",
+    "new": "pe !== 'u",
+    "op": "===",
+    "line": 111,
+    "text": "const token = node.children.find((child) => child.type === 'token' && child.kind.type === 'url');"
+  },
+  {
+    "id": "preview.tsx:206:if-false",
+    "file": "src/utils/markdown/preview.tsx",
+    "old": "l;\n    if (state =",
+    "new": "l;\n    if (false && state =",
+    "op": "if-false",
+    "line": 206,
+    "text": "if (state === 'rejected') return input;"
+  },
+  {
+    "id": "decorator.tsx:62:if-false",
+    "file": "src/components/SlateEditor/utils/decorator.tsx",
+    "old": "k);\n    if (!styles)",
+    "new": "k);\n    if (false && !styles)",
+    "op": "if-false",
+    "line": 62,
+    "text": "if (!styles) return undefined;"
+  },
+  {
+    "id": "emojiLift.ts:26:num",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "[0]",
+    "new": "[1]",
+    "op": "num",
+    "line": 26,
+    "text": "const { value } = node.kind as unknown as { value: Parameters<typeof emojiSrc>[0] };"
+  },
+  {
+    "id": "emojiLift.ts:109:if-false",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "  if (li",
+    "new": "  if (false && li",
+    "op": "if-false",
+    "line": 109,
+    "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+  },
+  {
+    "id": "emojiLift.ts:109:||",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "||",
+    "new": "&&",
+    "op": "||",
+    "line": 109,
+    "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+  },
+  {
+    "id": "emojiLift.ts:112:walk-first",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "  unit.lineStarts.f",
+    "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(0, 1) : unit.lineStarts).f",
+    "op": "walk-first",
+    "line": 112,
+    "text": "unit.lineStarts.forEach((lineStart, index) => {"
+  },
+  {
+    "id": "emojiLift.ts:112:walk-last",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "  unit.lineStarts.f",
+    "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(-1) : unit.lineStarts).f",
+    "op": "walk-last",
+    "line": 112,
+    "text": "unit.lineStarts.forEach((lineStart, index) => {"
+  },
+  {
+    "id": "emojiLift.ts:114:walk-first",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "lines[index].children",
+    "new": "(Array.isArray(lines[index].children) ? lines[index].children.slice(0, 1) : lines[index].children)",
+    "op": "walk-first",
+    "line": 114,
+    "text": "const text = lines[index].children.map((child) => (Text.isText(child) ? child.text : '')).join('');"
+  },
+  {
+    "id": "emojiLift.ts:114:walk-last",
+    "file": "src/components/SlateEditor/utils/emojiLift.ts",
+    "old": "lines[index].children",
+    "new": "(Array.isArray(lines[index].children) ? lines[index].children.slice(-1) : lines[index].children)",
+    "op": "walk-last",
+    "line": 114,
+    "text": "const text = lines[index].children.map((child) => (Text.isText(child) ? child.text : '')).join('');"
+  },
+  {
+    "id": "onKeyDown.ts:39:num",
+    "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+    "old": "th[0]] ",
+    "new": "th[1]] ",
+    "op": "num",
+    "line": 39,
+    "text": "Transforms.setNodes(editor, { carried: undefined }, { at: [anchor.path[0]] });"
+  },
+  {
+    "id": "MarkdownTimestamp.tsx:45:if-false",
+    "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+    "old": "  if (!m",
+    "new": "  if (false && !m",
+    "op": "if-false",
+    "line": 45,
+    "text": "if (!mounted) date = date.utc();"
+  },
+  {
+    "id": "MarkdownTimestamp.tsx:45:not",
+    "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+    "old": "(!m",
+    "new": "(m",
+    "op": "not",
+    "line": 45,
+    "text": "if (!mounted) date = date.utc();"
+  },
+  {
+    "id": "MarkdownTimestamp.tsx:65:||",
+    "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+    "old": "  || !",
+    "new": "  && !",
+    "op": "||",
+    "line": 65,
+    "text": "|| !onEdit"
+  },
+  {
+    "id": "MarkdownCodeBlock.tsx:8:true",
+    "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+    "old": "true",
+    "new": "false",
+    "op": "true",
+    "line": 8,
+    "text": "const highlighted = hljs.highlight(content, { language: lang, ignoreIllegals: true });"
+  }
+]

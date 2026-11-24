@@ -1,0 +1,169 @@
+{
+ "sha": "42128cd55fce5705665f6d4db2f5ce88e98742ac",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-1/src_utils_markdown_components_MarkdownEmoji.tsx.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "related",
+  "--run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "60000",
+  "--hookTimeout",
+  "60000",
+  "src/utils/markdown/components/MarkdownEmoji.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-1/src_utils_markdown_components_MarkdownEmoji.tsx.mutants.json",
+   "blob": "88e9b70e82883811eb8550ce69c79a0d66e44793"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-control-1.stderr",
+   "seconds": 57.99,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 666,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "MarkdownEmoji.tsx:16:if-false",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 16,
+    "text": "if (isEmbed) size = '18';"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > at the embed size, 18 pixels, in an embed, even when the message holds only emoji"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 58.42,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-1.stderr"
+  },
+  {
+   "id": "MarkdownEmoji.tsx:17:if-false",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 17,
+    "text": "else if (jumboable) size = '32';"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji",
+    "|dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 57.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-2.stderr"
+  },
+  {
+   "id": "MarkdownEmoji.tsx:23:false",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 23,
+    "text": "draggable={false}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 57.95,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-3.stderr"
+  },
+  {
+   "id": "MarkdownEmoji.tsx:24:&&",
+   "run": "mutant-4",
+   "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 24,
+    "text": "className={classNames('discord-visualizer__emoji', jumboable && 'discord-visualizer__emoji-jumboable')}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text",
+    "|dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 57.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown_components_MarkdownEmoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T132236Z-p2011063-mutant-4.stderr"
+  }
+ ],
+ "score": "4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_components_MarkdownEmoji.tsx.mutants.json (blob 88e9b70e82883811eb8550ce69c79a0d66e44793))"
+}

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 4 failed) 8154ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 10ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 2ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 3ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 4825ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  4 failed | 600 passed (604)
+   Start at  09:54:14
+   Duration  47.23s (transform 2.72s, setup 254ms, import 29.49s, tests 125.71s, environment 26.77s)
+

@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261124T114610Z-p1315904/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (24 tests | 7 failed) 74ms
+     × lists a unicode emoji with its source span and image 20ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 3ms
+     × lists a skin-tone sequence with its source span and image 2ms
+     × lists a still custom emoji with its source span and image 2ms
+     × lists an animated custom emoji with its source span and image 1ms
+     × keeps an id past 2^53 as digits that survive JSON 1ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 2ms
+
+ Test Files  1 failed | 46 passed (47)
+      Tests  7 failed | 715 passed (722)
+   Start at  11:48:17
+   Duration  55.95s (transform 2.73s, setup 278ms, import 33.76s, tests 150.42s, environment 29.88s)
+

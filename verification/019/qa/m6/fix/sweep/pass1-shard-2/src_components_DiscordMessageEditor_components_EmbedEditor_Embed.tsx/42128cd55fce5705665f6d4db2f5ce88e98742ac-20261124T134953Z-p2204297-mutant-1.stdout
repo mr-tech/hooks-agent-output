@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_DiscordMessageEditor_components_EmbedEditor_Embed.tsx/20261124T134953Z-p2204297/mutant-1
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx (4 tests | 2 failed) 215ms
+     × draws an embed without an address on the title, description and field surfaces 156ms
+     × draws an embed with an address on the title-with-address surface, for its title and its field names 37ms
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 2 failed) 305ms
+     × draws its links as links when the embed has no url 262ms
+     × keeps its link syntax as text when the embed has a url 42ms
+
+ Test Files  2 failed | 14 passed (16)
+      Tests  4 failed | 210 passed (214)
+   Start at  13:50:12
+   Duration  9.28s (transform 1.70s, setup 132ms, import 14.61s, tests 8.84s, environment 10.93s)
+

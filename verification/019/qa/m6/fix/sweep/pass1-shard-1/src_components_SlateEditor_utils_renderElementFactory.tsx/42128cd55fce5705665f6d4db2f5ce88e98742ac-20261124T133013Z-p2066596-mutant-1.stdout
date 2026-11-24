@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_renderElementFactory.tsx/20261124T133013Z-p2066596/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx (3 tests | 1 failed) 47ms
+     × draws a server emoji and any emoji in an embed at 18 pixels 12ms
+
+ Test Files  1 failed | 38 passed (39)
+      Tests  1 failed | 606 passed (607)
+   Start at  13:31:12
+   Duration  48.00s (transform 2.61s, setup 260ms, import 31.32s, tests 122.10s, environment 29.60s)
+

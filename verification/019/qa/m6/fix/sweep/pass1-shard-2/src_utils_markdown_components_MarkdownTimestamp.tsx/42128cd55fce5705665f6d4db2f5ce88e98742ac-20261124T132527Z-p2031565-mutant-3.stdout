@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownTimestamp.tsx/20261124T132527Z-p2031565/mutant-3
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 1 failed) 2574ms
+     × shows the new time, not the one it first drew 12ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 7 failed) 111ms
+     × draws t as its text 42ms
+     × draws T as its text 5ms
+     × draws d as its text 6ms
+     × draws D as its text 6ms
+     × draws f as its text 4ms
+     × draws F as its text 4ms
+     × draws the bare form as f 5ms
+
+ Test Files  2 failed | 41 passed (43)
+      Tests  8 failed | 658 passed (666)
+   Start at  13:28:26
+   Duration  52.64s (transform 2.73s, setup 287ms, import 39.05s, tests 132.62s, environment 30.42s)
+

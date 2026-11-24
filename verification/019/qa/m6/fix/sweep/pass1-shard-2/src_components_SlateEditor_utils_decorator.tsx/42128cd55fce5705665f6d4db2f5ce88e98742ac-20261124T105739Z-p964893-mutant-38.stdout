@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-38
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 4 failed) 1496ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 8ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1470ms
+     × draws the second text node of a code line from its own characters, not the line's 4ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 2ms
+
+ Test Files  1 failed | 44 passed (45)
+      Tests  4 failed | 642 passed (646)
+   Start at  11:34:24
+   Duration  56.08s (transform 2.68s, setup 258ms, import 33.13s, tests 149.57s, environment 29.41s)
+

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_components_MarkdownSpoiler.tsx/20261124T125437Z-p1805666/control-1
+
+
+ Test Files  44 passed (44)
+      Tests  667 passed (667)
+   Start at  12:54:42
+   Duration  53.77s (transform 2.58s, setup 275ms, import 38.67s, tests 137.02s, environment 30.64s)
+

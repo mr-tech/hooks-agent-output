@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 8645ms
+     × on embedDescription, every content character carries the style set its preview gives it 251ms
+     × on fieldValue, every content character carries the style set its preview gives it 140ms
+     × on v2Text, every content character carries the style set its preview gives it 98ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 9979ms
+     × hands the message that text in a full-markdown editor 123ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8478ms
+     × hands the message that text in a full-markdown editor 3536ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 13991ms
+     × hands the message that text in a full-markdown editor 1294ms
+     × hands the message that text in a full-markdown editor 39ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 1 failed) 1660ms
+     × draws nothing for a language highlight.js does not know 5ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 905ms
+     × on content, over every input of the generator and the corpus 68ms
+     × on embedDescription, over every input of the generator and the corpus 21ms
+     × on fieldValue, over every input of the generator and the corpus 16ms
+     × on v2Text, over every input of the generator and the corpus 8ms
+
+ Test Files  6 failed | 39 passed (45)
+      Tests  12 failed | 634 passed (646)
+   Start at  10:58:46
+   Duration  49.50s (transform 2.69s, setup 308ms, import 32.89s, tests 122.25s, environment 29.88s)
+

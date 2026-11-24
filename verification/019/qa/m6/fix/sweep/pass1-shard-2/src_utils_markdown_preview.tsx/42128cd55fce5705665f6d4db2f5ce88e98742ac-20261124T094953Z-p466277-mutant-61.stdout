@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-61
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 830ms
+     × draws nothing while the engine is pending 820ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  1 failed | 665 passed (666)
+   Start at  10:52:18
+   Duration  52.45s (transform 2.85s, setup 269ms, import 39.19s, tests 131.95s, environment 30.16s)
+

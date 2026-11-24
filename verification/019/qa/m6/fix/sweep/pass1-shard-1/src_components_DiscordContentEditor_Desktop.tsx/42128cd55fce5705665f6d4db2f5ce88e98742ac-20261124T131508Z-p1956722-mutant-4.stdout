@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_DiscordContentEditor_Desktop.tsx/20261124T131508Z-p1956722/mutant-4
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx (4 tests | 3 failed) 75ms
+     × puts text typed into the open editor on the message before the editor closes 46ms
+     × puts each successive edit on the message as it is typed 9ms
+     × keeps the editor closed while the engine is pending and opens it once the engine has settled 14ms
+
+ Test Files  1 failed | 22 passed (23)
+      Tests  3 failed | 242 passed (245)
+   Start at  13:16:34
+   Duration  14.65s (transform 2.36s, setup 229ms, import 23.05s, tests 11.45s, environment 18.13s)
+

@@ -1,0 +1,209 @@
+[
+ {
+  "id": "emojiDisplay.ts:7:===",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "pe === 'c",
+  "new": "pe !== 'c",
+  "op": "===",
+  "line": 7,
+  "text": "return emoji.type === 'custom'"
+ },
+ {
+  "id": "emojiDisplay.ts:12:walk-first",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(0, 1) : node.children)",
+  "op": "walk-first",
+  "line": 12,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.flatMap((child) => (child.type === 'node' ? [child] : []));"
+ },
+ {
+  "id": "emojiDisplay.ts:12:walk-last",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(-1) : node.children)",
+  "op": "walk-last",
+  "line": 12,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.flatMap((child) => (child.type === 'node' ? [child] : []));"
+ },
+ {
+  "id": "emojiDisplay.ts:12:===",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "pe === 'n",
+  "new": "pe !== 'n",
+  "op": "===",
+  "line": 12,
+  "text": "const nodesOf = (node: LosslessNode) => node.children.flatMap((child) => (child.type === 'node' ? [child] : []));"
+ },
+ {
+  "id": "emojiDisplay.ts:13:===",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "pe === 't",
+  "new": "pe !== 't",
+  "op": "===",
+  "line": 13,
+  "text": "const isBlank = (node: LosslessNode) => node.kind.type === 'text' && node.kind.value.trim() === '';"
+ },
+ {
+  "id": "emojiDisplay.ts:13:&&",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "' && n",
+  "new": "' || n",
+  "op": "&&",
+  "line": 13,
+  "text": "const isBlank = (node: LosslessNode) => node.kind.type === 'text' && node.kind.value.trim() === '';"
+ },
+ {
+  "id": "emojiDisplay.ts:13:===:2",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "() === ''",
+  "new": "() !== ''",
+  "op": "===",
+  "line": 13,
+  "text": "const isBlank = (node: LosslessNode) => node.kind.type === 'text' && node.kind.value.trim() === '';"
+ },
+ {
+  "id": "emojiDisplay.ts:16:num",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 16,
+  "text": "let count = 0;"
+ },
+ {
+  "id": "emojiDisplay.ts:19:if-false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "  if (re",
+  "new": "  if (false && re",
+  "op": "if-false",
+  "line": 19,
+  "text": "if (renderer === 'paragraph') {"
+ },
+ {
+  "id": "emojiDisplay.ts:19:===",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "r === '",
+  "new": "r !== '",
+  "op": "===",
+  "line": 19,
+  "text": "if (renderer === 'paragraph') {"
+ },
+ {
+  "id": "emojiDisplay.ts:21:if-false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": " if (n",
+  "new": " if (false && n",
+  "op": "if-false",
+  "line": 21,
+  "text": "if (nodeRenderer(inline.kind.type) === 'emoji') count += 1;"
+ },
+ {
+  "id": "emojiDisplay.ts:21:===",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "e) === 'e",
+  "new": "e) !== 'e",
+  "op": "===",
+  "line": 21,
+  "text": "if (nodeRenderer(inline.kind.type) === 'emoji') count += 1;"
+ },
+ {
+  "id": "emojiDisplay.ts:21:num",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "1",
+  "new": "2",
+  "op": "num",
+  "line": 21,
+  "text": "if (nodeRenderer(inline.kind.type) === 'emoji') count += 1;"
+ },
+ {
+  "id": "emojiDisplay.ts:22:if-false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 22,
+  "text": "else if (!isBlank(inline)) return false;"
+ },
+ {
+  "id": "emojiDisplay.ts:22:not",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "(!i",
+  "new": "(i",
+  "op": "not",
+  "line": 22,
+  "text": "else if (!isBlank(inline)) return false;"
+ },
+ {
+  "id": "emojiDisplay.ts:22:false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "return false;\n     ",
+  "new": "return true;\n     ",
+  "op": "false",
+  "line": 22,
+  "text": "else if (!isBlank(inline)) return false;"
+ },
+ {
+  "id": "emojiDisplay.ts:24:if-false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "e if (re",
+  "new": "e if (false && re",
+  "op": "if-false",
+  "line": 24,
+  "text": "} else if (renderer !== 'empty') {"
+ },
+ {
+  "id": "emojiDisplay.ts:24:!==",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 24,
+  "text": "} else if (renderer !== 'empty') {"
+ },
+ {
+  "id": "emojiDisplay.ts:25:false",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "return false;\n    }",
+  "new": "return true;\n    }",
+  "op": "false",
+  "line": 25,
+  "text": "return false;"
+ },
+ {
+  "id": "emojiDisplay.ts:28:>",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": " > ",
+  "new": " >= ",
+  "op": ">",
+  "line": 28,
+  "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+ },
+ {
+  "id": "emojiDisplay.ts:28:num",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": " 0 ",
+  "new": " 1 ",
+  "op": "num",
+  "line": 28,
+  "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+ },
+ {
+  "id": "emojiDisplay.ts:28:&&",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "0 && c",
+  "new": "0 || c",
+  "op": "&&",
+  "line": 28,
+  "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+ },
+ {
+  "id": "emojiDisplay.ts:28:<",
+  "file": "src/utils/markdown/emojiDisplay.ts",
+  "old": "<",
+  "new": "<=",
+  "op": "<",
+  "line": 28,
+  "text": "return count > 0 && count < JUMBO_EMOJI_MAX;"
+ }
+]

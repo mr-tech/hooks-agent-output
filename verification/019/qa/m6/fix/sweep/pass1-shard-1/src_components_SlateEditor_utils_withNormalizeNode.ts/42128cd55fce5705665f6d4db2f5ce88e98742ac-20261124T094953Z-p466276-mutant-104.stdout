@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-104
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 10376ms
+     × hands the message that text in a full-markdown editor 4342ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 17255ms
+     × hands the message that text in a full-markdown editor 7755ms
+     × hands the message that text in a full-markdown editor 8890ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 10529ms
+     × hands the message that text in a full-markdown editor 5523ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 5 failed) 110ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 10ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 4ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 2ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 2ms
+     × leaves a caret at the end of a second text node of the line alone 5ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  9 failed | 595 passed (604)
+   Start at  11:25:50
+   Duration  38.81s (transform 2.75s, setup 276ms, import 32.15s, tests 86.61s, environment 29.04s)
+

@@ -1,0 +1,45 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 1115ms
+     × on embedDescription, every content character carries the style set its preview gives it 364ms
+     × on fieldValue, every content character carries the style set its preview gives it 247ms
+     × on embedTitle, every content character carries the style set its preview gives it 180ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 153ms
+     × on v2Text, every content character carries the style set its preview gives it 163ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 1269ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 90ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 54ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 65ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 31ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 132ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 172ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 69ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 12ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 89ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 145ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 73ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 207ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 283ms
+     × a channel mention with no list 4ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 1 failed) 55ms
+     × renders, and draws the channel in its id form 9ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 4 failed) 287ms
+     × renders as the table says when the list state is noProvider 11ms
+     × draws no text that says unknown in any of the 60 cells 12ms
+     × draws every one of the 60 cells as something visible 9ms
+     × draws no text that says unknown over the corpus, with no provider 2ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 7 failed) 35648ms
+     × shows the channel id after content , and still renders, with no guild provider 5009ms
+     × shows the channel id after title , and still renders, with no guild provider 5009ms
+     × shows the channel id after description , and still renders, with no guild provider 5006ms
+     × shows the channel id after field name , and still renders, with no guild provider 5006ms
+     × shows the channel id after field value , and still renders, with no guild provider 5007ms
+     × shows the channel id after linked title , and still renders, with no guild provider 5005ms
+     × shows the channel id after text display , and still renders, with no guild provider 5005ms
+
+ Test Files  6 failed | 37 passed (43)
+      Tests  30 failed | 636 passed (666)
+   Start at  10:00:59
+   Duration  66.07s (transform 2.85s, setup 261ms, import 39.09s, tests 150.48s, environment 29.71s)
+

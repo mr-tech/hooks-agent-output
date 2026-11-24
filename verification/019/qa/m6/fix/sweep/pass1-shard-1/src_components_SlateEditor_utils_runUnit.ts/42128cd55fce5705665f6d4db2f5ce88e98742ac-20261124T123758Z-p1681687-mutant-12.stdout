@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_runUnit.ts/20261124T123758Z-p1681687/mutant-12
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19245ms
+     × on embedDescription, every content character carries the style set its preview gives it 4974ms
+     × on fieldValue, every content character carries the style set its preview gives it 3985ms
+     × on embedTitle, every content character carries the style set its preview gives it 2948ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3511ms
+     × on v2Text, every content character carries the style set its preview gives it 3818ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 122ms
+     × matches the frozen box on every input, an emoji element's source characters left out 91ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 5 failed) 1095ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 266ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 164ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 176ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 156ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 153ms
+
+ Test Files  3 failed | 46 passed (49)
+      Tests  11 failed | 723 passed (734)
+   Start at  12:48:14
+   Duration  56.46s (transform 2.70s, setup 255ms, import 34.22s, tests 150.44s, environment 30.87s)
+

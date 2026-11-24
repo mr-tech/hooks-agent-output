@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-40
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 3377ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 481ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 276ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 294ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 262ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 273ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 260ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 229ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 267ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 245ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 241ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 182ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 248ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 324ms
+     × unordered list 12ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 14ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 2 failed) 66ms
+     × draws an ordered list from its first number 7ms
+     × keeps a blank line between two paragraphs 1ms
+
+ Test Files  3 failed | 40 passed (43)
+      Tests  16 failed | 650 passed (666)
+   Start at  10:31:53
+   Duration  52.54s (transform 2.69s, setup 249ms, import 37.93s, tests 134.58s, environment 29.05s)
+

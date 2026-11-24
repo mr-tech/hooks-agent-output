@@ -1,0 +1,40 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-113
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 2137ms
+     × hands the message that text in a full-markdown editor 1100ms
+     × hands the message that text in a full-markdown editor 197ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 11001ms
+     × hands the message that text in a full-markdown editor 3310ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8646ms
+     × hands the message that text in a full-markdown editor 3698ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 23 failed) 66ms
+     × at the end of a quote line saves what the table says 20ms
+     × in the middle of a quote line saves what the table says 3ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 2ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 5ms
+     × at the end of a quote line that opens a fence saves what the table says 2ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 1ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 1ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 1ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 1ms
+     × leaves an empty line when the carried marker is removed with Backspace 1ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 1ms
+     × takes in a typed quote marker inside a fence opened on a quote line 1ms
+     × is set on the line Enter makes from a quote line 1ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 1ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 1ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 1ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 2ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 1ms
+     × is cleared when the marker of a carried code line is deleted by hand 1ms
+     × is cleared by Backspace after the carried marker of a code line 1ms
+     × is resolved on the first line of the editor too 1ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 1ms
+     × leaves a caret at the end of a second text node of the line alone 1ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  27 failed | 577 passed (604)
+   Start at  11:33:55
+   Duration  35.36s (transform 2.63s, setup 267ms, import 31.97s, tests 72.35s, environment 28.43s)
+

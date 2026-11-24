@@ -1,0 +1,380 @@
+[
+ {
+  "id": "emojiLift.ts:26:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "[0]",
+  "new": "[1]",
+  "op": "num",
+  "line": 26,
+  "text": "const { value } = node.kind as unknown as { value: Parameters<typeof emojiSrc>[0] };"
+ },
+ {
+  "id": "emojiLift.ts:30:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "ype === 'cu",
+  "new": "ype !== 'cu",
+  "op": "===",
+  "line": 30,
+  "text": "const custom = value.type === 'custom';"
+ },
+ {
+  "id": "emojiLift.ts:44:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "\n  if (ren",
+  "new": "\n  if (false && ren",
+  "op": "if-false",
+  "line": 44,
+  "text": "if (renderer === 'emoji') layout.emojis.push(spanOf(node, text, shift));"
+ },
+ {
+  "id": "emojiLift.ts:44:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "r === '",
+  "new": "r !== '",
+  "op": "===",
+  "line": 44,
+  "text": "if (renderer === 'emoji') layout.emojis.push(spanOf(node, text, shift));"
+ },
+ {
+  "id": "emojiLift.ts:45:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(0, 1) : node.children)",
+  "op": "walk-first",
+  "line": 45,
+  "text": "node.children.forEach((child) => {"
+ },
+ {
+  "id": "emojiLift.ts:45:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "node.children",
+  "new": "(Array.isArray(node.children) ? node.children.slice(-1) : node.children)",
+  "op": "walk-last",
+  "line": 45,
+  "text": "node.children.forEach((child) => {"
+ },
+ {
+  "id": "emojiLift.ts:46:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  if (ch",
+  "new": "  if (false && ch",
+  "op": "if-false",
+  "line": 46,
+  "text": "if (child.type === 'node') collect(child, text, shift, layout);"
+ },
+ {
+  "id": "emojiLift.ts:46:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "pe === 'n",
+  "new": "pe !== 'n",
+  "op": "===",
+  "line": 46,
+  "text": "if (child.type === 'node') collect(child, text, shift, layout);"
+ },
+ {
+  "id": "emojiLift.ts:50:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "256",
+  "new": "257",
+  "op": "num",
+  "line": 50,
+  "text": "const LAYOUT_CACHE_LIMIT = 256;"
+ },
+ {
+  "id": "emojiLift.ts:56:false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "= false,\n",
+  "new": "= true,\n",
+  "op": "false",
+  "line": 56,
+  "text": "startsInCodeBlock = false,"
+ },
+ {
+  "id": "emojiLift.ts:60:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  if (ca",
+  "new": "  if (false && ca",
+  "op": "if-false",
+  "line": 60,
+  "text": "if (cached) return cached;"
+ },
+ {
+  "id": "emojiLift.ts:62:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 62,
+  "text": "if (!parsed) return undefined;"
+ },
+ {
+  "id": "emojiLift.ts:62:not",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "!",
+  "new": "",
+  "op": "not",
+  "line": 62,
+  "text": "if (!parsed) return undefined;"
+ },
+ {
+  "id": "emojiLift.ts:65:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  if (la",
+  "new": "  if (false && la",
+  "op": "if-false",
+  "line": 65,
+  "text": "if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {"
+ },
+ {
+  "id": "emojiLift.ts:65:>=",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "e >= L",
+  "new": "e > L",
+  "op": ">=",
+  "line": 65,
+  "text": "if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {"
+ },
+ {
+  "id": "emojiLift.ts:76:false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "k: false,\n ",
+  "new": "k: true,\n ",
+  "op": "false",
+  "line": 76,
+  "text": "startCodeBlock: false,"
+ },
+ {
+  "id": "emojiLift.ts:77:false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "y: false,\n ",
+  "new": "y: true,\n ",
+  "op": "false",
+  "line": 77,
+  "text": "empty: false,"
+ },
+ {
+  "id": "emojiLift.ts:87:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " 1)",
+  "new": " 2)",
+  "op": "num",
+  "line": 87,
+  "text": "export const widthOf = (child: Descendant): number => (Text.isText(child) ? child.text.length : 1);"
+ },
+ {
+  "id": "emojiLift.ts:92:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  layout.emojis.s",
+  "new": "  (Array.isArray(layout.emojis) ? layout.emojis.slice(0, 1) : layout.emojis).s",
+  "op": "walk-first",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:92:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  layout.emojis.s",
+  "new": "  (Array.isArray(layout.emojis) ? layout.emojis.slice(-1) : layout.emojis).s",
+  "op": "walk-last",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:92:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "t === s",
+  "new": "t !== s",
+  "op": "===",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:92:&&",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "t && e",
+  "new": "t || e",
+  "op": "&&",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:92:===:2",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "d === e",
+  "new": "d !== e",
+  "op": "===",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)"
+ },
+ {
+  "id": "emojiLift.ts:102:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "n layout.emojis.f",
+  "new": "n (Array.isArray(layout.emojis) ? layout.emojis.slice(0, 1) : layout.emojis).f",
+  "op": "walk-first",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:102:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "n layout.emojis.f",
+  "new": "n (Array.isArray(layout.emojis) ? layout.emojis.slice(-1) : layout.emojis).f",
+  "op": "walk-last",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:102:>=",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "t >= f",
+  "new": "t > f",
+  "op": ">=",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:102:&&",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "m && e",
+  "new": "m || e",
+  "op": "&&",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:102:<=",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "<=",
+  "new": "<",
+  "op": "<=",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);"
+ },
+ {
+  "id": "emojiLift.ts:108:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " lines.",
+  "new": " (Array.isArray(lines) ? lines.slice(0, 1) : lines).",
+  "op": "walk-first",
+  "line": 108,
+  "text": "lines.forEach((line, first) => {"
+ },
+ {
+  "id": "emojiLift.ts:108:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " lines.",
+  "new": " (Array.isArray(lines) ? lines.slice(-1) : lines).",
+  "op": "walk-last",
+  "line": 108,
+  "text": "lines.forEach((line, first) => {"
+ },
+ {
+  "id": "emojiLift.ts:109:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  if (li",
+  "new": "  if (false && li",
+  "op": "if-false",
+  "line": 109,
+  "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+ },
+ {
+  "id": "emojiLift.ts:109:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "ype === 'co",
+  "new": "ype !== 'co",
+  "op": "===",
+  "line": 109,
+  "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+ },
+ {
+  "id": "emojiLift.ts:109:||",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "||",
+  "new": "&&",
+  "op": "||",
+  "line": 109,
+  "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+ },
+ {
+  "id": "emojiLift.ts:112:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  unit.lineStarts.f",
+  "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(0, 1) : unit.lineStarts).f",
+  "op": "walk-first",
+  "line": 112,
+  "text": "unit.lineStarts.forEach((lineStart, index) => {"
+ },
+ {
+  "id": "emojiLift.ts:112:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  unit.lineStarts.f",
+  "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(-1) : unit.lineStarts).f",
+  "op": "walk-last",
+  "line": 112,
+  "text": "unit.lineStarts.forEach((lineStart, index) => {"
+ },
+ {
+  "id": "emojiLift.ts:114:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "lines[index].children",
+  "new": "(Array.isArray(lines[index].children) ? lines[index].children.slice(0, 1) : lines[index].children)",
+  "op": "walk-first",
+  "line": 114,
+  "text": "const text = lines[index].children.map((child) => (Text.isText(child) ? child.text : '')).join('');"
+ },
+ {
+  "id": "emojiLift.ts:114:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "lines[index].children",
+  "new": "(Array.isArray(lines[index].children) ? lines[index].children.slice(-1) : lines[index].children)",
+  "op": "walk-last",
+  "line": 114,
+  "text": "const text = lines[index].children.map((child) => (Text.isText(child) ? child.text : '')).join('');"
+ },
+ {
+  "id": "emojiLift.ts:116:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " if (s",
+  "new": " if (false && s",
+  "op": "if-false",
+  "line": 116,
+  "text": "if (spans.length) {"
+ },
+ {
+  "id": "emojiLift.ts:126:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 126,
+  "text": "let offset = 0;"
+ },
+ {
+  "id": "emojiLift.ts:127:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " spans.",
+  "new": " (Array.isArray(spans) ? spans.slice(0, 1) : spans).",
+  "op": "walk-first",
+  "line": 127,
+  "text": "spans.forEach((span) => {"
+ },
+ {
+  "id": "emojiLift.ts:127:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " spans.",
+  "new": " (Array.isArray(spans) ? spans.slice(-1) : spans).",
+  "op": "walk-last",
+  "line": 127,
+  "text": "spans.forEach((span) => {"
+ },
+ {
+  "id": "emojiLift.ts:133:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "\n  if (res",
+  "new": "\n  if (false && res",
+  "op": "if-false",
+  "line": 133,
+  "text": "if (rest.length) children.push({ type: 'span', text: rest });"
+ }
+]

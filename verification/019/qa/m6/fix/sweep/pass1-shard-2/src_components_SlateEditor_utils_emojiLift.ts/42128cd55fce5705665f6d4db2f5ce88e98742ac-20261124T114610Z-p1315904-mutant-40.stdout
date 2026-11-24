@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261124T114610Z-p1315904/mutant-40
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 19037ms
+     × on embedDescription, every content character carries the style set its preview gives it 5060ms
+     × on fieldValue, every content character carries the style set its preview gives it 3090ms
+     × on embedTitle, every content character carries the style set its preview gives it 3333ms
+     × on v2Text, every content character carries the style set its preview gives it 3662ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 2 failed) 100ms
+     × puts a caret on a second element at the same place in the text 14ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 5ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 1394ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 10ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 1176ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 285ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 216ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 179ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 160ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 150ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 157ms
+
+ Test Files  4 failed | 43 passed (47)
+      Tests  14 failed | 708 passed (722)
+   Start at  12:40:57
+   Duration  54.74s (transform 2.67s, setup 261ms, import 32.86s, tests 148.12s, environment 28.27s)
+

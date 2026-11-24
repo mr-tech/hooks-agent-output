@@ -1,0 +1,74 @@
+[
+ {
+  "id": "engine.ts:129:walk-first",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "  listeners.f",
+  "new": "  (Array.isArray(listeners) ? listeners.slice(0, 1) : listeners).f",
+  "op": "walk-first",
+  "line": 129,
+  "text": "listeners.forEach((listener) => { listener(); });"
+ },
+ {
+  "id": "engine.ts:129:walk-last",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "  listeners.f",
+  "new": "  (Array.isArray(listeners) ? listeners.slice(-1) : listeners).f",
+  "op": "walk-last",
+  "line": 129,
+  "text": "listeners.forEach((listener) => { listener(); });"
+ },
+ {
+  "id": "engine.ts:158:===",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 158,
+  "text": "return state === 'resolved' ? parseWasm(text, SURFACE_MASKS[surface]) : undefined;"
+ },
+ {
+  "id": "engine.ts:162:if-false",
+  "file": "src/utils/markdown/engine.ts",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 162,
+  "text": "if (!warnedKinds.has(label)) {"
+ },
+ {
+  "id": "engine.ts:162:not",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "!",
+  "new": "",
+  "op": "not",
+  "line": 162,
+  "text": "if (!warnedKinds.has(label)) {"
+ },
+ {
+  "id": "engine.ts:169:if-false",
+  "file": "src/utils/markdown/engine.ts",
+  "old": " undefined {\n  if (Object.hasOwn(N",
+  "new": " undefined {\n  if (false && Object.hasOwn(N",
+  "op": "if-false",
+  "line": 169,
+  "text": "if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS[kind as NodeKind];"
+ },
+ {
+  "id": "engine.ts:175:if-false",
+  "file": "src/utils/markdown/engine.ts",
+  "old": " undefined {\n  if (Object.hasOwn(M",
+  "new": " undefined {\n  if (false && Object.hasOwn(M",
+  "op": "if-false",
+  "line": 175,
+  "text": "if (Object.hasOwn(MODIFIER_KINDS, kind)) return MODIFIER_KINDS[kind as ModifierKind];"
+ },
+ {
+  "id": "engine.ts:186:false",
+  "file": "src/utils/markdown/engine.ts",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 186,
+  "text": "return false;"
+ }
+]

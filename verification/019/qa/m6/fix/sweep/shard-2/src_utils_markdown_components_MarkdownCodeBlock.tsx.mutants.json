@@ -1,0 +1,38 @@
+[
+ {
+  "id": "MarkdownCodeBlock.tsx:7:if-false",
+  "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+  "old": "if (",
+  "new": "if (false && ",
+  "op": "if-false",
+  "line": 7,
+  "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+ },
+ {
+  "id": "MarkdownCodeBlock.tsx:7:&&",
+  "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+  "old": "&&",
+  "new": "||",
+  "op": "&&",
+  "line": 7,
+  "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+ },
+ {
+  "id": "MarkdownCodeBlock.tsx:7:!==",
+  "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 7,
+  "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+ },
+ {
+  "id": "MarkdownCodeBlock.tsx:8:true",
+  "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+  "old": "true",
+  "new": "false",
+  "op": "true",
+  "line": 8,
+  "text": "const highlighted = hljs.highlight(content, { language: lang, ignoreIllegals: true });"
+ }
+]

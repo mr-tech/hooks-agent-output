@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_components_MarkdownEmoji.tsx/20261124T132236Z-p2011063/mutant-2
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 78ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 10ms
+     × large when only emoji and spaces make up the message, for every one of them 7ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  2 failed | 664 passed (666)
+   Start at  13:24:37
+   Duration  53.02s (transform 2.73s, setup 229ms, import 38.68s, tests 135.91s, environment 29.11s)
+

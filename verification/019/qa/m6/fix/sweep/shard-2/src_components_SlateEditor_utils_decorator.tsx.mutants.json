@@ -1,0 +1,461 @@
+[
+ {
+  "id": "decorator.tsx:17:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (h",
+  "new": " if (false && h",
+  "op": "if-false",
+  "line": 17,
+  "text": "if (hljs.getLanguage(line.lang) === undefined) return [];"
+ },
+ {
+  "id": "decorator.tsx:17:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ") === u",
+  "new": ") !== u",
+  "op": "===",
+  "line": 17,
+  "text": "if (hljs.getLanguage(line.lang) === undefined) return [];"
+ },
+ {
+  "id": "decorator.tsx:18:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, path.at(-1))",
+  "new": "(Array.isArray(line.children.slice(0, path.at(-1))) ? line.children.slice(0, path.at(-1)).slice(0, 1) : line.children.slice(0, path.at(-1)))",
+  "op": "walk-first",
+  "line": 18,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+ },
+ {
+  "id": "decorator.tsx:18:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, path.at(-1))",
+  "new": "(Array.isArray(line.children.slice(0, path.at(-1))) ? line.children.slice(0, path.at(-1)).slice(-1) : line.children.slice(0, path.at(-1)))",
+  "op": "walk-last",
+  "line": 18,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+ },
+ {
+  "id": "decorator.tsx:18:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "ce(0, p",
+  "new": "ce(1, p",
+  "op": "num",
+  "line": 18,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+ },
+ {
+  "id": "decorator.tsx:18:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "-1)",
+  "new": "-2)",
+  "op": "num",
+  "line": 18,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;"
+ },
+ {
+  "id": "decorator.tsx:19:true",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "true",
+  "new": "false",
+  "op": "true",
+  "line": 19,
+  "text": "const options = { language: line.lang, ignoreIllegals: true };"
+ },
+ {
+  "id": "decorator.tsx:21:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "scanHighlight(value)",
+  "new": "(Array.isArray(scanHighlight(value)) ? scanHighlight(value).slice(0, 1) : scanHighlight(value))",
+  "op": "walk-first",
+  "line": 21,
+  "text": "const styles: CharStyle[] = scanHighlight(value).map((classNames) => ({ classNames, syntax: false }));"
+ },
+ {
+  "id": "decorator.tsx:21:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "scanHighlight(value)",
+  "new": "(Array.isArray(scanHighlight(value)) ? scanHighlight(value).slice(-1) : scanHighlight(value))",
+  "op": "walk-last",
+  "line": 21,
+  "text": "const styles: CharStyle[] = scanHighlight(value).map((classNames) => ({ classNames, syntax: false }));"
+ },
+ {
+  "id": "decorator.tsx:21:false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 21,
+  "text": "const styles: CharStyle[] = scanHighlight(value).map((classNames) => ({ classNames, syntax: false }));"
+ },
+ {
+  "id": "decorator.tsx:25:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "512",
+  "new": "513",
+  "op": "num",
+  "line": 25,
+  "text": "const STYLE_CACHE_LIMIT = 512;"
+ },
+ {
+  "id": "decorator.tsx:29:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 29,
+  "text": "let start = 0;"
+ },
+ {
+  "id": "decorator.tsx:30:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "x === b",
+  "new": "x !== b",
+  "op": "===",
+  "line": 30,
+  "text": "const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax"
+ },
+ {
+  "id": "decorator.tsx:31:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  && a",
+  "new": "  || a",
+  "op": "&&",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:31:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h === b",
+  "new": "h !== b",
+  "op": "===",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:31:&&:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h && a",
+  "new": "h || a",
+  "op": "&&",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:31:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "& a.classNames.e",
+  "new": "& (Array.isArray(a.classNames) ? a.classNames.slice(0, 1) : a.classNames).e",
+  "op": "walk-first",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:31:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "& a.classNames.e",
+  "new": "& (Array.isArray(a.classNames) ? a.classNames.slice(-1) : a.classNames).e",
+  "op": "walk-last",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:31:===:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "e === b",
+  "new": "e !== b",
+  "op": "===",
+  "line": 31,
+  "text": "&& a.classNames.length === b.classNames.length && a.classNames.every((name, i) => name === b.classNames[i]);"
+ },
+ {
+  "id": "decorator.tsx:32:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 1;",
+  "new": " 2;",
+  "op": "num",
+  "line": 32,
+  "text": "for (let i = 1; i <= length; i += 1) {"
+ },
+ {
+  "id": "decorator.tsx:32:<=",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "<=",
+  "new": "<",
+  "op": "<=",
+  "line": 32,
+  "text": "for (let i = 1; i <= length; i += 1) {"
+ },
+ {
+  "id": "decorator.tsx:32:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "= 1) ",
+  "new": "= 2) ",
+  "op": "num",
+  "line": 32,
+  "text": "for (let i = 1; i <= length; i += 1) {"
+ },
+ {
+  "id": "decorator.tsx:34:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (i",
+  "new": " if (false && i",
+  "op": "if-false",
+  "line": 34,
+  "text": "if (i < length && same(current, styles[from + i])) continue;"
+ },
+ {
+  "id": "decorator.tsx:34:<",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " < ",
+  "new": " <= ",
+  "op": "<",
+  "line": 34,
+  "text": "if (i < length && same(current, styles[from + i])) continue;"
+ },
+ {
+  "id": "decorator.tsx:34:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h && s",
+  "new": "h || s",
+  "op": "&&",
+  "line": 34,
+  "text": "if (i < length && same(current, styles[from + i])) continue;"
+ },
+ {
+  "id": "decorator.tsx:35:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (cu",
+  "new": "  if (false && cu",
+  "op": "if-false",
+  "line": 35,
+  "text": "if (current.syntax || current.classNames.length) {"
+ },
+ {
+  "id": "decorator.tsx:35:||",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "x || c",
+  "new": "x && c",
+  "op": "||",
+  "line": 35,
+  "text": "if (current.syntax || current.classNames.length) {"
+ },
+ {
+  "id": "decorator.tsx:60:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (ca",
+  "new": "  if (false && ca",
+  "op": "if-false",
+  "line": 60,
+  "text": "if (cached) return cached;"
+ },
+ {
+  "id": "decorator.tsx:62:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "k);\n    if (!styles)",
+  "new": "k);\n    if (false && !styles)",
+  "op": "if-false",
+  "line": 62,
+  "text": "if (!styles) return undefined;"
+ },
+ {
+  "id": "decorator.tsx:62:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "k);\n    if (!styles) retu",
+  "new": "k);\n    if (styles) retu",
+  "op": "not",
+  "line": 62,
+  "text": "if (!styles) return undefined;"
+ },
+ {
+  "id": "decorator.tsx:63:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (s",
+  "new": " if (false && s",
+  "op": "if-false",
+  "line": 63,
+  "text": "if (styleCache.size >= STYLE_CACHE_LIMIT) {"
+ },
+ {
+  "id": "decorator.tsx:63:>=",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ">=",
+  "new": ">",
+  "op": ">=",
+  "line": 63,
+  "text": "if (styleCache.size >= STYLE_CACHE_LIMIT) {"
+ },
+ {
+  "id": "decorator.tsx:71:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!T",
+  "new": "  if (false && !T",
+  "op": "if-false",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:71:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!T",
+  "new": "(T",
+  "op": "not",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:71:||",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ") || p",
+  "new": ") && p",
+  "op": "||",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:71:!==",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "h !== 2",
+  "new": "h === 2",
+  "op": "!==",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:71:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 2)",
+  "new": " 3)",
+  "op": "num",
+  "line": 71,
+  "text": "if (!Text.isText(node) || path.length !== 2) return [];"
+ },
+ {
+  "id": "decorator.tsx:75:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "\n\n    if (line.l",
+  "new": "\n\n    if (false && line.l",
+  "op": "if-false",
+  "line": 75,
+  "text": "if (line.lang) return codeLineRanges(line, path, node.text.length);"
+ },
+ {
+  "id": "decorator.tsx:76:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ";\n    if (line.t",
+  "new": ";\n    if (false && line.t",
+  "op": "if-false",
+  "line": 76,
+  "text": "if (line.type === 'codeBlock') return [];"
+ },
+ {
+  "id": "decorator.tsx:76:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "e === '",
+  "new": "e !== '",
+  "op": "===",
+  "line": 76,
+  "text": "if (line.type === 'codeBlock') return [];"
+ },
+ {
+  "id": "decorator.tsx:78:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (p",
+  "new": " if (false && p",
+  "op": "if-false",
+  "line": 78,
+  "text": "if (pass?.children !== editor.children) pass = { children: editor.children, units: new Map() };"
+ },
+ {
+  "id": "decorator.tsx:78:!==",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "n !== e",
+  "new": "n === e",
+  "op": "!==",
+  "line": 78,
+  "text": "if (pass?.children !== editor.children) pass = { children: editor.children, units: new Map() };"
+ },
+ {
+  "id": "decorator.tsx:80:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!u",
+  "new": "  if (false && !u",
+  "op": "if-false",
+  "line": 80,
+  "text": "if (!unit) {"
+ },
+ {
+  "id": "decorator.tsx:80:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!u",
+  "new": "(u",
+  "op": "not",
+  "line": 80,
+  "text": "if (!unit) {"
+ },
+ {
+  "id": "decorator.tsx:85:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t);\n    if (!styles)",
+  "new": "t);\n    if (false && !styles)",
+  "op": "if-false",
+  "line": 85,
+  "text": "if (!styles) return [];"
+ },
+ {
+  "id": "decorator.tsx:85:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t);\n    if (!styles) retu",
+  "new": "t);\n    if (styles) retu",
+  "op": "not",
+  "line": 85,
+  "text": "if (!styles) return [];"
+ },
+ {
+  "id": "decorator.tsx:87:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, childIndex)",
+  "new": "(Array.isArray(line.children.slice(0, childIndex)) ? line.children.slice(0, childIndex).slice(0, 1) : line.children.slice(0, childIndex))",
+  "op": "walk-first",
+  "line": 87,
+  "text": "const before = line.children.slice(0, childIndex)"
+ },
+ {
+  "id": "decorator.tsx:87:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, childIndex)",
+  "new": "(Array.isArray(line.children.slice(0, childIndex)) ? line.children.slice(0, childIndex).slice(-1) : line.children.slice(0, childIndex))",
+  "op": "walk-last",
+  "line": 87,
+  "text": "const before = line.children.slice(0, childIndex)"
+ },
+ {
+  "id": "decorator.tsx:87:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "ce(0, c",
+  "new": "ce(1, c",
+  "op": "num",
+  "line": 87,
+  "text": "const before = line.children.slice(0, childIndex)"
+ },
+ {
+  "id": "decorator.tsx:88:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ": 1),",
+  "new": ": 2),",
+  "op": "num",
+  "line": 88,
+  "text": ".reduce((width, child) => width + (Text.isText(child) ? child.text.length : 1), 0);"
+ },
+ {
+  "id": "decorator.tsx:88:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 0)",
+  "new": " 1)",
+  "op": "num",
+  "line": 88,
+  "text": ".reduce((width, child) => width + (Text.isText(child) ? child.text.length : 1), 0);"
+ }
+]

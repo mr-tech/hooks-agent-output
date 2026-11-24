@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 131ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 90ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 151ms
+     × matches the frozen box on every input, an emoji element's source characters left out 121ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 6 failed) 63ms
+     × marks bold delimiters as syntax and the inside as bold 16ms
+     × draws a masked link label as link text and the brackets and destination as syntax 9ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 1ms
+     × carries italic across a line break and gives the break itself no class 1ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 1ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 3 failed) 73ms
+     × carries bold across an emoji element 23ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 2ms
+
+ Test Files  4 failed | 42 passed (46)
+      Tests  12 failed | 643 passed (655)
+   Start at  12:03:11
+   Duration  56.02s (transform 2.62s, setup 273ms, import 33.34s, tests 148.50s, environment 30.39s)
+

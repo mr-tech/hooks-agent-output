@@ -1,0 +1,4 @@
+Mobile.tsx:93:=== KILLED 16.53
+Mobile.tsx:93:|| KILLED 16.88
+Mobile.tsx:93:not KILLED 16.5
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_DiscordContentEditor_Mobile.tsx.mutants.json (blob dc71545a145a210ce9f2e77e7280f5a97dc04550))

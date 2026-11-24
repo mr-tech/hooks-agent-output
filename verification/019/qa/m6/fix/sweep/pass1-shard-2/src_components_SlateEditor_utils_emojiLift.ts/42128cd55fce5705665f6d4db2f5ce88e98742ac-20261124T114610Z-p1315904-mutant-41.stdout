@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261124T114610Z-p1315904/mutant-41
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 2 failed) 96ms
+     × puts a caret on a second element at the same place in the text 11ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 4ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 1126ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 281ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 176ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 164ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 171ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 138ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 162ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 1349ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 7ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 1ms
+
+ Test Files  3 failed | 44 passed (47)
+      Tests  10 failed | 712 passed (722)
+   Start at  12:41:57
+   Duration  56.84s (transform 2.69s, setup 289ms, import 33.87s, tests 154.06s, environment 29.77s)
+

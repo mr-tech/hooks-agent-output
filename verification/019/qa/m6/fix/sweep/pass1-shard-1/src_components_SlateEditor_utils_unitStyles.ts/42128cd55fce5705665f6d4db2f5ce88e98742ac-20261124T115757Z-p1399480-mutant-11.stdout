@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19890ms
+     × on embedDescription, every content character carries the style set its preview gives it 4866ms
+     × on fieldValue, every content character carries the style set its preview gives it 4102ms
+     × on embedTitle, every content character carries the style set its preview gives it 3434ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3762ms
+     × on v2Text, every content character carries the style set its preview gives it 3719ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 108ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 77ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 115ms
+     × matches the frozen box on every input, an emoji element's source characters left out 87ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 3 failed) 61ms
+     × marks bold delimiters as syntax and the inside as bold 15ms
+     × carries italic across a line break and gives the break itself no class 2ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 2 failed) 63ms
+     × carries bold across an emoji element 19ms
+     × carries italic across an emoji element on a quote line 3ms
+
+ Test Files  5 failed | 41 passed (46)
+      Tests  12 failed | 643 passed (655)
+   Start at  12:09:21
+   Duration  56.77s (transform 2.55s, setup 294ms, import 32.88s, tests 151.81s, environment 29.84s)
+

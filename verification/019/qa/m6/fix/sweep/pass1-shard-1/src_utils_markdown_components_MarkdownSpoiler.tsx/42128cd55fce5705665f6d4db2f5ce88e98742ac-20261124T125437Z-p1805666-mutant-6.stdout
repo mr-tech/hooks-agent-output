@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_components_MarkdownSpoiler.tsx/20261124T125437Z-p1805666/mutant-6
+
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 2 failed) 75ms
+     × reveals every piece when any one piece is clicked 51ms
+     × hides every piece again when a revealed piece is clicked 12ms
+
+ Test Files  1 failed | 43 passed (44)
+      Tests  2 failed | 665 passed (667)
+   Start at  13:00:38
+   Duration  53.62s (transform 2.82s, setup 258ms, import 38.80s, tests 136.92s, environment 30.54s)
+

@@ -1,0 +1,107 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 11242ms
+     × on embedDescription, every content character carries the style set its preview gives it 3177ms
+     × on fieldValue, every content character carries the style set its preview gives it 2500ms
+     × on embedTitle, every content character carries the style set its preview gives it 1854ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1768ms
+     × on v2Text, every content character carries the style set its preview gives it 1936ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 12 failed) 750ms
+     × with one timestamp between text 31ms
+     × with identical duplicates, the second 16ms
+     × with a timestamp in a code span before it 5ms
+     × with a timestamp in a code block before it 5ms
+     × with an escaped timestamp before it 2ms
+     × with an invalid style letter before it 2ms
+     × with a timestamp inside a spoiler, the first 3ms
+     × with a timestamp inside a spoiler, the second 3ms
+     × with a timestamp inside a link label, which the engine leaves as text 9ms
+     × with three timestamps, the middle one 9ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 16ms
+     × after a timestamp is added between and after the existing ones 12ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 1920ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 287ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 156ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 160ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 155ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 133ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 148ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 130ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 140ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 126ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 118ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 116ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 124ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 17 failed) 311ms
+     × bold 13ms
+     × italic 5ms
+     × underline 5ms
+     × strikethrough 4ms
+     × spoiler 5ms
+     × heading 3ms
+     × subtext 3ms
+     × quote 4ms
+     × unordered list 4ms
+     × ordered list from three 3ms
+     × masked link 8ms
+     × a line break 2ms
+     × puts a bold run inside a quote inside the quote node 2ms
+     × "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree 7ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 5ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 6ms
+     × gives the same visible form string for the same rendering 3ms
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 1 failed) 318ms
+     × draws its links as links when the embed has no url 280ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 1 failed) 97ms
+     × formats in the viewer's zone once mounted 11ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 5 failed) 76ms
+     × as an image of the Twemoji file, with the character as its alt text 24ms
+     × from a typed name, as an image whose alt text is the character 4ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 3ms
+     × for an animated custom emoji, as its gif 3ms
+     × large when only emoji and spaces make up the message, for every one of them 7ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 3 failed) 65ms
+     × reveals every piece when any one piece is clicked 31ms
+     × hides every piece again when a revealed piece is clicked 3ms
+     × leaves a different spoiler hidden 22ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 1 failed) 64ms
+     × renders, and draws the channel in its id form 10ms
+ ❯ |node| src/utils/markdown/__tests__/preview.fenced-code-block-draw.test.ts (27 tests | 2 failed) 70ms
+     × renders a code block for text before and an empty line inside 6ms
+     × renders a code block for text before and an empty line inside 1ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 13 failed) 72ms
+     × draws bold 20ms
+     × draws italic 1ms
+     × draws underline 1ms
+     × draws strikethrough 1ms
+     × draws a heading 1ms
+     × draws a second-level heading 1ms
+     × keeps a line break between two lines of text 2ms
+     × draws a masked link as an anchor whose href is the engine url and whose label is its text 9ms
+     × draws a quote line with its bar 2ms
+     × draws an ordered list from its first number 2ms
+     × draws an unordered list 1ms
+     × draws a subtext line as a small block with its marker consumed 1ms
+     × keeps a blank line between two paragraphs 1ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 70139ms
+     × names the channel after content  when the guild list is in reach 5040ms
+     × names the channel after title  when the guild list is in reach 5008ms
+     × names the channel after description  when the guild list is in reach 5008ms
+     × names the channel after field name  when the guild list is in reach 5008ms
+     × names the channel after field value  when the guild list is in reach 5009ms
+     × names the channel after linked title  when the guild list is in reach 5008ms
+     × names the channel after text display  when the guild list is in reach 5006ms
+     × shows the channel id after content , and still renders, with no guild provider 5007ms
+     × shows the channel id after title , and still renders, with no guild provider 5007ms
+     × shows the channel id after description , and still renders, with no guild provider 5008ms
+     × shows the channel id after field name , and still renders, with no guild provider 5007ms
+     × shows the channel id after field value , and still renders, with no guild provider 5006ms
+     × shows the channel id after linked title , and still renders, with no guild provider 5007ms
+     × shows the channel id after text display , and still renders, with no guild provider 5008ms
+
+ Test Files  12 failed | 31 passed (43)
+      Tests  86 failed | 580 passed (666)
+   Start at  09:50:59
+   Duration  103.63s (transform 2.88s, setup 284ms, import 38.21s, tests 196.89s, environment 29.18s)
+

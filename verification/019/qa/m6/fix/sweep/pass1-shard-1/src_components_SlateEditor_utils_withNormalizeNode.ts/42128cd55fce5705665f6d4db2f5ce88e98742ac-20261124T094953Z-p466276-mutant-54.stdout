@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-54
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 11 failed) 81ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 9ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 3ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 8ms
+     × puts an emoji element back to text once a web address is typed in front of it 2ms
+     × puts an emoji element of the second line of a code block back to text 2ms
+     × puts each emoji element of a fenced code line back to text 2ms
+     × puts a caret on the element at the same place in the text 3ms
+     × puts a caret right after the element at the same place in the text 2ms
+     × puts a caret after the element and a typed backtick at the same place in the text 1ms
+     × puts a caret on a second element at the same place in the text 2ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 1ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  11 failed | 593 passed (604)
+   Start at  10:42:32
+   Duration  49.81s (transform 2.67s, setup 267ms, import 31.17s, tests 126.40s, environment 28.43s)
+

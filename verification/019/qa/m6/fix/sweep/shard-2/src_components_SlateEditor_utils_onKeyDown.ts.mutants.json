@@ -1,0 +1,137 @@
+[
+ {
+  "id": "onKeyDown.ts:33:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "itor, [anchor.path[0]]) as Element;\n  c",
+  "new": "itor, [anchor.path[1]]) as Element;\n  c",
+  "op": "num",
+  "line": 33,
+  "text": "const line = Node.get(editor, [anchor.path[0]]) as Element;"
+ },
+ {
+  "id": "onKeyDown.ts:34:&&",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "d && l",
+  "new": "d || l",
+  "op": "&&",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:34:===",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "d === t",
+  "new": "d !== t",
+  "op": "===",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:34:true",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": " true ",
+  "new": " false ",
+  "op": "true",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:34:&&:2",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "e && l",
+  "new": "e || l",
+  "op": "&&",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:34:!==",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 34,
+  "text": "const afterCarriedMarker = collapsed && line.carried === true && line.type !== 'blockQuote'"
+ },
+ {
+  "id": "onKeyDown.ts:35:&&",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "  && a",
+  "new": "  || a",
+  "op": "&&",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:35:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "anchor.path[1] === 0 && a",
+  "new": "anchor.path[2] === 0 && a",
+  "op": "num",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:35:===",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "ath[1] === 0 && a",
+  "new": "ath[1] !== 0 && a",
+  "op": "===",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:35:num:2",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": " === 0 && a",
+  "new": " === 1 && a",
+  "op": "num",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:35:&&:2",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "0 && a",
+  "new": "0 || a",
+  "op": "&&",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:35:===:2",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "t === C",
+  "new": "t !== C",
+  "op": "===",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+ },
+ {
+  "id": "onKeyDown.ts:36:if-false",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": " if (a",
+  "new": " if (false && a",
+  "op": "if-false",
+  "line": 36,
+  "text": "if (afterCarriedMarker) {"
+ },
+ {
+  "id": "onKeyDown.ts:37:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": ": 0 }",
+  "new": ": 1 }",
+  "op": "num",
+  "line": 37,
+  "text": "const [from, to] = [{ path: anchor.path, offset: 0 }, anchor];"
+ },
+ {
+  "id": "onKeyDown.ts:39:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "th[0]] ",
+  "new": "th[1]] ",
+  "op": "num",
+  "line": 39,
+  "text": "Transforms.setNodes(editor, { carried: undefined }, { at: [anchor.path[0]] });"
+ }
+]

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 1 failed) 1709ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1590ms
+
+ Test Files  1 failed | 44 passed (45)
+      Tests  1 failed | 645 passed (646)
+   Start at  11:13:48
+   Duration  56.40s (transform 2.81s, setup 277ms, import 33.99s, tests 149.83s, environment 30.14s)
+

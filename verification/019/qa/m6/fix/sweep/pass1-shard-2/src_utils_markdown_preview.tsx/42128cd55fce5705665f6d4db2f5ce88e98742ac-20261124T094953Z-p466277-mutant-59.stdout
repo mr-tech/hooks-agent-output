@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-59
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 19757ms
+     × on embedDescription, every content character carries the style set its preview gives it 4768ms
+     × on fieldValue, every content character carries the style set its preview gives it 3953ms
+     × on v2Text, every content character carries the style set its preview gives it 3759ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 11 failed) 3527ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 616ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 298ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 286ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 279ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 263ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 238ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 248ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 233ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 203ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 219ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 257ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 282ms
+     × unordered list 13ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 13ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 2 failed) 79ms
+     × reveals every piece when any one piece is clicked 40ms
+     × hides every piece again when a revealed piece is clicked 20ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 67ms
+     × draws an ordered list from its first number 6ms
+
+ Test Files  5 failed | 38 passed (43)
+      Tests  19 failed | 647 passed (666)
+   Start at  10:50:22
+   Duration  52.90s (transform 2.80s, setup 266ms, import 38.32s, tests 135.43s, environment 29.16s)
+

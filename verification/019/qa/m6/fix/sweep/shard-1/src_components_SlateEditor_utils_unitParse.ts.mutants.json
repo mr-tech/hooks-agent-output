@@ -1,0 +1,38 @@
+[
+ {
+  "id": "unitParse.ts:14:num",
+  "file": "src/components/SlateEditor/utils/unitParse.ts",
+  "old": "- 1 +",
+  "new": "- 2 +",
+  "op": "num",
+  "line": 14,
+  "text": "const fences = text.split(FENCE).length - 1 + (startsInCodeBlock ? 1 : 0);"
+ },
+ {
+  "id": "unitParse.ts:14:num:2",
+  "file": "src/components/SlateEditor/utils/unitParse.ts",
+  "old": "? 1 :",
+  "new": "? 2 :",
+  "op": "num",
+  "line": 14,
+  "text": "const fences = text.split(FENCE).length - 1 + (startsInCodeBlock ? 1 : 0);"
+ },
+ {
+  "id": "unitParse.ts:14:num:3",
+  "file": "src/components/SlateEditor/utils/unitParse.ts",
+  "old": " 0)",
+  "new": " 1)",
+  "op": "num",
+  "line": 14,
+  "text": "const fences = text.split(FENCE).length - 1 + (startsInCodeBlock ? 1 : 0);"
+ },
+ {
+  "id": "unitParse.ts:15:num",
+  "file": "src/components/SlateEditor/utils/unitParse.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 15,
+  "text": "const shift = startsInCodeBlock ? OPENED.length : 0;"
+ }
+]

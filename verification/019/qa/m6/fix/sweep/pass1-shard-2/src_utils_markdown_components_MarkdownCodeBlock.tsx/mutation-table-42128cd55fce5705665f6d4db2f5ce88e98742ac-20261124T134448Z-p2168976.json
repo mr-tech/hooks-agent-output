@@ -1,0 +1,198 @@
+{
+ "sha": "42128cd55fce5705665f6d4db2f5ce88e98742ac",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "related",
+  "--run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "60000",
+  "--hookTimeout",
+  "60000",
+  "src/utils/markdown/components/MarkdownCodeBlock.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx.mutants.json",
+   "blob": "5d876d295a770cd3189b05b7704c16d8c1ffa1dd"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-control-1.stderr",
+   "seconds": 48.17,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 666,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "MarkdownCodeBlock.tsx:7:if-false",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 7,
+    "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > code block with a language",
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > \"# h\\n> q\\n- l1\\n- l2\\n1. o\\n```py\\nz\\n```\" reads as the visible form of the engine tree",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 48.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-1.stderr"
+  },
+  {
+   "id": "MarkdownCodeBlock.tsx:7:&&",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 7,
+    "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve",
+    "|dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it",
+    "|dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it",
+    "|dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it",
+    "|node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws a code block with its body and a language it does not know as plain"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 45.91,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-2.stderr"
+  },
+  {
+   "id": "MarkdownCodeBlock.tsx:7:!==",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 7,
+    "text": "if (lang && hljs.getLanguage(lang) !== undefined) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > code block with a language",
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > \"# h\\n> q\\n- l1\\n- l2\\n1. o\\n```py\\nz\\n```\" reads as the visible form of the engine tree",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve",
+    "|dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it",
+    "|dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it",
+    "|dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve",
+    "|dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve",
+    "|node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws a code block with its body and a language it does not know as plain"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 45.96,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-3.stderr"
+  },
+  {
+   "id": "MarkdownCodeBlock.tsx:8:true",
+   "run": "mutant-4",
+   "file": "src/utils/markdown/components/MarkdownCodeBlock.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 8,
+    "text": "const highlighted = hljs.highlight(content, { language: lang, ignoreIllegals: true });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 666,
+   "control_tests_run": 666,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 47.82,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T134448Z-p2168976-mutant-4.stderr"
+  }
+ ],
+ "score": "3 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_components_MarkdownCodeBlock.tsx.mutants.json (blob 5d876d295a770cd3189b05b7704c16d8c1ffa1dd))"
+}

@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-125
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 10 failed) 86ms
+     × at the end of a quote line saves what the table says 23ms
+     × in the middle of a quote line saves what the table says 3ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 3ms
+     × at the end of a quote line that opens a fence saves what the table says 2ms
+     × is set on the line Enter makes from a quote line 3ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 1ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 1ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 1ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 3ms
+     × leaves a caret at the end of a second text node of the line alone 3ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  10 failed | 594 passed (604)
+   Start at  11:44:13
+   Duration  49.76s (transform 2.67s, setup 274ms, import 30.89s, tests 127.65s, environment 28.32s)
+

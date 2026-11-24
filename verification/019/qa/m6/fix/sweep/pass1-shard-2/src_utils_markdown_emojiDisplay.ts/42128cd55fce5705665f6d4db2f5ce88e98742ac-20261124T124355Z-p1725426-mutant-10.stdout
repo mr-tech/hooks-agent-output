@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_emojiDisplay.ts/20261124T124355Z-p1725426/mutant-10
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 97ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 11ms
+     × large when only emoji and spaces make up the message, for every one of them 8ms
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 8 failed) 61ms
+     × is large for one emoji 12ms
+     × is large for one emoji typed as a name 1ms
+     × is large for two emoji with a space between 1ms
+     × is large for two emoji side by side 1ms
+     × is large for two custom emoji side by side 1ms
+     × is large for emoji surrounded by spaces 1ms
+     × is large for 26 emoji 1ms
+     × is not large for a heading holding an emoji 1ms
+
+ Test Files  2 failed | 58 passed (60)
+      Tests  10 failed | 977 passed (987)
+   Start at  12:55:53
+   Duration  61.92s (transform 2.90s, setup 356ms, import 41.76s, tests 160.28s, environment 35.08s)
+

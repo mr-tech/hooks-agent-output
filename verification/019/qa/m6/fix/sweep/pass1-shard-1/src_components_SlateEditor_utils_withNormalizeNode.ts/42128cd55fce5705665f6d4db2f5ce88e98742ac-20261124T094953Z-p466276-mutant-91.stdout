@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-91
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 18617ms
+     × hands the message that text in a full-markdown editor 7790ms
+     × hands the message that text in a full-markdown editor 10128ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 11297ms
+     × hands the message that text in a full-markdown editor 6641ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 6 failed) 113ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 8ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 4ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 4ms
+     × is set on the line Enter makes from a quote line 5ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 2ms
+     × is resolved on the first line of the editor too 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 46402ms
+     × hands the message that text in a full-markdown editor 39460ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  10 failed | 594 passed (604)
+   Start at  11:13:37
+   Duration  48.55s (transform 2.62s, setup 233ms, import 31.32s, tests 125.38s, environment 28.67s)
+

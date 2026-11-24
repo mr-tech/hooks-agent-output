@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-92
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 17807ms
+     × hands the message that text in a full-markdown editor 8886ms
+     × hands the message that text in a full-markdown editor 8326ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 9803ms
+     × hands the message that text in a full-markdown editor 5492ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 5 failed) 107ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 9ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 5ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 5ms
+     × takes in a typed quote marker inside a fence opened on a quote line 6ms
+     × is resolved on the first line of the editor too 5ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 45890ms
+     × hands the message that text in a full-markdown editor 39533ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  9 failed | 595 passed (604)
+   Start at  11:14:32
+   Duration  48.09s (transform 2.78s, setup 239ms, import 31.73s, tests 122.51s, environment 29.09s)
+

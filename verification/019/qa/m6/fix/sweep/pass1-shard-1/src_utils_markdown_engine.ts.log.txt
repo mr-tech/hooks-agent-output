@@ -1,0 +1,9 @@
+engine.ts:129:walk-first SURVIVED 68.66
+engine.ts:129:walk-last SURVIVED 69.13
+engine.ts:158:=== KILLED 108.48
+engine.ts:162:if-false KILLED 67.12
+engine.ts:162:not KILLED 68.33
+engine.ts:169:if-false KILLED 112.24
+engine.ts:175:if-false KILLED 66.39
+engine.ts:186:false KILLED 67.92
+6 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_engine.ts.mutants.json (blob 045fedab67957e9941acd61b9a1c2318b97ef544))

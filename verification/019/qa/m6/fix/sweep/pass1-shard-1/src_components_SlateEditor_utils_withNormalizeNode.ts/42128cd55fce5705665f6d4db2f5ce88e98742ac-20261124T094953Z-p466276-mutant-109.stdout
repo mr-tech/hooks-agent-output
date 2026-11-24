@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-109
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 5 failed) 81ms
+     × at the end of a quote line saves what the table says 22ms
+     × in the middle of a quote line saves what the table says 4ms
+     × at the end of a quote line that opens a fence saves what the table says 2ms
+     × is set on the line Enter makes from a quote line 4ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 1ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  5 failed | 599 passed (604)
+   Start at  11:30:13
+   Duration  49.86s (transform 2.71s, setup 237ms, import 30.79s, tests 130.10s, environment 27.86s)
+

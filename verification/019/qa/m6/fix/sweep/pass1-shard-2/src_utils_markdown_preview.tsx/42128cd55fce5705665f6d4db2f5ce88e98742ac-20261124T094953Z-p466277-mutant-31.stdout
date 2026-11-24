@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-31
+
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 7 failed) 697ms
+     × shows the channel id after content , and still renders, with no guild provider 36ms
+     × shows the channel id after title , and still renders, with no guild provider 46ms
+     × shows the channel id after description , and still renders, with no guild provider 30ms
+     × shows the channel id after field name , and still renders, with no guild provider 27ms
+     × shows the channel id after field value , and still renders, with no guild provider 29ms
+     × shows the channel id after linked title , and still renders, with no guild provider 28ms
+     × shows the channel id after text display , and still renders, with no guild provider 29ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 2 failed) 69ms
+     × keeps the id form when the list is empty 10ms
+     × renders, and draws the channel in its id form 6ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 17 failed) 407ms
+     × renders as the table says when the list state is noProvider 20ms
+     × renders as the table says when the list state is empty 2ms
+     × renders as the table says when the list state is withoutId 1ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × renders user as today's form when the list state is noProvider 1ms
+     × renders user as today's form when the list state is empty 1ms
+     × renders user as today's form when the list state is withoutId 1ms
+     × renders user as today's form when the list state is topLevel 1ms
+     × renders user as today's form when the list state is threadOnly 1ms
+     × renders role as today's form when the list state is noProvider 1ms
+     × renders role as today's form when the list state is empty 1ms
+     × renders role as today's form when the list state is withoutId 1ms
+     × renders role as today's form when the list state is topLevel 1ms
+     × renders role as today's form when the list state is threadOnly 1ms
+     × keeps the typed form of a user mention that carries a bang 1ms
+     × keeps a role mention in its form when the role id is a listed channel id 1ms
+     × keeps a user mention in its form when the user id is a listed channel id 1ms
+
+ Test Files  3 failed | 40 passed (43)
+      Tests  26 failed | 640 passed (666)
+   Start at  10:22:22
+   Duration  52.93s (transform 2.64s, setup 255ms, import 38.15s, tests 135.15s, environment 29.69s)
+

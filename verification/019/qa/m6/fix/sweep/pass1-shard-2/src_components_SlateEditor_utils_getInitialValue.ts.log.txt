@@ -1,0 +1,2 @@
+getInitialValue.ts:39:if-false KILLED 51.1
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_SlateEditor_utils_getInitialValue.ts.mutants.json (blob 84f2c24b7d0b453606c4cc195b8108eb8e4c6b9a))

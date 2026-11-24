@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-90
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 18603ms
+     × hands the message that text in a full-markdown editor 9314ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 10830ms
+     × hands the message that text in a full-markdown editor 6185ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 4 failed) 99ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 8ms
+     × takes in a typed quote marker inside a fence opened on a quote line 8ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 2ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 2ms
+
+ Test Files  3 failed | 35 passed (38)
+      Tests  6 failed | 598 passed (604)
+   Start at  11:12:43
+   Duration  48.13s (transform 2.59s, setup 260ms, import 30.75s, tests 124.96s, environment 28.57s)
+

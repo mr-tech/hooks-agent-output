@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_DiscordContentEditor_Mobile.tsx/20261124T134845Z-p2196145/mutant-3
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx (4 tests | 3 failed) 56ms
+     × holds the editor once the engine has settled 39ms
+     × holds the editor when the engine has failed, as the preview falls back to text 6ms
+     × holds no editor while there is no markdown provider 5ms
+
+ Test Files  1 failed | 22 passed (23)
+      Tests  3 failed | 242 passed (245)
+   Start at  13:49:40
+   Duration  12.20s (transform 1.64s, setup 184ms, import 18.78s, tests 9.43s, environment 15.38s)
+

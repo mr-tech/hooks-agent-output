@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitParse.ts/20261124T131728Z-p1974297/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (24 tests | 2 failed) 65ms
+     × lists the emoji of a unit that starts inside a code block after a fence that opens a block with no closing fence as the table says 9ms
+     × lists the emoji of a unit that starts inside a code block after the closing fence, an emoji, and a second opening fence as the table says 2ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  2 failed | 741 passed (743)
+   Start at  13:19:36
+   Duration  56.42s (transform 2.66s, setup 324ms, import 33.85s, tests 152.23s, environment 30.48s)
+

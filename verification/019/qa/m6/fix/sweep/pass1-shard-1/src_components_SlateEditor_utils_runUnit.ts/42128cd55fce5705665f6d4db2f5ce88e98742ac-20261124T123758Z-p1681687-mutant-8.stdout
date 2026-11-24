@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_runUnit.ts/20261124T123758Z-p1681687/mutant-8
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 6846ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 3567ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 20819ms
+     × on embedDescription, every content character carries the style set its preview gives it 4986ms
+     × on fieldValue, every content character carries the style set its preview gives it 4267ms
+     × on embedTitle, every content character carries the style set its preview gives it 3221ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 4345ms
+     × on v2Text, every content character carries the style set its preview gives it 3993ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 2 failed) 8339ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 415ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 288ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 2 failed) 79ms
+     × puts an emoji element on the first line when the second is edited back to text 8ms
+     × puts an emoji element on the second line when the third is edited back to text 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 149ms
+     × matches the frozen box on every input, an emoji element's source characters left out 114ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 116ms
+     × parses a unit of three lines once, and a unit after a code block once more 8ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 25ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 1398ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 353ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 220ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 213ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 196ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 172ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 210ms
+
+ Test Files  7 failed | 42 passed (49)
+      Tests  19 failed | 715 passed (734)
+   Start at  12:44:52
+   Duration  58.16s (transform 2.64s, setup 283ms, import 34.12s, tests 155.98s, environment 30.41s)
+

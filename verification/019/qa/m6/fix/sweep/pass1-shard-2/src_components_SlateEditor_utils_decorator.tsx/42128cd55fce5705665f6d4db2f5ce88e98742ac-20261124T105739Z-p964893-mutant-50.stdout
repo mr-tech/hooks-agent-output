@@ -1,0 +1,84 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-50
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 163ms
+     × hands the message that text in a full-markdown editor 120ms
+     × hands the message that text in a single-line editor 41ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 977ms
+     × on embedDescription, every content character carries the style set its preview gives it 342ms
+     × on fieldValue, every content character carries the style set its preview gives it 207ms
+     × on embedTitle, every content character carries the style set its preview gives it 150ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 130ms
+     × on v2Text, every content character carries the style set its preview gives it 142ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 6 failed) 7864ms
+     × hands the message that text in a full-markdown editor 1955ms
+     × hands the message that text in a single-line editor 1287ms
+     × hands the message that text in a full-markdown editor 137ms
+     × hands the message that text in a single-line editor 120ms
+     × hands the message that text in a full-markdown editor 213ms
+     × hands the message that text in a single-line editor 160ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 10993ms
+     × hands the message that text in a full-markdown editor 575ms
+     × hands the message that text in a single-line editor 268ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 9105ms
+     × hands the message that text in a full-markdown editor 4915ms
+     × hands the message that text in a single-line editor 4047ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 26 failed) 2031ms
+     × equals the stored text of a colon-wrapped emoji once the editor opens it 18ms
+     × equals the stored text of an emoji between words once the editor opens it 12ms
+     × equals the stored text of an emoji inside bold once the editor opens it 9ms
+     × equals a ZWJ sequence typed one character at a time 16ms
+     × equals a tag sequence typed one character at a time 15ms
+     × equals a skin-toned name typed one character at a time 38ms
+     × equals a colon-wrapped emoji typed one character at a time 20ms
+     × equals an emoji in a link label typed one character at a time 18ms
+     × equals an emoji between words typed one character at a time 16ms
+     × equals an emoji inside bold typed one character at a time 17ms
+     × equals a colon-wrapped emoji pasted whole 17ms
+     × equals an emoji between words pasted whole 11ms
+     × equals an emoji inside bold pasted whole 14ms
+     × equals the stored text of a colon-wrapped emoji once the editor opens it 7ms
+     × equals the stored text of an emoji between words once the editor opens it 7ms
+     × equals the stored text of an emoji inside bold once the editor opens it 8ms
+     × equals a ZWJ sequence typed one character at a time 15ms
+     × equals a tag sequence typed one character at a time 12ms
+     × equals a skin-toned name typed one character at a time 28ms
+     × equals a colon-wrapped emoji typed one character at a time 17ms
+     × equals an emoji in a link label typed one character at a time 12ms
+     × equals an emoji between words typed one character at a time 15ms
+     × equals an emoji inside bold typed one character at a time 18ms
+     × equals a colon-wrapped emoji pasted whole 13ms
+     × equals an emoji between words pasted whole 11ms
+     × equals an emoji inside bold pasted whole 8ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 201ms
+     × on content, over every input of the generator and the corpus 68ms
+     × on embedDescription, over every input of the generator and the corpus 27ms
+     × on fieldValue, over every input of the generator and the corpus 28ms
+     × on embedTitle, over every input of the generator and the corpus 16ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 12ms
+     × on v2Text, over every input of the generator and the corpus 18ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 106ms
+     × parses a unit of 51 text nodes once 17ms
+     × parses a unit of three lines once, and a unit after a code block once more 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 147ms
+     × matches the frozen box on every input, an emoji element's source characters left out 114ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 13 failed) 62ms
+     × carries bold across an emoji element 14ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 1ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 5ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 1ms
+
+ Test Files  10 failed | 35 passed (45)
+      Tests  65 failed | 581 passed (646)
+   Start at  11:45:01
+   Duration  33.79s (transform 2.65s, setup 292ms, import 34.51s, tests 62.08s, environment 30.14s)
+

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_getInitialValue.ts/20261124T135021Z-p2207723/control-1
+
+
+ Test Files  45 passed (45)
+      Tests  696 passed (696)
+   Start at  13:50:26
+   Duration  45.58s (transform 2.21s, setup 231ms, import 28.66s, tests 120.50s, environment 25.49s)
+

@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-97
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 19950ms
+     × hands the message that text in a full-markdown editor 8966ms
+     × hands the message that text in a full-markdown editor 10362ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 11847ms
+     × hands the message that text in a full-markdown editor 6874ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 9 failed) 116ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 10ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 4ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 4ms
+     × takes in a typed quote marker inside a fence opened on a quote line 5ms
+     × is set on the line Enter makes from a quote line 4ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 3ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 3ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 3ms
+     × is resolved on the first line of the editor too 4ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 50714ms
+     × hands the message that text in a full-markdown editor 42904ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  13 failed | 591 passed (604)
+   Start at  11:19:04
+   Duration  52.74s (transform 2.66s, setup 279ms, import 32.12s, tests 134.78s, environment 30.00s)
+

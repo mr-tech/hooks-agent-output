@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-20
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 76ms
+     × as its source text, with no image, for a fixture tree that invents engine output 11ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  1 failed | 665 passed (666)
+   Start at  10:12:10
+   Duration  56.85s (transform 3.00s, setup 280ms, import 40.23s, tests 147.40s, environment 31.06s)
+

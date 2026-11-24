@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownTimestamp.tsx/20261124T132527Z-p2031565/mutant-4
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 6 failed) 97ms
+     × draws s as its text 10ms
+     × draws S as its text 4ms
+     × formats in the viewer's zone once mounted 5ms
+     × formats in UTC before mount, whatever the viewer's zone 4ms
+     × follows a locale dayjs has a file for 5ms
+     × reads in the language dayjs resolves to, not the tag, where dayjs has no file for the tag 4ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  6 failed | 660 passed (666)
+   Start at  13:29:24
+   Duration  53.02s (transform 2.69s, setup 296ms, import 38.83s, tests 135.09s, environment 29.76s)
+

@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitParse.ts/20261124T131728Z-p1974297/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19939ms
+     × on embedDescription, every content character carries the style set its preview gives it 4843ms
+     × on fieldValue, every content character carries the style set its preview gives it 3825ms
+     × on embedTitle, every content character carries the style set its preview gives it 3621ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3888ms
+     × on v2Text, every content character carries the style set its preview gives it 3753ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 135ms
+     × matches the frozen box on every input, an emoji element's source characters left out 99ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (24 tests | 2 failed) 65ms
+     × lists the emoji of a unit that starts inside a code block after a fence that opens a block with no closing fence as the table says 9ms
+     × lists the emoji of a unit that starts inside a code block after the closing fence, an emoji, and a second opening fence as the table says 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 56ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 8ms
+
+ Test Files  4 failed | 46 passed (50)
+      Tests  10 failed | 733 passed (743)
+   Start at  13:18:35
+   Duration  55.87s (transform 2.62s, setup 285ms, import 33.25s, tests 151.74s, environment 29.78s)
+

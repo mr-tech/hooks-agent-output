@@ -1,0 +1,65 @@
+[
+ {
+  "id": "highlightScan.ts:10:if-false",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": " if (s",
+  "new": " if (false && s",
+  "op": "if-false",
+  "line": 10,
+  "text": "if (scope !== undefined) open.push(scope);"
+ },
+ {
+  "id": "highlightScan.ts:10:!==",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 10,
+  "text": "if (scope !== undefined) open.push(scope);"
+ },
+ {
+  "id": "highlightScan.ts:11:if-false",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": " if (t",
+  "new": " if (false && t",
+  "op": "if-false",
+  "line": 11,
+  "text": "else if (token === '</span>') open.pop();"
+ },
+ {
+  "id": "highlightScan.ts:11:===",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 11,
+  "text": "else if (token === '</span>') open.pop();"
+ },
+ {
+  "id": "highlightScan.ts:14:num",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": "0",
+  "new": "1",
+  "op": "num",
+  "line": 14,
+  "text": "for (let i = 0; i < text.length; i += 1) out.push([...open]);"
+ },
+ {
+  "id": "highlightScan.ts:14:<",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": " < ",
+  "new": " <= ",
+  "op": "<",
+  "line": 14,
+  "text": "for (let i = 0; i < text.length; i += 1) out.push([...open]);"
+ },
+ {
+  "id": "highlightScan.ts:14:num:2",
+  "file": "src/components/SlateEditor/utils/highlightScan.ts",
+  "old": "1",
+  "new": "2",
+  "op": "num",
+  "line": 14,
+  "text": "for (let i = 0; i < text.length; i += 1) out.push([...open]);"
+ }
+]

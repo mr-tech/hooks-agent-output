@@ -1,0 +1,11 @@
+[
+ {
+  "id": "common.ts:4:===",
+  "file": "src/components/SlateEditor/utils/common.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 4,
+  "text": "return node?.type === 'emoji';"
+ }
+]

@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-14
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 21104ms
+     × on embedDescription, every content character carries the style set its preview gives it 5297ms
+     × on fieldValue, every content character carries the style set its preview gives it 4155ms
+     × on embedTitle, every content character carries the style set its preview gives it 3931ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 4322ms
+     × on v2Text, every content character carries the style set its preview gives it 3392ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 117ms
+     × draws a masked link label as link text on the content surface 27ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 133ms
+     × matches the frozen box on every input, an emoji element's source characters left out 97ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 2 failed) 66ms
+     × carries bold across an emoji element 19ms
+     × carries italic across an emoji element on a quote line 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 7 failed) 58ms
+     × marks bold delimiters as syntax and the inside as bold 15ms
+     × draws a masked link label as link text and the brackets and destination as syntax 9ms
+     × draws a bare link address as link text 2ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 1ms
+     × colours no heading marker and no list marker 2ms
+     × carries italic across a line break and gives the break itself no class 1ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 2ms
+
+ Test Files  5 failed | 41 passed (46)
+      Tests  17 failed | 638 passed (655)
+   Start at  12:12:00
+   Duration  56.47s (transform 2.56s, setup 236ms, import 31.63s, tests 154.51s, environment 28.68s)
+

@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 12965ms
+     × hands the message that text in a full-markdown editor 7334ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 22531ms
+     × hands the message that text in a full-markdown editor 10703ms
+     × hands the message that text in a full-markdown editor 11054ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 8 failed) 101ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 8ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 4ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 5ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 5ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 2ms
+     × is cleared when the marker of a carried code line is deleted by hand 3ms
+     × is resolved on the first line of the editor too 4ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 53422ms
+     × hands the message that text in a full-markdown editor 46202ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  12 failed | 592 passed (604)
+   Start at  09:57:02
+   Duration  55.82s (transform 3.18s, setup 254ms, import 33.29s, tests 146.55s, environment 30.13s)
+

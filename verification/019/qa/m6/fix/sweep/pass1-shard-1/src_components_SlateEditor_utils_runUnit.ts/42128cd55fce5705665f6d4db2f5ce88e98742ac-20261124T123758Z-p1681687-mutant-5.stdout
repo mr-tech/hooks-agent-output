@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_runUnit.ts/20261124T123758Z-p1681687/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 6647ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 3540ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19915ms
+     × on embedDescription, every content character carries the style set its preview gives it 4717ms
+     × on fieldValue, every content character carries the style set its preview gives it 4005ms
+     × on embedTitle, every content character carries the style set its preview gives it 3659ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3866ms
+     × on v2Text, every content character carries the style set its preview gives it 3661ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 2 failed) 85ms
+     × puts an emoji element on the first line when the second is edited back to text 7ms
+     × puts an emoji element on the second line when the third is edited back to text 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 110ms
+     × matches the frozen box on every input, an emoji element's source characters left out 81ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 3 failed) 126ms
+     × parses a unit of three lines once, and a unit after a code block once more 7ms
+     × parses only the edited element's unit on the next pass, with its new text 9ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 30ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 1039ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 245ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 165ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 161ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 147ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 139ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 154ms
+
+ Test Files  6 failed | 43 passed (49)
+      Tests  18 failed | 716 passed (734)
+   Start at  12:42:02
+   Duration  55.33s (transform 2.68s, setup 272ms, import 33.51s, tests 148.33s, environment 30.43s)
+

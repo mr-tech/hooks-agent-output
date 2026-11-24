@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-44
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 12876ms
+     × hands the message that text in a full-markdown editor 9340ms
+     × hands the message that text in a single-line editor 3534ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 9424ms
+     × hands the message that text in a full-markdown editor 5130ms
+     × hands the message that text in a single-line editor 4141ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 1 failed) 86ms
+     × puts a caret on a second element at the same place in the text 11ms
+
+ Test Files  3 failed | 35 passed (38)
+      Tests  5 failed | 599 passed (604)
+   Start at  10:33:38
+   Duration  39.31s (transform 2.62s, setup 270ms, import 31.74s, tests 89.55s, environment 28.93s)
+

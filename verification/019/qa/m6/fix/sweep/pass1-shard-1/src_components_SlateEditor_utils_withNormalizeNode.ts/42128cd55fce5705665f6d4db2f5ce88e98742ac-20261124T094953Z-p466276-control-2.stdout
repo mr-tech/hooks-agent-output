@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/control-2
+
+
+ Test Files  38 passed (38)
+      Tests  604 passed (604)
+   Start at  09:50:54
+   Duration  49.40s (transform 2.51s, setup 240ms, import 30.75s, tests 130.17s, environment 27.94s)
+

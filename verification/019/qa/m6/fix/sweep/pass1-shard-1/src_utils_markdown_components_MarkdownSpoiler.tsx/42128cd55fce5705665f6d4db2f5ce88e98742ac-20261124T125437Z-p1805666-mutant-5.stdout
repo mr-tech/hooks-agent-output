@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_components_MarkdownSpoiler.tsx/20261124T125437Z-p1805666/mutant-5
+
+
+ Test Files  44 passed (44)
+      Tests  667 passed (667)
+   Start at  12:59:38
+   Duration  54.42s (transform 2.82s, setup 258ms, import 39.72s, tests 138.43s, environment 31.04s)
+

@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-119
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 18432ms
+     × hands the message that text in a full-markdown editor 8228ms
+     × hands the message that text in a full-markdown editor 9499ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 11111ms
+     × hands the message that text in a full-markdown editor 6224ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 8 failed) 6629ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 8ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 2ms
+     × gives the code lines the language typed onto their opening fence 1ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 1ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 2ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 1ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 2ms
+     × makes the lines after a removed multi-line quote marker plain lines 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 8 failed) 75ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 7ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 2ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 4ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 3ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 2ms
+     × is cleared when the marker of a carried code line is deleted by hand 2ms
+     × is resolved on the first line of the editor too 2ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 44026ms
+     × hands the message that text in a full-markdown editor 37575ms
+
+ Test Files  5 failed | 33 passed (38)
+      Tests  20 failed | 584 passed (604)
+   Start at  11:38:50
+   Duration  46.12s (transform 2.47s, setup 249ms, import 29.94s, tests 119.68s, environment 27.80s)
+

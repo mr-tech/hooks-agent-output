@@ -1,0 +1,117 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-12
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 4 failed) 146ms
+     × hands the message that text in a full-markdown editor 88ms
+     × hands the message that text in a single-line editor 16ms
+     × hands the message that text in a full-markdown editor 27ms
+     × hands the message that text in a single-line editor 14ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 184ms
+     × hands the message that text in a full-markdown editor 137ms
+     × hands the message that text in a single-line editor 46ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 697ms
+     × on embedDescription, every content character carries the style set its preview gives it 231ms
+     × on fieldValue, every content character carries the style set its preview gives it 136ms
+     × on embedTitle, every content character carries the style set its preview gives it 111ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 109ms
+     × on v2Text, every content character carries the style set its preview gives it 103ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 7 failed) 168ms
+     × hands the message a write of a after a is typed into an empty full-markdown editor 77ms
+     × hands the message a write of a after a is typed into an empty single-line editor 18ms
+     × hands the message one write per typed character, each the text so far 18ms
+     × hands the message a line break typed as a new line 13ms
+     × hands the message no write for a character typed in a synchronous act, because the editor reports its change after the act returns 15ms
+     × hands the message that text in a full-markdown editor 15ms
+     × hands the message that text in a single-line editor 11ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 41 failed) 1635ms
+     × equals the stored text of a heart with text presentation once the editor opens it 15ms
+     × equals the stored text of a colon-wrapped emoji once the editor opens it 11ms
+     × equals a ZWJ sequence typed one character at a time 17ms
+     × equals a keycap typed one character at a time 13ms
+     × equals a heart with emoji presentation typed one character at a time 11ms
+     × equals a heart with text presentation typed one character at a time 11ms
+     × equals an emoji typed as a name typed one character at a time 8ms
+     × equals a skin-toned name typed one character at a time 11ms
+     × equals a colon-wrapped emoji typed one character at a time 10ms
+     × equals a custom emoji typed one character at a time 8ms
+     × equals an animated custom emoji typed one character at a time 10ms
+     × equals an emoji in a link label typed one character at a time 10ms
+     × equals an emoji in a link address typed one character at a time 10ms
+     × equals a name in a link address typed one character at a time 9ms
+     × equals an emoji between words typed one character at a time 11ms
+     × equals an emoji inside bold typed one character at a time 8ms
+     × equals an emoji inside inline code typed one character at a time 13ms
+     × equals an emoji inside a code block typed one character at a time 11ms
+     × equals an emoji after a backslash typed one character at a time 11ms
+     × equals a heart with text presentation pasted whole 8ms
+     × equals a colon-wrapped emoji pasted whole 12ms
+     × equals the stored text of a heart with text presentation once the editor opens it 3ms
+     × equals the stored text of a colon-wrapped emoji once the editor opens it 7ms
+     × equals a ZWJ sequence typed one character at a time 13ms
+     × equals a keycap typed one character at a time 8ms
+     × equals a heart with emoji presentation typed one character at a time 6ms
+     × equals a heart with text presentation typed one character at a time 7ms
+     × equals an emoji typed as a name typed one character at a time 8ms
+     × equals a skin-toned name typed one character at a time 6ms
+     × equals a colon-wrapped emoji typed one character at a time 9ms
+     × equals a custom emoji typed one character at a time 8ms
+     × equals an animated custom emoji typed one character at a time 8ms
+     × equals an emoji in a link label typed one character at a time 7ms
+     × equals an emoji in a link address typed one character at a time 10ms
+     × equals a name in a link address typed one character at a time 14ms
+     × equals an emoji between words typed one character at a time 10ms
+     × equals an emoji inside bold typed one character at a time 6ms
+     × equals an emoji inside inline code typed one character at a time 6ms
+     × equals an emoji after a backslash typed one character at a time 7ms
+     × equals a heart with text presentation pasted whole 6ms
+     × equals a colon-wrapped emoji pasted whole 10ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 9 failed) 3445ms
+     × keeps a multi-line paste as lines in a full-markdown editor 56ms
+     × hands the message that text in a full-markdown editor 1341ms
+     × hands the message that text in a single-line editor 1571ms
+     × hands the message that text in a full-markdown editor 98ms
+     × hands the message that text in a single-line editor 94ms
+     × hands the message that text in a full-markdown editor 8ms
+     × hands the message that text in a single-line editor 11ms
+     × hands the message that text in a full-markdown editor 73ms
+     × hands the message that text in a single-line editor 38ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 2 failed) 1683ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1573ms
+     × draws the second text node of a code line from its own characters, not the line's 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx (11 tests | 6 failed) 199ms
+     × writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box 59ms
+     × writes ">>> a" back to the message unchanged, once, in a full-markdown box 11ms
+     × writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box 20ms
+     × writes "> a\n> b" back to the message unchanged, once, in a full-markdown box 8ms
+     × writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box 8ms
+     × writes ">>> a\nb" back to the message unchanged, once, in a single-line box 7ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 112ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 76ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 140ms
+     × on content, over every input of the generator and the corpus 51ms
+     × on embedDescription, over every input of the generator and the corpus 14ms
+     × on fieldValue, over every input of the generator and the corpus 13ms
+     × on embedTitle, over every input of the generator and the corpus 17ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 8ms
+     × on v2Text, over every input of the generator and the corpus 9ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 85ms
+     × matches the frozen box on every input, an emoji element's source characters left out 54ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 6ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 11 failed) 74ms
+     × carries bold across an emoji element 21ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 2ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 7ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+
+ Test Files  12 failed | 33 passed (45)
+      Tests  96 failed | 550 passed (646)
+   Start at  11:08:53
+   Duration  28.46s (transform 2.61s, setup 312ms, import 32.54s, tests 37.89s, environment 29.56s)
+

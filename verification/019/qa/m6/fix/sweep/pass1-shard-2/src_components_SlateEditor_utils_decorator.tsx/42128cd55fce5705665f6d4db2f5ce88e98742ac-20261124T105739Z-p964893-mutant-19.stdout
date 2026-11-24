@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-19
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 21125ms
+     × on embedDescription, every content character carries the style set its preview gives it 5153ms
+     × on fieldValue, every content character carries the style set its preview gives it 4287ms
+     × on embedTitle, every content character carries the style set its preview gives it 3857ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 4486ms
+     × on v2Text, every content character carries the style set its preview gives it 3335ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 1 failed) 1775ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1657ms
+
+ Test Files  2 failed | 43 passed (45)
+      Tests  6 failed | 640 passed (646)
+   Start at  11:15:53
+   Duration  64.69s (transform 2.58s, setup 283ms, import 33.32s, tests 170.89s, environment 30.58s)
+

@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownTimestamp.tsx/20261124T132527Z-p2031565/mutant-6
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 14 failed) 2783ms
+     × with one timestamp between text 423ms
+     × with identical duplicates, the first 230ms
+     × with identical duplicates, the second 220ms
+     × with a timestamp in a code span before it 172ms
+     × with a timestamp in a code block before it 191ms
+     × with an escaped timestamp before it 196ms
+     × with an invalid style letter before it 196ms
+     × with a timestamp inside a spoiler, the first 170ms
+     × with a timestamp inside a spoiler, the second 150ms
+     × with a timestamp inside a link label, which the engine leaves as text 155ms
+     × with the bare form 143ms
+     × with three timestamps, the middle one 152ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 174ms
+     × after a timestamp is added between and after the existing ones 180ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  14 failed | 652 passed (666)
+   Start at  13:31:20
+   Duration  52.63s (transform 2.64s, setup 249ms, import 37.68s, tests 135.70s, environment 29.13s)
+

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-28
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 2 failed) 86ms
+     × formats in the viewer's zone once mounted 9ms
+     × formats in UTC before mount, whatever the viewer's zone 3ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  2 failed | 664 passed (666)
+   Start at  10:19:23
+   Duration  51.83s (transform 2.60s, setup 248ms, import 38.15s, tests 130.68s, environment 29.88s)
+

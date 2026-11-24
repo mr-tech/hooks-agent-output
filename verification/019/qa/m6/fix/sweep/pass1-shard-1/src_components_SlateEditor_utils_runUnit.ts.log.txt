@@ -1,0 +1,19 @@
+runUnit.ts:7:=== KILLED 50.6
+runUnit.ts:7:&& KILLED 61.81
+runUnit.ts:14:!== KILLED 31.87
+runUnit.ts:14:&& KILLED 31.68
+runUnit.ts:14:!==:2 KILLED 60.43
+runUnit.ts:17:num KILLED 60.09
+runUnit.ts:17:num:2 KILLED 48.46
+runUnit.ts:19:num KILLED 63.26
+runUnit.ts:19:num:2 KILLED 38.66
+runUnit.ts:22:<= KILLED 37.95
+runUnit.ts:22:num KILLED 61.61
+runUnit.ts:24:if-false KILLED 61.63
+runUnit.ts:24:> KILLED 61.94
+runUnit.ts:25:if-false KILLED 61.49
+runUnit.ts:25:=== KILLED 55.67
+runUnit.ts:27:walk-first KILLED 40.36
+runUnit.ts:27:walk-last KILLED 43.97
+qa-m5-d2-runUnit-no-quote-prefix KILLED 61.37
+18 of 18 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_SlateEditor_utils_runUnit.ts.mutants.json (blob 7c59f78904348ff43d63b6d001ffcbaacc48b773))

@@ -1,0 +1,70 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-35
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 13619ms
+     × on embedDescription, every content character carries the style set its preview gives it 3727ms
+     × on fieldValue, every content character carries the style set its preview gives it 2636ms
+     × on embedTitle, every content character carries the style set its preview gives it 2236ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 2193ms
+     × on v2Text, every content character carries the style set its preview gives it 2819ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 9 failed) 1622ms
+     × with one timestamp between text 33ms
+     × with identical duplicates, the first 331ms
+     × with identical duplicates, the second 14ms
+     × with a timestamp inside a spoiler, the first 190ms
+     × with a timestamp inside a spoiler, the second 13ms
+     × with the bare form 2ms
+     × with three timestamps, the middle one 11ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 21ms
+     × after a timestamp is added between and after the existing ones 18ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 2634ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 400ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 207ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 199ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 192ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 199ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 169ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 209ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 194ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 171ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 193ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 176ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 197ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 809ms
+     × names the channel after content  when the guild list is in reach 298ms
+     × names the channel after title  when the guild list is in reach 51ms
+     × names the channel after description  when the guild list is in reach 46ms
+     × names the channel after field name  when the guild list is in reach 39ms
+     × names the channel after field value  when the guild list is in reach 34ms
+     × names the channel after linked title  when the guild list is in reach 41ms
+     × names the channel after text display  when the guild list is in reach 31ms
+     × shows the channel id after content , and still renders, with no guild provider 38ms
+     × shows the channel id after title , and still renders, with no guild provider 44ms
+     × shows the channel id after description , and still renders, with no guild provider 44ms
+     × shows the channel id after field name , and still renders, with no guild provider 37ms
+     × shows the channel id after field value , and still renders, with no guild provider 39ms
+     × shows the channel id after linked title , and still renders, with no guild provider 34ms
+     × shows the channel id after text display , and still renders, with no guild provider 33ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 3 failed) 323ms
+     × "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree 15ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 8ms
+     × gives the same visible form string for the same rendering 3ms
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 1 failed) 342ms
+     × draws its links as links when the embed has no url 302ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 1 failed) 84ms
+     × formats in the viewer's zone once mounted 8ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 87ms
+     × large when only emoji and spaces make up the message, for every one of them 10ms
+     × small once any text sits beside it 5ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 3 failed) 73ms
+     × reveals every piece when any one piece is clicked 38ms
+     × hides every piece again when a revealed piece is clicked 18ms
+     × leaves a different spoiler hidden 10ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 1 failed) 61ms
+     × renders, and draws the channel in its id form 9ms
+
+ Test Files  10 failed | 33 passed (43)
+      Tests  51 failed | 615 passed (666)
+   Start at  10:27:06
+   Duration  51.16s (transform 2.71s, setup 282ms, import 38.62s, tests 126.91s, environment 30.28s)
+

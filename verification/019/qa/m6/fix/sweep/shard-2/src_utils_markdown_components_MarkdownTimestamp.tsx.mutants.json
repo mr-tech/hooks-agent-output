@@ -1,0 +1,74 @@
+[
+ {
+  "id": "MarkdownTimestamp.tsx:45:if-false",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "  if (!m",
+  "new": "  if (false && !m",
+  "op": "if-false",
+  "line": 45,
+  "text": "if (!mounted) date = date.utc();"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:45:not",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "(!m",
+  "new": "(m",
+  "op": "not",
+  "line": 45,
+  "text": "if (!mounted) date = date.utc();"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:54:if-false",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": " if (d",
+  "new": " if (false && d",
+  "op": "if-false",
+  "line": 54,
+  "text": "if (dayjsFormat) return dayjsDate.format(dayjsFormat);"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:55:if-false",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": " if (l",
+  "new": " if (false && l",
+  "op": "if-false",
+  "line": 55,
+  "text": "if (localFormat in TIMESTAMP_TO_INTL_TIME_STYLE) {"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:65:||",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "  || !",
+  "new": "  && !",
+  "op": "||",
+  "line": 65,
+  "text": "|| !onEdit"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:65:not",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": " !o",
+  "new": " o",
+  "op": "not",
+  "line": 65,
+  "text": "|| !onEdit"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:76:if-false",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "  if (!o",
+  "new": "  if (false && !o",
+  "op": "if-false",
+  "line": 76,
+  "text": "if (!onEdit) {"
+ },
+ {
+  "id": "MarkdownTimestamp.tsx:76:not",
+  "file": "src/utils/markdown/components/MarkdownTimestamp.tsx",
+  "old": "(!o",
+  "new": "(o",
+  "op": "not",
+  "line": 76,
+  "text": "if (!onEdit) {"
+ }
+]

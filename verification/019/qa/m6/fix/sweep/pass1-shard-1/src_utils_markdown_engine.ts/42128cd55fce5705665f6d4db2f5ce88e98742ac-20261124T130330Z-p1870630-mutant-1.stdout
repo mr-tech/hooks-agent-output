@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_engine.ts/20261124T130330Z-p1870630/mutant-1
+
+
+ Test Files  69 passed (69)
+      Tests  1279 passed (1279)
+   Start at  13:04:43
+   Duration  63.65s (transform 2.94s, setup 334ms, import 42.59s, tests 164.06s, environment 36.12s)
+

@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-47
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19946ms
+     × on embedDescription, every content character carries the style set its preview gives it 5025ms
+     × on fieldValue, every content character carries the style set its preview gives it 4200ms
+     × on embedTitle, every content character carries the style set its preview gives it 3378ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3766ms
+     × on v2Text, every content character carries the style set its preview gives it 3569ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 121ms
+     × matches the frozen box on every input, an emoji element's source characters left out 89ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 12 failed) 81ms
+     × carries bold across an emoji element 21ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 2ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 8ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 2ms
+
+ Test Files  3 failed | 42 passed (45)
+      Tests  18 failed | 628 passed (646)
+   Start at  11:41:56
+   Duration  56.68s (transform 2.69s, setup 283ms, import 33.76s, tests 150.41s, environment 30.83s)
+

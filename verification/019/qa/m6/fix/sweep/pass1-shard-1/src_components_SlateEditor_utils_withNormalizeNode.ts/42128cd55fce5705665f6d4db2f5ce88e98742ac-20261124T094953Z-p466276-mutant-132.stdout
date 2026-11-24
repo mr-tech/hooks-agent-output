@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-132
+
+
+ Test Files  37 passed (38)
+      Tests  14 failed | 551 passed (604)
+     Errors  1 error
+   Start at  11:55:12
+   Duration  99.91s (transform 2.66s, setup 264ms, import 31.41s, tests 125.12s, environment 28.77s)
+

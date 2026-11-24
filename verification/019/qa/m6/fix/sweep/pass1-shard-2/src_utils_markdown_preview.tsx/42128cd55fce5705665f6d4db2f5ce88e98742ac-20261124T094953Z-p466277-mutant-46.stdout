@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-46
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 11 failed) 3344ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 497ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 275ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 306ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 269ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 254ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 255ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 206ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 230ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 262ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 185ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 230ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  11 failed | 655 passed (666)
+   Start at  10:37:44
+   Duration  52.39s (transform 2.68s, setup 243ms, import 38.93s, tests 131.87s, environment 30.20s)
+

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261124T114610Z-p1315904/mutant-31
+
+
+ Test Files  47 passed (47)
+      Tests  722 passed (722)
+   Start at  12:29:21
+   Duration  55.60s (transform 2.50s, setup 279ms, import 33.06s, tests 151.36s, environment 29.24s)
+

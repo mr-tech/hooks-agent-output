@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownTimestamp.tsx/20261124T132527Z-p2031565/mutant-7
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 5674ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 798ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 502ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 480ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 380ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 386ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 408ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 440ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 469ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 440ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 438ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 374ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 441ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 3 failed) 346ms
+     × a timestamp, by its seconds and style 112ms
+     × a timestamp with no style 18ms
+     × tells a timestamp of one value from a timestamp of another 53ms
+
+ Test Files  2 failed | 41 passed (43)
+      Tests  15 failed | 651 passed (666)
+   Start at  13:32:18
+   Duration  50.27s (transform 2.43s, setup 244ms, import 35.16s, tests 131.22s, environment 26.94s)
+

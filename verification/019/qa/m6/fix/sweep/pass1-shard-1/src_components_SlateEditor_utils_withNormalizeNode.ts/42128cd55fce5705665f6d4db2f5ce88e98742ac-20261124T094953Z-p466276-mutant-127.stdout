@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-127
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 18014ms
+     × hands the message that text in a full-markdown editor 3807ms
+
+ Test Files  1 failed | 37 passed (38)
+      Tests  1 failed | 603 passed (604)
+   Start at  11:46:02
+   Duration  49.26s (transform 2.90s, setup 319ms, import 31.96s, tests 126.30s, environment 28.94s)
+

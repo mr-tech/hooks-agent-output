@@ -1,0 +1,89 @@
+{
+ "sha": "42128cd55fce5705665f6d4db2f5ce88e98742ac",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-2/src_utils_markdown_emoji.tsx.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "related",
+  "--run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "60000",
+  "--hookTimeout",
+  "60000",
+  "src/utils/markdown/emoji.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-2/src_utils_markdown_emoji.tsx.mutants.json",
+   "blob": "3f781b94812ac4b9f33465bada9a688218f45303"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_emoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T135203Z-p2219374-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_emoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T135203Z-p2219374-control-1.stderr",
+   "seconds": 55.0,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 987,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "emoji.tsx:5:num",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 5,
+    "text": "export const JUMBO_EMOJI_MAX = 27;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 987,
+   "control_tests_run": 987,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for 27 emoji"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 55.33,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_emoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T135203Z-p2219374-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-2/src_utils_markdown_emoji.tsx/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T135203Z-p2219374-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_emoji.tsx.mutants.json (blob 3f781b94812ac4b9f33465bada9a688218f45303))"
+}

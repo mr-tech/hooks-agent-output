@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-14
+
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 7 failed) 835ms
+     × names the channel after content  when the guild list is in reach 319ms
+     × names the channel after title  when the guild list is in reach 55ms
+     × names the channel after description  when the guild list is in reach 62ms
+     × names the channel after field name  when the guild list is in reach 44ms
+     × names the channel after field value  when the guild list is in reach 39ms
+     × names the channel after linked title  when the guild list is in reach 33ms
+     × names the channel after text display  when the guild list is in reach 37ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 310ms
+     × reads a channel mention by its id when the preview shows the channel's name 7ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 2 failed) 64ms
+     × names a listed channel 38ms
+     × shows the new name when the list changes under a mounted preview 6ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 9 failed) 419ms
+     × renders as the table says when the list state is topLevel 7ms
+     × is given a listed forum channel its name 2ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+
+ Test Files  4 failed | 39 passed (43)
+      Tests  19 failed | 647 passed (666)
+   Start at  10:06:13
+   Duration  58.27s (transform 2.96s, setup 263ms, import 41.22s, tests 150.59s, environment 31.77s)
+

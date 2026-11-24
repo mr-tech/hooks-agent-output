@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_DiscordContentEditor_Mobile.tsx/20261124T134845Z-p2196145/control-1
+
+
+ Test Files  23 passed (23)
+      Tests  245 passed (245)
+   Start at  13:48:50
+   Duration  12.40s (transform 1.69s, setup 164ms, import 19.11s, tests 9.50s, environment 15.75s)
+

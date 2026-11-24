@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_highlightScan.ts/20261124T133401Z-p2093592/control-1
+
+
+ Test Files  46 passed (46)
+      Tests  656 passed (656)
+   Start at  13:34:05
+   Duration  46.11s (transform 2.08s, setup 222ms, import 29.03s, tests 118.71s, environment 26.71s)
+

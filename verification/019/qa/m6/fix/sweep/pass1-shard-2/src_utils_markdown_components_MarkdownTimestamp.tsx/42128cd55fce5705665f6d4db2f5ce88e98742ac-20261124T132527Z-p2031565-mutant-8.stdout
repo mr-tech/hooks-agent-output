@@ -1,0 +1,42 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownTimestamp.tsx/20261124T132527Z-p2031565/mutant-8
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 5949ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 844ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 593ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 547ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 469ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 414ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 430ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 410ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 399ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 440ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 435ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 403ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 448ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 14 failed) 118ms
+     × with one timestamp between text 45ms
+     × with identical duplicates, the first 7ms
+     × with identical duplicates, the second 5ms
+     × with a timestamp in a code span before it 5ms
+     × with a timestamp in a code block before it 5ms
+     × with an escaped timestamp before it 4ms
+     × with an invalid style letter before it 3ms
+     × with a timestamp inside a spoiler, the first 7ms
+     × with a timestamp inside a spoiler, the second 3ms
+     × with a timestamp inside a link label, which the engine leaves as text 9ms
+     × with the bare form 4ms
+     × with three timestamps, the middle one 3ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 4ms
+     × after a timestamp is added between and after the existing ones 4ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 4 failed) 339ms
+     × a timestamp, by its seconds and style 115ms
+     × a timestamp with no style 17ms
+     × reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well 3ms
+     × tells a timestamp of one value from a timestamp of another 52ms
+
+ Test Files  3 failed | 40 passed (43)
+      Tests  30 failed | 636 passed (666)
+   Start at  13:33:13
+   Duration  47.87s (transform 2.39s, setup 226ms, import 33.95s, tests 123.56s, environment 26.30s)
+

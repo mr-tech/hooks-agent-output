@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-28
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 6594ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 3614ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2940ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 1 failed) 76ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 8ms
+
+ Test Files  2 failed | 36 passed (38)
+      Tests  3 failed | 601 passed (604)
+   Start at  10:19:31
+   Duration  48.49s (transform 2.60s, setup 265ms, import 30.79s, tests 125.27s, environment 28.29s)
+

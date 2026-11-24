@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_engine.ts/20261124T130330Z-p1870630/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 16392ms
+     × on embedDescription, every content character carries the style set its preview gives it 4136ms
+     × on fieldValue, every content character carries the style set its preview gives it 3227ms
+     × on embedTitle, every content character carries the style set its preview gives it 2926ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 2979ms
+     × on v2Text, every content character carries the style set its preview gives it 3115ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 2876ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 436ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 260ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 235ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 205ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 193ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 207ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 226ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 198ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 195ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 203ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 198ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 192ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 2 failed) 2396ms
+     × with a timestamp inside a spoiler, the first 165ms
+     × with a timestamp inside a spoiler, the second 13ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 9 failed) 284ms
+     × bold 13ms
+     × italic 4ms
+     × underline 3ms
+     × strikethrough 3ms
+     × spoiler 3ms
+     × puts a bold run inside a quote inside the quote node 3ms
+     × "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree 9ms
+     × gives the same visible form string for the same rendering 3ms
+     × is told apart from a tree that differs in one style 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 134ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 96ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 3 failed) 57ms
+     × reveals every piece when any one piece is clicked 40ms
+     × hides every piece again when a revealed piece is clicked 5ms
+     × leaves a different spoiler hidden 4ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 128ms
+     × matches the frozen box on every input, an emoji element's source characters left out 97ms
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 5 failed) 73ms
+     × gives the bold modifier the bold style without a warning 6ms
+     × gives the italic modifier the italic style without a warning 1ms
+     × gives the underline modifier the underline style without a warning 3ms
+     × gives the strikethrough modifier the strikethrough style without a warning 1ms
+     × gives the spoiler modifier the spoiler style without a warning 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 2 failed) 78ms
+     × carries bold across an emoji element 20ms
+     × carries italic across an emoji element on a quote line 2ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 4 failed) 84ms
+     × draws bold 23ms
+     × draws italic 3ms
+     × draws underline 1ms
+     × draws strikethrough 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 3 failed) 65ms
+     × marks bold delimiters as syntax and the inside as bold 19ms
+     × carries italic across a line break and gives the break itself no class 2ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 2ms
+
+ Test Files  11 failed | 58 passed (69)
+      Tests  47 failed | 1232 passed (1279)
+   Start at  13:12:58
+   Duration  61.37s (transform 2.99s, setup 356ms, import 42.67s, tests 155.13s, environment 35.62s)
+

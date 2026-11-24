@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 6830ms
+     × hands the message that text in a full-markdown editor 5772ms
+     × hands the message that text in a full-markdown editor 462ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 8256ms
+     × on embedDescription, every content character carries the style set its preview gives it 246ms
+     × on fieldValue, every content character carries the style set its preview gives it 129ms
+     × on v2Text, every content character carries the style set its preview gives it 77ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 10347ms
+     × hands the message that text in a full-markdown editor 3348ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 3 failed) 2307ms
+     × equals the stored text of an emoji inside a code block once the editor opens it 27ms
+     × equals an emoji inside a code block typed one character at a time 29ms
+     × equals an emoji inside a code block pasted whole 11ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8196ms
+     × hands the message that text in a full-markdown editor 2940ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 8962ms
+     × keeps a multi-line paste as lines in a full-markdown editor 45ms
+     × hands the message that text in a full-markdown editor 1126ms
+     × hands the message that text in a full-markdown editor 842ms
+     × hands the message that text in a full-markdown editor 2796ms
+     × hands the message that text in a full-markdown editor 240ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 2 failed) 1735ms
+     × draws the second text node of a code line from its own characters, not the line's 13ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 934ms
+     × on content, over every input of the generator and the corpus 53ms
+     × on embedDescription, over every input of the generator and the corpus 14ms
+     × on fieldValue, over every input of the generator and the corpus 13ms
+     × on v2Text, over every input of the generator and the corpus 7ms
+
+ Test Files  8 failed | 37 passed (45)
+      Tests  21 failed | 625 passed (646)
+   Start at  11:03:41
+   Duration  37.52s (transform 2.71s, setup 289ms, import 33.75s, tests 77.70s, environment 30.28s)
+

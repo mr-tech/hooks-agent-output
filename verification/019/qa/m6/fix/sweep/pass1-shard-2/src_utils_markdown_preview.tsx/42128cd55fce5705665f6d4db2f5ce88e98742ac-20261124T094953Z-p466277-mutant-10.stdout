@@ -1,0 +1,68 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261124T094953Z-p466277/mutant-10
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 974ms
+     × on embedDescription, every content character carries the style set its preview gives it 303ms
+     × on fieldValue, every content character carries the style set its preview gives it 192ms
+     × on embedTitle, every content character carries the style set its preview gives it 167ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 137ms
+     × on v2Text, every content character carries the style set its preview gives it 167ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 1474ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 109ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 65ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 77ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 46ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 155ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 184ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 68ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 14ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 106ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 175ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 90ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 244ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 267ms
+     × a channel mention with no list 3ms
+     × reads a channel mention by its id when the preview shows the channel's name 5ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 4 failed) 66ms
+     × names a listed channel 38ms
+     × names a thread under a listed channel 4ms
+     × shows the new name when the list changes under a mounted preview 4ms
+     × renders, and draws the channel in its id form 7ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 16 failed) 318ms
+     × renders as the table says when the list state is noProvider 16ms
+     × renders as the table says when the list state is topLevel 14ms
+     × renders as the table says when the list state is threadOnly 2ms
+     × is given a listed forum channel its name 1ms
+     × is given an active post under a listed forum channel its name 1ms
+     × names the second of two listed channels when the mention names the second 2ms
+     × names a thread of the second listed channel, and one of the first, in the same list 2ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+     × draws no text that says unknown in any of the 60 cells 11ms
+     × draws every one of the 60 cells as something visible 13ms
+     × draws no text that says unknown over the corpus, with no provider 1ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 35570ms
+     × names the channel after content  when the guild list is in reach 238ms
+     × names the channel after title  when the guild list is in reach 64ms
+     × names the channel after description  when the guild list is in reach 43ms
+     × names the channel after field name  when the guild list is in reach 50ms
+     × names the channel after field value  when the guild list is in reach 38ms
+     × names the channel after linked title  when the guild list is in reach 41ms
+     × names the channel after text display  when the guild list is in reach 42ms
+     × shows the channel id after content , and still renders, with no guild provider 5007ms
+     × shows the channel id after title , and still renders, with no guild provider 5009ms
+     × shows the channel id after description , and still renders, with no guild provider 5008ms
+     × shows the channel id after field name , and still renders, with no guild provider 5008ms
+     × shows the channel id after field value , and still renders, with no guild provider 5006ms
+     × shows the channel id after linked title , and still renders, with no guild provider 5004ms
+     × shows the channel id after text display , and still renders, with no guild provider 5009ms
+
+ Test Files  6 failed | 37 passed (43)
+      Tests  53 failed | 613 passed (666)
+   Start at  10:02:10
+   Duration  64.06s (transform 2.56s, setup 238ms, import 37.44s, tests 142.87s, environment 28.67s)
+

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown___tests___helpers_discordOracle.ts/20261124T133201Z-p2079462/control-1
+
+
+ Test Files  10 passed (10)
+      Tests  467 passed (467)
+   Start at  13:32:06
+   Duration  7.60s (transform 830ms, setup 39ms, import 3.41s, tests 10.58s, environment 2.26s)
+

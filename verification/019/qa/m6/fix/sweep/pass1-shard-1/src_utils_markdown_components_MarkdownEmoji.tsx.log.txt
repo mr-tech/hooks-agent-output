@@ -1,0 +1,5 @@
+MarkdownEmoji.tsx:16:if-false KILLED 58.42
+MarkdownEmoji.tsx:17:if-false KILLED 57.72
+MarkdownEmoji.tsx:23:false KILLED 57.95
+MarkdownEmoji.tsx:24:&& KILLED 57.71
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_components_MarkdownEmoji.tsx.mutants.json (blob 88e9b70e82883811eb8550ce69c79a0d66e44793))

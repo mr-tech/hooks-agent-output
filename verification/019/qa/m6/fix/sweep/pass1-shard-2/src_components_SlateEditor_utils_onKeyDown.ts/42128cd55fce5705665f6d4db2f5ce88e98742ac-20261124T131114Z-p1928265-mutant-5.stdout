@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_onKeyDown.ts/20261124T131114Z-p1928265/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 17995ms
+     × hands the message that text in a full-markdown editor 8104ms
+     × hands the message that text in a full-markdown editor 9283ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 10264ms
+     × hands the message that text in a full-markdown editor 5423ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 5 failed) 108ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 10ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 4ms
+     × leaves an empty line when the carried marker is removed with Backspace 6ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 2ms
+     × leaves a caret at the end of a second text node of the line alone 4ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 45637ms
+     × hands the message that text in a full-markdown editor 38875ms
+
+ Test Files  4 failed | 34 passed (38)
+      Tests  9 failed | 595 passed (604)
+   Start at  13:15:38
+   Duration  47.81s (transform 2.58s, setup 297ms, import 30.64s, tests 122.79s, environment 28.37s)
+

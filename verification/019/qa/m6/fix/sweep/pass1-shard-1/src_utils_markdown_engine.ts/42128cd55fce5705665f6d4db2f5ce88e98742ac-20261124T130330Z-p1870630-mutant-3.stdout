@@ -1,0 +1,383 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_engine.ts/20261124T130330Z-p1870630/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 3580ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 1808ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 1738ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 5ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 4ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 5ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 5ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 6098ms
+     × on embedDescription, every content character carries the style set its preview gives it 1443ms
+     × on fieldValue, every content character carries the style set its preview gives it 1206ms
+     × on embedTitle, every content character carries the style set its preview gives it 1206ms
+     × on v2Text, every content character carries the style set its preview gives it 1102ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 951ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 119ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 104ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 64ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 63ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 53ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 58ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 65ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 55ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 56ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 58ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 58ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 53ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 15 failed) 64ms
+     × with one timestamp between text 22ms
+     × with identical duplicates, the first 3ms
+     × with identical duplicates, the second 4ms
+     × with a timestamp in a code span before it 3ms
+     × with a timestamp in a code block before it 4ms
+     × with an escaped timestamp before it 2ms
+     × with an invalid style letter before it 2ms
+     × with a timestamp inside a spoiler, the first 2ms
+     × with a timestamp inside a spoiler, the second 3ms
+     × with a timestamp inside a link label, which the engine leaves as text 3ms
+     × with the bare form 2ms
+     × with three timestamps, the middle one 1ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 4ms
+     × after a timestamp is added between and after the existing ones 2ms
+     × shows the new time, not the one it first drew 1ms
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (62 tests | 1 failed) 1016ms
+     × shows one line of error text and no editor when content a number 49ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 36 failed) 123ms
+     × bold 10ms
+     × italic 3ms
+     × underline 4ms
+     × strikethrough 3ms
+     × spoiler 2ms
+     × inline code 2ms
+     × heading 2ms
+     × subtext 2ms
+     × quote 2ms
+     × unordered list 2ms
+     × ordered list from three 1ms
+     × masked link 1ms
+     × bare link 1ms
+     × code block with a language 1ms
+     × code block with none 2ms
+     × unicode emoji 1ms
+     × custom emoji 2ms
+     × animated custom emoji 1ms
+     × a user mention 1ms
+     × a user mention with the nickname mark 1ms
+     × a role mention 1ms
+     × a channel mention with no list 1ms
+     × everyone 2ms
+     × here 1ms
+     × a timestamp, by its seconds and style 1ms
+     × a timestamp with no style 2ms
+     × puts a bold run inside a quote inside the quote node 1ms
+     × "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree 10ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 5ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 13ms
+     × gives the same visible form string for the same rendering 2ms
+     × is told apart from a tree that differs in one style 2ms
+     × reads a channel mention by its id when the preview shows the channel's name 2ms
+     × reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well 1ms
+     × tells a timestamp of one value from a timestamp of another 4ms
+     × tells a mention of one id from a mention of another, and one kind from another 3ms
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 1 failed) 325ms
+     × draws its links as links when the embed has no url 281ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 134ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 95ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 14 failed) 69ms
+     × draws t as its text 22ms
+     × draws T as its text 4ms
+     × draws d as its text 3ms
+     × draws D as its text 2ms
+     × draws f as its text 4ms
+     × draws F as its text 3ms
+     × draws s as its text 2ms
+     × draws S as its text 3ms
+     × draws the bare form as f 3ms
+     × draws R as the time from a fixed clock, three hours on 4ms
+     × formats in the viewer's zone once mounted 2ms
+     × formats in UTC before mount, whatever the viewer's zone 1ms
+     × follows a locale dayjs has a file for 4ms
+     × reads in the language dayjs resolves to, not the tag, where dayjs has no file for the tag 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 21 failed) 45ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 14ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 1ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 1ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 2ms
+     × puts an emoji element on the first line when the second is edited back to text 1ms
+     × puts an emoji element on the second line when the third is edited back to text 0ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 0ms
+     × puts an emoji in a link label back to text once "](" is typed after it 0ms
+     × puts an emoji element of the second line of a code block back to text 4ms
+     × puts each emoji element of a fenced code line back to text 2ms
+     × puts a caret in front of the element at the same place in the text 1ms
+     × puts a caret right in front of the element at the same place in the text 1ms
+     × puts a caret on the element at the same place in the text 0ms
+     × puts a caret right after the element at the same place in the text 2ms
+     × puts a caret after the element and a typed backtick at the same place in the text 1ms
+     × puts a caret on a second element at the same place in the text 0ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 0ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 8 failed) 47ms
+     × as an image of the Twemoji file, with the character as its alt text 18ms
+     × from a typed name, as an image whose alt text is the character 3ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 2ms
+     × for an animated custom emoji, as its gif 3ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 2ms
+     × large when only emoji and spaces make up the message, for every one of them 6ms
+     × at the embed size, 18 pixels, in an embed, even when the message holds only emoji 2ms
+     × small once any text sits beside it 2ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 3 failed) 34ms
+     × reveals every piece when any one piece is clicked 22ms
+     × hides every piece again when a revealed piece is clicked 2ms
+     × leaves a different spoiler hidden 2ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 5 failed) 41ms
+     × names a listed channel 22ms
+     × names a thread under a listed channel 4ms
+     × keeps the id form when the list is empty 3ms
+     × shows the new name when the list changes under a mounted preview 3ms
+     × renders, and draws the channel in its id form 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 18 failed) 337ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 7ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 1ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 1ms
+     × loads the text on each side of the emoji in "\\🙂 🙂" into its own text node 1ms
+     × loads the text on each side of the emoji in "a:smile:b" into its own text node 1ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 1ms
+     × loads the text on each side of the emoji in "`🙂` 🙂" into its own text node 1ms
+     × loads a unicode emoji as one emoji element that saves as the typed text 1ms
+     × loads a ZWJ sequence as one emoji element that saves as the typed text 1ms
+     × loads a skin-tone sequence as one emoji element that saves as the typed text 1ms
+     × loads a keycap as one emoji element that saves as the typed text 1ms
+     × loads a flag as one emoji element that saves as the typed text 1ms
+     × loads a tag sequence as one emoji element that saves as the typed text 0ms
+     × loads a heart with emoji presentation as one emoji element that saves as the typed text 1ms
+     × loads an emoji typed as a name as one emoji element that saves as the typed text 1ms
+     × loads a skin-toned name as one emoji element that saves as the typed text 1ms
+     × loads a custom emoji as one emoji element that saves as the typed text 0ms
+     × loads an animated custom emoji as one emoji element that saves as the typed text 0ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 289ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 83ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 43ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 36ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 30ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 35ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 31ms
+     × are literal for an emoji before and one after a fenced block 2ms
+     × are literal for an emoji only in the run after a fenced block 0ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 62ms
+     × matches the frozen box on every input, an emoji element's source characters left out 26ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 7ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 5 failed) 57ms
+     × parses a unit of 51 text nodes once 10ms
+     × parses a unit of three lines once, and a unit after a code block once more 2ms
+     × parses only the edited element's unit on the next pass, with its new text 3ms
+       × parses none again when 512 units are drawn twice 13ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 4ms
+ ❯ |node| src/utils/markdown/__tests__/engine.kind-maps.test.ts (32 tests | 3 failed) 44ms
+     × holds an entry for every node and token kind the engine returns over the input classes 5ms
+     × holds an entry for every modifier kind the engine returns, on its nodes and on its delimiter tokens 1ms
+     × reaches kinds the declared unions leave out, so the observed enumerator is not the declared one 1ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 39 failed) 85ms
+     × renders as the table says when the list state is noProvider 12ms
+     × renders as the table says when the list state is empty 2ms
+     × renders as the table says when the list state is withoutId 1ms
+     × renders as the table says when the list state is topLevel 1ms
+     × renders as the table says when the list state is threadOnly 1ms
+     × is given a listed forum channel its name 1ms
+     × is given an active post under a listed forum channel its name 1ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × names a thread of the second listed channel, and one of the first, in the same list 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 0ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 0ms
+     × is named on the v2Text surface when the list holds it 1ms
+     × renders user as today's form when the list state is noProvider 1ms
+     × renders user as today's form when the list state is empty 1ms
+     × renders user as today's form when the list state is withoutId 1ms
+     × renders user as today's form when the list state is topLevel 1ms
+     × renders user as today's form when the list state is threadOnly 1ms
+     × renders role as today's form when the list state is noProvider 1ms
+     × renders role as today's form when the list state is empty 0ms
+     × renders role as today's form when the list state is withoutId 1ms
+     × renders role as today's form when the list state is topLevel 1ms
+     × renders role as today's form when the list state is threadOnly 1ms
+     × renders everyone as today's form when the list state is noProvider 1ms
+     × renders everyone as today's form when the list state is empty 1ms
+     × renders everyone as today's form when the list state is withoutId 0ms
+     × renders everyone as today's form when the list state is topLevel 0ms
+     × renders everyone as today's form when the list state is threadOnly 0ms
+     × renders here as today's form when the list state is noProvider 1ms
+     × renders here as today's form when the list state is empty 1ms
+     × renders here as today's form when the list state is withoutId 0ms
+     × renders here as today's form when the list state is topLevel 0ms
+     × renders here as today's form when the list state is threadOnly 1ms
+     × keeps the typed form of a user mention that carries a bang 1ms
+     × keeps a role mention in its form when the role id is a listed channel id 0ms
+     × keeps a user mention in its form when the user id is a listed channel id 1ms
+ ❯ |node| src/utils/markdown/__tests__/engine.not-ready.test.ts (4 tests | 4 failed) 39ms
+     × returns no document while the engine has not been started 30ms
+     × returns no document while the load is in flight 3ms
+     × returns no document once the load has been rejected 3ms
+     × returns the document once the engine is resolved 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (24 tests | 24 failed) 45ms
+     × lists a unicode emoji with its source span and image 7ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 1ms
+     × lists a skin-tone sequence with its source span and image 1ms
+     × lists a still custom emoji with its source span and image 1ms
+     × lists an animated custom emoji with its source span and image 1ms
+     × lists no emoji for a copyright sign and a trademark sign 1ms
+     × lists no emoji for a heart with no emoji presentation 0ms
+     × lists no emoji for an emoji after a backslash 0ms
+     × lists no emoji for a name that is no emoji 1ms
+     × keeps an id past 2^53 as digits that survive JSON 1ms
+     × lists no emoji inside inline code 0ms
+     × lists no emoji inside a masked link 0ms
+     × lists no emoji inside a bare link address 0ms
+     × lists no emoji inside a fenced code block 0ms
+     × lists no emoji in a unit that starts inside a code block 0ms
+     × lists the emoji of a unit that starts inside a code block after a fence that opens a block with no closing fence as the table says 1ms
+     × lists the emoji of a unit that starts inside a code block after the closing fence, then an emoji as the table says 0ms
+     × lists the emoji of a unit that starts inside a code block after the closing fence, an emoji, and a second opening fence as the table says 0ms
+     × lists the emoji outside a code span and none inside it 0ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 1ms
+     × holds a span of a layout when both ends match 0ms
+     × holds a span of a layout when only the start matches 0ms
+     × holds a span of a layout when only the end matches 0ms
+     × holds a span of a layout when neither end matches 0ms
+ ❯ |node| src/utils/markdown/__tests__/preview.fenced-code-block-draw.test.ts (27 tests | 26 failed) 45ms
+     × renders a code block for a tag and two lines 10ms
+     × renders a code block for no tag and two lines 1ms
+     × renders a code block for a tag and three lines 1ms
+     × renders a code block for no tag and three lines 0ms
+     × renders a code block for no tag and one line 0ms
+     × renders a code block for a one-line fence 0ms
+     × renders a code block for an empty line inside, no tag 0ms
+     × renders a code block for an empty line inside, a tag 0ms
+     × renders a code block for two empty lines inside 1ms
+     × renders a code block for a whitespace-only line inside, no tag 1ms
+     × renders a code block for a whitespace-only line inside, a tag 1ms
+     × renders a code block for text before and an empty line inside 0ms
+     × renders a code block for text after and an empty line inside 0ms
+     × renders a code block for a tag and two lines 0ms
+     × renders a code block for no tag and two lines 0ms
+     × renders a code block for a tag and three lines 0ms
+     × renders a code block for no tag and three lines 0ms
+     × renders a code block for no tag and one line 0ms
+     × renders a code block for a one-line fence 0ms
+     × renders a code block for an empty line inside, no tag 0ms
+     × renders a code block for an empty line inside, a tag 1ms
+     × renders a code block for two empty lines inside 0ms
+     × renders a code block for a whitespace-only line inside, no tag 0ms
+     × renders a code block for a whitespace-only line inside, a tag 0ms
+     × renders a code block for text before and an empty line inside 0ms
+     × renders a code block for text after and an empty line inside 0ms
+ ❯ |node| src/utils/markdown/__tests__/engine.link-schemes.test.ts (25 tests | 5 failed) 32ms
+     × is not handed a link by the engine for "[a](javascript:alert(1))" 3ms
+     × is not handed a link by the engine for "[a](data:text/html,x)" 0ms
+     × is not handed a link by the engine for "[a](vbscript:x)" 0ms
+     × is not handed a link by the engine for "javascript:alert(1)" 0ms
+     × is handed an allowed scheme for every scheme the engine returns for a link 0ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 14 failed) 62ms
+     × draws bold 17ms
+     × draws italic 1ms
+     × draws underline 1ms
+     × draws strikethrough 1ms
+     × draws inline code 1ms
+     × draws a heading 1ms
+     × draws a second-level heading 1ms
+     × draws a masked link as an anchor whose href is the engine url and whose label is its text 1ms
+     × draws a bare link with the normalised url as its label 2ms
+     × draws a quote line with its bar 2ms
+     × draws an ordered list from its first number 2ms
+     × draws an unordered list 1ms
+     × draws a code block with its body and a language it does not know as plain 1ms
+     × draws a subtext line as a small block with its marker consumed 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts (2 tests | 2 failed) 34ms
+     × parses a unit once for the same surface, text and code-block start, and again when either differs 7ms
+     × forgets the oldest unit once 256 others have followed it, and keeps the newest 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 15 failed) 56ms
+     × carries bold across an emoji element 10ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × carries italic across an emoji element on a quote line 1ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 5ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "-# a X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "# X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 1ms
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 20 failed) 42ms
+     × is large for one emoji 4ms
+     × is large for one emoji typed as a name 0ms
+     × is large for two emoji with a space between 0ms
+     × is large for two emoji side by side 0ms
+     × is large for two custom emoji side by side 0ms
+     × is large for emoji surrounded by spaces 0ms
+     × is large for 26 emoji 0ms
+     × is not large for text after an emoji 0ms
+     × is not large for text before an emoji 1ms
+     × is not large for an emoji inside bold 0ms
+     × is not large for an emoji inside a link label 0ms
+     × is not large for an emoji inside code 0ms
+     × is not large for a name that is no emoji 0ms
+     × is not large for no emoji at all 0ms
+     × is not large for an empty message 0ms
+     × is not large for 27 emoji 0ms
+     × is not large for a heading holding an emoji 0ms
+     × is not large for an emoji line above a heading 0ms
+     × is not large for an emoji inside a quote 0ms
+     × is not large for an emoji line above a quote 0ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 9 failed) 42ms
+     × marks bold delimiters as syntax and the inside as bold 9ms
+     × draws a masked link label as link text and the brackets and destination as syntax 1ms
+     × draws a bare link address as link text 1ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 1ms
+     × colours no heading marker and no list marker 1ms
+     × carries italic across a line break and gives the break itself no class 0ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 1ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 0ms
+     × gives an empty unit no characters 1ms
+ ❯ |node| src/utils/markdown/__tests__/engine.init-states.test.ts (11 tests | 6 failed) 27ms
+     × parses the content surface under that surface's own mask 8ms
+     × parses the embedDescription surface under that surface's own mask 1ms
+     × parses the fieldValue surface under that surface's own mask 1ms
+     × parses the embedTitle surface under that surface's own mask 2ms
+     × parses the embedTitleWithUrl surface under that surface's own mask 1ms
+     × parses the v2Text surface under that surface's own mask 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts (1 test | 1 failed) 22ms
+     × loads a message with an emoji as one text span and styles nothing 21ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 70137ms
+     × names the channel after content  when the guild list is in reach 5036ms
+     × names the channel after title  when the guild list is in reach 5009ms
+     × names the channel after description  when the guild list is in reach 5009ms
+     × names the channel after field name  when the guild list is in reach 5008ms
+     × names the channel after field value  when the guild list is in reach 5008ms
+     × names the channel after linked title  when the guild list is in reach 5007ms
+     × names the channel after text display  when the guild list is in reach 5008ms
+     × shows the channel id after content , and still renders, with no guild provider 5007ms
+     × shows the channel id after title , and still renders, with no guild provider 5007ms
+     × shows the channel id after description , and still renders, with no guild provider 5008ms
+     × shows the channel id after field name , and still renders, with no guild provider 5008ms
+     × shows the channel id after field value , and still renders, with no guild provider 5006ms
+     × shows the channel id after linked title , and still renders, with no guild provider 5007ms
+     × shows the channel id after text display , and still renders, with no guild provider 5006ms
+
+ Test Files  31 failed | 38 passed (69)
+      Tests  343 failed | 936 passed (1279)
+   Start at  13:07:02
+   Duration  103.05s (transform 2.90s, setup 326ms, import 42.24s, tests 173.56s, environment 34.93s)
+

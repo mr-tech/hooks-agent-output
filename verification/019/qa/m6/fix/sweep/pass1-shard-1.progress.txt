@@ -1,0 +1,24 @@
+2026-11-24T09:49:53Z start src/components/SlateEditor/utils/withNormalizeNode.ts (133 mutants)
+2026-11-24T11:57:57Z end src/components/SlateEditor/utils/withNormalizeNode.ts exit=0
+2026-11-24T11:57:57Z start src/components/SlateEditor/utils/unitStyles.ts (40 mutants)
+2026-11-24T12:37:58Z end src/components/SlateEditor/utils/unitStyles.ts exit=0
+2026-11-24T12:37:58Z start src/components/SlateEditor/utils/runUnit.ts (18 mutants)
+2026-11-24T12:54:37Z end src/components/SlateEditor/utils/runUnit.ts exit=0
+2026-11-24T12:54:37Z start src/utils/markdown/components/MarkdownSpoiler.tsx (8 mutants)
+2026-11-24T13:03:30Z end src/utils/markdown/components/MarkdownSpoiler.tsx exit=0
+2026-11-24T13:03:30Z start src/utils/markdown/engine.ts (8 mutants)
+2026-11-24T13:15:08Z end src/utils/markdown/engine.ts exit=0
+2026-11-24T13:15:08Z start src/components/DiscordContentEditor/Desktop.tsx (6 mutants)
+2026-11-24T13:17:28Z end src/components/DiscordContentEditor/Desktop.tsx exit=0
+2026-11-24T13:17:28Z start src/components/SlateEditor/utils/unitParse.ts (4 mutants)
+2026-11-24T13:22:36Z end src/components/SlateEditor/utils/unitParse.ts exit=0
+2026-11-24T13:22:36Z start src/utils/markdown/components/MarkdownEmoji.tsx (4 mutants)
+2026-11-24T13:27:26Z end src/utils/markdown/components/MarkdownEmoji.tsx exit=0
+2026-11-24T13:27:26Z start src/components/Markdown.tsx (2 mutants)
+2026-11-24T13:28:31Z end src/components/Markdown.tsx exit=0
+2026-11-24T13:28:31Z start src/components/SlateEditor/utils/common.ts (1 mutants)
+2026-11-24T13:30:13Z end src/components/SlateEditor/utils/common.ts exit=0
+2026-11-24T13:30:13Z start src/components/SlateEditor/utils/renderElementFactory.tsx (1 mutants)
+2026-11-24T13:32:01Z end src/components/SlateEditor/utils/renderElementFactory.tsx exit=0
+2026-11-24T13:32:01Z start src/utils/markdown/__tests__/helpers/discordOracle.ts (1 mutants)
+2026-11-24T13:32:27Z end src/utils/markdown/__tests__/helpers/discordOracle.ts exit=0

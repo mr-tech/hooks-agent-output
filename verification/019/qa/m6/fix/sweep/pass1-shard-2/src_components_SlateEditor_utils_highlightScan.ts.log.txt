@@ -1,0 +1,8 @@
+highlightScan.ts:10:if-false KILLED 50.54
+highlightScan.ts:10:!== KILLED 35.85
+highlightScan.ts:11:if-false KILLED 50.59
+highlightScan.ts:11:=== KILLED 35.31
+highlightScan.ts:14:num KILLED 35.85
+highlightScan.ts:14:< KILLED 50.77
+highlightScan.ts:14:num:2 KILLED 35.3
+7 of 7 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_SlateEditor_utils_highlightScan.ts.mutants.json (blob e270a700dc2725af7e1d018706dbc9dbbfb58813))

@@ -1,0 +1,9 @@
+MarkdownTimestamp.tsx:45:if-false SURVIVED 58.43
+MarkdownTimestamp.tsx:45:not SURVIVED 56.83
+MarkdownTimestamp.tsx:54:if-false KILLED 57.59
+MarkdownTimestamp.tsx:55:if-false KILLED 58.08
+MarkdownTimestamp.tsx:65:|| SURVIVED 57.53
+MarkdownTimestamp.tsx:65:not KILLED 57.74
+MarkdownTimestamp.tsx:76:if-false KILLED 55.08
+MarkdownTimestamp.tsx:76:not KILLED 52.24
+5 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown_components_MarkdownTimestamp.tsx.mutants.json (blob 1e14b1508ebd4c07966f3b31c67008596d5e611c))

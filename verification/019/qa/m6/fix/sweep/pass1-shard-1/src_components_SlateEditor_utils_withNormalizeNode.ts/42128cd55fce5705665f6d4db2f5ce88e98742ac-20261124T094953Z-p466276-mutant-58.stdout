@@ -1,0 +1,122 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261124T094953Z-p466276/mutant-58
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 109ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 18ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 9ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 224ms
+     × hands the message that text in a full-markdown editor 166ms
+     × hands the message that text in a single-line editor 56ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 9451ms
+     × hands the message that text in a full-markdown editor 5413ms
+     × hands the message that text in a single-line editor 3886ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 89 failed) 4045ms
+     × equals a ZWJ sequence typed one character at a time 33ms
+     × equals a skin-tone sequence typed one character at a time 32ms
+     × equals a keycap typed one character at a time 30ms
+     × equals a flag typed one character at a time 39ms
+     × equals a tag sequence typed one character at a time 47ms
+     × equals a heart with emoji presentation typed one character at a time 30ms
+     × equals a heart with text presentation typed one character at a time 16ms
+     × equals an emoji newer than the site's table typed one character at a time 18ms
+     × equals an emoji typed as a name typed one character at a time 45ms
+     × equals a skin-toned name typed one character at a time 134ms
+     × equals a colon-wrapped emoji typed one character at a time 35ms
+     × equals a custom emoji typed one character at a time 63ms
+     × equals an animated custom emoji typed one character at a time 62ms
+     × equals an emoji in a link label typed one character at a time 71ms
+     × equals an emoji in a link address typed one character at a time 112ms
+     × equals a name in a link address typed one character at a time 148ms
+     × equals an emoji between words typed one character at a time 47ms
+     × equals two emoji side by side typed one character at a time 28ms
+     × equals an emoji inside bold typed one character at a time 65ms
+     × equals an emoji inside inline code typed one character at a time 23ms
+     × equals an emoji inside a code block typed one character at a time 57ms
+     × equals an emoji after a backslash typed one character at a time 18ms
+     × equals a Unicode emoji pasted whole 14ms
+     × equals a ZWJ sequence pasted whole 16ms
+     × equals a skin-tone sequence pasted whole 17ms
+     × equals a keycap pasted whole 13ms
+     × equals a flag pasted whole 13ms
+     × equals a tag sequence pasted whole 15ms
+     × equals a heart with emoji presentation pasted whole 17ms
+     × equals a heart with text presentation pasted whole 12ms
+     × equals an emoji newer than the site's table pasted whole 16ms
+     × equals an emoji typed as a name pasted whole 17ms
+     × equals a skin-toned name pasted whole 16ms
+     × equals a colon-wrapped emoji pasted whole 16ms
+     × equals a custom emoji pasted whole 19ms
+     × equals an animated custom emoji pasted whole 17ms
+     × equals an emoji in a link label pasted whole 28ms
+     × equals an emoji in a link address pasted whole 21ms
+     × equals a name in a link address pasted whole 15ms
+     × equals an emoji between words pasted whole 18ms
+     × equals two emoji side by side pasted whole 24ms
+     × equals an emoji inside bold pasted whole 24ms
+     × equals an emoji inside inline code pasted whole 16ms
+     × equals an emoji inside a code block pasted whole 25ms
+     × equals an emoji after a backslash pasted whole 17ms
+     × equals a Unicode emoji typed one character at a time 18ms
+     × equals a ZWJ sequence typed one character at a time 39ms
+     × equals a skin-tone sequence typed one character at a time 30ms
+     × equals a keycap typed one character at a time 30ms
+     × equals a flag typed one character at a time 33ms
+     × equals a tag sequence typed one character at a time 50ms
+     × equals a heart with emoji presentation typed one character at a time 25ms
+     × equals a heart with text presentation typed one character at a time 18ms
+     × equals an emoji newer than the site's table typed one character at a time 26ms
+     × equals an emoji typed as a name typed one character at a time 60ms
+     × equals a skin-toned name typed one character at a time 121ms
+     × equals a colon-wrapped emoji typed one character at a time 42ms
+     × equals a custom emoji typed one character at a time 67ms
+     × equals an animated custom emoji typed one character at a time 62ms
+     × equals an emoji in a link label typed one character at a time 89ms
+     × equals an emoji in a link address typed one character at a time 106ms
+     × equals a name in a link address typed one character at a time 178ms
+     × equals an emoji between words typed one character at a time 58ms
+     × equals two emoji side by side typed one character at a time 33ms
+     × equals an emoji inside bold typed one character at a time 73ms
+     × equals an emoji inside inline code typed one character at a time 45ms
+     × equals an emoji after a backslash typed one character at a time 37ms
+     × equals a Unicode emoji pasted whole 24ms
+     × equals a ZWJ sequence pasted whole 25ms
+     × equals a skin-tone sequence pasted whole 24ms
+     × equals a keycap pasted whole 23ms
+     × equals a flag pasted whole 27ms
+     × equals a tag sequence pasted whole 25ms
+     × equals a heart with emoji presentation pasted whole 22ms
+     × equals a heart with text presentation pasted whole 27ms
+     × equals an emoji newer than the site's table pasted whole 26ms
+     × equals an emoji typed as a name pasted whole 23ms
+     × equals a skin-toned name pasted whole 23ms
+     × equals a colon-wrapped emoji pasted whole 22ms
+     × equals a custom emoji pasted whole 26ms
+     × equals an animated custom emoji pasted whole 26ms
+     × equals an emoji in a link label pasted whole 28ms
+     × equals an emoji in a link address pasted whole 25ms
+     × equals a name in a link address pasted whole 25ms
+     × equals an emoji between words pasted whole 35ms
+     × equals two emoji side by side pasted whole 34ms
+     × equals an emoji inside bold pasted whole 31ms
+     × equals an emoji inside inline code pasted whole 25ms
+     × equals an emoji after a backslash pasted whole 40ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 13 failed) 80ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 6ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 2ms
+     × puts an emoji element on the first line when the second is edited back to text 1ms
+     × puts an emoji element on the second line when the third is edited back to text 2ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 6ms
+     × puts an emoji element back to text once a web address is typed in front of it 1ms
+     × puts an emoji element of the second line of a code block back to text 2ms
+     × puts each emoji element of a fenced code line back to text 1ms
+     × puts a caret on the element at the same place in the text 8ms
+     × puts a caret right after the element at the same place in the text 2ms
+     × puts a caret after the element and a typed backtick at the same place in the text 2ms
+     × puts a caret on a second element at the same place in the text 2ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 2ms
+
+ Test Files  5 failed | 33 passed (38)
+      Tests  108 failed | 496 passed (604)
+   Start at  10:45:58
+   Duration  35.03s (transform 2.67s, setup 280ms, import 30.96s, tests 73.19s, environment 28.14s)
+

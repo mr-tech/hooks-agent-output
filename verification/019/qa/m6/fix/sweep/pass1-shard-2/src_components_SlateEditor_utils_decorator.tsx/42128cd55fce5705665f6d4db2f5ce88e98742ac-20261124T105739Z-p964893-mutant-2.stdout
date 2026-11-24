@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 8652ms
+     × on embedDescription, every content character carries the style set its preview gives it 247ms
+     × on fieldValue, every content character carries the style set its preview gives it 150ms
+     × on v2Text, every content character carries the style set its preview gives it 83ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 9630ms
+     × hands the message that text in a full-markdown editor 96ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8606ms
+     × hands the message that text in a full-markdown editor 3693ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 14181ms
+     × hands the message that text in a full-markdown editor 1259ms
+     × hands the message that text in a full-markdown editor 42ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 5 failed) 1389ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 8ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1365ms
+     × draws the second text node of a code line from its own characters, not the line's 3ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 1ms
+     × draws nothing for a language highlight.js does not know 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 952ms
+     × on content, over every input of the generator and the corpus 44ms
+     × on embedDescription, over every input of the generator and the corpus 14ms
+     × on fieldValue, over every input of the generator and the corpus 19ms
+     × on v2Text, over every input of the generator and the corpus 11ms
+
+ Test Files  6 failed | 39 passed (45)
+      Tests  16 failed | 630 passed (646)
+   Start at  10:59:41
+   Duration  49.48s (transform 2.46s, setup 280ms, import 32.83s, tests 121.84s, environment 30.35s)
+

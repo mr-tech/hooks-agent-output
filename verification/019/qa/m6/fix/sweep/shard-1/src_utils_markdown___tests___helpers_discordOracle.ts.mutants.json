@@ -1,0 +1,9 @@
+[
+ {
+  "id": "qa-NM-44-helper-ignores-mask",
+  "file": "src/utils/markdown/__tests__/helpers/discordOracle.ts",
+  "old": "collectEmojiSpans(parseLossless(text, SURFACE_MASK_LITERALS[surface]), out);",
+  "new": "collectEmojiSpans(parseLossless(text, SURFACE_MASK_LITERALS.content), out);",
+  "limb": "AC-6.5 control: the oracle helper ignores its mask"
+ }
+]

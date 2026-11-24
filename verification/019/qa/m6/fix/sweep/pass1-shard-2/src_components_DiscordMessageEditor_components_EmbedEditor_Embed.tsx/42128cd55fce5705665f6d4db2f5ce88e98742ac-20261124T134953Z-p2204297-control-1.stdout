@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_DiscordMessageEditor_components_EmbedEditor_Embed.tsx/20261124T134953Z-p2204297/control-1
+
+
+ Test Files  16 passed (16)
+      Tests  214 passed (214)
+   Start at  13:49:57
+   Duration  9.35s (transform 1.63s, setup 122ms, import 14.66s, tests 8.90s, environment 10.93s)
+

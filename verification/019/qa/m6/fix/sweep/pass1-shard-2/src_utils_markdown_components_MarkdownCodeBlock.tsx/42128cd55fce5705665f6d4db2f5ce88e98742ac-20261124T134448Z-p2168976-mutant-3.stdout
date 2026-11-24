@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_components_MarkdownCodeBlock.tsx/20261124T134448Z-p2168976/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 6501ms
+     × on embedDescription, every content character carries the style set its preview gives it 194ms
+     × on fieldValue, every content character carries the style set its preview gives it 113ms
+     × on v2Text, every content character carries the style set its preview gives it 71ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 2117ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 343ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 211ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 224ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 162ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 169ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 12ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 204ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 209ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 175ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 5ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 149ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 144ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 258ms
+     × code block with a language 10ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 6ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 59ms
+     × draws a code block with its body and a language it does not know as plain 5ms
+
+ Test Files  4 failed | 39 passed (43)
+      Tests  18 failed | 648 passed (666)
+   Start at  13:47:16
+   Duration  41.40s (transform 2.47s, setup 248ms, import 35.12s, tests 96.34s, environment 26.51s)
+

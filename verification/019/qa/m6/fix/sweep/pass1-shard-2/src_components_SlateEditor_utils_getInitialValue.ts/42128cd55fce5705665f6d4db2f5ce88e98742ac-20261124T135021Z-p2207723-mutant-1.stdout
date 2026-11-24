@@ -1,0 +1,92 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_getInitialValue.ts/20261124T135021Z-p2207723/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 15690ms
+     × on embedDescription, every content character carries the style set its preview gives it 4084ms
+     × on fieldValue, every content character carries the style set its preview gives it 3208ms
+     × on v2Text, every content character carries the style set its preview gives it 2846ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 20 failed) 9353ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 6ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 2ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 2ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 1ms
+     × keeps every line after a multi-line quote marker as a quote line 3ms
+     × writes no text to the lines a typed multi-line quote marker takes in 3ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 3ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 2ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 1ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 2ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 1ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 72ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 26ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 392ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 116ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 1120ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 6140ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (54 tests | 17 failed) 2080ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 98ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 69ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 63ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 66ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 69ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 56ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 90ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 83ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 38ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 37ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 35ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 33ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 37ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 34ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 39ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 33ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 78ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx (11 tests | 5 failed) 227ms
+     × writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box 83ms
+     × writes ">>> a" back to the message unchanged, once, in a full-markdown box 16ms
+     × writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box 21ms
+     × writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box 19ms
+     × writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box 13ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 8 failed) 125ms
+     × in the middle of a quote line saves what the table says 11ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 5ms
+     × in the middle of the first line of a multi-line quote saves what the table says 2ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 4ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 5ms
+     × takes in a typed quote marker inside a fence opened on a quote line 9ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 3ms
+     × is cleared by Backspace after the carried marker of a code line 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 101ms
+     × matches the frozen box on every input, an emoji element's source characters left out 76ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 3 failed) 57ms
+     × carries italic across an emoji element on a quote line 7ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 4 failed) 919ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 223ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 149ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 138ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 136ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 11 failed) 1148ms
+     × loads ">>> a\nb" with its text unchanged 6ms
+     × loads ">>> a" with its text unchanged 1ms
+     × loads ">>> a\n\nb" with its text unchanged 1ms
+     × loads ">>> a\n> b" with its text unchanged 1ms
+     × loads "x\n>>> a\nb" with its text unchanged 1ms
+     × loads "  >>> a\nb" with its text unchanged 0ms
+     × loads each text of the 272-case corpus with its text unchanged 18ms
+     × loads each text of the 106 link inputs with its text unchanged 6ms
+     × loads each text of 1,000 generator inputs with its text unchanged 121ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 228ms
+     × loads each text of 3,000 seeded block-layer texts with its text unchanged 130ms
+ ❯ |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts (5 tests | 1 failed) 43ms
+     × enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps 33ms
+
+ Test Files  10 failed | 35 passed (45)
+      Tests  73 failed | 623 passed (696)
+   Start at  13:51:16
+   Duration  46.67s (transform 2.90s, setup 228ms, import 30.67s, tests 121.31s, environment 25.82s)
+

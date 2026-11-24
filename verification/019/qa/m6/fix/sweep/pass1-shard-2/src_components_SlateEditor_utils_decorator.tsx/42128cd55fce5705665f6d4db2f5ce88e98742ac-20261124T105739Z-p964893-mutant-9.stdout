@@ -1,0 +1,40 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 7061ms
+     × hands the message that text in a full-markdown editor 5764ms
+     × hands the message that text in a full-markdown editor 535ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 9161ms
+     × on embedDescription, every content character carries the style set its preview gives it 240ms
+     × on fieldValue, every content character carries the style set its preview gives it 147ms
+     × on v2Text, every content character carries the style set its preview gives it 97ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 11727ms
+     × hands the message that text in a full-markdown editor 3438ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 3 failed) 2188ms
+     × equals the stored text of an emoji inside a code block once the editor opens it 30ms
+     × equals an emoji inside a code block typed one character at a time 26ms
+     × equals an emoji inside a code block pasted whole 13ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 9041ms
+     × hands the message that text in a full-markdown editor 1247ms
+     × hands the message that text in a full-markdown editor 814ms
+     × hands the message that text in a full-markdown editor 2457ms
+     × hands the message that text in a full-markdown editor 239ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8483ms
+     × hands the message that text in a full-markdown editor 3319ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 5 failed) 39ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 17ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 13ms
+     × draws no range that is empty or reaches past its text node, in every language 1ms
+     × draws the second text node of a code line from its own characters, not the line's 2ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 913ms
+     × on content, over every input of the generator and the corpus 69ms
+     × on embedDescription, over every input of the generator and the corpus 18ms
+     × on fieldValue, over every input of the generator and the corpus 17ms
+     × on v2Text, over every input of the generator and the corpus 8ms
+
+ Test Files  8 failed | 37 passed (45)
+      Tests  23 failed | 623 passed (646)
+   Start at  11:06:08
+   Duration  37.08s (transform 2.74s, setup 333ms, import 33.06s, tests 77.62s, environment 29.30s)
+

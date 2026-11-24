@@ -1,0 +1,11 @@
+[
+ {
+  "id": "getInitialValue.ts:39:if-false",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "e if (is",
+  "new": "e if (false && is",
+  "op": "if-false",
+  "line": 39,
+  "text": "} else if (isBlockQuote) {"
+ }
+]

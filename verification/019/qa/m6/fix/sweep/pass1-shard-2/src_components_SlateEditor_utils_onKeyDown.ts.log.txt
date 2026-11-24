@@ -1,0 +1,16 @@
+onKeyDown.ts:33:num KILLED 44.04
+onKeyDown.ts:34:&& KILLED 53.13
+onKeyDown.ts:34:=== KILLED 54.62
+onKeyDown.ts:34:true KILLED 52.57
+onKeyDown.ts:34:&&:2 KILLED 53.33
+onKeyDown.ts:34:!== KILLED 52.31
+onKeyDown.ts:35:&& KILLED 54.7
+onKeyDown.ts:35:num KILLED 54.3
+onKeyDown.ts:35:=== KILLED 53.58
+onKeyDown.ts:35:num:2 KILLED 55.53
+onKeyDown.ts:35:&&:2 KILLED 52.71
+onKeyDown.ts:35:===:2 KILLED 55.09
+onKeyDown.ts:36:if-false KILLED 52.44
+onKeyDown.ts:37:num KILLED 54.21
+onKeyDown.ts:39:num SURVIVED 54.16
+14 of 15 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_SlateEditor_utils_onKeyDown.ts.mutants.json (blob 0fa030f8e62866b2a1a50e54e720e270f3d5af1f))

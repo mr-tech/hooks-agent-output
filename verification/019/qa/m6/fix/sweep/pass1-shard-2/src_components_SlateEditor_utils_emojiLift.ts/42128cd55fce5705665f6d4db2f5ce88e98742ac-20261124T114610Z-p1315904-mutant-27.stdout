@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261124T114610Z-p1315904/mutant-27
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19513ms
+     × on embedDescription, every content character carries the style set its preview gives it 4698ms
+     × on fieldValue, every content character carries the style set its preview gives it 3939ms
+     × on embedTitle, every content character carries the style set its preview gives it 3463ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3800ms
+     × on v2Text, every content character carries the style set its preview gives it 3606ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 6 failed) 8591ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 523ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 429ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 79ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 367ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 409ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 65ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 6 failed) 1476ms
+     × loads each text of 1,000 generator inputs with its text unchanged 157ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 92ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 303ms
+     × loads each text of 1,000 generator inputs with its text unchanged 101ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 73ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 345ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 1223ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 289ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 176ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 195ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 186ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 151ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 189ms
+     × are literal for an emoji before and one after a fenced block 3ms
+     × are literal for an emoji only in the run after a fenced block 1ms
+     × are literal for an emoji on each side of two fenced blocks 2ms

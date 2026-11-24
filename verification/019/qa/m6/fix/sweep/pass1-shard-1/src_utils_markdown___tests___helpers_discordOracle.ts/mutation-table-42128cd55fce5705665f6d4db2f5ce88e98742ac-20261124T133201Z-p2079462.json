@@ -1,0 +1,96 @@
+{
+ "sha": "42128cd55fce5705665f6d4db2f5ce88e98742ac",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-1/src_utils_markdown___tests___helpers_discordOracle.ts.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "related",
+  "--run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers",
+  "4",
+  "--testTimeout",
+  "60000",
+  "--hookTimeout",
+  "60000",
+  "src/utils/markdown/__tests__/helpers/discordOracle.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 900.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/shard-1/src_utils_markdown___tests___helpers_discordOracle.ts.mutants.json",
+   "blob": "8f5d03e8ad2a09bb8a8241a76e66a85f32c4c403"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown___tests___helpers_discordOracle.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T133201Z-p2079462-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown___tests___helpers_discordOracle.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T133201Z-p2079462-control-1.stderr",
+   "seconds": 12.69,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 467,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "qa-NM-44-helper-ignores-mask",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/__tests__/helpers/discordOracle.ts",
+   "tests": [],
+   "carried": {
+    "limb": "AC-6.5 control: the oracle helper ignores its mask"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 467,
+   "control_tests_run": 467,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordEmojiSpans.frozen-literals.test.ts > the frozen emoji spans > are re-derived by the oracle helper on the pinned wasm, input for input, on embedTitle",
+    "|node| src/utils/markdown/__tests__/discordEmojiSpans.frozen-literals.test.ts > the frozen emoji spans > are re-derived by the oracle helper on the pinned wasm, input for input, on embedTitleWithUrl",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in a masked link as plain text: \"[\ud83d\ude42](https://x.y)\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in a bare address as plain text: \"https://x.y/\ud83d\ude42\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in an address in angle brackets as plain text: \"<https://x.y/\ud83d\ude42>\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in an address with the emoji directly after its host as plain text: \"https://x.y\ud83d\ude42\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in a masked link as plain text: \"[:smile:](https://x.y)\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in a bare address as plain text: \"https://x.y/:smile:\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in an address in angle brackets as plain text: \"<https://x.y/:smile:>\"",
+    "|node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a custom emoji in a masked link as plain text: \"[<:n:123>](https://x.y)\""
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 12.93,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown___tests___helpers_discordOracle.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T133201Z-p2079462-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/sweep/pass1-shard-1/src_utils_markdown___tests___helpers_discordOracle.ts/42128cd55fce5705665f6d4db2f5ce88e98742ac-20261124T133201Z-p2079462-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_utils_markdown___tests___helpers_discordOracle.ts.mutants.json (blob 8f5d03e8ad2a09bb8a8241a76e66a85f32c4c403))"
+}

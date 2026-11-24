@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_highlightScan.ts/20261124T133401Z-p2093592/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 5577ms
+     × hands the message that text in a full-markdown editor 4440ms
+     × hands the message that text in a full-markdown editor 530ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 6567ms
+     × on embedDescription, every content character carries the style set its preview gives it 202ms
+     × on fieldValue, every content character carries the style set its preview gives it 145ms
+     × on v2Text, every content character carries the style set its preview gives it 67ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 8286ms
+     × hands the message that text in a full-markdown editor 2595ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 3 failed) 1679ms
+     × equals the stored text of an emoji inside a code block once the editor opens it 23ms
+     × equals an emoji inside a code block typed one character at a time 17ms
+     × equals an emoji inside a code block pasted whole 12ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 6748ms
+     × keeps a multi-line paste as lines in a full-markdown editor 42ms
+     × hands the message that text in a full-markdown editor 1003ms
+     × hands the message that text in a full-markdown editor 649ms
+     × hands the message that text in a full-markdown editor 1721ms
+     × hands the message that text in a full-markdown editor 191ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 6529ms
+     × hands the message that text in a full-markdown editor 2657ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 5 failed) 47ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 19ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 16ms
+     × draws no range that is empty or reaches past its text node, in every language 1ms
+     × draws the second text node of a code line from its own characters, not the line's 6ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts (10 tests | 10 failed) 22ms
+     × gives plain text no class 13ms
+     × gives a character the class of its scope 2ms
+     × gives a character in a nested scope the outer class first and its own after 1ms
+     × keeps a scope's class attribute whole when it names two classes 1ms
+     × counts the entity &amp; as the one character it stands for 1ms
+     × counts the entity &lt; as the one character it stands for 1ms
+     × counts the entity &gt; as the one character it stands for 1ms
+     × counts the entity &quot; as the one character it stands for 0ms
+     × counts the entity &#x27; as the one character it stands for 1ms
+     × draws nothing for an empty scope 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 755ms
+     × on content, over every input of the generator and the corpus 47ms
+     × on embedDescription, over every input of the generator and the corpus 12ms
+     × on fieldValue, over every input of the generator and the corpus 12ms
+     × on v2Text, over every input of the generator and the corpus 7ms
+
+ Test Files  9 failed | 37 passed (46)
+      Tests  34 failed | 622 passed (656)
+   Start at  13:37:13
+   Duration  30.87s (transform 2.13s, setup 245ms, import 28.81s, tests 61.02s, environment 26.36s)
+

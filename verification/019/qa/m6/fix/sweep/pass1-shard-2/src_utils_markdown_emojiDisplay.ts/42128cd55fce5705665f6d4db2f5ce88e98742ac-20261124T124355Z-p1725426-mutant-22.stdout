@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_utils_markdown_emojiDisplay.ts/20261124T124355Z-p1725426/mutant-22
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 2 failed) 64ms
+     × is not large for an empty message 7ms
+     × is not large for 27 emoji 2ms
+
+ Test Files  1 failed | 59 passed (60)
+      Tests  2 failed | 985 passed (987)
+   Start at  13:09:04
+   Duration  61.54s (transform 3.02s, setup 336ms, import 41.92s, tests 158.79s, environment 34.87s)
+

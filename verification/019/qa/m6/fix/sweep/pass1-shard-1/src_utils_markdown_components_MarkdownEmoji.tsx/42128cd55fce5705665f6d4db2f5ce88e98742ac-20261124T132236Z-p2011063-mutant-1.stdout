@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_utils_markdown_components_MarkdownEmoji.tsx/20261124T132236Z-p2011063/mutant-1
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 1 failed) 97ms
+     × at the embed size, 18 pixels, in an embed, even when the message holds only emoji 9ms
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  1 failed | 665 passed (666)
+   Start at  13:23:39
+   Duration  53.45s (transform 2.72s, setup 286ms, import 38.88s, tests 136.45s, environment 30.08s)
+

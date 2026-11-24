@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 19423ms
+     × on embedDescription, every content character carries the style set its preview gives it 4256ms
+     × on fieldValue, every content character carries the style set its preview gives it 3904ms
+     × on embedTitle, every content character carries the style set its preview gives it 3769ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3866ms
+     × on v2Text, every content character carries the style set its preview gives it 3620ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 1 failed) 1698ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1575ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 115ms
+     × draws a masked link label as link text on the content surface 27ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 138ms
+     × matches the frozen box on every input, an emoji element's source characters left out 103ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 5 failed) 87ms
+     × keeps the delimiters on either side of an emoji as syntax 10ms
+     × carries italic across an emoji element on a quote line 3ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 2ms
+
+ Test Files  5 failed | 40 passed (45)
+      Tests  14 failed | 632 passed (646)
+   Start at  11:17:03
+   Duration  57.65s (transform 2.94s, setup 290ms, import 34.71s, tests 151.56s, environment 31.16s)
+

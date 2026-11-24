@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_decorator.tsx/20261124T105739Z-p964893/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 1 failed) 1641ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 9ms
+
+ Test Files  1 failed | 44 passed (45)
+      Tests  1 failed | 645 passed (646)
+   Start at  11:00:36
+   Duration  57.64s (transform 2.64s, setup 259ms, import 33.04s, tests 155.61s, environment 29.99s)
+

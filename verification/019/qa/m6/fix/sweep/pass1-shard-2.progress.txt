@@ -1,0 +1,26 @@
+2026-11-24T09:49:53Z start src/utils/markdown/preview.tsx (64 mutants)
+2026-11-24T10:57:39Z end src/utils/markdown/preview.tsx exit=0
+2026-11-24T10:57:39Z start src/components/SlateEditor/utils/decorator.tsx (51 mutants)
+2026-11-24T11:46:10Z end src/components/SlateEditor/utils/decorator.tsx exit=0
+2026-11-24T11:46:10Z start src/components/SlateEditor/utils/emojiLift.ts (42 mutants)
+2026-11-24T12:43:55Z end src/components/SlateEditor/utils/emojiLift.ts exit=0
+2026-11-24T12:43:55Z start src/utils/markdown/emojiDisplay.ts (23 mutants)
+2026-11-24T13:11:14Z end src/utils/markdown/emojiDisplay.ts exit=0
+2026-11-24T13:11:14Z start src/components/SlateEditor/utils/onKeyDown.ts (15 mutants)
+2026-11-24T13:25:27Z end src/components/SlateEditor/utils/onKeyDown.ts exit=0
+2026-11-24T13:25:27Z start src/utils/markdown/components/MarkdownTimestamp.tsx (8 mutants)
+2026-11-24T13:34:01Z end src/utils/markdown/components/MarkdownTimestamp.tsx exit=0
+2026-11-24T13:34:01Z start src/components/SlateEditor/utils/highlightScan.ts (7 mutants)
+2026-11-24T13:39:47Z end src/components/SlateEditor/utils/highlightScan.ts exit=0
+2026-11-24T13:39:47Z start src/components/SlateEditor/utils/flattenNodeText.ts (5 mutants)
+2026-11-24T13:44:48Z end src/components/SlateEditor/utils/flattenNodeText.ts exit=0
+2026-11-24T13:44:48Z start src/utils/markdown/components/MarkdownCodeBlock.tsx (4 mutants)
+2026-11-24T13:48:45Z end src/utils/markdown/components/MarkdownCodeBlock.tsx exit=0
+2026-11-24T13:48:45Z start src/components/DiscordContentEditor/Mobile.tsx (3 mutants)
+2026-11-24T13:49:53Z end src/components/DiscordContentEditor/Mobile.tsx exit=0
+2026-11-24T13:49:53Z start src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx (1 mutants)
+2026-11-24T13:50:21Z end src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx exit=0
+2026-11-24T13:50:21Z start src/components/SlateEditor/utils/getInitialValue.ts (1 mutants)
+2026-11-24T13:52:03Z end src/components/SlateEditor/utils/getInitialValue.ts exit=0
+2026-11-24T13:52:03Z start src/utils/markdown/emoji.tsx (1 mutants)
+2026-11-24T13:53:54Z end src/utils/markdown/emoji.tsx exit=0

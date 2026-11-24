@@ -3,10 +3,12 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "119471f — repos=website; M6 at the code review's Round 6 Reviewed-At; git-archive exports with their own frozen offline installs, 677 of 677 blobs"
-Status: Testing In Progress
+Status: QA Failed
 Status-Detail: >-
-  The refresh on CR-20's fix round, website 42128cd (code review's Round 6 sub-entry, APPROVED_WITH_COMMENTS, record 602344e), is
-  running. The verdict below, QA Failed at 119471f, stands until this pass is published.
+  The verdict standing is QA Failed at 119471f. The refresh at 42128cd was stopped unpublished by steering's stop (effort rulings
+  block 14:33Z, record d7eb0a40): M6 takes another fix round, for the code-fence normalise throw in QAF-51's form and for CR-23.
+  Its results so far are recorded below for that round. M6's verdict is taken on that round's code-reviewed tip, after the Phase 1
+  re-key on the planner's revision.
 Phase: 2
 ---
 
@@ -28,6 +30,7 @@ row. B-10 (AC-6.8) was minted at the Phase 1 re-key on Revision 16.
 | 2026-11-24T07:57 | implementer-019 (message: stub-tree records at `78f93bdd`, no production path moved) | Re-open the gate; run Phase 2 at `119471f` | The gate passes on the stub-tree records. Offline 3,651 of 3,651, exit 0; typecheck exit 0; live 41 of 41; `test:discord` offline exits 1, loud; `next build` exit 0. M4 differential 0 of 14,280 (control 2,356); M5 differential 0 of 6,486 (control 681). Hand mutants: 13 of 15 killed, W9 and W12 survive. AC-3.3's cap is exceeded (141.9 s against 31.1 s). AC-6.8 fails here as it should. **QAF-50 MEDIUM** (a severity floor: partial mode's plain lines, unasserted). QAF-46 to QAF-49 LOW. The 451-mutant sweep was withdrawn unscored: its controls failed under load, and the effort-final sweep moves to the fix tip. Verdict **QA Failed**. |
 | 2026-11-24T09:14 | planner-019 (message: CR-20 fix round hand-off, Outstanding 2; implementation record `9c6bb958`, plan R-92 at `7100aab8`) | Probe Outstanding 2 at the chain base `af3d95a` and set a severity | Not the fix-round refresh: code review's verdict on the round has not been given. Both trees throw Slate's cap error, the chain base `af3d95a` and the fix tip `42128cd` alike, on the same threshold: they settle at 122 lines and throw from 123. After the throw the document is correct. So the defect is **pre-existing**: **QAF-51 LOW**, for the planner's handoff. No browser look was taken. Captured at `verification/019/qa/m6/gt-marker-base/`. The record-write hook refused a shell heredoc for that README, so it was written with the Write tool. |
 | 2026-11-24T09:32 | code-reviewer-019 (message: Round 6 sub-entry APPROVED_WITH_COMMENTS at `42128cd`, record `602344e`) | QA Phase 2 on CR-20's fix round | Phase 2: Testing In Progress at `42128cd`. Scope and criteria are recorded before execution (§ Refresh on CR-20's fix round). Steering's brief has not arrived. |
+| 2026-11-24T14:35 | steering-hooks-fixer (message: stop; effort rulings block 14:33Z, record `d7eb0a40`) | Stop the M6 refresh at the next seam, end every run, record results for the next fix round | Stopped, no verdict published. Status is back to QA Failed, the verdict at `119471f`. Before the stop, criteria 1 to 6 and 8 had held at `42128cd` (§ Results at `42128cd`). The effort-final sweep was stopped partway through its second pass and is unscored. Its processes were killed and confirmed gone. Nothing of this pass is running. |
 
 ## Scope and stage start
 
@@ -295,9 +298,76 @@ at the fix round's refresh, which runs that file alone once before the suite.
 Residue, not a criterion: Outstanding 1, widened at R-95 to any keystroke in an input with unclean fences, is in QAF-48's class.
 CR-23 (the fence-close cost) is with steering for the owner's word, and no AC-6.8 limb covers it.
 
+### Results at `42128cd` (stopped, unpublished: carried to the next fix round)
+
+Steering stopped this pass (effort rulings block 14:33Z, record `d7eb0a40`). The owner selected a fix inside 019, before release,
+for the code-fence normalise throw in QAF-51's form and for CR-23. That round changes production code, so no verdict is taken at
+`42128cd`. What was measured stands as evidence about `42128cd`, not as a verdict. The next refresh re-runs whatever the round's
+diff touches.
+
+Trees: website `42128cd` and `2e36107` in `git archive` exports with frozen offline installs. Blob identity was 680 of 680
+before the suite runs (`fix/blob-identity-42128cd.txt`) and 668 of 668. `119471f` was 677 of 677, and its red runs used a copy
+carrying the fix round's count test and helper. Captures are in `verification/019/qa/m6/fix/`. The shared tree was not
+switched or written.
+
+| Criterion | Command | Result | Capture |
+|---|---|---|---|
+| 3 (assumption check) | typed-generated file alone, `unshare -rn`, `--project dom` | 2 of 2, exit 0, 33.8 s: the previous pass's Assumption Not Checked holds | `typedgen-alone-42128cd.*` |
+| 3, AC-3.3's cap | both whole offline suites back to back, `/usr/bin/time` | `2e36107`: 50.2 s, 3,280 of 3,280, exit 0. `42128cd`: **64.0 s**, 3,715 of 3,715, 235 files, exit 0, against the 91.1 s line (`af3d95a` 31.1 s plus 60 s). Load 0.7 at the start, 10.5 at the end, self-made | `suite-timing-*` |
+| 3, the full count (R-92) | `MOUNTED_GENERATOR_COUNT=1000`, typed and pasted files | 17 of 17, exit 0, 90.3 s; the four generator titles read "the first 1000 generator inputs" | `full-count-42128cd.*` |
+| 1, count limb | in the whole suite: `keystroke-run-unit-builds` 54 of 54 | Seen red at `119471f`: **52 of 54 failed** by assertion (`expected 2049 to be 201`, `expected 2051 to be 203`). Passing at `119471f`: the positive control and the floor | `count-red-119471f.*` |
+| 1, the named member and SL-23 | `qaCountClass.probe` | AC-6.8's two-unit Enter (`a⏎```⏎xy⏎```⏎b`, Enter after `x`, at the same block index) builds **2** at 5, 250 and 2,560 lines, with the line alone at each. Of 120 cells (text, size, line, kind and place), 0 are left out by `leavesOtherLinesAlone`. Its control, a Backspace that opens a fence's lines, reads not alone | `count-class-42128cd.*`, `qaCountClass.probe.test.tsx.txt` |
+| 2, time limb | `vitest bench --run --project dom` on the bench, load 2.7 | exit 0. Every median is at most **9.9 ms** (`a🙂`, 1,000 lines). Plain: 1.3, 1.4, 3.2 and 5.9 ms at 200, 400, 1,000 and 2,048 lines. Quote: 1.1, 1.4, 3.0 and 6.3 ms. `>>>`: 1.0, 1.3, 2.7 and 5.6 ms. Fenced blocks: 2.2 ms | `bench-42128cd.*` |
+| 2, its red (CR-22) | `FRAME_MS` planted at 0.001, `-t "plain lines, 400"`, a 150 s cap | **exit 124** after printing a 2.3 ms median, user time 0.00 s. Per CR-22, exit 124 from this file is the limb's red. Restored byte-equal | `bench-planted-0.001-42128cd.*` |
+| 4, QAF-50 | W12 (the `if (!partialMarkdown)` guard removed) on `quote-and-fence-lines-settle` | **2 of 49 failed**: `keeps "> a" a plain line while it is typed` and the `>>> a` form. Restored byte-equal | `w12-42128cd.*`, `mutant-restore.txt` |
+| 4, QAF-46 | the oracle helper drops spans from U+1FA70 up | **2 of 121 failed**: `🫩` alone and inside bold. Restored byte-equal | `newer-emoji-oracle-mutant-42128cd.*` |
+| 5 | `pnpm run typecheck`; live discord; `pnpm test:discord` offline; `next build` | Typecheck exit 0. The first run, exit 2, was on my own probe file, removed before the rerun (`typecheck-42128cd-with-qa-probe.*`). Live 41 of 41, 6 files. Offline exit 1, `https://discord.com/app` on 6 lines, 0 "N passed" lines. Build exit 0 | `typecheck-*`, `discord-*`, `build-42128cd.*` |
+| 6 | NM-70 to NM-72 | NM-71 is the reviewer's `cr-loop-back` and the implementer's `hand:loop-back`: killed by the count test (CR sub-entry). NM-70 is not placeable: this fix builds no cache (`git diff 119471f 42128cd -- withNormalizeNode.ts` adds no map or cache). NM-72 is not placeable: each changed line gets its own `resolveEmoji`. SL-24's growth line is in the describe name "2,048 lines is past the field limit, used for growth only" | the count test, read |
+| 8, QAF-51's browser look | `fix/browser/gt-caret-walk.js`, two `next start` builds, the local database (`uat-local-stack.sh`; ids from 900000000000001; no save) | At `42128cd`, in the message content editor, the throw fired on the 123-line runs. The editor stayed mounted and kept taking input, so QAF-51 stays LOW. Not settled: in 2 of 4 throwing runs, the next character landed at line 122 while the visible caret read line 0 offset 1. The instrument's Control+Home also misplaced the caret on some runs that did not throw. The base half is invalid, because Enter did not split lines there. Recorded in the handoff (`slate-quote-marker-normalize-iteration-cap-2026-11-24.md`, 10:00) | `fix/browser/*` |
+
+**7, the effort-final sweep: stopped, unscored.** Mutants: `mutant-gen.js --range 5ec0621..42128cd` gives 433 over 24
+production files, 0 dropped (`effort-sweep-mutants-5ec0621-42128cd.json`). To those I added QA's 15 (each exact-once at
+`42128cd`), code review's 2 and the implementer's `code-line-shares`, for 451 in all (`sweep/all-mutants.json`, sha256
+`1fb80209…`). They are grouped by file into 2 shards (`sweep/plan.tsv`). Driver: `sweep/sweep-driver.sh`. Runner:
+`mutation-run.py`, network-isolated, at most 900 s per run.
+- **Pass 1** used `vitest related --run <file>`, the test files that import the mutated file. I checked first that it collects
+  the right files under this config: 38 files for `withNormalizeNode.ts`, including the count test, `quote-and-fence-lines-settle`,
+  typed-generated and `emoji-set-equals` (`related-probe-*`). All 25 group controls passed. **402 KILLED, 48 SURVIVED, 1
+  ABORTED** of 451 mutants, from the 25 tables under `sweep/pass1-shard-*`. Survivors by file: `withNormalizeNode.ts` 17 (and
+  1 aborted, `cr-rebuild-per-shared-line`), `preview.tsx` 9, `emojiLift.ts` 7, `unitStyles.ts` 5, `MarkdownTimestamp.tsx` 3,
+  `engine.ts` 2, and 1 each in `Desktop.tsx`, `MarkdownSpoiler.tsx`, `decorator.tsx`, `onKeyDown.ts` and
+  `MarkdownCodeBlock.tsx`.
+- **Pass 2** re-ran the 49 against the whole offline suite. Its control passed 3,715 of 3,715. It was **killed at the stop**
+  after 40 of the 49: **0 killed, 39 survived, 1 aborted** (`sweep/pass2-shard-*.log.txt`; the runner writes no table for an
+  interrupted run). Not run: `unitStyles.ts:107` (two forms), `MarkdownSpoiler.tsx:30`, `engine.ts:129` (walk-first and
+  walk-last), `Desktop.tsx:25`, `MarkdownTimestamp.tsx:45:not`, `MarkdownTimestamp.tsx:65` and `MarkdownCodeBlock.tsx:8`.
+- **Not dispositioned.** Every survivor is judged at the next refresh, against that round's tree. A judgement at `42128cd` would
+  be spent on code the round may rewrite: 15 of the 39 whole-suite survivors are in `withNormalizeNode.ts`. Two are already
+  dispositioned elsewhere: W9 (QAF-49) and `code-line-shares` (accepted as equivalent in the CR sub-entry). The others are in
+  `preview.tsx`, `emojiLift.ts`, `unitStyles.ts`, `decorator.tsx`, `onKeyDown.ts` and `MarkdownTimestamp.tsx`.
+- **For the next refresh:** the 9 mutants not run, and the 39 whole-suite survivors and the aborted one, re-checked for
+  exact-once at the new tip. Each survivor is dispositioned. Any production file the round changes is swept again in whole
+  over its added lines. The pass-1 kills stand for files the round leaves byte-identical, with `git diff --quiet` per file as
+  the evidence.
+- Captures: each run's stdout, the tables, the logs and the progress files. The 526 per-run stderr files (65 MB, mostly
+  jsdom's "Not implemented: navigation" noise) are in `sweep/run-stderr.tar.gz`, whose listing equals the file list. The
+  tables' stderr paths resolve inside that archive.
+
+**Findings at `42128cd`.** No new QAF. The unsettled caret placement after QAF-51's throw is recorded in its handoff, which
+the fix round now discharges. Its test should assert where the next character lands after the keystroke, as well as the
+absence of the throw.
+
 ## Resumption State
 
-Written at steering's ask (`/checkpoint`, about 413K tokens), at a seam: every pass is committed.
+Rewritten 2026-11-24T14:35 at steering's stop (block 14:33Z, record `d7eb0a40`), at a seam. Every write is committed.
+
+- **Superseding the list below.** The refresh at `42128cd` is stopped and recorded in § Results at `42128cd`. **Next**: the Phase 1
+  re-key on the planner's revision for the new fix round (the code-fence normalise throw in QAF-51's form, and CR-23). Then the
+  M6 refresh at that round's code-reviewed tip. The owed list below still applies, plus the sweep carry-over in § Results, and
+  QAF-51's caret-placement observation checked again in the round's build. Every scratch export of this pass is deleted
+  (`tipx`, `basex`, `redx` and the sweep work directories). The local database is down (`uat-local-stack.sh down`), and `ps` at
+  14:36 shows no server, sweep or vitest of mine. The model-selection probe outputs that back QAF-51's handoff row are in
+  `fix/browser/model-selection-*.out.txt`: the selection stays at `[0,0]` offset 1 after `>` at 2 to 123 lines, on both trees.
 
 - **Done.**
   - **M6 Phase 2:** QA Failed at `119471f`, record `4da9b76b`, plan R-89 at `150f5097`. Sent to implementer-019 (QAF-50 for the

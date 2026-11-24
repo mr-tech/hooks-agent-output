@@ -1,0 +1,6 @@
+flattenNodeText.ts:11:if-false KILLED 49.73
+qa-E2-save-writes-alt KILLED 49.5
+qa-E2-save-writes-title KILLED 49.39
+qa-E2-save-drops-element KILLED 50.13
+qa-E2-quote-prefix-default KILLED 50.8
+5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; src_components_SlateEditor_utils_flattenNodeText.ts.mutants.json (blob c5262c5f16047e07122d1152d329a69d058aa744))

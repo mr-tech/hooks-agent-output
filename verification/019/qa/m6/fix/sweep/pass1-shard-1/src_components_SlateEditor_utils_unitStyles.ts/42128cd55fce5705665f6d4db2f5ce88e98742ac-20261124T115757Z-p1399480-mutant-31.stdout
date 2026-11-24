@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_unitStyles.ts/20261124T115757Z-p1399480/mutant-31
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 18856ms
+     × on embedDescription, every content character carries the style set its preview gives it 4729ms
+     × on fieldValue, every content character carries the style set its preview gives it 4149ms
+     × on embedTitle, every content character carries the style set its preview gives it 3580ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 3003ms
+     × on v2Text, every content character carries the style set its preview gives it 3387ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 133ms
+     × matches the frozen box on every input, an emoji element's source characters left out 100ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 55ms
+     × colours no heading marker and no list marker 7ms
+
+ Test Files  3 failed | 43 passed (46)
+      Tests  7 failed | 648 passed (655)
+   Start at  12:27:59
+   Duration  56.60s (transform 2.63s, setup 283ms, import 33.23s, tests 151.47s, environment 30.51s)
+
