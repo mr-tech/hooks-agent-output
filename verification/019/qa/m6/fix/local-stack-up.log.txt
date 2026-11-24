@@ -1,0 +1,4 @@
+schema push: ok
+message ids: next 900000000000001
+container: hooks-postgres-local ready at 127.0.0.1:5432
+tables: 9

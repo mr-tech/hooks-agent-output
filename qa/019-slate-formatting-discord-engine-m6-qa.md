@@ -3,12 +3,10 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "119471f — repos=website; M6 at the code review's Round 6 Reviewed-At; git-archive exports with their own frozen offline installs, 677 of 677 blobs"
-Status: QA Failed
+Status: Testing In Progress
 Status-Detail: >-
-  M6 at website 119471f fails, milestone-scoped: AC-6.8 (Revision 16) fails here as expected, so CR-20's fix round is owed; AC-3.3's
-  60 s cap is exceeded (141.9 s against 31.1 s); QAF-50 MEDIUM, a severity floor (partial mode's plain lines, unasserted). The
-  TDD gate passes on the stub-tree records. AC-6.1, AC-6.1b, AC-6.2, AC-6.5, AC-6.6 and AC-6.7 pass; QAF-46 to QAF-49 LOW are
-  stated limits. The refresh and the effort-final sweep run on the fix round's tip.
+  The refresh on CR-20's fix round, website 42128cd (code review's Round 6 sub-entry, APPROVED_WITH_COMMENTS, record 602344e), is
+  running. The verdict below, QA Failed at 119471f, stands until this pass is published.
 Phase: 2
 ---
 
@@ -29,6 +27,7 @@ row. B-10 (AC-6.8) was minted at the Phase 1 re-key on Revision 16.
 | 2026-11-24T06:58 | code-reviewer-019 (message: M6 APPROVED_WITH_COMMENTS at `119471f`, record `8c2a4593`) | QA Phase 2 on M6 | Phase 2, step 2: the TDD compliance gate **rejected** M6. Five new or changed production functions have a "No" under test-first and no stub-tree red and green. `parseUnit` also has a "No". No M6 suite was run for this verdict. Steering's M6 Phase 2 brief had not arrived, so this pass read the plan's D-20 to D-22, R-77 and R-78 and the code review's Round 6 itself. The export of `119471f` is installed (frozen, offline, exit 0) and kept for the pass. |
 | 2026-11-24T07:57 | implementer-019 (message: stub-tree records at `78f93bdd`, no production path moved) | Re-open the gate; run Phase 2 at `119471f` | The gate passes on the stub-tree records. Offline 3,651 of 3,651, exit 0; typecheck exit 0; live 41 of 41; `test:discord` offline exits 1, loud; `next build` exit 0. M4 differential 0 of 14,280 (control 2,356); M5 differential 0 of 6,486 (control 681). Hand mutants: 13 of 15 killed, W9 and W12 survive. AC-3.3's cap is exceeded (141.9 s against 31.1 s). AC-6.8 fails here as it should. **QAF-50 MEDIUM** (a severity floor: partial mode's plain lines, unasserted). QAF-46 to QAF-49 LOW. The 451-mutant sweep was withdrawn unscored: its controls failed under load, and the effort-final sweep moves to the fix tip. Verdict **QA Failed**. |
 | 2026-11-24T09:14 | planner-019 (message: CR-20 fix round hand-off, Outstanding 2; implementation record `9c6bb958`, plan R-92 at `7100aab8`) | Probe Outstanding 2 at the chain base `af3d95a` and set a severity | Not the fix-round refresh: code review's verdict on the round has not been given. Both trees throw Slate's cap error, the chain base `af3d95a` and the fix tip `42128cd` alike, on the same threshold: they settle at 122 lines and throw from 123. After the throw the document is correct. So the defect is **pre-existing**: **QAF-51 LOW**, for the planner's handoff. No browser look was taken. Captured at `verification/019/qa/m6/gt-marker-base/`. The record-write hook refused a shell heredoc for that README, so it was written with the Write tool. |
+| 2026-11-24T09:32 | code-reviewer-019 (message: Round 6 sub-entry APPROVED_WITH_COMMENTS at `42128cd`, record `602344e`) | QA Phase 2 on CR-20's fix round | Phase 2: Testing In Progress at `42128cd`. Scope and criteria are recorded before execution (§ Refresh on CR-20's fix round). Steering's brief has not arrived. |
 
 ## Scope and stage start
 
@@ -264,6 +263,37 @@ at the fix round's refresh, which runs that file alone once before the suite.
   fix.
 - To `planner-019`: QAF-46, QAF-47, QAF-48 and QAF-49 for the Planner batch, all stated limits under the cap. QAF-42 is closed.
 - Then code review's sub-entry, and QA's refresh over the round's diff, with the effort-final sweep.
+
+## Refresh on CR-20's fix round at `42128cd`
+
+### Stage start and scope
+
+- **Stage start**: code review's Round 6 sub-entry, **APPROVED_WITH_COMMENTS** at `Reviewed-At: 42128cd` (record `602344e`,
+  re-derived with `git show 602344e:code-review/…`). Plan Revision 20, registrations to R-95 (record `524ee859`): the delta since
+  R-89 is registrations only, and no criterion moved. Steering's brief for this pass has not arrived. I read the Decisions
+  Register rows R-91, R-92 and R-95 and code review's Assumption Not Checked myself.
+- **The round's diff**: `119471f..42128cd`, whose tree is `10abfa9`'s. The only production path is
+  `src/components/SlateEditor/utils/withNormalizeNode.ts`. The 8 test paths are the count test, `keystrokes.ts`, the bench,
+  `roundTripInputs.ts`, the typed-generated and pasted files, `quote-and-fence-lines-settle` and `discordOracle.emoji-spans`
+  (`git diff --name-only 119471f 42128cd`). The M4 dump surface (`qaPreviewDump`: preview rules) and the M5 dump surface
+  (`decorator.tsx`, `getInitialValue`) are not among them, so neither differential is owed.
+
+### Criteria this pass assesses (recorded before execution)
+
+1. AC-6.8's count limb: its size equality per text, kind and place, the floor, the positive control, and seen red at `119471f`.
+2. AC-6.8's timed limb: the bench's medians against 16 ms with the box load beside them. CR-22 is the reading: exit 124 from
+   `withNormalizeNode.keystroke-time.bench.ts` is the limb's red.
+3. AC-3.3's 60 s cap: both whole offline suites run back to back (`2e36107`, then `42128cd`), against `af3d95a`'s 31.1 s plus 60 s.
+   The full 1,000 generator inputs run once through `MOUNTED_GENERATOR_COUNT=1000`, with the exit code (R-92).
+4. QAF-50 is closed by a case that goes red under W12. QAF-46 is closed by `🫩` going red under a mutation.
+5. M6's earlier criteria at the new tree: AC-6.1, AC-6.1b, AC-6.2, AC-6.5, AC-6.6 and AC-6.7, by the whole offline suite,
+   typecheck, live, `test:discord` offline and `next build`.
+6. NM-70 to NM-72, SL-23's left-out keystrokes and SL-24's growth line.
+7. The effort-final sweep over the production paths of `5ec0621..42128cd`.
+8. QAF-51's browser look.
+
+Residue, not a criterion: Outstanding 1, widened at R-95 to any keystroke in an input with unclean fences, is in QAF-48's class.
+CR-23 (the fence-close cost) is with steering for the owner's word, and no AC-6.8 limb covers it.
 
 ## Resumption State
 

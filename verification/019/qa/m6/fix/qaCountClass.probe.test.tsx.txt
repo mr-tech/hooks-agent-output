@@ -1,0 +1,69 @@
+import { beforeAll, it, vi } from 'vitest';
+
+import { unitAround } from '../runUnit';
+import {
+  caretAt, editorHolding, KINDS, leavesOtherLinesAlone, PLACES, press, signatures,
+} from '../../__tests__/helpers/keystrokes';
+
+import type { Element } from 'slate';
+import type { Kind, Place } from '../../__tests__/helpers/keystrokes';
+import type * as RunUnit from '../runUnit';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('../runUnit', async (importOriginal) => {
+  const actual = await importOriginal<typeof RunUnit>();
+  return { ...actual, unitAround: vi.fn(actual.unitAround) };
+});
+beforeAll(async () => { await startEngine(); });
+
+const builds = () => vi.mocked(unitAround).mock.calls.length;
+const lines = (count: number, line: string) => Array.from({ length: count }, () => line).join('\n');
+
+function pressAt(text: string, line: number, place: Place | { offset: number }, kind: Kind) {
+  const editor = editorHolding(text, 'embedDescription');
+  const before = signatures(editor);
+  if (typeof place === 'string') caretAt(editor, line, place);
+  else editor.selection = { anchor: { path: [line, 0], offset: place.offset }, focus: { path: [line, 0], offset: place.offset } };
+  vi.mocked(unitAround).mockClear();
+  press(editor, kind);
+  const types = (editor.children as Element[]).slice(Math.max(0, line - 1), line + 3).map((c) => c.type);
+  return { count: builds(), alone: leavesOtherLinesAlone(before, signatures(editor), line, kind), types };
+}
+
+const SIZED: Array<{ name: string; sizes: [number, number]; text: (s: number) => string; targets: (s: number) => number[]; places: readonly Place[] }> = [
+  { name: 'plain', sizes: [200, 2048], text: (s) => lines(s, 'a'), targets: (s) => [Math.floor(s / 2)], places: ['start', 'end'] },
+  { name: 'quote', sizes: [200, 2048], text: (s) => lines(s, '> a'), targets: (s) => [Math.floor(s / 2)], places: ['start', 'end'] },
+  { name: 'gt3', sizes: [200, 2048], text: (s) => `>>> a\n${lines(s - 1, 'a')}`, targets: (s) => [Math.floor(s / 2)], places: ['start', 'end'] },
+  { name: 'emoji', sizes: [200, 1000], text: (s) => lines(s, 'a🙂'), targets: (s) => [Math.floor(s / 2)], places: PLACES },
+  { name: 'fenced-quote', sizes: [200, 2048], text: (s) => lines(s / 4, '> ```\n> x\n> ```\n> y'), targets: () => [101], places: ['start', 'end'] },
+  { name: 'fenced-blocks', sizes: [200, 1364], text: (s) => lines(s / 4, 'a\n```\nx\n```'), targets: (s) => { const b = Math.floor(s / 8) * 4; return [b, b + 2]; }, places: ['start', 'end'] },
+];
+
+it('census and the two-unit Enter fixture', () => {
+  const out: string[] = [];
+  let leftOut = 0; let total = 0;
+  SIZED.forEach(({ name, sizes, text, targets, places }) => {
+    KINDS.forEach((kind) => places.forEach((place) => {
+      sizes.forEach((size) => targets(size).forEach((line) => {
+        total += 1;
+        const r = pressAt(text(size), line, place, kind);
+        if (!r.alone) { leftOut += 1; out.push(`LEFT-OUT ${name} ${size} line ${line} ${kind} ${place}`); }
+      }));
+    }));
+  });
+  const control = pressAt('```\nb\n```\nc', 0, 'end', 'backspace');
+  out.push(`control (Backspace opens a fence's lines): alone=${control.alone} (expected false)`);
+  out.push(`census: ${leftOut} of ${total} (text, size, line, kind, place) cells left out by leavesOtherLinesAlone`);
+  // AC-6.8's named member: Enter after x in a code line `xy`, inside a fence, `a⏎```⏎xy⏎```⏎b` repeated, the same block index.
+  [[50, 512], [1, 1]].forEach(([small, large]) => {
+    const block = 'a\n```\nxy\n```\nb';
+    const line = 2 + 5 * Math.min(small, 25);
+    [small, large].forEach((n) => {
+      const r = pressAt(lines(n, block), n === 1 ? 2 : line, { offset: 1 }, 'enter');
+      out.push(`two-unit enter: blocks=${n} lines=${n * 5} line=${n === 1 ? 2 : line} builds=${r.count} alone=${r.alone} types=${r.types.join(',')}`);
+    });
+  });
+  process.stdout.write(`QA-COUNT-CLASS\n${out.join('\n')}\n`);
+}, 900_000);

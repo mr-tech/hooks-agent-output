@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/tipx
+
+QA-COUNT-CLASS
+control (Backspace opens a fence's lines): alone=false (expected false)
+census: 0 of 120 (text, size, line, kind, place) cells left out by leavesOtherLinesAlone
+two-unit enter: blocks=50 lines=250 line=127 builds=2 alone=true types=div,codeBlock,codeBlock,div
+two-unit enter: blocks=512 lines=2560 line=127 builds=2 alone=true types=div,codeBlock,codeBlock,div
+two-unit enter: blocks=1 lines=5 line=2 builds=2 alone=true types=div,codeBlock,codeBlock,div
+two-unit enter: blocks=1 lines=5 line=2 builds=2 alone=true types=div,codeBlock,codeBlock,div
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  09:41:34
+   Duration  2.77s (transform 159ms, setup 22ms, import 303ms, tests 1.75s, environment 564ms)
+

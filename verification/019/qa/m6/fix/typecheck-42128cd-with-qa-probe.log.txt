@@ -1,0 +1,7 @@
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/tipx
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+src/components/SlateEditor/utils/__tests__/qaCountClass.probe.test.tsx(28,8): error TS2322: Type '{ anchor: { path: number[]; offset: number; }; focus: { path: number[]; offset: number; }; }' is not assignable to type 'BaseSelection'.
+  Property 'classNames' is missing in type '{ anchor: { path: number[]; offset: number; }; focus: { path: number[]; offset: number; }; }' but required in type '{ classNames: string[]; syntax?: boolean | undefined; }'.
+ ELIFECYCLE  Command failed with exit code 2.

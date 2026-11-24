@@ -1,0 +1,1 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/019/qa/m6/fix/count-red-119471f.json

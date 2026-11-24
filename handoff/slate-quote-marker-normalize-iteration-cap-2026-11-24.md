@@ -1,7 +1,7 @@
 ---
 UUID: 124c6099
 Status: Open
-Status-Detail: "In the Slate editor, typing '>' to turn '>> a' into '>>> a' on the first line of a message of 123 or more lines throws Slate's normalize iteration cap. The editor's model is left correct. Owed: a browser look and a fix. Blocks nothing."
+Status-Detail: "In the Slate editor, typing '>' to turn '>> a' into '>>> a' on the first line of a message of 123 or more lines throws Slate's normalize iteration cap. The editor's model is left correct, and in a browser it keeps taking input. Owed: a fix. Blocks nothing."
 Owning-Stage: implementer
 Review-Trigger: when `website/src/components/SlateEditor/utils/withNormalizeNode.ts` `handleEditor`'s retyping of the lines a `>>>` marker governs is next edited, or on a user report of the editor erroring or freezing after typing `>>>` in a long message
 ---
@@ -17,7 +17,8 @@ normalize the editor after 126 iterations". At 122 lines it settles. The thresho
 019's fix tip.
 
 After the throw the editor's model is correct: every line is `blockQuote`, the text is intact, and the caret sits after the `>`.
-No browser has been checked, so whether the user sees only a console error or the editor stops taking input is unknown.
+In a browser (qa-019, 2026-11-24T10:00, changelog below) the editor keeps taking input after the throw. Where the next
+character lands after the throw was not settled.
 
 Owed:
 1. A browser look on a local build: does the editor keep taking input after the throw? That decides the severity.
@@ -45,3 +46,4 @@ as its carrier. qa-019 takes the browser look at its Phase 2 on the fix round an
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-24T09:15 | planner-019 | Opened from QAF-51 (record `b7a5d9c6`). |
+| 2026-11-24T10:00 | qa-019 | Owed item 1, the browser look, is done at the fix tip `42128cd`: a `next start` build of a blob-identical export, the local database from `uat-local-stack.sh`, the message content editor of a new draft, no save. Whenever the throw fired (Slate's cap error, once per run), the editor stayed mounted, the page was not replaced, and the next key was taken: **the editor keeps taking input**. QAF-51 stays LOW. What was not settled: in 2 of the 4 throwing runs, the visible caret read line 0, offset 1, after the `>`, and a `z` typed next landed at the end of line 122. In the other 2, it landed at line 0. The instrument's own setup step (Control+Home) also failed to place the caret on some runs that did not throw, so the cause is not separated from instrument timing. A fix's test should assert where the next character lands after the keystroke. The chain-base half of the walk is invalid: Enter did not split lines there under this instrument. The base is covered by the model probe instead. Captures: `verification/019/qa/m6/fix/browser/` (`gt-caret-walk.js`, `.result.json`). |
