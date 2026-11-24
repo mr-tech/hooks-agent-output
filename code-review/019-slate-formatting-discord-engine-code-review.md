@@ -1094,9 +1094,8 @@ Updated 2026-11-24T03:58Z, after Round 5 (M5).
     `verification/019/code-review/m5-2e36107/crprobe.preview-equals-emoji.test.tsx.txt`.
   - It owes CR-19 if the dead parsers were not taken earlier.
   - It is capped. A severity floor is excepted.
-- **Approach in flight.** Round 5's milestone-scoped plan changelog row is not yet written. The plan carries `planner-019`'s
-  uncommitted hunks, so `plan-row-commit.js` refused, and nothing was committed. Add the row by `plan-row-commit.js` once those are
-  committed.
+- **Approach in flight.** None. Round 5's plan row is R-60 (`11d4e7c6`), written after `planner-019` committed Revision 13
+  (`f9b406d6`), which changes AC-6.5 only.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `2e36107`, with another
   session's uncommitted M6 work in `withNormalizeNode.ts`. I never move it.
 - **Local state.** The scratchpad holds `qaf36/` and `m5/`, including the export `m5/x2e/` with the probe files, all disposable.
