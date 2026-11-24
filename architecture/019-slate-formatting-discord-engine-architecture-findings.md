@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 22 (record 960052d1, AC-6.9's last fold, D-25): APPROVED. CF-30 is resolved as folded. CF-31
+  (LOW: handleEditor's whole-line insertText puts the caret at the end; delete the marker's range instead) is a stated limit for
+  the second fix round. It holds nothing.
   Delta pass on plan 019 revision 21 (record 81523bd6, D-24 and AC-6.9): APPROVED. No owner-authored invariant is touched; A-11
   is restated at the closing pass. CF-30 (LOW: retype before the drain starts, so Slate's 42-per-dirty-path budget scales; never
   lift it unboundedly or catch the throw) is a stated limit for the second fix round. It holds nothing.
@@ -72,6 +75,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T17:07 | architect-019 | Delta pass on plan 019 revision 22 (record `960052d1`); § Delta pass, revision 22. APPROVED; CF-30 resolved; CF-31 LOW raised as a stated limit | Commissioned by `planner-019`'s message, inside the revision 21 pass. Read as `git show 960052d1` on the plan, with `withNormalizeNode.ts` at website `42128cd` grepped. Nothing was run. |
 | 2026-11-24T14:39 | architect-019 | Delta pass on plan 019 revision 21 (record `81523bd6`); § Delta pass, revision 21. APPROVED; CF-30 LOW raised as a stated limit; the architecture record's Slate-layer entries checked, and A-11 is owed a restatement at the closing pass | Commissioned by `planner-019`'s message under D-24 (block 14:33Z). Read as `git show 81523bd6`, with the installed `slate` 0.123.0 `shouldNormalize` read read-only and website `42128cd` grepped. Nothing was run. |
 | 2026-11-24T07:45 | architect-019 | Delta pass on plan 019 revision 20 (record `cf7e4d91`); § Delta pass, revision 20. APPROVED; CF-29 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:42Z. Read as `git show cf7e4d91` on the plan. Only the fixture's size arithmetic was run. |
 | 2026-11-24T07:23 | architect-019 | Delta pass on plan 019 revision 19 (record `4a68f286`); § Delta pass, revision 19. APPROVED; CF-27's literal withdrawn (my error, shown by F-48's probe); CF-28 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:21Z. Read as `git show 4a68f286` on the plan, with `runUnit.ts` at website `119471f`. Nothing was run. |
@@ -103,7 +107,7 @@ Status-Detail: >-
 
 - **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant (§ Delta pass,
   revision 21).
-- **CF-21** to **CF-26**, **CF-28**, **CF-29** and **CF-30** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-26**, **CF-28**, **CF-29** and **CF-31** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -346,6 +350,47 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 22 (record `960052d1`)
+
+Read as `git show 960052d1` on the plan, inside this pass's commission (planner-019's message). The two commits before it since
+`81523bd6` are R-96 and R-97, both registration rows. The delta is AC-6.9's no-throw refusal (CF-30), its `>>>` members and caret
+limb (D-25, QAF-52, F-52), the 27 and 104 ms ceiling (F-55 (2)), and the batch cells. Read beside it at website `42128cd`:
+`withNormalizeNode.ts` `handleEditor`, through `git -C … grep`.
+
+**CF-30 as folded.** The no-throw limb refuses a caught throw, an unbounded `shouldNormalize`, and any change that stops
+`Editor.normalize` reporting a drain that does not settle. It admits a finite budget that scales with the line count, and cites
+the mechanism. That is CF-30's content as criterion text. **CF-30 is resolved.**
+
+**The `>>>` members fit the stored form.** The making members (`>> a`, `>> abc`) and the loaded-text unmaking member treat the
+marker as `quotePrefix`, which is what the code stores (A-11). The unmaking member goes through `onKeyDown.ts`
+`normalizeBackspace`, the existing gesture (§ Delta pass, revision 14), which drops the whole marker as at the base. The caret
+literals are hand-written from what a user expects, which is the axiom E form. Refusing SL-25's "the `42128cd` output as the
+expected value" is right, because that output is the defect.
+
+### CF-31 LOW — The caret defect's mechanism: `handleEditor` rewrites the whole line's text, so delete the marker's range instead
+
+When a typed `>` makes a `>>> ` quote, `handleEditor` moves the marker out of the text. It does that with
+`const content = childText.slice(quotePrefix.length)` and then `Transforms.insertText(editor, content, { at: [childLocation] })`
+(`withNormalizeNode.ts` at `42128cd`, read). `insertText` at a path replaces the whole node's text, so the selection lands at the
+end of the inserted text. That gives QAF-52's `>>> az` against the expected `>>> za`.
+- **Recommended form.** Remove only the marker's range (`Transforms.delete` over offsets 0 to the prefix's length) and set
+  `quotePrefix`. Slate's point transforms then keep the caret at its offset relative to the remaining content, so D-25's caret
+  falls out with no selection bookkeeping.
+- **Fit with CF-30.** Under CF-30's recommended home, this move happens in the input-path retype, the place where caret mapping
+  naturally lives. Under the `shouldNormalize` form it stays in `handleEditor`, and the same range delete applies there.
+- **Avoid:** restoring the selection by hand with `Transforms.select` after a whole-line rewrite. That works for this keystroke.
+  But it puts selection state into a normaliser that every keystroke runs, which is a second mechanism for what Slate's
+  transforms already do.
+
+LOW: the caret limb verifies any form. After revision 22, an AC-6.9 finding below HIGH is a stated limit (block 14:48Z).
+
+**A-11 at the closing pass.** D-25 adds no mechanism A-11 lacks: the marker is `quotePrefix`, and Backspace's gesture is
+`normalizeBackspace`. The restatement owed from revision 21 will name where the marker moves from the text (the range delete or
+its replacement, read from the fixed tree), beside the fresh-load invariant.
+
+**Verdict on revision 22:** APPROVED. CF-30 is resolved, and CF-31 is LOW, a stated limit for the second fix round. Nothing needs
+the owner.
 
 ## Delta pass, revision 21 (record `81523bd6`)
 
