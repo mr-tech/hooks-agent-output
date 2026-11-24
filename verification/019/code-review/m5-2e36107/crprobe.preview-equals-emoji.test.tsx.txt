@@ -1,0 +1,144 @@
+import { createEditor, Text } from 'slate';
+import {
+  beforeAll, describe, expect, it, vi,
+} from 'vitest';
+
+import decorator from '../decorator';
+import getInitialValue from '../getInitialValue';
+
+import type { Descendant, Element } from 'slate';
+import type { CNode } from '~/utils/markdown/__tests__/helpers/canonicalForm';
+
+import markdown from '~/utils/markdown';
+import { startEngine } from '~/utils/markdown/engine';
+import { CORPUS, LINK_INPUTS } from '~/utils/markdown/__tests__/helpers/discordInputs';
+import { LEGACY_SURFACES, type LegacySurface } from '~/utils/markdown/__tests__/helpers/discordSurfaces';
+import { generateInputs } from '~/utils/markdown/__tests__/helpers/markdownGenerator';
+import { drawnDom } from '~/utils/markdown/__tests__/helpers/previewDom';
+import { visibleFromDom } from '~/utils/markdown/__tests__/helpers/visibleForm';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+
+const INPUTS = [
+  ...CORPUS.map((c) => ({ src: `corpus:${c.id}`, text: c.text })),
+  ...LINK_INPUTS.map((text, i) => ({ src: `link:${i}`, text })),
+  ...generateInputs(20261123, 2000).map((g, i) => ({ src: `gen:${i}`, text: g.text })),
+];
+
+const PARTIAL: Record<LegacySurface, boolean> = {
+  embedDescription: false,
+  fieldValue: false,
+  embedTitle: true,
+  embedTitleWithUrl: true,
+  v2Text: false,
+};
+const STYLE_OF: Record<string, string> = {
+  strongText: 'b', emText: 'i', uText: 'u', sText: 's', inlineCodeText: 'c', spoilerText: 'sp',
+};
+
+type Char = { text: string; style: string; link: boolean; atom?: true };
+
+const CLEAN_FENCES = (text: string) => {
+  const lines = text.split('\n');
+  const holding = lines.filter((line) => line.includes('```'));
+  return holding.every((line) => /^```[^`]*$/.test(line)) && holding.length % 2 === 0;
+};
+
+function editorChars(surface: LegacySurface, text: string): Char[] | null {
+  const value = getInitialValue(text, markdown.interactive.parseEmoji, PARTIAL[surface]);
+  const lines = value as Element[];
+  const hasEmoji = lines.some((line) => line.children.some((child) => !Text.isText(child)));
+  if (process.env.CR_MODE === 'excluded' && hasEmoji) return null;
+  if (process.env.CR_MODE === 'emojiOnly' && !hasEmoji) return null;
+  const editor = createEditor();
+  editor.children = value as Descendant[];
+  const decorate = decorator(editor, true, false, surface);
+  const out: Char[] = [];
+  lines.forEach((line, lineIndex) => line.children.forEach((child, childIndex) => {
+    if (!Text.isText(child)) return;
+    for (const { leaf } of Text.decorations(child, decorate([child, [lineIndex, childIndex]]))) {
+      const { syntax, classNames } = leaf as Text & { syntax?: boolean; classNames?: string[] };
+      const names = (classNames ?? []).flatMap((name) => name.split(' '));
+      if (syntax === true || names.includes('lang')) continue;
+      const style = [...new Set(names.map((name) => STYLE_OF[name]).filter(Boolean))];
+      for (const ch of leaf.text) {
+        const visible = /^\s$/.test(ch) ? style.filter((x) => x !== 'b' && x !== 'i') : style;
+        out.push({ text: ch, style: visible.sort().join(','), link: names.includes('linkText') });
+      }
+    }
+  }));
+  return out.filter((c) => c.text !== '\n');
+}
+
+const codeWithKids = (nodes: CNode[]): CNode[] => nodes.map((node) => {
+  if (node.t === 'T') return node;
+  if (node.name === 'c' && node.kids === null) return { ...node, kids: [{ t: 'T', s: JSON.parse(node.attr) as string }] };
+  return node.kids ? { ...node, kids: codeWithKids(node.kids) } : node;
+});
+
+function previewChars(surface: LegacySurface, text: string): Char[] {
+  const visible = visibleFromDom(codeWithKids(drawnDom(surface, text)));
+  const units = JSON.parse(visible) as [string, string, string, string][];
+  return units.filter(([unit]) => unit !== '\n').map(([unit, style, link]) => (
+    [...unit].length > 1 ? {
+      text: '<atom>', style, link: false, atom: true as const,
+    } : { text: unit, style, link: link !== '' }
+  ));
+}
+
+const linkRuns = (chars: Char[]): Char[] => chars.reduce<Char[]>((out, c) => {
+  const last = out.at(-1);
+  if (c.link && last?.link && last.style === c.style) return out;
+  return [...out, c.link ? { ...c, text: '<link>' } : c];
+}, []);
+
+const QUOTE_LAYER_GOVERNED = (text: string) => {
+  const lines = text.split('\n');
+  const open = lines.findIndex((line) => /^ *>>> /.test(line));
+  const insideBlock = open >= 0
+    && (lines[open].replace(/^ *>>> /, '').startsWith('>') || lines.slice(open + 1).some((line) => line.startsWith('>')));
+  return insideBlock || lines.some((line) => /^ +>/.test(line));
+};
+
+const sameChar = (a: Char, b: Char) => a.text === b.text && a.style === b.style && a.link === b.link;
+
+function drawsAsPreviewDoes(editor: Char[], preview: Char[]): boolean {
+  const close = (reach: Set<number>) => {
+    for (const at of [...reach]) {
+      for (let j = at; preview[j]?.atom; j += 1) reach.add(j + 1);
+    }
+    return reach;
+  };
+  let reach = close(new Set([0]));
+  for (const c of editor) {
+    const next = new Set<number>();
+    for (const at of reach) {
+      if (at < preview.length && sameChar(c, preview[at])) next.add(at + 1);
+      if (preview[at]?.atom && c.style === preview[at].style) next.add(at);
+      if (c.style === '' && !c.link) next.add(at);
+      if (c.link && at > 0 && sameChar(c, preview[at - 1])) next.add(at);
+    }
+    if (next.size === 0) return false;
+    reach = close(next);
+  }
+  return reach.has(preview.length);
+}
+
+beforeAll(async () => { await startEngine(); });
+
+describe('the editor of a legacy-only surface colours each content character as that surface\'s preview does', () => {
+  it.each(LEGACY_SURFACES)('on %s, every content character carries the style set its preview gives it', (surface) => {
+    const differing: string[] = [];
+    let compared = 0;
+    for (const input of INPUTS) {
+      if (!CLEAN_FENCES(input.text) || QUOTE_LAYER_GOVERNED(input.text)) continue;
+      const editor = editorChars(surface, input.text);
+      if (editor === null) continue;
+      compared += 1;
+      const preview = linkRuns(previewChars(surface, input.text).filter((c) => process.env.CR_STRIP !== '1' || !(/\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier}|\u200d|\ufe0f|\u20e3/u.test(c.text) || (c.atom && /^<a?:[^:]+:\d+>$|^:[a-z0-9_+-]+:$/.test(c.text)))));
+      if (!drawsAsPreviewDoes(linkRuns(editor), preview)) differing.push(input.src);
+      if (process.env.CR_DUMP && (process.env.CR_DUMP.split(',').includes(input.src)) && surface === 'embedDescription') require('node:fs').appendFileSync('/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/m5/probe-dump.out', JSON.stringify({src: input.src, text: input.text, editor: linkRuns(editor).map((c) => c.text + '|' + c.style + (c.link ? '|L' : '')), preview: preview.map((c) => c.text + '|' + c.style + (c.link ? '|L' : '') + (c.atom ? '|A' : ''))}) + '\n');
+    }
+    require('node:fs').appendFileSync('/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/m5/probe-emoji.out', `CRPROBE ${surface} mode=${process.env.CR_MODE} compared=${compared} differing=${differing.length} ${JSON.stringify(differing.slice(0,12))}\n`);
+  }, 600_000);
+});

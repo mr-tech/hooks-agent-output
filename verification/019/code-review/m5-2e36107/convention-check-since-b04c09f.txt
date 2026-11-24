@@ -1,0 +1,107 @@
+FAIL eslint src/components/SlateEditor/index.tsx:67 — @typescript-eslint/no-unused-vars: 'e' is defined but never used. Allowed unused args must match /^_/u.
+FAIL eslint src/components/SlateEditor/index.tsx:93 — react-hooks/immutability: Error: This value cannot be modified
+
+Modifying a value previously passed as an argument to a hook is not allowed. Consider moving the modification before calling the hook.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:93:43
+  91 |   useEffect(() => { if (mounted) handleFocus(); }, [mounted]);
+  92 |
+> 93 |   useEffect(() => { if (!partialMarkdown) editor.children = descendants; }, [string.split('`').length]);
+     |                                           ^^^^^^ `editor` cannot be modified
+  94 |
+  95 |   const { setOnInsert, showPicker, setShowPicker } = useEmojiPickerState();
+  96 |   useEffect(() => {
+FAIL eslint src/components/SlateEditor/index.tsx:115 — react-hooks/use-memo: Error: Expected the first argument to be an inline function expression
+
+Expected the first argument to be an inline function expression.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:115:36
+  113 |         editor={editor}
+  114 |         initialValue={useMemo(() => descendants, [])} // initial value, managed internally from here on
+> 115 |         onValueChange={useCallback(onChangeHandler(editor, setDescendants), [])}
+      |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Expected the first argument to be an inline function expression
+  116 |       >
+  117 |         <Editable
+  118 |           {...inputProps}
+FAIL eslint src/components/SlateEditor/index.tsx:123 — react-hooks/use-memo: Error: Expected the first argument to be an inline function expression
+
+Expected the first argument to be an inline function expression.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:123:38
+  121 |           aria-describedby={id}
+  122 |           className={classNames(className)}
+> 123 |           renderElement={useCallback(renderElementFactory(isEmbed), [])}
+      |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Expected the first argument to be an inline function expression
+  124 |           renderLeaf={useCallback(RenderLeaf, [])}
+  125 |           decorate={useMemo(
+  126 |             () => decorator(editor, mounted, isEmbed, surface),
+FAIL eslint src/components/SlateEditor/index.tsx:124 — react-hooks/use-memo: Error: Expected the first argument to be an inline function expression
+
+Expected the first argument to be an inline function expression.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:124:35
+  122 |           className={classNames(className)}
+  123 |           renderElement={useCallback(renderElementFactory(isEmbed), [])}
+> 124 |           renderLeaf={useCallback(RenderLeaf, [])}
+      |                                   ^^^^^^^^^^ Expected the first argument to be an inline function expression
+  125 |           decorate={useMemo(
+  126 |             () => decorator(editor, mounted, isEmbed, surface),
+  127 |             [engine, mounted, isEmbed, surface],
+FAIL eslint src/components/SlateEditor/index.tsx:129 — react-hooks/use-memo: Error: Expected the first argument to be an inline function expression
+
+Expected the first argument to be an inline function expression.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:129:31
+  127 |             [engine, mounted, isEmbed, surface],
+  128 |           )}
+> 129 |           onCopy={useCallback(onCopy(editor), [])}
+      |                               ^^^^^^^^^^^^^^ Expected the first argument to be an inline function expression
+  130 |           onCut={useCallback(onCopy(editor, true), [])}
+  131 |           onPaste={useCallback<ClipboardEventHandler<HTMLDivElement>>((e) => {
+  132 |             const pastedText = e.clipboardData.getData('text/plain');
+FAIL eslint src/components/SlateEditor/index.tsx:130 — react-hooks/use-memo: Error: Expected the first argument to be an inline function expression
+
+Expected the first argument to be an inline function expression.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:130:30
+  128 |           )}
+  129 |           onCopy={useCallback(onCopy(editor), [])}
+> 130 |           onCut={useCallback(onCopy(editor, true), [])}
+      |                              ^^^^^^^^^^^^^^^^^^^^ Expected the first argument to be an inline function expression
+  131 |           onPaste={useCallback<ClipboardEventHandler<HTMLDivElement>>((e) => {
+  132 |             const pastedText = e.clipboardData.getData('text/plain');
+  133 |             if (partialMarkdown && pastedText.includes('\n')) {
+FAIL eslint src/components/SlateEditor/index.tsx:141 — react-hooks/use-memo: Error: Expected the first argument to be an inline function expression
+
+Expected the first argument to be an inline function expression.
+
+/usr/local/bin/hooks/website/src/components/SlateEditor/index.tsx:141:34
+  139 |             }
+  140 |           }, [])}
+> 141 |           onKeyDown={useCallback(onKeyDown(editor, partialMarkdown, propsOnKeyDown), [])}
+      |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Expected the first argument to be an inline function expression
+  142 |           onTouchStart={useCallback(() => { moveRef.current = false; }, [])}
+  143 |           onTouchMove={useCallback(() => { moveRef.current = true; }, [])}
+  144 |           onTouchEnd={useCallback<TouchEventHandler<HTMLDivElement>>((e) => {
+FAIL eslint src/components/SlateEditor/utils/withNormalizeNode.ts:53 — max-len: This line has a length of 108. Maximum allowed is 100.
+SKIP src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts: not examined — missing file
+SKIP src/components/SlateEditor/utils/createLeaf.ts: not examined — missing file
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 33 file(s) examined, 19 not examined, 20 test file(s); 9 FAIL, 0 CANDIDATE, 20 SKIP

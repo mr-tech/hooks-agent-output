@@ -2,9 +2,9 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "81c68b2 — repos=website; the latest verdict is the M3 Round 3 sub-entry at 81c68b2 (QAF-38 fix confirmed, APPROVED_WITH_COMMENTS), after d6aab03 (CR-15 confirmed), after b04c09f (QAF-36, REJECTED on CR-15); Round 4 is M4 at e58f2ed (its 13 commits in f4060c5..e58f2ed); M3's Round 3 sub-entries at 380e82d (test-only), 2c1590f and 1698c80; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
+Reviewed-At: "2e36107 — repos=website; Round 5 is M5 at 2e36107 (its 5 commits 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107); M3's latest sub-entry at 81c68b2; Round 4 is M4 at e58f2ed; M2 closed at 7dcedc9"
 Status: In Review
-Round: 4
+Round: 5
 Verdict: APPROVED_WITH_COMMENTS
 ---
 
@@ -30,6 +30,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-24T01:54 | steering-hooks-fixer (resume message); implementer-019 (M3 fix round 6, `Handoff-At: b04c09f`, record `fe8ce8f3`) | Round 3 sub-entry: confirm QAF-36 | Round 3 sub-entry at `b04c09f` (test-only: `9a5f4fe`, `b04c09f`). Of 9 probes, 6 were KILLED. `compareWasm` is killed under `match = true`, under `match = false` and with its message arms swapped. **REJECTED** on CR-15 MEDIUM, a severity floor: with `driftReport` handing the pinned file to the comparison as the served bytes, 15 of 15 live cases and the offline case pass. CR-16 LOW is a stated limit. The M4 verdict at `e58f2ed` stands. Steering's brief had not arrived; the resume message was read in its place. |
 | 2026-11-24T02:07 | implementer-019 (M3 fix round 7, website `d6aab03`, record `5305177e`) | Round 3 sub-entry: confirm CR-15 | CR-15 RESOLVED at `d6aab03`: 10 of 11 mutants KILLED, network-isolated. The two operand mutants fail on `match` (`expected true to be false`). The live default passes 15 of 15, `equal`. The only survivor is CR-16 LOW, a stated limit (plan R-54). APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. The 192 fewer offline cases between `b04c09f` and `d6aab03` come from M5's commits; that is M5's round. |
 | 2026-11-24T02:42 | steering-hooks-fixer (hand-off); implementer-019 (M3 fix round 8, website `81c68b2`, record `d43e2b40`) | Round 3 sub-entry: confirm QAF-38 | QAF-38's fix confirmed at `81c68b2`: 14 of 14 mutants KILLED, network-isolated (QA's six constants, five operand or member swaps, both `switchReferrers` forms, and the fetcher not passed on). The live default passes 5 of 5. APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. |
+| 2026-11-24T03:58 | implementer-019 (M5 hand-off, record `b9e9247c`, `Handoff-At: 2e36107`); steering-hooks-fixer (M5 hand-off; eslint ruling block 03:48Z, record `6866cd75`) | Review M5 | Round 5 at `2e36107`: **APPROVED_WITH_COMMENTS**. CR-3 RESOLVED (one leaf-role source). The `visibleForm` defect is confirmed, but the preview's inline code is guarded by M4's own tests (2 of 2 mutants KILLED), so it is CR-17 LOW. The AC-5.8 emoji exclusion drops whole inputs; the probe's sampled differences are the Slate layer's lift (AC-6.5, M6), so it is CR-18 LOW, carried to M6. Three dead interactive parsers are CR-19 LOW. The eslint FAILs are under the owner's ruling. |
 
 ## Scope of this round
 
@@ -814,10 +815,184 @@ Verdict, Round 4 (M4 at `e58f2ed`): **APPROVED_WITH_COMMENTS**.
 - CR-12 and CR-13 go to `planner-019` as stated limits under the 00:49Z cap.
 - M4 goes to QA Phase 2 at `e58f2ed`.
 
+## Round 5 at `2e36107` (M5)
+
+The trigger is implementer-019's M5 hand-off (`implementation/019-slate-formatting-discord-engine-m5-implementation.md`, record
+`b9e9247c`, `Handoff-At: 2e36107`), confirmed by steering's hand-off message. The brief stays `steering/019-brief-code-reviewer.md`.
+The `Handoff-At` field was re-read at the record and at the end of the round. The document's later commit `294cf515` touches its
+Resumption State only.
+
+Scope: the M5 commits `921eeb8`, `6f4d48f`, `65b8e2c`, `3ffb2b4` and `2e36107`, read through `git show 2e36107:<path>`.
+- 29 paths under `src/components` (+1,265 −837): `m5-2e36107/m5-files.txt` lists the 27 added or modified, and two are deleted.
+- Not in scope: `d6aab03` and `81c68b2`, M3 fix rounds reviewed in their own sub-entries.
+
+Criteria, as the plan states them at round open (Revision 12, plan record `4222fc9e`):
+- AC-5.1 to AC-5.8. AC-5.5 is UAT's walk (QA register B-3), and this round does not assess it.
+- CR-3, owed from M2.
+
+Rulings that bound this round:
+- **Cap**: M5 is capped (block 00:49Z). A finding below HIGH is a stated limit for the Planner batch. A severity floor is
+  excepted.
+- **The 8 eslint FAILs in `SlateEditor/index.tsx`**: the owner's "list them, fix later" (block 03:48Z, record `6866cd75`). They are
+  carried by `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md`, and are not a finding here.
+
+Process whose output is the evidence:
+- For the M5 limbs, the suite's own cases, which I attacked with mutants and probes of my own.
+- For the AC-5.8 exclusion, a probe of mine. It is a model, and I calibrated it against the committed test: with the exclusion in
+  place, it reproduces the test's counts exactly.
+
+### Reading, file by file
+
+- **`decorator.tsx`.**
+  - The contract `(editor, mounted, isEmbed, surface) → ([node, path]) → Range[]` is kept, with the surface in place of the
+    parser, which is the plan's Mirrors line.
+  - `unitAround` joins adjacent non-`codeBlock` elements with `\n`, puts a quote's `quotePrefix` into the text but not into the
+    node offsets, and counts an inline element as one `?`. `before` counts an element as 1, so the offsets and the text agree by
+    construction.
+  - The unit map is per pass, reset by `editor.children` identity. The style cache is per decorator, keyed on fence context plus
+    text, FIFO, bounded at 512.
+  - `rangesOf` is shared by the inline path and the code-line path.
+- **`unitStyles.ts`.**
+  - The leaf role comes from `TOKEN_LEAF_ROLES`, refined by context in one function, `paintToken` with `walkNode`: `codeContent`
+    inside a code block, `url` and `stack` after `link_close`, and the whitespace after `subtext_marker`.
+  - The synthetic fence framing (`OPENED`, `CLOSED`) is cut back by the `shift` and the clamp in `paint`.
+- **`highlightScan.ts`.**
+  - It scans highlight.js's public `HighlightResult.value` grammar: `<span class="…">`, `</span>` and the five entities that
+    highlight.js's `escapeHTML` emits. No `_emitter` read remains: `git grep -n _emitter 2e36107 -- src` gives 0 hits.
+  - A scope with two class names, such as `hljs-title function_`, stays one string, and `RenderLeaf`'s `classnames` call renders it
+    as two classes.
+- **`SlateEditor/index.tsx`.** `decorate` is a `useMemo` over `[engine, mounted, isEmbed, surface]`, so the cache resets when the
+  engine settles or the surface changes.
+- **`Desktop.tsx` and `Mobile.tsx`.** The gate is `engine === 'pending'` in place of `!interactiveParser`. When the engine is
+  rejected the editor opens unformatted, because `styleUnit` returns `undefined` and no ranges are drawn.
+- **The six call sites.** Each passes its surface, and the field name follows the embed's url. `git grep` finds no
+  `contentParser`, `interactiveParser` prop or `createLeaf` left in `src`.
+- **Patterns.** The decorator contract, `markdown.scss`'s leaf classes, `useEngineState` and the lifted `markdownProviderMock` (at
+  its third copy) match the M5 document's Patterns Extended. The code-line path reuses the inline path's `rangesOf`, and no new
+  dependency edge duplicates an in-file idiom.
+- **Tests.** The 15 test files are spec-form: no `// escaped:`, and no bug-form title.
+  - All the basenames meet the positive form, with 0 ID tokens by the workspace class (`m5-files.txt`, checked with `grep -E` over
+    the basenames).
+  - AC-5.4's expected value is highlight.js's HTML parsed by jsdom's `DOMParser`, the plan's oracle, independent of the scanner.
+  - AC-5.7 counts through a pass-through mock of the adapter.
+- **Conventions.** `convention-check.js --since=b04c09f` gives 9 FAIL:
+  - the 8 eslint FAILs, under the owner's ruling;
+  - `withNormalizeNode.ts:53` `max-len`, another session's uncommitted M6 work in the shared tree, not M5's.
+
+  It reports 0 CANDIDATE and 20 SKIP, the SKIPs being the ID-token check (done by hand above), captures and deleted files.
+  `--files` over the 27 paths adds comment FAILs on comments that predate M5 in files M5 touched. Those are not lines M5 added.
+- **TDD Compliance.** The table is present, with a row for every function and test file. Its "No" rows are closed by the named
+  mutants and by the stub-tree red.
+
+### Checks run this round
+
+- **CR-3 (owed from M2).** `git grep -n TOKEN_LEAF_ROLES 2e36107 -- src` gives:
+  - the map in `engine.ts`;
+  - its one production reader, `unitStyles.ts` `roleOf`;
+  - the key test `engine.kind-maps`.
+
+  The context-dependent roles are resolved in the one function that reads the map, and no second role source exists:
+  `git grep -n "openMarker\|closeMarker"` outside tests gives only `engine.ts` and `unitStyles.ts`'s switch. **CR-3 RESOLVED.**
+  AN-6's table as a literal test is partial: `unitStyles.char-classes` has 9 cases, and `decorator.native-box-classes` compares the
+  frozen box.
+- **The M4 helper defect the implementer reports (Outstanding 5)**, confirmed by reading `visibleForm.ts` `walk` at `2e36107`.
+  `c` is in `STYLE_NAMES`, so the `n.name === 'c'` branch never runs. Whether it matters, measured by two mutants of
+  `preview.tsx`'s `inlineCode` arm against the whole offline suite in `unshare -rn`
+  (`m5-2e36107/mutation-table-inline-code.json`):
+  - Dropping the code text is KILLED by M4's own `canonFromDom.element-map` "inline code" and `preview.engine-tree-render` "draws
+    inline code", as well as by M5's `decorator.preview-equals`.
+  - Drawing a `<span>` in place of the `<code>` is KILLED by `preview.dom-equals-engine-tree` and `canonFromDom.element-map`.
+
+  So the preview's inline code is guarded at M4 without M5. CR-17 LOW below.
+- **The AC-5.8 exclusion (the implementer's second risk).** `editorChars` returns `null` for an input with any emoji element, so
+  the whole input is dropped, not only the element. Probe `crprobe.preview-equals-emoji` (copied as `.txt`), with its results in
+  `probe-emoji.out.txt`, in run order:
+  1. **Calibration.** With the exclusion in place, it compares 1,138 inputs on three surfaces and 1,098 on the two titles, 0
+     differing. Those are the implementer's counts.
+  2. **Emoji-bearing inputs only.** 1,107 on three surfaces and 1,147 on the titles, with about 549 differing.
+  3. **Emoji stripped on both sides.** A first strip also removed mention atoms, which was my error. The emoji-only strip leaves
+     295 of 1,107 differing on three surfaces, 310 on `embedTitle` and 182 on `embedTitleWithUrl`.
+
+  I sampled 15 (`probe-emoji-dump.out.txt`). Each sampled difference is one of two kinds:
+  - The Slate layer lifting a shortcode or an emoji into an emoji element inside a link label or inline code, where the preview
+    shows the text (`corpus:224`, `` `:smile:` ``; `gen:60`, `[:smile:](https://x.y)`; `gen:218`). That is `getInitialValue`'s
+    lift, which M5 does not change, and AC-6.5 (M6) re-decides it.
+  - My probe's handling of emoji that the preview draws as pills.
+
+  None was the decorator mis-styling a text character. So the stated reason holds on the sample, but the exclusion is wider than
+  its reason. CR-18 LOW below.
+- **Survivor m5-d2 (the quote prefix left out of the unit).** The implementer calls it equivalent "so far". I tested the input
+  class I expected to separate it: an open delimiter on a plain line, closed on a quote line, over seven inputs (`*`, `**`, a
+  backtick, `||`, `__`, and two mixed). Probe `crprobe.quote-prefix-unit`, with results in `probe-quote.out.txt`: the engine's
+  classes on the content characters are the same with and without `> `. So no separating input was found here either. I accept
+  the disposition as recorded, with the population bounded by these seven inputs and the implementer's.
+- **Orphans the colouring change leaves.**
+  - Width inference (`openingWidth`, `closingWidth`, `growMaskedLinkClosing`, `reduceAdjacentSyntax`) and `constructClassName`
+    are gone: `git grep -c` gives 0 at `2e36107`.
+  - `surrogateSourceOffsets` is still read, by `interactiveParser`, which serves `parseEmoji`. That is the lift, which is M6's.
+  - `markdown.interactive.parseContent`, `parseEmbedTitle` and `parseEmbedField` have no production reader. CR-19 LOW below.
+
+### Findings (Round 5)
+
+CR-17 LOW Round 5 (M4, capped: a stated limit for the Planner batch)
+- **Location**: `src/utils/markdown/__tests__/helpers/visibleForm.ts`, `walk`, its `STYLE_NAMES` arm before its `n.name === 'c'`
+  arm, at `2e36107` (and at M4's `e58f2ed`).
+- **Class**: a branch made dead by an earlier, broader arm. So a comparison built on the visible form cannot see one construct, an
+  inline code node's text and style on the DOM side.
+- **Enumeration**: `STYLE_NAMES` is the one set that overlaps a later named arm in `walk` (`git grep -n "STYLE_NAMES\|n.name ==="
+  2e36107 -- src/utils/markdown/__tests__/helpers/visibleForm.ts`). Its readers are `preview.dom-equals-engine-tree`,
+  `discordPreview.legacy-equality` and `decorator.preview-equals`, the last of which works around it with `codeWithKids`. The
+  predicate does not see an arm shadowed by a condition spelled another way.
+- **Effect**: the preview's inline code is still guarded, by two M4 tests (measured above). This is why it is LOW. Neither of M4's
+  comparisons would see an inline-code text difference between the DOM and the engine tree.
+- **Required Action**: test `n.name === 'c'` before the style arm, or take `c` out of `STYLE_NAMES`. Then delete
+  `decorator.preview-equals`'s `codeWithKids`.
+- **Falsity signature**: `visibleFromDom(drawnDom('embedDescription', '\`a\`'))` returns the unit `a` with style `c`, where today
+  it returns `[]`.
+
+CR-18 LOW Round 5 (M5, capped: a stated limit for the Planner batch; carrier: M6's round)
+- **Location**: `decorator.preview-equals.test.tsx`, `editorChars`, its `return null` for any line with a non-text child, at
+  `2e36107`.
+- **Class**: a criterion exclusion whose predicate drops the whole input, where its stated reason, "an element carries no
+  decoration", covers only the element's character.
+- **Enumeration**: the probe above. It excludes 1,107 to 1,147 inputs per surface, out of 2,378. The hidden differences are 295,
+  310 or 182 per surface after stripping emoji on both sides, and the sampled 15 are the Slate layer's lift or probe artifacts. The
+  population is not measured past the sample, so that is QA's.
+- **Required Action**: at M6, when AC-6.5 makes the lift read the engine's parse, AC-5.8's comparison drops only the element's
+  character (on the preview side, the emoji's), not the input. Every remaining difference is then either a finding or a named
+  family.
+  - The instrument is `m5-2e36107/crprobe.preview-equals-emoji.test.tsx.txt`.
+  - Falsity signature: the comparison counts at least 2,200 inputs per surface, and a lifted shortcode inside inline code, as in
+    `corpus:224`, is either drawn as the preview draws it or named.
+- **Risks row**: the falsifier of AC-5.8's "for every input".
+
+CR-19 LOW Round 5 (M5, capped: a stated limit for the Planner batch)
+- **Location**: `src/utils/markdown/index.tsx`, the `interactive` object's `parseContent`, `parseEmbedTitle` and `parseEmbedField`,
+  and `interactiveWithoutLinks`, at `2e36107`.
+- **Class**: production members whose last production reader this change removed, kept alive by a test.
+- **Enumeration**: `git grep -n "interactive\.parse<Name>" 2e36107 -- src` for each name:
+  - `parseContent`: 1 hit;
+  - `parseEmbedTitle`: 1 hit;
+  - `parseEmbedField`: 0 hits.
+
+  Both hits are `rules.multi-line-code-block.test.ts`, and the call sites read them at `b04c09f`. `parseEmoji` is excluded: it is
+  live, serving the lift. The predicate does not see a reader through a computed member name.
+- **Required Action**: delete the three parsers and `interactiveWithoutLinks`, with the cases of `rules.multi-line-code-block`
+  that drive them. Do that at M6, when the lift leaves `interactiveParser`, or with the next change to `index.tsx`. There are no
+  production callers, so no caller changes. If they are kept, the test exercises code nothing ships.
+
+### Verdict, Round 5
+
+**APPROVED_WITH_COMMENTS** for M5 at `2e36107`.
+- CR-3 is RESOLVED.
+- CR-17, CR-18 and CR-19 are LOW stated limits under the cap, for the Planner batch. CR-18's carrier is M6's round.
+- M5 goes to QA Phase 2.
+
 ## Verdict
 
 **Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
-- M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`).
+- M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`).
+- M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`). CR-17 is a LOW stated limit and does not move it.
 - M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
 - M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
 
@@ -844,6 +1019,7 @@ Open LOWs, each with its carrier:
 - CR-12 (M4) and CR-14 (M3): sent to `planner-019` for the Planner batch as stated limits (cap block 00:49Z).
 - The pre-existing `GuildProvider.tsx:162` lint FAIL: the implementer's follow-up.
 - CR-11: M4 Outstanding -1, not taken at `e58f2ed`; it is now a stated limit under the caps, sent with the batch above.
+- CR-17, CR-18 and CR-19 (Round 5): sent to `planner-019` for the Planner batch as stated limits. CR-18's carrier is M6's round.
 - CR-4's remainder, CR-8 and CR-9: M3 Outstanding 11.
 - CR-7's split and re-keying: M3 Outstanding 11. Its M6 deletion: plan R-30.
 - CR-5's preferred form (a zero cell fails the coverage run): M3 Outstanding 11.
@@ -878,6 +1054,8 @@ member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA
 
 Round 2's Assumption Not Checked is closed at Round 4: it held for list type and link kind, and its residue is CR-12.
 
+Round 5: This review assumes that the run-unit decorator's per-edit cost in a real browser is of the same order as the node timing the implementer recorded (median 4.87 ms over a 4,160-character, 35-line unit), and does not test it. The timing was read under vitest in node, not in Chrome with slate-react's render loop. Falsity signature: in Chrome on a local production build, a decorate pass over AC-5.7's 4,096-character multi-line unit, profiled during typing, takes over 16 ms (one frame), or typing shows visible input lag. Owner: UAT, at AC-5.5's real-browser walk (QA register B-3), which runs on that build.
+
 Round 3 sub-entry at `81c68b2`: This review assumes that the whole offline suite passes at `81c68b2` (the implementer reports 223 files, 3,272 of 3,272, exit 0, on a rerun after one load timeout in `preview.engine-not-ready`), and does not test it. I ran only `discordRouting.predicates` offline and the live routing file. Falsity signature: in an export of `81c68b2`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,272. Owner: QA's refresh pass on M3.
 
 Round 3 sub-entry at `d6aab03` (superseded by `81c68b2`'s): This review assumes that the whole offline suite passes at `d6aab03` (the implementer reports 223 files, 3,268 cases, exit 0), and does not test it. I ran only the drift and rich-rule files offline and the two live drift files. Falsity signature: in an export of `d6aab03`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,268. Owner: QA's refresh pass on M3.
@@ -899,27 +1077,27 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
   - the refresh pass on M3's `380e82d` (QAF-32 and QAF-33);
   - the M3 items as before.
 - Planner (`planner-019`): CR-11, CR-12, CR-14 and CR-16 as stated limits in the Planner batch (CR-13 is resolved).
-- M5 implementer and this review's M5 round: CR-3.
+- M6's implementer and this review's M6 round: CR-18 (retire AC-5.8's whole-input emoji exclusion once AC-6.5 lands) and CR-19 (the dead parsers, if not taken earlier). CR-3 is RESOLVED at Round 5.
+- QA (`qa-019`): Phase 2 on M5 at `2e36107`. That covers the offline suite (Round 5's Assumption Not Checked is UAT's) and CR-18's population past the sample.
 
 ## Resumption State
 
-Updated (QAF-38 confirmed at `81c68b2`, 2026-11-24T02:42Z); earlier update 2026-11-24T02:07Z, after the CR-15 confirmation at `d6aab03`.
+Updated 2026-11-24T03:58Z, after Round 5 (M5).
 
 - **Done.**
   - **M2:** closed, APPROVED_WITH_COMMENTS at `7dcedc9`.
-  - **M3:** APPROVED_WITH_COMMENTS at `81c68b2`, with QAF-38's fix confirmed. CR-15 is RESOLVED, and CR-16 LOW is a stated
-    limit (R-54). It is with `qa-019` for the refresh pass.
+  - **M3:** APPROVED_WITH_COMMENTS at `81c68b2`.
   - **M4:** APPROVED_WITH_COMMENTS at `e58f2ed`.
-- **Next.**
-  - M5 at its document's `Handoff-At`, after steering's hand-off. It owes:
-    - CR-3: one leaf-role source, `git grep -n TOKEN_LEAF_ROLES`;
-    - an account of the offline case count, 3,460 at `b04c09f` against 3,268 at `d6aab03`.
-  - M6 after that.
-  - All are capped. A severity floor is excepted.
+  - **M5:** APPROVED_WITH_COMMENTS at `2e36107`. CR-3 is RESOLVED, and CR-17, CR-18 and CR-19 are LOW stated limits.
+- **Next.** M6 at its document's `Handoff-At`, after steering's hand-off.
+  - It owes CR-18: retire AC-5.8's whole-input emoji exclusion once AC-6.5's lift reads the engine. Re-run
+    `verification/019/code-review/m5-2e36107/crprobe.preview-equals-emoji.test.tsx.txt`.
+  - It owes CR-19 if the dead parsers were not taken earlier.
+  - It is capped. A severity floor is excepted.
 - **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine`, past `d6aab03`, and I never move
-  it.
-- **Local state.** The scratchpad `qaf36/` holds work and output folders and the export `xd6/`, all disposable. Everything cited is
-  in `verification/019/code-review/qaf36-b04c09f/`, `cr15-d6aab03/` and `qaf38-81c68b2/`.
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `2e36107`, with another
+  session's uncommitted M6 work in `withNormalizeNode.ts`. I never move it.
+- **Local state.** The scratchpad holds `qaf36/` and `m5/`, including the export `m5/x2e/` with the probe files, all disposable.
+  Everything cited is under `verification/019/code-review/` (`qaf36-b04c09f/`, `cr15-d6aab03/`, `qaf38-81c68b2/`, `m5-2e36107/`).
 - **Questions sent, and to whom.** None open.
-- **Cache-warm wake.** Armed: a one-shot for 02:42 local.
+- **Cache-warm wake.** Armed as a one-shot (04:33 local).

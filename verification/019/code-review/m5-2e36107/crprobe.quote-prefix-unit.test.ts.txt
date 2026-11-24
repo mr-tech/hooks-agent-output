@@ -1,0 +1,35 @@
+import { createEditor, Text } from 'slate';
+import { beforeAll, it, vi } from 'vitest';
+import { appendFileSync } from 'node:fs';
+
+import decorator from '../decorator';
+import getInitialValue from '../getInitialValue';
+import { styleUnit } from '../unitStyles';
+
+import type { Descendant, Element, Range } from 'slate';
+
+import markdown from '~/utils/markdown';
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const INPUTS = ['*a\n> b*', '**a\n> b**', '`a\n> b`', '||a\n> b||', 'a *b\n> c* d', '> a\n*b\n> c*', '__a\n> b__'];
+
+beforeAll(async () => { await startEngine(); });
+
+it('probe', () => {
+  for (const text of INPUTS) {
+    const value = getInitialValue(text, markdown.interactive.parseEmoji, false) as Element[];
+    const editor = createEditor();
+    editor.children = value as Descendant[];
+    const decorate = decorator(editor, true, false, 'content');
+    const lines = value.map((line, li) => ({ type: line.type, prefix: (line as { quotePrefix?: string }).quotePrefix, marks: line.children.flatMap((child, ci) => {
+      if (!Text.isText(child)) return ['<el>'];
+      const ranges: Range[] = decorate([child, [li, ci]]);
+      return [...child.text].map((ch, i) => ch + ':' + (ranges.filter((r) => r.anchor.offset <= i && i < r.focus.offset).flatMap((r) => [...(r.syntax ? ['S'] : []), ...((r as unknown as { classNames: string[] }).classNames)]).join('+') || '-'));
+    }) }));
+    const joinedWith = styleUnit('content', text.replace(/\n> /g, '\n> '))?.map((s, i) => text[i] + ':' + ([...(s.syntax ? ['S'] : []), ...s.classNames].join('+') || '-'));
+    const joinedWithout = styleUnit('content', text.replace(/\n> /g, '\n'))?.map((s, i) => text.replace(/\n> /g, '\n')[i] + ':' + ([...(s.syntax ? ['S'] : []), ...s.classNames].join('+') || '-'));
+    appendFileSync('/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/m5/probe-quote.out', JSON.stringify({ mode: process.env.CR_MUT ?? 'head', text, lines, engineWithPrefix: joinedWith, engineWithoutPrefix: joinedWithout }) + '\n');
+  }
+});
