@@ -1171,3 +1171,11 @@ AC-6.5 again, that is its third consecutive revision, and this block is the deci
 exactly the remedy above, and any further AC-6.5 gap below HIGH becomes a stated limit.
 QAF-41 LOW (AC-6.7's exclusion mutants) is a stated limit under the cap, unless the planner folds it in the same pass at no extra round.
 B-9 (AC-6.7's UAT walk) is carried to UAT's brief. Not put to him: this is a test-design call inside his D-21 choice, not a product choice.
+
+## 2026-11-24T04:30Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (04:29Z) asked for `/checkpoint`: about 338K by `cc-usage.py sessions`, past the 225K steering threshold. The
+Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, rewritten whole, 8.1 KB).
+- Plan 019 is at Revision 15 (`79eeced6`), and all three gates passed it. M2, M3 and M4 are done.
+- M5 is QA Failed on QAF-39 MEDIUM, with the fix round next, to code review first. M6 is being built.
+- Standing check `8e3c1eb4` (04:39Z). Nothing waits on him, and `OWNER-QUEUE.md` is empty.
