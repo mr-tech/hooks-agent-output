@@ -1111,3 +1111,26 @@ ids are unaffected. The caller-side bound is lodged in the statbot record `INBOX
 Closed: 3039bc8a `Addressed`, with B-1 PASS terminal and item 2 withdrawn (`f346639c`). The hardening task b1fdd41a is `Addressed` as its record
 names (`fix-api-secret-compare-rulings.md:170`; items 2, 3 and 5 released at `0c14d5b`, item 4 to c07b0565; `9e6c7253`). `OWNER-QUEUE.md` was rewritten
 whole and holds no item.
+
+## 2026-11-24T04:00Z — selection: plan 019 M6, Enter on a `> ` quote line (put 04:0xZ, answered 04:00Z); architect respawned
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T04:00Z — steering-hooks-fixer`. The wording is this thread's. It arose from
+`implementer-019`'s question (03:5xZ): its (a) ends the quote on Enter, "as in Discord's own box"; its (b) keeps the continuation and fixes
+paste. Options:
+- *Agent: follow Discord (Recommended)*: "Enter keeps the quote going, as in Discord's box; a paste keeps the text exactly as pasted, as
+  Discord does; typing '> ' on a carried line no longer doubles it (what Discord does there wasn't checked). Cost: one plan revision, because
+  the plan's typing check expects Enter to end the quote, re-read once by the three reviewers; the rest of M6 carries on."
+- *Agent: Enter ends the quote*: "The implementer's proposal… No plan change, and all its checks pass as written. Differs from Discord's
+  box: anyone who expects the quote to carry on has to type '> ' again."
+**Chosen by selection: follow Discord.** Enter after a `> ` line continues the quote. A paste keeps its text exactly. Typing `> ` at the start
+of a carried line does not save `> > `. This is a criterion change to M6's typed-edit limb (AC-3.3's typed limb and the held-out lists), so
+`planner-019` is commissioned for one revision. The gates re-read its delta.
+Premises:
+- The implementer's "as in Discord's own box" is REFUTED by `qa-019`'s walk on the test server, 03:56–03:58Z
+  (`verification/019/qa/discord-quote-probe/walk.md`, record `1e84abe1`). After `> a` and Shift+Enter, `b` is drawn inside the quote, in the box
+  and when sent. A pasted `> a⏎b` keeps line 2 plain. The raw text was inferred from the rendering and not read.
+- The site's two bugs (the paste rewrite, the `> > ` double) are the implementer's run in a `2e36107` export, not re-run by this thread. The
+  option text marks them so.
+- "Four revisions since approval" is Revisions 10 to 13.
+**architect-019** was spawned fresh at 04:0xZ (`tmux-agent spawn slate-formatting architect architect-019 …`, exit 0; brief
+`steering/019-brief-architect.md`, `bfd216e2`) for Revision 13's delta read. Its pane was read past the start prompt, and it was working.
