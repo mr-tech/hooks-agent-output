@@ -1310,20 +1310,32 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-Updated 2026-11-24T06:54Z, after Round 6 (M6).
+Written 2026-11-24T07:07Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, about 386K tokens).
 
 - **Done.**
   - M2 at `7dcedc9`, M3 at `81c68b2`, M4 at `e58f2ed`, M5 at `2e36107` (with QAF-39 at `cf126ea`) and M6 at `119471f`: all
     APPROVED_WITH_COMMENTS.
-  - Open stated limits: CR-17 (R-61), and CR-20 MEDIUM and CR-21 LOW (Round 6).
-- **Next.**
-  - CR-20: if the owner lifts the cap for it, its fix confirmation is a Round 6 sub-entry. Re-run
-    `verification/019/code-review/m6-119471f/crprobe.normalize-cost-tip.test.ts.txt` at the fix SHA, and check the counting case
-    fails under the per-line form.
-  - Then M7 is devops's. This review has no M7 round unless steering asks for one.
+  - Plan rows: R-53, R-55, R-57, R-60, R-73 and R-77. The planner registered the findings: R-54, R-61 and R-78.
+  - CR-20's short-message claim is corrected by the reconcile note in Round 6, and withdrawn to steering in the same channel.
+- **Next (pending).** The CR-20 fix confirmation, as a **Round 6 sub-entry**. The owner lifted the cap for CR-20 only ("fix it
+  before release", rulings block 07:05Z, record `3ec39942`). The order is the planner's revision and its gates, then the
+  implementer's fix round, then this sub-entry.
+  1. Scope the fix diff at its `Handoff-At`. Read it through `git show <sha>:<path>`.
+  2. Re-run `verification/019/code-review/m6-119471f/crprobe.normalize-cost-tip.test.ts.txt`, copied into an export of the fix SHA
+     with its output path re-pointed, at 35, 100, 200, 400 and 1,000 lines. Compare it with the base and tip numbers in Round 6.
+  3. Re-run the both-trees differential (`crprobe.decorator-both-trees.test.ts.txt`, with `decoratorM5.tsx` and `unitStylesM5.ts`
+     from `2e36107`, per that folder's `README.txt`), with its m5-d2 control, if the fix touches `runUnit.ts` or `decorator.tsx`.
+  4. Check the counting case, unit builds per pass, is red under the per-line form (a mutant restoring
+     `handleEditor`'s per-line `resolveEmoji` loop), using `mutation-run.py` in `unshare -rn`.
+  5. Re-run the sweep for CR-20's class: `git grep -n "unitAround(" <sha> -- src`. Each hit gets a disposition.
+  6. Then the M6 changelog row, the plan row by `plan-row-commit.js` (check `git diff --quiet` on the plan first), and messages to
+     `qa-019` (the hand-off), the implementer and the planner.
+  After that, M7 is devops's. This review has no M7 round unless steering asks.
 - **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `119471f`. I never move it.
-- **Local state.** The scratchpad holds `qaf36/`, `m5/` and `m6/`, with the exports, all disposable. Everything cited is under
-  `verification/019/code-review/`.
-- **Questions sent, and to whom.** CR-20's cap question, to `steering-hooks-fixer`.
-- **Cache-warm wake.** Armed as a one-shot.
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `119471f`. I never move it. The
+  record is on `master`.
+- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds `qaf36/`, `m5/` and `m6/`, with exports and
+  probe copies, all disposable.
+- **Evidence run but not recorded.** None. Everything cited is under `verification/019/code-review/`.
+- **Questions sent, and to whom.** None open. CR-20's cap question is answered.
+- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
