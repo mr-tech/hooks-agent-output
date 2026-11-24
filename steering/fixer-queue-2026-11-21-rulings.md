@@ -1361,3 +1361,18 @@ pointer in its wake). Not put to him: the criterion's own words answer it, and i
   seam fold names it. This thread does not rule otherwise.
 - `implementer-019` is at 452,801 tokens (`cc-usage.py sessions`, 09:09Z), past its 225K threshold, and at its hand-off seam. It is asked for
   `/checkpoint`, then cleared.
+
+## 2026-11-24T09:22Z — plan 019 SL-22: fence open and close keystrokes; a candidate throw under refutation
+
+- `implementer-019` checkpointed (`4063c3e3`) and was cleared, `tmux-agent clear` exit 0.
+- QAF-51 is Outstanding 2's throw, pre-existing at `af3d95a` (R-93 `50715407`, handoff 124c6099). Once QA's Phase 2 browser look sets its
+  severity, it is put to him: fix it inside 019 or leave it to the handoff (standing entries 2 and 3).
+- **The fence timing helper's result: a candidate, not yet established.** It was run on a bare `editorHolding` editor with no React, at
+  `42128cd`, surface `content`. Its records are in this thread's scratch `fence-time/` (`raw-run{1,2,3}.txt`; its control, a plain insert at
+  2,048 lines, gave 5.7–6.3 ms).
+  - Opening a fence at line 2 costs a median 67–141 ms at 2,048 lines; closing one costs 314–474 ms.
+  - **Every** open and close keystroke threw Slate's 126-iteration error, at 200 lines as well (5–44 ms there).
+  - The helper did not establish that this happens in the mounted editor, nor whether it is pre-existing.
+- A second `general-purpose-sonnet` helper is trying to refute it. It mounts the real editor at `42128cd`, re-runs the keystrokes at `af3d95a`,
+  `2e36107`, `119471f` and `42128cd`, and reads `git diff --stat af3d95a origin/master` over the editor paths. On its result, this
+  thread routes the finding to code review and QA, and puts the release choice to him if the result requires it (block 07:26Z).
