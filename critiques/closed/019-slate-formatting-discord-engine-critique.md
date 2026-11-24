@@ -3,16 +3,20 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 7 pass 1 on plan revision 13: APPROVED, and closed at that pass. F-1 to F-33, F-36 and F-37 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12) and F-39 (SL-13) are Planner batch rows in the plan (R-32, R-41). F-40 is closed as landed-by-author: a stated limit for the plan's Planner batch under the cap on M6. A later revision that changes a criterion's text opens cycle 8."
-Artifact-Revision: 13 — read as the delta b0af4dc3..f9b406d6 (cycle 7 pass 1)
-Reviewed-At: "f9b406d6 — repos=agent-output; website read at 2e36107"
+Status-Detail: "Cycle 8 pass 1 on plan revision 14: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37 and F-40 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12) and F-39 (SL-13) are Planner batch rows in the plan (R-32, R-41). F-41 is closed by property with stated limit SL-15, and F-42 carries stated limit SL-16; both close as landed-by-author, stated limits for the plan's Planner batch under the cap on M6. A later revision that changes a criterion's text opens cycle 9."
+Artifact-Revision: 14 — read as the delta f9b406d6..2c3c8d1a (cycle 8 pass 1)
+Reviewed-At: "2c3c8d1a — repos=agent-output; website read at 2e36107"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 13 (`f9b406d6`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 13 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 14 (`2c3c8d1a`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 14 as deltas.
+**Read at cycle 8 pass 1**: the plan's diff `f9b406d6..2c3c8d1a`; effort rulings block 2026-11-24T04:00Z; the plan at
+`2c3c8d1a` at every line naming UAT as a walker, the Reading Order's `uat` row and Testing Strategy's walk list; website at
+`2e36107`: `src/components/SlateEditor/utils/withNormalizeNode.ts` at `quotePrefixOf` and the `editor.apply` override;
+`verification/019/qa/discord-quote-probe/walk.md` (record `1e84abe1`).
 **Read at cycle 7 pass 1**: the plan's diff `b0af4dc3..f9b406d6`; effort rulings block 2026-11-24T03:55Z; website at `2e36107`:
 `src/utils/markdown/__tests__/helpers/discordOracle.ts` at its import and export lines, and the presence of
 `helpers/data/discordNativeBox.json`; the implementer's probe outputs `verification/019/impl/m6-box-emoji-probe-2e36107.json`
@@ -79,7 +83,48 @@ for the 15,480 figure.
 | 2026-11-24T04:00 | planner-019 (message naming revision 13 at `f9b406d6`) | cycle 7 pass 1: plan revision 13 | Cycle 7 opens because revision 13 changes AC-6.5's text. Depth: delta-bounded; the delta `b0af4dc3..f9b406d6` is 139 added and 53 removed lines (`git diff --numstat`, 25 commits, 24 of them registrations and Status writes), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-18 to D-21, and X-27 as a Planner batch row's future Exclusions row. The diff, read whole, changes no criterion but AC-6.5; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register rows D-18 to D-21, the two cap notes beside the register and Planner batch rows. Artifact changes: AC-6.5's expected spans come from AC-2.1's oracle helper on every surface, frozen as literals, with a hand-written content control in place of the box's and QAF-24's mask control kept; the box entry condition is recorded false and EC-7 is retired. New finding: F-40 (LOW), a stated limit under the cap on M6. Verdict APPROVED. |
 | 2026-11-24T04:00 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-40 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
+| 2026-11-24T04:06 | planner-019 (message naming revision 14 at `2c3c8d1a`) | cycle 8 pass 1: plan revision 14 | Cycle 8 opens because revision 14 adds AC-6.7 and changes AC-3.3's and AC-6.5's text. Depth: delta-bounded; the delta `f9b406d6..2c3c8d1a` is 67 added and 7 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations), fully readable as a diff. It adds one criterion to M6 and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added AC-6.7 and D-22. The diff, read whole, changes AC-3.3's typed limb, AC-6.5's control and adds AC-6.7; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-22 and Planner batch rows. Artifact changes: AC-6.7 is D-22's decision table for Enter, a paste and a typed `> ` on a carried line; AC-3.3's typed drive follows it; AC-6.5's control gains the cross-line bold member. Findings addressed: F-40 RESOLVED. New findings: F-41 (LOW), the second instance of F-35's shape, closed by property with stated limit SL-15, the stop authority firing; F-42 (MEDIUM) with stated limit SL-16. Verdict APPROVED. |
+| 2026-11-24T04:06 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-41 and F-42 close as landed-by-author, their discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 8, pass 1.** The stop authority fired on one shape (F-41). The hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings. Revision 14 adds one criterion to M6 on his 04:00Z selection, which the
+option text priced as one revision, and changes the typed drive that selection made wrong.
+
+M6's quote-carry change and its four red cases are released by this gate, read with SL-16. The architect's and QA's reads of
+revision 14 are separate.
+
+What holds in revision 14's delta:
+- **D-22** carries the option text of effort rulings block 04:00Z word for word, with the option not chosen. AC-6.7 names
+  the row.
+- **The table covers every line kind against every action**: four line kinds by three actions, with "does not arise" where
+  no carried marker can exist.
+- **The two Discord cells are what QA's walk shows**: after `> a` and a line break, `b` is drawn inside the quote (step 1),
+  and a pasted `> a⏎b` leaves line 2 plain (step 3). The walk says the raw text was inferred from rendering, and the plan's
+  residue says the same and rests no criterion on it.
+- **The Enter column's code claim holds.** At `2e36107`, `withNormalizeNode.ts`'s `editor.apply` override passes a split
+  line's `quotePrefix` on with any leading `>>> ` removed.
+- **The typed drive can still fail.** It removes a carried marker only where the table carries one, so a marker carried
+  anywhere else breaks the identity. Its removal gesture has a positive control.
+- **Three mutants** are named, one per column, and the expected values are literals composed from the keys sent.
+- **F-40 is resolved**: AC-6.5's control lists each emoji form on the second line of a bold run, and the owed re-verdicts
+  cell no longer says EC-7 is pending.
+
+**Stop authority: F-41.** AC-6.7's walk is "on UAT's local build", and neither the Reading Order's `uat` row nor Testing
+Strategy's walk list names AC-6.7. That is F-35's shape again, which was raised on AC-4.4 at cycle 4 and parked for the seam
+fold. It is not sent back. The class is stated as a property over every criterion that names UAT as its walker, checked in
+this pass, and its gaps are stated limit SL-15 with its bearer.
+
+**F-42** (MEDIUM) is a stated limit under the cap on M6 (effort rulings block 00:49Z): the table leaves three states to the
+implementer, the first of which is how a user ends a continued quote.
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+No milestone is marked `PREMISE-STALE` by this delta. `Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 lines
+without `[RESOLVED]` or `[CLOSED]`, counted in memory over the plan at `2c3c8d1a`). Routed to the owner: nothing.
+
+The cycle 7 verdict follows, as written at that pass.
 
 **APPROVED — cycle 7, pass 1.** Neither the stop authority nor the hard stop fired (pass 1 of 15 in this cycle). Pricing: sized
 to the ask plus his rulings. Revision 13 replaces one expected-value source that turned out not to exist, on his 03:55Z
@@ -388,6 +433,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 8 pass 1: this pass assumes that the editor's own test for a quote line picks the same lines as AC-6.7's definition, "a
+line whose saved text begins with `> `", and does not test it. At `2e36107`, `quotePrefixOf` in `withNormalizeNode.ts`
+matches `^ *> `, which admits leading spaces, and nothing was run in this pass. If it is false, a line such as ` > a` carries
+a marker where the table carries none, and AC-3.3's typed cases holding such a line go red at M6 with no hold-out to excuse
+them. The implementer owns closing it at M6; a red case of that form goes to the planner, since the table and the editor's
+block layer would then disagree on what a quote line is.
+
 Cycle 7 pass 1: this pass assumes that the engine's `parse` output, which is all the helper calls today, lets the helper place
 each emoji in the raw text by itself, and does not test it. The emoji-span join is M6's to write and does not exist at
 `2e36107`. If it is false, the helper has to call the engine's `parseLossless`, the same function the adapter calls for the
@@ -465,7 +517,52 @@ None.
 
 None.
 
+### Closed at cycle 8 pass 1
+
+F-41 LOW cycle 8 pass 1 — closed by property with stated limit SL-15; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of F-35 in this document
+- **Title**: AC-6.7's walk names UAT's build, and nothing UAT reads routes to it.
+- **Location**: plan revision 14, AC-6.7 "Human-observable form"; Reading Order, the `uat` row; Testing Strategy, "Probe
+  versus gate".
+- **Description**: the walk is "before release on UAT's local build (AC-6.3's provision step)". The `uat` row names AC-2.5,
+  AC-4.2 and AC-6.3. The walk list names AC-2.5, AC-4.2, AC-5.5 and AC-6.3 (QA register B-1 to B-4). AC-6.7 is in neither
+  and has no register row.
+- **The property, in place of a revision**: every criterion whose text names UAT as its walker is in the `uat` Reading Order
+  row and in Testing Strategy's walk list with its QA register row. Its domain, from the plan's own text at `2c3c8d1a`, is
+  six criteria: AC-2.5, AC-4.2, AC-4.4, AC-5.5, AC-6.3 and AC-6.7. It holds for AC-2.5, AC-4.2 and AC-6.3. It fails for 3 of
+  the 6: AC-4.4 (F-35, registered as B-7, its text parked for the fold), AC-5.5 (in the list as B-3, absent from the row)
+  and AC-6.7 (absent from both).
+- **SL-15**: until the seam fold, QA's register is UAT's walk list, not the `uat` row. QA registers AC-6.7's walk at its
+  re-key on revision 14. At the fold, the row and the list name all six. Where the build cannot sign in, the walk falls to
+  the production check AC-6.7 already names. QA bears finding a walk the register lacks, and tells the planner.
+- **Residue**: a walk QA's register holds that no criterion names (B-8, the `beforeinput` paste branch) is outside this
+  property.
+
+F-42 MEDIUM cycle 8 pass 1 — closed as landed-by-author, with stated limit SL-16; discharging document: the plan's Planner batch
+- **Title**: AC-6.7's table leaves three states to the implementer.
+- **Location**: plan revision 14, AC-6.7's table and "The typing column is a replacement"; AC-3.3, the typed limb's drive.
+- **Description**: (1) Ending a continued quote. After Enter on a `> ` line the new line holds a carried marker, and the
+  only way out is to remove it. AC-3.3 calls that "a gesture the implementer names", with a positive control. The table has
+  no cell for it and the human-observable form does not show it, so how a user leaves a quote is decided in code and walked
+  by nobody. (2) "Carried" is a state the saved text does not show: a line holding a carried `> ` and a line where the user
+  typed `> ` read the same. The table says what the first typed `> ` does to a carried marker and not when a marker stops
+  being carried. (3) Whether the line that opens a `>>>` block is itself "inside" the block is not said; the code at
+  `2e36107` strips the `>>> ` from what it carries, so it treats it as inside.
+- **Impact**: (1) is 1 of the 2 things a user does next on a continued line, and it has no criterion. (2) and (3) are
+  readings the implementer and QA could take differently.
+- **SL-16, the readings M6 builds to**: (1) the implementation document names the gesture, QA's register walk for AC-6.7
+  includes ending a quote with it, and a user report that a quote cannot be ended goes to AC-6.7. (2) A marker is carried
+  from the split until the line's text next changes; a `> ` the user typed by hand is not carried, and a second `> ` typed
+  after it is content. (3) The opening line of a `>>>` block is inside the block. The M6 implementer and QA at Phase 2 bear
+  them. Not a severity floor: each reading has an AC-3.3 typed case that fails when it is built the other way, except (1),
+  whose control shows the gesture works.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2; the planner sends SL-16 to
+  the implementer and QA now, since it bears on the held quote-carry code.
+
 ### Closed at cycle 7 pass 1
+
+F-40 LOW cycle 7 pass 1 — RESOLVED at cycle 8 pass 1 — AC-6.5's control lists each form on the second line of a bold run that opened on the first; the owed re-verdicts cell says EC-7 was folded at revision 6 and retired at revision 13. Plan revision 14.
+
+The finding as written at cycle 7 pass 1:
 
 F-40 LOW cycle 7 pass 1 — closed as landed-by-author, with stated limit SL-14; discharging document: the plan's Planner batch
 - **Title**: the hand-written control names no member that crosses a line break, and one owed re-verdicts cell still folds
@@ -699,6 +796,11 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 8 pass 1: the plan was read as `git diff f9b406d6 2c3c8d1a` saved in this session's scratchpad. The list of
+  UAT-walked criteria came from a pattern run in memory over the plan at `2c3c8d1a` and was read line by line. Nothing was
+  installed or run beyond reads. The architect's and QA's reads of revisions 13 and 14 were not read before this pass was
+  written.
+
 - Cycle 7 pass 1: the plan was read as `git diff b0af4dc3 f9b406d6` saved in this session's scratchpad. The probe tally ran
   in memory. Nothing was installed or run beyond reads. The architect's and QA's reads of revision 13 were not read before
   this pass was written.
@@ -731,7 +833,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 7 pass 1 (APPROVED on plan revision 13, `f9b406d6`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-40 with SL-14 for the Planner batch) and `implementer-019` (AC-6.5's literals are released by this gate, read with SL-14). M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 8: read the plan as the `git diff` from `f9b406d6` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Closed at cycle 8 pass 1 (APPROVED on plan revision 14, `2c3c8d1a`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-41 with SL-15 and F-42 with SL-16 for the Planner batch) and `implementer-019` (M6's quote-carry change is released by this gate, read with SL-16). M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 9: read the plan as the `git diff` from `2c3c8d1a` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
