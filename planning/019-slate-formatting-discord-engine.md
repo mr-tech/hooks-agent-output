@@ -20,7 +20,10 @@ Status-Detail: >-
   Revision 13 (D-21, block 03:55Z) replaces AC-6.5's expected-span source, because Discord's box exposes no emoji spans. The
   oracle helper is now the source on every surface, frozen, with hand-written literals as its content control, and EC-7 is
   retired. AC-6.5's literals wait for the critic, QA's re-key and the architect's delta read. The rest of M6 proceeds.
-Revision: 13
+  Revision 14 (D-22, block 04:00Z) adds AC-6.7: Enter continues a `> ` quote, a paste is kept exactly, and a typed `> ` on a
+  carried line replaces the carried marker. AC-3.3's typed drive follows it. It also folds the critic's F-40 into AC-6.5's
+  control. M6's quote-carry code and its four red cases wait for the three gates on revision 14.
+Revision: 14
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -111,6 +114,7 @@ Lane: full
 | 2026-11-24T03:57 | 13 | planner-019 | Triggered by D-21 (block 03:55Z, record `5781bb73`), and by implementer-019's probe at `2e36107` showing that Discord's box exposes no emoji spans, which M6's entry condition routes to the planner. AC-6.5's expected spans now come from AC-2.1's oracle helper on every surface, frozen as literals, with hand-written literals replacing the box's content control and QAF-24's mask control kept. EC-7 is retired, since the source is now the engine D-13 names. Candidate (B), the legacy formatter, was not taken because it is not the formatter D-13 chose, and its disagreeing inputs would be listed, not checked. Candidate (C) alone would turn the property into examples, so it serves only as the content control. Scope delta: AC-6.5 changes its expected-value source and entry conditions, and no other milestone moves. Since approval, revisions 10 to 13 have each been read once by the three gates, and this one triggers one round of each. The plan still delivers what was first asked. |
 | 2026-11-24T04:00 | R-60 | code-reviewer-019 | Code review Round 5, milestone-scoped (M5 at website `2e36107`, AC-5.1 to AC-5.8 as Revision 12 states them; AC-5.5 is UAT's): **APPROVED_WITH_COMMENTS**. Revision 13 changes AC-6.5 only and no AC-5 line, so the verdict does not expire. CR-3 is RESOLVED (one leaf-role source). Three LOW stated limits for the Planner batch: CR-17 (M4's `visibleForm` dead inline-code arm; the preview's inline code is still guarded by M4's tests, 2 of 2 mutants killed), CR-18 (AC-5.8's emoji exclusion drops whole inputs; carrier: M6's round, after AC-6.5) and CR-19 (three dead interactive parsers). Record `fdb41883`. The plan's Status is not moved. |
 | 2026-11-24T04:00 | R-61 | planner-019 | Registered CR-17, CR-18 and CR-19 LOW as Planner batch rows, stated limits under the cap (`code-review/019-slate-formatting-discord-engine-code-review.md` § "Findings (Round 5)", record `fdb41883`). CR-18 and CR-19 are sent to implementer-019 and qa-019 for M6's round. |
+| 2026-11-24T04:04 | 14 | planner-019 | Triggered by D-22 (block 04:00Z, record `603fb039`) on implementer-019's quote question, with QA's Discord walk (`1e84abe1`) and the implementer's measurement that the split carry is the one cause of the 194 mounted hold-outs. It also folds the critic's cycle 7 F-40 (`fad4948a`). AC-6.7 gives D-22's decision table; AC-3.3's typed drive follows it; AC-6.5's control gains a cross-line bold member; an owed re-verdicts cell no longer says EC-7 is pending. No Discord read is owed for the `> > ` case, because D-22 decides it and the residue says so. Scope delta: M6 gains AC-6.7 and AC-3.3's typed limb changes its drive; no other milestone moves. Since approval, revisions 10 to 14 have each taken one round per gate, and this one triggers cycle 8 plus one architect and one QA round. The plan still delivers what was first asked. |
 
 ## Resumption State
 
@@ -127,8 +131,8 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
   (record `d31214e4`), and QA Phase 2 on M4 is next. M5 and M6 are not started.
 
 **Next.**
-- Revision 13 (D-21, AC-6.5's expected-span source) is out for its delta read by the critic, QA's re-key and the architect,
-  whom steering spawns. Fold their verdicts as one batch. No other planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
+- Revisions 13 (D-21, AC-6.5's source) and 14 (D-22, AC-6.7 quote continuation) are out for delta reads. The critic approved
+  revision 13. QA's re-key and the architect are open on 13, and all three are open on 14. Fold their verdicts as one batch. No other planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
   Planner batch row, a stated limit, with no revision. A severity-floor finding is excepted. A third revision of AC-3.7 goes to
   steering before any fold.
 - The seam fold, after the last milestone's QA Phase 2 and before the UAT anchor, lands the open rows' text:
@@ -179,8 +183,9 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 11's delta: AC-3.7's frozen residue list (per-input entries, family and reason, the stale-entry failure, RK-9's count unit) only | revision 11 commit | critic; architect (delta pass); QA Phase 1 (re-key) | QA re-key: QAF-34 MEDIUM, which holds the residue-list commit, and QAF-35 LOW (record `047add44`). Architect APPROVED_WITH_CHANGES: the per-input list is approved, with CF-18 MEDIUM (the same member as QAF-34) and CF-19 LOW (record `744abb20`). Critic APPROVED, cycle 5 pass 1, critique closed, with F-36 MEDIUM (the same member) and F-37 LOW (record `08caeb87`). All folded at revision 12 |
 | Revision 12's delta: AC-3.7's atom-bearing population and atom unit, the family check, M4's full measurement and the exercise of its new limbs; RK-9's fire condition, route and record; the Reading Order's `code-reviewer` row | revision 12 commit | critic; architect (delta pass); QA Phase 1 (re-key) | QA re-key: nothing open, with QAF-34 and QAF-35 closed (record `e645035`). Architect APPROVED: CF-18 and CF-19 resolved, with CF-20 LOW (record `237da08`, re-dispositioned under the M3 cap as APPROVED at record `f7b21366`). Critic APPROVED, cycle 6 pass 1, with F-38 MEDIUM (the same member as CF-20) and F-39 LOW (record `575a52bc`). Every gate has approved revision 12. Under the M3 cap (block 22:35Z), the findings are stated limits SL-12 and SL-13, with no revision 13. M4's residue-list commit is released, read with them |
 | AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass. Superseded at revision 13 (D-21): the box is no longer a source |
-| Revision 13's delta: AC-6.5's "Expected value" (the helper on every surface, frozen; the hand-written content control; the residue) and "Entry conditions" (the box condition recorded false; EC-7 retired) only | revision 13 commit | critic; architect (delta pass, spawned by steering); QA Phase 1 (re-key) | Open. AC-6.5's literals hold until all three have passed it. The rest of M6 is not held (D-21) |
-| AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
+| Revision 13's delta: AC-6.5's "Expected value" (the helper on every surface, frozen; the hand-written content control; the residue) and "Entry conditions" (the box condition recorded false; EC-7 retired) only | revision 13 commit | critic; architect (delta pass, spawned by steering); QA Phase 1 (re-key) | Critic APPROVED, cycle 7 pass 1, critique closed, with F-40 LOW (SL-14), which is folded at revision 14 (record `fad4948a`). QA re-key and architect: open. AC-6.5's literals hold until all three have passed it. The rest of M6 is not held (D-21) |
+| Revision 14's delta: AC-6.7 (D-22's table, its limbs, mutants, human-observable form, residue and the held-out lists); AC-3.3's typed drive; AC-6.5's added cross-line control member (F-40) | revision 14 commit | critic (cycle 8); architect (delta pass); QA Phase 1 (re-key) | Open. M6's quote-carry change and the four cases implementer-019 holds red at `8cb4d83` wait for all three. The rest of M6 is not held (D-22) |
+| AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 was folded at revision 6 and retired at revision 13 (D-21) |
 
 ## Header notes
 
@@ -262,6 +267,7 @@ except D-8.
 | D-19 | The preview and the editor ship together in one release, once M6 is done. M4 does not ship alone, M7 stands, and the plan is not revised. | 2026-11-24 | By selection: "Agent: keep one release (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The preview and the editor ship together, once M6 is done. No extra work, and one production approval from you. Cost: the preview reaches users later; the planner estimates several hours to about a day, which isn't measured…" The other option was "Agent: ship the preview first", whose text gave the measured drift ("the editor and preview disagree on about 29 of 272 realistic messages"). Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T00:55Z — steering-hooks-fixer"; effort rulings block "2026-11-24T00:55Z" (record `11fab77b`). | Owner withdrawal only. Consequence: M7, `Target-Release`, M4's rollback line. |
 | D-20 | The eslint errors in website `src/components/SlateEditor/index.tsx` that pre-exist at the chain base `5ec0621` ship listed with plan 019's release. M5 goes ahead at `2e36107` without fixing them, the release is not held for them, and their fix comes inside this effort after the release. | 2026-11-24 | By selection: "Agent: list them, fix later (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "M5 goes ahead as it is, with the 8 errors listed as known. A follow-up record carries them to a small fix inside this effort once this release is out. No extra work or review now; nothing changes for users, since the live site already has them." The other option was "Agent: fix them in M5 now". Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T03:47Z — steering-hooks-fixer"; effort rulings block "2026-11-24T03:48Z" (record `6866cd75`). Counts by steering's eslint helper: 9 at `5ec0621`, 8 at `2e36107` (`verification/019/steering/slateeditor-index-lint/`). | Owner withdrawal only. Consequence: a gate's convention check that reports these errors on this file is read against the handoff's list, not as a finding. |
 | D-21 | AC-6.5's expected emoji spans get a replacement source, because Discord's box exposes none. The planner picks it in one small revision, re-read once by the three gates. The implementer builds the rest of M6 meanwhile, and the answers are frozen afterwards. | 2026-11-24 | By selection: "Agent: planner picks a source (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "As the plan says for this case: the planner picks a replacement (Discord's older formatter, hand-written answers, or the test helper already used elsewhere) in one small plan revision, re-read once by the three reviewers. The implementer keeps building the rest of M6 meanwhile; the test's answers are frozen after." The other option was "Agent: list it as a known limit". Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T03:55Z — steering-hooks-fixer"; effort rulings block "2026-11-24T03:55Z" (record `5781bb73`). The pick (revision 13) is the planner's: the oracle helper on every surface, frozen, with hand-written literals as its content control. | Owner withdrawal only. Consequence: AC-6.5's "Expected value" and "Entry conditions"; EC-7 is retired. |
+| D-22 | In the editor, Enter after a `> ` line continues the quote, as Discord's box does. A paste keeps its text exactly as pasted. Typing `> ` at the start of a carried line does not save `> > `. | 2026-11-24 | By selection: "Agent: follow Discord (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "Enter keeps the quote going, as in Discord's box; a paste keeps the text exactly as pasted, as Discord does; typing '> ' on a carried line no longer doubles it (what Discord does there wasn't checked). Cost: one plan revision, because the plan's typing check expects Enter to end the quote, re-read once by the three reviewers; the rest of M6 carries on." The other option was "Agent: Enter ends the quote". Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T04:00Z — steering-hooks-fixer"; effort rulings block "2026-11-24T04:00Z" (record `603fb039`). Discord's behaviour comes from QA's walk (`verification/019/qa/discord-quote-probe/walk.md`, record `1e84abe1`). | Owner withdrawal only. Consequence: AC-6.7's table and AC-3.3's typed drive (revision 14). |
 
 **Revision cap on M4 and M6 (steering's ruling, not his).** Effort rulings block "2026-11-23T17:56Z" (record `b95a3d43`), by
 `steering-hooks-fixer` under steering.md's standing check: "from Revision 7's verdicts onward, each further gap below HIGH on M4
@@ -809,7 +815,12 @@ Acceptance criteria:
   - **full mode** (content, embed description, field value, V2 text display) and **partial mode** (`partialMarkdown`: embed title,
     field name);
   - load (`getInitialValue`) then save (`flattenNodeText`) returns the input character for character, emoji included (D-10);
-  - typing the input one character at a time into a mounted editor yields the same text;
+  - typing the input one character at a time into a mounted editor yields the same text. In full mode the drive follows AC-6.7's
+    quote continuation (D-22, revision 14). Where Enter has carried a `> ` onto the new line, the drive acts by the input's line:
+    - if the input's line begins with `> `, the drive types it as it stands, and the typed `> ` replaces the carried marker;
+    - if it does not, the drive first removes the carried marker by a gesture the implementer names, then types the line. A
+      positive control shows that the gesture leaves the line empty.
+    The drive removes a carried marker nowhere else, so a marker carried where AC-6.7's table carries none fails the identity;
   - pasting it whole yields the same text, for every input the mode's paste handler accepts. P-5's two refusals (a multi-line paste
     in partial mode; a paste over 6,000 characters in either mode) are kept as today's failure-path behaviour, and after a refused paste
     the editor's text equals its text before the paste;
@@ -1218,6 +1229,7 @@ Acceptance criteria:
       - **hand-written literals, under content's mask** (replaces the box's content control). The members are:
         - every AC-6.2 emoji form on its own;
         - each form inside bold, inline code, a code block and a link label;
+        - each form on the second line of a bold run that opened on the first line, which crosses the join (F-40, SL-14);
         - each form in a link URL (`[x](https://x.y/🙂)`, `https://x.y/🙂`, `<https://x.y/🙂>`);
         - each form after a backslash.
         Over these members, the helper's spans equal literals written by hand, never taken from a run. Each literal states its
@@ -1258,6 +1270,49 @@ Acceptance criteria:
   - `pnpm install --frozen-lockfile` exits 0 in an export, and AC-2.2's lockfile diff dispositions the pins it removes.
   The base test file `rules.multi-line-code-block.test.ts` imports its types. It is re-based on the adapter or retired under the
   Test Conventions' "superseded implementation" class, with its covering case named.
+- **AC-6.7 Quote continuation follows Discord (D-22, revision 14).** In full mode, a line split, a paste and typing `> ` onto a
+  carried marker save what this table says. A **`> ` quote line** is a line whose saved text begins with `> ` and that is neither
+  inside a `>>>` block nor inside a code fence opened on a line that is not itself a `> ` line. The table is the criterion, and
+  the limbs below read it.
+
+  | The line split or pasted into is | Enter, the editor's line-split key, mid-line or at the end | A paste holding line breaks | Typing `> ` at the start of a line holding only a carried `> ` |
+  |---|---|---|---|
+  | a `> ` quote line | the new line starts with a carried `> ` (Discord's box: QA's walk, step 1) | saved exactly as pasted, with no marker added (walk, step 3) | the typed `> ` replaces the carried marker, so the line saves one `> ` (his option text; Discord not read) |
+  | a line inside a `>>>` block | no marker is carried, since `>>>` already quotes to the end (the planner's reading of Discord's rule, not read in the box) | exactly as pasted | does not arise |
+  | a line inside a code fence opened on an unquoted line | no marker is carried | exactly as pasted | does not arise |
+  | any other line | no marker is carried | exactly as pasted | does not arise |
+
+  - **The typing column is a replacement.** The carried marker and the typed `> ` are one marker in the saved text. Only the
+    first `> ` typed onto a line that holds only the carried marker is taken in; a further `> ` is content, so `> > b` typed there
+    saves `> > b`. This holds inside a fence opened on a `> ` line too: the 272-corpus row `> ```⏎> x⏎> ```` typed saves as typed.
+    That row is one of the four cases implementer-019 holds red at website `8cb4d83` (its account, not re-derived).
+  - **The paste column** is AC-3.3's paste limb, unchanged. Its identity now has no carried-marker exception, and P-5's
+    refusals stand. At `2e36107` the carry is applied to every split, a paste's included: a paste of `> a⏎b` saves `> a⏎> b`
+    (implementer-019's run, not re-derived).
+  - **The Enter column.** At `2e36107`, `withNormalizeNode.ts`'s `apply` override carries a split line's `quotePrefix`, with any
+    `>>> ` stripped (read this pass). So a line in a `>>>` block already carries an empty marker.
+  - **Partial mode** is outside the table, and M6 does not change it.
+  - **Expected values** are literals of the saved text, composed from the keys the drive sends, never from the normaliser.
+  - **Seen red (AC-3.4)** by three mutants:
+    - a carry that never fires fails the Enter column;
+    - a carry applied to a paste fails the paste column, as the base does;
+    - taking in no typed `> ` fails the typing column, with `> > `.
+  - **Human-observable form.** In the editor, `> a`, Enter, `b` draws `b` inside the quote in the preview, and a paste of
+    `> a⏎b` draws `b` outside it. Walked before release on UAT's local build (AC-6.3's provision step), and checkable in
+    production after deploy.
+  - **Residue.** Three things are not read from Discord, and no criterion rests on them, because D-22 decides the site's text:
+    - the raw text Discord saves after a continued line, inferred by QA's walk from rendering only;
+    - what Discord does when `> ` is typed onto a continued line (his option text accepted this as unchecked);
+    - what Discord does on Enter in a `>>>` block.
+    A REST read of the two test messages is therefore not owed.
+  - **The held-out lists (CR-7's exit check, R-30).** implementer-019 measured in a `2e36107` export that a split carrying no
+    prefix makes all 194 `MOUNTED_BASE_RED` inputs (388 typed and pasted cases) write exactly what was entered. So the carry is
+    their one cause (`verification/019/impl/m6-mounted-holdouts-before-2e36107.json`,
+    `m6-mounted-holdouts-split-carries-no-prefix-2e36107.json`). Under this table, each of the 194 passes AC-3.3 with the drive
+    above, and CR-7's exit check stands unchanged: M6 does not exit while a hold-out is in `src`. The 346-entry
+    `EDITS_BASE_RED` list is deleted at `8cb4d83`, with 15,480 of 15,480 edits passing (the implementer's account, not
+    re-derived). An edit in that differential that inserts a line break into a `> ` quote line has, as its expected text, the
+    string edit with `> ` after the break, taken from this table.
 
 Re-derivation gate: M6 changes a stored representation (D-10's saved emoji). When it ships on the chain branch, M7, if not yet
 authorised, is marked `PREMISE-STALE` until re-argued.
@@ -1522,7 +1577,7 @@ Revision 4's folds, for reference:
 | Steering's plan fact (the implementer's): M4's Mirrors line cites "guild-resolved mentions", but `rules.tsx` at `website@5ec0621` resolves none | Effort rulings block "2026-11-23T21:18Z" (record `988e5d69`), "Plan fact for the Planner batch" | Discharged at revision 10. Re-read this pass: the four mention rules render their capture and resolve no id. M4's Mirrors line now says so, and names the channel-list readers that AC-4.4's lookup mirrors. |
 | Critique cycle 3 pass 1 assumption: `dayjs.locale()` read at render is the locale `LoadLocale` set for that viewer. Untested | `critiques/019-slate-formatting-discord-engine-critique.md`, cycle 3 pass 1 (record `683f3e9`) | Open, for the M4 implementer: AC-4.7's `vi-VN` and `en-GB` fixtures, which supply the tag through react-aria's locale, are what exercise it. A miss is an AC-4.7 gap, and under steering's 18:02Z ruling it goes to steering before any fold. |
 | AN-8 limb 5 (slow-CPU capture; QAF-22), still running at revision 6 | `analyst-019`'s message after record `3681654e` | Landed (analysis record `1b5a46d2`, § Findings "Limb 5"; `verification/019/analysis/an8/rows-cpu4-{warm,cold}.json`): at 4× CPU, 150 of 150 formatted in both modes. Warm margin min 562.0 ms, median 646.1, max 1,700.6; cold min 638.0, median 902.7. AN-2's minimum was 519.7 ms. The throttle took effect: first formatted moved from 620 to 1,502 ms warm, and from 692 to 2,133 ms cold. H-1 is falsified at 4× on this box, so nothing goes to steering. RK-2's text takes this at the next seam fold, since it changes no criterion. The production generator's own host stays UAT's B-1 capture. |
-| CR-7 (LOW): M3's three base-red hold-outs (`MOUNTED_BASE_RED` in `src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts`, `EDITS_BASE_RED` in `helpers/blockLayerEdits.ts`, and the `holdsEmoji` filter) keep members out of their limbs and are wider than those limbs' red sets. No text in M6 names their deletion. At `website@f4060c5`, `git -C website grep -c "BASE_RED\|holdsEmoji" f4060c5 -- src` gives 14 lines over 5 files (run 2026-11-23, planner-019) | `code-review/019-slate-formatting-discord-engine-code-review.md` CR-7, Round 3 (record `dd5b093d`) | Stated limit under the revision cap on M6 (block 17:56Z), with no revision round. For the M6 implementer, code review and QA Phase 2: M6 does not exit while any of the three hold-outs is in `src`. The same `git grep -c` at M6's tip prints nothing (it exits 1). If a member is still red at M6's tip, its hold-out stays and the case goes to steering before M6 is handed off, because M6 cannot then meet this condition. The split by limb and the re-keying by `(text, line, offset)` belong to the M3 fix round (code review Required Actions, item 3), not to this row. |
+| CR-7 (LOW): M3's three base-red hold-outs (`MOUNTED_BASE_RED` in `src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts`, `EDITS_BASE_RED` in `helpers/blockLayerEdits.ts`, and the `holdsEmoji` filter) keep members out of their limbs and are wider than those limbs' red sets. No text in M6 names their deletion. At `website@f4060c5`, `git -C website grep -c "BASE_RED\|holdsEmoji" f4060c5 -- src` gives 14 lines over 5 files (run 2026-11-23, planner-019) | `code-review/019-slate-formatting-discord-engine-code-review.md` CR-7, Round 3 (record `dd5b093d`) | Stated limit under the revision cap on M6 (block 17:56Z), with no revision round. For the M6 implementer, code review and QA Phase 2: M6 does not exit while any of the three hold-outs is in `src`. The same `git grep -c` at M6's tip prints nothing (it exits 1). If a member is still red at M6's tip, its hold-out stays and the case goes to steering before M6 is handed off, because M6 cannot then meet this condition. The split by limb and the re-keying by `(text, line, offset)` belong to the M3 fix round (code review Required Actions, item 3), not to this row. Read with AC-6.7 from revision 14, which names the hold-outs' one cause and the drive they pass under. |
 
 ## Version Management
 
