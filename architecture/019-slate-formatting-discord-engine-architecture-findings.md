@@ -53,6 +53,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T06:55 | architect-019 | Open items gain the Packaging line's release-time rewrite and CR-21's unimported `emoji-regex` | From `code-reviewer-019`'s message. Verified at website `119471f` and `master` through `git -C … show`/`ls-tree`/`grep`. `system-architecture.md` is not edited, because its line still states `master`. |
 | 2026-11-24T04:20 | architect-019 | Delta pass on plan 019 revision 15 (record `79eeced6`); § Delta pass, revision 15. APPROVED; CF-24 LOW raised as a stated limit | Commissioned by `planner-019`'s message. Read as `git show 79eeced6` on the plan, with website `2e36107` `engine.ts`. The package's `parseLossless` was run on the pinned 0.16.0 in a capped scope; the capture is in `verification/019/architect-conformance/rev15/`. |
 | 2026-11-24T04:06 | architect-019 | Delta pass on plan 019 revision 14 (record `2c3c8d1a`); § Delta pass, revision 14. APPROVED; CF-22 and CF-23 LOW raised as stated limits under the M6 cap. CF-21's disposition recorded (freezing kept on D-21's option text) | Commissioned by `planner-019`'s message under effort rulings block 04:00Z. Read as `git show 2c3c8d1a` on the plan. Website `2e36107` and `8cb4d83` were read through `git -C … show`/`grep`, and the installed `slate-dom` 0.123.0 `insertTextData` was read read-only. |
 | 2026-11-24T04:02 | architect-019 | Delta pass on plan 019 revision 13 (record `f9b406d6`); § Delta pass, revision 13. APPROVED; CF-21 LOW raised as a stated limit under the M6 cap. `website.md` A-9 gains the freeze-only-what-cannot-run sentence | Fresh session (brief `steering/019-brief-architect.md`). Read as the revision 13 commit's hunks of `git diff b0af4dc3 f9b406d6` on the plan. Website `2e36107` was read through `git -C … show`/`grep`. The pinned engine was run once over the 272 corpus in a capped scope; the capture is in `verification/019/architect-conformance/rev13/`. |
@@ -80,6 +81,12 @@ Status-Detail: >-
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
   at the reconciliation below.
+- **Packaging line, at plan 019's release.** `system-architecture.md` § Quality Attributes "Packaging" reads "pnpm with a patched
+  dependency (`simple-markdown` via `patches/`)". That is still true of website `master`, which has `"simple-markdown": "^0.7.3"`,
+  `patches/simple-markdown@0.7.3.patch` and `pnpm-workspace.yaml`. At chain commit `119471f` all three are gone (AC-6.6; code
+  review Round 6, record `8c2a4593`; read this pass). So the line is rewritten in the release reconciliation, not before. The same
+  reconciliation records CR-21: at `119471f`, `emoji-regex` is still declared in `package.json`, but `git grep` finds no importer
+  in `src` or `bot` (exit 1). Raised by `code-reviewer-019`'s message.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
