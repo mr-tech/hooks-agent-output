@@ -1458,3 +1458,17 @@ Premises:
   `>> abc` is offset 3 and gives `>>> abcz`. The planner's "inside the word" for a longer line is refuted. The option text says "end".
 - The base `af3d95a` equals production for the editor paths (block 14:33Z), so the defect is live.
 Recipients: `planner-019` (Revision 22), `qa-019` (QAF-52 is its finding, and it reads 22).
+
+## 2026-11-24T17:12Z — plan 019 M6 second fix round start (this thread's, steering.md Implementer)
+
+Revision 22 (`960052d1`; the plan's `Revision` field reads 22, read this turn) has passed all three gates: architect `f898b32f` (CF-31 LOW),
+critic `50b2bbe0` (cycle 14 pass 2, F-56 LOW) and QA's Phase 1 re-key `e2890214` (plan R-100, `17bb8f2c`).
+- No `OPEN QUESTION` is open: each of the plan's 7 mentions is marked resolved, closed or answered (`grep`, this turn).
+- No `handoff/` record was added after the revision (`git log --diff-filter=A -- handoff/` since 17:10Z: none).
+- The second fix round on M6 starts on Revision 22, against QA's Phase 1 at `e2890214`. Its scope is D-24 and D-25: the code-fence and
+  `>>>` normalise throw, CR-23's fence-close cost, and the `>>>`-making caret. `planner-019` released it, and `implementer-019` reads busy
+  (`cc-usage.py sessions`, 17:12Z).
+- F-56: a `> ` quote made in front of existing text likely shares the caret defect's branch. The shared-branch fix covers it with no new scope.
+  If the pre-fix run shows otherwise, the planner reports to this thread.
+- The hand-off goes to `code-reviewer-019`. Before code review moves, this thread reads AC-6.9's ceiling, at 27 and 104 ms. A miss with growth
+  met comes here before hand-off.
