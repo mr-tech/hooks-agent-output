@@ -968,3 +968,13 @@ re-key `e645035`. Read this turn: the plan's `OPEN QUESTION` lines not RESOLVED:
 since 22:30Z (`git log --diff-filter=A --since=2026-11-23T22:30Z -- handoff/`: empty). The QA Phase 1 document
 `qa/019-slate-formatting-discord-engine-qa.md` is at record `957eb1d3`; its Revision 12 re-key is `cb5a6019`/`e645035`. The M5 and M6 flows were
 listed ahead of the start, and none holds a decision for him (`8bfb6f9e`). M5 is capped (block 00:49Z). D-19 means one release.
+
+## 2026-11-24T01:45Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (01:44Z) asked for `/checkpoint`: prefix about 239K, past the 225K steering threshold. The Resumption State is in this
+thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, rewritten whole and trimmed to 7.3 KB). In flight:
+- M4 is done: code review `d31214e4`, QA Complete `912c7307`.
+- M3 is QA Failed on QAF-36 MEDIUM, a severity floor; the fix round is the implementer's.
+- M5 is being built (slice 1 at `921eeb8`).
+- Code reviewer and planner were cleared at 01:10Z and 01:11Z.
+- Standing check `220f2916` (02:09Z).
