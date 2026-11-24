@@ -1706,9 +1706,15 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-Written 2026-11-24T07:07Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, about 386K tokens).
+Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, 367,141 tokens). The earlier state, from
+07:07Z, is kept below where it still holds.
 
 - **Done.**
+  - **Round 7 at `85ece66`** (M6 Fix Round 2, AC-6.9): **REJECTED** on CR-25 HIGH, with CR-24 LOW (record `e92137fe`; plan R-103
+    at `7054250e`). Hand-back sent to implementer-019, and the plan gap to planner-019.
+  - Steering ruled (effort rulings block 19:43Z, record `6507ae1e`): the cap does not carve out CR-25's paste member, and the
+    verdict stands as written. The fence member rides D-24. Whether the paste joins this round's criterion is a scope question
+    steering is putting to the owner.
   - M2 at `7dcedc9`, M3 at `81c68b2`, M4 at `e58f2ed`, M5 at `2e36107` (with QAF-39 at `cf126ea`) and M6 at `119471f`: all
     APPROVED_WITH_COMMENTS.
   - Plan rows: R-53, R-55, R-57, R-60, R-73 and R-77. The planner registered the findings: R-54, R-61 and R-78.
@@ -1718,18 +1724,28 @@ Written 2026-11-24T07:07Z for a `/clear`, at steering's ask (`steering-hooks-fix
   both-trees decorator differential) was not owed.
 - **Done since (Round 7).** M6 Fix Round 2 at `85ece66` is REJECTED on CR-25 HIGH, with CR-24 LOW. Probes are in
   `verification/019/code-review/m6fix2-85ece66/`.
-- **Next (pending).** CR-25's fix round, as a sub-entry of Round 7 unless it touches beyond CR-25's scope.
-  - Re-run `crprobe.fence-emoji-count` and `crprobe.paste-count` (copied into an export with `CRPROBE_OUT`), and check that the
-    falsity signature's two counting cases are red at `85ece66`.
-  - Re-run the fixed-point differential against `85ece66`.
-  - Time `crprobe.fence-emoji` and `crprobe.paste-emoji-unmounted` against the base figures in Round 7.
-  That round's confirmation would be a sub-entry of Round 6, with the fence-toggle probe (`m6fix-42128cd/crprobe.fence-toggle…`)
-  re-run and the falsity signature in CR-23 checked. M7 is devops's. This review has no M7 round unless steering asks.
+- **Next (pending).** Fix Round 3 (CR-25), which reaches this review at its hand-off. It is a sub-entry of Round 7 unless it
+  touches beyond CR-25's scope, in which case it is Round 8. First read the owner's answer on the paste member (steering's next
+  rulings block after 19:43Z), and any plan revision the planner writes for CR-25's gap.
+  1. Read the fix diff at its `Handoff-At` through `git show`. Exports go by `git archive` into the scratchpad, with
+     `node_modules` symlinked from the website clone. Run under `unshare -rn`.
+  2. Copy the probes from `verification/019/code-review/m6fix2-85ece66/` (drop `.txt`, set `CRPROBE_OUT`):
+     `crprobe.fence-emoji-count` and `crprobe.paste-count`. The ratio at 1,000 against 200 must be at most 10; it was about 25.
+     Check that the implementer's counting cases are red at `85ece66`, with a mutant restoring the `editor.children` key if needed.
+  3. Re-run `crprobe.keystroke-fixedpoint` and `crprobe.keystroke-settle` against `85ece66`, and classify with `classify.py` and
+     `caret-line-check.py`. Expect 0 differences, or a stated family.
+  4. Time `crprobe.fence-emoji` and `crprobe.paste-emoji-unmounted` against Round 7's tables (base `af3d95a` figures there).
+     Re-run the planted-ceiling bench control, and the mounted no-catch probe if CR-24 is touched.
+  5. Re-run CR-25's enumeration (`git grep -n "=== editor.children\|editor.children ===" <sha> -- src ':!*__tests__*'`) with a
+     second instrument, and break its predicate. A memo keyed some other way that still resets per operation is a member.
+  6. Then the changelog row (`record-edit.js` with `{now}`), the plan row by `plan-row-commit.js` (the next R number), and the
+     hand-off to QA or back to the implementer.
+  M7 is devops's. This review has no M7 round unless steering asks.
 - **Approach in flight.** None.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `85ece66`. I never move it. The
   record is on `master`.
-- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds `qaf36/`, `m5/` and `m6/`, with exports and
-  probe copies, all disposable.
+- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds probe copies and outputs, all disposable;
+  the exports are deleted.
 - **Evidence run but not recorded.** None. Everything cited is under `verification/019/code-review/`.
-- **Questions sent, and to whom.** None open. CR-20's cap question is answered.
+- **Questions sent, and to whom.** None of mine is open. Steering has the paste-member scope question with the owner.
 - **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
