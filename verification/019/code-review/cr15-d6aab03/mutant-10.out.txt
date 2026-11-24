@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/work7/20261124T020423Z-p3778165/mutant-10
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (3 tests | 1 failed) 264ms
+     × compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file 247ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  02:05:11
+   Duration  2.15s (transform 252ms, setup 0ms, import 1.40s, tests 264ms, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file
+OracleError: discord-oracle: fetching https://discord.com/assets/cafe01.wasm failed: fetch failed
+ ❯ driftReport src/utils/markdown/__tests__/helpers/discordLive.ts:132:11
+    130|     bytes = new Uint8Array(await response.arrayBuffer());
+    131|   } catch (error) {
+    132|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+    133|   }
+    134|   return compareWasm(bytes, readFileSync(PINNED_WASM));
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:44:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

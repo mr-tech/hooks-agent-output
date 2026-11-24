@@ -1,0 +1,101 @@
+[
+ {
+  "id": "compare-match-true",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "const match = served === pinned;",
+  "new": "const match = true;",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ },
+ {
+  "id": "compare-match-false",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "const match = served === pinned;",
+  "new": "const match = false;",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ },
+ {
+  "id": "compare-message-arms-swapped",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "match ? 'equal' : 'DIFFERENT (drift, outcome C2)'",
+  "new": "match ? 'DIFFERENT (drift, outcome C2)' : 'equal'",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ },
+ {
+  "id": "drift-served-bytes-not-wired",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "return compareWasm(bytes, readFileSync(PINNED_WASM));",
+  "new": "return compareWasm(readFileSync(PINNED_WASM), readFileSync(PINNED_WASM));",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ },
+ {
+  "id": "rich-comma-form-dropped",
+  "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+  "old": "(?:var |,)",
+  "new": "(?:var )",
+  "tests": [
+   "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+  ]
+ },
+ {
+  "id": "rich-shape-check-off",
+  "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+  "old": "if (!shape) throw",
+  "new": "if (false) throw",
+  "tests": [
+   "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+  ]
+ },
+ {
+  "id": "rich-combine-require-check-off",
+  "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+  "old": "if (!combineId || !rulesId)",
+  "new": "if (!rulesId)",
+  "tests": [
+   "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+  ]
+ },
+ {
+  "id": "rich-rules-require-check-off",
+  "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+  "old": "if (!combineId || !rulesId)",
+  "new": "if (!combineId)",
+  "tests": [
+   "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+  ]
+ },
+ {
+  "id": "drift-served-bytes-both-sides",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "return compareWasm(bytes, readFileSync(PINNED_WASM));",
+  "new": "return compareWasm(bytes, bytes);",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ },
+ {
+  "id": "drift-global-fetch-not-injected",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "const response = await fetchImpl(url);",
+  "new": "const response = await fetch(url);",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ },
+ {
+  "id": "drift-url-not-from-glue",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "const url = `https://discord.com/assets/${names[0]}`;",
+  "new": "const url = `https://discord.com/assets/x.wasm`;",
+  "tests": [
+   "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+  ]
+ }
+]

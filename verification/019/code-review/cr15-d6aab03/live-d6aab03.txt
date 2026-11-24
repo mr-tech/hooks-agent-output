@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/xd6
+
+wasm: served wasm sha256 da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0, pinned wasm sha256 da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0: equal
+coverage: unexamined cells: GAME_MENTION / content, GAME_MENTION / embedDescription, GAME_MENTION / fieldValue, GAME_MENTION / v2Text, CODE_BLOCK / embedTitle
+
+ Test Files  2 passed (2)
+      Tests  15 passed (15)
+   Start at  02:05:45
+   Duration  15.54s (transform 273ms, setup 0ms, import 1.59s, tests 17.46s, environment 0ms)
+

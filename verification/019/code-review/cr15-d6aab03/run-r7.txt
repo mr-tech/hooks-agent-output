@@ -1,0 +1,12 @@
+compare-match-true KILLED 3.19
+compare-match-false KILLED 2.84
+compare-message-arms-swapped KILLED 2.0
+drift-served-bytes-not-wired KILLED 1.97
+rich-comma-form-dropped KILLED 4.66
+rich-shape-check-off KILLED 4.63
+rich-combine-require-check-off SURVIVED 4.85
+rich-rules-require-check-off KILLED 5.74
+drift-served-bytes-both-sides KILLED 3.21
+drift-global-fetch-not-injected KILLED 3.7
+drift-url-not-from-glue KILLED 5.8
+10 of 11 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-r7.json (blob d35d414fdbf4f3756ba7be520c6f242536d043c2))
