@@ -1208,3 +1208,27 @@ which change decorator.tsx, unitStyles.ts, SlateEditor/index.tsx and Desktop/Mob
 **Routing: QA refreshes M5 on that same overlay** (a 2e36107 export with cf126ea's four test paths over it), so the review and the QA verdict
 cover one tree. M6's code is verified at M6's own review and Phase 2, and the release tip takes its own verdict at Phase 3 (D-19, one release).
 Recipient: `qa-019`. This block was first written by a shell heredoc. The record-write gate refused that, and it was re-made with Edit.
+
+## 2026-11-24T07:05Z — selection: plan 019 CR-20, the M6 keystroke cost is fixed before release (put 07:0xZ, answered 07:05Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T07:05Z — steering-hooks-fixer`. The wording is this thread's. It arose from
+`code-reviewer-019`'s question (06:5xZ). Code review Round 6 is APPROVED_WITH_COMMENTS at website 119471f (record `8c2a4593`, plan R-77). CR-20
+is MEDIUM and is registered as an open batch row (R-78, `01095b34`). Options:
+- *Agent: fix it before release (Recommended)*: "The fix is small: the editor rechecks only the part of the message being edited, not every
+  line, plus a test that counts that work. Cost: the plan gains a limit on how long one keystroke may take, re-read once by the three reviewers;
+  then one fix round, code review again, and QA re-checks M6. Release waits for that; the time wasn't estimated."
+- *Agent: keep the cap, ship it*: "No extra work, and the release isn't delayed. Ships as a known limit: anyone writing a long message (a few
+  hundred lines or more) gets noticeable typing lag, up to about 1.6 seconds per key in a very long embed description. It would be fixed later
+  as a separate Slate fix."
+**Chosen by selection: fix it before release.** This lifts his 00:48Z M4–M6 cap (block 00:49Z) for CR-20 alone; the cap stands for every other
+gap. Because no criterion bounds keystroke cost (planner-019, message 07:0xZ), `planner-019` is commissioned for one revision that adds the
+bound and CR-20's fix to M6. The three gates read its delta. Then the implementer runs the fix round, code review writes a sub-entry, and QA
+refreshes M6.
+Premises:
+- A `general-purpose-sonnet` refutation helper re-timed both trees in `git archive` exports (119471f and 2e36107) under a `systemd-run`
+  cap, exit 0 on both (scratch `cr20/`). Tip, per keystroke, median: 17–20 ms at 200 lines, 66–72 ms at 400, 407–425 ms at 1,000 and
+  1,572–1,626 ms at 2,000. Base: 0.2–3.3 ms at every size. Line count drives it, not characters. The reviewer's "about 2 ms at 35 lines on
+  both trees" is REFUTED: base 0.2–0.4 ms against tip 0.9–1.8 ms.
+- Field limits, read by the helper: content is 2,000 characters (`src/constants/messageLimits.ts:1`) and the embed description 4,096
+  (`:3`). So 1,000 and 2,048 one-character lines are reachable. That figure is the helper's arithmetic, not measured in an editor.
+- The cause, a per-line `resolveEmoji` → `unitAround` rebuild in `handleEditor`, was read from code, not run. Browser cost was not measured.
