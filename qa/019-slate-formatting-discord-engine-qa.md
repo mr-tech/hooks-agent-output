@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 22 (record 960052d1, D-25, AC-6.9's last fold). QAF-52 is closed: the >>> caret
-  texts are hand-written, and the making members read red at af3d95a and 42128cd. NM-78 to NM-80 are added, and B-11 is
-  re-specified (K1a, K1b). No new finding; QAF-42 LOW (R-69) stays open. Register: B-1 to B-11.
+  Phase 1 re-keyed on plan 019 Revision 23 (record 49a20690, CR-25, D-26). QAF-53 MEDIUM (a severity floor: a paste's
+  cost per line has no failing assertion, and no ceiling holds it to today's speed) and QAF-54 LOW (the count control does not
+  show that the boundaries see each line) are open for the planner. QAF-42 LOW (R-69) stays open. Register: B-1 to B-11.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -54,8 +54,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 22 (record
-`960052d1`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 23 (record
+`49a20690`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -85,6 +85,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T07:45 | planner-019 (message: Revision 20 at `cf7e4d91`, steering block 07:42Z) | Phase 1 re-key on Revision 20 | § Re-key on Revision 20. P-Q25: the fenced-quote texts are many-unit, and at `119471f` they build 201 at 200 lines and 2,049 at 2,048, so they are red by differing counts. The bound's removal is agreed: the sized texts hold every unit structure. AC-6.8 is added to the register's user-report line. No new finding. |
 | 2026-11-24T14:48 | planner-019 (message: Revision 21 at `81523bd6`, D-24, steering block 14:33Z) | Phase 1 re-key on Revision 21 | § Re-key on Revision 21. P-Q26 at `42128cd`, a mounted editor: every AC-6.9 limb reached except the growth limb, and each of no-throw and caret carries a failing case alone. **QAF-52 MEDIUM**: the `>>>` keystrokes' expected texts and caret points cannot be reached in the editor's marker model. Named mutants NM-73 to NM-77. **B-11** minted (AC-6.9's walk), with its instrument run at `42128cd` by the browser-walker. Disclosed: the stamp gate refused this row's first write, whose stamp I typed a minute ahead of the clock. Its stamp now matches a `date -u` read made for it. |
 | 2026-11-24T17:11 | planner-019 (message: Revision 22 at `960052d1`, steering block 14:48Z, D-25 block 17:03Z) | Phase 1 re-key on Revision 22 | § Re-key on Revision 22. QAF-52 is closed: the making members `>>> za` and `>>> zabc` are read red at `af3d95a` and `42128cd` from the planner's captures. The unmaking member's `a` and `za` are re-read from P-Q26's log, green on write and caret at `42128cd` and red only on no-throw. CF-30's refusal is checked, and the suite cannot carry it alone, so Phase 2 adds a diff read. The ceilings of 27 and 104 ms are re-derived from the capture. NM-78 to NM-80 are added. B-11 is re-specified (K1a `>> a`, K1b `>> abc`, with `run-K1b.js` added). Register swept. No new finding. |
+| 2026-11-24T20:12 | planner-019 (message: Revision 23 at `49a20690`, CR-25, D-26; steering blocks 19:43Z and 20:07Z) | Phase 1 re-key on Revision 23 | § Re-key on Revision 23. Read: code review's counts at `85ece66` and the implementer's spike counts and timings. The count limb is red at `85ece66` on the closing and paste members, and linear on opening. **QAF-53 MEDIUM** (a severity floor): the spike meets every count ratio (5) while paste time grows 11.8 to 22.5 times, and no limb holds paste to today's speed. The plan's paste figures cite steering's scratch. **QAF-54 LOW**: the positive control does not show the boundaries see each line. NM-81 and NM-82 are added. Register swept: B-8, B-10 and B-11 cleared, and the user-report line widened. |
 
 ## Reading
 
@@ -1620,6 +1621,102 @@ Phase 1 is keyed to Revision 22. There is no new finding. QAF-52 is closed. QAF-
 2026-11-24T19:21 reconcile (planner-019's message, R-101, record `12c48918`): "from 123 lines" above names the smallest size P-Q26 ran, not the onset. Its sizes skip 122, and the implementer's pre-fix run at `42128cd` has the unmaking Backspace throwing from 122 lines (the making keystrokes from 123). The text class holds 122, so no case changes. The verdict this section reaches does not move. Carried to M6 Phase 2: record the box load beside every growth reading. Before a growth miss read at a load above the implementer's is published, send its readings to planner-019 and steering. It stays a fail of the limb, not a ceiling miss.
 2026-11-24T19:21 reconcile (steering's block 2026-11-24T19:20Z, record `7e662177`): the carry line above is superseded in its second half. M6 Phase 2 records the box load beside every growth reading, as AC-6.9 asks. It calls the growth limb as the criterion words it, at any load, with no pre-publication send to the planner or steering, and routes a fail as any QA fail.
 
+## Re-key on Revision 23
+
+Revision 23 (record `49a20690`) was read as its diff from `17bb8f2c`
+(`git diff 17bb8f2c 49a20690 -- planning/019-slate-formatting-discord-engine.md`). It answers CR-25 HIGH (Round 7, record
+`e92137fe`) under D-24 (steering block 19:43Z), and the paste under his selection D-26 (block 20:07Z). It changes AC-6.9:
+- `a🙂` texts for the fence keystrokes on `embedDescription`, at 200 and 1,000 lines;
+- paste members: N lines of `a` and of `a🙂` through `insertData` into an empty description, with the caret at the end of the
+  paste;
+- a standing count limb: line settles and fence reads at 1,000 lines are at most 10 times those at 200;
+- the paste members are kept out of the timed growth limb;
+- the residue is rewritten, with a user-report line under AC-6.9's row here.
+
+CR-24 LOW is a stated limit. The 19:43Z block confirms that AC-6.9's last-fold rule covers findings below HIGH only.
+
+**Read in this pass** (record files, nothing re-run):
+- code review's counts at `85ece66` (`verification/019/code-review/m6fix2-85ece66/fence-emoji-count-85ece66.jsonl`,
+  `paste-count-85ece66.jsonl`);
+- the implementer's spike of the third round's design in a scratch export of `85ece66`
+  (`verification/019/impl/m6-fix3-spike-count-85ece66-{base,fence-and-paste,fence-only}.jsonl`, with the implementation
+  document's § Spike);
+- the 19:43Z and 20:07Z blocks.
+
+**The count limb, per member, at `85ece66`** (code review's counts, 50 to 400 lines):
+- **Closing a fence over `a🙂`:** quadratic. Line settles are 39,894 at 200 and 159,794 at 400, four times per doubling, so it is
+  red as the plan says.
+- **Opening a fence over `a🙂`:** linear. Line settles are 200 and 400, and unit builds 395 and 795. That member is not red at
+  `85ece66` by its counts. Its red at Phase 2 comes from a planted mutant (NM-76, NM-81).
+- **Paste:** quadratic. Fence reads are 40,199 at 200 and 160,399 at 400 (`a`), and 60,299 and 240,599 (`a🙂`). It is red.
+- So "Seen red at `85ece66`, where the ratio is about 25" holds for the closing and paste members, not for opening. Reading, not a
+  finding: the limb's guard is one assertion, seen red on its other members.
+
+**QAF-53 MEDIUM Phase 1**
+AC-6.9's headline now says a paste "costs no more per line as the message grows". D-26's chosen option was offered against
+"the release ships with pasting 3 to 9 times slower than today's site". The only limb that binds a paste is the count ratio,
+which the timed growth limb now excludes, and no ceiling bounds a paste against today's speed. The implementer's spike shows the
+count limb passing a tree whose cost per line still grows. Every count ratio from 200 to 1,000 lines is 5, but paste times grow:
+- plain `a`: 49.8 to 692.5 ms (13.9 times);
+- empty lines: 46.5 to 1,047.1 ms (22.5 times);
+- `a🙂`: 186 to 2,186.1 ms (11.8 times).
+
+These are single-shot timings with no load recorded, but each step is well past linear (5 times). The base `af3d95a`, which is
+production, also grows superlinearly (135 to 1,695 ms plain, by steering's helper). So the superlinear part may be Slate's own
+fragment insert and outside the chain's reach. The criterion still claims the property, and no assertion fails when it is lost.
+That is the severity floor, so it is MEDIUM and excepted from the last-fold rule.
+
+There is also nothing that fails on a tree that is linear in its counts but slower than today by a constant. The plan's paste
+figures (419 / 954 and 9,773 / 25,548 ms at `85ece66`; 135 / 237 and 1,695 / 2,972 ms at `af3d95a`) are cited to the 20:07Z block,
+whose raw files are in steering's session scratch `paste-refute/`, not in the record.
+
+Property wanted:
+- (a) A timed paste limb outside the standing suite, like the fence ceiling: a ceiling at 200 and 1,000 lines against today's
+  medians, so a paste slower than today's site fails. The spike would meet one built as the fence ceiling is (base plus a quarter):
+  49.8 against 169 ms, 692.5 against 2,119, 186 against 297 and 2,186.1 against 3,715.
+- (b) The headline's paste clause restated to what the limbs bind: work per line at the observed boundaries, and no slower than
+  today.
+- (c) The helper's paste captures copied verbatim into `verification/019/planning/`, as F-55 (1)'s were, so the base and seen-red
+  figures have a committed source.
+
+**QAF-54 LOW Phase 1**
+The count limb's positive control (one keystroke on a one-line text counts at least 1 on each boundary) shows the mocks are wired.
+It does not show that they see each line's work. Suppose a fix moves the per-line settle off `spansInLine` or `afterLine`, for
+example by inlining it, so the mocked function runs once per edit. Then it reads a near-constant count at both sizes, and the ratio
+is near 1, so the limb passes whatever the real cost. The plan's remedy is prose: the implementer names the boundary, and code
+review reads it.
+
+Property wanted: a floor at N = 200, written from the domain and never from the code: line settles of at least the lines the edit
+changes (N − 3 for the line-2 fence keystrokes, N for a paste). Then a counter that does not see each line fails. The spike meets
+it: at 200 lines it settles 200 (open), 397 (close) and 400 (`a🙂` paste). Under the last-fold rule this is a stated limit unless
+the planner takes it.
+
+**Coverage obligations for Phase 2** (in the third round's tree):
+- **NM-81:** CR-25's memory, settled state keyed on `editor.children`, restored. The count limb goes red on the closing and paste
+  members, by assertion.
+- **NM-82:** the per-line settle moved off the mocked boundary, with `spansInLine` called once per edit. The count limb stays green
+  by construction. QAF-54's floor would redden it, and if the floor is not taken, Phase 2 records it as the limit's survivor.
+- **The paste caret:** after each paste member, a `z` lands at the end of the pasted text. The expected text is built from the
+  fixture's literals.
+- **CR-24:** Phase 2 reads whether the round removed the mounted test's `settle().catch(() => undefined)`. The standing no-throw
+  limb runs unmounted and does not rest on it.
+- **Both directions per sub-class:** each `a🙂` fence member and each paste member has a red tree or a planted red (above) and a
+  settling member (40 lines plain, or the fixed tree at 200).
+
+**Register.** The sweep's predicate: rows citing AC-6.9, a paste, an emoji-bearing fill, or the code-fence keystrokes.
+- B-8 matches on paste. It reads AC-3.3's pasted text in Chrome, not cost, and revision 23 does not move AC-3.3, so it is
+  cleared.
+- B-10 (AC-6.8) is cleared.
+- B-11 matches. The plan's human-observable form is unchanged, and its fills stay plain `a`. A K3 over `a🙂` lines is not added:
+  the standing count limb carries that member, and the walk's purpose is the error and the caret. B-11 is cleared.
+- No paste walk is minted, because the plan designates none and the browser's cost is residue.
+- The user-report line gains the revision 23 residue's members.
+
+Rows inherited and not discharged: B-1 to B-11.
+
+Phase 1 is keyed to Revision 23. **QAF-53 MEDIUM** (a severity floor) and **QAF-54 LOW** go to the planner, open. QAF-42 LOW (R-69)
+stays open.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -1652,7 +1749,8 @@ report of an emoji that Discord's client lifts or leaves as text, where the engi
 AC-6.5, dated, with its text and the stage that read it. So is a user report that a continued quote cannot be ended, under
 AC-6.7 (B-9). So is a user report of a pause on an input outside AC-6.8's sized texts, under AC-6.8 (B-10; revision 20). So is a
 user report of an editor error or a misplaced character after a code-fence or `>>>` keystroke, under AC-6.9 (B-11; revision 21).
-None is recorded yet.
+So is a user report of a slow edit on one of revision 23's residue members, under AC-6.9 (B-11): a paste other than the
+listed members, undo or redo, another fill, or another keystroke of the class. None is recorded yet.
 
 ## Assumption Not Checked
 
@@ -1700,6 +1798,12 @@ it does not test that. Their RUN lines name scratch exports outside this record,
 corroborates `>> a` (`>>> az`) at `42128cd`, but `>> abc` rests on the helper alone. If the implementer's pre-fix run at
 `42128cd` gives a `z` other than `>>> abcz` for `>> abc`, K1b's unfixed prediction and the "seen red" claim for that member are
 wrong. **Owner: the implementer**, in AC-6.9's entry-condition run before the fix. QA Phase 2 reads that record.
+
+Revision 23 re-key: this pass assumes the implementer's spike timings (`m6-fix3-spike-count-*.jsonl`) were taken at a load
+low enough to read their growth, and it does not test that. No load is recorded beside them, and each is one run. QAF-53's
+evidence rests on their ratios. If a repeat at a recorded low load gives paste growth near 5 times from 200 to 1,000 lines, then
+QAF-53's spike limb is withdrawn and only its ceiling and citation limbs stand. **Owner: the implementer**, whose third-round
+timed paste figures, with load, settle it. QA Phase 2 reads them.
 
 ## Implementation Review (Post-Implementation)
 
