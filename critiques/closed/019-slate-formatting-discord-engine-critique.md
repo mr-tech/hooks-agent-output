@@ -3,16 +3,20 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 6 pass 1 on plan revision 12: APPROVED, and closed at that pass. F-1 to F-33, F-36 and F-37 are RESOLVED, each verified landed. F-34 (SL-11) and F-35 are Planner batch rows in the plan (R-32). F-38 (with stated limit SL-12) and F-39 are closed as landed-by-author: their landing is the plan's Planner batch. A later revision that changes a criterion's text opens cycle 7."
-Artifact-Revision: 12 — read as the delta ec2440d9..b0af4dc3 (cycle 6 pass 1)
-Reviewed-At: "b0af4dc3 — repos=agent-output; no website source read in this pass"
+Status-Detail: "Cycle 7 pass 1 on plan revision 13: APPROVED, and closed at that pass. F-1 to F-33, F-36 and F-37 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12) and F-39 (SL-13) are Planner batch rows in the plan (R-32, R-41). F-40 is closed as landed-by-author: a stated limit for the plan's Planner batch under the cap on M6. A later revision that changes a criterion's text opens cycle 8."
+Artifact-Revision: 13 — read as the delta b0af4dc3..f9b406d6 (cycle 7 pass 1)
+Reviewed-At: "f9b406d6 — repos=agent-output; website read at 2e36107"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 12 (`b0af4dc3`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 12 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 13 (`f9b406d6`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 13 as deltas.
+**Read at cycle 7 pass 1**: the plan's diff `b0af4dc3..f9b406d6`; effort rulings block 2026-11-24T03:55Z; website at `2e36107`:
+`src/utils/markdown/__tests__/helpers/discordOracle.ts` at its import and export lines, and the presence of
+`helpers/data/discordNativeBox.json`; the implementer's probe outputs `verification/019/impl/m6-box-emoji-probe-2e36107.json`
+and `m6-box-emoji-entries-2e36107.json`; GLOSSARY, "Severity floor".
 **Read at cycle 6 pass 1**: the plan's diff `ec2440d9..b0af4dc3`; the plan at `b0af4dc3` at "Visible form" and the class
 table above it; QA's document and the architect's findings at their lines naming QAF-34 and CF-18;
 `verification/019/analysis/an3/an3-legacy-corpus.json` for what a legacy atom node carries.
@@ -72,7 +76,45 @@ for the 15,480 figure.
 | 2026-11-23T22:35 | planner-019 (message naming revision 12 at `b0af4dc3`) | cycle 6 pass 1: plan revision 12 | Cycle 6 opens because revision 12 changes AC-3.7's text. Depth: delta-bounded; the delta `ec2440d9..b0af4dc3` is 42 added and 9 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations R-37 and R-38), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed, none added. The diff, read whole, changes AC-3.7 and RK-9 and no other criterion; its other hunks are the header, the changelog, the Reading Order's `code-reviewer` row, the owed re-verdicts table and Planner batch rows. Artifact changes: atom-bearing inputs join AC-3.7's population with an atom unit compared on kind and source span; a family check; M4 measures every input over every mask and exercises the two new limbs; RK-9 gains a fire condition and a route. Findings addressed: F-36 and F-37 RESOLVED. New findings: F-38 (MEDIUM) with stated limit SL-12, and F-39 (LOW), both for the Planner batch. Verdict APPROVED. |
 | 2026-11-23T22:35 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-38 and F-39 close as landed-by-author, their discharging document the plan's Planner batch. |
 
+| 2026-11-24T04:00 | planner-019 (message naming revision 13 at `f9b406d6`) | cycle 7 pass 1: plan revision 13 | Cycle 7 opens because revision 13 changes AC-6.5's text. Depth: delta-bounded; the delta `b0af4dc3..f9b406d6` is 139 added and 53 removed lines (`git diff --numstat`, 25 commits, 24 of them registrations and Status writes), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-18 to D-21, and X-27 as a Planner batch row's future Exclusions row. The diff, read whole, changes no criterion but AC-6.5; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register rows D-18 to D-21, the two cap notes beside the register and Planner batch rows. Artifact changes: AC-6.5's expected spans come from AC-2.1's oracle helper on every surface, frozen as literals, with a hand-written content control in place of the box's and QAF-24's mask control kept; the box entry condition is recorded false and EC-7 is retired. New finding: F-40 (LOW), a stated limit under the cap on M6. Verdict APPROVED. |
+| 2026-11-24T04:00 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-40 closes as landed-by-author, its discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 7, pass 1.** Neither the stop authority nor the hard stop fired (pass 1 of 15 in this cycle). Pricing: sized
+to the ask plus his rulings. Revision 13 replaces one expected-value source that turned out not to exist, on his 03:55Z
+selection, and adds no criterion, milestone or instrument.
+
+AC-6.5's literals are released by this gate. The architect's and QA's reads of revision 13 are separate.
+
+What holds in revision 13's delta:
+- **D-21** carries the option text of effort rulings block 03:55Z word for word, with the option not chosen. The pick is
+  marked as the planner's.
+- **The box premise is false, as the plan says.** This pass tallied the implementer's two probe files: 12 inputs, every
+  entry's keys are `text`, `start` and `attributes`, the attributes name only `strong`, `inlineCode`, `link` and their
+  syntax markers, no key is `emoji`, and the exports are `Sd`, `p0` and `tA`.
+- **The helper is independent of the adapter and the lift.** At `2e36107`, `discordOracle.ts` has one import,
+  `{ parse, Syntax }` from `@discord/markdown-wasm`, and `nativeSurfaceParse` calls `parse` with a literal mask.
+- **The plan says what the property no longer tests.** The engine decides what is an emoji on both sides, which is D-13's
+  choice. The property tests the lift's run unit, placeholders, offsets and re-deciding. The comparison with what Discord's
+  own client lifts is stated as residue, with the row a user report goes to.
+- **The content control is a finite listed class** with a route: a literal that differs from the helper goes to steering
+  before the freeze.
+- **The frozen form names its sibling**, `helpers/data/discordNativeBox.json`, which is in the tree at `2e36107`.
+- **EC-7's retirement follows**: it compared the lift with the box, and the box marks no emoji.
+- **Candidates (B) and (C)** were declined with reasons in changelog row 13. Neither changes what D-13 described.
+
+One finding, **F-40** (LOW), is a stated limit under the cap on M6 (effort rulings block 00:49Z) and takes no revision round.
+
+**RK-8, the class from pass 1.** One member in this delta, found by the plan's own entry condition and not by this pass: AC-6.5
+at revision 5 took the box to expose emoji spans. This critique's cycle 1 pass 5 assumption named it, revision 6 made it an
+entry condition, and the implementer's probe closed it at M6.
+
+No milestone is marked `PREMISE-STALE` by this delta. `Target-Release` is unchanged, and D-19 keeps one release. No `OPEN
+QUESTION` is unresolved (0 lines without `[RESOLVED]` or `[CLOSED]`, counted in memory over the plan at `f9b406d6`). Routed to
+the owner: nothing.
+
+The cycle 6 verdict follows, as written at that pass.
 
 **APPROVED — cycle 6, pass 1.** Neither the stop authority nor the hard stop fired (pass 1 of 15 in this cycle). Pricing: sized
 to the ask plus his rulings. Revision 12 widens AC-3.7's population to the class the criterion already named, and adds one
@@ -346,6 +388,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 7 pass 1: this pass assumes that the engine's `parse` output, which is all the helper calls today, lets the helper place
+each emoji in the raw text by itself, and does not test it. The emoji-span join is M6's to write and does not exist at
+`2e36107`. If it is false, the helper has to call the engine's `parseLossless`, the same function the adapter calls for the
+lift, and "never computed by the parse the lift reads" then holds for the adapter's code only. The signature is a
+`parseLossless` import in `discordOracle.ts`. The implementer owns closing it at M6, and code review reads the helper's
+imports against AC-2.1.
+
 Cycle 6 pass 1: this pass assumes that Discord's legacy tree names every atom kind the engine returns on the legacy-only
 surfaces with a node type of its own, so that "kind agrees" has a legacy side for each, and does not test it. This pass read
 one legacy atom node, a timestamp. If it is false for a kind (legacy leaves it as text, as AN-8 found for a game mention on
@@ -415,6 +464,27 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 7 pass 1
+
+F-40 LOW cycle 7 pass 1 — closed as landed-by-author, with stated limit SL-14; discharging document: the plan's Planner batch
+- **Title**: the hand-written control names no member that crosses a line break, and one owed re-verdicts cell still folds
+  EC-7.
+- **Location**: plan revision 13, AC-6.5 "Expected value", the hand-written control's member list; Reading Order, owed
+  re-verdicts table, the row "AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value".
+- **Description**: (1) The helper and the lift each join a run of adjacent lines by their own code, both written from AN-6
+  in the same milestone. The control is what checks the helper's join by hand. Its members are each emoji form alone,
+  inside bold, inline code, a code block and a link label, in a link URL and after a backslash. Only the code block has to
+  span lines. A join wrong in the same way on both sides, on a style that opens on one line and closes on the next, passes
+  the property and the control. (2) That owed re-verdicts row still says EC-7 "is folded at the next planning pass";
+  revision 13 retires it.
+- **Impact**: one construct family, inline styles across a line break, has no hand-checked member (0 of the control's
+  listed contexts must cross a line except the code block). The mask control and the property still run over it.
+- **SL-14**: the control's "inside bold" member is read as including one input where the emoji sits on the second line of a
+  bold run that opened on the first. The M6 implementer and QA at Phase 2 bear it. Not a severity floor: the property over
+  the typed-edit class still fails when the lift's join and the helper's differ.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2; the planner sends SL-14 to
+  the implementer and QA now, since it adds a member to a class AC-6.5 lists.
 
 ### Closed at cycle 6 pass 1
 
@@ -629,6 +699,10 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 7 pass 1: the plan was read as `git diff b0af4dc3 f9b406d6` saved in this session's scratchpad. The probe tally ran
+  in memory. Nothing was installed or run beyond reads. The architect's and QA's reads of revision 13 were not read before
+  this pass was written.
+
 - Cycle 6 pass 1: the plan was read as `git diff ec2440d9 b0af4dc3` saved in this session's scratchpad. Nothing was installed
   or run beyond reads of committed captures.
 
@@ -657,7 +731,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Closed at cycle 6 pass 1 (APPROVED on plan revision 12, `b0af4dc3`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-38 with SL-12 and F-39 for the Planner batch) and `implementer-019` (M4's residue-list commit is released by this gate, read with SL-12). A later criterion-changing revision opens cycle 7: read the plan as the `git diff` from `b0af4dc3` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Closed at cycle 7 pass 1 (APPROVED on plan revision 13, `f9b406d6`), with nothing in flight, no process running and no question awaiting an answer. The verdict was sent to `planner-019` (F-40 with SL-14 for the Planner batch) and `implementer-019` (AC-6.5's literals are released by this gate, read with SL-14). M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 8: read the plan as the `git diff` from `f9b406d6` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
