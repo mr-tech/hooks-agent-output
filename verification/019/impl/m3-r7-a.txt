@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (3 tests | 1 failed) 21ms
+     × compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:48:26
+     46|
+     47|     expect(requested).toEqual(['https://discord.com/assets/cafe01.wasm…
+     48|     expect(report.match).toBe(false);
+       |                          ^
+     49|     expect(report.served).toBe(SERVED_HASH);
+     50|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  01:59:39
+   Duration  834ms (transform 62ms, setup 0ms, import 654ms, tests 21ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: driftReport hands the pinned file as the served operand
+exit 1

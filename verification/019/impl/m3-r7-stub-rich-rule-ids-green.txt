@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  02:01:30
+   Duration  757ms (transform 52ms, setup 0ms, import 614ms, tests 4ms, environment 0ms)
+
+exit $?

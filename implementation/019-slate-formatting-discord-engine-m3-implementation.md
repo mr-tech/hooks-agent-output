@@ -4,10 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
+  M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine; fix round 7 (CR-15) is handed back to code review at d6aab03.
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: b04c09f — repos=website — M3 fix round 6 (QAF-36) handed to QA's refresh pass; round 5 was 380e82d; at this SHA's tree the whole offline suite ran 212 files, 3,454 of 3,454, exit 0 (the M4 document's `m4-suite-tip-e58f2ed`, a later tip that holds this round), and the live reports run 6 of 6
+Handoff-At: d6aab03 — repos=website — M3 fix round 7 (CR-15) handed back to code review; round 6 was b04c09f; at this SHA's tree the whole offline suite ran 223 files, 3,268 of 3,268, exit 0 (`m3-suite-r7-d6aab03.{log.txt,exit}`), typecheck exit 0 (`m3-r7-typecheck.txt`)
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -26,6 +26,7 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-24T02:06 | code-reviewer-019 (message, Round 3 sub-entry QAF-36, records `7b4c1ad3` and `6ee6d66b`) | Fix CR-15 (MEDIUM, severity floor); TDD rows for Round 6's two files; CR-16 a stated limit | Fixed at `d6aab03` (Round 7 below). |
 | 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry, record `62c1ba99`) | Fix CR-10 (MEDIUM); three record corrections | CR-10 fixed at `2c1590f`; corrections below. |
 | 2026-11-23T21:42 | code-reviewer-019 (message, Round 3, record `dd5b093d`) | Fix CR-5 and CR-6 (MEDIUM); CR-4 remainder, CR-7 to CR-9 optional | CR-5 and CR-6 fixed in the commit named under Handoff-At's next move; CR-4 remainder, CR-7 to CR-9 not done this round (Outstanding 11). |
 | 2026-11-23T21:13 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 M3 from the Resumption State | Items 5, 6, 7, 9, 10, 11 and the residue grouping, commits `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`. M3 handed to code review. |
@@ -146,6 +147,9 @@ TDD Gate, this round: `discordBuild.locators` lazy-chunk cases fail as expected 
 | load property, normalise-and-settle property, typed-edit property | `getInitialValue.stored-text-loads-unchanged.test.ts`, `withNormalizeNode.quote-and-fence-lines-settle.test.tsx` | Yes (tightened existing) | Yes | Pass at the base on emoji-free inputs (Findings 2); red at the base on the held-out classes, on their named inputs (`m3-base-red-named-1f0b768.json`, `m3-base-red-edits-68f3656.json`); mutants of the functions each drives are owed to QA's sweep (Outstanding 5) | Yes |
 | non-literal `import()` and `require()` scan | `engine.import-confinement.test.ts` | Yes | Yes | assertion (`m3-red-21.txt`); mutants M3-c1 to M3-c5 killed (c3 on its second run, after its anchor was corrected) | Yes |
 | AC-3.5 as a case | `discord/discordOffline.fetch-failure.test.ts` | Yes | Yes | passes at first run (the behaviour was shown in an earlier part); mutant M3-o1 (the failure does not name the page) killed | Yes |
+| `compareWasm` (Round 6) | `discordLive.drift-compare.test.ts` | Yes | Yes | TypeError `compareWasm is not a function`, both cases (`m3-red-drift-1.txt`); mutants `match = true` and `match = false` each fail one case (`m3-mutant-drift-match-true.txt`, `m3-mutant-drift-match-false.txt`) | Yes |
+| `richRuleIds` shape and require checks (Round 6) | `discordSurfaces.rich-rule-ids.test.ts` | No: the function existed (its row above) and the file tightened its coverage at `b04c09f` | Yes, by stub tree | AssertionError on all four cases against a copy whose `richRuleIds` holds no body (`m3-r7-stub-rich-rule-ids.txt`); green at the real code (`m3-r7-stub-rich-rule-ids-green.txt`). The reviewer's mutants (comma form, shape check, `!rulesId` dropped) are KILLED; `!combineId` dropped survives (CR-16, a stated limit) | Yes |
+| `driftReport` with an injected fetch (Round 7) | `discordLive.drift-compare.test.ts` | Yes | Yes | OracleError `fetching https://discord.com/assets/cafe01.wasm failed: fetch failed`: the stub was not used, the real fetch ran in `unshare -rn` (`m3-r7-red-1.txt`); mutants `compareWasm(readFileSync(PINNED_WASM), readFileSync(PINNED_WASM))` and `compareWasm(bytes, bytes)` each fail the `match` toBe(false) assertion (`m3-r7-a.txt`, `m3-r7-b.txt`); the fetch not injected fails as OracleError (`m3-r7-c.txt`) | Yes (`m3-r7-green-1.txt`) |
 
 Premise corrections made while writing (each fixed in the test, recorded for the reviewer): the legacy box names its styles `strong`, `em` and `link` (not
 `bold`, `italic`, `url`) and a bare url `url`; the legacy box writes a tab as one space and ends a line holding an inline object with a newline-only entry;
@@ -229,6 +233,30 @@ copy of the working tree with `node_modules` linked), output to files.
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---------|---------------------|----------------------------------|--------------------------|
 | QAF-36: a comparison whose "different" branch is reachable only through the live fetch | derived: the exported functions of the oracle helpers (`grep -n "^export \(async \)\?function" helpers/discord*.ts helpers/residueList.ts`), then for each `grep -lw <name>` over the offline tests and over `discord/` | 11 comparison or locating helpers: `compareWasm` (new, offline test), `referencesSwitch`, `callsFacade` (`discordRouting.predicates.test.ts`), `checkResidue`, `checkFamilies`, `signatureOf` (`residueList.check.test.ts`), `boxDifferences`, `constructsOf` (`discordReports.report-forms.test.ts`), `locate` (`discordBuild.locators.test.ts`), `richRuleIds` (live only, before this round), `routingReport` (live only) | `richRuleIds`: its two throw branches are reachable offline with a literal source; `discordSurfaces.rich-rule-ids.test.ts` added (4 cases), three mutants (shape check off, require check off, comma form dropped) each fail it. `routingReport`: assembles `locate`, `referencesSwitch` and `callsFacade` results and has no branch of its own; its parts are offline-tested; not changed. The rest were already offline-tested. Residual after the fix: 1 (`routingReport`, dispositioned) |
+
+### Round 7 (code review's CR-15 at `b04c09f`, records `7b4c1ad3` and `6ee6d66b`: MEDIUM, a severity floor)
+
+Fixed at website `d6aab03`. Records under `verification/019/impl/m3-r7-*`; the mutants ran in an isolated export (scratchpad `export-m5b`, a copy of
+the tree with `node_modules` linked), the driver sending output to files and killing the process group at 300 s.
+
+- **CR-15 (the served bytes are not shown to reach the comparison).** The structural fix: `driftReport(live, fetchImpl = fetch)` takes the fetch,
+  and the three call sites (two in `discordLive.oracle-controls`, one in `discordReports.run`) pass `live` alone, so they are unchanged.
+  `discordLive.drift-compare.test.ts` gains a case that runs `driftReport` offline over a minimal `Live` whose glue module names one wasm file
+  (the two stub modules are built with `node:vm` so their source is kept verbatim for `sourceOf`), with a stubbed fetch returning a real
+  `Response` of the bytes `09 09 09`. It asserts the requested address (`https://discord.com/assets/cafe01.wasm`), `match` false, and the served
+  hash (`e740a6fa…`, from `sha256sum`). `match` is asserted first so that the reviewer's falsity signature is an assertion on `match`.
+  TDD Gate: the new case fails as expected against the old `driftReport`, which ignored its second argument and ran the real fetch (network-isolated,
+  `OracleError … fetch failed`, `m3-r7-red-1.txt`). Mutants: the reviewer's two (`compareWasm(readFileSync(PINNED_WASM), readFileSync(PINNED_WASM))`,
+  `compareWasm(bytes, bytes)`) are KILLED on `expected true to be false` (the `match` assertion); `fetch` in place of `fetchImpl` is KILLED.
+- **Disclosed:** my first run of mutant `m3-r7-c` was not network-isolated, so it issued one GET to `https://discord.com/assets/cafe01.wasm`
+  (status 404, an address that holds nothing). I re-ran all three under `unshare -rn`; the table above is from the isolated run. The driver now wraps every run.
+- **TDD rows for Round 6's two files** are added to the table above. `richRuleIds`'s test file was written against a function that existed, so
+  its row is closed by a stub-tree red and green, not by a first red.
+- **CR-16 (LOW, capped, a stated limit):** `!combineId` dropped survives `rich-rule-ids`; not owed this round. Left for the Planner batch as the reviewer wrote.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| CR-15: an assembler of a served-versus-pinned comparison whose wiring can force its "equal" outcome with no assertion failing | derived: `grep -rn "export \(async \)\?function [A-Za-z]*Report" src/utils/markdown/__tests__` (`m3-r7-class-enum.txt`), then, for each hit, whether it pairs two operands | 3 hits: `buildReports` (`helpers/discordReportBuild.ts:39`), `driftReport` (`helpers/discordLive.ts:111`), `routingReport` (`helpers/discordRouting.ts:42`). A second query for a direct `fetch(` call in the helpers: 0 hits outside `driftReport`'s injected `fetchImpl` | `driftReport`: fixed above. `buildReports`: assembles the report text from the frozen and live readings and has an offline test of its forms (`discordReports.report-forms.test.ts`); it pairs no served operand with a pinned one: not in the class. `routingReport`: reads one live build and pairs no two operands, so no mis-wiring can force an "equal" outcome; its fields feed live assertions whose expected values are literals of today's served build, a separate property (a field forced to today's value) that the reviewer did not probe and I did not either: **not measured**, QA's population as the review names it. Residual after the fix: driftReport wiring mutants run 3, killed 3 |
 
 ## Test Execution Results
 

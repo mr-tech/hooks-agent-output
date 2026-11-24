@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (3 tests | 1 failed) 27ms
+     × compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file 22ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file
+OracleError: discord-oracle: fetching https://discord.com/assets/cafe01.wasm failed: fetch failed
+ ❯ driftReport src/utils/markdown/__tests__/helpers/discordLive.ts:129:11
+    127|     bytes = new Uint8Array(await response.arrayBuffer());
+    128|   } catch (error) {
+    129|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+    130|   }
+    131|   return compareWasm(bytes, readFileSync(PINNED_WASM));
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:45:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  01:59:44
+   Duration  768ms (transform 51ms, setup 0ms, import 615ms, tests 27ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: driftReport ignores the fetch it is given
+exit 1
