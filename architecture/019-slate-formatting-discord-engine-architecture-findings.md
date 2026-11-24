@@ -425,6 +425,14 @@ delimiter, whose base is 30.6 / 32.9 ms, giving a line of about 41 ms. The imple
 `getInitialValue` on the 1,000-line `a🙂` text, which bounds steps 1 and 2. If it misses, the best bound is that time plus about
 12 ms of Slate operations. That reading goes to steering under block 20:58Z with the figures.
 
+**The bound's open term, measured by the implementer** (2026-11-24T22:49 note). The implementer timed `getInitialValue` on 1,000
+`a🙂` lines in a scratch export at `2b82972`: median 9.3 ms on `embedDescription` and 4.7 ms on `content`, and at most 24.7 ms on a
+cold first call. All 1,000 lines lifted. The capture is `verification/019/impl/m6-fix4-initial-value-timing-2b82972.jsonl`, at
+agent-output `abc423e`. I read its rows; the figures are not re-run. That is under the 25 ms the bound allowed. Building plus the
+Slate operations' floor comes to about 21 ms warm at 1,000 lines, against the middle delimiter's line of about 41 ms. So every
+member is in reach by this bound. The fence scan and the drain's remainder are still unmeasured, and SL-29's timed reading at Fix
+Round 4's tip decides.
+
 **A criterion's wording this form bears on.** AC-6.9's no-throw limb refuses "any change that stops `Editor.normalize` from
 reporting a drain that does not settle" (revision 22, my CF-30). Suppressing dirty paths takes lines out of the drain. My reading
 is that it does not hide an unsettled drain, because the suppressed lines are settled by construction and the fresh-load limb
