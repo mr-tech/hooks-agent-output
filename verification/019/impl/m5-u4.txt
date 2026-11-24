@@ -1,0 +1,127 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 47ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 6ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 127ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 102ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '```\nblock\n```', …(8) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```
++ block
++ ```",
++   "```js
++ let a = 1;
++ ```",
++   "```JS
++ x
++ ```",
++   "```c++
++ x
++ ```",
++   "```notalang
++ x
++ ```",
++   "```
++
++
++ x
++
++
++ ```",
++   "```unclosed
++ x",
++   "> ```
++ > x
++ > ```",
++   "```js
++ let a = 1;
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:93:23
+     91|     }
+     92|     expect(compared).toBeGreaterThan(200);
+     93|     expect(differing).toEqual([]);
+       |                       ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+AssertionError: expected [ Array(8) ] to deeply equal [ Array(8) ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    "codeBlockText",
+    "S",
+    "S",
+    "S",
+    "-",
+-   "S",
+-   "S",
+-   "S",
++   "-",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:101:20
+     99|     editor.children = value;
+    100|     const [, second] = siteLines(value, 'content', editor);
+    101|     expect(second).toEqual(['codeBlockText', 'S', 'S', 'S', '-', 'S', …
+       |                    ^
+    102|   });
+    103| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > gives an unclosed opening fence the code classes, as the native box does while typing
+AssertionError: expected [ '-', '-', '-', '-', '-' ] to deeply equal [ 'S', 'S', 'S', 'lang', 'lang' ]
+
+- Expected
++ Received
+
+  [
+-   "S",
+-   "S",
+-   "S",
+-   "lang",
+-   "lang",
++   "-",
++   "-",
++   "-",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:46:31
+     44|
+     45|   it('gives an unclosed opening fence the code classes, as the native …
+     46|     expect(labelled('```js')).toEqual(['S', 'S', 'S', 'lang', 'lang']);
+       |                               ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 8 passed (11)
+   Start at  01:19:34
+   Duration  1.50s (transform 586ms, setup 0ms, import 1.33s, tests 174ms, environment 0ms)
+
+exit 1

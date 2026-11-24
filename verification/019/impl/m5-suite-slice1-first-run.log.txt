@@ -1,0 +1,58 @@
+
+> website@ test /usr/local/bin/hooks/website
+> vitest run --project node --project dom
+
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 5558ms
+     × draws nothing while the engine is pending 5013ms
+ ❯ |node| src/server/api/__tests__/trpc.batch-refusal.test.ts (2 tests | 1 failed) 6059ms
+     × refuses two calls with a bad-request status before any call reaches the database 5010ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/trpc.batch-refusal.test.ts > the tRPC endpoint given one request naming several procedure calls > refuses two calls with a bad-request status before any call reaches the database
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/server/api/__tests__/trpc.batch-refusal.test.ts:58:5
+     56|     ['two calls', 2],
+     57|     ['five hundred calls', 500],
+     58|   ])('refuses %s with a bad-request status before any call reaches the…
+       |     ^
+     59|     const paths = Array.from({ length: count }, () => 'user.getPrefere…
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > draws nothing while the engine is pending
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:30:3
+     28|
+     29| describe('the preview parser before the engine is ready', () => {
+     30|   it('draws nothing while the engine is pending', async () => {
+       |   ^
+     31|     const { preview } = await fresh();
+     32|     expect(preview.previewParser('content')('**a**')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 215 passed (217)
+      Tests  2 failed | 3230 passed (3232)
+   Start at  01:24:36
+   Duration  64.33s (transform 56.87s, setup 1.69s, import 264.78s, tests 297.38s, environment 123.25s)
+
+ ELIFECYCLE  Test failed. See above for more details.

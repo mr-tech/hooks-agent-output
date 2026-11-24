@@ -1,0 +1,102 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 48ms
+     × draws a masked link label as link text and the brackets and destination as syntax 13ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 126ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 104ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ Array(16) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[text](https://example.com)",
++   "[text](http://example.com/a_b)",
++   "[text](<https://example.com>)",
++   "[text](https://example.com \"title\")",
++   "[**bold**](https://example.com)",
++   "[a [b] c](https://example.com)",
++   "[text](https://example.com/a(b)c)",
++   "**[text](https://example.com)**",
++   "[text](https://example.com)[two](https://example.org)",
++   "[`code`](https://example.com)",
++   "[||sp||](https://example.com)",
++   "[text](discord://-/channels/1/2)",
++   "[te
++ xt](https://example.com)",
++   "- [t](https://example.com)
++ - `c`",
++   "# [t](https://example.com)",
++   "[text](https://example.com \"title\")",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:93:23
+     91|     }
+     92|     expect(compared).toBeGreaterThan(200);
+     93|     expect(differing).toEqual([]);
+       |                       ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > draws a masked link label as link text and the brackets and destination as syntax
+AssertionError: expected [ 'S', 'linkText', 'linkText', …(14) ] to deeply equal [ 'S', 'linkText', 'linkText', …(14) ]
+
+- Expected
++ Received
+
+@@ -2,18 +2,18 @@
+    "S",
+    "linkText",
+    "linkText",
+    "S",
+    "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
++   "linkText",
+    "S",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:19:43
+     17|
+     18|   it('draws a masked link label as link text and the brackets and dest…
+     19|     expect(labelled('[ab](https://x.y)')).toEqual([
+       |                                           ^
+     20|       'S', 'linkText', 'linkText', ...Array.from({ length: 14 }, () =>…
+     21|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 9 passed (11)
+   Start at  01:19:43
+   Duration  1.51s (transform 602ms, setup 0ms, import 1.35s, tests 174ms, environment 0ms)
+
+exit 1

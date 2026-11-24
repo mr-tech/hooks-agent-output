@@ -1,0 +1,75 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 46ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 6ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 125ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 101ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '-# sub', '-# -# nested', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "-# sub",
++   "-# -# nested",
++   "text
++ -# after",
++   "-# **b** *i*",
++   "-# # sub then head",
++   "# h
++ text
++ - a
++ > q
++ -# s",
++   "-# https://example.com",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:93:23
+     91|     }
+     92|     expect(compared).toBeGreaterThan(200);
+     93|     expect(differing).toEqual([]);
+       |                       ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > marks the subtext marker and its space as syntax and the rest as subtext
+AssertionError: expected [ 'S', 'S', 'S', '-', '-' ] to deeply equal [ 'S', 'S', 'S', 'subtextText', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "S",
+    "S",
+    "S",
+-   "subtextText",
+-   "subtextText",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:29:31
+     27|
+     28|   it('marks the subtext marker and its space as syntax and the rest as…
+     29|     expect(labelled('-# ab')).toEqual(['S', 'S', 'S', 'subtextText', '…
+       |                               ^
+     30|   });
+     31|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 9 passed (11)
+   Start at  01:19:36
+   Duration  1.45s (transform 523ms, setup 0ms, import 1.28s, tests 171ms, environment 0ms)
+
+exit 1
