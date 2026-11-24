@@ -113,6 +113,29 @@ Status-Detail: >-
 | 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
 | 2026-11-23T15:58 | architect-019 | Conformance pass on plan 019 revision 1 (record `103687b4`) | Brief from `steering-hooks-fixer` by message; common brief `steering/slate-formatting-brief-common.md`. The plan was read whole. Website was read at `af3d95a` from a `git archive` export, with the shell in the record folder and exact paths only (his 15:29Z selection). highlight.js 11.12.0 was read from the shared tree's installed copy, read-only. `@discord/markdown-wasm` 0.16.0 was run under Node 24.14.0 in capped scopes. Captures are in `verification/019/architect-conformance/`. The pre-planning findings (`architecture/closed/slate-formatting-preview-architecture-findings.md`) were closed Resolved in this pass, because plan 019 carries every item they raised. |
 
+## Resumption State
+
+Written 2026-11-24T22:57Z at steering's ask (`/checkpoint`; `steering-hooks-fixer`'s message). Record branch `master`. My last
+commit is `4dfc0505`.
+
+**Done.** Delta passes on plan 019 revisions 13 to 23 are recorded, each a section below. The last plan revision read is revision
+23, at record `49a20690`. The Fix Round 4 design read (CF-33) is committed and delivered to `implementer-019`. Its open terms are
+closed: `getInitialValue` at 1,000 `a🙂` lines takes 9.3 ms (the implementer's figure), and slate-react does not normalise on
+mount (re-read). `website.md` A-9 gained "Which expected values are frozen", and A-11 was added; both are committed.
+
+**Next.**
+- The **closing conformance pass** (architect.md), when `steering-hooks-fixer` starts it, once M6's fold has had its critic read.
+  It reads the delta from revision 23 to the plan's revision at that time, landing each confirmed pattern and Problem Area. It
+  restates `website.md` A-11 from the fixed tree (Open items), and then closes this document under Document Lifecycle.
+- Or a **delta read** of any revision planner-019 cues before then. Read it as `git show <commit>` against revision 23.
+- Or a **Fix Round 4 question** from `implementer-019` or `code-reviewer-019` on CF-33.
+
+**Approach in flight.** None. Nothing in the record is uncommitted. Nothing in the shared website tree was mutated. The only probe
+scripts are under `verification/019/architect-conformance/{rev13,rev15,fix3-lift}/` and are committed.
+
+**Questions out.** AC-6.9's no-throw wording, and whether CF-33's `getDirtyPaths` suppression is admitted. Steering sent it to
+`planner-019` (block 22:48Z, record `97303579`). The answer is planner-019's; I read it from the plan when it lands.
+
 ## Open items
 
 - **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant (§ Delta pass,
