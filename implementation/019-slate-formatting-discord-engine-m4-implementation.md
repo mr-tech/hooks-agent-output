@@ -203,6 +203,24 @@ The two rows marked "No" under "Test Written First?" are owed an assertion-level
 
 The renderer-level scheme control uses a fixture tree that invents engine output (the engine returns no `javascript:` or `data:` link); named so, per QAF-17.
 
+### Stub-tree records for the five production rows with no test-first red (QA Phase 2 on M4, record `908aeee0`)
+
+No production path moved: the records are runs in an export of `e58f2ed` (`git archive`, scratchpad `export-m4`), the production
+function stubbed to hold no body or to do nothing for the named branch, the named test run red, then the file restored from
+`e58f2ed` and the same test run green. Each red is assertion-level. Outputs `verification/019/impl/m4-stubred-N.txt` and
+`m4-stubgreen-N.txt`.
+
+| Row | Function (stub) | Test file | Red against the stub | Green at `e58f2ed` |
+|---|---|---|---|---|
+| 1 | `renderNode` cases `quote`, `list`, `empty` return null | `preview.engine-tree-render.test.ts` | 4 AssertionErrors (`m4-stubred-1.txt`) | exit 0 (`m4-stubgreen-1.txt`) |
+| 2 | `renderNode` case `subtext` returns null | same | 1 AssertionError (`m4-stubred-2.txt`) | exit 0 |
+| 3 | `previewParser` returns a parser that always gives null | `preview.engine-not-ready.test.ts` | 1 AssertionError (`m4-stubred-3.txt`) | exit 0 |
+| 4 | `useGuildChannels` returns null | `page.channel-names.test.tsx`, `Markdown.channel-names.test.tsx` | 4 AssertionErrors (`m4-stubred-4.txt`) | exit 0 |
+| 5 | `Markdown.tsx` `onChange(span, text)` does not rewrite the span | `preview.timestamp-edit.test.tsx` | 14 AssertionErrors (`m4-stubred-5.txt`) | exit 0 |
+
+Row 5: a first stub (`renderTimestamp` returning null, then `onEdit` undefined) gave `TypeError ... dispatchEvent`, the trigger being
+absent, not an assertion; the stub that leaves the trigger and disables only the span rewrite is the one recorded.
+
 ## Slice 3: the DOM reader, atoms, the adjustment measurement, the frozen residue list, AC-3.1/3.6/3.7, AC-4.5
 
 Flows (user-visible work). Mention pills and timestamps carry `data-mention-kind`, `data-mention-id`, `data-timestamp` and

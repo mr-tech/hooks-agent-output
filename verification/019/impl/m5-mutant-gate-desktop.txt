@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m5
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx (3 tests | 1 failed) 63ms
+     × keeps the editor closed while the engine is pending and opens it once the engine has settled 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx > DiscordContentEditor on desktop, text as typed > keeps the editor closed while the engine is pending and opens it once the engine has settled
+AssertionError: expected { onChange: [Function onChange] } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "onChange": [Function onChange],
+}
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:103:27
+    101|     const button = host.querySelector('button');
+    102|     act(() => { button?.focus(); });
+    103|     expect(slate.current).toBeNull();
+       |                           ^
+    104|     unmountDom();
+    105|     engine.state = 'rejected';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  01:11:41
+   Duration  1.72s (transform 220ms, setup 31ms, import 729ms, tests 63ms, environment 753ms)
+
+exit 1

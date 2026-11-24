@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts [ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts ]
+Error: Cannot find module '../unitStyles' imported from /usr/local/bin/hooks/website/src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:5:1
+      3| import { startEngine } from '~/utils/markdown/engine';
+      4|
+      5| import { styleUnit } from '../unitStyles';
+       | ^
+      6|
+      7| const labelled = (text: string): string[] => (styleUnit('content', tex…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  01:06:10
+   Duration  301ms (transform 130ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
+exit 1

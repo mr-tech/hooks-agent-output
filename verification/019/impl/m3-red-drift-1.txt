@@ -1,0 +1,40 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (2 tests | 2 failed) 5ms
+     × reports different bytes as drift, naming both hashes 3ms
+     × reports identical bytes as equal 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports different bytes as drift, naming both hashes
+TypeError: compareWasm is not a function
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:12:20
+     10| describe('the drift alarm comparison', () => {
+     11|   it('reports different bytes as drift, naming both hashes', () => {
+     12|     const report = compareWasm(OTHER, THREE);
+       |                    ^
+     13|     expect(report.match).toBe(false);
+     14|     expect(report.served).toBe(OTHER_HASH);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports identical bytes as equal
+TypeError: compareWasm is not a function
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:22:20
+     20|
+     21|   it('reports identical bytes as equal', () => {
+     22|     const report = compareWasm(new Uint8Array(THREE), THREE);
+       |                    ^
+     23|     expect(report.match).toBe(true);
+     24|     expect(report.message).toContain('equal');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  01:12:32
+   Duration  700ms (transform 45ms, setup 0ms, import 569ms, tests 5ms, environment 0ms)
+
+exit 1

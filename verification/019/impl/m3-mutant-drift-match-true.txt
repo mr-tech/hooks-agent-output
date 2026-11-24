@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m5
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (2 tests | 1 failed) 8ms
+     × reports different bytes as drift, naming both hashes 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports different bytes as drift, naming both hashes
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:13:26
+     11|   it('reports different bytes as drift, naming both hashes', () => {
+     12|     const report = compareWasm(OTHER, THREE);
+     13|     expect(report.match).toBe(false);
+       |                          ^
+     14|     expect(report.served).toBe(OTHER_HASH);
+     15|     expect(report.pinned).toBe(THREE_HASH);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  01:12:43
+   Duration  697ms (transform 42ms, setup 0ms, import 555ms, tests 8ms, environment 0ms)
+
+exit 1

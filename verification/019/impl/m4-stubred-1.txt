@@ -1,0 +1,92 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m4
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 4 failed) 63ms
+     × draws a quote line with its bar 6ms
+     × draws an ordered list from its first number 1ms
+     × draws an unordered list 1ms
+     × keeps a blank line between two paragraphs 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws a quote line with its bar
+AssertionError: expected '' to be '<div class="discord-visualizer__quote…' // Object.is equality
+
+- Expected
++ Received
+
+- <div class="discord-visualizer__quote"><div class="discord-visualizer__quote-divider"></div><blockquote>a</blockquote></div>
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:71:38
+     69| describe('the preview renders blocks', () => {
+     70|   it('draws a quote line with its bar', () => {
+     71|     expect(render('content', '> a')).toBe(
+       |                                      ^
+     72|       '<div class="discord-visualizer__quote"><div class="discord-visu…
+     73|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws an ordered list from its first number
+AssertionError: expected '' to be '<ol start="3"><li>a</li><li>b</li></o…' // Object.is equality
+
+- Expected
++ Received
+
+- <ol start="3"><li>a</li><li>b</li></ol>
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:77:45
+     75|
+     76|   it('draws an ordered list from its first number', () => {
+     77|     expect(render('content', '3. a\n4. b')).toBe('<ol start="3"><li>a<…
+       |                                             ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws an unordered list
+AssertionError: expected '' to be '<ul><li>a</li></ul>' // Object.is equality
+
+- Expected
++ Received
+
+- <ul><li>a</li></ul>
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:81:38
+     79|
+     80|   it('draws an unordered list', () => {
+     81|     expect(render('content', '- a')).toBe('<ul><li>a</li></ul>');
+       |                                      ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > keeps a blank line between two paragraphs
+AssertionError: expected 'a\nb' to be 'a\n\nb' // Object.is equality
+
+- Expected
++ Received
+
+  a
+-
+  b
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:93:41
+     91|
+     92|   it('keeps a blank line between two paragraphs', () => {
+     93|     expect(render('content', 'a\n\nb')).toBe('a\n\nb');
+       |                                         ^
+     94|   });
+     95| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 20 passed (24)
+   Start at  01:13:28
+   Duration  1.34s (transform 413ms, setup 0ms, import 1.12s, tests 63ms, environment 0ms)
+
+exit 1

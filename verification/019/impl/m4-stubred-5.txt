@@ -1,0 +1,1055 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m4
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code span before it
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code span before it
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code block before it
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an escaped timestamp before it
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an escaped timestamp before it
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an escaped timestamp before it
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an invalid style letter before it
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the second
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a link label, which the engine leaves as text
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a link label, which the engine leaves as text
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a link label, which the engine leaves as text
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with the bare form
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with three timestamps, the middle one
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added before the existing ones while the preview stays mounted
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added before the existing ones while the preview stays mounted
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added between and after the existing ones
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added between and after the existing ones
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 14 failed) 2592ms
+     × with one timestamp between text 375ms
+     × with identical duplicates, the first 181ms
+     × with identical duplicates, the second 202ms
+     × with a timestamp in a code span before it 200ms
+     × with a timestamp in a code block before it 199ms
+     × with an escaped timestamp before it 203ms
+     × with an invalid style letter before it 198ms
+     × with a timestamp inside a spoiler, the first 232ms
+     × with a timestamp inside a spoiler, the second 129ms
+     × with a timestamp inside a link label, which the engine leaves as text 169ms
+     × with the bare form 108ms
+     × with three timestamps, the middle one 128ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 120ms
+     × after a timestamp is added between and after the existing ones 131ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+AssertionError: expected [ 'a <t:1700000000:t> b' ] to deeply equal [ 'a <t:1700000000:R> b' ]
+
+- Expected
++ Received
+
+  [
+-   "a <t:1700000000:R> b",
++   "a <t:1700000000:t> b",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+AssertionError: expected [ '<t:1700000000:t> <t:1700000000:t>' ] to deeply equal [ '<t:1700000000:R> <t:1700000000:t>' ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:R> <t:1700000000:t>",
++   "<t:1700000000:t> <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+AssertionError: expected [ '<t:1700000000:t> <t:1700000000:t>' ] to deeply equal [ '<t:1700000000:t> <t:1700000000:R>' ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:t> <t:1700000000:R>",
++   "<t:1700000000:t> <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code span before it
+AssertionError: expected [ '`<t:5>` <t:1700000000:t>' ] to deeply equal [ '`<t:5>` <t:1700000000:R>' ]
+
+- Expected
++ Received
+
+  [
+-   "`<t:5>` <t:1700000000:R>",
++   "`<t:5>` <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code block before it
+AssertionError: expected [ '```\n<t:5>\n```\n<t:1700000000:t>' ] to deeply equal [ '```\n<t:5>\n```\n<t:1700000000:R>' ]
+
+- Expected
++ Received
+
+  [
+    "```
+  <t:5>
+  ```
+- <t:1700000000:R>",
++ <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an escaped timestamp before it
+AssertionError: expected [ '\<t:5> <t:1700000000:t>' ] to deeply equal [ '\<t:5> <t:1700000000:R>' ]
+
+- Expected
++ Received
+
+  [
+-   "\\<t:5> <t:1700000000:R>",
++   "\\<t:5> <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an invalid style letter before it
+AssertionError: expected [ '<t:1700000000:x> <t:1700000000:t>' ] to deeply equal [ '<t:1700000000:x> <t:1700000000:R>' ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:x> <t:1700000000:R>",
++   "<t:1700000000:x> <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "||<t:1700000000:R>|| <t:1700000000:d>",
++   "||<t:1700000000:t>|| <t:1700000000:d>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the second
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "||<t:1700000000:t>|| <t:1700000000:R>",
++   "||<t:1700000000:t>|| <t:1700000000:d>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a link label, which the engine leaves as text
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "[<t:1700000000:t>](https://z.q) <t:1700000000:R>",
++   "[<t:1700000000:t>](https://z.q) <t:1700000000:d>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with the bare form
+AssertionError: expected [ '<t:1700000000> x' ] to deeply equal [ '<t:1700000000:R> x' ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:R> x",
++   "<t:1700000000> x",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with three timestamps, the middle one
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:t><t:1700000000:R><t:1700000000:t>",
++   "<t:1700000000:t><t:1700000000:d><t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added before the existing ones while the preview stays mounted
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:d> <t:1700000000:R> <t:1700000000:d>",
++   "<t:1700000000:d> <t:1700000000:t> <t:1700000000:d>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:82:21
+     80|     act(() => { handle.setSource(`${B} ${A} ${B}`); });
+     81|     await editTimestamp(el, 1);
+     82|     expect(history).toEqual([`${B} ${edited(A)} ${B}`]);
+       |                     ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/14]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added between and after the existing ones
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:t> <t:1700000000:d> <t:1700000000:R>",
++   "<t:1700000000:t> <t:1700000000:d> <t:1700000000:t>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:90:21
+     88|     act(() => { handle.setSource(`${A} ${B} ${A}`); });
+     89|     await editTimestamp(el, 2);
+     90|     expect(history).toEqual([`${A} ${B} ${edited(A)}`]);
+       |                     ^
+     91|   });
+     92| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/14]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  14 failed | 1 passed (15)
+   Start at  01:14:26
+   Duration  4.81s (transform 617ms, setup 24ms, import 1.42s, tests 2.59s, environment 619ms)
+
+exit 1

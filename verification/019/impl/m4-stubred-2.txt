@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m4
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 66ms
+     × draws a subtext line as a small block with its marker consumed 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws a subtext line as a small block with its marker consumed
+AssertionError: expected '' to be '<div class="discord-visualizer__subte…' // Object.is equality
+
+- Expected
++ Received
+
+- <div class="discord-visualizer__subtext">small</div>
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:89:43
+     87|
+     88|   it('draws a subtext line as a small block with its marker consumed',…
+     89|     expect(render('content', '-# small')).toBe('<div class="discord-vi…
+       |                                           ^
+     90|   });
+     91|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 23 passed (24)
+   Start at  01:13:32
+   Duration  1.37s (transform 436ms, setup 0ms, import 1.16s, tests 66ms, environment 0ms)
+
+exit 1

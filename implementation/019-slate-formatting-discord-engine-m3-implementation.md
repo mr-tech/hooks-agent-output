@@ -7,7 +7,7 @@ Status-Detail: >-
   M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: 380e82d — repos=website — M3 fix round 5 (QAF-32, QAF-33) handed to code review and QA's refresh pass; at this SHA's tree the whole offline suite ran 212 files, 3,454 of 3,454, exit 0 (the M4 document's `m4-suite-tip-e58f2ed`, a later tip that holds this round), and the live reports run 6 of 6
+Handoff-At: b04c09f — repos=website — M3 fix round 6 (QAF-36) handed to QA's refresh pass; round 5 was 380e82d; at this SHA's tree the whole offline suite ran 212 files, 3,454 of 3,454, exit 0 (the M4 document's `m4-suite-tip-e58f2ed`, a later tip that holds this round), and the live reports run 6 of 6
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -210,6 +210,23 @@ Fixed at website `380e82d` on the chain branch (this round's commit); the record
 |---------|---------------------|----------------------------------|--------------------------|
 | QAF-32: a test that spawns a partial command and so cannot see the whole command's output | `grep -rlc "spawnSync\|execSync\|spawn(" src --include=*.test.ts --include=*.test.tsx` (derived; the finding carries none) | 1 hit before the fix (`discord/discordOffline.fetch-failure.test.ts`), 1 after (`discordOffline.whole-command.test.ts`) | the one hit is the whole-command case, residual 1 and it is the fix |
 | QAF-33: a diagnostic the live run computes and nothing writes out | `grep -rn "process.stderr.write\|writeFileSync" src/utils/markdown/__tests__` over the tests, plus `grep -n "message:" helpers/*.ts` for returned diagnostics (derived) | 6 writer hits, 2 returned-message hits (`DriftReport.message`, `OracleError`'s constructor) | `coverage unexamined` already written to stderr; `DriftReport.message` now written; `OracleError` messages fail the run itself (a throw); the `engine.import-confinement` writes build a throwaway tree. Residual 0 unwritten |
+
+### Round 6 (QA refresh at `e58f2ed`, record `908aeee0`: QAF-36, MEDIUM severity floor)
+
+Fixed at website `9a5f4fe` and `b04c09f` on the chain branch. Records `verification/019/impl/m3-red-drift-1.txt`,
+`m3-mutant-drift-match-true.txt`, `m3-mutant-drift-match-false.txt`; the mutants ran in an isolated export (scratchpad `export-m5`, a
+copy of the working tree with `node_modules` linked), output to files.
+
+- **QAF-36 (the drift alarm cannot say "different" offline).** `helpers/discordLive.ts` gains the pure `compareWasm(servedBytes,
+  pinnedBytes)`; `driftReport` fetches, then calls it. `discordLive.drift-compare.test.ts` (offline, in `pnpm test`) holds two cases with
+  literal hashes (`sha256sum` of `01 02 03` and `01 02 04`): different bytes give `match` false, both hashes and the text
+  "DIFFERENT (drift, outcome C2)"; identical bytes give `match` true, "equal" and no "DIFFERENT". TDD Gate: `compareWasm is not a
+  function` (red, both cases). Mutants: `match = true` fails the different case (1 assertion), `match = false` fails the equal case
+  (1 assertion).
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| QAF-36: a comparison whose "different" branch is reachable only through the live fetch | derived: the exported functions of the oracle helpers (`grep -n "^export \(async \)\?function" helpers/discord*.ts helpers/residueList.ts`), then for each `grep -lw <name>` over the offline tests and over `discord/` | 11 comparison or locating helpers: `compareWasm` (new, offline test), `referencesSwitch`, `callsFacade` (`discordRouting.predicates.test.ts`), `checkResidue`, `checkFamilies`, `signatureOf` (`residueList.check.test.ts`), `boxDifferences`, `constructsOf` (`discordReports.report-forms.test.ts`), `locate` (`discordBuild.locators.test.ts`), `richRuleIds` (live only, before this round), `routingReport` (live only) | `richRuleIds`: its two throw branches are reachable offline with a literal source; `discordSurfaces.rich-rule-ids.test.ts` added (4 cases), three mutants (shape check off, require check off, comma form dropped) each fail it. `routingReport`: assembles `locate`, `referencesSwitch` and `callsFacade` results and has no branch of its own; its parts are offline-tested; not changed. The rest were already offline-tested. Residual after the fix: 1 (`routingReport`, dispositioned) |
 
 ## Test Execution Results
 

@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m5
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (2 tests | 1 failed) 11ms
+     × reports identical bytes as equal 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports identical bytes as equal
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/markdown/__tests__/discordLive.drift-compare.test.ts:23:26
+     21|   it('reports identical bytes as equal', () => {
+     22|     const report = compareWasm(new Uint8Array(THREE), THREE);
+     23|     expect(report.match).toBe(true);
+       |                          ^
+     24|     expect(report.message).toContain('equal');
+     25|     expect(report.message).not.toContain('DIFFERENT');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  01:12:44
+   Duration  700ms (transform 43ms, setup 0ms, import 559ms, tests 11ms, environment 0ms)
+
+exit 1

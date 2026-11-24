@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7b2a9c70-7f01-4947-b29d-3d283764685d/scratchpad/export-m4
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 1091ms
+     × shows every source character unformatted once the engine is rejected 32ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > shows every source character unformatted once the engine is rejected
+AssertionError: expected null to be '**a** [l](https://z.q)' // Object.is equality
+
+- Expected:
+"**a** [l](https://z.q)"
+
++ Received:
+null
+
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:40:72
+     38|     const { engine, preview } = await fresh();
+     39|     await engine.startEngine();
+     40|     expect(preview.previewParser('content')('**a** [l](https://z.q)'))…
+       |                                                                        ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  01:13:37
+   Duration  1.26s (transform 431ms, setup 0ms, import 40ms, tests 1.09s, environment 0ms)
+
+exit 1
