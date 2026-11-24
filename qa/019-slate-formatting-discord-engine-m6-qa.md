@@ -247,3 +247,44 @@ at the fix round's refresh, which runs that file alone once before the suite.
   fix.
 - To `planner-019`: QAF-46, QAF-47, QAF-48 and QAF-49 for the Planner batch, all stated limits under the cap. QAF-42 is closed.
 - Then code review's sub-entry, and QA's refresh over the round's diff, with the effort-final sweep.
+
+## Resumption State
+
+Written at steering's ask (`/checkpoint`, about 413K tokens), at a seam: every pass is committed.
+
+- **Done.**
+  - **M6 Phase 2:** QA Failed at `119471f`, record `4da9b76b`, plan R-89 at `150f5097`. Sent to implementer-019 (QAF-50 for the
+    fix round) and to planner-019, which registered QAF-46 to QAF-49 at R-90, record `14309101`.
+  - **m5-d2 in its `runUnit.ts` form:** KILLED by `decorator.native-box-classes` (`hand-pass-shard-1/`). It is not owed again
+    unless the fix round changes `runUnit.ts`.
+  - **Phase 1:** re-keyed through Revision 20 (records `d53b1b30`, `e74108e`, `4764a6e`, `0dca93e`). Nothing is open there: QAF-42,
+    QAF-43 and QAF-44 are closed, and QAF-45 is folded as SL-22.
+- **Next: the M6 refresh on CR-20's fix round.** Stage start is code review's committed sub-entry and its `Reviewed-At`, never the
+  message. Run in a `git archive` export of that SHA, with a frozen offline install, `next-env.d.ts` copied in, and blob identity
+  checked (`verification/019/qa/m6/blob-identity.py`). Owed:
+  - the TDD rows of the round (each new function red at assertion level, or stub-tree red and green);
+  - the whole offline suite (JSON and exit code), typecheck, live, `pnpm test:discord` offline and `next build`;
+  - **typed-generated alone, once, before the suite** (this document's Assumption Not Checked: no extra writes, no timeout);
+  - **AC-3.3's 60 s cap:** both whole suites back to back, `2e36107` and the fix tip, against the chain base's 31.1 s;
+  - **AC-6.8:**
+    - the count limb, with its cross-size equality and floor on the sized texts: plain, `> `, `>>>`, CF-28's many-unit text,
+      the fenced-quote texts, and `a🙂` at 200 and 1,000 lines;
+    - the time limb from the `*.bench.ts` under `__tests__/` (CF-26, SL-20). Read how it runs under the config's projects, and
+      record the load beside each median (16 ms bound);
+    - SL-23's left-out keystrokes, and SL-24's growth-probe line;
+    - NM-70 and NM-71 red, and NM-72 expected to survive (P-Q23 to P-Q25 in the Phase 1 document);
+  - QAF-50's case red under W12. QAF-46's `🫩` member red under a mutation;
+  - the M4 and M5 differentials if the round touches their paths: `qaPreviewDump` and `qaDecoratorDump`, both with their
+    planted controls;
+  - **the effort-final sweep** over `git diff 5ec0621..<fix tip>` production paths, with `mutant-gen.js` plus
+    `qa-hand-mutants-119471f.json` re-checked for exact-once at the new tip. Run it through a helper, with at most two shards and
+    the whole suite. **`--exclude` does not work under this config's projects**, so use explicit file filters if scoping, with a
+    survivors-only whole-suite second pass. Every survivor is dispositioned.
+- **Watch.** Under five-way load the typed-generated file overran 300 s, and its single-line case then reported extra writes.
+- **Approach in flight.** None.
+- **Local state.** Website is on `chain/019-slate-formatting-discord-engine`, HEAD `119471f`, the implementer's. I wrote nothing
+  there. Scratch exports kept for the refresh: `m5x` (`2e36107`) and `m6x` (`119471f`), both under this session's scratchpad.
+  The probe export and the sweep work directories are deleted. No process of mine is running.
+- **Evidence run but not recorded.** None.
+- **Questions sent.** None open.
+- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
