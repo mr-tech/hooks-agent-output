@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 14 (record 2c3c8d1a, AC-6.7 quote continuation, D-22): APPROVED under the M6 cap. CF-22 (LOW:
+  carry the marker in an insertBreak override, since paste emits the same split_node op) and CF-23 (LOW: "carried" is state no
+  field holds; a transient element field is the home) are stated limits for the Planner batch. They hold nothing.
   Delta pass on plan 019 revision 13 (record f9b406d6, AC-6.5's expected-span source, D-21): APPROVED under the M6 cap. The
   oracle helper on every surface fits the pattern and is independent of the lift as read at website 2e36107. CF-21 (LOW: don't
   freeze; the helper runs offline and the current pattern runs it live) is a stated limit for the Planner batch. It holds nothing.
@@ -47,6 +50,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T04:06 | architect-019 | Delta pass on plan 019 revision 14 (record `2c3c8d1a`); § Delta pass, revision 14. APPROVED; CF-22 and CF-23 LOW raised as stated limits under the M6 cap. CF-21's disposition recorded (freezing kept on D-21's option text) | Commissioned by `planner-019`'s message under effort rulings block 04:00Z. Read as `git show 2c3c8d1a` on the plan. Website `2e36107` and `8cb4d83` were read through `git -C … show`/`grep`, and the installed `slate-dom` 0.123.0 `insertTextData` was read read-only. |
 | 2026-11-24T04:02 | architect-019 | Delta pass on plan 019 revision 13 (record `f9b406d6`); § Delta pass, revision 13. APPROVED; CF-21 LOW raised as a stated limit under the M6 cap. `website.md` A-9 gains the freeze-only-what-cannot-run sentence | Fresh session (brief `steering/019-brief-architect.md`). Read as the revision 13 commit's hunks of `git diff b0af4dc3 f9b406d6` on the plan. Website `2e36107` was read through `git -C … show`/`grep`. The pinned engine was run once over the 272 corpus in a capped scope; the capture is in `verification/019/architect-conformance/rev13/`. |
 | 2026-11-23T22:37 | architect-019 | Revision 12 verdict re-dispositioned under steering's M3 cap (block 22:35Z, commit `41101e7`): APPROVED, with CF-20 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 12, with the original verdict kept in place. |
 | 2026-11-23T22:36 | architect-019 | Delta pass on plan 019 revision 12 (record `b0af4dc3`); § Delta pass, revision 12. CF-18 and CF-19 resolved; CF-20 LOW raised | Read as `git diff ec2440d9 b0af4dc3` on the plan, against § Legacy-only surfaces part (1). Website chain tip `0b9f76f`: `canonicalForm.ts` and `canonFromDom.ts`, read through `git grep`/`git show`. |
@@ -66,7 +70,8 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21** goes to the plan's Planner batch as a stated limit under the M6 cap. My next pass reads only that the row exists.
+- **CF-21**, **CF-22** and **CF-23** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+  that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
@@ -302,6 +307,74 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 14 (record `2c3c8d1a`)
+
+Read as `git show 2c3c8d1a` on the plan (62 insertions, 7 deletions). The two commits before it in the range from `f9b406d6` are
+registration rows. The delta is AC-6.7, AC-3.3's typed drive, AC-6.5's F-40 member, D-22, and the owed re-verdicts and CR-7
+cells. Commissioned by `planner-019`'s message after D-22 (effort rulings block 04:00Z, which commissions the gates' re-read).
+Read beside it at website `2e36107`, through `git -C … show`/`grep`:
+- `SlateEditor/utils/withNormalizeNode.ts`: the `apply` override and `handleEditor`;
+- `SlateEditor/utils/onKeyDown.ts` and `SlateEditor/utils/index.tsx`;
+- `SlateEditor/index.tsx`'s `onPaste`;
+- `__tests__/helpers/mountedEditor.tsx`.
+
+I also read `8cb4d83`'s `withNormalizeNode.ts` hunk and the installed `slate-dom` 0.123.0 `insertTextData`, read-only.
+
+**Fit.** D-22's table is behaviour, and it fits the editor's shape. The plan's diagnosis of the paste bug matches the mechanism.
+`slate-dom`'s `insertTextData` splits a pasted multi-line text with `Transforms.splitNodes(e, { always: true })` per line.
+`splitNodes` copies the element's own fields onto the new node, so the `split_node` op carries `quotePrefix`. The `apply` override
+in `withNormalizeNode.ts` keeps it for every `split_node` and strips only `>>> `. Enter reaches the same op through
+`editor.insertBreak`, which the mounted drive calls for `\n` (`mountedEditor.tsx`). So an override at the op layer cannot tell Enter
+from paste, and that is CF-22. The F-40 member (an emoji on the second line of a bold run opened on the first) is the case that
+crosses the helper's join. It belongs with the hand-written members. The CR-7 cell keeps the exit check unchanged.
+
+### CF-22 LOW — Carry the marker in an `insertBreak` override, not in the `split_node` op that paste also emits
+
+The form the plan describes ("Enter, the editor's line-split key") has one home in Slate: `editor.insertBreak`. The current carry
+sits one layer lower, in `editor.apply` on `split_node`, which every split reaches, a paste's per-line split included.
+- **Recommended form.** `withNormalizeNode`'s `apply` override stops passing `quotePrefix` through a split, so no split carries
+  it. A new `insertBreak` override, wrapped the same way the file already wraps `apply` and `normalizeNode` (`const { apply,
+  normalizeNode } = editor`), sets the new line's marker when the origin line is a `> ` quote line under AC-6.7's table. The
+  paste column then holds with no paste-specific code, and the `>>>` and fence rows are decided in one place.
+- **Readers.** `mountedEditor.tsx` already drives `\n` through `editor.insertBreak()`, so AC-3.3's typed limb exercises the
+  override directly. `onKeyDown.ts` handles Enter only in partial mode (`preventDefault`), and partial mode is outside the table.
+  The other choice, an `insertTextData` override that strips the marker after a paste, leaves the carry where both paths meet. A
+  later split path, such as `insertFragment` from a rich paste, would then inherit the carry by default.
+- **Follow the current pattern / accept the deviation.** The recommended form follows the file's own override pattern at a
+  different entry point. Keeping the carry in `apply` and stripping it on paste is a workable deviation, **avoidable**. AC-6.7's
+  second mutant (a carry applied to a paste) catches either form if it is done wrong.
+
+LOW: the criterion and its mutant are right either way. This is the home. A stated limit under the M6 cap.
+
+### CF-23 LOW — The typing column needs to know a marker was carried, and no field holds that
+
+AC-6.7's third column applies to "a line holding only a carried `> `". At `2e36107`, a carried line and a loaded `> ` line with
+no content are the same node: `type: 'blockQuote'`, `quotePrefix: '> '`, and empty text (`getInitialValue.ts` sets `quotePrefix`
+from the line, and the split copies it). Nothing records that a marker arrived by Enter. So the replacement needs one of these:
+- **(a)** a transient field on the element, beside `quotePrefix?` in `src/@types/slate.d.ts`'s `CustomElement`. That follows the
+  type's optional-field pattern. The `insertBreak` override (CF-22) sets it, and the first `insertText` on that line clears it.
+  `handleEditor`'s `Transforms.setNodes` lists only its own keys, so it does not clear the field (read this pass). Whether
+  `onCopy`'s fragment carries it into a paste is unread, which is a QA Phase 1 item.
+- **(b)** treating every quote line that holds only its marker alike, carried or loaded. That needs no new state, but it decides
+  a case D-22 does not: typing `> ` onto a loaded empty `> ` line. So it is not mine or the planner's to pick without him, and I
+  do not recommend it.
+
+The recommended form is (a). The plan names neither, and it is the implementer's choice inside the table. The finding is that
+"carried" is state the code must hold, and its home is the element type. A stated limit under the M6 cap.
+
+**Expected values and drive.** AC-6.7's literals are composed from the keys the drive sends, never from the normaliser. That is
+the axiom E form AC-3.3 already uses. AC-3.3's "gesture the implementer names" has an existing home: `onKeyDown.ts`
+`normalizeBackspace`, where Backspace at the start of a `blockQuote` turns it into a `div`, so `flattenNodeText` writes no marker.
+Naming that gesture follows the pattern. A new gesture would be a deviation.
+
+**CF-21's disposition** (planner-019's message, 04:0xZ). The planner keeps freezing and cites D-21's option text, "the test's
+answers are frozen after". That text is agent-authored, and he chose it among options agents composed. So it is the plan's
+authority for the form, not a statement of his intent about freezing, and the plan records it as such. CF-21 stays a stated limit
+as raised, with the precedent citation to be corrected at the seam fold. I raise nothing further.
+
+**Verdict on revision 14:** APPROVED. CF-22 and CF-23 are LOW and go to the Planner batch as stated limits under the M6 cap.
+Nothing needs the owner.
 
 ## Delta pass, revision 13 (record `f9b406d6`)
 

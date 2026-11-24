@@ -394,6 +394,27 @@ the UTC rule is an inference. Re-verify against the code.
 locale in effect (`dayjs.locale()`, not react-aria's tag) and the same pre-mount UTC rule as the existing letters, and states whether the picker lists it. By
 inference, the UTC rule keeps the first client render equal to the server's.
 
+### A-11 — Editor behaviour is added by wrapping Slate's editor methods in one plugin, and key gestures live in one handler
+
+**Grade**: agent-designed. Read at website chain commit `2e36107` (unreleased) by architect-019 (plan 019 delta pass on revision
+14, CF-22 and CF-23, findings `architecture/019-slate-formatting-discord-engine-architecture-findings.md`). It records no intent of
+his. D-22, his selection among options agents composed, is cited as the authority for the quote behaviour. Re-verify against the
+code.
+
+**Mechanism.**
+- `src/components/SlateEditor/utils/withNormalizeNode.ts` wraps the editor's own methods (`const { apply, normalizeNode } =
+  editor`). Line structure (code fences, `> ` and `>>> ` quotes) is rebuilt in `handleEditor` from each line's flattened text.
+- A quote line is an element with `type: 'blockQuote'` and its marker in `quotePrefix`. `flattenNodeText` writes the marker back,
+  and `getInitialValue` sets it from the loaded line.
+- Key gestures are in `onKeyDown.ts`. Backspace at the start of a `blockQuote` turns it into a `div`, and partial mode refuses
+  Enter. `SlateEditor/index.tsx` `onPaste` only refuses a paste (multi-line in partial mode, or over `MAX_PASTE_LENGTH`). The text
+  itself goes in through `slate-dom`'s `insertTextData`, which splits lines with `Transforms.splitNodes`.
+- Enter and a paste's line split both reach the editor as a `split_node` op, carrying the element's fields.
+
+**Consequence a change must carry**: a behaviour that belongs to one input path (Enter, not paste) is wrapped at that path's editor
+method, such as `insertBreak`, not at `apply`, where every split meets. Per-line state the saved text does not hold is an optional
+field on `CustomElement` in `src/@types/slate.d.ts`, beside `quotePrefix`.
+
 ---
 
 ## Addendum changelog
@@ -421,3 +442,4 @@ inference, the UTC rule keeps the first client render equal to the server's.
 | 2026-11-23T17:55 | 19 | architect-019 | `A-10` gains the effective-locale sentence from the plan 019 delta pass on revision 7 (CF-14). dayjs's locale in effect is not always react-aria's tag, and the consequence now names `dayjs.locale()`. Run on dayjs 1.11.7. Agent-designed. |
 | 2026-11-23T18:00 | 20 | architect-019 | `A-10` picker sentence corrected (plan 019 delta pass on revision 8). It said the map's keys build the picker, which left out the separate `R` button (`MarkdownTimestamp.tsx` lines 115-122 at `af3d95a`). The picker offers the six keys plus `R`. Agent-designed. |
 | 2026-11-24T04:02 | 21 | architect-019 | `A-9` gains "Which expected values are frozen", read at website chain commit `2e36107` (unreleased) in the plan 019 delta pass on revision 13 (CF-21). Fetched-source outputs are frozen JSON, and the pinned-engine helper runs live offline. Agent-designed. No selection of his shaped it. |
+| 2026-11-24T04:06 | 22 | architect-019 | Added `A-11` (agent-designed), read at website chain commit `2e36107` (unreleased) in the plan 019 delta pass on revision 14 (CF-22, CF-23): editor behaviour is added by wrapping editor methods in `withNormalizeNode`, key gestures are in `onKeyDown`, and Enter and paste meet at `split_node`. His D-22 selection is cited as authority for the quote behaviour, not as intent. |
