@@ -1,0 +1,79 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 3 failed | 49 skipped) 39ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load of the joined text builds them 23ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load of the joined text builds them 5ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load of the joined text builds them 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "# h\n> a" pasted as a fresh load of the joined text builds them
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 1: [\"blockQuote\",\"\",false,\"\",[]] but expected [\"blockQuote\",\"> \",false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:224:91
+    222|     pasteAtSelection(editor, pasted);
+    223|     const fresh = getInitialValue(`${base}${pasted}`, 'content', false…
+    224|     expect(firstDifferences(lineShapes(editor.children as Element[]), …
+       |                                                                                           ^
+    225|   });
+    226| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load of the joined text builds them
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 2: [\"blockQuote\",\"\",false,\"\",[]] but expected [\"blockQuote\",\"> \",false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:224:91
+    222|     pasteAtSelection(editor, pasted);
+    223|     const fresh = getInitialValue(`${base}${pasted}`, 'content', false…
+    224|     expect(firstDifferences(lineShapes(editor.children as Element[]), …
+       |                                                                                           ^
+    225|   });
+    226| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load of the joined text builds them
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 5: [\"blockQuote\",\"\",false,\"\",[]] but expected [\"blockQuote\",\"> \",false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:224:91
+    222|     pasteAtSelection(editor, pasted);
+    223|     const fresh = getInitialValue(`${base}${pasted}`, 'content', false…
+    224|     expect(firstDifferences(lineShapes(editor.children as Element[]), …
+       |                                                                                           ^
+    225|   });
+    226| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 49 skipped (52)
+   Start at  21:56:35
+   Duration  1.18s (transform 240ms, setup 24ms, import 402ms, tests 39ms, environment 576ms)
+

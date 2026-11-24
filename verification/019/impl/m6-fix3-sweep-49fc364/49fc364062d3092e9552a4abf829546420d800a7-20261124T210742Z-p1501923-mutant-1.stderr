@@ -1,0 +1,59 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…'
+AssertionError: expected 998997 to be less than or equal to 397970
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…'
+AssertionError: expected 250499 to be less than or equal to 100990
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂'
+AssertionError: expected 1002000 to be less than or equal to 404000
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+    171| const keepsSourceText = (op: Operation): boolean => (
+    172|   (op.type !== 'insert_node' || op.type === 'remove_node')
+    173|   && op.path.length === 2 && Text.isText(op.node) && op.node.text === …
+       |              ^
+    174| );
+    175|
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/set-selection.ts:35:11
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:175:43
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:73:11
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:12:15
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:151:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

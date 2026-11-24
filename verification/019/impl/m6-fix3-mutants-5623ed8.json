@@ -1,0 +1,63 @@
+[
+ {
+  "id": "withNormalizeNode.ts:172:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "pe === 'i",
+  "new": "pe !== 'i",
+  "op": "===",
+  "line": 172,
+  "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+ },
+ {
+  "id": "withNormalizeNode.ts:172:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' || o",
+  "new": "' && o",
+  "op": "||",
+  "line": 172,
+  "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+ },
+ {
+  "id": "withNormalizeNode.ts:172:===:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "pe === 'r",
+  "new": "pe !== 'r",
+  "op": "===",
+  "line": 172,
+  "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+ },
+ {
+  "id": "withNormalizeNode.ts:172:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") && T",
+  "new": ") || T",
+  "op": "&&",
+  "line": 172,
+  "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+ },
+ {
+  "id": "withNormalizeNode.ts:172:&&:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") && o",
+  "new": ") || o",
+  "op": "&&",
+  "line": 172,
+  "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+ },
+ {
+  "id": "withNormalizeNode.ts:172:===:3",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t === '",
+  "new": "t !== '",
+  "op": "===",
+  "line": 172,
+  "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+ },
+ {
+  "id": "hand-carry-without-the-empty-text-conjunct",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "&& Text.isText(op.node) && op.node.text === ''",
+  "new": "&& Text.isText(op.node)",
+  "op": "hand"
+ }
+]

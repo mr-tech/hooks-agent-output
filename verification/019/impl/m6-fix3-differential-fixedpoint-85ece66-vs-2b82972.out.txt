@@ -1,0 +1,3 @@
+keystrokes 36560 36560 same keys True
+differ 0 []
+non-fixed-point at 85ece66 8 at 2b82972 8 same set True errors 0

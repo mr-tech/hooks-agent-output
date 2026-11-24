@@ -1,0 +1,108 @@
+[
+ {
+  "id": "withNormalizeNode.ts:24:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "pe !== 'b",
+  "new": "pe === 'b",
+  "op": "!==",
+  "line": 24,
+  "text": "child.type !== 'blockQuote' || (child.quotePrefix === '' && !continued)"
+ },
+ {
+  "id": "withNormalizeNode.ts:24:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' || (",
+  "new": "' && (",
+  "op": "||",
+  "line": 24,
+  "text": "child.type !== 'blockQuote' || (child.quotePrefix === '' && !continued)"
+ },
+ {
+  "id": "withNormalizeNode.ts:24:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x === '",
+  "new": "x !== '",
+  "op": "===",
+  "line": 24,
+  "text": "child.type !== 'blockQuote' || (child.quotePrefix === '' && !continued)"
+ },
+ {
+  "id": "withNormalizeNode.ts:24:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' && !",
+  "new": "' || !",
+  "op": "&&",
+  "line": 24,
+  "text": "child.type !== 'blockQuote' || (child.quotePrefix === '' && !continued)"
+ },
+ {
+  "id": "withNormalizeNode.ts:24:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " !c",
+  "new": " c",
+  "op": "not",
+  "line": 24,
+  "text": "child.type !== 'blockQuote' || (child.quotePrefix === '' && !continued)"
+ },
+ {
+  "id": "withNormalizeNode.ts:28:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (!h",
+  "new": "  if (false && !h",
+  "op": "if-false",
+  "line": 28,
+  "text": "if (!holdsMarkerInText(child, continued)) return child.quotePrefix ?? '> ';"
+ },
+ {
+  "id": "withNormalizeNode.ts:28:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(!h",
+  "new": "(h",
+  "op": "not",
+  "line": 28,
+  "text": "if (!holdsMarkerInText(child, continued)) return child.quotePrefix ?? '> ';"
+ },
+ {
+  "id": "withNormalizeNode.ts:57:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "     || (isB",
+  "new": "     && (isB",
+  "op": "||",
+  "line": 57,
+  "text": "|| (isBlockQuote && holdsMarkerInText(child, continued))"
+ },
+ {
+  "id": "withNormalizeNode.ts:57:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e && h",
+  "new": "e || h",
+  "op": "&&",
+  "line": 57,
+  "text": "|| (isBlockQuote && holdsMarkerInText(child, continued))"
+ },
+ {
+  "id": "withNormalizeNode.ts:73:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " if (h",
+  "new": " if (false && h",
+  "op": "if-false",
+  "line": 73,
+  "text": "if (holdsMarkerInText(child, continued) && quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:73:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") && q",
+  "new": ") || q",
+  "op": "&&",
+  "line": 73,
+  "text": "if (holdsMarkerInText(child, continued) && quotePrefix) {"
+ },
+ {
+  "id": "hand-NM-82-spansInLine-once-per-unit",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  const spans = spansInLine(unit, layout, lineIndex, width);",
+  "new": "  const seen = ((globalThis as { nm82?: WeakSet<object> }).nm82 ??= new WeakSet<object>());\n  const spans = seen.has(unit)\n    ? layout.emojis.filter((emoji) => emoji.start >= lineStart && emoji.end <= lineStart + width)\n    : (seen.add(unit), spansInLine(unit, layout, lineIndex, width));",
+  "op": "hand"
+ }
+]

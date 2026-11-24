@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T214316Z-p1862017/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 3 failed) 32839ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 11618ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 2398ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂' 10236ms
+
+ Test Files  1 failed | 30 passed (31)
+      Tests  3 failed | 1009 passed (1012)
+   Start at  21:44:02
+   Duration  44.20s (transform 7.94s, setup 655ms, import 28.30s, tests 242.38s, environment 20.70s)
+

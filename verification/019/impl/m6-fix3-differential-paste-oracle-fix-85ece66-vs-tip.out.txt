@@ -1,0 +1,6 @@
+85ece66 pastes 12960 errors 0 lines differ from a fresh load 237 caret not at the end of the pasted text 1296 not collapsed 0
+tip (quote-prefix fix) pastes 12960 errors 0 lines differ from a fresh load 218 caret not at the end of the pasted text 1296 not collapsed 0
+tip wrong, 85ece66 right (fresh load): 1 ['136|4|end']
+tip caret wrong, 85ece66 right: 0 []
+85ece66 wrong, tip right (fresh load): 20
+tip still differing from a fresh load, by base: {'>>> a\nb': 218}

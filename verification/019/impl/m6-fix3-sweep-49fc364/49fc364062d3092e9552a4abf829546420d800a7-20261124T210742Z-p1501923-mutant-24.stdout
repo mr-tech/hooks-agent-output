@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T210742Z-p1501923/mutant-24
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 5 failed) 135ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 14ms
+     × puts a caret on the element at the same place in the text 3ms
+     × puts a caret after the element and a typed backtick at the same place in the text 1ms
+     × puts a caret on a second element at the same place in the text 2ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 7034ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 4132ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2840ms
+
+ Test Files  2 failed | 29 passed (31)
+      Tests  7 failed | 1004 passed (1011)
+   Start at  21:31:54
+   Duration  39.42s (transform 8.06s, setup 488ms, import 29.31s, tests 195.90s, environment 22.39s)
+

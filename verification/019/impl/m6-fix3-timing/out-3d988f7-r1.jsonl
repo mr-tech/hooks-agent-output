@@ -1,0 +1,20 @@
+{"member":"fence: third backtick typed at the end of line 2","fill":"a","n":200,"reps":5,"medianMs":14.4,"minMs":11.5,"maxMs":25.2,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: Backspace at the end of the ``` on line 2","fill":"a","n":200,"reps":5,"medianMs":12.2,"minMs":11.1,"maxMs":16.2,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: third backtick at the end of the closing delimiter in the middle","fill":"a","n":200,"reps":5,"medianMs":6.4,"minMs":6,"maxMs":14.2,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: Backspace at the end of the closing ``` in the middle","fill":"a","n":200,"reps":5,"medianMs":8.2,"minMs":6,"maxMs":11.1,"error":"","load":"4.12 7.92 9.86"}
+{"member":"paste","fill":"a","n":200,"reps":5,"medianMs":58.2,"minMs":50.2,"maxMs":90.1,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: third backtick typed at the end of line 2","fill":"a","n":1000,"reps":3,"medianMs":42.3,"minMs":41.4,"maxMs":43.8,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: Backspace at the end of the ``` on line 2","fill":"a","n":1000,"reps":3,"medianMs":40.4,"minMs":39.8,"maxMs":40.5,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: third backtick at the end of the closing delimiter in the middle","fill":"a","n":1000,"reps":3,"medianMs":28.9,"minMs":28.5,"maxMs":33.9,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: Backspace at the end of the closing ``` in the middle","fill":"a","n":1000,"reps":3,"medianMs":28.2,"minMs":25.4,"maxMs":29.4,"error":"","load":"4.12 7.92 9.86"}
+{"member":"paste","fill":"a","n":1000,"reps":3,"medianMs":615.2,"minMs":613.2,"maxMs":652.7,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: third backtick typed at the end of line 2","fill":"a🙂","n":200,"reps":5,"medianMs":47.6,"minMs":45,"maxMs":58.1,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: Backspace at the end of the ``` on line 2","fill":"a🙂","n":200,"reps":5,"medianMs":96.7,"minMs":89.9,"maxMs":104.6,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: third backtick at the end of the closing delimiter in the middle","fill":"a🙂","n":200,"reps":5,"medianMs":40.1,"minMs":36.1,"maxMs":48.2,"error":"","load":"4.12 7.92 9.86"}
+{"member":"fence: Backspace at the end of the closing ``` in the middle","fill":"a🙂","n":200,"reps":5,"medianMs":23.9,"minMs":20.1,"maxMs":43.5,"error":"","load":"4.12 7.92 9.86"}
+{"member":"paste","fill":"a🙂","n":200,"reps":5,"medianMs":143.6,"minMs":142.4,"maxMs":152.4,"error":"","load":"3.95 7.82 9.82"}
+{"member":"fence: third backtick typed at the end of line 2","fill":"a🙂","n":1000,"reps":3,"medianMs":395.2,"minMs":388.9,"maxMs":400.1,"error":"","load":"3.95 7.82 9.82"}
+{"member":"fence: Backspace at the end of the ``` on line 2","fill":"a🙂","n":1000,"reps":3,"medianMs":1113.6,"minMs":1110.3,"maxMs":1123.6,"error":"","load":"3.95 7.82 9.82"}
+{"member":"fence: third backtick at the end of the closing delimiter in the middle","fill":"a🙂","n":1000,"reps":3,"medianMs":354.3,"minMs":350,"maxMs":359,"error":"","load":"3.72 7.71 9.77"}
+{"member":"fence: Backspace at the end of the closing ``` in the middle","fill":"a🙂","n":1000,"reps":3,"medianMs":159.2,"minMs":156.5,"maxMs":165.4,"error":"","load":"3.72 7.71 9.77"}
+{"member":"paste","fill":"a🙂","n":1000,"reps":3,"medianMs":2118.2,"minMs":2111.1,"maxMs":2170.5,"error":"","load":"3.50 7.59 9.72"}

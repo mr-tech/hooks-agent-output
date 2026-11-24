@@ -1,0 +1,39 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…'
+AssertionError: expected 998997 to be less than or equal to 397970
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…'
+AssertionError: expected 250499 to be less than or equal to 100990
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂'
+AssertionError: expected 1002000 to be less than or equal to 404000
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

@@ -1,0 +1,2499 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 100 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a Unicode emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a ZWJ sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-tone sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a keycap typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a flag typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a tag sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with emoji presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji newer than the site's table typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji typed as a name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-toned name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a colon-wrapped emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an animated custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link label typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji between words typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals two emoji side by side typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside bold typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside inline code typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a Unicode emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a ZWJ sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-tone sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a keycap typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a flag typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a tag sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with emoji presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji newer than the site's table typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji typed as a name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-toned name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a colon-wrapped emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an animated custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link label typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji between words typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals two emoji side by side typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside bold typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside inline code typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+    171| const keepsSourceText = (op: Operation): boolean => (
+    172|   (op.type === 'insert_node' || op.type === 'remove_node')
+    173|   || op.path.length === 2 && Text.isText(op.node) && op.node.text === …
+       |              ^
+    174| );
+    175|
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/set-selection.ts:35:11
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:175:43
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:73:11
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with text presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with text presentation typed one character at a time
+AssertionError: expected '' to be '❤' // Object.is equality
+
+- Expected
++ Received
+
+- ❤
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link address typed one character at a time
+AssertionError: expected '' to be '[a](https://x.y/🙂)' // Object.is equality
+
+- Expected
++ Received
+
+- [a](https://x.y/🙂)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a name in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a name in a link address typed one character at a time
+AssertionError: expected '' to be '<https://x.y/:smile:>' // Object.is equality
+
+- Expected
++ Received
+
+- <https://x.y/:smile:>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside a code block typed one character at a time
+AssertionError: expected '' to be '```js\nx = "🙂"\n```' // Object.is equality
+
+- Expected
++ Received
+
+- ```js
+- x = "🙂"
+- ```
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji after a backslash typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji after a backslash typed one character at a time
+AssertionError: expected '' to be '\🙂' // Object.is equality
+
+- Expected
++ Received
+
+- \🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a Unicode emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a Unicode emoji pasted whole
+AssertionError: expected '' to be '🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a ZWJ sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a ZWJ sequence pasted whole
+AssertionError: expected '' to be '👨\u200d👩\u200d👧' // Object.is equality
+
+- Expected
++ Received
+
+- 👨‍👩‍👧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-tone sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-tone sequence pasted whole
+AssertionError: expected '' to be '👍🏽' // Object.is equality
+
+- Expected
++ Received
+
+- 👍🏽
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a keycap pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a keycap pasted whole
+AssertionError: expected '' to be '1️⃣' // Object.is equality
+
+- Expected
++ Received
+
+- 1️⃣
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a flag pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a flag pasted whole
+AssertionError: expected '' to be '🇬🇧' // Object.is equality
+
+- Expected
++ Received
+
+- 🇬🇧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a tag sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a tag sequence pasted whole
+AssertionError: expected '' to be '🏴󠁧󠁢󠁥󠁮󠁧󠁿' // Object.is equality
+
+- Expected
++ Received
+
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with emoji presentation pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with emoji presentation pasted whole
+AssertionError: expected '' to be '❤️' // Object.is equality
+
+- Expected
++ Received
+
+- ❤️
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with text presentation pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with text presentation pasted whole
+AssertionError: expected '' to be '❤' // Object.is equality
+
+- Expected
++ Received
+
+- ❤
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji newer than the site's table pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji newer than the site's table pasted whole
+AssertionError: expected '' to be '🫩' // Object.is equality
+
+- Expected
++ Received
+
+- 🫩
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji typed as a name pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji typed as a name pasted whole
+AssertionError: expected '' to be ':smile:' // Object.is equality
+
+- Expected
++ Received
+
+- :smile:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-toned name pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-toned name pasted whole
+AssertionError: expected '' to be ':thumbsup::skin-tone-3:' // Object.is equality
+
+- Expected
++ Received
+
+- :thumbsup::skin-tone-3:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a colon-wrapped emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a colon-wrapped emoji pasted whole
+AssertionError: expected '' to be ':🙂:' // Object.is equality
+
+- Expected
++ Received
+
+- :🙂:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a custom emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a custom emoji pasted whole
+AssertionError: expected '' to be '<:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an animated custom emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an animated custom emoji pasted whole
+AssertionError: expected '' to be '<a:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <a:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link label pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link label pasted whole
+AssertionError: expected '' to be '[🙂](https://x.y)' // Object.is equality
+
+- Expected
++ Received
+
+- [🙂](https://x.y)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link address pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link address pasted whole
+AssertionError: expected '' to be '[a](https://x.y/🙂)' // Object.is equality
+
+- Expected
++ Received
+
+- [a](https://x.y/🙂)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a name in a link address pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a name in a link address pasted whole
+AssertionError: expected '' to be '<https://x.y/:smile:>' // Object.is equality
+
+- Expected
++ Received
+
+- <https://x.y/:smile:>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji between words pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji between words pasted whole
+AssertionError: expected '' to be 'a 🙂 b' // Object.is equality
+
+- Expected
++ Received
+
+- a 🙂 b
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals two emoji side by side pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals two emoji side by side pasted whole
+AssertionError: expected '' to be '🙂🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside bold pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside bold pasted whole
+AssertionError: expected '' to be '**🙂 b**' // Object.is equality
+
+- Expected
++ Received
+
+- **🙂 b**
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside inline code pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside inline code pasted whole
+AssertionError: expected '' to be '`🙂`' // Object.is equality
+
+- Expected
++ Received
+
+- `🙂`
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside a code block pasted whole
+AssertionError: expected '' to be '```js\nx = "🙂"\n```' // Object.is equality
+
+- Expected
++ Received
+
+- ```js
+- x = "🙂"
+- ```
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji after a backslash pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji after a backslash pasted whole
+AssertionError: expected '' to be '\🙂' // Object.is equality
+
+- Expected
++ Received
+
+- \🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 1000 lines > raises no error
+AssertionError: expected 'Cannot read properties of undefined (…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Cannot read properties of undefined (reading 'length')
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:70:27
+     68|
+     69|   it('raises no error', () => {
+     70|     expect(outcome.error).toBe('');
+       |                           ^
+     71|   });
+     72|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/100]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+    171| const keepsSourceText = (op: Operation): boolean => (
+    172|   (op.type === 'insert_node' || op.type === 'remove_node')
+    173|   || op.path.length === 2 && Text.isText(op.node) && op.node.text === …
+       |              ^
+    174| );
+    175|
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/set-selection.ts:35:11
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:175:43
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:73:11
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:12:15
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:151:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/100]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 103 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a Unicode emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a ZWJ sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-tone sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a keycap pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a flag pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a tag sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a heart with emoji presentation pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji newer than the site's table pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji typed as a name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-toned name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an animated custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals two emoji side by side pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a Unicode emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a ZWJ sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-tone sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a keycap pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a flag pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a tag sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a heart with emoji presentation pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji newer than the site's table pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji typed as a name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-toned name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an animated custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals two emoji side by side pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ keepsSourceText src/components/SlateEditor/utils/withNormalizeNode.ts:173:14
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:39
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5034:12
+ ❯ Object.setSelection$1 [as setSelection] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6513:27
+ ❯ Object.setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2586:12
+ ❯ fixSelection src/components/SlateEditor/utils/withNormalizeNode.ts:251:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:292:5
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:453:14
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3779:16
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+

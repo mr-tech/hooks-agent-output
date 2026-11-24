@@ -1,0 +1,235 @@
+{
+ "sha": "5623ed820400a94fbecca8b0b227f615e24bdae7",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-mutants-5623ed8.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run",
+  "src/components/SlateEditor"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 400.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-mutants-5623ed8.json",
+   "blob": "b3005b822fb60dcba53d5eb599e7041d84bdc0c9"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-control-1.stderr",
+   "seconds": 45.36,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1012,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "withNormalizeNode.ts:172:===",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 172,
+    "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li\u2026'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o\u2026'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a\ud83d\ude42'"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 45.88,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:172:||",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 172,
+    "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li\u2026'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o\u2026'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a\ud83d\ude42'"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 43.8,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-2.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:172:===:2",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 172,
+    "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 42.63,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-3.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:172:&&",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 172,
+    "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji into an element when it arrives as a text node in a line that was already settled"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 43.39,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-4.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:172:&&:2",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 172,
+    "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 26.97,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-5.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:172:===:3",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 172,
+    "text": "(op.type === 'insert_node' || op.type === 'remove_node') && Text.isText(op.node) && op.node.text === ''"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji into an element when it arrives as a text node in a line that was already settled",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li\u2026'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o\u2026'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a\ud83d\ude42'"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 44.07,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-6.stderr"
+  },
+  {
+   "id": "hand-carry-without-the-empty-text-conjunct",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1012,
+   "control_tests_run": 1012,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji into an element when it arrives as a text node in a line that was already settled"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 42.89,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix3-sweep-5623ed8/5623ed820400a94fbecca8b0b227f615e24bdae7-20261124T213603Z-p1785768-mutant-7.stderr"
+  }
+ ],
+ "score": "6 of 7 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m6-fix3-mutants-5623ed8.json (blob b3005b822fb60dcba53d5eb599e7041d84bdc0c9))"
+}

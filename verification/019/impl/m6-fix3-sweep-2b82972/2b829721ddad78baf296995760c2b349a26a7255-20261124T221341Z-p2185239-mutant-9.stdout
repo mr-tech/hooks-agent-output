@@ -1,0 +1,214 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T221341Z-p2185239/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 28 failed) 1656ms
+     × at the end of a quote line saves what the table says 83ms
+     × in the middle of a quote line saves what the table says 64ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 61ms
+     × in the middle of the first line of a multi-line quote saves what the table says 60ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 59ms
+     × at the end of a plain line saves what the table says 42ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 105ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 85ms
+     × at the end of a quote line that opens a fence saves what the table says 32ms
+     × at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says 71ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 42ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 31ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 36ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 36ms
+     × leaves an empty line when the carried marker is removed with Backspace 54ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 76ms
+     × takes in a typed quote marker inside a fence opened on a quote line 67ms
+     × is set on the line Enter makes from a quote line 42ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 77ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 34ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 73ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 32ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 62ms
+     × is cleared when the marker of a carried code line is deleted by hand 78ms
+     × is cleared by Backspace after the carried marker of a code line 73ms
+     × is resolved on the first line of the editor too 35ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 70ms
+     × leaves a caret at the end of a second text node of the line alone 65ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 24 failed) 1546ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 86ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 61ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 81ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 52ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 33ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 36ms
+     × keeps an emoji typed into a fenced code line as text 108ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 62ms
+     × turns an emoji into an element when it arrives as a text node in a line that was already settled 45ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 51ms
+     × puts an emoji element on the first line when the second is edited back to text 70ms
+     × puts an emoji element on the second line when the third is edited back to text 105ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 39ms
+     × puts an emoji in a link label back to text once "](" is typed after it 43ms
+     × puts an emoji element back to text once a web address is typed in front of it 76ms
+     × puts an emoji element of the second line of a code block back to text 141ms
+     × puts each emoji element of a fenced code line back to text 110ms
+     × puts a caret in front of the element at the same place in the text 55ms
+     × puts a caret right in front of the element at the same place in the text 41ms
+     × puts a caret on the element at the same place in the text 53ms
+     × puts a caret right after the element at the same place in the text 42ms
+     × puts a caret after the element and a typed backtick at the same place in the text 40ms
+     × puts a caret on a second element at the same place in the text 57ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 49ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 7 failed) 482ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 136ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 54ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a code span 73ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 51ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 38ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 39ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 51ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx (1 test | 1 failed) 134ms
+     × keeps an emoji element where it is and changes no text 132ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 44 failed) 5777ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 196ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 160ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 119ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 46ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 30ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 95ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 58ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 134ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 106ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 92ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 82ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 92ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 94ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 91ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 92ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 78ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 83ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 97ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 90ms
+     × gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise 111ms
+     × gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise 159ms
+     × keeps every line after a multi-line quote marker as a quote line 87ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 31ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 25ms
+     × gives the code lines the language typed onto their opening fence 72ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 56ms
+     × writes no text to the lines a typed multi-line quote marker takes in 62ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 23ms
+     × keeps the lines after a code block holding a multi-line quote marker as plain lines 104ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 69ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 57ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 153ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 66ms
+     × makes the lines after a removed multi-line quote marker plain lines 49ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 35ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 45ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 54ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 41ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 43ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 228ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 65ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 47ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 175ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 448ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 2424ms
+     × hands the message that text in a full-markdown editor 382ms
+     × hands the message that text in a full-markdown editor 115ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 5 failed) 7821ms
+     × hands the message a write of a after a is typed into an empty full-markdown editor 365ms
+     × hands the message one write per typed character, each the text so far 152ms
+     × hands the message a line break typed as a new line 157ms
+     × hands the message no write for a character typed in a synchronous act, because the editor reports its change after the act returns 141ms
+     × hands the message that text in a full-markdown editor 164ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 10765ms
+     × hands the message that text in a full-markdown editor 418ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 90 failed) 13616ms
+     × equals a Unicode emoji typed one character at a time 92ms
+     × equals a ZWJ sequence typed one character at a time 129ms
+     × equals a skin-tone sequence typed one character at a time 85ms
+     × equals a keycap typed one character at a time 105ms
+     × equals a flag typed one character at a time 114ms
+     × equals a tag sequence typed one character at a time 145ms
+     × equals a heart with emoji presentation typed one character at a time 103ms
+     × equals a heart with text presentation typed one character at a time 104ms
+     × equals an emoji newer than the site's table typed one character at a time 111ms
+     × equals an emoji typed as a name typed one character at a time 100ms
+     × equals a skin-toned name typed one character at a time 85ms
+     × equals a colon-wrapped emoji typed one character at a time 107ms
+     × equals a custom emoji typed one character at a time 101ms
+     × equals an animated custom emoji typed one character at a time 83ms
+     × equals an emoji in a link label typed one character at a time 96ms
+     × equals an emoji in a link address typed one character at a time 100ms
+     × equals a name in a link address typed one character at a time 105ms
+     × equals an emoji between words typed one character at a time 112ms
+     × equals two emoji side by side typed one character at a time 101ms
+     × equals an emoji inside bold typed one character at a time 122ms
+     × equals an emoji inside inline code typed one character at a time 106ms
+     × equals an emoji inside a code block typed one character at a time 121ms
+     × equals an emoji after a backslash typed one character at a time 103ms
+     × equals a Unicode emoji pasted whole 94ms
+     × equals a ZWJ sequence pasted whole 105ms
+     × equals a skin-tone sequence pasted whole 114ms
+     × equals a keycap pasted whole 99ms
+     × equals a flag pasted whole 114ms
+     × equals a tag sequence pasted whole 103ms
+     × equals a heart with emoji presentation pasted whole 81ms
+     × equals a heart with text presentation pasted whole 95ms
+     × equals an emoji newer than the site's table pasted whole 112ms
+     × equals an emoji typed as a name pasted whole 90ms
+     × equals a skin-toned name pasted whole 99ms
+     × equals a colon-wrapped emoji pasted whole 113ms
+     × equals a custom emoji pasted whole 85ms
+     × equals an animated custom emoji pasted whole 89ms
+     × equals an emoji in a link label pasted whole 97ms
+     × equals an emoji in a link address pasted whole 95ms
+     × equals a name in a link address pasted whole 111ms
+     × equals an emoji between words pasted whole 108ms
+     × equals two emoji side by side pasted whole 90ms
+     × equals an emoji inside bold pasted whole 103ms
+     × equals an emoji inside inline code pasted whole 117ms
+     × equals an emoji inside a code block pasted whole 167ms
+     × equals an emoji after a backslash pasted whole 187ms
+     × equals a Unicode emoji typed one character at a time 128ms
+     × equals a ZWJ sequence typed one character at a time 140ms
+     × equals a skin-tone sequence typed one character at a time 136ms
+     × equals a keycap typed one character at a time 140ms
+     × equals a flag typed one character at a time 125ms
+     × equals a tag sequence typed one character at a time 133ms
+     × equals a heart with emoji presentation typed one character at a time 147ms
+     × equals a heart with text presentation typed one character at a time 146ms
+     × equals an emoji newer than the site's table typed one character at a time 150ms
+     × equals an emoji typed as a name typed one character at a time 142ms
+     × equals a skin-toned name typed one character at a time 142ms
+     × equals a colon-wrapped emoji typed one character at a time 148ms
+     × equals a custom emoji typed one character at a time 132ms
+     × equals an animated custom emoji typed one character at a time 131ms
+     × equals an emoji in a link label typed one character at a time 160ms
+     × equals an emoji in a link address typed one character at a time 153ms
+     × equals a name in a link address typed one character at a time 197ms
+     × equals an emoji between words typed one character at a time 114ms
+     × equals two emoji side by side typed one character at a time 146ms
+     × equals an emoji inside bold typed one character at a time 154ms
+     × equals an emoji inside inline code typed one character at a time 124ms
+     × equals an emoji after a backslash typed one character at a time 133ms
+     × equals a Unicode emoji pasted whole 154ms
+     × equals a ZWJ sequence pasted whole 134ms
+     × equals a skin-tone sequence pasted whole 133ms
+     × equals a keycap pasted whole 120ms
+     × equals a flag pasted whole 128ms
+     × equals a tag sequence pasted whole 123ms
+     × equals a heart with emoji presentation pasted whole 125ms
+     × equals a heart with text presentation pasted whole 124ms
+     × equals an emoji newer than the site's table pasted whole 122ms
+     × equals an emoji typed as a name pasted whole 134ms
+     × equals a skin-toned name pasted whole 157ms
+     × equals a colon-wrapped emoji pasted whole 124ms
+     × equals a custom emoji pasted whole 132ms
+     × equals an animated custom emoji pasted whole 123ms
+     × equals an emoji in a link label pasted whole 127ms
+     × equals an emoji in a link address pasted whole 126ms
+     × equals a name in a link address pasted whole 130ms
+     × equals an emoji between words pasted whole 122ms
+     × equals two emoji side by side pasted whole 129ms
+     × equals an emoji inside bold pasted whole 148ms
+     × equals an emoji inside inline code pasted whole 137ms
+     × equals an emoji after a backslash pasted whole 130ms

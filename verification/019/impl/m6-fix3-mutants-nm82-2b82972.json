@@ -1,0 +1,9 @@
+[
+ {
+  "id": "hand-NM-82-spansInLine-once-per-unit",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  const spans = spansInLine(unit, layout, lineIndex, width);",
+  "new": "  const seen = ((globalThis as { nm82?: WeakSet<object> }).nm82 ??= new WeakSet<object>());\n  const spans = seen.has(unit)\n    ? layout.emojis.filter((emoji) => emoji.start >= lineStart && emoji.end <= lineStart + width)\n    : (seen.add(unit), spansInLine(unit, layout, lineIndex, width));",
+  "op": "hand"
+ }
+]

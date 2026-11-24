@@ -1,0 +1,4 @@
+85ece66 pastes 12960 errors 0 lines differ from a fresh load 237 caret not at the end of the pasted text 1296 selection not collapsed 0
+tip pastes 12960 errors 0 lines differ from a fresh load 294 caret not at the end of the pasted text 1296 selection not collapsed 0
+cases where tip is wrong and 85ece66 right: fresh-load ['136|3|end', '136|4|end', '142|3|end', '147|3|end', '152|3|end', '158|3|end', '257|3|end', '261|3|end', '369|3|end', '396|3|end'] caret []
+cases where 85ece66 is wrong and tip right: fresh-load 20 caret 0

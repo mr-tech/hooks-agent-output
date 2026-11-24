@@ -1,0 +1,55 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T210742Z-p1501923/mutant-10
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 19 failed) 133ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 33ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 3ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 13ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 7ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 3ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 3ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 2ms
+     × puts an emoji element on the first line when the second is edited back to text 2ms
+     × puts an emoji element on the second line when the third is edited back to text 2ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 8ms
+     × puts an emoji element back to text once a web address is typed in front of it 3ms
+     × puts an emoji element of the second line of a code block back to text 6ms
+     × puts each emoji element of a fenced code line back to text 3ms
+     × puts a caret on the element at the same place in the text 3ms
+     × puts a caret right after the element at the same place in the text 3ms
+     × puts a caret after the element and a typed backtick at the same place in the text 3ms
+     × puts a caret on a second element at the same place in the text 4ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 7059ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 4107ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2782ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 13ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 101ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 8ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 7ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 7 failed) 8998ms
+     × counts a line settle and a fence read for a character typed in a one-line message 7ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 138ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 93ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 60ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 73ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a' 1151ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂' 1072ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 10 failed) 8903ms
+       × leaves each line typed as a fresh load of the changed text builds it 8ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 14ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 7ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 13ms
+
+ Test Files  4 failed | 27 passed (31)
+      Tests  42 failed | 969 passed (1011)
+   Start at  21:16:54
+   Duration  57.10s (transform 8.42s, setup 540ms, import 29.64s, tests 235.05s, environment 21.43s)
+

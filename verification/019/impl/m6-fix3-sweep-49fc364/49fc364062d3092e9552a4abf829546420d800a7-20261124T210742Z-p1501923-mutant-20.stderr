@@ -1,0 +1,40 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 200 lines > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 1000 lines > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 1: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 2: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:75:65
+     73|   it('leaves each line typed as a fresh load of the changed text build…
+     74|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     75|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂'
+AssertionError: expected 0 to be greater than or equal to 1
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:195:30
+    193|     const shortest = work(small);
+    194|     const longest = work(large);
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+       |                              ^
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+

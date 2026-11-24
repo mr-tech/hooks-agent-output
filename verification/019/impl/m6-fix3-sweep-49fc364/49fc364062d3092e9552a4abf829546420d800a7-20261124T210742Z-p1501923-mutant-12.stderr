@@ -1,0 +1,116 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the second line when the third is edited back to text
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:92:28
+     90|     expect(holdsElement()).toBe(true);
+     91|     Transforms.insertText(editor, '`', { at: where });
+     92|     expect(holdsElement()).toBe(false);
+       |                            ^
+     93|   });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 3: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 4: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 5: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:75:65
+     73|   it('leaves each line typed as a fresh load of the changed text build…
+     74|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     75|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 101: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 102: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 103: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:75:65
+     73|   it('leaves each line typed as a fresh load of the changed text build…
+     74|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     75|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 501: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 502: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 503: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:75:65
+     73|   it('leaves each line typed as a fresh load of the changed text build…
+     74|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     75|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 200 lines > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 1000 lines > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 1: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 2: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 3: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:75:65
+     73|   it('leaves each line typed as a fresh load of the changed text build…
+     74|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     75|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+

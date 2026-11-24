@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T221341Z-p2185239/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 1 failed) 11183ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 6573ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 20697ms
+     × hands the message that text in a full-markdown editor 7972ms
+
+ Test Files  2 failed | 29 passed (31)
+      Tests  2 failed | 1013 passed (1015)
+   Start at  22:25:27
+   Duration  44.41s (transform 7.82s, setup 490ms, import 28.73s, tests 205.28s, environment 21.08s)
+

@@ -1,0 +1,92 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T220100Z-p2052839/mutant-10
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 6 failed) 186ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 10ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 7ms
+     × takes in a typed quote marker inside a fence opened on a quote line 10ms
+     × is set on the line Enter makes from a quote line 7ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 3ms
+     × is resolved on the first line of the editor too 10ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 5 failed) 12896ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 19ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 5ms
+     × writes no text to the lines a typed multi-line quote marker takes in 5ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 3ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 7483ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 44 failed) 16566ms
+       × puts the next typed character where the edit leaves the caret 14ms
+       × puts the next typed character where the edit leaves the caret 3ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 16ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 19ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 17293ms
+     × hands the message that text in a full-markdown editor 11548ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 23110ms
+     × hands the message that text in a full-markdown editor 5272ms
+     × hands the message that text in a full-markdown editor 5811ms
+     × hands the message that text in a full-markdown editor 3653ms
+     × hands the message that text in a full-markdown editor 2981ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 24378ms
+     × hands the message that text in a full-markdown editor 14209ms
+     × hands the message that text in a full-markdown editor 9457ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 12 failed) 24674ms
+     × hands the message the changed text on content, in a message of 40 lines 68ms
+     × hands the message the changed text on content, in a message of 122 lines 143ms
+     × hands the message the changed text on content, in a message of 123 lines 128ms
+     × hands the message the changed text on content, in a message of 200 lines 350ms
+     × hands the message the changed text on content, in a message of 1000 lines 893ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1908ms
+     × hands the message the changed text on content, in a message of 40 lines 48ms
+     × hands the message the changed text on content, in a message of 122 lines 103ms
+     × hands the message the changed text on content, in a message of 123 lines 132ms
+     × hands the message the changed text on content, in a message of 200 lines 183ms
+     × hands the message the changed text on content, in a message of 1000 lines 762ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1686ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 46824ms
+     × hands the message that text in a full-markdown editor 41777ms
+
+ Test Files  8 failed | 23 passed (31)
+      Tests  75 failed | 940 passed (1015)
+   Start at  22:20:38
+   Duration  51.08s (transform 10.57s, setup 751ms, import 35.17s, tests 240.09s, environment 24.00s)
+

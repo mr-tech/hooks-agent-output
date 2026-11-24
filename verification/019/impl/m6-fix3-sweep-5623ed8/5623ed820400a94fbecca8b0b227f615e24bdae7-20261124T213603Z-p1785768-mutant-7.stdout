@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T213603Z-p1785768/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 1 failed) 205ms
+     × turns an emoji into an element when it arrives as a text node in a line that was already settled 29ms
+
+ Test Files  1 failed | 30 passed (31)
+      Tests  1 failed | 1011 passed (1012)
+   Start at  21:40:58
+   Duration  41.79s (transform 6.71s, setup 479ms, import 26.23s, tests 200.96s, environment 20.13s)
+

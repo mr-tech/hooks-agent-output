@@ -1,0 +1,87 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/export-42128cd
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 23 failed) 12709ms
+     × hands the message the changed text on content, in a message of 200 lines 107ms
+     × hands the message the changed text on content, in a message of 1000 lines 347ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 744ms
+     × hands the message the changed text on content, in a message of 200 lines 88ms
+     × hands the message the changed text on content, in a message of 1000 lines 459ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1874ms
+     × hands the message the changed text on content, in a message of 1000 lines 373ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 809ms
+     × hands the message the changed text on content, in a message of 1000 lines 244ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 545ms
+     × hands the message the changed text on content, in a message of 123 lines 81ms
+     × hands the message the changed text on content, in a message of 200 lines 134ms
+     × hands the message the changed text on content, in a message of 1000 lines 496ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1030ms
+     × hands the message the changed text on content, in a message of 123 lines 80ms
+     × hands the message the changed text on content, in a message of 200 lines 104ms
+     × hands the message the changed text on content, in a message of 1000 lines 506ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1085ms
+     × hands the message the changed text on content, in a message of 122 lines 110ms
+     × hands the message the changed text on content, in a message of 123 lines 81ms
+     × hands the message the changed text on content, in a message of 200 lines 127ms
+     × hands the message the changed text on content, in a message of 1000 lines 500ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1004ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 23 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'the third backtick typed at the end o…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'the third backtick typed at the end o…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'the third backtick typed at the end o…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the ``` on li…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the ``` on li…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the ``` on li…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'the third backtick typed at the end o…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'the third backtick typed at the end o…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 123 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on embedDescription, in a message of 2048 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 123 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the start of the text of…' > hands the message the changed text on content, in a message of 122 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the start of the text of…' > hands the message the changed text on content, in a message of 123 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the start of the text of…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the start of the text of…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the start of the text of…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+Error: Could not completely normalize the editor after 84 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/23]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  23 failed | 19 passed (42)
+   Start at  20:59:08
+   Duration  14.65s (transform 349ms, setup 21ms, import 1.09s, tests 12.71s, environment 582ms)
+

@@ -1,0 +1,28 @@
+import { createEditor, Editor } from 'slate';
+import { HistoryEditor, withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant } from 'slate';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const parser = markdown.interactive.parseEmoji as never;
+it('undo', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a🙂', 'a']) for (const n of [200, 1000]) {
+    const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parser);
+    editor.children = getInitialValue('', parser, false) as Descendant[];
+    editor.selection = { anchor: Editor.start(editor, []), focus: Editor.start(editor, []) };
+    const text = Array.from({ length: n }, () => fill).join('\n');
+    const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+    (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data);
+    let t0 = performance.now(); let error = '';
+    try { HistoryEditor.undo(editor as HistoryEditor); } catch (e) { error = String(e).slice(0, 60); }
+    const undo = performance.now() - t0; t0 = performance.now();
+    try { HistoryEditor.redo(editor as HistoryEditor); } catch (e) { error = String(e).slice(0, 60); }
+    rows.push({ fill, n, undoMs: +undo.toFixed(1), redoMs: +(performance.now() - t0).toFixed(1), error });
+  }
+  writeFileSync(process.env.PROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

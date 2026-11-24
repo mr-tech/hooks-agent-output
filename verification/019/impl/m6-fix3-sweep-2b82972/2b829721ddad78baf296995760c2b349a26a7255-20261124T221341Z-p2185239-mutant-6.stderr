@@ -1,0 +1,180 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> `
++
++ > js#
++ ``` `||js
++ > >>> ```",
++   "#>>> 
++ ```js*```||
++ >> ```
++ ```c++_
++ >>>  > ```
++ >> a`",
++   ">>> > 
++ >
++ ``` ~~~~js
++ >> ~~
++ > 
++  > \\\\",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+AssertionError: expected [ { …(4) }, { …(4) }, { …(4) }, …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "expected": ">>> 
++ `x``c++ ||
++ >>> ```a`
++ ||b>>> ",
++     "line": 1,
++     "offset": 1,
++     "text": ">>> 
++ ```c++ ||
++ >>> ```a`
++ ||b>>> ",
++   },
++   {
++     "expected": ">>> 
++ ``x`c++ ||
++ >>> ```a`
++ ||b>>> ",
++     "line": 1,
++     "offset": 2,
++     "text": ">>> 
++ ```c++ ||
++ >>> ```a`
++ ||b>>> ",
++   },
++   {
++     "expected": ">>> #js
++ >>> _
++ `x`` \\_
++ #
++ ||#
++ ``` \\",
++     "line": 2,
++     "offset": 1,
++     "text": ">>> #js
++ >>> _
++ ``` \\_
++ #
++ ||#
++ ``` \\",
++   },
++   {
++     "expected": ">>> #js
++ >>> _
++ ``x` \\_
++ #
++ ||#
++ ``` \\",
++     "line": 2,
++     "offset": 2,
++     "text": ">>> #js
++ >>> _
++ ``` \\_
++ #
++ ||#
++ ``` \\",
++   },
++   {
++     "expected": ">>> #js
++ >>> _
++ ``` \\_
++ #
++ ||#
++ `x`` \\",
++     "line": 5,
++     "offset": 1,
++     "text": ">>> #js
++ >>> _
++ ``` \\_
++ #
++ ||#
++ ``` \\",
++   },
++   {
++     "expected": ">>> #js
++ >>> _
++ ``` \\_
++ #
++ ||#
++ ``x` \\",
++     "line": 5,
++     "offset": 2,
++     "text": ">>> #js
++ >>> _
++ ``` \\_
++ #
++ ||#
++ ``` \\",
++   },
++   {
++     "expected": "`
++ >>> 
++ >>> >  *
++ `x``c++_a
++ >>> ajs
++ >> a",
++     "line": 3,
++     "offset": 1,
++     "text": "`
++ >>> 
++ >>> >  *
++ ```c++_a
++ >>> ajs
++ >> a",
++   },
++   {
++     "expected": "`
++ >>> 
++ >>> >  *
++ ``x`c++_a
++ >>> ajs
++ >> a",
++     "line": 3,
++     "offset": 2,
++     "text": "`
++ >>> 
++ >>> >  *
++ ```c++_a
++ >>> ajs
++ >> a",
++   },
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:247:19
+    245|       return textOf(editor) !== edit.expected;
+    246|     });
+    247|     expect(wrong).toEqual([]);
+       |                   ^
+    248|   }, 120_000);
+    249| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T213603Z-p1785768/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 1 failed) 150ms
+     × turns an emoji into an element when it arrives as a text node in a line that was already settled 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 3 failed) 31995ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 11219ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 2327ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂' 10119ms
+
+ Test Files  2 failed | 29 passed (31)
+      Tests  4 failed | 1008 passed (1012)
+   Start at  21:40:13
+   Duration  42.97s (transform 6.84s, setup 550ms, import 26.17s, tests 236.37s, environment 20.57s)
+

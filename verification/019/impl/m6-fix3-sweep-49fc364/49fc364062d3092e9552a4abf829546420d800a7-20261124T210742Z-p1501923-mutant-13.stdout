@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T210742Z-p1501923/mutant-13
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 2 failed) 144ms
+     × puts an emoji element on the first line when the second is edited back to text 9ms
+     × puts an emoji element on the second line when the third is edited back to text 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 10121ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 6017ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 4052ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 6 failed) 10241ms
+       × leaves each line typed as a fresh load of the changed text builds it 14ms
+       × leaves each line typed as a fresh load of the changed text builds it 14ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 12ms
+
+ Test Files  3 failed | 28 passed (31)
+      Tests  10 failed | 1001 passed (1011)
+   Start at  21:20:28
+   Duration  59.14s (transform 8.11s, setup 831ms, import 28.79s, tests 246.83s, environment 22.29s)
+

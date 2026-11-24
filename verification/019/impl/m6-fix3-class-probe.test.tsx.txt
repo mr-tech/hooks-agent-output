@@ -1,0 +1,67 @@
+import { Editor, Transforms } from 'slate';
+import { HistoryEditor } from 'slate-history';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import { spansInLine } from '../emojiLift';
+import { afterLine } from '../codeFence';
+import { editorHolding, linesOf, pasteLines } from '../../__tests__/helpers/keystrokes';
+
+import type * as EmojiLift from '../emojiLift';
+import type * as CodeFence from '../codeFence';
+import type { Descendant } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('../emojiLift', async (o) => { const a = await o<typeof EmojiLift>(); return { ...a, spansInLine: vi.fn(a.spansInLine) }; });
+vi.mock('../codeFence', async (o) => { const a = await o<typeof CodeFence>(); return { ...a, afterLine: vi.fn(a.afterLine) }; });
+beforeAll(async () => { await startEngine(); });
+
+const SIZES = (process.env.PROBE_SIZES ?? '200,1000').split(',').map(Number);
+
+function counted(act: () => void) {
+  vi.mocked(spansInLine).mockClear(); vi.mocked(afterLine).mockClear();
+  const t0 = performance.now();
+  let error = '';
+  try { act(); } catch (e) { error = String(e).slice(0, 80); }
+  return { ms: +(performance.now() - t0).toFixed(1), settles: vi.mocked(spansInLine).mock.calls.length, fenceReads: vi.mocked(afterLine).mock.calls.length, error };
+}
+
+const fragmentOf = (nodes: Descendant[]) => {
+  const encoded = btoa(encodeURIComponent(JSON.stringify(nodes)));
+  return { getData: (f: string) => (f === 'application/x-slate-fragment' ? encoded : ''), types: ['application/x-slate-fragment'], files: [], items: [] } as unknown as DataTransfer;
+};
+
+it('class members', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a🙂', 'a']) {
+    for (const n of SIZES) {
+      const text = linesOf(fill, n);
+      // undo and redo of a paste
+      let editor = editorHolding('', 'embedDescription');
+      pasteLines(editor, text);
+      rows.push({ member: 'undo of a paste', fill, n, ...counted(() => HistoryEditor.undo(editor as HistoryEditor)) });
+      rows.push({ member: 'redo of that undo', fill, n, ...counted(() => HistoryEditor.redo(editor as HistoryEditor)) });
+      // a slate fragment inserted
+      editor = editorHolding('', 'embedDescription');
+      const source = editorHolding(text, 'embedDescription');
+      const nodes = source.children;
+      Transforms.select(editor, Editor.start(editor, []));
+      rows.push({ member: 'a slate fragment of the lines', fill, n, ...counted(() => (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(fragmentOf(nodes))) });
+      // select all and type
+      editor = editorHolding(text, 'embedDescription');
+      Transforms.select(editor, Editor.range(editor, []));
+      rows.push({ member: 'every line selected, one character typed', fill, n, ...counted(() => editor.insertText('x')) });
+      // select all and delete
+      editor = editorHolding(text, 'embedDescription');
+      Transforms.select(editor, Editor.range(editor, []));
+      rows.push({ member: 'every line selected, deleted', fill, n, ...counted(() => editor.deleteFragment()) });
+      // paste over every line
+      editor = editorHolding(text, 'embedDescription');
+      Transforms.select(editor, Editor.range(editor, []));
+      rows.push({ member: 'a paste at the start of the existing lines', fill, n, ...counted(() => pasteLines(editor, text)) });
+    }
+  }
+  writeFileSync(process.env.PROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

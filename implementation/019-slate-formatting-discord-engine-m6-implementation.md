@@ -7,8 +7,9 @@ Status-Detail: >-
   M6 is built on chain/019-slate-formatting-discord-engine. First delivery: website 119471f (code review Round 6, approved with
   comments; QA Phase 2 failed at 119471f on AC-6.8 and QAF-50). Fix Round 1 (CR-20, AC-6.8 of plan Revision 20; QAF-50, QAF-46; the
   AC-3.3 cap) was handed to code review at 42128cd. Fix Round 2 (AC-6.9 of plan Revision 22: D-24, D-25, CF-30, CF-31, F-56) is
-  handed to code review at 85ece66: whole suite 4,160 of 4,160, exit 0, 66.0 s.
-Handoff-At: 85ece66 — repos=website — M6 Fix Round 2 (AC-6.9, Revision 22) handed to code review; whole suite 4,160 of 4,160, exit 0
+  handed to code review at 85ece66 (REJECTED at Round 7 on CR-25 HIGH). Fix Round 3 (CR-25, D-26; plan Revision 23) is handed to
+  code review at 2b82972: whole suite 4,219 of 4,219, exit 0, 64.5 s.
+Handoff-At: 2b82972 — repos=website — M6 Fix Round 3 (CR-25, D-26, Revision 23) handed to code review; whole suite 4,219 of 4,219, exit 0
 ---
 
 # Implementation 019 — M6: the Slate layer, round trip and input
@@ -32,6 +33,7 @@ The plan's Status was already `In Progress`.
 | 2026-11-24T05:10 | steering-hooks-fixer (message after /clear; Resumption State items 1 to 6) | Finish the owed items and hand M6 to code review | M5 Fix Round 1 handed and approved with comments; stub-tree reds; `native-box-classes` compares inputs holding an element (`1aaa960`); sweeps at `9719d02` and `d652d12`; caret defect fixed (`d652d12`); survivor tests (`a490d40`, `223c078`, the Enter row); whole suite and convention check at `119471f`; planner told Outstanding 2 (confirmed, R-74). |
 | 2026-11-24T07:07 | planner-019 (message after /clear; Revision 16, then 17 to 20 as the gates read them; release at R-86, hand-off at R-88) | CR-20's fix round: AC-6.8 | Count test red at `119471f` (`daad7fa`); `resolveEmoji` per run unit and the timed bench (`ebb757e`); QAF-50, QAF-46 and the generator count fit (`7cea6a9`); `resolveEmoji` returns nothing (`10abfa9`); a neighbour step tried and reverted (`acd9df8`, `42128cd`). See Fix Round 1. |
 | 2026-11-24T19:18 | planner-019 (message after /clear; Revision 22, gates at `f898b32f`, `50b2bbe0`, `e2890214`, release R-100 `17bb8f2c`) | The second M6 fix round: AC-6.9 (D-24, D-25; CF-30, CF-31, F-56) | Entry records at `42128cd`; red specs `a90ed57`; the fix `a1037e4`; the fence-state count cases `85ece66`; the timed limb, sweep, class sweep and the SIGTERM disclosure in Fix Round 2. |
+| 2026-11-24T22:13 | code-reviewer-019 (message: Round 7 REJECTED `85ece66` on CR-25 HIGH, CR-24 LOW); steering-hooks-fixer (start, effort rulings block `2026-11-24T20:54Z`, record `be956e8d`, on Revision 23; paste in scope by D-26, block `20:07Z`); resumed after a `/clear`: Resumption State read first, Fix Round 2's claims not re-verified | The third M6 fix round: CR-25 (the fence members over `a🙂` lines, the paste), CR-24 | Red specs `c1a1da1`; the fix `1b555bb`; `49fc364`, `5623ed8`, `3d988f7` (refinements the sweep drove); the quote-prefix defect the paste differential found, red `59f65a4`, fix `2b82972`. SL-29's timed readings, the differential, the class sweep and the sweeps in Fix Round 3. A hold of mine from 19:50Z to 20:54Z (no recorded start) is in Resumption State; the spike run in it is superseded by this round. |
 
 ## Implementation Summary
 
@@ -538,13 +540,165 @@ The ceiling's red mode: a planted ceiling of 0.001 ms exits 1 in 4.9 s (`m6-fix2
 
 `code-reviewer-019` reads the fix round at the hand-off tip against `42128cd`, in order of risk: `withNormalizeNode.ts` (`editor.normalize`, `linesAgree`, `retypeLines`, `settledIn`; the form of the throw's fix, CF-30: no `catch`, no `shouldNormalize`), the marker's range delete (one arm for `> ` and `>>> `, the sibling rule), then the settle, mounted and count tests, the helper and the bench. Then QA's M6 re-check: the timed limb on a quiet box (the figures above are mine, not a verdict), the sweep's NM-73 to NM-80 against the round's diff, and UAT's B-11 (the walk: opening and closing a code block near the top of a 2,000-line description, typing `>` to make `>>> abc`).
 
+## Fix Round 3 (CR-25 HIGH; D-24's fence members over emoji lines, D-26's paste members; plan Revision 23; CR-24 LOW)
+
+Handed to code review at website `2b82972`. Start: steering's block `2026-11-24T20:54Z` (agent-output `be956e8d`), on plan Revision 23 with QA Phase 1 at `d46f68ff`. Gates read: architect `569a0fb6` (CF-32 LOW), QA `d46f68ff` (QAF-53 MEDIUM closed by SL-29, QAF-54 LOW), critic `d58217d4` (F-57 closed as SL-29, F-58 LOW).
+
+### What changed
+
+- **`withNormalizeNode.ts`, `resolveEmoji`**: one call settles every line of a run (`settleLine` loops `resolveLine` until it reports nothing to lift or revert), then takes the settled set for the editor's current children. It used to settle one change and return, so each lift reset the memory and every later line re-settled the whole run.
+- **The settled memory is carried across the one operation that follows a lift unchanged in source text**: `insert_node` of an empty text node (the padding `handleElement` adds after a lift). `editor.apply` re-stamps the memory's `children` when that operation lands (`keepsSourceText`). Every other operation resets it, as before.
+- **`insertTextData` is wrapped in `Editor.withoutNormalizing`** (slate-dom's `insertTextData` runs one `splitNodes` and one `insertText` per pasted line, each draining). N lines now end in one drain, so `linesAgree` scans once.
+- **`retypeLines`**: a quote line whose stored prefix is `''` outside a multi-line quote now takes its marker out of the text (`holdsMarkerInText`). The deferred drain leaves a pasted `> a` line as a quote line with an empty prefix (the split clears the prefix, and the per-operation drain used to retype it before the text arrived). Found by my paste differential (below); not named by any finding.
+- CF-32's form (key on line objects) is **not** taken: a lift replaces the line's object, and the padding operation replaces it again, so a key on line objects resets for every line after a lift. The memory is keyed on `editor.children` and carried across the padding operation instead. CF-32 is guidance on how; the count limb decides. Departure disclosed here; the reason is the one in this sentence.
+- Tests: `withNormalizeNode.keystroke-run-unit-builds.test.tsx` (work per line), `withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx` (the `a🙂` fence members and the paste members through the four limbs), `withNormalizeNode.emoji-keeps-line-text.test.tsx` (one case), `withNormalizeNode.quote-and-fence-lines-settle.test.tsx` (paste at the end of a quote line), the mounted write test (CR-24: the `.catch(() => undefined)` is gone), helpers `fenceAndQuoteKeystrokes.ts` (a fill argument, `isFence`, `FENCE_KEYSTROKES`) and `keystrokes.ts` (`pasteAtSelection`, `pasteLines`, `linesOf`).
+
+Commits on the chain: `c1a1da1` (red specs), `1b555bb` (the fix), `49fc364` (the loop's pass cap removed: no test could reach it), `5623ed8` (an emoji arriving as a text node in a settled line), `3d988f7` (the carry narrowed to `insert_node`), `59f65a4` (red spec: paste at the end of a quote line), `2b82972` (its fix).
+
+### Entry Conditions (Fix Round 3)
+
+| Condition | Where satisfied | Pinned by |
+|---|---|---|
+| Stage start | effort rulings block `2026-11-24T20:54Z`, agent-output `be956e8d`; Revision 23 passed all three gates (R-104 to R-106) | not owed (a record fact) |
+| QA Phase 1 covers the milestone | `qa/…-qa.md` § Re-key on Revision 23, `d46f68ff` | not owed |
+| No open `OPEN QUESTION` | steering's message of the start | not owed |
+| Paste member is in scope | his selection D-26, block `2026-11-24T20:07Z` | the paste cases of `keystroke-run-unit-builds` and of `fence-and-quote-keystrokes-settle` |
+| SL-29: timed reading at the tip beside `af3d95a`, per paste member and `a🙂` fence keystroke, at 200 and 1,000 lines, with load | § SL-29 below; `verification/019/impl/m6-fix3-timing/` | not owed (a capture) |
+| F-58: the paste members' two counts at 200 and 1,000 lines at `85ece66` | § Counts below | the red run `m6-fix3-red-work-per-line-85ece66.log.txt`, and the spike counts |
+| QAF-54: a floor on line settles | **not taken** (stated limit under block 14:48Z); NM-82 is placed and survives, below | not owed |
+| CR-24: the mounted test no longer swallows | `SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx` | red at `42128cd`: 23 of 42 cases fail on Slate's iteration error (`m6-fix3-mounted-no-catch-42128cd-red.log.txt`); green at the tip |
+
+### Flows (user-visible work)
+
+No new user-visible surface, view or input. The work changes how many operations of the editor's own bookkeeping a code-fence keystroke over lines holding an emoji, and a multi-line paste, cost. What the user sees is the text and caret a fresh load gives, as before; the one visible change is that a pasted `> ` line after a quote line is now a quote line with its marker out of the text, as a fresh load builds it.
+
+### Patterns Extended
+
+| Surface | Pattern extended |
+|---|---|
+| The work-per-line limb | `keystroke-run-unit-builds.test.tsx`'s pass-through `vi.mock` counters (`unitAround`, `afterLine`), plus one on `spansInLine`; the count at 1,000 lines against 200 (limit 10, a hand literal), as the file's "builds as many" cases do |
+| The paste's drain | Slate's own multi-operation transforms run inside `Editor.withoutNormalizing`; the wrap is the same call the file already uses at `retypeLines`, `revertToText` and `splitCarrying` |
+| Settled memory | the file's `WeakMap<Editor, …>` memories (`verifiedLines`, `settledLines`) |
+| Paste helper | the mounted `pasteText` helper's fake `DataTransfer`, unmounted |
+
+### TDD Compliance (Fix Round 3)
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| work per line, four `a🙂` fence members (`resolveEmoji` once per call) | `withNormalizeNode.keystroke-run-unit-builds.test.tsx` | Yes (`c1a1da1`) | Yes, at `85ece66`: `m6-fix3-red-work-per-line-85ece66.log.txt` | `AssertionError: expected 999494 to be less than or equal to 398940` (the close on line 2), `expected 250249 to be less than or equal to 100490` (the closing delimiter in the middle: a member code review did not probe); the open on line 2 and the Backspace on the middle delimiter are linear and pass (3 of 7 pass, as QA's Phase 1 read) | Yes |
+| work per line, the two paste members (`insertTextData` wrap) | same | Yes (`c1a1da1`) | Yes, same run | `expected 1000999 to be less than or equal to 401990` (`a`), `expected 1501499 to be less than or equal to 602990` (`a🙂`) | Yes |
+| positive control (one-line text counts at least 1 settle and 1 fence read) | same | Yes | not red: it passes at `85ece66`, by design (QAF-54's reading: it shows the mocks are wired); its red is NM-82-like mutants that move a boundary off the mock | n/a | Yes |
+| the four limbs for the `a🙂` fence members and the paste members | `withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx` | Yes (`c1a1da1`) | **No red at the pre-change tree**: 444 of 444 pass at `85ece66` (`m6-fix3-settle-additions-85ece66-green.log.txt`): the pre-change tree is correct and slow. They guard the fix. Red against mutants in the sweep: `hand-paste-leaves-normalizing-off` (the paste leaves normalising off) fails the fresh-load limb in the paste cases (`m6-fix3-sweep-49fc364/`, mutant-20) | the guard's mutants | Yes |
+| `keepsSourceText` / the carry (`insert_node` of an empty text) | `withNormalizeNode.keystroke-run-unit-builds.test.tsx` (the count limb) | Yes | Yes: carry removed (`if-false`, mutant-14), carry across every operation (`hand-carry-every-operation`, mutant-24), killed | count limb and `emoji-keeps-line-text` | Yes |
+| the carry's non-empty-text conjunct | `withNormalizeNode.emoji-keeps-line-text.test.tsx` "arrives as a text node in a line that was already settled" | written after the survivor (mutant-22 of the first sweep) | Yes: red against the mutant in an isolated export (`m6-fix3-red-carry-nonempty-text-mutant-49fc364.log.txt`) | `expected [ 'a', ':smile:' ] to deeply equal [ 'a', '[:smile:]' ]` | Yes |
+| quote prefix of a pasted quote line (`holdsMarkerInText`) | `withNormalizeNode.quote-and-fence-lines-settle.test.tsx` "receiving a paste at the end of a quote line" | Yes (`59f65a4`) | Yes, at `3d988f7` (`m6-fix3-red-paste-into-quote-line-3d988f7.log.txt`); green at `85ece66` | `line 1: ["blockQuote","",false,"",[]] but expected ["blockQuote","> ",false,"",[]]` | Yes |
+| CR-24, the mounted write test | `SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx` | Yes | Yes, at `42128cd` | Slate's `Could not completely normalize the editor after 126 iterations` (23 of 42) | Yes (42 of 42 inside the whole suite) |
+
+`tdd-check.py new-names` is for Python sources; the sources here are TypeScript, so the rows are read. The helper functions (`pasteAtSelection`, `pasteLines`, `linesOf`) are test helpers and carry no row.
+
+### Counts at `85ece66`, before the fix (F-58)
+
+From `m6-fix3-spike-count-85ece66-base.jsonl` (the same pass-through mocks at the unchanged tree; line settles / fence reads, 200 and 1,000 lines): paste of `a` 40,199 / 40,399 and 1,000,999 / 1,001,999; paste of `a🙂` 60,299 / 60,499 and 1,501,499 / 1,502,499. Close a fence on line 2 over `a🙂`: 39,894 / 1,003 and 999,494 / 5,003. After the fix every ratio is 5 or less (`m6-fix3-spike-count-85ece66-fence-and-paste.jsonl` for the spike's form; the red/green pair of the committed limb is the pass of 68 of 68 in the count file at `1b555bb`).
+
+### SL-29 — timed readings, tip against `af3d95a`
+
+Probe: `m6-fix3-timing/`, one body run at both trees (`probe-base.tsx`, `probe-tip.tsx` differ only in the parser/surface argument, as the earlier base probes did), unmounted, node/jsdom, `unshare -rn`, median of 5 runs at 200 lines and 3 at 1,000, the four fence keystrokes and the paste, two rounds interleaved (box load 3 to 8 over the runs; `loads.txt`). `T` = the base throws Slate's iteration error part-way, so it does less work than a settling fix. Medians in ms, round 1 / round 2:
+
+| Member | `a🙂` 200: base | `a🙂` 200: tip | `a🙂` 1,000: base | `a🙂` 1,000: tip |
+|---|---|---|---|---|
+| paste | 238.7 / 244.4 | **143.6 / 150.9** | 3,061 / 3,125 | **2,118 / 2,125** |
+| third backtick, end of line 2 (opens a fence) | 17.5 T / 18.1 T | 47.6 / 52.2 | 43.2 T / 47.9 T | 395 / 418 |
+| Backspace at the end of the ``` on line 2 (closes) | 16.6 T / 17.6 T | 96.7 / 93.0 | 43.4 T / 51.4 T | 1,114 / 1,134 |
+| third backtick at the closing delimiter in the middle | 13.7 T / 13.7 T | 40.1 / 36.4 | 30.6 T / 32.9 T | 354 / 367 |
+| Backspace at the closing ``` in the middle | 15.3 / 14.8 | 23.9 / 25.0 | 34.3 T / 38.3 T | 159 / 160 |
+
+Paste of `a`: base 136 / 134 (200) and 1,709 / 1,779 (1,000); tip 58 / 54 and 615 / 636. Fence keystrokes over plain `a` lines: tip 6 to 15 ms at 200 and 28 to 44 ms at 1,000, at or under the base's 14 to 27 and 31 to 45 (the AC-6.9 timed limb's own ceilings also pass: both benches exit 0 at the tip, `m6-fix3-bench-*-tip.txt`, load 7 to 9).
+
+**Reading, for steering (SL-29 routes a reading that is not roughly today's speed to it):** the paste is faster than today's at both sizes and both fills (0.4 to 0.7 times). The `a🙂` fence keystrokes are **not** roughly today's speed: 2 to 6 times the base at 200 lines (24 to 97 ms against 14 to 18) and 5 to 26 times at 1,000 (159 to 1,134 ms against 31 to 51). The comparison is not like for like: at the base every one of them (but one) throws Slate's iteration error part-way and leaves the lines untyped and the emoji unlifted, so it does a fraction of the work. At the tip each settles the message completely. Where the time goes (operation count at 200 and 1,000 lines for the close on line 2, `m6-fix3-timing`, probe run in the scratch export): 4 operations per emoji line (`remove_text`, `set_node`, `insert_node` of the emoji, `insert_node` of the padding) at about 250 µs each through Slate's own transforms, and no repeated whole-run scan (builds 2, settles about 2N). The line-2 close grows 11.7 times from 200 to 1,000 lines for 5 times the lines. I did not find a cheaper lift inside this round's scope: fewer operations per line would mean replacing `Transforms.insertNodes`' range form with hand-built operations, and rebuilding a line's children instead of lifting in place. Undo and redo of a paste, measured for context (`m6-fix3-undo-redo-af3d95a.jsonl`, `m6-fix3-class-probe-3d988f7.jsonl`): `a🙂` at 1,000 lines, undo 6,263 ms at the base and 1,211 at the tip, redo 3,636 and 3,361.
+
+### Differential against `85ece66`
+
+- **Keystrokes** (`crprobe.keystroke-fixedpoint`, code review's probe, 1,285 inputs, start and end, 8 keys: 36,560): **0 differ** in document and selection at `3d988f7` and again at `2b82972` (the quote-prefix fix touches `retypeLines`); the same 8 non-fixed-point keystrokes at both trees; 0 errors (`m6-fix3-differential-fixedpoint-85ece66-vs-3d988f7.out.txt`, `…-vs-2b82972.out.txt`).
+- **Pastes** (my probe `pastediff.test.tsx`, kept with the captures as `.txt` where it is not collected): 12,960 pastes of 1,296 texts (corpus, generator, bulk fills, fenced and quoted texts) into 5 bases at the start and the end. Lines against a fresh load of the final text: 237 differ at `85ece66`, 294 at `3d988f7`, **218 at `2b82972`**. Caret not at the end of the pasted text: 1,296 at both (the same set; my expected value is the flat offset of the paste's end, and it disagrees in a family the two trees share). Not collapsed: 0 at both. Of the 218, 217 are the `>>> a\nb` base, which also differs at `85ece66` (a family both trees share); **1** differs where `85ece66` matched a fresh load (base `>>> a\nb`, paste `> ```\n> x\n> ```` at the end: the closing fence line keeps an empty quote prefix; `m6-fix3-differential-paste-oracle-fix-85ece66-vs-tip.out.txt`). 20 pastes (an empty or one-line base, pasted at the start) differ from a fresh load at `85ece66` and match it at the tip.
+
+### Class Sweep (CR-25)
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-25: whole-run or whole-document work repeated for every operation of a multi-operation edit, a memory keyed on `editor.children` | `git grep -n "=== editor.children\|editor.children ===\|=== before" 49fc364 -- src ':!*__tests__*'` | 3 hits, `withNormalizeNode.ts`: `linesAgree` (`verifiedLines.get(editor) === editor.children`), `settledIn` (`known?.children === editor.children`), and `editor.apply`'s carry (`known?.children === before`) | `settledIn`: fixed (the memory carries across the padding operation and a run settles in one call). `linesAgree`: kept, because the multi-operation edit that made it quadratic (the paste) now drains once and no other unwrapped edit has operations in proportion to the lines (next rows). The carry: the new code |
+| same | `git grep -n "new WeakMap\|new WeakSet" 49fc364 -- src ':!*__tests__*'` | 2 hits: `verifiedLines`, `settledLines` | the two above |
+| same: an edit whose operations are in proportion to the lines and that is not inside `withoutNormalizing` | `git grep -n "Transforms\.\|editor\.insert\|editor\.delete" 49fc364 -- src/components/SlateEditor ':!*__tests__*'` outside `withNormalizeNode.ts`: 8 hits (`index.tsx` 72 select, 96 `insertText`; `onChange.ts` 25 select; `onCopy.ts` 36 `delete`; `onKeyDown.ts` 38, 39, 50, 54), plus slate-dom's `insertTextData` (`slate-dom/dist/index.js` 1972 to 1990, the only library site that calls `splitNodes` and `insertText` per line outside a wrapper) | each production hit issues a constant number of operations (at most 2 in `onKeyDown.ts` 38 to 39) or one Slate transform that wraps itself; the library site is the paste, fixed | not applicable except the paste |
+| same, measured per member (reference query, in place of Serena's `find_referencing_symbols`, which this session does not have: `LSP`-style reference search by grep of the symbol names `settledIn`, `linesAgree`, `resolveEmoji`, `verifiedLines` over `src`) | `git grep -n "settledIn\|linesAgree\|resolveEmoji\|verifiedLines" 49fc364 -- src ':!*__tests__*'` | all in `withNormalizeNode.ts`: `settledIn` 1 caller (`resolveEmoji`), `linesAgree` 2 callers (`handleEditor`, the `normalize` override), `resolveEmoji` 1 caller (`handleElement`) | unchanged callers; the callers' behaviour is the new one |
+| same, by edit, measured at `3d988f7` (`m6-fix3-class-probe-3d988f7.jsonl`, `a🙂` and `a`, 200 and 1,000 lines, settles and fence reads): undo of a paste, redo of the undo, a slate fragment inserted through `insertData`, every line selected and one character typed, every line selected and deleted, a paste at the start of existing lines | `PROBE_OUT=… npx vitest run classcount.test.tsx` (the probe in `m6-fix3-class-probe.test.tsx.txt`) | every member's count ratio is 5 or less; undo and redo of a paste 1,000 settles and 1,000 reads for redo, 1 and 1 for undo | none worse than the base on time for the members measured at the base (undo 6.3 s to 1.2 s, redo 3.6 s to 3.4 s at 1,000 `a🙂` lines) |
+| the class's residual after the fix | the same `git grep` re-run at `2b82972` | 3 hits (unchanged: the same three lines) | residual 3, each dispositioned above |
+| (self-found) a deferred drain leaves a pasted `> ` line with an empty prefix | `m6-fix3-differential-paste-85ece66-vs-3d988f7.out.txt` and the oracle runs | 76 pastes (the base of a code block then a quote line, at its end) and 1 more differed from a fresh load at `3d988f7` and matched at `85ece66` | fixed at `2b82972`; residual 1 (above) |
+
+### Test Execution Results (Fix Round 3)
+
+| Command | Result | Compilation, lint, compatibility |
+|---|---|---|
+| `unshare -rn sh -c 'ip link set lo up; pnpm test'` at the tree of `2b82972` (the loopback up: three suites use a local server and fail with ENETUNREACH when it is down) | 237 files, 4,219 of 4,219 passed, exit 0, 62.7 s | `pnpm run typecheck` exit 0 (both programs); `eslint` on the changed files: 0 errors (two max-len warnings in files this round did not add lines to: `onChange.ts`, and one the round touched, fixed); `index.tsx`'s three pre-existing lint errors are untouched |
+| `vitest bench --run --project dom` of `fence-and-quote-time.bench.ts` and `keystroke-time.bench.ts` at `49fc364`, load 7 to 9 | exit 0 both (19.3 s and 7.0 s) | |
+| `node ~/.claude/tools/convention-check.js … --since=85ece66` | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 foreign `.playwright-mcp` captures, and the ID-token class this checker does not implement: **unchecked by it**; by hand, 0 added lines match the ID-token class or a date, 0 comment lines added; basenames unchanged) | |
+
+The pre-change whole suite was 4,160 of 4,160 at `85ece66`; this round adds 59 cases (the 4 + 2 count cases and control, 48 settle cases, 1 emoji case, 3 paste-into-quote cases).
+
+### Self-check sweep over this round's diff
+
+`mutant-gen.js --range` over `85ece66..49fc364`, then `3d988f7`'s and `2b82972`'s increments, in isolated exports (`mutation-run.py`, `node_modules` bound read-only, timeout 400 s, `unshare -rn`, the suite `src/components/SlateEditor` per mutant, controls passing, load per `*.load`): `m6-fix3-sweep-49fc364/` (23 mutants: 19 killed, 3 survived, 1 aborted), `m6-fix3-sweep-5623ed8/` (7: 6 killed, 1 survived), `m6-fix3-sweep-3d988f7/` (4 of 4 killed), `m6-fix3-sweep-2b82972/` (12 mutants: 11 killed, 1 survived; the 11 include two kills by timeout, 400 s, on the `holdsMarkerInText` guard's `not` form and on the marker-retype trigger's `||` form, which the runner counts as kills; the survivor is NM-82, below; the sweep's first launch in the foreground was moved to the background at 600 s and died without a table, so it was re-launched as a background command and its half-written outputs deleted). A first launch of the 49fc364 sweep was killed by the harness when its shell exited and its half-written outputs were deleted; the second launch ran alone. Survivors and the aborted run:
+
+| Mutant | Result | Disposition |
+|---|---|---|
+| `&&:2` on the carry's predicate (`Text.isText(op.node) || …`) at `49fc364` | SURVIVED | equivalent at that tree: only `insert_node` and `remove_node` carry a `node`, and an element's `.text` is undefined, so `isText` was redundant; the predicate was rewritten at `5623ed8` and each of its four mutants at `3d988f7` is killed |
+| `let inserted = false` to `true` in the paste wrap | SURVIVED | equivalent: the callback always assigns it before the wrap returns it (Slate calls it once, synchronously) |
+| `hand-carry-without-the-empty-text-conjunct` | SURVIVED at `49fc364`, **killed** at `5623ed8` | the new `emoji-keeps-line-text` case |
+| `hand-carry-any-depth` | SURVIVED | the depth conjunct was dropped at `5623ed8`: no valid document holds an empty top-level text, so the conjunct decided nothing |
+| `===:2` at `5623ed8` (the `remove_node` arm) | SURVIVED | the arm was dropped at `3d988f7` (nothing needed it); its four successors are killed |
+| the `settledIn` guard removed (NM-71, NM-76's form), mutant-11 | ABORTED (the runner's label: 3 cases failed, `expected 2046 to be 198`, `1024 to 100`, `2048 to 200`, in the run-unit-builds cases, plus a worker timeout) | killed in effect; recorded as the runner labelled it |
+| the other 17 operator mutants and 5 hand mutants | killed | |
+
+Named mutants: **NM-70** (a unit cache keyed on the line index): not placed, no unit cache exists. **NM-71**: placed as the `settledIn` guard removal, above. **NM-72** (a resolve on the first changed unit only): not placed (the round's diff has no counterpart: `resolveEmoji` settles the run it is called for). **NM-76**: placed with NM-71. **NM-81** (the memory keyed on `editor.children`, restored): placed two ways, the carry removed (`if-false`, mutant-14, killed) and `resolveEmoji`'s one-resolve-per-call form (`hand-NM-81b`, killed: the count limb on the four members). **NM-82** (the per-line settle moved off the mocked boundary, `spansInLine` called once per unit): placed as `hand-NM-82-spansInLine-once-per-unit` at `2b82972`; **SURVIVED**, as QA's Phase 1 predicted: the count limb reads a near-constant count at both sizes (ratio about 1) and the positive control reads at least 1. This is the limit QAF-54 names (the floor on line settles was not taken). An earlier form of mine (`spansInLine` only for line 0) was killed by the control's "at least 1" on the keystrokes whose edit never settles line 0, so it was not NM-82's shape. NM-73 to NM-75, NM-77 to NM-80 are Fix Round 2's guards, which this diff does not touch (`editor.normalize`, `retypeLines`' type decision, the marker) except `retypeLines`' marker deletion, whose `holdsMarkerInText` form the sweep over `2b82972` covers.
+
+### Gate satisfactions disclosed in the round
+
+- **A sweep launched with `&` was killed by the harness when its shell ended**; the same command re-launched as the background command itself. Its partial outputs (`…T210711Z…`) were deleted; the table of the run that completed (`…T210742Z…`) is the record.
+- **Two probe exports at `af3d95a` and the tip, plus `85ece66`**, in the session scratchpad, with `node_modules` linked; the probes ran network-isolated. Nothing is left in the shared tree.
+- **Stamp gate**: `stamp-gate-hook` refused my first changelog row for Fix Round 3 (I typed 22:20 against a clock of 22:13Z). I took the stamp from `date -u` and re-wrote the row; the gate's standard (a stamp the clock gave) is met.
+- **Foreground command moved to the background**: the 2b82972 sweep launched in the foreground hit the 600 s limit and ended without a table; re-run (above). Nothing it produced is cited.
+- **Record writes**: this section was written with the Edit tool.
+- **Comment gate / `rm` check**: neither fired.
+
+### Outstanding Items (Fix Round 3)
+
+1. **SL-29's reading is for steering**: the `a🙂` fence keystrokes are 2 to 26 times the base's readings, which are throwing runs (above). If it is read as "not roughly today's speed", the cost is Slate's operations per lift (4 per emoji line), and a cheaper lift is a design change outside this round's scope.
+2. **One paste in 12,960 differs from a fresh load where `85ece66` matched** (a `>>>` quote, then a quoted fence pasted at its end), and 217 more pastes into the same base differ at both trees. A family the two trees share; not probed further.
+3. **QAF-54's floor is not taken** (a stated limit): NM-82 survives, below.
+4. **`linesAgree` is still a per-operation whole-document scan** for any edit that issues many operations outside `withoutNormalizing`. The only one found is the paste (fixed); a future caller that loops over `Transforms` would meet it.
+5. **The caret differential's expected value** disagrees with both trees for 1,296 pastes (the same set): I did not chase it, since the two trees agree and the plan's paste caret limb (the end of the pasted text, empty editor) passes.
+6. **Self-diagnosis (method).** I first read CR-25 as the fence-close and paste counts only, and the spike met them with `wrong: 0` on text and line types, so I read the paste wrap as safe. It was the differential against the old tree over inputs the plan's text class does not hold (quote bases) that found the empty-prefix defect. I tested the plan's example rather than the property the wrap must keep (the same lines a per-operation drain builds); the check that would have caught it before the commit was the paste differential I ran after the fix.
+
+### Next Steps (Fix Round 3)
+
+`code-reviewer-019` reads `2b82972` against `85ece66`, in order of risk: `withNormalizeNode.ts` (`resolveEmoji`, `settleLine`, the carry in `editor.apply`, the `insertTextData` wrap, `holdsMarkerInText`), then the count limb and the settle cases, the helper, the mounted test (CR-24). Then QA Phase 2 with SL-29's readings above and the named mutants.
+
 ## Next Steps (first delivery, `119471f`)
 
 Code review of M6 at `119471f`, in order of risk: `withNormalizeNode.ts` (`resolveEmoji`, `revertToText`, the carry), `emojiLift.ts`, the `simple-markdown` removal; it reads 8cb4d83, c3af0ac and f58a816 as a first review (they were in the tree at M5's Fix Round 1). Then QA Phase 2: it re-runs m5-d2 against `runUnit.ts` and reads NM-68 and NM-69 on the QAF-42 fixture forms. The planner confirmed the source-text reading (R-74, no revision); the seam fold names it in AC-6.5.
 
 ## Resumption State
 
-Written 2026-11-24 after Fix Round 2's hand-off to code review.
+Written 2026-11-24 after Fix Round 3's hand-off to code review.
+
+- **Done.** Fix Round 3 (CR-25, D-24's fence members over `a🙂` lines, D-26's paste members, CR-24; plan Revision 23): red specs `c1a1da1`, the fix `1b555bb`, refinements `49fc364`, `5623ed8`, `3d988f7`, the quote-prefix red `59f65a4` and fix `2b82972` (the hand-off tip). Whole suite 4,219 of 4,219, exit 0, 64.5 s (`m6-fix3-suite-2b82972.log.txt`); typecheck exit 0; keystroke differential 0 of 36,560 differ from `85ece66`; sweep 11 of 12 killed at the last increment, survivor NM-82 (QAF-54's stated limit). Evidence under `verification/019/impl/m6-fix3-*`.
+- **Next, and its start condition.** Code review of `2b82972` against `85ece66` (code-reviewer-019), then QA Phase 2 with SL-29's readings (`m6-fix3-timing/`). Nothing of mine is in flight. A re-start needs steering's word only if the review rejects.
+- **For steering (SL-29's routing).** The paste is faster than the base at 200 and 1,000 lines. The `a🙂` fence keystrokes are 2 to 26 times the base's readings, which are throwing runs that do a fraction of the work (Fix Round 3, "SL-29"); not "roughly today's speed" if read plainly.
+- **Local state not restored.** Scratchpad exports and probes only (`export-42128cd`, `export-85`, `export-mut`, `export-tip`, `timing/export-base`, `timing/export-tip`, `spike/`, `sweep-work/`): nothing in the shared tree, no process of mine running (`ps` read at the hand-off). `git status` in the website lists only the foreign `?? .playwright-mcp/`.
+- **Questions sent.** None open. BLOCKED sent to steering-hooks-fixer at 19:50Z (no recorded start); answered by the start of 20:54Z.
+- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `2b82972`.
+- **Evidence run but not recorded.** None.
+- **Cache-warm wake.** Armed (one-shot, re-armed at each wake).
+
+### Earlier Resumption State (after Fix Round 2's hand-off, superseded)
 
 - **Done.** Fix Round 2 (AC-6.9, plan Revision 22): red specs `a90ed57`, the fix `a1037e4`, the fence-state count cases `85ece66` (the hand-off tip). Whole suite 4,160 of 4,160, exit 0, 66.0 s; typecheck exit 0. This document is current at `85ece66`; the evidence is in `verification/019/impl/m6-fix2-*`.
 - **Next, and its start condition.** Code review Round 7 REJECTED `85ece66` on CR-25 HIGH (record `e92137fe`), with CR-24 LOW. The reviewer messaged me directly. Steering's block 19:43Z records no start: Revision 23 is being drafted with the gates held, and the paste member waits on the owner's selection. I hold code (BLOCKED sent to steering-hooks-fixer, 19:50Z). Start condition: steering's recorded start once the gates have passed Revision 23, and his answer on paste before the paste member is coded.

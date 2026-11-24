@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T210742Z-p1501923/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 2 failed) 13256ms
+       × leaves each line typed as a fresh load of the changed text builds it 14ms
+       × leaves each line typed as a fresh load of the changed text builds it 22ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 2 failed) 13409ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a' 1082ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂' 1049ms
+
+ Test Files  2 failed | 29 passed (31)
+      Tests  4 failed | 1007 passed (1011)
+   Start at  21:27:51
+   Duration  58.85s (transform 9.09s, setup 691ms, import 31.10s, tests 257.10s, environment 22.69s)
+

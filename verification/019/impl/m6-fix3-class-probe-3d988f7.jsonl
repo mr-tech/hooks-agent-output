@@ -1,0 +1,24 @@
+{"member":"undo of a paste","fill":"a🙂","n":200,"ms":83.9,"settles":1,"fenceReads":1,"error":""}
+{"member":"redo of that undo","fill":"a🙂","n":200,"ms":161.5,"settles":200,"fenceReads":200,"error":""}
+{"member":"a slate fragment of the lines","fill":"a🙂","n":200,"ms":16.9,"settles":200,"fenceReads":200,"error":""}
+{"member":"every line selected, one character typed","fill":"a🙂","n":200,"ms":14.6,"settles":1,"fenceReads":1,"error":""}
+{"member":"every line selected, deleted","fill":"a🙂","n":200,"ms":10.4,"settles":1,"fenceReads":2,"error":""}
+{"member":"a paste at the start of the existing lines","fill":"a🙂","n":200,"ms":182.4,"settles":599,"fenceReads":798,"error":""}
+{"member":"undo of a paste","fill":"a🙂","n":1000,"ms":1211.1,"settles":1,"fenceReads":1,"error":""}
+{"member":"redo of that undo","fill":"a🙂","n":1000,"ms":3360.7,"settles":1000,"fenceReads":1000,"error":""}
+{"member":"a slate fragment of the lines","fill":"a🙂","n":1000,"ms":60.7,"settles":1000,"fenceReads":1000,"error":""}
+{"member":"every line selected, one character typed","fill":"a🙂","n":1000,"ms":36.6,"settles":1,"fenceReads":1,"error":""}
+{"member":"every line selected, deleted","fill":"a🙂","n":1000,"ms":36.3,"settles":1,"fenceReads":2,"error":""}
+{"member":"a paste at the start of the existing lines","fill":"a🙂","n":1000,"ms":2402,"settles":2999,"fenceReads":3998,"error":""}
+{"member":"undo of a paste","fill":"a","n":200,"ms":11.7,"settles":1,"fenceReads":1,"error":""}
+{"member":"redo of that undo","fill":"a","n":200,"ms":41.9,"settles":200,"fenceReads":200,"error":""}
+{"member":"a slate fragment of the lines","fill":"a","n":200,"ms":5.3,"settles":200,"fenceReads":200,"error":""}
+{"member":"every line selected, one character typed","fill":"a","n":200,"ms":7.5,"settles":1,"fenceReads":1,"error":""}
+{"member":"every line selected, deleted","fill":"a","n":200,"ms":5.7,"settles":1,"fenceReads":2,"error":""}
+{"member":"a paste at the start of the existing lines","fill":"a","n":200,"ms":56.5,"settles":399,"fenceReads":399,"error":""}
+{"member":"undo of a paste","fill":"a","n":1000,"ms":69.3,"settles":1,"fenceReads":1,"error":""}
+{"member":"redo of that undo","fill":"a","n":1000,"ms":668.6,"settles":1000,"fenceReads":1000,"error":""}
+{"member":"a slate fragment of the lines","fill":"a","n":1000,"ms":25.2,"settles":1000,"fenceReads":1000,"error":""}
+{"member":"every line selected, one character typed","fill":"a","n":1000,"ms":27.5,"settles":1,"fenceReads":1,"error":""}
+{"member":"every line selected, deleted","fill":"a","n":1000,"ms":29.7,"settles":1,"fenceReads":2,"error":""}
+{"member":"a paste at the start of the existing lines","fill":"a","n":1000,"ms":732.6,"settles":1999,"fenceReads":1999,"error":""}

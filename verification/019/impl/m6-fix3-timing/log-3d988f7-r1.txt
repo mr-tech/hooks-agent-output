@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/timing/export-tip
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:47:42
+   Duration  18.29s (transform 161ms, setup 23ms, import 295ms, tests 17.26s, environment 592ms)
+

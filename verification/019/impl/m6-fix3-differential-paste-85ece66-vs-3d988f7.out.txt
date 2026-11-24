@@ -1,0 +1,6 @@
+pastes 12960 same keys True errors at 85ece66 0 at tip 0
+differ 3087
+2873 ('json-only',) ['7|1|end', '7|2|end', '7|3|end', '7|4|end', '12|1|end', '12|2|end', '12|3|end', '12|4|end', '18|1|end', '18|2|end']
+116 ('selection', 'selection-after-z') ['124|2|start', '125|2|start', '127|2|start', '128|2|start', '129|2|start', '130|2|start', '134|2|start', '135|2|start', '136|2|start', '375|2|start']
+56 ('types', 'selection', 'selection-after-z') ['136|3|end', '136|4|start', '136|4|end', '142|3|end', '147|3|end', '152|3|end', '158|3|end', '261|3|end', '369|3|end', '396|3|end']
+42 ('types',) ['257|3|end', '412|3|end', '452|3|end', '457|3|end', '477|3|end', '479|3|end', '522|3|end', '547|3|end', '597|3|end', '643|3|end']

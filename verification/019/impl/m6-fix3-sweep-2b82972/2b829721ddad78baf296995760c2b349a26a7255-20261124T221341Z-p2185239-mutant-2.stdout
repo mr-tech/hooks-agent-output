@@ -1,0 +1,103 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T221341Z-p2185239/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 1 failed) 243ms
+     × takes in a typed quote marker inside a fence opened on a quote line 34ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 6 failed) 14244ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 28ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 3ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 7ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 5ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 8ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 8948ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 77 failed) 17267ms
+       × leaves each line typed as a fresh load of the changed text builds it 13ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 14ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 4ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 8ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 15ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 7ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 15ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 11ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 7ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 9ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 4ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 23ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 19521ms
+     × hands the message that text in a full-markdown editor 13138ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 26557ms
+     × hands the message that text in a full-markdown editor 5019ms
+     × hands the message that text in a full-markdown editor 4025ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 27759ms
+     × hands the message that text in a full-markdown editor 11286ms
+
+ Test Files  6 failed | 25 passed (31)
+      Tests  88 failed | 927 passed (1015)
+   Start at  22:15:45
+   Duration  55.90s (transform 13.92s, setup 763ms, import 42.45s, tests 263.41s, environment 24.18s)
+

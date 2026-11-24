@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T221341Z-p2185239/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 2 failed) 488ms
+     × in the middle of the first line of a multi-line quote saves what the table says 144ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 170ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 16 failed) 6695ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 288ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 114ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 189ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 238ms
+     × keeps every line after a multi-line quote marker as a quote line 200ms
+     × writes no text to the lines a typed multi-line quote marker takes in 252ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 210ms
+     × makes the lines after a removed multi-line quote marker plain lines 86ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 176ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 254ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 308ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 607ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 15ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 4ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 5ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 592ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 6724ms
+     × hands the message that text in a full-markdown editor 3880ms
+     × hands the message that text in a full-markdown editor 1598ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 14229ms
+     × hands the message that text in a full-markdown editor 7003ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 16579ms
+     × hands the message that text in a full-markdown editor 6577ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 12 failed) 100277ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 8901ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 8191ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7605ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7844ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7475ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 6514ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 6802ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 6774ms
+       × builds as many run units in the longest message as in the shortest 8256ms
+       × builds as many run units in the longest message as in the shortest 6665ms
+       × builds as many run units in the longest message as in the shortest 6947ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 6833ms

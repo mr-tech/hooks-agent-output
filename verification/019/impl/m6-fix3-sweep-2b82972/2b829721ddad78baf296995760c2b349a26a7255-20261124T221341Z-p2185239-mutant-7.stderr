@@ -1,0 +1,1583 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 72 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 40 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 122 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 123 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on embedDescription, in a message of 2048 lines
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: > > a but expected >>> a",
++   "line 1: >  but expected a",
++   "line 2: >  but expected a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx:31:111
+     29|     };
+     30|     await settle();
+     31|     expect(firstDifferences((mounted.writes.at(-1) ?? '').split('\n'),…
+       |                                                                                                               ^
+     32|   }, 300_000);
+     33| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 40 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 122 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 123 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: > > abc but expected >>> abc",
++   "line 1: >  but expected a",
++   "line 2: >  but expected a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx:31:111
+     29|     };
+     30|     await settle();
+     31|     expect(firstDifferences((mounted.writes.at(-1) ?? '').split('\n'),…
+       |                                                                                                               ^
+     32|   }, 300_000);
+     33| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> a\nb\nc', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ b
++ c",
++   " > leading space",
++   ">>> # head
++ - item",
++   ">>> ",
++   "> a
++ >>> b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the first 400 generator inputs whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> a\nb\nc', …(23) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ b
++ c",
++   ">>> - https://x.y.
++ -# *\\<x\\<*",
++   ">>> **_🙂 https://x.y_ é\\~x\\~ [:smile:](https://x.y/a*b*c)
++   - <t:1700000000:s>
++ ||`@here`|| https://example.com/a_b🙂[🙂](https://x.y)",
++   ">>> - ||*``🪿``* hello world
++ ## **||é <t:1700000000>** <t:1700000000:R>",
++   ">>> ## _~~[text](<https://example.com>)~~ <t:1700000000:S> <t:1700000000:x>_ https://example.com/a_b🙂🙂 https://example.com/a_b
++ 1. ```[:smile:](https://x.y)```",
++   ">>> hello world<id:browse>
++ # ``\\[x\\[ <@!1558266761101447248>``",
++   ">>> -# https://example.com/a_b 🙂
++ # tail ",
++   ">>> C++ \\:x\\:
++ > _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_
++ > _<@!1558266761101447248>_",
++   ">>> `tail `
++ ## `<@1558266761101447248> 👨‍👩‍👧`",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   ">>> # <@&1558266761101447248> é
++ ## [<:hooks:1558266761101447248>](https://example.com/a_b)
++ 1️⃣<t:1700000000:t>",
++   ">>> 🙂 https://x.y
++ ||*\\*x\\**",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   ">>> - [text](<https://example.com>) <t:1700000000:D>",
++   ">>> __~~https://example.com word__",
++   ">>> -# ~~``hello world<t:1700000000:d>``~~",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   ">>> ### *[text](<https://example.com>) <id:browse>
++ # ````*\\~x\\~*````",
++   ">>> # 日本 https://x.y/a(b)c
++ [**bold** label](https://example.com)@everyone",
++   ">>> `<@1558266761101447248>` 🙂 https://x.y/a*b*c
++   - _<https://x.y> <t:1700000000:D>
++ 1. *~~``[:smile:](https://example.com/a_b)``~~*",
++   ">>> ## ||**__\\#x\\#__**|| <@1558266761101447248> 🙂
++ ## @everyone
++ *<t:1700000000:x>  lead* [text](https://example.com \"a title\")",
++   ">>> __🪿
++ ## **``__x_y ❤️https://x.y🙂``",
++   ">>> ### ~~[a 🙂 b](https://example.com/a_b)™ ❤️ ❤
++ - hello world [text](https://example.com \"a title\")",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ 'a\n>>> a', 'a\n>>> ', …(148) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a
++ >>> a",
++   "a
++ >>> ",
++   "a
++  > a",
++   "a
++   >>> b",
++   "a
++ >>> > a",
++   "
++ >>> a",
++   "
++ >>> ",
++   "
++  > a",
++   "
++   >>> b",
++   "
++ >>> > a",
++   "> a
++ >>> a",
++   "> a
++ >>> ",
++   "> a
++  > a",
++   "> a
++   >>> b",
++   "> a
++ >>> > a",
++   ">>> a",
++   ">>> a
++ a",
++   ">>> a
++ ",
++   ">>> a
++ > a",
++   ">>> a
++ >>> a",
++   ">>> a
++ >>> ",
++   ">>> a
++ > ",
++   ">>> a
++  > a",
++   ">>> a
++   >>> b",
++   ">>> a
++ >>> > a",
++   ">>> a
++ > > a",
++   ">>> a
++ > >>> a",
++   ">>> a
++ ```",
++   ">>> a
++ ```js",
++   ">>> a
++ ```c++",
++   ">>> a
++ ``` js",
++   ">>> a
++ ```js x",
++   ">>> a
++ a```",
++   ">>> a
++ ```a```",
++   ">>> a
++ foo",
++   ">>> a
++ 🙂 b",
++   ">>> ",
++   ">>> 
++ a",
++   ">>> 
++ ",
++   ">>> 
++ > a",
++   ">>> 
++ >>> a",
++   ">>> 
++ >>> ",
++   ">>> 
++ > ",
++   ">>> 
++  > a",
++   ">>> 
++   >>> b",
++   ">>> 
++ >>> > a",
++   ">>> 
++ > > a",
++   ">>> 
++ > >>> a",
++   ">>> 
++ ```",
++   ">>> 
++ ```js",
++   ">>> 
++ ```c++",
++   ">>> 
++ ``` js",
++   ">>> 
++ ```js x",
++   ">>> 
++ a```",
++   ">>> 
++ ```a```",
++   ">>> 
++ foo",
++   ">>> 
++ 🙂 b",
++   "> 
++ >>> a",
++   "> 
++ >>> ",
++   "> 
++  > a",
++   "> 
++   >>> b",
++   "> 
++ >>> > a",
++   " > a",
++   " > a
++ a",
++   " > a
++ ",
++   " > a
++ > a",
++   " > a
++ >>> a",
++   " > a
++ >>> ",
++   " > a
++ > ",
++   " > a
++  > a",
++   " > a
++   >>> b",
++   " > a
++ >>> > a",
++   " > a
++ > > a",
++   " > a
++ > >>> a",
++   " > a
++ ```",
++   " > a
++ ```js",
++   " > a
++ ```c++",
++   " > a
++ ``` js",
++   " > a
++ ```js x",
++   " > a
++ a```",
++   " > a
++ ```a```",
++   " > a
++ foo",
++   " > a
++ 🙂 b",
++   "  >>> b",
++   "  >>> b
++ a",
++   "  >>> b
++ ",
++   "  >>> b
++ > a",
++   "  >>> b
++ >>> a",
++   "  >>> b
++ >>> ",
++   "  >>> b
++ > ",
++   "  >>> b
++  > a",
++   "  >>> b
++   >>> b",
++   "  >>> b
++ >>> > a",
++   "  >>> b
++ > > a",
++   "  >>> b
++ > >>> a",
++   "  >>> b
++ ```",
++   "  >>> b
++ ```js",
++   "  >>> b
++ ```c++",
++   "  >>> b
++ ``` js",
++   "  >>> b
++ ```js x",
++   "  >>> b
++ a```",
++   "  >>> b
++ ```a```",
++   "  >>> b
++ foo",
++   "  >>> b
++ 🙂 b",
++   ">>> > a",
++   ">>> > a
++ a",
++   ">>> > a
++ ",
++   ">>> > a
++ > a",
++   ">>> > a
++ >>> a",
++   ">>> > a
++ >>> ",
++   ">>> > a
++ > ",
++   ">>> > a
++  > a",
++   ">>> > a
++   >>> b",
++   ">>> > a
++ >>> > a",
++   ">>> > a
++ > > a",
++   ">>> > a
++ > >>> a",
++   ">>> > a
++ ```",
++   ">>> > a
++ ```js",
++   ">>> > a
++ ```c++",
++   ">>> > a
++ ``` js",
++   ">>> > a
++ ```js x",
++   ">>> > a
++ a```",
++   ">>> > a
++ ```a```",
++   ">>> > a
++ foo",
++   ">>> > a
++ 🙂 b",
++   "> > a
++ >>> a",
++   "> > a
++ >>> ",
++   "> > a
++  > a",
++   "> > a
++   >>> b",
++   "> > a
++ >>> > a",
++   "> >>> a
++ >>> a",
++   "> >>> a
++ >>> ",
++   "> >>> a
++  > a",
++   "> >>> a
++   >>> b",
++   "> >>> a
++ >>> > a",
++   "```a```
++ >>> a",
++   "```a```
++ >>> ",
++   "```a```
++  > a",
++   "```a```
++   >>> b",
++   "```a```
++ >>> > a",
++   "foo
++ >>> a",
++   "foo
++ >>> ",
++   "foo
++  > a",
++   "foo
++   >>> b",
++   "foo
++ >>> > a",
++   "🙂 b
++ >>> a",
++   "🙂 b
++ >>> ",
++   "🙂 b
++  > a",
++   "🙂 b
++   >>> b",
++   "🙂 b
++ >>> > a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> ```\n>>> ', …(98) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> ```
++ >>> ",
++   "> ||#
++ _`||
++  > \\",
++   ">>> ",
++   ">> >>> ||
++ > ~~
++ >
++  a
++ >> 
++  > ",
++   "> >>> _
++  > `b
++ _
++ ```js
++ >a",
++   " > 
++ ```c++
++  > js
++ js
++ >",
++   ">>> ``` 
++ ```a\\>>> 
++ ```js
++ >> js```_
++ >> 
++ #",
++   ">>> >>> a
++ >> #> 
++ #>>> 
++ >> a#||",
++   "```jsa|| 
++  > 
++ >> ||
++ >>>  ```
++ ``` ```",
++   " >  >>> 
++ a> ",
++   "```c++> _~~
++ >>> js~~```
++ `> a",
++   "```js\\`
++ ```c++js
++  > a#
++ >||_
++ >>> ",
++   ">>> js
++ ```c++~~",
++   ">>> >>> #
++ ``` > 
++  > `",
++   "||a
++ >>> _~~a
++ ~~>>> *",
++   ">>> `
++
++ > js#
++ ``` `||js
++ > >>> ```",
++   " > a#",
++   ">>> 
++ ```c++js#
++ _
++  > > ",
++   "#>>> 
++ ```js*```||
++ >> ```
++ ```c++_
++ >>>  > ```
++ >> a`",
++   ">>> a
++ ```js*b||
++ ``` a#*",
++   ">`>>> 
++ ``` b 
++ ``` **b
++ >>> jsb",
++   ">>> > 
++ >
++ ``` ~~~~js
++ >> ~~
++ > 
++  > \\\\",
++   "``````
++ ```c++>>> a\\
++  > ```",
++   "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   ">>> > ~~
++ ```\\",
++   ">>> *
++ _
++ ```b",
++   ">>> a>>> 
++ js
++ >>> _",
++   " > *
++ ```c++ ",
++   "> *
++  > *
++ > > _
++ a",
++   ">>> ```>  
++  > 
++
++ > 
++ *js",
++   ">>> 
++ >>> ",
++   " >  `_
++ ```c++js~~js
++ ``` > ||`",
++   ">~~
++ >> 
++ ```# > 
++ >>> ajs
++ ```c++>>> ~~
++  > ",
++   ">||js\\
++ >>> _
++ ``` ",
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">>> ajs 
++ ``` >>> ```js
++ ``` 
++ > ``````
++ >> ||> ",
++   " > `> ~~",
++   ">> >>> b\\
++  > js~~
++ ",
++   ">`> \\
++ >>> _ js
++ >||`",
++   ">>  
++
++ >>> \\_",
++   ">#\\
++ >>> b#
++ ```c++ 
++ ```js\\b_",
++   "||
++ ``
++  > a\\
++ ",
++   ">>> ",
++   "> _a
++ >>> \\`
++ a ~~
++ ```js|| 
++  > > ",
++   ">>> js
++  > *",
++   ">>> 
++ ```~~",
++   ">>> # 
++ ``` __\\
++ ```js```#
++ ``` ||
++ ``` >>> *",
++   ">#
++ js> 
++ ``` > \\
++ ```#jsb
++  > ````> ",
++   "> >>> \\b
++  > a>>> b",
++   ">>> 
++ ``` 
++ ```||
++ \\",
++   "```jsa> 
++ ```js#||
++ >> ||
++  > *#
++ ```# \\
++ > js> ",
++   ">>> 
++ ajs
++ >> ",
++   " > \\
++ >> 
++ ```c++||
++  > b  
++ >`",
++   " > 
++ ````
++ >>> ~~~~
++ ```~~
++ ```js
++ ",
++   " > 
++
++ ||
++ #
++ ~~",
++   "``` ` 
++ ```
++  > ",
++   ">> 
++ >>> >>> ```~~",
++   " > `b~~
++ >>> > `
++ \\
++ *",
++   ">>> \\*
++ ```js `
++ ```c++b \\",
++   "```jsa||a
++ > 
++ >>> 
++ >> _```
++ *||
++  > \\ ",
++   "
++ >>> 
++ #b ",
++   " > b`
++
++ >> > b
++ b
++ ```c++",
++   "
++ >> ~~||
++  > 
++ >>> js
++ #",
++   " > 
++ ",
++   " > 
++  > 
++ >> 
++ >",
++   ">_~~
++ >>> 
++
++ *",
++   "```*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++   "``` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++   " > 
++
++
++ ```**
++ ``` ",
++   "> #
++ > js||
++ >>> ```",
++   " > \\```_
++ _ 
++ ```>>> ",
++   ">>> 
++ ```js*>>> *
++ ``` ||> ~~
++ ~~
++ aajs",
++   " > \\",
++   "||||#
++ #a
++ >\\||
++ >>> 
++  > ~~*",
++   ">>> 
++ ```c++ ||
++ >>> ```a`
++ ||b>>> ",
++   "``` 
++
++ >js
++  > *js```
++ ```\\b",
++   "```js```a*
++  > > > _
++ ```js",
++   "#> ||
++  > *
++ ```jsa",
++   "
++  >  >>> ",
++   " > \\
++ > 
++ > `
++ ```c++*\\`
++ ```js||~~",
++   "> 
++ ||||
++ \\||_
++ > 
++ >>> ",
++   "
++ ``` 
++ ```js*
++  > ||
++ >> **js
++ *",
++   "```js~~
++ >>> \\||```
++ ```~~js
++ ~~
++ ``` ",
++   "> _ #
++ ```c++> ||js
++ > > ```
++  
++ >>> ~~`",
++   ">>> aa
++ >
++
++ > *> ",
++   ">> ||~~~~
++ >>> `
++ ```js
++ ||```
++ ```c++",
++   "```_
++ >> _
++ ```  `*
++ >>> 
++ > \\",
++   ">>> > \\
++ ``` ```
++ a
++ ``` ||>>> \\",
++   "> >>> #`
++ >>> ```> ~~
++ ``` a
++ ||js",
++   ">>> 
++ >> a#`
++ ```js`js",
++   "```c++_> > 
++ > \\_
++ ~~
++ >>> > ```\\",
++   ">>> ||_~~
++  > b`
++ > a",
++   ">>> \\```||
++ ```c++>>> 
++ ``` 
++ _js*
++ >> #
++ > ||",
++   " > \\ >>> 
++ >> ~~```a
++ ```*js||",
++   ">>> \\
++ ``` _||>>> 
++ b
++  > *_
++ js*a
++ >",
++   ">~~
++ >>> >>> ```
++ >> js",
++   " > ```a
++ ~~\\
++ > >>> ",
++   "_#
++
++ > 
++ >>> _#||
++ ```c++
++ ",
++   " > ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ 'a\n>>> a', 'a\n>>> ', …(148) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a
++ >>> a",
++   "a
++ >>> ",
++   "a
++  > a",
++   "a
++   >>> b",
++   "a
++ >>> > a",
++   "
++ >>> a",
++   "
++ >>> ",
++   "
++  > a",
++   "
++   >>> b",
++   "
++ >>> > a",
++   "> a
++ >>> a",
++   "> a
++ >>> ",
++   "> a
++  > a",
++   "> a
++   >>> b",
++   "> a
++ >>> > a",
++   ">>> a",
++   ">>> a
++ a",
++   ">>> a
++ ",
++   ">>> a
++ > a",
++   ">>> a
++ >>> a",
++   ">>> a
++ >>> ",
++   ">>> a
++ > ",
++   ">>> a
++  > a",
++   ">>> a
++   >>> b",
++   ">>> a
++ >>> > a",
++   ">>> a
++ > > a",
++   ">>> a
++ > >>> a",
++   ">>> a
++ ```",
++   ">>> a
++ ```js",
++   ">>> a
++ ```c++",
++   ">>> a
++ ``` js",
++   ">>> a
++ ```js x",
++   ">>> a
++ a```",
++   ">>> a
++ ```a```",
++   ">>> a
++ foo",
++   ">>> a
++ 🙂 b",
++   ">>> ",
++   ">>> 
++ a",
++   ">>> 
++ ",
++   ">>> 
++ > a",
++   ">>> 
++ >>> a",
++   ">>> 
++ >>> ",
++   ">>> 
++ > ",
++   ">>> 
++  > a",
++   ">>> 
++   >>> b",
++   ">>> 
++ >>> > a",
++   ">>> 
++ > > a",
++   ">>> 
++ > >>> a",
++   ">>> 
++ ```",
++   ">>> 
++ ```js",
++   ">>> 
++ ```c++",
++   ">>> 
++ ``` js",
++   ">>> 
++ ```js x",
++   ">>> 
++ a```",
++   ">>> 
++ ```a```",
++   ">>> 
++ foo",
++   ">>> 
++ 🙂 b",
++   "> 
++ >>> a",
++   "> 
++ >>> ",
++   "> 
++  > a",
++   "> 
++   >>> b",
++   "> 
++ >>> > a",
++   " > a",
++   " > a
++ a",
++   " > a
++ ",
++   " > a
++ > a",
++   " > a
++ >>> a",
++   " > a
++ >>> ",
++   " > a
++ > ",
++   " > a
++  > a",
++   " > a
++   >>> b",
++   " > a
++ >>> > a",
++   " > a
++ > > a",
++   " > a
++ > >>> a",
++   " > a
++ ```",
++   " > a
++ ```js",
++   " > a
++ ```c++",
++   " > a
++ ``` js",
++   " > a
++ ```js x",
++   " > a
++ a```",
++   " > a
++ ```a```",
++   " > a
++ foo",
++   " > a
++ 🙂 b",
++   "  >>> b",
++   "  >>> b
++ a",
++   "  >>> b
++ ",
++   "  >>> b
++ > a",
++   "  >>> b
++ >>> a",
++   "  >>> b
++ >>> ",
++   "  >>> b
++ > ",
++   "  >>> b
++  > a",
++   "  >>> b
++   >>> b",
++   "  >>> b
++ >>> > a",
++   "  >>> b
++ > > a",
++   "  >>> b
++ > >>> a",
++   "  >>> b
++ ```",
++   "  >>> b
++ ```js",
++   "  >>> b
++ ```c++",
++   "  >>> b
++ ``` js",
++   "  >>> b
++ ```js x",
++   "  >>> b
++ a```",
++   "  >>> b
++ ```a```",
++   "  >>> b
++ foo",
++   "  >>> b
++ 🙂 b",
++   ">>> > a",
++   ">>> > a
++ a",
++   ">>> > a
++ ",
++   ">>> > a
++ > a",
++   ">>> > a
++ >>> a",
++   ">>> > a
++ >>> ",
++   ">>> > a
++ > ",
++   ">>> > a
++  > a",
++   ">>> > a
++   >>> b",
++   ">>> > a
++ >>> > a",
++   ">>> > a
++ > > a",
++   ">>> > a
++ > >>> a",
++   ">>> > a
++ ```",
++   ">>> > a
++ ```js",
++   ">>> > a
++ ```c++",
++   ">>> > a
++ ``` js",
++   ">>> > a
++ ```js x",
++   ">>> > a
++ a```",
++   ">>> > a
++ ```a```",
++   ">>> > a
++ foo",
++   ">>> > a
++ 🙂 b",
++   "> > a
++ >>> a",
++   "> > a
++ >>> ",
++   "> > a
++  > a",
++   "> > a
++   >>> b",
++   "> > a
++ >>> > a",
++   "> >>> a
++ >>> a",
++   "> >>> a
++ >>> ",
++   "> >>> a
++  > a",
++   "> >>> a
++   >>> b",
++   "> >>> a
++ >>> > a",
++   "```a```
++ >>> a",
++   "```a```
++ >>> ",
++   "```a```
++  > a",
++   "```a```
++   >>> b",
++   "```a```
++ >>> > a",
++   "foo
++ >>> a",
++   "foo
++ >>> ",
++   "foo
++  > a",
++   "foo
++   >>> b",
++   "foo
++ >>> > a",
++   "🙂 b
++ >>> a",
++   "🙂 b
++ >>> ",
++   "🙂 b
++  > a",
++   "🙂 b
++   >>> b",
++   "🙂 b
++ >>> > a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:41:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:60:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> a\nb\nc', …(23) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ b
++ c",
++   ">>> - https://x.y.
++ -# *\\<x\\<*",
++   ">>> **_🙂 https://x.y_ é\\~x\\~ [:smile:](https://x.y/a*b*c)
++   - <t:1700000000:s>
++ ||`@here`|| https://example.com/a_b🙂[🙂](https://x.y)",
++   ">>> - ||*``🪿``* hello world
++ ## **||é <t:1700000000>** <t:1700000000:R>",
++   ">>> ## _~~[text](<https://example.com>)~~ <t:1700000000:S> <t:1700000000:x>_ https://example.com/a_b🙂🙂 https://example.com/a_b
++ 1. ```[:smile:](https://x.y)```",
++   ">>> hello world<id:browse>
++ # ``\\[x\\[ <@!1558266761101447248>``",
++   ">>> -# https://example.com/a_b 🙂
++ # tail ",
++   ">>> C++ \\:x\\:
++ > _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_
++ > _<@!1558266761101447248>_",
++   ">>> `tail `
++ ## `<@1558266761101447248> 👨‍👩‍👧`",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   ">>> # <@&1558266761101447248> é
++ ## [<:hooks:1558266761101447248>](https://example.com/a_b)
++ 1️⃣<t:1700000000:t>",
++   ">>> 🙂 https://x.y
++ ||*\\*x\\**",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   ">>> - [text](<https://example.com>) <t:1700000000:D>",
++   ">>> __~~https://example.com word__",
++   ">>> -# ~~``hello world<t:1700000000:d>``~~",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   ">>> ### *[text](<https://example.com>) <id:browse>
++ # ````*\\~x\\~*````",
++   ">>> # 日本 https://x.y/a(b)c
++ [**bold** label](https://example.com)@everyone",
++   ">>> `<@1558266761101447248>` 🙂 https://x.y/a*b*c
++   - _<https://x.y> <t:1700000000:D>
++ 1. *~~``[:smile:](https://example.com/a_b)``~~*",
++   ">>> ## ||**__\\#x\\#__**|| <@1558266761101447248> 🙂
++ ## @everyone
++ *<t:1700000000:x>  lead* [text](https://example.com \"a title\")",
++   ">>> __🪿
++ ## **``__x_y ❤️https://x.y🙂``",
++   ">>> ### ~~[a 🙂 b](https://example.com/a_b)™ ❤️ ❤
++ - hello world [text](https://example.com \"a title\")",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+     12|   const text = node.children.map((c) => flattenText(c, allowEmoji)).jo…
+       |                              ^
+     13|   if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}$…
+     14|   return text;
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:41:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"blockQuote\",\"> \",false,\"\",[]] but expected [\"blockQuote\",\">>> \",false,\"\",[]]",
++   "line 1: [\"blockQuote\",\"> \",false,\"\",[]] but expected [\"blockQuote\",\"\",false,\"\",[]]",
++   "line 2: [\"blockQuote\",\"> \",false,\"\",[]] but expected [\"blockQuote\",\"\",false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:75:65
+     73|   it('leaves each line typed as a fresh load of the changed text build…
+     74|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     75|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 40 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 122 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 123 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 200 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 1000 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 40 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 122 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 123 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 200 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 1000 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 2048 > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: > z> a but expected >>> za",
++   "line 1: >  but expected a",
++   "line 2: >  but expected a",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:83:87
+     81|
+     82|   it('puts the next typed character where the edit leaves the caret', …
+     83|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+     84|   });
+     85| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 40 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 122 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 123 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 200 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 1000 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 40 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 122 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 123 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 200 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 1000 > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 2048 > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: > z> abc but expected >>> zabc",
++   "line 1: >  but expected a",
++   "line 2: >  but expected a",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:83:87
+     81|
+     82|   it('puts the next typed character where the edit leaves the caret', …
+     83|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+     84|   });
+     85| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns ">>> x" typed into a plain line into a quote line that keeps its marker
+AssertionError: expected [ '> > x', [ 'blockQuote' ], '> x' ] to deeply equal [ '>>> x', [ 'blockQuote' ], 'x' ]
+
+- Expected
++ Received
+
+  [
+-   ">>> x",
++   "> > x",
+    [
+      "blockQuote",
+    ],
+-   "x",
++   "> x",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:112:75
+    110|     Transforms.select(editor, Editor.end(editor, [0]));
+    111|     Transforms.insertText(editor, typed);
+    112|     expect([textOf(editor), typesOf(editor), Editor.string(editor, [0]…
+       |                                                                           ^
+    113|   });
+    114|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+AssertionError: expected [ '> > a\n> b\n> ', Set{ +0, 2 } ] to deeply equal [ '>>> a\n> b\nc', Set{ +0 } ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a
++   "> > a
+  > b
+- c",
++ > ",
+    Set {
+      0,
++     2,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:138:8
+    136|     const textWrites = editor.operations.filter((op) => op.type !== 's…
+    137|     expect([textOf(editor), new Set(textWrites.map((op) => (op as { pa…
+    138|       .toEqual(['>>> a\n> b\nc', new Set([0])]);
+       |        ^
+    139|   });
+    140|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+AssertionError: expected '> > a\n>>> c' to be '>>> a\n>>> c' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ > > a
+  >>> c
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:170:28
+    168|     Transforms.select(editor, Editor.start(editor, [0]));
+    169|     Transforms.insertText(editor, '>>> ');
+    170|     expect(textOf(editor)).toBe('>>> a\n>>> c');
+       |                            ^
+    171|   });
+    172|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of a quote line, in front of text that starts with a quote marker saves what the table says
+RangeError: Maximum call stack size exceeded
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/set-nodes.ts:125:5
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/set-nodes.ts:14:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:172:35
+ ❯ setNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/node.ts:182:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:86:20
+     84|         }
+     85|
+     86|         Transforms.setNodes(editor, {
+       |                    ^
+     87|           type,
+     88|           lang,
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/72]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+Error: Cannot find a descendant at path [4] in node: {"children":[{"type":"blockQuote","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"`x``>  "}],"empty":false,"quotePrefix":">>> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"children":[{"type":"span","text":" "}],"empty":false,"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"> "}],"empty":false,"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"s"}],"empty":false,"quotePrefix":"> "}],"operations":[{"type":"set_selection","properties":null,"newProperties":{"anchor":{"path":[0,0],"offset":1},"focus":{"path":[0,0],"offset":1}}},{"type":"insert_text","path":[0,0],"offset":1,"text":"x"},{"type":"remove_text","path":[1,0],"offset":0,"text":" >"},{"type":"set_node","path":[1],"properties":{"type":"codeBlock","startCodeBlock":true},"newProperties":{"type":"blockQuote","startCodeBlock":false,"quotePrefix":"> "}},{"type":"remove_node","path":[2],"node":{"type":"codeBlock","lang":"","startCodeBlock":true,"children":[{"type":"span","text":""}],"empty":true}},{"type":"set_node","path":[2],"properties":{"type":"codeBlock","startCodeBlock":true},"newProperties":{"type":"blockQuote","startCodeBlock":false,"quotePrefix":"> "}},{"type":"remove_text","path":[3,0],"offset":0,"text":"*j"},{"type":"set_node","path":[3],"properties":{"type":"codeBlock","startCodeBlock":true},"newProperties":{"type":"blockQuote","startCodeBlock":false,"quotePrefix":"> "}}],"selection":{"anchor":{"path":[0,0],"offset":2},"focus":{"path":[0,0],"offset":2}},"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,0],"offset":1,"text":"x"},{"type":"remove_text","path":[1,0],"offset":0,"text":" >"},{"type":"set_node","path":[1],"properties":{"type":"codeBlock","startCodeBlock":true},"newProperties":{"type":"blockQuote","startCodeBlock":false,"quotePrefix":"> "}},{"type":"remove_node","path":[2],"node":{"type":"codeBlock","lang":"","startCodeBlock":true,"children":[{"type":"span","text":""}],"empty":true}},{"type":"set_node","path":[2],"properties":{"type":"codeBlock","startCodeBlock":true},"newProperties":{"type":"blockQuote","startCodeBlock":false,"quotePrefix":"> "}},{"type":"remove_text","path":[3,0],"offset":0,"text":"*j"},{"type":"set_node","path":[3],"properties":{"type":"codeBlock","startCodeBlock":true},"newProperties":{"type":"blockQuote","startCodeBlock":false,"quotePrefix":"> "}}],"selectionBefore":{"anchor":{"path":[0,0],"offset":1},"focus":{"path":[0,0],"offset":1}}}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:418:12
+ ❯ get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:365:17
+ ❯ first node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/point.ts:16:33
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:162:29
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:917:18
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/start.ts:4:16
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:177:29
+ ❯ start node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:957:18
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:76:30
+     74|             const line = editor.children[childLocation] as Element;
+     75|             const marker = {
+     76|               anchor: Editor.start(editor, [childLocation]),
+       |                              ^
+     77|               focus: pointAtOffset(editor, childLocation, line, quoteP…
+     78|               classNames: [],
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/72]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 3 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Cannot find a descendant at path [4] in node: {"children":[{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"> `"}],"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"> js#"}],"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"` `||js"}],"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":">>> ```"}],"quotePrefix":"> "}],"operations":[{"type":"set_selection","properties":null,"newProperties":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}},{"type":"insert_text","path":[0,0],"offset":0,"text":">>> `"},{"type":"split_node","path":[0,0],"position":5,"properties":{"type":"span"}},{"type":"split_node","path":[0],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"split_node","path":[1,0],"position":0,"properties":{"type":"span"}},{"type":"split_node","path":[1],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[2,0],"offset":0,"text":"> js#"},{"type":"split_node","path":[2,0],"position":5,"properties":{"type":"span"}},{"type":"split_node","path":[2],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[3,0],"offset":0,"text":"``` `||js"},{"type":"split_node","path":[3,0],"position":9,"properties":{"type":"span"}},{"type":"split_node","path":[3],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[4,0],"offset":0,"text":"> >>> ```"},{"type":"remove_text","path":[0,0],"offset":0,"text":">>"},{"type":"set_node","path":[0],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_node","path":[1],"node":{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}]}},{"type":"set_node","path":[1],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_text","path":[2,0],"offset":0,"text":"``"},{"type":"set_node","path":[2],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_text","path":[3,0],"offset":0,"text":"> "},{"type":"set_node","path":[3],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}}],"selection":{"anchor":{"path":[3,0],"offset":7},"focus":{"path":[3,0],"offset":7}},"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,0],"offset":0,"text":">>> `"},{"type":"split_node","path":[0,0],"position":5,"properties":{"type":"span"}},{"type":"split_node","path":[0],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"split_node","path":[1,0],"position":0,"properties":{"type":"span"}},{"type":"split_node","path":[1],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[2,0],"offset":0,"text":"> js#"},{"type":"split_node","path":[2,0],"position":5,"properties":{"type":"span"}},{"type":"split_node","path":[2],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[3,0],"offset":0,"text":"``` `||js"},{"type":"split_node","path":[3,0],"position":9,"properties":{"type":"span"}},{"type":"split_node","path":[3],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[4,0],"offset":0,"text":"> >>> ```"},{"type":"remove_text","path":[0,0],"offset":0,"text":">>"},{"type":"set_node","path":[0],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_node","path":[1],"node":{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}]}},{"type":"set_node","path":[1],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_text","path":[2,0],"offset":0,"text":"``"},{"type":"set_node","path":[2],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_text","path":[3,0],"offset":0,"text":"> "},{"type":"set_node","path":[3],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}}],"selectionBefore":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:963:13
+ ❯ Object.first node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:894:18
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3902:30
+ ❯ Object.point$1 [as point] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6435:20
+ ❯ Object.point node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1796:19
+ ❯ start node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4288:17
+ ❯ Object.start$1 [as start] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6525:20
+ ❯ Object.start node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1826:19
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:76:30
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Cannot find a descendant at path [3] in node: {"children":[{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":">_~~"}]},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"> "}],"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"*"}],"quotePrefix":"> "}],"operations":[{"type":"set_selection","properties":null,"newProperties":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}},{"type":"insert_text","path":[0,0],"offset":0,"text":">_~~"},{"type":"split_node","path":[0,0],"position":4,"properties":{"type":"span"}},{"type":"split_node","path":[0],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[1,0],"offset":0,"text":">>> "},{"type":"split_node","path":[1,0],"position":4,"properties":{"type":"span"}},{"type":"split_node","path":[1],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"split_node","path":[2,0],"position":0,"properties":{"type":"span"}},{"type":"split_node","path":[2],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[3,0],"offset":0,"text":"*"},{"type":"remove_text","path":[1,0],"offset":0,"text":">>"},{"type":"set_node","path":[1],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_node","path":[2],"node":{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}]}},{"type":"set_node","path":[2],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}}],"selection":{"anchor":{"path":[2,0],"offset":1},"focus":{"path":[2,0],"offset":1}},"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,0],"offset":0,"text":">_~~"},{"type":"split_node","path":[0,0],"position":4,"properties":{"type":"span"}},{"type":"split_node","path":[0],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[1,0],"offset":0,"text":">>> "},{"type":"split_node","path":[1,0],"position":4,"properties":{"type":"span"}},{"type":"split_node","path":[1],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"split_node","path":[2,0],"position":0,"properties":{"type":"span"}},{"type":"split_node","path":[2],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[3,0],"offset":0,"text":"*"},{"type":"remove_text","path":[1,0],"offset":0,"text":">>"},{"type":"set_node","path":[1],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_node","path":[2],"node":{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}]}},{"type":"set_node","path":[2],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}}],"selectionBefore":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:963:13
+ ❯ Object.first node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:894:18
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3902:30
+ ❯ Object.point$1 [as point] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6435:20
+ ❯ Object.point node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1796:19
+ ❯ start node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4288:17
+ ❯ Object.start$1 [as start] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6525:20
+ ❯ Object.start node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1826:19
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:76:30
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Cannot find a descendant at path [3] in node: {"children":[{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"> aa"}],"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}],"quotePrefix":"> "},{"type":"blockQuote","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":"> *> "}],"quotePrefix":"> "}],"operations":[{"type":"set_selection","properties":null,"newProperties":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}},{"type":"insert_text","path":[0,0],"offset":0,"text":">>> aa"},{"type":"split_node","path":[0,0],"position":6,"properties":{"type":"span"}},{"type":"split_node","path":[0],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[1,0],"offset":0,"text":">"},{"type":"split_node","path":[1,0],"position":1,"properties":{"type":"span"}},{"type":"split_node","path":[1],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"split_node","path":[2,0],"position":0,"properties":{"type":"span"}},{"type":"split_node","path":[2],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[3,0],"offset":0,"text":"> *> "},{"type":"remove_text","path":[0,0],"offset":0,"text":">>"},{"type":"set_node","path":[0],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_text","path":[1,0],"offset":0,"text":">"},{"type":"set_node","path":[1],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_node","path":[2],"node":{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}]}},{"type":"set_node","path":[2],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}}],"selection":{"anchor":{"path":[2,0],"offset":5},"focus":{"path":[2,0],"offset":5}},"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,0],"offset":0,"text":">>> aa"},{"type":"split_node","path":[0,0],"position":6,"properties":{"type":"span"}},{"type":"split_node","path":[0],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[1,0],"offset":0,"text":">"},{"type":"split_node","path":[1,0],"position":1,"properties":{"type":"span"}},{"type":"split_node","path":[1],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"split_node","path":[2,0],"position":0,"properties":{"type":"span"}},{"type":"split_node","path":[2],"position":1,"properties":{"type":"div","lang":"","startCodeBlock":false,"empty":true}},{"type":"insert_text","path":[3,0],"offset":0,"text":"> *> "},{"type":"remove_text","path":[0,0],"offset":0,"text":">>"},{"type":"set_node","path":[0],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_text","path":[1,0],"offset":0,"text":">"},{"type":"set_node","path":[1],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}},{"type":"remove_node","path":[2],"node":{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":""}]}},{"type":"set_node","path":[2],"properties":{"type":"div"},"newProperties":{"type":"blockQuote","quotePrefix":"> "}}],"selectionBefore":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:963:13
+ ❯ Object.first node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:894:18
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3902:30
+ ❯ Object.point$1 [as point] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6435:20
+ ❯ Object.point node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1796:19
+ ❯ start node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4288:17
+ ❯ Object.start$1 [as start] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6525:20
+ ❯ Object.start node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1826:19
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:76:30
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:60:53
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+

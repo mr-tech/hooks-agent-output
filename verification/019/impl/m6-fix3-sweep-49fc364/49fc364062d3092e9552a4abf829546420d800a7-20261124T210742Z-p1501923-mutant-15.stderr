@@ -1,0 +1,62 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the middle of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line
+TypeError: Cannot set properties of undefined (setting 'children')
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:416:66
+    414|     }
+    415|     const known = settledLines.get(editor);
+    416|     if (known?.children !== before && keepsSourceText(op)) known.child…
+       |                                                                  ^
+    417|   };
+    418|
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/remove-nodes.ts:36:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/remove-nodes.ts:10:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:170:41
+ ❯ removeNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/node.ts:179:11
+ ❯ removeNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-text/delete-text.ts:47:17
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…'
+AssertionError: expected 998997 to be less than or equal to 397970
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…'
+AssertionError: expected 250499 to be less than or equal to 100990
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂'
+AssertionError: expected 1002000 to be less than or equal to 404000
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:197:29
+    195|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    196|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    197|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    198|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    199|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+

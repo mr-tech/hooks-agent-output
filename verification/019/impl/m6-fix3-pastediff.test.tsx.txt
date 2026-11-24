@@ -1,0 +1,57 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import flattenNodeText from '../flattenNodeText';
+import { lineShapes } from '../../__tests__/helpers/fenceAndQuoteKeystrokes';
+import { corpusTexts, generatorTexts } from '../../__tests__/helpers/roundTripInputs';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+import { startEngine } from '~/utils/markdown/engine';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const BASES = ['', 'x', 'a 🙂 b\nc', '```js\nx\n```\n> q', '>>> a\nb'];
+const BULK = ['a', 'a🙂', '', '> a🙂', ':smile: b'].flatMap((fill) => [3, 40, 123, 200].map((n) => Array.from({ length: n }, () => fill).join('\n')));
+const ALL = [...corpusTexts(), ...generatorTexts(1000), ...BULK, '```\n', '```\n``a 🙂\n```', '>> a\n🙂', 'a\n```js\n🙂\n```\n🙂'];
+const snap = (editor: Editor) => JSON.stringify({ c: editor.children, s: editor.selection });
+it('paste differential', { timeout: 900000 }, () => {
+  const out: Record<string, string> = {};
+  ALL.forEach((text, i) => {
+    BASES.forEach((base, b) => {
+      for (const place of ['start', 'end'] as const) {
+        const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+        editor.children = getInitialValue(base, 'embedDescription', false) as Descendant[];
+        const lastLine = editor.children.length - 1;
+        Transforms.select(editor, place === 'start' ? Editor.start(editor, [0]) : Editor.end(editor, [lastLine]));
+        const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+        let after = '';
+        const baseText = flattenNodeText(editor.children);
+        const startFlat = place === 'start' ? 0 : baseText.length;
+        const flatOf = (p: { path: number[]; offset: number } | undefined) => {
+          if (!p) return -1;
+          let flat = 0;
+          for (let l = 0; l < p.path[0]; l += 1) flat += flattenNodeText((editor.children as Element[])[l]).length + 1;
+          const line = (editor.children as Element[])[p.path[0]] as Element;
+          let w = (line.quotePrefix ?? '').length;
+          for (let c = 0; c < p.path[1]; c += 1) { const ch = line.children[c] as { text?: string; source?: string }; w += (ch.text ?? ch.source ?? '').length; }
+          return flat + w + p.offset;
+        };
+        try {
+          (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data);
+          const finalText = flattenNodeText(editor.children);
+          const fresh = getInitialValue(finalText, 'embedDescription', false) as Element[];
+          const a = lineShapes(editor.children as Element[]); const f = lineShapes(fresh);
+          const ok = a.length === f.length && a.every((x, k) => x === f[k]);
+          const caret = flatOf(editor.selection?.anchor as never);
+          const expected = startFlat + text.length;
+          after = JSON.stringify({ ok, caret, expected, collapsed: editor.selection?.anchor.offset === editor.selection?.focus.offset && editor.selection?.anchor.path.join() === editor.selection?.focus.path.join(), len: finalText.length });
+        } catch (e) { after = `ERR ${String(e).slice(0, 80)}`; }
+        out[`${i}|${b}|${place}`] = after;
+      }
+    });
+  });
+  writeFileSync(process.env.CRPROBE_OUT as string, JSON.stringify(out));
+  writeFileSync(`${process.env.CRPROBE_OUT}.texts`, JSON.stringify({ ALL, BASES }));
+});

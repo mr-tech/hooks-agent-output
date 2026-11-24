@@ -1,0 +1,65 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 4 failed | 61 skipped) 55559ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 8475ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 1937ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a' 13680ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂' 30623ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…'
+AssertionError: expected 999494 to be less than or equal to 398940
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:193:29
+    191|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    192|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    193|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    194|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    195|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…'
+AssertionError: expected 250249 to be less than or equal to 100490
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:193:29
+    191|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    192|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    193|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    194|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    195|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a'
+AssertionError: expected 1000999 to be less than or equal to 401990
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:193:29
+    191|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    192|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    193|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    194|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    195|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂'
+AssertionError: expected 1501499 to be less than or equal to 602990
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:193:29
+    191|     expect(shortest.settles).toBeGreaterThanOrEqual(1);
+    192|     expect(shortest.fenceReads).toBeGreaterThanOrEqual(1);
+    193|     expect(longest.settles).toBeLessThanOrEqual(GROWTH_LIMIT * shortes…
+       |                             ^
+    194|     expect(longest.fenceReads).toBeLessThanOrEqual(GROWTH_LIMIT * shor…
+    195|   }, 900_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 3 passed | 61 skipped (68)
+   Start at  20:56:33
+   Duration  56.60s (transform 163ms, setup 20ms, import 309ms, tests 55.56s, environment 570ms)
+

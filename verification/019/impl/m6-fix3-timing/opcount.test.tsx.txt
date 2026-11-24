@@ -1,0 +1,25 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant } from 'slate';
+import { startEngine } from '~/utils/markdown/engine';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+it('ops', () => {
+  const rows: object[] = [];
+  for (const n of [200, 1000]) {
+    const text = Array.from({ length: n }, (_, i) => (i === 2 ? '```' : 'a🙂')).join('\n');
+    const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+    editor.children = getInitialValue(text, 'embedDescription', false) as Descendant[];
+    const counts: Record<string, number> = {};
+    const { apply } = editor; editor.apply = (op) => { counts[op.type + (op.type === 'insert_node' || op.type === 'remove_node' ? `@${op.path.length}${(op.node as { text?: string }).text === '' ? 'e' : ''}` : '')] = (counts[op.type + (op.type === 'insert_node' || op.type === 'remove_node' ? `@${op.path.length}${(op.node as { text?: string }).text === '' ? 'e' : ''}` : '')] ?? 0) + 1; apply(op); };
+    Transforms.select(editor, Editor.end(editor, [2]));
+    const t0 = performance.now(); editor.deleteBackward('character'); const ms = performance.now() - t0;
+    rows.push({ n, ms: +ms.toFixed(1), counts });
+  }
+  writeFileSync(process.env.PROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji into an element when it arrives as a text node in a line that was already settled
+AssertionError: expected [ 'a', ':smile:' ] to deeply equal [ 'a', '[:smile:]' ]
+
+- Expected
++ Received
+
+  [
+    "a",
+-   "[:smile:]",
++   ":smile:",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:82:46
+     80|     Editor.normalize(editor, { force: true });
+     81|     Transforms.insertNodes(editor, { type: 'span', text: ':smile:' }, …
+     82|     expect(shown(editor, 0).filter(Boolean)).toEqual(['a', '[:smile:]'…
+       |                                              ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

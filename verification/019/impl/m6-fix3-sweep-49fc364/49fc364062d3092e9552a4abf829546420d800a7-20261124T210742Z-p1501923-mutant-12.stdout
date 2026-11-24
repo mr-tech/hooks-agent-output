@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T210742Z-p1501923/mutant-12
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 1 failed) 174ms
+     × puts an emoji element on the second line when the third is edited back to text 16ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 6 failed) 10107ms
+       × leaves each line typed as a fresh load of the changed text builds it 12ms
+       × leaves each line typed as a fresh load of the changed text builds it 15ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+       × leaves each line typed as a fresh load of the changed text builds it 8ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 12ms
+
+ Test Files  2 failed | 29 passed (31)
+      Tests  7 failed | 1004 passed (1011)
+   Start at  21:19:30
+   Duration  56.88s (transform 8.98s, setup 586ms, import 31.22s, tests 243.17s, environment 22.31s)
+

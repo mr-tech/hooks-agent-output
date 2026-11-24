@@ -1,0 +1,85 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/sweep-work/20261124T221341Z-p2185239/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 14 failed) 229ms
+     × at the end of a quote line saves what the table says 56ms
+     × in the middle of a quote line saves what the table says 20ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 27ms
+     × at the end of a quote line that opens a fence saves what the table says 8ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 4ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 5ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 6ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 7ms
+     × leaves an empty line when the carried marker is removed with Backspace 6ms
+     × takes in a typed quote marker inside a fence opened on a quote line 7ms
+     × is set on the line Enter makes from a quote line 5ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 4ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 8ms
+     × is resolved on the first line of the editor too 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (52 tests | 4 failed) 4029ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 14ms
+     × writes no text to the lines a typed multi-line quote marker takes in 12ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 2ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 190ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 3597ms
+     × hands the message that text in a full-markdown editor 2174ms
+     × hands the message that text in a full-markdown editor 140ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 10577ms
+     × hands the message that text in a full-markdown editor 5438ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 12339ms
+     × hands the message that text in a full-markdown editor 4870ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 18362ms
+     × hands the message that text in a full-markdown editor 3983ms
+     × hands the message that text in a full-markdown editor 4384ms
+     × hands the message that text in a full-markdown editor 3093ms
+     × hands the message that text in a full-markdown editor 2679ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (444 tests | 22 failed) 34555ms
+       × puts the next typed character where the edit leaves the caret 12ms
+       × puts the next typed character where the edit leaves the caret 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (68 tests | 6 failed) 37252ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 56ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 103ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 147ms
+       × builds as many run units in the longest message as in the shortest 14089ms
+       × builds as many run units in the longest message as in the shortest 12672ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 58ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 12 failed) 37566ms
+     × hands the message the changed text on content, in a message of 40 lines 80ms
+     × hands the message the changed text on content, in a message of 122 lines 208ms
+     × hands the message the changed text on content, in a message of 123 lines 282ms
+     × hands the message the changed text on content, in a message of 200 lines 382ms
+     × hands the message the changed text on content, in a message of 1000 lines 2823ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8780ms
+     × hands the message the changed text on content, in a message of 40 lines 53ms
+     × hands the message the changed text on content, in a message of 122 lines 160ms
+     × hands the message the changed text on content, in a message of 123 lines 169ms
+     × hands the message the changed text on content, in a message of 200 lines 301ms
+     × hands the message the changed text on content, in a message of 1000 lines 2437ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8449ms
+
+ Test Files  9 failed | 22 passed (31)
+      Tests  66 failed | 949 passed (1015)
+     Errors  11 errors
+   Start at  22:35:09
+   Duration  41.72s (transform 7.92s, setup 792ms, import 36.24s, tests 203.06s, environment 20.74s)
+
