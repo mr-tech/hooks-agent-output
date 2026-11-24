@@ -2,7 +2,7 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "d6aab03 — repos=website; the latest verdict is the M3 Round 3 sub-entry at d6aab03 (CR-15 confirmed, APPROVED_WITH_COMMENTS), after b04c09f (QAF-36, REJECTED on CR-15); Round 4 is M4 at e58f2ed (its 13 commits in f4060c5..e58f2ed); M3's Round 3 sub-entries at 380e82d (test-only), 2c1590f and 1698c80; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
+Reviewed-At: "81c68b2 — repos=website; the latest verdict is the M3 Round 3 sub-entry at 81c68b2 (QAF-38 fix confirmed, APPROVED_WITH_COMMENTS), after d6aab03 (CR-15 confirmed), after b04c09f (QAF-36, REJECTED on CR-15); Round 4 is M4 at e58f2ed (its 13 commits in f4060c5..e58f2ed); M3's Round 3 sub-entries at 380e82d (test-only), 2c1590f and 1698c80; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
 Status: In Review
 Round: 4
 Verdict: APPROVED_WITH_COMMENTS
@@ -29,6 +29,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-24T01:04 | implementer-019 (record `511f704`, the family-assignment script) | Confirm CR-13 | CR-13 RESOLVED: the committed script reproduces every one of the 6,142 families, and the signatures once collapsed into runs. A rule-order swap moves 700 entries, so the check can fail. The verdict is unchanged. |
 | 2026-11-24T01:54 | steering-hooks-fixer (resume message); implementer-019 (M3 fix round 6, `Handoff-At: b04c09f`, record `fe8ce8f3`) | Round 3 sub-entry: confirm QAF-36 | Round 3 sub-entry at `b04c09f` (test-only: `9a5f4fe`, `b04c09f`). Of 9 probes, 6 were KILLED. `compareWasm` is killed under `match = true`, under `match = false` and with its message arms swapped. **REJECTED** on CR-15 MEDIUM, a severity floor: with `driftReport` handing the pinned file to the comparison as the served bytes, 15 of 15 live cases and the offline case pass. CR-16 LOW is a stated limit. The M4 verdict at `e58f2ed` stands. Steering's brief had not arrived; the resume message was read in its place. |
 | 2026-11-24T02:07 | implementer-019 (M3 fix round 7, website `d6aab03`, record `5305177e`) | Round 3 sub-entry: confirm CR-15 | CR-15 RESOLVED at `d6aab03`: 10 of 11 mutants KILLED, network-isolated. The two operand mutants fail on `match` (`expected true to be false`). The live default passes 15 of 15, `equal`. The only survivor is CR-16 LOW, a stated limit (plan R-54). APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. The 192 fewer offline cases between `b04c09f` and `d6aab03` come from M5's commits; that is M5's round. |
+| 2026-11-24T02:42 | steering-hooks-fixer (hand-off); implementer-019 (M3 fix round 8, website `81c68b2`, record `d43e2b40`) | Round 3 sub-entry: confirm QAF-38 | QAF-38's fix confirmed at `81c68b2`: 14 of 14 mutants KILLED, network-isolated (QA's six constants, five operand or member swaps, both `switchReferrers` forms, and the fetcher not passed on). The live default passes 5 of 5. APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. |
 
 ## Scope of this round
 
@@ -667,6 +668,54 @@ Verdict, Round 3 sub-entry at `d6aab03`: **APPROVED_WITH_COMMENTS**.
 - QAF-36 is closed on both limbs, and M3 goes to QA's refresh pass.
 - CR-16 LOW stays a stated limit, plan R-54.
 
+#### Fix confirmation: QA's QAF-38 at `81c68b2`
+
+The trigger is steering's hand-off of M3 fix round 8 (the M3 document's "Round 8", record `d43e2b40`, `Handoff-At: 81c68b2`). It
+answers QAF-38 MEDIUM (record `08b81933`, `Verified-At: d6aab03`).
+- Scope: `81c68b2` alone. It changes `helpers/discordRouting.ts` and `discordRouting.predicates.test.ts`, both under
+  `__tests__/`, read through `git show 81c68b2:<path>`, and equal in the shared tree. This is a scoped check: no round opens.
+- Process whose output is the evidence: the suite's case, run against mutants I wrote. That makes it a probe of the case.
+
+The fix:
+- `routingReport(live, fetcher = fetch)` passes the fetcher on to `loadLazyChunks`. The live caller passes `live` alone.
+- One `it.each` case in four shapes runs the real `routingReport` over a stub `Live`: three `node:vm` modules, a runtime naming
+  one lazy chunk, and a stubbed fetcher returning a real `Response`. Each shape asserts the whole report.
+- Every field takes both values across the four shapes, and today's shape gives today's values. That meets QAF-38's remedy.
+- The expected values are literals derived from the stub shape, not from the code under test.
+
+Re-attack: 14 mutants at `81c68b2`, all in `unshare -rn` (`qaf38-81c68b2/mutation-table.json`). The control passed, and **14 of 14
+were KILLED**, 13 of them by `AssertionError`:
+- QA's six: each AC-3.8 field forced to today's constant.
+- Four operand swaps: the embed switch read from V2, the V2 switch read from the embed, `v2CallsParse` read from the embed, and
+  `parseRichEmbedText` read from V2.
+- One member swap: `parseEmbedTitle` asked as `parseEmbedTitleWithoutLinks`.
+- `switchReferrers` forced empty, and `switchReferrers` without the self-exclusion.
+- The fetcher not passed on. It fails with `OracleError … fetching https://discord.com/assets/abcd.js`, with the network closed
+  (`mutant-12-fetcher-not-passed.out.txt`).
+
+Other checks:
+- **Live default.** In an export of `81c68b2`, `discordRouting.oracle-controls` exits 0 with 5 of 5 passed
+  (`live-routing-81c68b2.txt`).
+- **Class sweep, re-run.** `git grep -n "export \(async \)\?function [A-Za-z]*(live: Live"` over `helpers/` gives 7 hits
+  (`class-enum-81c68b2.txt`). It misses `driftReport`, whose signature spans two lines, so the population is 8.
+  - The M3 document's "7 exported functions" names 8. That is a count slip in the record and moves nothing.
+  - I accept the disposition of the other six: each checks one input's served parse against a per-input expected value over 106
+    to 2,378 inputs, so a field forced to a constant cannot match them all. QA's sweep concurs.
+  - The predicate does not see a function that takes `Live` under another parameter name, or one inside a non-exported helper.
+- **Conventions.** `convention-check.js --files` over the two paths: 0 FAIL, 0 CANDIDATE, 1 SKIP (the id-token basename check).
+  Checked by hand, the titles hold no ID token.
+- **Note.** The stub's served chunk is empty, so `loadLazyChunks`'s eval branch, which loads a wanted chunk, does not run in this
+  case. That is outside QAF-38's class (field wiring), and the live run covers it.
+
+QAF-38 is closed for review:
+- The class is gone for `routingReport`.
+- Captured check: `discordRouting.predicates.test.ts` "the routing report of a build", with the instrument in
+  `verification/019/code-review/qaf38-81c68b2/`.
+- The closure itself is QA's, at its refresh.
+
+Verdict, Round 3 sub-entry at `81c68b2`: **APPROVED_WITH_COMMENTS**. M3 goes to QA's refresh pass. CR-16 LOW stays a stated limit
+(R-54).
+
 ## Round 4 at `e58f2ed` (M4)
 
 The trigger is implementer-019's M4 hand-off: `implementation/019-slate-formatting-discord-engine-m4-implementation.md`, record
@@ -767,9 +816,9 @@ Verdict, Round 4 (M4 at `e58f2ed`): **APPROVED_WITH_COMMENTS**.
 
 ## Verdict
 
-**Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation at `d6aab03` (CR-15 RESOLVED), after the `b04c09f` sub-entry was REJECTED on CR-15.
+**Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
 - M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`).
-- M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f` and `d6aab03`.
+- M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
 - M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
 
 **Rationale**: in Round 4 and in the Round 3 sub-entries above. Every MEDIUM is resolved with a captured check that fails if it
@@ -829,7 +878,9 @@ member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA
 
 Round 2's Assumption Not Checked is closed at Round 4: it held for list type and link kind, and its residue is CR-12.
 
-Round 3 sub-entry at `d6aab03`: This review assumes that the whole offline suite passes at `d6aab03` (the implementer reports 223 files, 3,268 cases, exit 0), and does not test it. I ran only the drift and rich-rule files offline and the two live drift files. Falsity signature: in an export of `d6aab03`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,268. Owner: QA's refresh pass on M3.
+Round 3 sub-entry at `81c68b2`: This review assumes that the whole offline suite passes at `81c68b2` (the implementer reports 223 files, 3,272 of 3,272, exit 0, on a rerun after one load timeout in `preview.engine-not-ready`), and does not test it. I ran only `discordRouting.predicates` offline and the live routing file. Falsity signature: in an export of `81c68b2`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,272. Owner: QA's refresh pass on M3.
+
+Round 3 sub-entry at `d6aab03` (superseded by `81c68b2`'s): This review assumes that the whole offline suite passes at `d6aab03` (the implementer reports 223 files, 3,268 cases, exit 0), and does not test it. I ran only the drift and rich-rule files offline and the two live drift files. Falsity signature: in an export of `d6aab03`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,268. Owner: QA's refresh pass on M3.
 
 Round 3 sub-entry at `b04c09f` (superseded by `d6aab03`'s): This review assumes that the whole offline suite passes at `b04c09f`, exit 0 with 3,460 cases, and does not test it. I ran only the two new files and the two live drift files, about a minute each, under mutation-run's controls. Falsity signature: in an export of `b04c09f`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,460. Owner: QA's refresh pass on M3, which runs the offline suite at the SHA it verifies.
 
@@ -841,7 +892,7 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 ## Next Steps
 
 - QA (`qa-019`):
-  - the M3 refresh pass at `d6aab03`: its diff and the offline suite (the `d6aab03` Assumption Not Checked); `routingReport`'s fields are not measured;
+  - the M3 refresh pass at `81c68b2`: its diff and the offline suite (the `81c68b2` Assumption Not Checked), and QAF-38's closure;
 - M5's round (this review): account for the 192 fewer offline cases between `b04c09f` and `d6aab03`.
   - Phase 2 on M4 at `e58f2ed`: `pnpm test:discord` at the approved SHA (Round 4's Assumption Not Checked), and the self-check
     sweep's survivors;
@@ -852,12 +903,12 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-Updated 2026-11-24T02:07Z, after the CR-15 confirmation at `d6aab03`.
+Updated (QAF-38 confirmed at `81c68b2`, 2026-11-24T02:42Z); earlier update 2026-11-24T02:07Z, after the CR-15 confirmation at `d6aab03`.
 
 - **Done.**
   - **M2:** closed, APPROVED_WITH_COMMENTS at `7dcedc9`.
-  - **M3:** APPROVED_WITH_COMMENTS at `d6aab03`. CR-15 is RESOLVED; CR-16 LOW is a stated limit (R-54). It is with `qa-019`
-    for the refresh pass.
+  - **M3:** APPROVED_WITH_COMMENTS at `81c68b2`, with QAF-38's fix confirmed. CR-15 is RESOLVED, and CR-16 LOW is a stated
+    limit (R-54). It is with `qa-019` for the refresh pass.
   - **M4:** APPROVED_WITH_COMMENTS at `e58f2ed`.
 - **Next.**
   - M5 at its document's `Handoff-At`, after steering's hand-off. It owes:
@@ -869,6 +920,6 @@ Updated 2026-11-24T02:07Z, after the CR-15 confirmation at `d6aab03`.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine`, past `d6aab03`, and I never move
   it.
 - **Local state.** The scratchpad `qaf36/` holds work and output folders and the export `xd6/`, all disposable. Everything cited is
-  in `verification/019/code-review/qaf36-b04c09f/` and `cr15-d6aab03/`.
+  in `verification/019/code-review/qaf36-b04c09f/`, `cr15-d6aab03/` and `qaf38-81c68b2/`.
 - **Questions sent, and to whom.** None open.
 - **Cache-warm wake.** Armed: a one-shot for 02:42 local.

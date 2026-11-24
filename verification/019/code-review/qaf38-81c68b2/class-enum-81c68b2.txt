@@ -1,0 +1,7 @@
+81c68b2:src/utils/markdown/__tests__/helpers/discordBoxes.ts:16:export async function openBoxes(live: Live): Promise<void> {
+81c68b2:src/utils/markdown/__tests__/helpers/discordBoxes.ts:45:export function legacyBox(live: Live, text: string): BoxEntry[][] {
+81c68b2:src/utils/markdown/__tests__/helpers/discordBoxes.ts:50:export function nativeBox(live: Live, text: string): NativeBoxResult {
+81c68b2:src/utils/markdown/__tests__/helpers/discordRouting.ts:42:export function routingReport(live: Live, fetcher: Fetcher = fetch): Promise<RoutingReport> {
+81c68b2:src/utils/markdown/__tests__/helpers/discordSurfaces.ts:61:export function legacySurfaceParse(live: Live, surface: LegacySurface, text: string): unknown {
+81c68b2:src/utils/markdown/__tests__/helpers/previewDom.tsx:35:export function domDifferences(live: Live, surface: LegacySurface, text: string) {
+81c68b2:src/utils/markdown/__tests__/helpers/previewDom.tsx:39:export function domDiffersFromLegacy(live: Live, surface: LegacySurface, text: string): boolean {

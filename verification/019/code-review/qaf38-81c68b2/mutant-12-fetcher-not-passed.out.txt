@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/work8/20261124T024054Z-p30677/mutant-12
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 4 failed) 48ms
+     × reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse 28ms
+     × reports both surfaces behind the switch, no call to the facade 6ms
+     × reports only the embed behind the switch, only its description call left 4ms
+     × reports only the V2 text behind the switch, only the title without links left 4ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 8 passed (12)
+   Start at  02:41:26
+   Duration  892ms (transform 64ms, setup 0ms, import 678ms, tests 48ms, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the embed behind the switch, only its description call left
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the V2 text behind the switch, only the title without links left
+OracleError: discord-oracle: fetching https://discord.com/assets/abcd.js failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ loadLazyChunks src/utils/markdown/__tests__/helpers/discordBuild.ts:167:20
+ ❯ src/utils/markdown/__tests__/helpers/discordRouting.ts:47:7
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:136:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+

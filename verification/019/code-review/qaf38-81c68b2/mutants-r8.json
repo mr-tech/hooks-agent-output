@@ -1,0 +1,128 @@
+[
+ {
+  "id": "embed-switch-const-false",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "embedReferencesSwitch: referencesSwitch(embed, switchId),",
+  "new": "embedReferencesSwitch: false,",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "v2-switch-const-false",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "v2ReferencesSwitch: referencesSwitch(v2, switchId),",
+  "new": "v2ReferencesSwitch: false,",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "embed-title-const-true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseEmbedTitle: callsFacade(embed, facade, 'parseEmbedTitle'),",
+  "new": "parseEmbedTitle: true,",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "embed-title-nolinks-const-true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseEmbedTitleWithoutLinks: callsFacade(embed, facade, 'parseEmbedTitleWithoutLinks'),",
+  "new": "parseEmbedTitleWithoutLinks: true,",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "embed-rich-const-true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseRichEmbedText: callsFacade(embed, facade, 'parseRichEmbedText'),",
+  "new": "parseRichEmbedText: true,",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "v2-parse-const-true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "v2CallsParse: callsFacade(v2, facade, 'parse'),",
+  "new": "v2CallsParse: true,",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "embed-switch-reads-v2",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "embedReferencesSwitch: referencesSwitch(embed, switchId),",
+  "new": "embedReferencesSwitch: referencesSwitch(v2, switchId),",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "v2-switch-reads-embed",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "v2ReferencesSwitch: referencesSwitch(v2, switchId),",
+  "new": "v2ReferencesSwitch: referencesSwitch(embed, switchId),",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "v2-parse-reads-embed",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "v2CallsParse: callsFacade(v2, facade, 'parse'),",
+  "new": "v2CallsParse: callsFacade(embed, facade, 'parse'),",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "embed-title-member-swapped",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseEmbedTitle: callsFacade(embed, facade, 'parseEmbedTitle'),",
+  "new": "parseEmbedTitle: callsFacade(embed, facade, 'parseEmbedTitleWithoutLinks'),",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "embed-rich-reads-v2",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseRichEmbedText: callsFacade(embed, facade, 'parseRichEmbedText'),",
+  "new": "parseRichEmbedText: callsFacade(v2, facade, 'parseRichEmbedText'),",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "fetcher-not-passed",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "], fetcher);",
+  "new": "], fetch);",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "referrers-self-not-excluded",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "oracle.ids.filter((id) => id !== switchId && referencesSwitch",
+  "new": "oracle.ids.filter((id) => referencesSwitch",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ },
+ {
+  "id": "referrers-const-empty",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "switchReferrers: oracle.ids.filter((id) => id !== switchId && referencesSwitch(sourceOf(oracle, id), switchId)),",
+  "new": "switchReferrers: [],",
+  "tests": [
+   "src/utils/markdown/__tests__/discordRouting.predicates.test.ts"
+  ]
+ }
+]

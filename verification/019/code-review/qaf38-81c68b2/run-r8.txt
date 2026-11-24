@@ -1,0 +1,15 @@
+embed-switch-const-false KILLED 3.24
+v2-switch-const-false KILLED 2.2
+embed-title-const-true KILLED 1.96
+embed-title-nolinks-const-true KILLED 1.97
+embed-rich-const-true KILLED 1.93
+v2-parse-const-true KILLED 1.9
+embed-switch-reads-v2 KILLED 2.39
+v2-switch-reads-embed KILLED 2.91
+v2-parse-reads-embed KILLED 2.58
+embed-title-member-swapped KILLED 2.45
+embed-rich-reads-v2 KILLED 2.1
+fetcher-not-passed KILLED 2.1
+referrers-self-not-excluded KILLED 2.05
+referrers-const-empty KILLED 2.03
+14 of 14 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-r8.json (blob ca5af9a7fb99b49ac9b9c401b9e4bdd946806f29))
