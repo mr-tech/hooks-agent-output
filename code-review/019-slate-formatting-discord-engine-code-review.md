@@ -27,7 +27,7 @@ Verdict: REJECTED
 | 2026-11-23T22:11 | implementer-019 (M3 fix round 4, website `2c1590f`, record `72b59f64`) | Round 3 sub-entry: confirm CR-10 | Round 3 sub-entry at `2c1590f`, scoped to the fix commit's 2 paths. CR-10 RESOLVED: 4 of 4 probes KILLED, the `loadBuild` disconnect among them. CR-11 LOW raised: the XHR Proxy records a member when it is called, not when it is read (`x.upload.addEventListener` and `x.readyState` unrecorded; network still closed). The record corrections are made. APPROVED_WITH_COMMENTS, and M3 goes to QA Phase 2. |
 | 2026-11-24T01:00 | implementer-019 (M4 hand-off, website `e58f2ed`, record `bc73f58c`; M3 Round 5 at `380e82d`); planner-019 (R-44, record `49cb5d73`); steering-hooks-fixer (cap, block 00:49Z, `8de0ac3`) | Review M4; Round 3 sub-entry for `380e82d` | Round 4 at `e58f2ed`: APPROVED_WITH_COMMENTS. The link allow-list held at the rendered anchor: 24,170 renders on each of the 6 surfaces, 0 defects. Planner (d) and (f) hold. AC-3.7's families, counts and a sample were read. CR-12 and CR-13 LOW are stated limits under the cap. Round 3 sub-entry at `380e82d` (test-only): APPROVED_WITH_COMMENTS, CR-14 LOW. |
 | 2026-11-24T01:04 | implementer-019 (record `511f704`, the family-assignment script) | Confirm CR-13 | CR-13 RESOLVED: the committed script reproduces every one of the 6,142 families, and the signatures once collapsed into runs. A rule-order swap moves 700 entries, so the check can fail. The verdict is unchanged. |
-| 2026-11-24T02:00 | steering-hooks-fixer (resume message); implementer-019 (M3 fix round 6, `Handoff-At: b04c09f`, record `fe8ce8f3`) | Round 3 sub-entry: confirm QAF-36 | Round 3 sub-entry at `b04c09f` (test-only: `9a5f4fe`, `b04c09f`). Of 9 probes, 6 were KILLED. `compareWasm` is killed under `match = true`, under `match = false` and with its message arms swapped. **REJECTED** on CR-15 MEDIUM, a severity floor: with `driftReport` handing the pinned file to the comparison as the served bytes, 15 of 15 live cases and the offline case pass. CR-16 LOW is a stated limit. The M4 verdict at `e58f2ed` stands. Steering's brief had not arrived; the resume message was read in its place. |
+| 2026-11-24T01:54 | steering-hooks-fixer (resume message); implementer-019 (M3 fix round 6, `Handoff-At: b04c09f`, record `fe8ce8f3`) | Round 3 sub-entry: confirm QAF-36 | Round 3 sub-entry at `b04c09f` (test-only: `9a5f4fe`, `b04c09f`). Of 9 probes, 6 were KILLED. `compareWasm` is killed under `match = true`, under `match = false` and with its message arms swapped. **REJECTED** on CR-15 MEDIUM, a severity floor: with `driftReport` handing the pinned file to the comparison as the served bytes, 15 of 15 live cases and the offline case pass. CR-16 LOW is a stated limit. The M4 verdict at `e58f2ed` stands. Steering's brief had not arrived; the resume message was read in its place. |
 
 ## Scope of this round
 
@@ -792,7 +792,7 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-Updated 2026-11-24T02:00Z, after the Round 3 sub-entry at `b04c09f`.
+Updated 2026-11-24T01:54Z, after the Round 3 sub-entry at `b04c09f`.
 
 - **Done.**
   - **M2:** closed for review, APPROVED_WITH_COMMENTS at `7dcedc9`.
