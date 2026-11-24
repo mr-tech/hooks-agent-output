@@ -1,0 +1,120 @@
+{
+ "sha": "d6aab03801c9a498028616583b9bb95b32c24d4c",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "sh",
+  "-c",
+  "ip link set lo up; npx vitest run --project node src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants.json",
+   "blob": "cd6ce71164e3e7f96f3b877c0b17c237e728c745"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-control-1.stderr",
+   "seconds": 2.7,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 3,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "QA-D1 compareWasm match forced true",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports different bytes as drift, naming both hashes",
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.28,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-mutant-1.stderr"
+  },
+  {
+   "id": "QA-D2 compareWasm match forced false",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports identical bytes as equal"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.18,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-mutant-2.stderr"
+  },
+  {
+   "id": "QA-D3 driftReport compares the pinned file with itself",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.58,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m3-refresh-2/qa-drift-mutants-out/d6aab03801c9a498028616583b9bb95b32c24d4c-20261124T020835Z-p3829322-mutant-3.stderr"
+  }
+ ],
+ "score": "3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qa-drift-mutants.json (blob cd6ce71164e3e7f96f3b877c0b17c237e728c745))"
+}

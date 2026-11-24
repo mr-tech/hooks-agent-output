@@ -2,12 +2,12 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Verified-At: "e58f2ed — repos=website; refresh pass over fix round 5 (380e82d, test-only, code review Round 3 sub-entry), run at the M4 tip e58f2ed, which contains 380e82d with its two files and package.json unchanged (git diff --quiet 380e82d e58f2ed, exit 0); git-archive export with its own frozen offline install; the first pass was at 2c1590f"
+Verified-At: "d6aab03 — repos=website; refresh pass over fix rounds 6 and 7 (9a5f4fe, b04c09f, d6aab03, test-only; code review Round 3 sub-entry at d6aab03, APPROVED_WITH_COMMENTS), git-archive export with its own frozen offline install; the tree also holds M5's 921eeb8, 6f4d48f, 65b8e2c and 3ffb2b4, outside this verdict; earlier passes at 2c1590f and e58f2ed"
 Status: QA Failed
 Status-Detail: >-
-  Refresh over fix round 5 (380e82d), run at e58f2ed. QAF-32 is closed, and QAF-33's write limb is closed. M3 still fails, on
-  QAF-36 MEDIUM, a severity floor excepted from the cap: nothing tests that the drift alarm fires on a mismatch. With the comparison
-  forced to "equal", every live case stays green. One more fix round is owed to the implementer, then a refresh pass over its diff.
+  Refresh over fix rounds 6 and 7, run at d6aab03. QAF-36 is closed: three QA mutants are killed offline, the wiring one included.
+  M3 still fails, on QAF-38 MEDIUM, a severity floor excepted from the cap. routingReport, which AC-3.8 (i) and (i′) read, is
+  QAF-36's class: all six field mutants survive the live run. One fix round is owed, then a refresh pass over its diff.
 Phase: 2
 ---
 
@@ -26,6 +26,7 @@ APPROVED_WITH_COMMENTS at `Reviewed-At: 2c1590f` (record `6c55e994`; plan R-36 a
 |------|---------------|---------|---------|
 | 2026-11-23T22:48 | code-reviewer-019 (message: M3 APPROVED_WITH_COMMENTS, record `6c55e994`, Reviewed-At website `2c1590f`) | QA Phase 2 on M3 | Phase 2: milestone-scoped pass on M3 at `2c1590f`, in an export. Steering's Phase 2 brief has not arrived, so this pass read the Decisions Register, the 22:35Z M3 cap and the code review's Assumption Not Checked lines itself. Offline 3348 of 3348, exit 0. Live 38 of 38, exit 0, the attempts case included. Typecheck exit 0 with Next's generated declaration copied in. Findings 5 reproduced at `f4060c5`. AC-3.4: 22 of 29 product mutants killed, 7 survivors dispositioned. Verdict **QA Failed** on QAF-32 and QAF-33, both MEDIUM severity floors. B-8 appended for the `beforeinput` paste branch. One command was stopped by the built-in destructive-command check and re-issued with literal paths (§ Execution). |
 | 2026-11-24T01:08 | implementer-019 (message: fix round 5 at `380e82d`), code-reviewer-019 (message: Round 3 sub-entry at `380e82d` APPROVED_WITH_COMMENTS, record `d31214e4`) | Phase 2 refresh pass over fix round 5 | Phase 2 refresh at `e58f2ed`, which contains `380e82d` (§ Refresh pass). Frozen offline install exit 0. Offline 3454 of 3454, exit 0. Whole `pnpm test:discord` offline: exit 1, names the page, no pass count. Live: 41 of 41, exit 0, with the drift message on stderr and at the report head. **QAF-32 closed**: a planted file that passes offline turns its case red. **QAF-33's write limb closed.** **QAF-36 MEDIUM raised**: a QA mutant forcing the comparison to "equal" survives, 15 of 15 live. Verdict **QA Failed** on QAF-36. The M3 Assumption Not Checked (the install) is settled by the frozen install. |
+| 2026-11-24T02:11 | code-reviewer-019 (message: CR-15 confirmed, M3 APPROVED_WITH_COMMENTS at `d6aab03`, record `fed65ffa`) | Refresh pass over fix rounds 6 and 7; the code review's two items (the whole offline suite, `routingReport`'s fields) | Refresh at `d6aab03` (§ Refresh pass, rounds 6 and 7). Frozen offline install exit 0. Offline 3,268 of 3,268 over 223 files, exit 0. Live 41 of 41, exit 0. The whole `pnpm test:discord` offline: exit 1, names the page, no pass count. **QAF-36 closed**: 3 of 3 QA mutants KILLED offline. **QAF-38 MEDIUM raised**: 0 of 6 `routingReport` field mutants killed live. Verdict **QA Failed** on QAF-38. |
 
 ## Scope and stage start
 
@@ -200,21 +201,7 @@ reading both. Phase 3's own run of `pnpm test:discord` at the release tip is wha
 the write removed (`m4-m3fix-red-2.txt`, read: `Tests 2 failed | 4 passed`). **Closed on the write limb.** The stderr line has no
 case of its own. QAF-33's remedy named the report head as the gate, so this is not a finding: the head is what devops reads.
 
-QAF-36 MEDIUM Phase 2
-The drift alarm is an equality check, and nothing in the suite shows it can say "different". `driftReport`
-(`helpers/discordLive.ts`) sets `match = served === pinned` and words the message from `match`. Its only assertions are live:
-`discordLive.oracle-controls` "the drift alarm" checks `report.message` contains `report.match ? 'equal' : 'DIFFERENT'`, and
-`discordReports.run` checks that the head holds the message. Both pass whatever `match` is. With `match` forced to `true`, all 15
-cases of those two files pass live at `e58f2ed`. So a served wasm that moved would be reported `equal`, the run would stay green,
-and devops at Stage 1 would write no upgrade handoff. That is the C2 outcome M3 relies on ("names a mismatch as C2", QAF-33's
-property). The equality check also has no positive control on any run (qa.md: "an equality or no-movement check carries a
-positive control on the same run that fires on a known difference"). This is a severity floor: a behaviour the change relies on,
-with no assertion that fails when it is lost. So it is MEDIUM and excepted from the cap. This pass's own QAF-33 remedy named only
-the write, so the gap is mine to have caught at `2c1590f`. Remedy, for the implementer: make the comparison testable apart from the
-fetch, for example `driftReport` comparing against pinned bytes it is handed or a pure `compareWasm(servedBytes, pinnedBytes)`, and
-add an offline case in `pnpm test`. In that case, bytes that differ from the pinned file give `match: false` and a message holding
-`DIFFERENT (drift, outcome C2)` and both hashes, and identical bytes give `equal`. It must be seen red under `match = true` and
-under `match = false`. Then the live head check carries the real hashes, and the offline case carries the decision.
+QAF-36 MEDIUM Phase 2 RESOLVED — `compareWasm` is a pure comparison, and `driftReport` takes a stubbable fetch. `discordLive.drift-compare.test.ts`, in `pnpm test`, holds literal hashes. QA's three mutants are KILLED offline at `d6aab03`: `match` forced true, forced false, and the pinned file compared with itself. Fix rounds 6 and 7 at `9a5f4fe` and `d6aab03`, with CR-15 its code review limb. § Refresh pass, rounds 6 and 7.
 
 **Verdict.** **QA Failed**, milestone-scoped, for M3's fix round 5, run at website `e58f2ed`: QAF-32 is closed, QAF-33's write
 limb is closed, and QAF-36 MEDIUM (a severity floor) is open. Every criterion the first pass passed stays passed on this run: the
@@ -229,3 +216,70 @@ time. **Owner: devops at Stage 1**, whose live run is the one the release reads.
 
 **Handoff.** To `implementer-019`, for M3's fix round 6: QAF-36, with its red run under both mutants recorded. Then code review
 re-verdicts the round, and QA runs a refresh pass over its diff.
+
+## Refresh pass — fix rounds 6 and 7 (`9a5f4fe`, `b04c09f`, `d6aab03`), run at `d6aab03`
+
+- **Stage start.** The code review's committed Round 3 sub-entry, CR-15 confirmed, APPROVED_WITH_COMMENTS at `Reviewed-At:
+  d6aab03` (record `fed65ffa`, plan R-55), re-derived from the record. Round 6 alone was REJECTED on CR-15 (records `7b4c1ad3`,
+  `6ee6d66b`). Two items are left to this pass: the whole offline suite at the fix SHA, and `routingReport`'s fields.
+- **Scope.** The rounds' diff over M3 paths: `helpers/discordLive.ts` (`compareWasm`, and `driftReport`'s `fetchImpl`), with
+  `discordLive.drift-compare.test.ts` and `discordSurfaces.rich-rule-ids.test.ts` added. All of these are test code. QAF-36's
+  class is "a live-only alarm whose firing no offline case shows", and that class is swept below.
+- **Tree.** Website `d6aab03`, exported by `git archive`, with its own `pnpm install --frozen-lockfile --offline` (exit 0) and
+  Next's `next-env.d.ts` copied in. `e58f2ed..d6aab03` also holds M5's `921eeb8`, `6f4d48f`, `65b8e2c` and `3ffb2b4`, which code
+  review has not passed. They run in the suite here but are outside this verdict. The code review routed the drop in offline cases
+  (3,460 at `b04c09f`, 3,268 here) to M5's round. The shared tree was not switched or written.
+
+| Command, captures under `verification/019/qa/m3-refresh-2/` | Result |
+|---|---|
+| `unshare -rn` (lo up) `npx vitest run --project node --project dom --reporter=json` (`suite-offline-d6aab03.*`) | **exit 0**; 223 files, 3,268 of 3,268; 0 files under `__tests__/discord/`; 86 s (02:08:43Z to 02:10:09Z) |
+| live `npx vitest run --project discord-node --project discord-dom` (`discord-live-d6aab03.*`) | **exit 0**; 6 files, 41 of 41; stderr `wasm: served … da7b9e5e…57fb0, pinned … da7b9e5e…57fb0: equal` |
+| `unshare -rn` (lo up) `pnpm test:discord`, whole (`discord-offline-d6aab03.*`) | **exit 1**; `https://discord.com/app` on 6 lines; `grep -c -E '[0-9]+ passed'`: **0** |
+| QA drift mutants (`qa-drift-mutants.json`, `mutation-run.py`, `--dep node_modules`, `unshare -rn`, suite `discordLive.drift-compare.test.ts`) | **3 of 3 KILLED**, count-checked (3 tests): QA-D1 `match` forced true; QA-D2 forced false; QA-D3 `driftReport` compares the pinned file with itself (CR-15's class), red on the stubbed-fetch case |
+| QA routing mutants (`qa-routing-mutants.json`, suite `discordRouting.predicates.test.ts` and the live `discordRouting.oracle-controls.test.ts`, with network) | **0 of 6 killed: all SURVIVED**, 13 tests each, the control passing: QA-R1 `embedReferencesSwitch: false`; QA-R2 `v2ReferencesSwitch: false`; QA-R3 to QA-R5 each `embedCalls` field `true`; QA-R6 `v2CallsParse: true` |
+
+**QAF-36.** The comparison carries the decision offline. Its expected hashes are literals, independent of the code (sha256 of
+`[1,2,3]` is a fixed value). The wiring case drives `driftReport` through a stubbed fetch, named as a stub in its title, and
+reddens when the comparison is not handed the served bytes. **Closed.** CR-16 LOW is a stated limit (plan R-54).
+
+QAF-38 MEDIUM Phase 2
+`routingReport` (`helpers/discordRouting.ts`) assembles the fields that AC-3.8 (i) and (i′) read: `embedReferencesSwitch`,
+`v2ReferencesSwitch`, `embedCalls.{parseEmbedTitle, parseEmbedTitleWithoutLinks, parseRichEmbedText}` and `v2CallsParse`. The
+only cases that read those fields are live, and they compare them with today's values: `false`, `false`, `true` three times,
+and `true`. The two predicates have offline cases both ways (`discordRouting.predicates.test.ts`). Which module each field is
+computed from has none. With any one field replaced by today's constant, all 13 cases pass live at `d6aab03` (QA-R1 to QA-R6). So
+on the day Discord routes the embed renderer or the V2 text display through the native switch, or drops a legacy call, the run stays
+green, and AC-3.8's outcome C6, D-14's stop condition, never fires. This is QAF-36's class: a live-only assembler checked only
+against today's literals. Nothing fails when the behaviour M3 relies on is lost, so it is a severity floor, MEDIUM, excepted from
+the cap. The implementer's round 6 sweep took the class by its branches and left `routingReport` out because it "has no branch of
+its own". The class is the alarm's unshown firing, not the branch, so the sweep's predicate missed this member. I passed AC-3.8 (i)
+and (i′) at `2c1590f` on the predicates' controls alone, so this was mine to catch then. Remedy, for the implementer: an offline
+case in `pnpm test` that drives `routingReport` over a stub oracle, as the drift case drives `driftReport`. In the stub, the embed
+module references the switch, the V2 module lacks the facade's `parse`, and the embed module lacks one of the three calls. Each
+field must flip, and today's shape must give today's values. Record it red under each of QA-R1 to QA-R6.
+
+**The class, swept.** The predicate: a helper under `__tests__/helpers/` that turns the live build into an alarm outcome (C2, C3 or
+C6), where only live cases, compared with today's values, read that outcome. Members by reading the six live files' assertions
+at `d6aab03`:
+- `driftReport` (C2): closed by QAF-36.
+- `richRuleIds` (C3): its throw branches are offline at `b04c09f` (`discordSurfaces.rich-rule-ids.test.ts`).
+- `locate`'s zero-or-many (C3): offline in `discordBuild.locators.test.ts`.
+- `routingReport` (C6): **open, QAF-38**.
+- AC-3.8 (iii)'s surface-class equality is outside the predicate. It asserts Discord's live parses directly, with no assembler
+  in between, and the same file shows the per-surface call discriminates (`# a` draws a heading in a description and text in a
+  field value).
+
+**Verdict.** **QA Failed**, milestone-scoped, for M3's fix rounds 6 and 7 at website `d6aab03`: QAF-36 is closed, and QAF-38
+MEDIUM (a severity floor) is open. QAF-32, QAF-33's write limb and every criterion the first pass passed stay passed on this run. A
+change to `helpers/discordRouting.ts` or its cases expires this verdict, and the next refresh covers that round's diff. Rows
+inherited and not discharged: B-1 to B-8. The plan's Status is not moved.
+
+**Assumption Not Checked.** This pass assumes the live build's module ids for the embed renderer and the V2 text display, located
+today by the content predicates, are the modules Discord's client actually uses for those surfaces. It does not test that, because
+it reads source text, not a running client. Falsity signature: the test account's Discord client draws an embed or a V2 text
+display differently from `legacySurfaceParse`'s tree for the same input. AN-3 established the premise on build 679055 by posting
+messages and reading Discord's DOM, and no later stage has re-read it. **Owner: QA at Phase 3**, which re-runs one AN-3 posted
+message per legacy surface through the test-account browser against the build served at the release tip.
+
+**Handoff.** To `implementer-019`: QAF-38, with its red run under QA-R1 to QA-R6 recorded. Then code review re-verdicts the round,
+and QA runs a refresh pass over its diff.

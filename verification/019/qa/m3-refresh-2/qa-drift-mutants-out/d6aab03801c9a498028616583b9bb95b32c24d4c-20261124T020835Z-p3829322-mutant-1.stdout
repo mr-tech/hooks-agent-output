@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/mrA/20261124T020835Z-p3829322/mutant-1
+
+ ❯ |node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts (3 tests | 2 failed) 21ms
+     × reports different bytes as drift, naming both hashes 8ms
+     × compares the bytes the stubbed fetch serves, from the address the glue module names, with the pinned file 10ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  02:08:39
+   Duration  981ms (transform 63ms, setup 0ms, import 789ms, tests 21ms, environment 0ms)
+

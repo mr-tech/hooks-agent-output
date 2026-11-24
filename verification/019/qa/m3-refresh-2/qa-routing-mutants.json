@@ -1,0 +1,38 @@
+[
+ {
+  "id": "QA-R1 embedReferencesSwitch constant false",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "embedReferencesSwitch: referencesSwitch(embed, switchId),",
+  "new": "embedReferencesSwitch: false,"
+ },
+ {
+  "id": "QA-R2 v2ReferencesSwitch constant false",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "v2ReferencesSwitch: referencesSwitch(v2, switchId),",
+  "new": "v2ReferencesSwitch: false,"
+ },
+ {
+  "id": "QA-R3 parseEmbedTitle constant true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseEmbedTitle: callsFacade(embed, facade, 'parseEmbedTitle'),",
+  "new": "parseEmbedTitle: true,"
+ },
+ {
+  "id": "QA-R4 parseEmbedTitleWithoutLinks constant true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseEmbedTitleWithoutLinks: callsFacade(embed, facade, 'parseEmbedTitleWithoutLinks'),",
+  "new": "parseEmbedTitleWithoutLinks: true,"
+ },
+ {
+  "id": "QA-R5 parseRichEmbedText constant true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "parseRichEmbedText: callsFacade(embed, facade, 'parseRichEmbedText'),",
+  "new": "parseRichEmbedText: true,"
+ },
+ {
+  "id": "QA-R6 v2CallsParse constant true",
+  "file": "src/utils/markdown/__tests__/helpers/discordRouting.ts",
+  "old": "v2CallsParse: callsFacade(v2, facade, 'parse'),",
+  "new": "v2CallsParse: true,"
+ }
+]

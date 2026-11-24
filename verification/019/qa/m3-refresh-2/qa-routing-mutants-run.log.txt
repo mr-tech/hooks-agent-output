@@ -1,0 +1,7 @@
+QA-R1 embedReferencesSwitch constant false SURVIVED 25.1
+QA-R2 v2ReferencesSwitch constant false SURVIVED 12.5
+QA-R3 parseEmbedTitle constant true SURVIVED 14.92
+QA-R4 parseEmbedTitleWithoutLinks constant true SURVIVED 14.04
+QA-R5 parseRichEmbedText constant true SURVIVED 23.35
+QA-R6 v2CallsParse constant true SURVIVED 14.84
+0 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qa-routing-mutants.json (blob 2bee410e01e7dcad01215649c7cad03634712e3c))

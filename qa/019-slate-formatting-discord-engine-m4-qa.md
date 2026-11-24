@@ -115,6 +115,11 @@ Reconcile, 2026-11-24T01:30: registered as plan R-52, a Planner batch row (recor
 
 ## Verdict
 
+Reconcile, 2026-11-24T02:09: M5's `921eeb8` changes four M4 production paths: `TextDisplayEditor.tsx`, `Embed.tsx`,
+`EmbedField.tsx` and `EmbedTitle.tsx`, 5 lines (`git diff --stat e58f2ed d6aab03`). The editing branch's `interactiveParser`
+becomes `surface`. This verdict binds to `e58f2ed` and does not carry to a later tip. A refresh pass is owed before UAT, scoped by a
+differential that runs both trees over the preview surface. It is taken with M5's Phase 2.
+
 **QA Complete**, milestone-scoped, for M4 at website `e58f2ed`. Every assessed criterion passes (§ Criteria). QAF-37 LOW is a stated
 limit under the cap. The verdict binds to `e58f2ed`, and a production change to an M4 path expires it. The plan's Status is not
 moved: M5 and M6 remain. Rows inherited and not discharged: B-1 to B-8 (register in `qa/019-slate-formatting-discord-engine-qa.md`).

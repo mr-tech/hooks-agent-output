@@ -1,0 +1,4 @@
+QA-D1 compareWasm match forced true KILLED 2.28
+QA-D2 compareWasm match forced false KILLED 2.18
+QA-D3 driftReport compares the pinned file with itself KILLED 2.58
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qa-drift-mutants.json (blob cd6ce71164e3e7f96f3b877c0b17c237e728c745))
