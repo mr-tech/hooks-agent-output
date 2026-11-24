@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 15 (record 79eeced6). QAF-40 and QAF-41 are closed at their cited places. QAF-42 LOW: as
-  written, NM-68's and NM-69's fixtures end on the quoted line, so the typed drive never presses Enter where the mutant's carry
-  would fire. It is a stated limit under the M6 cap. AC-6.5's literal freeze is not held on QA's account. Register: B-1 to B-9.
+  Phase 1 re-keyed on plan 019 Revision 16 (record 30e2a5b8, AC-6.8). QAF-43 MEDIUM: AC-6.8's count limb is an upper bound only,
+  so a counter that reads 0 passes; it needs an exact literal and a positive control. QAF-44 LOW: its sized texts hold no emoji.
+  QAF-42 LOW (R-69) stands. Register: B-1 to B-10.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -54,8 +54,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 12 (record
-`b0af4dc3`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 16 (record
+`30e2a5b8`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -79,6 +79,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-23T22:49 | (own pass: QA Phase 2 on M3, `qa/019-slate-formatting-discord-engine-m3-qa.md`) | Register row from the M3 pass | B-8 appended: AC-3.3's paste limb on Chrome's `beforeinput` branch, walked by UAT on an M6 build. |
 | 2026-11-24T04:16 | planner-019 (messages: Revision 13 at `f9b406d6`, Revision 14 at `2c3c8d1a`, SL-15 and SL-16 at R-63) | Phase 1 re-key on Revisions 13 and 14, as one | § Re-key on Revisions 13 and 14. AC-6.5's helper (`nativeSurfaceParse`) imports only `@discord/markdown-wasm`, read at `2e36107`. Its `parse` output gives no source span: `😄:smile:`, `:smile:😄` and `😄😄` parse to one identical tree, and `\*a😄`'s text is `*a`. Disclosed: the record-write gate refused one shell command because it named record paths beside a `sed -i` on a scratch file. It was split into separate commands. **QAF-40 MEDIUM.** AC-6.7's two exclusion conjuncts have no mutant: **QAF-41 LOW**. **B-9** minted for AC-6.7's walk (SL-15, SL-16 (1)). A user-report note for AC-6.5 and AC-6.7 added under the register. |
 | 2026-11-24T04:20 | planner-019 (message: Revision 15 at `79eeced6`, steering block 04:18Z) | Phase 1 re-key on Revision 15 | § Re-key on Revision 15. QAF-40 closed: remedy (b), five members with literals and the first-occurrence join mutant, in AC-6.5's control. QAF-41 closed: NM-68 and NM-69 in AC-6.7's "Seen red", and AC-3.3's drive keyed on the input's text. **QAF-42 LOW**: the fixtures need a line after the quoted one, or a stated Enter. Nothing holds AC-6.5's literal freeze on QA's account. |
+| 2026-11-24T07:10 | planner-019 (message: Revision 16 at `30e2a5b8`, steering block 07:05Z) | Phase 1 re-key on Revision 16 | § Re-key on Revision 16. Premise P-Q22: the keystroke cost at AC-6.8's sizes, both trees (433 ms and 1,798 ms at the tip, against 2.3 ms and 3.8 ms at M5). AC-6.8 is re-keyed, with named mutants NM-70 to NM-72. **QAF-43 MEDIUM**: the count limb is an upper bound on a function the fix may rename, so a counter that reads 0 passes. **QAF-44 LOW**: the sized texts hold no emoji element. **B-10** minted for the human-observable form. |
 
 ## Reading
 
@@ -1265,6 +1266,68 @@ Reconcile, 2026-11-24T04:24: every gate has passed revision 15 (critic cycle 9, 
 SL-17 (F-43) is owed at M6's Phase 2. Each AC-6.5 escape member (`\*a😄`, `a\_b😄`) is either reddened by a mutant the implementer
 names, recorded red, or gets a line under AC-6.5's row in the register saying it is held by its literal alone. The critic's F-44
 is the same member as QAF-42.
+## Re-key on Revision 16
+
+Revision 16 (record `30e2a5b8`) was read as its diff from `79eeced6`. It adds D-23 and AC-6.8 (CR-20's keystroke cost). D-23
+lifts the M4 to M6 cap for CR-20 alone, so the findings below carry their own severity.
+
+**Premise run in this pass (P-Q22).** The cost at the sizes AC-6.8 names was measured at both trees, back to back, in exports at
+load 2.4 to 2.8 (`verification/019/qa/m6/normalize-cost-limits-{2e36107,119471f}.json`; probe
+`qa-probes/qaNormalizeCost.{base,tip}.probe.test.ts`; one `insertText` at the start of a line, median of 10 after 2 warm-ups,
+node):
+
+| Text | `2e36107` median (max) | `119471f` median (max) |
+|---|---|---|
+| content, 1,999 characters as 40 lines | 0.47 ms (0.64) | 2.6 ms (4.8) |
+| content, 1,999 characters as 1,000 lines, middle line | 2.3 ms (8.8) | 433 ms (461) |
+| content, 1,000 lines, last line | 3.4 ms (6.9) | 438 ms (458) |
+| embedDescription, 4,095 characters as 2,048 lines, middle | 3.8 ms (5.7) | 1,798 ms (1,992) |
+| embedDescription, 2,048 lines, last | 3.2 ms (3.9) | 1,786 ms (1,996) |
+
+These agree with the revision's own figures from steering's helper. The 16 ms bound therefore separates the trees at every
+size from 200 lines up, and the base shows it is reachable.
+
+**AC-6.8, count limb, re-keyed.** A counter on the unit builder, over the keystroke class times the text class. Each keystroke's
+expected count is a literal per kind. Discriminating in both directions:
+- Upper bound: the tip's per-line rebuild at `119471f` is red. On a 200-line plain text, an in-line insert builds 200 units,
+  against the literal 1.
+- Floor: see QAF-43.
+- Coupling: Enter and a merge are the only kinds allowed 2. A fixture where Enter splits one unit into two holds the literal 2,
+  and an in-line insert in the same text holds 1. So a counter that allows 2 everywhere fails the insert row.
+- Named mutants, for Phase 2 on the fix round: NM-70, the fix's unit cache keyed on line index instead of unit text (a stale
+  unit after an edit), is red on AC-6.5's typed-edit property, not on the count. NM-71, the resolve run once per line again
+  (the `119471f` form), is red on the count limb at every size. NM-72, the resolve run on the first changed unit only, is red on
+  an edit that changes two units: a merge of a line into the line above, across a fence. That fixture must be in the
+  keystroke class, so the count limb's text class needs one text where a Backspace joins two units.
+
+**AC-6.8, time limb.** A time-based case, run at Phase 2 outside the suite. The document records the box's load beside each
+run, and the median against 16 ms on each of the four sizes in the embed description. If a size misses, the figure goes to
+steering under the criterion's own clause.
+
+**AC-6.8, human-observable form.** Minted as **B-10** (register below).
+
+QAF-43 MEDIUM Phase 1
+AC-6.8's count limb states the property as an upper bound only: "at most once for each run unit holding a line the keystroke
+changed, and never more than twice". Its counted function is "`unitAround` or what replaces it". A counter that reads 0 passes.
+That happens if it is left on a builder the fix no longer calls on the resolve path, or if a guard skips the resolve on a
+changed unit. The case the criterion exists for, the per-line rebuild coming back under a new builder's name, then passes
+green. AC-6.5's typed-edit property catches a resolve skipped on an emoji-bearing unit. It does not catch a counter pointed at
+the wrong function. The property wanted: for a keystroke that changes a run unit's text, the count is exactly the literal (1
+for an in-line insert or delete; 2 for an Enter or a merge that leaves two changed units), not "at most". The counter also
+carries a positive control on the same run: an in-line insert in a one-line text counts 1, so a counter that reads 0 fails.
+
+QAF-44 LOW Phase 1
+AC-6.8's sized texts (200 to 2,048 lines, plain, `> ` and `>>>`) hold no emoji element, and the time limb runs only on them.
+The resolve's element work (`revertToText`, lifting from the unit's layout) is never timed at scale. A fix that builds the
+unit per line only for a line that holds an element passes both limbs on these texts. The count limb's corpus and generator
+inputs catch that only where a unit holds elements on three or more lines. The property wanted: one sized text whose every
+line holds an emoji element, within the embed description's 4,096 characters (for example 1,000 lines of `a🙂`, 3,999
+characters), in both limbs' text class.
+
+Register sweep. The predicate is rows whose predicted value reads typing in the editor: B-8, B-9 and new B-10. B-8 and B-9 read
+saved text, which AC-6.8 does not change, so they are checked and cleared. Rows inherited and not discharged: B-1 to B-10.
+
+Phase 1 is keyed to Revision 16. Open for the planner: QAF-43 MEDIUM and QAF-44 LOW, plus QAF-42 LOW (R-69) from before.
 
 ## Blocking-condition register (the chain's one register)
 
@@ -1284,6 +1347,7 @@ Stage 1 handoff) are authoritative on each row's execution state.
 | B-7 | observable pre-release | AC-4.4 (D-17): a listed channel mention previews as its name; a role keeps its id; `/preview` keeps the id | Stage browser on a local production build of M4 with the mention code, signed in as the test account, guild `1566742402180456559` chosen. Type `<#1574358729577599086> <@&1>` into content; read the preview pill texts and class lists. Then the same content on `/preview`. | UAT through the stage browser / the owner | M4's mention code built locally; the local build completes Discord sign-in (B-4's provision read, AN-8's sign-in limb); the page's webhook channel picker lists the guild's channels (it reads the same `useGuild().channels`), read first | Signed in: `#slate-oracle-walk` in `discord-visualizer__mention discord-visualizer__interactive`, and `@&1` in `discord-visualizer__mention`. `/preview`: `#1574358729577599086`, page rendered. No text `unknown` anywhere. One observation refutes by construction. | If the signed-in preview still shows `#1574358729577599086`, the lookup is not wired to the list the page already holds, and his selection buys him nothing; if `/preview` errors, the lookup needs the provider (NM-51 escaped the suite) | uat | UAT document for 019 | open. 2026-11-23T21:44 reconcile (F-35, R-32): the row has two limbs, each run and recorded on its own. Limb 1, signed in ("its id is a channel on the guild's channel list" → "That channel's … name"; "`<@&1>` previews as `@&1`"), uses the build AC-6.3's provision step sets up for B-4: a local Postgres with the schema pushed and the message id sequence moved before any save, `127.0.0.1:3000` and never `localhost`, and sign-in through the test-account browser. Where sign-in cannot be completed, limb 1 closes as a stated limit that quotes the attempt, with handoff 5b19c3e4 item 1 as carrier (AC-6.3's clause), and limb 2 still runs. Limb 2, `/preview` ("no list is in reach (`/preview` …)" → "Today's form: `#<id>`"), needs no sign-in or database. The row depends on B-4's provisioning, so if B-4 is withdrawn, limb 1 is too. UAT's Reading Order row names AC-4.4 at the seam fold (F-35). Hazard, read this pass: the build's `fetchChannels` writes a 10 s cache entry to the `.env.local` Redis, a remote host whose identity is not established on this box (host class read only, P-Q20 § 8). The walk saves nothing; a build that also saves runs the workspace's local-build sequence first (as B-4). Not run at minting: no local build with the mention code exists. |
 | B-8 | observable pre-release | AC-3.3 ("pasting it whole yields the same text", and "after a refused paste the editor's text equals its text before the paste") on the branch a real browser takes: Chrome's `beforeinput` `insertFromPaste`, which the jsdom drive does not reach (M3 Findings 6, Outstanding 7; QA M3 pass) | Stage browser on a local production build of the tip that carries M6's editor: the clipboard set to the member's text, then Ctrl+V into the content editor (full mode) and into the embed title (partial mode). Read the value the message holds through the site's JSON view, which reads what `onChange` handed it; nothing is saved | UAT through the stage browser / the owner | M6 built locally: the editor's paste path stops changing at M6. No sign-in is needed for a new message's editor; if the build requires one, B-4's provisioning applies first | Full mode: for three emoji-free corpus inputs in the pasted limb's passing set, one holding a `> ` quote, one a `>>> ` quote and one a fence, the JSON value equals the pasted text character for character. Partial mode: pasting `a\nb` into the title leaves its text as it was, with the toast; a paste of 6,001 characters into content leaves it as it was. One differing character refutes by construction | If Chrome's paste path inserts text other than the way the `onPaste` fallback the suite drives does, a pasted quote or fence is saved altered, and no test sees it | uat | UAT document for 019 (the inputs named there by corpus index) | open. Saves nothing; a walk that saves runs the workspace's local-build sequence first, as B-4. Not run at minting: no M6 build exists. |
 | B-9 | observable pre-release | AC-6.7's human-observable form (D-22; SL-15; SL-16 (1)): in the content editor, Enter after a `> ` line carries the marker, a paste adds none, and the named gesture ends a continued quote | Stage browser on UAT's local production build of the M6 tip, which carries the quote-carry change. Into a new message's content editor: (1) type `> a`, Enter, `b`; (2) paste `> a⏎b` into an empty editor; (3) type `> a`, Enter, the gesture implementer-019 names to end the quote, then `b`. After each, read the preview, and read the value through the site's JSON view, which reads what `onChange` handed it. Nothing is saved | UAT through the stage browser / the owner | M6's quote-carry change built locally, and the implementer's gesture named in its M6 document. Where the build cannot sign in, the fallback is AC-6.7's production check after deploy (SL-15). That makes it a post-deploy row carried by devops' handoff. | (1) `b` is drawn inside the quote, and the JSON value is `> a\n> b`. (2) `b` is drawn outside the quote, and the value is `> a\nb`. (3) `b` is drawn outside the quote, and the value is `> a\nb`. One differing value refutes by construction | If Enter does not carry, a user's second quoted line falls out of the quote, unlike Discord's box (QA's walk, step 1). If a paste carries, pasted text is saved altered. If the gesture does not end the quote, a user cannot leave a quote by the means the site offers | uat | UAT document for 019 | open. Not run at minting: no build holds the carry change, and the gesture is not yet named. Saves nothing; a walk that saves runs the workspace's local-build sequence first, as B-4. Dependency: the gesture's name, from implementer-019's M6 document |
+| B-10 | observable pre-release | AC-6.8's human-observable form (D-23): typing in a 2,000-line embed description shows no lag a person can see | Stage browser on UAT's local production build of M6's fix-round tip. Into a new message's embed description, paste 2,000 one-character lines (3,999 characters, under the 4,096 limit). Then type ten characters at the end of line 1,000 and time each keystroke to paint with the devtools Performance panel; a stopwatch is the fallback. Nothing is saved | UAT through the stage browser / the owner. No sign-in is needed for a new message's editor; if the build requires one, B-4's provisioning applies first | CR-20's fix round has code review's sub-entry, and its tree is built locally | **Fixed:** each keystroke paints within one frame or so, with no pause a person sees. **Unfixed (`119471f`, measured in node, P-Q22):** about 1.8 s per keystroke at 2,048 lines, 0.43 s at 1,000. A single keystroke that visibly stalls refutes by construction | If typing stalls in a long embed description, a user writing a long announcement sees the editor freeze after each key | uat | UAT document for 019 | open. Not run at minting: no build of the fix round exists, and the browser figure is not yet measured (AC-6.8's residue). Production after deploy is the plan's check; it is the fallback if the local build cannot run. Depends on: none |
 
 Candidate held, not minted: a production preview image of a formatted message shows formatted text (E-4, RK-2). Its instrument is
 not established until AN-2 reports. It is minted at the re-key after AN-2 lands, or declined there with the reason.

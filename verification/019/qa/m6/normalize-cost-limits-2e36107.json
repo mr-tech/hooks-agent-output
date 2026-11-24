@@ -1,0 +1,42 @@
+[
+ {
+  "surface": "content",
+  "lines": 40,
+  "chars": 1999,
+  "where": "middle",
+  "median": 0.4688129999999546,
+  "max": 0.6421430000000328
+ },
+ {
+  "surface": "content",
+  "lines": 1000,
+  "chars": 1999,
+  "where": "middle",
+  "median": 2.2895280000000184,
+  "max": 8.807072000000062
+ },
+ {
+  "surface": "content",
+  "lines": 1000,
+  "chars": 1999,
+  "where": "last",
+  "median": 3.434938000000102,
+  "max": 6.936948000000029
+ },
+ {
+  "surface": "embedDescription",
+  "lines": 2048,
+  "chars": 4095,
+  "where": "middle",
+  "median": 3.7560379999999896,
+  "max": 5.675946000000067
+ },
+ {
+  "surface": "embedDescription",
+  "lines": 2048,
+  "chars": 4095,
+  "where": "last",
+  "median": 3.236863000000085,
+  "max": 3.9309440000001814
+ }
+]
