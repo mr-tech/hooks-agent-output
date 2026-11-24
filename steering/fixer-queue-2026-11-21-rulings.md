@@ -1028,3 +1028,14 @@ Each got one changelog row, committed at `5aadb178` (`--numstat` 1/1 per file). 
 real files, are unchanged.
 **Disclosed:** the stamp gate refused this block's heading. This thread had typed 02:58Z while the clock read 02:57Z, and committed it at `e302d4e1`.
 `date -u` then read 02:58Z, so the heading stands as written.
+
+## 2026-11-24T03:39Z — standing check: M5's hand-off stalled on a wait that cannot end; the implementer told
+
+Read 03:39Z. M5's mutation sweep (`mutation-run.py`, pid 3666975) has exited. Its table
+`verification/019/impl/m5-sweep-3ffb2b4/mutation-table-…-p3666975.json` was written at 03:10:40Z (mtime). `implementer-019`'s background wait,
+pid 3780775, alive 1 h 34 m, runs `until ! pgrep -f "mutation-run.py"`. That command line holds the string (`grep -c` on its `/proc` cmdline:
+1), so pgrep matches the wait itself and the loop never ends. The M5 document is still uncommitted, and the implementer has been parked on
+that shell since 02:50Z. **Driven:** the implementer was told by message at 03:39Z to stop the shell, record the survivors and hand M5 off,
+and to wait on a pid with `wait-pid.py` next time. **This thread's instrument error, caught in the round:** its own first check used
+`pgrep -f mutation-run.py` and read "running" by the same self-match. The process read (`ps -p 3666975`) corrected it.
+Usage: weekly_all 47%, live; OOM 0. Agents inbox: FYI lodged.
