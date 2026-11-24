@@ -3,16 +3,21 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 14 pass 2 on plan revision 22: APPROVED, and closed at that pass. F-52 is RESOLVED, verified landed, and SL-25 is withdrawn as this critique's error. F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 (under SL-26) are stated limits for the plan's Planner batch; F-55 points 1 and 2 are verified landed. Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 15."
-Artifact-Revision: 22 — read as the delta 81523bd6..960052d1 (cycle 14 pass 2)
-Reviewed-At: "960052d1 — repos=agent-output; website read at 42128cd"
+Status-Detail: "Cycle 15 pass 1 on plan revision 23: APPROVED, and closed at that pass. F-57 HIGH (SL-29) is closed by property under the stop authority, with an entry condition on QA Phase 2 of M6's third fix round: a timed reading of each paste member and each emoji-line fence keystroke beside the chain base's. Whether it lands instead as a revision is put to steering. F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 16."
+Artifact-Revision: 23 — read as the delta 960052d1..49a20690 (cycle 15 pass 1)
+Reviewed-At: "49a20690 — repos=agent-output; website read at 42128cd, as at cycle 14"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 22 (`960052d1`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 22 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 23 (`49a20690`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 23 as deltas.
+**Read at cycle 15 pass 1**: the plan's diff `960052d1..49a20690`; effort rulings blocks 2026-11-24T19:20Z, 19:43Z (record
+`6507ae1e`) and 20:07Z (record `8b684907`); the selection ledger's block 2026-11-24T20:07Z; the code review document at CR-25
+and CR-24 (Round 7, record `e92137fe`); `verification/019/code-review/m6fix2-85ece66/` (its README,
+`paste-count-85ece66.jsonl`, `fence-emoji-count-85ece66.jsonl` and `paste-insertData-af3d95a.jsonl`); and
+`verification/019/code-review/m6fix-42128cd/fence-toggle.out.txt`, as read at cycle 14. No website source was read in this pass.
 **Read at cycle 14 pass 2**: the plan's diff `81523bd6..960052d1`; effort rulings blocks 2026-11-24T14:48Z (record `46278c24`)
 and 17:03Z (record `0fa784d0`); the selection ledger's block 2026-11-24T17:03Z; QA's Phase 1 document at QAF-52 (record
 `225ef4a6`); `verification/019/planning/fence-refute/` (`af3d95a.raw.txt` and the three `caret.*.raw.txt` files); slate
@@ -143,7 +148,55 @@ for the 15,480 figure.
 | 2026-11-24T17:08 | planner-019 (message naming revision 22 at `960052d1`; steering block 14:48Z asks for it inside the current read) | cycle 14 pass 2: plan revision 22 | Taken as pass 2 of cycle 14, as block 14:48Z asks, though pass 1 had closed. Depth: delta-bounded; the delta `81523bd6..960052d1` is 58 added and 19 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations R-96 and R-97), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-25, and A-11, B-11, CF-30, F-52 to F-55, QAF-52 and SL-25 to SL-28 in registration rows. The diff, read whole, changes AC-6.9's first line, its reports, its `>>>` keystroke members, its no-throw and caret limbs, its ceiling and its walk; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-25 and Planner batch rows. Artifact changes: the `>>>` members are stated in the marker model with hand-written caret texts, on his 17:03Z selection (D-25); the no-throw limb refuses a hidden throw (CF-30); the ceiling reads 27 and 104 ms and cites a committed capture. Findings addressed: F-52 RESOLVED, with SL-25 withdrawn as this critique's error; F-55 points 1 and 2 landed. The pass-1 assumption is answered. New finding: F-56 (LOW), a new member under SL-26. Verdict APPROVED. |
 | 2026-11-24T17:08 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-56 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
+| 2026-11-24T20:12 | planner-019 (message naming revision 23 at `49a20690`) | cycle 15 pass 1: plan revision 23 | Cycle 15 opens because revision 23 changes AC-6.9's text. Depth: delta-bounded; the delta `960052d1..49a20690` is 69 added and 14 removed lines (`git diff --numstat`, 8 commits, 6 of them registrations and a verdict row, R-98 to R-103, and 2 carrying revision 23), fully readable as a diff. It adds members and one limb to a criterion and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-26, and CF-31, CR-24, CR-25, F-56, NM-76, NM-78 and NM-80 in registration rows. The diff, read whole, changes AC-6.9's first line, its reports, its keystroke and text classes, its growth limb and its residue, and adds the work-per-line limb; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-26 and Planner batch rows. Artifact changes: the fence keystrokes run over `a🙂` texts, pastes of `a` and `a🙂` lines join the class on his 20:07Z selection (D-26), and a standing limb bounds two call counts at 1,000 lines by 10 times those at 200. New findings: F-57 (HIGH), the second instance of CF-30's shape, closed by property with stated limit SL-29 and an entry condition, the stop authority firing, and its form put to steering; F-58 (LOW), a member under SL-26. M7 is out of scope for this pass. Verdict APPROVED. |
+| 2026-11-24T20:12 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-57 is closed by property, with SL-29's entry condition for the plan's Planner batch. F-58 closes as landed-by-author, its discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 15, pass 1.** The stop authority fired on one shape (F-57), so that finding, though HIGH, is closed here
+by a property and an entry condition and is not sent back for a revision. The hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings. Revision 23 adds texts, members and one limb to AC-6.9, under D-24 and on
+his 20:07Z selection (D-26). It adds no milestone.
+
+This gate passes revision 23 for the third M6 fix round, **read with SL-29's entry condition**. Routed to the owner through
+steering: whether F-57 stays an entry condition or becomes a timed limb in a further revision. The architect's and QA's reads
+of revision 23 are separate.
+
+What holds in revision 23's delta:
+- **D-26 is the ledger's block.** The option text and the two other options match `steering/selection-ledger/2026-11-24.md`,
+  block 20:07Z, as read in this pass.
+- **The cap is not stretched.** CR-25 is HIGH, and steering's block 19:43Z puts the fence member under D-24 and the paste to
+  him.
+- **The count limb is code review's falsity signature**, and it can fail and pass. In code review's captures at `85ece66`,
+  the fence close over `a🙂` lines runs 39,894 line settles at 200 lines and 159,794 at 400, and a paste runs 40,199 fence
+  reads at 200 lines and 160,399 at 400. Both grow with the square. The fence close over plain `a` lines runs 200 and 400.
+- **The ratio is a hand literal** between linear (5) and the measured growth (about 25, which is the square of 5 and was not
+  measured at 1,000 lines).
+- **The limb carries a positive control**, and it is observed through pass-through mocks with nothing added to `src`.
+- **The residue now names what is unbounded**, where the old sentence hid it.
+
+**Stop authority: F-57.** D-26 fixes a paste that takes 9.6 s and 25 s at 1,000 lines against 1.7 s and 2.9 s today, and
+revision 23 answers CR-25's fence close at 7.6 s. No limb reads a time for either. The paste members are left out of the
+growth limb, the `a🙂` texts have no 2,048-line size for it, and no ceiling names them. Their one instrument is the count of
+line settles and fence reads. Code review's own captures show that count missing work of this kind at the rejected tree:
+- opening a fence over `a🙂` lines runs 200 line settles at 200 lines and 400 at 400, which is linear, while CR-25 measures
+  it at 404.7 ms at 1,000 lines and calls it super-linear;
+- a paste runs 399 unit builds at 200 lines and 799 at 400, also linear in count, each over the text pasted so far.
+So a fix can bring both counts to linear and leave the paste several times slower than today's site, with every limb green.
+This is the shape of CF-30, a limb that passes with its defect left in, for the second time. The class is stated below as a
+property over the defects AC-6.9 quotes, checked in this pass, and its gap is stated limit SL-29 with an entry condition.
+
+**F-58** (LOW): the `a🙂` texts bind the fence keystrokes only, so the `>>>` keystrokes over emoji lines are unbounded and the
+residue does not say so. The paste's "seen red" cites times, and the count capture that shows it is code review's.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `49a20690`).
+
+The cycle 14 verdicts follow, as written at those passes.
 
 **APPROVED — cycle 14, pass 2.** The stop authority stays fired on the residue shape (F-53), and its new member is a stated
 limit (F-56). The hard stop did not fire (pass 2 of 15 in this cycle). Pricing: sized to the ask plus his rulings. Revision 22
@@ -809,6 +862,16 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 15 pass 1: this pass assumes that a paste whose line settles and fence reads are linear can still take several times
+today's time, and does not test it. No fixed tree exists. The ground is two captures: a paste's unit builds are linear in
+count (399 and 799 in `paste-count-85ece66.jsonl`) and each runs over the text so far, and one plain insert at `42128cd`
+takes a median 0.7 ms at 200 lines and 5.6 ms at 2,048 (`m6fix-42128cd/fence-toggle.out.txt`, the control rows). If it is
+false, the third fix round's paste reads near the base's 1.7 s and 2.9 s at 1,000 lines once the counts are linear, and
+F-57 has no paste member. Code review owns closing it, with its paste timing probe at that round's tip.
+
+Cycle 14 pass 2's line, below, is answered: the `> `-making keystroke had the same defect, and the fix sits in the shared
+arm (the implementer's pre-fix run, plan R-101, record `0a086b41`; not re-derived here).
+
 Cycle 14 pass 2: this pass assumes that `> ` made in front of existing text (a space typed after a leading `>` on a line
 `>abc`) leaves the caret at the end of the line's text, as the `>>>` keystroke does, and does not test it. The ground is a
 read of `handleEditor` at `42128cd`: one branch replaces the line's text for both markers. A run needs an export of the
@@ -948,6 +1011,58 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 15 pass 1
+
+F-57 HIGH cycle 15 pass 1 — closed by property with stated limit SL-29 and an entry condition; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of CF-30 in `architecture/019-slate-formatting-discord-engine-architecture-findings.md`
+- **Title**: no limb reads the elapsed cost of a paste or of a fence keystroke over emoji lines, which are the defects D-26
+  and CR-25 name.
+- **Location**: plan revision 23, AC-6.9 "Work per line", "Cost" (the growth property) and "Residue" (its last bullet);
+  D-26.
+- **Description**: CR-25's defects are times: 7.6 s to close a fence over 1,000 `a🙂` lines, and a paste of 1,000 lines at
+  9.6 s plain and 25 s with emoji, against 1.7 s and 2.9 s at the chain base. He was asked about "the paste slowdown" in
+  those figures. Revision 23 bounds two call counts. The growth limb leaves the paste out and runs at 2,048 lines, a size the
+  `a🙂` texts do not have. The ceiling is for line 2's fence keystrokes on plain lines. The residue's last bullet says
+  repeated whole-document work that is not remembered is seen by neither count.
+- **Impact**: at the rejected tree, the counts already read linear on work CR-25 calls super-linear: 200 and 400 line
+  settles to open a fence over 200 and 400 `a🙂` lines (`fence-emoji-count-85ece66.jsonl`), and 399 and 799 unit builds for
+  a paste of 200 and 400 lines (`paste-count-85ece66.jsonl`). A third fix round can therefore pass every limb with the paste
+  between 1.7 s and 9.6 s at 1,000 lines, and nothing in the plan would say so. The human-observable form walks neither a
+  paste nor emoji lines.
+- **The property, in place of a revision**: every defect AC-6.9 quotes has a limb that is red while the defect is present.
+  Its domain is the quoted defects, each checked in this pass against the record:
+  - the iteration throw (QAF-51): the no-throw limb, with CF-30's refusal. Holds;
+  - the dropped write on opening a fence: the write limb, seen red at `42128cd`. Holds;
+  - the fence-close cost on plain lines (CR-23): the growth limb, red against QA's mutant NM-76 by the implementer's
+    report (plan R-101, not re-derived). Holds;
+  - the `>>>` caret (QAF-52): the caret limb, seen red on both trees. Holds;
+  - the fence close over emoji lines (CR-25): the count limb is red on line settles at `85ece66`. Holds for that
+    mechanism only;
+  - opening a fence over emoji lines (CR-25's second member): the count reads linear at `85ece66`. Fails;
+  - the paste slowdown (CR-25, D-26): the count limb is red on fence reads at `85ece66`, and goes green when they are
+    linear whatever the time. Fails.
+- **SL-29, an entry condition on QA Phase 2 of M6's third fix round**: the record holds a timed reading at that round's
+  tip, beside the chain base's on the same probe, for each paste member and for each fence keystroke on the `a🙂` texts,
+  at 200 and 1,000 lines, with the box load. The artifact class is a timing capture under `verification/019/`. Code review
+  bears the detection: its Round 7 probes already produce these readings, and CR-25 stays unresolved while a member is
+  several times the base, whatever AC-6.9's limbs read. A reading that is not "roughly today's speed" goes to steering.
+- **Residue of the property**: the browser's cost. Code review assumes a paste in Chrome reaches `insertData` one line at a
+  time, and QA owns that.
+- **Landing trigger**: the planner sends SL-29 to the implementer, code review and QA with the release of the third fix
+  round, and registers it in the Planner batch. Whether it lands instead as a timed limb in a further revision is steering's
+  ruling, as block 14:48Z ruled CF-30's.
+
+F-58 LOW cycle 15 pass 1 — closed as landed-by-author, a new member under SL-26; discharging document: the plan's Planner batch. Duplicates the shape of F-53 in this document
+- **Title**: the `a🙂` texts bind the fence keystrokes only, and the paste's "seen red" cites times for a count limb.
+- **Location**: plan revision 23, AC-6.9 "The text class", "Residue" and "Work per line" ("Seen red").
+- **Description**: the second text class is "for the fence keystrokes". The `>>>` keystrokes over emoji lines are in no
+  class, and the residue lists "a fill other than plain `a` and `a🙂` lines", which reads as if `a🙂` were bound for every
+  member. The paste members' "seen red" gives medians in milliseconds. The counts that show the limb red are in code
+  review's `paste-count-85ece66.jsonl`, at 100 to 400 lines.
+- **Impact**: one more unlisted member of the residue, and a red whose evidence is cited to the wrong instrument.
+- **Under SL-26**: the `>>>` keystrokes on `a🙂` lines are residue with no bound. The implementer's pre-fix run records the
+  paste members' two counts at 200 and 1,000 lines at `85ece66`, which is the limb's red.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
 
 ### Closed at cycle 14 pass 2
 
@@ -1524,6 +1639,9 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 15 pass 1: the plan was read as `git diff 960052d1 49a20690` and both revisions as `git show` copies, saved in this
+  session's scratchpad; the ID comparison and the open-question count ran in memory. Nothing was installed or run beyond
+  reads. The architect's and QA's reads of revision 23 were not read before this pass was written.
 - Cycle 14 pass 2: the plan was read as `git diff 81523bd6 960052d1` and both revisions as `git show` copies, saved in this
   session's scratchpad; the ID comparison and the open-question count ran in memory. Nothing was installed or run beyond
   reads. The architect's and QA's reads of revision 22 were not read before this pass was written.
@@ -1572,9 +1690,12 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 **Since the checkpoint.** Cycle 14 ran on plan revisions 21 (`81523bd6`, pass 1) and 22 (`960052d1`, pass 2), which added
 and restated AC-6.9 and were not the seam fold. Both passes are APPROVED and closed. F-52 is resolved and SL-25 is
 withdrawn. F-53, F-54, F-55's last two points and F-56 are stated limits SL-26 to SL-28. Each verdict was sent to
-`planner-019`. Revision 22 is AC-6.9's last fold (effort rulings block 14:48Z). The next pass is still the seam fold's
-read, now cycle 15, read as the `git diff` from `960052d1` with M7 whole. The fold should carry SL-11 to SL-24 and SL-26
-to SL-28, and that pass sweeps SL-1 to SL-24 for the class F-52's reconcile note names. The cache-warm wake is armed
+`planner-019`. Cycle 15 pass 1 ran on revision 23 (`49a20690`, CR-25's answer and D-26's paste members): APPROVED and
+closed, with F-57 HIGH closed by property as SL-29, an entry condition on QA Phase 2 of M6's third fix round, and F-58
+LOW under SL-26. SL-29's form, entry condition or a further revision, was put to `steering-hooks-fixer`, and no answer
+had come when this was written. The next pass is the seam fold's read, now cycle 16, read as the `git diff` from
+`49a20690` with M7 whole, unless steering rules a revision for F-57 first. The fold should carry SL-11 to SL-24 and
+SL-26 to SL-29, and that pass sweeps SL-1 to SL-24 for the class F-52's reconcile note names. The cache-warm wake is armed
 again. The checkpoint below is otherwise as written.
 
 Checkpoint written at steering's ask on 2026-11-24T08:09Z, at a seam, for a clear. Closed at cycle 13 pass 1 (APPROVED on plan revision 20, `cf7e4d91`; this document at record `1c6ee275`). Nothing is in flight, nothing is uncommitted, no process is running and no question awaits an answer. **Next pass: the seam fold's read.** The fold is a plan revision the planner writes after the last milestone's QA Phase 2 on M6 and before the UAT anchor; it lands the open Planner batch rows' text and M7's re-argument paragraph, and it opens cycle 14. M7 is read there for the first time since its `PREMISE-STALE` mark, so that pass reads M7 whole and the rest as a delta. The fold should carry this critique's stated limits SL-11 to SL-24 as their batch rows say; check each against its row. Steering's block 07:21Z makes every AC-6.8 finding below HIGH a stated limit, and block 07:42Z reopened it for revision 20 only. The cache-warm wake was deleted at this checkpoint; on resume, arm it again. The plan's registrations after `cf7e4d91` (to R-90 at `14309101`) were not read. The verdict was sent to `planner-019` (F-50 with SL-23 and F-51 with SL-24) and `implementer-019` (the hand-off of CR-20's fix round is released by this gate, read with SL-23 and SL-24). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 14: read the plan as the `git diff` from `cf7e4d91` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
