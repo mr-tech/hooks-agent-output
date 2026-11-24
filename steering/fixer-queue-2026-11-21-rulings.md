@@ -941,3 +941,20 @@ plan's Planner batch as a stated limit with no fix or revision round. A gate's s
 Rounds already in flight finish: M3 fix round 5 at `380e82d` and M4's review at `e58f2ed`. Told to all six 019 stage sessions. (2) **The split:**
 `planner-019` is commissioned to judge whether M4 can ship alone before M5 and M6. Its answer, checked by a refutation helper, goes to him as a
 selection prompt. A plan revision follows only if he takes it.
+
+## 2026-11-24T00:55Z — selection: plan 019, ship the preview first or keep one release (put 00:5xZ, answered 00:55Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T00:55Z — steering-hooks-fixer`. The wording is this thread's. Options:
+- *Agent: keep one release (Recommended)*: "The preview and the editor ship together, once M6 is done. No extra work, and one production approval
+  from you. Cost: the preview reaches users later; the planner estimates several hours to about a day, which isn't measured…"
+- *Agent: ship the preview first*: "One plan revision… Then a separate release for the preview… your production approval. Later the same again for
+  the editor… Until then the editor and preview disagree on about 29 of 272 realistic messages, and the link-preview images change at the
+  first release."
+**Chosen by selection: keep one release.** M7 stands as one release (plan: "No release tree holds M4 without M5"), and the plan is not revised.
+Premises: the planner's assessment (R-45 `fe5e51fe`, Planner batch row "Split assessment"). A `general-purpose-sonnet` refutation helper checked
+it this turn (scratch `refute-split/`). AF-2's one-release requirement stands (findings lines 106-110, 248). M7 line 1227, M4's rollback line 1040
+and AC-6.6 line 1210 stand. On W-3 the helper corrected the wording: `architecture/website.md:60-68` reads "no drift is possible between edit and
+preview rendering", which he ratified as an inference on 2026-08-24 ("Agent's inference is correct"), not as a rule. The option text said "which you
+confirmed in August", which matches. The drift was measured by run, with the real decorator against the mounted preview over the 272 corpus:
+29 messages differ in inline or quote style at `e58f2ed`, against 8 at `origin/master`. The figures are bounded, because the alignment is
+approximate (difflib).
