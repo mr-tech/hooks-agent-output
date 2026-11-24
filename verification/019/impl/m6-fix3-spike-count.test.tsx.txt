@@ -1,0 +1,69 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import flattenNodeText from '../flattenNodeText';
+import { unitAround } from '../runUnit';
+import { spansInLine } from '../emojiLift';
+import { afterLine } from '../codeFence';
+import { lineShapes } from '../../__tests__/helpers/fenceAndQuoteKeystrokes';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant, Element } from 'slate';
+import type * as RunUnit from '../runUnit';
+import type * as EmojiLift from '../emojiLift';
+import type * as CodeFence from '../codeFence';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('../runUnit', async (o) => { const a = await o<typeof RunUnit>(); return { ...a, unitAround: vi.fn(a.unitAround) }; });
+vi.mock('../emojiLift', async (o) => { const a = await o<typeof EmojiLift>(); return { ...a, spansInLine: vi.fn(a.spansInLine) }; });
+vi.mock('../codeFence', async (o) => { const a = await o<typeof CodeFence>(); return { ...a, afterLine: vi.fn(a.afterLine) }; });
+beforeAll(async () => { await startEngine(); });
+
+const SIZES = (process.env.SPIKE_SIZES ?? '200,1000').split(',').map(Number);
+const FILLS = ['a🙂', '', 'a', ':smile: b', '> a🙂'];
+
+it('counts', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of FILLS) {
+    for (const n of SIZES) {
+      for (const [name, before, act] of [
+        ['close', '```', (e: Editor) => { Transforms.select(e, Editor.end(e, [2])); e.deleteBackward('character'); }],
+        ['open', '``', (e: Editor) => { Transforms.select(e, Editor.end(e, [2])); e.insertText('`'); }],
+        ['paste', null, null],
+      ] as const) {
+        const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+        let text: string;
+        if (name === 'paste') {
+          text = Array.from({ length: n }, () => fill).join('\n');
+          editor.children = getInitialValue('', 'embedDescription', false) as Descendant[];
+          editor.selection = { anchor: Editor.start(editor, []), focus: Editor.start(editor, []) };
+        } else {
+          text = Array.from({ length: n }, (_, i) => (i === 2 ? before : fill)).join('\n');
+          editor.children = getInitialValue(text, 'embedDescription', false) as Descendant[];
+        }
+        vi.mocked(unitAround).mockClear(); vi.mocked(spansInLine).mockClear(); vi.mocked(afterLine).mockClear();
+        let error = '';
+        const t0 = performance.now();
+        try {
+          if (name === 'paste') {
+            const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+            (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data);
+          } else act!(editor);
+        } catch (e) { error = String(e).slice(0, 60); }
+        const ms = performance.now() - t0;
+        const finalText = flattenNodeText(editor.children);
+        const fresh = getInitialValue(finalText, 'embedDescription', false) as Element[];
+        const a = lineShapes(editor.children as Element[]); const b = lineShapes(fresh);
+        const wrong = a.length !== b.length ? -1 : a.filter((s, i) => s !== b[i]).length;
+        rows.push({ fill, n, name, ms: +ms.toFixed(1), builds: vi.mocked(unitAround).mock.calls.length, settles: vi.mocked(spansInLine).mock.calls.length, fenceReads: vi.mocked(afterLine).mock.calls.length, wrong, error });
+      }
+    }
+  }
+  writeFileSync(process.env.SPIKE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

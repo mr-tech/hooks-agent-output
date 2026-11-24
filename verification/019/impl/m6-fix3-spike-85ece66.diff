@@ -1,0 +1,67 @@
+--- /usr/local/bin/hooks/website/src/components/SlateEditor/utils/withNormalizeNode.ts	2026-11-24 18:36:55.190024838 +0000
++++ /tmp/claude-1000/-usr-local-bin-hooks-website/4e1ff191-ce38-4642-adf8-494279711e00/scratchpad/spike/src/components/SlateEditor/utils/withNormalizeNode.ts	2026-11-24 19:51:13.857158966 +0000
+@@ -1,6 +1,7 @@
+ import {
+   Editor, Element, Range, Text, Transforms,
+ } from 'slate';
++import type { Operation } from 'slate';
+ 
+ import {
+   afterLine, isCodeLine, lineLang, NO_FENCE,
+@@ -167,15 +168,22 @@
+   return fresh.lines;
+ }
+ 
++function keepsSourceText(op: Operation): boolean {
++  return (op.type === 'insert_node' || op.type === 'remove_node')
++    && op.path.length === 2 && Text.isText(op.node) && op.node.text === '';
++}
++
+ function resolveEmoji(editor: Editor, surface: Surface, lineIndex: number): void {
+-  const settled = settledIn(editor);
+-  if (settled.has(lineIndex)) return;
++  if (settledIn(editor).has(lineIndex)) return;
+   const unit = unitAround(editor.children, lineIndex, 'source');
+   const layout = emojiLayout(surface, unit.text, unit.startsInCodeBlock);
+   if (!layout) return;
+   const line = editor.children[lineIndex] as Element;
+   const sharing = line.type === 'codeBlock' ? [lineIndex] : [...unit.lineStarts.keys()];
+-  if (sharing.some((index) => resolveLine(editor, unit, layout, index))) return;
++  sharing.forEach((index) => {
++    while (resolveLine(editor, unit, layout, index)) { /* settle the line */ }
++  });
++  const settled = settledIn(editor);
+   sharing.forEach((index) => settled.add(index));
+ }
+ 
+@@ -394,12 +402,15 @@
+   };
+ 
+   editor.apply = (op) => {
++    const before = editor.children;
+     const { quotePrefix } = op.type === 'split_node' ? op.properties as Partial<Element> : {};
+     if (op.type === 'split_node' && quotePrefix) {
+       apply({ ...op, properties: { ...op.properties, quotePrefix: '', carried: undefined } });
+     } else {
+       apply(op);
+     }
++    const known = settledLines.get(editor);
++    if (known?.children === before && keepsSourceText(op)) known.children = editor.children;
+   };
+ 
+   const splitCarrying = (split: () => void) => () => {
+@@ -418,6 +429,14 @@
+       }
+     });
+   };
++  const { insertTextData } = editor as Editor & { insertTextData?: (data: DataTransfer) => boolean };
++  if (insertTextData) {
++    (editor as Editor & { insertTextData: (data: DataTransfer) => boolean }).insertTextData = (data) => {
++      let inserted = false;
++      Editor.withoutNormalizing(editor, () => { inserted = insertTextData(data); });
++      return inserted;
++    };
++  }
+   editor.insertBreak = splitCarrying(editor.insertBreak);
+   editor.insertSoftBreak = splitCarrying(editor.insertSoftBreak);
+ 
