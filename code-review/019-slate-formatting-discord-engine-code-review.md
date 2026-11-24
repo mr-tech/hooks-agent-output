@@ -1741,6 +1741,16 @@ Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fix
   6. Then the changelog row (`record-edit.js` with `{now}`), the plan row by `plan-row-commit.js` (the next R number), and the
      hand-off to QA or back to the implementer.
   M7 is devops's. This review has no M7 round unless steering asks.
+- **SL-29 brief (planner-019, 2026-11-24T20:5xZ, D-27, block 20:54Z, plan record `e241aa14`).** Step 4 is widened to every
+  SL-29 member, tip beside `af3d95a` on the same probe, box load beside each: paste `a` and `a🙂` through `insertData`, and
+  opening and closing a fence on the `a🙂` texts, each at 200 and 1,000 lines. CR-25 stays unresolved while any member is several
+  times the base, whatever the count limbs read. Paste base medians: `verification/019/planning/paste-refute/out-af3d95a.jsonl`.
+  **Premise defect, sent to planner-019 and steering at 21:0xZ:** `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl` shows
+  that all four `a🙂` fence members at 200 and 1,000 lines (and every `a` member at those sizes) carry `Error: Could not completely
+  normalize` at the base. Each base median there (16.2 to 48.1 ms) times the iteration-cap throw, not a completed keystroke, so
+  "several times the base" has no valid denominator for the fence members. The paste members' base runs have no errors. The fence
+  members wait for steering's ruling on the comparator. Until then, the tip readings are recorded beside the base's throw time,
+  and the throw is named on each row.
 - **Approach in flight.** None.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `85ece66`. I never move it. The
   record is on `master`.
