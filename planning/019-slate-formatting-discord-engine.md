@@ -97,39 +97,41 @@ Lane: full
 
 ## Resumption State
 
-Written at steering's ask (checkpoint for a clear), after all three gates approved revision 9. Brought current at revision 10.
+Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-48.
 
 **Done.**
-- Revisions 0 to 10 and registrations R-1 to R-30 are committed.
-- Revision 9 (`47348a6d`) is approved by the critic (cycle 3 pass 2, critique closed, `c1e40234`), the architect (`559253f1`) and
-  QA (`26f3a3c`, nothing open). Implementation of M2 to M6 started at 18:49Z.
-- Revision 10 folds D-17 (mentions) into AC-4.4.
-- M1 is complete (analysis `aafecf1` to `1b5a46d2`, AN-1 to AN-8).
+- Revisions 0 to 12 and registrations R-1 to R-48 are committed. Other stages' rows carry duplicate numbers; R-47 records the
+  reconcile, and they are cited by stamp and author.
+- Revision 12 (`b0af4dc3`) is approved by all three gates: QA `e645035`, architect `f7b21366` and critic `575a52bc`. Their
+  findings are stated limits SL-12 and SL-13.
+- Decisions D-17 (mentions), D-18 (D-14 kept with its measured residue) and D-19 (one release) are registered.
+- M1 and M2 are complete. M3's QA Phase 2 failed (qa-019's 22:50 row); its fix round 5 at `380e82d` was approved by code review,
+  and its QA refresh is the next M3 event. M4 is built at website `e58f2ed`, with code review Round 4 APPROVED_WITH_COMMENTS
+  (record `d31214e4`), and QA Phase 2 on M4 is next. M5 and M6 are not started.
 
 **Next.**
-- Revision 10 is owed a delta read by the critic, the architect and QA (§ Owed re-verdicts). Their verdicts are folded in one
-  pass. M4's mention code is held until all three have passed it.
-- Open Planner batch rows, which fold at one seam after implementation approval (planner.md):
-  - QAF-27, CF-15's `vi-VN` reading and CF-16, all stated limits for M4;
-  - the critic's two assumptions, for the M3 and M4 implementers;
-  - AN-8 limb 5, landed, for RK-2's text.
-- Steering's rulings bound changes (§ Decisions Register notes):
-  - block 17:56Z caps M4 and M6 below HIGH, except a severity floor;
-  - block 18:02Z sends any AC-4.7 gap to steering before a fold.
+- No planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
+  Planner batch row, a stated limit, with no revision. A severity-floor finding is excepted. A third revision of AC-3.7 goes to
+  steering before any fold.
+- The seam fold, after the last milestone's QA Phase 2 and before the UAT anchor, lands the open rows' text:
+  - SL-11 (forum ids) and RK-8's new members (F-34, `jumboify`);
+  - F-35 (AC-4.4's walk in the `uat` Reading Order row);
+  - the emoji `alt` exception and CF-10's "Today" correction;
+  - SL-12's atom sentence and SL-13;
+  - R-44's (e) AC-3.1 exclusion, (g) X-27 and (h) AC-4.5's check;
+  - CR-7's M6 exit condition;
+  - D-18's line in RK-9's record;
+  - the earlier open rows: QAF-27, CF-15 and CF-16, the critic's two assumptions, and AN-8 limb 5.
+- Any question for him goes to steering by SendMessage as a selection prompt, never as prose here (his ruling, relayed 23:3xZ).
 
 **Approach in flight.** None. No uncommitted edit.
 
-**Refs.** Record `master`. The website was read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git
-grep`. Probe captures this session are under `verification/019/planning/`. The shell runs from `/usr/local/bin/hooks/agent-output`,
-never from `preview-image-generator` (effort rulings block 15:29Z).
+**Refs.** Record `master`. The website was read only through `git -C /usr/local/bin/hooks/website show` or `git grep`, at
+`af3d95a`, `5ec0621`, `7dcedc9` and `f4060c5`. Probe captures are under `verification/019/planning/`. The shell runs from
+`/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z). Effort rulings:
+`steering/fixer-queue-2026-11-21-rulings.md`.
 
 **Questions sent, and to whom.** All to `steering-hooks-fixer`. None is open.
-
-**Refs.** Record `master`; website read at `af3d95a` only through `git -C /usr/local/bin/hooks/website show` or `git grep`. The shell
-runs from `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z).
-
-**Questions sent, and to whom.** All to `steering-hooks-fixer`. OQ-1 to OQ-3 and OQ-5 are answered (D-10 to D-13), and the two
-analysis questions are answered (D-14, D-15). None is open.
 
 ## Reading Order
 
