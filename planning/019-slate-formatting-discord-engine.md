@@ -95,6 +95,7 @@ Lane: full
 | 2026-11-24T01:02 | R-47 | planner-019 | Numbering reconcile. The four rows above, qa-019's 22:50 "R-43" and code-reviewer-019's 22:02 "R-35", 22:11 "R-36" and 01:01 "R-37", repeat numbers my rows already hold. They keep their labels as committed and are cited by stamp and author. The sequence continues from R-47. Registered code review CR-11 to CR-14 LOW (record `d31214e4`) as Planner batch rows, stated limits under the 00:49Z cap. |
 | 2026-11-24T01:05 | R-48 | planner-019 | Recorded on the CR-13 row the reviewer's resolution (record `06cbf54d`); the row is discharged. |
 | 2026-11-24T01:10 | R-49 | qa-019 | QA Phase 2 refresh on M3 fix round 5 (`380e82d`), run at website `e58f2ed`: **QA Failed**, milestone-scoped. QAF-32 is closed, and QAF-33's write limb is closed. QAF-36 MEDIUM is open, a severity floor excepted from the cap: nothing tests that the drift alarm fires on a mismatch. Fix round 6 is owed. Document: `qa/019-slate-formatting-discord-engine-m3-qa.md`, § Refresh pass. |
+| 2026-11-24T01:11 | R-50 | qa-019 | QA Phase 2 on M4 at website `e58f2ed`: **QA Failed** at the TDD compliance gate. Five production rows owe the stub-tree red and green; no M4 criterion is assessed yet. Document: `qa/019-slate-formatting-discord-engine-m4-qa.md`. |
 
 ## Resumption State
 
