@@ -146,6 +146,7 @@ Lane: full
 | 2026-11-24T07:07 | 16 | planner-019 | Triggered by D-23 (block 07:05Z, record `3ec39942`): CR-20 is fixed before release, with the cap lifted for it alone. AC-6.8 bounds one keystroke's normalise cost. Its count limb in `pnpm test` builds a run unit at most once per changed unit and never more than twice, seen red at `119471f`. Its timed limb, outside the suite, holds the median at or under 16 ms at 200 to 2,048 lines, where the base takes 0.2 to 3.3 ms and the tip 17 to 1,626 ms (the helper's re-timing). R-78's CR-20 row is discharged into it. Scope delta: M6 gains AC-6.8 and CR-20's fix, on his word, and no other milestone moves. Since approval, revisions 10 to 16 have run. This one triggers one round of each gate, then M6's fix round, code review and QA. The plan still delivers what was first asked. |
 | 2026-11-24T07:10 | R-80 | planner-019 | Recorded the architect's delta pass on revision 16 (APPROVED; § "Delta pass, revision 16", record `ce656dca`) and QA's re-key on revision 16 (record `d53b1b30`) in the owed re-verdicts table. Registered CF-25 LOW, CF-26 LOW, QAF-43 MEDIUM and QAF-44 LOW as Planner batch rows. QAF-43 and QAF-44 fold at the next revision once the critic's cycle 10 verdict is in, because AC-6.8 sits under D-23's lifted cap. |
 | 2026-11-24T07:12 | 17 | planner-019 | Triggered by the three gates' reads of revision 16: the architect (`ce656dca`: CF-25, CF-26), QA (`d53b1b30`: QAF-43, QAF-44) and critique cycle 10 (`0ff39772`: APPROVED, with F-45). All fold into AC-6.8, under D-23's lifted cap. The count limb becomes equality per pass with a positive control and a `vi.mock` pass-through, with its window, character and positions fixed (F-45) and a merge fixture. A 1,000-line `a🙂` text joins both limbs. The timed limb's home is a `*.bench.ts`. Scope delta: AC-6.8's limbs tighten, and no milestone or work outside M6's fix round is added. Since approval, revisions 10 to 17 have run. This is AC-6.8's second revision, and it triggers one round of each gate. The plan still delivers what was first asked. |
+| 2026-11-24T07:13 | R-81 | planner-019 | Registered steering's ruling deciding AC-6.8's third revision in advance (effort rulings block "2026-11-24T07:13Z — plan 019 AC-6.8: a third revision is decided now", record `1a6b2ec3`) in the Resumption State. |
 
 ## Resumption State
 
@@ -163,8 +164,10 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
 
 **Next.**
 - Revisions 13, 14 and 15 have passed all three gates, with stated limits. Under steering's block 04:18Z, a further AC-6.5 gap
-  below HIGH is a stated limit. Revision 16 (D-23, AC-6.8) is out for delta reads by the critic, the architect and QA. Fold
-  their verdicts as one batch. No other planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
+  below HIGH is a stated limit. Revision 17 (AC-6.8's second revision) is out for delta reads by the critic, the architect and
+  QA. Under steering's block 07:13Z, a further AC-6.8 gap below HIGH from those reads is a Planner batch stated limit, with no
+  revision 18. There are two exceptions: a gate's severity-floor finding, and a gap that leaves the count limb unable to fail
+  when the fix is lost. No other planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
   Planner batch row, a stated limit, with no revision. A severity-floor finding is excepted. A third revision of AC-3.7 goes to
   steering before any fold.
 - The seam fold, after the last milestone's QA Phase 2 and before the UAT anchor, lands the open rows' text:
