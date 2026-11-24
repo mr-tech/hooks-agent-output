@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 13 (record f9b406d6, AC-6.5's expected-span source, D-21): APPROVED under the M6 cap. The
+  oracle helper on every surface fits the pattern and is independent of the lift as read at website 2e36107. CF-21 (LOW: don't
+  freeze; the helper runs offline and the current pattern runs it live) is a stated limit for the Planner batch. It holds nothing.
   Delta pass on plan 019 revision 12 (record b0af4dc3): APPROVED under steering's M3 cap (block 22:35Z). CF-18 and CF-19 are
   resolved; the atom narrowing fits D-14's visible form. CF-20 (LOW: atoms compare on kind and identifying fields, not
   "source span", because legacy trees carry no spans) is a stated limit in the Planner batch. It holds nothing.
@@ -44,6 +47,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T04:02 | architect-019 | Delta pass on plan 019 revision 13 (record `f9b406d6`); § Delta pass, revision 13. APPROVED; CF-21 LOW raised as a stated limit under the M6 cap. `website.md` A-9 gains the freeze-only-what-cannot-run sentence | Fresh session (brief `steering/019-brief-architect.md`). Read as the revision 13 commit's hunks of `git diff b0af4dc3 f9b406d6` on the plan. Website `2e36107` was read through `git -C … show`/`grep`. The pinned engine was run once over the 272 corpus in a capped scope; the capture is in `verification/019/architect-conformance/rev13/`. |
 | 2026-11-23T22:37 | architect-019 | Revision 12 verdict re-dispositioned under steering's M3 cap (block 22:35Z, commit `41101e7`): APPROVED, with CF-20 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 12, with the original verdict kept in place. |
 | 2026-11-23T22:36 | architect-019 | Delta pass on plan 019 revision 12 (record `b0af4dc3`); § Delta pass, revision 12. CF-18 and CF-19 resolved; CF-20 LOW raised | Read as `git diff ec2440d9 b0af4dc3` on the plan, against § Legacy-only surfaces part (1). Website chain tip `0b9f76f`: `canonicalForm.ts` and `canonFromDom.ts`, read through `git grep`/`git show`. |
 | 2026-11-23T22:31 | architect-019 | Delta pass on plan 019 revision 11 (record `ec2440d9`); § Delta pass, revision 11. CF-18 MEDIUM and CF-19 LOW raised | Read as `git diff 890d0b78 ec2440d9` on the plan, with the implementer's residue captures and website `0b9f76f`/`6379abc`. The tabulation is in `verification/019/architect-conformance/rev11/`. |
@@ -62,6 +66,7 @@ Status-Detail: >-
 
 ## Open items
 
+- **CF-21** goes to the plan's Planner batch as a stated limit under the M6 cap. My next pass reads only that the row exists.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
@@ -297,6 +302,85 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 13 (record `f9b406d6`)
+
+Read as the revision 13 commit's own hunks of `git diff b0af4dc3 f9b406d6 -- planning/019-slate-formatting-discord-engine.md`
+(48 insertions, 27 deletions, out of the range's 139 and 53). The other commits in the range are registration rows and D-20,
+and they change no criterion text. The delta is AC-6.5's "Expected value" and "Entry conditions at M6", D-21, and the owed
+re-verdicts row. Read beside it, at website chain commit `2e36107` through `git -C … show`/`grep`:
+`src/utils/markdown/__tests__/helpers/discordOracle.ts` (whole), its callers, `vitest.config.ts`,
+`helpers/discordInputs.ts`, and the sizes of the `helpers/data/` files. The pinned engine (0.16.0, installed copy, read-only)
+was run once over the 272 corpus under the six `SURFACE_MASK_LITERALS`. The capture is in
+`verification/019/architect-conformance/rev13/`.
+
+**The source.** The helper is now the expected source on every surface, and it fits. At `2e36107`, `discordOracle.ts` imports
+only `parse` and `Syntax` from `@discord/markdown-wasm`. `nativeSurfaceParse(surface, text)` is `parse(text,
+SURFACE_MASK_LITERALS[surface])`, and nothing from `src/utils/markdown` outside `__tests__` is imported. So the plan's
+independence claim holds as read. The emoji-span join that M6 adds lives in that helper, under `__tests__/helpers/` (Test
+Conventions § Placement). That follows the pattern. Each surface now runs its own literal mask, so the field value no longer
+rests on a measured "equal to content on the emoji bits" argument. That is simpler than revision 7's split by surface. CF-11's
+box source and CF-12's flags question have nothing left to apply to (see the disposition line below).
+
+**What it tests.** The plan says plainly that the engine's emoji decision is not under test and that the lift's unit,
+placeholders, offsets and re-deciding are. That is the right boundary under D-13, whose authority is the engine. The
+hand-written control keeps a check on the join that does not come from a run. Its members (each form alone, inside bold, inline
+code, a code block and a link label, in each URL form, and after a backslash) cover the places where a join can drop, shift or
+keep an emoji. Its rule that each literal states its basis follows `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, whose
+literals carry `measuredOn` (A-9). Its route to steering on a disagreement carries what EC-7 asked. Retiring EC-7 is correct,
+because the box it compared against has no emoji set.
+
+**Residue and observability.** The unobserved class, an emoji decision Discord's client makes outside the engine, is named, and a
+user report is recorded under AC-6.5's row in QA's register. Nothing at runtime could observe it, since the site has no Discord
+client to compare against, so a register line is the observability that fits.
+
+**Measured density.** Over the 272 corpus, 11 inputs carry an emoji node, 13 nodes in all, and the counts are identical on all six
+masks. That fits QA P-Q16, where the masks differ only on url-variant link fixtures, which the mask control holds. The generator
+and the 1,662 probe were not run.
+
+### CF-21 LOW — Freeze nothing: the helper runs offline, and the current pattern runs it live
+
+The plan's "Frozen" bullet says the helper's spans are "generated once at M6 and committed as literals for `pnpm test`",
+mirroring `discordNativeBox.json` and the AC-3.7 residue list. Both of those are frozen for one reason: their source is Discord's
+fetched code (module 818948, the legacy formatter). D-4 allows that code only at test time, so `pnpm test`, which runs offline,
+can hold only its outputs (AC-3.2: "`pnpm test` holds the native box's output as frozen literals, and `pnpm test:discord`
+re-derives them live"). The helper has no such source. Its one dependency is the pinned npm package, and the offline suite
+already runs it live:
+- `preview.dom-equals-engine-tree.test.tsx` (project `dom`) imports `nativeParse` from `helpers/discordOracle`;
+- `canonicalForm.appendix-a.test.ts` (project `node`) does the same;
+- `discordOracle.surface-masks.test.ts` (project `node`) calls `nativeSurfaceParse` directly.
+
+None of those sits under `__tests__/discord/`, which `vitest.config.ts` excludes from `node` and `dom`.
+
+| Form | Current pattern at `2e36107` | Status |
+|---|---|---|
+| AC-6.5 expected spans frozen as literals | The engine-side oracle runs live in `pnpm test` (the three files above). Frozen JSON under `helpers/data/` holds only fetched-source outputs (`discordNativeBox.json`, read by `discordInputs.ts`; `discordResidueList.json`; `discordLegacyTrees*.json`) | Deviation, **avoidable** |
+
+The deviation buys nothing and costs a re-derive step:
+- **No independence.** A frozen span is the same helper's output, so axiom E is met equally either way.
+- **A step that live does not need.** A pin change that moves an emoji decision moves the lift too, since the lift follows the
+  same engine. A live expected value follows it. A frozen one fails until C4 re-derives it, which tests the engine's decision,
+  the thing the plan says is not under test.
+- **A second copy of the class.** The literals have to stay keyed to the generator at its committed seed and count, the corpus
+  and the probe. A change to any of them needs a re-freeze, the same staleness work AC-3.7's list carries, where a fetched
+  source leaves no choice.
+
+Size does not decide it. Spans are sparse (13 over the corpus per surface, above), so the file would be small.
+
+- **Follow the current pattern (recommended):** the property calls the helper, with its join, live in `pnpm test` for every
+  input. The hand-written control and the mask control stay as written. Nothing is frozen, and C4 has nothing to re-derive here.
+- **Accept the deviation:** freeze as written. It works, and the cost is the re-derive step and the keyed copy above.
+
+LOW: both forms test the same property. Under the M6 cap it is a stated limit in the Planner batch, not a revision round. If
+it is not adopted, the M6 implementer follows the plan's text as written. Recorded in `website.md` A-9 as the confirmed
+pattern: freezing is for sources the offline suite cannot run.
+
+**Disposition of earlier items.** CF-11 (the box as source) and CF-12 (whether the box takes a flags argument) have nothing left
+to apply to. Revision 13 removes the box as a source, and the plan's owed re-verdicts row records it as superseded. CF-17's and
+CF-20's Planner batch rows exist in revision 13. My Open items read only that they exist.
+
+**Verdict on revision 13:** APPROVED. CF-21 is LOW and goes to the Planner batch as a stated limit under the M6 cap. This gate
+no longer holds AC-6.5's expected value; the critic's and QA's reads still do. Nothing needs the owner.
 
 ## Delta pass, revision 12 (record `b0af4dc3`)
 

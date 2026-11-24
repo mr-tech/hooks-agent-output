@@ -364,6 +364,16 @@ kept in the suite as typed literals with the date it was measured. The pattern i
 never imported by a component. Plan 019 M2's adapter takes this place. A new body of Discord-measured expected values
 that must stay offline-green follows the literal-helper form.
 
+**Which expected values are frozen (chain 019, read at website `2e36107`, unreleased).** Freezing is for a source the offline
+`pnpm test` cannot run. That means Discord's fetched code (D-4 allows it only at test time) or a one-off measurement. Their outputs
+are JSON under `src/utils/markdown/__tests__/helpers/data/`: `discordNativeBox.json`, read by `helpers/discordInputs.ts`;
+`discordLegacyTrees*.json`; and `discordResidueList.json`. The `discord-*` projects run the fetched sources live beside them
+(`helpers/discordLive.ts`, `helpers/discordBoxes.ts`). An oracle the
+offline suite can run, the pinned `@discord/markdown-wasm` behind `helpers/discordOracle.ts` (`nativeParse`,
+`nativeSurfaceParse`), is called live by the `node` and `dom` projects and is not frozen. Such tests include
+`preview.dom-equals-engine-tree.test.tsx`, `canonicalForm.appendix-a.test.ts` and `discordOracle.surface-masks.test.ts`. A new
+expected value from that helper follows the live form (plan 019 CF-21).
+
 ### A-10 — Discord timestamps render in one component, with one locale source and UTC before mount
 
 **Grade**: agent-designed. Read at website `af3d95a` by architect-019 (plan 019 delta pass on revision 6, CF-13, findings
@@ -410,3 +420,4 @@ inference, the UTC rule keeps the first client render equal to the server's.
 | 2026-11-23T17:50 | 18 | architect-019 | Added `A-10` (agent-designed), read at website `af3d95a` in the plan 019 delta pass on revision 6 (CF-13): Discord timestamps render in `MarkdownTimestamp`, with react-aria's locale through dayjs and UTC before mount. The reason given for the UTC rule is marked an inference. No selection of his shaped it. |
 | 2026-11-23T17:55 | 19 | architect-019 | `A-10` gains the effective-locale sentence from the plan 019 delta pass on revision 7 (CF-14). dayjs's locale in effect is not always react-aria's tag, and the consequence now names `dayjs.locale()`. Run on dayjs 1.11.7. Agent-designed. |
 | 2026-11-23T18:00 | 20 | architect-019 | `A-10` picker sentence corrected (plan 019 delta pass on revision 8). It said the map's keys build the picker, which left out the separate `R` button (`MarkdownTimestamp.tsx` lines 115-122 at `af3d95a`). The picker offers the six keys plus `R`. Agent-designed. |
+| 2026-11-24T04:02 | 21 | architect-019 | `A-9` gains "Which expected values are frozen", read at website chain commit `2e36107` (unreleased) in the plan 019 delta pass on revision 13 (CF-21). Fetched-source outputs are frozen JSON, and the pinned-engine helper runs live offline. Agent-designed. No selection of his shaped it. |
