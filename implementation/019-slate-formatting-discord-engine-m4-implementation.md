@@ -143,7 +143,7 @@ Slice 2b: `src/utils/markdown/emojiDisplay.ts` (`emojiSrc`, `isJumboTree`: the s
 
 Slices 2c and 2d: `preview.timestamp-styles.test.tsx`, `preview.timestamp-edit.test.tsx`, `page.field-name-links.test.tsx`; records `m4-red-10.txt`, `m4-green-10.txt`, `m4-run-11.txt`, `m4-green-11.txt`, `m4-red-12.txt`, `m4-green-12.txt`, `m4-mutants-timestamp-out/`, `m4-mutants-fieldname-out/`.
 
-Records under `verification/019/impl/`: `m4-red-1.txt` to `m4-red-3.txt`, `m4-mutants-slice1.txt`, `m4-suite-slice1.{log.txt,exit}`.
+Records under `verification/019/impl/` (`m4-build-entries.py` is the script that assigned the residue list's families, committed for CR-13): `m4-red-1.txt` to `m4-red-3.txt`, `m4-mutants-slice1.txt`, `m4-suite-slice1.{log.txt,exit}`.
 
 ## Patterns Extended
 
