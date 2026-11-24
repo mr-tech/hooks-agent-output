@@ -5,9 +5,10 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 12 (record b0af4dc3), AC-3.7's atom population and RK-9. QAF-34 and QAF-35 are
-  closed; nothing is open from QA in Phase 1. QAF-31 is carried as SL-11. Register: B-1 to B-7. Implementation of M2 to M6 started 18:49Z; Phase 2 on M2
-  is in its own document.
+  Phase 1 re-keyed on plan 019 Revisions 13 and 14 as one re-key (record 2c3c8d1a): AC-6.5's expected-span source, AC-6.7's
+  quote-continuation table and AC-3.3's typed drive. QAF-40 MEDIUM (AC-6.5's helper cannot place a span its engine call does not
+  give) and QAF-41 LOW (AC-6.7's two exclusion conjuncts carry no mutant) go to the planner. B-9 is minted for AC-6.7's walk
+  (SL-15). Register: B-1 to B-9. Phase 2 passes are in their own documents.
 Phase: 1
 ---
 
@@ -76,6 +77,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-23T22:36 | planner-019 (message: revision 12 at record `b0af4dc3`) | Re-key Phase 1 on revision 12 (AC-3.7 atoms, RK-9) | Phase 1 re-key, read as the delta from `64d3a137`. QAF-34 is closed under option (1) and QAF-35 by the family limb. The atom unit (kind and span, not resolved value) is re-keyed as three sole-carrier fixtures with NM-65 to NM-67. RK-9's rise at Phase 2 is a firing QA routes to steering. No new finding. Register swept; B-1 to B-7 cleared. |
 | 2026-11-23T22:39 | planner-019 (message: R-41 at record `d130532a`) | Phase 1, revision 12 stated limits (SL-12, SL-13) | Reconcile line in § Re-key on Revision 12: the atom fixtures are read on kind at the same place plus legacy's identifying fields (SL-12), one fixture and mutant per field; SL-13 noted. No new finding. |
 | 2026-11-23T22:49 | (own pass: QA Phase 2 on M3, `qa/019-slate-formatting-discord-engine-m3-qa.md`) | Register row from the M3 pass | B-8 appended: AC-3.3's paste limb on Chrome's `beforeinput` branch, walked by UAT on an M6 build. |
+| 2026-11-24T04:16 | planner-019 (messages: Revision 13 at `f9b406d6`, Revision 14 at `2c3c8d1a`, SL-15 and SL-16 at R-63) | Phase 1 re-key on Revisions 13 and 14, as one | § Re-key on Revisions 13 and 14. AC-6.5's helper (`nativeSurfaceParse`) imports only `@discord/markdown-wasm`, read at `2e36107`. Its `parse` output gives no source span: `😄:smile:`, `:smile:😄` and `😄😄` parse to one identical tree, and `\*a😄`'s text is `*a`. Disclosed: the record-write gate refused one shell command because it named record paths beside a `sed -i` on a scratch file. It was split into separate commands. **QAF-40 MEDIUM.** AC-6.7's two exclusion conjuncts have no mutant: **QAF-41 LOW**. **B-9** minted for AC-6.7's walk (SL-15, SL-16 (1)). A user-report note for AC-6.5 and AC-6.7 added under the register. |
 
 ## Reading
 
@@ -1128,6 +1130,109 @@ cleared. Rows inherited and not discharged: B-1 to B-7, all open.
 
 Phase 1 is keyed to revision 12. Nothing is open for the planner from QA's side. M4's residue-list commit is not held on QA's account.
 
+## Re-key on Revisions 13 and 14
+
+Revisions 13 (record `f9b406d6`) and 14 (record `2c3c8d1a`) were read together as one re-key, at the planner's ask. That covers
+AC-6.5's "Expected value" and "Entry conditions" (D-21), AC-6.7 with its table, limbs, mutants, human-observable form, residue and
+held-out lists (D-22), AC-3.3's typed drive, AC-6.5's added cross-line control member (F-40, SL-14), and the critic's SL-15 and
+SL-16 (plan R-63). Captures are under `verification/019/qa/rekey-r13-r14/`.
+
+### AC-6.5: the helper as the expected source
+
+- **Independence, read.** `website@2e36107 src/utils/markdown/__tests__/helpers/discordOracle.ts` has one import,
+  `{ parse, Syntax } from '@discord/markdown-wasm'`. `nativeSurfaceParse(surface, text)` is `parse(text,
+  SURFACE_MASK_LITERALS[surface])`. Nothing comes from the adapter or the lift. **Holds.**
+- **The entry point differs from the lift's.** The lift reads `parseLossless`, and the helper calls `parse`. QA's probe at
+  `2e36107` (`qaParseShapes.probe.test.ts`, run network-isolated) shows `parse`'s emoji node carries only its value: `{"type":
+  "emoji", "value": {"type": "unicode", "value": "😄"}}`, with no span and no source text. `parseLossless` carries
+  `span: {start, end}` and the source token. So M6's "emoji-span join" must place every span itself by aligning the tree against
+  the raw text. Two classes defeat that alignment, both run:
+  - `😄:smile:`, `:smile:😄` and `😄😄` give one identical `parse` tree, two 😄 nodes. Their source spans differ: `[0,2) [2,9)`,
+    `[0,7) [7,9)` and `[0,2) [2,4)`.
+  - `\*a😄` gives the text node `*a`: the escape is dropped, so every offset after it moves by one. `\:smile: 😄` gives the
+    text `:smile: `.
+
+QAF-40 MEDIUM Phase 1
+AC-6.5 says no expected span is computed "by the lift's own unit, `?` placeholders or offset mapping", and that the engine is the
+authority on the emoji decision. For the two classes above the engine call the helper makes does not hold the span. The join
+decides it, by a source-recognition and offset mapping that M6 writes. That mapping is the same kind of code under test in the
+lift, and the property is meant to test the lift's offsets. The hand-written control holds "each form after a backslash", which
+reaches the escape class. It has no member where one value comes from two source forms side by side, and none with an escape
+before an emoji on the same text run. So a join that gives `😄:smile:` the spans of `:smile:😄` passes the control and freezes a
+wrong literal.
+
+The property wanted: every expected span is the source span the engine reports, or a hand-written literal. Remedy, for the
+planner. Either the helper reads `parseLossless` under `SURFACE_MASK_LITERALS`, which carries spans and stays independent of the
+adapter, since independence is of the lift's code, not of the engine's function. Or the hand-written control gains these members,
+each with a literal: `😄:smile:`, `:smile:😄`, `😄😄`, `\*a😄` and `a\_b😄`. With them goes a named mutant, a join that matches each
+value at its first occurrence in the line, seen red on them. It holds AC-6.5's literal freeze, which already waits for this
+re-key. Under the M6 cap, steering rules whether it is a stated limit.
+
+- **The hand-written control otherwise.** Members both ways:
+  - forms that lift: on their own, in bold, on the second line of a cross-line bold (F-40);
+  - forms that stay text: inside inline code, a code block or a URL, and after a backslash.
+  A join that drops, shifts or keeps an emoji in code or a URL fails it. QAF-24's url-variant fixtures and NM-44 are unchanged.
+  **Holds**, beyond QAF-40.
+- **Entry conditions.** The box condition recorded false, and EC-7 retired. Read against implementer-019's probe outputs, as
+  named. Not re-run here: D-21 rests on steering's refutation helper (block 03:55Z), and this re-key changes nothing there.
+
+### AC-6.7: the quote-continuation table
+
+The predicate of a `> ` quote line has three conjuncts: the saved text begins with `> `; the line is not inside a `>>>` block; it is
+not inside a fence opened on an unquoted line. The plan's three mutants cover the columns: the carry never fires; the carry fires on
+a paste; no typed `> ` is taken in. None removes a row's exclusion. A carry that ignores the `>>>` conjunct, or the fence conjunct,
+is not named. The AC-3.3 drive also hides both when it keys its marker handling on what the editor shows (below).
+
+QAF-41 LOW Phase 1
+Each exclusion conjunct needs a fixture where it alone carries the decision, and a mutant that drops it:
+- `>>> a⏎> b` with Enter at the end of `> b`: no marker is carried (row 2). NM-68 is a carry that ignores the `>>>` block.
+- `` ```⏎> x `` with Enter at the end of `> x`: no marker is carried (row 3). NM-69 is a carry that ignores a fence opened on an
+  unquoted line.
+- The control in the other direction is `` > ```⏎> x ``, the fence opened on a `> ` line, which carries (row 1). It is the
+  272-corpus row already named.
+
+Also:
+- SL-16 (3) puts a `>>>` block's opening line inside the block. That gives a fourth fixture, `>>> a` with Enter, no carry, and
+  the same mutant NM-68 reaches it.
+- The typed drive is red under NM-68 and NM-69 only if it decides from AC-6.7's table, computed over the input text. A drive that
+  replaces or removes whatever marker the editor shows writes back the same text under a wrong carry. On a line that begins with
+  `> `, "carried then replaced" and "not carried then typed" both save `> b`. So the drive's branch reads the input's predicate,
+  never the editor's state.
+
+Phase 2 records NM-68 and NM-69 red.
+
+- **The quote-line class and QAF-39.** The predicate's `>>>` exclusion is the class QA's M5 pass found the decorator's run unit
+  untested on (`qa/019-slate-formatting-discord-engine-m5-qa.md`, QAF-39). There, `> ` characters inside a `>>>` block are text.
+  The two criteria read one fact, and NM-68's first fixture is a member of both.
+- **Expected values** are literals of the saved text, composed from the keys sent. That meets axiom E, provided the drive is keyed
+  as above.
+- **The walk premise.** QA's walk (`verification/019/qa/discord-quote-probe/walk.md`, record `1e84abe1`) settles the Enter column
+  and the paste column on a `> ` line by rendering. The raw saved text is inferred, as the residue states. Its `>>>` step cannot
+  tell the readings apart, which matches the residue's third line.
+- **SL-16 (1)**: the gesture that ends a continued quote is the implementer's to name. B-9's walk includes it, and B-9 names the
+  dependency.
+- **SL-16 (2)**: a marker is carried from the split until the line's text next changes. A hand-typed `> ` is not carried, and a
+  second `> ` after it is content. That is AC-3.3 typed cases, each red when built the other way, as SL-16 asks. It adds no
+  register row.
+
+### AC-3.3's typed drive
+
+Read as above. A positive control is owed: the named gesture leaves the line empty. The two-way control is owed too: an input line
+that begins with `> ` after a carried line saves one `> `, and `> > b` typed there saves `> > b`. Both are in the criterion. Nothing
+further.
+
+### Register
+
+B-9 is minted for AC-6.7's human-observable form (SL-15). It is not run at minting, because no build carries the quote-carry
+change. The user-report note under the register covers AC-6.5's residue and AC-6.7's.
+
+Register sweep. The predicate is rows citing AC-3.3, AC-6.5, AC-6.7, the paste path or quote lines. B-8 is a member (AC-3.3's paste
+limb in Chrome). Its predicted value, "the JSON value equals the pasted text character for character", for inputs holding a `> `
+and a `>>> ` quote, stands under AC-6.7's paste column, which adds no marker. Checked and cleared. B-1 to B-7 are not members.
+Rows inherited and not discharged: B-1 to B-9.
+
+Phase 1 is keyed to Revision 14. Open for the planner: QAF-40 MEDIUM and QAF-41 LOW.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -1145,12 +1250,18 @@ Stage 1 handoff) are authoritative on each row's execution state.
 | B-6 | observable pre-release | D-12: `pnpm test:discord` exits 0 at the release tip, and `pnpm test` exits 0 offline | The two commands; `pnpm test` under P-Q1's namespace | QA Phase 3 | the release tip assembled | Both exit 0; the drift alarm's hashes equal. 2026-11-23T17:18 reconcile (revision 3): `test:discord` now also holds AC-3.7 and AC-3.8. A C2 drift is reported, not failed, under the outcome table, and the row reads its outcome cause (C1 to C6) beside the exit code. QAF-18 bears on C2's reading. 2026-11-23T17:27 reconcile (revision 4): under C2, the native-box limbs run on the pinned wasm, or report "not comparable under drift" with both hashes and hold nothing. The row records which. | If either is skipped, the release ships unchecked against Discord, or with a suite that needs the network | qa (Phase 3) | the release-tip QA record | open |
 | B-7 | observable pre-release | AC-4.4 (D-17): a listed channel mention previews as its name; a role keeps its id; `/preview` keeps the id | Stage browser on a local production build of M4 with the mention code, signed in as the test account, guild `1566742402180456559` chosen. Type `<#1574358729577599086> <@&1>` into content; read the preview pill texts and class lists. Then the same content on `/preview`. | UAT through the stage browser / the owner | M4's mention code built locally; the local build completes Discord sign-in (B-4's provision read, AN-8's sign-in limb); the page's webhook channel picker lists the guild's channels (it reads the same `useGuild().channels`), read first | Signed in: `#slate-oracle-walk` in `discord-visualizer__mention discord-visualizer__interactive`, and `@&1` in `discord-visualizer__mention`. `/preview`: `#1574358729577599086`, page rendered. No text `unknown` anywhere. One observation refutes by construction. | If the signed-in preview still shows `#1574358729577599086`, the lookup is not wired to the list the page already holds, and his selection buys him nothing; if `/preview` errors, the lookup needs the provider (NM-51 escaped the suite) | uat | UAT document for 019 | open. 2026-11-23T21:44 reconcile (F-35, R-32): the row has two limbs, each run and recorded on its own. Limb 1, signed in ("its id is a channel on the guild's channel list" → "That channel's … name"; "`<@&1>` previews as `@&1`"), uses the build AC-6.3's provision step sets up for B-4: a local Postgres with the schema pushed and the message id sequence moved before any save, `127.0.0.1:3000` and never `localhost`, and sign-in through the test-account browser. Where sign-in cannot be completed, limb 1 closes as a stated limit that quotes the attempt, with handoff 5b19c3e4 item 1 as carrier (AC-6.3's clause), and limb 2 still runs. Limb 2, `/preview` ("no list is in reach (`/preview` …)" → "Today's form: `#<id>`"), needs no sign-in or database. The row depends on B-4's provisioning, so if B-4 is withdrawn, limb 1 is too. UAT's Reading Order row names AC-4.4 at the seam fold (F-35). Hazard, read this pass: the build's `fetchChannels` writes a 10 s cache entry to the `.env.local` Redis, a remote host whose identity is not established on this box (host class read only, P-Q20 § 8). The walk saves nothing; a build that also saves runs the workspace's local-build sequence first (as B-4). Not run at minting: no local build with the mention code exists. |
 | B-8 | observable pre-release | AC-3.3 ("pasting it whole yields the same text", and "after a refused paste the editor's text equals its text before the paste") on the branch a real browser takes: Chrome's `beforeinput` `insertFromPaste`, which the jsdom drive does not reach (M3 Findings 6, Outstanding 7; QA M3 pass) | Stage browser on a local production build of the tip that carries M6's editor: the clipboard set to the member's text, then Ctrl+V into the content editor (full mode) and into the embed title (partial mode). Read the value the message holds through the site's JSON view, which reads what `onChange` handed it; nothing is saved | UAT through the stage browser / the owner | M6 built locally: the editor's paste path stops changing at M6. No sign-in is needed for a new message's editor; if the build requires one, B-4's provisioning applies first | Full mode: for three emoji-free corpus inputs in the pasted limb's passing set, one holding a `> ` quote, one a `>>> ` quote and one a fence, the JSON value equals the pasted text character for character. Partial mode: pasting `a\nb` into the title leaves its text as it was, with the toast; a paste of 6,001 characters into content leaves it as it was. One differing character refutes by construction | If Chrome's paste path inserts text other than the way the `onPaste` fallback the suite drives does, a pasted quote or fence is saved altered, and no test sees it | uat | UAT document for 019 (the inputs named there by corpus index) | open. Saves nothing; a walk that saves runs the workspace's local-build sequence first, as B-4. Not run at minting: no M6 build exists. |
+| B-9 | observable pre-release | AC-6.7's human-observable form (D-22; SL-15; SL-16 (1)): in the content editor, Enter after a `> ` line carries the marker, a paste adds none, and the named gesture ends a continued quote | Stage browser on UAT's local production build of the M6 tip, which carries the quote-carry change. Into a new message's content editor: (1) type `> a`, Enter, `b`; (2) paste `> a⏎b` into an empty editor; (3) type `> a`, Enter, the gesture implementer-019 names to end the quote, then `b`. After each, read the preview, and read the value through the site's JSON view, which reads what `onChange` handed it. Nothing is saved | UAT through the stage browser / the owner | M6's quote-carry change built locally, and the implementer's gesture named in its M6 document. Where the build cannot sign in, the fallback is AC-6.7's production check after deploy (SL-15). That makes it a post-deploy row carried by devops' handoff. | (1) `b` is drawn inside the quote, and the JSON value is `> a\n> b`. (2) `b` is drawn outside the quote, and the value is `> a\nb`. (3) `b` is drawn outside the quote, and the value is `> a\nb`. One differing value refutes by construction | If Enter does not carry, a user's second quoted line falls out of the quote, unlike Discord's box (QA's walk, step 1). If a paste carries, pasted text is saved altered. If the gesture does not end the quote, a user cannot leave a quote by the means the site offers | uat | UAT document for 019 | open. Not run at minting: no build holds the carry change, and the gesture is not yet named. Saves nothing; a walk that saves runs the workspace's local-build sequence first, as B-4. Dependency: the gesture's name, from implementer-019's M6 document |
 
 Candidate held, not minted: a production preview image of a formatted message shows formatted text (E-4, RK-2). Its instrument is
 not established until AN-2 reports. It is minted at the re-key after AN-2 lands, or declined there with the reason.
 2026-11-23T17:18 reconcile: declined at the revision 3 re-key (§ Re-key on Revision 3, "E-4"); RK-2's open limb is routed as QAF-22.
 
 Rows inherited and not discharged: B-1 to B-6, all open (no implementation exists).
+
+**User reports recorded against the register (revisions 13 and 14).** No instrument reads these, so they are not rows. A user
+report of an emoji that Discord's client lifts or leaves as text, where the engine decides otherwise, is recorded here under
+AC-6.5, dated, with its text and the stage that read it. So is a user report that a continued quote cannot be ended, under
+AC-6.7 (B-9). None is recorded yet.
 
 ## Assumption Not Checked
 

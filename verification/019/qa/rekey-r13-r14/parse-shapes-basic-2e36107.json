@@ -1,0 +1,470 @@
+[
+ {
+  "t": "a🙂b",
+  "parse": [
+   {
+    "type": "paragraph",
+    "value": [
+     {
+      "type": "text",
+      "value": "a"
+     },
+     {
+      "type": "emoji",
+      "value": {
+       "type": "unicode",
+       "value": "🙂"
+      }
+     },
+     {
+      "type": "text",
+      "value": "b"
+     }
+    ]
+   }
+  ],
+  "lossless": {
+   "kind": {
+    "type": "document"
+   },
+   "span": {
+    "start": 0,
+    "end": 4
+   },
+   "children": [
+    {
+     "type": "node",
+     "kind": {
+      "type": "paragraph"
+     },
+     "span": {
+      "start": 0,
+      "end": 4
+     },
+     "children": [
+      {
+       "type": "node",
+       "kind": {
+        "type": "text",
+        "value": "a"
+       },
+       "span": {
+        "start": 0,
+        "end": 1
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "text"
+         },
+         "text": "a",
+         "span": {
+          "start": 0,
+          "end": 1
+         }
+        }
+       ]
+      },
+      {
+       "type": "node",
+       "kind": {
+        "type": "emoji",
+        "value": {
+         "type": "unicode",
+         "value": "🙂"
+        }
+       },
+       "span": {
+        "start": 1,
+        "end": 3
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "atom"
+         },
+         "text": "🙂",
+         "span": {
+          "start": 1,
+          "end": 3
+         }
+        }
+       ]
+      },
+      {
+       "type": "node",
+       "kind": {
+        "type": "text",
+        "value": "b"
+       },
+       "span": {
+        "start": 3,
+        "end": 4
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "text"
+         },
+         "text": "b",
+         "span": {
+          "start": 3,
+          "end": 4
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "t": ":smile:",
+  "parse": [
+   {
+    "type": "paragraph",
+    "value": [
+     {
+      "type": "emoji",
+      "value": {
+       "type": "unicode",
+       "value": "😄"
+      }
+     }
+    ]
+   }
+  ],
+  "lossless": {
+   "kind": {
+    "type": "document"
+   },
+   "span": {
+    "start": 0,
+    "end": 7
+   },
+   "children": [
+    {
+     "type": "node",
+     "kind": {
+      "type": "paragraph"
+     },
+     "span": {
+      "start": 0,
+      "end": 7
+     },
+     "children": [
+      {
+       "type": "node",
+       "kind": {
+        "type": "emoji",
+        "value": {
+         "type": "unicode",
+         "value": "😄"
+        }
+       },
+       "span": {
+        "start": 0,
+        "end": 7
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "atom"
+         },
+         "text": ":smile:",
+         "span": {
+          "start": 0,
+          "end": 7
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "t": "<:x:123>",
+  "parse": [
+   {
+    "type": "paragraph",
+    "value": [
+     {
+      "type": "emoji",
+      "value": {
+       "type": "custom",
+       "value": {
+        "animated": false,
+        "name": "x",
+        "id": "123"
+       }
+      }
+     }
+    ]
+   }
+  ],
+  "lossless": {
+   "kind": {
+    "type": "document"
+   },
+   "span": {
+    "start": 0,
+    "end": 8
+   },
+   "children": [
+    {
+     "type": "node",
+     "kind": {
+      "type": "paragraph"
+     },
+     "span": {
+      "start": 0,
+      "end": 8
+     },
+     "children": [
+      {
+       "type": "node",
+       "kind": {
+        "type": "emoji",
+        "value": {
+         "type": "custom",
+         "value": {
+          "animated": false,
+          "name": "x",
+          "id": "123"
+         }
+        }
+       },
+       "span": {
+        "start": 0,
+        "end": 8
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "atom"
+         },
+         "text": "<:x:123>",
+         "span": {
+          "start": 0,
+          "end": 8
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "t": "`🙂`",
+  "parse": [
+   {
+    "type": "paragraph",
+    "value": [
+     {
+      "type": "code",
+      "value": "🙂"
+     }
+    ]
+   }
+  ],
+  "lossless": {
+   "kind": {
+    "type": "document"
+   },
+   "span": {
+    "start": 0,
+    "end": 4
+   },
+   "children": [
+    {
+     "type": "node",
+     "kind": {
+      "type": "paragraph"
+     },
+     "span": {
+      "start": 0,
+      "end": 4
+     },
+     "children": [
+      {
+       "type": "node",
+       "kind": {
+        "type": "code",
+        "value": "🙂"
+       },
+       "span": {
+        "start": 0,
+        "end": 4
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "code_delimiter"
+         },
+         "text": "`",
+         "span": {
+          "start": 0,
+          "end": 1
+         }
+        },
+        {
+         "type": "token",
+         "kind": {
+          "type": "code_content"
+         },
+         "text": "🙂",
+         "span": {
+          "start": 1,
+          "end": 3
+         }
+        },
+        {
+         "type": "token",
+         "kind": {
+          "type": "code_delimiter"
+         },
+         "text": "`",
+         "span": {
+          "start": 3,
+          "end": 4
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "t": "**🙂**",
+  "parse": [
+   {
+    "type": "paragraph",
+    "value": [
+     {
+      "type": "bold",
+      "value": [
+       {
+        "type": "emoji",
+        "value": {
+         "type": "unicode",
+         "value": "🙂"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "lossless": {
+   "kind": {
+    "type": "document"
+   },
+   "span": {
+    "start": 0,
+    "end": 6
+   },
+   "children": [
+    {
+     "type": "node",
+     "kind": {
+      "type": "paragraph"
+     },
+     "span": {
+      "start": 0,
+      "end": 6
+     },
+     "children": [
+      {
+       "type": "node",
+       "kind": {
+        "type": "modifier",
+        "value": {
+         "kind": "bold",
+         "id": 0
+        }
+       },
+       "span": {
+        "start": 0,
+        "end": 6
+       },
+       "children": [
+        {
+         "type": "token",
+         "kind": {
+          "type": "delimiter",
+          "value": {
+           "kind": "bold",
+           "id": 0,
+           "side": "open"
+          }
+         },
+         "text": "**",
+         "span": {
+          "start": 0,
+          "end": 2
+         }
+        },
+        {
+         "type": "node",
+         "kind": {
+          "type": "emoji",
+          "value": {
+           "type": "unicode",
+           "value": "🙂"
+          }
+         },
+         "span": {
+          "start": 2,
+          "end": 4
+         },
+         "children": [
+          {
+           "type": "token",
+           "kind": {
+            "type": "atom"
+           },
+           "text": "🙂",
+           "span": {
+            "start": 2,
+            "end": 4
+           }
+          }
+         ]
+        },
+        {
+         "type": "token",
+         "kind": {
+          "type": "delimiter",
+          "value": {
+           "kind": "bold",
+           "id": 0,
+           "side": "close"
+          }
+         },
+         "text": "**",
+         "span": {
+          "start": 4,
+          "end": 6
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+]
