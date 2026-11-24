@@ -2,13 +2,12 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Verified-At: "2e36107 — repos=website; M5 at the code review's Round 5 Reviewed-At; git-archive exports of 2e36107 (668 of 668 blobs equal) and e58f2ed, each with its own frozen offline install"
-Status: QA Failed
+Verified-At: "2e36107 — repos=website; M5's production source at 2e36107 with cf126ea's four test paths laid over it (QAF-39's fix round, test-only), the tree code review approved (record 79f96321) and steering named (block 05:14Z). Manifest: verification/019/qa/m5-refresh-qaf39/overlay-manifest.txt (668 of 668 paths at their expected blobs). The cf126ea tip's M6 commits are outside this verdict"
+Status: QA Complete
 Status-Detail: >-
-  M5 at website 2e36107 fails, milestone-scoped, on QAF-39 MEDIUM, a severity floor excepted from the cap. The survivor m5-d2,
-  recorded as equivalent, is not: `>>> a\n> _\n> _b_` colours differently when the quote prefix is left out of the run unit, and no
-  case fails. Every other assessed criterion passes. The M4 differential shows zero preview movement, so M4's verdict re-anchors
-  at 2e36107. One fix round is owed, then a refresh over its diff.
+  Refresh over QAF-39's fix round (cf126ea, test-only), run on 2e36107 with the round's four test paths laid over it. QAF-39 is
+  closed: m5-d2 is KILLED by `decorator.native-box-classes` on x8. Offline 3,280 of 3,280, typecheck exit 0, live 41 of 41.
+  M5 passes, milestone-scoped; AC-5.5 is UAT's (B-3). The plan's Status is not moved.
 Phase: 2
 ---
 
@@ -28,6 +27,7 @@ row. B-3 (AC-5.5) is M5's row left open for UAT.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-24T04:12 | code-reviewer-019 (message: M5 APPROVED_WITH_COMMENTS at `2e36107`, record `fdb41883`) | QA Phase 2 on M5, with the M4 differential refresh, G5, W12, W9 and the case-count drop | Phase 2 at `2e36107` in an export. The TDD gate passes. Offline 3,280 of 3,280 over 224 files, exit 0. Typecheck exit 0. Live 41 of 41, exit 0. `next build` exit 0. The M4 differential: 14,280 preview rows, 0 moved, and the planted control moves 2,356. **QAF-39 MEDIUM** (a severity floor): survivor m5-d2 is separated by `>>> a\n> _\n> _b_`. Verdict **QA Failed**, milestone-scoped. Disclosed: one read was not completed and was re-issued as exact-path reads (§ Scope); my brief to the quote-probe walker named any channel, not `#slate-oracle-walk` (reconcile line in `verification/019/qa/discord-quote-probe/walk.md`). |
+| 2026-11-24T05:19 | code-reviewer-019 (message: QAF-39 fix APPROVED_WITH_COMMENTS, Round 5 sub-entry at `cf126ea`, record `79f96321`); steering-hooks-fixer (block 05:14Z, record `3184b3b5`: run on the approved tree) | Refresh pass over QAF-39's fix round | § Refresh pass — QAF-39 fix round. Overlay of `2e36107` with `cf126ea`'s four test paths, 668 of 668 blobs as expected. Frozen offline install exit 0. Offline 3,280 of 3,280 over 224 files, exit 0. Typecheck exit 0. Live 41 of 41, exit 0, with `discordBoxes.oracle-controls` 10 of 10. m5-d2 **KILLED** on x8. **QAF-39 closed.** Verdict **QA Complete**, milestone-scoped. |
 
 ## Scope and stage start
 
@@ -146,3 +146,37 @@ does not test that. Every M5 case reads ranges or jsdom DOM. Falsity signature: 
 - Then code review re-verdicts, and QA refreshes over the round's diff.
 - To `steering-hooks-fixer`: the verdict, the M4 re-anchor, and the disclosures above.
 - Owed next by QA: the Phase 1 re-key for plan Revisions 13 and 14, as one re-key.
+
+## Refresh pass — QAF-39 fix round (`cf126ea`), run on `2e36107` with the round's test paths
+
+- **Stage start.** The code review's committed Round 5 sub-entry, QAF-39's fix APPROVED_WITH_COMMENTS at `Reviewed-At: cf126ea`
+  (record `79f96321`, plan R-73), re-derived from the record.
+- **Tree.** Steering ruled the tree in block 05:14Z (record `3184b3b5`): the one code review approved, not the `cf126ea` tip, which
+  also carries M6's `8cb4d83`, `c3af0ac` and `f58a816`. The tree is a `git archive` of `2e36107` with `cf126ea`'s four test paths
+  laid over it: `discordBoxes.oracle-controls`, `discordInputs.lifted-data`, `discordNativeBox.json` and `discordTypedCases.json`.
+  668 of 668 paths are at their expected blobs (`overlay-manifest.txt`). It has its own frozen offline install, exit 0. The
+  round's diff, `cf126ea^..cf126ea`, is those four paths, 5 lines each way. It adds typed cases x8 `>>> a
+> _
+> _b_` and x9
+  `>>> *a
+> b*`, with their frozen box values.
+
+| Command, captures under `verification/019/qa/m5-refresh-qaf39/` | Result |
+|---|---|
+| `unshare -rn` (lo up) `npx vitest run --project node --project dom --reporter=json` (`suite-offline.*`) | **exit 0**; 224 files, 3,280 of 3,280 |
+| `unshare -rn` `pnpm run typecheck` (`typecheck.*`) | **exit 0** |
+| live `npx vitest run --project discord-node --project discord-dom` (`discord-live.*`) | **exit 0**; 41 of 41. `discordBoxes.oracle-controls` 10 of 10, including the case that re-derives every frozen entry, so x8 and x9 are the live box's values |
+| m5-d2 (the quote prefix line removed from `unitAround`), applied in the export, suite `src/components/SlateEditor` and `discordInputs.lifted-data` (`m5-d2-mutant.*`) | **KILLED**: `decorator.native-box-classes`, AssertionError `expected [ '>>> a\n> _\n> _b_' ] to deeply equal []`, 1 of 204 failing. The file was restored, and its blob equals `2e36107`'s (`3f5166df`, `m5-d2-restore.txt`) |
+
+**QAF-39.** The class member x8 is in the frozen box, its value is re-derived live, and the shipped decorator agrees with the box on
+it: the unmutated suite passes. m5-d2 now reddens on it. **Closed.**
+
+**Verdict, refreshed.** **QA Complete**, milestone-scoped, for M5: production source at website `2e36107`, verified with
+`cf126ea`'s test paths. Every finding of this document is closed. AC-5.5 is UAT's (B-3). The `cf126ea` tip's M6 commits change
+`decorator.tsx` (`unitAround` moves to `runUnit.ts`), `unitStyles.ts`, `SlateEditor/index.tsx` and the desktop and mobile editors.
+They are M6's to verify, and the release tip takes its own verdict at Phase 3. A production change to an M5 path expires this
+verdict. The plan's Status is not moved. Rows inherited and not discharged: B-1 to B-9.
+
+**Assumption Not Checked.** This pass assumes that x8's guard of the quote prefix carries over to M6's `runUnit.ts`, where
+`unitAround` moves. It does not test that, because it runs M5's source. Falsity signature: at M6's tip, the prefix line removed
+from `runUnit.ts` survives the suite. **Owner: QA at M6's Phase 2**, which re-runs m5-d2 in its M6 form.
