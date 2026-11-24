@@ -1192,6 +1192,14 @@ CR-21 LOW Round 6 (M6, capped: a stated limit for the Planner batch)
 To the architect, not a finding against M6: `architecture/system-architecture.md`'s Packaging line reads "pnpm with a patched
 dependency (`simple-markdown` via `patches/`)", which is stale from M6. Sent to `architect-019`.
 
+Reconcile note, 2026-11-24T07:07Z:
+- My CR-20 message to steering said "short messages are unaffected: 2 ms at 35 lines". That was wrong. This round's own table gives
+  0.36 ms at the base against 2.0 ms at the tip at 35 lines, about 5.6 times, a small absolute cost but not "unaffected".
+- The refutation helper's re-timing (rulings block 07:05Z, record `3ec39942`) gives 0.2 to 0.4 ms at the base and 0.9 to 1.8 ms at
+  the tip.
+- The owner's answer, "fix it before release", lifts the cap for CR-20 only. That turns CR-20 from a stated limit into a fix round,
+  so this verdict does not move.
+
 ### Verdict, Round 6
 
 **APPROVED_WITH_COMMENTS** for M6 at `119471f`.
