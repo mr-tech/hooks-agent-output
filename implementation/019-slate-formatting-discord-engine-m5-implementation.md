@@ -160,11 +160,11 @@ Slice 2 (code lines), slice 3 (properties, parse counts, timing, AC-5.8), then t
 
 Written at the end of slice 1 (steering may clear this session).
 
-- **Done.** Website `921eeb8` on the chain branch, tree clean apart from `?? .playwright-mcp/` (foreign). M3 fix round 6 at `b04c09f` and M4's stub-tree records are with qa-019 (record `fe8ce8f3`).
+- **Done.** Checkpoint at record `bd01c00b` and the commit after it. Website `921eeb8` on the chain branch, tree clean apart from `?? .playwright-mcp/` (foreign). M3 fix round 6 at `b04c09f` and M4's stub-tree records are with qa-019 (record `fe8ce8f3`).
 - **Next, in order.** (1) Code lines: write `decorator.code-line-scopes.test.ts` (AC-5.4: nested scopes keep the outer class, expected value highlight.js's HTML parsed by jsdom `DOMParser`; AC-5.3: no zero-length range, none past the node, over `hljs.listLanguages()`), see it red against the `_emitter` path, then replace with a scanner of `HighlightResult.value`; delete the `createLeaf` ast types. (2) AC-5.7: mock `~/utils/markdown/engine` `parseLossless` as a pass-through counter; one parse per unit over a 50-text-node unit; the stale limb; time a 4,096-character multi-line unit, median of 20; over about 10 ms goes to steering. (3) AC-5.8: per legacy-only surface, editor classes vs preview classes in the visible form (`visibleForm.ts`, `previewDom.tsx` helpers exist) over the generator and the 272 corpus. (4) A test for the six call sites' surfaces. (5) stub-tree reds for the two "No" rows. (6) self-check sweep with `mutant-gen.js` in an export, `convention-check.js`, handoff.
 - **Rulings that bind.** M5 capped (00:49Z). D-15 timing: over about 10 ms goes to steering. The two readings (marker class = `syntax`; emoji with no image stays text) are mine to record: the first is built; the second belongs to M6.
 - **Approach in flight.** None; the tree is committed.
 - **Local state not restored.** Scratch only: `scratchpad/export-m5`, `export-m4`, `export-tip`, `mut.py`, `stub_rows.py`.
 - **Evidence run but not recorded.** None.
 - **Questions sent.** None open. Owner questions: none.
-- **Cache-warm wake.** Armed (job `4302ce0c`, fires 01:23 local); re-arm at the next turn.
+- **Cache-warm wake.** Deleted at this checkpoint. Arm a new one on the next turn. The next step is slice 2 (code lines), per "Next, in order".
