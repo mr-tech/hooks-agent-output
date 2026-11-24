@@ -1,0 +1,8 @@
+"# a" {"level":1}
+"## a" {"level":2}
+"### a" {"level":3}
+"#### a" no heading
+"##### a" no heading
+"-# a" null
+"#a" no heading
+"> #### a" no heading

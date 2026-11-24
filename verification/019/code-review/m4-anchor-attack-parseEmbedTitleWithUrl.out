@@ -1,0 +1,14 @@
+{
+ "payloads": 4834,
+ "renders": 24170,
+ "anchors": 0,
+ "byForm": {},
+ "schemesSeen": {},
+ "control": {
+  "parseEmbedTitleWithUrl": 0
+ },
+ "defects": [],
+ "defectCount": 0,
+ "extraAttributes": [],
+ "extraAttributeCount": 0
+}

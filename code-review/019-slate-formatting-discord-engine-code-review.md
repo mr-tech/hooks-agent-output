@@ -2,9 +2,9 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "2c1590f — repos=website; Round 3's latest sub-entry is M3's fix commit 2c1590f (2 paths), the previous at 1698c80 (7 paths); 93b26fd, f131f06, c32e058 (M4) not reviewed; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
+Reviewed-At: "e58f2ed — repos=website; Round 4 is M4 at e58f2ed (its 13 commits in f4060c5..e58f2ed); M3's Round 3 sub-entries at 380e82d (test-only), 2c1590f and 1698c80; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
 Status: In Review
-Round: 3
+Round: 4
 Verdict: APPROVED_WITH_COMMENTS
 ---
 
@@ -25,6 +25,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-23T21:23 | implementer-019 (M3 hand-off, `implementation/019-slate-formatting-discord-engine-m3-implementation.md`, record `f78d803b`, `Handoff-At: f4060c5`) | Review M3 | Round 3 at `f4060c5`: REJECTED on CR-5 MEDIUM (the generator's game mention is AN-8's withdrawn form, so no input exercises `GAME_MENTION`) and CR-6 MEDIUM (the oracle window keeps live XHR and WebSocket). CR-7, CR-8 and CR-9 are LOW, and CR-4 is re-verified partly resolved. CR-7's M6 carriage goes to the planner. |
 | 2026-11-23T22:00 | implementer-019 (M3 fix round 3, website `1698c80`, record `e1c265a7`); steering-hooks-fixer (resume message after `/clear`) | Round 3 sub-entry: confirm CR-5 and CR-6 | Round 3 sub-entry at `1698c80`, scoped to the fix commit's 7 paths. CR-5 and CR-6 are RESOLVED: the removal test shows `GAME_MENTION` live, and the 18-path re-attack, with a positive control, reaches the listener 0 times. A new finding, CR-10 MEDIUM (severity floor), makes the verdict REJECTED: the live control says "no request attempt" by reading `oracle.attempts`, and no assertion fails when `loadBuild`'s wiring of that list is cut (the mutant SURVIVED), or when a refused XHR is touched before `open`. `93b26fd` (M4) is not reviewed here. |
 | 2026-11-23T22:11 | implementer-019 (M3 fix round 4, website `2c1590f`, record `72b59f64`) | Round 3 sub-entry: confirm CR-10 | Round 3 sub-entry at `2c1590f`, scoped to the fix commit's 2 paths. CR-10 RESOLVED: 4 of 4 probes KILLED, the `loadBuild` disconnect among them. CR-11 LOW raised: the XHR Proxy records a member when it is called, not when it is read (`x.upload.addEventListener` and `x.readyState` unrecorded; network still closed). The record corrections are made. APPROVED_WITH_COMMENTS, and M3 goes to QA Phase 2. |
+| 2026-11-24T01:00 | implementer-019 (M4 hand-off, website `e58f2ed`, record `bc73f58c`; M3 Round 5 at `380e82d`); planner-019 (R-44, record `49cb5d73`); steering-hooks-fixer (cap, block 00:49Z, `8de0ac3`) | Review M4; Round 3 sub-entry for `380e82d` | Round 4 at `e58f2ed`: APPROVED_WITH_COMMENTS. The link allow-list held at the rendered anchor: 24,170 renders on each of the 6 surfaces, 0 defects. Planner (d) and (f) hold. AC-3.7's families, counts and a sample were read. CR-12 and CR-13 LOW are stated limits under the cap. Round 3 sub-entry at `380e82d` (test-only): APPROVED_WITH_COMMENTS, CR-14 LOW. |
 
 ## Scope of this round
 
@@ -479,11 +480,149 @@ CR-11 LOW Round 3
 Verdict, Round 3 sub-entry at `2c1590f`: **APPROVED_WITH_COMMENTS**. CR-5, CR-6 and CR-10 are RESOLVED. CR-11 is LOW, and CR-4,
 CR-7, CR-8 and CR-9 are LOW and open as before, each with its carrier. M3 goes to QA Phase 2 at `2c1590f`.
 
+### Round 3 sub-entry: QA's QAF-32 and QAF-33 at `380e82d`
+
+The trigger is the M3 document's Round 5, `Handoff-At` set, carried in implementer-019's M4 hand-off message.
+- Scope: `380e82d`, which touches test files only: `discord/discordReports.run.test.ts`, and `discordOffline.whole-command.test.ts`
+  (renamed from `discord/discordOffline.fetch-failure.test.ts`). It therefore takes the scoped check and opens no round.
+- Test adequacy is QA's, at its refresh pass.
+- M3 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH goes to the Planner batch.
+
+Assessment:
+- **QAF-32.** The offline case now runs the whole `discord-node` and `discord-dom` projects in a loopback-only namespace. It asserts
+  three things: a non-zero exit, the unfetched page named, and no `\d+ passed`.
+- Those three discriminate between them. If `unshare` itself fails, the exit is still non-zero, but the "names the page" case
+  fails.
+- **QAF-33.** The report run writes `driftReport`'s message at the head of `known-differences.md` and on stderr, and two live cases
+  read the head back.
+- Expectations are independent: the served and pinned hashes come from `driftReport` and are compared with the file's text, not
+  with a transcription of it.
+- Placement: the file names meet the positive form.
+
+CR-14 LOW Round 3 (M3, capped: a stated limit for the Planner batch)
+- **Location**: `src/utils/markdown/__tests__/discordOffline.whole-command.test.ts`, the `spawnSync` argument, at `380e82d`.
+- **Class**: a test of a named command that runs its own transcription of that command. When the command changes, the test keeps
+  checking the old one.
+- **Enumeration**:
+  - `git grep -n "project discord-node --project discord-dom" e58f2ed -- src package.json` gives 2 hits: `package.json`
+    `test:discord`, and this test's string.
+  - There are no other spawns of a named script in `src/**/__tests__`: `git grep -n "spawnSync\|execSync" e58f2ed -- src` names this
+    file only.
+  - The predicate does not see a transcription that spells the projects in another order.
+- **Required Action**: spawn `pnpm run test:discord` (or the command read from `package.json` `scripts['test:discord']`) inside
+  `unshare -rn`.
+- **Falsity signature**: with `test:discord` changed to drop `--project discord-dom`, the case spawns what the script says. Today
+  it does not.
+
+Verdict, Round 3 sub-entry at `380e82d`: **APPROVED_WITH_COMMENTS**. QAF-32 and QAF-33 are QA's to close at its refresh.
+
+## Round 4 at `e58f2ed` (M4)
+
+The trigger is implementer-019's M4 hand-off: `implementation/019-slate-formatting-discord-engine-m4-implementation.md`, record
+`bc73f58c`, `Handoff-At: e58f2ed`.
+
+Scope: the M4 commits in `f4060c5..e58f2ed`, read through `git show e58f2ed:<path>`. That is 13 commits:
+- `93b26fd`, `f131f06`, `c32e058`, `36924ae`, `6379abc`, `0b9f76f`, `5ccb54d`;
+- `35c4b40`, `cf605d0`, `aa728f3`, `0bc8e02`, `2149ce2`, `771c64f`, `268b9fb`, `e58f2ed`.
+- Not in scope: the three M3 fix commits in the range (`1698c80`, `2c1590f`, `380e82d`), each reviewed in its own sub-entry above.
+- Size: 20 product files (+436 −91) and 18 new test files.
+
+Criteria, as the plan states them at round open (Revision 12):
+- AC-4.1 to AC-4.8;
+- the site-DOM limbs of AC-3.1, AC-3.6 and AC-3.7;
+- AC-3.8 (ii);
+- AC-4.5.
+
+Rulings that bound this round:
+- **Cap**: M4 to M6 are capped (block 00:49Z, `8de0ac3`). A finding below HIGH becomes a stated limit for the Planner batch, with
+  no fix round. A severity-floor finding, and a security finding at HIGH or above, are excepted.
+- **Planner R-44** (record `49cb5d73`): Outstanding 0a (c) to (h) are stated limits, and two of them are mine to check, (d) and (f).
+- **SL-12 and SL-13** are in force.
+
+Process whose output is the evidence:
+- a `git archive` export of `e58f2ed` with its own frozen install (exit 0; lockfile sha256 equal to the SHA's);
+- every probe ran under `unshare -rn`;
+- the convention check ran on the shared tree, which equals `e58f2ed` over `src` and `package.json` (`git diff --quiet`);
+- the payload sets, oracles and samples are mine.
+
+| Check | Result | Capture |
+|---|---|---|
+| **Link allow-list at the rendered anchor** (security boundary; the M4 item that Round 1's attack left open). Entry point: the production `markdown.static.*`, all six, drawn through `react-dom/server` and read back by the DOM's HTML parser. Input class: M2's 4,834 payloads, each in 5 link syntaxes (`[l](P)`, `[l](<P>)`, `[l](P "t")`, `<P>`, bare after a space): 24,170 renders per surface. Oracle: for every `<a>`, `new URL(rawHref, <document base>).protocol` must be in the allow-list, and the anchor must carry no attribute but `href` and `title` | **0 defects and 0 extra attributes on all six surfaces.** 1,594 anchors per surface on 5 of them, by resolved scheme: `https:` 1,267, `http:` 237, `mailto:` 36, `tel:`, `sms:` and `discord:` 18 each. `embedTitleWithUrl` draws 0 anchors, and its positive control is 0 too, by its mask; the other five controls draw 1 | `m4-anchor-attack.probe.tsx`, `m4-anchor-attack-<surface>.out` |
+| Span units: is the engine's `span` in UTF-16 code units (what `sourceOf` and the timestamp edit slice), or in UTF-8 bytes? | UTF-16. `é**a**` has its bold at 1–6, and `日本 <t:…>` has its timestamp at 3. The edit rewrites the right characters | `m4-span-units.mjs`, `.out` (at `e58f2ed`'s export) |
+| Round 2's Assumption Not Checked: payload branches without a literal table | list `type` is `"unordered" \| "ordered"` (`@discord/markdown-types` 0.14.0), and the ternary covers both. `LinkKind` has 4 members: `masked`/`contact` take label nodes, `detected`/`auto` the url, by design. Quote `line`/`rest` is not branched on. `heading.level` is typed `number` and drawn as `` `h${level}` `` with no table, but the engine emits 1 to 3 only (`#### a` is text) (CR-12) | `m4-heading-levels.mjs`, `.out` |
+| Planner (d): no adjustment module | `git grep -n -i adjust e58f2ed -- src` matches only CSS `text-size-adjust` and the residue list's family text | (command) |
+| Planner (f): each normalisation applies to both sides | Holds at all 3 comparison sites. `looseForm` applies `drawnLanguages` and `collapseRepeatedStyles`, and `looseFormOfLegacy` is `looseForm(legacyCNodes(…))`. `visibleDifferences` applies `drawnLanguages` to both sides when either side is the DOM. The element-map case applies neither to either side | (read at `e58f2ed`: `helpers/previewDom.tsx` `looseForm`; `helpers/visibleForm.ts` `unitsFor`) |
+| Revision 12's Reading Order, AC-3.7: the residue list's families, reasons, counts and sampled entries | 6,142 entries over 5 surfaces. The committed `counts` equal the entries' tally for every family and surface, and both equal the M4 document's table. In a seeded sample (2 per family, never first or last), each family's label matches the entry's minimal differing input, which `m4-dom-residue-all.json` records. Traced: `gen:112` `_\n`` F12; `gen:672` `` `p`` `` F08; `gen:1081` `#  ` F09; `gen:855` `  \n` F14. The rules that assign a family are not in any record (CR-13) | `m4-residue-sample.txt` |
+| `convention-check.js website --since=f4060c5` | 1 FAIL: `GuildProvider.tsx:162` `react-hooks/use-memo`, a line from before the chain base, flagged because the chain touched the file. It is pre-existing; the implementer reports it as a follow-up. 3 CANDIDATEs: `waitFor` poll budgets (`page.channel-names`, `page.field-name-links`, `preview.timestamp-edit`), each resolving when its condition holds and none asserting a duration. ID-token and basename SKIPped by the tool. By hand, over the 18 new test files: 0 basename failures; 0 ID tokens in names, titles or comments (the one hit, `l1`, is fixture data); 0 `// escaped:` lines | `m4-convention-check-e58f2ed.txt` |
+
+The first anchor run, all six surfaces in one process under a 900 s cap, was killed at the cap and wrote nothing. The shards each
+exited 1 only because the probe's synchronous body ran past vitest's 600 s per-test limit, and vitest flags that after the body
+returns. Each output records every one of its 24,170 renders.
+
+Also read and found sound:
+- **Renderer.** `preview.tsx` sends every unmapped node and modifier kind to its source text. The legacy hljs code block's
+  `dangerouslySetInnerHTML` is carried over unchanged from `rules.tsx`. React children carry labels, names and emoji alts.
+- **Emoji.** `emojiSrc` builds through the existing `getEmoteURL` and `getEmojiURL` helpers.
+- **Mentions.** `useGuildChannels` reads the context without throwing outside the provider. The lookup compares `String(id)`,
+  exact past 2^53.
+- **Timestamp edit.** `Markdown.tsx` replaces the span (UTF-16, as above). The popover's `onChange` refreshes with `onEdit` on
+  every render.
+- **Field name.** `embedHasUrl` reaches both the static and the editing branch.
+- **TDD.** Every table row has a red: a first-run failure, or a named mutant in an isolated export. The rows marked "No" are the
+  implementer's named deviations, and the mutants stand as their red; the stub-tree records were not made, as the document says.
+  The `0bc8e02` slip, one failing case fixed at `2149ce2`, is disclosed and intra-chain. The self-check sweep (61 of 71, with 10
+  dispositioned) is the implementer's and QA's to judge at Phase 2; I did not re-run it.
+- **CR-11** (M3) is not addressed at `e58f2ed`. Its carrier is the M4 document's Outstanding -1. Under the caps it goes to the
+  Planner batch with the other open M3 LOWs.
+
+CR-12 LOW Round 4 (M4, capped: a stated limit for the Planner batch)
+- **Location**: `src/utils/markdown/preview.tsx` `createHeading`, at `e58f2ed`.
+- **Class**: a renderer that draws an engine payload through a template rather than a literal table, so that a value outside the
+  table draws a wrong element, with no `markdown-engine-unmapped-kind` line. This is Round 2's Assumption Not Checked, the one
+  member that remains.
+- **Enumeration**: the payload branches in `preview.tsx` are `heading.level`, list `type`, link `kind` and quote (none); the
+  grep is `git grep -n "kind.value as\|kindOf(node).value as" e58f2ed -- src/utils/markdown/preview.tsx`. One member remains,
+  `heading.level`, and it has no reachable value at the pin: the engine emits 1 to 3 (`m4-heading-levels.out`). The predicate does
+  not see a branch on a payload read under another name.
+- **Required Action**: a literal `{ 1: 'h1', 2: 'h2', 3: 'h3' }` with an unknown level drawn as source text through `warnUnmapped`.
+- **Falsity signature**: a fixture tree (one that invents engine output, named so) with level 4 draws `<h4>` today, and draws its
+  source plus the unmapped line after the fix.
+
+CR-13 LOW Round 4 (M4, capped: a stated limit for the Planner batch)
+- **Location**: `helpers/data/discordResidueList.json` `entries[].family`; the build script the M4 document cites as "the build
+  script's rules".
+- **Class**: a committed classification whose rule is in no record, so the family of an entry is a claim that cannot be
+  re-derived.
+- **Enumeration**:
+  - `grep -l "F12\|F99"` over `verification/019/impl/` gives 0 files. The family rules exist neither there nor in the website.
+  - `residueList.check.test.ts` checks that families and counts agree. It does not check that an entry belongs to its family.
+  - The sample above shows the labels holding, for 30 entries.
+- **Required Action**: commit the family-assignment script, its regular expressions in order, under `verification/019/impl/`, with
+  a run over `m4-dom-residue-all.json` whose output equals the committed `family` of every entry.
+- **Falsity signature**: changing one rule's order changes at least one entry's family in that run's output.
+
+Disclosures for Round 4:
+- **My plan row is numbered R-37, which `planner-019` already holds.** I committed it as `05cc2005`, stamped 01:01. I took the
+  number from the last `R-` row in file order, R-36, not the highest number in use, R-46.
+- **The row tool refused the renumbering.** `plan-row-commit.js` refuses a changed second cell by design, so a committed ID stays
+  fixed. I restored my uncommitted edit and left the row as committed, and I did not route around the refusal.
+- **Routed to `planner-019` and steering.** The row's reference is its stamp. The numbering is the planner's to reconcile, and the
+  table already holds two other repeated numbers (R-36 and R-43, not mine).
+
+Verdict, Round 4 (M4 at `e58f2ed`): **APPROVED_WITH_COMMENTS**.
+- The security boundary held under attack at the rendered anchor.
+- No finding reaches MEDIUM, and none is a severity floor.
+- CR-12 and CR-13 go to `planner-019` as stated limits under the 00:49Z cap.
+- M4 goes to QA Phase 2 at `e58f2ed`.
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (Round 3 sub-entry, M3 at `2c1590f`). M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
-**Rationale**: in the Round 3 sub-entries above. Every MEDIUM is resolved with a captured check that fails if it returns. The LOWs
-are carried.
+**Status**: APPROVED_WITH_COMMENTS (Round 4, M4 at `e58f2ed`).
+- M3 stays APPROVED_WITH_COMMENTS: at `2c1590f`, and for its test-only fix at `380e82d`.
+- M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
+
+**Rationale**: in Round 4 and in the Round 3 sub-entries above. Every MEDIUM is resolved with a captured check that fails if it
+returns. The LOWs are carried, those raised under the caps as stated limits.
 
 Reconcile note, 2026-11-23T22:38: the M3 verdict read the plan at Revision 10. Revisions 11 (22:28) and 12 (`b0af4dc3`, 22:34) revise AC-3.7's
 frozen residue list: its per-input entries, atom-bearing population, family check and RK-9. That list is built by M4's
@@ -499,7 +638,9 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 ## Required Actions
 
 None blocking. Open LOWs, each with its carrier:
-- CR-11: this document, checked at M4's round.
+- CR-12, CR-13 (M4) and CR-14 (M3): sent to `planner-019` for the Planner batch as stated limits (cap block 00:49Z).
+- The pre-existing `GuildProvider.tsx:162` lint FAIL: the implementer's follow-up.
+- CR-11: M4 Outstanding -1, not taken at `e58f2ed`; it is now a stated limit under the caps, sent with the batch above.
 - CR-4's remainder, CR-8 and CR-9: M3 Outstanding 11.
 - CR-7's split and re-keying: M3 Outstanding 11. Its M6 deletion: plan R-30.
 - CR-5's preferred form (a zero cell fails the coverage run): M3 Outstanding 11.
@@ -532,22 +673,21 @@ attempts case included, and does not test it. Neither the implementer nor I re-r
 signature: in an export of `2c1590f`, the live file fails a case, or `oracle.attempts` names an address or an `XMLHttpRequest.`
 member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA.
 
+Round 2's Assumption Not Checked is closed at Round 4: it held for list type and link kind, and its residue is CR-12.
+
+Round 4: This review assumes that `discord/discordPreview.legacy-equality.test.tsx` passes at `e58f2ed`, and does not test it.
+The implementer ran it at `aa728f3`'s tree plus the lint-only commit, and I did not run the live command. Falsity signature: a live
+run in an export of `e58f2ed` fails its unlisted, signature or stale case, or prints counts other than the list's 6,142. Owner: QA
+Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
+
 ## Next Steps
 
-- QA (`qa-019`), Phase 2 on M3 at `2c1590f`:
-  - the live command and its reports, including the attempts case (Round 3's Assumption Not Checked and both sub-entries');
-  - the AC-3.4 product-function mutations (Outstanding 5);
-  - the `beforeinput` paste branch (Outstanding 7, or UAT).
-- Implementer: the LOWs in Required Actions, at its choice of round. CR-11 is checked at M4's round.
-- Planner (`planner-019`): CR-7's M6 deletion is registered (R-30). Nothing further is owed.
-- M4 round of this review:
-  - `93b26fd`, `f131f06`, `c32e058` and the rest of M4;
-  - CR-11;
-  - the link allow-list attack re-run against the rendered anchor;
-  - Round 2's Assumption Not Checked.
-  - AC-3.7's families, reasons, counts and sampled entries, per Revision 12's Reading Order, at the residue-list commit.
-  - Any new M3 gap below HIGH goes to `planner-019`'s Planner batch, under the 22:35Z cap.
-  - The residue re-run with the corrected game mention is the M4 document's Next step 5, before the adjustment choice.
+- QA (`qa-019`):
+  - Phase 2 on M4 at `e58f2ed`: `pnpm test:discord` at the approved SHA (Round 4's Assumption Not Checked), and the self-check
+    sweep's survivors;
+  - the refresh pass on M3's `380e82d` (QAF-32 and QAF-33);
+  - the M3 items as before.
+- Planner (`planner-019`): CR-11, CR-12, CR-13 and CR-14 as stated limits in the Planner batch.
 - M5 implementer and this review's M5 round: CR-3.
 
 ## Resumption State
@@ -558,19 +698,21 @@ Written at 2026-11-23T21:33Z for a `/clear`, at steering's ask (`steering-hooks-
   - M2: Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. M2 is
     closed for review.
   - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6. Sub-entry at `1698c80`: CR-5 and CR-6 RESOLVED, REJECTED on CR-10.
-    Sub-entry at `2c1590f`: CR-10 RESOLVED, CR-11 LOW raised, **APPROVED_WITH_COMMENTS**. M3 is with QA Phase 2.
+    Sub-entry at `2c1590f`: CR-10 RESOLVED, CR-11 LOW raised, **APPROVED_WITH_COMMENTS**. M3 is with QA Phase 2. Sub-entry at
+    `380e82d` (test-only, QAF-32 and QAF-33): APPROVED_WITH_COMMENTS, CR-14 LOW.
+  - M4: Round 4 at `e58f2ed`, **APPROVED_WITH_COMMENTS** (CR-12, CR-13 LOW, stated limits under the 00:49Z cap). M4 is with QA
+    Phase 2.
   - Plan rows R-24, R-25, R-27, R-29, R-35 and this sub-entry's row are committed. The verdicts are delivered to
     `implementer-019`, `qa-019` (M2 and M3 approved) and `planner-019` (CR-7).
 - **Next.**
-  - M4, M5 and M6, each at its own document's `Handoff-At`. M4's document is already landing (record `5ad6e64d`, slice 1). The
-    M4 round owes the link allow-list attack against the rendered anchor, and Round 2's Assumption Not Checked. The M5 round owes
-    CR-3.
+  - M5 and M6, each at its own document's `Handoff-At`, under the 00:49Z cap. The M5 round owes CR-3.
 - **Approach in flight.** None.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` and is never moved by me. The
   record is on `master`.
 - **Local state.** The scratchpad holds an export of `1698c80` with its install (`x1698/`) and the mutation work directory
-  (`mwork1/`), an export of `2c1590f` (`x2c15/`) and `mwork2/`. All are disposable. No process of mine is running.
+  (`mwork1/`), an export of `2c1590f` (`x2c15/`), `mwork2/`, and an export of `e58f2ed` (`xe58/`, holding the probe copy
+  `crprobe.anchor-attack.test.tsx`). All are disposable. No process of mine is running.
 - **Evidence run but not recorded.** None. Every probe is under `verification/019/code-review/` and committed (`8da611bc`,
   `dd5b093d`, and this sub-entry's record commit). Install logs are saved as `.log.txt`, because the record ignores `*.log`.
 - **Questions sent, and to whom.** None open.
-- **Cache-warm wake.** Armed at 21:49Z (resume), for 22:44 local.
+- **Cache-warm wake.** Armed, re-armed on each wake (next 01:40 local).

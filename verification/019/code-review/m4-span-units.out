@@ -1,0 +1,5 @@
+{"text":"**a** <t:1700000000:R>","utf16len":22,"utf8len":22,"nodes":[["document",0,22,"**a** <t:1700000000:R>"],["modifier",0,5,"**a**"],["timestamp",6,22,"<t:1700000000:R>"]]}
+{"text":"é**a** <t:1700000000:R>","utf16len":23,"utf8len":24,"nodes":[["document",0,23,"é**a** <t:1700000000:R>"],["modifier",1,6,"**a**"],["timestamp",7,23,"<t:1700000000:R>"]]}
+{"text":"日本 <t:1700000000:R>","utf16len":19,"utf8len":23,"nodes":[["document",0,19,"日本 <t:1700000000:R>"],["timestamp",3,19,"<t:1700000000:R>"]]}
+{"text":"🙂 <t:1700000000:R>","utf16len":19,"utf8len":21,"nodes":[["document",0,19,"🙂 <t:1700000000:R>"],["emoji",0,2,"🙂"],["timestamp",3,19,"<t:1700000000:R>"]]}
+{"text":"🙂 <#123>","utf16len":9,"utf8len":11,"nodes":[["document",0,9,"🙂 <#123>"],["emoji",0,2,"🙂"],["mention",3,9,"<#123>"]]}

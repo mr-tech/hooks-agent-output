@@ -1,0 +1,27 @@
+{
+ "payloads": 4834,
+ "renders": 24170,
+ "anchors": 1594,
+ "byForm": {
+  "masked": 312,
+  "maskedAngle": 321,
+  "maskedTitle": 344,
+  "autolink": 321,
+  "bare": 296
+ },
+ "schemesSeen": {
+  "https:": 1267,
+  "http:": 237,
+  "mailto:": 36,
+  "tel:": 18,
+  "sms:": 18,
+  "discord:": 18
+ },
+ "control": {
+  "parseEmbedDescription": 1
+ },
+ "defects": [],
+ "defectCount": 0,
+ "extraAttributes": [],
+ "extraAttributeCount": 0
+}
