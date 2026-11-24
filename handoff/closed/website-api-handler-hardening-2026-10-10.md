@@ -1,7 +1,7 @@
 ---
 UUID: b1fdd41a
-Status: Open
-Status-Detail: "Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release."
+Status: Addressed
+Status-Detail: "Items 1 (website 7606149) and 2, 3 and 5 were discharged by fixer chain fix-api-secret-compare, released at website 0c14d5b. Item 4 moved to handoff c07b0565. Its post-deploy carrier 3039bc8a is closed: B-1 PASS, and the request-log read was withdrawn on his ruling."
 Owning-Stage: Unassigned. Implementation (fixer or implementer) once the owner routes it; item 1's route is the owner's selection, carried by steering.
 Review-Trigger: When any file under website src/pages/api/ is next edited, when a route is added under /api/v1/, or when src/env.mjs next enters a scope, whichever comes first.
 ---
@@ -32,3 +32,4 @@ Raised by the code review of chain `fix-v1-guild-messages-auth`, round 1, at web
 |---|---|---|
 | 2026-10-10T07:57 | code-reviewer (fix-v1-guild-messages-auth) | Created from CR-2 to CR-5 |
 | 2026-10-10T08:07 | code-reviewer (fix-v1-guild-messages-auth) | Item 1 discharged at website 7606149 (rider 2); item 5 added from CR-7 (sub-entry 1.1) |
+| 2026-11-24T03:58 | steering-hooks-fixer | Document closed | Status: Addressed. This is the closing its record names: "stays open until those reads land, then closes Addressed" (`steering/fix-api-secret-compare-rulings.md:170`). The release record lists items 2, 3 and 5 as discharged (`deployment/closed/fix-api-secret-compare-deployment.md:109`), and item 4 is carried by c07b0565. The reads: B-1 PASS, and the request-log read was withdrawn on his ruling (handoff 3039bc8a, closed). |
