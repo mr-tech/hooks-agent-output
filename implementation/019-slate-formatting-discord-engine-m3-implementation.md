@@ -222,7 +222,9 @@ copy of the working tree with `node_modules` linked), output to files.
   literal hashes (`sha256sum` of `01 02 03` and `01 02 04`): different bytes give `match` false, both hashes and the text
   "DIFFERENT (drift, outcome C2)"; identical bytes give `match` true, "equal" and no "DIFFERENT". TDD Gate: `compareWasm is not a
   function` (red, both cases). Mutants: `match = true` fails the different case (1 assertion), `match = false` fails the equal case
-  (1 assertion).
+  (1 assertion). Tree at `b04c09f`, run in an export (`git archive`, the ignored `next-env.d.ts` and `product_image.png` copied in for the
+  typecheck): offline suite 212 files plus the 2 new, 3,460 of 3,460, exit 0 (`m3-suite-tip-b04c09f.{log.txt,exit}`); `pnpm run typecheck` exit 0
+  (`m3-typecheck-b04c09f.txt`). The working tree itself carries uncommitted M5 work and was not the run.
 
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---------|---------------------|----------------------------------|--------------------------|
