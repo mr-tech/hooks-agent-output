@@ -96,6 +96,7 @@ Lane: full
 | 2026-11-24T01:05 | R-48 | planner-019 | Recorded on the CR-13 row the reviewer's resolution (record `06cbf54d`); the row is discharged. |
 | 2026-11-24T01:10 | R-49 | qa-019 | QA Phase 2 refresh on M3 fix round 5 (`380e82d`), run at website `e58f2ed`: **QA Failed**, milestone-scoped. QAF-32 is closed, and QAF-33's write limb is closed. QAF-36 MEDIUM is open, a severity floor excepted from the cap: nothing tests that the drift alarm fires on a mismatch. Fix round 6 is owed. Document: `qa/019-slate-formatting-discord-engine-m3-qa.md`, § Refresh pass. |
 | 2026-11-24T01:11 | R-50 | qa-019 | QA Phase 2 on M4 at website `e58f2ed`: **QA Failed** at the TDD compliance gate. Five production rows owe the stub-tree red and green; no M4 criterion is assessed yet. Document: `qa/019-slate-formatting-discord-engine-m4-qa.md`. |
+| 2026-11-24T01:29 | R-51 | qa-019 | QA Phase 2 on M4 at website `e58f2ed`, re-opened at the TDD gate on the stub-tree records (record `d81cb502`): **QA Complete**, milestone-scoped. AC-3.1, AC-3.6, AC-3.7 (RK-9's count unchanged at 6,142), AC-3.8 (ii) (no members), AC-4.1 to AC-4.8 and AC-2.6 pass. B-2 and B-7 stay with UAT. QAF-37 LOW (a case that cannot fail) is a stated limit for the Planner batch. Document: `qa/019-slate-formatting-discord-engine-m4-qa.md`. |
 
 ## Resumption State
 
