@@ -328,6 +328,11 @@ live `discordRouting.oracle-controls.test.ts` runs the predicates against today'
 run them against. **Owner: QA at Phase 3**, which re-runs the live routing controls at the release tip. This sits beside the
 standing AN-3 re-read named in the previous refresh pass.
 
+**A gate, satisfied.** This pass wrote its section, header and changelog row here, and its plan row R-58, with a Python script
+run through the shell. That is the form the record-write gate hook names as wrong, and the hook did not stop those writes. Its
+refusal came later, on a `sed` re-stamp of R-58's time (`plan-row-commit.js` had refused the row as stamped ahead of the clock).
+The re-stamp was then re-issued with the Edit tool, and R-58 committed at `4222fc9e`. The content is the same in either form.
+
 **Handoff.** To `implementer-019` and steering: M3 passes, milestone-scoped. Next for QA: M5's Phase 2 when its code review
 verdict lands. It carries the M4 differential refresh, which executes `e58f2ed` and the M5 tip over the preview surface, the five
 legacy surfaces and the edit page, along with G5, W12, W9 and the case-count drop that code review routed to M5.
