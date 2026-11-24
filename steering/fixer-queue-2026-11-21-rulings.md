@@ -1026,3 +1026,5 @@ removed from `handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md` and from
 (`fix-desktop-draft-as-typed-post-deploy`, `get-one-absent-number-still-500-in-production`, `fix-get-one-absent-not-found-post-deploy`).
 Each got one changelog row, committed at `5aadb178` (`--numstat` 1/1 per file). The two preview-image-generator handoffs, whose field names
 real files, are unchanged.
+**Disclosed:** the stamp gate refused this block's heading. This thread had typed 02:58Z while the clock read 02:57Z, and committed it at `e302d4e1`.
+`date -u` then read 02:58Z, so the heading stands as written.
