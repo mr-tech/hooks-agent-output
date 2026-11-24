@@ -1412,3 +1412,27 @@ production change. `qa-019` is told to stop at its next seam and record what it 
 taken on the next fix round's code-reviewed tip.
 Recipients: `planner-019` (the revision), `code-reviewer-019` (it was told the question was pending), `qa-019` (its refresh). The
 implementer is woken by the planner's release, as before.
+
+## 2026-11-24T14:48Z — plan 019 AC-6.9: a narrow Revision 22, and the last fold (this thread's)
+
+`planner-019` by message (14:4xZ) asks whether three items on Revision 21 land as Revision 22 (plan R-96 `b7115584`, R-97 `c8611831`):
+- **F-52, SL-25:** the caret limb's `>>>` literal `>z>> a`. A correct fix gives `>>> az`, because the marker is `quotePrefix`.
+- **F-55 point 2:** the ceiling's rounding. Base plus a quarter, rounded up, gives 27 and 104 ms; the plan says 26 and 105.
+- **CF-30:** a caught throw, or an unbounded `shouldNormalize`, passes the no-throw limb without fixing anything.
+Architect APPROVED (`f4a9534b`), critic APPROVED in cycle 14 pass 1 (`3910c29c`), and QA's re-key is out (plan line 277, read this turn).
+**Ruling: the planner's option 1, a narrow Revision 22 holding these three alone.** Two reasons:
+- F-52 is a literal a correct fix would fail, which is block 07:15Z's class, so it is a criterion change.
+- CF-30's form lets the criterion pass with the defect left in. That is a criterion that cannot fail on the defect it names, so it is
+  also a criterion change.
+The rounding rides along at no extra cost. SL-26, SL-27 and SL-28's other points stay stated limits. Each gate takes the delta inside its
+current read, and QA's re-key reads Revision 22, not 21.
+- **F-52's literal under axiom E:** the expected text is written by hand from the editor's model, as F-52 derives it (`>>> az`, and
+  Backspace on the unmaking member removes the whole marker). The implementer's N = 40 run at `42128cd` cross-checks it and is never its
+  source. A value computed by the code being changed is not an expected value (workspace Test Conventions, axiom E).
+- **The last fold (steering.md, Standing check, decided in advance):** AC-6.9 is created at Revision 21 and revised at 22. After 22, any
+  AC-6.9 finding below HIGH from any gate is a stated limit with no further round. A gate's severity floor is excepted, and so is a literal a
+  correct fix would fail. That second class is recorded as the implementer's measured reading with a hand derivation beside it, not a
+  revision.
+**This thread's gap.** Block 14:33Z did not carry the base medians the ceiling cites; they were only in this thread's scratch. The planner copied
+the captures verbatim into `verification/019/planning/fence-refute/` (with a README; listing read this turn). The ceiling now cites those.
+Recipient: `planner-019`, which cues the gates and holds the implementer's release until all three pass Revision 22.
