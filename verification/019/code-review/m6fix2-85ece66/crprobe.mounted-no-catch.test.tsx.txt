@@ -1,0 +1,38 @@
+import { act } from 'react';
+import {
+  afterEach, beforeAll, describe, expect, it, vi,
+} from 'vitest';
+
+import {
+  CONTENT_SIZES, DESCRIPTION_SIZES, FENCE_AND_QUOTE_KEYSTROKES, firstDifferences,
+} from './helpers/fenceAndQuoteKeystrokes';
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+
+import type { Surface } from '~/utils/markdown/engine';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { unmountEditor(); });
+
+const MOUNTED: Array<[Surface, number]> = [
+  ...CONTENT_SIZES.map((lines) => ['content', lines] as [Surface, number]),
+  ...DESCRIPTION_SIZES.filter((lines) => lines === 2048).map((lines) => ['embedDescription', lines] as [Surface, number]),
+];
+
+describe.each(FENCE_AND_QUOTE_KEYSTROKES)('$name', (keystroke) => {
+  it.each(MOUNTED)('hands the message the changed text on %s, in a message of %j lines', async (surface, lines) => {
+    const mounted = mountEditor(keystroke.text(lines), false, surface);
+    const settle = async () => {
+      await act(async () => { keystroke.press(mounted.editor, lines); });
+      await act(async () => { vi.runOnlyPendingTimers(); });
+    };
+    const errors: unknown[] = [];
+    const onError = (e: ErrorEvent) => { errors.push(e.message); };
+    window.addEventListener('error', onError);
+    await settle();
+    window.removeEventListener('error', onError);
+    expect(errors).toEqual([]);
+    expect(firstDifferences((mounted.writes.at(-1) ?? '').split('\n'), keystroke.changed(lines).split('\n'))).toEqual([]);
+  }, 300_000);
+});

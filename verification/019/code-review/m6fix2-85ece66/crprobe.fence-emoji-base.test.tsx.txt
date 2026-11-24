@@ -1,0 +1,39 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import markdown from '~/utils/markdown';
+
+import type { Descendant } from 'slate';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const parser = markdown.interactive.parseEmoji;
+const median = (xs: number[]) => xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+
+it('base: fence keystrokes over emoji lines', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a', 'a🙂']) {
+    for (const n of [40, 200, 1000]) {
+      for (const [name, before, act] of [
+        ['close fence line 2', '```', (e: Editor) => { Transforms.select(e, Editor.end(e, [2])); e.deleteBackward('character'); }],
+        ['open fence line 2', '``', (e: Editor) => { Transforms.select(e, Editor.end(e, [2])); e.insertText('`'); }],
+      ] as const) {
+        const text = Array.from({ length: n }, (_, i) => (i === 2 ? before : fill)).join('\n');
+        const times: number[] = []; let error = '';
+        for (let k = 0; k < 5; k += 1) {
+          const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parser);
+          editor.children = getInitialValue(text, parser, false) as Descendant[];
+          const t0 = performance.now();
+          try { act(editor); } catch (e) { error = String(e).slice(0, 60); }
+          times.push(performance.now() - t0);
+        }
+        rows.push({ fill, n, name, medianMs: +median(times).toFixed(1), error });
+      }
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

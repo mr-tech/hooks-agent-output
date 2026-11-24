@@ -2,10 +2,10 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "42128cd — repos=website; Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
+Reviewed-At: "85ece66 — repos=website; Round 7 is M6 Fix Round 2 at 85ece66 (42128cd..85ece66); Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
 Status: In Review
-Round: 6
-Verdict: APPROVED_WITH_COMMENTS
+Round: 7
+Verdict: REJECTED
 ---
 
 # Code Review: 019 — Slate formatting: one Discord engine for the preview and the editor
@@ -34,6 +34,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-24T05:14 | implementer-019 (M5 Fix Round 1, website `cf126ea`, record `2c45c566`) | Round 5 sub-entry: confirm QAF-39 | QAF-39's fix is confirmed on M5's own decorator (`2e36107` with `cf126ea`'s four test paths laid over it): 8 of 8 green, and m5-d2 is KILLED on x8 by assertion. The live box passes 10 of 10, its frozen entries re-derived. APPROVED_WITH_COMMENTS. Record correction: the M5 paths at `cf126ea` carry M6's changes (`8cb4d83`, `c3af0ac`, `f58a816`), which are M6's round. My Round 5 acceptance of m5-d2 was a miss, and QA's separating input is recorded. |
 | 2026-11-24T06:54 | implementer-019 (M6 hand-off, record `128c224d`, `Handoff-At: 119471f`; steering's brief not yet arrived) | Review M6 | Round 6 at `119471f`: **APPROVED_WITH_COMMENTS**. CR-18 and CR-19 RESOLVED. AC-6.1b's read holds at `5ec0621` and the tip. The run-unit move is decision-neutral: 0 of 36,690 nodes differ, and the m5-d2 control gives 24. CR-20 MEDIUM, measured: the normaliser rebuilds the run unit per line on every operation, 71 ms per keystroke at 400 lines against 1.1 ms at the base (about 20 ms at 200 lines). It is a stated limit under the cap and goes to steering as an owner question. CR-21 LOW: `emoji-regex` has no importer. |
 | 2026-11-24T09:29 | implementer-019 (M6 Fix Round 1, record `9c6bb958`, `Handoff-At: 42128cd`); planner-019 (dispositions, R-92, record `7100aab8`); steering-hooks-fixer (a finding reached outside the hand-off route: two helper measurements, effort rulings block 09:22Z, record `ed4ab9b8`); steering's brief for the round not arrived | Round 6 sub-entry: confirm CR-20 | Round 6 sub-entry at `42128cd` (tree = `10abfa9`): **APPROVED_WITH_COMMENTS**. CR-20 RESOLVED: one unit build per call, both sweeps reconciled, 2 of 2 mutants KILLED by assertion on the count test. AC-6.8's timed limb holds in its shape (5.5 ms at 2,048 lines). The residue is confirmed by a fixed-point oracle: 8 of 27,252 keystrokes, every one in an unclean-fence input, a wider family than recorded. CR-22 LOW: a failed bench median hangs the run (exit 124). CR-23 MEDIUM, steering's route, re-measured: closing a fence costs 416 ms at 2,048 lines against 166 ms at `119471f`, because of the whole-unit settle per dirty line. It is a stated limit pending the owner's word through steering. Milestone-scoped: the plan Status is not moved. |
+| 2026-11-24T19:40 | implementer-019 (M6 Fix Round 2, record `0a086b41`, `Handoff-At: 85ece66`); steering's brief for the round not arrived | Review M6 Fix Round 2 (AC-6.9) | Round 7 at `85ece66`: **REJECTED** on CR-25 HIGH, whole-run work repeated per operation, because both new memories are keyed on `editor.children`. Closing a code fence above 1,000 emoji lines (3,999 characters) takes 7.6 s, where the chain base throws in 48 ms; a paste of 200 emoji lines takes 940 ms against the base's 241. CF-30's form holds (Slate 0.123.0's budget read; no `catch`, no `shouldNormalize`). The caret fix covers its class: 306 of 36,560 keystrokes differ, all in the selection, each now on the edited line. No throw, mounted or not. The bench fails by assertion (planted ceiling: exit 1, 4.7 s). CR-24 LOW: the mounted test swallows the act's error. CR-23's named member is resolved and its class carried by CR-25. D-24's words govern the fence member. Milestone-scoped: the plan Status is not moved. |
 
 ## Scope of this round
 
@@ -1395,10 +1396,203 @@ CR-23 MEDIUM Round 6 (M6 fix round; reached by steering's route, below; a stated
 - Outstanding 2 and 3 are the planner's dispositions (R-92), not this review's.
 - M6 goes to QA Phase 2 at `42128cd`.
 
+## Round 7 at `85ece66` (M6 Fix Round 2, AC-6.9)
+
+The trigger is implementer-019's hand-off of M6 Fix Round 2 (`implementation/019-slate-formatting-discord-engine-m6-implementation.md`,
+section "Fix Round 2", record `0a086b41`, `Handoff-At: 85ece66`). Steering's brief for the round had not arrived, so I read AC-6.9
+at Revision 22 and the implementer's Outstanding items myself. Steering's message of 14:33Z said only that the fix round would
+come here.
+
+Scope: `42128cd..85ece66`, the three commits `a90ed57`, `a1037e4` and `85ece66`.
+- Production: `withNormalizeNode.ts` (+45 −12). It adds an `editor.normalize` override, `retypeLines`, `linesAgree` and
+  `verifiedLines`, `settledIn` and `settledLines`, and the marker's range delete.
+- Tests: seven paths (two new test files, a new helper, a new bench, the count test, `mountedEditor.tsx`).
+- The fix reaches past CR-23's site (the throw, the caret, a new override), so this is a new round. The whole delta is reviewed as
+  a first review.
+
+Criteria, at round open (Revision 22, plan record `960052d1`; the plan's head is `81523bd6` and later, with no AC-6.9 delta read):
+AC-6.9's limbs (no throw, the write, a fresh load, the caret, cost, red mode), CF-30's admitted forms, CF-31, F-56, and CR-23's
+class.
+
+Process whose output is the evidence:
+- my instruments (`verification/019/code-review/m6fix2-85ece66/`, `README.txt`);
+- the committed bench and a planted control of it;
+- Slate's own source at the pinned version.
+
+### Reading, file by file
+
+- **`editor.normalize` and `linesAgree` (CF-30).** Read against `slate@0.123.0` (`node_modules/.pnpm/slate@0.123.0/…/dist/index.js`).
+  - `shouldNormalize` throws once `iteration > initialDirtyPathsLength * 42`.
+  - `apply` calls `Editor.normalize(editor, { operation })` after every operation.
+  - `withoutNormalizing` restores the flag and then calls `Editor.normalize`.
+  - So the override runs `linesAgree` before each drain while normalizing is on. Its retype runs inside `withoutNormalizing`, so
+    the retype's `set_node` paths are in the dirty set when the drain sizes its budget. The architect's mechanism holds in the code.
+  - No `catch` and no `shouldNormalize` is added: `git grep -n "shouldNormalize\|catch" 85ece66 -- src/components/SlateEditor
+    ':!*__tests__*'` gives only `index.tsx:81`, the focus handler. Added lines matching `catch|shouldNormalize|setNormalizing`: 0.
+  - **CF-30's form holds.** One property changed: a retype that never converged used to end in Slate's bounded iteration error.
+    Now it would recurse through the override until the stack overflows. That is still an error that reaches the caller, so it
+    hides nothing. No probe of mine converged slowly (0 errors in 39,320 keystrokes, below).
+- **The marker (CF-31, F-56).** One `isBlockQuote` arm serves `> ` and `>>> `, and it deletes the marker's range instead of
+  replacing the node's text. `git grep -n "insertText(.*at: \["`: 1 hit at `42128cd`, 0 at `85ece66`. That predicate misses a
+  whole-node replacement written with a `Path` variable, so I read all four `Transforms.insertText` sites at `85ece66`. Each one
+  inserts at a point or a range. **The class is gone.**
+- **`verifiedLines` and `settledIn` (CR-23).** Both memories are keyed on the identity of `editor.children`, which every operation
+  replaces. A drain with no change settles each run once. Any change, such as an emoji lift or a split, starts both memories
+  again. That is CR-25 below.
+- **Tests.**
+  - The settle test's expected texts are hand-written literals (`fenceAndQuoteKeystrokes.ts`).
+  - The fresh-load limb compares with `getInitialValue` of the expected text, which is the limb's own oracle as AC-6.9 states it.
+  - The mounted test swallows any error (`await settle().catch(() => undefined)`); that is CR-24.
+  - The count test adds "builds as many run units" for the keystrokes that make no code lines, and an `afterLine` count of 200 for
+    a keystroke that changes no line type. Both are literals or cross-size equalities.
+  - The new bench asserts inside the bench function on its last iteration, not in a lifecycle hook.
+  - Every fill in AC-6.9's text class is `a`. No case holds an emoji-bearing line.
+- **Conventions.** `convention-check.js --since=42128cd` at `85ece66`: 0 FAIL, 0 CANDIDATE, 18 SKIP, the same 18 as before
+  (`convention-check-since-42128cd.txt`). By hand: 0 ID tokens in the added test lines, and 0 comment lines added. Basenames are
+  in the positive form, and the helper is under `__tests__/helpers/`.
+- **TDD Compliance.** The table is present and has a row per function. The growth limb was never red on a tree before the fix
+  (SL-28, disclosed), only against NM-76. NM-73 and NM-80 survive as forbidden forms absent from the diff, which I confirmed by
+  the grep above.
+- **The implementer's disclosures.**
+  - The foreign SIGTERM is steering's (rulings block 18:36Z).
+  - Shell heredoc writes to the record document passed `record-write-gate-hook` unrefused. That is the class already in
+    `~/.claude/agents/INBOX.md` ("Record-write gate … one more pass by a shell write"). I note this sighting for steering, not as a
+    finding against the code.
+
+### Checks run this round
+
+- **Differential against `42128cd`, with a fixed-point oracle.**
+  - 1,285 inputs: quote fixtures, unclean-fence fixtures, 272 corpus and 1,000 generator texts. Start and end, 8 keys: 36,560
+    keystrokes. **306 differ, every one in the selection only**: the text, line types and emoji elements are identical
+    (`classify-fixedpoint.out.txt`).
+    - In all 306 the fix's caret is on the line just edited (the new line for Enter); in 4 the old caret was elsewhere
+      (`caret-line-check-fixedpoint.out.txt`).
+    - For `>` typed at a line's start, the fix's caret is at offset 0, the start of the text, which is D-25's.
+    - 143 are Enter on a quote line, where the caret now sits at the new line's start.
+  - The 8 non-fixed-point residue keystrokes are the same 8 at both trees, so Outstanding 1's family is unchanged. 0 throws.
+  - 28 hand fixtures, 8 of them quote lines holding fences, 10 keys, three places: 2,760 keystrokes. 87 differ, all in the
+    selection. In 57 the old caret had jumped to another line, and in all 87 the fix's caret is on the edited line
+    (`classify-settle.out.txt`, `caret-line-check-settle.out.txt`). 0 throws.
+  - **The caret fix reaches further than its members**, to typing inside a quote line beside a fence and to Enter on quote lines.
+    No regression was found.
+- **Mounted, with nothing swallowed.** I removed the committed mounted test's `.catch` and asserted no window error event: 42 of 42
+  at `85ece66`. Positive control at `42128cd`: 5 of 7 fail at 200 lines on content, on Slate's iteration error.
+- **The bench's red mode (CR-22's class).**
+  - Ceilings planted at 0.001 ms: exit 1 with `AssertionError: expected 10.03… to be less than or equal to 0.001` in 4.7 s.
+  - The committed bench exits 0 in 20.5 s.
+  - Line-2 fence keystrokes: 9.9 and 6.9 ms at 200 lines, and 83.8 and 75.8 ms at 2,048, against 27 and 104 (box load 0.9 to 2).
+  - **CR-22's class does not recur here.** CR-22 itself, in AC-6.8's bench, is unchanged and stays a stated limit.
+- **Emoji-bearing lines, outside the text class** (`fence-emoji-*.jsonl`, median of 5, `embedDescription`):
+
+  | Keystroke, fill, lines | `af3d95a` (base) | `42128cd` | `85ece66` |
+  |---|---|---|---|
+  | close the fence on line 2, `a🙂`, 200 | 16.2 ms, throws | 17.0 ms, throws, 197 lines wrong | 237.6 ms, settles, 0 wrong |
+  | close, `a🙂`, 1,000 (3,999 characters) | 48.1 ms, throws | 64.0 ms, throws, 997 wrong | **7,599 ms**, settles, 0 wrong |
+  | open the fence on line 2, `a🙂`, 1,000 | 43.5 ms, throws | 77.8 ms, throws, 997 wrong | 404.7 ms, settles, 0 wrong |
+  | close, plain `a`, 1,000 | 43.9 ms, throws | 205.3 ms, throws | 37.0 ms, settles |
+
+  - Correctness at `85ece66` holds on every emoji row: no throw, 0 lines differ from a fresh load, and the selection is collapsed.
+  - The cost does not hold. The `:smile: b` fill gives the same figures as `a🙂` (7,541 ms at 1,000).
+  - Counted (`fence-emoji-count-85ece66.jsonl`): on close over `a🙂`, line settles are 2,469, 9,944, 39,894 and 159,794 at 50,
+    100, 200 and 400 lines, about n². Over plain `a` they are 50, 100, 200 and 400.
+- **Paste**, through slate-react's `insertData`, which the production `onPaste` lets through (`index.tsx`). Unmounted, because
+  `mountEditor`'s fake timers freeze `performance.now` and `process.hrtime`. My mounted timer read 10 ms for every size, and I
+  withdrew it (`paste-insertData-*.jsonl`):
+
+  | Paste, lines | `af3d95a` | `42128cd` | `85ece66` |
+  |---|---|---|---|
+  | `a`, 200 | 182 ms | 491 ms | 463 ms |
+  | `a`, 1,000 | 1,711 ms | 10,349 ms | 9,556 ms |
+  | `a🙂`, 200 | 241 ms | 963 ms | 940 ms |
+  | `a🙂`, 1,000 | 2,879 ms | 27,181 ms | 25,345 ms |
+
+  - Counted at `85ece66` (`paste-count-85ece66.jsonl`): `afterLine` reads are 10,099, 40,199 and 160,399 at 100, 200 and 400
+    lines, about n². The line scan runs once per operation (3 per pasted line).
+  - So the paste is quadratic at the base too. The chain multiplies it 2.5 to 9 times, and that was already so at `42128cd`.
+
+### Findings (Round 7)
+
+CR-23 MEDIUM Round 6: **its named member is RESOLVED; its class is not**.
+- Closing a fence over plain lines settles the run once: 37 ms at 1,000 lines, with line settles equal to the line count.
+- CR-23's Required Action asked for one settle per distinct unit per drain. The fix reaches that only for drains in which no
+  operation lands, and the remainder of the class is CR-25.
+
+CR-25 HIGH Round 7 (M6; outside the AC-6.9 cap, which covers findings below HIGH)
+- **Location**: `withNormalizeNode.ts` `settledIn` (`known?.children === editor.children`) and `linesAgree`
+  (`verifiedLines.get(editor) === editor.children`), at `85ece66`.
+- **Class**: whole-run or whole-document work repeated for every operation of a multi-operation edit. The work is remembered under
+  the identity of `editor.children`, which each operation replaces, so an edit of E operations over N lines costs O(E × N). This is
+  CR-20's and CR-23's property, met here only for drains in which no operation lands.
+- **Magnitude**: measured in node, `embedDescription`, this box, at load 1 to 4.6.
+  - Closing a code fence above lines that each hold an emoji: 238 ms at 200 lines, and **7.6 s at 1,000 lines (3,999 characters,
+    inside the field's 4,096)**. The chain base throws on the same keystroke in 16 to 48 ms.
+  - Pasting 200 lines: 463 ms plain and 940 ms with an emoji per line, against 182 and 241 ms at the base. At 1,000 lines: 9.6 s
+    and 25 s, against 1.7 and 2.9 s.
+  - The browser cost is not measured, which is a hypothesis for UAT. The owner judged CR-23's 416 ms on the same keystroke fit to
+    fix before release (D-24). This member is that keystroke at 18 times that cost, inside the field limit.
+- **Enumeration**: `git grep -n "=== editor.children\|editor.children ===" 85ece66 -- src ':!*__tests__*'` gives 2 hits, the two
+  memories. Members by edit, measured:
+  - removing a fence above emoji lines (each lift resets `settledIn`, n² settles);
+  - opening one (404.7 ms at 1,000 `a🙂` lines, super-linear);
+  - a paste (each split resets `verifiedLines`, n² line reads; already so at `42128cd`, so not introduced by this round).
+  - The predicate does not see repeated whole-document work that is not memoised at all, such as per-operation unit builds over a
+    growing run (2n builds in a paste, each over the run so far). Undo of a paste is not measured.
+- **Why the suite does not see it**: AC-6.9's text class fills every line with `a`, and its residue says inputs outside the class
+  carry no bound. AC-6.8's count limb has an `a🙂` text but no fence or paste keystroke over it. No limb counts work per operation.
+- **Required Action**:
+  - **Preferred (structural)**: the work an edit does is proportional to what it changed. Remember a line's verdict under
+    something an unrelated operation does not replace. For example, key the settled state on the unit's source text, which a lift
+    leaves unchanged, or on the line's own node, whose identity Slate keeps for untouched nodes. Alternatively, settle a run's
+    lifts in one pass inside `Editor.withoutNormalizing`, so a run of E lifts builds and walks the run once.
+  - **Minimum**: none that holds the class. A stated limit would need the owner's word, through steering, beside the D-24 ruling.
+  - Callers: `settledIn` has one caller (`resolveEmoji`, called from `handleElement`). `linesAgree` has two (`handleEditor` and
+    the `normalize` override). Under either form, a no-change drain behaves as now, so AC-6.8's count cases and NM-76's kill stand.
+  - **Falsity signature**: counting cases through pass-through `vi.mock`s, as the count test does, of `spansInLine` (line
+    settles) and `afterLine` (fence reads).
+    - Case 1: Backspace on line 2's ```` ``` ```` over `a🙂` lines, at 200 and 1,000 lines.
+    - Case 2: a paste of `a🙂` lines through `insertData`, at 200 and 1,000 lines.
+    - Each case asserts that the count at 1,000 is at most 10 times the count at 200, where linear work gives 5.
+    - At `85ece66` the ratio is about 25, so the assertion fails on the count, not by a timeout.
+    - Fixture property: every line carries an emoji, and both sizes are inside the field's limit.
+- **Plan gap**, for the planner: AC-6.9's text class (and AC-6.8's keystroke class) has no emoji-bearing fill for a keystroke
+  that retypes lines, and no paste. The residue sentence "Inputs outside the text class carry no bound" is what let this member
+  through.
+
+CR-24 LOW Round 7 (AC-6.9; a stated limit under the cap)
+- **Location**: `SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx`, `await settle().catch(() => undefined)`, at
+  `85ece66`.
+- **Class**: a test that swallows the act's exception, so a mounted-only throw (`42128cd`'s DOM-point error after the iteration
+  error, which the implementer recorded) passes whenever the last write happens to be right.
+- **Enumeration**: `git grep -n "\.catch(() => undefined)\|catch {}\|catch (_" 85ece66 -- 'src/**/__tests__/**'` gives 2 hits.
+  - This site is the member.
+  - `message.personal-ownership.test.ts`'s "takes the largest number … to the database" is not a member: its case asserts only
+    that a query reached the database, so the call's own outcome is not what it tests.
+  - The predicate misses a `try` whose `catch` records and ignores. The settle test's `try` records the message and asserts it.
+- **Required Action**: the mounted case asserts no error, as `crprobe.mounted-no-catch.test.tsx.txt` does (42 of 42 at
+  `85ece66`, 5 of 7 red at `42128cd`). Falsity signature: at `42128cd`, the case fails on the thrown error's message, not on a
+  write mismatch.
+
+### Verdict, Round 7
+
+**REJECTED** for M6 at `85ece66`, on CR-25 HIGH.
+- Everything else holds:
+  - the throw's fix takes the admitted form (CF-30);
+  - the caret fix covers its class (CF-31, F-56) and more, with no regression in 39,320 keystrokes;
+  - no keystroke of mine throws, mounted or not;
+  - AC-6.9's limbs pass on its text class, and its bench fails by assertion.
+- CR-24 LOW is a stated limit.
+- **A production defect's fix is held, and an existing ruling answers it.** D-24 reads: "Both code-block problems are fixed inside
+  019 before its one release: … and CR-23's fence-close cost". The option he chose was set against "Bring code-block closing back
+  to roughly today's speed" (effort rulings block 14:33Z, record `d7eb0a40`).
+  - Closing a fence above emoji lines at 7.6 s is CR-23's fence-close cost, so D-24 already decides it is fixed before release,
+    and I do not re-ask.
+  - The paste member is outside D-24's words but in the same class. A HIGH is outside the cap and off the rounds-stop ladder.
+  - Steering is told, so it can read the cap for paste if it reads it otherwise.
+
 ## Verdict
 
 **Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
-- M6 is **APPROVED_WITH_COMMENTS** at `42128cd` (Round 6 sub-entry). CR-20 is RESOLVED. CR-22 LOW is a stated limit. CR-23 MEDIUM is a stated limit pending the owner's word through steering. Round 6 at `119471f` is superseded for M6 by the sub-entry.
+- M6 is **REJECTED** at `85ece66` (Round 7), on CR-25 HIGH: whole-run work repeated per operation, 7.6 s to close a code fence above 1,000 emoji lines, and paste 2.5 to 9 times the base. CR-24 LOW is a stated limit. CR-23's named member is resolved and its class carried by CR-25. CR-22 LOW stands for AC-6.8's bench. Before Round 7, M6 was APPROVED_WITH_COMMENTS at `42128cd` (Round 6 sub-entry); D-24 then reopened it.
 - M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`, with its sub-entry for QAF-39 at `cf126ea`, checked on M5's source).
 - M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`). CR-17 is a LOW stated limit and does not move it.
 - M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
@@ -1420,7 +1614,12 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 
 ## Required Actions
 
-None blocking. CR-15 is RESOLVED at `d6aab03`.
+Blocking (Round 7, M6 at `85ece66`): **CR-25 HIGH**. Eliminate the class, whole-run or whole-document work repeated for every
+operation of a multi-operation edit, by its Preferred form or another that meets its falsity signature: the two counting cases over
+emoji-bearing lines, for a fence close and a paste. CR-24 LOW rides the same round if the implementer touches the mounted test; it
+is otherwise a stated limit.
+
+M3 and earlier: none blocking. CR-15 is RESOLVED at `d6aab03`.
 
 Open LOWs, each with its carrier:
 - CR-16 (M3): a stated limit in the Planner batch, plan R-54 (record `dcbde053`).
@@ -1468,6 +1667,8 @@ Round 2's Assumption Not Checked is closed at Round 4: it held for list type and
 
 Round 6: This review assumes that slate-react in Chrome routes Enter and Shift+Enter in a `> ` quote line through `editor.insertBreak` and `editor.insertSoftBreak`, the two methods M6's carry overrides, as the jsdom drive does, and does not test it. The suite drives the editor's methods, not the browser's `beforeinput` path. Falsity signature: in Chrome on a local production build, `> a`, Enter, `b` saves `> a\nb` (no carried marker), or Shift+Enter carries where Enter does. Owner: UAT, at AC-6.7's human-observable walk on AC-6.3's local build.
 
+Round 7 at `85ece66`: This review assumes that a paste in Chrome reaches slate-react's `insertData` and splits into one operation set per line, as my unmounted drive of `insertData` does, and does not test it. I timed the paste unmounted, because the mounted helper's fake timers freeze the clock, so CR-25's paste magnitude rests on that path. Falsity signature: in Chrome on a local production build of `85ece66`, pasting 200 lines of `a🙂` into the embed description, profiled, shows normalise time within a few times the chain base's for the same paste (where node gives 940 ms against 241 ms). Owner: QA Phase 2 on CR-25's fix round, against the counting case's figures, or UAT's B-11 walk if QA has no browser.
+
 Round 6 sub-entry at `42128cd`: This review assumes that in a mounted editor in Chrome, the residue's unsettled line (an emoji shown as text after a key that crosses an unclean fence) is settled by the next keystroke anywhere in its unit, and does not test it. I tested the residue against a forced `Editor.normalize` in node, not against later typing or slate-react's render. Falsity signature: in Chrome on a local production build of `42128cd`, after typing `` ` `` at the start of `q` in `q⏎```ts⏎``a 🙂⏎```⏎🙂`, the 🙂 on line 2 stays plain text after a further keystroke on line 0 or 2, or the editor throws. Owner: UAT, at B-10's human-observable walk on AC-6.3's local build.
 
 Round 5: This review assumes that the run-unit decorator's per-edit cost in a real browser is of the same order as the node timing the implementer recorded (median 4.87 ms over a 4,160-character, 35-line unit), and does not test it. The timing was read under vitest in node, not in Chrome with slate-react's render loop. Falsity signature: in Chrome on a local production build, a decorate pass over AC-5.7's 4,096-character multi-line unit, profiled during typing, takes over 16 ms (one frame), or typing shows visible input lag. Owner: UAT, at AC-5.5's real-browser walk (QA register B-3), which runs on that build.
@@ -1493,7 +1694,10 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
   - the refresh pass on M3's `380e82d` (QAF-32 and QAF-33);
   - the M3 items as before.
 - Planner (`planner-019`): CR-11, CR-12, CR-14 and CR-16 as stated limits in the Planner batch (CR-13 is resolved).
-- QA (`qa-019`): Phase 2 on M6 at `42128cd`, the fix round. CR-22 means the bench's red reads as exit 124, not as an assertion. My probes are in `verification/019/code-review/m6fix-42128cd/`.
+- Implementer (`implementer-019`): **CR-25 HIGH** (Round 7, REJECTED at `85ece66`). Its falsity signature and my probes are in `verification/019/code-review/m6fix2-85ece66/`. CR-24 LOW too if the mounted test is touched.
+- Planner (`planner-019`): CR-25's plan gap (no emoji-bearing fill, and no paste, in AC-6.9's text class) and CR-24 as a stated limit.
+- Steering (`steering-hooks-fixer`): Round 7's reject holds a production defect's fix. D-24's words govern the fence member; the cap reading for the paste member is steering's.
+- QA (`qa-019`): no M6 hand-off until CR-25's fix is reviewed. Round 7's Assumption Not Checked is QA's on that round.
 - Steering (`steering-hooks-fixer`): CR-23 MEDIUM, beside the iteration-cap throw it is putting to the owner.
 - Planner (`planner-019`): CR-22 LOW and CR-23 MEDIUM as stated limits, unless the owner rules otherwise; and Outstanding 1's wider family for R-92's row.
 - UAT: the Round 6 sub-entry's Assumption Not Checked, at B-10.
@@ -1512,12 +1716,17 @@ Written 2026-11-24T07:07Z for a `/clear`, at steering's ask (`steering-hooks-fix
 - **Done since (2026-11-24T09:29Z).** The CR-20 fix confirmation is the Round 6 sub-entry at `42128cd`: APPROVED_WITH_COMMENTS,
   with CR-22 LOW and CR-23 MEDIUM. The fix did not touch `runUnit.ts` or `decorator.tsx`, so step 3 of the earlier plan (the
   both-trees decorator differential) was not owed.
-- **Next (pending).** The owner chose to fix CR-23 and the code-fence throw before release (selection 14:32Z, effort rulings
-  block 14:33Z, record `d7eb0a40`). The planner writes the revision, and the fix round reaches this review at its hand-off.
+- **Done since (Round 7).** M6 Fix Round 2 at `85ece66` is REJECTED on CR-25 HIGH, with CR-24 LOW. Probes are in
+  `verification/019/code-review/m6fix2-85ece66/`.
+- **Next (pending).** CR-25's fix round, as a sub-entry of Round 7 unless it touches beyond CR-25's scope.
+  - Re-run `crprobe.fence-emoji-count` and `crprobe.paste-count` (copied into an export with `CRPROBE_OUT`), and check that the
+    falsity signature's two counting cases are red at `85ece66`.
+  - Re-run the fixed-point differential against `85ece66`.
+  - Time `crprobe.fence-emoji` and `crprobe.paste-emoji-unmounted` against the base figures in Round 7.
   That round's confirmation would be a sub-entry of Round 6, with the fence-toggle probe (`m6fix-42128cd/crprobe.fence-toggle…`)
   re-run and the falsity signature in CR-23 checked. M7 is devops's. This review has no M7 round unless steering asks.
 - **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `42128cd`. I never move it. The
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `85ece66`. I never move it. The
   record is on `master`.
 - **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds `qaf36/`, `m5/` and `m6/`, with exports and
   probe copies, all disposable.

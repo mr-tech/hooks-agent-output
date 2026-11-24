@@ -1,0 +1,98 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant, Element } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+beforeAll(async () => { await startEngine(); });
+
+const FIXTURES: string[] = [
+  '``\n> ```\n> b',
+  '``\n> ```\n> b\n```',
+  '> ``\n> x\n> ```',
+  '> ```\n> x\n> ``\nb',
+  '>> ```\nx\n```',
+  '``\n>>> a\n```\nb',
+  '```\n> a 🙂\n```',
+  '`` \n> 🙂',
+
+  '```ts\n``a 🙂\n```',
+  '`a\n🙂`',
+  '`a\nb\n🙂 c`',
+  '||a\n🙂||',
+  '```\nx\n```\n`a\n🙂`',
+  'a\n```\n🙂\n```\nb 🙂',
+  '```\n🙂\n',
+  '> `a\n> 🙂`',
+  '>>> `a\n🙂`',
+  '`a\n```\n🙂`\n```',
+  'x `\n```js\ncode 🙂\n```\n` 🙂',
+  '\\`a\n🙂`',
+  ':smile: `a\nb 🙂`',
+  'a 🙂\n```\n',
+  '``a\n```\n🙂``',
+  '🙂 `\n```\n🙂\n```\n🙂 `',
+  '```\n`\n```\n🙂`',
+  '*a\n🙂*',
+  'a\n```js\n🙂\n```\n🙂',
+  '> ```\n> 🙂\n> ```\n🙂',
+];
+
+const KEYS = ['x', '`', '\\', '|', '*', '>', ' ', '<backspace>', '<delete>', '<enter>'];
+const PLACES = ['start', 'middle', 'end'] as const;
+
+function build(text: string) {
+  const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+  editor.children = getInitialValue(text, 'embedDescription', false) as Descendant[];
+  return editor;
+}
+
+const snap = (editor: Editor) => JSON.stringify({ c: editor.children, s: editor.selection });
+
+it('keystroke settle probe', { timeout: 600000 }, () => {
+  const out: Record<string, { after: string; fixedPoint: boolean }> = {};
+  FIXTURES.forEach((text, f) => {
+    const lineCount = text.split('\n').length;
+    for (let line = 0; line < lineCount; line += 1) {
+      for (const place of PLACES) {
+        for (const key of KEYS) {
+          const editor = build(text);
+          if (line >= editor.children.length) continue;
+          const at = place === 'start' ? Editor.start(editor, [line]) : Editor.end(editor, [line]);
+          if (place === 'middle') {
+            const el = editor.children[line] as Element;
+            const first = el.children[0] as { text?: string };
+            const off = typeof first.text === 'string' ? Math.floor(first.text.length / 2) : 0;
+            Transforms.select(editor, { path: [line, 0], offset: off });
+          } else {
+            Transforms.select(editor, at);
+          }
+          let err = '';
+          try {
+            if (key === '<backspace>') editor.deleteBackward('character');
+            else if (key === '<delete>') editor.deleteForward('character');
+            else if (key === '<enter>') editor.insertBreak();
+            else editor.insertText(key);
+          } catch (e) { err = String(e); }
+          const after = err ? `ERR ${err}` : snap(editor);
+          let fixedPoint = true;
+          if (!err) {
+            try { Editor.normalize(editor, { force: true }); } catch (e) { fixedPoint = false; }
+            fixedPoint = fixedPoint && snap(editor) === after;
+          }
+          out[`${f}|${line}|${place}|${key}`] = { after, fixedPoint };
+        }
+      }
+    }
+  });
+  writeFileSync(process.env.CRPROBE_OUT as string, JSON.stringify(out));
+});

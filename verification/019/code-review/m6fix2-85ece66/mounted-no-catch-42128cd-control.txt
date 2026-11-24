@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/0380c447-6f27-4944-8b28-389197260b3c/scratchpad/r7/42128cd
+
+ ❯ |dom| src/components/SlateEditor/__tests__/crprobe.mounted-no-catch.test.tsx (42 tests | 5 failed | 35 skipped) 1023ms
+     × hands the message the changed text on content, in a message of 200 lines 205ms
+     × hands the message the changed text on content, in a message of 200 lines 194ms
+     × hands the message the changed text on content, in a message of 200 lines 116ms
+     × hands the message the changed text on content, in a message of 200 lines 110ms
+     × hands the message the changed text on content, in a message of 200 lines 123ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/crprobe.mounted-no-catch.test.tsx > 'the third backtick typed at the end o…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/crprobe.mounted-no-catch.test.tsx > 'Backspace at the end of the ``` on li…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/crprobe.mounted-no-catch.test.tsx > '> typed at the start of line 0 ">> a"' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/crprobe.mounted-no-catch.test.tsx > '> typed at the start of line 0 ">> ab…' > hands the message the changed text on content, in a message of 200 lines
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/crprobe.mounted-no-catch.test.tsx > 'Backspace at the start of the text of…' > hands the message the changed text on content, in a message of 200 lines
+Error: Could not completely normalize the editor after 84 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 2 passed | 35 skipped (42)
+   Start at  19:24:58
+   Duration  3.04s (transform 369ms, setup 22ms, import 1.09s, tests 1.02s, environment 572ms)
+
+exit=1

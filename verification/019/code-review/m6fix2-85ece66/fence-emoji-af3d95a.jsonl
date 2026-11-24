@@ -1,0 +1,12 @@
+{"fill":"a","n":40,"name":"close fence line 2","medianMs":7,"error":""}
+{"fill":"a","n":40,"name":"open fence line 2","medianMs":5.8,"error":""}
+{"fill":"a","n":200,"name":"close fence line 2","medianMs":20.2,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a","n":200,"name":"open fence line 2","medianMs":16.4,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a","n":1000,"name":"close fence line 2","medianMs":43.9,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a","n":1000,"name":"open fence line 2","medianMs":43.3,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a🙂","n":40,"name":"close fence line 2","medianMs":11.5,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a🙂","n":40,"name":"open fence line 2","medianMs":4.7,"error":""}
+{"fill":"a🙂","n":200,"name":"close fence line 2","medianMs":16.2,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a🙂","n":200,"name":"open fence line 2","medianMs":16.9,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a🙂","n":1000,"name":"close fence line 2","medianMs":48.1,"error":"Error: Could not completely normalize the editor after 126 i"}
+{"fill":"a🙂","n":1000,"name":"open fence line 2","medianMs":43.5,"error":"Error: Could not completely normalize the editor after 126 i"}

@@ -1,0 +1,25 @@
+import { afterEach, beforeAll, it } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import { mountEditor, pasteText, unmountEditor } from './helpers/mountedEditor';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { unmountEditor(); });
+
+const rows: object[] = [];
+for (const fill of ['a', 'a🙂']) {
+  for (const n of [50, 200, 1000]) {
+    it(`paste ${n} ${fill}`, async () => {
+      const mounted = mountEditor('', false);
+      const text = Array.from({ length: n }, () => fill).join('\n');
+      const t0 = process.hrtime.bigint();
+      await pasteText(mounted, text);
+      const ms = Number(process.hrtime.bigint() - t0) / 1e6;
+      const last = mounted.writes.at(-1) ?? '';
+      rows.push({ fill, n, ms: +ms.toFixed(1), wroteText: last === text });
+      writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+    }, 300_000);
+  }
+}

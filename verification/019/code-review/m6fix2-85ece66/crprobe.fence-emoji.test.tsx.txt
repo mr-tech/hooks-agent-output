@@ -1,0 +1,74 @@
+import { createEditor, Editor, Range, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant, Element } from 'slate';
+import type { Surface } from '~/utils/markdown/engine';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+
+const build = (text: string, surface: Surface) => {
+  const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, surface);
+  editor.children = getInitialValue(text, surface, false) as Descendant[];
+  return editor;
+};
+const shape = (lines: Element[]) => lines.map((line) => JSON.stringify([
+  line.type, line.quotePrefix ?? null, line.startCodeBlock, line.lang,
+  line.children.map((c) => ((c as { type?: string }).type === 'emoji' ? `[${(c as { source: string }).source}]` : (c as { text: string }).text)),
+]));
+const median = (xs: number[]) => xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+
+type Key = { name: string; before: string; after: string; line: (n: number) => number; act: (e: Editor, line: number) => void };
+const typeEnd = (ch: string) => (e: Editor, line: number) => { Transforms.select(e, Editor.end(e, [line])); e.insertText(ch); };
+const backEnd = (e: Editor, line: number) => { Transforms.select(e, Editor.end(e, [line])); e.deleteBackward('character'); };
+const typeStart = (ch: string) => (e: Editor, line: number) => { Transforms.select(e, Editor.start(e, [line])); e.insertText(ch); };
+
+const KEYS: Key[] = [
+  { name: 'open fence line 2', before: '``', after: '```', line: () => 2, act: typeEnd('`') },
+  { name: 'close fence line 2', before: '```', after: '``', line: () => 2, act: backEnd },
+  { name: 'quote marker before emoji line 0', before: ' 🙂 a', after: '> 🙂 a', line: () => 0, act: typeStart('>') },
+  { name: '>>> marker before emoji line 0', before: '>> 🙂 a', after: '>>> 🙂 a', line: () => 0, act: typeStart('>') },
+];
+const FILLS = ['a', 'a🙂', ':smile: b'];
+
+it('fence and quote keystrokes over emoji lines', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const surface of ['content', 'embedDescription'] as Surface[]) {
+    for (const fill of FILLS) {
+      for (const n of [40, 200, 1000]) {
+        for (const key of KEYS) {
+          const textOf = (own: string) => Array.from({ length: n }, (_, i) => (i === key.line(n) ? own : fill)).join('\n');
+          const times: number[] = [];
+          let error = '';
+          let mismatch = -1;
+          let firstBad = '';
+          let collapsed = true;
+          for (let k = 0; k < 5; k += 1) {
+            const editor = build(textOf(key.before), surface);
+            const t0 = performance.now();
+            try { key.act(editor, key.line(n)); } catch (e) { error = String(e).slice(0, 80); }
+            times.push(performance.now() - t0);
+            if (k === 0) {
+              collapsed = editor.selection !== null && Range.isCollapsed(editor.selection);
+              const got = shape(editor.children as Element[]);
+              const want = shape(getInitialValue(textOf(key.after), surface, false) as Element[]);
+              mismatch = got.filter((s, i) => s !== want[i]).length + Math.abs(got.length - want.length);
+              const i = got.findIndex((s, j) => s !== want[j]);
+              if (i >= 0) firstBad = `line ${i}: ${got[i]} want ${want[i]}`;
+            }
+          }
+          rows.push({ surface, fill, n, key: key.name, error, mismatch, firstBad, collapsed, medianMs: +median(times).toFixed(1) });
+        }
+      }
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

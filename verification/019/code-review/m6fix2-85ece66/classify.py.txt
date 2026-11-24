@@ -1,0 +1,18 @@
+import json, sys, collections
+a = json.load(open(sys.argv[1])); b = json.load(open(sys.argv[2]))
+def parts(s):
+    if s.startswith('ERR'): return ('ERR', s, None, None)
+    d = json.loads(s)
+    def t(l): return (l.get('quotePrefix') or '') + ''.join(c.get('text', c.get('source', '')) for c in l['children'])
+    text = '\n'.join(t(l) for l in d['c'])
+    types = [(l.get('type'), l.get('quotePrefix'), l.get('startCodeBlock'), l.get('lang')) for l in d['c']]
+    elems = [[c.get('source') for c in l['children'] if c.get('type') == 'emoji'] for l in d['c']]
+    return (text, types, elems, d['s'])
+kinds = collections.Counter(); ex = {}
+for k in a:
+    if a[k]['after'] == b[k]['after']: continue
+    pa, pb = parts(a[k]['after']), parts(b[k]['after'])
+    kind = tuple(n for n, i in (('text', 0), ('types', 1), ('emoji', 2), ('selection', 3)) if pa[i] != pb[i]) or ('json-only',)
+    kinds[kind] += 1; ex.setdefault(kind, []).append(k)
+for kind, n in kinds.most_common():
+    print(n, kind, ex[kind][:12])

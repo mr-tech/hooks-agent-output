@@ -1,0 +1,2 @@
+(fix caret on expected line, old caret on expected line): {(True, True): 302, (True, False): 4}
+fix elsewhere: []

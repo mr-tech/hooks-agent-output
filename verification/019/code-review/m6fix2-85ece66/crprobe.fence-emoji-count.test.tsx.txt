@@ -1,0 +1,49 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { unitAround } from '../runUnit';
+import { spansInLine } from '../emojiLift';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant } from 'slate';
+import type * as RunUnit from '../runUnit';
+import type * as EmojiLift from '../emojiLift';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('../runUnit', async (importOriginal) => {
+  const actual = await importOriginal<typeof RunUnit>();
+  return { ...actual, unitAround: vi.fn(actual.unitAround) };
+});
+vi.mock('../emojiLift', async (importOriginal) => {
+  const actual = await importOriginal<typeof EmojiLift>();
+  return { ...actual, spansInLine: vi.fn(actual.spansInLine) };
+});
+beforeAll(async () => { await startEngine(); });
+
+it('fence close over emoji lines: unit builds and line settles per keystroke', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a', 'a🙂']) {
+    for (const n of [50, 100, 200, 400]) {
+      for (const [name, before, act] of [
+        ['close', '```', (e: Editor) => { Transforms.select(e, Editor.end(e, [2])); e.deleteBackward('character'); }],
+        ['open', '``', (e: Editor) => { Transforms.select(e, Editor.end(e, [2])); e.insertText('`'); }],
+      ] as const) {
+        const text = Array.from({ length: n }, (_, i) => (i === 2 ? before : fill)).join('\n');
+        const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+        editor.children = getInitialValue(text, 'embedDescription', false) as Descendant[];
+        vi.mocked(unitAround).mockClear();
+        vi.mocked(spansInLine).mockClear();
+        let error = '';
+        try { act(editor); } catch (e) { error = String(e).slice(0, 60); }
+        rows.push({ fill, n, name, builds: vi.mocked(unitAround).mock.calls.length, lineSettles: vi.mocked(spansInLine).mock.calls.length, error });
+      }
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

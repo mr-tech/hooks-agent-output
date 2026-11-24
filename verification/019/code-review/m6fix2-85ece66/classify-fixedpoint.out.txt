@@ -1,0 +1,1 @@
+306 ('selection',) ['0|0|start|>', '1|0|start|>', '1|0|start|<delete>', '3|0|start|>', '3|0|start|<delete>', '4|0|start|>', '5|0|start|<enter>', '5|1|start|>', '5|1|start|<delete>', '18|0|start|>', '29|0|start|>', '149|0|start|<delete>']

@@ -1,0 +1,36 @@
+import { createEditor, Editor } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+
+it('paste of emoji lines through insertData', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a', 'a🙂']) {
+    for (const n of [50, 200, 1000]) {
+      const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+      editor.children = getInitialValue('', 'embedDescription', false) as Descendant[];
+      editor.selection = { anchor: Editor.start(editor, []), focus: Editor.start(editor, []) };
+      const text = Array.from({ length: n }, () => fill).join('\n');
+      const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+      const t0 = performance.now();
+      let error = '';
+      try { (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data); } catch (e) { error = String(e).slice(0, 60); }
+      const ms = performance.now() - t0;
+      const lines = editor.children.length;
+      const emoji = (editor.children as { children: { type?: string }[] }[]).reduce((s, l) => s + l.children.filter((c) => c.type === 'emoji').length, 0);
+      rows.push({ fill, n, ms: +ms.toFixed(1), lines, emoji, error });
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

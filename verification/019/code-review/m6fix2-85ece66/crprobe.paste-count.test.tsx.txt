@@ -1,0 +1,43 @@
+import { createEditor, Editor } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import { unitAround } from '../runUnit';
+import { afterLine } from '../codeFence';
+import type * as RunUnit from '../runUnit';
+import type * as CodeFence from '../codeFence';
+
+import type { Descendant } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('../runUnit', async (o) => { const a = await o<typeof RunUnit>(); return { ...a, unitAround: vi.fn(a.unitAround) }; });
+vi.mock('../codeFence', async (o) => { const a = await o<typeof CodeFence>(); return { ...a, afterLine: vi.fn(a.afterLine) }; });
+beforeAll(async () => { await startEngine(); });
+
+it('paste of emoji lines through insertData', { timeout: 590000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a', 'a🙂']) {
+    for (const n of [100, 200, 400]) {
+      const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+      editor.children = getInitialValue('', 'embedDescription', false) as Descendant[];
+      editor.selection = { anchor: Editor.start(editor, []), focus: Editor.start(editor, []) };
+      const text = Array.from({ length: n }, () => fill).join('\n');
+      const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+      vi.mocked(unitAround).mockClear(); vi.mocked(afterLine).mockClear(); let ops = 0; const { apply } = editor; editor.apply = (op) => { ops += 1; apply(op); };
+      const t0 = performance.now();
+      let error = '';
+      try { (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data); } catch (e) { error = String(e).slice(0, 60); }
+      const ms = performance.now() - t0;
+      const lines = editor.children.length;
+      const emoji = (editor.children as { children: { type?: string }[] }[]).reduce((s, l) => s + l.children.filter((c) => c.type === 'emoji').length, 0);
+      rows.push({ fill, n, ms: +ms.toFixed(1), lines, emoji, error, ops, unitBuilds: vi.mocked(unitAround).mock.calls.length, fenceReads: vi.mocked(afterLine).mock.calls.length });
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

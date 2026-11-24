@@ -1,0 +1,4 @@
+keystrokes 36560 inputs 1285
+differ 306 ['0|0|start|>', '1|0|start|>', '1|0|start|<delete>', '3|0|start|>', '3|0|start|<delete>', '4|0|start|>', '5|0|start|<enter>', '5|1|start|>', '5|1|start|<delete>', '18|0|start|>', '29|0|start|>', '149|0|start|<delete>', '149|0|start|<enter>', '149|0|end|<backspace>', '149|1|end|<delete>', 
+A non-fixed-point 8 ['7|0|start|\\', '11|0|start|\\', '12|0|start|`', '12|0|end|`', '12|1|start|\\', '436|0|start|\\', '714|0|start|\\', '1186|0|start|\\'] errors 0
+B non-fixed-point 8 ['7|0|start|\\', '11|0|start|\\', '12|0|start|`', '12|0|end|`', '12|1|start|\\', '436|0|start|\\', '714|0|start|\\', '1186|0|start|\\'] errors 0

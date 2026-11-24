@@ -1,0 +1,64 @@
+import { readFileSync } from 'fs';
+import {
+  bench, describe, expect, vi,
+} from 'vitest';
+
+import { FENCE_AND_QUOTE_KEYSTROKES } from '../../__tests__/helpers/fenceAndQuoteKeystrokes';
+import { editorHolding } from '../../__tests__/helpers/keystrokes';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const SMALL = 200;
+const LARGE = 2048;
+const WARM_UP = 2;
+const KEYSTROKES = 25;
+const GROWTH = 20;
+const CEILING_MS: Record<number, number> = { [SMALL]: 0.001, [LARGE]: 0.001 };
+const LINE_TWO_KEYSTROKES = 2;
+
+const percentile = (sorted: number[], share: number) => sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * share))];
+
+const smallMedians = new Map<string, number>();
+
+const TIMED = FENCE_AND_QUOTE_KEYSTROKES.map((keystroke, index) => ({ keystroke, onLineTwo: index < LINE_TWO_KEYSTROKES }));
+
+describe.each(TIMED)(
+  'one keystroke: $keystroke.name',
+  ({ keystroke, onLineTwo }) => {
+    [SMALL, LARGE].forEach((lines) => {
+      const timings: number[] = [];
+
+      const check = () => {
+        const sorted = timings.slice(WARM_UP).sort((a, b) => a - b);
+        const median = percentile(sorted, 0.5);
+        process.stdout.write(`fence-and-quote-time ${JSON.stringify({
+          name: keystroke.name,
+          lines,
+          keystrokes: sorted.length,
+          medianMs: median,
+          p95Ms: percentile(sorted, 0.95),
+          load: readFileSync('/proc/loadavg', 'utf8').trim(),
+        })}\n`);
+        if (lines === SMALL) smallMedians.set(keystroke.name, median);
+        else expect(median).toBeLessThanOrEqual(GROWTH * smallMedians.get(keystroke.name)!);
+        if (onLineTwo) expect(median).toBeLessThanOrEqual(CEILING_MS[lines]);
+      };
+
+      bench(`settles in a message of ${lines} lines`, () => {
+        const editor = editorHolding(keystroke.text(lines), 'embedDescription');
+        const started = performance.now();
+        keystroke.press(editor, lines);
+        timings.push(performance.now() - started);
+        if (timings.length === WARM_UP + KEYSTROKES) check();
+      }, {
+        iterations: WARM_UP + KEYSTROKES,
+        warmupIterations: 0,
+        time: 0,
+        warmupTime: 0,
+        setup: async () => { await startEngine(); timings.length = 0; },
+      });
+    });
+  },
+);
