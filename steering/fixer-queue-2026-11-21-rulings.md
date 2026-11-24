@@ -1480,3 +1480,19 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
 - Plan 019 is at Revision 22 (`960052d1`), and all three gates passed it. M6's second fix round (D-24, D-25) is with `implementer-019`.
 - At its hand-off this thread reads AC-6.9's fence ceiling and F-56's `> ` caret, then code review, then QA's M6 refresh.
 - Standing check `9e1c6d02` is at 17:34Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
+
+## 2026-11-24T18:36Z — plan 019 M6 second fix round: box load held up the timed limbs; the implementer signalled foreign processes (this thread's)
+
+`implementer-019` by message (18:3xZ) reported two things.
+- **Its error.** While stopping its own vitest run, it used a broad `pgrep -f "vitest|run-red.sh|unshare"` and sent SIGTERM to pids 3083444
+  (`strace`) and 3083447 (`unshare`). Neither is its own: both are under `/tmp/confined-selftest-zQWqZA/`. This thread's `ps -p` read at 18:34Z:
+  3083444, 3083447 and 3083448 are orphans (ppid 1), 3 days 8 hours old, at 0% CPU, and all three are still alive. The implementer said this
+  was recorded in its document, but a grep for `3083444|confined-selftest|SIGTERM` over `implementation/` and `verification/019/` matched
+  nothing at 18:3xZ, so it was asked to write it in this round. Judging it is his; he is told in chat.
+- **Load.** The box was at 38 on 18 cores (`uptime`). The cause was two `git grep` processes, 3717090 and 3690652 (about 850% and 530% CPU,
+  1h26m and 1h28m old). Their parent bash traces to claude 2581933, which is `steering-statbot-fixer` (`ps -o ppid`, `ListAgents`). This
+  thread asked it to end them, and it did at 18:35Z: they were left behind by its finished sweep helper. `ps -p` confirms both gone at 18:35:58Z.
+  The implementer was told to hold AC-6.9's timed runs until the load cleared, then to take them with the load recorded beside each figure.
+- **Coming here before hand-off:** the implementer's early reading is that AC-6.9's 104 ms ceiling at 2,048 lines is out of reach for any
+  per-line retype (Slate's floor is about 0.2 ms per `set_node`). That is the "ceiling miss with growth met" case, and it will send the exact
+  figures to `planner-019` and this thread. These figures are its own and are not re-run here.
