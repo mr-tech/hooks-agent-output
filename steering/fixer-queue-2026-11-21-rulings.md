@@ -1608,3 +1608,20 @@ fix under D-26 or D-24.
   architect's design guidance.
 Recipients: `planner-019` (it registers this and sends SL-29 to the implementer, reviewer and QA), `implementer-019` (its start),
 `critic-019` (it asked) and `qa-019` (QAF-53 is its floor).
+
+## 2026-11-24T20:58Z — plan 019 SL-29: the fence members compare against the base's throwing median, as the plain-line ceiling does (this thread's)
+
+`code-reviewer-019` by message (20:5xZ, copy to `planner-019`; its record `d5ca86b9`; plan R-108) reports this: at `af3d95a`, every `a🙂` fence
+open and close at 200 and 1,000 lines throws "Could not completely normalize", so the base medians of 16.2 to 48.1 ms are throw times
+(`verification/019/code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl`, its figures). The paste members' base readings have no error. It
+asks what a fence tip reading compares against, and holds its verdict on the fence members until there is a ruling.
+**Ruling: compare against `af3d95a`'s median on the same probe, with the throw named beside it. No question goes to him.**
+- His words answer it. The option he chose says it "times paste and code-block closing on emoji-heavy messages against today's site on the same
+  test" (block 20:54Z). Today's site throws on that keystroke, so the throw time is today's reading on that test.
+- The plan already reads "roughly today's speed" this way for the same keystroke on plain lines (plan lines 1602–1608, read this turn). The
+  basis is the base's medians, and the base "threw part-way through, so it did less work than a settling fix must". The line is the larger
+  base median (making or unmaking) at that N plus a quarter.
+- **The yardstick for SL-29, both the fence and the paste members:** a tip median within the larger base median at that N plus a quarter is
+  roughly today's speed. A reading above it comes to this thread with its figures and load, as plan line 1607 sends a ceiling miss. A tip
+  reading that throws, or any no-throw or write failure, is a fail on its own limb.
+Recipients: `code-reviewer-019` (it gives its fence verdict on this), `planner-019` (R-108's row), `qa-019` (it applies SL-29 at Phase 2).
