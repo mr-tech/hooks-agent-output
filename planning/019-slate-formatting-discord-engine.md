@@ -29,8 +29,10 @@ Status-Detail: >-
   are both released.
   Revision 16 (D-23, block 07:05Z) adds AC-6.8: one keystroke's emoji resolve works per run unit, with a counting limb in
   `pnpm test` and a 16 ms median timed limb outside the suite. CR-20's fix enters M6, and the release waits for M6's fix round,
-  code review and QA. The three gates read the delta.
-Revision: 16
+  code review and QA. All three gates approved revision 16 with findings.
+  Revision 17 folds those findings into AC-6.8: an exact count per pass with a positive control, a text with an emoji on every
+  line, and a bench-file home for the timed limb. CR-20's fix round waits for the three gates on revision 17.
+Revision: 17
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -143,6 +145,7 @@ Lane: full
 | 2026-11-24T06:58 | R-79 | qa-019 | QA Phase 2 on M6 at website `119471f`: **QA Failed** at the TDD compliance gate. Five new or changed production functions (`pointAtOffset`, `flatOffset`, `startsOf`, `holdsSpan`, `emojiToImage`'s emoji case) owe a stub-tree red and green, and `parseUnit` owes that or a cited both-trees record. No M6 criterion is assessed yet. Document: `qa/019-slate-formatting-discord-engine-m6-qa.md`. |
 | 2026-11-24T07:07 | 16 | planner-019 | Triggered by D-23 (block 07:05Z, record `3ec39942`): CR-20 is fixed before release, with the cap lifted for it alone. AC-6.8 bounds one keystroke's normalise cost. Its count limb in `pnpm test` builds a run unit at most once per changed unit and never more than twice, seen red at `119471f`. Its timed limb, outside the suite, holds the median at or under 16 ms at 200 to 2,048 lines, where the base takes 0.2 to 3.3 ms and the tip 17 to 1,626 ms (the helper's re-timing). R-78's CR-20 row is discharged into it. Scope delta: M6 gains AC-6.8 and CR-20's fix, on his word, and no other milestone moves. Since approval, revisions 10 to 16 have run. This one triggers one round of each gate, then M6's fix round, code review and QA. The plan still delivers what was first asked. |
 | 2026-11-24T07:10 | R-80 | planner-019 | Recorded the architect's delta pass on revision 16 (APPROVED; § "Delta pass, revision 16", record `ce656dca`) and QA's re-key on revision 16 (record `d53b1b30`) in the owed re-verdicts table. Registered CF-25 LOW, CF-26 LOW, QAF-43 MEDIUM and QAF-44 LOW as Planner batch rows. QAF-43 and QAF-44 fold at the next revision once the critic's cycle 10 verdict is in, because AC-6.8 sits under D-23's lifted cap. |
+| 2026-11-24T07:12 | 17 | planner-019 | Triggered by the three gates' reads of revision 16: the architect (`ce656dca`: CF-25, CF-26), QA (`d53b1b30`: QAF-43, QAF-44) and critique cycle 10 (`0ff39772`: APPROVED, with F-45). All fold into AC-6.8, under D-23's lifted cap. The count limb becomes equality per pass with a positive control and a `vi.mock` pass-through, with its window, character and positions fixed (F-45) and a merge fixture. A 1,000-line `a🙂` text joins both limbs. The timed limb's home is a `*.bench.ts`. Scope delta: AC-6.8's limbs tighten, and no milestone or work outside M6's fix round is added. Since approval, revisions 10 to 17 have run. This is AC-6.8's second revision, and it triggers one round of each gate. The plan still delivers what was first asked. |
 
 ## Resumption State
 
@@ -218,7 +221,8 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 13's delta: AC-6.5's "Expected value" (the helper on every surface, frozen; the hand-written content control; the residue) and "Entry conditions" (the box condition recorded false; EC-7 retired) only | revision 13 commit | critic; architect (delta pass, spawned by steering); QA Phase 1 (re-key) | Critic APPROVED, cycle 7 pass 1, critique closed, with F-40 LOW (SL-14), which is folded at revision 14 (record `fad4948a`). Architect APPROVED, with CF-21 LOW as a stated limit (record `d9ddfd22`). QA re-key (with revision 14, record `a1b54c49`): QAF-40 MEDIUM holds AC-6.5's literal freeze, pending steering's cap ruling. AC-6.5's literals hold until all three have passed it. The rest of M6 is not held (D-21) |
 | Revision 14's delta: AC-6.7 (D-22's table, its limbs, mutants, human-observable form, residue and the held-out lists); AC-3.3's typed drive; AC-6.5's added cross-line control member (F-40) | revision 14 commit | critic (cycle 8); architect (delta pass); QA Phase 1 (re-key) | Critic APPROVED, cycle 8 pass 1, critique closed, with F-41 (SL-15) and F-42 (SL-16) as Planner batch rows (record `f0488807`). Architect APPROVED, with CF-22 and CF-23 LOW as stated limits (record `e093c8aa`). QA re-key (record `a1b54c49`): QAF-41 LOW, folded at revision 15. All three gates have passed revision 14, so M6's quote-carry change and the four cases implementer-019 holds red at `8cb4d83` are released, built to SL-16 and revision 15's mutants. The rest of M6 is not held (D-22) |
 | Revision 15's delta: AC-6.5's control gains QAF-40's five members and the first-occurrence join mutant; AC-6.7's "Seen red" gains NM-68 and NM-69; AC-3.3's drive reads the table from the input's text (QAF-41) | revision 15 commit | critic (cycle 9); architect (delta pass); QA Phase 1 (re-key) | QA re-key: QAF-40 and QAF-41 closed, with QAF-42 LOW a Planner batch row; nothing holds the freeze on QA's account (record `3b264329`). Architect APPROVED, with CF-24 LOW as a stated limit (record `f6f6651e`). Critic APPROVED, cycle 9 pass 1, with F-43 (SL-17) a Planner batch row and F-44 the same member as QAF-42 (record `bf589c96`). Every gate has passed revision 15, so AC-6.5's literal freeze is released |
-| Revision 16's delta: AC-6.8 (count limb, timed limb, human-observable form, residue); D-23 | revision 16 commit | critic (cycle 10); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-25 and CF-26 LOW (record `ce656dca`). QA re-key: QAF-43 MEDIUM and QAF-44 LOW, to fold at revision 17 (record `d53b1b30`). Critic: open. CR-20's fix round waits for revision 17's gates |
+| Revision 16's delta: AC-6.8 (count limb, timed limb, human-observable form, residue); D-23 | revision 16 commit | critic (cycle 10); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-25 and CF-26 LOW (record `ce656dca`). QA re-key: QAF-43 MEDIUM and QAF-44 LOW (record `d53b1b30`). Critic APPROVED, cycle 10 pass 1, with F-45 MEDIUM (SL-18) (record `0ff39772`). All are folded at revision 17 |
+| Revision 17's delta: AC-6.8's count limb (equality per pass, positive control, `vi.mock` observation, window, character, positions, merge fixture), the `a🙂` text in both limbs, the bench-file home, residue and B-10 | revision 17 commit | critic (cycle 11); architect (delta pass); QA Phase 1 (re-key) | Open. CR-20's fix round waits for all three |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 was folded at revision 6 and retired at revision 13 (D-21) |
 
 ## Header notes
@@ -1357,36 +1361,52 @@ Acceptance criteria:
     `EDITS_BASE_RED` list is deleted at `8cb4d83`, with 15,480 of 15,480 edits passing (the implementer's account, not
     re-derived). An edit in that differential that inserts a line break into a `> ` quote line has, as its expected text, the
     string edit with `> ` after the break, taken from this table.
-- **AC-6.8 One keystroke's normalise cost (D-23, revision 16; CR-20).** The editor's emoji resolve after one keystroke works per
-  run unit, not per line. Two limbs.
+- **AC-6.8 One keystroke's normalise cost (D-23, revisions 16 and 17; CR-20).** The editor's emoji resolve after one keystroke
+  works per run unit, not per line. Two limbs.
   - **Count (the standing instrument, in `pnpm test`).**
-    - The keystroke class: inserting one character, deleting one character backward and forward, and Enter, each at a line's
-      start, middle and end.
-    - The text class: the 272 corpus, 1,000 generator inputs at the committed seed, and plain, `> ` quote and `>>>` texts of 200,
-      400, 1,000 and 2,048 one-character lines.
-    - The property: over every keystroke in the class, on every text, one normalisation pass builds the run unit (`unitAround` or
-      what replaces it) at most once for each run unit holding a line the keystroke changed, and never more than twice.
-    - The expected count is a literal per keystroke kind (1 for an in-line insert or delete, at most 2 for Enter or a merge),
-      never derived from the production unit function (axiom E).
-    - Seen red on the tip's per-line rebuild at `119471f` (`withNormalizeNode.ts:resolveEmoji` called once per line), which is
-      the decision-only tree for this limb.
+    - **The keystroke class:**
+      - inserting one character that completes no emoji and no fence (the implementer names it, for example `x`);
+      - deleting one character backward and forward;
+      - Enter.
+      Each runs at a line's start, middle and end; on a one-character line, at start and end (F-45). The class includes at least
+      one keystroke that leaves two changed run units, for example a Backspace that joins lines from two units (QA's NM-72).
+    - **The text class:**
+      - the 272 corpus and 1,000 generator inputs at the committed seed;
+      - plain, `> ` quote and `>>>` texts of 200, 400, 1,000 and 2,048 one-character lines;
+      - 1,000 lines of `a🙂`, 3,999 characters in the embed description, so that every line holds an emoji element (QAF-44).
+    - **The window is one normalisation pass** (F-45, CF-25). A keystroke can trigger more than one pass, since `handleEditor`
+      returns after `resolveEmoji` changes the document. The property holds in every pass the keystroke triggers, and the
+      implementation document records the pass count per keystroke kind.
+    - **The property (QAF-43).** In each pass, the number of run-unit builds equals the number of distinct run units holding a
+      line the keystroke changed: exactly 1 for an in-line insert or delete, and exactly the fixture's stated literal, 1 or 2,
+      for Enter or a merge.
+    - **Observed through a `vi.mock` pass-through of `./runUnit`** (CF-25), never through a counter added to `src`. A positive
+      control in the same run, an in-line insert in a one-line text, counts 1. So a counter that reads 0 fails.
+    - **The literal is written by hand from the fixture's text**, never derived from the production unit function (axiom E).
+    - **Seen red** on the tip's per-line rebuild at `119471f` (`withNormalizeNode.ts:resolveEmoji` called once per line), which
+      is the decision-only tree for this limb.
+  - **Residue (F-45).** A keystroke whose character completes an emoji or a fence (`:` after `:smile`, or a third backtick) is
+    outside the count limb. AC-6.5's typed-edit property holds it.
   - **Time (a timed case, outside the standing suite).**
-    - The property: the median wall time of one keystroke's normalise, over 50 keystrokes in the keystroke class, is at most
-      16 ms on each of the 200, 400, 1,000 and 2,048-line texts, in the embed-description surface, under vitest in node on this
-      box. The implementation document records the 95th percentile beside it.
+    - **Home (CF-26):** a `*.bench.ts` beside the code, run by `vitest bench`. `pnpm test`'s `*.test.ts` include leaves it out by
+      name, so a later chain can re-run it. How it runs under the config's projects is QA's to read at Phase 2.
+    - **The property:** the median wall time of one keystroke's normalise, over 50 keystrokes in the keystroke class, is at most
+      16 ms in the embed-description surface, under node on this box. That holds on each of the 200, 400, 1,000 and 2,048-line
+      texts and on the 1,000-line `a🙂` text. The implementation document records the 95th percentile beside it.
     - What decides 16 ms: one display frame at 60 Hz (16.7 ms), so one keystroke's normalise does not slow typing by a visible
       frame.
     - Measured before this revision, by steering's refutation helper in exports under a `systemd-run` cap (block 07:05Z,
       Premises): the base `2e36107` takes 0.2 to 3.3 ms at every size, and the tip `119471f` takes 17 to 20 ms at 200 lines,
       66 to 72 ms at 400, 407 to 425 ms at 1,000 and 1,572 to 1,626 ms at 2,000. So the bound separates the two trees at every
-      size from 200 lines up.
+      size from 200 lines up. QA's own probe agrees: 2.3 ms against 433 ms at 1,000 content lines, and 3.8 ms against 1,798 ms
+      at 2,048 description lines (`verification/019/qa/m6/normalize-cost-limits-{2e36107,119471f}.json`, record `d53b1b30`).
     - The sizes are reachable, by the helper's arithmetic, not measured in an editor: content allows 2,000 characters
       (1,000 one-character lines) and the embed description 4,096 (2,048 lines), per `src/constants/messageLimits.ts`.
     - It is a time-based test (testing-patterns, "Time-Based Tests"). It runs in M6's fix round and at QA Phase 2 on M6, not in
       `pnpm test`. The count limb is the criterion's standing instrument. If the fixed tree misses 16 ms at any size, the
       measured figures go to steering before hand-off.
   - **Human-observable form.** Typing in a 2,000-line embed description on UAT's local build shows no lag a person can see.
-    Checkable in production after deploy.
+    Checkable in production after deploy. QA's register row is B-10, and the walk is SL-15's seventh member.
   - **Residue.** The cost inside a browser is not measured, and node is the instrument. Inputs other than the text class are
     bounded by the count limb, never by the time limb.
 
@@ -1657,10 +1677,11 @@ Revision 4's folds, for reference:
 | F-41 (LOW, M6): AC-6.7's walk names UAT's build, but neither the `uat` Reading Order row nor Testing Strategy's walk list routes to it. The property: every criterion naming UAT as its walker is in both. Over six criteria (AC-2.5, AC-4.2, AC-4.4, AC-5.5, AC-6.3, AC-6.7) it fails for AC-4.4 (F-35, B-7), AC-5.5 (in the list as B-3, absent from the row) and AC-6.7 (absent from both) | same, F-41 (record `f0488807`) | Stated limit SL-15. Until the seam fold, QA's register is UAT's walk list. QA registers AC-6.7's walk at its revision 14 re-key. At the fold, the row and the list name all six. Where the build cannot sign in, the walk falls to AC-6.7's production check. Sent to qa-019 at registration. |
 | CF-21 (LOW, M6): AC-6.5 freezes the oracle helper's spans, citing `discordNativeBox.json` and the residue list as precedent. But those are frozen only because their source is Discord's fetched code. The helper runs offline on the pinned wasm, and the suite's pattern is to call such a helper live in `pnpm test`. The architect recommends calling it live and freezing nothing, with both controls kept, and says accepting the deviation also works | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 13" (record `d9ddfd22`) | Stated limit under the M6 cap, with no revision round. The freeze is kept as a marked deviation, because D-21's option text, his selection, says "the test's answers are frozen after". At the seam fold, AC-6.5's precedent citation names it a deviation with that reason, in place of the mirror claim. Steering is told, in case it wants to put live-not-frozen to him. |
 | CR-17 (LOW, M4): `visibleForm.ts` `walk` tests `STYLE_NAMES` before `n.name === 'c'`, so its inline-code arm is dead. A comparison on the visible form cannot see an inline-code text difference between the DOM and the engine tree. `decorator.preview-equals` works around it with `codeWithKids` | `code-review/019-slate-formatting-discord-engine-code-review.md` § "Findings (Round 5)", CR-17 (record `fdb41883`; R-60) | Stated limit under the cap, with no revision round. The preview's inline code is still guarded by two M4 tests (the reviewer's 2 of 2 mutants killed). The reviewer's remedy (the `c` arm first, then delete `codeWithKids`) rides the next change to `visibleForm.ts`. |
-| QAF-43 (MEDIUM, M6): AC-6.8's count limb is an upper bound only ("at most once", "never more than twice"), so a counter reading 0 passes, for example one left on a builder the fix no longer calls. QA asks for equality with the literal (1 for an in-line insert or delete, 2 for Enter or a merge that leaves two changed units) for a keystroke that changes a unit's text, plus a positive control in the same run (an in-line insert in a one-line text counts 1) | `qa/019-slate-formatting-discord-engine-qa.md` § "Re-key on Revision 16", QAF-43 (record `d53b1b30`) | Open, for revision 17. AC-6.8 is CR-20's criterion, under D-23's lifted cap, so this folds as criterion text after the critic's cycle 10 verdict. |
-| QAF-44 (LOW, M6): AC-6.8's sized texts hold no emoji element, so a fix that rebuilds per line only on lines holding an element passes both limbs. QA asks for one sized text whose every line holds an element, for example 1,000 lines of `a🙂` (3,999 characters), in both limbs' text class | same, QAF-44 (record `d53b1b30`) | Open, for revision 17, folded with QAF-43. |
-| CF-25 (LOW, M6): the fix's home. `handleElement` already ends with `resolveEmoji(editor, surface, path[0])`, so `resolveEmoji` builds the changed line's unit once (`unitAround`, `emojiLayout`) and resolves each line in it, and `handleEditor`'s loop over all lines goes. The count limb observes `unitAround` through a `vi.mock` pass-through of `./runUnit`, not a counter in `src`. Unread, for QA: a keystroke that lifts an emoji runs more than one normalisation pass, and the count is stated per pass | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 16" (record `ce656dca`) | Stated limit, with no round. The home is design guidance for the implementer. The per-pass reading is taken into revision 17's count limb with QAF-43. |
-| CF-26 (LOW, M6): the timed limb's home is a `*.bench.ts` beside the code, which `pnpm test`'s `*.test.ts` include leaves out by name, so a later chain can re-run it. A one-off probe under `verification/` cannot be. How `vitest bench` behaves under the config's projects is unread, for QA | same (record `ce656dca`) | Stated limit, with no round. Revision 17 names the bench file as the timed limb's home, and QA reads how it runs under the projects at Phase 2. |
+| QAF-43 (MEDIUM, M6): AC-6.8's count limb is an upper bound only ("at most once", "never more than twice"), so a counter reading 0 passes, for example one left on a builder the fix no longer calls. QA asks for equality with the literal (1 for an in-line insert or delete, 2 for Enter or a merge that leaves two changed units) for a keystroke that changes a unit's text, plus a positive control in the same run (an in-line insert in a one-line text counts 1) | `qa/019-slate-formatting-discord-engine-qa.md` § "Re-key on Revision 16", QAF-43 (record `d53b1b30`) | Discharged at revision 17 into AC-6.8's count limb: equality per pass, with a positive control. |
+| QAF-44 (LOW, M6): AC-6.8's sized texts hold no emoji element, so a fix that rebuilds per line only on lines holding an element passes both limbs. QA asks for one sized text whose every line holds an element, for example 1,000 lines of `a🙂` (3,999 characters), in both limbs' text class | same, QAF-44 (record `d53b1b30`) | Discharged at revision 17: the 1,000-line `a🙂` text is in both limbs' text class. |
+| CF-25 (LOW, M6): the fix's home. `handleElement` already ends with `resolveEmoji(editor, surface, path[0])`, so `resolveEmoji` builds the changed line's unit once (`unitAround`, `emojiLayout`) and resolves each line in it, and `handleEditor`'s loop over all lines goes. The count limb observes `unitAround` through a `vi.mock` pass-through of `./runUnit`, not a counter in `src`. Unread, for QA: a keystroke that lifts an emoji runs more than one normalisation pass, and the count is stated per pass | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 16" (record `ce656dca`) | The home is a stated limit, design guidance for the implementer. The per-pass window and the `vi.mock` observation are discharged at revision 17 into AC-6.8's count limb. |
+| CF-26 (LOW, M6): the timed limb's home is a `*.bench.ts` beside the code, which `pnpm test`'s `*.test.ts` include leaves out by name, so a later chain can re-run it. A one-off probe under `verification/` cannot be. How `vitest bench` behaves under the config's projects is unread, for QA | same (record `ce656dca`) | Discharged at revision 17: AC-6.8's timed limb names the bench file as its home. How it runs under the projects is QA's at Phase 2. |
+| F-45 (MEDIUM, M6): AC-6.8's count literal depended on three terms the text did not fix: the window (one pass, though a keystroke that completes an emoji takes two or more at `119471f`), the inserted character (`:` after `:smile` lifts, and a third backtick moves lines into a code block), and the middle of a one-character line | `critiques/closed/019-slate-formatting-discord-engine-critique.md` F-45, cycle 10 pass 1 (record `0ff39772`) | Discharged at revision 17 into AC-6.8, taking SL-18's readings as criterion text: the window is one pass and holds in every pass; the character completes no emoji and no fence, and one that does is residue held by AC-6.5; one-character lines run at start and end. The critic's other two notes, AC-6.8's walk as SL-15's seventh member and M7's review at the seam fold, are B-10 and R-76's fold item. |
 | CR-20 (MEDIUM, M6): `handleEditor`'s `resolveEmoji` rebuilds the run unit once per line on every operation. Measured at the tip in node: 71 ms per keystroke at 400 lines against 1.1 ms at the base, and about 20 ms at 200 lines (the reviewer's figures, not re-derived) | `code-review/019-slate-formatting-discord-engine-code-review.md`, Round 6 at `119471f` (record `8c2a4593`; R-77) | Discharged at revision 16 into AC-6.8, on his word (D-23, block 07:05Z): fixed before release, with the cap lifted for CR-20 alone. The fix resolves per run unit, not per line, in M6's fix round, with AC-6.8's counting case and its timed case. Steering's helper's re-timing replaces the reviewer's figures in AC-6.8. |
 | CR-21 (LOW, M6): `emoji-regex` is in `package.json` with no importer | same (record `8c2a4593`) | Stated limit under the cap. It is removed with the next change that owns the lockfile, with that change's lockfile disposition. |
 | AC-6.5's reader list says `emojiToImage` reads `jumboable`, but the base never set it (`jumboify` had no caller at `2e36107`), so the tip's omission preserves behaviour | the reviewer's Round 6 note (record `8c2a4593`), relayed by code-reviewer-019 | A wording item for the seam fold, with no round. The reader line drops `jumboable` or marks it never set, citing the large-emoji row above. |
