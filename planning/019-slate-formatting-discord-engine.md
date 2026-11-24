@@ -198,25 +198,39 @@ Lane: full
 
 ## Resumption State
 
-Written at steering's ask (checkpoint for a clear), 2026-11-24T07:39Z, after R-86.
+Written at steering's ask (checkpoint for a clear), 2026-11-24T20:10Z, after revision 23 at `49a20690`.
 
 **Done.**
-- Revisions 0 to 19 and registrations R-1 to R-86 are committed. Other stages' rows carry duplicate numbers (R-47 records the
-  reconcile); they are cited by stamp and author.
-- Revision 19 (`4a68f286`) has passed all three gates: critic `73a6bce9` (cycle 12), architect `ccddf880` and QA `4764a6e`.
-  Revisions 13 to 18 each passed their gates, with stated limits. Decisions D-20 (pre-existing lint errors), D-21 (AC-6.5's
-  source), D-22 (quote continuation) and D-23 (CR-20 fixed before release) are registered.
+- Revisions 0 to 23 and registrations R-1 to R-103 are committed. Other stages' rows carry duplicate numbers (R-47 records the
+  reconcile) and some sit out of order (R-94 and R-103 are code review's); they are cited by stamp and author. Revision 23 has
+  two changelog rows (19:44, drafted; 20:08, completed with D-26) because the paste member joined it before any gate read it.
+- Decisions D-20 to D-26 are registered. D-23 (CR-20), D-24 (code-fence and `>>>` throw, CR-23), D-25 (`>>>` caret) and D-26
+  (CR-25's paste) each lift the cap for their own items alone.
 - M1 to M5 are complete; M5 was QA Complete after QAF-39 (R-75). M4 and M5 shipped on the chain branch, so M7 is marked
   `PREMISE-STALE` (R-76).
-- M6 is built to website `119471f`, with code review Round 6 APPROVED_WITH_COMMENTS (R-77). QA Phase 2 on M6 failed at the TDD
-  gate (R-79). CR-20's fix round, under AC-6.8 as revision 19 states it, was released to implementer-019 at R-86.
+- M6: CR-20's fix round (website `42128cd`) was approved by code review. The second fix round (AC-6.9, revision 22) was handed
+  at `85ece66` and REJECTED by code review Round 7 on CR-25 HIGH (R-103). Revision 23 (`6ef51baa` drafted, `49a20690`
+  completed) answers it: AC-6.9's fence keystrokes over `a🙂` texts, paste members (D-26), a standing count limb (at most 10
+  times from 200 to 1,000 lines) and a rewritten residue. CR-24 LOW is a stated limit.
+- Handoffs opened this session: `handoff/slate-smart-quote-repair-untested-2026-11-24.md` (QAF-49) and
+  `handoff/preview-fenced-code-block-test-hand-rolled-renderer-2026-11-24.md` (QAF-47), both Open. The QAF-51 handoff is
+  superseded and in `handoff/closed/`.
+- The helper probe captures behind AC-6.9's ceiling and caret are under `verification/019/planning/fence-refute/`.
 
 **Next.**
-- No planning pass is owed until the seam fold. The caps stand:
+- **Register the three gates' passes on revision 23 as they land** (critic, architect delta pass, QA Phase 1 re-key, all cued
+  at 20:08Z): the owed re-verdicts row "Revision 23's delta", one R- row each, and Planner batch rows for any finding. Once all
+  three have passed, tell `steering-hooks-fixer` by SendMessage. Steering, not the planner, starts implementer-019 on the third
+  M6 fix round (steering's ask, 20:10Z). Each gate's report reaches this session as usual.
+- A HIGH finding, or a severity floor, on revision 23 goes to steering for a ruling before any revision 24.
+- No other planning pass is owed until the seam fold. The caps stand:
   - M3 to M6 (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a Planner batch stated limit, except a severity floor;
   - AC-6.5 (block 04:18Z): a further gap below HIGH is a stated limit;
-  - AC-6.8 (block 07:21Z): every finding below HIGH is a stated limit, and only a severity floor is excepted.
-  Register findings from the CR-20 fix round's code review and QA as batch rows.
+  - AC-6.8 (block 07:21Z): every finding below HIGH is a stated limit, and only a severity floor is excepted;
+  - AC-6.9 (block 14:48Z): after its last fold, a finding below HIGH from any gate is a stated limit, except a severity floor,
+    and a literal a correct fix fails is recorded as the implementer's measured reading beside its hand derivation. CR-25 was
+    HIGH, so revision 23 lies outside that rule.
+  Register findings from the third fix round's code review and QA as batch rows.
 - The seam fold comes after the last milestone's QA Phase 2 on M6 and before the UAT anchor. It is a revision, gated by the
   critic, and it lands the open Planner batch rows' text:
   - M7's re-argument paragraph against M4's, M5's and M6's shipped behaviour (R-76), which opens a critique cycle;
@@ -237,25 +251,20 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T07:39Z, after R-8
   - D-20's Exclusions row for `SlateEditor/index.tsx`'s pre-existing eslint errors (R-59);
   - CR-7's M6 exit condition;
   - D-18's line in RK-9's record;
-  - the earlier open rows: QAF-27, CF-15 and CF-16, the critic's two assumptions, and AN-8 limb 5.
+  - the earlier open rows: QAF-27, CF-15 and CF-16, the critic's two assumptions, and AN-8 limb 5;
+  - this session's rows: CF-29, SL-23 to SL-28, CF-31, F-56, CR-22, CR-24, QAF-46 to QAF-48, AC-3.3's new generator count (400)
+    and its full count's home (`MOUNTED_GENERATOR_COUNT=1000`, run by QA at Phase 2 and Phase 3), Outstanding 1's
+    unclean-fence residue (with QAF-48, in X-19's row), AC-6.9's unmaking onset at 122 lines, and AC-6.8's "Every bound"
+    line, which now holds only cross-size equality.
 - Any question for him goes to steering by SendMessage as a selection prompt, never as prose here (his ruling, relayed 23:3xZ).
-
-**Since the checkpoint.** Revision 20 (steering block 07:42Z) removed AC-6.8's corpus and generator bound and added the
-fenced-quote sized texts. All three gates have passed it (R-87, R-88), with CF-29, SL-23 and SL-24 as stated
-limits, and implementer-019's hand-off is released. The seam fold also lands those three rows' text.
-Revision 21 (D-24) added AC-6.9 for the code-fence and `>>>` keystrokes. QA's M6 refresh at `42128cd` stopped with no verdict
-(record `22a797bc`). Revision 22 (block 14:48Z and D-25) is AC-6.9's last fold: after it, an AC-6.9 finding below HIGH from
-any gate is a stated limit, except a severity floor, and a literal a correct fix fails is recorded as the implementer's
-measured reading beside its hand derivation, not a revision. All three gates passed revision 22 (R-98 to R-100), and the
-second M6 fix round was released to implementer-019 at R-100. Code review REJECTED it on CR-25 HIGH (R-103). Revision 23 (block
-19:43Z, and D-26 for the paste) is written and cued once to all three gates. The third M6 fix round starts on steering's word
-once all three pass it.
 
 **Approach in flight.** None. No uncommitted edit.
 
 **Refs.** Record `master`. The website was read only through `git -C /usr/local/bin/hooks/website show` or `git grep`, at
-`af3d95a`, `5ec0621`, `7dcedc9`, `f4060c5`, `2e36107` and `119471f`. Record shell edits are refused by the record-write gate;
-edit the plan with the Edit tool only. Probe captures are under `verification/019/planning/`. The shell runs from
+`af3d95a`, `5ec0621`, `7dcedc9`, `f4060c5`, `2e36107`, `119471f` and `42128cd`. Record shell edits are refused by the
+record-write gate; edit the plan with the Edit tool only, and write new record files with the Write tool. Changelog stamps
+come from `date -u +%Y-%m-%dT%H:%M`; the stamp-gate hook refuses a typed future stamp. Probe captures are under
+`verification/019/planning/`. The shell runs from
 `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z). Effort rulings:
 `steering/fixer-queue-2026-11-21-rulings.md`.
 
