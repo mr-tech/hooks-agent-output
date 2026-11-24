@@ -1376,3 +1376,39 @@ pointer in its wake). Not put to him: the criterion's own words answer it, and i
 - A second `general-purpose-sonnet` helper is trying to refute it. It mounts the real editor at `42128cd`, re-runs the keystrokes at `af3d95a`,
   `2e36107`, `119471f` and `42128cd`, and reads `git diff --stat af3d95a origin/master` over the editor paths. On its result, this
   thread routes the finding to code review and QA, and puts the release choice to him if the result requires it (block 07:26Z).
+
+## 2026-11-24T14:33Z — selection: plan 019, code-block keystrokes, fix both before release (put 09:25Z, answered 14:32Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T14:32Z — steering-hooks-fixer`. The wording is this thread's, and he
+answered by selection. Options:
+- *Agent: fix both first (Recommended)*: "Matches your 'fix everything we find' and 'all editor fixes in this effort' rulings. The plan gains
+  a check on code-block and >>> keystrokes, re-read by the three reviewers; then a fix round, code review again, and QA re-checks. Release
+  waits for that. The error's cause isn't diagnosed yet, so the time wasn't estimated."
+- *Agent: fix the slowdown only*: "Bring code-block closing back to roughly today's speed before release, the same process as above but a
+  smaller fix. The existing error ships as it is today and is tracked for a later editor fix. Release waits a little less."
+- *Agent: ship as is*: "No extra work, and the release isn't delayed. Both problems are tracked for a later editor fix. Anyone closing a code
+  block in a very long embed description gets up to about half a second of lag, and the existing error stays."
+
+**Chosen by selection: fix both first.** Both are fixed inside plan 019, before its one release (D-19). The first is the 126-iteration
+normalise throw on opening or closing a code fence (200 lines), with the `>>>` form (QAF-51, from 123 lines). The second is CR-23, the
+fence-close cost the fix round added. Like D-23, this lifts the M4–M6 cap for these two items alone; the cap stands for every other gap.
+It is a milestone-level scope delta on M6, confirmed by this selection. So `planner-019` writes it as a revision: a criterion covering
+code-block and `>>>` keystrokes, the throw, and CR-23's cost. The three gates read it, then a fix round, code review and QA's M6 refresh
+follow. The QAF-51 handoff (124c6099) is discharged by this fix, and the planner dispositions it.
+
+Premises:
+- The throw is pre-existing and reproduces in the mounted editor. A `general-purpose-sonnet` refutation helper ran it at `af3d95a`, `2e36107`,
+  `119471f` and `42128cd` (12 of 12 throw at each), and mounted at `42128cd`. Opening a fence drops that keystroke's onChange write until the
+  next keystroke. It was not run in a browser, and the option text says so.
+- `git diff --stat af3d95a origin/master -- src/components/SlateEditor src/utils/markdown` is empty, by the helper's run. So the base equals
+  production for the editor.
+- The cost figures are the helper's, and code review re-ran them independently: CR-23 MEDIUM, record `602344ec`. Close at 2,048 lines is
+  165.5 ms at `119471f` and 415.7 ms at `42128cd`; at 200 lines it is 15.8 and 42.1 ms. The cause was measured by code review: `resolveEmoji`
+  settles the whole unit once per dirty line.
+- The 16 ms bar is AC-6.8's timed limb.
+
+**QA's M6 refresh at `42128cd`** (Status "Testing In Progress", record `1dd01a9c`, read this turn) will be expired by the fix round's
+production change. `qa-019` is told to stop at its next seam and record what it has found so far as input to the fix round. The M6 verdict is
+taken on the next fix round's code-reviewed tip.
+Recipients: `planner-019` (the revision), `code-reviewer-019` (it was told the question was pending), `qa-019` (its refresh). The
+implementer is woken by the planner's release, as before.
