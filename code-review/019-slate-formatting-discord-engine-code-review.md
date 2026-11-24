@@ -1849,6 +1849,19 @@ Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fix
   `verification/019/code-review/m6fix2-85ece66/`.
 - **Done since (Round 8, 2026-11-24T22:55Z).** M6 Fix Round 3 at `2b82972` is REJECTED on CR-25's time member (steering block 22:41Z already sends it back under D-24). CR-25's count member and CR-24 are RESOLVED, and CR-26 LOW is new. The evidence is in `verification/019/code-review/m6fix3-2b82972/`.
 - **Next (pending).** Fix Round 4 (CR-25's time member with architect-019's lift design read, and CR-26), at its hand-off. It is a sub-entry of Round 8 unless it touches beyond those findings. Re-run, from `m6fix3-2b82972/`: `run-sl29.sh` (all three trees, judged against block 20:58Z's line, both fills), `run-diff.sh` (paste and keystroke differentials, counts) and the committed count limb at `85ece66`. Read R-111 (CF-33's form under the no-throw limb): where a suppression is used, a forced `Editor.normalize` after every keystroke member, at every N, applies no operation, and the suppression covers only the replacement operations built from the load path.
+- **Fix Round 4's design, and what it adds to the review.**
+  - CF-33 (architect-019, record `4dfc0505`, timings in `verification/019/architect-conformance/fix3-lift/`) measures the cause of
+    the per-operation growth: Slate's pending dirty-path list, rebuilt on each `insert_node` and `remove_node`.
+  - Its recommended form rebuilds the changed lines from the load path, with `editor.getDirtyPaths` returning `[]` for those
+    operations alone.
+  - Under R-111, and the planner's ruling on the no-throw clause (steering block 22:48Z, which I read first), I review that
+    suppression as a guard:
+    - **Scope.** A mutant that widens it to every operation, or to every `insert_node`, must fail a committed case by assertion.
+      An operation from another source in the same drain must still dirty its path.
+    - **Fixed point.** A forced `Editor.normalize` after every keystroke member, at every N, applies no operation.
+    - **Differentials.** The keystroke and paste differentials show 0 new differences.
+  - QA has taken Round 8's Assumption Not Checked into its Phase 2 on Fix Round 4, with its own browser, not B-11 (record
+    `a721fd95`).
 - **Superseded (Fix Round 3 plan).** Fix Round 3 (CR-25), which reaches this review at its hand-off. It is a sub-entry of Round 7 unless it
   touches beyond CR-25's scope, in which case it is Round 8. First read the owner's answer on the paste member (steering's next
   rulings block after 19:43Z), and any plan revision the planner writes for CR-25's gap.
