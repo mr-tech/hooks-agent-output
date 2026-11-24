@@ -4,6 +4,8 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 18 (record 18e434e6, AC-6.8's count window and literal): APPROVED. CF-27 is resolved as
+  folded.
   Delta pass on plan 019 revision 17 (record 34850209, AC-6.8's count and bench folds): APPROVED, re-dispositioned under
   steering's block 07:13Z. CF-27 (MEDIUM: the count's window is one Editor.normalize drain, and the literal is the lines the
   keystroke dirties: 1, 2, 1) is a stated limit (R-82) whose reading governs the count limb until the seam fold. It holds
@@ -61,6 +63,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T07:17 | architect-019 | Delta pass on plan 019 revision 18 (record `18e434e6`); § Delta pass, revision 18. APPROVED; CF-27 resolved | Commissioned by `planner-019`'s message under steering block 07:15Z. Read as `git show 18e434e6` on the plan. |
 | 2026-11-24T07:15 | architect-019 | Revision 17 verdict re-dispositioned under steering's block 07:13Z: APPROVED, with CF-27 a stated limit (plan R-82, record `75aa1dad`) whose reading governs the count limb | A reconcile note in § Delta pass, revision 17, with the original verdict kept in place. |
 | 2026-11-24T07:13 | architect-019 | Delta pass on plan 019 revision 17 (record `34850209`); § Delta pass, revision 17. APPROVED_WITH_CHANGES on CF-27 MEDIUM | Commissioned by `planner-019`'s message. Read as `git show 34850209` on the plan, with the installed `slate` 0.123.0 `normalize` read read-only. Nothing was run. |
 | 2026-11-24T07:09 | architect-019 | Delta pass on plan 019 revision 16 (record `30e2a5b8`); § Delta pass, revision 16. APPROVED; CF-25 and CF-26 LOW raised as stated limits | Commissioned by `planner-019`'s message under effort rulings block 07:05Z. Read as `git show 30e2a5b8` on the plan. Website `119471f` was read through `git -C … show`/`grep`. Nothing was run. |
@@ -86,7 +89,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21** to **CF-27** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-26** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -329,6 +332,21 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 18 (record `18e434e6`)
+
+Read as `git show 18e434e6` on the plan (18 insertions, 11 deletions), under steering's block "2026-11-24T07:15Z", which makes
+CF-27 a narrow revision 18 exception. The two commits before it since `34850209` are R-81 and R-82, which are registration
+rows. The delta is AC-6.8's window and property bullets and the Status-Detail.
+
+**CF-27 as folded.** The window is one `Editor.normalize` drain, with the `normalizeNode` calls recorded per kind. The literal is
+the lines the keystroke dirties, hand-written per fixture: 1 in-line, 2 for Enter, 1 for a merge. The merge fixture's literal
+comes from QA's read of what the merge dirties. That is CF-27's required change and recommended literal (a), and it fits the
+`handleElement` home. One case it does not settle: a line the override changes inside the drain is dirtied again and built
+again. The keystroke class excludes the emoji-completing and fence characters that would do that. Any other re-dirty shows as a
+count above the literal, so it fails loudly and cannot pass silently. **CF-27 is resolved.**
+
+**Verdict on revision 18:** APPROVED. Nothing needs the owner.
 
 ## Delta pass, revision 17 (record `34850209`)
 
