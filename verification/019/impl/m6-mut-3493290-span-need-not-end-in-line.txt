@@ -1,0 +1,4930 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (6 tests | 6 failed) 1176ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 293ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 174ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 198ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 164ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 143ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 170ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 4 failed) 1366ms
+     × loads each text of 1,000 generator inputs with its text unchanged 165ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 302ms
+     × loads each text of 1,000 generator inputs with its text unchanged 96ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 296ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text
+AssertionError: expected [ 'gen:110', 'gen:111', …(193) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:110",
++   "gen:111",
++   "gen:119",
++   "gen:120",
++   "gen:127",
++   "gen:128",
++   "gen:140",
++   "gen:141",
++   "gen:142",
++   "gen:144",
++   "gen:158",
++   "gen:160",
++   "gen:175",
++   "gen:177",
++   "gen:180",
++   "gen:181",
++   "gen:184",
++   "gen:185",
++   "gen:191",
++   "gen:197",
++   "gen:199",
++   "gen:201",
++   "gen:202",
++   "gen:203",
++   "gen:206",
++   "gen:208",
++   "gen:209",
++   "gen:210",
++   "gen:212",
++   "gen:221",
++   "gen:224",
++   "gen:232",
++   "gen:235",
++   "gen:236",
++   "gen:243",
++   "gen:261",
++   "gen:275",
++   "gen:278",
++   "gen:283",
++   "gen:289",
++   "gen:305",
++   "gen:306",
++   "gen:307",
++   "gen:310",
++   "gen:312",
++   "gen:314",
++   "gen:316",
++   "gen:319",
++   "gen:321",
++   "gen:325",
++   "gen:329",
++   "gen:342",
++   "gen:347",
++   "gen:352",
++   "gen:361",
++   "gen:366",
++   "gen:367",
++   "gen:369",
++   "gen:371",
++   "gen:372",
++   "gen:383",
++   "gen:393",
++   "gen:396",
++   "gen:397",
++   "gen:405",
++   "gen:406",
++   "gen:409",
++   "gen:411",
++   "gen:417",
++   "gen:420",
++   "gen:428",
++   "gen:438",
++   "gen:443",
++   "gen:450",
++   "gen:454",
++   "gen:458",
++   "gen:474",
++   "gen:493",
++   "gen:494",
++   "gen:501",
++   "gen:502",
++   "gen:505",
++   "gen:509",
++   "gen:512",
++   "gen:513",
++   "gen:517",
++   "gen:519",
++   "gen:520",
++   "gen:529",
++   "gen:530",
++   "gen:532",
++   "gen:536",
++   "gen:541",
++   "gen:542",
++   "gen:546",
++   "gen:548",
++   "gen:559",
++   "gen:560",
++   "gen:562",
++   "gen:575",
++   "gen:580",
++   "gen:581",
++   "gen:601",
++   "gen:606",
++   "gen:609",
++   "gen:615",
++   "gen:620",
++   "gen:637",
++   "gen:647",
++   "gen:652",
++   "gen:656",
++   "gen:660",
++   "gen:662",
++   "gen:666",
++   "gen:669",
++   "gen:671",
++   "gen:679",
++   "gen:682",
++   "gen:684",
++   "gen:695",
++   "gen:701",
++   "gen:706",
++   "gen:708",
++   "gen:713",
++   "gen:715",
++   "gen:724",
++   "gen:731",
++   "gen:734",
++   "gen:737",
++   "gen:739",
++   "gen:740",
++   "gen:741",
++   "gen:745",
++   "gen:749",
++   "gen:750",
++   "gen:756",
++   "gen:761",
++   "gen:766",
++   "gen:767",
++   "gen:768",
++   "gen:787",
++   "gen:789",
++   "gen:796",
++   "gen:798",
++   "gen:802",
++   "gen:803",
++   "gen:807",
++   "gen:814",
++   "gen:821",
++   "gen:828",
++   "gen:830",
++   "gen:837",
++   "gen:845",
++   "gen:849",
++   "gen:852",
++   "gen:856",
++   "gen:860",
++   "gen:863",
++   "gen:864",
++   "gen:865",
++   "gen:870",
++   "gen:871",
++   "gen:872",
++   "gen:873",
++   "gen:881",
++   "gen:884",
++   "gen:888",
++   "gen:894",
++   "gen:896",
++   "gen:898",
++   "gen:908",
++   "gen:911",
++   "gen:913",
++   "gen:914",
++   "gen:918",
++   "gen:919",
++   "gen:920",
++   "gen:921",
++   "gen:923",
++   "gen:924",
++   "gen:930",
++   "gen:934",
++   "gen:938",
++   "gen:942",
++   "gen:949",
++   "gen:955",
++   "gen:962",
++   "gen:967",
++   "gen:969",
++   "gen:972",
++   "gen:977",
++   "gen:981",
++   "gen:982",
++   "gen:983",
++   "gen:989",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:32:19
+     30|       .filter((input) => JSON.stringify(liftedRanges(input.text, surfa…
+     31|       .map((input) => input.key);
+     32|     expect(wrong).toEqual([]);
+       |                   ^
+     33|   }, 120_000);
+     34| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle
+AssertionError: expected [ 'gen:110', 'gen:111', …(196) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:110",
++   "gen:111",
++   "gen:119",
++   "gen:120",
++   "gen:127",
++   "gen:128",
++   "gen:140",
++   "gen:141",
++   "gen:142",
++   "gen:144",
++   "gen:151",
++   "gen:158",
++   "gen:160",
++   "gen:175",
++   "gen:177",
++   "gen:180",
++   "gen:181",
++   "gen:184",
++   "gen:185",
++   "gen:191",
++   "gen:197",
++   "gen:199",
++   "gen:201",
++   "gen:202",
++   "gen:203",
++   "gen:206",
++   "gen:208",
++   "gen:209",
++   "gen:210",
++   "gen:212",
++   "gen:221",
++   "gen:224",
++   "gen:232",
++   "gen:235",
++   "gen:236",
++   "gen:243",
++   "gen:261",
++   "gen:275",
++   "gen:278",
++   "gen:283",
++   "gen:289",
++   "gen:305",
++   "gen:306",
++   "gen:307",
++   "gen:310",
++   "gen:312",
++   "gen:314",
++   "gen:316",
++   "gen:319",
++   "gen:321",
++   "gen:325",
++   "gen:329",
++   "gen:342",
++   "gen:347",
++   "gen:352",
++   "gen:361",
++   "gen:366",
++   "gen:367",
++   "gen:369",
++   "gen:371",
++   "gen:372",
++   "gen:383",
++   "gen:393",
++   "gen:396",
++   "gen:397",
++   "gen:405",
++   "gen:406",
++   "gen:409",
++   "gen:411",
++   "gen:417",
++   "gen:420",
++   "gen:428",
++   "gen:429",
++   "gen:438",
++   "gen:443",
++   "gen:450",
++   "gen:454",
++   "gen:458",
++   "gen:474",
++   "gen:493",
++   "gen:494",
++   "gen:501",
++   "gen:502",
++   "gen:505",
++   "gen:509",
++   "gen:512",
++   "gen:513",
++   "gen:517",
++   "gen:519",
++   "gen:520",
++   "gen:529",
++   "gen:530",
++   "gen:532",
++   "gen:536",
++   "gen:541",
++   "gen:542",
++   "gen:546",
++   "gen:548",
++   "gen:559",
++   "gen:560",
++   "gen:562",
++   "gen:575",
++   "gen:580",
++   "gen:581",
++   "gen:601",
++   "gen:606",
++   "gen:609",
++   "gen:615",
++   "gen:620",
++   "gen:637",
++   "gen:647",
++   "gen:652",
++   "gen:656",
++   "gen:660",
++   "gen:662",
++   "gen:666",
++   "gen:669",
++   "gen:671",
++   "gen:679",
++   "gen:682",
++   "gen:684",
++   "gen:695",
++   "gen:701",
++   "gen:706",
++   "gen:708",
++   "gen:713",
++   "gen:715",
++   "gen:724",
++   "gen:731",
++   "gen:734",
++   "gen:737",
++   "gen:739",
++   "gen:740",
++   "gen:741",
++   "gen:745",
++   "gen:749",
++   "gen:750",
++   "gen:756",
++   "gen:761",
++   "gen:766",
++   "gen:767",
++   "gen:768",
++   "gen:787",
++   "gen:789",
++   "gen:796",
++   "gen:798",
++   "gen:802",
++   "gen:803",
++   "gen:807",
++   "gen:814",
++   "gen:821",
++   "gen:828",
++   "gen:830",
++   "gen:837",
++   "gen:845",
++   "gen:849",
++   "gen:852",
++   "gen:856",
++   "gen:860",
++   "gen:863",
++   "gen:864",
++   "gen:865",
++   "gen:870",
++   "gen:871",
++   "gen:872",
++   "gen:873",
++   "gen:881",
++   "gen:884",
++   "gen:888",
++   "gen:894",
++   "gen:896",
++   "gen:898",
++   "gen:901",
++   "gen:908",
++   "gen:911",
++   "gen:913",
++   "gen:914",
++   "gen:918",
++   "gen:919",
++   "gen:920",
++   "gen:921",
++   "gen:923",
++   "gen:924",
++   "gen:930",
++   "gen:934",
++   "gen:938",
++   "gen:942",
++   "gen:949",
++   "gen:955",
++   "gen:962",
++   "gen:967",
++   "gen:969",
++   "gen:972",
++   "gen:977",
++   "gen:981",
++   "gen:982",
++   "gen:983",
++   "gen:989",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:32:19
+     30|       .filter((input) => JSON.stringify(liftedRanges(input.text, surfa…
+     31|       .map((input) => input.key);
+     32|     expect(wrong).toEqual([]);
+       |                   ^
+     33|   }, 120_000);
+     34| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl
+AssertionError: expected [ 'gen:110', 'gen:111', …(316) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:110",
++   "gen:111",
++   "gen:117",
++   "gen:119",
++   "gen:120",
++   "gen:127",
++   "gen:128",
++   "gen:133",
++   "gen:134",
++   "gen:140",
++   "gen:141",
++   "gen:142",
++   "gen:144",
++   "gen:151",
++   "gen:158",
++   "gen:160",
++   "gen:161",
++   "gen:166",
++   "gen:175",
++   "gen:177",
++   "gen:179",
++   "gen:180",
++   "gen:181",
++   "gen:184",
++   "gen:185",
++   "gen:191",
++   "gen:192",
++   "gen:193",
++   "gen:194",
++   "gen:197",
++   "gen:198",
++   "gen:199",
++   "gen:200",
++   "gen:201",
++   "gen:202",
++   "gen:203",
++   "gen:205",
++   "gen:206",
++   "gen:207",
++   "gen:208",
++   "gen:209",
++   "gen:210",
++   "gen:212",
++   "gen:217",
++   "gen:221",
++   "gen:224",
++   "gen:229",
++   "gen:232",
++   "gen:235",
++   "gen:236",
++   "gen:237",
++   "gen:243",
++   "gen:244",
++   "gen:246",
++   "gen:247",
++   "gen:249",
++   "gen:253",
++   "gen:257",
++   "gen:259",
++   "gen:261",
++   "gen:263",
++   "gen:275",
++   "gen:278",
++   "gen:283",
++   "gen:284",
++   "gen:286",
++   "gen:287",
++   "gen:289",
++   "gen:301",
++   "gen:305",
++   "gen:306",
++   "gen:307",
++   "gen:310",
++   "gen:312",
++   "gen:314",
++   "gen:315",
++   "gen:316",
++   "gen:319",
++   "gen:321",
++   "gen:322",
++   "gen:323",
++   "gen:325",
++   "gen:326",
++   "gen:328",
++   "gen:329",
++   "gen:340",
++   "gen:342",
++   "gen:346",
++   "gen:347",
++   "gen:352",
++   "gen:359",
++   "gen:361",
++   "gen:366",
++   "gen:367",
++   "gen:369",
++   "gen:371",
++   "gen:372",
++   "gen:373",
++   "gen:380",
++   "gen:383",
++   "gen:385",
++   "gen:386",
++   "gen:391",
++   "gen:393",
++   "gen:395",
++   "gen:396",
++   "gen:397",
++   "gen:401",
++   "gen:405",
++   "gen:406",
++   "gen:408",
++   "gen:409",
++   "gen:411",
++   "gen:416",
++   "gen:417",
++   "gen:418",
++   "gen:420",
++   "gen:421",
++   "gen:424",
++   "gen:428",
++   "gen:429",
++   "gen:438",
++   "gen:443",
++   "gen:450",
++   "gen:451",
++   "gen:452",
++   "gen:453",
++   "gen:454",
++   "gen:455",
++   "gen:457",
++   "gen:458",
++   "gen:466",
++   "gen:470",
++   "gen:474",
++   "gen:476",
++   "gen:489",
++   "gen:493",
++   "gen:494",
++   "gen:501",
++   "gen:502",
++   "gen:503",
++   "gen:505",
++   "gen:509",
++   "gen:512",
++   "gen:513",
++   "gen:517",
++   "gen:519",
++   "gen:520",
++   "gen:526",
++   "gen:529",
++   "gen:530",
++   "gen:532",
++   "gen:536",
++   "gen:541",
++   "gen:542",
++   "gen:543",
++   "gen:544",
++   "gen:546",
++   "gen:548",
++   "gen:551",
++   "gen:553",
++   "gen:559",
++   "gen:560",
++   "gen:562",
++   "gen:563",
++   "gen:564",
++   "gen:566",
++   "gen:571",
++   "gen:572",
++   "gen:575",
++   "gen:580",
++   "gen:581",
++   "gen:587",
++   "gen:591",
++   "gen:599",
++   "gen:601",
++   "gen:602",
++   "gen:606",
++   "gen:608",
++   "gen:609",
++   "gen:615",
++   "gen:620",
++   "gen:632",
++   "gen:637",
++   "gen:639",
++   "gen:641",
++   "gen:645",
++   "gen:647",
++   "gen:652",
++   "gen:653",
++   "gen:656",
++   "gen:657",
++   "gen:659",
++   "gen:660",
++   "gen:662",
++   "gen:666",
++   "gen:669",
++   "gen:671",
++   "gen:673",
++   "gen:679",
++   "gen:681",
++   "gen:682",
++   "gen:684",
++   "gen:694",
++   "gen:695",
++   "gen:696",
++   "gen:701",
++   "gen:703",
++   "gen:705",
++   "gen:706",
++   "gen:708",
++   "gen:713",
++   "gen:715",
++   "gen:717",
++   "gen:722",
++   "gen:723",
++   "gen:724",
++   "gen:729",
++   "gen:731",
++   "gen:734",
++   "gen:737",
++   "gen:739",
++   "gen:740",
++   "gen:741",
++   "gen:744",
++   "gen:745",
++   "gen:749",
++   "gen:750",
++   "gen:756",
++   "gen:757",
++   "gen:761",
++   "gen:763",
++   "gen:766",
++   "gen:767",
++   "gen:768",
++   "gen:777",
++   "gen:780",
++   "gen:782",
++   "gen:787",
++   "gen:789",
++   "gen:796",
++   "gen:797",
++   "gen:798",
++   "gen:802",
++   "gen:803",
++   "gen:804",
++   "gen:807",
++   "gen:810",
++   "gen:814",
++   "gen:818",
++   "gen:821",
++   "gen:828",
++   "gen:830",
++   "gen:837",
++   "gen:845",
++   "gen:846",
++   "gen:849",
++   "gen:852",
++   "gen:853",
++   "gen:856",
++   "gen:860",
++   "gen:863",
++   "gen:864",
++   "gen:865",
++   "gen:870",
++   "gen:871",
++   "gen:872",
++   "gen:873",
++   "gen:881",
++   "gen:884",
++   "gen:888",
++   "gen:894",
++   "gen:896",
++   "gen:898",
++   "gen:901",
++   "gen:902",
++   "gen:906",
++   "gen:908",
++   "gen:911",
++   "gen:912",
++   "gen:913",
++   "gen:914",
++   "gen:917",
++   "gen:918",
++   "gen:919",
++   "gen:920",
++   "gen:921",
++   "gen:923",
++   "gen:924",
++   "gen:926",
++   "gen:930",
++   "gen:933",
++   "gen:934",
++   "gen:938",
++   "gen:942",
++   "gen:949",
++   "gen:951",
++   "gen:955",
++   "gen:960",
++   "gen:961",
++   "gen:962",
++   "gen:964",
++   "gen:967",
++   "gen:969",
++   "gen:970",
++   "gen:971",
++   "gen:972",
++   "gen:974",
++   "gen:977",
++   "gen:979",
++   "gen:981",
++   "gen:982",
++   "gen:983",
++   "gen:989",
++   "gen:990",
++   "gen:991",
++   "gen:998",
++   "gen:999",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:32:19
+     30|       .filter((input) => JSON.stringify(liftedRanges(input.text, surfa…
+     31|       .map((input) => input.key);
+     32|     expect(wrong).toEqual([]);
+       |                   ^
+     33|   }, 120_000);
+     34| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of 1,000 generator inputs with its text unchanged
+AssertionError: expected [ …(198) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1. ``**1️⃣<@!1558266761101447248> https://x.y. 🪿``
++ ## [a](https://example.com/a_b/🙂)
++ 1. https://x.y 🙂 <id:guide>",
++   "*\\#x\\#* <t:1700000000:x> \\[x\\[
++ -# *__*1️⃣*__* \\)x\\)é",
++   "## _||*[a 🙂 b](https://x.y)https://x.y/a(b)c*||_ <@&1558266761101447248> [a 🙂 b](https://example.com/a_b)
++ ## _*1️⃣ 🙂* ™",
++   "-# ``~~_<t:1700000000:x> \\)x\\)_~~`` <:hooks:1558266761101447248>
++ - ||~~:smile:
++ 1️⃣[a [b] c](https://example.com)",
++   "> <t:1700000000:d>
++ 1. ||__https://x.y/a*b*c 🙂 https://x.y.__
++ ````[a](https://x.y/🙂)",
++   "1. ~~™ https://example.com~~
++ -# 👍🏽
++ -# ``[🙂](https://x.y)`` <id:browse>[<:hooks:1558266761101447248>](https://x.y)",
++   "1. [a 🙂 b](https://example.com/a_b)[a 🙂 b](https://x.y/a*b*c)
++ # *:🙂: a*b*",
++   "-# <game:1558266761101447248> <a@b.co>
++ > 🙂 https://x.y
++ - `*\\<x\\< 2 < 3*`",
++   "- ||`*[<:hooks:1558266761101447248>](https://x.y)https://example.com/a_b🙂*`||
++ __*©*__ https://example.com/path?q=1&r=2#f <a:dance:1558266761101447248>",
++   "# ~~**<#1558266761101447248> [🙂](https://x.y)** [a 🙂 b](https://example.com/a_b)~~
++   - 1️⃣
++ ## _~~` lead❤️` x_y <id:guide>~~ 🙂 [a](https://x.y/a*b*c/🙂)_ [a](https://x.y/a*b*c/🙂) <a:dance:1558266761101447248>",
++   "### [text](<https://example.com>)
++ ## [text](https://example.com) \\|x\\|
++ ## ||1️⃣ 日本||",
++   "_||``<@1558266761101447248>``|| [a](https://example.com/a_b/🙂) [text](https://example.com \"a title\")_ <a@b.co>
++ __````</ping:1558266761101447248>````__ <t:1700000000:s> :🙂:
++ **<id:home>** https://x.y. snake_case",
++   "## ~~https://x.y/a(b)c~~ a*b
++ ``**\\|x\\|<@$1558266761101447248>** a*b``
++ - *~~[🙂](https://example.com/a_b) \\:x\\:~~ 🙂 https://example.com/a_b <t:1700000000:T> \\`x\\`",
++   "1. **__❤️ https://example.com/path?q=1&r=2#f
++ ## __<a:dance:1558266761101447248>[🙂](https://x.y/a*b*c) C++ word",
++   "**_**https://x.y 🙂** https://example.com/a_b 🙂<@1558266761101447248>**
++ **``__<id:guide> <id:browse>`` 🇬🇧<t:1700000000:s>
++ *<id:home> <t:1700000000:S> \\:x\\: ™",
++   "1. __**~~1️⃣ \\>x\\>~~** ❤️__
++ ___`<t:1700000000:d> 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <id:home> é__ [text](<https://example.com>) @here_
++ ❤️",
++   "## ``||||[<:hooks:1558266761101447248>](https://x.y)|||| <id:guide>``
++ > ||[a 🙂 b](https://example.com/a_b)🪿||",
++   ">>> C++ \\:x\\:
++ > _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_
++ > _<@!1558266761101447248>_",
++   "[a [b] c](https://example.com)
++ ### 🙂[a](https://example.com/a_b/🙂)",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   "  - **:🙂: 🙂 https://x.y/a*b*c** <:hooks:1558266761101447248>
++ ## __<@$1558266761101447248>:smile:__ https://example.com/path?q=1&r=2#f",
++   "- 🏴󠁧󠁢󠁥󠁮󠁧󠁿https://example.com/path?q=1&r=2#f
++ ## ||C++
++ # ~~___https://x.y 🙂_~~ \\*x\\* https://x.y 🙂",
++   "### **hello world**
++ 👨‍👩‍👧 2 < 3
++ - __**[**bold** label](https://example.com)**__ [a 🙂 b](https://example.com/a_b)",
++   "\\`x\\`
++ - https://example.com/a_b 🙂",
++   "~~[🙂](https://x.y) [dev](dev://branch/main) \\`x\\` 2 < 3
++ *_||2 < 3|| 🙂 https://x.y/a*b*c \\_x\\__ <id:customize>* [**bold** label](https://example.com)",
++   "-# [🙂](https://x.y)™
++ - :🙂: <@!1558266761101447248>",
++   "## <@&1558266761101447248> [dev](dev://branch/main)
++ ``___<t:1700000000:f>__ https://x.y🙂 <t:1700000000:f>``
++ **__<a:dance:1558266761101447248>__** tail  \\(x\\(",
++   "> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> 🪿 \\)x\\) snake_case
++ - _**https://x.y/a*b*c 🙂 ™ <t:1700000000:f>_
++ <id:home>",
++   "❤
++ ## `_<t:1700000000:s>` \\<x\\< 👨‍👩‍👧",
++   "<:hooks:1558266761101447248>
++ 1. <#1558266761101447248>
++ 🪿https://example.com/a_b 🙂",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++   "1. <@$1558266761101447248>🪿
++ -# **__<t:1700000000:R>https://x.y🙂__ <t:1700000000:d> <a:dance:1558266761101447248>** [text](https://example.com \"a title\") ™",
++   "# `||||<id:guide> [:smile:](https://example.com/a_b)|| [**bold** label](https://example.com)|| \\|x\\| [:smile:](https://example.com/a_b)
++ ### `||<t:1700000000> <@$1558266761101447248>|| 👨‍👩‍👧 <@$1558266761101447248>`
++ # <t:1700000000:x> [🙂](https://x.y)",
++   ">>> # <@&1558266761101447248> é
++ ## [<:hooks:1558266761101447248>](https://example.com/a_b)
++ 1️⃣<t:1700000000:t>",
++   "# __*🙂 https://x.y/a*b*c https://example.com* 🙂 https://example.com/a_b__ [<:hooks:1558266761101447248>](https://x.y/a*b*c) [a 🙂 b](https://example.com/a_b)
++ - 🙂",
++   "# ____\\[x\\[ \\`x\\`_ <:hooks:1558266761101447248>\\]x\\]__
++ - 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ <@1558266761101447248> 👍🏽",
++   "<t:1700000000:R> https://example.com/a_b🙂
++ ### _\\#x\\#🏴󠁧󠁢󠁥󠁮󠁧󠁿_",
++   "- `[a [b] c](https://example.com) <t:1700000000:x>` [a 🙂 b](https://example.com/a_b)<t:1700000000:d>
++ ## *:smile:a*",
++   "- https://x.y🙂
++ > ``[<:hooks:1558266761101447248>](https://x.y)`` https://example.com/a_b 🙂<t:1700000000:x>
++ ### `[<:hooks:1558266761101447248>](https://example.com/a_b)` [dev](dev://branch/main) <t:1700000000:S>",
++   "> __**~~\\>x\\>~~ https://x.y🙂**__
++ __*🇬🇧 <id:customize>*__",
++   "### `[<:hooks:1558266761101447248>](https://x.y/a*b*c)`
++ -# __<id:home> </ping:1558266761101447248>__ https://x.y/a*b*c 🙂
++ ``\\<x\\<`` \\`x\\`",
++   "~~``x_y`` @here https://x.y 🙂~~
++ __**\\#x\\# :smile:__ 👍🏽
++ - \\_x\\_日本",
++   "- ~~é~~
++ 1. **<@$1558266761101447248> <t:1700000000:D>🙂 https://x.y* https://x.y.[text](<https://example.com>)",
++   "> [text](<https://example.com>)
++ 👨‍👩‍👧
++ - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "_*🏴󠁧󠁢󠁥󠁮󠁧󠁿 [**bold** label](https://example.com)* <id:home> <t:-1:f> <id:guide>
++ ## ``[text](https://example.com)🙂 https://x.y/a*b*c",
++   "_❤️ <t:1700000000:R> <@1558266761101447248>[:smile:](https://example.com/a_b)
++ -# **_<t:1700000000:R>_ 🙂 https://x.y/a*b*c 🪿 👍🏽",
++   "# **||日本||** https://example.com/a_b 🙂
++ ❤️
++ > <game:1558266761101447248> <t:1700000000:x>",
++   "[:smile:](https://x.y/a*b*c) \\`x\\`
++ ``_[text](<https://example.com>)_``
++ - [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b",
++   "  - ____\\*x\\* [a 🙂 b](https://example.com/a_b)__ 🏴󠁧󠁢󠁥󠁮󠁧󠁿 https://x.y/a*b*c🙂
++ ## <t:-1:f> <:hooks:1558266761101447248>",
++   "*_[<:hooks:1558266761101447248>](https://x.y)_ a*b [a 🙂 b](https://example.com/a_b) https://example.com/a_b 🙂 \\)x\\)
++ ### ||~~`[a](https://x.y/a*b*c/🙂) \\|x\\|` https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿~~|| <t:1700000000:x>",
++   "- 🙂 https://example.com/a_b <t:1700000000:s>
++ __🙂<@!1558266761101447248>__ \\|x\\|",
++   "tail  ™
++ > 🙂
++ - _*<t:1700000000:D>*_ <@1558266761101447248> <t:1700000000:Z>",
++   "*<t:1700000000:S> [a 🙂 b](https://x.y)*
++ _~~https://x.y/a*b*c🙂 </ping:1558266761101447248>~~ <t:1700000000:f> 🙂_
++ __[text](<https://example.com>) [:smile:](https://x.y/a*b*c)",
++   "<t:1700000000:T> 🙂 https://x.y
++ _~~__🏴󠁧󠁢󠁥󠁮󠁧󠁿__~~_",
++   "~~**\\~x\\~**~~ https://x.y. \\~x\\~
++ 1. 🙂 https://x.y/a*b*c
++ 1. ___\\]x\\]\\_x\\__",
++   "- _||<t:1700000000><id:guide>|| \\<x\\<_
++ # ___||[text](<https://example.com>)_ 日本 </ping:1558266761101447248> 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ ~~____👍🏽\\[x\\[ [<:hooks:1558266761101447248>](https://x.y) <t:1700000000:R> <t:-1:f>",
++   "__[:smile:](https://x.y) <t:1700000000:x>__ \\]x\\]\\<x\\<
++ -# ||**||<@$1558266761101447248>👍🏽||** https://example.com/a_b🙂 <a@b.co>||",
++   "-# _https://example.com
++ -# **https://x.y/a*b*c🙂** word [<:hooks:1558266761101447248>](https://example.com/a_b)
++ ___~~1️⃣~~ 1️⃣ <game:1558266761101447248>",
++   "# \\]x\\]
++   - ~~[text](https://example.com)👨‍👩‍👧~~",
++   "> ~~[a](https://x.y/🙂)~~
++ -# __||\\<x\\<||__ \\)x\\) snake_case
++ # `__**[:smile:](https://example.com/a_b) \\]x\\]** https://example.com/a_b 🙂 🪿__ <t:1700000000:t>",
++   "https://example.com/a_b 🙂 <game:1558266761101447248>
++ > ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)
++ -# <id:guide>https://x.y 🙂",
++   "> x_y
++ 1. ~~~~1️⃣~~ hello world~~ <t:1700000000:f>
++   - \\[x\\[",
++   "-# <id:guide>é
++ `<game:1558266761101447248>👍🏽` <@$1558266761101447248> 🇬🇧",
++   "> https://x.y/a(b)c<t:1700000000:T>
++ -# `**[🙂](https://x.y) <t:1700000000:x>**
++   - ||🙂 https://example.com/a_b||",
++   "- [dev](dev://branch/main)
++ \\>x\\>日本
++ # ||`hello world`|| 1️⃣",
++   "<t:-1:f> 日本
++ 1. *_❤️ snake_case_* </ping:1558266761101447248> 🙂",
++   "||``2 < 3 [text](https://example.com)\\(x\\(|| https://x.y/a(b)c<t:1700000000:t>
++ ___[<:hooks:1558266761101447248>](https://x.y)_ 🙂 https://x.y/a*b*c__ [a 🙂 b](https://example.com/a_b)<t:1700000000:x>",
++   "**C++** <@$1558266761101447248>
++   - \\)x\\)https://x.y 🙂",
++   ">>> - <id:linked-roles> a*b
++ *_[text](https://example.com) <t:1700000000:Z>_ <t:-1:f>* 👍🏽 [🙂](https://x.y)",
++   "-# ``🏴󠁧󠁢󠁥󠁮󠁧󠁿 [:smile:](https://x.y)
++ # ``❤️``
++ <@&1558266761101447248>[a 🙂 b](https://x.y)",
++   "### ||_❤️ [🙂](https://x.y/a*b*c)_||
++   - ~~||~~[🙂](https://x.y/a*b*c) [a](https://example.com/a_b/🙂)~~ [text](https://example.com \"a title\") 1️⃣ [:smile:](https://x.y/a*b*c) é",
++   "-# `[<:hooks:1558266761101447248>](https://x.y/a*b*c) [dev](dev://branch/main)`
++ ### **||snake_case[**bold** label](https://example.com) [<:hooks:1558266761101447248>](https://x.y/a*b*c)tail 
++ ## 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   "1. *[**bold** label](https://example.com) <a:dance:1558266761101447248>*
++ hello world ❤️",
++   "||<id:browse>|| 2 < 3
++ __``1️⃣`` <https://x.y/🙂> 🙂 https://x.y__",
++   "# *``**word ❤️``* https://x.y/a*b*c🙂
++ ``🙂<@1558266761101447248>``
++ `__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:",
++   "__**``<@!1558266761101447248>``**__ [🙂](https://example.com/a_b)\\~x\\~
++ **``*<t:1700000000:S><id:guide>*`` <t:1700000000:R>**
++ ``||~~<@!1558266761101447248>~~||`` 🙂<t:1700000000:F>",
++   "__🙂 https://x.y 1️⃣__ <@$1558266761101447248>
++ -# ~~2 < 3~~
++ ``<id:guide>https://x.y/a*b*c 🙂`` <t:1700000000:Z> :smile:",
++   "1. `<id:customize> https://x.y/a*b*c🙂` [🙂](https://example.com/a_b) <t:1700000000:D>
++ - __*_🏴󠁧󠁢󠁥󠁮󠁧󠁿_ hello world word*__",
++   "____[text](<https://example.com>) @here____
++ 🙂 https://x.y/a*b*c
++ -# <t:1700000000:s>",
++   ">>> _2 < 3_
++ 👍🏽 \\(x\\(",
++   "> __`a` a*b__
++ 1. ||||🪿 [<:hooks:1558266761101447248>](https://example.com/a_b)||||",
++   "- C++ \\(x\\(
++   - 👨‍👩‍👧
++ > `**word**",
++   "  - **||[a](https://example.com/a_b/🙂) 🙂 https://x.y** 🪿 @here
++ -# 🙂 https://x.y/a*b*c",
++   "____`[a 🙂 b](https://example.com/a_b)`__
++ ||_~~C++~~ <t:1700000000:F> ❤️_ [<:hooks:1558266761101447248>](https://x.y)https://x.y.||",
++   "1. ||[🙂](https://example.com/a_b) <t:1700000000:Z>||
++ 🇬🇧 <https://x.y/🙂>",
++   "_~~@everyone <t:1700000000:F> [🙂](https://x.y/a*b*c) <id:home>_
++ - ~~**🏴󠁧󠁢󠁥󠁮󠁧󠁿[🙂](https://x.y/a*b*c)** <@1558266761101447248>~~",
++   "# __[dev](dev://branch/main)__ <t:1700000000:D> <t:1700000000:d>
++ - **https://x.y 🙂**
++ a1️⃣",
++   "  - ___~~<t:-1:f>@everyone~~___
++ 1. __~~</ping:1558266761101447248> [<:hooks:1558266761101447248>](https://x.y/a*b*c)~~_ https://example.com/a_b🙂 🙂 https://example.com/a_b_ <https://x.y> [a](https://x.y/a*b*c/🙂)
++ # [🙂](https://example.com/a_b)",
++   "### ~~~~2 < 3~~ <@!1558266761101447248>
++ ## \\>x\\> https://example.com
++ https://x.y/a(b)c 1️⃣",
++   "<@!1558266761101447248> <t:1700000000:t>
++ -# ~~👨‍👩‍👧 https://x.y 🙂",
++   "C++ <:hooks:1558266761101447248>
++ ||``<#1558266761101447248>``||
++   - *~~🏴󠁧󠁢󠁥󠁮󠁧󠁿~~ <https://x.y> <t:1700000000:D>*",
++   "# <game:1558266761101447248>
++ _`\\*x\\*` <a:dance:1558266761101447248>🙂 https://x.y/a*b*c_",
++   "__[text](https://example.com \"a title\")__
++ **[**bold** label](https://example.com)** :🙂:[🙂](https://example.com/a_b)",
++   "### 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ _*||👨‍👩‍👧 \\~x\\~ https://example.com/a_b🙂* <id:customize> 🙂 https://example.com/a_b_",
++   ">>> > ||[:smile:](https://x.y)|| <t:1700000000:s><@&1558266761101447248>
++ # `<t:1700000000:S>`
++ -# ||~~[:smile:](https://x.y/a*b*c)<game:1558266761101447248> 🙂 https://x.y<@!1558266761101447248>",
++   "*<id:home>*
++ # __<id:customize> [<:hooks:1558266761101447248>](https://x.y/a*b*c)__ 1️⃣ <a:dance:1558266761101447248>",
++   "*``word` </ping:1558266761101447248>` \\:x\\: <@!1558266761101447248>* [🙂](https://x.y) https://example.com/a_b🙂
++ > *<:hooks:1558266761101447248>* ❤ <id:browse>",
++   "# ||[a](https://x.y/🙂)|| 👍🏽
++   - 1️⃣ \\*x\\*",
++   "# ``*<@!1558266761101447248>* ❤️`` \\`x\\` [:smile:](https://x.y/a*b*c)
++ 1. *[:smile:](https://x.y/a*b*c)*
++ # :🙂: <a@b.co>",
++   "-# ©
++ <t:1700000000:d> 🙂 https://x.y
++ -# _<:hooks:1558266761101447248>_ https://example.com",
++   "# https://x.y/a(b)c <id:linked-roles>
++ _***❤️ <@1558266761101447248>*** 🪿 @everyone_ <a:dance:1558266761101447248>",
++   "___a*b <@$1558266761101447248> <id:customize>
++   - _*__[a 🙂 b](https://example.com/a_b)<@&1558266761101447248>__*_ [text](<https://example.com>)1️⃣
++ *~~<t:1700000000:s> <id:customize>~~*",
++   "1. *[a](https://x.y/🙂) <t:-1:f>* \\>x\\> [:smile:](https://x.y/a*b*c)
++ - `||**[a 🙂 b](https://example.com/a_b) \\>x\\>**|| \\`x\\`` a 👍🏽",
++   "  - __[🙂](https://example.com/a_b) snake_case__
++ > [a 🙂 b](https://x.y/a*b*c) <t:-1:f>
++ - ``snake_case <https://x.y/🙂>`` https://x.y 🙂 a*b",
++   "||****é [<:hooks:1558266761101447248>](https://example.com/a_b)** [:smile:](https://example.com/a_b)|| hello world
++ **🙂 https://example.com/a_b**
++ ## \\(x\\( <@1558266761101447248>",
++   "- _*[:smile:](https://x.y/a*b*c)*_
++ __**[a](https://x.y/🙂) 👍🏽**__
++ > _`\\(x\\(`_",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "### _*<t:1700000000:f> <a@b.co>*_ <@!1558266761101447248>
++ ### \\:x\\:
++ ## 🇬🇧",
++   "## ``*\\`x\\` [🙂](https://x.y/a*b*c)*` <id:home>
++ 1. **||https://x.y 🙂|| <t:1700000000:f>",
++   "``~~<t:1700000000>~~ 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ word
++ ``**[**bold** label](https://example.com) [**bold** label](https://example.com)** https://example.com/a_b 🙂`` <https://x.y/🙂> <:hooks:1558266761101447248>",
++   "||👨‍👩‍👧 [<:hooks:1558266761101447248>](https://x.y/a*b*c) 🙂 https://x.y/a*b*c
++   - ||🪿||",
++   "- [a 🙂 b](https://example.com/a_b)
++ > ~~__``[text](https://example.com) <a:dance:1558266761101447248> 🙂__~~",
++   "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`
++ ``~~<https://x.y/🙂>~~``
++ # ___<id:guide> 🪿__",
++   "# ||**``<t:1700000000>``** @here||
++ *<a:dance:1558266761101447248>* [a 🙂 b](https://x.y)",
++   "-# **🪿 [a](https://x.y/a*b*c/🙂)** <t:1700000000:R>
++ > ||\\#x\\# \\#x\\#[:smile:](https://example.com/a_b)
++ ~~https://example.com/a_b 🙂~~ \\[x\\[ 🇬🇧",
++   "### 🙂 https://example.com/a_bhttps://example.com/path?q=1&r=2#f
++ # __\\)x\\) <:hooks:1558266761101447248>__
++ ### **`\\]x\\]`**",
++   "**[a](https://example.com/a_b/🙂) [a 🙂 b](https://example.com/a_b)** <https://x.y>
++ **~~`https://x.y/a*b*c 🙂  lead` 🙂 https://example.com/a_b [🙂](https://x.y/a*b*c)**",
++   "word
++ ### **[🙂](https://x.y) [text](https://example.com)**
++ `🙂 https://example.com/a_b a*b` <@$1558266761101447248> :🙂:",
++   "2 < 3[<:hooks:1558266761101447248>](https://example.com/a_b)
++ <@!1558266761101447248> <:hooks:1558266761101447248>
++ - ||<t:1700000000:d> https://example.com/path?q=1&r=2#f",
++   "  - __[a [b] c](https://example.com)__
++   - _*https://x.y 🙂 <t:1700000000:S>_",
++   "### hello world
++ ### ~~❤ <a:dance:1558266761101447248>~~ <t:1700000000:Z> 🪿",
++   "`***[**bold** label](https://example.com) a*b`
++ 1. ____[<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b____",
++   ":smile: a*b
++ > ||\\:x\\: <a@b.co>|| hello world <t:1700000000:x>
++ ### __**1️⃣ [text](<https://example.com>)**",
++   "> __<id:home>__
++ # 🇬🇧
++ 1. \\:x\\:",
++   "> 2 < 3
++ ``_<t:1700000000:t> [a](https://example.com/a_b/🙂)_`` 🪿\\#x\\#",
++   ">>> - ©
++   - _👍🏽 https://example.com_ [:smile:](https://x.y) [a 🙂 b](https://x.y)
++ > `[:smile:](https://x.y) https://x.y.` [a [b] c](https://example.com) [:smile:](https://x.y/a*b*c)",
++   "## ****🏴󠁧󠁢󠁥󠁮󠁧󠁿 https://x.y/a*b*c🙂**** ❤ \\<x\\<
++ ## ``[:smile:](https://example.com/a_b)`` ™
++ - 1️⃣",
++   "<t:1700000000:R><#1558266761101447248>
++ > ||||❤️ word|| <@&1558266761101447248>🙂 https://x.y|| <https://x.y/🙂> [a](https://x.y/a*b*c/🙂)",
++   "||_||<https://x.y/🙂> <t:1700000000:F>|| \\`x\\`|| <game:1558266761101447248> hello world
++ <a:dance:1558266761101447248>
++ 1. ````<id:linked-roles> é [a 🙂 b](https://example.com/a_b)``",
++   "## ~~[<:hooks:1558266761101447248>](https://x.y) [<:hooks:1558266761101447248>](https://x.y)~~
++ -# _``<t:1700000000:f> [dev](dev://branch/main)`` https://x.y._ 🙂 [a 🙂 b](https://x.y/a*b*c)",
++   "<#1558266761101447248>
++ -# x_y 🙂
++ - _<id:guide> a_ :🙂:🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   "___~~<t:1700000000:R><:hooks:1558266761101447248>~~ 🇬🇧___
++ > `https://example.com/a_b 🙂 [🙂](https://x.y) <t:-1:f>",
++   "1. @here \\>x\\>
++ 🇬🇧 <t:1700000000:d>",
++   "-# <t:1700000000:T> :smile:
++   - ~~_https://x.y 🙂\\~x\\~_~~",
++   "_||👍🏽|| hello world_ https://example.com/path?q=1&r=2#f [text](<https://example.com>)
++ ## __🙂 https://example.com/a_b \\|x\\|__",
++   "**2 < 3\\]x\\]
++ __`🏴󠁧󠁢󠁥󠁮󠁧󠁿 👍🏽 \\|x\\| <:hooks:1558266761101447248>__ [🙂](https://x.y/a*b*c)
++   - [**bold** label](https://example.com)",
++   "**[a](https://example.com/a_b/🙂) https://x.y/a*b*c 🙂**
++ 1. *_||<t:1700000000> https://example.com/a_b 🙂||  lead<@1558266761101447248> C++
++ __🪿__",
++   "<t:1700000000:s> [🙂](https://example.com/a_b)
++ > <t:1700000000:t> 🙂 https://example.com/a_b",
++   "[🙂](https://example.com/a_b)
++ ## __||_https://example.com_|| <t:1700000000:R>👨‍👩‍👧__
++ [a](https://x.y/🙂) <@1558266761101447248>",
++   "- ❤️
++ - 1️⃣",
++   ":🙂: [a](https://example.com/a_b/🙂)
++ __🙂 <id:browse>__
++ ||``🙂 https://x.y <t:-1:f>|| https://example.com/a_b🙂 [dev](dev://branch/main)",
++   "**é \\[x\\[**
++ > 🪿 [a](https://x.y/a*b*c/🙂)",
++   "1. ~~__<id:home>__~~ a<@&1558266761101447248>
++ 1. ``**`hello world 2 < 3`** ❤️ @everyone`` <@$1558266761101447248> https://x.y 🙂
++ - [a 🙂 b](https://example.com/a_b) 🙂 https://example.com/a_b",
++   "`||<id:browse>|| x_y[dev](dev://branch/main)`
++ ## **🪿**
++ ~~\\|x\\|~~",
++   "- _🏴󠁧󠁢󠁥󠁮󠁧󠁿_ https://example.com🇬🇧
++ ||🙂||
++ _**[a [b] c](https://example.com) <id:browse>** 👨‍👩‍👧",
++   ">>> ## __👍🏽__
++ 1. **__<t:-1:f> 1️⃣__**
++ 1. _||_<game:1558266761101447248>\\(x\\(_ <t:1700000000:t> C++|| </ping:1558266761101447248> <t:1700000000:T>_",
++   "<t:1700000000:t>
++ 🙂 https://x.y
++ -# `*_🇬🇧 <game:1558266761101447248>_*",
++   "# <t:1700000000> 👨‍👩‍👧
++ ### **https://x.y/a*b*c🙂** \\~x\\~<:hooks:1558266761101447248>
++ > ||``<@$1558266761101447248> [**bold** label](https://example.com)<id:browse>||",
++   "# 🙂 https://x.y/a*b*c
++ ### ||_\\[x\\[ </ping:1558266761101447248>_ 🏴󠁧󠁢󠁥󠁮󠁧󠁿|| ©",
++   "# \\)x\\)
++ > **<id:browse>**
++ ### __<id:browse> 👨‍👩‍👧__ <@!1558266761101447248>",
++   "-# __<id:customize>__
++ - ||*日本*||
++ 1. `**<t:1700000000:t> <:hooks:1558266761101447248>** </ping:1558266761101447248> <game:1558266761101447248>",
++   "# ~~\\:x\\:
++   - **https://example.com/a_b🙂**
++ # ||***https://x.y. :🙂:* 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <t:1700000000:S>é",
++   "## __👍🏽__
++ *||*<t:1700000000:d>*|| <id:customize> https://x.y 🙂",
++   "> `<@1558266761101447248>` https://example.com x_y
++ -# ~~https://x.y 🙂~~",
++   "1. _``1️⃣ [text](https://example.com \"a title\") snake_case
++ - ~~****https://x.y/a*b*c🙂 :🙂:** [a](https://x.y/🙂) <https://x.y>~~",
++   "### \\)x\\) [text](https://example.com)
++ word🏴󠁧󠁢󠁥󠁮󠁧󠁿
++   - ||~~``<https://x.y/🙂> hello world|| \\#x\\# 🙂 https://x.y",
++   "# [<:hooks:1558266761101447248>](https://example.com/a_b)
++ # <t:1700000000:R>
++ ``__[a 🙂 b](https://x.y/a*b*c)__`` 🪿 [a](https://x.y/🙂)",
++   "# **`🇬🇧 ™
++ ## *@here :smile:*",
++   "`https://x.y🙂` https://x.y/a*b*c 🙂 tail 
++ - **\\*x\\* :smile:** [:smile:](https://x.y)<t:1700000000:Z>",
++   "# https://x.y/a(b)c
++   - ~~~~<t:1700000000:R>~~ \\`x\\`[**bold** label](https://example.com)~~ [<:hooks:1558266761101447248>](https://example.com/a_b) 🙂 https://x.y",
++   "## <id:guide>
++ **™ 🙂",
++   "# *[<:hooks:1558266761101447248>](https://example.com/a_b) [a 🙂 b](https://x.y/a*b*c)* <t:-1:f> <https://x.y/🙂>
++ -# `é[🙂](https://x.y)` é🇬🇧",
++   "-# `__||\\#x\\#🙂 https://x.y/a*b*c https://x.y 🙂__ \\|x\\|<t:1700000000:Z>`
++ __`\\)x\\) <t:1700000000:D>` <id:customize>
++ > _*1️⃣ [text](<https://example.com>) [text](https://example.com)[a 🙂 b](https://x.y)",
++   "> hello world<id:guide>
++ https://x.y/a*b*c🙂\\[x\\[",
++   "\\)x\\)\\(x\\(
++ 1. _**`\\:x\\:a*b`**_ :🙂:[<:hooks:1558266761101447248>](https://x.y)
++ \\(x\\(",
++   "## __https://x.y 🙂
++ <:hooks:1558266761101447248>[**bold** label](https://example.com)
++ -# \\`x\\`",
++   "-# ~~[text](https://example.com \"a title\") https://example.com/a_b🙂~~ \\<x\\< https://example.com
++ -# https://x.y/a*b*c 🙂
++ 1. _`_é <t:1700000000:S> 🙂 https://example.com/a_b` [a 🙂 b](https://x.y)_ \\)x\\)[a](https://x.y/🙂)",
++   "https://example.com/a_b 🙂 2 < 3
++ __~~[text](https://example.com) \\`x\\` <t:1700000000:x>_ 🏴󠁧󠁢󠁥󠁮󠁧󠁿_
++ _https://example.com <t:1700000000:t>_ <t:1700000000:t>",
++   "word<@$1558266761101447248>
++ ### *``*[text](<https://example.com>)*`` <id:browse>*
++ > ||tail  👍🏽||",
++   "## __<t:1700000000:F> <t:1700000000:d>__
++ 1. 🇬🇧 <t:1700000000:F>
++   - ***`©` \\~x\\~ a*b*",
++   "x_y é
++ > 日本:smile:
++ > ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
++   ">>> é
++ ❤️ snake_case",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   ">>> ||❤️||
++ __<:hooks:1558266761101447248> 2 < 3__ https://x.y🙂
++ 1. `||`<t:1700000000:S>||`",
++   "> [a](https://example.com/a_b/🙂)
++ > _日本 \\>x\\>:🙂:
++ 1. _||*[🙂](https://x.y/a*b*c)*||_",
++   "  - ||_~~\\(x\\( <a@b.co> \\(x\\( \\#x\\#_||
++ 1. 日本 snake_case
++ *``~~日本日本~~ [:smile:](https://example.com/a_b)<t:1700000000:f>`` 1️⃣ <id:browse>*",
++   "- _`**<t:1700000000:t> hello world**`
++   - *[🙂](https://example.com/a_b) https://example.com/a_b 🙂*",
++   "- **_``🙂``_** [text](https://example.com \"a title\") <t:1700000000:x>
++ > __``\\|x\\|``__ [text](https://example.com)
++ -# **\\]x\\] <t:1700000000:D> 👨‍👩‍👧",
++   "-# 🙂 https://example.com/a_b
++ - https://x.y 🙂 [<:hooks:1558266761101447248>](https://x.y)",
++   ">>> ## _**<id:linked-roles>**_
++ > __:🙂: \\>x\\> [:smile:](https://x.y/a*b*c)[<:hooks:1558266761101447248>](https://x.y)
++ ## https://example.com 日本",
++   "### <@1558266761101447248> @everyone
++ ## *||x_yword||*
++ # ~~``__👨‍👩‍👧 x_y \\~x\\~ [<:hooks:1558266761101447248>](https://x.y) \\(x\\(~~",
++   "  - `\\:x\\:
++ *[text](<https://example.com>) @here*
++ 1. ~~``é`` 1️⃣~~",
++   "~~`*<t:1700000000:d> <https://x.y/🙂>* ™ \\_x\\_` https://example.com/a_b 🙂~~
++ 1. __*<game:1558266761101447248>* \\*x\\* <t:1700000000:d> 🏴󠁧󠁢󠁥󠁮󠁧󠁿_ [text](https://example.com \"a title\") <id:browse>",
++   "# __~~🙂 https://x.y/a*b*c~~ [a 🙂 b](https://example.com/a_b) ❤__
++ 1. *\\>x\\> 👍🏽* hello world",
++   "### ||**``:smile:`` <id:linked-roles>** [<:hooks:1558266761101447248>](https://x.y/a*b*c) <id:guide>||
++ ||~~_\\>x\\> @here @everyonehttps://x.y 🙂~~||",
++   "## <t:1700000000:Z> \\|x\\|
++ *https://x.y 🙂 é*
++ `[<:hooks:1558266761101447248>](https://example.com/a_b) 2 < 3 [:smile:](https://x.y/a*b*c) a",
++   "1. @here <t:1700000000:Z>
++ _日本[a [b] c](https://example.com)_ <id:customize>\\_x\\_
++ # ||[<:hooks:1558266761101447248>](https://example.com/a_b)👨‍👩‍👧|| [:smile:](https://example.com/a_b)<@&1558266761101447248>",
++   "-# [text](https://example.com)
++ -# ||*<id:guide> \\)x\\)* [a](https://x.y/🙂) <t:1700000000:Z>|| 🏴󠁧󠁢󠁥󠁮󠁧󠁿 2 < 3",
++   "1. ___1️⃣ @everyone___
++ > 🙂 https://example.com/a_b",
++   ">>> 1. *||_:🙂:_ [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c
++ ||_<t:1700000000:T> 1️⃣ [:smile:](https://x.y)|| <:hooks:1558266761101447248>",
++   "## \\~x\\~ snake_case
++ ### ``_**[**bold** label](https://example.com)https://x.y._`` ❤️<id:guide>",
++   "> ||\\:x\\: <id:customize>||
++ - ||\\>x\\> 🙂||
++ <t:1700000000:x>",
++   "  - ~~[text](https://example.com \"a title\") <id:browse>~~
++ 🇬🇧
++ -# ``🏴󠁧󠁢󠁥󠁮󠁧󠁿 [a 🙂 b](https://x.y)``",
++   "-# ||https://example.com/a_b🙂 \\*x\\*
++ ### *🙂 https://example.com/a_b* <@$1558266761101447248>",
++   "__\\*x\\*__ :🙂:
++ ||__**<https://x.y> https://x.y 🙂**__||
++ # __\\:x\\: 日本 tail _",
++   "<a@b.co>
++ - `[text](https://example.com)` 1️⃣\\>x\\>
++ > __日本 [🙂](https://x.y)__ </ping:1558266761101447248>",
++   "# `**_<a:dance:1558266761101447248>_ [a](https://x.y/🙂)**`
++ - ~~[a [b] c](https://example.com)<:hooks:1558266761101447248> <t:1700000000:Z>",
++   "<t:1700000000:Z> [dev](dev://branch/main)
++ <a@b.co> ❤️
++ 1. <t:1700000000:d>",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:112:21
+    110|     const changed = texts()
+    111|       .filter((text) => flattenNodeText(getInitialValue(text, partial …
+    112|     expect(changed).toEqual([]);
+       |                     ^
+    113|   });
+    114| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the joins of up to three block atoms with its text unchanged
+AssertionError: expected [ 'a\na\n🙂 b', 'a\n\n🙂 b', …(510) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a
++ a
++ 🙂 b",
++   "a
++
++ 🙂 b",
++   "a
++ > a
++ 🙂 b",
++   "a
++ >>> a
++ 🙂 b",
++   "a
++ >>> 
++ 🙂 b",
++   "a
++ > 
++ 🙂 b",
++   "a
++  > a
++ 🙂 b",
++   "a
++   >>> b
++ 🙂 b",
++   "a
++ >>> > a
++ 🙂 b",
++   "a
++ > > a
++ 🙂 b",
++   "a
++ > >>> a
++ 🙂 b",
++   "a
++ ```a```
++ 🙂 b",
++   "a
++ foo
++ 🙂 b",
++   "a
++ 🙂 b",
++   "a
++ 🙂 b
++ a",
++   "a
++ 🙂 b
++ ",
++   "a
++ 🙂 b
++ > a",
++   "a
++ 🙂 b
++ >>> a",
++   "a
++ 🙂 b
++ >>> ",
++   "a
++ 🙂 b
++ > ",
++   "a
++ 🙂 b
++  > a",
++   "a
++ 🙂 b
++   >>> b",
++   "a
++ 🙂 b
++ >>> > a",
++   "a
++ 🙂 b
++ > > a",
++   "a
++ 🙂 b
++ > >>> a",
++   "a
++ 🙂 b
++ ```",
++   "a
++ 🙂 b
++ ```js",
++   "a
++ 🙂 b
++ ```c++",
++   "a
++ 🙂 b
++ ``` js",
++   "a
++ 🙂 b
++ ```js x",
++   "a
++ 🙂 b
++ a```",
++   "a
++ 🙂 b
++ ```a```",
++   "a
++ 🙂 b
++ foo",
++   "a
++ 🙂 b
++ 🙂 b",
++   "
++ a
++ 🙂 b",
++   "
++
++ 🙂 b",
++   "
++ > a
++ 🙂 b",
++   "
++ >>> a
++ 🙂 b",
++   "
++ >>> 
++ 🙂 b",
++   "
++ > 
++ 🙂 b",
++   "
++  > a
++ 🙂 b",
++   "
++   >>> b
++ 🙂 b",
++   "
++ >>> > a
++ 🙂 b",
++   "
++ > > a
++ 🙂 b",
++   "
++ > >>> a
++ 🙂 b",
++   "
++ ```a```
++ 🙂 b",
++   "
++ foo
++ 🙂 b",
++   "
++ 🙂 b",
++   "
++ 🙂 b
++ a",
++   "
++ 🙂 b
++ ",
++   "
++ 🙂 b
++ > a",
++   "
++ 🙂 b
++ >>> a",
++   "
++ 🙂 b
++ >>> ",
++   "
++ 🙂 b
++ > ",
++   "
++ 🙂 b
++  > a",
++   "
++ 🙂 b
++   >>> b",
++   "
++ 🙂 b
++ >>> > a",
++   "
++ 🙂 b
++ > > a",
++   "
++ 🙂 b
++ > >>> a",
++   "
++ 🙂 b
++ ```",
++   "
++ 🙂 b
++ ```js",
++   "
++ 🙂 b
++ ```c++",
++   "
++ 🙂 b
++ ``` js",
++   "
++ 🙂 b
++ ```js x",
++   "
++ 🙂 b
++ a```",
++   "
++ 🙂 b
++ ```a```",
++   "
++ 🙂 b
++ foo",
++   "
++ 🙂 b
++ 🙂 b",
++   "> a
++ a
++ 🙂 b",
++   "> a
++
++ 🙂 b",
++   "> a
++ > a
++ 🙂 b",
++   "> a
++ >>> a
++ 🙂 b",
++   "> a
++ >>> 
++ 🙂 b",
++   "> a
++ > 
++ 🙂 b",
++   "> a
++  > a
++ 🙂 b",
++   "> a
++   >>> b
++ 🙂 b",
++   "> a
++ >>> > a
++ 🙂 b",
++   "> a
++ > > a
++ 🙂 b",
++   "> a
++ > >>> a
++ 🙂 b",
++   "> a
++ ```a```
++ 🙂 b",
++   "> a
++ foo
++ 🙂 b",
++   "> a
++ 🙂 b",
++   "> a
++ 🙂 b
++ a",
++   "> a
++ 🙂 b
++ ",
++   "> a
++ 🙂 b
++ > a",
++   "> a
++ 🙂 b
++ >>> a",
++   "> a
++ 🙂 b
++ >>> ",
++   "> a
++ 🙂 b
++ > ",
++   "> a
++ 🙂 b
++  > a",
++   "> a
++ 🙂 b
++   >>> b",
++   "> a
++ 🙂 b
++ >>> > a",
++   "> a
++ 🙂 b
++ > > a",
++   "> a
++ 🙂 b
++ > >>> a",
++   "> a
++ 🙂 b
++ ```",
++   "> a
++ 🙂 b
++ ```js",
++   "> a
++ 🙂 b
++ ```c++",
++   "> a
++ 🙂 b
++ ``` js",
++   "> a
++ 🙂 b
++ ```js x",
++   "> a
++ 🙂 b
++ a```",
++   "> a
++ 🙂 b
++ ```a```",
++   "> a
++ 🙂 b
++ foo",
++   "> a
++ 🙂 b
++ 🙂 b",
++   ">>> a
++ a
++ 🙂 b",
++   ">>> a
++
++ 🙂 b",
++   ">>> a
++ > a
++ 🙂 b",
++   ">>> a
++ >>> a
++ 🙂 b",
++   ">>> a
++ >>> 
++ 🙂 b",
++   ">>> a
++ > 
++ 🙂 b",
++   ">>> a
++  > a
++ 🙂 b",
++   ">>> a
++   >>> b
++ 🙂 b",
++   ">>> a
++ >>> > a
++ 🙂 b",
++   ">>> a
++ > > a
++ 🙂 b",
++   ">>> a
++ > >>> a
++ 🙂 b",
++   ">>> a
++ ```a```
++ 🙂 b",
++   ">>> a
++ foo
++ 🙂 b",
++   ">>> a
++ 🙂 b",
++   ">>> a
++ 🙂 b
++ a",
++   ">>> a
++ 🙂 b
++ ",
++   ">>> a
++ 🙂 b
++ > a",
++   ">>> a
++ 🙂 b
++ >>> a",
++   ">>> a
++ 🙂 b
++ >>> ",
++   ">>> a
++ 🙂 b
++ > ",
++   ">>> a
++ 🙂 b
++  > a",
++   ">>> a
++ 🙂 b
++   >>> b",
++   ">>> a
++ 🙂 b
++ >>> > a",
++   ">>> a
++ 🙂 b
++ > > a",
++   ">>> a
++ 🙂 b
++ > >>> a",
++   ">>> a
++ 🙂 b
++ ```",
++   ">>> a
++ 🙂 b
++ ```js",
++   ">>> a
++ 🙂 b
++ ```c++",
++   ">>> a
++ 🙂 b
++ ``` js",
++   ">>> a
++ 🙂 b
++ ```js x",
++   ">>> a
++ 🙂 b
++ a```",
++   ">>> a
++ 🙂 b
++ ```a```",
++   ">>> a
++ 🙂 b
++ foo",
++   ">>> a
++ 🙂 b
++ 🙂 b",
++   ">>> 
++ a
++ 🙂 b",
++   ">>> 
++
++ 🙂 b",
++   ">>> 
++ > a
++ 🙂 b",
++   ">>> 
++ >>> a
++ 🙂 b",
++   ">>> 
++ >>> 
++ 🙂 b",
++   ">>> 
++ > 
++ 🙂 b",
++   ">>> 
++  > a
++ 🙂 b",
++   ">>> 
++   >>> b
++ 🙂 b",
++   ">>> 
++ >>> > a
++ 🙂 b",
++   ">>> 
++ > > a
++ 🙂 b",
++   ">>> 
++ > >>> a
++ 🙂 b",
++   ">>> 
++ ```a```
++ 🙂 b",
++   ">>> 
++ foo
++ 🙂 b",
++   ">>> 
++ 🙂 b",
++   ">>> 
++ 🙂 b
++ a",
++   ">>> 
++ 🙂 b
++ ",
++   ">>> 
++ 🙂 b
++ > a",
++   ">>> 
++ 🙂 b
++ >>> a",
++   ">>> 
++ 🙂 b
++ >>> ",
++   ">>> 
++ 🙂 b
++ > ",
++   ">>> 
++ 🙂 b
++  > a",
++   ">>> 
++ 🙂 b
++   >>> b",
++   ">>> 
++ 🙂 b
++ >>> > a",
++   ">>> 
++ 🙂 b
++ > > a",
++   ">>> 
++ 🙂 b
++ > >>> a",
++   ">>> 
++ 🙂 b
++ ```",
++   ">>> 
++ 🙂 b
++ ```js",
++   ">>> 
++ 🙂 b
++ ```c++",
++   ">>> 
++ 🙂 b
++ ``` js",
++   ">>> 
++ 🙂 b
++ ```js x",
++   ">>> 
++ 🙂 b
++ a```",
++   ">>> 
++ 🙂 b
++ ```a```",
++   ">>> 
++ 🙂 b
++ foo",
++   ">>> 
++ 🙂 b
++ 🙂 b",
++   "> 
++ a
++ 🙂 b",
++   "> 
++
++ 🙂 b",
++   "> 
++ > a
++ 🙂 b",
++   "> 
++ >>> a
++ 🙂 b",
++   "> 
++ >>> 
++ 🙂 b",
++   "> 
++ > 
++ 🙂 b",
++   "> 
++  > a
++ 🙂 b",
++   "> 
++   >>> b
++ 🙂 b",
++   "> 
++ >>> > a
++ 🙂 b",
++   "> 
++ > > a
++ 🙂 b",
++   "> 
++ > >>> a
++ 🙂 b",
++   "> 
++ ```a```
++ 🙂 b",
++   "> 
++ foo
++ 🙂 b",
++   "> 
++ 🙂 b",
++   "> 
++ 🙂 b
++ a",
++   "> 
++ 🙂 b
++ ",
++   "> 
++ 🙂 b
++ > a",
++   "> 
++ 🙂 b
++ >>> a",
++   "> 
++ 🙂 b
++ >>> ",
++   "> 
++ 🙂 b
++ > ",
++   "> 
++ 🙂 b
++  > a",
++   "> 
++ 🙂 b
++   >>> b",
++   "> 
++ 🙂 b
++ >>> > a",
++   "> 
++ 🙂 b
++ > > a",
++   "> 
++ 🙂 b
++ > >>> a",
++   "> 
++ 🙂 b
++ ```",
++   "> 
++ 🙂 b
++ ```js",
++   "> 
++ 🙂 b
++ ```c++",
++   "> 
++ 🙂 b
++ ``` js",
++   "> 
++ 🙂 b
++ ```js x",
++   "> 
++ 🙂 b
++ a```",
++   "> 
++ 🙂 b
++ ```a```",
++   "> 
++ 🙂 b
++ foo",
++   "> 
++ 🙂 b
++ 🙂 b",
++   " > a
++ a
++ 🙂 b",
++   " > a
++
++ 🙂 b",
++   " > a
++ > a
++ 🙂 b",
++   " > a
++ >>> a
++ 🙂 b",
++   " > a
++ >>> 
++ 🙂 b",
++   " > a
++ > 
++ 🙂 b",
++   " > a
++  > a
++ 🙂 b",
++   " > a
++   >>> b
++ 🙂 b",
++   " > a
++ >>> > a
++ 🙂 b",
++   " > a
++ > > a
++ 🙂 b",
++   " > a
++ > >>> a
++ 🙂 b",
++   " > a
++ ```a```
++ 🙂 b",
++   " > a
++ foo
++ 🙂 b",
++   " > a
++ 🙂 b",
++   " > a
++ 🙂 b
++ a",
++   " > a
++ 🙂 b
++ ",
++   " > a
++ 🙂 b
++ > a",
++   " > a
++ 🙂 b
++ >>> a",
++   " > a
++ 🙂 b
++ >>> ",
++   " > a
++ 🙂 b
++ > ",
++   " > a
++ 🙂 b
++  > a",
++   " > a
++ 🙂 b
++   >>> b",
++   " > a
++ 🙂 b
++ >>> > a",
++   " > a
++ 🙂 b
++ > > a",
++   " > a
++ 🙂 b
++ > >>> a",
++   " > a
++ 🙂 b
++ ```",
++   " > a
++ 🙂 b
++ ```js",
++   " > a
++ 🙂 b
++ ```c++",
++   " > a
++ 🙂 b
++ ``` js",
++   " > a
++ 🙂 b
++ ```js x",
++   " > a
++ 🙂 b
++ a```",
++   " > a
++ 🙂 b
++ ```a```",
++   " > a
++ 🙂 b
++ foo",
++   " > a
++ 🙂 b
++ 🙂 b",
++   "  >>> b
++ a
++ 🙂 b",
++   "  >>> b
++
++ 🙂 b",
++   "  >>> b
++ > a
++ 🙂 b",
++   "  >>> b
++ >>> a
++ 🙂 b",
++   "  >>> b
++ >>> 
++ 🙂 b",
++   "  >>> b
++ > 
++ 🙂 b",
++   "  >>> b
++  > a
++ 🙂 b",
++   "  >>> b
++   >>> b
++ 🙂 b",
++   "  >>> b
++ >>> > a
++ 🙂 b",
++   "  >>> b
++ > > a
++ 🙂 b",
++   "  >>> b
++ > >>> a
++ 🙂 b",
++   "  >>> b
++ ```a```
++ 🙂 b",
++   "  >>> b
++ foo
++ 🙂 b",
++   "  >>> b
++ 🙂 b",
++   "  >>> b
++ 🙂 b
++ a",
++   "  >>> b
++ 🙂 b
++ ",
++   "  >>> b
++ 🙂 b
++ > a",
++   "  >>> b
++ 🙂 b
++ >>> a",
++   "  >>> b
++ 🙂 b
++ >>> ",
++   "  >>> b
++ 🙂 b
++ > ",
++   "  >>> b
++ 🙂 b
++  > a",
++   "  >>> b
++ 🙂 b
++   >>> b",
++   "  >>> b
++ 🙂 b
++ >>> > a",
++   "  >>> b
++ 🙂 b
++ > > a",
++   "  >>> b
++ 🙂 b
++ > >>> a",
++   "  >>> b
++ 🙂 b
++ ```",
++   "  >>> b
++ 🙂 b
++ ```js",
++   "  >>> b
++ 🙂 b
++ ```c++",
++   "  >>> b
++ 🙂 b
++ ``` js",
++   "  >>> b
++ 🙂 b
++ ```js x",
++   "  >>> b
++ 🙂 b
++ a```",
++   "  >>> b
++ 🙂 b
++ ```a```",
++   "  >>> b
++ 🙂 b
++ foo",
++   "  >>> b
++ 🙂 b
++ 🙂 b",
++   ">>> > a
++ a
++ 🙂 b",
++   ">>> > a
++
++ 🙂 b",
++   ">>> > a
++ > a
++ 🙂 b",
++   ">>> > a
++ >>> a
++ 🙂 b",
++   ">>> > a
++ >>> 
++ 🙂 b",
++   ">>> > a
++ > 
++ 🙂 b",
++   ">>> > a
++  > a
++ 🙂 b",
++   ">>> > a
++   >>> b
++ 🙂 b",
++   ">>> > a
++ >>> > a
++ 🙂 b",
++   ">>> > a
++ > > a
++ 🙂 b",
++   ">>> > a
++ > >>> a
++ 🙂 b",
++   ">>> > a
++ ```a```
++ 🙂 b",
++   ">>> > a
++ foo
++ 🙂 b",
++   ">>> > a
++ 🙂 b",
++   ">>> > a
++ 🙂 b
++ a",
++   ">>> > a
++ 🙂 b
++ ",
++   ">>> > a
++ 🙂 b
++ > a",
++   ">>> > a
++ 🙂 b
++ >>> a",
++   ">>> > a
++ 🙂 b
++ >>> ",
++   ">>> > a
++ 🙂 b
++ > ",
++   ">>> > a
++ 🙂 b
++  > a",
++   ">>> > a
++ 🙂 b
++   >>> b",
++   ">>> > a
++ 🙂 b
++ >>> > a",
++   ">>> > a
++ 🙂 b
++ > > a",
++   ">>> > a
++ 🙂 b
++ > >>> a",
++   ">>> > a
++ 🙂 b
++ ```",
++   ">>> > a
++ 🙂 b
++ ```js",
++   ">>> > a
++ 🙂 b
++ ```c++",
++   ">>> > a
++ 🙂 b
++ ``` js",
++   ">>> > a
++ 🙂 b
++ ```js x",
++   ">>> > a
++ 🙂 b
++ a```",
++   ">>> > a
++ 🙂 b
++ ```a```",
++   ">>> > a
++ 🙂 b
++ foo",
++   ">>> > a
++ 🙂 b
++ 🙂 b",
++   "> > a
++ a
++ 🙂 b",
++   "> > a
++
++ 🙂 b",
++   "> > a
++ > a
++ 🙂 b",
++   "> > a
++ >>> a
++ 🙂 b",
++   "> > a
++ >>> 
++ 🙂 b",
++   "> > a
++ > 
++ 🙂 b",
++   "> > a
++  > a
++ 🙂 b",
++   "> > a
++   >>> b
++ 🙂 b",
++   "> > a
++ >>> > a
++ 🙂 b",
++   "> > a
++ > > a
++ 🙂 b",
++   "> > a
++ > >>> a
++ 🙂 b",
++   "> > a
++ ```a```
++ 🙂 b",
++   "> > a
++ foo
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> > a
++ 🙂 b
++ a",
++   "> > a
++ 🙂 b
++ ",
++   "> > a
++ 🙂 b
++ > a",
++   "> > a
++ 🙂 b
++ >>> a",
++   "> > a
++ 🙂 b
++ >>> ",
++   "> > a
++ 🙂 b
++ > ",
++   "> > a
++ 🙂 b
++  > a",
++   "> > a
++ 🙂 b
++   >>> b",
++   "> > a
++ 🙂 b
++ >>> > a",
++   "> > a
++ 🙂 b
++ > > a",
++   "> > a
++ 🙂 b
++ > >>> a",
++   "> > a
++ 🙂 b
++ ```",
++   "> > a
++ 🙂 b
++ ```js",
++   "> > a
++ 🙂 b
++ ```c++",
++   "> > a
++ 🙂 b
++ ``` js",
++   "> > a
++ 🙂 b
++ ```js x",
++   "> > a
++ 🙂 b
++ a```",
++   "> > a
++ 🙂 b
++ ```a```",
++   "> > a
++ 🙂 b
++ foo",
++   "> > a
++ 🙂 b
++ 🙂 b",
++   "> >>> a
++ a
++ 🙂 b",
++   "> >>> a
++
++ 🙂 b",
++   "> >>> a
++ > a
++ 🙂 b",
++   "> >>> a
++ >>> a
++ 🙂 b",
++   "> >>> a
++ >>> 
++ 🙂 b",
++   "> >>> a
++ > 
++ 🙂 b",
++   "> >>> a
++  > a
++ 🙂 b",
++   "> >>> a
++   >>> b
++ 🙂 b",
++   "> >>> a
++ >>> > a
++ 🙂 b",
++   "> >>> a
++ > > a
++ 🙂 b",
++   "> >>> a
++ > >>> a
++ 🙂 b",
++   "> >>> a
++ ```a```
++ 🙂 b",
++   "> >>> a
++ foo
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++   "> >>> a
++ 🙂 b
++ a",
++   "> >>> a
++ 🙂 b
++ ",
++   "> >>> a
++ 🙂 b
++ > a",
++   "> >>> a
++ 🙂 b
++ >>> a",
++   "> >>> a
++ 🙂 b
++ >>> ",
++   "> >>> a
++ 🙂 b
++ > ",
++   "> >>> a
++ 🙂 b
++  > a",
++   "> >>> a
++ 🙂 b
++   >>> b",
++   "> >>> a
++ 🙂 b
++ >>> > a",
++   "> >>> a
++ 🙂 b
++ > > a",
++   "> >>> a
++ 🙂 b
++ > >>> a",
++   "> >>> a
++ 🙂 b
++ ```",
++   "> >>> a
++ 🙂 b
++ ```js",
++   "> >>> a
++ 🙂 b
++ ```c++",
++   "> >>> a
++ 🙂 b
++ ``` js",
++   "> >>> a
++ 🙂 b
++ ```js x",
++   "> >>> a
++ 🙂 b
++ a```",
++   "> >>> a
++ 🙂 b
++ ```a```",
++   "> >>> a
++ 🙂 b
++ foo",
++   "> >>> a
++ 🙂 b
++ 🙂 b",
++   "```
++ ```
++ 🙂 b",
++   "```
++ ```js
++ 🙂 b",
++   "```
++ ```c++
++ 🙂 b",
++   "```
++ ``` js
++ 🙂 b",
++   "```
++ ```js x
++ 🙂 b",
++   "```
++ a```
++ 🙂 b",
++   "```js
++ ```
++ 🙂 b",
++   "```js
++ ```js
++ 🙂 b",
++   "```js
++ ```c++
++ 🙂 b",
++   "```js
++ ``` js
++ 🙂 b",
++   "```js
++ ```js x
++ 🙂 b",
++   "```js
++ a```
++ 🙂 b",
++   "```c++
++ ```
++ 🙂 b",
++   "```c++
++ ```js
++ 🙂 b",
++   "```c++
++ ```c++
++ 🙂 b",
++   "```c++
++ ``` js
++ 🙂 b",
++   "```c++
++ ```js x
++ 🙂 b",
++   "```c++
++ a```
++ 🙂 b",
++   "``` js
++ ```
++ 🙂 b",
++   "``` js
++ ```js
++ 🙂 b",
++   "``` js
++ ```c++
++ 🙂 b",
++   "``` js
++ ``` js
++ 🙂 b",
++   "``` js
++ ```js x
++ 🙂 b",
++   "``` js
++ a```
++ 🙂 b",
++   "```js x
++ ```
++ 🙂 b",
++   "```js x
++ ```js
++ 🙂 b",
++   "```js x
++ ```c++
++ 🙂 b",
++   "```js x
++ ``` js
++ 🙂 b",
++   "```js x
++ ```js x
++ 🙂 b",
++   "```js x
++ a```
++ 🙂 b",
++   "a```
++ ```
++ 🙂 b",
++   "a```
++ ```js
++ 🙂 b",
++   "a```
++ ```c++
++ 🙂 b",
++   "a```
++ ``` js
++ 🙂 b",
++   "a```
++ ```js x
++ 🙂 b",
++   "a```
++ a```
++ 🙂 b",
++   "```a```
++ a
++ 🙂 b",
++   "```a```
++
++ 🙂 b",
++   "```a```
++ > a
++ 🙂 b",
++   "```a```
++ >>> a
++ 🙂 b",
++   "```a```
++ >>> 
++ 🙂 b",
++   "```a```
++ > 
++ 🙂 b",
++   "```a```
++  > a
++ 🙂 b",
++   "```a```
++   >>> b
++ 🙂 b",
++   "```a```
++ >>> > a
++ 🙂 b",
++   "```a```
++ > > a
++ 🙂 b",
++   "```a```
++ > >>> a
++ 🙂 b",
++   "```a```
++ ```a```
++ 🙂 b",
++   "```a```
++ foo
++ 🙂 b",
++   "```a```
++ 🙂 b",
++   "```a```
++ 🙂 b
++ a",
++   "```a```
++ 🙂 b
++ ",
++   "```a```
++ 🙂 b
++ > a",
++   "```a```
++ 🙂 b
++ >>> a",
++   "```a```
++ 🙂 b
++ >>> ",
++   "```a```
++ 🙂 b
++ > ",
++   "```a```
++ 🙂 b
++  > a",
++   "```a```
++ 🙂 b
++   >>> b",
++   "```a```
++ 🙂 b
++ >>> > a",
++   "```a```
++ 🙂 b
++ > > a",
++   "```a```
++ 🙂 b
++ > >>> a",
++   "```a```
++ 🙂 b
++ ```",
++   "```a```
++ 🙂 b
++ ```js",
++   "```a```
++ 🙂 b
++ ```c++",
++   "```a```
++ 🙂 b
++ ``` js",
++   "```a```
++ 🙂 b
++ ```js x",
++   "```a```
++ 🙂 b
++ a```",
++   "```a```
++ 🙂 b
++ ```a```",
++   "```a```
++ 🙂 b
++ foo",
++   "```a```
++ 🙂 b
++ 🙂 b",
++   "foo
++ a
++ 🙂 b",
++   "foo
++
++ 🙂 b",
++   "foo
++ > a
++ 🙂 b",
++   "foo
++ >>> a
++ 🙂 b",
++   "foo
++ >>> 
++ 🙂 b",
++   "foo
++ > 
++ 🙂 b",
++   "foo
++  > a
++ 🙂 b",
++   "foo
++   >>> b
++ 🙂 b",
++   "foo
++ >>> > a
++ 🙂 b",
++   "foo
++ > > a
++ 🙂 b",
++   "foo
++ > >>> a
++ 🙂 b",
++   "foo
++ ```a```
++ 🙂 b",
++   "foo
++ foo
++ 🙂 b",
++   "foo
++ 🙂 b",
++   "foo
++ 🙂 b
++ a",
++   "foo
++ 🙂 b
++ ",
++   "foo
++ 🙂 b
++ > a",
++   "foo
++ 🙂 b
++ >>> a",
++   "foo
++ 🙂 b
++ >>> ",
++   "foo
++ 🙂 b
++ > ",
++   "foo
++ 🙂 b
++  > a",
++   "foo
++ 🙂 b
++   >>> b",
++   "foo
++ 🙂 b
++ >>> > a",
++   "foo
++ 🙂 b
++ > > a",
++   "foo
++ 🙂 b
++ > >>> a",
++   "foo
++ 🙂 b
++ ```",
++   "foo
++ 🙂 b
++ ```js",
++   "foo
++ 🙂 b
++ ```c++",
++   "foo
++ 🙂 b
++ ``` js",
++   "foo
++ 🙂 b
++ ```js x",
++   "foo
++ 🙂 b
++ a```",
++   "foo
++ 🙂 b
++ ```a```",
++   "foo
++ 🙂 b
++ foo",
++   "foo
++ 🙂 b
++ 🙂 b",
++   "🙂 b
++ a
++ 🙂 b",
++   "🙂 b
++
++ 🙂 b",
++   "🙂 b
++ > a
++ 🙂 b",
++   "🙂 b
++ >>> a
++ 🙂 b",
++   "🙂 b
++ >>> 
++ 🙂 b",
++   "🙂 b
++ > 
++ 🙂 b",
++   "🙂 b
++  > a
++ 🙂 b",
++   "🙂 b
++   >>> b
++ 🙂 b",
++   "🙂 b
++ >>> > a
++ 🙂 b",
++   "🙂 b
++ > > a
++ 🙂 b",
++   "🙂 b
++ > >>> a
++ 🙂 b",
++   "🙂 b
++ ```a```
++ 🙂 b",
++   "🙂 b
++ foo
++ 🙂 b",
++   "🙂 b
++ 🙂 b",
++   "🙂 b
++ 🙂 b
++ a",
++   "🙂 b
++ 🙂 b
++ ",
++   "🙂 b
++ 🙂 b
++ > a",
++   "🙂 b
++ 🙂 b
++ >>> a",
++   "🙂 b
++ 🙂 b
++ >>> ",
++   "🙂 b
++ 🙂 b
++ > ",
++   "🙂 b
++ 🙂 b
++  > a",
++   "🙂 b
++ 🙂 b
++   >>> b",
++   "🙂 b
++ 🙂 b
++ >>> > a",
++   "🙂 b
++ 🙂 b
++ > > a",
++   "🙂 b
++ 🙂 b
++ > >>> a",
++   "🙂 b
++ 🙂 b
++ ```",
++   "🙂 b
++ 🙂 b
++ ```js",
++   "🙂 b
++ 🙂 b
++ ```c++",
++   "🙂 b
++ 🙂 b
++ ``` js",
++   "🙂 b
++ 🙂 b
++ ```js x",
++   "🙂 b
++ 🙂 b
++ a```",
++   "🙂 b
++ 🙂 b
++ ```a```",
++   "🙂 b
++ 🙂 b
++ foo",
++   "🙂 b
++ 🙂 b
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:112:21
+    110|     const changed = texts()
+    111|       .filter((text) => flattenNodeText(getInitialValue(text, partial …
+    112|     expect(changed).toEqual([]);
+       |                     ^
+    113|   });
+    114| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of 1,000 generator inputs with its text unchanged
+AssertionError: expected [ …(205) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1. ``**1️⃣<@!1558266761101447248> https://x.y. 🪿``
++ ## [a](https://example.com/a_b/🙂)
++ 1. https://x.y 🙂 <id:guide>",
++   "*\\#x\\#* <t:1700000000:x> \\[x\\[
++ -# *__*1️⃣*__* \\)x\\)é",
++   "## _||*[a 🙂 b](https://x.y)https://x.y/a(b)c*||_ <@&1558266761101447248> [a 🙂 b](https://example.com/a_b)
++ ## _*1️⃣ 🙂* ™",
++   "-# ``~~_<t:1700000000:x> \\)x\\)_~~`` <:hooks:1558266761101447248>
++ - ||~~:smile:
++ 1️⃣[a [b] c](https://example.com)",
++   "> <t:1700000000:d>
++ 1. ||__https://x.y/a*b*c 🙂 https://x.y.__
++ ````[a](https://x.y/🙂)",
++   "1. ~~™ https://example.com~~
++ -# 👍🏽
++ -# ``[🙂](https://x.y)`` <id:browse>[<:hooks:1558266761101447248>](https://x.y)",
++   "1. [a 🙂 b](https://example.com/a_b)[a 🙂 b](https://x.y/a*b*c)
++ # *:🙂: a*b*",
++   "-# <game:1558266761101447248> <a@b.co>
++ > 🙂 https://x.y
++ - `*\\<x\\< 2 < 3*`",
++   "- ||`*[<:hooks:1558266761101447248>](https://x.y)https://example.com/a_b🙂*`||
++ __*©*__ https://example.com/path?q=1&r=2#f <a:dance:1558266761101447248>",
++   "# ~~**<#1558266761101447248> [🙂](https://x.y)** [a 🙂 b](https://example.com/a_b)~~
++   - 1️⃣
++ ## _~~` lead❤️` x_y <id:guide>~~ 🙂 [a](https://x.y/a*b*c/🙂)_ [a](https://x.y/a*b*c/🙂) <a:dance:1558266761101447248>",
++   "### [text](<https://example.com>)
++ ## [text](https://example.com) \\|x\\|
++ ## ||1️⃣ 日本||",
++   "```py
++ ~~``||👍🏽https://x.y/a*b*c 🙂||`` <t:1700000000:D>~~ <@1558266761101447248> \\]x\\]
++ ```",
++   "_||``<@1558266761101447248>``|| [a](https://example.com/a_b/🙂) [text](https://example.com \"a title\")_ <a@b.co>
++ __````</ping:1558266761101447248>````__ <t:1700000000:s> :🙂:
++ **<id:home>** https://x.y. snake_case",
++   "## ~~https://x.y/a(b)c~~ a*b
++ ``**\\|x\\|<@$1558266761101447248>** a*b``
++ - *~~[🙂](https://example.com/a_b) \\:x\\:~~ 🙂 https://example.com/a_b <t:1700000000:T> \\`x\\`",
++   "1. **__❤️ https://example.com/path?q=1&r=2#f
++ ## __<a:dance:1558266761101447248>[🙂](https://x.y/a*b*c) C++ word",
++   "**_**https://x.y 🙂** https://example.com/a_b 🙂<@1558266761101447248>**
++ **``__<id:guide> <id:browse>`` 🇬🇧<t:1700000000:s>
++ *<id:home> <t:1700000000:S> \\:x\\: ™",
++   "1. __**~~1️⃣ \\>x\\>~~** ❤️__
++ ___`<t:1700000000:d> 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <id:home> é__ [text](<https://example.com>) @here_
++ ❤️",
++   "## ``||||[<:hooks:1558266761101447248>](https://x.y)|||| <id:guide>``
++ > ||[a 🙂 b](https://example.com/a_b)🪿||",
++   ">>> C++ \\:x\\:
++ > _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_
++ > _<@!1558266761101447248>_",
++   "[a [b] c](https://example.com)
++ ### 🙂[a](https://example.com/a_b/🙂)",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   "  - **:🙂: 🙂 https://x.y/a*b*c** <:hooks:1558266761101447248>
++ ## __<@$1558266761101447248>:smile:__ https://example.com/path?q=1&r=2#f",
++   "- 🏴󠁧󠁢󠁥󠁮󠁧󠁿https://example.com/path?q=1&r=2#f
++ ## ||C++
++ # ~~___https://x.y 🙂_~~ \\*x\\* https://x.y 🙂",
++   "### **hello world**
++ 👨‍👩‍👧 2 < 3
++ - __**[**bold** label](https://example.com)**__ [a 🙂 b](https://example.com/a_b)",
++   "\\`x\\`
++ - https://example.com/a_b 🙂",
++   "~~[🙂](https://x.y) [dev](dev://branch/main) \\`x\\` 2 < 3
++ *_||2 < 3|| 🙂 https://x.y/a*b*c \\_x\\__ <id:customize>* [**bold** label](https://example.com)",
++   "-# [🙂](https://x.y)™
++ - :🙂: <@!1558266761101447248>",
++   "## <@&1558266761101447248> [dev](dev://branch/main)
++ ``___<t:1700000000:f>__ https://x.y🙂 <t:1700000000:f>``
++ **__<a:dance:1558266761101447248>__** tail  \\(x\\(",
++   "> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> 🪿 \\)x\\) snake_case
++ - _**https://x.y/a*b*c 🙂 ™ <t:1700000000:f>_
++ <id:home>",
++   "❤
++ ## `_<t:1700000000:s>` \\<x\\< 👨‍👩‍👧",
++   "<:hooks:1558266761101447248>
++ 1. <#1558266761101447248>
++ 🪿https://example.com/a_b 🙂",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++   "1. <@$1558266761101447248>🪿
++ -# **__<t:1700000000:R>https://x.y🙂__ <t:1700000000:d> <a:dance:1558266761101447248>** [text](https://example.com \"a title\") ™",
++   "# `||||<id:guide> [:smile:](https://example.com/a_b)|| [**bold** label](https://example.com)|| \\|x\\| [:smile:](https://example.com/a_b)
++ ### `||<t:1700000000> <@$1558266761101447248>|| 👨‍👩‍👧 <@$1558266761101447248>`
++ # <t:1700000000:x> [🙂](https://x.y)",
++   ">>> # <@&1558266761101447248> é
++ ## [<:hooks:1558266761101447248>](https://example.com/a_b)
++ 1️⃣<t:1700000000:t>",
++   "# __*🙂 https://x.y/a*b*c https://example.com* 🙂 https://example.com/a_b__ [<:hooks:1558266761101447248>](https://x.y/a*b*c) [a 🙂 b](https://example.com/a_b)
++ - 🙂",
++   "# ____\\[x\\[ \\`x\\`_ <:hooks:1558266761101447248>\\]x\\]__
++ - 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ <@1558266761101447248> 👍🏽",
++   "<t:1700000000:R> https://example.com/a_b🙂
++ ### _\\#x\\#🏴󠁧󠁢󠁥󠁮󠁧󠁿_",
++   "- `[a [b] c](https://example.com) <t:1700000000:x>` [a 🙂 b](https://example.com/a_b)<t:1700000000:d>
++ ## *:smile:a*",
++   "- https://x.y🙂
++ > ``[<:hooks:1558266761101447248>](https://x.y)`` https://example.com/a_b 🙂<t:1700000000:x>
++ ### `[<:hooks:1558266761101447248>](https://example.com/a_b)` [dev](dev://branch/main) <t:1700000000:S>",
++   "> __**~~\\>x\\>~~ https://x.y🙂**__
++ __*🇬🇧 <id:customize>*__",
++   "### `[<:hooks:1558266761101447248>](https://x.y/a*b*c)`
++ -# __<id:home> </ping:1558266761101447248>__ https://x.y/a*b*c 🙂
++ ``\\<x\\<`` \\`x\\`",
++   "~~``x_y`` @here https://x.y 🙂~~
++ __**\\#x\\# :smile:__ 👍🏽
++ - \\_x\\_日本",
++   "- ~~é~~
++ 1. **<@$1558266761101447248> <t:1700000000:D>🙂 https://x.y* https://x.y.[text](<https://example.com>)",
++   "> [text](<https://example.com>)
++ 👨‍👩‍👧
++ - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "_*🏴󠁧󠁢󠁥󠁮󠁧󠁿 [**bold** label](https://example.com)* <id:home> <t:-1:f> <id:guide>
++ ## ``[text](https://example.com)🙂 https://x.y/a*b*c",
++   "_❤️ <t:1700000000:R> <@1558266761101447248>[:smile:](https://example.com/a_b)
++ -# **_<t:1700000000:R>_ 🙂 https://x.y/a*b*c 🪿 👍🏽",
++   "# **||日本||** https://example.com/a_b 🙂
++ ❤️
++ > <game:1558266761101447248> <t:1700000000:x>",
++   "[:smile:](https://x.y/a*b*c) \\`x\\`
++ ``_[text](<https://example.com>)_``
++ - [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b",
++   "  - ____\\*x\\* [a 🙂 b](https://example.com/a_b)__ 🏴󠁧󠁢󠁥󠁮󠁧󠁿 https://x.y/a*b*c🙂
++ ## <t:-1:f> <:hooks:1558266761101447248>",
++   "*_[<:hooks:1558266761101447248>](https://x.y)_ a*b [a 🙂 b](https://example.com/a_b) https://example.com/a_b 🙂 \\)x\\)
++ ### ||~~`[a](https://x.y/a*b*c/🙂) \\|x\\|` https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿~~|| <t:1700000000:x>",
++   "- 🙂 https://example.com/a_b <t:1700000000:s>
++ __🙂<@!1558266761101447248>__ \\|x\\|",
++   "tail  ™
++ > 🙂
++ - _*<t:1700000000:D>*_ <@1558266761101447248> <t:1700000000:Z>",
++   "*<t:1700000000:S> [a 🙂 b](https://x.y)*
++ _~~https://x.y/a*b*c🙂 </ping:1558266761101447248>~~ <t:1700000000:f> 🙂_
++ __[text](<https://example.com>) [:smile:](https://x.y/a*b*c)",
++   "<t:1700000000:T> 🙂 https://x.y
++ _~~__🏴󠁧󠁢󠁥󠁮󠁧󠁿__~~_",
++   "~~**\\~x\\~**~~ https://x.y. \\~x\\~
++ 1. 🙂 https://x.y/a*b*c
++ 1. ___\\]x\\]\\_x\\__",
++   "- _||<t:1700000000><id:guide>|| \\<x\\<_
++ # ___||[text](<https://example.com>)_ 日本 </ping:1558266761101447248> 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ ~~____👍🏽\\[x\\[ [<:hooks:1558266761101447248>](https://x.y) <t:1700000000:R> <t:-1:f>",
++   "### `*\\|x\\| https://x.y/a*b*c🙂*`
++ ### ````__<id:customize> https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿`` \\)x\\)https://x.y/a*b*c 🙂``
++ - ||`日本 https://x.y/a*b*c🙂`||",
++   "__[:smile:](https://x.y) <t:1700000000:x>__ \\]x\\]\\<x\\<
++ -# ||**||<@$1558266761101447248>👍🏽||** https://example.com/a_b🙂 <a@b.co>||",
++   "  - __````<#1558266761101447248> <t:1700000000:s>``__ <id:browse> <a:dance:1558266761101447248>
++ 🙂 👨‍👩‍👧",
++   "-# _https://example.com
++ -# **https://x.y/a*b*c🙂** word [<:hooks:1558266761101447248>](https://example.com/a_b)
++ ___~~1️⃣~~ 1️⃣ <game:1558266761101447248>",
++   "# \\]x\\]
++   - ~~[text](https://example.com)👨‍👩‍👧~~",
++   "> ~~[a](https://x.y/🙂)~~
++ -# __||\\<x\\<||__ \\)x\\) snake_case
++ # `__**[:smile:](https://example.com/a_b) \\]x\\]** https://example.com/a_b 🙂 🪿__ <t:1700000000:t>",
++   "https://example.com/a_b 🙂 <game:1558266761101447248>
++ > ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)
++ -# <id:guide>https://x.y 🙂",
++   "> x_y
++ 1. ~~~~1️⃣~~ hello world~~ <t:1700000000:f>
++   - \\[x\\[",
++   "-# <id:guide>é
++ `<game:1558266761101447248>👍🏽` <@$1558266761101447248> 🇬🇧",
++   "> https://x.y/a(b)c<t:1700000000:T>
++ -# `**[🙂](https://x.y) <t:1700000000:x>**
++   - ||🙂 https://example.com/a_b||",
++   "- [dev](dev://branch/main)
++ \\>x\\>日本
++ # ||`hello world`|| 1️⃣",
++   "<t:-1:f> 日本
++ 1. *_❤️ snake_case_* </ping:1558266761101447248> 🙂",
++   "||``2 < 3 [text](https://example.com)\\(x\\(|| https://x.y/a(b)c<t:1700000000:t>
++ ___[<:hooks:1558266761101447248>](https://x.y)_ 🙂 https://x.y/a*b*c__ [a 🙂 b](https://example.com/a_b)<t:1700000000:x>",
++   "**C++** <@$1558266761101447248>
++   - \\)x\\)https://x.y 🙂",
++   ">>> - <id:linked-roles> a*b
++ *_[text](https://example.com) <t:1700000000:Z>_ <t:-1:f>* 👍🏽 [🙂](https://x.y)",
++   "-# ``🏴󠁧󠁢󠁥󠁮󠁧󠁿 [:smile:](https://x.y)
++ # ``❤️``
++ <@&1558266761101447248>[a 🙂 b](https://x.y)",
++   "### ||_❤️ [🙂](https://x.y/a*b*c)_||
++   - ~~||~~[🙂](https://x.y/a*b*c) [a](https://example.com/a_b/🙂)~~ [text](https://example.com \"a title\") 1️⃣ [:smile:](https://x.y/a*b*c) é",
++   "-# `[<:hooks:1558266761101447248>](https://x.y/a*b*c) [dev](dev://branch/main)`
++ ### **||snake_case[**bold** label](https://example.com) [<:hooks:1558266761101447248>](https://x.y/a*b*c)tail 
++ ## 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   "1. *[**bold** label](https://example.com) <a:dance:1558266761101447248>*
++ hello world ❤️",
++   "```ts
++ 1. ``https://example.com/path?q=1&r=2#f https://x.y/a*b*c 🙂
++ ```",
++   "||<id:browse>|| 2 < 3
++ __``1️⃣`` <https://x.y/🙂> 🙂 https://x.y__",
++   "# *``**word ❤️``* https://x.y/a*b*c🙂
++ ``🙂<@1558266761101447248>``
++ `__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:",
++   "__**``<@!1558266761101447248>``**__ [🙂](https://example.com/a_b)\\~x\\~
++ **``*<t:1700000000:S><id:guide>*`` <t:1700000000:R>**
++ ``||~~<@!1558266761101447248>~~||`` 🙂<t:1700000000:F>",
++   "__🙂 https://x.y 1️⃣__ <@$1558266761101447248>
++ -# ~~2 < 3~~
++ ``<id:guide>https://x.y/a*b*c 🙂`` <t:1700000000:Z> :smile:",
++   "1. `<id:customize> https://x.y/a*b*c🙂` [🙂](https://example.com/a_b) <t:1700000000:D>
++ - __*_🏴󠁧󠁢󠁥󠁮󠁧󠁿_ hello world word*__",
++   "____[text](<https://example.com>) @here____
++ 🙂 https://x.y/a*b*c
++ -# <t:1700000000:s>",
++   ">>> _2 < 3_
++ 👍🏽 \\(x\\(",
++   "> __`a` a*b__
++ 1. ||||🪿 [<:hooks:1558266761101447248>](https://example.com/a_b)||||",
++   "- C++ \\(x\\(
++   - 👨‍👩‍👧
++ > `**word**",
++   "  - **||[a](https://example.com/a_b/🙂) 🙂 https://x.y** 🪿 @here
++ -# 🙂 https://x.y/a*b*c",
++   "____`[a 🙂 b](https://example.com/a_b)`__
++ ||_~~C++~~ <t:1700000000:F> ❤️_ [<:hooks:1558266761101447248>](https://x.y)https://x.y.||",
++   "1. ||[🙂](https://example.com/a_b) <t:1700000000:Z>||
++ 🇬🇧 <https://x.y/🙂>",
++   "_~~@everyone <t:1700000000:F> [🙂](https://x.y/a*b*c) <id:home>_
++ - ~~**🏴󠁧󠁢󠁥󠁮󠁧󠁿[🙂](https://x.y/a*b*c)** <@1558266761101447248>~~",
++   "# __[dev](dev://branch/main)__ <t:1700000000:D> <t:1700000000:d>
++ - **https://x.y 🙂**
++ a1️⃣",
++   "  - ___~~<t:-1:f>@everyone~~___
++ 1. __~~</ping:1558266761101447248> [<:hooks:1558266761101447248>](https://x.y/a*b*c)~~_ https://example.com/a_b🙂 🙂 https://example.com/a_b_ <https://x.y> [a](https://x.y/a*b*c/🙂)
++ # [🙂](https://example.com/a_b)",
++   "### ~~~~2 < 3~~ <@!1558266761101447248>
++ ## \\>x\\> https://example.com
++ https://x.y/a(b)c 1️⃣",
++   "<@!1558266761101447248> <t:1700000000:t>
++ -# ~~👨‍👩‍👧 https://x.y 🙂",
++   "C++ <:hooks:1558266761101447248>
++ ||``<#1558266761101447248>``||
++   - *~~🏴󠁧󠁢󠁥󠁮󠁧󠁿~~ <https://x.y> <t:1700000000:D>*",
++   "# <game:1558266761101447248>
++ _`\\*x\\*` <a:dance:1558266761101447248>🙂 https://x.y/a*b*c_",
++   "__[text](https://example.com \"a title\")__
++ **[**bold** label](https://example.com)** :🙂:[🙂](https://example.com/a_b)",
++   "### 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ _*||👨‍👩‍👧 \\~x\\~ https://example.com/a_b🙂* <id:customize> 🙂 https://example.com/a_b_",
++   ">>> > ||[:smile:](https://x.y)|| <t:1700000000:s><@&1558266761101447248>
++ # `<t:1700000000:S>`
++ -# ||~~[:smile:](https://x.y/a*b*c)<game:1558266761101447248> 🙂 https://x.y<@!1558266761101447248>",
++   "*<id:home>*
++ # __<id:customize> [<:hooks:1558266761101447248>](https://x.y/a*b*c)__ 1️⃣ <a:dance:1558266761101447248>",
++   "*``word` </ping:1558266761101447248>` \\:x\\: <@!1558266761101447248>* [🙂](https://x.y) https://example.com/a_b🙂
++ > *<:hooks:1558266761101447248>* ❤ <id:browse>",
++   "# ||[a](https://x.y/🙂)|| 👍🏽
++   - 1️⃣ \\*x\\*",
++   "# ``*<@!1558266761101447248>* ❤️`` \\`x\\` [:smile:](https://x.y/a*b*c)
++ 1. *[:smile:](https://x.y/a*b*c)*
++ # :🙂: <a@b.co>",
++   "-# ©
++ <t:1700000000:d> 🙂 https://x.y
++ -# _<:hooks:1558266761101447248>_ https://example.com",
++   "# https://x.y/a(b)c <id:linked-roles>
++ _***❤️ <@1558266761101447248>*** 🪿 @everyone_ <a:dance:1558266761101447248>",
++   "___a*b <@$1558266761101447248> <id:customize>
++   - _*__[a 🙂 b](https://example.com/a_b)<@&1558266761101447248>__*_ [text](<https://example.com>)1️⃣
++ *~~<t:1700000000:s> <id:customize>~~*",
++   "1. *[a](https://x.y/🙂) <t:-1:f>* \\>x\\> [:smile:](https://x.y/a*b*c)
++ - `||**[a 🙂 b](https://example.com/a_b) \\>x\\>**|| \\`x\\`` a 👍🏽",
++   "  - __[🙂](https://example.com/a_b) snake_case__
++ > [a 🙂 b](https://x.y/a*b*c) <t:-1:f>
++ - ``snake_case <https://x.y/🙂>`` https://x.y 🙂 a*b",
++   "||****é [<:hooks:1558266761101447248>](https://example.com/a_b)** [:smile:](https://example.com/a_b)|| hello world
++ **🙂 https://example.com/a_b**
++ ## \\(x\\( <@1558266761101447248>",
++   "- _*[:smile:](https://x.y/a*b*c)*_
++ __**[a](https://x.y/🙂) 👍🏽**__
++ > _`\\(x\\(`_",
++   "## [:smile:](https://x.y/a*b*c)
++ 1. _`<t:-1:f> <t:1700000000:D>`
++ \\[x\\[ <a:dance:1558266761101447248>",
++   "### _*<t:1700000000:f> <a@b.co>*_ <@!1558266761101447248>
++ ### \\:x\\:
++ ## 🇬🇧",
++   "## ``*\\`x\\` [🙂](https://x.y/a*b*c)*` <id:home>
++ 1. **||https://x.y 🙂|| <t:1700000000:f>",
++   "||||**© <t:1700000000:Z>**|||| <t:-1:f>
++ -# _```snake_case <t:-1:f>\\]x\\]``_ 🙂 <@!1558266761101447248>
++   - ~~*||[a](https://example.com/a_b/🙂)<t:1700000000:Z>||*~~",
++   "``~~<t:1700000000>~~ 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ word
++ ``**[**bold** label](https://example.com) [**bold** label](https://example.com)** https://example.com/a_b 🙂`` <https://x.y/🙂> <:hooks:1558266761101447248>",
++   "||👨‍👩‍👧 [<:hooks:1558266761101447248>](https://x.y/a*b*c) 🙂 https://x.y/a*b*c
++   - ||🪿||",
++   "- [a 🙂 b](https://example.com/a_b)
++ > ~~__``[text](https://example.com) <a:dance:1558266761101447248> 🙂__~~",
++   "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`
++ ``~~<https://x.y/🙂>~~``
++ # ___<id:guide> 🪿__",
++   "# ||**``<t:1700000000>``** @here||
++ *<a:dance:1558266761101447248>* [a 🙂 b](https://x.y)",
++   "-# **🪿 [a](https://x.y/a*b*c/🙂)** <t:1700000000:R>
++ > ||\\#x\\# \\#x\\#[:smile:](https://example.com/a_b)
++ ~~https://example.com/a_b 🙂~~ \\[x\\[ 🇬🇧",
++   "### 🙂 https://example.com/a_bhttps://example.com/path?q=1&r=2#f
++ # __\\)x\\) <:hooks:1558266761101447248>__
++ ### **`\\]x\\]`**",
++   "**[a](https://example.com/a_b/🙂) [a 🙂 b](https://example.com/a_b)** <https://x.y>
++ **~~`https://x.y/a*b*c 🙂  lead` 🙂 https://example.com/a_b [🙂](https://x.y/a*b*c)**",
++   "word
++ ### **[🙂](https://x.y) [text](https://example.com)**
++ `🙂 https://example.com/a_b a*b` <@$1558266761101447248> :🙂:",
++   "2 < 3[<:hooks:1558266761101447248>](https://example.com/a_b)
++ <@!1558266761101447248> <:hooks:1558266761101447248>
++ - ||<t:1700000000:d> https://example.com/path?q=1&r=2#f",
++   "  - __[a [b] c](https://example.com)__
++   - _*https://x.y 🙂 <t:1700000000:S>_",
++   "### hello world
++ ### ~~❤ <a:dance:1558266761101447248>~~ <t:1700000000:Z> 🪿",
++   "`***[**bold** label](https://example.com) a*b`
++ 1. ____[<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b____",
++   ":smile: a*b
++ > ||\\:x\\: <a@b.co>|| hello world <t:1700000000:x>
++ ### __**1️⃣ [text](<https://example.com>)**",
++   "> __<id:home>__
++ # 🇬🇧
++ 1. \\:x\\:",
++   "> 2 < 3
++ ``_<t:1700000000:t> [a](https://example.com/a_b/🙂)_`` 🪿\\#x\\#",
++   ">>> - ©
++   - _👍🏽 https://example.com_ [:smile:](https://x.y) [a 🙂 b](https://x.y)
++ > `[:smile:](https://x.y) https://x.y.` [a [b] c](https://example.com) [:smile:](https://x.y/a*b*c)",
++   "## ****🏴󠁧󠁢󠁥󠁮󠁧󠁿 https://x.y/a*b*c🙂**** ❤ \\<x\\<
++ ## ``[:smile:](https://example.com/a_b)`` ™
++ - 1️⃣",
++   "<t:1700000000:R><#1558266761101447248>
++ > ||||❤️ word|| <@&1558266761101447248>🙂 https://x.y|| <https://x.y/🙂> [a](https://x.y/a*b*c/🙂)",
++   "||_||<https://x.y/🙂> <t:1700000000:F>|| \\`x\\`|| <game:1558266761101447248> hello world
++ <a:dance:1558266761101447248>
++ 1. ````<id:linked-roles> é [a 🙂 b](https://example.com/a_b)``",
++   "## ~~[<:hooks:1558266761101447248>](https://x.y) [<:hooks:1558266761101447248>](https://x.y)~~
++ -# _``<t:1700000000:f> [dev](dev://branch/main)`` https://x.y._ 🙂 [a 🙂 b](https://x.y/a*b*c)",
++   "<#1558266761101447248>
++ -# x_y 🙂
++ - _<id:guide> a_ :🙂:🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   "___~~<t:1700000000:R><:hooks:1558266761101447248>~~ 🇬🇧___
++ > `https://example.com/a_b 🙂 [🙂](https://x.y) <t:-1:f>",
++   "1. @here \\>x\\>
++ 🇬🇧 <t:1700000000:d>",
++   "-# <t:1700000000:T> :smile:
++   - ~~_https://x.y 🙂\\~x\\~_~~",
++   "_||👍🏽|| hello world_ https://example.com/path?q=1&r=2#f [text](<https://example.com>)
++ ## __🙂 https://example.com/a_b \\|x\\|__",
++   "**2 < 3\\]x\\]
++ __`🏴󠁧󠁢󠁥󠁮󠁧󠁿 👍🏽 \\|x\\| <:hooks:1558266761101447248>__ [🙂](https://x.y/a*b*c)
++   - [**bold** label](https://example.com)",
++   "**[a](https://example.com/a_b/🙂) https://x.y/a*b*c 🙂**
++ 1. *_||<t:1700000000> https://example.com/a_b 🙂||  lead<@1558266761101447248> C++
++ __🪿__",
++   "<t:1700000000:s> [🙂](https://example.com/a_b)
++ > <t:1700000000:t> 🙂 https://example.com/a_b",
++   "[🙂](https://example.com/a_b)
++ ## __||_https://example.com_|| <t:1700000000:R>👨‍👩‍👧__
++ [a](https://x.y/🙂) <@1558266761101447248>",
++   "- ❤️
++ - 1️⃣",
++   ":🙂: [a](https://example.com/a_b/🙂)
++ __🙂 <id:browse>__
++ ||``🙂 https://x.y <t:-1:f>|| https://example.com/a_b🙂 [dev](dev://branch/main)",
++   "**é \\[x\\[**
++ > 🪿 [a](https://x.y/a*b*c/🙂)",
++   "1. ~~__<id:home>__~~ a<@&1558266761101447248>
++ 1. ``**`hello world 2 < 3`** ❤️ @everyone`` <@$1558266761101447248> https://x.y 🙂
++ - [a 🙂 b](https://example.com/a_b) 🙂 https://example.com/a_b",
++   ">>> ## ````@here 1️⃣`` ❤️
++ # 🙂 https://x.y/a*b*chttps://example.com/a_b🙂
++ # **🪿**",
++   "`||<id:browse>|| x_y[dev](dev://branch/main)`
++ ## **🪿**
++ ~~\\|x\\|~~",
++   "- _🏴󠁧󠁢󠁥󠁮󠁧󠁿_ https://example.com🇬🇧
++ ||🙂||
++ _**[a [b] c](https://example.com) <id:browse>** 👨‍👩‍👧",
++   ">>> ## __👍🏽__
++ 1. **__<t:-1:f> 1️⃣__**
++ 1. _||_<game:1558266761101447248>\\(x\\(_ <t:1700000000:t> C++|| </ping:1558266761101447248> <t:1700000000:T>_",
++   "<t:1700000000:t>
++ 🙂 https://x.y
++ -# `*_🇬🇧 <game:1558266761101447248>_*",
++   "# <t:1700000000> 👨‍👩‍👧
++ ### **https://x.y/a*b*c🙂** \\~x\\~<:hooks:1558266761101447248>
++ > ||``<@$1558266761101447248> [**bold** label](https://example.com)<id:browse>||",
++   "# 🙂 https://x.y/a*b*c
++ ### ||_\\[x\\[ </ping:1558266761101447248>_ 🏴󠁧󠁢󠁥󠁮󠁧󠁿|| ©",
++   "# \\)x\\)
++ > **<id:browse>**
++ ### __<id:browse> 👨‍👩‍👧__ <@!1558266761101447248>",
++   "-# __<id:customize>__
++ - ||*日本*||
++ 1. `**<t:1700000000:t> <:hooks:1558266761101447248>** </ping:1558266761101447248> <game:1558266761101447248>",
++   "# ~~\\:x\\:
++   - **https://example.com/a_b🙂**
++ # ||***https://x.y. :🙂:* 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <t:1700000000:S>é",
++   "## __👍🏽__
++ *||*<t:1700000000:d>*|| <id:customize> https://x.y 🙂",
++   "> `<@1558266761101447248>` https://example.com x_y
++ -# ~~https://x.y 🙂~~",
++   "1. _``1️⃣ [text](https://example.com \"a title\") snake_case
++ - ~~****https://x.y/a*b*c🙂 :🙂:** [a](https://x.y/🙂) <https://x.y>~~",
++   "### \\)x\\) [text](https://example.com)
++ word🏴󠁧󠁢󠁥󠁮󠁧󠁿
++   - ||~~``<https://x.y/🙂> hello world|| \\#x\\# 🙂 https://x.y",
++   "# [<:hooks:1558266761101447248>](https://example.com/a_b)
++ # <t:1700000000:R>
++ ``__[a 🙂 b](https://x.y/a*b*c)__`` 🪿 [a](https://x.y/🙂)",
++   "# **`🇬🇧 ™
++ ## *@here :smile:*",
++   "`https://x.y🙂` https://x.y/a*b*c 🙂 tail 
++ - **\\*x\\* :smile:** [:smile:](https://x.y)<t:1700000000:Z>",
++   "# https://x.y/a(b)c
++   - ~~~~<t:1700000000:R>~~ \\`x\\`[**bold** label](https://example.com)~~ [<:hooks:1558266761101447248>](https://example.com/a_b) 🙂 https://x.y",
++   "## <id:guide>
++ **™ 🙂",
++   "# *[<:hooks:1558266761101447248>](https://example.com/a_b) [a 🙂 b](https://x.y/a*b*c)* <t:-1:f> <https://x.y/🙂>
++ -# `é[🙂](https://x.y)` é🇬🇧",
++   "-# `__||\\#x\\#🙂 https://x.y/a*b*c https://x.y 🙂__ \\|x\\|<t:1700000000:Z>`
++ __`\\)x\\) <t:1700000000:D>` <id:customize>
++ > _*1️⃣ [text](<https://example.com>) [text](https://example.com)[a 🙂 b](https://x.y)",
++   "> hello world<id:guide>
++ https://x.y/a*b*c🙂\\[x\\[",
++   "\\)x\\)\\(x\\(
++ 1. _**`\\:x\\:a*b`**_ :🙂:[<:hooks:1558266761101447248>](https://x.y)
++ \\(x\\(",
++   "## __https://x.y 🙂
++ <:hooks:1558266761101447248>[**bold** label](https://example.com)
++ -# \\`x\\`",
++   "-# ~~[text](https://example.com \"a title\") https://example.com/a_b🙂~~ \\<x\\< https://example.com
++ -# https://x.y/a*b*c 🙂
++ 1. _`_é <t:1700000000:S> 🙂 https://example.com/a_b` [a 🙂 b](https://x.y)_ \\)x\\)[a](https://x.y/🙂)",
++   "https://example.com/a_b 🙂 2 < 3
++ __~~[text](https://example.com) \\`x\\` <t:1700000000:x>_ 🏴󠁧󠁢󠁥󠁮󠁧󠁿_
++ _https://example.com <t:1700000000:t>_ <t:1700000000:t>",
++   "word<@$1558266761101447248>
++ ### *``*[text](<https://example.com>)*`` <id:browse>*
++ > ||tail  👍🏽||",
++   "## __<t:1700000000:F> <t:1700000000:d>__
++ 1. 🇬🇧 <t:1700000000:F>
++   - ***`©` \\~x\\~ a*b*",
++   "x_y é
++ > 日本:smile:
++ > ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
++   ">>> é
++ ❤️ snake_case",
++   ">>> - [<:hooks:1558266761101447248>](https://example.com/a_b) [<:hooks:1558266761101447248>](https://x.y)
++ 1. _\\_x\\_ <@$1558266761101447248>_ :smile:",
++   "```ts
++ ### ``_<t:1700000000:T> 👨‍👩‍👧_ [**bold** label](https://example.com)``
++ ```",
++   ">>> ||❤️||
++ __<:hooks:1558266761101447248> 2 < 3__ https://x.y🙂
++ 1. `||`<t:1700000000:S>||`",
++   "> [a](https://example.com/a_b/🙂)
++ > _日本 \\>x\\>:🙂:
++ 1. _||*[🙂](https://x.y/a*b*c)*||_",
++   "  - ||_~~\\(x\\( <a@b.co> \\(x\\( \\#x\\#_||
++ 1. 日本 snake_case
++ *``~~日本日本~~ [:smile:](https://example.com/a_b)<t:1700000000:f>`` 1️⃣ <id:browse>*",
++   "- _`**<t:1700000000:t> hello world**`
++   - *[🙂](https://example.com/a_b) https://example.com/a_b 🙂*",
++   "- **_``🙂``_** [text](https://example.com \"a title\") <t:1700000000:x>
++ > __``\\|x\\|``__ [text](https://example.com)
++ -# **\\]x\\] <t:1700000000:D> 👨‍👩‍👧",
++   "-# 🙂 https://example.com/a_b
++ - https://x.y 🙂 [<:hooks:1558266761101447248>](https://x.y)",
++   ">>> ## _**<id:linked-roles>**_
++ > __:🙂: \\>x\\> [:smile:](https://x.y/a*b*c)[<:hooks:1558266761101447248>](https://x.y)
++ ## https://example.com 日本",
++   "### <@1558266761101447248> @everyone
++ ## *||x_yword||*
++ # ~~``__👨‍👩‍👧 x_y \\~x\\~ [<:hooks:1558266761101447248>](https://x.y) \\(x\\(~~",
++   "  - `\\:x\\:
++ *[text](<https://example.com>) @here*
++ 1. ~~``é`` 1️⃣~~",
++   "~~`*<t:1700000000:d> <https://x.y/🙂>* ™ \\_x\\_` https://example.com/a_b 🙂~~
++ 1. __*<game:1558266761101447248>* \\*x\\* <t:1700000000:d> 🏴󠁧󠁢󠁥󠁮󠁧󠁿_ [text](https://example.com \"a title\") <id:browse>",
++   "# __~~🙂 https://x.y/a*b*c~~ [a 🙂 b](https://example.com/a_b) ❤__
++ 1. *\\>x\\> 👍🏽* hello world",
++   "### ||**``:smile:`` <id:linked-roles>** [<:hooks:1558266761101447248>](https://x.y/a*b*c) <id:guide>||
++ ||~~_\\>x\\> @here @everyonehttps://x.y 🙂~~||",
++   "## <t:1700000000:Z> \\|x\\|
++ *https://x.y 🙂 é*
++ `[<:hooks:1558266761101447248>](https://example.com/a_b) 2 < 3 [:smile:](https://x.y/a*b*c) a",
++   "1. @here <t:1700000000:Z>
++ _日本[a [b] c](https://example.com)_ <id:customize>\\_x\\_
++ # ||[<:hooks:1558266761101447248>](https://example.com/a_b)👨‍👩‍👧|| [:smile:](https://example.com/a_b)<@&1558266761101447248>",
++   "-# [text](https://example.com)
++ -# ||*<id:guide> \\)x\\)* [a](https://x.y/🙂) <t:1700000000:Z>|| 🏴󠁧󠁢󠁥󠁮󠁧󠁿 2 < 3",
++   "1. ___1️⃣ @everyone___
++ > 🙂 https://example.com/a_b",
++   ">>> 1. *||_:🙂:_ [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c
++ ||_<t:1700000000:T> 1️⃣ [:smile:](https://x.y)|| <:hooks:1558266761101447248>",
++   "## \\~x\\~ snake_case
++ ### ``_**[**bold** label](https://example.com)https://x.y._`` ❤️<id:guide>",
++   "> ||\\:x\\: <id:customize>||
++ - ||\\>x\\> 🙂||
++ <t:1700000000:x>",
++   "  - ~~[text](https://example.com \"a title\") <id:browse>~~
++ 🇬🇧
++ -# ``🏴󠁧󠁢󠁥󠁮󠁧󠁿 [a 🙂 b](https://x.y)``",
++   "-# ||https://example.com/a_b🙂 \\*x\\*
++ ### *🙂 https://example.com/a_b* <@$1558266761101447248>",
++   "__\\*x\\*__ :🙂:
++ ||__**<https://x.y> https://x.y 🙂**__||
++ # __\\:x\\: 日本 tail _",
++   "<a@b.co>
++ - `[text](https://example.com)` 1️⃣\\>x\\>
++ > __日本 [🙂](https://x.y)__ </ping:1558266761101447248>",
++   "# `**_<a:dance:1558266761101447248>_ [a](https://x.y/🙂)**`
++ - ~~[a [b] c](https://example.com)<:hooks:1558266761101447248> <t:1700000000:Z>",
++   "<t:1700000000:Z> [dev](dev://branch/main)
++ <a@b.co> ❤️
++ 1. <t:1700000000:d>",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:112:21
+    110|     const changed = texts()
+    111|       .filter((text) => flattenNodeText(getInitialValue(text, partial …
+    112|     expect(changed).toEqual([]);
+       |                     ^
+    113|   });
+    114| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the joins of up to three block atoms with its text unchanged
+AssertionError: expected [ 'a\na\n🙂 b', 'a\n\n🙂 b', …(503) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a
++ a
++ 🙂 b",
++   "a
++
++ 🙂 b",
++   "a
++ > a
++ 🙂 b",
++   "a
++ >>> a
++ 🙂 b",
++   "a
++ >>> 
++ 🙂 b",
++   "a
++ > 
++ 🙂 b",
++   "a
++  > a
++ 🙂 b",
++   "a
++   >>> b
++ 🙂 b",
++   "a
++ >>> > a
++ 🙂 b",
++   "a
++ > > a
++ 🙂 b",
++   "a
++ > >>> a
++ 🙂 b",
++   "a
++ ```a```
++ 🙂 b",
++   "a
++ foo
++ 🙂 b",
++   "a
++ 🙂 b",
++   "a
++ 🙂 b
++ a",
++   "a
++ 🙂 b
++ ",
++   "a
++ 🙂 b
++ > a",
++   "a
++ 🙂 b
++ >>> a",
++   "a
++ 🙂 b
++ >>> ",
++   "a
++ 🙂 b
++ > ",
++   "a
++ 🙂 b
++  > a",
++   "a
++ 🙂 b
++   >>> b",
++   "a
++ 🙂 b
++ >>> > a",
++   "a
++ 🙂 b
++ > > a",
++   "a
++ 🙂 b
++ > >>> a",
++   "a
++ 🙂 b
++ ```",
++   "a
++ 🙂 b
++ ```js",
++   "a
++ 🙂 b
++ ```c++",
++   "a
++ 🙂 b
++ ``` js",
++   "a
++ 🙂 b
++ ```js x",
++   "a
++ 🙂 b
++ a```",
++   "a
++ 🙂 b
++ ```a```",
++   "a
++ 🙂 b
++ foo",
++   "a
++ 🙂 b
++ 🙂 b",
++   "
++ a
++ 🙂 b",
++   "
++
++ 🙂 b",
++   "
++ > a
++ 🙂 b",
++   "
++ >>> a
++ 🙂 b",
++   "
++ >>> 
++ 🙂 b",
++   "
++ > 
++ 🙂 b",
++   "
++  > a
++ 🙂 b",
++   "
++   >>> b
++ 🙂 b",
++   "
++ >>> > a
++ 🙂 b",
++   "
++ > > a
++ 🙂 b",
++   "
++ > >>> a
++ 🙂 b",
++   "
++ ```a```
++ 🙂 b",
++   "
++ foo
++ 🙂 b",
++   "
++ 🙂 b",
++   "
++ 🙂 b
++ a",
++   "
++ 🙂 b
++ ",
++   "
++ 🙂 b
++ > a",
++   "
++ 🙂 b
++ >>> a",
++   "
++ 🙂 b
++ >>> ",
++   "
++ 🙂 b
++ > ",
++   "
++ 🙂 b
++  > a",
++   "
++ 🙂 b
++   >>> b",
++   "
++ 🙂 b
++ >>> > a",
++   "
++ 🙂 b
++ > > a",
++   "
++ 🙂 b
++ > >>> a",
++   "
++ 🙂 b
++ ```",
++   "
++ 🙂 b
++ ```js",
++   "
++ 🙂 b
++ ```c++",
++   "
++ 🙂 b
++ ``` js",
++   "
++ 🙂 b
++ ```js x",
++   "
++ 🙂 b
++ a```",
++   "
++ 🙂 b
++ ```a```",
++   "
++ 🙂 b
++ foo",
++   "
++ 🙂 b
++ 🙂 b",
++   "> a
++ a
++ 🙂 b",
++   "> a
++
++ 🙂 b",
++   "> a
++ > a
++ 🙂 b",
++   "> a
++ >>> a
++ 🙂 b",
++   "> a
++ >>> 
++ 🙂 b",
++   "> a
++ > 
++ 🙂 b",
++   "> a
++  > a
++ 🙂 b",
++   "> a
++   >>> b
++ 🙂 b",
++   "> a
++ >>> > a
++ 🙂 b",
++   "> a
++ > > a
++ 🙂 b",
++   "> a
++ > >>> a
++ 🙂 b",
++   "> a
++ ```a```
++ 🙂 b",
++   "> a
++ foo
++ 🙂 b",
++   "> a
++ 🙂 b",
++   "> a
++ 🙂 b
++ a",
++   "> a
++ 🙂 b
++ ",
++   "> a
++ 🙂 b
++ > a",
++   "> a
++ 🙂 b
++ >>> a",
++   "> a
++ 🙂 b
++ >>> ",
++   "> a
++ 🙂 b
++ > ",
++   "> a
++ 🙂 b
++  > a",
++   "> a
++ 🙂 b
++   >>> b",
++   "> a
++ 🙂 b
++ >>> > a",
++   "> a
++ 🙂 b
++ > > a",
++   "> a
++ 🙂 b
++ > >>> a",
++   "> a
++ 🙂 b
++ ```",
++   "> a
++ 🙂 b
++ ```js",
++   "> a
++ 🙂 b
++ ```c++",
++   "> a
++ 🙂 b
++ ``` js",
++   "> a
++ 🙂 b
++ ```js x",
++   "> a
++ 🙂 b
++ a```",
++   "> a
++ 🙂 b
++ ```a```",
++   "> a
++ 🙂 b
++ foo",
++   "> a
++ 🙂 b
++ 🙂 b",
++   ">>> a
++ a
++ 🙂 b",
++   ">>> a
++
++ 🙂 b",
++   ">>> a
++ > a
++ 🙂 b",
++   ">>> a
++ >>> a
++ 🙂 b",
++   ">>> a
++ >>> 
++ 🙂 b",
++   ">>> a
++ > 
++ 🙂 b",
++   ">>> a
++  > a
++ 🙂 b",
++   ">>> a
++   >>> b
++ 🙂 b",
++   ">>> a
++ >>> > a
++ 🙂 b",
++   ">>> a
++ > > a
++ 🙂 b",
++   ">>> a
++ > >>> a
++ 🙂 b",
++   ">>> a
++ ```a```
++ 🙂 b",
++   ">>> a
++ foo
++ 🙂 b",
++   ">>> a
++ 🙂 b",
++   ">>> a
++ 🙂 b
++ a",
++   ">>> a
++ 🙂 b
++ ",
++   ">>> a
++ 🙂 b
++ > a",
++   ">>> a
++ 🙂 b
++ >>> a",
++   ">>> a
++ 🙂 b
++ >>> ",
++   ">>> a
++ 🙂 b
++ > ",
++   ">>> a
++ 🙂 b
++  > a",
++   ">>> a
++ 🙂 b
++   >>> b",
++   ">>> a
++ 🙂 b
++ >>> > a",
++   ">>> a
++ 🙂 b
++ > > a",
++   ">>> a
++ 🙂 b
++ > >>> a",
++   ">>> a
++ 🙂 b
++ ```",
++   ">>> a
++ 🙂 b
++ ```js",
++   ">>> a
++ 🙂 b
++ ```c++",
++   ">>> a
++ 🙂 b
++ ``` js",
++   ">>> a
++ 🙂 b
++ ```js x",
++   ">>> a
++ 🙂 b
++ a```",
++   ">>> a
++ 🙂 b
++ ```a```",
++   ">>> a
++ 🙂 b
++ foo",
++   ">>> a
++ 🙂 b
++ 🙂 b",
++   ">>> 
++ a
++ 🙂 b",
++   ">>> 
++
++ 🙂 b",
++   ">>> 
++ > a
++ 🙂 b",
++   ">>> 
++ >>> a
++ 🙂 b",
++   ">>> 
++ >>> 
++ 🙂 b",
++   ">>> 
++ > 
++ 🙂 b",
++   ">>> 
++  > a
++ 🙂 b",
++   ">>> 
++   >>> b
++ 🙂 b",
++   ">>> 
++ >>> > a
++ 🙂 b",
++   ">>> 
++ > > a
++ 🙂 b",
++   ">>> 
++ > >>> a
++ 🙂 b",
++   ">>> 
++ ```a```
++ 🙂 b",
++   ">>> 
++ foo
++ 🙂 b",
++   ">>> 
++ 🙂 b",
++   ">>> 
++ 🙂 b
++ a",
++   ">>> 
++ 🙂 b
++ ",
++   ">>> 
++ 🙂 b
++ > a",
++   ">>> 
++ 🙂 b
++ >>> a",
++   ">>> 
++ 🙂 b
++ >>> ",
++   ">>> 
++ 🙂 b
++ > ",
++   ">>> 
++ 🙂 b
++  > a",
++   ">>> 
++ 🙂 b
++   >>> b",
++   ">>> 
++ 🙂 b
++ >>> > a",
++   ">>> 
++ 🙂 b
++ > > a",
++   ">>> 
++ 🙂 b
++ > >>> a",
++   ">>> 
++ 🙂 b
++ ```",
++   ">>> 
++ 🙂 b
++ ```js",
++   ">>> 
++ 🙂 b
++ ```c++",
++   ">>> 
++ 🙂 b
++ ``` js",
++   ">>> 
++ 🙂 b
++ ```js x",
++   ">>> 
++ 🙂 b
++ a```",
++   ">>> 
++ 🙂 b
++ ```a```",
++   ">>> 
++ 🙂 b
++ foo",
++   ">>> 
++ 🙂 b
++ 🙂 b",
++   "> 
++ a
++ 🙂 b",
++   "> 
++
++ 🙂 b",
++   "> 
++ > a
++ 🙂 b",
++   "> 
++ >>> a
++ 🙂 b",
++   "> 
++ >>> 
++ 🙂 b",
++   "> 
++ > 
++ 🙂 b",
++   "> 
++  > a
++ 🙂 b",
++   "> 
++   >>> b
++ 🙂 b",
++   "> 
++ >>> > a
++ 🙂 b",
++   "> 
++ > > a
++ 🙂 b",
++   "> 
++ > >>> a
++ 🙂 b",
++   "> 
++ ```a```
++ 🙂 b",
++   "> 
++ foo
++ 🙂 b",
++   "> 
++ 🙂 b",
++   "> 
++ 🙂 b
++ a",
++   "> 
++ 🙂 b
++ ",
++   "> 
++ 🙂 b
++ > a",
++   "> 
++ 🙂 b
++ >>> a",
++   "> 
++ 🙂 b
++ >>> ",
++   "> 
++ 🙂 b
++ > ",
++   "> 
++ 🙂 b
++  > a",
++   "> 
++ 🙂 b
++   >>> b",
++   "> 
++ 🙂 b
++ >>> > a",
++   "> 
++ 🙂 b
++ > > a",
++   "> 
++ 🙂 b
++ > >>> a",
++   "> 
++ 🙂 b
++ ```",
++   "> 
++ 🙂 b
++ ```js",
++   "> 
++ 🙂 b
++ ```c++",
++   "> 
++ 🙂 b
++ ``` js",
++   "> 
++ 🙂 b
++ ```js x",
++   "> 
++ 🙂 b
++ a```",
++   "> 
++ 🙂 b
++ ```a```",
++   "> 
++ 🙂 b
++ foo",
++   "> 
++ 🙂 b
++ 🙂 b",
++   " > a
++ a
++ 🙂 b",
++   " > a
++
++ 🙂 b",
++   " > a
++ > a
++ 🙂 b",
++   " > a
++ >>> a
++ 🙂 b",
++   " > a
++ >>> 
++ 🙂 b",
++   " > a
++ > 
++ 🙂 b",
++   " > a
++  > a
++ 🙂 b",
++   " > a
++   >>> b
++ 🙂 b",
++   " > a
++ >>> > a
++ 🙂 b",
++   " > a
++ > > a
++ 🙂 b",
++   " > a
++ > >>> a
++ 🙂 b",
++   " > a
++ ```a```
++ 🙂 b",
++   " > a
++ foo
++ 🙂 b",
++   " > a
++ 🙂 b",
++   " > a
++ 🙂 b
++ a",
++   " > a
++ 🙂 b
++ ",
++   " > a
++ 🙂 b
++ > a",
++   " > a
++ 🙂 b
++ >>> a",
++   " > a
++ 🙂 b
++ >>> ",
++   " > a
++ 🙂 b
++ > ",
++   " > a
++ 🙂 b
++  > a",
++   " > a
++ 🙂 b
++   >>> b",
++   " > a
++ 🙂 b
++ >>> > a",
++   " > a
++ 🙂 b
++ > > a",
++   " > a
++ 🙂 b
++ > >>> a",
++   " > a
++ 🙂 b
++ ```",
++   " > a
++ 🙂 b
++ ```js",
++   " > a
++ 🙂 b
++ ```c++",
++   " > a
++ 🙂 b
++ ``` js",
++   " > a
++ 🙂 b
++ ```js x",
++   " > a
++ 🙂 b
++ a```",
++   " > a
++ 🙂 b
++ ```a```",
++   " > a
++ 🙂 b
++ foo",
++   " > a
++ 🙂 b
++ 🙂 b",
++   "  >>> b
++ a
++ 🙂 b",
++   "  >>> b
++
++ 🙂 b",
++   "  >>> b
++ > a
++ 🙂 b",
++   "  >>> b
++ >>> a
++ 🙂 b",
++   "  >>> b
++ >>> 
++ 🙂 b",
++   "  >>> b
++ > 
++ 🙂 b",
++   "  >>> b
++  > a
++ 🙂 b",
++   "  >>> b
++   >>> b
++ 🙂 b",
++   "  >>> b
++ >>> > a
++ 🙂 b",
++   "  >>> b
++ > > a
++ 🙂 b",
++   "  >>> b
++ > >>> a
++ 🙂 b",
++   "  >>> b
++ ```a```
++ 🙂 b",
++   "  >>> b
++ foo
++ 🙂 b",
++   "  >>> b
++ 🙂 b",
++   "  >>> b
++ 🙂 b
++ a",
++   "  >>> b
++ 🙂 b
++ ",
++   "  >>> b
++ 🙂 b
++ > a",
++   "  >>> b
++ 🙂 b
++ >>> a",
++   "  >>> b
++ 🙂 b
++ >>> ",
++   "  >>> b
++ 🙂 b
++ > ",
++   "  >>> b
++ 🙂 b
++  > a",
++   "  >>> b
++ 🙂 b
++   >>> b",
++   "  >>> b
++ 🙂 b
++ >>> > a",
++   "  >>> b
++ 🙂 b
++ > > a",
++   "  >>> b
++ 🙂 b
++ > >>> a",
++   "  >>> b
++ 🙂 b
++ ```",
++   "  >>> b
++ 🙂 b
++ ```js",
++   "  >>> b
++ 🙂 b
++ ```c++",
++   "  >>> b
++ 🙂 b
++ ``` js",
++   "  >>> b
++ 🙂 b
++ ```js x",
++   "  >>> b
++ 🙂 b
++ a```",
++   "  >>> b
++ 🙂 b
++ ```a```",
++   "  >>> b
++ 🙂 b
++ foo",
++   "  >>> b
++ 🙂 b
++ 🙂 b",
++   ">>> > a
++ a
++ 🙂 b",
++   ">>> > a
++
++ 🙂 b",
++   ">>> > a
++ > a
++ 🙂 b",
++   ">>> > a
++ >>> a
++ 🙂 b",
++   ">>> > a
++ >>> 
++ 🙂 b",
++   ">>> > a
++ > 
++ 🙂 b",
++   ">>> > a
++  > a
++ 🙂 b",
++   ">>> > a
++   >>> b
++ 🙂 b",
++   ">>> > a
++ >>> > a
++ 🙂 b",
++   ">>> > a
++ > > a
++ 🙂 b",
++   ">>> > a
++ > >>> a
++ 🙂 b",
++   ">>> > a
++ ```a```
++ 🙂 b",
++   ">>> > a
++ foo
++ 🙂 b",
++   ">>> > a
++ 🙂 b",
++   ">>> > a
++ 🙂 b
++ a",
++   ">>> > a
++ 🙂 b
++ ",
++   ">>> > a
++ 🙂 b
++ > a",
++   ">>> > a
++ 🙂 b
++ >>> a",
++   ">>> > a
++ 🙂 b
++ >>> ",
++   ">>> > a
++ 🙂 b
++ > ",
++   ">>> > a
++ 🙂 b
++  > a",
++   ">>> > a
++ 🙂 b
++   >>> b",
++   ">>> > a
++ 🙂 b
++ >>> > a",
++   ">>> > a
++ 🙂 b
++ > > a",
++   ">>> > a
++ 🙂 b
++ > >>> a",
++   ">>> > a
++ 🙂 b
++ ```",
++   ">>> > a
++ 🙂 b
++ ```js",
++   ">>> > a
++ 🙂 b
++ ```c++",
++   ">>> > a
++ 🙂 b
++ ``` js",
++   ">>> > a
++ 🙂 b
++ ```js x",
++   ">>> > a
++ 🙂 b
++ a```",
++   ">>> > a
++ 🙂 b
++ ```a```",
++   ">>> > a
++ 🙂 b
++ foo",
++   ">>> > a
++ 🙂 b
++ 🙂 b",
++   "> > a
++ a
++ 🙂 b",
++   "> > a
++
++ 🙂 b",
++   "> > a
++ > a
++ 🙂 b",
++   "> > a
++ >>> a
++ 🙂 b",
++   "> > a
++ >>> 
++ 🙂 b",
++   "> > a
++ > 
++ 🙂 b",
++   "> > a
++  > a
++ 🙂 b",
++   "> > a
++   >>> b
++ 🙂 b",
++   "> > a
++ >>> > a
++ 🙂 b",
++   "> > a
++ > > a
++ 🙂 b",
++   "> > a
++ > >>> a
++ 🙂 b",
++   "> > a
++ ```a```
++ 🙂 b",
++   "> > a
++ foo
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> > a
++ 🙂 b
++ a",
++   "> > a
++ 🙂 b
++ ",
++   "> > a
++ 🙂 b
++ > a",
++   "> > a
++ 🙂 b
++ >>> a",
++   "> > a
++ 🙂 b
++ >>> ",
++   "> > a
++ 🙂 b
++ > ",
++   "> > a
++ 🙂 b
++  > a",
++   "> > a
++ 🙂 b
++   >>> b",
++   "> > a
++ 🙂 b
++ >>> > a",
++   "> > a
++ 🙂 b
++ > > a",
++   "> > a
++ 🙂 b
++ > >>> a",
++   "> > a
++ 🙂 b
++ ```",
++   "> > a
++ 🙂 b
++ ```js",
++   "> > a
++ 🙂 b
++ ```c++",
++   "> > a
++ 🙂 b
++ ``` js",
++   "> > a
++ 🙂 b
++ ```js x",
++   "> > a
++ 🙂 b
++ a```",
++   "> > a
++ 🙂 b
++ ```a```",
++   "> > a
++ 🙂 b
++ foo",
++   "> > a
++ 🙂 b
++ 🙂 b",
++   "> >>> a
++ a
++ 🙂 b",
++   "> >>> a
++
++ 🙂 b",
++   "> >>> a
++ > a
++ 🙂 b",
++   "> >>> a
++ >>> a
++ 🙂 b",
++   "> >>> a
++ >>> 
++ 🙂 b",
++   "> >>> a
++ > 
++ 🙂 b",
++   "> >>> a
++  > a
++ 🙂 b",
++   "> >>> a
++   >>> b
++ 🙂 b",
++   "> >>> a
++ >>> > a
++ 🙂 b",
++   "> >>> a
++ > > a
++ 🙂 b",
++   "> >>> a
++ > >>> a
++ 🙂 b",
++   "> >>> a
++ ```a```
++ 🙂 b",
++   "> >>> a
++ foo
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++   "> >>> a
++ 🙂 b
++ a",
++   "> >>> a
++ 🙂 b
++ ",
++   "> >>> a
++ 🙂 b
++ > a",
++   "> >>> a
++ 🙂 b
++ >>> a",
++   "> >>> a
++ 🙂 b
++ >>> ",
++   "> >>> a
++ 🙂 b
++ > ",
++   "> >>> a
++ 🙂 b
++  > a",
++   "> >>> a
++ 🙂 b
++   >>> b",
++   "> >>> a
++ 🙂 b
++ >>> > a",
++   "> >>> a
++ 🙂 b
++ > > a",
++   "> >>> a
++ 🙂 b
++ > >>> a",
++   "> >>> a
++ 🙂 b
++ ```",
++   "> >>> a
++ 🙂 b
++ ```js",
++   "> >>> a
++ 🙂 b
++ ```c++",
++   "> >>> a
++ 🙂 b
++ ``` js",
++   "> >>> a
++ 🙂 b
++ ```js x",
++   "> >>> a
++ 🙂 b
++ a```",
++   "> >>> a
++ 🙂 b
++ ```a```",
++   "> >>> a
++ 🙂 b
++ foo",
++   "> >>> a
++ 🙂 b
++ 🙂 b",
++   "```
++ ```
++ 🙂 b",
++   "```
++ ```js
++ 🙂 b",
++   "```
++ ```c++
++ 🙂 b",
++   "```
++ ``` js
++ 🙂 b",
++   "```
++ ```js x
++ 🙂 b",
++   "```
++ a```
++ 🙂 b",
++   "```js
++ ```
++ 🙂 b",
++   "```js
++ ```js
++ 🙂 b",
++   "```js
++ ```c++
++ 🙂 b",
++   "```js
++ ``` js
++ 🙂 b",
++   "```js
++ ```js x
++ 🙂 b",
++   "```js
++ a```
++ 🙂 b",
++   "```c++
++ ```
++ 🙂 b",
++   "```c++
++ ```js
++ 🙂 b",
++   "```c++
++ ```c++
++ 🙂 b",
++   "```c++
++ ``` js
++ 🙂 b",
++   "```c++
++ ```js x
++ 🙂 b",
++   "```c++
++ a```
++ 🙂 b",
++   "``` js
++ ```
++ 🙂 b",
++   "``` js
++ ```js
++ 🙂 b",
++   "``` js
++ ```c++
++ 🙂 b",
++   "``` js
++ ``` js
++ 🙂 b",
++   "``` js
++ ```js x
++ 🙂 b",
++   "``` js
++ a```
++ 🙂 b",
++   "```js x
++ ```
++ 🙂 b",
++   "```js x
++ ```js
++ 🙂 b",
++   "```js x
++ ```c++
++ 🙂 b",
++   "```js x
++ ``` js
++ 🙂 b",
++   "```js x
++ ```js x
++ 🙂 b",
++   "```js x
++ a```
++ 🙂 b",
++   "a```
++ ```
++ 🙂 b",
++   "a```
++ ```js
++ 🙂 b",
++   "a```
++ ```c++
++ 🙂 b",
++   "a```
++ ``` js
++ 🙂 b",
++   "a```
++ ```js x
++ 🙂 b",
++   "a```
++ a```
++ 🙂 b",
++   "```a```
++ a
++ 🙂 b",
++   "```a```
++
++ 🙂 b",
++   "```a```
++ > a
++ 🙂 b",
++   "```a```
++ >>> a
++ 🙂 b",
++   "```a```
++ >>> 
++ 🙂 b",
++   "```a```
++ > 
++ 🙂 b",
++   "```a```
++  > a
++ 🙂 b",
++   "```a```
++   >>> b
++ 🙂 b",
++   "```a```
++ >>> > a
++ 🙂 b",
++   "```a```
++ > > a
++ 🙂 b",
++   "```a```
++ > >>> a
++ 🙂 b",
++   "```a```
++ ```a```
++ 🙂 b",
++   "```a```
++ foo
++ 🙂 b",
++   "```a```
++ 🙂 b",
++   "```a```
++ 🙂 b
++ a",
++   "```a```
++ 🙂 b
++ ",
++   "```a```
++ 🙂 b
++ > a",
++   "```a```
++ 🙂 b
++ >>> a",
++   "```a```
++ 🙂 b
++ >>> ",
++   "```a```
++ 🙂 b
++ > ",
++   "```a```
++ 🙂 b
++  > a",
++   "```a```
++ 🙂 b
++   >>> b",
++   "```a```
++ 🙂 b
++ >>> > a",
++   "```a```
++ 🙂 b
++ > > a",
++   "```a```
++ 🙂 b
++ > >>> a",
++   "```a```
++ 🙂 b
++ foo",
++   "```a```
++ 🙂 b
++ 🙂 b",
++   "foo
++ a
++ 🙂 b",
++   "foo
++
++ 🙂 b",
++   "foo
++ > a
++ 🙂 b",
++   "foo
++ >>> a
++ 🙂 b",
++   "foo
++ >>> 
++ 🙂 b",
++   "foo
++ > 
++ 🙂 b",
++   "foo
++  > a
++ 🙂 b",
++   "foo
++   >>> b
++ 🙂 b",
++   "foo
++ >>> > a
++ 🙂 b",
++   "foo
++ > > a
++ 🙂 b",
++   "foo
++ > >>> a
++ 🙂 b",
++   "foo
++ ```a```
++ 🙂 b",
++   "foo
++ foo
++ 🙂 b",
++   "foo
++ 🙂 b",
++   "foo
++ 🙂 b
++ a",
++   "foo
++ 🙂 b
++ ",
++   "foo
++ 🙂 b
++ > a",
++   "foo
++ 🙂 b
++ >>> a",
++   "foo
++ 🙂 b
++ >>> ",
++   "foo
++ 🙂 b
++ > ",
++   "foo
++ 🙂 b
++  > a",
++   "foo
++ 🙂 b
++   >>> b",
++   "foo
++ 🙂 b
++ >>> > a",
++   "foo
++ 🙂 b
++ > > a",
++   "foo
++ 🙂 b
++ > >>> a",
++   "foo
++ 🙂 b
++ ```",
++   "foo
++ 🙂 b
++ ```js",
++   "foo
++ 🙂 b
++ ```c++",
++   "foo
++ 🙂 b
++ ``` js",
++   "foo
++ 🙂 b
++ ```js x",
++   "foo
++ 🙂 b
++ a```",
++   "foo
++ 🙂 b
++ ```a```",
++   "foo
++ 🙂 b
++ foo",
++   "foo
++ 🙂 b
++ 🙂 b",
++   "🙂 b
++ a
++ 🙂 b",
++   "🙂 b
++
++ 🙂 b",
++   "🙂 b
++ > a
++ 🙂 b",
++   "🙂 b
++ >>> a
++ 🙂 b",
++   "🙂 b
++ >>> 
++ 🙂 b",
++   "🙂 b
++ > 
++ 🙂 b",
++   "🙂 b
++  > a
++ 🙂 b",
++   "🙂 b
++   >>> b
++ 🙂 b",
++   "🙂 b
++ >>> > a
++ 🙂 b",
++   "🙂 b
++ > > a
++ 🙂 b",
++   "🙂 b
++ > >>> a
++ 🙂 b",
++   "🙂 b
++ ```a```
++ 🙂 b",
++   "🙂 b
++ foo
++ 🙂 b",
++   "🙂 b
++ 🙂 b",
++   "🙂 b
++ 🙂 b
++ a",
++   "🙂 b
++ 🙂 b
++ ",
++   "🙂 b
++ 🙂 b
++ > a",
++   "🙂 b
++ 🙂 b
++ >>> a",
++   "🙂 b
++ 🙂 b
++ >>> ",
++   "🙂 b
++ 🙂 b
++ > ",
++   "🙂 b
++ 🙂 b
++  > a",
++   "🙂 b
++ 🙂 b
++   >>> b",
++   "🙂 b
++ 🙂 b
++ >>> > a",
++   "🙂 b
++ 🙂 b
++ > > a",
++   "🙂 b
++ 🙂 b
++ > >>> a",
++   "🙂 b
++ 🙂 b
++ ```",
++   "🙂 b
++ 🙂 b
++ ```js",
++   "🙂 b
++ 🙂 b
++ ```c++",
++   "🙂 b
++ 🙂 b
++ ``` js",
++   "🙂 b
++ 🙂 b
++ ```js x",
++   "🙂 b
++ 🙂 b
++ a```",
++   "🙂 b
++ 🙂 b
++ ```a```",
++   "🙂 b
++ 🙂 b
++ foo",
++   "🙂 b
++ 🙂 b
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:112:21
+    110|     const changed = texts()
+    111|       .filter((text) => flattenNodeText(getInitialValue(text, partial …
+    112|     expect(changed).toEqual([]);
+       |                     ^
+    113|   });
+    114| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  10 failed | 233 passed (243)
+   Start at  04:58:19
+   Duration  7.60s (transform 1.60s, setup 35ms, import 3.60s, tests 10.52s, environment 3.13s)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: span-need-not-end-in-line in src/components/SlateEditor/utils/emojiLift.ts
+exit 1

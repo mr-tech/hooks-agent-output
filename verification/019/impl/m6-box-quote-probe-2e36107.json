@@ -1,0 +1,99 @@
+[
+ {
+  "key": "x8",
+  "text": ">>> a\n> _\n> _b_",
+  "blocks": [
+   [
+    {
+     "text": ">>> a",
+     "start": 0,
+     "attributes": []
+    }
+   ],
+   [
+    {
+     "text": "> ",
+     "start": 0,
+     "attributes": []
+    },
+    {
+     "text": "_",
+     "start": 2,
+     "attributes": [
+      "syntaxBefore",
+      "before_em"
+     ]
+    }
+   ],
+   [
+    {
+     "text": "> ",
+     "start": 0,
+     "attributes": [
+      "em"
+     ]
+    },
+    {
+     "text": "_",
+     "start": 2,
+     "attributes": [
+      "syntaxAfter",
+      "after_em"
+     ]
+    },
+    {
+     "text": "b_",
+     "start": 3,
+     "attributes": []
+    }
+   ]
+  ],
+  "codeBlocks": []
+ },
+ {
+  "key": "x9",
+  "text": ">>> *a\n> b*",
+  "blocks": [
+   [
+    {
+     "text": ">>> ",
+     "start": 0,
+     "attributes": []
+    },
+    {
+     "text": "*",
+     "start": 4,
+     "attributes": [
+      "syntaxBefore",
+      "before_em"
+     ]
+    },
+    {
+     "text": "a",
+     "start": 5,
+     "attributes": [
+      "em"
+     ]
+    }
+   ],
+   [
+    {
+     "text": "> b",
+     "start": 0,
+     "attributes": [
+      "em"
+     ]
+    },
+    {
+     "text": "*",
+     "start": 3,
+     "attributes": [
+      "syntaxAfter",
+      "after_em"
+     ]
+    }
+   ]
+  ],
+  "codeBlocks": []
+ }
+]

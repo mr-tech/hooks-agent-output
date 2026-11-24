@@ -1,0 +1,747 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (12 tests | 4 failed) 275ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 30ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 23ms
+     × puts an emoji element typed into a link address back to text 5ms
+     × puts each emoji element of a fenced code line back to text 6ms
+stderr | src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx
+❌ Invalid environment variables: {
+  NEXT_PUBLIC_PUSHER_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_CLUSTER: [ 'Required' ],
+  NEXT_PUBLIC_DISCORD_CLIENT_ID: [ 'Required' ]
+}
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx (0 test)
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 4 failed) 261ms
+     × draws the brackets and destination around an emoji label as syntax 57ms
+     × colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place 12ms
+     × colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place 11ms
+     × colours the characters around an emoji in "`X`" as it does the same text with one character in its place 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 4 failed) 15181ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 111ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 919ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 64ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 564ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 14749ms
+     × on embedDescription, every content character carries the style set its preview gives it 5920ms
+     × on fieldValue, every content character carries the style set its preview gives it 3603ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1095ms
+     × on v2Text, every content character carries the style set its preview gives it 2204ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 18104ms
+     × hands the message that text in a full-markdown editor 12075ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 24325ms
+     × hands the message that text in a full-markdown editor 12240ms
+     × hands the message that text in a full-markdown editor 10954ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 48927ms
+     × hands the message that text in a full-markdown editor 5778ms
+     × hands the message that text in a full-markdown editor 19786ms
+     × hands the message that text in a full-markdown editor 5808ms
+     × hands the message that text in a full-markdown editor 3673ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 142065ms
+     × hands the message that text in a full-markdown editor 121670ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx [ src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx ]
+Error: Invalid environment variables
+ ❯ src/env.mjs:115:11
+    113|       parsed.error.flatten().fieldErrors,
+    114|     );
+    115|     throw new Error('Invalid environment variables');
+       |           ^
+    116|   }
+    117|
+ ❯ src/constants/index.ts:3:1
+ ❯ src/utils/markdown/emoji.tsx:6:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/25]⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 24 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(49) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> <t:1700000000:d>
++ 1. ||__https://x.y/a*b*c 🙂 https://x.y.__
++ ````[a](https://x.y/🙂)",
++   "-# <game:1558266761101447248> <a@b.co>
++ > 🙂 https://x.y
++ - `*\\<x\\< 2 < 3*`",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   "™
++ > *[a](https://x.y/🙂)*
++ - ||<id:guide> [<:hooks:1558266761101447248>](https://x.y/a*b*c)||",
++   "> `a*b` <t:1700000000:d> <t:1700000000:F>
++ > ||``\\`x\\` ©`` <id:browse>|| [<:hooks:1558266761101447248>](https://example.com/a_b)
++   - \\[x\\[ \\[x\\[",
++   "> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> 🪿 \\)x\\) snake_case
++ - _**https://x.y/a*b*c 🙂 ™ <t:1700000000:f>_
++ <id:home>",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++   "> ``~~__<id:browse> \\(x\\(<https://x.y/🙂>~~``
++ __<t:1700000000:t>
++ ## ``<https://x.y/🙂> \\>x\\>[text](https://example.com \"a title\")",
++   "- https://x.y🙂
++ > ``[<:hooks:1558266761101447248>](https://x.y)`` https://example.com/a_b 🙂<t:1700000000:x>
++ ### `[<:hooks:1558266761101447248>](https://example.com/a_b)` [dev](dev://branch/main) <t:1700000000:S>",
++   "> __**~~\\>x\\>~~ https://x.y🙂**__
++ __*🇬🇧 <id:customize>*__",
++   "> [text](<https://example.com>)
++ 👨‍👩‍👧
++ - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "tail  ™
++ > 🙂
++ - _*<t:1700000000:D>*_ <@1558266761101447248> <t:1700000000:Z>",
++   "> ~~[a](https://x.y/🙂)~~
++ -# __||\\<x\\<||__ \\)x\\) snake_case
++ # `__**[:smile:](https://example.com/a_b) \\]x\\]** https://example.com/a_b 🙂 🪿__ <t:1700000000:t>",
++   "https://example.com/a_b 🙂 <game:1558266761101447248>
++ > ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)
++ -# <id:guide>https://x.y 🙂",
++   "> x_y
++ 1. ~~~~1️⃣~~ hello world~~ <t:1700000000:f>
++   - \\[x\\[",
++   "> https://x.y/a(b)c<t:1700000000:T>
++ -# `**[🙂](https://x.y) <t:1700000000:x>**
++   - ||🙂 https://example.com/a_b||",
++   "> _<a:dance:1558266761101447248>_ 🙂 https://x.y\\<x\\<
++ ### ||_<id:browse> C++_||
++ _<@!1558266761101447248>_",
++   "-# ``❤`` 🙂 https://x.y/a*b*c [a [b] c](https://example.com)
++ > https://example.com/path?q=1&r=2#f hello world
++ ### <t:-1:f><a@b.co>",
++   "  - <t:1700000000:Z><id:guide>
++ > `~~[🙂](https://x.y/a*b*c)<id:home>~~ 🏴󠁧󠁢󠁥󠁮󠁧󠁿`
++ __a*b [a](https://x.y/🙂)__",
++   "> ~~~~||é <id:home>||~~ [a](https://x.y/🙂)~~
++ - _~~❤ [🙂](https://x.y)~~_",
++   "# [🙂](https://x.y)[text](https://example.com \"a title\")
++ > [**bold** label](https://example.com)
++ - tail ",
++   "> __`a` a*b__
++ 1. ||||🪿 [<:hooks:1558266761101447248>](https://example.com/a_b)||||",
++   "> ``__\\(x\\(
++ ### `<https://x.y><t:1700000000:F>` [a](https://x.y/🙂)",
++   ">>> > ||[:smile:](https://x.y)|| <t:1700000000:s><@&1558266761101447248>
++ # `<t:1700000000:S>`
++ -# ||~~[:smile:](https://x.y/a*b*c)<game:1558266761101447248> 🙂 https://x.y<@!1558266761101447248>",
++   "> ``_<t:1700000000:t>_ \\`x\\`日本
++ 1. [a 🙂 b](https://x.y)",
++   "  - __[🙂](https://example.com/a_b) snake_case__
++ > [a 🙂 b](https://x.y/a*b*c) <t:-1:f>
++ - ``snake_case <https://x.y/🙂>`` https://x.y 🙂 a*b",
++   "> __[dev](dev://branch/main)__ \\>x\\>
++ -# *[a 🙂 b](https://x.y/a*b*c)* https://example.com\\)x\\)",
++   "> `https://x.y🙂`
++   - `https://example.com/path?q=1&r=2#f`
++   - __\\<x\\<__",
++   "> **||``©`` [<:hooks:1558266761101447248>](https://example.com/a_b)\\#x\\#|| <t:-1:f>** [:smile:](https://example.com/a_b)
++ `<t:1700000000:x> \\~x\\~`
++ - https://x.y🙂<id:customize>",
++   "### ~~[🙂](https://x.y/a*b*c)
++ > ||_`\\_x\\_` \\*x\\* \\]x\\]_ \\(x\\( https://example.com
++ ### [a 🙂 b](https://example.com/a_b)",
++   "-# **🪿 [a](https://x.y/a*b*c/🙂)** <t:1700000000:R>
++ > ||\\#x\\# \\#x\\#[:smile:](https://example.com/a_b)
++ ~~https://example.com/a_b 🙂~~ \\[x\\[ 🇬🇧",
++   ":smile: a*b
++ > ||\\:x\\: <a@b.co>|| hello world <t:1700000000:x>
++ ### __**1️⃣ [text](<https://example.com>)**",
++   "> __<id:home>__
++ # 🇬🇧
++ 1. \\:x\\:",
++   "> 2 < 3
++ ``_<t:1700000000:t> [a](https://example.com/a_b/🙂)_`` 🪿\\#x\\#",
++   "# ||``🙂 [a](https://example.com/a_b/🙂)||
++ > <id:browse> word
++ *`\\`x\\`",
++   "> [:smile:](https://x.y/a*b*c) snake_case
++   - **[a 🙂 b](https://x.y)@here
++ ## a*b",
++   "> ``[a 🙂 b](https://example.com/a_b)`` @everyone
++ 1. <t:1700000000:T>",
++   "# \\)x\\)
++ > **<id:browse>**
++ ### __<id:browse> 👨‍👩‍👧__ <@!1558266761101447248>",
++   "> _<id:customize>_
++ # **`👨‍👩‍👧`** https://example.com/a_b🙂 [🙂](https://x.y/a*b*c)",
++   "> `<@1558266761101447248>` https://example.com x_y
++ -# ~~https://x.y 🙂~~",
++   "> 👍🏽
++ <t:1700000000:S>",
++   "> 🙂 https://example.com/a_b [:smile:](https://x.y/a*b*c)
++ ## ||~~~~<t:1700000000> \\[x\\[ [a 🙂 b](https://x.y/a*b*c)||
++ <t:1700000000:s> 2 < 3",
++   "> hello world<id:guide>
++ https://x.y/a*b*c🙂\\[x\\[",
++   "> C++
++ ## ``||👍🏽 [a](https://x.y/a*b*c/🙂)||``",
++   "> [a](https://example.com/a_b/🙂)
++ > _日本 \\>x\\>:🙂:
++ 1. _||*[🙂](https://x.y/a*b*c)*||_",
++   "- **_``🙂``_** [text](https://example.com \"a title\") <t:1700000000:x>
++ > __``\\|x\\|``__ [text](https://example.com)
++ -# **\\]x\\] <t:1700000000:D> 👨‍👩‍👧",
++   "> ``@everyone` [:smile:](https://example.com/a_b)
++   - [a](https://x.y/🙂)",
++   "1. 🙂
++ > _❤_
++   - ___<t:1700000000>___",
++   "> ||\\:x\\: <id:customize>||
++ - ||\\>x\\> 🙂||
++ <t:1700000000:x>",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n🙂 b', '> \n🙂 b', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ 🙂 b",
++   "> 
++ 🙂 b",
++   " > a
++ 🙂 b",
++   ">>> > a
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "#>>> 
++ ```js*```||
++ >> ```
++ ```c++_
++ >>>  > ```
++ >> a`",
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">>> ajs 
++ ``` >>> ```js
++ ``` 
++ > ``````
++ >> ||> ",
++   ">b
++ > ||```
++  > > ",
++   " > \\```_
++ _ 
++ ```>>> ",
++   "> ```>>> > 
++ ``` ",
++   " > ```a
++ ~~\\
++ > >>> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n🙂 b', '> \n🙂 b', …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ 🙂 b",
++   "> 
++ 🙂 b",
++   " > a
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ ' > ```\n```>>> >>> \n```', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">>> ajs 
++ ``` >>> ```js
++ ``` 
++ > ``````
++ >> ||> ",
++   ">b
++ > ||```
++  > > ",
++   " > \\```_
++ _ 
++ ```>>> ",
++   "> ```>>> > 
++ ``` ",
++   " > ```a
++ ~~\\
++ > >>> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:709' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:709",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:139:23
+    137|     }
+    138|     expect(compared).toBeGreaterThan(1000);
+    139|     expect(differing).toEqual([]);
+       |                       ^
+    140|   }, 600_000);
+    141| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected 995 to be greater than 1000
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:138:22
+    136|       if (!drawsAsPreviewDoes(linkRuns(editor), preview)) differing.pu…
+    137|     }
+    138|     expect(compared).toBeGreaterThan(1000);
+       |                      ^
+    139|     expect(differing).toEqual([]);
+    140|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+AssertionError: expected [ [ 'a`', '🙂', '`b' ], 'a`🙂`b' ] to deeply equal [ [ 'a`🙂`b' ], 'a`🙂`b' ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "a`🙂`b",
++     "a`",
++     "🙂",
++     "`b",
+    ],
+    "a`🙂`b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:72:66
+     70|     expect(shown(editor, 0)).toEqual(['a`', '[🙂]', 'b']);
+     71|     Transforms.insertText(editor, '`', { at: at([0, 2], 0) });
+     72|     expect([shown(editor, 0), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+     73|     Transforms.delete(editor, { at: { anchor: at([0, 0], 1), focus: at…
+     74|     expect([shown(editor, 0), flattenNodeText(editor.children)]).toEqu…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](https://x.y)" is typed after it
+AssertionError: expected [ '[', '🙂', '](https://x.y)' ] to deeply equal [ '[🙂](https://x.y)' ]
+
+- Expected
++ Received
+
+  [
+-   "[🙂](https://x.y)",
++   "[",
++   "🙂",
++   "](https://x.y)",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:83:30
+     81|     const editor = holding('[🙂');
+     82|     Transforms.insertText(editor, typed, { at: at([0, 2], 0) });
+     83|     expect(shown(editor, 0)).toEqual(children);
+       |                              ^
+     84|   });
+     85|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element typed into a link address back to text
+Error: Cannot find a descendant at path [0,2] in node: {"children":[{"type":"div","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"[a](https://x.y/🙂"}],"empty":false}],"operations":[],"selection":null,"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,2],"offset":0,"text":")"}],"selectionBefore":null}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:418:12
+ ❯ get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:532:21
+ ❯ Object.n node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3381:775
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/levels.ts:22:2
+ ❯ Object.n node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/dist/index.js:1696:775
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:381:2
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:157:24
+ ❯ apply node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/plugin/with-react.ts:74:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+AssertionError: expected [ Array(2) ] to deeply equal [ [ 'a🙂b' ], '```\na🙂b\n```' ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "a🙂b",
++     "a",
++     "🙂",
++     "b",
+    ],
+    "```
+  a🙂b
+  ```",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:97:66
+     95|       type: 'emoji', lang: '', startCodeBlock: false, empty: false, ch…
+     96|     }], { at: at([1, 0], 1) });
+     97|     expect([shown(editor, 1), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+     98|   });
+     99| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+Error: Could not completely normalize the editor after 252 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:202:14
+    200|     const unsettled = texts().filter((text) => {
+    201|       const editor = loadedIn(text, partial);
+    202|       Editor.normalize(editor, { force: true });
+       |              ^
+    203|       const kept = textOf(editor) === text;
+    204|       const operations = editor.operations.length;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/25]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+Error: Could not completely normalize the editor after 336 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:202:14
+    200|     const unsettled = texts().filter((text) => {
+    201|       const editor = loadedIn(text, partial);
+    202|       Editor.normalize(editor, { force: true });
+       |              ^
+    203|       const kept = textOf(editor) === text;
+    204|       const operations = editor.operations.length;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/25]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ 'S', 'linkText', …(15) ] ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -1,11 +1,11 @@
+  [
+    [
+      [
+        "S",
+-     ],
+-     [
++       "linkText",
++       "linkText",
+        "S",
+        "S",
+        "S",
+        "S",
+        "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:63:55
+     61|
+     62|   it('draws the brackets and destination around an emoji label as synt…
+     63|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/25]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'linkText', …(17) ] ] to deeply equal [ [ 'S', 'linkText', …(16) ] ]
+
+- Expected
++ Received
+
+@@ -2,10 +2,11 @@
+    [
+      "S",
+      "linkText",
+      "linkText",
+      "linkText",
++     "linkText",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:83:29
+     81|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     82|     });
+     83|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     84|   });
+     85| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/25]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'linkText', …(15) ] ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,10 @@
+  [
+    [
+      "S",
+      "linkText",
++     "linkText",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:83:29
+     81|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     82|     });
+     83|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     84|   });
+     85| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/25]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "`X`" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'inlineCodeText', …(2) ] ] to deeply equal [ [ 'S', 'inlineCodeText', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "inlineCodeText",
++     "inlineCodeText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:83:29
+     81|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     82|     });
+     83|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     84|   });
+     85| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/25]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  9 failed | 27 passed (36)
+      Tests  24 failed | 427 passed (451)
+     Errors  1 error
+   Start at  04:05:59
+   Duration  149.40s (transform 21.66s, setup 2.18s, import 82.89s, tests 285.49s, environment 57.83s)
+

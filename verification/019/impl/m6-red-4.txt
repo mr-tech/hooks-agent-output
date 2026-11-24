@@ -1,0 +1,56 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 7356ms
+     × on embedDescription, every content character carries the style set its preview gives it 2034ms
+     × on fieldValue, every content character carries the style set its preview gives it 1572ms
+     × on embedTitle, every content character carries the style set its preview gives it 1408ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 820ms
+     × on v2Text, every content character carries the style set its preview gives it 1515ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected 1436 to be greater than 2200
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:138:22
+    136|       if (!drawsAsPreviewDoes(linkRuns(editor), preview)) differing.pu…
+    137|     }
+    138|     expect(compared).toBeGreaterThan(2200);
+       |                      ^
+    139|     expect(differing).toEqual([]);
+    140|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected 1431 to be greater than 2200
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:138:22
+    136|       if (!drawsAsPreviewDoes(linkRuns(editor), preview)) differing.pu…
+    137|     }
+    138|     expect(compared).toBeGreaterThan(2200);
+       |                      ^
+    139|     expect(differing).toEqual([]);
+    140|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected 995 to be greater than 2200
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:138:22
+    136|       if (!drawsAsPreviewDoes(linkRuns(editor), preview)) differing.pu…
+    137|     }
+    138|     expect(compared).toBeGreaterThan(2200);
+       |                      ^
+    139|     expect(differing).toEqual([]);
+    140|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  04:20:38
+   Duration  10.09s (transform 1.13s, setup 25ms, import 1.92s, tests 7.36s, environment 645ms)
+

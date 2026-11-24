@@ -1,0 +1,102 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts (3 tests | 3 failed) 990ms
+     × is imported by no module of the website outside node_modules and .next 985ms
+     × is named by no dependency entry of the manifest 2ms
+     × has no patch file, no patched-dependency entry and no ambient declaration left 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts > the package simple-markdown > is imported by no module of the website outside node_modules and .next
+AssertionError: expected [ [ …(10) ], [ …(5) ] ] to deeply equal [ [], [] ]
+
+- Expected
++ Received
+
+  [
+-   [],
+-   [],
++   [
++     "src/@types/simple-markdown.d.ts",
++     "src/components/DiscordContentEditor/index.tsx",
++     "src/components/Markdown.tsx",
++     "src/providers/MarkdownProvider.tsx",
++     "src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts",
++     "src/utils/markdown/emoji.tsx",
++     "src/utils/markdown/index.tsx",
++     "src/utils/markdown/preview.tsx",
++     "src/utils/markdown/rules.tsx",
++     "src/utils/markdown/utils.ts",
++   ],
++   [
++     "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts",
++     "src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts",
++     "src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts",
++     "src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts",
++     "src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts",
++   ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts:13:49
+     11|   it('is imported by no module of the website outside node_modules and…
+     12|     const scan = importersOf(WEBSITE_ROOT, ['simple-markdown']);
+     13|     expect([scan.importers, scan.unresolvable]).toEqual([[], []]);
+       |                                                 ^
+     14|   });
+     15|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts > the package simple-markdown > is named by no dependency entry of the manifest
+AssertionError: expected [ 'dependencies' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "dependencies",
++ ]
+
+ ❯ src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts:19:19
+     17|     const manifest = JSON.parse(read('package.json')) as Record<string…
+     18|     const named = ['dependencies', 'devDependencies', 'optionalDepende…
+     19|     expect(named).toEqual([]);
+       |                   ^
+     20|   });
+     21|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts > the package simple-markdown > has no patch file, no patched-dependency entry and no ambient declaration left
+AssertionError: expected [ true, true, true ] to deeply equal [ false, false, false ]
+
+- Expected
++ Received
+
+  [
+-   false,
+-   false,
+-   false,
++   true,
++   true,
++   true,
+  ]
+
+ ❯ src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts:28:8
+     26|       workspace.includes('simple-markdown'),
+     27|       existsSync(resolve(WEBSITE_ROOT, 'src/@types/simple-markdown.d.t…
+     28|     ]).toEqual([false, false, false]);
+       |        ^
+     29|   });
+     30| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  04:43:04
+   Duration  1.55s (transform 143ms, setup 0ms, import 413ms, tests 990ms, environment 0ms)
+

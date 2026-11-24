@@ -1,0 +1,103 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (6 tests | 6 failed) 970ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 225ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 157ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 147ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 139ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 128ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 145ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text
+AssertionError: expected [ 'gen:222', 'gen:358', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:222",
++   "gen:358",
++   "gen:364",
++   "gen:469",
++   "gen:626",
++   "gen:698",
++   "gen:786",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:46:19
+     44|       .filter((input) => JSON.stringify(liftedRanges(input.text, surfa…
+     45|       .map((input) => input.key);
+     46|     expect(wrong).toEqual([]);
+       |                   ^
+     47|   }, 120_000);
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle
+AssertionError: expected [ 'gen:222', 'gen:469', 'gen:698' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:222",
++   "gen:469",
++   "gen:698",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:46:19
+     44|       .filter((input) => JSON.stringify(liftedRanges(input.text, surfa…
+     45|       .map((input) => input.key);
+     46|     expect(wrong).toEqual([]);
+       |                   ^
+     47|   }, 120_000);
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl
+AssertionError: expected [ 'gen:123', 'gen:189', …(9) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:123",
++   "gen:189",
++   "gen:222",
++   "gen:358",
++   "gen:437",
++   "gen:469",
++   "gen:538",
++   "gen:598",
++   "gen:698",
++   "gen:765",
++   "gen:895",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:46:19
+     44|       .filter((input) => JSON.stringify(liftedRanges(input.text, surfa…
+     45|       .map((input) => input.key);
+     46|     expect(wrong).toEqual([]);
+       |                   ^
+     47|   }, 120_000);
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed (6)
+   Start at  04:51:29
+   Duration  1.43s (transform 240ms, setup 0ms, import 327ms, tests 970ms, environment 0ms)
+

@@ -1,0 +1,195 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 52 failed) 106ms
+     × loads "\\🙂 **a**" with its text unchanged 5ms
+     × loads "a \\🙂" with its text unchanged 1ms
+     × loads "\\*a\\*" with its text unchanged 1ms
+     × loads "a :ok🙂 b" with its text unchanged 0ms
+     × loads "a \\🙂ok: b" with its text unchanged 0ms
+     × loads ">>> a\nb" with its text unchanged 0ms
+     × loads ">>> a" with its text unchanged 0ms
+     × loads ">>> a\n\nb" with its text unchanged 0ms
+     × loads ">>> a\n> b" with its text unchanged 0ms
+     × loads "x\n>>> a\nb" with its text unchanged 0ms
+     × loads "> a\n> b" with its text unchanged 0ms
+     × loads "```\n>>> a\n```" with its text unchanged 0ms
+     × loads " > a" with its text unchanged 0ms
+     × loads "  >>> a\nb" with its text unchanged 1ms
+     × loads ">>> a" into a single-line field with its text unchanged 1ms
+     × loads ">>> a\nb" into a single-line field with its text unchanged 0ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 0ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 0ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 0ms
+     × loads the text on each side of the emoji in "\\🙂 🙂" into its own text node 0ms
+     × loads the text on each side of the emoji in "a:smile:b" into its own text node 0ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 1ms
+     × loads the text on each side of the emoji in "`🙂` 🙂" into its own text node 0ms
+     × loads the text on each side of the emoji in "[🙂](https://x.y) https://x.y/🙂" into its own text node 0ms
+     × loads the text on each side of the emoji in "©™" into its own text node 0ms
+     × loads a unicode emoji as one emoji element that saves as the typed text 0ms
+     × loads a ZWJ sequence as one emoji element that saves as the typed text 0ms
+     × loads a skin-tone sequence as one emoji element that saves as the typed text 0ms
+     × loads a keycap as one emoji element that saves as the typed text 0ms
+     × loads a flag as one emoji element that saves as the typed text 0ms
+     × loads a tag sequence as one emoji element that saves as the typed text 0ms
+     × loads a heart with emoji presentation as one emoji element that saves as the typed text 0ms
+     × loads an emoji typed as a name as one emoji element that saves as the typed text 3ms
+     × loads a skin-toned name as one emoji element that saves as the typed text 1ms
+     × loads a custom emoji as one emoji element that saves as the typed text 1ms
+     × loads an animated custom emoji as one emoji element that saves as the typed text 0ms
+     × loads a heart with no emoji presentation as text that saves as the typed text 1ms
+     × loads a copyright sign as text that saves as the typed text 0ms
+     × loads an escaped emoji as text that saves as the typed text 0ms
+     × loads a name that is no emoji as text that saves as the typed text 0ms
+     × loads each text of the 272-case corpus with its text unchanged 1ms
+     × loads each text of the 106 link inputs with its text unchanged 1ms
+     × loads each text of 1,000 generator inputs with its text unchanged 15ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 2ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 2ms
+     × loads each text of 3,000 seeded block-layer texts with its text unchanged 6ms
+     × loads each text of the 272-case corpus with its text unchanged 0ms
+     × loads each text of the 106 link inputs with its text unchanged 1ms
+     × loads each text of 1,000 generator inputs with its text unchanged 12ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 2ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 2ms
+     × loads each text of 3,000 seeded block-layer texts with its text unchanged 6ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 52 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "\\🙂 **a**" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a \\🙂" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "\\*a\\*" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a :ok🙂 b" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a \\🙂ok: b" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\nb" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\n\nb" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\n> b" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "x\n>>> a\nb" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "> a\n> b" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "```\n>>> a\n```" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads " > a" with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "  >>> a\nb" with its text unchanged
+TypeError: parseEmoji is not a function
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:56:21
+     54|       children = [];
+     55|       if (text.length) {
+     56|         const ast = parseEmoji(text);
+       |                     ^
+     57|         const offsets = sourceOffsetsOf(ast);
+     58|         let curText = '';
+ ❯ loaded src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:20:34
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:55:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/52]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a" into a single-line field with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\nb" into a single-line field with its text unchanged
+TypeError: parseEmoji is not a function
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:56:21
+     54|       children = [];
+     55|       if (text.length) {
+     56|         const ast = parseEmoji(text);
+       |                     ^
+     57|         const offsets = sourceOffsetsOf(ast);
+     58|         let curText = '';
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:62:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/52]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a🙂 b c" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "\\*🙂 b" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "\\🙂 🙂" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a:smile:b" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "`🙂` 🙂" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "[🙂](https://x.y) https://x.y/🙂" into its own text node
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "©™" into its own text node
+TypeError: parseEmoji is not a function
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:56:21
+     54|       children = [];
+     55|       if (text.length) {
+     56|         const ast = parseEmoji(text);
+       |                     ^
+     57|         const offsets = sourceOffsetsOf(ast);
+     58|         let curText = '';
+ ❯ loaded src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:20:34
+ ❯ shown src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:21:35
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/52]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a unicode emoji as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a ZWJ sequence as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a skin-tone sequence as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a keycap as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a flag as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a tag sequence as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a heart with emoji presentation as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads an emoji typed as a name as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a skin-toned name as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a custom emoji as one emoji element that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads an animated custom emoji as one emoji element that saves as the typed text
+TypeError: parseEmoji is not a function
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:56:21
+     54|       children = [];
+     55|       if (text.length) {
+     56|         const ast = parseEmoji(text);
+       |                     ^
+     57|         const offsets = sourceOffsetsOf(ast);
+     58|         let curText = '';
+ ❯ loaded src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:20:34
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:81:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/52]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a heart with no emoji presentation as text that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a copyright sign as text that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads an escaped emoji as text that saves as the typed text
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a name that is no emoji as text that saves as the typed text
+TypeError: parseEmoji is not a function
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:56:21
+     54|       children = [];
+     55|       if (text.length) {
+     56|         const ast = parseEmoji(text);
+       |                     ^
+     57|         const offsets = sourceOffsetsOf(ast);
+     58|         let curText = '';
+ ❯ loaded src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:20:34
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:91:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/52]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the 272-case corpus with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the 106 link inputs with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of 1,000 generator inputs with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the 1,662-line probe corpus with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of the joins of up to three block atoms with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a full-markdown box over the round-trip input classes > loads each text of 3,000 seeded block-layer texts with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the 272-case corpus with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the 106 link inputs with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of 1,000 generator inputs with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the 1,662-line probe corpus with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of the joins of up to three block atoms with its text unchanged
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value in a single-line box over the round-trip input classes > loads each text of 3,000 seeded block-layer texts with its text unchanged
+TypeError: parseEmoji is not a function
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:56:21
+     54|       children = [];
+     55|       if (text.length) {
+     56|         const ast = parseEmoji(text);
+       |                     ^
+     57|         const offsets = sourceOffsetsOf(ast);
+     58|         let curText = '';
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:111:41
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:111:8
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/52]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  52 failed (52)
+   Start at  04:02:13
+   Duration  600ms (transform 181ms, setup 0ms, import 255ms, tests 106ms, environment 0ms)
+

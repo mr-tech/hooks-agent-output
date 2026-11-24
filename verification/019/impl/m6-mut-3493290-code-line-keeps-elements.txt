@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+
+ Test Files  7 passed (7)
+      Tests  243 passed (243)
+   Start at  04:58:01
+   Duration  8.41s (transform 1.29s, setup 34ms, import 3.29s, tests 11.33s, environment 3.18s)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: code-line-keeps-elements in src/components/SlateEditor/utils/withNormalizeNode.ts
+exit 0

@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 1 failed) 66ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says
+AssertionError: expected '>>> a\n> b\n> ' to be '>>> a\n> b\n' // Object.is equality
+
+- Expected
++ Received
+
+  >>> a
+  > b
+-
++ > 
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 14 passed (15)
+   Start at  04:56:33
+   Duration  1.22s (transform 183ms, setup 27ms, import 340ms, tests 66ms, environment 635ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: NM-68-carry-ignores-multiline-quote in src/components/SlateEditor/utils/withNormalizeNode.ts
+exit 1

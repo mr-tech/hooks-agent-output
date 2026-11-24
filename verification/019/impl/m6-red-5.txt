@@ -1,0 +1,122 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (14 tests | 5 failed) 50ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 6ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 1ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 2ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 2ms
+     × takes in a typed quote marker inside a fence opened on a quote line 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says
+AssertionError: expected '>>> a\n> b\n> ' to be '>>> a\n> b\n' // Object.is equality
+
+- Expected
++ Received
+
+  >>> a
+  > b
+-
++ > 
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a code line inside a fence opened on a quote line saves what the table says
+AssertionError: expected '> ```\n> x\n\n> ```' to be '> ```\n> x\n> \n> ```' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+  > x
+- > 
++
+  > ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a quote marker types the line as typed once the carried marker is taken in or removed
+AssertionError: expected '> a\n> > b' to be '> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+  > a
+- > b
++ > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:75:28
+     73|     if (!typed.startsWith('> ')) pressBackspace(editor);
+     74|     typeKeys(editor, typed);
+     75|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two quote markers types the line as typed once the carried marker is taken in or removed
+AssertionError: expected '> a\n> > > b' to be '> a\n> > b' // Object.is equality
+
+- Expected
++ Received
+
+  > a
+- > > b
++ > > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:75:28
+     73|     if (!typed.startsWith('> ')) pressBackspace(editor);
+     74|     typeKeys(editor, typed);
+     75|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker inside a fence opened on a quote line
+AssertionError: expected '> ```\n> > x\n> ```' to be '> ```\n> x\n> ```' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+- > x
++ > > x
+  > ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:88:28
+     86|     Transforms.select(editor, Editor.end(editor, [0]));
+     87|     typeKeys(editor, '\n> x\n> ```');
+     88|     expect(textOf(editor)).toBe('> ```\n> x\n> ```');
+       |                            ^
+     89|   });
+     90| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 9 passed (14)
+   Start at  04:31:31
+   Duration  1.47s (transform 449ms, setup 19ms, import 674ms, tests 50ms, environment 593ms)
+

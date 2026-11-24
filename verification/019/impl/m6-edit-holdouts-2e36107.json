@@ -1,0 +1,3120 @@
+{
+ "total": 15480,
+ "wrong": 346,
+ "out": [
+  {
+   "index": 18,
+   "red": true,
+   "text": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   "line": 3,
+   "offset": 1,
+   "expected": "```c++_\n>>> *\n _\n> `x``\\\n```c++ba\n``` b",
+   "got": "```c++_\n>>> *\n _\n`x``\\\n```c++ba\n``` b"
+  },
+  {
+   "index": 19,
+   "red": true,
+   "text": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   "line": 3,
+   "offset": 2,
+   "expected": "```c++_\n>>> *\n _\n> ``x`\\\n```c++ba\n``` b",
+   "got": "```c++_\n>>> *\n _\n``x`\\\n```c++ba\n``` b"
+  },
+  {
+   "index": 217,
+   "red": true,
+   "text": "```js\n```c++*js||\n> _\n> `",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js\n```c++*js||\n> _\n> `",
+   "got": "`x``js\n```c++*js||\n_\n`"
+  },
+  {
+   "index": 218,
+   "red": true,
+   "text": "```js\n```c++*js||\n> _\n> `",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js\n```c++*js||\n> _\n> `",
+   "got": "``x`js\n```c++*js||\n_\n`"
+  },
+  {
+   "index": 223,
+   "red": true,
+   "text": "```js\n```c++*js||\n> _\n> `",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js\n`x``c++*js||\n> _\n> `",
+   "got": "```js\n`x``c++*js||\n_\n`"
+  },
+  {
+   "index": 224,
+   "red": true,
+   "text": "```js\n```c++*js||\n> _\n> `",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js\n``x`c++*js||\n> _\n> `",
+   "got": "```js\n``x`c++*js||\n_\n`"
+  },
+  {
+   "index": 303,
+   "red": true,
+   "text": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">\n`x``c++```>>> >>> \n> *>>> `\n>> ",
+   "got": ">\n`x``c++```>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "index": 304,
+   "red": true,
+   "text": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">\n``x`c++```>>> >>> \n> *>>> `\n>> ",
+   "got": ">\n``x`c++```>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "index": 309,
+   "red": true,
+   "text": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "line": 1,
+   "offset": 7,
+   "expected": ">\n```c++`x``>>> >>> \n> *>>> `\n>> ",
+   "got": ">\n```c++`x``>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "index": 310,
+   "red": true,
+   "text": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "line": 1,
+   "offset": 8,
+   "expected": ">\n```c++``x`>>> >>> \n> *>>> `\n>> ",
+   "got": ">\n```c++``x`>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "index": 717,
+   "red": true,
+   "text": "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   "line": 3,
+   "offset": 2,
+   "expected": "```jsa|| \n > \n>> ||\n>>>  `x``\n``` ```",
+   "got": "```jsa|| \n > \n>> ||\n `x``\n``` ```"
+  },
+  {
+   "index": 718,
+   "red": true,
+   "text": "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   "line": 3,
+   "offset": 3,
+   "expected": "```jsa|| \n > \n>> ||\n>>>  ``x`\n``` ```",
+   "got": "```jsa|| \n > \n>> ||\n ``x`\n``` ```"
+  },
+  {
+   "index": 803,
+   "red": true,
+   "text": "```c++> _~~\n>>> js~~```\n`> a",
+   "line": 1,
+   "offset": 5,
+   "expected": "```c++> _~~\n>>> js~~`x``\n`> a",
+   "got": "```c++> _~~\njs~~`x``\n`> a"
+  },
+  {
+   "index": 804,
+   "red": true,
+   "text": "```c++> _~~\n>>> js~~```\n`> a",
+   "line": 1,
+   "offset": 6,
+   "expected": "```c++> _~~\n>>> js~~``x`\n`> a",
+   "got": "```c++> _~~\njs~~``x`\n`> a"
+  },
+  {
+   "index": 846,
+   "red": true,
+   "text": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "got": "`x``js\\`\n```c++js\na#\n>||_\n"
+  },
+  {
+   "index": 847,
+   "red": true,
+   "text": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "got": "``x`js\\`\n```c++js\na#\n>||_\n"
+  },
+  {
+   "index": 854,
+   "red": true,
+   "text": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js\\`\n`x``c++js\n > a#\n>||_\n>>> ",
+   "got": "```js\\`\n`x``c++js\na#\n>||_\n"
+  },
+  {
+   "index": 855,
+   "red": true,
+   "text": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js\\`\n``x`c++js\n > a#\n>||_\n>>> ",
+   "got": "```js\\`\n``x`c++js\na#\n>||_\n"
+  },
+  {
+   "index": 1029,
+   "red": true,
+   "text": ">\n``` #_\n> b``` ",
+   "line": 2,
+   "offset": 2,
+   "expected": ">\n``` #_\n> b`x`` ",
+   "got": ">\n``` #_\nb`x`` "
+  },
+  {
+   "index": 1030,
+   "red": true,
+   "text": ">\n``` #_\n> b``` ",
+   "line": 2,
+   "offset": 3,
+   "expected": ">\n``` #_\n> b``x` ",
+   "got": ">\n``` #_\nb``x` "
+  },
+  {
+   "index": 1055,
+   "red": true,
+   "text": ">>> `\n\n> js#\n``` `||js\n> >>> ```",
+   "line": 4,
+   "offset": 5,
+   "expected": ">>> `\n\n> js#\n``` `||js\n> >>> `x``",
+   "got": ">>> `\n\n> js#\n``` `||js\n>>> `x``"
+  },
+  {
+   "index": 1056,
+   "red": true,
+   "text": ">>> `\n\n> js#\n``` `||js\n> >>> ```",
+   "line": 4,
+   "offset": 6,
+   "expected": ">>> `\n\n> js#\n``` `||js\n> >>> ``x`",
+   "got": ">>> `\n\n> js#\n``` `||js\n>>> ``x`"
+  },
+  {
+   "index": 1254,
+   "red": true,
+   "text": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "line": 1,
+   "offset": 1,
+   "expected": ">`>>> \n`x`` b \n``` **b\n>>> jsb",
+   "got": ">`>>> \n`x`` b \n``` **b\njsb"
+  },
+  {
+   "index": 1255,
+   "red": true,
+   "text": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "line": 1,
+   "offset": 2,
+   "expected": ">`>>> \n``x` b \n``` **b\n>>> jsb",
+   "got": ">`>>> \n``x` b \n``` **b\njsb"
+  },
+  {
+   "index": 1261,
+   "red": true,
+   "text": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "line": 2,
+   "offset": 1,
+   "expected": ">`>>> \n``` b \n`x`` **b\n>>> jsb",
+   "got": ">`>>> \n``` b \n`x`` **b\njsb"
+  },
+  {
+   "index": 1262,
+   "red": true,
+   "text": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "line": 2,
+   "offset": 2,
+   "expected": ">`>>> \n``` b \n``x` **b\n>>> jsb",
+   "got": ">`>>> \n``` b \n``x` **b\njsb"
+  },
+  {
+   "index": 1331,
+   "red": true,
+   "text": "``````\n```c++>>> a\\\n > ```",
+   "line": 2,
+   "offset": 1,
+   "expected": "``````\n```c++>>> a\\\n > `x``",
+   "got": "``````\n```c++>>> a\\\n`x``"
+  },
+  {
+   "index": 1332,
+   "red": true,
+   "text": "``````\n```c++>>> a\\\n > ```",
+   "line": 2,
+   "offset": 2,
+   "expected": "``````\n```c++>>> a\\\n > ``x`",
+   "got": "``````\n```c++>>> a\\\n``x`"
+  },
+  {
+   "index": 1402,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "got": "`x``js> \n```jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1403,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "got": "``x`js> \n```jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1410,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js> \n`x``jsb```js\n```  ||\n>>> js b\n```js*js",
+   "got": "```js> \n`x``jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1411,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js> \n``x`jsb```js\n```  ||\n>>> js b\n```js*js",
+   "got": "```js> \n``x`jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1416,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 1,
+   "offset": 7,
+   "expected": "```js> \n```jsb`x``js\n```  ||\n>>> js b\n```js*js",
+   "got": "```js> \n```jsb`x``js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1417,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 1,
+   "offset": 8,
+   "expected": "```js> \n```jsb``x`js\n```  ||\n>>> js b\n```js*js",
+   "got": "```js> \n```jsb``x`js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1422,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 2,
+   "offset": 1,
+   "expected": "```js> \n```jsb```js\n`x``  ||\n>>> js b\n```js*js",
+   "got": "```js> \n```jsb```js\n`x``  ||\njs b\n```js*js"
+  },
+  {
+   "index": 1423,
+   "red": true,
+   "text": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "line": 2,
+   "offset": 2,
+   "expected": "```js> \n```jsb```js\n``x`  ||\n>>> js b\n```js*js",
+   "got": "```js> \n```jsb```js\n``x`  ||\njs b\n```js*js"
+  },
+  {
+   "index": 2035,
+   "red": true,
+   "text": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "line": 2,
+   "offset": 1,
+   "expected": ">~~\n>> \n`x``# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "got": ">~~\n>> \n`x``# > \n>>> ajs\n```c++>>> ~~\n"
+  },
+  {
+   "index": 2036,
+   "red": true,
+   "text": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "line": 2,
+   "offset": 2,
+   "expected": ">~~\n>> \n``x`# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "got": ">~~\n>> \n``x`# > \n>>> ajs\n```c++>>> ~~\n"
+  },
+  {
+   "index": 2051,
+   "red": true,
+   "text": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "line": 4,
+   "offset": 1,
+   "expected": ">~~\n>> \n```# > \n>>> ajs\n`x``c++>>> ~~\n > ",
+   "got": ">~~\n>> \n```# > \n>>> ajs\n`x``c++>>> ~~\n"
+  },
+  {
+   "index": 2052,
+   "red": true,
+   "text": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "line": 4,
+   "offset": 2,
+   "expected": ">~~\n>> \n```# > \n>>> ajs\n``x`c++>>> ~~\n > ",
+   "got": ">~~\n>> \n```# > \n>>> ajs\n``x`c++>>> ~~\n"
+  },
+  {
+   "index": 2078,
+   "red": true,
+   "text": "> > \n```js`_js\n> ```\n\n```",
+   "line": 2,
+   "offset": 1,
+   "expected": "> > \n```js`_js\n> `x``\n\n```",
+   "got": "> > \n```js`_js\n`x``\n\n```"
+  },
+  {
+   "index": 2079,
+   "red": true,
+   "text": "> > \n```js`_js\n> ```\n\n```",
+   "line": 2,
+   "offset": 2,
+   "expected": "> > \n```js`_js\n> ``x`\n\n```",
+   "got": "> > \n```js`_js\n``x`\n\n```"
+  },
+  {
+   "index": 2844,
+   "red": true,
+   "text": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "got": "`x``jsa> \n```js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "index": 2845,
+   "red": true,
+   "text": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "got": "``x`jsa> \n```js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "index": 2853,
+   "red": true,
+   "text": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```jsa> \n`x``js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "got": "```jsa> \n`x``js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "index": 2854,
+   "red": true,
+   "text": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```jsa> \n``x`js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "got": "```jsa> \n``x`js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "index": 3204,
+   "red": true,
+   "text": "``` ` \n```\n > ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` ` \n```\n > ",
+   "got": "`x`` ` \n```\n"
+  },
+  {
+   "index": 3205,
+   "red": true,
+   "text": "``` ` \n```\n > ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` ` \n```\n > ",
+   "got": "``x` ` \n```\n"
+  },
+  {
+   "index": 3211,
+   "red": true,
+   "text": "``` ` \n```\n > ",
+   "line": 1,
+   "offset": 1,
+   "expected": "``` ` \n`x``\n > ",
+   "got": "``` ` \n`x``\n"
+  },
+  {
+   "index": 3212,
+   "red": true,
+   "text": "``` ` \n```\n > ",
+   "line": 1,
+   "offset": 2,
+   "expected": "``` ` \n``x`\n > ",
+   "got": "``` ` \n``x`\n"
+  },
+  {
+   "index": 3298,
+   "red": true,
+   "text": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "got": "`x``jsa||a\n> \n>>> \n>> _```\n*||\n\\ "
+  },
+  {
+   "index": 3299,
+   "red": true,
+   "text": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "got": "``x`jsa||a\n> \n>>> \n>> _```\n*||\n\\ "
+  },
+  {
+   "index": 3320,
+   "red": true,
+   "text": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "line": 3,
+   "offset": 5,
+   "expected": "```jsa||a\n> \n>>> \n>> _`x``\n*||\n > \\ ",
+   "got": "```jsa||a\n> \n>>> \n>> _`x``\n*||\n\\ "
+  },
+  {
+   "index": 3321,
+   "red": true,
+   "text": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "line": 3,
+   "offset": 6,
+   "expected": "```jsa||a\n> \n>>> \n>> _``x`\n*||\n > \\ ",
+   "got": "```jsa||a\n> \n>>> \n>> _``x`\n*||\n\\ "
+  },
+  {
+   "index": 3835,
+   "red": true,
+   "text": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "got": "`x``*```\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "index": 3836,
+   "red": true,
+   "text": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "got": "``x`*```\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "index": 3839,
+   "red": true,
+   "text": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "line": 0,
+   "offset": 5,
+   "expected": "```*`x``\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "got": "```*`x``\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "index": 3840,
+   "red": true,
+   "text": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "line": 0,
+   "offset": 6,
+   "expected": "```*``x`\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "got": "```*``x`\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "index": 4000,
+   "red": true,
+   "text": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` js_*\n`b||\n```\n>>> \n``` ##",
+   "got": "`x`` js_*\n`b||\n```\n\n``` ##"
+  },
+  {
+   "index": 4001,
+   "red": true,
+   "text": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` js_*\n`b||\n```\n>>> \n``` ##",
+   "got": "``x` js_*\n`b||\n```\n\n``` ##"
+  },
+  {
+   "index": 4014,
+   "red": true,
+   "text": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "line": 2,
+   "offset": 1,
+   "expected": "``` js_*\n`b||\n`x``\n>>> \n``` ##",
+   "got": "``` js_*\n`b||\n`x``\n\n``` ##"
+  },
+  {
+   "index": 4015,
+   "red": true,
+   "text": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "line": 2,
+   "offset": 2,
+   "expected": "``` js_*\n`b||\n``x`\n>>> \n``` ##",
+   "got": "``` js_*\n`b||\n``x`\n\n``` ##"
+  },
+  {
+   "index": 4196,
+   "red": true,
+   "text": "```c++aa`\n``` #\n> #",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``c++aa`\n``` #\n> #",
+   "got": "`x``c++aa`\n``` #\n#"
+  },
+  {
+   "index": 4197,
+   "red": true,
+   "text": "```c++aa`\n``` #\n> #",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`c++aa`\n``` #\n> #",
+   "got": "``x`c++aa`\n``` #\n#"
+  },
+  {
+   "index": 4206,
+   "red": true,
+   "text": "```c++aa`\n``` #\n> #",
+   "line": 1,
+   "offset": 1,
+   "expected": "```c++aa`\n`x`` #\n> #",
+   "got": "```c++aa`\n`x`` #\n#"
+  },
+  {
+   "index": 4207,
+   "red": true,
+   "text": "```c++aa`\n``` #\n> #",
+   "line": 1,
+   "offset": 2,
+   "expected": "```c++aa`\n``x` #\n> #",
+   "got": "```c++aa`\n``x` #\n#"
+  },
+  {
+   "index": 4232,
+   "red": true,
+   "text": "``` \n\n>js\n > *js```\n```\\b",
+   "line": 3,
+   "offset": 4,
+   "expected": "``` \n\n>js\n > *js`x``\n```\\b",
+   "got": "``` \n\n>js\n*js`x``\n```\\b"
+  },
+  {
+   "index": 4233,
+   "red": true,
+   "text": "``` \n\n>js\n > *js```\n```\\b",
+   "line": 3,
+   "offset": 5,
+   "expected": "``` \n\n>js\n > *js``x`\n```\\b",
+   "got": "``` \n\n>js\n*js``x`\n```\\b"
+  },
+  {
+   "index": 4262,
+   "red": true,
+   "text": "```js```a*\n > > > _\n```js",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js```a*\n > > > _\n```js",
+   "got": "`x``js```a*\n> > _\n```js"
+  },
+  {
+   "index": 4263,
+   "red": true,
+   "text": "```js```a*\n > > > _\n```js",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js```a*\n > > > _\n```js",
+   "got": "``x`js```a*\n> > _\n```js"
+  },
+  {
+   "index": 4267,
+   "red": true,
+   "text": "```js```a*\n > > > _\n```js",
+   "line": 0,
+   "offset": 6,
+   "expected": "```js`x``a*\n > > > _\n```js",
+   "got": "```js`x``a*\n> > _\n```js"
+  },
+  {
+   "index": 4268,
+   "red": true,
+   "text": "```js```a*\n > > > _\n```js",
+   "line": 0,
+   "offset": 7,
+   "expected": "```js``x`a*\n > > > _\n```js",
+   "got": "```js``x`a*\n> > _\n```js"
+  },
+  {
+   "index": 4407,
+   "red": true,
+   "text": "``` *`\n```\n> \n```a",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` *`\n```\n> \n```a",
+   "got": "`x`` *`\n```\n\n```a"
+  },
+  {
+   "index": 4408,
+   "red": true,
+   "text": "``` *`\n```\n> \n```a",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` *`\n```\n> \n```a",
+   "got": "``x` *`\n```\n\n```a"
+  },
+  {
+   "index": 4414,
+   "red": true,
+   "text": "``` *`\n```\n> \n```a",
+   "line": 1,
+   "offset": 1,
+   "expected": "``` *`\n`x``\n> \n```a",
+   "got": "``` *`\n`x``\n\n```a"
+  },
+  {
+   "index": 4415,
+   "red": true,
+   "text": "``` *`\n```\n> \n```a",
+   "line": 1,
+   "offset": 2,
+   "expected": "``` *`\n``x`\n> \n```a",
+   "got": "``` *`\n``x`\n\n```a"
+  },
+  {
+   "index": 4468,
+   "red": true,
+   "text": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "line": 1,
+   "offset": 1,
+   "expected": "\n`x`` \n```js*\n > ||\n>> **js\n*",
+   "got": "\n`x`` \n```js*\n||\n>> **js\n*"
+  },
+  {
+   "index": 4469,
+   "red": true,
+   "text": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "line": 1,
+   "offset": 2,
+   "expected": "\n``x` \n```js*\n > ||\n>> **js\n*",
+   "got": "\n``x` \n```js*\n||\n>> **js\n*"
+  },
+  {
+   "index": 4473,
+   "red": true,
+   "text": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "line": 2,
+   "offset": 1,
+   "expected": "\n``` \n`x``js*\n > ||\n>> **js\n*",
+   "got": "\n``` \n`x``js*\n||\n>> **js\n*"
+  },
+  {
+   "index": 4474,
+   "red": true,
+   "text": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "line": 2,
+   "offset": 2,
+   "expected": "\n``` \n``x`js*\n > ||\n>> **js\n*",
+   "got": "\n``` \n``x`js*\n||\n>> **js\n*"
+  },
+  {
+   "index": 4539,
+   "red": true,
+   "text": "```js~~\n>>> \\||```\n```~~js\n~~\n``` ",
+   "line": 1,
+   "offset": 4,
+   "expected": "```js~~\n>>> \\||`x``\n```~~js\n~~\n``` ",
+   "got": "```js~~\n\\||`x``\n```~~js\n~~\n``` "
+  },
+  {
+   "index": 4540,
+   "red": true,
+   "text": "```js~~\n>>> \\||```\n```~~js\n~~\n``` ",
+   "line": 1,
+   "offset": 5,
+   "expected": "```js~~\n>>> \\||``x`\n```~~js\n~~\n``` ",
+   "got": "```js~~\n\\||``x`\n```~~js\n~~\n``` "
+  },
+  {
+   "index": 4625,
+   "red": true,
+   "text": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "line": 1,
+   "offset": 1,
+   "expected": "> _ #\n`x``c++> ||js\n> > ```\n \n>>> ~~`",
+   "got": "> _ #\n`x``c++> ||js\n> > ```\n \n~~`"
+  },
+  {
+   "index": 4626,
+   "red": true,
+   "text": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "line": 1,
+   "offset": 2,
+   "expected": "> _ #\n``x`c++> ||js\n> > ```\n \n>>> ~~`",
+   "got": "> _ #\n``x`c++> ||js\n> > ```\n \n~~`"
+  },
+  {
+   "index": 4640,
+   "red": true,
+   "text": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "line": 2,
+   "offset": 3,
+   "expected": "> _ #\n```c++> ||js\n> > `x``\n \n>>> ~~`",
+   "got": "> _ #\n```c++> ||js\n> `x``\n \n~~`"
+  },
+  {
+   "index": 4641,
+   "red": true,
+   "text": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "line": 2,
+   "offset": 4,
+   "expected": "> _ #\n```c++> ||js\n> > ``x`\n \n>>> ~~`",
+   "got": "> _ #\n```c++> ||js\n> ``x`\n \n~~`"
+  },
+  {
+   "index": 4721,
+   "red": true,
+   "text": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``_\n>> _\n```  `*\n>>> \n> \\",
+   "got": "`x``_\n>> _\n```  `*\n\n\\"
+  },
+  {
+   "index": 4722,
+   "red": true,
+   "text": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`_\n>> _\n```  `*\n>>> \n> \\",
+   "got": "``x`_\n>> _\n```  `*\n\n\\"
+  },
+  {
+   "index": 4731,
+   "red": true,
+   "text": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "line": 2,
+   "offset": 1,
+   "expected": "```_\n>> _\n`x``  `*\n>>> \n> \\",
+   "got": "```_\n>> _\n`x``  `*\n\n\\"
+  },
+  {
+   "index": 4732,
+   "red": true,
+   "text": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "line": 2,
+   "offset": 2,
+   "expected": "```_\n>> _\n``x`  `*\n>>> \n> \\",
+   "got": "```_\n>> _\n``x`  `*\n\n\\"
+  },
+  {
+   "index": 4939,
+   "red": true,
+   "text": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "got": "`x``js_\\\n```c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "index": 4940,
+   "red": true,
+   "text": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "got": "``x`js_\\\n```c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "index": 4947,
+   "red": true,
+   "text": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js_\\\n`x``c++\n> \\_\n```js~~ \n```js> ",
+   "got": "```js_\\\n`x``c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "index": 4948,
+   "red": true,
+   "text": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js_\\\n``x`c++\n> \\_\n```js~~ \n```js> ",
+   "got": "```js_\\\n``x`c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "index": 4974,
+   "red": true,
+   "text": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` \n> ||a \n````* \n>\\a\n> \\",
+   "got": "`x`` \n> ||a \n````* \n>\\a\n\\"
+  },
+  {
+   "index": 4975,
+   "red": true,
+   "text": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` \n> ||a \n````* \n>\\a\n> \\",
+   "got": "``x` \n> ||a \n````* \n>\\a\n\\"
+  },
+  {
+   "index": 4987,
+   "red": true,
+   "text": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "line": 2,
+   "offset": 2,
+   "expected": "``` \n> ||a \n``x``* \n>\\a\n> \\",
+   "got": "``` \n> ||a \n``x``* \n>\\a\n\\"
+  },
+  {
+   "index": 5019,
+   "red": true,
+   "text": "```c++_> > \n> \\_\n~~\n>>> > ```\\",
+   "line": 3,
+   "offset": 1,
+   "expected": "```c++_> > \n> \\_\n~~\n>>> > `x``\\",
+   "got": "```c++_> > \n> \\_\n~~\n`x``\\"
+  },
+  {
+   "index": 5020,
+   "red": true,
+   "text": "```c++_> > \n> \\_\n~~\n>>> > ```\\",
+   "line": 3,
+   "offset": 2,
+   "expected": "```c++_> > \n> \\_\n~~\n>>> > ``x`\\",
+   "got": "```c++_> > \n> \\_\n~~\n``x`\\"
+  },
+  {
+   "index": 5807,
+   "red": true,
+   "text": "``` _`\n```c++||\n>>> b",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` _`\n```c++||\n>>> b",
+   "got": "`x`` _`\n```c++||\nb"
+  },
+  {
+   "index": 5808,
+   "red": true,
+   "text": "``` _`\n```c++||\n>>> b",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` _`\n```c++||\n>>> b",
+   "got": "``x` _`\n```c++||\nb"
+  },
+  {
+   "index": 5814,
+   "red": true,
+   "text": "``` _`\n```c++||\n>>> b",
+   "line": 1,
+   "offset": 1,
+   "expected": "``` _`\n`x``c++||\n>>> b",
+   "got": "``` _`\n`x``c++||\nb"
+  },
+  {
+   "index": 5815,
+   "red": true,
+   "text": "``` _`\n```c++||\n>>> b",
+   "line": 1,
+   "offset": 2,
+   "expected": "``` _`\n``x`c++||\n>>> b",
+   "got": "``` _`\n``x`c++||\nb"
+  },
+  {
+   "index": 6017,
+   "red": true,
+   "text": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "got": "`x`` ` `\n*>>> b\n```||a\n||\n>a\n "
+  },
+  {
+   "index": 6018,
+   "red": true,
+   "text": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "got": "``x` ` `\n*>>> b\n```||a\n||\n>a\n "
+  },
+  {
+   "index": 6032,
+   "red": true,
+   "text": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "line": 2,
+   "offset": 1,
+   "expected": "``` ` `\n*>>> b\n`x``||a\n||\n>a\n >  ",
+   "got": "``` ` `\n*>>> b\n`x``||a\n||\n>a\n "
+  },
+  {
+   "index": 6033,
+   "red": true,
+   "text": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "line": 2,
+   "offset": 2,
+   "expected": "``` ` `\n*>>> b\n``x`||a\n||\n>a\n >  ",
+   "got": "``` ` `\n*>>> b\n``x`||a\n||\n>a\n "
+  },
+  {
+   "index": 6146,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "a#a\n`x``js_\n```js`\n```\n```\n> ",
+   "got": "a#a\n`x``js_\n```js`\n```\n```\n"
+  },
+  {
+   "index": 6147,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "a#a\n``x`js_\n```js`\n```\n```\n> ",
+   "got": "a#a\n``x`js_\n```js`\n```\n```\n"
+  },
+  {
+   "index": 6153,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 2,
+   "offset": 1,
+   "expected": "a#a\n```js_\n`x``js`\n```\n```\n> ",
+   "got": "a#a\n```js_\n`x``js`\n```\n```\n"
+  },
+  {
+   "index": 6154,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 2,
+   "offset": 2,
+   "expected": "a#a\n```js_\n``x`js`\n```\n```\n> ",
+   "got": "a#a\n```js_\n``x`js`\n```\n```\n"
+  },
+  {
+   "index": 6160,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 3,
+   "offset": 1,
+   "expected": "a#a\n```js_\n```js`\n`x``\n```\n> ",
+   "got": "a#a\n```js_\n```js`\n`x``\n```\n"
+  },
+  {
+   "index": 6161,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 3,
+   "offset": 2,
+   "expected": "a#a\n```js_\n```js`\n``x`\n```\n> ",
+   "got": "a#a\n```js_\n```js`\n``x`\n```\n"
+  },
+  {
+   "index": 6164,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 4,
+   "offset": 1,
+   "expected": "a#a\n```js_\n```js`\n```\n`x``\n> ",
+   "got": "a#a\n```js_\n```js`\n```\n`x``\n"
+  },
+  {
+   "index": 6165,
+   "red": true,
+   "text": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "line": 4,
+   "offset": 2,
+   "expected": "a#a\n```js_\n```js`\n```\n``x`\n> ",
+   "got": "a#a\n```js_\n```js`\n```\n``x`\n"
+  },
+  {
+   "index": 6365,
+   "red": true,
+   "text": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "got": "`x``c++>>> \\\n```c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "index": 6366,
+   "red": true,
+   "text": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "got": "``x`c++>>> \\\n```c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "index": 6377,
+   "red": true,
+   "text": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "line": 1,
+   "offset": 1,
+   "expected": "```c++>>> \\\n`x``c++*> `\n>>> \n```c++b*\n```\\```",
+   "got": "```c++>>> \\\n`x``c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "index": 6378,
+   "red": true,
+   "text": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "line": 1,
+   "offset": 2,
+   "expected": "```c++>>> \\\n``x`c++*> `\n>>> \n```c++b*\n```\\```",
+   "got": "```c++>>> \\\n``x`c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "index": 6429,
+   "red": true,
+   "text": "```>>> *#\n > ```",
+   "line": 1,
+   "offset": 1,
+   "expected": "```>>> *#\n > `x``",
+   "got": "```>>> *#\n`x``"
+  },
+  {
+   "index": 6430,
+   "red": true,
+   "text": "```>>> *#\n > ```",
+   "line": 1,
+   "offset": 2,
+   "expected": "```>>> *#\n > ``x`",
+   "got": "```>>> *#\n``x`"
+  },
+  {
+   "index": 6508,
+   "red": true,
+   "text": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``  #\n_\n\n```~~ >>> \n> \\> ",
+   "got": "`x``  #\n_\n\n```~~ >>> \n\\> "
+  },
+  {
+   "index": 6509,
+   "red": true,
+   "text": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`  #\n_\n\n```~~ >>> \n> \\> ",
+   "got": "``x`  #\n_\n\n```~~ >>> \n\\> "
+  },
+  {
+   "index": 6518,
+   "red": true,
+   "text": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "line": 3,
+   "offset": 1,
+   "expected": "```  #\n_\n\n`x``~~ >>> \n> \\> ",
+   "got": "```  #\n_\n\n`x``~~ >>> \n\\> "
+  },
+  {
+   "index": 6519,
+   "red": true,
+   "text": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "line": 3,
+   "offset": 2,
+   "expected": "```  #\n_\n\n``x`~~ >>> \n> \\> ",
+   "got": "```  #\n_\n\n``x`~~ >>> \n\\> "
+  },
+  {
+   "index": 6533,
+   "red": true,
+   "text": "```js```*\n >  > ||\na\n>>> ||*||",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js```*\n >  > ||\na\n>>> ||*||",
+   "got": "`x``js```*\n > ||\na\n||*||"
+  },
+  {
+   "index": 6534,
+   "red": true,
+   "text": "```js```*\n >  > ||\na\n>>> ||*||",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js```*\n >  > ||\na\n>>> ||*||",
+   "got": "``x`js```*\n > ||\na\n||*||"
+  },
+  {
+   "index": 6538,
+   "red": true,
+   "text": "```js```*\n >  > ||\na\n>>> ||*||",
+   "line": 0,
+   "offset": 6,
+   "expected": "```js`x``*\n >  > ||\na\n>>> ||*||",
+   "got": "```js`x``*\n > ||\na\n||*||"
+  },
+  {
+   "index": 6539,
+   "red": true,
+   "text": "```js```*\n >  > ||\na\n>>> ||*||",
+   "line": 0,
+   "offset": 7,
+   "expected": "```js``x`*\n >  > ||\na\n>>> ||*||",
+   "got": "```js``x`*\n > ||\na\n||*||"
+  },
+  {
+   "index": 6563,
+   "red": true,
+   "text": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "line": 2,
+   "offset": 1,
+   "expected": " > _\n>a\\\n`x`` b>>> \n```c++>>> \n > \n```",
+   "got": " > _\n>a\\\n`x`` b>>> \n```c++>>> \n\n```"
+  },
+  {
+   "index": 6564,
+   "red": true,
+   "text": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "line": 2,
+   "offset": 2,
+   "expected": " > _\n>a\\\n``x` b>>> \n```c++>>> \n > \n```",
+   "got": " > _\n>a\\\n``x` b>>> \n```c++>>> \n\n```"
+  },
+  {
+   "index": 6573,
+   "red": true,
+   "text": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "line": 3,
+   "offset": 1,
+   "expected": " > _\n>a\\\n``` b>>> \n`x``c++>>> \n > \n```",
+   "got": " > _\n>a\\\n``` b>>> \n`x``c++>>> \n\n```"
+  },
+  {
+   "index": 6574,
+   "red": true,
+   "text": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "line": 3,
+   "offset": 2,
+   "expected": " > _\n>a\\\n``` b>>> \n``x`c++>>> \n > \n```",
+   "got": " > _\n>a\\\n``` b>>> \n``x`c++>>> \n\n```"
+  },
+  {
+   "index": 6676,
+   "red": true,
+   "text": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "got": "`x``c++jsa_\n``` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "index": 6677,
+   "red": true,
+   "text": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "got": "``x`c++jsa_\n``` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "index": 6687,
+   "red": true,
+   "text": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```c++jsa_\n`x`` ||\n>|| ||\n> \n>>>> ",
+   "got": "```c++jsa_\n`x`` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "index": 6688,
+   "red": true,
+   "text": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```c++jsa_\n``x` ||\n>|| ||\n> \n>>>> ",
+   "got": "```c++jsa_\n``x` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "index": 6724,
+   "red": true,
+   "text": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``jsb#_\n\n>> ```>>> \n\n> ",
+   "got": "`x``jsb#_\n\n>> ```>>> \n\n"
+  },
+  {
+   "index": 6725,
+   "red": true,
+   "text": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`jsb#_\n\n>> ```>>> \n\n> ",
+   "got": "``x`jsb#_\n\n>> ```>>> \n\n"
+  },
+  {
+   "index": 6737,
+   "red": true,
+   "text": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "line": 2,
+   "offset": 4,
+   "expected": "```jsb#_\n\n>> `x``>>> \n\n> ",
+   "got": "```jsb#_\n\n>> `x``>>> \n\n"
+  },
+  {
+   "index": 6738,
+   "red": true,
+   "text": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "line": 2,
+   "offset": 5,
+   "expected": "```jsb#_\n\n>> ``x`>>> \n\n> ",
+   "got": "```jsb#_\n\n>> ``x`>>> \n\n"
+  },
+  {
+   "index": 6859,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "got": "`x``c++\n> _*```\n\n```#```\n||`\\"
+  },
+  {
+   "index": 6860,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "got": "``x`c++\n> _*```\n\n```#```\n||`\\"
+  },
+  {
+   "index": 6868,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 1,
+   "offset": 3,
+   "expected": "```c++\n> _*`x``\n\n```#```\n>>> ||`\\",
+   "got": "```c++\n_*`x``\n\n```#```\n||`\\"
+  },
+  {
+   "index": 6869,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 1,
+   "offset": 4,
+   "expected": "```c++\n> _*``x`\n\n```#```\n>>> ||`\\",
+   "got": "```c++\n_*``x`\n\n```#```\n||`\\"
+  },
+  {
+   "index": 6873,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 3,
+   "offset": 1,
+   "expected": "```c++\n> _*```\n\n`x``#```\n>>> ||`\\",
+   "got": "```c++\n> _*```\n\n`x``#```\n||`\\"
+  },
+  {
+   "index": 6874,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 3,
+   "offset": 2,
+   "expected": "```c++\n> _*```\n\n``x`#```\n>>> ||`\\",
+   "got": "```c++\n> _*```\n\n``x`#```\n||`\\"
+  },
+  {
+   "index": 6877,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 3,
+   "offset": 5,
+   "expected": "```c++\n> _*```\n\n```#`x``\n>>> ||`\\",
+   "got": "```c++\n> _*```\n\n```#`x``\n||`\\"
+  },
+  {
+   "index": 6878,
+   "red": true,
+   "text": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "line": 3,
+   "offset": 6,
+   "expected": "```c++\n> _*```\n\n```#``x`\n>>> ||`\\",
+   "got": "```c++\n> _*```\n\n```#``x`\n||`\\"
+  },
+  {
+   "index": 6886,
+   "red": true,
+   "text": "```c++js*```\n > \njs`\n>>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``c++js*```\n > \njs`\n>>> ",
+   "got": "`x``c++js*```\n\njs`\n"
+  },
+  {
+   "index": 6887,
+   "red": true,
+   "text": "```c++js*```\n > \njs`\n>>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`c++js*```\n > \njs`\n>>> ",
+   "got": "``x`c++js*```\n\njs`\n"
+  },
+  {
+   "index": 6895,
+   "red": true,
+   "text": "```c++js*```\n > \njs`\n>>> ",
+   "line": 0,
+   "offset": 10,
+   "expected": "```c++js*`x``\n > \njs`\n>>> ",
+   "got": "```c++js*`x``\n\njs`\n"
+  },
+  {
+   "index": 6896,
+   "red": true,
+   "text": "```c++js*```\n > \njs`\n>>> ",
+   "line": 0,
+   "offset": 11,
+   "expected": "```c++js*``x`\n > \njs`\n>>> ",
+   "got": "```c++js*``x`\n\njs`\n"
+  },
+  {
+   "index": 7004,
+   "red": true,
+   "text": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "got": "`x``jsa\n>>> >>> \nb\\\n```\n\n```||>>> "
+  },
+  {
+   "index": 7005,
+   "red": true,
+   "text": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "got": "``x`jsa\n>>> >>> \nb\\\n```\n\n```||>>> "
+  },
+  {
+   "index": 7023,
+   "red": true,
+   "text": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "line": 3,
+   "offset": 1,
+   "expected": "```jsa\n>>> >>> \nb\\\n`x``\n>>> \n```||>>> ",
+   "got": "```jsa\n>>> >>> \nb\\\n`x``\n\n```||>>> "
+  },
+  {
+   "index": 7024,
+   "red": true,
+   "text": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "line": 3,
+   "offset": 2,
+   "expected": "```jsa\n>>> >>> \nb\\\n``x`\n>>> \n```||>>> ",
+   "got": "```jsa\n>>> >>> \nb\\\n``x`\n\n```||>>> "
+  },
+  {
+   "index": 7108,
+   "red": true,
+   "text": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "got": "`x``>>> \n>> *a\n``` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "index": 7109,
+   "red": true,
+   "text": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "got": "``x`>>> \n>> *a\n``` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "index": 7122,
+   "red": true,
+   "text": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "line": 2,
+   "offset": 1,
+   "expected": "```>>> \n>> *a\n`x`` >>> ~~>>> \n > \n```\n>",
+   "got": "```>>> \n>> *a\n`x`` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "index": 7123,
+   "red": true,
+   "text": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "line": 2,
+   "offset": 2,
+   "expected": "```>>> \n>> *a\n``x` >>> ~~>>> \n > \n```\n>",
+   "got": "```>>> \n>> *a\n``x` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "index": 7171,
+   "red": true,
+   "text": "```\n > js```",
+   "line": 1,
+   "offset": 3,
+   "expected": "```\n > js`x``",
+   "got": "```\njs`x``"
+  },
+  {
+   "index": 7172,
+   "red": true,
+   "text": "```\n > js```",
+   "line": 1,
+   "offset": 4,
+   "expected": "```\n > js``x`",
+   "got": "```\njs``x`"
+  },
+  {
+   "index": 7203,
+   "red": true,
+   "text": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "line": 1,
+   "offset": 1,
+   "expected": " > ` >>> \n`x``jsa#\n```js*``\n>>> \n>*```",
+   "got": " > ` >>> \n`x``jsa#\n```js*``\n\n>*```"
+  },
+  {
+   "index": 7204,
+   "red": true,
+   "text": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "line": 1,
+   "offset": 2,
+   "expected": " > ` >>> \n``x`jsa#\n```js*``\n>>> \n>*```",
+   "got": " > ` >>> \n``x`jsa#\n```js*``\n\n>*```"
+  },
+  {
+   "index": 7211,
+   "red": true,
+   "text": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "line": 2,
+   "offset": 1,
+   "expected": " > ` >>> \n```jsa#\n`x``js*``\n>>> \n>*```",
+   "got": " > ` >>> \n```jsa#\n`x``js*``\n\n>*```"
+  },
+  {
+   "index": 7212,
+   "red": true,
+   "text": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "line": 2,
+   "offset": 2,
+   "expected": " > ` >>> \n```jsa#\n``x`js*``\n>>> \n>*```",
+   "got": " > ` >>> \n```jsa#\n``x`js*``\n\n>*```"
+  },
+  {
+   "index": 7487,
+   "red": true,
+   "text": "```c++\n >  \n> ```\n>`\\\n```c++```\\`\n",
+   "line": 2,
+   "offset": 1,
+   "expected": "```c++\n >  \n> `x``\n>`\\\n```c++```\\`\n",
+   "got": "```c++\n >  \n`x``\n>`\\\n```c++```\\`\n"
+  },
+  {
+   "index": 7488,
+   "red": true,
+   "text": "```c++\n >  \n> ```\n>`\\\n```c++```\\`\n",
+   "line": 2,
+   "offset": 2,
+   "expected": "```c++\n >  \n> ``x`\n>`\\\n```c++```\\`\n",
+   "got": "```c++\n >  \n``x`\n>`\\\n```c++```\\`\n"
+  },
+  {
+   "index": 7599,
+   "red": true,
+   "text": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "*\n`x``js_>>> \n```c++\n>>> a*> ",
+   "got": "*\n`x``js_>>> \n```c++\na*> "
+  },
+  {
+   "index": 7600,
+   "red": true,
+   "text": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "*\n``x`js_>>> \n```c++\n>>> a*> ",
+   "got": "*\n``x`js_>>> \n```c++\na*> "
+  },
+  {
+   "index": 7610,
+   "red": true,
+   "text": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "line": 2,
+   "offset": 1,
+   "expected": "*\n```js_>>> \n`x``c++\n>>> a*> ",
+   "got": "*\n```js_>>> \n`x``c++\na*> "
+  },
+  {
+   "index": 7611,
+   "red": true,
+   "text": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "line": 2,
+   "offset": 2,
+   "expected": "*\n```js_>>> \n``x`c++\n>>> a*> ",
+   "got": "*\n```js_>>> \n``x`c++\na*> "
+  },
+  {
+   "index": 8100,
+   "red": true,
+   "text": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "got": "`x`` \n>> __ \n \n```c++~~\n\n"
+  },
+  {
+   "index": 8101,
+   "red": true,
+   "text": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "got": "``x` \n>> __ \n \n```c++~~\n\n"
+  },
+  {
+   "index": 8114,
+   "red": true,
+   "text": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "line": 3,
+   "offset": 1,
+   "expected": "``` \n>> __ \n \n`x``c++~~\n>>> \n > ",
+   "got": "``` \n>> __ \n \n`x``c++~~\n\n"
+  },
+  {
+   "index": 8115,
+   "red": true,
+   "text": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "line": 3,
+   "offset": 2,
+   "expected": "``` \n>> __ \n \n``x`c++~~\n>>> \n > ",
+   "got": "``` \n>> __ \n \n``x`c++~~\n\n"
+  },
+  {
+   "index": 8229,
+   "red": true,
+   "text": "```> \n > ```>>> js\n>>> b```\n```#\n``` > ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```> \n > `x``>>> js\n>>> b```\n```#\n``` > ",
+   "got": "```> \n`x``>>> js\n>>> b```\n```#\n``` > "
+  },
+  {
+   "index": 8230,
+   "red": true,
+   "text": "```> \n > ```>>> js\n>>> b```\n```#\n``` > ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```> \n > ``x`>>> js\n>>> b```\n```#\n``` > ",
+   "got": "```> \n``x`>>> js\n>>> b```\n```#\n``` > "
+  },
+  {
+   "index": 8353,
+   "red": true,
+   "text": "> #\n> \n>\n```||```\n>>> b",
+   "line": 3,
+   "offset": 1,
+   "expected": "> #\n> \n>\n`x``||```\n>>> b",
+   "got": "> #\n> \n>\n`x``||```\nb"
+  },
+  {
+   "index": 8354,
+   "red": true,
+   "text": "> #\n> \n>\n```||```\n>>> b",
+   "line": 3,
+   "offset": 2,
+   "expected": "> #\n> \n>\n``x`||```\n>>> b",
+   "got": "> #\n> \n>\n``x`||```\nb"
+  },
+  {
+   "index": 8358,
+   "red": true,
+   "text": "> #\n> \n>\n```||```\n>>> b",
+   "line": 3,
+   "offset": 6,
+   "expected": "> #\n> \n>\n```||`x``\n>>> b",
+   "got": "> #\n> \n>\n```||`x``\nb"
+  },
+  {
+   "index": 8359,
+   "red": true,
+   "text": "> #\n> \n>\n```||```\n>>> b",
+   "line": 3,
+   "offset": 7,
+   "expected": "> #\n> \n>\n```||``x`\n>>> b",
+   "got": "> #\n> \n>\n```||``x`\nb"
+  },
+  {
+   "index": 8504,
+   "red": true,
+   "text": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "line": 0,
+   "offset": 2,
+   "expected": "> ``x``>>> \na*\n```js\n > \n>> \nb>>> `",
+   "got": "> ``x``>>> \na*\n```js\n\n>> \nb>>> `"
+  },
+  {
+   "index": 8515,
+   "red": true,
+   "text": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "line": 2,
+   "offset": 1,
+   "expected": "> ````>>> \na*\n`x``js\n > \n>> \nb>>> `",
+   "got": "> ````>>> \na*\n`x``js\n\n>> \nb>>> `"
+  },
+  {
+   "index": 8516,
+   "red": true,
+   "text": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "line": 2,
+   "offset": 2,
+   "expected": "> ````>>> \na*\n``x`js\n > \n>> \nb>>> `",
+   "got": "> ````>>> \na*\n``x`js\n\n>> \nb>>> `"
+  },
+  {
+   "index": 8533,
+   "red": true,
+   "text": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``#*a\n>>  *\n```js*#a\n>>>  ",
+   "got": "`x``#*a\n>>  *\n```js*#a\n "
+  },
+  {
+   "index": 8534,
+   "red": true,
+   "text": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`#*a\n>>  *\n```js*#a\n>>>  ",
+   "got": "``x`#*a\n>>  *\n```js*#a\n "
+  },
+  {
+   "index": 8546,
+   "red": true,
+   "text": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "line": 2,
+   "offset": 1,
+   "expected": "```#*a\n>>  *\n`x``js*#a\n>>>  ",
+   "got": "```#*a\n>>  *\n`x``js*#a\n "
+  },
+  {
+   "index": 8547,
+   "red": true,
+   "text": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "line": 2,
+   "offset": 2,
+   "expected": "```#*a\n>>  *\n``x`js*#a\n>>>  ",
+   "got": "```#*a\n>>  *\n``x`js*#a\n "
+  },
+  {
+   "index": 8685,
+   "red": true,
+   "text": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\```",
+   "line": 5,
+   "offset": 2,
+   "expected": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\`x``",
+   "got": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n\\`x``"
+  },
+  {
+   "index": 8686,
+   "red": true,
+   "text": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\```",
+   "line": 5,
+   "offset": 3,
+   "expected": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\``x`",
+   "got": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n\\``x`"
+  },
+  {
+   "index": 8702,
+   "red": true,
+   "text": "``````\n>>>  `b",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`````\n>>>  `b",
+   "got": "`x`````\n `b"
+  },
+  {
+   "index": 8703,
+   "red": true,
+   "text": "``````\n>>>  `b",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x````\n>>>  `b",
+   "got": "``x````\n `b"
+  },
+  {
+   "index": 8705,
+   "red": true,
+   "text": "``````\n>>>  `b",
+   "line": 0,
+   "offset": 4,
+   "expected": "````x``\n>>>  `b",
+   "got": "````x``\n `b"
+  },
+  {
+   "index": 8706,
+   "red": true,
+   "text": "``````\n>>>  `b",
+   "line": 0,
+   "offset": 5,
+   "expected": "`````x`\n>>>  `b",
+   "got": "`````x`\n `b"
+  },
+  {
+   "index": 8713,
+   "red": true,
+   "text": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js`b\n~~\n\n``` >>> \n> _> ",
+   "got": "`x``js`b\n~~\n\n``` >>> \n_> "
+  },
+  {
+   "index": 8714,
+   "red": true,
+   "text": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js`b\n~~\n\n``` >>> \n> _> ",
+   "got": "``x`js`b\n~~\n\n``` >>> \n_> "
+  },
+  {
+   "index": 8725,
+   "red": true,
+   "text": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "line": 3,
+   "offset": 1,
+   "expected": "```js`b\n~~\n\n`x`` >>> \n> _> ",
+   "got": "```js`b\n~~\n\n`x`` >>> \n_> "
+  },
+  {
+   "index": 8726,
+   "red": true,
+   "text": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "line": 3,
+   "offset": 2,
+   "expected": "```js`b\n~~\n\n``x` >>> \n> _> ",
+   "got": "```js`b\n~~\n\n``x` >>> \n_> "
+  },
+  {
+   "index": 8738,
+   "red": true,
+   "text": "> ``````#\n>> *\n> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "> `x`````#\n>> *\n> ",
+   "got": "> `x`````#\n>> *\n"
+  },
+  {
+   "index": 8739,
+   "red": true,
+   "text": "> ``````#\n>> *\n> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "> ``x````#\n>> *\n> ",
+   "got": "> ``x````#\n>> *\n"
+  },
+  {
+   "index": 8741,
+   "red": true,
+   "text": "> ``````#\n>> *\n> ",
+   "line": 0,
+   "offset": 4,
+   "expected": "> ````x``#\n>> *\n> ",
+   "got": "> ````x``#\n>> *\n"
+  },
+  {
+   "index": 8742,
+   "red": true,
+   "text": "> ``````#\n>> *\n> ",
+   "line": 0,
+   "offset": 5,
+   "expected": "> `````x`#\n>> *\n> ",
+   "got": "> `````x`#\n>> *\n"
+  },
+  {
+   "index": 9175,
+   "red": true,
+   "text": "```\n``` ||b\n> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``\n``` ||b\n> ",
+   "got": "`x``\n``` ||b\n"
+  },
+  {
+   "index": 9176,
+   "red": true,
+   "text": "```\n``` ||b\n> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`\n``` ||b\n> ",
+   "got": "``x`\n``` ||b\n"
+  },
+  {
+   "index": 9179,
+   "red": true,
+   "text": "```\n``` ||b\n> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```\n`x`` ||b\n> ",
+   "got": "```\n`x`` ||b\n"
+  },
+  {
+   "index": 9180,
+   "red": true,
+   "text": "```\n``` ||b\n> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```\n``x` ||b\n> ",
+   "got": "```\n``x` ||b\n"
+  },
+  {
+   "index": 9233,
+   "red": true,
+   "text": " > >>> \n>```> \n>> \n> \n>>> ```>>> ",
+   "line": 4,
+   "offset": 1,
+   "expected": " > >>> \n>```> \n>> \n> \n>>> `x``>>> ",
+   "got": " > >>> \n>```> \n>> \n> \n`x``>>> "
+  },
+  {
+   "index": 9234,
+   "red": true,
+   "text": " > >>> \n>```> \n>> \n> \n>>> ```>>> ",
+   "line": 4,
+   "offset": 2,
+   "expected": " > >>> \n>```> \n>> \n> \n>>> ``x`>>> ",
+   "got": " > >>> \n>```> \n>> \n> \n``x`>>> "
+  },
+  {
+   "index": 9241,
+   "red": true,
+   "text": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``jsjs\n```c++>>> ##\n>>> \\bjs",
+   "got": "`x``jsjs\n```c++>>> ##\n\\bjs"
+  },
+  {
+   "index": 9242,
+   "red": true,
+   "text": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`jsjs\n```c++>>> ##\n>>> \\bjs",
+   "got": "``x`jsjs\n```c++>>> ##\n\\bjs"
+  },
+  {
+   "index": 9249,
+   "red": true,
+   "text": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "line": 1,
+   "offset": 1,
+   "expected": "```jsjs\n`x``c++>>> ##\n>>> \\bjs",
+   "got": "```jsjs\n`x``c++>>> ##\n\\bjs"
+  },
+  {
+   "index": 9250,
+   "red": true,
+   "text": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "line": 1,
+   "offset": 2,
+   "expected": "```jsjs\n``x`c++>>> ##\n>>> \\bjs",
+   "got": "```jsjs\n``x`c++>>> ##\n\\bjs"
+  },
+  {
+   "index": 9268,
+   "red": true,
+   "text": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "line": 0,
+   "offset": 2,
+   "expected": "a`x``\n```~~>>> \n > \n>\n```js``` `",
+   "got": "a`x``\n```~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "index": 9269,
+   "red": true,
+   "text": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "line": 0,
+   "offset": 3,
+   "expected": "a``x`\n```~~>>> \n > \n>\n```js``` `",
+   "got": "a``x`\n```~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "index": 9272,
+   "red": true,
+   "text": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "line": 1,
+   "offset": 1,
+   "expected": "a```\n`x``~~>>> \n > \n>\n```js``` `",
+   "got": "a```\n`x``~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "index": 9273,
+   "red": true,
+   "text": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "line": 1,
+   "offset": 2,
+   "expected": "a```\n``x`~~>>> \n > \n>\n```js``` `",
+   "got": "a```\n``x`~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "index": 9379,
+   "red": true,
+   "text": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``\n```c++#~~\n>>>>  \n > \n``` || ",
+   "got": "`x``\n```c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "index": 9380,
+   "red": true,
+   "text": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`\n```c++#~~\n>>>>  \n > \n``` || ",
+   "got": "``x`\n```c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "index": 9383,
+   "red": true,
+   "text": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```\n`x``c++#~~\n>>>>  \n > \n``` || ",
+   "got": "```\n`x``c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "index": 9384,
+   "red": true,
+   "text": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```\n``x`c++#~~\n>>>>  \n > \n``` || ",
+   "got": "```\n``x`c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "index": 9474,
+   "red": true,
+   "text": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">> `\n`x`````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "got": ">> `\n`x`````> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "index": 9475,
+   "red": true,
+   "text": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">> `\n``x````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "got": ">> `\n``x````> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "index": 9477,
+   "red": true,
+   "text": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "line": 1,
+   "offset": 4,
+   "expected": ">> `\n````x``> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "got": ">> `\n````x``> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "index": 9478,
+   "red": true,
+   "text": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "line": 1,
+   "offset": 5,
+   "expected": ">> `\n`````x`> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "got": ">> `\n`````x`> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "index": 9686,
+   "red": true,
+   "text": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "line": 1,
+   "offset": 1,
+   "expected": "\\||`\n`x``||\n```js\n > \n#\\*\n``` # ",
+   "got": "\\||`\n`x``||\n```js\n\n#\\*\n``` # "
+  },
+  {
+   "index": 9687,
+   "red": true,
+   "text": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "line": 1,
+   "offset": 2,
+   "expected": "\\||`\n``x`||\n```js\n > \n#\\*\n``` # ",
+   "got": "\\||`\n``x`||\n```js\n\n#\\*\n``` # "
+  },
+  {
+   "index": 9692,
+   "red": true,
+   "text": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "line": 2,
+   "offset": 1,
+   "expected": "\\||`\n```||\n`x``js\n > \n#\\*\n``` # ",
+   "got": "\\||`\n```||\n`x``js\n\n#\\*\n``` # "
+  },
+  {
+   "index": 9693,
+   "red": true,
+   "text": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "line": 2,
+   "offset": 2,
+   "expected": "\\||`\n```||\n``x`js\n > \n#\\*\n``` # ",
+   "got": "\\||`\n```||\n``x`js\n\n#\\*\n``` # "
+  },
+  {
+   "index": 9711,
+   "red": true,
+   "text": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "got": "`x``js\n>js\n``` `||`\nb> `\n`\n"
+  },
+  {
+   "index": 9712,
+   "red": true,
+   "text": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "got": "``x`js\n>js\n``` `||`\nb> `\n`\n"
+  },
+  {
+   "index": 9721,
+   "red": true,
+   "text": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "line": 2,
+   "offset": 1,
+   "expected": "```js\n>js\n`x`` `||`\nb> `\n`\n>>> ",
+   "got": "```js\n>js\n`x`` `||`\nb> `\n`\n"
+  },
+  {
+   "index": 9722,
+   "red": true,
+   "text": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "line": 2,
+   "offset": 2,
+   "expected": "```js\n>js\n``x` `||`\nb> `\n`\n>>> ",
+   "got": "```js\n>js\n``x` `||`\nb> `\n`\n"
+  },
+  {
+   "index": 10267,
+   "red": true,
+   "text": "``` `\n>>> a>>> ```\n```c++```\\\n```js> `\n>>> \n#",
+   "line": 1,
+   "offset": 6,
+   "expected": "``` `\n>>> a>>> `x``\n```c++```\\\n```js> `\n>>> \n#",
+   "got": "``` `\na>>> `x``\n```c++```\\\n```js> `\n>>> \n#"
+  },
+  {
+   "index": 10268,
+   "red": true,
+   "text": "``` `\n>>> a>>> ```\n```c++```\\\n```js> `\n>>> \n#",
+   "line": 1,
+   "offset": 7,
+   "expected": "``` `\n>>> a>>> ``x`\n```c++```\\\n```js> `\n>>> \n#",
+   "got": "``` `\na>>> ``x`\n```c++```\\\n```js> `\n>>> \n#"
+  },
+  {
+   "index": 10400,
+   "red": true,
+   "text": " > a~~\n```a\n> `\\```\n>> ",
+   "line": 2,
+   "offset": 3,
+   "expected": " > a~~\n```a\n> `\\`x``\n>> ",
+   "got": " > a~~\n```a\n`\\`x``\n>> "
+  },
+  {
+   "index": 10401,
+   "red": true,
+   "text": " > a~~\n```a\n> `\\```\n>> ",
+   "line": 2,
+   "offset": 4,
+   "expected": " > a~~\n```a\n> `\\``x`\n>> ",
+   "got": " > a~~\n```a\n`\\``x`\n>> "
+  },
+  {
+   "index": 10433,
+   "red": true,
+   "text": "```js#\n```\n> js*\n",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js#\n```\n> js*\n",
+   "got": "`x``js#\n```\njs*\n"
+  },
+  {
+   "index": 10434,
+   "red": true,
+   "text": "```js#\n```\n> js*\n",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js#\n```\n> js*\n",
+   "got": "``x`js#\n```\njs*\n"
+  },
+  {
+   "index": 10440,
+   "red": true,
+   "text": "```js#\n```\n> js*\n",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js#\n`x``\n> js*\n",
+   "got": "```js#\n`x``\njs*\n"
+  },
+  {
+   "index": 10441,
+   "red": true,
+   "text": "```js#\n```\n> js*\n",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js#\n``x`\n> js*\n",
+   "got": "```js#\n``x`\njs*\n"
+  },
+  {
+   "index": 10621,
+   "red": true,
+   "text": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||```",
+   "line": 4,
+   "offset": 3,
+   "expected": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||`x``",
+   "got": "#\n```>>> ~~a\n>>>> \n```c++#```\n||`x``"
+  },
+  {
+   "index": 10622,
+   "red": true,
+   "text": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||```",
+   "line": 4,
+   "offset": 4,
+   "expected": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||``x`",
+   "got": "#\n```>>> ~~a\n>>>> \n```c++#```\n||``x`"
+  },
+  {
+   "index": 10793,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "got": "`x``#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "index": 10794,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "got": "``x`#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "index": 10799,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 0,
+   "offset": 7,
+   "expected": "```#js`x``\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "got": "```#js`x``\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "index": 10800,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 0,
+   "offset": 8,
+   "expected": "```#js``x`\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "got": "```#js``x`\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "index": 10807,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 2,
+   "offset": 1,
+   "expected": "```#js```\n>`\\\n`x``> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "got": "```#js```\n>`\\\n`x``> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "index": 10808,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 2,
+   "offset": 2,
+   "expected": "```#js```\n>`\\\n``x`> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "got": "```#js```\n>`\\\n``x`> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "index": 10820,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 4,
+   "offset": 1,
+   "expected": "```#js```\n>`\\\n```> a\\\n>> \\\n`x``jsjs#_\n>  >>> ",
+   "got": "```#js```\n>`\\\n```> a\\\n>> \\\n`x``jsjs#_\n >>> "
+  },
+  {
+   "index": 10821,
+   "red": true,
+   "text": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "line": 4,
+   "offset": 2,
+   "expected": "```#js```\n>`\\\n```> a\\\n>> \\\n``x`jsjs#_\n>  >>> ",
+   "got": "```#js```\n>`\\\n```> a\\\n>> \\\n``x`jsjs#_\n >>> "
+  },
+  {
+   "index": 11068,
+   "red": true,
+   "text": ">```\n```js*\n>>> *> > ",
+   "line": 0,
+   "offset": 2,
+   "expected": ">`x``\n```js*\n>>> *> > ",
+   "got": ">`x``\n```js*\n*> > "
+  },
+  {
+   "index": 11069,
+   "red": true,
+   "text": ">```\n```js*\n>>> *> > ",
+   "line": 0,
+   "offset": 3,
+   "expected": ">``x`\n```js*\n>>> *> > ",
+   "got": ">``x`\n```js*\n*> > "
+  },
+  {
+   "index": 11072,
+   "red": true,
+   "text": ">```\n```js*\n>>> *> > ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">```\n`x``js*\n>>> *> > ",
+   "got": ">```\n`x``js*\n*> > "
+  },
+  {
+   "index": 11073,
+   "red": true,
+   "text": ">```\n```js*\n>>> *> > ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">```\n``x`js*\n>>> *> > ",
+   "got": ">```\n``x`js*\n*> > "
+  },
+  {
+   "index": 11160,
+   "red": true,
+   "text": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "line": 1,
+   "offset": 1,
+   "expected": " > a> \\\n`x`` \n> #>>> *\n```js\n > `*\n#",
+   "got": " > a> \\\n`x`` \n> #>>> *\n```js\n`*\n#"
+  },
+  {
+   "index": 11161,
+   "red": true,
+   "text": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "line": 1,
+   "offset": 2,
+   "expected": " > a> \\\n``x` \n> #>>> *\n```js\n > `*\n#",
+   "got": " > a> \\\n``x` \n> #>>> *\n```js\n`*\n#"
+  },
+  {
+   "index": 11174,
+   "red": true,
+   "text": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "line": 3,
+   "offset": 1,
+   "expected": " > a> \\\n``` \n> #>>> *\n`x``js\n > `*\n#",
+   "got": " > a> \\\n``` \n> #>>> *\n`x``js\n`*\n#"
+  },
+  {
+   "index": 11175,
+   "red": true,
+   "text": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "line": 3,
+   "offset": 2,
+   "expected": " > a> \\\n``` \n> #>>> *\n``x`js\n > `*\n#",
+   "got": " > a> \\\n``` \n> #>>> *\n``x`js\n`*\n#"
+  },
+  {
+   "index": 11214,
+   "red": true,
+   "text": "``` ||\n``` > > \n>>> ~~b||",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` ||\n``` > > \n>>> ~~b||",
+   "got": "`x`` ||\n``` > > \n~~b||"
+  },
+  {
+   "index": 11215,
+   "red": true,
+   "text": "``` ||\n``` > > \n>>> ~~b||",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` ||\n``` > > \n>>> ~~b||",
+   "got": "``x` ||\n``` > > \n~~b||"
+  },
+  {
+   "index": 11221,
+   "red": true,
+   "text": "``` ||\n``` > > \n>>> ~~b||",
+   "line": 1,
+   "offset": 1,
+   "expected": "``` ||\n`x`` > > \n>>> ~~b||",
+   "got": "``` ||\n`x`` > > \n~~b||"
+  },
+  {
+   "index": 11222,
+   "red": true,
+   "text": "``` ||\n``` > > \n>>> ~~b||",
+   "line": 1,
+   "offset": 2,
+   "expected": "``` ||\n``x` > > \n>>> ~~b||",
+   "got": "``` ||\n``x` > > \n~~b||"
+  },
+  {
+   "index": 11820,
+   "red": true,
+   "text": ">> **\n```js~~b\n > #js```\n\n",
+   "line": 2,
+   "offset": 4,
+   "expected": ">> **\n```js~~b\n > #js`x``\n\n",
+   "got": ">> **\n```js~~b\n#js`x``\n\n"
+  },
+  {
+   "index": 11821,
+   "red": true,
+   "text": ">> **\n```js~~b\n > #js```\n\n",
+   "line": 2,
+   "offset": 5,
+   "expected": ">> **\n```js~~b\n > #js``x`\n\n",
+   "got": ">> **\n```js~~b\n#js``x`\n\n"
+  },
+  {
+   "index": 12357,
+   "red": true,
+   "text": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "line": 1,
+   "offset": 1,
+   "expected": " > ~~\n`x``*\n```||a\n> *\n>>> bab\n```js> > ",
+   "got": " > ~~\n`x``*\n```||a\n*\nbab\n```js> > "
+  },
+  {
+   "index": 12358,
+   "red": true,
+   "text": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "line": 1,
+   "offset": 2,
+   "expected": " > ~~\n``x`*\n```||a\n> *\n>>> bab\n```js> > ",
+   "got": " > ~~\n``x`*\n```||a\n*\nbab\n```js> > "
+  },
+  {
+   "index": 12362,
+   "red": true,
+   "text": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "line": 2,
+   "offset": 1,
+   "expected": " > ~~\n```*\n`x``||a\n> *\n>>> bab\n```js> > ",
+   "got": " > ~~\n```*\n`x``||a\n*\nbab\n```js> > "
+  },
+  {
+   "index": 12363,
+   "red": true,
+   "text": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "line": 2,
+   "offset": 2,
+   "expected": " > ~~\n```*\n``x`||a\n> *\n>>> bab\n```js> > ",
+   "got": " > ~~\n```*\n``x`||a\n*\nbab\n```js> > "
+  },
+  {
+   "index": 12385,
+   "red": true,
+   "text": "```js||\n```js_\n\n > #||\n```js\\",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js||\n```js_\n\n > #||\n```js\\",
+   "got": "`x``js||\n```js_\n\n#||\n```js\\"
+  },
+  {
+   "index": 12386,
+   "red": true,
+   "text": "```js||\n```js_\n\n > #||\n```js\\",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js||\n```js_\n\n > #||\n```js\\",
+   "got": "``x`js||\n```js_\n\n#||\n```js\\"
+  },
+  {
+   "index": 12393,
+   "red": true,
+   "text": "```js||\n```js_\n\n > #||\n```js\\",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js||\n`x``js_\n\n > #||\n```js\\",
+   "got": "```js||\n`x``js_\n\n#||\n```js\\"
+  },
+  {
+   "index": 12394,
+   "red": true,
+   "text": "```js||\n```js_\n\n > #||\n```js\\",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js||\n``x`js_\n\n > #||\n```js\\",
+   "got": "```js||\n``x`js_\n\n#||\n```js\\"
+  },
+  {
+   "index": 12415,
+   "red": true,
+   "text": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "line": 1,
+   "offset": 3,
+   "expected": "\n> ~~`x``a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "got": "\n> ~~`x``a\n``` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "index": 12416,
+   "red": true,
+   "text": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "line": 1,
+   "offset": 4,
+   "expected": "\n> ~~``x`a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "got": "\n> ~~``x`a\n``` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "index": 12420,
+   "red": true,
+   "text": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "line": 2,
+   "offset": 1,
+   "expected": "\n> ~~```a\n`x`` _\n\\_~~\n>>> *> \n>  \\",
+   "got": "\n> ~~```a\n`x`` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "index": 12421,
+   "red": true,
+   "text": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "line": 2,
+   "offset": 2,
+   "expected": "\n> ~~```a\n``x` _\n\\_~~\n>>> *> \n>  \\",
+   "got": "\n> ~~```a\n``x` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "index": 12457,
+   "red": true,
+   "text": ">> > ||\n```c++ ~~a\n> ```\n > # ```",
+   "line": 2,
+   "offset": 1,
+   "expected": ">> > ||\n```c++ ~~a\n> `x``\n > # ```",
+   "got": ">> > ||\n```c++ ~~a\n`x``\n > # ```"
+  },
+  {
+   "index": 12458,
+   "red": true,
+   "text": ">> > ||\n```c++ ~~a\n> ```\n > # ```",
+   "line": 2,
+   "offset": 2,
+   "expected": ">> > ||\n```c++ ~~a\n> ``x`\n > # ```",
+   "got": ">> > ||\n```c++ ~~a\n``x`\n > # ```"
+  },
+  {
+   "index": 12506,
+   "red": true,
+   "text": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "got": "`x``c++||||\n```b~~ \njs> a\n~~a"
+  },
+  {
+   "index": 12507,
+   "red": true,
+   "text": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "got": "``x`c++||||\n```b~~ \njs> a\n~~a"
+  },
+  {
+   "index": 12517,
+   "red": true,
+   "text": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "line": 1,
+   "offset": 1,
+   "expected": "```c++||||\n`x``b~~ \n>>> js> a\n > ~~a",
+   "got": "```c++||||\n`x``b~~ \njs> a\n~~a"
+  },
+  {
+   "index": 12518,
+   "red": true,
+   "text": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "line": 1,
+   "offset": 2,
+   "expected": "```c++||||\n``x`b~~ \n>>> js> a\n > ~~a",
+   "got": "```c++||||\n``x`b~~ \njs> a\n~~a"
+  },
+  {
+   "index": 12548,
+   "red": true,
+   "text": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "got": "`x``js\n > \n > _>>> \n```js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "index": 12549,
+   "red": true,
+   "text": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "got": "``x`js\n > \n > _>>> \n```js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "index": 12567,
+   "red": true,
+   "text": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "line": 3,
+   "offset": 1,
+   "expected": "```js\n > \n > _>>> \n`x``js \\js\n > >  \n``` >>> \\`",
+   "got": "```js\n > \n > _>>> \n`x``js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "index": 12568,
+   "red": true,
+   "text": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "line": 3,
+   "offset": 2,
+   "expected": "```js\n > \n > _>>> \n``x`js \\js\n > >  \n``` >>> \\`",
+   "got": "```js\n > \n > _>>> \n``x`js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "index": 12839,
+   "red": true,
+   "text": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "got": "`x``js__a\n``` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "index": 12840,
+   "red": true,
+   "text": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "got": "``x`js__a\n``` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "index": 12848,
+   "red": true,
+   "text": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "line": 1,
+   "offset": 1,
+   "expected": "```js__a\n`x`` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "got": "```js__a\n`x`` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "index": 12849,
+   "red": true,
+   "text": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "line": 1,
+   "offset": 2,
+   "expected": "```js__a\n``x` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "got": "```js__a\n``x` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "index": 13011,
+   "red": true,
+   "text": "```b#\n```js> *\n > \n>||",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``b#\n```js> *\n > \n>||",
+   "got": "`x``b#\n```js> *\n\n>||"
+  },
+  {
+   "index": 13012,
+   "red": true,
+   "text": "```b#\n```js> *\n > \n>||",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`b#\n```js> *\n > \n>||",
+   "got": "``x`b#\n```js> *\n\n>||"
+  },
+  {
+   "index": 13017,
+   "red": true,
+   "text": "```b#\n```js> *\n > \n>||",
+   "line": 1,
+   "offset": 1,
+   "expected": "```b#\n`x``js> *\n > \n>||",
+   "got": "```b#\n`x``js> *\n\n>||"
+  },
+  {
+   "index": 13018,
+   "red": true,
+   "text": "```b#\n```js> *\n > \n>||",
+   "line": 1,
+   "offset": 2,
+   "expected": "```b#\n``x`js> *\n > \n>||",
+   "got": "```b#\n``x`js> *\n\n>||"
+  },
+  {
+   "index": 13294,
+   "red": true,
+   "text": "~~bb\n```>>> `\n> *~~```",
+   "line": 2,
+   "offset": 4,
+   "expected": "~~bb\n```>>> `\n> *~~`x``",
+   "got": "~~bb\n```>>> `\n*~~`x``"
+  },
+  {
+   "index": 13295,
+   "red": true,
+   "text": "~~bb\n```>>> `\n> *~~```",
+   "line": 2,
+   "offset": 5,
+   "expected": "~~bb\n```>>> `\n> *~~``x`",
+   "got": "~~bb\n```>>> `\n*~~``x`"
+  },
+  {
+   "index": 13443,
+   "red": true,
+   "text": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">> \\||\n`x`` \n\n``` a*\n\n> ",
+   "got": ">> \\||\n`x`` \n\n``` a*\n\n"
+  },
+  {
+   "index": 13444,
+   "red": true,
+   "text": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">> \\||\n``x` \n\n``` a*\n\n> ",
+   "got": ">> \\||\n``x` \n\n``` a*\n\n"
+  },
+  {
+   "index": 13449,
+   "red": true,
+   "text": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "line": 3,
+   "offset": 1,
+   "expected": ">> \\||\n``` \n\n`x`` a*\n\n> ",
+   "got": ">> \\||\n``` \n\n`x`` a*\n\n"
+  },
+  {
+   "index": 13450,
+   "red": true,
+   "text": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "line": 3,
+   "offset": 2,
+   "expected": ">> \\||\n``` \n\n``x` a*\n\n> ",
+   "got": ">> \\||\n``` \n\n``x` a*\n\n"
+  },
+  {
+   "index": 13571,
+   "red": true,
+   "text": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "line": 0,
+   "offset": 3,
+   "expected": ">``x``~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "got": ">``x``~~\n>>> \n>>> \n> \n```c++ #js\n js"
+  },
+  {
+   "index": 13590,
+   "red": true,
+   "text": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "line": 4,
+   "offset": 1,
+   "expected": ">````~~\n>>> \n>>> \n> \n`x``c++ #js\n>>>  js",
+   "got": ">````~~\n>>> \n>>> \n> \n`x``c++ #js\n js"
+  },
+  {
+   "index": 13591,
+   "red": true,
+   "text": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "line": 4,
+   "offset": 2,
+   "expected": ">````~~\n>>> \n>>> \n> \n``x`c++ #js\n>>>  js",
+   "got": ">````~~\n>>> \n>>> \n> \n``x`c++ #js\n js"
+  },
+  {
+   "index": 14131,
+   "red": true,
+   "text": "```||\n``` a#\n > _*\n``` ```",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``||\n``` a#\n > _*\n``` ```",
+   "got": "`x``||\n``` a#\n_*\n``` ```"
+  },
+  {
+   "index": 14132,
+   "red": true,
+   "text": "```||\n``` a#\n > _*\n``` ```",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`||\n``` a#\n > _*\n``` ```",
+   "got": "``x`||\n``` a#\n_*\n``` ```"
+  },
+  {
+   "index": 14137,
+   "red": true,
+   "text": "```||\n``` a#\n > _*\n``` ```",
+   "line": 1,
+   "offset": 1,
+   "expected": "```||\n`x`` a#\n > _*\n``` ```",
+   "got": "```||\n`x`` a#\n_*\n``` ```"
+  },
+  {
+   "index": 14138,
+   "red": true,
+   "text": "```||\n``` a#\n > _*\n``` ```",
+   "line": 1,
+   "offset": 2,
+   "expected": "```||\n``x` a#\n > _*\n``` ```",
+   "got": "```||\n``x` a#\n_*\n``` ```"
+  },
+  {
+   "index": 14155,
+   "red": true,
+   "text": "```  a\n```a\n>>> #",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``  a\n```a\n>>> #",
+   "got": "`x``  a\n```a\n#"
+  },
+  {
+   "index": 14156,
+   "red": true,
+   "text": "```  a\n```a\n>>> #",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`  a\n```a\n>>> #",
+   "got": "``x`  a\n```a\n#"
+  },
+  {
+   "index": 14162,
+   "red": true,
+   "text": "```  a\n```a\n>>> #",
+   "line": 1,
+   "offset": 1,
+   "expected": "```  a\n`x``a\n>>> #",
+   "got": "```  a\n`x``a\n#"
+  },
+  {
+   "index": 14163,
+   "red": true,
+   "text": "```  a\n```a\n>>> #",
+   "line": 1,
+   "offset": 2,
+   "expected": "```  a\n``x`a\n>>> #",
+   "got": "```  a\n``x`a\n#"
+  },
+  {
+   "index": 14235,
+   "red": true,
+   "text": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">>> > \n`x``c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "got": ">>> > \n`x``c++>>> \n>>> `||*\n > \n```> \n\\>>> "
+  },
+  {
+   "index": 14236,
+   "red": true,
+   "text": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">>> > \n``x`c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "got": ">>> > \n``x`c++>>> \n>>> `||*\n > \n```> \n\\>>> "
+  },
+  {
+   "index": 14259,
+   "red": true,
+   "text": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "line": 4,
+   "offset": 1,
+   "expected": ">>> > \n```c++>>> \n>>> `||*\n > \n`x``> \n> \\>>> ",
+   "got": ">>> > \n```c++>>> \n>>> `||*\n > \n`x``> \n\\>>> "
+  },
+  {
+   "index": 14260,
+   "red": true,
+   "text": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "line": 4,
+   "offset": 2,
+   "expected": ">>> > \n```c++>>> \n>>> `||*\n > \n``x`> \n> \\>>> ",
+   "got": ">>> > \n```c++>>> \n>>> `||*\n > \n``x`> \n\\>>> "
+  },
+  {
+   "index": 14728,
+   "red": true,
+   "text": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "line": 2,
+   "offset": 3,
+   "expected": ">\njs\n>#`x``||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "got": ">\njs\n>#`x``||\n>>> ajsa\n``` #`a\n>>>  b"
+  },
+  {
+   "index": 14729,
+   "red": true,
+   "text": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "line": 2,
+   "offset": 4,
+   "expected": ">\njs\n>#``x`||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "got": ">\njs\n>#``x`||\n>>> ajsa\n``` #`a\n>>>  b"
+  },
+  {
+   "index": 14743,
+   "red": true,
+   "text": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "line": 4,
+   "offset": 1,
+   "expected": ">\njs\n>#```||\n>>> ajsa\n`x`` #`a\n>>> >>>  b",
+   "got": ">\njs\n>#```||\n>>> ajsa\n`x`` #`a\n>>>  b"
+  },
+  {
+   "index": 14744,
+   "red": true,
+   "text": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "line": 4,
+   "offset": 2,
+   "expected": ">\njs\n>#```||\n>>> ajsa\n``x` #`a\n>>> >>>  b",
+   "got": ">\njs\n>#```||\n>>> ajsa\n``x` #`a\n>>>  b"
+  },
+  {
+   "index": 14947,
+   "red": true,
+   "text": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x`` ` \n```\n>>> \n```js\n > _\\\\",
+   "got": "`x`` ` \n```\n\n```js\n > _\\\\"
+  },
+  {
+   "index": 14948,
+   "red": true,
+   "text": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x` ` \n```\n>>> \n```js\n > _\\\\",
+   "got": "``x` ` \n```\n\n```js\n > _\\\\"
+  },
+  {
+   "index": 14954,
+   "red": true,
+   "text": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "line": 1,
+   "offset": 1,
+   "expected": "``` ` \n`x``\n>>> \n```js\n > _\\\\",
+   "got": "``` ` \n`x``\n\n```js\n > _\\\\"
+  },
+  {
+   "index": 14955,
+   "red": true,
+   "text": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "line": 1,
+   "offset": 2,
+   "expected": "``` ` \n``x`\n>>> \n```js\n > _\\\\",
+   "got": "``` ` \n``x`\n\n```js\n > _\\\\"
+  },
+  {
+   "index": 14975,
+   "red": true,
+   "text": ">> ```*```\n> ~~\n>>> ",
+   "line": 0,
+   "offset": 4,
+   "expected": ">> `x``*```\n> ~~\n>>> ",
+   "got": ">> `x``*```\n~~\n"
+  },
+  {
+   "index": 14976,
+   "red": true,
+   "text": ">> ```*```\n> ~~\n>>> ",
+   "line": 0,
+   "offset": 5,
+   "expected": ">> ``x`*```\n> ~~\n>>> ",
+   "got": ">> ``x`*```\n~~\n"
+  },
+  {
+   "index": 14979,
+   "red": true,
+   "text": ">> ```*```\n> ~~\n>>> ",
+   "line": 0,
+   "offset": 8,
+   "expected": ">> ```*`x``\n> ~~\n>>> ",
+   "got": ">> ```*`x``\n~~\n"
+  },
+  {
+   "index": 14980,
+   "red": true,
+   "text": ">> ```*```\n> ~~\n>>> ",
+   "line": 0,
+   "offset": 9,
+   "expected": ">> ```*``x`\n> ~~\n>>> ",
+   "got": ">> ```*``x`\n~~\n"
+  },
+  {
+   "index": 15023,
+   "red": true,
+   "text": "``` \n>>> #```\n>\n```c++```||~~\n```c++#a~~",
+   "line": 1,
+   "offset": 2,
+   "expected": "``` \n>>> #`x``\n>\n```c++```||~~\n```c++#a~~",
+   "got": "``` \n#`x``\n>\n```c++```||~~\n```c++#a~~"
+  },
+  {
+   "index": 15024,
+   "red": true,
+   "text": "``` \n>>> #```\n>\n```c++```||~~\n```c++#a~~",
+   "line": 1,
+   "offset": 3,
+   "expected": "``` \n>>> #``x`\n>\n```c++```||~~\n```c++#a~~",
+   "got": "``` \n#``x`\n>\n```c++```||~~\n```c++#a~~"
+  },
+  {
+   "index": 15057,
+   "red": true,
+   "text": ">\\````\n```b\n > ",
+   "line": 0,
+   "offset": 4,
+   "expected": ">\\``x``\n```b\n > ",
+   "got": ">\\``x``\n```b\n"
+  },
+  {
+   "index": 15061,
+   "red": true,
+   "text": ">\\````\n```b\n > ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">\\````\n`x``b\n > ",
+   "got": ">\\````\n`x``b\n"
+  },
+  {
+   "index": 15062,
+   "red": true,
+   "text": ">\\````\n```b\n > ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">\\````\n``x`b\n > ",
+   "got": ">\\````\n``x`b\n"
+  },
+  {
+   "index": 15296,
+   "red": true,
+   "text": "```\n``` \\js\n>>> ",
+   "line": 0,
+   "offset": 1,
+   "expected": "`x``\n``` \\js\n>>> ",
+   "got": "`x``\n``` \\js\n"
+  },
+  {
+   "index": 15297,
+   "red": true,
+   "text": "```\n``` \\js\n>>> ",
+   "line": 0,
+   "offset": 2,
+   "expected": "``x`\n``` \\js\n>>> ",
+   "got": "``x`\n``` \\js\n"
+  },
+  {
+   "index": 15300,
+   "red": true,
+   "text": "```\n``` \\js\n>>> ",
+   "line": 1,
+   "offset": 1,
+   "expected": "```\n`x`` \\js\n>>> ",
+   "got": "```\n`x`` \\js\n"
+  },
+  {
+   "index": 15301,
+   "red": true,
+   "text": "```\n``` \\js\n>>> ",
+   "line": 1,
+   "offset": 2,
+   "expected": "```\n``x` \\js\n>>> ",
+   "got": "```\n``x` \\js\n"
+  },
+  {
+   "index": 15317,
+   "red": true,
+   "text": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "line": 2,
+   "offset": 1,
+   "expected": "> ba\n>> *\n`x``bb||\n```c++js||\n\n> ",
+   "got": "> ba\n>> *\n`x``bb||\n```c++js||\n\n"
+  },
+  {
+   "index": 15318,
+   "red": true,
+   "text": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "line": 2,
+   "offset": 2,
+   "expected": "> ba\n>> *\n``x`bb||\n```c++js||\n\n> ",
+   "got": "> ba\n>> *\n``x`bb||\n```c++js||\n\n"
+  },
+  {
+   "index": 15325,
+   "red": true,
+   "text": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "line": 3,
+   "offset": 1,
+   "expected": "> ba\n>> *\n```bb||\n`x``c++js||\n\n> ",
+   "got": "> ba\n>> *\n```bb||\n`x``c++js||\n\n"
+  },
+  {
+   "index": 15326,
+   "red": true,
+   "text": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "line": 3,
+   "offset": 2,
+   "expected": "> ba\n>> *\n```bb||\n``x`c++js||\n\n> ",
+   "got": "> ba\n>> *\n```bb||\n``x`c++js||\n\n"
+  },
+  {
+   "index": 15346,
+   "red": true,
+   "text": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "line": 1,
+   "offset": 1,
+   "expected": ">>>> _ \n`x``js>>> \n```c++a\n ~~\n> ",
+   "got": ">>>> _ \n`x``js>>> \n```c++a\n ~~\n"
+  },
+  {
+   "index": 15347,
+   "red": true,
+   "text": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "line": 1,
+   "offset": 2,
+   "expected": ">>>> _ \n``x`js>>> \n```c++a\n ~~\n> ",
+   "got": ">>>> _ \n``x`js>>> \n```c++a\n ~~\n"
+  },
+  {
+   "index": 15356,
+   "red": true,
+   "text": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "line": 2,
+   "offset": 1,
+   "expected": ">>>> _ \n```js>>> \n`x``c++a\n ~~\n> ",
+   "got": ">>>> _ \n```js>>> \n`x``c++a\n ~~\n"
+  },
+  {
+   "index": 15357,
+   "red": true,
+   "text": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "line": 2,
+   "offset": 2,
+   "expected": ">>>> _ \n```js>>> \n``x`c++a\n ~~\n> ",
+   "got": ">>>> _ \n```js>>> \n``x`c++a\n ~~\n"
+  }
+ ]
+}

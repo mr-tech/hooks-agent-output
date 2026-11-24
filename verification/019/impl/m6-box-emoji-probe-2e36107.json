@@ -1,0 +1,253 @@
+[
+ {
+  "t": "a😀b",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "a😀b",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "a :smile: b",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "a :smile: b",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "a <:n:123456789012345678> b",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "a <:n:123456789012345678> b",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "**a😀b**",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "**",
+      "start": 0,
+      "attributes": [
+       "syntaxBefore",
+       "before_strong"
+      ]
+     },
+     {
+      "text": "a😀b",
+      "start": 2,
+      "attributes": [
+       "strong"
+      ]
+     },
+     {
+      "text": "**",
+      "start": 6,
+      "attributes": [
+       "syntaxAfter",
+       "after_strong"
+      ]
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "👍🏽",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "👍🏽",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "x`😀`y",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "x",
+      "start": 0,
+      "attributes": []
+     },
+     {
+      "text": "`",
+      "start": 1,
+      "attributes": [
+       "syntaxBefore",
+       "before_inlineCode"
+      ]
+     },
+     {
+      "text": "😀",
+      "start": 2,
+      "attributes": [
+       "inlineCode"
+      ]
+     },
+     {
+      "text": "`",
+      "start": 4,
+      "attributes": [
+       "syntaxAfter",
+       "after_inlineCode"
+      ]
+     },
+     {
+      "text": "y",
+      "start": 5,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "[😀](https://x.y)",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "[",
+      "start": 0,
+      "attributes": [
+       "syntaxBefore",
+       "before_link"
+      ]
+     },
+     {
+      "text": "😀",
+      "start": 1,
+      "attributes": [
+       "link"
+      ]
+     },
+     {
+      "text": "](https://x.y)",
+      "start": 3,
+      "attributes": [
+       "syntaxAfter",
+       "after_link"
+      ]
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "😀😀",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "😀😀",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "\\😀",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "\\",
+      "start": 0,
+      "attributes": [
+       "syntaxBefore"
+      ]
+     },
+     {
+      "text": "😀",
+      "start": 1,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "1️⃣",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "1️⃣",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "🇬🇧",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "🇬🇧",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ },
+ {
+  "t": "👨‍👩‍👧",
+  "box": {
+   "blocks": [
+    [
+     {
+      "text": "👨‍👩‍👧",
+      "start": 0,
+      "attributes": []
+     }
+    ]
+   ],
+   "codeBlocks": []
+  }
+ }
+]

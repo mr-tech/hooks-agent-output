@@ -1,0 +1,2330 @@
+[
+ {
+  "cls": "corpus",
+  "mode": "typed",
+  "text": "# h\ntext\n- a\n> q\n-# s",
+  "got": "# h\ntext\n- a\n> q\n-# s"
+ },
+ {
+  "cls": "corpus",
+  "mode": "pasted",
+  "text": "# h\ntext\n- a\n> q\n-# s",
+  "got": "# h\ntext\n- a\n> q\n-# s"
+ },
+ {
+  "cls": "corpus",
+  "mode": "typed",
+  "text": "> a\n\n> b",
+  "got": "> a\n\n> b"
+ },
+ {
+  "cls": "corpus",
+  "mode": "pasted",
+  "text": "> a\n\n> b",
+  "got": "> a\n\n> b"
+ },
+ {
+  "cls": "corpus",
+  "mode": "typed",
+  "text": "> a\n> b",
+  "got": "> a\n> b"
+ },
+ {
+  "cls": "corpus",
+  "mode": "pasted",
+  "text": "> a\n> b",
+  "got": "> a\n> b"
+ },
+ {
+  "cls": "corpus",
+  "mode": "typed",
+  "text": "> a\n>>> b",
+  "got": "> a\n>>> b"
+ },
+ {
+  "cls": "corpus",
+  "mode": "pasted",
+  "text": "> a\n>>> b",
+  "got": "> a\n>>> b"
+ },
+ {
+  "cls": "corpus",
+  "mode": "typed",
+  "text": "> a\nb",
+  "got": "> a\nb"
+ },
+ {
+  "cls": "corpus",
+  "mode": "pasted",
+  "text": "> a\nb",
+  "got": "> a\nb"
+ },
+ {
+  "cls": "corpus",
+  "mode": "typed",
+  "text": "> ||sp||\n> **b**",
+  "got": "> ||sp||\n> **b**"
+ },
+ {
+  "cls": "corpus",
+  "mode": "pasted",
+  "text": "> ||sp||\n> **b**",
+  "got": "> ||sp||\n> **b**"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> a\n> b",
+  "got": "> a\n> b"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> a\n> b",
+  "got": "> a\n> b"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> __\\[x\\[__\n  - **https://x.y/a(b)c",
+  "got": "> __\\[x\\[__\n  - **https://x.y/a(b)c"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> __\\[x\\[__\n  - **https://x.y/a(b)c",
+  "got": "> __\\[x\\[__\n  - **https://x.y/a(b)c"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "# _\\(x\\( snake_case_\n> 2 < 3 \\:x\\:\n*``<@&1558266761101447248> [text](https://example.com)",
+  "got": "# _\\(x\\( snake_case_\n> 2 < 3 \\:x\\:\n*``<@&1558266761101447248> [text](https://example.com)"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "# _\\(x\\( snake_case_\n> 2 < 3 \\:x\\:\n*``<@&1558266761101447248> [text](https://example.com)",
+  "got": "# _\\(x\\( snake_case_\n> 2 < 3 \\:x\\:\n*``<@&1558266761101447248> [text](https://example.com)"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> _`<t:1700000000:F><id:browse>`_\n-# ~~__`日本`~~",
+  "got": "> _`<t:1700000000:F><id:browse>`_\n-# ~~__`日本`~~"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> _`<t:1700000000:F><id:browse>`_\n-# ~~__`日本`~~",
+  "got": "> _`<t:1700000000:F><id:browse>`_\n-# ~~__`日本`~~"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> `||_tail _||\n<id:home> <t:1700000000:S>",
+  "got": "> `||_tail _||\n<id:home> <t:1700000000:S>"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> `||_tail _||\n<id:home> <t:1700000000:S>",
+  "got": "> `||_tail _||\n<id:home> <t:1700000000:S>"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "### ||@heretail || <https://x.y>\n> `||[<:hooks:1558266761101447248>](https://x.y)`\n-# __||**<t:1700000000:d>** <@$1558266761101447248>word||__",
+  "got": "### ||@heretail || <https://x.y>\n> `||[<:hooks:1558266761101447248>](https://x.y)`\n-# __||**<t:1700000000:d>** <@$1558266761101447248>word||__"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "### ||@heretail || <https://x.y>\n> `||[<:hooks:1558266761101447248>](https://x.y)`\n-# __||**<t:1700000000:d>** <@$1558266761101447248>word||__",
+  "got": "### ||@heretail || <https://x.y>\n> `||[<:hooks:1558266761101447248>](https://x.y)`\n-# __||**<t:1700000000:d>** <@$1558266761101447248>word||__"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "  - \\_x\\_\n> ____<t:1700000000>__ https://x.y/a(b)c__\n``<@!1558266761101447248>``",
+  "got": "  - \\_x\\_\n> ____<t:1700000000>__ https://x.y/a(b)c__\n``<@!1558266761101447248>``"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "  - \\_x\\_\n> ____<t:1700000000>__ https://x.y/a(b)c__\n``<@!1558266761101447248>``",
+  "got": "  - \\_x\\_\n> ____<t:1700000000>__ https://x.y/a(b)c__\n``<@!1558266761101447248>``"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`\n\\]x\\]\n-# ~~<t:1700000000:f><@$1558266761101447248>~~",
+  "got": "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`\n\\]x\\]\n-# ~~<t:1700000000:f><@$1558266761101447248>~~"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`\n\\]x\\]\n-# ~~<t:1700000000:f><@$1558266761101447248>~~",
+  "got": "> `||[text](<https://example.com>) [:smile:](https://example.com/a_b)||`\n\\]x\\]\n-# ~~<t:1700000000:f><@$1558266761101447248>~~"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "x_y é\n> 日本:smile:\n> ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
+  "got": "x_y é\n> 日本:smile:\n> ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "x_y é\n> 日本:smile:\n> ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**",
+  "got": "x_y é\n> 日本:smile:\n> ****``<t:-1:f> <a:dance:1558266761101447248>`` </ping:1558266761101447248>**"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> <id:home>\n- \\:x\\:\\)x\\)",
+  "got": "> <id:home>\n- \\:x\\:\\)x\\)"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> <id:home>\n- \\:x\\:\\)x\\)",
+  "got": "> <id:home>\n- \\:x\\:\\)x\\)"
+ },
+ {
+  "cls": "generator",
+  "mode": "typed",
+  "text": "> \\>x\\> [<:hooks:1558266761101447248>](https://x.y)\n__\\>x\\>__\n# snake_case 2 < 3",
+  "got": "> \\>x\\> [<:hooks:1558266761101447248>](https://x.y)\n__\\>x\\>__\n# snake_case 2 < 3"
+ },
+ {
+  "cls": "generator",
+  "mode": "pasted",
+  "text": "> \\>x\\> [<:hooks:1558266761101447248>](https://x.y)\n__\\>x\\>__\n# snake_case 2 < 3",
+  "got": "> \\>x\\> [<:hooks:1558266761101447248>](https://x.y)\n__\\>x\\>__\n# snake_case 2 < 3"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n",
+  "got": " > a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n",
+  "got": " > a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n  >>> b",
+  "got": " > a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n  >>> b",
+  "got": " > a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n > a",
+  "got": " > a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n > a",
+  "got": " > a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n> ",
+  "got": " > a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n> ",
+  "got": " > a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n> > a",
+  "got": " > a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n> > a",
+  "got": " > a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n> >>> a",
+  "got": " > a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n> >>> a",
+  "got": " > a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n> a",
+  "got": " > a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n> a",
+  "got": " > a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n>>> ",
+  "got": " > a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n>>> ",
+  "got": " > a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n>>> > a",
+  "got": " > a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n>>> > a",
+  "got": " > a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n>>> a",
+  "got": " > a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n>>> a",
+  "got": " > a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n```",
+  "got": " > a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n```",
+  "got": " > a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n``` js",
+  "got": " > a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n``` js",
+  "got": " > a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n```a```",
+  "got": " > a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n```a```",
+  "got": " > a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n```c++",
+  "got": " > a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n```c++",
+  "got": " > a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n```js",
+  "got": " > a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n```js",
+  "got": " > a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\n```js x",
+  "got": " > a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\n```js x",
+  "got": " > a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\na",
+  "got": " > a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\na",
+  "got": " > a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\na```",
+  "got": " > a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\na```",
+  "got": " > a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": " > a\nfoo",
+  "got": " > a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": " > a\nfoo",
+  "got": " > a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n",
+  "got": "> \n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n",
+  "got": "> \n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n  >>> b",
+  "got": "> \n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n  >>> b",
+  "got": "> \n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n > a",
+  "got": "> \n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n > a",
+  "got": "> \n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n> ",
+  "got": "> \n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n> ",
+  "got": "> \n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n> > a",
+  "got": "> \n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n> > a",
+  "got": "> \n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n> >>> a",
+  "got": "> \n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n> >>> a",
+  "got": "> \n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n> a",
+  "got": "> \n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n> a",
+  "got": "> \n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n>>> ",
+  "got": "> \n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n>>> ",
+  "got": "> \n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n>>> > a",
+  "got": "> \n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n>>> > a",
+  "got": "> \n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n>>> a",
+  "got": "> \n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n>>> a",
+  "got": "> \n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n```",
+  "got": "> \n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n```",
+  "got": "> \n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n``` js",
+  "got": "> \n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n``` js",
+  "got": "> \n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n```a```",
+  "got": "> \n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n```a```",
+  "got": "> \n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n```c++",
+  "got": "> \n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n```c++",
+  "got": "> \n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n```js",
+  "got": "> \n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n```js",
+  "got": "> \n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \n```js x",
+  "got": "> \n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \n```js x",
+  "got": "> \n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \na",
+  "got": "> \na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \na",
+  "got": "> \na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \na```",
+  "got": "> \na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \na```",
+  "got": "> \na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> \nfoo",
+  "got": "> \nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> \nfoo",
+  "got": "> \nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n",
+  "got": "> > a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n",
+  "got": "> > a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n  >>> b",
+  "got": "> > a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n  >>> b",
+  "got": "> > a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n > a",
+  "got": "> > a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n > a",
+  "got": "> > a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n> ",
+  "got": "> > a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n> ",
+  "got": "> > a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n> > a",
+  "got": "> > a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n> > a",
+  "got": "> > a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n> >>> a",
+  "got": "> > a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n> >>> a",
+  "got": "> > a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n> a",
+  "got": "> > a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n> a",
+  "got": "> > a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n>>> ",
+  "got": "> > a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n>>> ",
+  "got": "> > a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n>>> > a",
+  "got": "> > a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n>>> > a",
+  "got": "> > a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n>>> a",
+  "got": "> > a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n>>> a",
+  "got": "> > a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n```",
+  "got": "> > a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n```",
+  "got": "> > a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n``` js",
+  "got": "> > a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n``` js",
+  "got": "> > a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n```a```",
+  "got": "> > a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n```a```",
+  "got": "> > a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n```c++",
+  "got": "> > a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n```c++",
+  "got": "> > a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n```js",
+  "got": "> > a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n```js",
+  "got": "> > a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\n```js x",
+  "got": "> > a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\n```js x",
+  "got": "> > a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\na",
+  "got": "> > a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\na",
+  "got": "> > a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\na```",
+  "got": "> > a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\na```",
+  "got": "> > a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> > a\nfoo",
+  "got": "> > a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> > a\nfoo",
+  "got": "> > a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n",
+  "got": "> >>> a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n",
+  "got": "> >>> a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n  >>> b",
+  "got": "> >>> a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n  >>> b",
+  "got": "> >>> a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n > a",
+  "got": "> >>> a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n > a",
+  "got": "> >>> a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n> ",
+  "got": "> >>> a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n> ",
+  "got": "> >>> a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n> > a",
+  "got": "> >>> a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n> > a",
+  "got": "> >>> a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n> >>> a",
+  "got": "> >>> a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n> >>> a",
+  "got": "> >>> a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n> a",
+  "got": "> >>> a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n> a",
+  "got": "> >>> a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n>>> ",
+  "got": "> >>> a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n>>> ",
+  "got": "> >>> a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n>>> > a",
+  "got": "> >>> a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n>>> > a",
+  "got": "> >>> a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n>>> a",
+  "got": "> >>> a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n>>> a",
+  "got": "> >>> a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n```",
+  "got": "> >>> a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n```",
+  "got": "> >>> a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n``` js",
+  "got": "> >>> a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n``` js",
+  "got": "> >>> a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n```a```",
+  "got": "> >>> a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n```a```",
+  "got": "> >>> a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n```c++",
+  "got": "> >>> a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n```c++",
+  "got": "> >>> a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n```js",
+  "got": "> >>> a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n```js",
+  "got": "> >>> a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\n```js x",
+  "got": "> >>> a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\n```js x",
+  "got": "> >>> a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\na",
+  "got": "> >>> a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\na",
+  "got": "> >>> a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\na```",
+  "got": "> >>> a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\na```",
+  "got": "> >>> a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> >>> a\nfoo",
+  "got": "> >>> a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> >>> a\nfoo",
+  "got": "> >>> a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n",
+  "got": "> a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n",
+  "got": "> a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n  >>> b",
+  "got": "> a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n  >>> b",
+  "got": "> a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n > a",
+  "got": "> a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n > a",
+  "got": "> a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n> ",
+  "got": "> a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n> ",
+  "got": "> a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n> > a",
+  "got": "> a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n> > a",
+  "got": "> a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n> >>> a",
+  "got": "> a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n> >>> a",
+  "got": "> a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n> a",
+  "got": "> a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n> a",
+  "got": "> a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n>>> ",
+  "got": "> a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n>>> ",
+  "got": "> a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n>>> > a",
+  "got": "> a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n>>> > a",
+  "got": "> a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n>>> a",
+  "got": "> a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n>>> a",
+  "got": "> a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n```",
+  "got": "> a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n```",
+  "got": "> a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n``` js",
+  "got": "> a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n``` js",
+  "got": "> a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n```a```",
+  "got": "> a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n```a```",
+  "got": "> a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n```c++",
+  "got": "> a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n```c++",
+  "got": "> a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n```js",
+  "got": "> a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n```js",
+  "got": "> a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\n```js x",
+  "got": "> a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\n```js x",
+  "got": "> a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\na",
+  "got": "> a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\na",
+  "got": "> a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\na```",
+  "got": "> a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\na```",
+  "got": "> a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": "> a\nfoo",
+  "got": "> a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": "> a\nfoo",
+  "got": "> a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n",
+  "got": ">>> > a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n",
+  "got": ">>> > a\n"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n  >>> b",
+  "got": ">>> > a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n  >>> b",
+  "got": ">>> > a\n  >>> b"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n > a",
+  "got": ">>> > a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n > a",
+  "got": ">>> > a\n > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n> ",
+  "got": ">>> > a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n> ",
+  "got": ">>> > a\n> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n> > a",
+  "got": ">>> > a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n> > a",
+  "got": ">>> > a\n> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n> >>> a",
+  "got": ">>> > a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n> >>> a",
+  "got": ">>> > a\n> >>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n> a",
+  "got": ">>> > a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n> a",
+  "got": ">>> > a\n> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n>>> ",
+  "got": ">>> > a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n>>> ",
+  "got": ">>> > a\n>>> "
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n>>> > a",
+  "got": ">>> > a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n>>> > a",
+  "got": ">>> > a\n>>> > a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n>>> a",
+  "got": ">>> > a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n>>> a",
+  "got": ">>> > a\n>>> a"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n```",
+  "got": ">>> > a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n```",
+  "got": ">>> > a\n```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n``` js",
+  "got": ">>> > a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n``` js",
+  "got": ">>> > a\n``` js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n```a```",
+  "got": ">>> > a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n```a```",
+  "got": ">>> > a\n```a```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n```c++",
+  "got": ">>> > a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n```c++",
+  "got": ">>> > a\n```c++"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n```js",
+  "got": ">>> > a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n```js",
+  "got": ">>> > a\n```js"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\n```js x",
+  "got": ">>> > a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\n```js x",
+  "got": ">>> > a\n```js x"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\na",
+  "got": ">>> > a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\na",
+  "got": ">>> > a\na"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\na```",
+  "got": ">>> > a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\na```",
+  "got": ">>> > a\na```"
+ },
+ {
+  "cls": "atoms",
+  "mode": "typed",
+  "text": ">>> > a\nfoo",
+  "got": ">>> > a\nfoo"
+ },
+ {
+  "cls": "atoms",
+  "mode": "pasted",
+  "text": ">>> > a\nfoo",
+  "got": ">>> > a\nfoo"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "\n>> ~~||\n > \n>>> js\n#",
+  "got": "\n>> ~~||\n > \n>>> js\n#"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "\n>> ~~||\n > \n>>> js\n#",
+  "got": "\n>> ~~||\n > \n>>> js\n#"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "\n``` \n```js*\n > ||\n>> **js\n*",
+  "got": "\n``` \n```js*\n > ||\n>> **js\n*"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "\n``` \n```js*\n > ||\n>> **js\n*",
+  "got": "\n``` \n```js*\n > ||\n>> **js\n*"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " \n> js~~\n> \njs||\\",
+  "got": " \n> js~~\n> \njs||\\"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " \n> js~~\n> \njs||\\",
+  "got": " \n> js~~\n> \njs||\\"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \n",
+  "got": " > \n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \n",
+  "got": " > \n"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \n\n\n```**\n``` ",
+  "got": " > \n\n\n```**\n``` "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \n\n\n```**\n``` ",
+  "got": " > \n\n\n```**\n``` "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \n\n||\n#\n~~",
+  "got": " > \n\n||\n#\n~~"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \n\n||\n#\n~~",
+  "got": " > \n\n||\n#\n~~"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \n > \n>> \n>",
+  "got": " > \n > \n>> \n>"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \n > \n>> \n>",
+  "got": " > \n > \n>> \n>"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \n````\n>>> ~~~~\n```~~\n```js\n",
+  "got": " > \n````\n>>> ~~~~\n```~~\n```js\n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \n````\n>>> ~~~~\n```~~\n```js\n",
+  "got": " > \n````\n>>> ~~~~\n```~~\n```js\n"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \n```c++\n > js\njs\n>",
+  "got": " > \n```c++\n > js\njs\n>"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \n```c++\n > js\njs\n>",
+  "got": " > \n```c++\n > js\njs\n>"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " >  >>> \na> ",
+  "got": " >  >>> \na> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " >  >>> \na> ",
+  "got": " >  >>> \na> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " >  `_\n```c++js~~js\n``` > ||`",
+  "got": " >  `_\n```c++js~~js\n``` > ||`"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " >  `_\n```c++js~~js\n``` > ||`",
+  "got": " >  `_\n```c++js~~js\n``` > ||`"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > *\n```c++ ",
+  "got": " > *\n```c++ "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > *\n```c++ ",
+  "got": " > *\n```c++ "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \\\n> \n> `\n```c++*\\`\n```js||~~",
+  "got": " > \\\n> \n> `\n```c++*\\`\n```js||~~"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \\\n> \n> `\n```c++*\\`\n```js||~~",
+  "got": " > \\\n> \n> `\n```c++*\\`\n```js||~~"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \\\n>> \n```c++||\n > b  \n>`",
+  "got": " > \\\n>> \n```c++||\n > b  \n>`"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \\\n>> \n```c++||\n > b  \n>`",
+  "got": " > \\\n>> \n```c++||\n > b  \n>`"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > \\ >>> \n>> ~~```a\n```*js||",
+  "got": " > \\ >>> \n>> ~~```a\n```*js||"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > \\ >>> \n>> ~~```a\n```*js||",
+  "got": " > \\ >>> \n>> ~~```a\n```*js||"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > `b~~\n>>> > `\n\\\n*",
+  "got": " > `b~~\n>>> > `\n\\\n*"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > `b~~\n>>> > `\n\\\n*",
+  "got": " > `b~~\n>>> > `\n\\\n*"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": " > b`\n\n>> > b\nb\n```c++",
+  "got": " > b`\n\n>> > b\nb\n```c++"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": " > b`\n\n>> > b\nb\n```c++",
+  "got": " > b`\n\n>> > b\nb\n```c++"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "#\n> >>> \n||*\n```c++\n*",
+  "got": "#\n> >>> \n||*\n```c++\n*"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "#\n> >>> \n||*\n```c++\n*",
+  "got": "#\n> >>> \n||*\n```c++\n*"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "#> ||\n > *\n```jsa",
+  "got": "#> ||\n > *\n```jsa"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "#> ||\n > *\n```jsa",
+  "got": "#> ||\n > *\n```jsa"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+  "got": ">\n```c++```>>> >>> \n> *>>> `\n>> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+  "got": ">\n```c++```>>> >>> \n> *>>> `\n>> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> \n",
+  "got": "> \n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> \n",
+  "got": "> \n"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> \n||||\n\\||_\n> \n>>> ",
+  "got": "> \n||||\n\\||_\n> \n>>> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> \n||||\n\\||_\n> \n>>> ",
+  "got": "> \n||||\n\\||_\n> \n>>> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">  \n>> jsab\n> jsa\n```a\n```c++##",
+  "got": ">  \n>> jsab\n> jsa\n```a\n```c++##"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">  \n>> jsab\n> jsa\n```a\n```c++##",
+  "got": ">  \n>> jsab\n> jsa\n```a\n```c++##"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">  _\n```> \n\n>>> js",
+  "got": ">  _\n```> \n\n>>> js"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">  _\n```> \n\n>>> js",
+  "got": ">  _\n```> \n\n>>> js"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> #\n> js||\n>>> ```",
+  "got": "> #\n> js||\n>>> ```"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> #\n> js||\n>>> ```",
+  "got": "> #\n> js||\n>>> ```"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> #js\n```~~\na\n>>> >>> \n``` b*#",
+  "got": "> #js\n```~~\na\n>>> >>> \n``` b*#"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> #js\n```~~\na\n>>> >>> \n``` b*#",
+  "got": "> #js\n```~~\na\n>>> >>> \n``` b*#"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> *\n > *\n> > _\na",
+  "got": "> *\n > *\n> > _\na"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> *\n > *\n> > _\na",
+  "got": "> *\n > *\n> > _\na"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> *# \n>> ```\n",
+  "got": "> *# \n>> ```\n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> *# \n>> ```\n",
+  "got": "> *# \n>> ```\n"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> > \n```js`_js\n> ```\n\n```",
+  "got": "> > \n```js`_js\n> ```\n\n```"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> > \n```js`_js\n> ```\n\n```",
+  "got": "> > \n```js`_js\n> ```\n\n```"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> > _*\n> ||`\\\n```c++ _||\n>> \n>_||",
+  "got": "> > _*\n> ||`\\\n```c++ _||\n>> \n>_||"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> > _*\n> ||`\\\n```c++ _||\n>> \n>_||",
+  "got": "> > _*\n> ||`\\\n```c++ _||\n>> \n>_||"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> >>> #`\n>>> ```> ~~\n``` a\n||js",
+  "got": "> >>> #`\n>>> ```> ~~\n``` a\n||js"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> >>> #`\n>>> ```> ~~\n``` a\n||js",
+  "got": "> >>> #`\n>>> ```> ~~\n``` a\n||js"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> >>> \\b\n > a>>> b",
+  "got": "> >>> \\b\n > a>>> b"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> >>> \\b\n > a>>> b",
+  "got": "> >>> \\b\n > a>>> b"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> >>> _\n > `b\n_\n```js\n>a",
+  "got": "> >>> _\n > `b\n_\n```js\n>a"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> >>> _\n > `b\n_\n```js\n>a",
+  "got": "> >>> _\n > `b\n_\n```js\n>a"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> \\_b\n\n>`\n>```b\\",
+  "got": "> \\_b\n\n>`\n>```b\\"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> \\_b\n\n>`\n>```b\\",
+  "got": "> \\_b\n\n>`\n>```b\\"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+  "got": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+  "got": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> __\n> `> ",
+  "got": "> __\n> `> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> __\n> `> ",
+  "got": "> __\n> `> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> _a\n>>> \\`\na ~~\n```js|| \n > > ",
+  "got": "> _a\n>>> \\`\na ~~\n```js|| \n > > "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> _a\n>>> \\`\na ~~\n```js|| \n > > ",
+  "got": "> _a\n>>> \\`\na ~~\n```js|| \n > > "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> _||\n```js\n```\n#>>> \n#\n```c++||",
+  "got": "> _||\n```js\n```\n#>>> \n#\n```c++||"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> _||\n```js\n```\n#>>> \n#\n```c++||",
+  "got": "> _||\n```js\n```\n#>>> \n#\n```c++||"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> js~~\n``` #`\n>> > *`\n>>> \n>> ~~ ",
+  "got": "> js~~\n``` #`\n>> > *`\n>>> \n>> ~~ "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> js~~\n``` #`\n>> > *`\n>>> \n>> ~~ ",
+  "got": "> js~~\n``` #`\n>> > *`\n>>> \n>> ~~ "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> ||#\n_`||\n > \\",
+  "got": "> ||#\n_`||\n > \\"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> ||#\n_`||\n > \\",
+  "got": "> ||#\n_`||\n > \\"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> ~~\n```c++ a#\n>>> _||",
+  "got": "> ~~\n```c++ a#\n>>> _||"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> ~~\n```c++ a#\n>>> _||",
+  "got": "> ~~\n```c++ a#\n>>> _||"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "> ~~`\n```||a\n>",
+  "got": "> ~~`\n```||a\n>"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "> ~~`\n```||a\n>",
+  "got": "> ~~`\n```||a\n>"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">> >>> b\\\n > js~~\n",
+  "got": ">> >>> b\\\n > js~~\n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">> >>> b\\\n > js~~\n",
+  "got": ">> >>> b\\\n > js~~\n"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">> >>> ||\n> ~~\n>\n a\n>> \n > ",
+  "got": ">> >>> ||\n> ~~\n>\n a\n>> \n > "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">> >>> ||\n> ~~\n>\n a\n>> \n > ",
+  "got": ">> >>> ||\n> ~~\n>\n a\n>> \n > "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">>> > \n>\n``` ~~~~js\n>> ~~\n> \n > \\\\",
+  "got": ">>> > \n>\n``` ~~~~js\n>> ~~\n> \n > \\\\"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">>> > \n>\n``` ~~~~js\n>> ~~\n> \n > \\\\",
+  "got": ">>> > \n>\n``` ~~~~js\n>> ~~\n> \n > \\\\"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">>> > \\\n``` ```\na\n``` ||>>> \\",
+  "got": ">>> > \\\n``` ```\na\n``` ||>>> \\"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">>> > \\\n``` ```\na\n``` ||>>> \\",
+  "got": ">>> > \\\n``` ```\na\n``` ||>>> \\"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": ">>> > ~~\n```\\",
+  "got": ">>> > ~~\n```\\"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": ">>> > ~~\n```\\",
+  "got": ">>> > ~~\n```\\"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "\\\n> >  \n```js||\n > __",
+  "got": "\\\n> >  \n```js||\n > __"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "\\\n> >  \n```js||\n > __",
+  "got": "\\\n> >  \n```js||\n > __"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "\\_\n> \n```c++jsb\n> \n```jsjsa ",
+  "got": "\\_\n> \n```c++jsb\n> \n```jsjsa "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "\\_\n> \n```c++jsb\n> \n```jsjsa ",
+  "got": "\\_\n> \n```c++jsb\n> \n```jsjsa "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "_\n\n> \njs\n``` *",
+  "got": "_\n\n> \njs\n``` *"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "_\n\n> \njs\n``` *",
+  "got": "_\n\n> \njs\n``` *"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "_\na\n> a\n>> > a\n\n```c++#",
+  "got": "_\na\n> a\n>> > a\n\n```c++#"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "_\na\n> a\n>> > a\n\n```c++#",
+  "got": "_\na\n> a\n>> > a\n\n```c++#"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "_#\n\n> \n>>> _#||\n```c++\n",
+  "got": "_#\n\n> \n>>> _#||\n```c++\n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "_#\n\n> \n>>> _#||\n```c++\n",
+  "got": "_#\n\n> \n>>> _#||\n```c++\n"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "``` \n\n>js\n > *js```\n```\\b",
+  "got": "``` \n\n>js\n > *js```\n```\\b"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "``` \n\n>js\n > *js```\n```\\b",
+  "got": "``` \n\n>js\n > *js```\n```\\b"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "``` *`\n```\n> \n```a",
+  "got": "``` *`\n```\n> \n```a"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "``` *`\n```\n> \n```a",
+  "got": "``` *`\n```\n> \n```a"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+  "got": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+  "got": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "```js\n```c++*js||\n> _\n> `",
+  "got": "```js\n```c++*js||\n> _\n> `"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "```js\n```c++*js||\n> _\n> `",
+  "got": "```js\n```c++*js||\n> _\n> `"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+  "got": "```js\\`\n```c++js\n > a#\n>||_\n>>> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+  "got": "```js\\`\n```c++js\n > a#\n>||_\n>>> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+  "got": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+  "got": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "```js```a*\n > > > _\n```js",
+  "got": "```js```a*\n > > > _\n```js"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "```js```a*\n > > > _\n```js",
+  "got": "```js```a*\n > > > _\n```js"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+  "got": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> "
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+  "got": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> "
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "``||\n\n>  \n> a**",
+  "got": "``||\n\n>  \n> a**"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "``||\n\n>  \n> a**",
+  "got": "``||\n\n>  \n> a**"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "bb`\n> \n> \\```",
+  "got": "bb`\n> \n> \\```"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "bb`\n> \n> \\```",
+  "got": "bb`\n> \n> \\```"
+ },
+ {
+  "cls": "block",
+  "mode": "typed",
+  "text": "||\n``\n > a\\\n",
+  "got": "||\n``\n > a\\\n"
+ },
+ {
+  "cls": "block",
+  "mode": "pasted",
+  "text": "||\n``\n > a\\\n",
+  "got": "||\n``\n > a\\\n"
+ }
+]

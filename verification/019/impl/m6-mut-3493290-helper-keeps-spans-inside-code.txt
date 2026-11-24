@@ -1,0 +1,309 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+ ❯ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts (113 tests | 20 failed) 63ms
+     × gives [] for 'a Unicode emoji inside inline code' 9ms
+     × gives [] for 'a Unicode emoji inside a code block' 2ms
+     × gives [] for 'a ZWJ sequence inside inline code' 1ms
+     × gives [] for 'a ZWJ sequence inside a code block' 1ms
+     × gives [] for 'a skin-tone sequence inside inline co…' 1ms
+     × gives [] for 'a skin-tone sequence inside a code bl…' 1ms
+     × gives [] for 'a keycap inside inline code' 1ms
+     × gives [] for 'a keycap inside a code block' 0ms
+     × gives [] for 'a flag inside inline code' 1ms
+     × gives [] for 'a flag inside a code block' 0ms
+     × gives [] for 'a tag sequence inside inline code' 0ms
+     × gives [] for 'a tag sequence inside a code block' 0ms
+     × gives [] for 'a heart with emoji presentation insid…' 0ms
+     × gives [] for 'a heart with emoji presentation insid…' 1ms
+     × gives [] for 'an emoji typed as a name inside inlin…' 1ms
+     × gives [] for 'an emoji typed as a name inside a cod…' 1ms
+     × gives [] for 'a custom emoji inside inline code' 0ms
+     × gives [] for 'a custom emoji inside a code block' 1ms
+     × gives [] for 'an animated custom emoji inside inlin…' 0ms
+     × gives [] for 'an animated custom emoji inside a cod…' 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji inside inline code'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation insid…'
+AssertionError: expected [ [ +0, 4 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     4,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji inside a code block'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a ZWJ sequence inside inline code'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation insid…'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a custom emoji inside inline code'
+AssertionError: expected [ [ +0, 10 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     10,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a ZWJ sequence inside a code block'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a tag sequence inside inline code'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a custom emoji inside a code block'
+AssertionError: expected [ [ +0, 16 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     16,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence inside inline co…'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag inside inline code'
+AssertionError: expected [ [ +0, 6 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     6,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence inside a code bl…'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag inside a code block'
+AssertionError: expected [ [ +0, 12 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     12,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap inside inline code'
+AssertionError: expected [ [ +0, 5 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     5,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap inside a code block'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an animated custom emoji inside inlin…'
+AssertionError: expected [ [ +0, 11 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     11,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a tag sequence inside a code block'
+AssertionError: expected [ [ +0, 22 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     22,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name inside inlin…'
+AssertionError: expected [ [ +0, 9 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     9,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name inside a cod…'
+AssertionError: expected [ [ +0, 15 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     15,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an animated custom emoji inside a cod…'
+AssertionError: expected [ [ +0, 17 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     0,
++     17,
++   ],
++ ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  20 failed | 93 passed (113)
+   Start at  04:58:31
+   Duration  324ms (transform 49ms, setup 0ms, import 76ms, tests 63ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: helper-keeps-spans-inside-code in src/utils/markdown/__tests__/helpers/discordOracle.ts
+exit 1

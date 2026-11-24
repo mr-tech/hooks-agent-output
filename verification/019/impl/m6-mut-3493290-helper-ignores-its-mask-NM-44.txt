@@ -1,0 +1,216 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+ ❯ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts (113 tests | 8 failed) 52ms
+     × finds the emoji of a Unicode emoji in a masked link as plain text: "[🙂](https://x.y)" 7ms
+     × finds the emoji of a Unicode emoji in a bare address as plain text: "https://x.y/🙂" 1ms
+     × finds the emoji of a Unicode emoji in an address in angle brackets as plain text: "<https://x.y/🙂>" 1ms
+     × finds the emoji of a Unicode emoji in an address with the emoji directly after its host as plain text: "https://x.y🙂" 1ms
+     × finds the emoji of an emoji typed as a name in a masked link as plain text: "[:smile:](https://x.y)" 1ms
+     × finds the emoji of an emoji typed as a name in a bare address as plain text: "https://x.y/:smile:" 1ms
+     × finds the emoji of an emoji typed as a name in an address in angle brackets as plain text: "<https://x.y/:smile:>" 1ms
+     × finds the emoji of a custom emoji in a masked link as plain text: "[<:n:123>](https://x.y)" 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in a masked link as plain text: "[🙂](https://x.y)"
+AssertionError: expected [] to deeply equal [ [ 1, 3 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     1,
+-     3,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in a bare address as plain text: "https://x.y/🙂"
+AssertionError: expected [] to deeply equal [ [ 12, 14 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     12,
+-     14,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in an address in angle brackets as plain text: "<https://x.y/🙂>"
+AssertionError: expected [] to deeply equal [ [ 13, 15 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     13,
+-     15,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in an address with the emoji directly after its host as plain text: "https://x.y🙂"
+AssertionError: expected [] to deeply equal [ [ 11, 13 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     11,
+-     13,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in a masked link as plain text: "[:smile:](https://x.y)"
+AssertionError: expected [] to deeply equal [ [ 1, 8 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     1,
+-     8,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in a bare address as plain text: "https://x.y/:smile:"
+AssertionError: expected [] to deeply equal [ [ 12, 19 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     12,
+-     19,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in an address in angle brackets as plain text: "<https://x.y/:smile:>"
+AssertionError: expected [] to deeply equal [ [ 13, 20 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     13,
+-     20,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a custom emoji in a masked link as plain text: "[<:n:123>](https://x.y)"
+AssertionError: expected [] to deeply equal [ [ 1, 9 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     1,
+-     9,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:141:59
+    139|     'finds the emoji of %s in %s as plain text: %j',
+    140|     (_form, _where, text, spans) => {
+    141|       expect(nativeEmojiSpans('embedTitleWithUrl', text)).toEqual(span…
+       |                                                           ^
+    142|     },
+    143|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 105 passed (113)
+   Start at  04:58:27
+   Duration  272ms (transform 40ms, setup 0ms, import 62ms, tests 52ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: helper-ignores-its-mask-NM-44 in src/utils/markdown/__tests__/helpers/discordOracle.ts
+exit 1

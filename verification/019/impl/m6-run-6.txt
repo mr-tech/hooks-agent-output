@@ -1,0 +1,68 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 15484ms
+     × on embedDescription, every content character carries the style set its preview gives it 3692ms
+     × on fieldValue, every content character carries the style set its preview gives it 3033ms
+     × on embedTitle, every content character carries the style set its preview gives it 2725ms
+     × on v2Text, every content character carries the style set its preview gives it 3028ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'link:61', 'gen:709', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "link:61",
++   "gen:709",
++   "gen:870",
++   "gen:1113",
++   "gen:1368",
++   "gen:1677",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:137:23
+    135|     }
+    136|     expect(compared).toBeGreaterThan(2200);
+    137|     expect(differing).toEqual([]);
+       |                       ^
+    138|   }, 600_000);
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'link:61', 'gen:870', 'gen:1677' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "link:61",
++   "gen:870",
++   "gen:1677",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:137:23
+    135|     }
+    136|     expect(compared).toBeGreaterThan(2200);
+    137|     expect(differing).toEqual([]);
+       |                       ^
+    138|   }, 600_000);
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  04:20:53
+   Duration  17.76s (transform 690ms, setup 22ms, import 1.47s, tests 15.48s, environment 638ms)
+

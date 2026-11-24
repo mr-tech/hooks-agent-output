@@ -1,0 +1,45 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+ ❯ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts (113 tests | 1 failed) 48ms
+     × gives [ [ +0, 2 ], [ 2, 4 ] ] for 'two character emoji side by side' 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ], [ 2, 4 ] ] for 'two character emoji side by side'
+AssertionError: expected [ [ +0, 2 ], [ +0, 2 ] ] to deeply equal [ [ +0, 2 ], [ 2, 4 ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      0,
+      2,
+    ],
+    [
++     0,
+      2,
+-     4,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 112 passed (113)
+   Start at  04:58:29
+   Duration  257ms (transform 42ms, setup 0ms, import 65ms, tests 48ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: helper-first-occurrence-join in src/utils/markdown/__tests__/helpers/discordOracle.ts
+exit 1

@@ -1,0 +1,59 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 1249ms
+     × loads the text on each side of the emoji in "\\🙂 🙂" into its own text node 8ms
+     × loads the text on each side of the emoji in "`🙂` 🙂" into its own text node 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "\\🙂 🙂" into its own text node
+AssertionError: expected [ '\🙂 ', '[🙂]', '' ] to deeply equal [ '\🙂 ', '[🙂]' ]
+
+- Expected
++ Received
+
+  [
+    "\\🙂 ",
+    "[🙂]",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:25
+     75|     ['©™', ['©™']],
+     76|   ] as const)('loads the text on each side of the emoji in %j into its…
+     77|     expect(shown(text)).toEqual(children);
+       |                         ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "`🙂` 🙂" into its own text node
+AssertionError: expected [ '`🙂` ', '[🙂]', '' ] to deeply equal [ '`🙂` ', '[🙂]' ]
+
+- Expected
++ Received
+
+  [
+    "`🙂` ",
+    "[🙂]",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:25
+     75|     ['©™', ['©™']],
+     76|   ] as const)('loads the text on each side of the emoji in %j into its…
+     77|     expect(shown(text)).toEqual(children);
+       |                         ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 66 passed (68)
+   Start at  04:04:23
+   Duration  2.25s (transform 1.26s, setup 0ms, import 1.61s, tests 1.30s, environment 0ms)
+

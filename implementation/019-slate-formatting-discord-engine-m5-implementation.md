@@ -4,11 +4,11 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  M5 is built on chain/019-slate-formatting-discord-engine (slices at website 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107) and is
-  handed to code review at 2e36107. Open: the convention check's 8 FAILs, all eslint errors already in SlateEditor/index.tsx at the base
+  M5 is built on chain/019-slate-formatting-discord-engine (slices at website 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107), was approved
+  by code review (fdb41883) and QA Failed on QAF-39 (263aa3c6); Fix Round 1 is at cf126ea and goes to code review first. Earlier text: handed to code review at 2e36107. Open: the convention check's 8 FAILs, all eslint errors already in SlateEditor/index.tsx at the base
   (Outstanding 1, ruled (a) below); 9 sweep survivors dispositioned as equivalent or not M5's (Outstanding 3); the emoji and block-layer
   exclusions of AC-5.8 (Outstanding 4); a blind spot in M4's visibleForm helper (Outstanding 5).
-Handoff-At: 2e36107 — repos=website — M5 complete, handed to code review; the self-check sweep ran at 3ffb2b4, whose M5 source equals this tip's (later commits add tests and M3 helper changes only); whole offline suite at this tree: 224 files, 3,280 of 3,280, exit 0
+Handoff-At: cf126ea — repos=website — M5 fix round 1 (QAF-39), handed to code review; the M5 source is unchanged since 2e36107 (the round adds frozen test data and two counts); M5 itself was handed at 2e36107, approved by code review (record fdb41883), and QA Failed on QAF-39 only
 ---
 
 # Implementation 019 — M5: the editor's colouring on `parseLossless`
@@ -27,6 +27,7 @@ Handoff-At: 2e36107 — repos=website — M5 complete, handed to code review; th
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-24T05:10 | qa-019 (QA Failed at 2e36107 on QAF-39, record 263aa3c6) | Fix round 1 | Two members of QAF-39's class added to the frozen native box at `cf126ea`; m5-d2 red on one of them. See § Fix Round 1. |
 | 2026-11-24T03:49 | steering-hooks-fixer (message: resume M5 from the Resumption State) | Slices 2 and 3, hand-off | Code lines `6f4d48f`, properties and call sites `65b8e2c`, comment removal `3ffb2b4`, sweep-survivor cases `2e36107`; handed to code review at `2e36107`. Between: M3 fix rounds 7 (CR-15, `d6aab03`) and 8 (QAF-38, `81c68b2`), both closed by their reviewers. |
 | 2026-11-24T01:28 | steering-hooks-fixer (message, M5 stage start, block 2026-11-24T01:02Z) | Build M5 | Slice 1 at `921eeb8`. Between: M3 fix round 6 (`9a5f4fe`, `b04c09f`) and M4's stub-tree records, for qa-019's record `908aeee0`. |
 
@@ -172,7 +173,20 @@ Drivers: `mut2.py`, `mut3.py`, `mut4.py`, `mut5.py`, `mut6.py` (scratchpad), eac
 
 ## Class Sweep
 
-Not a fix round.
+Round 1 (QAF-39) is below. The first delivery was not a fix round.
+
+## Fix Round 1 (QAF-39)
+
+QA's finding: survivor m5-d2 (the quote prefix left out of `unitAround`'s text) is not equivalent. A `>>> ` line followed by `> ` lines makes those `> ` characters text inside the block, and the frozen native box held no input of that shape. Reproduced here by the mutant, under the new members.
+
+- **Members added.** Two inputs, keyed `x8` `>>> a⏎> _⏎> _b_` and `x9` `>>> *a⏎> b*`, to `discordNativeBox.json` and `discordTypedCases.json` (counts 87 typed, 281 frozen). Their box output was read live on the pinned wasm (`verification/019/impl/m6-box-quote-probe-2e36107.json`, from a throwaway case calling `nativeBox(live, text)`, not kept; re-derived by `discordBoxes.oracle-controls`, 10 of 10 live, `m6-boxes-live.txt`).
+- **What the box gives.** On `x8` the box draws line 2's `> ` as plain text, then `_` as the opening italic delimiter; line 3's `> ` as italic, `_` as the closing delimiter, `b_` plain. So the `> ` characters are text inside the `>>>` block, as QA found.
+- **Does the shipped decorator match it.** Yes: `decorator.native-box-classes` compares the decorator to every frozen member and is green at head with both added (`m6-m5fix-green.txt`: 8 of 8 in the two files).
+- **m5-d2 red.** With `unitAround` leaving the quote prefix out (`runUnit.ts` at `cf126ea`, the function moved there at `c3af0ac`), the same test fails on `>>> a⏎> _⏎> _b_` (`m5-d2-red.txt`, `AssertionError: expected [ '>>> a\n> _\n> _b_' ] to deeply equal []`). `x9` survives m5-d2 (its two lines agree either way); `x8` kills it.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| QAF-39: a frozen-input class the oracle lacked, behind a survivor called equivalent | the frozen members whose text has a `>>> ` line and, after it, a line starting `> `: `git show <ref>:src/utils/markdown/__tests__/helpers/data/discordNativeBox.json \| python3 -c "import json,re,sys; d=json.load(sys.stdin); print([c['key'] for c in d if re.search(r'(^\|\n) *>>> [^\n]*\n(?:[^\n]*\n)*?> ',c['text'])])"` (the reviewer's reading of the class; derived here, QA's finding gave two inputs, not a command) | at `2e36107`: 279 members, 0 hits. At `cf126ea`: 281 members, 2 hits: `x8`, `x9` | both added by this round and compared by `decorator.native-box-classes`, green. Residual after the fix: 2, each with a disposition. The other 8 survivors QA agreed with are not re-opened: none holds an input class the frozen set lacks (each is an equivalent form, a guard that is not M5's, or a dead branch, per Outstanding 3) |
 
 ## Test Execution Results
 
@@ -221,6 +235,8 @@ Evidence and input counts for AC-5.8: each of `embedDescription`, `fieldValue`, 
 Code review of M5 at `2e36107`, in this order of risk: `highlightScan.ts` and `codeLineRanges` (the replacement of `_emitter`), `decorator.preview-equals`'s exclusion predicates (Outstanding 4), the parse cache's bound and key (`STYLE_CACHE_LIMIT` 512, key = fence context plus text). Then QA Phase 2 on M5, then M6.
 
 ## Resumption State
+
+Superseded at 2026-11-24T05:10Z: M5's state is Fix Round 1 above, handed to code review at `cf126ea`; M6's Resumption State is in `019-slate-formatting-discord-engine-m6-implementation.md`. What follows is the earlier text, kept for the record.
 
 Written 03:55Z at M5's hand-off seam (about 343K tokens), for a `/clear`.
 

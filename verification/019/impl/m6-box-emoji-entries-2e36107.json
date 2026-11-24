@@ -1,0 +1,47 @@
+{
+ "docKeys": [
+  "blocks",
+  "codeBlocks"
+ ],
+ "blockKeys": [
+  [
+   "start",
+   "serializedChildren",
+   "entries"
+  ]
+ ],
+ "entryKeys": [
+  [
+   "text",
+   "start",
+   "attributes",
+   "data"
+  ],
+  [
+   "text",
+   "start",
+   "attributes",
+   "data"
+  ]
+ ],
+ "exports": [
+  "Sd",
+  "p0",
+  "tA"
+ ],
+ "src": "tent\":n(o,\"code_block\"===a.type?[\"codeBlockText\"]:s);break;case\"subtext_marker\":i(o,\"open\",s),d=!0;break;case\"link_open\":i(o,\"open\",s);break;case\"link_close\":i(o,\"close\",s),l=!0;break;case\"destination_open\":case\"destination_close\":case\"title\":i(o,\"close\",s);break;case\"url\":l?i(o,\"close\",s):n(o,s);break;case\"whitespace\":d?i(o,\"open\",s):l?i(o,\"close\",s):n(o,s);break;case\"line_ending\":case\"indent\":case\"quote_prefix\":case\"list_marker\":case\"heading_marker\":n(o,[]);break;default:n(o,s)}}}(e,[]),t}(s),h=0;for(let i=0;i<t.length;i++){let{contentStart:r,end:s}=c[i],o=[];for(;h<f.length&&f[h].start<s;){let e=f[h],t=e.start+e.text.length,n=Math.max(e.start,r),a=Math.min(t,s);if(a>n&&!(A.has(i)&&e.attributes.includes(\"codeBlockText\"))&&o.push({...e,text:e.text.slice(n-e.start,a-e.start),start:n-r}),t>s)break;h++}let d=0===t[i].index&&\"\"===t[i].prefix&&a.U1.test(l[i]);e.blocks[t[i].index]={start:n+r,serializedChildren:t[i].serializedChildren,entries:d?o.flatMap(e=>{let t=a.f5.length-e.start;if(t<=0)return[e];let n={...e,text:e.text.slice(0,t),attributes:[...e.attributes,\"silentPrefix\"]};return t>=e.text.length?[n]:[n,{...e,text:e.text.slice(t),start:a.f5.length}]}):o}}return d.length}(r,t,s,n)+1;return r}(_,e.children.length,t);return d.set(e,{children:e.children,syntax:t,key:E,document:A}),A}",
+ "entries": [
+  {
+   "text": "a😀b :smile: <:n:123456789012345678> <@1> <t:1:f> ",
+   "start": 0,
+   "attributes": []
+  },
+  {
+   "text": "https://x.y",
+   "start": 50,
+   "attributes": [
+    "link"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-m6
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 121ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 88ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '>>> a\n> _\n> _b_' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ > _
++ > _b_",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:96:23
+     94|     }
+     95|     expect(compared).toBeGreaterThan(200);
+     96|     expect(differing).toEqual([]);
+       |                       ^
+     97|   });
+     98|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  04:42:20
+   Duration  1.03s (transform 511ms, setup 0ms, import 757ms, tests 121ms, environment 0ms)
+

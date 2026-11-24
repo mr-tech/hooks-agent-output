@@ -1,0 +1,150 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut
+
+ ❯ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts (113 tests | 7 failed) 52ms
+     × gives [ [ 1, 4 ] ] for 'a keycap after a backslash' 7ms
+     × gives [ [ 4, 9 ] ] for 'a ZWJ sequence after a backslash' 1ms
+     × gives [ [ 3, 5 ] ] for 'a skin-tone sequence after a backslash' 1ms
+     × gives [ [ 3, 5 ] ] for 'a flag after a backslash' 1ms
+     × gives [ [ 2, 4 ] ] for 'a colon-wrapped emoji after a backsla…' 1ms
+     × gives [ [ 3, 5 ] ] for 'an emoji after an escaped asterisk' 1ms
+     × gives [ [ 4, 6 ] ] for 'an emoji after an escaped underscore' 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 1, 4 ] ] for 'a keycap after a backslash'
+AssertionError: expected [ [ +0, 3 ] ] to deeply equal [ [ 1, 4 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     1,
+-     4,
++     0,
++     3,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 4, 9 ] ] for 'a ZWJ sequence after a backslash'
+AssertionError: expected [ [ 3, 8 ] ] to deeply equal [ [ 4, 9 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     4,
+-     9,
++     3,
++     8,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 3, 5 ] ] for 'a skin-tone sequence after a backslash'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 3, 5 ] ] for 'a flag after a backslash'
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 3, 5 ] ] for 'an emoji after an escaped asterisk'
+AssertionError: expected [ [ 2, 4 ] ] to deeply equal [ [ 3, 5 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     3,
+-     5,
++     2,
++     4,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 4 ] ] for 'a colon-wrapped emoji after a backsla…'
+AssertionError: expected [ [ 1, 3 ] ] to deeply equal [ [ 2, 4 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     2,
+-     4,
++     1,
++     3,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 4, 6 ] ] for 'an emoji after an escaped underscore'
+AssertionError: expected [ [ 3, 5 ] ] to deeply equal [ [ 4, 6 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     4,
+-     6,
++     3,
++     5,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:125:47
+    123| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    124|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    125|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 106 passed (113)
+   Start at  04:58:30
+   Duration  266ms (transform 40ms, setup 0ms, import 63ms, tests 52ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/d6b33f3c-7a2f-4625-96f6-16253e9081c7/scratchpad/export-mut/
+mutant: helper-offsets-in-unescaped-text in src/utils/markdown/__tests__/helpers/discordOracle.ts
+exit 1

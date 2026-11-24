@@ -1,0 +1,530 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 18513ms
+     × hands the message that text in a full-markdown editor 13789ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 21166ms
+     × hands the message that text in a full-markdown editor 14222ms
+     × hands the message that text in a full-markdown editor 6316ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 29851ms
+     × hands the message that text in a full-markdown editor 5785ms
+     × hands the message that text in a full-markdown editor 12023ms
+     × hands the message that text in a full-markdown editor 2379ms
+     × hands the message that text in a full-markdown editor 2022ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 109842ms
+     × hands the message that text in a full-markdown editor 94972ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(49) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> <t:1700000000:d>
++ 1. ||__https://x.y/a*b*c 🙂 https://x.y.__
++ ````[a](https://x.y/🙂)",
++   "-# <game:1558266761101447248> <a@b.co>
++ > 🙂 https://x.y
++ - `*\\<x\\< 2 < 3*`",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   "™
++ > *[a](https://x.y/🙂)*
++ - ||<id:guide> [<:hooks:1558266761101447248>](https://x.y/a*b*c)||",
++   "> `a*b` <t:1700000000:d> <t:1700000000:F>
++ > ||``\\`x\\` ©`` <id:browse>|| [<:hooks:1558266761101447248>](https://example.com/a_b)
++   - \\[x\\[ \\[x\\[",
++   "> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> 🪿 \\)x\\) snake_case
++ - _**https://x.y/a*b*c 🙂 ™ <t:1700000000:f>_
++ <id:home>",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++   "> ``~~__<id:browse> \\(x\\(<https://x.y/🙂>~~``
++ __<t:1700000000:t>
++ ## ``<https://x.y/🙂> \\>x\\>[text](https://example.com \"a title\")",
++   "- https://x.y🙂
++ > ``[<:hooks:1558266761101447248>](https://x.y)`` https://example.com/a_b 🙂<t:1700000000:x>
++ ### `[<:hooks:1558266761101447248>](https://example.com/a_b)` [dev](dev://branch/main) <t:1700000000:S>",
++   "> __**~~\\>x\\>~~ https://x.y🙂**__
++ __*🇬🇧 <id:customize>*__",
++   "> [text](<https://example.com>)
++ 👨‍👩‍👧
++ - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "tail  ™
++ > 🙂
++ - _*<t:1700000000:D>*_ <@1558266761101447248> <t:1700000000:Z>",
++   "> ~~[a](https://x.y/🙂)~~
++ -# __||\\<x\\<||__ \\)x\\) snake_case
++ # `__**[:smile:](https://example.com/a_b) \\]x\\]** https://example.com/a_b 🙂 🪿__ <t:1700000000:t>",
++   "https://example.com/a_b 🙂 <game:1558266761101447248>
++ > ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)
++ -# <id:guide>https://x.y 🙂",
++   "> x_y
++ 1. ~~~~1️⃣~~ hello world~~ <t:1700000000:f>
++   - \\[x\\[",
++   "> https://x.y/a(b)c<t:1700000000:T>
++ -# `**[🙂](https://x.y) <t:1700000000:x>**
++   - ||🙂 https://example.com/a_b||",
++   "> _<a:dance:1558266761101447248>_ 🙂 https://x.y\\<x\\<
++ ### ||_<id:browse> C++_||
++ _<@!1558266761101447248>_",
++   "-# ``❤`` 🙂 https://x.y/a*b*c [a [b] c](https://example.com)
++ > https://example.com/path?q=1&r=2#f hello world
++ ### <t:-1:f><a@b.co>",
++   "  - <t:1700000000:Z><id:guide>
++ > `~~[🙂](https://x.y/a*b*c)<id:home>~~ 🏴󠁧󠁢󠁥󠁮󠁧󠁿`
++ __a*b [a](https://x.y/🙂)__",
++   "> ~~~~||é <id:home>||~~ [a](https://x.y/🙂)~~
++ - _~~❤ [🙂](https://x.y)~~_",
++   "# [🙂](https://x.y)[text](https://example.com \"a title\")
++ > [**bold** label](https://example.com)
++ - tail ",
++   "> __`a` a*b__
++ 1. ||||🪿 [<:hooks:1558266761101447248>](https://example.com/a_b)||||",
++   "> ``__\\(x\\(
++ ### `<https://x.y><t:1700000000:F>` [a](https://x.y/🙂)",
++   ">>> > ||[:smile:](https://x.y)|| <t:1700000000:s><@&1558266761101447248>
++ # `<t:1700000000:S>`
++ -# ||~~[:smile:](https://x.y/a*b*c)<game:1558266761101447248> 🙂 https://x.y<@!1558266761101447248>",
++   "> ``_<t:1700000000:t>_ \\`x\\`日本
++ 1. [a 🙂 b](https://x.y)",
++   "  - __[🙂](https://example.com/a_b) snake_case__
++ > [a 🙂 b](https://x.y/a*b*c) <t:-1:f>
++ - ``snake_case <https://x.y/🙂>`` https://x.y 🙂 a*b",
++   "> __[dev](dev://branch/main)__ \\>x\\>
++ -# *[a 🙂 b](https://x.y/a*b*c)* https://example.com\\)x\\)",
++   "> `https://x.y🙂`
++   - `https://example.com/path?q=1&r=2#f`
++   - __\\<x\\<__",
++   "> **||``©`` [<:hooks:1558266761101447248>](https://example.com/a_b)\\#x\\#|| <t:-1:f>** [:smile:](https://example.com/a_b)
++ `<t:1700000000:x> \\~x\\~`
++ - https://x.y🙂<id:customize>",
++   "### ~~[🙂](https://x.y/a*b*c)
++ > ||_`\\_x\\_` \\*x\\* \\]x\\]_ \\(x\\( https://example.com
++ ### [a 🙂 b](https://example.com/a_b)",
++   "-# **🪿 [a](https://x.y/a*b*c/🙂)** <t:1700000000:R>
++ > ||\\#x\\# \\#x\\#[:smile:](https://example.com/a_b)
++ ~~https://example.com/a_b 🙂~~ \\[x\\[ 🇬🇧",
++   ":smile: a*b
++ > ||\\:x\\: <a@b.co>|| hello world <t:1700000000:x>
++ ### __**1️⃣ [text](<https://example.com>)**",
++   "> __<id:home>__
++ # 🇬🇧
++ 1. \\:x\\:",
++   "> 2 < 3
++ ``_<t:1700000000:t> [a](https://example.com/a_b/🙂)_`` 🪿\\#x\\#",
++   "# ||``🙂 [a](https://example.com/a_b/🙂)||
++ > <id:browse> word
++ *`\\`x\\`",
++   "> [:smile:](https://x.y/a*b*c) snake_case
++   - **[a 🙂 b](https://x.y)@here
++ ## a*b",
++   "> ``[a 🙂 b](https://example.com/a_b)`` @everyone
++ 1. <t:1700000000:T>",
++   "# \\)x\\)
++ > **<id:browse>**
++ ### __<id:browse> 👨‍👩‍👧__ <@!1558266761101447248>",
++   "> _<id:customize>_
++ # **`👨‍👩‍👧`** https://example.com/a_b🙂 [🙂](https://x.y/a*b*c)",
++   "> `<@1558266761101447248>` https://example.com x_y
++ -# ~~https://x.y 🙂~~",
++   "> 👍🏽
++ <t:1700000000:S>",
++   "> 🙂 https://example.com/a_b [:smile:](https://x.y/a*b*c)
++ ## ||~~~~<t:1700000000> \\[x\\[ [a 🙂 b](https://x.y/a*b*c)||
++ <t:1700000000:s> 2 < 3",
++   "> hello world<id:guide>
++ https://x.y/a*b*c🙂\\[x\\[",
++   "> C++
++ ## ``||👍🏽 [a](https://x.y/a*b*c/🙂)||``",
++   "> [a](https://example.com/a_b/🙂)
++ > _日本 \\>x\\>:🙂:
++ 1. _||*[🙂](https://x.y/a*b*c)*||_",
++   "- **_``🙂``_** [text](https://example.com \"a title\") <t:1700000000:x>
++ > __``\\|x\\|``__ [text](https://example.com)
++ -# **\\]x\\] <t:1700000000:D> 👨‍👩‍👧",
++   "> ``@everyone` [:smile:](https://example.com/a_b)
++   - [a](https://x.y/🙂)",
++   "1. 🙂
++ > _❤_
++   - ___<t:1700000000>___",
++   "> ||\\:x\\: <id:customize>||
++ - ||\\>x\\> 🙂||
++ <t:1700000000:x>",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n🙂 b', '> \n🙂 b', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ 🙂 b",
++   "> 
++ 🙂 b",
++   " > a
++ 🙂 b",
++   ">>> > a
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "#>>> 
++ ```js*```||
++ >> ```
++ ```c++_
++ >>>  > ```
++ >> a`",
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">>> ajs 
++ ``` >>> ```js
++ ``` 
++ > ``````
++ >> ||> ",
++   ">b
++ > ||```
++  > > ",
++   " > \\```_
++ _ 
++ ```>>> ",
++   "> ```>>> > 
++ ``` ",
++   " > ```a
++ ~~\\
++ > >>> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n🙂 b', '> \n🙂 b', …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ 🙂 b",
++   "> 
++ 🙂 b",
++   " > a
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ ' > ```\n```>>> >>> \n```', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   " > ```
++ ```>>> >>> 
++ ```",
++   ">>> ajs 
++ ``` >>> ```js
++ ``` 
++ > ``````
++ >> ||> ",
++   ">b
++ > ||```
++  > > ",
++   " > \\```_
++ _ 
++ ```>>> ",
++   "> ```>>> > 
++ ``` ",
++   " > ```a
++ ~~\\
++ > >>> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(48) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> <t:1700000000:d>
++ 1. ||__https://x.y/a*b*c 🙂 https://x.y.__
++ ````[a](https://x.y/🙂)",
++   "-# <game:1558266761101447248> <a@b.co>
++ > 🙂 https://x.y
++ - `*\\<x\\< 2 < 3*`",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   "™
++ > *[a](https://x.y/🙂)*
++ - ||<id:guide> [<:hooks:1558266761101447248>](https://x.y/a*b*c)||",
++   "> `a*b` <t:1700000000:d> <t:1700000000:F>
++ > ||``\\`x\\` ©`` <id:browse>|| [<:hooks:1558266761101447248>](https://example.com/a_b)
++   - \\[x\\[ \\[x\\[",
++   "> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> 🪿 \\)x\\) snake_case
++ - _**https://x.y/a*b*c 🙂 ™ <t:1700000000:f>_
++ <id:home>",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++   "> ``~~__<id:browse> \\(x\\(<https://x.y/🙂>~~``
++ __<t:1700000000:t>
++ ## ``<https://x.y/🙂> \\>x\\>[text](https://example.com \"a title\")",
++   "- https://x.y🙂
++ > ``[<:hooks:1558266761101447248>](https://x.y)`` https://example.com/a_b 🙂<t:1700000000:x>
++ ### `[<:hooks:1558266761101447248>](https://example.com/a_b)` [dev](dev://branch/main) <t:1700000000:S>",
++   "> __**~~\\>x\\>~~ https://x.y🙂**__
++ __*🇬🇧 <id:customize>*__",
++   "> [text](<https://example.com>)
++ 👨‍👩‍👧
++ - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "tail  ™
++ > 🙂
++ - _*<t:1700000000:D>*_ <@1558266761101447248> <t:1700000000:Z>",
++   "> ~~[a](https://x.y/🙂)~~
++ -# __||\\<x\\<||__ \\)x\\) snake_case
++ # `__**[:smile:](https://example.com/a_b) \\]x\\]** https://example.com/a_b 🙂 🪿__ <t:1700000000:t>",
++   "https://example.com/a_b 🙂 <game:1558266761101447248>
++ > ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)
++ -# <id:guide>https://x.y 🙂",
++   "> x_y
++ 1. ~~~~1️⃣~~ hello world~~ <t:1700000000:f>
++   - \\[x\\[",
++   "> https://x.y/a(b)c<t:1700000000:T>
++ -# `**[🙂](https://x.y) <t:1700000000:x>**
++   - ||🙂 https://example.com/a_b||",
++   "> _<a:dance:1558266761101447248>_ 🙂 https://x.y\\<x\\<
++ ### ||_<id:browse> C++_||
++ _<@!1558266761101447248>_",
++   "-# ``❤`` 🙂 https://x.y/a*b*c [a [b] c](https://example.com)
++ > https://example.com/path?q=1&r=2#f hello world
++ ### <t:-1:f><a@b.co>",
++   "  - <t:1700000000:Z><id:guide>
++ > `~~[🙂](https://x.y/a*b*c)<id:home>~~ 🏴󠁧󠁢󠁥󠁮󠁧󠁿`
++ __a*b [a](https://x.y/🙂)__",
++   "> ~~~~||é <id:home>||~~ [a](https://x.y/🙂)~~
++ - _~~❤ [🙂](https://x.y)~~_",
++   "# [🙂](https://x.y)[text](https://example.com \"a title\")
++ > [**bold** label](https://example.com)
++ - tail ",
++   "> __`a` a*b__
++ 1. ||||🪿 [<:hooks:1558266761101447248>](https://example.com/a_b)||||",
++   "> ``__\\(x\\(
++ ### `<https://x.y><t:1700000000:F>` [a](https://x.y/🙂)",
++   "> ``_<t:1700000000:t>_ \\`x\\`日本
++ 1. [a 🙂 b](https://x.y)",
++   "  - __[🙂](https://example.com/a_b) snake_case__
++ > [a 🙂 b](https://x.y/a*b*c) <t:-1:f>
++ - ``snake_case <https://x.y/🙂>`` https://x.y 🙂 a*b",
++   "> __[dev](dev://branch/main)__ \\>x\\>
++ -# *[a 🙂 b](https://x.y/a*b*c)* https://example.com\\)x\\)",
++   "> `https://x.y🙂`
++   - `https://example.com/path?q=1&r=2#f`
++   - __\\<x\\<__",
++   "> **||``©`` [<:hooks:1558266761101447248>](https://example.com/a_b)\\#x\\#|| <t:-1:f>** [:smile:](https://example.com/a_b)
++ `<t:1700000000:x> \\~x\\~`
++ - https://x.y🙂<id:customize>",
++   "### ~~[🙂](https://x.y/a*b*c)
++ > ||_`\\_x\\_` \\*x\\* \\]x\\]_ \\(x\\( https://example.com
++ ### [a 🙂 b](https://example.com/a_b)",
++   "-# **🪿 [a](https://x.y/a*b*c/🙂)** <t:1700000000:R>
++ > ||\\#x\\# \\#x\\#[:smile:](https://example.com/a_b)
++ ~~https://example.com/a_b 🙂~~ \\[x\\[ 🇬🇧",
++   ":smile: a*b
++ > ||\\:x\\: <a@b.co>|| hello world <t:1700000000:x>
++ ### __**1️⃣ [text](<https://example.com>)**",
++   "> __<id:home>__
++ # 🇬🇧
++ 1. \\:x\\:",
++   "> 2 < 3
++ ``_<t:1700000000:t> [a](https://example.com/a_b/🙂)_`` 🪿\\#x\\#",
++   "# ||``🙂 [a](https://example.com/a_b/🙂)||
++ > <id:browse> word
++ *`\\`x\\`",
++   "> [:smile:](https://x.y/a*b*c) snake_case
++   - **[a 🙂 b](https://x.y)@here
++ ## a*b",
++   "> ``[a 🙂 b](https://example.com/a_b)`` @everyone
++ 1. <t:1700000000:T>",
++   "# \\)x\\)
++ > **<id:browse>**
++ ### __<id:browse> 👨‍👩‍👧__ <@!1558266761101447248>",
++   "> _<id:customize>_
++ # **`👨‍👩‍👧`** https://example.com/a_b🙂 [🙂](https://x.y/a*b*c)",
++   "> `<@1558266761101447248>` https://example.com x_y
++ -# ~~https://x.y 🙂~~",
++   "> 👍🏽
++ <t:1700000000:S>",
++   "> 🙂 https://example.com/a_b [:smile:](https://x.y/a*b*c)
++ ## ||~~~~<t:1700000000> \\[x\\[ [a 🙂 b](https://x.y/a*b*c)||
++ <t:1700000000:s> 2 < 3",
++   "> hello world<id:guide>
++ https://x.y/a*b*c🙂\\[x\\[",
++   "> C++
++ ## ``||👍🏽 [a](https://x.y/a*b*c/🙂)||``",
++   "> [a](https://example.com/a_b/🙂)
++ > _日本 \\>x\\>:🙂:
++ 1. _||*[🙂](https://x.y/a*b*c)*||_",
++   "- **_``🙂``_** [text](https://example.com \"a title\") <t:1700000000:x>
++ > __``\\|x\\|``__ [text](https://example.com)
++ -# **\\]x\\] <t:1700000000:D> 👨‍👩‍👧",
++   "> ``@everyone` [:smile:](https://example.com/a_b)
++   - [a](https://x.y/🙂)",
++   "1. 🙂
++ > _❤_
++   - ___<t:1700000000>___",
++   "> ||\\:x\\: <id:customize>||
++ - ||\\>x\\> 🙂||
++ <t:1700000000:x>",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  4 failed | 65 passed (69)
+      Tests  8 failed | 660 passed (668)
+   Start at  04:26:48
+   Duration  114.23s (transform 17.55s, setup 1.13s, import 99.60s, tests 248.07s, environment 72.11s)
+
