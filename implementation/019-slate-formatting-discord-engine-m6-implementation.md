@@ -383,8 +383,8 @@ Written 2026-11-24 after Fix Round 1's hand-off to code review.
 
 - **Done.** M6 first delivery `119471f` (code review Round 6 approved with comments, record `8c2a4593`; QA Phase 2 at `119471f` failed, record `4da9b76b`). Fix Round 1 committed on the chain branch at `42128cd` (tree identical to `10abfa9`): CR-20 and AC-6.8, QAF-50, QAF-46, the generator count fit. This document is current at that commit; the evidence is in `verification/019/impl/m6-fix-*`.
 - **Next, and its start condition.** Nothing of mine is in flight. Code review of `42128cd` (code-reviewer-019) is next; any finding goes to a fix round of its own.
-- **Open items for others.** Outstanding 1 (the unclosed-fence family: leave it as residue, or ask for the neighbour step), Outstanding 2 (Slate's iteration cap on `>` typed to make `>>> ` at 200 lines, pre-existing), Outstanding 3 (the full 1,000 generator inputs have no home in `test:discord`).
+- **Open items for others, as the planner registered them at R-92 (record `7100aab8`).** Outstanding 1 stands as residue in QAF-48's class: do not rewrite the neighbour step unless code review asks. Outstanding 2: qa-019 probes the `>>> ` throw at `af3d95a`; it is pre-existing only if it throws there. Outstanding 3: the `MOUNTED_GENERATOR_COUNT` knob is the full count's home, left as it is.
 - **Local state not restored.** Scratchpad exports only (`export-tip`, `export-base`, `export-stub`, `export-fix`, `export-7cea6a9`, probe files): nothing in the shared tree, nothing to restore. No process of mine is running. `git status` in the website tree lists only the foreign `?? .playwright-mcp/`.
 - **Evidence run but not recorded.** The first bench run of the `a🙂` text at box load about 15 (17.8 ms) was overwritten; it is named in the Observations as an unrecorded reading.
 - **Questions sent.** Answered by action or message: the corpus bound (revision 20), the AC-3.3 cap (block 08:17Z), QAF-50 and QAF-46 (planner). None open.
-- **Cache-warm wake.** Armed at the start of this session for 08:03Z; re-arm when it fires.
+- **Cache-warm wake.** Deleted at this checkpoint (steering asked, 09:09Z). Arm a new one on the next turn.
