@@ -1017,3 +1017,12 @@ QA Complete, milestone-scoped, at `81c68b2` (`cece4c72`, `e47a438e`, plan R-58 `
 `Killed process` lines. The stop's author is unknown, and is recorded as unknown.
 QA disclosed in its document (`e47a438e`) that the record-write gate is uneven. The agents inbox has an FYI.
 Next: M5 is the implementer's to hand to code review (its document was uncommitted at 02:50Z), then QA Phase 2 on M5, then M6.
+
+## 2026-11-24T02:58Z — his selection, relayed by steering-statbot-fixer: remove the empty Secret-Files field from four handoffs
+
+Ledger: statbot `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T02:56Z — steering-statbot-fixer` (read this turn). The answer is
+"Agent: false alarm, fix it (Recommended)", and its option text names this thread as the one to remove the line. **Acted:** the field is
+removed from `handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md` and from three files under `handoff/closed/`
+(`fix-desktop-draft-as-typed-post-deploy`, `get-one-absent-number-still-500-in-production`, `fix-get-one-absent-not-found-post-deploy`).
+Each got one changelog row, committed at `5aadb178` (`--numstat` 1/1 per file). The two preview-image-generator handoffs, whose field names
+real files, are unchanged.
