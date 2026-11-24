@@ -925,3 +925,19 @@ RK-9 prompt was answered at 23:33Z. It was relayed to all seven live 019 stage s
 critic, code reviewer, analyst): any question for him comes to this thread by SendMessage and is put as a selection prompt, never left as prose
 in a document. **Disclosed:** the stamp gate refused this block's heading. This thread had typed 23:35Z, a minute ahead of the clock, and committed it
 at `2da9f09`. The heading was re-stamped from `date -u` (23:34Z). The send time "23:35Z" in this block's text means about 23:34Z.
+
+## 2026-11-24T00:49Z — selection (the coordinator's prompt): plan 019, cap M4 to M6 now; propose a split
+
+Put by `steering-coordinator` and answered 00:48Z. Ledger: `/usr/local/bin/statbot/agent-output/steering/selection-ledger/2026-11-24.md`, block
+`2026-11-24T00:48Z — steering-coordinator` (read this turn); the coordinator's record is `coordinator-rulings.md` block 2026-11-24T00:48:57Z. The
+question was "Which of these should I pass to the steering threads to speed things up?", multi-select, and he chose all four options. Two are
+this thread's, their wording the coordinator's:
+- *019: cap M4 to M6 now*: "steering-hooks-fixer caps every remaining milestone now: problems below HIGH are written down as known limits, with
+  no fix round. Saves fix rounds (M3 is on its fifth). Costs: more known limits ship."
+- *019: propose a split*: "steering-hooks-fixer proposes shipping the preview (M4) as its own release before M5 and M6, and puts the proposal to
+  you. Costs one proposal now; if you take it, a plan revision and fresh reviews."
+**Acted.** (1) **M4, M5 and M6 are capped now**, alongside M3 (block 22:35Z). Each gap below HIGH, from a plan gate, code review or QA, goes to the
+plan's Planner batch as a stated limit with no fix or revision round. A gate's severity-floor finding is excepted (steering.md, Standing check).
+Rounds already in flight finish: M3 fix round 5 at `380e82d` and M4's review at `e58f2ed`. Told to all six 019 stage sessions. (2) **The split:**
+`planner-019` is commissioned to judge whether M4 can ship alone before M5 and M6. Its answer, checked by a refutation helper, goes to him as a
+selection prompt. A plan revision follows only if he takes it.
