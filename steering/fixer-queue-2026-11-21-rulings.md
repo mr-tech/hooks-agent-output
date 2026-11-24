@@ -1625,3 +1625,13 @@ asks what a fence tip reading compares against, and holds its verdict on the fen
   roughly today's speed. A reading above it comes to this thread with its figures and load, as plan line 1607 sends a ceiling miss. A tip
   reading that throws, or any no-throw or write failure, is a fail on its own limb.
 Recipients: `code-reviewer-019` (it gives its fence verdict on this), `planner-019` (R-108's row), `qa-019` (it applies SL-29 at Phase 2).
+QA (`ce8f0f60`) and the reviewer (`8fbe3146`) each hold each paste fill to its own base median plus a quarter. That is this block's meaning.
+
+## 2026-11-24T20:59Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (20:5xZ) asked for `/checkpoint`: 257,616 by `cc-usage.py sessions`, past the 225K steering threshold. The
+Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, rewritten whole).
+- M6 Fix Round 3 is with `implementer-019` (busy, website tip `c1a1da1`), on Revision 23, with SL-29 and the yardstick of block 20:58Z.
+- At its hand-off, this thread reads the round's figures, then code review, then QA Phase 2 with SL-29. `critic-019` is at 339K, idle, and
+  past 325K, so it is asked for `/checkpoint` at the next check.
+- Standing check `4e57be3b` is at 21:26Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
