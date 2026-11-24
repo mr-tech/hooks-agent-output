@@ -4,8 +4,11 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Delta pass on plan 019 revision 18 (record 18e434e6, AC-6.8's count window and literal): APPROVED. CF-27 is resolved as
-  folded.
+  Delta pass on plan 019 revision 19 (record 4a68f286, AC-6.8's count without per-kind literals): APPROVED. CF-27's literal is
+  withdrawn, and the error was mine (F-48's probe). CF-28 (LOW: every sized text is one run unit, so add a many-unit sized text)
+  is a stated limit. It holds nothing.
+  Delta pass on plan 019 revision 18 (record 18e434e6, AC-6.8's count window and literal): APPROVED, superseded by revision
+  19's pass.
   Delta pass on plan 019 revision 17 (record 34850209, AC-6.8's count and bench folds): APPROVED, re-dispositioned under
   steering's block 07:13Z. CF-27 (MEDIUM: the count's window is one Editor.normalize drain, and the literal is the lines the
   keystroke dirties: 1, 2, 1) is a stated limit (R-82) whose reading governs the count limb until the seam fold. It holds
@@ -63,6 +66,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T07:23 | architect-019 | Delta pass on plan 019 revision 19 (record `4a68f286`); § Delta pass, revision 19. APPROVED; CF-27's literal withdrawn (my error, shown by F-48's probe); CF-28 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:21Z. Read as `git show 4a68f286` on the plan, with `runUnit.ts` at website `119471f`. Nothing was run. |
 | 2026-11-24T07:17 | architect-019 | Delta pass on plan 019 revision 18 (record `18e434e6`); § Delta pass, revision 18. APPROVED; CF-27 resolved | Commissioned by `planner-019`'s message under steering block 07:15Z. Read as `git show 18e434e6` on the plan. |
 | 2026-11-24T07:15 | architect-019 | Revision 17 verdict re-dispositioned under steering's block 07:13Z: APPROVED, with CF-27 a stated limit (plan R-82, record `75aa1dad`) whose reading governs the count limb | A reconcile note in § Delta pass, revision 17, with the original verdict kept in place. |
 | 2026-11-24T07:13 | architect-019 | Delta pass on plan 019 revision 17 (record `34850209`); § Delta pass, revision 17. APPROVED_WITH_CHANGES on CF-27 MEDIUM | Commissioned by `planner-019`'s message. Read as `git show 34850209` on the plan, with the installed `slate` 0.123.0 `normalize` read read-only. Nothing was run. |
@@ -89,7 +93,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21** to **CF-26** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-26**, and **CF-28**, go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -332,6 +336,43 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 19 (record `4a68f286`)
+
+Read as the revision 19 commit's own hunks on the plan, under steering's block "2026-11-24T07:21Z" (F-48). The two commits before
+it since `18e434e6` are R-83 and R-84, which are registration rows. The delta is AC-6.8's keystroke class, its text class, the
+window, the property, the corpus bound and the residue.
+
+**CF-27's literal was wrong, and the error was mine.** The critic's Slate probe (F-48, record `e1106d42`, read, not re-run) shows
+two things. A merge sends its line to `normalizeNode` twice. Enter with the carried marker on a `> ` line makes three line entries
+over two drains. So "the lines the keystroke dirties: 1, 2, 1" in one drain was a premise about Slate's dirtying I had not run,
+and it fails a correct fix as revision 17's literal did. CF-27's resolution at revision 18 is withdrawn by this pass.
+
+**The restated property fits, and it is the better form.** Equality of the count between the 200-line and 2,048-line sizes, with
+a floor of 1, asserts what CR-20 is about: a keystroke's work does not grow with the message. It holds no literal that depends on
+how Slate dirties paths. Three revisions in a row found that dependency wrong, mine included, so dropping it removes the cause. It
+is also independent of the production unit function (axiom E). The corpus bound of 4 is one literal of the same kind, with a
+stated basis. The NM-72 fixture (Enter mid-code-line between two units) gives the class a two-unit keystroke whose count is
+read, not assumed.
+
+### CF-28 LOW — Every sized text is one run unit, so a fix that rebuilds every unit in the document passes the equality
+
+Run units break only at `codeBlock` elements (`runUnit.ts` `unitAround`'s `isRun`, read at `119471f`). The plain, `> `, `>>>`
+and `a🙂` sized texts hold no fence, so each is one unit at every size. A partial fix that drops the per-line loop but builds every
+unit in the document once per keystroke counts 1 on both sizes of those texts. It still grows with the number of units: one per
+code block. The corpus bound of 4 catches it only on an input with more than four units, which the 272 corpus's short messages
+seldom are (not counted).
+- **Recommended:** one sized text with many units, such as `a⏎```⏎x⏎```⏎` repeated. That is 12 characters per 4 lines, giving
+  341 repeats, 1,364 lines, within the description's 4,096. Run it at 200 lines and at the largest that fits, with the same
+  equality. A keystroke on an `a` line changes one unit of about 340, so a rebuild of every unit fails the equality.
+- **Accept the gap:** the timed limb bounds the cost of such a fix in practice. A whole-document unit build per keystroke is
+  O(N), not O(N²), and may pass 16 ms. So this is a stated gap, not a fault the bench would show.
+
+LOW: the property stands, and this widens its text class. After revision 19 (block 07:21Z), an AC-6.8 finding below HIGH is a
+stated limit. That is where this goes.
+
+**Verdict on revision 19:** APPROVED. CF-28 is LOW, a stated limit. CF-27's literal is withdrawn, and the error was mine. Nothing
+needs the owner.
 
 ## Delta pass, revision 18 (record `18e434e6`)
 
