@@ -3,16 +3,21 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 9 pass 1 on plan revision 15: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37 and F-40 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15) and F-42 (SL-16) are Planner batch rows in the plan (R-32, R-41, R-63). F-43 is closed by property with stated limit SL-17, and F-44 duplicates QA's QAF-42 (Planner batch, R-69); both close as landed-by-author, stated limits under steering's block 04:18Z and the cap on M6. A later revision that changes a criterion's text opens cycle 10."
-Artifact-Revision: 15 — read as the delta 2c3c8d1a..79eeced6 (cycle 9 pass 1)
-Reviewed-At: "79eeced6 — repos=agent-output; website read at 2e36107"
+Status-Detail: "Cycle 10 pass 1 on plan revision 16: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37 and F-40 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17) and F-44 are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71). F-45 is closed by property with stated limit SL-18 and closes as landed-by-author, a stated limit for the plan's Planner batch. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 11."
+Artifact-Revision: 16 — read as the delta 79eeced6..30e2a5b8 (cycle 10 pass 1)
+Reviewed-At: "30e2a5b8 — repos=agent-output; website read at 119471f"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 15 (`79eeced6`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 15 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 16 (`30e2a5b8`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 16 as deltas.
+**Read at cycle 10 pass 1**: the plan's diff `79eeced6..30e2a5b8`; the plan at `30e2a5b8` at every line holding "run unit";
+effort rulings block 2026-11-24T07:05Z (record `3ec39942`); the code reviewer's captures under
+`verification/019/code-review/m6-119471f/` (its README, the four `normalize-cost-*.out.txt` files and the tip probe); website
+at `119471f`: `src/components/SlateEditor/utils/withNormalizeNode.ts` at `handleEditor`'s emoji loop and `resolveEmoji`,
+`runUnit.ts` at `unitAround`, and `decorator.tsx` at its per-pass unit map.
 **Read at cycle 9 pass 1**: the plan's diff `2c3c8d1a..79eeced6`; the plan at `79eeced6` at AC-6.5 and AC-6.7 whole; effort
 rulings block 2026-11-24T04:18Z (record `56a44cc0`); QA's document at "QAF-40", "QAF-41" and "Re-key on Revision 15" (QAF-42),
 as it stands at record `c1028a1d`; website at `2e36107`: `src/utils/markdown/engine.ts` at its import line; the pinned engine
@@ -93,7 +98,52 @@ for the 15,480 figure.
 | 2026-11-24T04:22 | planner-019 (message naming revision 15 at `79eeced6`) | cycle 9 pass 1: plan revision 15 | Resumed after a clear from this document's Resumption State at `8af264cb`; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 9 opens because revision 15 changes AC-6.5's, AC-6.7's and AC-3.3's text. Depth: delta-bounded; the delta `2c3c8d1a..79eeced6` is 39 added and 8 removed lines (`git diff --numstat`, 7 commits, 6 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added NM-68 and NM-69, and B-9, SL-15 and SL-16 in registration rows. The diff, read whole, changes AC-6.5's control, AC-6.7's "Seen red" and AC-3.3's drive clause; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table and Planner batch rows. Artifact changes: AC-6.5's control gains five members and a first-occurrence join mutant (QAF-40, steering block 04:18Z); AC-6.7 gains NM-68 and NM-69; AC-3.3's drive computes the table over the input's text. New findings: F-43 (LOW), the second instance of QAF-42's shape, closed by property with stated limit SL-17, the stop authority firing; F-44 (LOW), a duplicate of QAF-42. Verdict APPROVED. |
 | 2026-11-24T04:22 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-43 and F-44 close as landed-by-author, their discharging document the plan's Planner batch. |
 
+| 2026-11-24T07:10 | planner-019 (message naming revision 16 at `30e2a5b8`) | cycle 10 pass 1: plan revision 16 | Cycle 10 opens because revision 16 adds AC-6.8. Depth: delta-bounded; the delta `79eeced6..30e2a5b8` is 73 added and 10 removed lines (`git diff --numstat`, 13 commits, 12 of them registrations and verdict rows), fully readable as a diff. It adds one criterion to M6 and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added AC-6.8 and D-23, and CR-20, CR-21 and SL-17 in registration rows. The diff, read whole, adds AC-6.8 and register row D-23; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, M7's `PREMISE-STALE` mark (R-76) and Planner batch rows. Artifact changes: AC-6.8 bounds one keystroke's normalise cost by a count limb in the suite and a timed limb outside it, on his 07:05Z selection. M7 is out of scope for this pass. New finding: F-45 (MEDIUM), the second instance of F-42's shape, closed by property with stated limit SL-18, the stop authority firing; AC-6.8's walk is a seventh member under SL-15. Verdict APPROVED. |
+| 2026-11-24T07:10 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-45 closes as landed-by-author, its discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 10, pass 1.** The stop authority fired on one shape (F-45). The hard stop did not fire (pass 1 of 15 in
+this cycle). Pricing: sized to the ask plus his rulings. Revision 16 adds one criterion to M6 on his 07:05Z selection, whose
+option text priced "a limit on how long one keystroke may take" and "a test that counts that work".
+
+CR-20's fix round is released by this gate, read with SL-18. The architect's and QA's reads of revision 16 are separate.
+
+What holds in revision 16's delta:
+- **D-23** carries the option text of effort rulings block 07:05Z word for word, with the option not chosen. AC-6.8 names
+  the row. The cap is lifted for CR-20 alone, as the block says.
+- **The defect is where the plan says.** At `119471f`, `handleEditor` calls `resolveEmoji` once for every line, and each
+  call builds the whole run unit with `unitAround`. A unit is every adjacent line that is not a code block, so a plain text
+  of N lines builds an N-line unit N times.
+- **The count limb is red on that tree.** Its bound is 2 builds, and the tip does one per line, on every text in the class
+  of three lines or more.
+- **The bound separates the two trees.** The reviewer's captures, read in this pass, give the tip 20 ms at 200 lines, 70 to
+  75 ms at 400 and 413 ms at 1,000, and the base 1.1 ms at 400 and 2.1 ms at 1,000. Steering's re-timing in the block gives
+  the same order. 16 ms sits between them from 200 lines up, and its reason, one 60 Hz frame, is stated.
+- **The timed limb says what it is**: outside `pnpm test`, run in M6's fix round by the implementer and at Phase 2 by QA,
+  with a route to steering if the fixed tree misses the bound. The count limb is the standing instrument.
+- **The colouring is not a second copy of the defect.** `decorator.tsx` keeps one unit per decorate pass in a map keyed by
+  line, so it builds each unit once.
+- **The residue is stated**: node is the instrument, and the browser's cost is unmeasured, with a walk on UAT's build.
+
+**Stop authority: F-45.** The count limb's expected literal depends on three terms its text does not fix. That is F-42's
+shape again, which was raised on AC-6.7 at cycle 8 and registered. It is not sent back. The class is stated as a property
+over the terms the literal depends on, checked in this pass, and its gaps are stated limit SL-18 with its bearer. It is
+MEDIUM, and after implementation approval a revision is asked for only on HIGH or above.
+
+**SL-15, a seventh member.** AC-6.8's human-observable form is walked "on UAT's local build", and neither the `uat` row nor
+the walk list names it. SL-15 already bears it: QA registers the walk at its re-key on revision 16, and the fold names all
+seven.
+
+**M7 is out of scope for this pass.** It is marked `PREMISE-STALE` (R-76), and its re-argument is owed from the planner as a
+revision at the seam fold, before devops Stage 1.
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `30e2a5b8`). Routed to the owner: nothing.
+
+The cycle 9 verdict follows, as written at that pass.
 
 **APPROVED — cycle 9, pass 1.** The stop authority fired on one shape (F-43). The hard stop did not fire (pass 1 of 15 in this
 cycle). Pricing: sized to the ask plus his rulings. Revision 15 adds members and mutants to two existing criteria and one
@@ -475,6 +525,12 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 10 pass 1: this pass assumes that one build of a 2,048-line run unit, with its engine parse, costs well under 16 ms,
+so a per-unit fix can meet the timed limb, and does not test it. The only ground is arithmetic on the block's figure: 1,572
+to 1,626 ms for about 2,000 builds at 2,000 lines is under 1 ms a build. Nothing was run, because it needs an export and a
+vitest run. If it is false, the fixed tree misses 16 ms at 1,000 or 2,048 lines while the count limb passes. The implementer
+owns closing it in M6's fix round, and AC-6.8 already sends the measured figures to steering before hand-off in that case.
+
 Cycle 9 pass 1: this pass assumes that AC-3.3's typed drive presses Enter only between the input's lines, which is QA's
 reading in QAF-42, and does not test it against the drive at `8cb4d83`. If it is false, NM-68 and NM-69 can go red on the
 fixtures as written, and F-44 has no member. The signature is NM-68 red on `>>> a⏎> b` with no line added after `> b`. QA owns
@@ -563,6 +619,35 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 10 pass 1
+
+F-45 MEDIUM cycle 10 pass 1 — closed by property with stated limit SL-18; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of F-42 in this document
+- **Title**: AC-6.8's count literal depends on three terms the criterion does not fix.
+- **Location**: plan revision 16, AC-6.8 "Count": the keystroke class, the property and the expected count.
+- **Description**: (1) The window. The property counts builds in "one normalisation pass", and the expected count is "a
+  literal per keystroke kind". At `119471f`, `handleEditor` returns as soon as `resolveEmoji` changes the document, and the
+  normaliser runs again. So a keystroke that completes an emoji, reverts one or resolves a carried marker takes two passes
+  or more, and at least 2 builds of its unit, against the literal 1 for an in-line insert. (2) The inserted character.
+  "Inserting one character" names none. A plain letter never lifts and never opens a fence; `:` after `:smile` does the
+  first, and a third backtick does the second, which moves lines between a run unit and a code block. Which keystrokes the
+  literal 1 covers depends on the character picked. (3) The position. The size texts are one-character lines, which have a
+  start and an end and no middle, and deleting their one character leaves an empty line.
+- **Impact**: read per keystroke, the literal 1 is red on a correct tree for 1 of the 4 keystroke kinds whenever the
+  character completes an emoji. Read per pass, it is met, and the builds a lifting keystroke adds across passes are counted
+  by nothing. The cost at stake is small, under 1 ms a build by the arithmetic above, so this is not a gate.
+- **The property, in place of a revision**: every term the expected literal depends on is fixed by the criterion's text.
+  Its domain is the seven terms of the count limb: keystroke kind, position, inserted character, text, window, the counted
+  function and the literal. It holds for 4 (kind, text, the counted function, the literal). It fails for 3 (window,
+  inserted character, position).
+- **SL-18, the readings M6 builds to**: (1) the window is one normalisation pass, as the property's sentence says, and a
+  keystroke that makes the normaliser change the document is bounded pass by pass. (2) The inserted character is one that
+  completes no emoji and no fence; a character that does is residue, held to AC-6.5's typed-edit property for its result
+  and to nothing for its count. (3) On a one-character line the positions are start and end. The implementer names the
+  character and records the pass count per keystroke kind in the implementation document, and QA at Phase 2 on M6 bears
+  finding a keystroke kind whose count the readings leave open, and tells the planner.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2, where AC-6.8's count limb
+  gains the three terms; the planner sends SL-18 to the implementer and QA now, since it bears on the fix round.
 
 ### Closed at cycle 9 pass 1
 
@@ -915,7 +1000,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Written at the close of cycle 9 pass 1 on 2026-11-24 (APPROVED on plan revision 15, `79eeced6`), replacing the checkpoint of record `8af264cb`. Nothing is in flight, no process is running and no question awaits an answer. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-43 with SL-17 for the Planner batch, F-44 as a duplicate of QAF-42, and the "three mutants" wording) and `implementer-019` (AC-6.5's literal freeze is released by this gate, read with SL-17). M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 10: read the plan as the `git diff` from `79eeced6` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Written at the close of cycle 10 pass 1 on 2026-11-24 (APPROVED on plan revision 16, `30e2a5b8`). Nothing is in flight, no process is running and no question awaits an answer. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-45 with SL-18 for the Planner batch, and AC-6.8's walk as a seventh member under SL-15) and `implementer-019` (CR-20's fix round is released by this gate, read with SL-18). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 11: read the plan as the `git diff` from `30e2a5b8` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
