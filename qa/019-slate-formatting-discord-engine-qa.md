@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 23 (record 49a20690, CR-25, D-26). QAF-53 MEDIUM (a severity floor: a paste's
-  cost per line has no failing assertion, and no ceiling holds it to today's speed) and QAF-54 LOW (the count control does not
-  show that the boundaries see each line) are open for the planner. QAF-42 LOW (R-69) stays open. Register: B-1 to B-11.
+  Phase 1 re-keyed on plan 019 Revision 23 (record 49a20690, CR-25, D-26). QAF-53 is resolved by his selection at 20:54Z
+  (SL-29: a timed reading against af3d95a at this stage's M6 Phase 2), and QAF-54 LOW is a stated limit. QAF-42 LOW (R-69)
+  stays open. Register: B-1 to B-11.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -1716,6 +1716,19 @@ Rows inherited and not discharged: B-1 to B-11.
 
 Phase 1 is keyed to Revision 23. **QAF-53 MEDIUM** (a severity floor) and **QAF-54 LOW** go to the planner, open. QAF-42 LOW (R-69)
 stays open.
+
+2026-11-24T20:55 reconcile (his selection "Agent: time it at QA (Recommended)", 20:54Z; effort rulings block 2026-11-24T20:54Z, record `be956e8d`; no Revision 24). QAF-53 is resolved as follows:
+- (a) is met by SL-29, an entry condition on this stage's M6 Phase 2 for the third fix round, not by a plan limb.
+- (b) goes to the Planner batch.
+- (c) is done: the helper's captures are at `verification/019/planning/paste-refute/` (record `d1be35da`, read this pass).
+
+QAF-54 is a stated limit, so NM-82's expected survival is recorded at Phase 2 as that limit's survivor.
+
+**Carried to M6 Phase 2 (SL-29).** In isolated exports of the round's tip and of `af3d95a`, run on the same probe
+(`paste-refute/`'s, extended to the fence keystrokes), time each paste member (`a`, `a🙂`) and each fence keystroke on the `a🙂`
+texts at 200 and 1,000 lines. Record the medians side by side with `/proc/loadavg`, and commit them under
+`verification/019/qa/`. A reading whose tip median exceeds `af3d95a`'s on the same run goes to steering-hooks-fixer with its
+figures, and the judgement of "roughly today's speed" is steering's. That is this stage's stated predicate for what it brings.
 
 ## Blocking-condition register (the chain's one register)
 
