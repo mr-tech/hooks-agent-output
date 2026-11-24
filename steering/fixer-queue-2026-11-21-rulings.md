@@ -1039,3 +1039,23 @@ that shell since 02:50Z. **Driven:** the implementer was told by message at 03:3
 and to wait on a pid with `wait-pid.py` next time. **This thread's instrument error, caught in the round:** its own first check used
 `pgrep -f mutation-run.py` and read "running" by the same self-match. The process read (`ps -p 3666975`) corrected it.
 Usage: weekly_all 47%, live; OOM 0. Agents inbox: FYI lodged.
+
+## 2026-11-24T03:48Z — selection: plan 019, the editor file's pre-existing lint errors (put 03:4xZ, answered 03:47Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T03:47Z — steering-hooks-fixer`. The wording is this thread's. It arose from
+`implementer-019`'s M5 hand-off at website `2e36107` (record `b9e9247c`). That hand-off was BLOCKED on 8 convention-check FAILs, all eslint, in
+`src/components/SlateEditor/index.tsx`. Put to him because two rulings bear on it in opposite directions: the 09:07Z one-effort rule for every
+Slate fix, and the 00:48Z cap (below HIGH becomes a known limit, with no fix round). Options:
+- *Agent: list them, fix later (Recommended)*: "M5 goes ahead as it is, with the 8 errors listed as known. A follow-up record carries them to a
+  small fix inside this effort once this release is out. No extra work or review now; nothing changes for users, since the live site already
+  has them."
+- *Agent: fix them in M5 now*: "The implementer reworks the editor file now and M5 gets another review and test round. It carries a small risk
+  to how the editor behaves… Delays M6 and the release by that round; how long isn't measured."
+**Chosen by selection: list them, fix later.** M5's hand-off stands at `2e36107`. The carrier is
+`handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md` (UUID 67001740). Its trigger is plan 019's production deploy, or an
+earlier edit of the file outside 019.
+Premises: a `general-purpose-sonnet` refutation helper ran eslint at each SHA (captures `verification/019/steering/slateeditor-index-lint/`).
+(i) The errors pre-exist at the chain base `5ec0621`: CONFIRMED, 9 there and 8 at `2e36107`. (ii) Clearing them needs hook restructuring:
+PARTLY. The unused `e` is local; the six `use-memo` sites are mechanical but behaviour-sensitive; the `editor.children` mutation is
+structural. The helper also found 100 other base messages that the tip does not show, cause not isolated (recorded in the handoff).
+Recipients: `implementer-019`, `code-reviewer-019` (told the question was pending), and `planner-019` (Planner batch stated limit).
