@@ -1,0 +1,110 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 2 failed | 49 skipped) 45ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 9ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 4 failed | 68 skipped) 2789ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 645ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 1463ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 452ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 223ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+AssertionError: expected 4987 to be less than or equal to 2014
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:237:32
+    235|     const longest = rebuilt(keystroke, large);
+    236|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    237|     expect(longest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHAN…
+       |                                ^
+    238|     expect(shortest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHA…
+    239|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…'
+AssertionError: expected 3990 to be less than or equal to 2014
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:237:32
+    235|     const longest = rebuilt(keystroke, large);
+    236|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    237|     expect(longest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHAN…
+       |                                ^
+    238|     expect(shortest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHA…
+    239|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+AssertionError: expected 1999 to be less than or equal to 1020
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:237:32
+    235|     const longest = rebuilt(keystroke, large);
+    236|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    237|     expect(longest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHAN…
+       |                                ^
+    238|     expect(shortest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHA…
+    239|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…'
+AssertionError: expected 2498 to be less than or equal to 1020
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:237:32
+    235|     const longest = rebuilt(keystroke, large);
+    236|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    237|     expect(longest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHAN…
+       |                                ^
+    238|     expect(shortest.operations).toBeLessThanOrEqual(OPERATIONS_PER_CHA…
+    239|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 2: [\"blockQuote\",\"\",true,\"\",[]] but expected [\"blockQuote\",\"> \",true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:227:57
+    225|     const fresh = getInitialValue(`${base}${pasted}`, 'content', false…
+    226|     const shapes = lineShapes(editor.children as Element[]);
+    227|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+       |                                                         ^
+    228|   });
+    229| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 3: [\"blockQuote\",\"\",true,\"\",[]] but expected [\"blockQuote\",\"> \",true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:227:57
+    225|     const fresh = getInitialValue(`${base}${pasted}`, 'content', false…
+    226|     const shapes = lineShapes(editor.children as Element[]);
+    227|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+       |                                                         ^
+    228|   });
+    229| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  6 failed | 3 passed | 117 skipped (126)
+   Start at  23:01:10
+   Duration  3.88s (transform 332ms, setup 34ms, import 729ms, tests 2.83s, environment 1.22s)
+

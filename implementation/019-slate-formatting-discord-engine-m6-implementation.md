@@ -34,6 +34,7 @@ The plan's Status was already `In Progress`.
 | 2026-11-24T07:07 | planner-019 (message after /clear; Revision 16, then 17 to 20 as the gates read them; release at R-86, hand-off at R-88) | CR-20's fix round: AC-6.8 | Count test red at `119471f` (`daad7fa`); `resolveEmoji` per run unit and the timed bench (`ebb757e`); QAF-50, QAF-46 and the generator count fit (`7cea6a9`); `resolveEmoji` returns nothing (`10abfa9`); a neighbour step tried and reverted (`acd9df8`, `42128cd`). See Fix Round 1. |
 | 2026-11-24T19:18 | planner-019 (message after /clear; Revision 22, gates at `f898b32f`, `50b2bbe0`, `e2890214`, release R-100 `17bb8f2c`) | The second M6 fix round: AC-6.9 (D-24, D-25; CF-30, CF-31, F-56) | Entry records at `42128cd`; red specs `a90ed57`; the fix `a1037e4`; the fence-state count cases `85ece66`; the timed limb, sweep, class sweep and the SIGTERM disclosure in Fix Round 2. |
 | 2026-11-24T22:13 | code-reviewer-019 (message: Round 7 REJECTED `85ece66` on CR-25 HIGH, CR-24 LOW); steering-hooks-fixer (start, effort rulings block `2026-11-24T20:54Z`, record `be956e8d`, on Revision 23; paste in scope by D-26, block `20:07Z`); resumed after a `/clear`: Resumption State read first, Fix Round 2's claims not re-verified | The third M6 fix round: CR-25 (the fence members over `a🙂` lines, the paste), CR-24 | Red specs `c1a1da1`; the fix `1b555bb`; `49fc364`, `5623ed8`, `3d988f7` (refinements the sweep drove); the quote-prefix defect the paste differential found, red `59f65a4`, fix `2b82972`. SL-29's timed readings, the differential, the class sweep and the sweeps in Fix Round 3. A hold of mine from 19:50Z to 20:54Z (no recorded start) is in Resumption State; the spike run in it is superseded by this round. |
+| 2026-11-24T23:01 | steering-hooks-fixer (start, block `2026-11-24T22:56Z`, record `d7a08198`; Resumption State at `c036287a`); code-reviewer-019 (Round 8 REJECTED `2b82972` on CR-25's time member, CR-26 LOW new, `7376a74c`); architect-019 (CF-33, `dffb4dc4`); planner-019 (R-111, `b1f0f60c`) | The fourth M6 fix round: CR-25's time member (the four `a🙂` fence members to SL-29's line) in CF-33's form, and CR-26 | Red specs `1dbfe4a`; the fix and the sweeps in Fix Round 4. |
 
 ## Implementation Summary
 
@@ -680,6 +681,36 @@ Named mutants: **NM-70** (a unit cache keyed on the line index): not placed, no 
 ### Next Steps (Fix Round 3)
 
 `code-reviewer-019` reads `2b82972` against `85ece66`, in order of risk: `withNormalizeNode.ts` (`resolveEmoji`, `settleLine`, the carry in `editor.apply`, the `insertTextData` wrap, `holdsMarkerInText`), then the count limb and the settle cases, the helper, the mounted test (CR-24). Then QA Phase 2 with SL-29's readings above and the named mutants.
+
+## Fix Round 4 (CR-25 HIGH's time member: the four `a🙂` fence members to SL-29's line; CR-26 LOW; plan Revision 23, R-111)
+
+In progress. Start: steering's block `2026-11-24T22:56Z` (agent-output `d7a08198`), on plan Revision 23 with QA Phase 1 at `d46f68ff`; code review Round 8 at `2b82972` REJECTED on CR-25's time member (record `7376a74c`, R-112 `2ab6daae`); architect-019's design read CF-33 (agent-output `dffb4dc4`); planner-019's reading R-111 (`b1f0f60c`) that AC-6.9's no-throw limb admits CF-33's form on the condition that a forced `Editor.normalize` after every member at every N applies no operation and raises nothing.
+
+### Entry Conditions (Fix Round 4)
+
+| Condition | Where satisfied | Pinned by |
+|---|---|---|
+| Stage start | effort rulings block `2026-11-24T22:56Z`, agent-output `d7a08198` (steering's message names the Resumption State at `c036287a`) | not owed (a record fact) |
+| Code review's verdict on `2b82972` | Round 8, `7376a74c`: REJECTED on CR-25's time member; CR-25's count member and CR-24 RESOLVED; CR-26 LOW rides this round | not owed |
+| Architect's design read | CF-33, `dffb4dc4` | not owed |
+| AC-6.9's no-throw limb admits the form | planner-019, R-111 (`b1f0f60c`): the rebuilt lines must be a normaliser fixed point; a forced `Editor.normalize` after every member at every N applies no operation and raises nothing; suppression covers only operations built from the load path, never the keystroke's own operation | `withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx` "leaves nothing for a forced normalise of the whole message to change or to raise" |
+| `getInitialValue` on 1,000 `a🙂` lines (architect's 25 ms line) | 9.3 ms median on `embedDescription`, 4.7 ms on `content`, 24.7 ms worst cold first call (`verification/019/impl/m6-fix4-initial-value-timing-2b82972.jsonl`, probe beside it, record `abc423e`) | not owed (a capture) |
+| slate-react does not normalise an initial value | read in `slate-react` 0.123.0 `dist/index.es.js`, the `Slate` component: it checks `Node.isNodeList(initialValue)` and sets `editor.children = initialValue`; no normalise call | not owed (a read) |
+| Open question | none | n/a |
+
+### Flows (user-visible work)
+
+No new user-visible surface, view or input. The work changes how many operations of the editor's own bookkeeping a code-fence keystroke over lines holding an emoji costs. What the user sees is the text and caret a fresh load gives, as before. CR-26's one visible change: a pasted fence-closing `> ` line inside a `>>>` quote takes its marker out of the text, as a fresh load builds it.
+
+### TDD Compliance (Fix Round 4)
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| the four `a🙂` fence members: two operations for each changed line, and no dirty path handed to Slate for them | `withNormalizeNode.keystroke-run-unit-builds.test.tsx` "rebuilds the lines a code-fence keystroke changes in work that does not grow with their number" | Yes (`1dbfe4a`) | Yes, at `2b82972`: `m6-fix4-red-fence-operations-and-quote-paste-2b82972.log.txt` | `AssertionError: expected 4987 to be less than or equal to 2014` (third backtick on line 2), `expected 3990 to be less than or equal to 2014` (Backspace on line 2), `expected 1999 to be less than or equal to 1020` (third backtick at the middle delimiter), `expected 2498 to be less than or equal to 1020` (Backspace at the middle delimiter): 4 of 4 red. The dirty-path clause is not reached by those four; its red is the mutant that leaves dirty paths unsuppressed (sweep, below) | pending |
+| CR-26: a pasted fence-closing `> ` line inside `>>>` | `withNormalizeNode.quote-and-fence-lines-settle.test.tsx` "receiving a paste at the end of a quote line" (two rows added to the existing `it.each`) | Yes (`1dbfe4a`) | Yes, at `2b82972`, same log | `line 2: ["blockQuote","",true,"",[]] but expected ["blockQuote","> ",true,"",[]]` and the same at line 3 for the `>>> a\nb` base | pending |
+| the rebuilt lines are a normaliser fixed point (R-111): a forced `Editor.normalize` after each member applies no operation and raises nothing | `withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx` "leaves nothing for a forced normalise of the whole message to change or to raise" (a limb added to `limbs`, so it runs for every keystroke and paste member at every size) | Yes (`1dbfe4a`) | **No red at the pre-change tree**: 555 of 555 pass at `2b82972` (`m6-fix4-settle-forced-normalise-2b82972-green.log.txt`): the pre-change tree normalises every line and is correct and slow. It guards the form. Its mutants are in the sweep | the guard's mutants | pending |
+
+`tdd-check.py new-names` is for Python sources; the sources here are TypeScript, so the rows are read. No new function or class carries a row beyond these (the production changes are written after them).
 
 ## Next Steps (first delivery, `119471f`)
 
