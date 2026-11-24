@@ -1436,3 +1436,25 @@ current read, and QA's re-key reads Revision 22, not 21.
 **This thread's gap.** Block 14:33Z did not carry the base medians the ceiling cites; they were only in this thread's scratch. The planner copied
 the captures verbatim into `verification/019/planning/fence-refute/` (with a README; listing read this turn). The ceiling now cites those.
 Recipient: `planner-019`, which cues the gates and holds the implementer's release until all three pass Revision 22.
+
+## 2026-11-24T17:03Z — selection: plan 019, the `>>>`-making caret is fixed too (put 14:51Z, answered 17:03Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T17:03Z — steering-hooks-fixer`. The wording is this thread's, and he
+answered by selection. It arose from `planner-019`'s hold on Revision 22 (message 14:5xZ), on QA's QAF-52 MEDIUM (re-key, `225ef4a6`).
+**This thread's error in block 14:48Z.** Its hand-written `>>> az` was the defective output, which axioms D and E bar. Block 14:48Z took it
+from F-52's derivation without checking it against what a user expects.
+Options:
+- *Agent: fix it too (Recommended)*: "In line with your 'fix everything we find' ruling. It rides the code-block fix round already planned. The
+  plan's next small revision gains the expected cursor position, read once by the three reviewers in the read they're already doing, so no
+  extra round. Release waits only for that round, as it already does."
+- *Agent: track it for later*: "No extra work. The code-block fix's cursor check skips this one keystroke, and the defect is logged for a later
+  editor fix. The release ships with the cursor still jumping to the end, as it does today."
+**Chosen by selection: fix it too.** D-24 widens by one item. After `>` typed at the start of `>> …` makes a `>>> ` quote, the caret sits at
+the start of the line's text. The expected text is written by hand: `>> a` gives `>>> za`, and `>> abc` gives `>>> zabc`. The unmaking
+member stays as the planner derived it (`za`). This rides Revision 22 with the three items of block 14:48Z, and the last-fold rule stands.
+Premises:
+- A `general-purpose-sonnet` refutation helper ran it at `af3d95a` and `42128cd`, identical at 3 and 40 lines, and mounted at `42128cd` reading
+  onChange. Its raw files are this thread's scratch `fence-refute/caret.*.raw.txt`. The caret lands at the **end** of the line's text:
+  `>> abc` is offset 3 and gives `>>> abcz`. The planner's "inside the word" for a longer line is refuted. The option text says "end".
+- The base `af3d95a` equals production for the editor paths (block 14:33Z), so the defect is live.
+Recipients: `planner-019` (Revision 22), `qa-019` (QAF-52 is its finding, and it reads 22).
