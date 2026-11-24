@@ -1742,6 +1742,15 @@ figures, and the judgement of "roughly today's speed" is steering's. That is thi
 - A tip median above its line goes to steering-hooks-fixer with its figures and `/proc/loadavg`, and the judgement is steering's.
   A tip throw, or a no-throw or write failure, fails its own limb.
 
+2026-11-24T22:51 reconcile (planner-019's message; plan R-111, record `b1f0f60c`, Planner batch row "The planner's reading of AC-6.9's no-throw limb against CF-33's form"; architect CF-33, record `dffb4dc4`). This is no revision, and no enumerated class gains a member. For CF-33's form (changed lines rebuilt from the load path under a scoped `editor.getDirtyPaths` override), the no-throw limb's "drain that does not settle" clause is read by a forced normalise over the whole document after every keystroke member, at every N. It must apply no operation and raise nothing. QA's reading: the observation discriminates. In slate's `Editor.normalize`, `force: true` sets every node's path dirty directly, not through `editor.getDirtyPaths`, so the override cannot narrow it. A line the override hid that the normaliser would still change shows as an applied operation. (This mechanism was read from slate's `normalize` source by this stage at an earlier pass and not re-read now. Phase 2 re-reads it in the round's installed slate before relying on it.) No finding.
+
+**Carried to M6 Phase 2** (the round's tree):
+- **Instrument:** count the operations the forced normalise applies with a pass-through spy on `editor.apply` installed for that call alone, never by comparing `children`, since an operation can leave the tree equal.
+- **Positive control, same run:** a document planted with a line that is not a fixed point, built under `Editor.withoutNormalizing` with normalisation skipped (a raw `:smile:` text the normaliser lifts). The forced normalise must count at least 1 there, so a spy that reads 0 fails.
+- **NM-83:** a rebuilt line that omits the emoji lift, so it is not a fixed point. The forced-normalise observation is red, and fresh load may stay green. That is the clause this observation carries alone.
+- **NM-84:** the override's suppression widened to the keystroke's own operation, against CF-33's "Avoid" line. Red on the forced-normalise observation.
+- **Windows:** the forced normalise runs after the count limb's and the timed limbs' windows close, and is never inside them.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
