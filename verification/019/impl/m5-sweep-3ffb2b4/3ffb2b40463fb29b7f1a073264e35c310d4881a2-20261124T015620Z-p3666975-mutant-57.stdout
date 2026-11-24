@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-57
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 346ms
+     × hands the message that text in a full-markdown editor 215ms
+     × hands the message that text in a single-line editor 129ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 9959ms
+     × hands the message that text in a full-markdown editor 2293ms
+     × hands the message that text in a single-line editor 1445ms
+     × hands the message that text in a full-markdown editor 30ms
+     × hands the message that text in a single-line editor 22ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 10187ms
+     × hands the message that text in a full-markdown editor 5872ms
+     × hands the message that text in a single-line editor 4070ms
+
+ Test Files  3 failed | 16 passed (19)
+      Tests  8 failed | 187 passed (195)
+   Start at  02:29:38
+   Duration  23.77s (transform 10.94s, setup 288ms, import 35.16s, tests 82.00s, environment 12.31s)
+

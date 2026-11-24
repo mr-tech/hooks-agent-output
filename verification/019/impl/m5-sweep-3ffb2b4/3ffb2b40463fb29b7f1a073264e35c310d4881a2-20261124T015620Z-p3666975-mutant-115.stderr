@@ -1,0 +1,270 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > marks bold delimiters as syntax and the inside as bold
+AssertionError: expected [ 'codeBlockText', …(5) ] to deeply equal [ 'S', 'S', 'strongText', …(3) ]
+
+- Expected
++ Received
+
+  [
+-   "S",
+-   "S",
+-   "strongText",
+-   "strongText",
+-   "S",
+-   "S",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:17:32
+     15|
+     16|   it('marks bold delimiters as syntax and the inside as bold', () => {
+     17|     expect(labelled('**ab**')).toEqual(['S', 'S', 'strongText', 'stron…
+       |                                ^
+     18|   });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > draws a masked link label as link text and the brackets and destination as syntax
+AssertionError: expected [ 'codeBlockText', …(16) ] to deeply equal [ 'S', 'linkText', 'linkText', …(14) ]
+
+- Expected
++ Received
+
+  [
+-   "S",
+-   "linkText",
+-   "linkText",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
+-   "S",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:21:43
+     19|
+     20|   it('draws a masked link label as link text and the brackets and dest…
+     21|     expect(labelled('[ab](https://x.y)')).toEqual([
+       |                                           ^
+     22|       'S', 'linkText', 'linkText', ...Array.from({ length: 14 }, () =>…
+     23|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > draws a bare link address as link text
+AssertionError: expected [ 'codeBlockText', …(10) ] to deeply equal [ 'linkText', 'linkText', …(9) ]
+
+- Expected
++ Received
+
+  [
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
+-   "linkText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:27:37
+     25|
+     26|   it('draws a bare link address as link text', () => {
+     27|     expect(labelled('https://x.y')).toEqual(Array.from({ length: 11 },…
+       |                                     ^
+     28|   });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > marks the subtext marker and its space as syntax and the rest as subtext
+AssertionError: expected [ 'codeBlockText', …(4) ] to deeply equal [ 'S', 'S', 'S', 'subtextText', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "S",
+-   "S",
+-   "S",
+-   "subtextText",
+-   "subtextText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:31:31
+     29|
+     30|   it('marks the subtext marker and its space as syntax and the rest as…
+     31|     expect(labelled('-# ab')).toEqual(['S', 'S', 'S', 'subtextText', '…
+       |                               ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > colours no heading marker and no list marker
+AssertionError: expected [ 'codeBlockText', …(2) ] to deeply equal [ '-', '-', '-' ]
+
+- Expected
++ Received
+
+  [
+-   "-",
+-   "-",
+-   "-",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:35:29
+     33|
+     34|   it('colours no heading marker and no list marker', () => {
+     35|     expect(labelled('# a')).toEqual(['-', '-', '-']);
+       |                             ^
+     36|     expect(labelled('- a')).toEqual(['-', '-', '-']);
+     37|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > carries italic across a line break and gives the break itself no class
+AssertionError: expected [ 'codeBlockText', …(4) ] to deeply equal [ 'S', 'emText', '-', 'emText', 'S' ]
+
+- Expected
++ Received
+
+  [
+-   "S",
+-   "emText",
+-   "-",
+-   "emText",
+-   "S",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:40:32
+     38|
+     39|   it('carries italic across a line break and gives the break itself no…
+     40|     expect(labelled('*a\nb*')).toEqual(['S', 'emText', '-', 'emText', …
+       |                                ^
+     41|   });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > counts positions in UTF-16 units, so text after an astral character lines up
+AssertionError: expected [ 'codeBlockText', …(6) ] to deeply equal [ '-', '-', 'S', 'S', …(3) ]
+
+- Expected
++ Received
+
+  [
+-   "-",
+-   "-",
+-   "S",
+-   "S",
+-   "strongText",
+-   "S",
+-   "S",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
++   "codeBlockText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:44:33
+     42|
+     43|   it('counts positions in UTF-16 units, so text after an astral charac…
+     44|     expect(labelled('😀**é**')).toEqual(['-', '-', 'S', 'S', 'strongTe…
+       |                                 ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > gives an unclosed opening fence the code classes, as the native box does while typing
+AssertionError: expected [ 'S', 'S', 'S', '-', '-' ] to deeply equal [ 'S', 'S', 'S', 'lang', 'lang' ]
+
+- Expected
++ Received
+
+  [
+    "S",
+    "S",
+    "S",
+-   "lang",
+-   "lang",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:48:31
+     46|
+     47|   it('gives an unclosed opening fence the code classes, as the native …
+     48|     expect(labelled('```js')).toEqual(['S', 'S', 'S', 'lang', 'lang']);
+       |                               ^
+     49|   });
+     50|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+

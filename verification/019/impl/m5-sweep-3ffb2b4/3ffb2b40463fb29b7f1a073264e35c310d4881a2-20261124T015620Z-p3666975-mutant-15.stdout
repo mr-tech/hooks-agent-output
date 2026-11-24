@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-15
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 1 failed) 2255ms
+     × draws the second text node of a code line from its own characters, not the line's 11ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 2465ms
+     × on content, over every input of the generator and the corpus 102ms
+     × on embedDescription, over every input of the generator and the corpus 37ms
+     × on fieldValue, over every input of the generator and the corpus 28ms
+     × on v2Text, over every input of the generator and the corpus 27ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 4955ms
+     × hands the message that text in a full-markdown editor 3794ms
+     × hands the message that text in a full-markdown editor 376ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 5426ms
+     × on embedDescription, every content character carries the style set its preview gives it 346ms
+     × on fieldValue, every content character carries the style set its preview gives it 216ms
+     × on v2Text, every content character carries the style set its preview gives it 102ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 8569ms
+     × keeps a multi-line paste as lines in a full-markdown editor 76ms
+     × hands the message that text in a full-markdown editor 1706ms
+     × hands the message that text in a full-markdown editor 707ms
+     × hands the message that text in a full-markdown editor 1065ms
+     × hands the message that text in a full-markdown editor 184ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 9333ms
+     × hands the message that text in a full-markdown editor 4421ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 13927ms
+     × hands the message that text in a full-markdown editor 3370ms
+
+ Test Files  7 failed | 12 passed (19)
+      Tests  17 failed | 178 passed (195)
+   Start at  02:00:41
+   Duration  22.71s (transform 11.80s, setup 239ms, import 35.46s, tests 74.14s, environment 12.53s)
+

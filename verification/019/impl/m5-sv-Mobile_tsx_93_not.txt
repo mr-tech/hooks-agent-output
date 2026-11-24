@@ -1,0 +1,56 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx (4 tests | 2 failed) 68ms
+     × holds the editor once the engine has settled 44ms
+     × holds the editor when the engine has failed, as the preview falls back to text 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx > DiscordContentEditor on mobile, the editor in its drawer > holds the editor once the engine has settled
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx:57:33
+     55| describe('DiscordContentEditor on mobile, the editor in its drawer', (…
+     56|   it('holds the editor once the engine has settled', () => {
+     57|     expect(editorOpen(mount())).toBe(true);
+       |                                 ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx > DiscordContentEditor on mobile, the editor in its drawer > holds the editor when the engine has failed, as the preview falls back to text
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx:62:33
+     60|   it('holds the editor when the engine has failed, as the preview fall…
+     61|     state.engine = 'rejected';
+     62|     expect(editorOpen(mount())).toBe(true);
+       |                                 ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  2 failed | 18 passed (20)
+   Start at  03:41:35
+   Duration  2.39s (transform 509ms, setup 21ms, import 1.68s, tests 1.64s, environment 1.99s)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: Mobile.tsx:93:not
+exit 1

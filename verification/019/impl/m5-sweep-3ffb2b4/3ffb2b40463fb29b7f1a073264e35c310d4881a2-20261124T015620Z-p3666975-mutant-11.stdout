@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 4 failed) 2239ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 27ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 2117ms
+     × draws the second text node of a code line from its own characters, not the line's 6ms
+     × draws nothing for a language highlight.js does not know 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 2318ms
+     × on content, over every input of the generator and the corpus 115ms
+     × on embedDescription, over every input of the generator and the corpus 42ms
+     × on fieldValue, over every input of the generator and the corpus 28ms
+     × on v2Text, over every input of the generator and the corpus 22ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 5363ms
+     × on embedDescription, every content character carries the style set its preview gives it 388ms
+     × on fieldValue, every content character carries the style set its preview gives it 178ms
+     × on v2Text, every content character carries the style set its preview gives it 119ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 7539ms
+     × hands the message that text in a full-markdown editor 37ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 9607ms
+     × hands the message that text in a full-markdown editor 4450ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 12147ms
+     × hands the message that text in a full-markdown editor 1541ms
+     × hands the message that text in a full-markdown editor 16ms
+
+ Test Files  6 failed | 13 passed (19)
+      Tests  15 failed | 180 passed (195)
+   Start at  01:58:10
+   Duration  35.19s (transform 15.42s, setup 323ms, import 42.03s, tests 98.04s, environment 14.83s)
+

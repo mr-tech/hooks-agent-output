@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-98
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 305ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 212ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 4ms
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  2 failed | 193 passed (195)
+   Start at  02:53:16
+   Duration  36.23s (transform 13.06s, setup 431ms, import 40.88s, tests 126.83s, environment 13.24s)
+

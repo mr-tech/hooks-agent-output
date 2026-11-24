@@ -1,0 +1,84 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 3 failed) 76ms
+     × parses a unit of 51 text nodes once 46ms
+     × parses a unit of three lines once, and a unit after a code block once more 4ms
+     × parses only the edited element's unit on the next pass, with its new text 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of 51 text nodes once
+AssertionError: expected [ [ 'content', …(1) ], …(50) ] to have a length of 1 but got 51
+
+- Expected
++ Received
+
+- 1
++ 51
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:48:22
+     46|     editor.children = lines as Descendant[];
+     47|     decorateAll(decorator(editor, true, false, 'content'), lines);
+     48|     expect(parses()).toHaveLength(1);
+       |                      ^
+     49|   });
+     50|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of three lines once, and a unit after a code block once more
+AssertionError: expected [ [ 'content', …(1) ], …(62) ] to have a length of 2 but got 63
+
+- Expected
++ Received
+
+- 2
++ 63
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:57:22
+     55|     editor.children = lines as Descendant[];
+     56|     decorateAll(decorator(editor, true, false, 'content'), lines);
+     57|     expect(parses()).toHaveLength(2);
+       |                      ^
+     58|   });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses only the edited element's unit on the next pass, with its new text
+AssertionError: expected [ [ 'content', '**a**' ], …(1) ] to deeply equal [ [ 'content', '*bc*' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
++     "**a**",
++   ],
++   [
++     "content",
+      "*bc*",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:72:22
+     70|     editor.children = after as Descendant[];
+     71|     decorateAll(decorate, after);
+     72|     expect(parses()).toEqual([['content', '*bc*']]);
+       |                      ^
+     73|   });
+     74| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  01:35:04
+   Duration  404ms (transform 72ms, setup 0ms, import 194ms, tests 76ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: the style cache is not read
+exit 1

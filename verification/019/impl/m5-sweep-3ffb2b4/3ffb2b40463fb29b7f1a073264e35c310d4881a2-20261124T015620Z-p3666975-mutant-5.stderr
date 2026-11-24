@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx > DiscordContentEditor on desktop, text as typed > keeps the editor closed while the engine is pending and opens it once the engine has settled
+AssertionError: expected { onChange: [Function onChange] } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "onChange": [Function onChange],
+}
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:103:27
+    101|     const button = host.querySelector('button');
+    102|     act(() => { button?.focus(); });
+    103|     expect(slate.current).toBeNull();
+       |                           ^
+    104|     unmountDom();
+    105|     engine.state = 'rejected';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

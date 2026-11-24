@@ -1,0 +1,200 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 2 failed) 1396ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1297ms
+     × draws no range that is empty or reaches past its text node, in every language 81ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+AssertionError: expected [ …(142) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "apache: <a href=\"x\">&amp; <b>t</b></a>",
++   "arcade: const s = `a ${b + 1} c`; // note",
++   "arduino: def f(x): return \"%s\" % x  # c",
++   "arduino: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "xml: <a href=\"x\">&amp; <b>t</b></a>",
++   "aspectj: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "bash: $a = \"b $c ${d}\"; echo `ls`;",
++   "coffeescript: const s = `a ${b + 1} c`; // note",
++   "coffeescript: $a = \"b $c ${d}\"; echo `ls`;",
++   "cpp: def f(x): return \"%s\" % x  # c",
++   "cpp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "crystal: def f(x): return \"%s\" % x  # c",
++   "csharp: def f(x): return \"%s\" % x  # c",
++   "csharp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "markdown: <a href=\"x\">&amp; <b>t</b></a>",
++   "dart: $a = \"b $c ${d}\"; echo `ls`;",
++   "delphi: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "django: const s = `a ${b + 1} c`; // note",
++   "django: <a href=\"x\">&amp; <b>t</b></a>",
++   "django: \"a \\n b\" # c",
++   "django: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "django: def f(x): return \"%s\" % x  # c",
++   "django: @media (a) { .b > c { color: #fff } }",
++   "django: {\"a\": [1, true, null]}",
++   "django: $a = \"b $c ${d}\"; echo `ls`;",
++   "django: a < b && c > \"d\" 'e' /* f */",
++   "django: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dns: \"a \\n b\" # c",
++   "dust: const s = `a ${b + 1} c`; // note",
++   "dust: <a href=\"x\">&amp; <b>t</b></a>",
++   "dust: \"a \\n b\" # c",
++   "dust: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "dust: def f(x): return \"%s\" % x  # c",
++   "dust: @media (a) { .b > c { color: #fff } }",
++   "dust: $a = \"b $c ${d}\"; echo `ls`;",
++   "dust: a < b && c > \"d\" 'e' /* f */",
++   "dust: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "elixir: def f(x): return \"%s\" % x  # c",
++   "erb: const s = `a ${b + 1} c`; // note",
++   "erb: <a href=\"x\">&amp; <b>t</b></a>",
++   "erb: \"a \\n b\" # c",
++   "erb: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "erb: def f(x): return \"%s\" % x  # c",
++   "erb: @media (a) { .b > c { color: #fff } }",
++   "erb: {\"a\": [1, true, null]}",
++   "erb: $a = \"b $c ${d}\"; echo `ls`;",
++   "erb: a < b && c > \"d\" 'e' /* f */",
++   "erb: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "flix: def f(x): return \"%s\" % x  # c",
++   "gams: $a = \"b $c ${d}\"; echo `ls`;",
++   "handlebars: const s = `a ${b + 1} c`; // note",
++   "handlebars: <a href=\"x\">&amp; <b>t</b></a>",
++   "handlebars: \"a \\n b\" # c",
++   "handlebars: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "handlebars: def f(x): return \"%s\" % x  # c",
++   "handlebars: @media (a) { .b > c { color: #fff } }",
++   "handlebars: {\"a\": [1, true, null]}",
++   "handlebars: $a = \"b $c ${d}\"; echo `ls`;",
++   "handlebars: a < b && c > \"d\" 'e' /* f */",
++   "handlebars: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "haxe: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "isbl: def f(x): return \"%s\" % x  # c",
++   "isbl: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "javascript: <a href=\"x\">&amp; <b>t</b></a>",
++   "jboss-cli: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "julia: $a = \"b $c ${d}\"; echo `ls`;",
++   "kotlin: $a = \"b $c ${d}\"; echo `ls`;",
++   "livecodeserver: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "lsl: \"a \\n b\" # c",
++   "lua: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "matlab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "perl: $a = \"b $c ${d}\"; echo `ls`;",
++   "mojolicious: const s = `a ${b + 1} c`; // note",
++   "mojolicious: <a href=\"x\">&amp; <b>t</b></a>",
++   "mojolicious: \"a \\n b\" # c",
++   "mojolicious: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "mojolicious: def f(x): return \"%s\" % x  # c",
++   "mojolicious: @media (a) { .b > c { color: #fff } }",
++   "mojolicious: {\"a\": [1, true, null]}",
++   "mojolicious: $a = \"b $c ${d}\"; echo `ls`;",
++   "mojolicious: a < b && c > \"d\" 'e' /* f */",
++   "mojolicious: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "nginx: $a = \"b $c ${d}\"; echo `ls`;",
++   "nix: \"a \\n b\" # c",
++   "nsis: $a = \"b $c ${d}\"; echo `ls`;",
++   "openscad: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "parser3: const s = `a ${b + 1} c`; // note",
++   "parser3: <a href=\"x\">&amp; <b>t</b></a>",
++   "parser3: \"a \\n b\" # c",
++   "parser3: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "parser3: def f(x): return \"%s\" % x  # c",
++   "parser3: @media (a) { .b > c { color: #fff } }",
++   "parser3: {\"a\": [1, true, null]}",
++   "parser3: $a = \"b $c ${d}\"; echo `ls`;",
++   "parser3: a < b && c > \"d\" 'e' /* f */",
++   "parser3: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "php: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "php-template: const s = `a ${b + 1} c`; // note",
++   "php-template: <a href=\"x\">&amp; <b>t</b></a>",
++   "php-template: \"a \\n b\" # c",
++   "php-template: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "php-template: def f(x): return \"%s\" % x  # c",
++   "php-template: @media (a) { .b > c { color: #fff } }",
++   "php-template: {\"a\": [1, true, null]}",
++   "php-template: $a = \"b $c ${d}\"; echo `ls`;",
++   "php-template: a < b && c > \"d\" 'e' /* f */",
++   "php-template: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "powershell: $a = \"b $c ${d}\"; echo `ls`;",
++   "powershell: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "python: @media (a) { .b > c { color: #fff } }",
++   "qml: <a href=\"x\">&amp; <b>t</b></a>",
++   "qml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "routeros: $a = \"b $c ${d}\"; echo `ls`;",
++   "scala: def f(x): return \"%s\" % x  # c",
++   "scilab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "shell: $a = \"b $c ${d}\"; echo `ls`;",
++   "swift: \"a \\n b\" # c",
++   "tcl: const s = `a ${b + 1} c`; // note",
++   "twig: const s = `a ${b + 1} c`; // note",
++   "twig: <a href=\"x\">&amp; <b>t</b></a>",
++   "twig: \"a \\n b\" # c",
++   "twig: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "twig: def f(x): return \"%s\" % x  # c",
++   "twig: @media (a) { .b > c { color: #fff } }",
++   "twig: {\"a\": [1, true, null]}",
++   "twig: $a = \"b $c ${d}\"; echo `ls`;",
++   "twig: a < b && c > \"d\" 'e' /* f */",
++   "twig: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "typescript: <a href=\"x\">&amp; <b>t</b></a>",
++   "vbscript-html: const s = `a ${b + 1} c`; // note",
++   "vbscript-html: <a href=\"x\">&amp; <b>t</b></a>",
++   "vbscript-html: \"a \\n b\" # c",
++   "vbscript-html: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbscript-html: def f(x): return \"%s\" % x  # c",
++   "vbscript-html: @media (a) { .b > c { color: #fff } }",
++   "vbscript-html: {\"a\": [1, true, null]}",
++   "vbscript-html: $a = \"b $c ${d}\"; echo `ls`;",
++   "vbscript-html: a < b && c > \"d\" 'e' /* f */",
++   "vbscript-html: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "wren: \"a \\n b\" # c",
++   "xquery: <a href=\"x\">&amp; <b>t</b></a>",
++   "zephir: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:87:23
+     85|     }
+     86|     expect(nested).toBeGreaterThan(50);
+     87|     expect(differing).toEqual([]);
+       |                       ^
+     88|   });
+     89|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws no range that is empty or reaches past its text node, in every language
+AssertionError: expected [ …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "haxe: @media (a) { .b > c { color: #fff } }",
++   "haxe: {\"a\": [1, true, null]}",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:102:23
+    100|       }
+    101|     }
+    102|     expect(offending).toEqual([]);
+       |                       ^
+    103|   });
+    104|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  01:29:41
+   Duration  2.44s (transform 90ms, setup 32ms, import 196ms, tests 1.40s, environment 676ms)
+
+exit 1

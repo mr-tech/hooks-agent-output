@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+
+ Test Files  2 passed (2)
+      Tests  16 passed (16)
+   Start at  01:33:37
+   Duration  2.27s (transform 84ms, setup 8ms, import 207ms, tests 1.38s, environment 598ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: a lone angle or ampersand dropped from the text
+exit 0

@@ -1,0 +1,397 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 77 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > shows plain text while the engine is pending and colours the same text once it resolves
+TypeError: Cannot read properties of undefined (reading 'syntax')
+The error may be correlated with this previous error:
+TypeError: Cannot read properties of undefined (reading 'syntax')
+    at same (/tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/src/components/SlateEditor/utils/decorator.tsx:51:63)
+    at rangesOf (/tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/src/components/SlateEditor/utils/decorator.tsx:55:23)
+    at Object.current (/tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/src/components/SlateEditor/utils/decorator.tsx:111:12)
+    at /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/dist/index.js:1387:27
+    at Object.selector [as current] (/tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/dist/index.js:1361:12)
+    at /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/dist/index.js:1322:45
+    at /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/dist/index.js:1383:14
+    at Set.forEach (<anonymous>)
+    at /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/dist/index.js:1382:28
+    at Object.react_stack_bottom_frame (/tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-75/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20)
+
+
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:62:46
+ ❯ listener node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:61:47
+ ❯ forEach node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:61:27
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/77]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > draws a masked link label as link text on the content surface
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > draws the same masked link as plain text on the title surface of an embed that has an address, whose mask has links off
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "plain" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a" back to the message unchanged, once, in a single-line box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a" back to the message unchanged, once, in a single-line box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > hands the message a pasted word after an empty editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > keeps a multi-line paste as lines in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > refuses a multi-line paste in a single-line editor, naming it, and leaves the text as it was
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > refuses a paste of 6,001 characters in a full-markdown editor, naming it, and leaves the text as it was
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > refuses a paste of 6,001 characters in a single-line editor, naming it, and leaves the text as it was
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > accepts a paste of 6,000 characters in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > accepts a paste of 6,000 characters in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a single-line editor
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/77]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n> b" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a single-line box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a write of a after a is typed into an empty full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a write of a after a is typed into an empty single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message one write per typed character, each the text so far
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a line break typed as a new line
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message no write for a character typed in a synchronous act, because the editor reports its change after the act returns
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/77]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:57:52
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:52
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:133:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:53:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:68:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**X**" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "__X__" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "||a X||" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "a X b" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:75:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "`X`" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:75:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "-# a X" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "# X" as it does the same text with one character in its place
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:76:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:60:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:58:19
+ ❯ siteLines src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:55:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:85:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:60:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:58:19
+ ❯ siteLines src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:55:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:104:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of 51 text nodes once
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:49:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of three lines once, and a unit after a code block once more
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:58:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses only the edited element's unit on the next pass, with its new text
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:68:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/77]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitle, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitleWithUrl, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:39:21
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:71
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/77]⎯
+

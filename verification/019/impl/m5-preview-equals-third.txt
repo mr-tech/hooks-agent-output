@@ -1,0 +1,95 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 16613ms
+     × on embedDescription, for every input of the generator and the corpus the editor and the preview both draw as text 3835ms
+     × on fieldValue, for every input of the generator and the corpus the editor and the preview both draw as text 3107ms
+     × on embedTitle, for every input of the generator and the corpus the editor and the preview both draw as text 3756ms
+     × on v2Text, for every input of the generator and the corpus the editor and the preview both draw as text 2923ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, for every input of the generator and the corpus the editor and the preview both draw as text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, for every input of the generator and the corpus the editor and the preview both draw as text
+AssertionError: expected [ 'corpus:152', 'gen:561', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:152",
++   "gen:561",
++   "gen:661",
++   "gen:1213",
++   "gen:1329",
++   "gen:1527",
++   "gen:1811",
++   "gen:1834",
++   "gen:1889",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:110:23
+    108|     }
+    109|     expect(compared).toBeGreaterThan(500);
+    110|     expect(differing).toEqual([]);
+       |                       ^
+    111|   }, 600_000);
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, for every input of the generator and the corpus the editor and the preview both draw as text
+AssertionError: expected [ 'corpus:152', 'gen:561', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:152",
++   "gen:561",
++   "gen:661",
++   "gen:1329",
++   "gen:1527",
++   "gen:1811",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:110:23
+    108|     }
+    109|     expect(compared).toBeGreaterThan(500);
+    110|     expect(differing).toEqual([]);
+       |                       ^
+    111|   }, 600_000);
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, for every input of the generator and the corpus the editor and the preview both draw as text
+AssertionError: expected [ 'gen:1072' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:1072",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:110:23
+    108|     }
+    109|     expect(compared).toBeGreaterThan(500);
+    110|     expect(differing).toEqual([]);
+       |                       ^
+    111|   }, 600_000);
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  01:39:51
+   Duration  18.81s (transform 642ms, setup 20ms, import 1.44s, tests 16.61s, environment 608ms)
+
+exit 1

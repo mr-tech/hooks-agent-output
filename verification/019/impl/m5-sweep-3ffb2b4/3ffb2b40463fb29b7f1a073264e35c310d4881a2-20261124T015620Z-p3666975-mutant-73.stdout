@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-73
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 14 failed) 148ms
+     × carries bold across an emoji element 43ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × draws the brackets and destination around an emoji label as syntax 12ms
+     × carries italic across an emoji element on a quote line 4ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 6ms
+     × colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place 5ms
+     × colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "`X`" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 2ms
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  14 failed | 181 passed (195)
+   Start at  02:37:35
+   Duration  35.12s (transform 11.04s, setup 310ms, import 34.11s, tests 119.85s, environment 12.49s)
+

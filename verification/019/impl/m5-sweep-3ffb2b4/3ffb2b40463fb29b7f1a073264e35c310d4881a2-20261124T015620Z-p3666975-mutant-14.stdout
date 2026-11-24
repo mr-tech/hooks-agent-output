@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-14
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 1 failed) 2105ms
+     × draws the second text node of a code line from its own characters, not the line's 15ms
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  1 failed | 194 passed (195)
+   Start at  02:00:02
+   Duration  37.08s (transform 9.45s, setup 236ms, import 32.84s, tests 124.53s, environment 13.21s)
+

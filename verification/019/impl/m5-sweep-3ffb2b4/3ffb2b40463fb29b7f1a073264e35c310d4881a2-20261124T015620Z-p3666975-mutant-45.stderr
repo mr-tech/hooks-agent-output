@@ -1,0 +1,1756 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 22 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > shows plain text while the engine is pending and colours the same text once it resolves
+AssertionError: expected [ '**' ] to deeply equal [ '**', '**' ]
+
+- Expected
++ Received
+
+  [
+    "**",
+-   "**",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx:50:43
+     48|     await act(async () => { await startEngine(); });
+     49|     expect(textsOf(container, '.strongText')).toEqual(['a']);
+     50|     expect(textsOf(container, '.syntax')).toEqual(['**', '**']);
+       |                                           ^
+     51|   });
+     52|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/22]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+AssertionError: expected [ …(625) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1c: const s = `a ${b + 1} c`; // note",
++   "1c: <a href=\"x\">&amp; <b>t</b></a>",
++   "1c: \"a \\n b\" # c",
++   "1c: def f(x): return \"%s\" % x  # c",
++   "1c: @media (a) { .b > c { color: #fff } }",
++   "1c: $a = \"b $c ${d}\"; echo `ls`;",
++   "1c: a < b && c > \"d\" 'e' /* f */",
++   "abnf: const s = `a ${b + 1} c`; // note",
++   "abnf: <a href=\"x\">&amp; <b>t</b></a>",
++   "abnf: $a = \"b $c ${d}\"; echo `ls`;",
++   "abnf: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "actionscript: const s = `a ${b + 1} c`; // note",
++   "actionscript: a < b && c > \"d\" 'e' /* f */",
++   "ada: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "angelscript: const s = `a ${b + 1} c`; // note",
++   "angelscript: a < b && c > \"d\" 'e' /* f */",
++   "apache: \"a \\n b\" # c",
++   "apache: {\"a\": [1, true, null]}",
++   "applescript: \"a \\n b\" # c",
++   "applescript: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "applescript: def f(x): return \"%s\" % x  # c",
++   "applescript: @media (a) { .b > c { color: #fff } }",
++   "arcade: const s = `a ${b + 1} c`; // note",
++   "arcade: a < b && c > \"d\" 'e' /* f */",
++   "arduino: const s = `a ${b + 1} c`; // note",
++   "arduino: \"a \\n b\" # c",
++   "arduino: def f(x): return \"%s\" % x  # c",
++   "arduino: @media (a) { .b > c { color: #fff } }",
++   "arduino: a < b && c > \"d\" 'e' /* f */",
++   "armasm: const s = `a ${b + 1} c`; // note",
++   "armasm: <a href=\"x\">&amp; <b>t</b></a>",
++   "armasm: @media (a) { .b > c { color: #fff } }",
++   "armasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "armasm: a < b && c > \"d\" 'e' /* f */",
++   "armasm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "xml: <a href=\"x\">&amp; <b>t</b></a>",
++   "aspectj: const s = `a ${b + 1} c`; // note",
++   "aspectj: a < b && c > \"d\" 'e' /* f */",
++   "autohotkey: <a href=\"x\">&amp; <b>t</b></a>",
++   "autohotkey: $a = \"b $c ${d}\"; echo `ls`;",
++   "autohotkey: a < b && c > \"d\" 'e' /* f */",
++   "autohotkey: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "autoit: const s = `a ${b + 1} c`; // note",
++   "autoit: <a href=\"x\">&amp; <b>t</b></a>",
++   "autoit: \"a \\n b\" # c",
++   "autoit: def f(x): return \"%s\" % x  # c",
++   "autoit: @media (a) { .b > c { color: #fff } }",
++   "autoit: $a = \"b $c ${d}\"; echo `ls`;",
++   "autoit: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "avrasm: const s = `a ${b + 1} c`; // note",
++   "avrasm: <a href=\"x\">&amp; <b>t</b></a>",
++   "avrasm: \"a \\n b\" # c",
++   "avrasm: def f(x): return \"%s\" % x  # c",
++   "avrasm: @media (a) { .b > c { color: #fff } }",
++   "avrasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "avrasm: a < b && c > \"d\" 'e' /* f */",
++   "avrasm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "awk: \"a \\n b\" # c",
++   "awk: def f(x): return \"%s\" % x  # c",
++   "awk: @media (a) { .b > c { color: #fff } }",
++   "awk: a < b && c > \"d\" 'e' /* f */",
++   "axapta: const s = `a ${b + 1} c`; // note",
++   "axapta: \"a \\n b\" # c",
++   "axapta: def f(x): return \"%s\" % x  # c",
++   "axapta: @media (a) { .b > c { color: #fff } }",
++   "axapta: a < b && c > \"d\" 'e' /* f */",
++   "bash: \"a \\n b\" # c",
++   "bash: def f(x): return \"%s\" % x  # c",
++   "bash: @media (a) { .b > c { color: #fff } }",
++   "basic: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "basic: a < b && c > \"d\" 'e' /* f */",
++   "bnf: <a href=\"x\">&amp; <b>t</b></a>",
++   "brainfuck: const s = `a ${b + 1} c`; // note",
++   "brainfuck: \"a \\n b\" # c",
++   "brainfuck: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "brainfuck: def f(x): return \"%s\" % x  # c",
++   "brainfuck: @media (a) { .b > c { color: #fff } }",
++   "brainfuck: {\"a\": [1, true, null]}",
++   "brainfuck: $a = \"b $c ${d}\"; echo `ls`;",
++   "brainfuck: a < b && c > \"d\" 'e' /* f */",
++   "brainfuck: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "c: const s = `a ${b + 1} c`; // note",
++   "c: \"a \\n b\" # c",
++   "c: def f(x): return \"%s\" % x  # c",
++   "c: @media (a) { .b > c { color: #fff } }",
++   "c: a < b && c > \"d\" 'e' /* f */",
++   "capnproto: \"a \\n b\" # c",
++   "capnproto: def f(x): return \"%s\" % x  # c",
++   "capnproto: @media (a) { .b > c { color: #fff } }",
++   "ceylon: const s = `a ${b + 1} c`; // note",
++   "ceylon: a < b && c > \"d\" 'e' /* f */",
++   "clean: const s = `a ${b + 1} c`; // note",
++   "clean: a < b && c > \"d\" 'e' /* f */",
++   "clojure: const s = `a ${b + 1} c`; // note",
++   "clojure: <a href=\"x\">&amp; <b>t</b></a>",
++   "clojure: $a = \"b $c ${d}\"; echo `ls`;",
++   "cmake: \"a \\n b\" # c",
++   "cmake: def f(x): return \"%s\" % x  # c",
++   "cmake: @media (a) { .b > c { color: #fff } }",
++   "coffeescript: \"a \\n b\" # c",
++   "coffeescript: def f(x): return \"%s\" % x  # c",
++   "coffeescript: @media (a) { .b > c { color: #fff } }",
++   "cos: const s = `a ${b + 1} c`; // note",
++   "cos: <a href=\"x\">&amp; <b>t</b></a>",
++   "cos: $a = \"b $c ${d}\"; echo `ls`;",
++   "cos: a < b && c > \"d\" 'e' /* f */",
++   "cos: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "cpp: const s = `a ${b + 1} c`; // note",
++   "cpp: \"a \\n b\" # c",
++   "cpp: def f(x): return \"%s\" % x  # c",
++   "cpp: @media (a) { .b > c { color: #fff } }",
++   "cpp: a < b && c > \"d\" 'e' /* f */",
++   "crmsh: <a href=\"x\">&amp; <b>t</b></a>",
++   "crmsh: \"a \\n b\" # c",
++   "crmsh: def f(x): return \"%s\" % x  # c",
++   "crmsh: @media (a) { .b > c { color: #fff } }",
++   "crystal: \"a \\n b\" # c",
++   "crystal: def f(x): return \"%s\" % x  # c",
++   "crystal: @media (a) { .b > c { color: #fff } }",
++   "crystal: a < b && c > \"d\" 'e' /* f */",
++   "csharp: const s = `a ${b + 1} c`; // note",
++   "csharp: \"a \\n b\" # c",
++   "csharp: def f(x): return \"%s\" % x  # c",
++   "csharp: @media (a) { .b > c { color: #fff } }",
++   "csharp: a < b && c > \"d\" 'e' /* f */",
++   "css: a < b && c > \"d\" 'e' /* f */",
++   "d: const s = `a ${b + 1} c`; // note",
++   "d: a < b && c > \"d\" 'e' /* f */",
++   "markdown: <a href=\"x\">&amp; <b>t</b></a>",
++   "markdown: a < b && c > \"d\" 'e' /* f */",
++   "dart: const s = `a ${b + 1} c`; // note",
++   "dart: a < b && c > \"d\" 'e' /* f */",
++   "delphi: const s = `a ${b + 1} c`; // note",
++   "delphi: {\"a\": [1, true, null]}",
++   "delphi: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "django: const s = `a ${b + 1} c`; // note",
++   "django: <a href=\"x\">&amp; <b>t</b></a>",
++   "django: \"a \\n b\" # c",
++   "django: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "django: def f(x): return \"%s\" % x  # c",
++   "django: @media (a) { .b > c { color: #fff } }",
++   "django: {\"a\": [1, true, null]}",
++   "django: $a = \"b $c ${d}\"; echo `ls`;",
++   "django: a < b && c > \"d\" 'e' /* f */",
++   "django: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dns: const s = `a ${b + 1} c`; // note",
++   "dns: <a href=\"x\">&amp; <b>t</b></a>",
++   "dns: $a = \"b $c ${d}\"; echo `ls`;",
++   "dns: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dockerfile: \"a \\n b\" # c",
++   "dockerfile: def f(x): return \"%s\" % x  # c",
++   "dockerfile: @media (a) { .b > c { color: #fff } }",
++   "dsconfig: const s = `a ${b + 1} c`; // note",
++   "dsconfig: \"a \\n b\" # c",
++   "dsconfig: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "dsconfig: def f(x): return \"%s\" % x  # c",
++   "dsconfig: @media (a) { .b > c { color: #fff } }",
++   "dts: const s = `a ${b + 1} c`; // note",
++   "dts: <a href=\"x\">&amp; <b>t</b></a>",
++   "dts: \"a \\n b\" # c",
++   "dts: def f(x): return \"%s\" % x  # c",
++   "dts: @media (a) { .b > c { color: #fff } }",
++   "dts: {\"a\": [1, true, null]}",
++   "dts: $a = \"b $c ${d}\"; echo `ls`;",
++   "dts: a < b && c > \"d\" 'e' /* f */",
++   "dts: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dust: const s = `a ${b + 1} c`; // note",
++   "dust: <a href=\"x\">&amp; <b>t</b></a>",
++   "dust: \"a \\n b\" # c",
++   "dust: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "dust: def f(x): return \"%s\" % x  # c",
++   "dust: @media (a) { .b > c { color: #fff } }",
++   "dust: {\"a\": [1, true, null]}",
++   "dust: $a = \"b $c ${d}\"; echo `ls`;",
++   "dust: a < b && c > \"d\" 'e' /* f */",
++   "dust: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "elixir: \"a \\n b\" # c",
++   "elixir: def f(x): return \"%s\" % x  # c",
++   "elixir: @media (a) { .b > c { color: #fff } }",
++   "elm: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "ruby: \"a \\n b\" # c",
++   "ruby: def f(x): return \"%s\" % x  # c",
++   "ruby: @media (a) { .b > c { color: #fff } }",
++   "ruby: a < b && c > \"d\" 'e' /* f */",
++   "erb: const s = `a ${b + 1} c`; // note",
++   "erb: <a href=\"x\">&amp; <b>t</b></a>",
++   "erb: \"a \\n b\" # c",
++   "erb: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "erb: def f(x): return \"%s\" % x  # c",
++   "erb: @media (a) { .b > c { color: #fff } }",
++   "erb: {\"a\": [1, true, null]}",
++   "erb: $a = \"b $c ${d}\"; echo `ls`;",
++   "erb: a < b && c > \"d\" 'e' /* f */",
++   "erb: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "erlang-repl: def f(x): return \"%s\" % x  # c",
++   "erlang: def f(x): return \"%s\" % x  # c",
++   "fix: const s = `a ${b + 1} c`; // note",
++   "fix: <a href=\"x\">&amp; <b>t</b></a>",
++   "fix: \"a \\n b\" # c",
++   "fix: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "fix: def f(x): return \"%s\" % x  # c",
++   "fix: @media (a) { .b > c { color: #fff } }",
++   "fix: {\"a\": [1, true, null]}",
++   "fix: $a = \"b $c ${d}\"; echo `ls`;",
++   "fix: a < b && c > \"d\" 'e' /* f */",
++   "fix: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "flix: const s = `a ${b + 1} c`; // note",
++   "flix: a < b && c > \"d\" 'e' /* f */",
++   "freedesktop: \"a \\n b\" # c",
++   "freedesktop: def f(x): return \"%s\" % x  # c",
++   "freedesktop: @media (a) { .b > c { color: #fff } }",
++   "fsharp: const s = `a ${b + 1} c`; // note",
++   "fsharp: <a href=\"x\">&amp; <b>t</b></a>",
++   "fsharp: a < b && c > \"d\" 'e' /* f */",
++   "gams: const s = `a ${b + 1} c`; // note",
++   "gams: $a = \"b $c ${d}\"; echo `ls`;",
++   "gams: a < b && c > \"d\" 'e' /* f */",
++   "gauss: const s = `a ${b + 1} c`; // note",
++   "gauss: \"a \\n b\" # c",
++   "gauss: def f(x): return \"%s\" % x  # c",
++   "gauss: @media (a) { .b > c { color: #fff } }",
++   "gauss: a < b && c > \"d\" 'e' /* f */",
++   "gcode: const s = `a ${b + 1} c`; // note",
++   "gcode: <a href=\"x\">&amp; <b>t</b></a>",
++   "gcode: $a = \"b $c ${d}\"; echo `ls`;",
++   "gcode: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "glsl: const s = `a ${b + 1} c`; // note",
++   "glsl: \"a \\n b\" # c",
++   "glsl: def f(x): return \"%s\" % x  # c",
++   "glsl: @media (a) { .b > c { color: #fff } }",
++   "glsl: a < b && c > \"d\" 'e' /* f */",
++   "gml: const s = `a ${b + 1} c`; // note",
++   "gml: a < b && c > \"d\" 'e' /* f */",
++   "go: const s = `a ${b + 1} c`; // note",
++   "go: a < b && c > \"d\" 'e' /* f */",
++   "golo: \"a \\n b\" # c",
++   "golo: def f(x): return \"%s\" % x  # c",
++   "golo: @media (a) { .b > c { color: #fff } }",
++   "gradle: const s = `a ${b + 1} c`; // note",
++   "gradle: a < b && c > \"d\" 'e' /* f */",
++   "graphql: \"a \\n b\" # c",
++   "graphql: def f(x): return \"%s\" % x  # c",
++   "graphql: @media (a) { .b > c { color: #fff } }",
++   "graphql: {\"a\": [1, true, null]}",
++   "graphql: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "groovy: const s = `a ${b + 1} c`; // note",
++   "groovy: a < b && c > \"d\" 'e' /* f */",
++   "handlebars: const s = `a ${b + 1} c`; // note",
++   "handlebars: <a href=\"x\">&amp; <b>t</b></a>",
++   "handlebars: \"a \\n b\" # c",
++   "handlebars: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "handlebars: def f(x): return \"%s\" % x  # c",
++   "handlebars: @media (a) { .b > c { color: #fff } }",
++   "handlebars: {\"a\": [1, true, null]}",
++   "handlebars: $a = \"b $c ${d}\"; echo `ls`;",
++   "handlebars: a < b && c > \"d\" 'e' /* f */",
++   "handlebars: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "haskell: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "haxe: const s = `a ${b + 1} c`; // note",
++   "haxe: \"a \\n b\" # c",
++   "haxe: def f(x): return \"%s\" % x  # c",
++   "haxe: a < b && c > \"d\" 'e' /* f */",
++   "hsp: const s = `a ${b + 1} c`; // note",
++   "hsp: <a href=\"x\">&amp; <b>t</b></a>",
++   "hsp: \"a \\n b\" # c",
++   "hsp: def f(x): return \"%s\" % x  # c",
++   "hsp: @media (a) { .b > c { color: #fff } }",
++   "hsp: {\"a\": [1, true, null]}",
++   "hsp: $a = \"b $c ${d}\"; echo `ls`;",
++   "hsp: a < b && c > \"d\" 'e' /* f */",
++   "hsp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "hy: const s = `a ${b + 1} c`; // note",
++   "hy: <a href=\"x\">&amp; <b>t</b></a>",
++   "hy: $a = \"b $c ${d}\"; echo `ls`;",
++   "ini: const s = `a ${b + 1} c`; // note",
++   "ini: <a href=\"x\">&amp; <b>t</b></a>",
++   "ini: \"a \\n b\" # c",
++   "ini: def f(x): return \"%s\" % x  # c",
++   "ini: @media (a) { .b > c { color: #fff } }",
++   "ini: $a = \"b $c ${d}\"; echo `ls`;",
++   "ini: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "isbl: const s = `a ${b + 1} c`; // note",
++   "isbl: \"a \\n b\" # c",
++   "isbl: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "isbl: def f(x): return \"%s\" % x  # c",
++   "isbl: a < b && c > \"d\" 'e' /* f */",
++   "isbl: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "java: const s = `a ${b + 1} c`; // note",
++   "java: a < b && c > \"d\" 'e' /* f */",
++   "javascript: const s = `a ${b + 1} c`; // note",
++   "javascript: a < b && c > \"d\" 'e' /* f */",
++   "jboss-cli: \"a \\n b\" # c",
++   "jboss-cli: def f(x): return \"%s\" % x  # c",
++   "jboss-cli: @media (a) { .b > c { color: #fff } }",
++   "json: const s = `a ${b + 1} c`; // note",
++   "json: @media (a) { .b > c { color: #fff } }",
++   "json: {\"a\": [1, true, null]}",
++   "json: a < b && c > \"d\" 'e' /* f */",
++   "json: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "julia: \"a \\n b\" # c",
++   "julia: def f(x): return \"%s\" % x  # c",
++   "julia: @media (a) { .b > c { color: #fff } }",
++   "kotlin: const s = `a ${b + 1} c`; // note",
++   "kotlin: a < b && c > \"d\" 'e' /* f */",
++   "lasso: const s = `a ${b + 1} c`; // note",
++   "lasso: a < b && c > \"d\" 'e' /* f */",
++   "latex: def f(x): return \"%s\" % x  # c",
++   "ldif: \"a \\n b\" # c",
++   "ldif: def f(x): return \"%s\" % x  # c",
++   "ldif: @media (a) { .b > c { color: #fff } }",
++   "less: const s = `a ${b + 1} c`; // note",
++   "less: \"a \\n b\" # c",
++   "less: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "less: def f(x): return \"%s\" % x  # c",
++   "less: a < b && c > \"d\" 'e' /* f */",
++   "lisp: const s = `a ${b + 1} c`; // note",
++   "lisp: <a href=\"x\">&amp; <b>t</b></a>",
++   "lisp: $a = \"b $c ${d}\"; echo `ls`;",
++   "lisp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "livecodeserver: const s = `a ${b + 1} c`; // note",
++   "livecodeserver: \"a \\n b\" # c",
++   "livecodeserver: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "livecodeserver: def f(x): return \"%s\" % x  # c",
++   "livecodeserver: @media (a) { .b > c { color: #fff } }",
++   "livecodeserver: a < b && c > \"d\" 'e' /* f */",
++   "livecodeserver: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "livescript: const s = `a ${b + 1} c`; // note",
++   "livescript: \"a \\n b\" # c",
++   "livescript: def f(x): return \"%s\" % x  # c",
++   "livescript: @media (a) { .b > c { color: #fff } }",
++   "livescript: a < b && c > \"d\" 'e' /* f */",
++   "llvm: const s = `a ${b + 1} c`; // note",
++   "llvm: <a href=\"x\">&amp; <b>t</b></a>",
++   "llvm: \"a \\n b\" # c",
++   "llvm: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "llvm: def f(x): return \"%s\" % x  # c",
++   "llvm: $a = \"b $c ${d}\"; echo `ls`;",
++   "llvm: a < b && c > \"d\" 'e' /* f */",
++   "llvm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "lsl: const s = `a ${b + 1} c`; // note",
++   "lsl: a < b && c > \"d\" 'e' /* f */",
++   "lua: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "makefile: \"a \\n b\" # c",
++   "makefile: def f(x): return \"%s\" % x  # c",
++   "makefile: @media (a) { .b > c { color: #fff } }",
++   "makefile: {\"a\": [1, true, null]}",
++   "mathematica: const s = `a ${b + 1} c`; // note",
++   "mathematica: <a href=\"x\">&amp; <b>t</b></a>",
++   "mathematica: \"a \\n b\" # c",
++   "mathematica: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "mathematica: def f(x): return \"%s\" % x  # c",
++   "mathematica: @media (a) { .b > c { color: #fff } }",
++   "mathematica: {\"a\": [1, true, null]}",
++   "mathematica: $a = \"b $c ${d}\"; echo `ls`;",
++   "mathematica: a < b && c > \"d\" 'e' /* f */",
++   "mathematica: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "matlab: def f(x): return \"%s\" % x  # c",
++   "matlab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "maxima: a < b && c > \"d\" 'e' /* f */",
++   "mel: const s = `a ${b + 1} c`; // note",
++   "mel: a < b && c > \"d\" 'e' /* f */",
++   "mercury: def f(x): return \"%s\" % x  # c",
++   "mercury: a < b && c > \"d\" 'e' /* f */",
++   "mipsasm: const s = `a ${b + 1} c`; // note",
++   "mipsasm: <a href=\"x\">&amp; <b>t</b></a>",
++   "mipsasm: \"a \\n b\" # c",
++   "mipsasm: def f(x): return \"%s\" % x  # c",
++   "mipsasm: @media (a) { .b > c { color: #fff } }",
++   "mipsasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "mipsasm: a < b && c > \"d\" 'e' /* f */",
++   "mipsasm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "perl: \"a \\n b\" # c",
++   "perl: def f(x): return \"%s\" % x  # c",
++   "perl: @media (a) { .b > c { color: #fff } }",
++   "mojolicious: const s = `a ${b + 1} c`; // note",
++   "mojolicious: <a href=\"x\">&amp; <b>t</b></a>",
++   "mojolicious: \"a \\n b\" # c",
++   "mojolicious: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "mojolicious: def f(x): return \"%s\" % x  # c",
++   "mojolicious: @media (a) { .b > c { color: #fff } }",
++   "mojolicious: {\"a\": [1, true, null]}",
++   "mojolicious: $a = \"b $c ${d}\"; echo `ls`;",
++   "mojolicious: a < b && c > \"d\" 'e' /* f */",
++   "mojolicious: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "monkey: \"a \\n b\" # c",
++   "monkey: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "monkey: def f(x): return \"%s\" % x  # c",
++   "monkey: @media (a) { .b > c { color: #fff } }",
++   "monkey: a < b && c > \"d\" 'e' /* f */",
++   "moonscript: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "n1ql: a < b && c > \"d\" 'e' /* f */",
++   "nestedtext: def f(x): return \"%s\" % x  # c",
++   "nestedtext: @media (a) { .b > c { color: #fff } }",
++   "nestedtext: {\"a\": [1, true, null]}",
++   "nestedtext: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "nginx: \"a \\n b\" # c",
++   "nginx: def f(x): return \"%s\" % x  # c",
++   "nginx: @media (a) { .b > c { color: #fff } }",
++   "nim: \"a \\n b\" # c",
++   "nim: def f(x): return \"%s\" % x  # c",
++   "nim: @media (a) { .b > c { color: #fff } }",
++   "nix: <a href=\"x\">&amp; <b>t</b></a>",
++   "nix: \"a \\n b\" # c",
++   "nix: def f(x): return \"%s\" % x  # c",
++   "nix: @media (a) { .b > c { color: #fff } }",
++   "nix: a < b && c > \"d\" 'e' /* f */",
++   "nsis: const s = `a ${b + 1} c`; // note",
++   "nsis: <a href=\"x\">&amp; <b>t</b></a>",
++   "nsis: \"a \\n b\" # c",
++   "nsis: def f(x): return \"%s\" % x  # c",
++   "nsis: @media (a) { .b > c { color: #fff } }",
++   "nsis: $a = \"b $c ${d}\"; echo `ls`;",
++   "nsis: a < b && c > \"d\" 'e' /* f */",
++   "nsis: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "objectivec: const s = `a ${b + 1} c`; // note",
++   "objectivec: \"a \\n b\" # c",
++   "objectivec: def f(x): return \"%s\" % x  # c",
++   "objectivec: @media (a) { .b > c { color: #fff } }",
++   "objectivec: a < b && c > \"d\" 'e' /* f */",
++   "openscad: const s = `a ${b + 1} c`; // note",
++   "openscad: a < b && c > \"d\" 'e' /* f */",
++   "oxygene: const s = `a ${b + 1} c`; // note",
++   "oxygene: {\"a\": [1, true, null]}",
++   "oxygene: $a = \"b $c ${d}\"; echo `ls`;",
++   "oxygene: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "parser3: const s = `a ${b + 1} c`; // note",
++   "parser3: <a href=\"x\">&amp; <b>t</b></a>",
++   "parser3: \"a \\n b\" # c",
++   "parser3: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "parser3: def f(x): return \"%s\" % x  # c",
++   "parser3: @media (a) { .b > c { color: #fff } }",
++   "parser3: {\"a\": [1, true, null]}",
++   "parser3: $a = \"b $c ${d}\"; echo `ls`;",
++   "parser3: a < b && c > \"d\" 'e' /* f */",
++   "parser3: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "pf: \"a \\n b\" # c",
++   "pf: def f(x): return \"%s\" % x  # c",
++   "pf: @media (a) { .b > c { color: #fff } }",
++   "pgsql: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "pgsql: a < b && c > \"d\" 'e' /* f */",
++   "php: const s = `a ${b + 1} c`; // note",
++   "php: \"a \\n b\" # c",
++   "php: def f(x): return \"%s\" % x  # c",
++   "php: @media (a) { .b > c { color: #fff } }",
++   "php: a < b && c > \"d\" 'e' /* f */",
++   "php-template: const s = `a ${b + 1} c`; // note",
++   "php-template: <a href=\"x\">&amp; <b>t</b></a>",
++   "php-template: \"a \\n b\" # c",
++   "php-template: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "php-template: def f(x): return \"%s\" % x  # c",
++   "php-template: @media (a) { .b > c { color: #fff } }",
++   "php-template: {\"a\": [1, true, null]}",
++   "php-template: $a = \"b $c ${d}\"; echo `ls`;",
++   "php-template: a < b && c > \"d\" 'e' /* f */",
++   "php-template: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "pony: const s = `a ${b + 1} c`; // note",
++   "pony: a < b && c > \"d\" 'e' /* f */",
++   "powershell: \"a \\n b\" # c",
++   "powershell: def f(x): return \"%s\" % x  # c",
++   "powershell: @media (a) { .b > c { color: #fff } }",
++   "processing: const s = `a ${b + 1} c`; // note",
++   "processing: a < b && c > \"d\" 'e' /* f */",
++   "profile: def f(x): return \"%s\" % x  # c",
++   "profile: @media (a) { .b > c { color: #fff } }",
++   "profile: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "prolog: def f(x): return \"%s\" % x  # c",
++   "prolog: a < b && c > \"d\" 'e' /* f */",
++   "properties: const s = `a ${b + 1} c`; // note",
++   "properties: <a href=\"x\">&amp; <b>t</b></a>",
++   "properties: \"a \\n b\" # c",
++   "properties: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "properties: def f(x): return \"%s\" % x  # c",
++   "properties: @media (a) { .b > c { color: #fff } }",
++   "properties: {\"a\": [1, true, null]}",
++   "properties: $a = \"b $c ${d}\"; echo `ls`;",
++   "properties: a < b && c > \"d\" 'e' /* f */",
++   "properties: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "protobuf: const s = `a ${b + 1} c`; // note",
++   "protobuf: a < b && c > \"d\" 'e' /* f */",
++   "puppet: \"a \\n b\" # c",
++   "puppet: def f(x): return \"%s\" % x  # c",
++   "puppet: @media (a) { .b > c { color: #fff } }",
++   "purebasic: const s = `a ${b + 1} c`; // note",
++   "purebasic: <a href=\"x\">&amp; <b>t</b></a>",
++   "purebasic: $a = \"b $c ${d}\"; echo `ls`;",
++   "purebasic: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "python: \"a \\n b\" # c",
++   "python: def f(x): return \"%s\" % x  # c",
++   "python: @media (a) { .b > c { color: #fff } }",
++   "q: const s = `a ${b + 1} c`; // note",
++   "qml: const s = `a ${b + 1} c`; // note",
++   "qml: <a href=\"x\">&amp; <b>t</b></a>",
++   "qml: a < b && c > \"d\" 'e' /* f */",
++   "r: <a href=\"x\">&amp; <b>t</b></a>",
++   "r: \"a \\n b\" # c",
++   "r: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "r: def f(x): return \"%s\" % x  # c",
++   "r: @media (a) { .b > c { color: #fff } }",
++   "r: {\"a\": [1, true, null]}",
++   "r: a < b && c > \"d\" 'e' /* f */",
++   "r: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "reasonml: const s = `a ${b + 1} c`; // note",
++   "reasonml: a < b && c > \"d\" 'e' /* f */",
++   "rib: \"a \\n b\" # c",
++   "rib: def f(x): return \"%s\" % x  # c",
++   "rib: @media (a) { .b > c { color: #fff } }",
++   "roboconf: const s = `a ${b + 1} c`; // note",
++   "roboconf: \"a \\n b\" # c",
++   "roboconf: def f(x): return \"%s\" % x  # c",
++   "roboconf: @media (a) { .b > c { color: #fff } }",
++   "rsl: const s = `a ${b + 1} c`; // note",
++   "rsl: \"a \\n b\" # c",
++   "rsl: def f(x): return \"%s\" % x  # c",
++   "rsl: @media (a) { .b > c { color: #fff } }",
++   "rsl: a < b && c > \"d\" 'e' /* f */",
++   "ruleslanguage: const s = `a ${b + 1} c`; // note",
++   "ruleslanguage: a < b && c > \"d\" 'e' /* f */",
++   "rust: const s = `a ${b + 1} c`; // note",
++   "rust: a < b && c > \"d\" 'e' /* f */",
++   "sas: a < b && c > \"d\" 'e' /* f */",
++   "scala: const s = `a ${b + 1} c`; // note",
++   "scala: a < b && c > \"d\" 'e' /* f */",
++   "scheme: const s = `a ${b + 1} c`; // note",
++   "scheme: <a href=\"x\">&amp; <b>t</b></a>",
++   "scheme: $a = \"b $c ${d}\"; echo `ls`;",
++   "scheme: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "scilab: const s = `a ${b + 1} c`; // note",
++   "scilab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "scss: const s = `a ${b + 1} c`; // note",
++   "scss: a < b && c > \"d\" 'e' /* f */",
++   "shell: $a = \"b $c ${d}\"; echo `ls`;",
++   "smali: \"a \\n b\" # c",
++   "smali: def f(x): return \"%s\" % x  # c",
++   "smali: @media (a) { .b > c { color: #fff } }",
++   "sqf: const s = `a ${b + 1} c`; // note",
++   "sqf: \"a \\n b\" # c",
++   "sqf: def f(x): return \"%s\" % x  # c",
++   "sqf: @media (a) { .b > c { color: #fff } }",
++   "sqf: a < b && c > \"d\" 'e' /* f */",
++   "sql: <a href=\"x\">&amp; <b>t</b></a>",
++   "sql: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "sql: a < b && c > \"d\" 'e' /* f */",
++   "stan: const s = `a ${b + 1} c`; // note",
++   "stan: \"a \\n b\" # c",
++   "stan: def f(x): return \"%s\" % x  # c",
++   "stan: @media (a) { .b > c { color: #fff } }",
++   "stan: a < b && c > \"d\" 'e' /* f */",
++   "stata: const s = `a ${b + 1} c`; // note",
++   "stata: a < b && c > \"d\" 'e' /* f */",
++   "step21: const s = `a ${b + 1} c`; // note",
++   "step21: \"a \\n b\" # c",
++   "step21: def f(x): return \"%s\" % x  # c",
++   "step21: @media (a) { .b > c { color: #fff } }",
++   "step21: a < b && c > \"d\" 'e' /* f */",
++   "stylus: const s = `a ${b + 1} c`; // note",
++   "stylus: a < b && c > \"d\" 'e' /* f */",
++   "swift: const s = `a ${b + 1} c`; // note",
++   "swift: <a href=\"x\">&amp; <b>t</b></a>",
++   "swift: a < b && c > \"d\" 'e' /* f */",
++   "yaml: const s = `a ${b + 1} c`; // note",
++   "yaml: <a href=\"x\">&amp; <b>t</b></a>",
++   "yaml: \"a \\n b\" # c",
++   "yaml: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "yaml: def f(x): return \"%s\" % x  # c",
++   "yaml: @media (a) { .b > c { color: #fff } }",
++   "yaml: $a = \"b $c ${d}\"; echo `ls`;",
++   "yaml: a < b && c > \"d\" 'e' /* f */",
++   "tap: \"a \\n b\" # c",
++   "tap: def f(x): return \"%s\" % x  # c",
++   "tap: @media (a) { .b > c { color: #fff } }",
++   "thrift: const s = `a ${b + 1} c`; // note",
++   "thrift: a < b && c > \"d\" 'e' /* f */",
++   "tp: const s = `a ${b + 1} c`; // note",
++   "twig: const s = `a ${b + 1} c`; // note",
++   "twig: <a href=\"x\">&amp; <b>t</b></a>",
++   "twig: \"a \\n b\" # c",
++   "twig: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "twig: def f(x): return \"%s\" % x  # c",
++   "twig: @media (a) { .b > c { color: #fff } }",
++   "twig: {\"a\": [1, true, null]}",
++   "twig: $a = \"b $c ${d}\"; echo `ls`;",
++   "twig: a < b && c > \"d\" 'e' /* f */",
++   "twig: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "typescript: const s = `a ${b + 1} c`; // note",
++   "typescript: a < b && c > \"d\" 'e' /* f */",
++   "vala: const s = `a ${b + 1} c`; // note",
++   "vala: a < b && c > \"d\" 'e' /* f */",
++   "vbnet: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbnet: a < b && c > \"d\" 'e' /* f */",
++   "vbscript: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbscript: a < b && c > \"d\" 'e' /* f */",
++   "vbscript-html: const s = `a ${b + 1} c`; // note",
++   "vbscript-html: <a href=\"x\">&amp; <b>t</b></a>",
++   "vbscript-html: \"a \\n b\" # c",
++   "vbscript-html: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbscript-html: def f(x): return \"%s\" % x  # c",
++   "vbscript-html: @media (a) { .b > c { color: #fff } }",
++   "vbscript-html: {\"a\": [1, true, null]}",
++   "vbscript-html: $a = \"b $c ${d}\"; echo `ls`;",
++   "vbscript-html: a < b && c > \"d\" 'e' /* f */",
++   "vbscript-html: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "verilog: const s = `a ${b + 1} c`; // note",
++   "verilog: a < b && c > \"d\" 'e' /* f */",
++   "vhdl: const s = `a ${b + 1} c`; // note",
++   "vhdl: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vhdl: a < b && c > \"d\" 'e' /* f */",
++   "vim: \"a \\n b\" # c",
++   "vim: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vim: def f(x): return \"%s\" % x  # c",
++   "wren: const s = `a ${b + 1} c`; // note",
++   "wren: <a href=\"x\">&amp; <b>t</b></a>",
++   "wren: \"a \\n b\" # c",
++   "wren: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "wren: def f(x): return \"%s\" % x  # c",
++   "wren: @media (a) { .b > c { color: #fff } }",
++   "wren: a < b && c > \"d\" 'e' /* f */",
++   "x86asm: const s = `a ${b + 1} c`; // note",
++   "x86asm: <a href=\"x\">&amp; <b>t</b></a>",
++   "x86asm: $a = \"b $c ${d}\"; echo `ls`;",
++   "x86asm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "xl: const s = `a ${b + 1} c`; // note",
++   "xl: a < b && c > \"d\" 'e' /* f */",
++   "xquery: <a href=\"x\">&amp; <b>t</b></a>",
++   "zephir: const s = `a ${b + 1} c`; // note",
++   "zephir: a < b && c > \"d\" 'e' /* f */",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:91:23
+     89|     }
+     90|     expect(nested).toBeGreaterThan(50);
+     91|     expect(differing).toEqual([]);
+       |                       ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/22]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:44', 'corpus:45', …(101) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:44",
++   "corpus:45",
++   "corpus:49",
++   "corpus:54",
++   "corpus:56",
++   "corpus:64",
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:135",
++   "corpus:136",
++   "corpus:139",
++   "corpus:246",
++   "corpus:265",
++   "link:0",
++   "link:6",
++   "link:7",
++   "link:8",
++   "link:9",
++   "link:10",
++   "link:11",
++   "link:12",
++   "link:19",
++   "link:50",
++   "link:52",
++   "link:53",
++   "link:54",
++   "link:56",
++   "link:62",
++   "link:63",
++   "link:64",
++   "link:65",
++   "link:66",
++   "link:68",
++   "link:70",
++   "link:74",
++   "link:75",
++   "link:77",
++   "link:86",
++   "link:89",
++   "link:94",
++   "gen:42",
++   "gen:43",
++   "gen:45",
++   "gen:57",
++   "gen:65",
++   "gen:73",
++   "gen:114",
++   "gen:122",
++   "gen:139",
++   "gen:145",
++   "gen:183",
++   "gen:239",
++   "gen:242",
++   "gen:298",
++   "gen:324",
++   "gen:382",
++   "gen:427",
++   "gen:449",
++   "gen:453",
++   "gen:497",
++   "gen:526",
++   "gen:551",
++   "gen:571",
++   "gen:572",
++   "gen:591",
++   "gen:605",
++   "gen:638",
++   "gen:679",
++   "gen:696",
++   "gen:705",
++   "gen:744",
++   "gen:791",
++   "gen:799",
++   "gen:804",
++   "gen:857",
++   "gen:887",
++   "gen:936",
++   "gen:940",
++   "gen:978",
++   "gen:1032",
++   "gen:1039",
++   "gen:1072",
++   "gen:1141",
++   "gen:1163",
++   "gen:1207",
++   "gen:1296",
++   "gen:1342",
++   "gen:1373",
++   "gen:1389",
++   "gen:1392",
++   "gen:1419",
++   "gen:1503",
++   "gen:1516",
++   "gen:1526",
++   "gen:1579",
++   "gen:1682",
++   "gen:1723",
++   "gen:1801",
++   "gen:1805",
++   "gen:1900",
++   "gen:1939",
++   "gen:1967",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/22]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:44', 'corpus:45', …(103) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:44",
++   "corpus:45",
++   "corpus:49",
++   "corpus:54",
++   "corpus:56",
++   "corpus:64",
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:135",
++   "corpus:136",
++   "corpus:139",
++   "corpus:246",
++   "corpus:265",
++   "link:0",
++   "link:6",
++   "link:7",
++   "link:8",
++   "link:9",
++   "link:10",
++   "link:11",
++   "link:12",
++   "link:19",
++   "link:50",
++   "link:52",
++   "link:53",
++   "link:54",
++   "link:56",
++   "link:62",
++   "link:63",
++   "link:64",
++   "link:65",
++   "link:66",
++   "link:68",
++   "link:70",
++   "link:74",
++   "link:75",
++   "link:77",
++   "link:86",
++   "link:89",
++   "link:94",
++   "gen:42",
++   "gen:43",
++   "gen:45",
++   "gen:57",
++   "gen:65",
++   "gen:73",
++   "gen:114",
++   "gen:122",
++   "gen:139",
++   "gen:145",
++   "gen:183",
++   "gen:239",
++   "gen:242",
++   "gen:298",
++   "gen:324",
++   "gen:382",
++   "gen:427",
++   "gen:449",
++   "gen:453",
++   "gen:497",
++   "gen:526",
++   "gen:551",
++   "gen:571",
++   "gen:572",
++   "gen:591",
++   "gen:605",
++   "gen:638",
++   "gen:679",
++   "gen:696",
++   "gen:705",
++   "gen:744",
++   "gen:791",
++   "gen:799",
++   "gen:804",
++   "gen:857",
++   "gen:887",
++   "gen:936",
++   "gen:940",
++   "gen:978",
++   "gen:1032",
++   "gen:1039",
++   "gen:1072",
++   "gen:1141",
++   "gen:1163",
++   "gen:1207",
++   "gen:1213",
++   "gen:1296",
++   "gen:1342",
++   "gen:1373",
++   "gen:1389",
++   "gen:1392",
++   "gen:1419",
++   "gen:1503",
++   "gen:1516",
++   "gen:1526",
++   "gen:1579",
++   "gen:1682",
++   "gen:1723",
++   "gen:1801",
++   "gen:1805",
++   "gen:1834",
++   "gen:1900",
++   "gen:1939",
++   "gen:1967",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/22]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:44', 'corpus:45', …(173) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:44",
++   "corpus:45",
++   "corpus:49",
++   "corpus:54",
++   "corpus:56",
++   "corpus:64",
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:125",
++   "corpus:126",
++   "corpus:128",
++   "corpus:129",
++   "corpus:130",
++   "corpus:131",
++   "corpus:135",
++   "corpus:136",
++   "corpus:139",
++   "corpus:246",
++   "corpus:265",
++   "link:0",
++   "link:6",
++   "link:7",
++   "link:8",
++   "link:9",
++   "link:10",
++   "link:11",
++   "link:12",
++   "link:19",
++   "link:49",
++   "link:50",
++   "link:52",
++   "link:53",
++   "link:54",
++   "link:56",
++   "link:62",
++   "link:63",
++   "link:64",
++   "link:65",
++   "link:66",
++   "link:68",
++   "link:70",
++   "link:74",
++   "link:75",
++   "link:77",
++   "link:86",
++   "link:89",
++   "link:94",
++   "gen:42",
++   "gen:43",
++   "gen:45",
++   "gen:57",
++   "gen:65",
++   "gen:73",
++   "gen:103",
++   "gen:104",
++   "gen:114",
++   "gen:122",
++   "gen:125",
++   "gen:136",
++   "gen:139",
++   "gen:145",
++   "gen:165",
++   "gen:183",
++   "gen:195",
++   "gen:215",
++   "gen:228",
++   "gen:234",
++   "gen:239",
++   "gen:241",
++   "gen:242",
++   "gen:273",
++   "gen:298",
++   "gen:324",
++   "gen:327",
++   "gen:355",
++   "gen:356",
++   "gen:382",
++   "gen:403",
++   "gen:410",
++   "gen:422",
++   "gen:427",
++   "gen:441",
++   "gen:449",
++   "gen:453",
++   "gen:463",
++   "gen:477",
++   "gen:478",
++   "gen:492",
++   "gen:497",
++   "gen:526",
++   "gen:534",
++   "gen:551",
++   "gen:568",
++   "gen:571",
++   "gen:572",
++   "gen:591",
++   "gen:605",
++   "gen:617",
++   "gen:628",
++   "gen:638",
++   "gen:672",
++   "gen:679",
++   "gen:687",
++   "gen:696",
++   "gen:705",
++   "gen:744",
++   "gen:752",
++   "gen:791",
++   "gen:799",
++   "gen:804",
++   "gen:857",
++   "gen:859",
++   "gen:885",
++   "gen:887",
++   "gen:916",
++   "gen:936",
++   "gen:940",
++   "gen:943",
++   "gen:963",
++   "gen:978",
++   "gen:1009",
++   "gen:1028",
++   "gen:1032",
++   "gen:1039",
++   "gen:1072",
++   "gen:1141",
++   "gen:1163",
++   "gen:1184",
++   "gen:1186",
++   "gen:1207",
++   "gen:1213",
++   "gen:1224",
++   "gen:1246",
++   "gen:1252",
++   "gen:1295",
++   "gen:1296",
++   "gen:1305",
++   "gen:1314",
++   "gen:1342",
++   "gen:1373",
++   "gen:1389",
++   "gen:1392",
++   "gen:1418",
++   "gen:1419",
++   "gen:1429",
++   "gen:1438",
++   "gen:1487",
++   "gen:1503",
++   "gen:1507",
++   "gen:1516",
++   "gen:1526",
++   "gen:1540",
++   "gen:1552",
++   "gen:1579",
++   "gen:1584",
++   "gen:1587",
++   "gen:1681",
++   "gen:1682",
++   "gen:1708",
++   "gen:1712",
++   "gen:1723",
++   "gen:1770",
++   "gen:1778",
++   "gen:1801",
++   "gen:1805",
++   "gen:1823",
++   "gen:1826",
++   "gen:1834",
++   "gen:1839",
++   "gen:1900",
++   "gen:1916",
++   "gen:1939",
++   "gen:1967",
++   "gen:1976",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/22]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:104', …(83) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:125",
++   "corpus:126",
++   "corpus:128",
++   "corpus:129",
++   "corpus:130",
++   "corpus:131",
++   "corpus:135",
++   "corpus:136",
++   "corpus:139",
++   "link:49",
++   "gen:103",
++   "gen:104",
++   "gen:125",
++   "gen:136",
++   "gen:145",
++   "gen:165",
++   "gen:195",
++   "gen:215",
++   "gen:228",
++   "gen:234",
++   "gen:241",
++   "gen:273",
++   "gen:327",
++   "gen:355",
++   "gen:356",
++   "gen:403",
++   "gen:410",
++   "gen:422",
++   "gen:441",
++   "gen:449",
++   "gen:453",
++   "gen:463",
++   "gen:477",
++   "gen:478",
++   "gen:492",
++   "gen:526",
++   "gen:534",
++   "gen:568",
++   "gen:617",
++   "gen:628",
++   "gen:672",
++   "gen:687",
++   "gen:752",
++   "gen:859",
++   "gen:885",
++   "gen:887",
++   "gen:916",
++   "gen:943",
++   "gen:963",
++   "gen:1009",
++   "gen:1028",
++   "gen:1039",
++   "gen:1184",
++   "gen:1186",
++   "gen:1224",
++   "gen:1246",
++   "gen:1252",
++   "gen:1295",
++   "gen:1305",
++   "gen:1314",
++   "gen:1373",
++   "gen:1389",
++   "gen:1418",
++   "gen:1429",
++   "gen:1438",
++   "gen:1487",
++   "gen:1507",
++   "gen:1540",
++   "gen:1552",
++   "gen:1584",
++   "gen:1587",
++   "gen:1681",
++   "gen:1682",
++   "gen:1708",
++   "gen:1712",
++   "gen:1770",
++   "gen:1778",
++   "gen:1823",
++   "gen:1826",
++   "gen:1839",
++   "gen:1916",
++   "gen:1976",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+AssertionError: expected [ [ [ 'S', 'S', '-', '-' ], …(1) ] ] to deeply equal [ [ [ 'S', 'S', …(2) ], …(1) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+        "S",
+        "S",
+-       "strongText",
+-       "strongText",
++       "-",
++       "-",
+      ],
+      [
+        "strongText",
+        "strongText",
+-       "S",
+-       "S",
++       "-",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:53:48
+     51|
+     52|   it('carries bold across an emoji element', () => {
+     53|     expect(labels(lifted(`**a ${EMOJI} b**`))).toEqual([[
+       |                                                ^
+     54|       ['S', 'S', 'strongText', 'strongText'],
+     55|       ['strongText', 'strongText', 'S', 'S'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+AssertionError: expected [ [ [ '-' ], [ '-' ] ] ] to deeply equal [ [ [ 'S' ], [ 'S' ] ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+-       "S",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:42
+     58|
+     59|   it('keeps the delimiters on either side of an emoji as syntax', () =…
+     60|     expect(labels(lifted(`*${EMOJI}*`))).toEqual([[['S'], ['S']]]);
+       |                                          ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ '-' ], …(1) ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:55
+     62|
+     63|   it('draws the brackets and destination around an emoji label as synt…
+     64|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     65|   });
+     66|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+AssertionError: expected [ [ [ 'S', '-', '-' ], [ '-' ] ] ] to deeply equal [ [ …(2) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+        "S",
+-       "emText",
+-       "emText",
++       "-",
++       "-",
+      ],
+      [
+-       "S",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:68:46
+     66|
+     67|   it('carries italic across an emoji element on a quote line', () => {
+     68|     expect(labels(lifted(`> *a ${EMOJI}*`))).toEqual([[['S', 'emText',…
+       |                                              ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**X**" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "__X__" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-', '-', '-' ] ] to deeply equal [ [ 'S', 'S', '-', '-' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "S",
+-     "S",
++     "-",
++     "-",
+      "-",
+      "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', '-', '-', 'emText', …(2) ] ] to deeply equal [ [ 'S', 'emText', 'emText', …(3) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+-     "emText",
+-     "emText",
++     "-",
++     "-",
+      "emText",
+      "emText",
+      "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "||a X||" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', '-', '-', '-', '-' ] ] to deeply equal [ [ 'S', 'S', 'spoilerText', …(3) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+-     "spoilerText",
+-     "spoilerText",
++     "-",
++     "-",
+      "-",
+      "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', '-', '-', '-', '-', …(12) ] ] to deeply equal [ [ 'S', 'linkText', …(15) ] ]
+
+- Expected
++ Received
+
+@@ -1,10 +1,10 @@
+  [
+    [
+      "S",
+-     "linkText",
+-     "linkText",
++     "-",
++     "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-', '-', '-', '-', …(10) ] ] to deeply equal [ [ 'S', '-', '-', '-', '-', …(10) ] ]
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  [
+    [
+-     "S",
++     "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "`X`" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-' ] ] to deeply equal [ [ 'S', '-' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "S",
++     "-",
+      "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', '-', '-', '-' ] ] to deeply equal [ [ 'S', 'emText', 'emText', '-' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+-     "emText",
+-     "emText",
++     "-",
++     "-",
+      "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '-# sub', '-# -# nested', …(102) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "-# sub",
++   "-# -# nested",
++   "text
++ -# after",
++   "-# **b** *i*",
++   "-# # sub then head",
++   "[text](https://example.com)",
++   "[text](http://example.com/a_b)",
++   "[text](<https://example.com>)",
++   "[text](https://example.com \"title\")",
++   "[**bold**](https://example.com)",
++   "[a [b] c](https://example.com)",
++   "[text](https://example.com/a(b)c)",
++   "**[text](https://example.com)**",
++   "[text](https://example.com)[two](https://example.org)",
++   "[`code`](https://example.com)",
++   "[||sp||](https://example.com)",
++   "[text](discord://-/channels/1/2)",
++   "[te
++ xt](https://example.com)",
++   "https://example.com",
++   "http://example.com/path?q=1#h",
++   "https://example.com/a(b)",
++   "<https://example.com>",
++   "https://example.com/**bold**",
++   "**https://example.com**",
++   "https://example.com/a_b_c",
++   "_https://example.com_",
++   "<a@b.co>",
++   "https://example.com's",
++   "||sp||",
++   "||a
++ b||",
++   "|| ||",
++   "||**b**||",
++   "**||b||**",
++   "||a||b||c||",
++   "||`code`||",
++   "`||x||`",
++   "||https://example.com||",
++   "*i*",
++   "_i_",
++   "**b**",
++   "__u__",
++   "~~s~~",
++   "***bi***",
++   "___ui___",
++   "__*ui*__",
++   "**__bu__**",
++   "*__iu__*",
++   "***__biu__***",
++   "**b *bi* b**",
++   "*i **ib** i*",
++   "*loose *",
++   "_a_b_",
++   "**a*",
++   "** b **",
++   "__ u __",
++   "~~ s ~~",
++   "*a
++ b*",
++   "**a
++
++ b**",
++   "_a_ _b_",
++   "*a**b**c*",
++   "**a*b*c**",
++   "~~**a**~~",
++   "**~~a~~**",
++   "_**a**_",
++   "__a_",
++   "`code`",
++   "``co`de``",
++   "` code `",
++   "`a``b`",
++   "`**b**`",
++   "**`b`**",
++   "```block```",
++   "```
++ block
++ ```",
++   "```js
++ let a = 1;
++ ```",
++   "```js let a```",
++   "```JS
++ x
++ ```",
++   "```c++
++ x
++ ```",
++   "```notalang
++ x
++ ```",
++   "```
++
++
++ x
++
++
++ ```",
++   "```unclosed
++ x",
++   "```
++ ```",
++   "```js
++ ```",
++   "> ```
++ > x
++ > ```",
++   "`a
++ b`",
++   "```**b**```",
++   "> **b**",
++   "- **b**",
++   "**<t:1700000000>**",
++   "`<t:1700000000>`",
++   "**<@123456789012345678>**",
++   "`<@123456789012345678>`",
++   "\\https://example.com",
++   "# h
++ text
++ - a
++ > q
++ -# s",
++   "**# not head**",
++   "*- not list*",
++   "||> q||",
++   "> ||sp||
++ > **b**",
++   "- [t](https://example.com)
++ - `c`",
++   "# [t](https://example.com)",
++   "-# https://example.com",
++   "***a** b*",
++   "<https://example.com> **b**",
++   "```js
++ let a = 1;
++ ```",
++   "[text](https://example.com \"title\")",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+AssertionError: expected [ Array(8) ] to deeply equal [ Array(8) ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    "codeBlockText",
+    "S",
+    "S",
+    "S",
+    "-",
+-   "S",
+-   "S",
+-   "S",
++   "-",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:105:20
+    103|     editor.children = value;
+    104|     const [, second] = siteLines(value, 'content', editor);
+    105|     expect(second).toEqual(['codeBlockText', 'S', 'S', 'S', '-', 'S', …
+       |                    ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/22]⎯
+

@@ -1,0 +1,265 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+AssertionError: expected [ …(114) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1c: <a href=\"x\">&amp; <b>t</b></a>",
++   "1c: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "1c: {\"a\": [1, true, null]}",
++   "1c: $a = \"b $c ${d}\"; echo `ls`;",
++   "1c: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "abnf: <a href=\"x\">&amp; <b>t</b></a>",
++   "abnf: $a = \"b $c ${d}\"; echo `ls`;",
++   "actionscript: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "apache: {\"a\": [1, true, null]}",
++   "armasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "xml: <a href=\"x\">&amp; <b>t</b></a>",
++   "autohotkey: $a = \"b $c ${d}\"; echo `ls`;",
++   "autoit: $a = \"b $c ${d}\"; echo `ls`;",
++   "avrasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "avrasm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "brainfuck: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "brainfuck: @media (a) { .b > c { color: #fff } }",
++   "brainfuck: {\"a\": [1, true, null]}",
++   "brainfuck: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "c: def f(x): return \"%s\" % x  # c",
++   "c: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "clojure: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "clojure: {\"a\": [1, true, null]}",
++   "clojure: $a = \"b $c ${d}\"; echo `ls`;",
++   "cos: $a = \"b $c ${d}\"; echo `ls`;",
++   "css: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "delphi: const s = `a ${b + 1} c`; // note",
++   "delphi: $a = \"b $c ${d}\"; echo `ls`;",
++   "dns: @media (a) { .b > c { color: #fff } }",
++   "dns: $a = \"b $c ${d}\"; echo `ls`;",
++   "dns: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dts: const s = `a ${b + 1} c`; // note",
++   "dts: <a href=\"x\">&amp; <b>t</b></a>",
++   "dts: {\"a\": [1, true, null]}",
++   "dts: $a = \"b $c ${d}\"; echo `ls`;",
++   "dust: const s = `a ${b + 1} c`; // note",
++   "dust: @media (a) { .b > c { color: #fff } }",
++   "dust: $a = \"b $c ${d}\"; echo `ls`;",
++   "dust: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "excel: {\"a\": [1, true, null]}",
++   "fsharp: <a href=\"x\">&amp; <b>t</b></a>",
++   "fsharp: {\"a\": [1, true, null]}",
++   "gcode: $a = \"b $c ${d}\"; echo `ls`;",
++   "graphql: const s = `a ${b + 1} c`; // note",
++   "graphql: <a href=\"x\">&amp; <b>t</b></a>",
++   "graphql: @media (a) { .b > c { color: #fff } }",
++   "graphql: {\"a\": [1, true, null]}",
++   "graphql: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "hsp: $a = \"b $c ${d}\"; echo `ls`;",
++   "hy: $a = \"b $c ${d}\"; echo `ls`;",
++   "ini: $a = \"b $c ${d}\"; echo `ls`;",
++   "java: <a href=\"x\">&amp; <b>t</b></a>",
++   "java: def f(x): return \"%s\" % x  # c",
++   "java: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "jboss-cli: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "json: const s = `a ${b + 1} c`; // note",
++   "json: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "json: {\"a\": [1, true, null]}",
++   "lasso: {\"a\": [1, true, null]}",
++   "leaf: @media (a) { .b > c { color: #fff } }",
++   "less: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "lisp: $a = \"b $c ${d}\"; echo `ls`;",
++   "llvm: <a href=\"x\">&amp; <b>t</b></a>",
++   "llvm: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "llvm: {\"a\": [1, true, null]}",
++   "llvm: $a = \"b $c ${d}\"; echo `ls`;",
++   "mathematica: const s = `a ${b + 1} c`; // note",
++   "mathematica: <a href=\"x\">&amp; <b>t</b></a>",
++   "mathematica: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "mathematica: def f(x): return \"%s\" % x  # c",
++   "mathematica: @media (a) { .b > c { color: #fff } }",
++   "mathematica: {\"a\": [1, true, null]}",
++   "mathematica: $a = \"b $c ${d}\"; echo `ls`;",
++   "mathematica: a < b && c > \"d\" 'e' /* f */",
++   "mathematica: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "mercury: <a href=\"x\">&amp; <b>t</b></a>",
++   "mipsasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "monkey: \"a \\n b\" # c",
++   "nestedtext: def f(x): return \"%s\" % x  # c",
++   "nestedtext: @media (a) { .b > c { color: #fff } }",
++   "nestedtext: {\"a\": [1, true, null]}",
++   "nestedtext: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "nix: <a href=\"x\">&amp; <b>t</b></a>",
++   "nsis: const s = `a ${b + 1} c`; // note",
++   "nsis: $a = \"b $c ${d}\"; echo `ls`;",
++   "oxygene: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "parser3: const s = `a ${b + 1} c`; // note",
++   "parser3: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "parser3: {\"a\": [1, true, null]}",
++   "parser3: $a = \"b $c ${d}\"; echo `ls`;",
++   "parser3: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "purebasic: $a = \"b $c ${d}\"; echo `ls`;",
++   "python: @media (a) { .b > c { color: #fff } }",
++   "r: <a href=\"x\">&amp; <b>t</b></a>",
++   "r: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "r: def f(x): return \"%s\" % x  # c",
++   "r: {\"a\": [1, true, null]}",
++   "r: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "reasonml: const s = `a ${b + 1} c`; // note",
++   "scheme: $a = \"b $c ${d}\"; echo `ls`;",
++   "scss: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "shell: $a = \"b $c ${d}\"; echo `ls`;",
++   "smali: def f(x): return \"%s\" % x  # c",
++   "smali: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "stylus: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "swift: <a href=\"x\">&amp; <b>t</b></a>",
++   "yaml: const s = `a ${b + 1} c`; // note",
++   "yaml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "vim: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "wasm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "wren: <a href=\"x\">&amp; <b>t</b></a>",
++   "x86asm: const s = `a ${b + 1} c`; // note",
++   "x86asm: $a = \"b $c ${d}\"; echo `ls`;",
++   "x86asm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:91:23
+     89|     }
+     90|     expect(nested).toBeGreaterThan(50);
+     91|     expect(differing).toEqual([]);
+       |                       ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:145', 'gen:150', …(45) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:145",
++   "gen:150",
++   "gen:154",
++   "gen:206",
++   "gen:214",
++   "gen:228",
++   "gen:263",
++   "gen:410",
++   "gen:429",
++   "gen:445",
++   "gen:472",
++   "gen:476",
++   "gen:528",
++   "gen:593",
++   "gen:614",
++   "gen:708",
++   "gen:770",
++   "gen:829",
++   "gen:842",
++   "gen:906",
++   "gen:917",
++   "gen:983",
++   "gen:988",
++   "gen:1036",
++   "gen:1046",
++   "gen:1057",
++   "gen:1065",
++   "gen:1066",
++   "gen:1112",
++   "gen:1154",
++   "gen:1207",
++   "gen:1280",
++   "gen:1281",
++   "gen:1313",
++   "gen:1320",
++   "gen:1375",
++   "gen:1442",
++   "gen:1477",
++   "gen:1487",
++   "gen:1493",
++   "gen:1548",
++   "gen:1621",
++   "gen:1636",
++   "gen:1682",
++   "gen:1725",
++   "gen:1961",
++   "gen:1984",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:136', 'gen:145', …(36) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:136",
++   "gen:145",
++   "gen:150",
++   "gen:206",
++   "gen:228",
++   "gen:241",
++   "gen:263",
++   "gen:410",
++   "gen:445",
++   "gen:476",
++   "gen:492",
++   "gen:528",
++   "gen:593",
++   "gen:614",
++   "gen:708",
++   "gen:770",
++   "gen:829",
++   "gen:842",
++   "gen:917",
++   "gen:983",
++   "gen:988",
++   "gen:1046",
++   "gen:1057",
++   "gen:1065",
++   "gen:1066",
++   "gen:1207",
++   "gen:1280",
++   "gen:1281",
++   "gen:1313",
++   "gen:1320",
++   "gen:1442",
++   "gen:1487",
++   "gen:1493",
++   "gen:1507",
++   "gen:1621",
++   "gen:1682",
++   "gen:1725",
++   "gen:1961",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+

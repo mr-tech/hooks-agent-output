@@ -1,0 +1,394 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+AssertionError: expected [ [ [ 'S', 'S', …(2) ], …(1) ] ] to deeply equal [ [ [ 'S', 'S', …(2) ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -5,12 +5,12 @@
+        "S",
+        "strongText",
+        "strongText",
+      ],
+      [
++       "S",
+        "strongText",
+        "strongText",
+-       "S",
+-       "S",
++       "strongText",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:53:48
+     51|
+     52|   it('carries bold across an emoji element', () => {
+     53|     expect(labels(lifted(`**a ${EMOJI} b**`))).toEqual([[
+       |                                                ^
+     54|       ['S', 'S', 'strongText', 'strongText'],
+     55|       ['strongText', 'strongText', 'S', 'S'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+AssertionError: expected [ [ [ 'S' ], [ 'emText' ] ] ] to deeply equal [ [ [ 'S' ], [ 'S' ] ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      [
+        "S",
+      ],
+      [
+-       "S",
++       "emText",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:42
+     58|
+     59|   it('keeps the delimiters on either side of an emoji as syntax', () =…
+     60|     expect(labels(lifted(`*${EMOJI}*`))).toEqual([[['S'], ['S']]]);
+       |                                          ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ 'S' ], …(1) ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -2,11 +2,11 @@
+    [
+      [
+        "S",
+      ],
+      [
+-       "S",
++       "linkText",
+        "S",
+        "S",
+        "S",
+        "S",
+        "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:55
+     62|
+     63|   it('draws the brackets and destination around an emoji label as synt…
+     64|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     65|   });
+     66|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+AssertionError: expected [ [ …(2) ] ] to deeply equal [ [ …(2) ] ]
+
+- Expected
++ Received
+
+@@ -4,9 +4,9 @@
+        "S",
+        "emText",
+        "emText",
+      ],
+      [
+-       "S",
++       "emText",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:68:46
+     66|
+     67|   it('carries italic across an emoji element on a quote line', () => {
+     68|     expect(labels(lifted(`> *a ${EMOJI}*`))).toEqual([[['S', 'emText',…
+       |                                              ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**X**" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'S', 'strongText' ] ] to deeply equal [ [ 'S', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+      "S",
+-     "S",
++     "strongText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'emText', 'emText', …(3) ] ] to deeply equal [ [ 'S', 'emText', 'emText', …(3) ] ]
+
+- Expected
++ Received
+
+@@ -3,8 +3,8 @@
+      "S",
+      "emText",
+      "emText",
+      "emText",
+      "emText",
+-     "S",
++     "emText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'S', 'sText' ] ] to deeply equal [ [ 'S', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+      "S",
+-     "S",
++     "sText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "__X__" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'S', 'uText' ] ] to deeply equal [ [ 'S', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+      "S",
+-     "S",
++     "uText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "||a X||" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'spoilerText', …(3) ] ] to deeply equal [ [ 'S', 'S', 'spoilerText', …(3) ] ]
+
+- Expected
++ Received
+
+@@ -3,8 +3,8 @@
+      "S",
+      "S",
+      "spoilerText",
+      "spoilerText",
+      "S",
+-     "S",
++     "spoilerText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'linkText', …(15) ] ] to deeply equal [ [ 'S', 'linkText', …(15) ] ]
+
+- Expected
++ Received
+
+@@ -1,13 +1,13 @@
+  [
+    [
+      "S",
+      "linkText",
+      "linkText",
+-     "S",
+-     "S",
+-     "S",
++     "linkText",
++     "linkText",
++     "linkText",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ Array(1) ] to deeply equal [ [ 'S', 'S', 'S', 'S', 'S', …(10) ] ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    [
+      "S",
+-     "S",
++     "linkText",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "`X`" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'inlineCodeText' ] ] to deeply equal [ [ 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+-     "S",
++     "inlineCodeText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'emText', 'emText', …(1) ] ] to deeply equal [ [ 'S', 'emText', 'emText', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "emText",
+      "emText",
+-     "S",
++     "emText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/14]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-', '-', '-', '-', 'S' ] ] to deeply equal [ [ '-', '-', '-', 'S', …(2) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "-",
+      "-",
+      "-",
+-     "S",
+-     "emText",
++     "-",
++     "-",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/14]⎯
+

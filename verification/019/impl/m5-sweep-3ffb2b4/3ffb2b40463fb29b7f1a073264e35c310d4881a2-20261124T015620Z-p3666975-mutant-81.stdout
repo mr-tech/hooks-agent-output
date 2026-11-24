@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-81
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts (10 tests | 10 failed) 37ms
+     × gives plain text no class 16ms
+     × gives a character the class of its scope 4ms
+     × gives a character in a nested scope the outer class first and its own after 3ms
+     × keeps a scope's class attribute whole when it names two classes 1ms
+     × counts the entity &amp; as the one character it stands for 2ms
+     × counts the entity &lt; as the one character it stands for 1ms
+     × counts the entity &gt; as the one character it stands for 2ms
+     × counts the entity &quot; as the one character it stands for 1ms
+     × counts the entity &#x27; as the one character it stands for 2ms
+     × draws nothing for an empty scope 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 3 failed) 2268ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 32ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 2106ms
+     × draws the second text node of a code line from its own characters, not the line's 4ms
+
+ Test Files  2 failed | 17 passed (19)
+      Tests  13 failed | 182 passed (195)
+   Start at  02:41:37
+   Duration  38.67s (transform 11.40s, setup 401ms, import 34.27s, tests 131.30s, environment 13.01s)
+

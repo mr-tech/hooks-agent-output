@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-64
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 3 failed) 94ms
+     × parses a unit of 51 text nodes once 14ms
+     × parses a unit of three lines once, and a unit after a code block once more 27ms
+     × parses only the edited element's unit on the next pass, with its new text 12ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 4 failed) 84ms
+     × carries bold across an emoji element 27ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × draws the brackets and destination around an emoji label as syntax 3ms
+     × carries italic across an emoji element on a quote line 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 153ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 110ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 2ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 2 failed) 206ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 144ms
+     × draws a masked link label as link text on the content surface 38ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 11537ms
+     × on embedDescription, every content character carries the style set its preview gives it 2808ms
+     × on fieldValue, every content character carries the style set its preview gives it 2602ms
+     × on embedTitle, every content character carries the style set its preview gives it 1997ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 2010ms
+     × on v2Text, every content character carries the style set its preview gives it 2108ms
+
+ Test Files  5 failed | 14 passed (19)
+      Tests  16 failed | 179 passed (195)
+   Start at  02:33:06
+   Duration  33.50s (transform 12.19s, setup 247ms, import 36.98s, tests 121.49s, environment 12.16s)
+

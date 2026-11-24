@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-96
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 7 failed) 96ms
+     × marks bold delimiters as syntax and the inside as bold 21ms
+     × draws a masked link label as link text and the brackets and destination as syntax 16ms
+     × draws a bare link address as link text 3ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 2ms
+     × colours no heading marker and no list marker 2ms
+     × carries italic across a line break and gives the break itself no class 2ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 2 failed) 140ms
+     × carries bold across an emoji element 40ms
+     × carries italic across an emoji element on a quote line 15ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 271ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 232ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 207ms
+     × draws a masked link label as link text on the content surface 49ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 11022ms
+     × on embedDescription, every content character carries the style set its preview gives it 2901ms
+     × on fieldValue, every content character carries the style set its preview gives it 2174ms
+     × on embedTitle, every content character carries the style set its preview gives it 1802ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 2152ms
+     × on v2Text, every content character carries the style set its preview gives it 1917ms
+
+ Test Files  5 failed | 14 passed (19)
+      Tests  17 failed | 178 passed (195)
+   Start at  02:52:02
+   Duration  35.58s (transform 11.25s, setup 278ms, import 34.42s, tests 120.11s, environment 13.12s)
+

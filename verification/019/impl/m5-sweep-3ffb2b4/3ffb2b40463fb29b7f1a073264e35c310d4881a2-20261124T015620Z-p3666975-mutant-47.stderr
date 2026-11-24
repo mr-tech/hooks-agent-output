@@ -1,0 +1,156 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > shows plain text while the engine is pending and colours the same text once it resolves
+AssertionError: expected [ '*', '*', '*', '*' ] to deeply equal [ '**', '**' ]
+
+- Expected
++ Received
+
+  [
+-   "**",
+-   "**",
++   "*",
++   "*",
++   "*",
++   "*",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx:50:43
+     48|     await act(async () => { await startEngine(); });
+     49|     expect(textsOf(container, '.strongText')).toEqual(['a']);
+     50|     expect(textsOf(container, '.syntax')).toEqual(['**', '**']);
+       |                                           ^
+     51|   });
+     52|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:145', 'gen:150', …(45) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:145",
++   "gen:150",
++   "gen:154",
++   "gen:206",
++   "gen:214",
++   "gen:228",
++   "gen:263",
++   "gen:410",
++   "gen:429",
++   "gen:445",
++   "gen:472",
++   "gen:476",
++   "gen:528",
++   "gen:593",
++   "gen:614",
++   "gen:708",
++   "gen:770",
++   "gen:829",
++   "gen:842",
++   "gen:906",
++   "gen:917",
++   "gen:983",
++   "gen:988",
++   "gen:1036",
++   "gen:1046",
++   "gen:1057",
++   "gen:1065",
++   "gen:1066",
++   "gen:1112",
++   "gen:1154",
++   "gen:1207",
++   "gen:1280",
++   "gen:1281",
++   "gen:1313",
++   "gen:1320",
++   "gen:1375",
++   "gen:1442",
++   "gen:1477",
++   "gen:1487",
++   "gen:1493",
++   "gen:1548",
++   "gen:1621",
++   "gen:1636",
++   "gen:1682",
++   "gen:1725",
++   "gen:1961",
++   "gen:1984",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:136', 'gen:145', …(36) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:136",
++   "gen:145",
++   "gen:150",
++   "gen:206",
++   "gen:228",
++   "gen:241",
++   "gen:263",
++   "gen:410",
++   "gen:445",
++   "gen:476",
++   "gen:492",
++   "gen:528",
++   "gen:593",
++   "gen:614",
++   "gen:708",
++   "gen:770",
++   "gen:829",
++   "gen:842",
++   "gen:917",
++   "gen:983",
++   "gen:988",
++   "gen:1046",
++   "gen:1057",
++   "gen:1065",
++   "gen:1066",
++   "gen:1207",
++   "gen:1280",
++   "gen:1281",
++   "gen:1313",
++   "gen:1320",
++   "gen:1442",
++   "gen:1487",
++   "gen:1493",
++   "gen:1507",
++   "gen:1621",
++   "gen:1682",
++   "gen:1725",
++   "gen:1961",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+

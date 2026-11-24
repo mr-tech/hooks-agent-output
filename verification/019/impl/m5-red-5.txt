@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts [ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts ]
+Error: Cannot find module '../highlightScan' imported from /usr/local/bin/hooks/website/src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import { scanHighlight } from '../highlightScan';
+       | ^
+      4|
+      5| describe('the scan of highlight.js\'s HTML gives each character the cl…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  01:29:52
+   Duration  178ms (transform 22ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
+exit 1

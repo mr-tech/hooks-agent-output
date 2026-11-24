@@ -1,0 +1,146 @@
+stderr | src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws nothing for a language highlight.js does not know
+Could not find the language 'not-a-language', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+Could not find the language 'notalang', did you forget to load/include a language module?
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+Could not find the language 'notalang', did you forget to load/include a language module?
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+Could not find the language 'notalang', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+Could not find the language 'b', did you forget to load/include a language module?
+Could not find the language 'b', did you forget to load/include a language module?
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+Could not find the language 'b', did you forget to load/include a language module?
+Could not find the language 'b', did you forget to load/include a language module?
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+Error: Unknown language: "notalang"
+ ❯ _highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:2114:13
+ ❯ Object.highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:1723:9
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:18:26
+     16|   const start = line.children.slice(0, path.at(-1)).map((c) => flatten…
+     17|   const options = { language: line.lang, ignoreIllegals: true };
+     18|   const { value } = hljs.highlight(flattenNodeText(line), options);
+       |                          ^
+     19|   const styles: CharStyle[] = scanHighlight(value).map((classNames) =>…
+     20|   return rangesOf(path, styles, start, length);
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+Error: Unknown language: "b"
+ ❯ _highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:2114:13
+ ❯ Object.highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:1723:9
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:18:26
+     16|   const start = line.children.slice(0, path.at(-1)).map((c) => flatten…
+     17|   const options = { language: line.lang, ignoreIllegals: true };
+     18|   const { value } = hljs.highlight(flattenNodeText(line), options);
+       |                          ^
+     19|   const styles: CharStyle[] = scanHighlight(value).map((classNames) =>…
+     20|   return rangesOf(path, styles, start, length);
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws nothing for a language highlight.js does not know
+Error: Unknown language: "not-a-language"
+ ❯ _highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:2114:13
+ ❯ Object.highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:1723:9
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:18:26
+     16|   const start = line.children.slice(0, path.at(-1)).map((c) => flatten…
+     17|   const options = { language: line.lang, ignoreIllegals: true };
+     18|   const { value } = hljs.highlight(flattenNodeText(line), options);
+       |                          ^
+     19|   const styles: CharStyle[] = scanHighlight(value).map((classNames) =>…
+     20|   return rangesOf(path, styles, start, length);
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ drawn src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:38:34
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:123:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+Error: Unknown language: "notalang"
+ ❯ _highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:2114:13
+ ❯ Object.highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:1723:9
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:18:26
+     16|   const start = line.children.slice(0, path.at(-1)).map((c) => flatten…
+     17|   const options = { language: line.lang, ignoreIllegals: true };
+     18|   const { value } = hljs.highlight(flattenNodeText(line), options);
+       |                          ^
+     19|   const styles: CharStyle[] = scanHighlight(value).map((classNames) =>…
+     20|   return rangesOf(path, styles, start, length);
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:57:52
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:52
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:133:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+Error: Unknown language: "notalang"
+ ❯ _highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:2114:13
+ ❯ Object.highlight node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:1723:9
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:18:26
+     16|   const start = line.children.slice(0, path.at(-1)).map((c) => flatten…
+     17|   const options = { language: line.lang, ignoreIllegals: true };
+     18|   const { value } = hljs.highlight(flattenNodeText(line), options);
+       |                          ^
+     19|   const styles: CharStyle[] = scanHighlight(value).map((classNames) =>…
+     20|   return rangesOf(path, styles, start, length);
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:39:21
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:71
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+

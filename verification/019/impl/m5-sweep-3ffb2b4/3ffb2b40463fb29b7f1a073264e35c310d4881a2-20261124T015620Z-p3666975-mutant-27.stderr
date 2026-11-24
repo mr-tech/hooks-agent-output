@@ -1,0 +1,148 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 30 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n> b" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a single-line box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a line break typed as a new line
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:57:52
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:52
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:133:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:75:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:60:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:58:19
+ ❯ siteLines src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:55:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:85:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:60:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:58:19
+ ❯ siteLines src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:55:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:104:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of three lines once, and a unit after a code block once more
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:58:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitle, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitleWithUrl, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/decorator.tsx:41:17
+     39|     const element = children[index] as Element;
+     40|     if (index > first) text += '\n';
+     41|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     42|     lineStarts.set(index, text.length);
+     43|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:102:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:39:21
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:71
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/30]⎯
+

@@ -1,0 +1,60 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (7 tests | 1 failed) 1575ms
+     × draws the third text node of a code line from its own characters, after both earlier ones 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws the third text node of a code line from its own characters, after both earlier ones
+AssertionError: expected [ { text: '=', …(1) }, …(3) ] to deeply equal [ { text: '=', classes: [] }, …(3) ]
+
+- Expected
++ Received
+
+@@ -1,18 +1,20 @@
+  [
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": "=",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": " ",
+    },
+    {
+-     "classes": [
+-       "hljs-number",
+-     ],
++     "classes": [],
+      "text": "1",
+    },
+    {
+      "classes": [],
+      "text": ";",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:131:33
+    129|     } as unknown as SlateElement;
+    130|     const whole = expectedClasses(highlighted('javascript', 'const xy …
+    131|     expect(drawn([line], 0, 2)).toEqual(whole.slice(9));
+       |                                 ^
+    132|   });
+    133|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 19 passed (20)
+   Start at  03:41:42
+   Duration  2.62s (transform 509ms, setup 30ms, import 1.80s, tests 1.79s, environment 2.03s)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: decorator.tsx:16:walk-last
+exit 1

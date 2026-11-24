@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-39
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 235ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 198ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 223ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 151ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 3 failed) 2186ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 47ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1999ms
+     × draws the second text node of a code line from its own characters, not the line's 5ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 12070ms
+     × on embedDescription, every content character carries the style set its preview gives it 3324ms
+     × on fieldValue, every content character carries the style set its preview gives it 2224ms
+     × on embedTitle, every content character carries the style set its preview gives it 1905ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 2173ms
+     × on v2Text, every content character carries the style set its preview gives it 2428ms
+
+ Test Files  4 failed | 15 passed (19)
+      Tests  10 failed | 185 passed (195)
+   Start at  02:15:35
+   Duration  44.15s (transform 11.22s, setup 198ms, import 34.53s, tests 139.26s, environment 12.90s)
+

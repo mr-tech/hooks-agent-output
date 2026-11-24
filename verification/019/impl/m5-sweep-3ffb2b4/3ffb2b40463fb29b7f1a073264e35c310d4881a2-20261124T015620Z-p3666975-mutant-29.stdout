@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-29
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 1 failed) 209ms
+     × parses a unit of three lines once, and a unit after a code block once more 13ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 169ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 90ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 5ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 2 failed) 210ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 17ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 224ms
+     × on content, over every input of the generator and the corpus 96ms
+     × on embedDescription, over every input of the generator and the corpus 31ms
+     × on fieldValue, over every input of the generator and the corpus 17ms
+     × on embedTitle, over every input of the generator and the corpus 6ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 4ms
+     × on v2Text, over every input of the generator and the corpus 4ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx (11 tests | 6 failed) 517ms
+     × writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box 164ms
+     × writes "> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box 22ms
+     × writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box 24ms
+     × writes "> a\n> b" back to the message unchanged, once, in a full-markdown box 20ms
+     × writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box 16ms
+     × writes ">>> a\nb" back to the message unchanged, once, in a single-line box 30ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 559ms
+     × on embedDescription, every content character carries the style set its preview gives it 243ms
+     × on fieldValue, every content character carries the style set its preview gives it 66ms
+     × on embedTitle, every content character carries the style set its preview gives it 69ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 39ms
+     × on v2Text, every content character carries the style set its preview gives it 36ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 3634ms
+     × hands the message that text in a full-markdown editor 309ms
+     × hands the message that text in a full-markdown editor 166ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 13527ms
+     × keeps a multi-line paste as lines in a full-markdown editor 108ms
+     × hands the message that text in a full-markdown editor 233ms
+     × hands the message that text in a full-markdown editor 1347ms
+     × hands the message that text in a full-markdown editor 28ms
+     × hands the message that text in a full-markdown editor 65ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 13882ms
+     × hands the message a line break typed as a new line 65ms
+     × hands the message that text in a full-markdown editor 567ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 22483ms
+     × hands the message that text in a full-markdown editor 6646ms
+
+ Test Files  10 failed | 9 passed (19)
+      Tests  32 failed | 163 passed (195)
+   Start at  02:09:13
+   Duration  34.62s (transform 45.77s, setup 624ms, import 102.50s, tests 97.64s, environment 21.26s)
+

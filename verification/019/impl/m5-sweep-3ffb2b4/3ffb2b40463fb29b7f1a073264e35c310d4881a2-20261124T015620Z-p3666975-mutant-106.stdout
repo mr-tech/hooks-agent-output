@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-106
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 81ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 18ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 262ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 217ms
+
+ Test Files  2 failed | 17 passed (19)
+      Tests  2 failed | 193 passed (195)
+   Start at  02:58:04
+   Duration  34.25s (transform 10.91s, setup 215ms, import 34.23s, tests 118.74s, environment 13.08s)
+

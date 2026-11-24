@@ -1,0 +1,50 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-102
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 7 failed) 123ms
+     × marks bold delimiters as syntax and the inside as bold 24ms
+     × draws a masked link label as link text and the brackets and destination as syntax 13ms
+     × draws a bare link address as link text 5ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 5ms
+     × carries italic across a line break and gives the break itself no class 2ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 1ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 4 failed) 134ms
+     × carries bold across an emoji element 43ms
+     × keeps the delimiters on either side of an emoji as syntax 4ms
+     × draws the brackets and destination around an emoji label as syntax 11ms
+     × carries italic across an emoji element on a quote line 4ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 230ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 184ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 11ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 495ms
+     × on content, over every input of the generator and the corpus 177ms
+     × on embedDescription, over every input of the generator and the corpus 67ms
+     × on fieldValue, over every input of the generator and the corpus 50ms
+     × on embedTitle, over every input of the generator and the corpus 46ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 47ms
+     × on v2Text, over every input of the generator and the corpus 64ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 2 failed) 158ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 111ms
+     × draws a masked link label as link text on the content surface 25ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 1529ms
+     × on embedDescription, every content character carries the style set its preview gives it 512ms
+     × on fieldValue, every content character carries the style set its preview gives it 273ms
+     × on embedTitle, every content character carries the style set its preview gives it 216ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 262ms
+     × on v2Text, every content character carries the style set its preview gives it 256ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 6775ms
+     × hands the message that text in a full-markdown editor 278ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 10305ms
+     × hands the message that text in a full-markdown editor 6067ms
+     × hands the message that text in a single-line editor 4005ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 3 failed) 11304ms
+     × hands the message that text in a full-markdown editor 2430ms
+     × hands the message that text in a single-line editor 1678ms
+     × hands the message that text in a full-markdown editor 55ms
+
+ Test Files  9 failed | 10 passed (19)
+      Tests  32 failed | 163 passed (195)
+   Start at  02:55:40
+   Duration  32.05s (transform 12.64s, setup 340ms, import 36.95s, tests 87.38s, environment 13.53s)
+

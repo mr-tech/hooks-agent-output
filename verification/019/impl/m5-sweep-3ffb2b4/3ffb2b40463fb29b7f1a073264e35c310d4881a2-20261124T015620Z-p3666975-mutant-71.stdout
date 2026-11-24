@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-71
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 16 failed) 153ms
+     × carries bold across an emoji element 36ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × draws the brackets and destination around an emoji label as syntax 10ms
+     × carries italic across an emoji element on a quote line 3ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "`X`" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 10ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 2ms
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  16 failed | 179 passed (195)
+   Start at  02:36:23
+   Duration  33.84s (transform 9.51s, setup 234ms, import 31.72s, tests 114.53s, environment 12.34s)
+

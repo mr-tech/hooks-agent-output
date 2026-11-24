@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-3
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx (3 tests | 1 failed) 67ms
+     × keeps the editor closed while the engine is pending and opens it once the engine has settled 12ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  01:57:09
+   Duration  1.65s (transform 217ms, setup 16ms, import 734ms, tests 67ms, environment 687ms)
+

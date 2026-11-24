@@ -1,0 +1,328 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 30 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > keeps a multi-line paste as lines in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > gives a character inside a nested scope its outer scope's class as well as its own
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ drawn src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:38:34
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:73:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ drawn src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:38:34
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:86:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws no range that is empty or reaches past its text node, in every language
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:101:74
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws the second text node of a code line from its own characters, not the line's
+AssertionError: expected [ { text: 'c', …(1) }, …(5) ] to deeply equal [ { text: 'c', …(1) }, …(5) ]
+
+- Expected
++ Received
+
+@@ -22,13 +22,11 @@
+        "hljs-keyword",
+      ],
+      "text": "s",
+    },
+    {
+-     "classes": [
+-       "hljs-keyword",
+-     ],
++     "classes": [],
+      "text": "t",
+    },
+    {
+      "classes": [],
+      "text": " ",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:118:33
+    116|     } as unknown as SlateElement;
+    117|     const whole = expectedClasses(highlighted('javascript', 'const x =…
+    118|     expect(drawn([line], 0, 0)).toEqual(whole.slice(0, 6));
+       |                                 ^
+    119|     expect(drawn([line], 0, 1)).toEqual(whole.slice(6));
+    120|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:57:52
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:52
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:133:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:39:21
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:71
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > gives plain text no class
+AssertionError: expected [ [] ] to deeply equal [ [], [] ]
+
+- Expected
++ Received
+
+  [
+    [],
+-   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:7:33
+      5| describe('the scan of highlight.js\'s HTML gives each character the cl…
+      6|   it('gives plain text no class', () => {
+      7|     expect(scanHighlight('ab')).toEqual([[], []]);
+       |                                 ^
+      8|   });
+      9|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > gives a character the class of its scope
+AssertionError: expected [ [ 'hljs-keyword' ] ] to deeply equal [ [], [ 'hljs-keyword' ], …(2) ]
+
+- Expected
++ Received
+
+  [
+-   [],
+    [
+      "hljs-keyword",
+    ],
+-   [
+-     "hljs-keyword",
+-   ],
+-   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:11:69
+      9|
+     10|   it('gives a character the class of its scope', () => {
+     11|     expect(scanHighlight('a<span class="hljs-keyword">if</span>b')).to…
+       |                                                                     ^
+     12|   });
+     13|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > gives a character in a nested scope the outer class first and its own after
+AssertionError: expected [] to deeply equal [ [ 'hljs-string' ], …(2) ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     "hljs-string",
+-   ],
+-   [
+-     "hljs-string",
+-     "hljs-subst",
+-   ],
+-   [
+-     "hljs-string",
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:15:99
+     13|
+     14|   it('gives a character in a nested scope the outer class first and it…
+     15|     expect(scanHighlight('<span class="hljs-string">"<span class="hljs…
+       |                                                                                                   ^
+     16|       ['hljs-string'], ['hljs-string', 'hljs-subst'], ['hljs-string'],
+     17|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > keeps a scope's class attribute whole when it names two classes
+AssertionError: expected [] to deeply equal [ [ 'hljs-title function_' ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     "hljs-title function_",
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:21:74
+     19|
+     20|   it('keeps a scope\'s class attribute whole when it names two classes…
+     21|     expect(scanHighlight('<span class="hljs-title function_">f</span>'…
+       |                                                                          ^
+     22|   });
+     23|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > counts the entity &amp; as the one character it stands for
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > counts the entity &lt; as the one character it stands for
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > counts the entity &gt; as the one character it stands for
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > counts the entity &quot; as the one character it stands for
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > counts the entity &#x27; as the one character it stands for
+AssertionError: expected [] to deeply equal [ [], [], [ 'c' ] ]
+
+- Expected
++ Received
+
+- [
+-   [],
+-   [],
+-   [
+-     "c",
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:27:73
+     25|     ['&amp;', '&'], ['&lt;', '<'], ['&gt;', '>'], ['&quot;', '"'], ['&…
+     26|   ])('counts the entity %s as the one character it stands for', (entit…
+     27|     expect(scanHighlight(`a${entity}<span class="c">${entity}</span>`)…
+       |                                                                         ^
+     28|   });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts > the scan of highlight.js's HTML gives each character the class of every scope open around it > draws nothing for an empty scope
+AssertionError: expected [] to deeply equal [ [], [] ]
+
+- Expected
++ Received
+
+- [
+-   [],
+-   [],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts:31:56
+     29|
+     30|   it('draws nothing for an empty scope', () => {
+     31|     expect(scanHighlight('a<span class="x"></span>b')).toEqual([[], []…
+       |                                                        ^
+     32|   });
+     33| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/30]⎯
+

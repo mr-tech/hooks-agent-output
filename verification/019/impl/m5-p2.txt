@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 1 failed) 43ms
+     × parses only the edited element's unit on the next pass, with its new text 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses only the edited element's unit on the next pass, with its new text
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:51:63
+     49|   const ranges: Range[] = [];
+     50|   let start = 0;
+     51|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     52|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     53|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:55:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:33:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:32:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:32:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:71:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  01:35:05
+   Duration  379ms (transform 79ms, setup 0ms, import 210ms, tests 43ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: the cache is keyed on the unit's first line, not its text
+exit 1

@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-122
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 6 failed) 162ms
+     × marks bold delimiters as syntax and the inside as bold 30ms
+     × draws a masked link label as link text and the brackets and destination as syntax 17ms
+     × draws a bare link address as link text 22ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 1ms
+     × carries italic across a line break and gives the break itself no class 2ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 13ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 3 failed) 176ms
+     × carries bold across an emoji element 45ms
+     × keeps the delimiters on either side of an emoji as syntax 7ms
+     × draws the brackets and destination around an emoji label as syntax 12ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 257ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 214ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 211ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 136ms
+
+ Test Files  4 failed | 15 passed (19)
+      Tests  11 failed | 184 passed (195)
+   Start at  03:07:31
+   Duration  33.53s (transform 9.57s, setup 394ms, import 33.18s, tests 114.86s, environment 11.87s)
+

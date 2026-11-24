@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 4 failed) 172ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 76ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 55ms
+     × draws no range that is empty or reaches past its text node, in every language 7ms
+     × draws the second text node of a code line from its own characters, not the line's 22ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 4 failed) 5968ms
+     × on content, over every input of the generator and the corpus 288ms
+     × on embedDescription, over every input of the generator and the corpus 262ms
+     × on fieldValue, over every input of the generator and the corpus 99ms
+     × on v2Text, over every input of the generator and the corpus 32ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 11578ms
+     × on embedDescription, every content character carries the style set its preview gives it 934ms
+     × on fieldValue, every content character carries the style set its preview gives it 435ms
+     × on v2Text, every content character carries the style set its preview gives it 227ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 12360ms
+     × hands the message that text in a full-markdown editor 9647ms
+     × hands the message that text in a full-markdown editor 735ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 21428ms
+     × hands the message that text in a full-markdown editor 4261ms
+     × hands the message that text in a full-markdown editor 1493ms
+     × hands the message that text in a full-markdown editor 3191ms
+     × hands the message that text in a full-markdown editor 323ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 26201ms
+     × hands the message that text in a full-markdown editor 12457ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 37340ms
+     × hands the message that text in a full-markdown editor 7959ms
+
+ Test Files  7 failed | 12 passed (19)
+      Tests  19 failed | 176 passed (195)
+   Start at  02:01:46
+   Duration  49.68s (transform 47.26s, setup 861ms, import 110.92s, tests 170.92s, environment 29.60s)
+

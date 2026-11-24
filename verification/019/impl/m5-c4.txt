@@ -1,0 +1,73 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 1 failed) 1348ms
+     × draws the second text node of a code line from its own characters, not the line's 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws the second text node of a code line from its own characters, not the line's
+AssertionError: expected [ { text: 'x', …(1) }, …(5) ] to deeply equal [ { text: 'x', classes: [] }, …(5) ]
+
+- Expected
++ Received
+
+@@ -1,25 +1,33 @@
+  [
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": "x",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": " ",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": "=",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": " ",
+    },
+    {
+      "classes": [
+-       "hljs-number",
++       "hljs-keyword",
+      ],
+      "text": "1",
+    },
+    {
+      "classes": [],
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:119:33
+    117|     const whole = expectedClasses(highlighted('javascript', 'const x =…
+    118|     expect(drawn([line], 0, 0)).toEqual(whole.slice(0, 6));
+    119|     expect(drawn([line], 0, 1)).toEqual(whole.slice(6));
+       |                                 ^
+    120|   });
+    121|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 15 passed (16)
+   Start at  01:33:31
+   Duration  2.27s (transform 88ms, setup 13ms, import 207ms, tests 1.35s, environment 618ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: a later text node of a code line reads from the line start
+exit 1

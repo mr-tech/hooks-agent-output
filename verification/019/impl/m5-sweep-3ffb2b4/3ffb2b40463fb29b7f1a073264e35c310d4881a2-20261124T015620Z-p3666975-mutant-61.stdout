@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-61
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 3 failed) 68ms
+     × parses a unit of 51 text nodes once 11ms
+     × parses a unit of three lines once, and a unit after a code block once more 2ms
+     × parses only the edited element's unit on the next pass, with its new text 4ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 4 failed) 106ms
+     × carries bold across an emoji element 36ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × draws the brackets and destination around an emoji label as syntax 4ms
+     × carries italic across an emoji element on a quote line 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 189ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 121ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 3 failed) 1777ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 16ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1735ms
+     × draws the second text node of a code line from its own characters, not the line's 6ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 2 failed) 165ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 136ms
+     × draws a masked link label as link text on the content surface 16ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 9930ms
+     × on embedDescription, every content character carries the style set its preview gives it 2562ms
+     × on fieldValue, every content character carries the style set its preview gives it 2015ms
+     × on embedTitle, every content character carries the style set its preview gives it 1656ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1874ms
+     × on v2Text, every content character carries the style set its preview gives it 1816ms
+
+ Test Files  6 failed | 13 passed (19)
+      Tests  19 failed | 176 passed (195)
+   Start at  02:31:23
+   Duration  29.89s (transform 10.14s, setup 319ms, import 32.54s, tests 105.58s, environment 12.65s)
+

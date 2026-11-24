@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+stderr | src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws nothing for a language highlight.js does not know
+Could not find the language 'not-a-language', did you forget to load/include a language module?
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 1 failed) 1412ms
+     × draws nothing for a language highlight.js does not know 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws nothing for a language highlight.js does not know
+Error: Unknown language: "not-a-language"
+ ❯ _highlight ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:2114:13
+ ❯ Object.highlight ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/highlight.js@11.12.0/node_modules/highlight.js/lib/core.js:1723:9
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:17:26
+     15|   const start = line.children.slice(0, path.at(-1)).map((c) => flatten…
+     16|   const options = { language: line.lang, ignoreIllegals: true };
+     17|   const { value } = hljs.highlight(flattenNodeText(line), options);
+       |                          ^
+     18|   const styles: CharStyle[] = scanHighlight(value).map((classNames) =>…
+     19|   return rangesOf(path, styles, start, length);
+ ❯ src/components/SlateEditor/utils/decorator.tsx:95:27
+ ❯ drawn src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:38:34
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:123:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 15 passed (16)
+   Start at  01:33:34
+   Duration  2.33s (transform 78ms, setup 9ms, import 191ms, tests 1.42s, environment 629ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: unknown language not guarded
+exit 1

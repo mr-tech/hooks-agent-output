@@ -1,0 +1,1134 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 59 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > shows plain text while the engine is pending and colours the same text once it resolves
+AssertionError: expected [ '*', '**' ] to deeply equal [ '**', '**' ]
+
+- Expected
++ Received
+
+  [
+-   "**",
++   "*",
+    "**",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx:50:43
+     48|     await act(async () => { await startEngine(); });
+     49|     expect(textsOf(container, '.strongText')).toEqual(['a']);
+     50|     expect(textsOf(container, '.syntax')).toEqual(['**', '**']);
+       |                                           ^
+     51|   });
+     52|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/59]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n> b" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a single-line box
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of 1,000 generator inputs one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a write of a after a is typed into an empty full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a write of a after a is typed into an empty single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message one write per typed character, each the text so far
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a line break typed as a new line
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message no write for a character typed in a synchronous act, because the editor reports its change after the act returns
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/59]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > keeps a multi-line paste as lines in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ Object.current src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ current node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:65:41
+ ❯ decorate node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:31:11
+ ❯ selector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-generic-selector.tsx:38:29
+ ❯ useGenericSelector node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/hooks/use-decorations.ts:38:32
+ ❯ useDecorations node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/components/text.tsx:45:22
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/59]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+AssertionError: expected [ '1c: "a \n b" # c', …(555) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1c: \"a \\n b\" # c",
++   "abnf: \"a \\n b\" # c",
++   "accesslog: \"a \\n b\" # c",
++   "actionscript: const s = `a ${b + 1} c`; // note",
++   "actionscript: \"a \\n b\" # c",
++   "actionscript: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "ada: \"a \\n b\" # c",
++   "ada: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "ada: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "angelscript: const s = `a ${b + 1} c`; // note",
++   "angelscript: \"a \\n b\" # c",
++   "apache: const s = `a ${b + 1} c`; // note",
++   "apache: <a href=\"x\">&amp; <b>t</b></a>",
++   "apache: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "apache: def f(x): return \"%s\" % x  # c",
++   "apache: a < b && c > \"d\" 'e' /* f */",
++   "apache: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "applescript: \"a \\n b\" # c",
++   "arcade: \"a \\n b\" # c",
++   "arcade: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "arduino: const s = `a ${b + 1} c`; // note",
++   "arduino: \"a \\n b\" # c",
++   "arduino: def f(x): return \"%s\" % x  # c",
++   "arduino: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "armasm: const s = `a ${b + 1} c`; // note",
++   "armasm: \"a \\n b\" # c",
++   "armasm: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "armasm: def f(x): return \"%s\" % x  # c",
++   "armasm: @media (a) { .b > c { color: #fff } }",
++   "armasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "armasm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "xml: <a href=\"x\">&amp; <b>t</b></a>",
++   "aspectj: const s = `a ${b + 1} c`; // note",
++   "aspectj: \"a \\n b\" # c",
++   "aspectj: @media (a) { .b > c { color: #fff } }",
++   "aspectj: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "autohotkey: \"a \\n b\" # c",
++   "autohotkey: def f(x): return \"%s\" % x  # c",
++   "autohotkey: @media (a) { .b > c { color: #fff } }",
++   "autoit: const s = `a ${b + 1} c`; // note",
++   "autoit: \"a \\n b\" # c",
++   "autoit: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "autoit: @media (a) { .b > c { color: #fff } }",
++   "avrasm: \"a \\n b\" # c",
++   "awk: \"a \\n b\" # c",
++   "awk: $a = \"b $c ${d}\"; echo `ls`;",
++   "awk: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "axapta: const s = `a ${b + 1} c`; // note",
++   "axapta: \"a \\n b\" # c",
++   "bash: \"a \\n b\" # c",
++   "bash: $a = \"b $c ${d}\"; echo `ls`;",
++   "bash: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "basic: \"a \\n b\" # c",
++   "basic: def f(x): return \"%s\" % x  # c",
++   "bnf: <a href=\"x\">&amp; <b>t</b></a>",
++   "brainfuck: const s = `a ${b + 1} c`; // note",
++   "brainfuck: \"a \\n b\" # c",
++   "brainfuck: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "brainfuck: def f(x): return \"%s\" % x  # c",
++   "brainfuck: @media (a) { .b > c { color: #fff } }",
++   "brainfuck: {\"a\": [1, true, null]}",
++   "brainfuck: $a = \"b $c ${d}\"; echo `ls`;",
++   "brainfuck: a < b && c > \"d\" 'e' /* f */",
++   "brainfuck: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "c: const s = `a ${b + 1} c`; // note",
++   "c: \"a \\n b\" # c",
++   "cal: \"a \\n b\" # c",
++   "capnproto: const s = `a ${b + 1} c`; // note",
++   "capnproto: \"a \\n b\" # c",
++   "ceylon: \"a \\n b\" # c",
++   "ceylon: @media (a) { .b > c { color: #fff } }",
++   "ceylon: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "clean: \"a \\n b\" # c",
++   "clojure: \"a \\n b\" # c",
++   "cmake: \"a \\n b\" # c",
++   "cmake: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "coffeescript: \"a \\n b\" # c",
++   "coq: \"a \\n b\" # c",
++   "cos: \"a \\n b\" # c",
++   "cos: $a = \"b $c ${d}\"; echo `ls`;",
++   "cpp: const s = `a ${b + 1} c`; // note",
++   "cpp: \"a \\n b\" # c",
++   "cpp: def f(x): return \"%s\" % x  # c",
++   "cpp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "crmsh: <a href=\"x\">&amp; <b>t</b></a>",
++   "crmsh: \"a \\n b\" # c",
++   "crystal: \"a \\n b\" # c",
++   "crystal: def f(x): return \"%s\" % x  # c",
++   "crystal: @media (a) { .b > c { color: #fff } }",
++   "crystal: $a = \"b $c ${d}\"; echo `ls`;",
++   "csharp: const s = `a ${b + 1} c`; // note",
++   "csharp: \"a \\n b\" # c",
++   "csharp: def f(x): return \"%s\" % x  # c",
++   "csharp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "css: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "css: @media (a) { .b > c { color: #fff } }",
++   "css: a < b && c > \"d\" 'e' /* f */",
++   "d: const s = `a ${b + 1} c`; // note",
++   "d: \"a \\n b\" # c",
++   "d: @media (a) { .b > c { color: #fff } }",
++   "d: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "markdown: <a href=\"x\">&amp; <b>t</b></a>",
++   "dart: const s = `a ${b + 1} c`; // note",
++   "dart: \"a \\n b\" # c",
++   "dart: @media (a) { .b > c { color: #fff } }",
++   "delphi: const s = `a ${b + 1} c`; // note",
++   "delphi: {\"a\": [1, true, null]}",
++   "delphi: $a = \"b $c ${d}\"; echo `ls`;",
++   "delphi: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "django: const s = `a ${b + 1} c`; // note",
++   "django: <a href=\"x\">&amp; <b>t</b></a>",
++   "django: \"a \\n b\" # c",
++   "django: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "django: def f(x): return \"%s\" % x  # c",
++   "django: @media (a) { .b > c { color: #fff } }",
++   "django: {\"a\": [1, true, null]}",
++   "django: $a = \"b $c ${d}\"; echo `ls`;",
++   "django: a < b && c > \"d\" 'e' /* f */",
++   "django: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dns: \"a \\n b\" # c",
++   "dns: a < b && c > \"d\" 'e' /* f */",
++   "dockerfile: \"a \\n b\" # c",
++   "dsconfig: const s = `a ${b + 1} c`; // note",
++   "dsconfig: \"a \\n b\" # c",
++   "dsconfig: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "dsconfig: def f(x): return \"%s\" % x  # c",
++   "dsconfig: a < b && c > \"d\" 'e' /* f */",
++   "dsconfig: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "dts: <a href=\"x\">&amp; <b>t</b></a>",
++   "dts: \"a \\n b\" # c",
++   "dts: {\"a\": [1, true, null]}",
++   "dust: const s = `a ${b + 1} c`; // note",
++   "dust: <a href=\"x\">&amp; <b>t</b></a>",
++   "dust: \"a \\n b\" # c",
++   "dust: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "dust: def f(x): return \"%s\" % x  # c",
++   "dust: @media (a) { .b > c { color: #fff } }",
++   "dust: {\"a\": [1, true, null]}",
++   "dust: $a = \"b $c ${d}\"; echo `ls`;",
++   "dust: a < b && c > \"d\" 'e' /* f */",
++   "dust: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "ebnf: const s = `a ${b + 1} c`; // note",
++   "ebnf: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "ebnf: def f(x): return \"%s\" % x  # c",
++   "ebnf: a < b && c > \"d\" 'e' /* f */",
++   "ebnf: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "elixir: \"a \\n b\" # c",
++   "elixir: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "elixir: def f(x): return \"%s\" % x  # c",
++   "elixir: @media (a) { .b > c { color: #fff } }",
++   "elixir: $a = \"b $c ${d}\"; echo `ls`;",
++   "elm: const s = `a ${b + 1} c`; // note",
++   "elm: \"a \\n b\" # c",
++   "elm: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "elm: def f(x): return \"%s\" % x  # c",
++   "elm: a < b && c > \"d\" 'e' /* f */",
++   "elm: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "ruby: \"a \\n b\" # c",
++   "ruby: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "ruby: def f(x): return \"%s\" % x  # c",
++   "ruby: @media (a) { .b > c { color: #fff } }",
++   "ruby: $a = \"b $c ${d}\"; echo `ls`;",
++   "erb: const s = `a ${b + 1} c`; // note",
++   "erb: <a href=\"x\">&amp; <b>t</b></a>",
++   "erb: \"a \\n b\" # c",
++   "erb: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "erb: def f(x): return \"%s\" % x  # c",
++   "erb: @media (a) { .b > c { color: #fff } }",
++   "erb: {\"a\": [1, true, null]}",
++   "erb: $a = \"b $c ${d}\"; echo `ls`;",
++   "erb: a < b && c > \"d\" 'e' /* f */",
++   "erb: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "erlang-repl: \"a \\n b\" # c",
++   "erlang: \"a \\n b\" # c",
++   "erlang: $a = \"b $c ${d}\"; echo `ls`;",
++   "excel: \"a \\n b\" # c",
++   "fix: const s = `a ${b + 1} c`; // note",
++   "fix: <a href=\"x\">&amp; <b>t</b></a>",
++   "fix: \"a \\n b\" # c",
++   "fix: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "fix: def f(x): return \"%s\" % x  # c",
++   "fix: @media (a) { .b > c { color: #fff } }",
++   "fix: {\"a\": [1, true, null]}",
++   "fix: $a = \"b $c ${d}\"; echo `ls`;",
++   "fix: a < b && c > \"d\" 'e' /* f */",
++   "fix: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "flix: \"a \\n b\" # c",
++   "flix: def f(x): return \"%s\" % x  # c",
++   "fortran: \"a \\n b\" # c",
++   "fortran: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "fortran: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "fsharp: <a href=\"x\">&amp; <b>t</b></a>",
++   "fsharp: \"a \\n b\" # c",
++   "fsharp: @media (a) { .b > c { color: #fff } }",
++   "fsharp: $a = \"b $c ${d}\"; echo `ls`;",
++   "fsharp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "gams: \"a \\n b\" # c",
++   "gams: $a = \"b $c ${d}\"; echo `ls`;",
++   "gauss: \"a \\n b\" # c",
++   "gauss: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "gauss: @media (a) { .b > c { color: #fff } }",
++   "gcode: \"a \\n b\" # c",
++   "gherkin: @media (a) { .b > c { color: #fff } }",
++   "glsl: const s = `a ${b + 1} c`; // note",
++   "gml: \"a \\n b\" # c",
++   "gml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "go: const s = `a ${b + 1} c`; // note",
++   "go: \"a \\n b\" # c",
++   "golo: \"a \\n b\" # c",
++   "golo: @media (a) { .b > c { color: #fff } }",
++   "golo: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "gradle: \"a \\n b\" # c",
++   "gradle: def f(x): return \"%s\" % x  # c",
++   "graphql: \"a \\n b\" # c",
++   "graphql: @media (a) { .b > c { color: #fff } }",
++   "graphql: {\"a\": [1, true, null]}",
++   "graphql: $a = \"b $c ${d}\"; echo `ls`;",
++   "groovy: \"a \\n b\" # c",
++   "groovy: def f(x): return \"%s\" % x  # c",
++   "groovy: @media (a) { .b > c { color: #fff } }",
++   "handlebars: const s = `a ${b + 1} c`; // note",
++   "handlebars: <a href=\"x\">&amp; <b>t</b></a>",
++   "handlebars: \"a \\n b\" # c",
++   "handlebars: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "handlebars: def f(x): return \"%s\" % x  # c",
++   "handlebars: @media (a) { .b > c { color: #fff } }",
++   "handlebars: {\"a\": [1, true, null]}",
++   "handlebars: $a = \"b $c ${d}\"; echo `ls`;",
++   "handlebars: a < b && c > \"d\" 'e' /* f */",
++   "handlebars: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "haskell: const s = `a ${b + 1} c`; // note",
++   "haskell: \"a \\n b\" # c",
++   "haskell: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "haskell: def f(x): return \"%s\" % x  # c",
++   "haskell: a < b && c > \"d\" 'e' /* f */",
++   "haskell: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "haxe: \"a \\n b\" # c",
++   "haxe: @media (a) { .b > c { color: #fff } }",
++   "haxe: $a = \"b $c ${d}\"; echo `ls`;",
++   "haxe: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "hsp: \"a \\n b\" # c",
++   "hsp: {\"a\": [1, true, null]}",
++   "hy: \"a \\n b\" # c",
++   "inform7: \"a \\n b\" # c",
++   "irpf90: \"a \\n b\" # c",
++   "irpf90: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "irpf90: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "isbl: const s = `a ${b + 1} c`; // note",
++   "isbl: \"a \\n b\" # c",
++   "isbl: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "isbl: def f(x): return \"%s\" % x  # c",
++   "isbl: a < b && c > \"d\" 'e' /* f */",
++   "isbl: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "java: const s = `a ${b + 1} c`; // note",
++   "java: \"a \\n b\" # c",
++   "java: def f(x): return \"%s\" % x  # c",
++   "java: @media (a) { .b > c { color: #fff } }",
++   "java: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "javascript: const s = `a ${b + 1} c`; // note",
++   "javascript: \"a \\n b\" # c",
++   "javascript: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "javascript: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "jboss-cli: \"a \\n b\" # c",
++   "json: \"a \\n b\" # c",
++   "json: {\"a\": [1, true, null]}",
++   "julia: const s = `a ${b + 1} c`; // note",
++   "julia: \"a \\n b\" # c",
++   "julia: @media (a) { .b > c { color: #fff } }",
++   "julia: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "kotlin: const s = `a ${b + 1} c`; // note",
++   "kotlin: \"a \\n b\" # c",
++   "kotlin: @media (a) { .b > c { color: #fff } }",
++   "lasso: \"a \\n b\" # c",
++   "lasso: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "latex: $a = \"b $c ${d}\"; echo `ls`;",
++   "less: const s = `a ${b + 1} c`; // note",
++   "less: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "less: def f(x): return \"%s\" % x  # c",
++   "less: @media (a) { .b > c { color: #fff } }",
++   "less: a < b && c > \"d\" 'e' /* f */",
++   "less: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "lisp: \"a \\n b\" # c",
++   "livecodeserver: \"a \\n b\" # c",
++   "livecodeserver: a < b && c > \"d\" 'e' /* f */",
++   "livecodeserver: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "livescript: const s = `a ${b + 1} c`; // note",
++   "livescript: \"a \\n b\" # c",
++   "livescript: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "llvm: \"a \\n b\" # c",
++   "llvm: @media (a) { .b > c { color: #fff } }",
++   "lsl: \"a \\n b\" # c",
++   "lua: \"a \\n b\" # c",
++   "lua: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "makefile: \"a \\n b\" # c",
++   "makefile: {\"a\": [1, true, null]}",
++   "mathematica: const s = `a ${b + 1} c`; // note",
++   "mathematica: <a href=\"x\">&amp; <b>t</b></a>",
++   "mathematica: \"a \\n b\" # c",
++   "mathematica: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "mathematica: def f(x): return \"%s\" % x  # c",
++   "mathematica: @media (a) { .b > c { color: #fff } }",
++   "mathematica: {\"a\": [1, true, null]}",
++   "mathematica: $a = \"b $c ${d}\"; echo `ls`;",
++   "mathematica: a < b && c > \"d\" 'e' /* f */",
++   "mathematica: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "matlab: \"a \\n b\" # c",
++   "matlab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "maxima: \"a \\n b\" # c",
++   "mel: \"a \\n b\" # c",
++   "mercury: \"a \\n b\" # c",
++   "mipsasm: \"a \\n b\" # c",
++   "perl: \"a \\n b\" # c",
++   "perl: @media (a) { .b > c { color: #fff } }",
++   "perl: $a = \"b $c ${d}\"; echo `ls`;",
++   "mojolicious: const s = `a ${b + 1} c`; // note",
++   "mojolicious: <a href=\"x\">&amp; <b>t</b></a>",
++   "mojolicious: \"a \\n b\" # c",
++   "mojolicious: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "mojolicious: def f(x): return \"%s\" % x  # c",
++   "mojolicious: @media (a) { .b > c { color: #fff } }",
++   "mojolicious: {\"a\": [1, true, null]}",
++   "mojolicious: $a = \"b $c ${d}\"; echo `ls`;",
++   "mojolicious: a < b && c > \"d\" 'e' /* f */",
++   "mojolicious: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "monkey: const s = `a ${b + 1} c`; // note",
++   "monkey: \"a \\n b\" # c",
++   "monkey: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "monkey: $a = \"b $c ${d}\"; echo `ls`;",
++   "monkey: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "moonscript: \"a \\n b\" # c",
++   "n1ql: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "nestedtext: def f(x): return \"%s\" % x  # c",
++   "nestedtext: @media (a) { .b > c { color: #fff } }",
++   "nestedtext: {\"a\": [1, true, null]}",
++   "nestedtext: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "nginx: const s = `a ${b + 1} c`; // note",
++   "nginx: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "nginx: def f(x): return \"%s\" % x  # c",
++   "nginx: a < b && c > \"d\" 'e' /* f */",
++   "nginx: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "nim: const s = `a ${b + 1} c`; // note",
++   "nim: \"a \\n b\" # c",
++   "nim: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "nix: <a href=\"x\">&amp; <b>t</b></a>",
++   "nix: \"a \\n b\" # c",
++   "nsis: \"a \\n b\" # c",
++   "nsis: $a = \"b $c ${d}\"; echo `ls`;",
++   "nsis: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "objectivec: const s = `a ${b + 1} c`; // note",
++   "objectivec: \"a \\n b\" # c",
++   "ocaml: \"a \\n b\" # c",
++   "ocaml: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "ocaml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "openscad: \"a \\n b\" # c",
++   "openscad: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "oxygene: const s = `a ${b + 1} c`; // note",
++   "oxygene: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "oxygene: {\"a\": [1, true, null]}",
++   "oxygene: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "parser3: const s = `a ${b + 1} c`; // note",
++   "parser3: <a href=\"x\">&amp; <b>t</b></a>",
++   "parser3: \"a \\n b\" # c",
++   "parser3: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "parser3: def f(x): return \"%s\" % x  # c",
++   "parser3: @media (a) { .b > c { color: #fff } }",
++   "parser3: {\"a\": [1, true, null]}",
++   "parser3: $a = \"b $c ${d}\"; echo `ls`;",
++   "parser3: a < b && c > \"d\" 'e' /* f */",
++   "parser3: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "pf: const s = `a ${b + 1} c`; // note",
++   "pf: <a href=\"x\">&amp; <b>t</b></a>",
++   "pf: \"a \\n b\" # c",
++   "pf: $a = \"b $c ${d}\"; echo `ls`;",
++   "pgsql: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "pgsql: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "php: const s = `a ${b + 1} c`; // note",
++   "php: \"a \\n b\" # c",
++   "php: $a = \"b $c ${d}\"; echo `ls`;",
++   "php: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "php-template: const s = `a ${b + 1} c`; // note",
++   "php-template: <a href=\"x\">&amp; <b>t</b></a>",
++   "php-template: \"a \\n b\" # c",
++   "php-template: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "php-template: def f(x): return \"%s\" % x  # c",
++   "php-template: @media (a) { .b > c { color: #fff } }",
++   "php-template: {\"a\": [1, true, null]}",
++   "php-template: $a = \"b $c ${d}\"; echo `ls`;",
++   "php-template: a < b && c > \"d\" 'e' /* f */",
++   "php-template: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "pony: \"a \\n b\" # c",
++   "pony: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "powershell: \"a \\n b\" # c",
++   "powershell: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "powershell: $a = \"b $c ${d}\"; echo `ls`;",
++   "powershell: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "processing: const s = `a ${b + 1} c`; // note",
++   "processing: \"a \\n b\" # c",
++   "profile: \"a \\n b\" # c",
++   "prolog: \"a \\n b\" # c",
++   "prolog: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "properties: const s = `a ${b + 1} c`; // note",
++   "properties: <a href=\"x\">&amp; <b>t</b></a>",
++   "properties: \"a \\n b\" # c",
++   "properties: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "properties: def f(x): return \"%s\" % x  # c",
++   "properties: @media (a) { .b > c { color: #fff } }",
++   "properties: {\"a\": [1, true, null]}",
++   "properties: $a = \"b $c ${d}\"; echo `ls`;",
++   "properties: a < b && c > \"d\" 'e' /* f */",
++   "properties: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "protobuf: \"a \\n b\" # c",
++   "puppet: \"a \\n b\" # c",
++   "puppet: $a = \"b $c ${d}\"; echo `ls`;",
++   "purebasic: \"a \\n b\" # c",
++   "python: \"a \\n b\" # c",
++   "python: def f(x): return \"%s\" % x  # c",
++   "python: @media (a) { .b > c { color: #fff } }",
++   "q: \"a \\n b\" # c",
++   "qml: const s = `a ${b + 1} c`; // note",
++   "qml: \"a \\n b\" # c",
++   "qml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "r: <a href=\"x\">&amp; <b>t</b></a>",
++   "r: \"a \\n b\" # c",
++   "r: @media (a) { .b > c { color: #fff } }",
++   "r: {\"a\": [1, true, null]}",
++   "r: $a = \"b $c ${d}\"; echo `ls`;",
++   "r: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "reasonml: \"a \\n b\" # c",
++   "reasonml: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "reasonml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "rib: \"a \\n b\" # c",
++   "routeros: \"a \\n b\" # c",
++   "routeros: $a = \"b $c ${d}\"; echo `ls`;",
++   "rsl: \"a \\n b\" # c",
++   "ruleslanguage: \"a \\n b\" # c",
++   "ruleslanguage: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "rust: const s = `a ${b + 1} c`; // note",
++   "rust: \"a \\n b\" # c",
++   "sas: \"a \\n b\" # c",
++   "sas: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "scala: \"a \\n b\" # c",
++   "scala: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "scala: def f(x): return \"%s\" % x  # c",
++   "scala: @media (a) { .b > c { color: #fff } }",
++   "scheme: \"a \\n b\" # c",
++   "scilab: \"a \\n b\" # c",
++   "scilab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "scss: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "scss: @media (a) { .b > c { color: #fff } }",
++   "scss: $a = \"b $c ${d}\"; echo `ls`;",
++   "scss: a < b && c > \"d\" 'e' /* f */",
++   "shell: $a = \"b $c ${d}\"; echo `ls`;",
++   "smali: \"a \\n b\" # c",
++   "smalltalk: \"a \\n b\" # c",
++   "smalltalk: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "smalltalk: $a = \"b $c ${d}\"; echo `ls`;",
++   "sml: \"a \\n b\" # c",
++   "sml: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "sqf: \"a \\n b\" # c",
++   "sqf: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "sql: <a href=\"x\">&amp; <b>t</b></a>",
++   "sql: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "sql: @media (a) { .b > c { color: #fff } }",
++   "sql: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "stan: \"a \\n b\" # c",
++   "stata: const s = `a ${b + 1} c`; // note",
++   "stata: \"a \\n b\" # c",
++   "stata: $a = \"b $c ${d}\"; echo `ls`;",
++   "step21: \"a \\n b\" # c",
++   "stylus: \"a \\n b\" # c",
++   "stylus: @media (a) { .b > c { color: #fff } }",
++   "stylus: $a = \"b $c ${d}\"; echo `ls`;",
++   "stylus: a < b && c > \"d\" 'e' /* f */",
++   "swift: <a href=\"x\">&amp; <b>t</b></a>",
++   "swift: \"a \\n b\" # c",
++   "swift: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "swift: @media (a) { .b > c { color: #fff } }",
++   "swift: $a = \"b $c ${d}\"; echo `ls`;",
++   "yaml: const s = `a ${b + 1} c`; // note",
++   "yaml: <a href=\"x\">&amp; <b>t</b></a>",
++   "yaml: \"a \\n b\" # c",
++   "yaml: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "yaml: def f(x): return \"%s\" % x  # c",
++   "yaml: @media (a) { .b > c { color: #fff } }",
++   "yaml: $a = \"b $c ${d}\"; echo `ls`;",
++   "yaml: a < b && c > \"d\" 'e' /* f */",
++   "yaml: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "tcl: \"a \\n b\" # c",
++   "tcl: $a = \"b $c ${d}\"; echo `ls`;",
++   "thrift: const s = `a ${b + 1} c`; // note",
++   "thrift: \"a \\n b\" # c",
++   "tp: \"a \\n b\" # c",
++   "tp: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "tp: $a = \"b $c ${d}\"; echo `ls`;",
++   "twig: const s = `a ${b + 1} c`; // note",
++   "twig: <a href=\"x\">&amp; <b>t</b></a>",
++   "twig: \"a \\n b\" # c",
++   "twig: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "twig: def f(x): return \"%s\" % x  # c",
++   "twig: @media (a) { .b > c { color: #fff } }",
++   "twig: {\"a\": [1, true, null]}",
++   "twig: $a = \"b $c ${d}\"; echo `ls`;",
++   "twig: a < b && c > \"d\" 'e' /* f */",
++   "twig: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "typescript: const s = `a ${b + 1} c`; // note",
++   "typescript: \"a \\n b\" # c",
++   "typescript: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "typescript: @media (a) { .b > c { color: #fff } }",
++   "typescript: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "vala: const s = `a ${b + 1} c`; // note",
++   "vala: \"a \\n b\" # c",
++   "vbnet: const s = `a ${b + 1} c`; // note",
++   "vbnet: \"a \\n b\" # c",
++   "vbnet: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbnet: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "vbscript: const s = `a ${b + 1} c`; // note",
++   "vbscript: \"a \\n b\" # c",
++   "vbscript: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbscript: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "vbscript-html: const s = `a ${b + 1} c`; // note",
++   "vbscript-html: <a href=\"x\">&amp; <b>t</b></a>",
++   "vbscript-html: \"a \\n b\" # c",
++   "vbscript-html: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vbscript-html: def f(x): return \"%s\" % x  # c",
++   "vbscript-html: @media (a) { .b > c { color: #fff } }",
++   "vbscript-html: {\"a\": [1, true, null]}",
++   "vbscript-html: $a = \"b $c ${d}\"; echo `ls`;",
++   "vbscript-html: a < b && c > \"d\" 'e' /* f */",
++   "vbscript-html: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "verilog: const s = `a ${b + 1} c`; // note",
++   "verilog: \"a \\n b\" # c",
++   "verilog: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "vhdl: \"a \\n b\" # c",
++   "vhdl: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "vhdl: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "vim: \"a \\n b\" # c",
++   "vim: a < b && c > \"d\" 'e' /* f */",
++   "vim: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "wasm: \"a \\n b\" # c",
++   "wasm: $a = \"b $c ${d}\"; echo `ls`;",
++   "wren: const s = `a ${b + 1} c`; // note",
++   "wren: <a href=\"x\">&amp; <b>t</b></a>",
++   "wren: \"a \\n b\" # c",
++   "wren: SELECT \"a\", 1 FROM t WHERE x = 'y' -- c",
++   "wren: def f(x): return \"%s\" % x  # c",
++   "wren: a < b && c > \"d\" 'e' /* f */",
++   "wren: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "x86asm: \"a \\n b\" # c",
++   "xl: \"a \\n b\" # c",
++   "xquery: <a href=\"x\">&amp; <b>t</b></a>",
++   "xquery: \"a \\n b\" # c",
++   "xquery: $a = \"b $c ${d}\"; echo `ls`;",
++   "xquery: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "zephir: const s = `a ${b + 1} c`; // note",
++   "zephir: \"a \\n b\" # c",
++   "zephir: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:91:23
+     89|     }
+     90|     expect(nested).toBeGreaterThan(50);
+     91|     expect(differing).toEqual([]);
+       |                       ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/59]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws the second text node of a code line from its own characters, not the line's
+AssertionError: expected [ { text: 'c', classes: [] }, …(5) ] to deeply equal [ { text: 'c', …(1) }, …(5) ]
+
+- Expected
++ Received
+
+@@ -1,10 +1,8 @@
+  [
+    {
+-     "classes": [
+-       "hljs-keyword",
+-     ],
++     "classes": [],
+      "text": "c",
+    },
+    {
+      "classes": [
+        "hljs-keyword",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:118:33
+    116|     } as unknown as SlateElement;
+    117|     const whole = expectedClasses(highlighted('javascript', 'const x =…
+    118|     expect(drawn([line], 0, 0)).toEqual(whole.slice(0, 6));
+       |                                 ^
+    119|     expect(drawn([line], 0, 1)).toEqual(whole.slice(6));
+    120|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/59]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:57:52
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:52
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:133:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/59]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:57:52
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:52
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:55:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:133:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+AssertionError: expected [ [ [ '-', 'S', …(2) ], …(1) ] ] to deeply equal [ [ [ 'S', 'S', …(2) ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -1,15 +1,15 @@
+  [
+    [
+      [
+-       "S",
++       "-",
+        "S",
+        "strongText",
+        "strongText",
+      ],
+      [
+-       "strongText",
++       "-",
+        "strongText",
+        "S",
+        "S",
+      ],
+    ],
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:53:48
+     51|
+     52|   it('carries bold across an emoji element', () => {
+     53|     expect(labels(lifted(`**a ${EMOJI} b**`))).toEqual([[
+       |                                                ^
+     54|       ['S', 'S', 'strongText', 'strongText'],
+     55|       ['strongText', 'strongText', 'S', 'S'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ '-' ], …(1) ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -1,12 +1,12 @@
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+-       "S",
++       "-",
+        "S",
+        "S",
+        "S",
+        "S",
+        "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:55
+     62|
+     63|   it('draws the brackets and destination around an emoji label as synt…
+     64|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     65|   });
+     66|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:68:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**X**" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "__X__" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'S', '-', 'S' ] ] to deeply equal [ [ '-', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "-",
+      "S",
+-     "S",
++     "-",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'emText', 'emText', …(3) ] ] to deeply equal [ [ '-', 'emText', 'emText', …(3) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "-",
+      "emText",
+      "emText",
+-     "emText",
++     "-",
+      "emText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "||a X||" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'S', 'spoilerText', …(3) ] ] to deeply equal [ [ '-', 'S', 'spoilerText', …(3) ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      "-",
+      "S",
+      "spoilerText",
+      "spoilerText",
+-     "S",
++     "-",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'linkText', …(15) ] ] to deeply equal [ [ '-', 'linkText', …(15) ] ]
+
+- Expected
++ Received
+
+@@ -1,11 +1,11 @@
+  [
+    [
+      "-",
+      "linkText",
+      "linkText",
+-     "S",
++     "-",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-', 'S', 'S', 'S', …(10) ] ] to deeply equal [ [ '-', 'S', 'S', 'S', 'S', …(10) ] ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    [
+      "-",
+-     "S",
++     "-",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "`X`" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:24:49
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:70
+ ❯ labels src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:22:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:75:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'emText' ], …(1) ] to deeply equal [ [ '-', 'emText' ], …(1) ]
+
+- Expected
++ Received
+
+@@ -2,10 +2,10 @@
+    [
+      "-",
+      "emText",
+    ],
+    [
+-     "emText",
++     "-",
+      "emText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'S', 'strongText' ], …(1) ] to deeply equal [ [ '-', 'S', 'strongText' ], …(1) ]
+
+- Expected
++ Received
+
+@@ -3,9 +3,9 @@
+      "-",
+      "S",
+      "strongText",
+    ],
+    [
+-     "S",
++     "-",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:60:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:58:19
+ ❯ siteLines src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:55:31
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:85:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+AssertionError: expected [ '-', 'S', 'S', 'S', '-', 'S', …(2) ] to deeply equal [ Array(8) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "codeBlockText",
++   "-",
+    "S",
+    "S",
+    "S",
+    "-",
+    "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:105:20
+    103|     editor.children = value;
+    104|     const [, second] = siteLines(value, 'content', editor);
+    105|     expect(second).toEqual(['codeBlockText', 'S', 'S', 'S', '-', 'S', …
+       |                    ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ codeLineRanges src/components/SlateEditor/utils/decorator.tsx:20:10
+ ❯ src/components/SlateEditor/utils/decorator.tsx:96:27
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:39:21
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:71
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/59]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitle, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitleWithUrl, over every input of the generator and the corpus
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:56:17
+     54|     const current = styles[from + start];
+     55|     if (i < length && same(current, styles[from + i])) continue;
+     56|     if (current.syntax || current.classNames.length) {
+       |                 ^
+     57|       ranges.push({
+     58|         anchor: { path, offset: start },
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:39:21
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:71
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:36:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/59]⎯
+

@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 2 failed) 15702ms
+     × on embedDescription, for every input of the generator and the corpus the editor and the preview both draw as text 4280ms
+     × on v2Text, for every input of the generator and the corpus the editor and the preview both draw as text 2854ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, for every input of the generator and the corpus the editor and the preview both draw as text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, for every input of the generator and the corpus the editor and the preview both draw as text
+AssertionError: expected [ 'gen:1834' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:1834",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:119:23
+    117|     }
+    118|     expect(compared).toBeGreaterThan(500);
+    119|     expect(differing).toEqual([]);
+       |                       ^
+    120|   }, 600_000);
+    121| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  01:41:05
+   Duration  17.84s (transform 595ms, setup 27ms, import 1.36s, tests 15.70s, environment 607ms)
+
+exit 1

@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+AssertionError: expected [ …(22) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "arduino: def f(x): return \"%s\" % x  # c",
++   "arduino: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "aspectj: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "cpp: def f(x): return \"%s\" % x  # c",
++   "cpp: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "delphi: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "django: <a href=\"x\">&amp; <b>t</b></a>",
++   "dust: <a href=\"x\">&amp; <b>t</b></a>",
++   "erb: <a href=\"x\">&amp; <b>t</b></a>",
++   "handlebars: <a href=\"x\">&amp; <b>t</b></a>",
++   "lua: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "matlab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "mojolicious: <a href=\"x\">&amp; <b>t</b></a>",
++   "openscad: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "parser3: <a href=\"x\">&amp; <b>t</b></a>",
++   "php-template: <a href=\"x\">&amp; <b>t</b></a>",
++   "powershell: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "scilab: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++   "twig: <a href=\"x\">&amp; <b>t</b></a>",
++   "vbscript-html: <a href=\"x\">&amp; <b>t</b></a>",
++   "xquery: <a href=\"x\">&amp; <b>t</b></a>",
++   "zephir: function f(a = 1) { return /re/g.test(a) ? \"x\" : y; }",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:91:23
+     89|     }
+     90|     expect(nested).toBeGreaterThan(50);
+     91|     expect(differing).toEqual([]);
+       |                       ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

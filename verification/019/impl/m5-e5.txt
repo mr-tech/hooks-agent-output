@@ -1,0 +1,243 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 8767ms
+     × on embedDescription, every content character carries the style set its preview gives it 2108ms
+     × on fieldValue, every content character carries the style set its preview gives it 1812ms
+     × on embedTitle, every content character carries the style set its preview gives it 1602ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1565ms
+     × on v2Text, every content character carries the style set its preview gives it 1672ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:66', 'corpus:67', …(87) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:66",
++   "corpus:67",
++   "corpus:68",
++   "corpus:70",
++   "corpus:71",
++   "corpus:72",
++   "corpus:73",
++   "corpus:74",
++   "corpus:76",
++   "corpus:261",
++   "corpus:262",
++   "link:43",
++   "link:44",
++   "link:79",
++   "gen:109",
++   "gen:126",
++   "gen:145",
++   "gen:245",
++   "gen:251",
++   "gen:268",
++   "gen:296",
++   "gen:311",
++   "gen:328",
++   "gen:340",
++   "gen:388",
++   "gen:389",
++   "gen:461",
++   "gen:494",
++   "gen:498",
++   "gen:527",
++   "gen:531",
++   "gen:547",
++   "gen:571",
++   "gen:610",
++   "gen:693",
++   "gen:707",
++   "gen:755",
++   "gen:781",
++   "gen:814",
++   "gen:817",
++   "gen:857",
++   "gen:936",
++   "gen:941",
++   "gen:986",
++   "gen:996",
++   "gen:1027",
++   "gen:1030",
++   "gen:1035",
++   "gen:1046",
++   "gen:1051",
++   "gen:1057",
++   "gen:1066",
++   "gen:1093",
++   "gen:1135",
++   "gen:1185",
++   "gen:1207",
++   "gen:1211",
++   "gen:1214",
++   "gen:1233",
++   "gen:1243",
++   "gen:1249",
++   "gen:1254",
++   "gen:1262",
++   "gen:1301",
++   "gen:1308",
++   "gen:1320",
++   "gen:1349",
++   "gen:1412",
++   "gen:1424",
++   "gen:1449",
++   "gen:1519",
++   "gen:1537",
++   "gen:1547",
++   "gen:1581",
++   "gen:1620",
++   "gen:1637",
++   "gen:1662",
++   "gen:1670",
++   "gen:1730",
++   "gen:1743",
++   "gen:1805",
++   "gen:1845",
++   "gen:1878",
++   "gen:1891",
++   "gen:1894",
++   "gen:1900",
++   "gen:1949",
++   "gen:1961",
++   "gen:1997",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:132:23
+    130|     }
+    131|     expect(compared).toBeGreaterThan(1000);
+    132|     expect(differing).toEqual([]);
+       |                       ^
+    133|   }, 600_000);
+    134| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:40', 'corpus:66', …(88) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:40",
++   "corpus:66",
++   "corpus:67",
++   "corpus:68",
++   "corpus:70",
++   "corpus:71",
++   "corpus:72",
++   "corpus:73",
++   "corpus:74",
++   "corpus:76",
++   "corpus:261",
++   "corpus:262",
++   "link:43",
++   "link:44",
++   "link:79",
++   "gen:109",
++   "gen:126",
++   "gen:145",
++   "gen:245",
++   "gen:251",
++   "gen:268",
++   "gen:296",
++   "gen:311",
++   "gen:328",
++   "gen:340",
++   "gen:388",
++   "gen:389",
++   "gen:461",
++   "gen:494",
++   "gen:498",
++   "gen:527",
++   "gen:531",
++   "gen:547",
++   "gen:571",
++   "gen:610",
++   "gen:693",
++   "gen:707",
++   "gen:755",
++   "gen:781",
++   "gen:814",
++   "gen:817",
++   "gen:857",
++   "gen:936",
++   "gen:941",
++   "gen:986",
++   "gen:996",
++   "gen:1027",
++   "gen:1030",
++   "gen:1035",
++   "gen:1046",
++   "gen:1051",
++   "gen:1057",
++   "gen:1066",
++   "gen:1093",
++   "gen:1135",
++   "gen:1185",
++   "gen:1207",
++   "gen:1211",
++   "gen:1214",
++   "gen:1233",
++   "gen:1243",
++   "gen:1249",
++   "gen:1254",
++   "gen:1262",
++   "gen:1301",
++   "gen:1308",
++   "gen:1320",
++   "gen:1349",
++   "gen:1412",
++   "gen:1424",
++   "gen:1449",
++   "gen:1519",
++   "gen:1537",
++   "gen:1547",
++   "gen:1581",
++   "gen:1620",
++   "gen:1637",
++   "gen:1662",
++   "gen:1670",
++   "gen:1730",
++   "gen:1743",
++   "gen:1805",
++   "gen:1845",
++   "gen:1878",
++   "gen:1891",
++   "gen:1894",
++   "gen:1900",
++   "gen:1949",
++   "gen:1961",
++   "gen:1997",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:132:23
+    130|     }
+    131|     expect(compared).toBeGreaterThan(1000);
+    132|     expect(differing).toEqual([]);
+       |                       ^
+    133|   }, 600_000);
+    134| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  01:44:53
+   Duration  11.00s (transform 616ms, setup 25ms, import 1.41s, tests 8.77s, environment 651ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: spoiler class dropped
+exit 1

@@ -1,0 +1,1208 @@
+stderr | src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > draws a masked link label as link text on the content surface
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > draws a masked link label as link text on the content surface
+AssertionError: expected [] to deeply equal [ 'a' ]
+
+- Expected
++ Received
+
+- [
+-   "a",
+- ]
++ []
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx:55:45
+     53|   it('draws a masked link label as link text on the content surface', …
+     54|     const container = mount('[a](https://x.y)', 'content', false);
+     55|     expect(textsOf(container, '.linkText')).toEqual(['a']);
+       |                                             ^
+     56|   });
+     57|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > matches the HTML highlight.js writes for the whole line, character by character, in every language
+AssertionError: expected [ Array(224) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "1c: {\"a\": [1, true, null]}",
++   "abnf: {\"a\": [1, true, null]}",
++   "accesslog: {\"a\": [1, true, null]}",
++   "actionscript: {\"a\": [1, true, null]}",
++   "ada: {\"a\": [1, true, null]}",
++   "angelscript: {\"a\": [1, true, null]}",
++   "apache: \"a \\n b\" # c",
++   "apache: @media (a) { .b > c { color: #fff } }",
++   "apache: $a = \"b $c ${d}\"; echo `ls`;",
++   "apache: a < b && c > \"d\" 'e' /* f */",
++   "applescript: {\"a\": [1, true, null]}",
++   "arcade: {\"a\": [1, true, null]}",
++   "arduino: @media (a) { .b > c { color: #fff } }",
++   "arduino: {\"a\": [1, true, null]}",
++   "armasm: {\"a\": [1, true, null]}",
++   "xml: <a href=\"x\">&amp; <b>t</b></a>",
++   "aspectj: {\"a\": [1, true, null]}",
++   "autohotkey: {\"a\": [1, true, null]}",
++   "autoit: {\"a\": [1, true, null]}",
++   "avrasm: {\"a\": [1, true, null]}",
++   "awk: {\"a\": [1, true, null]}",
++   "axapta: {\"a\": [1, true, null]}",
++   "bash: {\"a\": [1, true, null]}",
++   "basic: {\"a\": [1, true, null]}",
++   "brainfuck: <a href=\"x\">&amp; <b>t</b></a>",
++   "brainfuck: a < b && c > \"d\" 'e' /* f */",
++   "c: {\"a\": [1, true, null]}",
++   "cal: {\"a\": [1, true, null]}",
++   "capnproto: {\"a\": [1, true, null]}",
++   "ceylon: {\"a\": [1, true, null]}",
++   "clean: {\"a\": [1, true, null]}",
++   "clojure: {\"a\": [1, true, null]}",
++   "cmake: {\"a\": [1, true, null]}",
++   "coffeescript: {\"a\": [1, true, null]}",
++   "coq: {\"a\": [1, true, null]}",
++   "cos: {\"a\": [1, true, null]}",
++   "cpp: @media (a) { .b > c { color: #fff } }",
++   "cpp: {\"a\": [1, true, null]}",
++   "crmsh: {\"a\": [1, true, null]}",
++   "crystal: {\"a\": [1, true, null]}",
++   "csharp: {\"a\": [1, true, null]}",
++   "css: <a href=\"x\">&amp; <b>t</b></a>",
++   "css: \"a \\n b\" # c",
++   "css: $a = \"b $c ${d}\"; echo `ls`;",
++   "css: a < b && c > \"d\" 'e' /* f */",
++   "d: {\"a\": [1, true, null]}",
++   "markdown: <a href=\"x\">&amp; <b>t</b></a>",
++   "dart: {\"a\": [1, true, null]}",
++   "django: <a href=\"x\">&amp; <b>t</b></a>",
++   "dns: <a href=\"x\">&amp; <b>t</b></a>",
++   "dns: {\"a\": [1, true, null]}",
++   "dns: $a = \"b $c ${d}\"; echo `ls`;",
++   "dns: a < b && c > \"d\" 'e' /* f */",
++   "dockerfile: {\"a\": [1, true, null]}",
++   "dsconfig: <a href=\"x\">&amp; <b>t</b></a>",
++   "dsconfig: @media (a) { .b > c { color: #fff } }",
++   "dsconfig: {\"a\": [1, true, null]}",
++   "dsconfig: $a = \"b $c ${d}\"; echo `ls`;",
++   "dsconfig: a < b && c > \"d\" 'e' /* f */",
++   "dts: {\"a\": [1, true, null]}",
++   "dust: <a href=\"x\">&amp; <b>t</b></a>",
++   "ebnf: a < b && c > \"d\" 'e' /* f */",
++   "elixir: {\"a\": [1, true, null]}",
++   "elm: {\"a\": [1, true, null]}",
++   "elm: a < b && c > \"d\" 'e' /* f */",
++   "ruby: {\"a\": [1, true, null]}",
++   "erb: <a href=\"x\">&amp; <b>t</b></a>",
++   "erlang-repl: {\"a\": [1, true, null]}",
++   "erlang: {\"a\": [1, true, null]}",
++   "excel: {\"a\": [1, true, null]}",
++   "flix: {\"a\": [1, true, null]}",
++   "fortran: {\"a\": [1, true, null]}",
++   "fsharp: <a href=\"x\">&amp; <b>t</b></a>",
++   "fsharp: @media (a) { .b > c { color: #fff } }",
++   "fsharp: {\"a\": [1, true, null]}",
++   "fsharp: $a = \"b $c ${d}\"; echo `ls`;",
++   "gams: {\"a\": [1, true, null]}",
++   "gauss: {\"a\": [1, true, null]}",
++   "gcode: {\"a\": [1, true, null]}",
++   "gml: {\"a\": [1, true, null]}",
++   "go: {\"a\": [1, true, null]}",
++   "golo: {\"a\": [1, true, null]}",
++   "gradle: {\"a\": [1, true, null]}",
++   "graphql: {\"a\": [1, true, null]}",
++   "groovy: {\"a\": [1, true, null]}",
++   "handlebars: <a href=\"x\">&amp; <b>t</b></a>",
++   "haskell: {\"a\": [1, true, null]}",
++   "haskell: a < b && c > \"d\" 'e' /* f */",
++   "haxe: {\"a\": [1, true, null]}",
++   "hy: {\"a\": [1, true, null]}",
++   "inform7: {\"a\": [1, true, null]}",
++   "ini: $a = \"b $c ${d}\"; echo `ls`;",
++   "irpf90: {\"a\": [1, true, null]}",
++   "isbl: <a href=\"x\">&amp; <b>t</b></a>",
++   "isbl: @media (a) { .b > c { color: #fff } }",
++   "isbl: {\"a\": [1, true, null]}",
++   "isbl: $a = \"b $c ${d}\"; echo `ls`;",
++   "isbl: a < b && c > \"d\" 'e' /* f */",
++   "java: <a href=\"x\">&amp; <b>t</b></a>",
++   "java: {\"a\": [1, true, null]}",
++   "javascript: @media (a) { .b > c { color: #fff } }",
++   "javascript: {\"a\": [1, true, null]}",
++   "jboss-cli: {\"a\": [1, true, null]}",
++   "json: {\"a\": [1, true, null]}",
++   "julia: {\"a\": [1, true, null]}",
++   "kotlin: {\"a\": [1, true, null]}",
++   "lasso: {\"a\": [1, true, null]}",
++   "latex: $a = \"b $c ${d}\"; echo `ls`;",
++   "less: <a href=\"x\">&amp; <b>t</b></a>",
++   "less: \"a \\n b\" # c",
++   "less: $a = \"b $c ${d}\"; echo `ls`;",
++   "less: a < b && c > \"d\" 'e' /* f */",
++   "lisp: {\"a\": [1, true, null]}",
++   "livecodeserver: <a href=\"x\">&amp; <b>t</b></a>",
++   "livecodeserver: {\"a\": [1, true, null]}",
++   "livecodeserver: $a = \"b $c ${d}\"; echo `ls`;",
++   "livecodeserver: a < b && c > \"d\" 'e' /* f */",
++   "livescript: {\"a\": [1, true, null]}",
++   "llvm: {\"a\": [1, true, null]}",
++   "lsl: {\"a\": [1, true, null]}",
++   "lua: {\"a\": [1, true, null]}",
++   "mathematica: <a href=\"x\">&amp; <b>t</b></a>",
++   "mathematica: @media (a) { .b > c { color: #fff } }",
++   "mathematica: {\"a\": [1, true, null]}",
++   "mathematica: a < b && c > \"d\" 'e' /* f */",
++   "matlab: {\"a\": [1, true, null]}",
++   "maxima: {\"a\": [1, true, null]}",
++   "mel: {\"a\": [1, true, null]}",
++   "mercury: {\"a\": [1, true, null]}",
++   "mipsasm: {\"a\": [1, true, null]}",
++   "perl: {\"a\": [1, true, null]}",
++   "mojolicious: <a href=\"x\">&amp; <b>t</b></a>",
++   "monkey: {\"a\": [1, true, null]}",
++   "moonscript: {\"a\": [1, true, null]}",
++   "nginx: <a href=\"x\">&amp; <b>t</b></a>",
++   "nginx: \"a \\n b\" # c",
++   "nginx: @media (a) { .b > c { color: #fff } }",
++   "nginx: $a = \"b $c ${d}\"; echo `ls`;",
++   "nginx: a < b && c > \"d\" 'e' /* f */",
++   "nim: {\"a\": [1, true, null]}",
++   "nix: <a href=\"x\">&amp; <b>t</b></a>",
++   "nix: {\"a\": [1, true, null]}",
++   "nsis: {\"a\": [1, true, null]}",
++   "objectivec: {\"a\": [1, true, null]}",
++   "ocaml: {\"a\": [1, true, null]}",
++   "openscad: {\"a\": [1, true, null]}",
++   "parser3: <a href=\"x\">&amp; <b>t</b></a>",
++   "pf: {\"a\": [1, true, null]}",
++   "php: @media (a) { .b > c { color: #fff } }",
++   "php: {\"a\": [1, true, null]}",
++   "php-template: <a href=\"x\">&amp; <b>t</b></a>",
++   "pony: {\"a\": [1, true, null]}",
++   "powershell: {\"a\": [1, true, null]}",
++   "processing: @media (a) { .b > c { color: #fff } }",
++   "processing: {\"a\": [1, true, null]}",
++   "profile: {\"a\": [1, true, null]}",
++   "prolog: {\"a\": [1, true, null]}",
++   "properties: a < b && c > \"d\" 'e' /* f */",
++   "protobuf: {\"a\": [1, true, null]}",
++   "puppet: {\"a\": [1, true, null]}",
++   "purebasic: {\"a\": [1, true, null]}",
++   "python: {\"a\": [1, true, null]}",
++   "q: {\"a\": [1, true, null]}",
++   "qml: {\"a\": [1, true, null]}",
++   "r: <a href=\"x\">&amp; <b>t</b></a>",
++   "r: @media (a) { .b > c { color: #fff } }",
++   "r: {\"a\": [1, true, null]}",
++   "r: $a = \"b $c ${d}\"; echo `ls`;",
++   "reasonml: {\"a\": [1, true, null]}",
++   "rib: {\"a\": [1, true, null]}",
++   "routeros: {\"a\": [1, true, null]}",
++   "rsl: {\"a\": [1, true, null]}",
++   "ruleslanguage: {\"a\": [1, true, null]}",
++   "rust: @media (a) { .b > c { color: #fff } }",
++   "rust: {\"a\": [1, true, null]}",
++   "sas: {\"a\": [1, true, null]}",
++   "scala: {\"a\": [1, true, null]}",
++   "scheme: {\"a\": [1, true, null]}",
++   "scilab: {\"a\": [1, true, null]}",
++   "scss: <a href=\"x\">&amp; <b>t</b></a>",
++   "scss: \"a \\n b\" # c",
++   "scss: a < b && c > \"d\" 'e' /* f */",
++   "shell: $a = \"b $c ${d}\"; echo `ls`;",
++   "smali: {\"a\": [1, true, null]}",
++   "smalltalk: {\"a\": [1, true, null]}",
++   "sml: {\"a\": [1, true, null]}",
++   "sqf: {\"a\": [1, true, null]}",
++   "sql: <a href=\"x\">&amp; <b>t</b></a>",
++   "stan: {\"a\": [1, true, null]}",
++   "stata: {\"a\": [1, true, null]}",
++   "step21: {\"a\": [1, true, null]}",
++   "stylus: <a href=\"x\">&amp; <b>t</b></a>",
++   "stylus: {\"a\": [1, true, null]}",
++   "stylus: a < b && c > \"d\" 'e' /* f */",
++   "swift: <a href=\"x\">&amp; <b>t</b></a>",
++   "swift: {\"a\": [1, true, null]}",
++   "yaml: {\"a\": [1, true, null]}",
++   "yaml: a < b && c > \"d\" 'e' /* f */",
++   "tcl: {\"a\": [1, true, null]}",
++   "thrift: {\"a\": [1, true, null]}",
++   "tp: {\"a\": [1, true, null]}",
++   "twig: <a href=\"x\">&amp; <b>t</b></a>",
++   "typescript: {\"a\": [1, true, null]}",
++   "vala: {\"a\": [1, true, null]}",
++   "vbnet: {\"a\": [1, true, null]}",
++   "vbscript: {\"a\": [1, true, null]}",
++   "vbscript-html: <a href=\"x\">&amp; <b>t</b></a>",
++   "verilog: {\"a\": [1, true, null]}",
++   "vhdl: {\"a\": [1, true, null]}",
++   "vim: <a href=\"x\">&amp; <b>t</b></a>",
++   "vim: {\"a\": [1, true, null]}",
++   "vim: $a = \"b $c ${d}\"; echo `ls`;",
++   "vim: a < b && c > \"d\" 'e' /* f */",
++   "wasm: {\"a\": [1, true, null]}",
++   "wren: <a href=\"x\">&amp; <b>t</b></a>",
++   "wren: @media (a) { .b > c { color: #fff } }",
++   "wren: {\"a\": [1, true, null]}",
++   "wren: $a = \"b $c ${d}\"; echo `ls`;",
++   "wren: a < b && c > \"d\" 'e' /* f */",
++   "x86asm: {\"a\": [1, true, null]}",
++   "xl: {\"a\": [1, true, null]}",
++   "xquery: <a href=\"x\">&amp; <b>t</b></a>",
++   "xquery: {\"a\": [1, true, null]}",
++   "zephir: {\"a\": [1, true, null]}",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:91:23
+     89|     }
+     90|     expect(nested).toBeGreaterThan(50);
+     91|     expect(differing).toEqual([]);
+       |                       ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:75', …(133) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:75",
++   "corpus:78",
++   "corpus:79",
++   "corpus:90",
++   "corpus:92",
++   "corpus:93",
++   "corpus:95",
++   "corpus:98",
++   "corpus:104",
++   "corpus:105",
++   "corpus:106",
++   "corpus:107",
++   "corpus:113",
++   "corpus:114",
++   "corpus:115",
++   "corpus:116",
++   "corpus:118",
++   "corpus:121",
++   "corpus:122",
++   "corpus:139",
++   "corpus:196",
++   "corpus:209",
++   "corpus:225",
++   "corpus:226",
++   "corpus:232",
++   "corpus:233",
++   "corpus:234",
++   "corpus:235",
++   "corpus:236",
++   "corpus:237",
++   "corpus:238",
++   "corpus:239",
++   "corpus:240",
++   "corpus:244",
++   "corpus:247",
++   "corpus:248",
++   "corpus:249",
++   "corpus:250",
++   "link:23",
++   "link:24",
++   "link:25",
++   "link:26",
++   "link:30",
++   "link:31",
++   "link:46",
++   "link:47",
++   "link:48",
++   "link:51",
++   "link:59",
++   "link:82",
++   "link:83",
++   "link:85",
++   "link:93",
++   "link:105",
++   "gen:58",
++   "gen:66",
++   "gen:74",
++   "gen:79",
++   "gen:80",
++   "gen:81",
++   "gen:82",
++   "gen:83",
++   "gen:84",
++   "gen:85",
++   "gen:86",
++   "gen:87",
++   "gen:88",
++   "gen:89",
++   "gen:90",
++   "gen:91",
++   "gen:137",
++   "gen:225",
++   "gen:400",
++   "gen:442",
++   "gen:476",
++   "gen:479",
++   "gen:573",
++   "gen:588",
++   "gen:614",
++   "gen:618",
++   "gen:633",
++   "gen:680",
++   "gen:693",
++   "gen:704",
++   "gen:744",
++   "gen:787",
++   "gen:791",
++   "gen:816",
++   "gen:842",
++   "gen:846",
++   "gen:903",
++   "gen:952",
++   "gen:992",
++   "gen:1005",
++   "gen:1014",
++   "gen:1032",
++   "gen:1055",
++   "gen:1078",
++   "gen:1081",
++   "gen:1156",
++   "gen:1163",
++   "gen:1174",
++   "gen:1207",
++   "gen:1228",
++   "gen:1263",
++   "gen:1308",
++   "gen:1356",
++   "gen:1373",
++   "gen:1380",
++   "gen:1383",
++   "gen:1400",
++   "gen:1455",
++   "gen:1464",
++   "gen:1481",
++   "gen:1482",
++   "gen:1553",
++   "gen:1621",
++   "gen:1676",
++   "gen:1682",
++   "gen:1721",
++   "gen:1723",
++   "gen:1791",
++   "gen:1805",
++   "gen:1856",
++   "gen:1872",
++   "gen:1878",
++   "gen:1896",
++   "gen:1920",
++   "gen:1928",
++   "gen:1933",
++   "gen:1939",
++   "gen:1965",
++   "gen:1987",
++   "gen:1991",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:75', …(134) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:75",
++   "corpus:78",
++   "corpus:79",
++   "corpus:90",
++   "corpus:92",
++   "corpus:93",
++   "corpus:95",
++   "corpus:98",
++   "corpus:104",
++   "corpus:105",
++   "corpus:106",
++   "corpus:107",
++   "corpus:113",
++   "corpus:114",
++   "corpus:115",
++   "corpus:116",
++   "corpus:118",
++   "corpus:121",
++   "corpus:122",
++   "corpus:139",
++   "corpus:196",
++   "corpus:209",
++   "corpus:225",
++   "corpus:226",
++   "corpus:232",
++   "corpus:233",
++   "corpus:234",
++   "corpus:235",
++   "corpus:236",
++   "corpus:237",
++   "corpus:238",
++   "corpus:239",
++   "corpus:240",
++   "corpus:244",
++   "corpus:247",
++   "corpus:248",
++   "corpus:249",
++   "corpus:250",
++   "link:23",
++   "link:24",
++   "link:25",
++   "link:26",
++   "link:30",
++   "link:31",
++   "link:46",
++   "link:47",
++   "link:48",
++   "link:51",
++   "link:59",
++   "link:82",
++   "link:83",
++   "link:85",
++   "link:93",
++   "link:105",
++   "gen:58",
++   "gen:66",
++   "gen:74",
++   "gen:79",
++   "gen:80",
++   "gen:81",
++   "gen:82",
++   "gen:83",
++   "gen:84",
++   "gen:85",
++   "gen:86",
++   "gen:87",
++   "gen:88",
++   "gen:89",
++   "gen:90",
++   "gen:91",
++   "gen:137",
++   "gen:225",
++   "gen:400",
++   "gen:442",
++   "gen:476",
++   "gen:479",
++   "gen:573",
++   "gen:588",
++   "gen:614",
++   "gen:618",
++   "gen:633",
++   "gen:680",
++   "gen:693",
++   "gen:704",
++   "gen:744",
++   "gen:787",
++   "gen:791",
++   "gen:816",
++   "gen:842",
++   "gen:846",
++   "gen:903",
++   "gen:952",
++   "gen:992",
++   "gen:1005",
++   "gen:1014",
++   "gen:1032",
++   "gen:1055",
++   "gen:1078",
++   "gen:1081",
++   "gen:1156",
++   "gen:1163",
++   "gen:1174",
++   "gen:1207",
++   "gen:1228",
++   "gen:1263",
++   "gen:1308",
++   "gen:1356",
++   "gen:1373",
++   "gen:1380",
++   "gen:1383",
++   "gen:1400",
++   "gen:1455",
++   "gen:1464",
++   "gen:1481",
++   "gen:1482",
++   "gen:1553",
++   "gen:1621",
++   "gen:1676",
++   "gen:1682",
++   "gen:1721",
++   "gen:1723",
++   "gen:1791",
++   "gen:1805",
++   "gen:1856",
++   "gen:1872",
++   "gen:1878",
++   "gen:1889",
++   "gen:1896",
++   "gen:1920",
++   "gen:1928",
++   "gen:1933",
++   "gen:1939",
++   "gen:1965",
++   "gen:1987",
++   "gen:1991",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:75', …(124) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:75",
++   "corpus:78",
++   "corpus:79",
++   "corpus:90",
++   "corpus:92",
++   "corpus:93",
++   "corpus:95",
++   "corpus:98",
++   "corpus:104",
++   "corpus:105",
++   "corpus:106",
++   "corpus:107",
++   "corpus:113",
++   "corpus:114",
++   "corpus:115",
++   "corpus:116",
++   "corpus:118",
++   "corpus:121",
++   "corpus:122",
++   "corpus:128",
++   "corpus:129",
++   "corpus:130",
++   "corpus:131",
++   "corpus:139",
++   "corpus:196",
++   "corpus:209",
++   "corpus:225",
++   "corpus:226",
++   "corpus:232",
++   "corpus:233",
++   "corpus:234",
++   "corpus:235",
++   "corpus:236",
++   "corpus:237",
++   "corpus:238",
++   "corpus:239",
++   "corpus:240",
++   "corpus:244",
++   "corpus:247",
++   "corpus:248",
++   "corpus:249",
++   "corpus:250",
++   "corpus:260",
++   "link:23",
++   "link:24",
++   "link:25",
++   "link:26",
++   "link:30",
++   "link:31",
++   "link:46",
++   "link:47",
++   "link:48",
++   "link:59",
++   "link:82",
++   "link:83",
++   "link:85",
++   "link:93",
++   "link:105",
++   "gen:58",
++   "gen:66",
++   "gen:74",
++   "gen:79",
++   "gen:80",
++   "gen:81",
++   "gen:82",
++   "gen:83",
++   "gen:84",
++   "gen:85",
++   "gen:86",
++   "gen:87",
++   "gen:88",
++   "gen:89",
++   "gen:90",
++   "gen:91",
++   "gen:225",
++   "gen:400",
++   "gen:442",
++   "gen:476",
++   "gen:479",
++   "gen:573",
++   "gen:588",
++   "gen:618",
++   "gen:633",
++   "gen:680",
++   "gen:704",
++   "gen:721",
++   "gen:787",
++   "gen:791",
++   "gen:816",
++   "gen:842",
++   "gen:846",
++   "gen:1005",
++   "gen:1014",
++   "gen:1032",
++   "gen:1055",
++   "gen:1078",
++   "gen:1081",
++   "gen:1163",
++   "gen:1174",
++   "gen:1207",
++   "gen:1263",
++   "gen:1308",
++   "gen:1356",
++   "gen:1373",
++   "gen:1380",
++   "gen:1383",
++   "gen:1400",
++   "gen:1455",
++   "gen:1464",
++   "gen:1482",
++   "gen:1621",
++   "gen:1682",
++   "gen:1721",
++   "gen:1723",
++   "gen:1805",
++   "gen:1856",
++   "gen:1872",
++   "gen:1878",
++   "gen:1889",
++   "gen:1920",
++   "gen:1928",
++   "gen:1939",
++   "gen:1965",
++   "gen:1987",
++   "gen:1991",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:57', 'corpus:67', …(111) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:57",
++   "corpus:67",
++   "corpus:75",
++   "corpus:78",
++   "corpus:79",
++   "corpus:90",
++   "corpus:92",
++   "corpus:93",
++   "corpus:95",
++   "corpus:98",
++   "corpus:104",
++   "corpus:105",
++   "corpus:106",
++   "corpus:107",
++   "corpus:113",
++   "corpus:114",
++   "corpus:115",
++   "corpus:116",
++   "corpus:118",
++   "corpus:121",
++   "corpus:122",
++   "corpus:128",
++   "corpus:129",
++   "corpus:130",
++   "corpus:131",
++   "corpus:139",
++   "corpus:196",
++   "corpus:209",
++   "corpus:225",
++   "corpus:226",
++   "corpus:232",
++   "corpus:233",
++   "corpus:234",
++   "corpus:235",
++   "corpus:236",
++   "corpus:237",
++   "corpus:238",
++   "corpus:239",
++   "corpus:240",
++   "corpus:244",
++   "corpus:247",
++   "corpus:248",
++   "corpus:249",
++   "corpus:250",
++   "corpus:260",
++   "link:40",
++   "link:46",
++   "link:47",
++   "link:48",
++   "link:95",
++   "gen:79",
++   "gen:80",
++   "gen:81",
++   "gen:82",
++   "gen:83",
++   "gen:84",
++   "gen:85",
++   "gen:86",
++   "gen:87",
++   "gen:88",
++   "gen:89",
++   "gen:90",
++   "gen:91",
++   "gen:225",
++   "gen:400",
++   "gen:442",
++   "gen:479",
++   "gen:573",
++   "gen:588",
++   "gen:618",
++   "gen:633",
++   "gen:680",
++   "gen:704",
++   "gen:721",
++   "gen:787",
++   "gen:791",
++   "gen:816",
++   "gen:842",
++   "gen:846",
++   "gen:1005",
++   "gen:1014",
++   "gen:1032",
++   "gen:1055",
++   "gen:1078",
++   "gen:1081",
++   "gen:1163",
++   "gen:1174",
++   "gen:1207",
++   "gen:1263",
++   "gen:1308",
++   "gen:1356",
++   "gen:1373",
++   "gen:1380",
++   "gen:1383",
++   "gen:1400",
++   "gen:1455",
++   "gen:1464",
++   "gen:1482",
++   "gen:1528",
++   "gen:1600",
++   "gen:1621",
++   "gen:1682",
++   "gen:1721",
++   "gen:1723",
++   "gen:1805",
++   "gen:1856",
++   "gen:1872",
++   "gen:1920",
++   "gen:1928",
++   "gen:1939",
++   "gen:1965",
++   "gen:1987",
++   "gen:1991",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+AssertionError: expected [ [ [ '-' ], [ '-' ] ] ] to deeply equal [ [ [ 'S' ], [ 'S' ] ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+-       "S",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:42
+     58|
+     59|   it('keeps the delimiters on either side of an emoji as syntax', () =…
+     60|     expect(labels(lifted(`*${EMOJI}*`))).toEqual([[['S'], ['S']]]);
+       |                                          ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ '-' ], …(1) ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+        "S",
+        "S",
+        "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:55
+     62|
+     63|   it('draws the brackets and destination around an emoji label as synt…
+     64|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     65|   });
+     66|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+AssertionError: expected [ [ [ 'S', 'S', 'emText' ], [ '-' ] ] ] to deeply equal [ [ …(2) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+        "S",
+-       "emText",
++       "S",
+        "emText",
+      ],
+      [
+-       "S",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:68:46
+     66|
+     67|   it('carries italic across an emoji element on a quote line', () => {
+     68|     expect(labels(lifted(`> *a ${EMOJI}*`))).toEqual([[['S', 'emText',…
+       |                                              ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', 'S', 'S', 'S', 'S', …(10) ] ] to deeply equal [ [ 'S', 'S', 'S', 'S', 'S', …(10) ] ]
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  [
+    [
+-     "S",
++     "-",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "`X`" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-' ] ] to deeply equal [ [ 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "S",
+-     "S",
++     "-",
++     "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'emText', '-' ] ] to deeply equal [ [ 'S', 'S', 'emText', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+      "emText",
+-     "S",
++     "-",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'strongText' ], …(1) ] to deeply equal [ [ 'S', 'S', 'strongText' ], …(1) ]
+
+- Expected
++ Received
+
+@@ -3,9 +3,9 @@
+      "S",
+      "S",
+      "strongText",
+    ],
+    [
+-     "strongText",
++     "S",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-', '-', '-', …(2) ] ] to deeply equal [ [ '-', '-', '-', 'S', …(2) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "-",
+      "-",
+      "-",
+-     "S",
++     "-",
+      "emText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:84:29
+     82|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     83|     });
+     84|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ Array(62) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[text](https://example.com)",
++   "[text](http://example.com/a_b)",
++   "[text](<https://example.com>)",
++   "[text](https://example.com \"title\")",
++   "[a [b] c](https://example.com)",
++   "[text](https://example.com/a(b)c)",
++   "[text](https://example.com)[two](https://example.org)",
++   "[||sp||](https://example.com)",
++   "[text](discord://-/channels/1/2)",
++   "[te
++ xt](https://example.com)",
++   "(https://example.com)",
++   "<https://example.com>",
++   "<http://example.com/a b>",
++   "_https://example.com_",
++   "<a@b.co>",
++   "||a
++ b||",
++   "|||a|||",
++   "`||x||`",
++   "*i*",
++   "_i_",
++   "*i **ib** i*",
++   "*loose *",
++   "*a * b*",
++   "_a_b_",
++   "a*b*c",
++   "**a*",
++   "*a**",
++   "*a
++ b*",
++   "**a
++
++ b**",
++   "_a_ _b_",
++   "*a**b**c*",
++   "__a_",
++   "_a__",
++   "*a*b*",
++   "\\*a*",
++   "`code`",
++   "` code `",
++   "`a``b`",
++   "`**b**`",
++   "`a
++ b`",
++   "`<t:1700000000>`",
++   "`<@123456789012345678>`",
++   "\\:smile:",
++   "\\😀",
++   "\\*a\\*",
++   "\\**a**",
++   "\\_a\\_",
++   "\\# head",
++   "\\> q",
++   "\\- item",
++   "\\`code\\`",
++   "\\||sp\\||",
++   "\\\\",
++   "\\[t](https://example.com)",
++   "\\https://example.com",
++   "\\<@123456789012345678>",
++   "\\<t:1700000000>",
++   "\\-# sub",
++   "\\~~s~~",
++   "*- not list*",
++   "<https://example.com> **b**",
++   "[text](https://example.com \"title\")",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/17]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+AssertionError: expected [ 'codeBlockText', …(7) ] to deeply equal [ Array(8) ]
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  [
+    "codeBlockText",
+-   "S",
++   "codeBlockText",
+    "S",
+    "S",
+    "-",
+    "S",
+    "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:105:20
+    103|     editor.children = value;
+    104|     const [, second] = siteLines(value, 'content', editor);
+    105|     expect(second).toEqual(['codeBlockText', 'S', 'S', 'S', '-', 'S', …
+       |                    ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/17]⎯
+

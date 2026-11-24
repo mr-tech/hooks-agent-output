@@ -1,0 +1,59 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx > the editor draws a code line with the classes highlight.js gives each character > draws the second text node of a code line from its own characters, not the line's
+AssertionError: expected [ { text: 'x', …(1) }, …(5) ] to deeply equal [ { text: 'x', classes: [] }, …(5) ]
+
+- Expected
++ Received
+
+@@ -1,25 +1,33 @@
+  [
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": "x",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": " ",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": "=",
+    },
+    {
+-     "classes": [],
++     "classes": [
++       "hljs-keyword",
++     ],
+      "text": " ",
+    },
+    {
+      "classes": [
+-       "hljs-number",
++       "hljs-keyword",
+      ],
+      "text": "1",
+    },
+    {
+      "classes": [],
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx:119:33
+    117|     const whole = expectedClasses(highlighted('javascript', 'const x =…
+    118|     expect(drawn([line], 0, 0)).toEqual(whole.slice(0, 6));
+    119|     expect(drawn([line], 0, 1)).toEqual(whole.slice(6));
+       |                                 ^
+    120|   });
+    121|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

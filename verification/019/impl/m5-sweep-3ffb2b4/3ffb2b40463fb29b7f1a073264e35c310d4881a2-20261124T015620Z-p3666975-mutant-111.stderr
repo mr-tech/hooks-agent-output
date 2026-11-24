@@ -1,0 +1,60 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '-# sub', '-# -# nested', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "-# sub",
++   "-# -# nested",
++   "text
++ -# after",
++   "-# **b** *i*",
++   "-# # sub then head",
++   "# h
++ text
++ - a
++ > q
++ -# s",
++   "-# https://example.com",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > marks the subtext marker and its space as syntax and the rest as subtext
+AssertionError: expected [ 'S', 'S', '-', 'subtextText', …(1) ] to deeply equal [ 'S', 'S', 'S', 'subtextText', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "S",
+    "S",
+-   "S",
++   "-",
+    "subtextText",
+    "subtextText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:31:31
+     29|
+     30|   it('marks the subtext marker and its space as syntax and the rest as…
+     31|     expect(labelled('-# ab')).toEqual(['S', 'S', 'S', 'subtextText', '…
+       |                               ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

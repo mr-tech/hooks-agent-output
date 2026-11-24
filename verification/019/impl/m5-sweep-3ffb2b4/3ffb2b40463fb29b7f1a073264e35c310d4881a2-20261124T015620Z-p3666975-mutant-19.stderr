@@ -1,0 +1,91 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:126', 'corpus:128', …(64) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:126",
++   "corpus:128",
++   "gen:103",
++   "gen:125",
++   "gen:151",
++   "gen:154",
++   "gen:214",
++   "gen:215",
++   "gen:228",
++   "gen:234",
++   "gen:241",
++   "gen:273",
++   "gen:300",
++   "gen:356",
++   "gen:410",
++   "gen:422",
++   "gen:429",
++   "gen:463",
++   "gen:471",
++   "gen:472",
++   "gen:477",
++   "gen:534",
++   "gen:568",
++   "gen:617",
++   "gen:672",
++   "gen:678",
++   "gen:859",
++   "gen:885",
++   "gen:901",
++   "gen:906",
++   "gen:916",
++   "gen:963",
++   "gen:1013",
++   "gen:1036",
++   "gen:1112",
++   "gen:1144",
++   "gen:1148",
++   "gen:1150",
++   "gen:1154",
++   "gen:1184",
++   "gen:1186",
++   "gen:1194",
++   "gen:1246",
++   "gen:1252",
++   "gen:1266",
++   "gen:1305",
++   "gen:1314",
++   "gen:1375",
++   "gen:1406",
++   "gen:1408",
++   "gen:1418",
++   "gen:1477",
++   "gen:1487",
++   "gen:1540",
++   "gen:1548",
++   "gen:1555",
++   "gen:1584",
++   "gen:1636",
++   "gen:1708",
++   "gen:1770",
++   "gen:1813",
++   "gen:1823",
++   "gen:1826",
++   "gen:1839",
++   "gen:1916",
++   "gen:1984",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+

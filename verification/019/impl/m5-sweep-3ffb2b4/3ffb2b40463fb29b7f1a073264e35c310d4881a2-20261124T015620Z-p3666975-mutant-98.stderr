@@ -1,0 +1,54 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '```block```', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```block```",
++   "```js let a```",
++   "a ```b``` c",
++   "````x````",
++   "```**b**```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+AssertionError: expected [ '-', 'S', 'S', 'S', '-', 'S', …(2) ] to deeply equal [ Array(8) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "codeBlockText",
++   "-",
+    "S",
+    "S",
+    "S",
+    "-",
+    "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:105:20
+    103|     editor.children = value;
+    104|     const [, second] = siteLines(value, 'content', editor);
+    105|     expect(second).toEqual(['codeBlockText', 'S', 'S', 'S', '-', 'S', …
+       |                    ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

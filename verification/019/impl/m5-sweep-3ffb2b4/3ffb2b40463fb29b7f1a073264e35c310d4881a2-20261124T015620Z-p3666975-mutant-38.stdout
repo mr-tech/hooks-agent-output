@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-38
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 265ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 216ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 3 failed) 2133ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 32ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1966ms
+     × draws the second text node of a code line from its own characters, not the line's 5ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 10572ms
+     × on embedDescription, every content character carries the style set its preview gives it 2848ms
+     × on fieldValue, every content character carries the style set its preview gives it 2116ms
+     × on embedTitle, every content character carries the style set its preview gives it 1778ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1863ms
+     × on v2Text, every content character carries the style set its preview gives it 1922ms
+
+ Test Files  3 failed | 16 passed (19)
+      Tests  10 failed | 185 passed (195)
+   Start at  02:14:59
+   Duration  33.65s (transform 10.63s, setup 518ms, import 32.68s, tests 119.05s, environment 12.37s)
+

@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-42
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 27548ms
+     × on embedDescription, every content character carries the style set its preview gives it 6601ms
+     × on fieldValue, every content character carries the style set its preview gives it 4541ms
+     × on embedTitle, every content character carries the style set its preview gives it 5198ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5757ms
+     × on v2Text, every content character carries the style set its preview gives it 5363ms
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  5 failed | 190 passed (195)
+   Start at  02:17:56
+   Duration  73.32s (transform 53.35s, setup 729ms, import 121.13s, tests 278.74s, environment 18.38s)
+

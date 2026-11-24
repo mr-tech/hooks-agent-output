@@ -1,0 +1,41 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 1 failed) 107ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 26ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > keeps the styles of the last 512 units it parsed > keeps the second unit and parses the oldest again, when 513 units have been drawn
+AssertionError: expected [] to deeply equal [ [ 'content', 'unit 0' ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     "content",
+-     "unit 0",
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:105:24
+    103|       expect(parses()).toHaveLength(0);
+    104|       at(0);
+    105|       expect(parses()).toEqual([['content', 'unit 0']]);
+       |                        ^
+    106|     });
+    107|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 19 passed (20)
+   Start at  03:41:45
+   Duration  2.47s (transform 522ms, setup 28ms, import 1.72s, tests 1.67s, environment 2.15s)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: decorator.tsx:25:num
+exit 1

@@ -1,0 +1,177 @@
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b (decorator.tsx replaced by a stub holding no body)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 4 failed) 66ms
+     × carries bold across an emoji element 24ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × draws the brackets and destination around an emoji label as syntax 2ms
+     × carries italic across an emoji element on a quote line 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+AssertionError: expected [ [ [ '-', '-', '-', '-' ], …(1) ] ] to deeply equal [ [ [ 'S', 'S', …(2) ], …(1) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
+-       "S",
+-       "strongText",
+-       "strongText",
++       "-",
++       "-",
++       "-",
++       "-",
+      ],
+      [
+-       "strongText",
+-       "strongText",
+-       "S",
+-       "S",
++       "-",
++       "-",
++       "-",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:53:48
+     51|
+     52|   it('carries bold across an emoji element', () => {
+     53|     expect(labels(lifted(`**a ${EMOJI} b**`))).toEqual([[
+       |                                                ^
+     54|       ['S', 'S', 'strongText', 'strongText'],
+     55|       ['strongText', 'strongText', 'S', 'S'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+AssertionError: expected [ [ [ '-' ], [ '-' ] ] ] to deeply equal [ [ [ 'S' ], [ 'S' ] ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+-       "S",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:42
+     58|
+     59|   it('keeps the delimiters on either side of an emoji as syntax', () =…
+     60|     expect(labels(lifted(`*${EMOJI}*`))).toEqual([[['S'], ['S']]]);
+       |                                          ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ '-' ], …(1) ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
+-       "S",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:55
+     62|
+     63|   it('draws the brackets and destination around an emoji label as synt…
+     64|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     65|   });
+     66|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+AssertionError: expected [ [ [ '-', '-', '-' ], [ '-' ] ] ] to deeply equal [ [ …(2) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      [
+-       "S",
+-       "emText",
+-       "emText",
++       "-",
++       "-",
++       "-",
+      ],
+      [
+-       "S",
++       "-",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:68:46
+     66|
+     67|   it('carries italic across an emoji element on a quote line', () => {
+     68|     expect(labels(lifted(`> *a ${EMOJI}*`))).toEqual([[['S', 'emText',…
+       |                                              ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 15 passed (19)
+   Start at  01:50:10
+   Duration  1.51s (transform 505ms, setup 0ms, import 1.29s, tests 66ms, environment 0ms)
+
+exit 1

@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-90
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 90ms
+     × draws a masked link label as link text and the brackets and destination as syntax 22ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 1 failed) 181ms
+     × draws the brackets and destination around an emoji label as syntax 31ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 371ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 318ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 239ms
+     × draws a masked link label as link text on the content surface 49ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 12392ms
+     × on embedDescription, every content character carries the style set its preview gives it 3544ms
+     × on fieldValue, every content character carries the style set its preview gives it 2592ms
+     × on embedTitle, every content character carries the style set its preview gives it 1976ms
+     × on v2Text, every content character carries the style set its preview gives it 2162ms
+
+ Test Files  5 failed | 14 passed (19)
+      Tests  8 failed | 187 passed (195)
+   Start at  02:48:29
+   Duration  38.10s (transform 12.46s, setup 340ms, import 38.15s, tests 135.32s, environment 13.39s)
+

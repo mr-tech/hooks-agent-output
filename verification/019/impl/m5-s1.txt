@@ -1,0 +1,71 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+stderr | src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx > each editor of a message draws its text on the surface that text is sent on > draws an embed without an address on the title, description and field surfaces
+Each child in a list should have a unique "key" prop.
+
+Check the render method of `div`. It was passed a child from EmbedFields. See https://react.dev/link/warning-keys for more information.
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx (4 tests | 2 failed) 213ms
+     × draws an embed without an address on the title, description and field surfaces 161ms
+     × draws an embed with an address on the title-with-address surface, for its title and its field names 29ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx > each editor of a message draws its text on the surface that text is sent on > draws an embed without an address on the title, description and field surfaces
+AssertionError: expected { …(4) } to deeply equal { …(4) }
+
+- Expected
++ Received
+
+  {
+-   "discord-visualizer__embed-description": "embedDescription",
++   "discord-visualizer__embed-description": "fieldValue",
+    "discord-visualizer__embed-field-name": "embedTitle",
+    "discord-visualizer__embed-field-value": "fieldValue",
+    "discord-visualizer__embed-title": "embedTitle",
+  }
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx:97:45
+     95|
+     96|   it('draws an embed without an address on the title, description and …
+     97|     expect(surfaces(mountEmbed(undefined))).toEqual({
+       |                                             ^
+     98|       'discord-visualizer__embed-title': 'embedTitle',
+     99|       'discord-visualizer__embed-description': 'embedDescription',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx > each editor of a message draws its text on the surface that text is sent on > draws an embed with an address on the title-with-address surface, for its title and its field names
+AssertionError: expected { …(4) } to deeply equal { …(4) }
+
+- Expected
++ Received
+
+  {
+-   "discord-visualizer__embed-description": "embedDescription",
++   "discord-visualizer__embed-description": "fieldValue",
+    "discord-visualizer__embed-field-name": "embedTitleWithUrl",
+    "discord-visualizer__embed-field-value": "fieldValue",
+    "discord-visualizer__embed-title": "embedTitleWithUrl",
+  }
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx:106:49
+    104|
+    105|   it('draws an embed with an address on the title-with-address surface…
+    106|     expect(surfaces(mountEmbed('https://x.y'))).toEqual({
+       |                                                 ^
+    107|       'discord-visualizer__embed-title': 'embedTitleWithUrl',
+    108|       'discord-visualizer__embed-description': 'embedDescription',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  01:49:44
+   Duration  2.17s (transform 330ms, setup 27ms, import 1.11s, tests 213ms, environment 646ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: the embed description on the field value surface
+exit 1

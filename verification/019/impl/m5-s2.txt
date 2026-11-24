@@ -1,0 +1,41 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx (4 tests | 1 failed) 212ms
+     × draws an embed with an address on the title-with-address surface, for its title and its field names 42ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx > each editor of a message draws its text on the surface that text is sent on > draws an embed with an address on the title-with-address surface, for its title and its field names
+AssertionError: expected { …(4) } to deeply equal { …(4) }
+
+- Expected
++ Received
+
+  {
+    "discord-visualizer__embed-description": "embedDescription",
+-   "discord-visualizer__embed-field-name": "embedTitleWithUrl",
++   "discord-visualizer__embed-field-name": "embedTitle",
+    "discord-visualizer__embed-field-value": "fieldValue",
+    "discord-visualizer__embed-title": "embedTitleWithUrl",
+  }
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx:106:49
+    104|
+    105|   it('draws an embed with an address on the title-with-address surface…
+    106|     expect(surfaces(mountEmbed('https://x.y'))).toEqual({
+       |                                                 ^
+    107|       'discord-visualizer__embed-title': 'embedTitleWithUrl',
+    108|       'discord-visualizer__embed-description': 'embedDescription',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  01:49:47
+   Duration  2.07s (transform 313ms, setup 23ms, import 1.02s, tests 212ms, environment 659ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: a field name ignores the embed address
+exit 1

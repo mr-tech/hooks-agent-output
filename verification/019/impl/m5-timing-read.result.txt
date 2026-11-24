@@ -1,0 +1,1 @@
+chars=4160 lines=35 runs=20 median=4.868ms min=4.209 max=7.692

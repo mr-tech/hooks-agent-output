@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx (4 tests | 1 failed) 73ms
+     × holds no editor until the content is focused 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx > DiscordContentEditor on desktop, text as typed > holds no editor until the content is focused
+AssertionError: expected { onChange: [Function onChange] } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "onChange": [Function onChange],
+}
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:113:27
+    111|   it('holds no editor until the content is focused', () => {
+    112|     mountDom(<Harness initial='Old' />);
+    113|     expect(slate.current).toBeNull();
+       |                           ^
+    114|   });
+    115| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 19 passed (20)
+   Start at  03:41:24
+   Duration  2.30s (transform 448ms, setup 21ms, import 1.58s, tests 1.56s, environment 1.93s)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: Desktop.tsx:90:not
+exit 1

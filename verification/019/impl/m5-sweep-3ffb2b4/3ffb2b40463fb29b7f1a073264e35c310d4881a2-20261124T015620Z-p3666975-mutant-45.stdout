@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-45
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 13 failed) 130ms
+     × carries bold across an emoji element 39ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × draws the brackets and destination around an emoji label as syntax 13ms
+     × carries italic across an emoji element on a quote line 3ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "`X`" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 250ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 204ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx (3 tests | 1 failed) 175ms
+     × shows plain text while the engine is pending and colours the same text once it resolves 120ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 1 failed) 2095ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 1956ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 10298ms
+     × on embedDescription, every content character carries the style set its preview gives it 2713ms
+     × on fieldValue, every content character carries the style set its preview gives it 2060ms
+     × on embedTitle, every content character carries the style set its preview gives it 1850ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1861ms
+     × on v2Text, every content character carries the style set its preview gives it 1805ms
+
+ Test Files  5 failed | 14 passed (19)
+      Tests  22 failed | 173 passed (195)
+   Start at  02:21:08
+   Duration  34.35s (transform 8.68s, setup 199ms, import 31.34s, tests 115.84s, environment 11.96s)
+

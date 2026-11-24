@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx (4 tests | 1 failed) 230ms
+     × draws a text display on the v2 text surface 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx > each editor of a message draws its text on the surface that text is sent on > draws a text display on the v2 text surface
+AssertionError: expected { …(1) } to deeply equal { …(1) }
+
+- Expected
++ Received
+
+  {
+-   "discord-visualizer__text-display": "v2Text",
++   "discord-visualizer__text-display": "content",
+  }
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx:93:28
+     91|   it('draws a text display on the v2 text surface', () => {
+     92|     const host = mountDom(<TextDisplayEditor component={{ type: 10, co…
+     93|     expect(surfaces(host)).toEqual({ 'discord-visualizer__text-display…
+       |                            ^
+     94|   });
+     95|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  01:50:00
+   Duration  2.05s (transform 311ms, setup 24ms, import 1.04s, tests 230ms, environment 638ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: a text display on the content surface
+exit 1

@@ -1,0 +1,234 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:135', 'corpus:136' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:135",
++   "corpus:136",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:125', 'corpus:126', …(70) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:125",
++   "corpus:126",
++   "corpus:128",
++   "corpus:129",
++   "corpus:130",
++   "corpus:131",
++   "corpus:135",
++   "corpus:136",
++   "link:49",
++   "gen:103",
++   "gen:104",
++   "gen:125",
++   "gen:136",
++   "gen:165",
++   "gen:195",
++   "gen:215",
++   "gen:228",
++   "gen:234",
++   "gen:241",
++   "gen:273",
++   "gen:327",
++   "gen:355",
++   "gen:356",
++   "gen:403",
++   "gen:410",
++   "gen:422",
++   "gen:441",
++   "gen:463",
++   "gen:477",
++   "gen:478",
++   "gen:492",
++   "gen:534",
++   "gen:568",
++   "gen:617",
++   "gen:628",
++   "gen:672",
++   "gen:687",
++   "gen:752",
++   "gen:859",
++   "gen:885",
++   "gen:916",
++   "gen:943",
++   "gen:963",
++   "gen:1009",
++   "gen:1028",
++   "gen:1184",
++   "gen:1186",
++   "gen:1224",
++   "gen:1246",
++   "gen:1252",
++   "gen:1295",
++   "gen:1305",
++   "gen:1314",
++   "gen:1418",
++   "gen:1429",
++   "gen:1438",
++   "gen:1487",
++   "gen:1507",
++   "gen:1540",
++   "gen:1552",
++   "gen:1584",
++   "gen:1587",
++   "gen:1681",
++   "gen:1708",
++   "gen:1712",
++   "gen:1770",
++   "gen:1778",
++   "gen:1823",
++   "gen:1826",
++   "gen:1839",
++   "gen:1916",
++   "gen:1976",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:140:23
+    138|     }
+    139|     expect(compared).toBeGreaterThan(1000);
+    140|     expect(differing).toEqual([]);
+       |                       ^
+    141|   }, 600_000);
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '```\nblock\n```', …(11) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```
++ block
++ ```",
++   "```js
++ let a = 1;
++ ```",
++   "```JS
++ x
++ ```",
++   "```c++
++ x
++ ```",
++   "```notalang
++ x
++ ```",
++   "```
++
++
++ x
++
++
++ ```",
++   "```unclosed
++ x",
++   "````x````",
++   "```
++ ```",
++   "```js
++ ```",
++   "> ```
++ > x
++ > ```",
++   "```js
++ let a = 1;
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+AssertionError: expected [ Array(8) ] to deeply equal [ Array(8) ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    "codeBlockText",
+    "S",
+    "S",
+    "S",
+    "-",
+-   "S",
+-   "S",
+-   "S",
++   "-",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:105:20
+    103|     editor.children = value;
+    104|     const [, second] = siteLines(value, 'content', editor);
+    105|     expect(second).toEqual(['codeBlockText', 'S', 'S', 'S', '-', 'S', …
+       |                    ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > gives an unclosed opening fence the code classes, as the native box does while typing
+AssertionError: expected [ '-', '-', '-', '-', '-' ] to deeply equal [ 'S', 'S', 'S', 'lang', 'lang' ]
+
+- Expected
++ Received
+
+  [
+-   "S",
+-   "S",
+-   "S",
+-   "lang",
+-   "lang",
++   "-",
++   "-",
++   "-",
++   "-",
++   "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:48:31
+     46|
+     47|   it('gives an unclosed opening fence the code classes, as the native …
+     48|     expect(labelled('```js')).toEqual(['S', 'S', 'S', 'lang', 'lang']);
+       |                               ^
+     49|   });
+     50|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+

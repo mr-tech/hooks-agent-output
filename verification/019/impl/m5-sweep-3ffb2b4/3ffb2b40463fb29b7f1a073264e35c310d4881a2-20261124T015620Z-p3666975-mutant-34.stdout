@@ -1,0 +1,48 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-34
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 2 failed) 80ms
+     × parses a unit of 51 text nodes once 16ms
+     × parses a unit of three lines once, and a unit after a code block once more 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 17 failed) 146ms
+     × carries bold across an emoji element 39ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × draws the brackets and destination around an emoji label as syntax 3ms
+     × carries italic across an emoji element on a quote line 3ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "`X`" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 10ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 499ms
+     × on content, over every input of the generator and the corpus 172ms
+     × on embedDescription, over every input of the generator and the corpus 69ms
+     × on fieldValue, over every input of the generator and the corpus 63ms
+     × on embedTitle, over every input of the generator and the corpus 44ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 37ms
+     × on v2Text, over every input of the generator and the corpus 57ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 2529ms
+     × hands the message that text in a full-markdown editor 1614ms
+     × hands the message that text in a single-line editor 913ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 11206ms
+     × hands the message that text in a full-markdown editor 2674ms
+     × hands the message that text in a single-line editor 1677ms
+     × hands the message that text in a full-markdown editor 185ms
+     × hands the message that text in a single-line editor 168ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 11412ms
+     × hands the message that text in a full-markdown editor 6693ms
+     × hands the message that text in a single-line editor 4304ms
+
+ Test Files  6 failed | 13 passed (19)
+      Tests  33 failed | 162 passed (195)
+   Start at  02:12:35
+   Duration  24.35s (transform 11.69s, setup 245ms, import 35.41s, tests 84.19s, environment 12.39s)
+

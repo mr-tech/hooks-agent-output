@@ -1,0 +1,430 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > shows plain text while the engine is pending and colours the same text once it resolves
+AssertionError: expected [ '*', '**' ] to deeply equal [ '**', '**' ]
+
+- Expected
++ Received
+
+  [
+-   "**",
++   "*",
+    "**",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx:50:43
+     48|     await act(async () => { await startEngine(); });
+     49|     expect(textsOf(container, '.strongText')).toEqual(['a']);
+     50|     expect(textsOf(container, '.syntax')).toEqual(['**', '**']);
+       |                                           ^
+     51|   });
+     52|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+AssertionError: expected [ [ [ '-', 'S', …(2) ], …(1) ] ] to deeply equal [ [ [ 'S', 'S', …(2) ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    [
+      [
+-       "S",
++       "-",
+        "S",
+        "strongText",
+        "strongText",
+      ],
+      [
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:53:48
+     51|
+     52|   it('carries bold across an emoji element', () => {
+     53|     expect(labels(lifted(`**a ${EMOJI} b**`))).toEqual([[
+       |                                                ^
+     54|       ['S', 'S', 'strongText', 'strongText'],
+     55|       ['strongText', 'strongText', 'S', 'S'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+AssertionError: expected [ [ [ '-' ], [ 'S' ] ] ] to deeply equal [ [ [ 'S' ], [ 'S' ] ] ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+        "S",
+      ],
+    ],
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:60:42
+     58|
+     59|   it('keeps the delimiters on either side of an emoji as syntax', () =…
+     60|     expect(labels(lifted(`*${EMOJI}*`))).toEqual([[['S'], ['S']]]);
+       |                                          ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > draws the brackets and destination around an emoji label as syntax
+AssertionError: expected [ [ [ '-' ], …(1) ] ] to deeply equal [ [ [ 'S' ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    [
+      [
+-       "S",
++       "-",
+      ],
+      [
+        "S",
+        "S",
+        "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:64:55
+     62|
+     63|   it('draws the brackets and destination around an emoji label as synt…
+     64|     expect(labels(lifted(`[${EMOJI}](https://x.y)`))).toEqual([[['S'],…
+       |                                                       ^
+     65|   });
+     66|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '-# sub', '-# -# nested', …(119) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "-# sub",
++   "-# -# nested",
++   "-# **b** *i*",
++   "-# # sub then head",
++   "[text](https://example.com)",
++   "[text](http://example.com/a_b)",
++   "[text](<https://example.com>)",
++   "[text](https://example.com \"title\")",
++   "[**bold**](https://example.com)",
++   "[a [b] c](https://example.com)",
++   "[text](https://example.com/a(b)c)",
++   "**[text](https://example.com)**",
++   "[text](https://example.com)[two](https://example.org)",
++   "[`code`](https://example.com)",
++   "[||sp||](https://example.com)",
++   "[text](discord://-/channels/1/2)",
++   "[te
++ xt](https://example.com)",
++   "https://example.com",
++   "http://example.com/path?q=1#h",
++   "https://example.com.",
++   "https://example.com)",
++   "https://example.com/a(b)",
++   "<https://example.com>",
++   "https://example.com/**bold**",
++   "**https://example.com**",
++   "https://example.com/a_b_c",
++   "_https://example.com_",
++   "<a@b.co>",
++   "https://example.com,",
++   "https://exa mple.com",
++   "https://example.com's",
++   "||sp||",
++   "||a
++ b||",
++   "|| ||",
++   "||**b**||",
++   "**||b||**",
++   "||a||b||c||",
++   "||`code`||",
++   "`||x||`",
++   "||https://example.com||",
++   "*i*",
++   "_i_",
++   "**b**",
++   "__u__",
++   "~~s~~",
++   "***bi***",
++   "___ui___",
++   "__*ui*__",
++   "**__bu__**",
++   "*__iu__*",
++   "***__biu__***",
++   "**b *bi* b**",
++   "*i **ib** i*",
++   "*loose *",
++   "*a * b*",
++   "_a_b_",
++   "*a**",
++   "** b **",
++   "__ u __",
++   "~~a~~~",
++   "~~ s ~~",
++   "*a
++ b*",
++   "**a
++
++ b**",
++   "_a_ _b_",
++   "*a**b**c*",
++   "**a*b*c**",
++   "~~**a**~~",
++   "**~~a~~**",
++   "_**a**_",
++   "_a__",
++   "*a*b*",
++   "\\*a*",
++   "`code`",
++   "``co`de``",
++   "` code `",
++   "`a``b`",
++   "`**b**`",
++   "**`b`**",
++   "```block```",
++   "```
++ block
++ ```",
++   "```js
++ let a = 1;
++ ```",
++   "```js let a```",
++   "```JS
++ x
++ ```",
++   "```c++
++ x
++ ```",
++   "```notalang
++ x
++ ```",
++   "```
++
++
++ x
++
++
++ ```",
++   "```unclosed
++ x",
++   "````x````",
++   "```
++ ```",
++   "```js
++ ```",
++   "`a
++ b`",
++   "```**b**```",
++   "**<t:1700000000>**",
++   "`<t:1700000000>`",
++   "**<@123456789012345678>**",
++   "`<@123456789012345678>`",
++   "\\:smile:",
++   "\\😀",
++   "\\*a\\*",
++   "\\**a**",
++   "\\_a\\_",
++   "\\# head",
++   "\\> q",
++   "\\- item",
++   "\\`code\\`",
++   "\\||sp\\||",
++   "\\\\",
++   "\\[t](https://example.com)",
++   "\\<@123456789012345678>",
++   "\\<t:1700000000>",
++   "\\-# sub",
++   "\\~~s~~",
++   "**# not head**",
++   "*- not list*",
++   "||> q||",
++   "-# https://example.com",
++   "***a** b*",
++   "__**a__**",
++   "<https://example.com> **b**",
++   "```js
++ let a = 1;
++ ```",
++   "[text](https://example.com \"title\")",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > marks bold delimiters as syntax and the inside as bold
+AssertionError: expected [ '-', 'S', 'strongText', …(3) ] to deeply equal [ 'S', 'S', 'strongText', …(3) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "S",
++   "-",
+    "S",
+    "strongText",
+    "strongText",
+    "S",
+    "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:17:32
+     15|
+     16|   it('marks bold delimiters as syntax and the inside as bold', () => {
+     17|     expect(labelled('**ab**')).toEqual(['S', 'S', 'strongText', 'stron…
+       |                                ^
+     18|   });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > draws a masked link label as link text and the brackets and destination as syntax
+AssertionError: expected [ '-', 'linkText', 'linkText', …(14) ] to deeply equal [ 'S', 'linkText', 'linkText', …(14) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "S",
++   "-",
+    "linkText",
+    "linkText",
+    "S",
+    "S",
+    "S",
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:21:43
+     19|
+     20|   it('draws a masked link label as link text and the brackets and dest…
+     21|     expect(labelled('[ab](https://x.y)')).toEqual([
+       |                                           ^
+     22|       'S', 'linkText', 'linkText', ...Array.from({ length: 14 }, () =>…
+     23|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > draws a bare link address as link text
+AssertionError: expected [ '-', 'linkText', 'linkText', …(8) ] to deeply equal [ 'linkText', 'linkText', …(9) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "linkText",
++   "-",
+    "linkText",
+    "linkText",
+    "linkText",
+    "linkText",
+    "linkText",
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:27:37
+     25|
+     26|   it('draws a bare link address as link text', () => {
+     27|     expect(labelled('https://x.y')).toEqual(Array.from({ length: 11 },…
+       |                                     ^
+     28|   });
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > marks the subtext marker and its space as syntax and the rest as subtext
+AssertionError: expected [ '-', 'S', 'S', 'subtextText', …(1) ] to deeply equal [ 'S', 'S', 'S', 'subtextText', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "S",
++   "-",
+    "S",
+    "S",
+    "subtextText",
+    "subtextText",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:31:31
+     29|
+     30|   it('marks the subtext marker and its space as syntax and the rest as…
+     31|     expect(labelled('-# ab')).toEqual(['S', 'S', 'S', 'subtextText', '…
+       |                               ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > carries italic across a line break and gives the break itself no class
+AssertionError: expected [ '-', 'emText', '-', 'emText', 'S' ] to deeply equal [ 'S', 'emText', '-', 'emText', 'S' ]
+
+- Expected
++ Received
+
+  [
+-   "S",
++   "-",
+    "emText",
+    "-",
+    "emText",
+    "S",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:40:32
+     38|
+     39|   it('carries italic across a line break and gives the break itself no…
+     40|     expect(labelled('*a\nb*')).toEqual(['S', 'emText', '-', 'emText', …
+       |                                ^
+     41|   });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > gives an unclosed opening fence the code classes, as the native box does while typing
+AssertionError: expected [ '-', 'S', 'S', 'lang', 'lang' ] to deeply equal [ 'S', 'S', 'S', 'lang', 'lang' ]
+
+- Expected
++ Received
+
+  [
+-   "S",
++   "-",
+    "S",
+    "S",
+    "lang",
+    "lang",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:48:31
+     46|
+     47|   it('gives an unclosed opening fence the code classes, as the native …
+     48|     expect(labelled('```js')).toEqual(['S', 'S', 'S', 'lang', 'lang']);
+       |                               ^
+     49|   });
+     50|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/11]⎯
+

@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-78
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts (10 tests | 9 failed) 34ms
+     × gives a character the class of its scope 13ms
+     × gives a character in a nested scope the outer class first and its own after 4ms
+     × keeps a scope's class attribute whole when it names two classes 1ms
+     × counts the entity &amp; as the one character it stands for 1ms
+     × counts the entity &lt; as the one character it stands for 2ms
+     × counts the entity &gt; as the one character it stands for 3ms
+     × counts the entity &quot; as the one character it stands for 2ms
+     × counts the entity &#x27; as the one character it stands for 2ms
+     × draws nothing for an empty scope 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx (6 tests | 3 failed) 2299ms
+     × gives a character inside a nested scope its outer scope's class as well as its own 35ms
+     × matches the HTML highlight.js writes for the whole line, character by character, in every language 2084ms
+     × draws the second text node of a code line from its own characters, not the line's 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 3 failed) 11087ms
+     × on embedDescription, every content character carries the style set its preview gives it 3035ms
+     × on fieldValue, every content character carries the style set its preview gives it 2207ms
+     × on v2Text, every content character carries the style set its preview gives it 2043ms
+
+ Test Files  3 failed | 16 passed (19)
+      Tests  15 failed | 180 passed (195)
+   Start at  02:40:12
+   Duration  35.07s (transform 10.94s, setup 311ms, import 34.07s, tests 122.60s, environment 12.26s)
+

@@ -1,0 +1,138 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '# one', '## two', …(41) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "# one",
++   "## two",
++   "### three",
++   "# trailing hashes ##",
++   "text
++ # after text",
++   "# **bold** head",
++   "# # nested",
++   "#  two spaces",
++   "# a
++ # b",
++   "#	Tab",
++   "# -# head then sub",
++   "* not italic*",
++   "> # head",
++   "> - item",
++   ">>> # head
++ - item",
++   "- a",
++   "* a",
++   "- a
++ - b",
++   "1. a
++ 2. b",
++   "5. a
++ 6. b",
++   "- a
++   - b",
++   "- a
++  - b",
++   "- a
++     - b",
++   "- a
++
++ - b",
++   "text
++ - a",
++   "- **b**",
++   "- a
++ text",
++   "1. a
++ - b",
++   "- # head",
++   "0. a",
++   "1000000000000. a",
++   "- a
++   continued",
++   "-  two spaces",
++   "1. a
++ 1. b",
++   "- [x] task",
++   "# h
++ text
++ - a
++ > q
++ -# s",
++   "**# not head**",
++   "*- not list*",
++   "||> q||",
++   "- [t](https://example.com)
++ - `c`",
++   "# [t](https://example.com)",
++   "1. a
++    - b
++ 2. c",
++   "1. a
++ 2. b",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > colours no heading marker and no list marker
+AssertionError: expected [ 'S', '-', '-' ] to deeply equal [ '-', '-', '-' ]
+
+- Expected
++ Received
+
+  [
+-   "-",
++   "S",
+    "-",
+    "-",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:35:29
+     33|
+     34|   it('colours no heading marker and no list marker', () => {
+     35|     expect(labelled('# a')).toEqual(['-', '-', '-']);
+       |                             ^
+     36|     expect(labelled('- a')).toEqual(['-', '-', '-']);
+     37|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > carries italic across a line break and gives the break itself no class
+AssertionError: expected [ 'S', 'emText', 'S', 'emText', 'S' ] to deeply equal [ 'S', 'emText', '-', 'emText', 'S' ]
+
+- Expected
++ Received
+
+  [
+    "S",
+    "emText",
+-   "-",
++   "S",
+    "emText",
+    "S",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:40:32
+     38|
+     39|   it('carries italic across a line break and gives the break itself no…
+     40|     expect(labelled('*a\nb*')).toEqual(['S', 'emText', '-', 'emText', …
+       |                                ^
+     41|   });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

@@ -1,0 +1,66 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box over every typed and corpus input the editor draws without an emoji element
+AssertionError: expected [ '```js\nlet a = 1;\n```', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```js
++ let a = 1;
++ ```",
++   "```JS
++ x
++ ```",
++   "```c++
++ x
++ ```",
++   "```notalang
++ x
++ ```",
++   "```unclosed
++ x",
++   "```js
++ let a = 1;
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:97:23
+     95|     }
+     96|     expect(compared).toBeGreaterThan(200);
+     97|     expect(differing).toEqual([]);
+       |                       ^
+     98|   });
+     99|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts > the colouring of one run unit > gives an unclosed opening fence the code classes, as the native box does while typing
+AssertionError: expected [ 'S', 'S', 'S', 'S+lang', 'S+lang' ] to deeply equal [ 'S', 'S', 'S', 'lang', 'lang' ]
+
+- Expected
++ Received
+
+  [
+    "S",
+    "S",
+    "S",
+-   "lang",
+-   "lang",
++   "S+lang",
++   "S+lang",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts:48:31
+     46|
+     47|   it('gives an unclosed opening fence the code classes, as the native …
+     48|     expect(labelled('```js')).toEqual(['S', 'S', 'S', 'lang', 'lang']);
+       |                               ^
+     49|   });
+     50|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

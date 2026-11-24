@@ -1,0 +1,50 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-35
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (3 tests | 2 failed) 90ms
+     × parses a unit of 51 text nodes once 17ms
+     × parses a unit of three lines once, and a unit after a code block once more 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (19 tests | 19 failed) 120ms
+     × carries bold across an emoji element 36ms
+     × keeps the delimiters on either side of an emoji as syntax 2ms
+     × draws the brackets and destination around an emoji label as syntax 17ms
+     × carries italic across an emoji element on a quote line 1ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "[a X](https://x.y)" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "[X](https://x.y)" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "`X`" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "-# a X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 8ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "# X" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 482ms
+     × on content, over every input of the generator and the corpus 158ms
+     × on embedDescription, over every input of the generator and the corpus 63ms
+     × on fieldValue, over every input of the generator and the corpus 42ms
+     × on embedTitle, over every input of the generator and the corpus 57ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 55ms
+     × on v2Text, over every input of the generator and the corpus 49ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 2 failed) 2134ms
+     × hands the message that text in a full-markdown editor 1285ms
+     × hands the message that text in a single-line editor 847ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 10864ms
+     × hands the message that text in a full-markdown editor 2634ms
+     × hands the message that text in a single-line editor 1698ms
+     × hands the message that text in a full-markdown editor 200ms
+     × hands the message that text in a single-line editor 192ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 11023ms
+     × hands the message that text in a full-markdown editor 6551ms
+     × hands the message that text in a single-line editor 4240ms
+
+ Test Files  6 failed | 13 passed (19)
+      Tests  35 failed | 160 passed (195)
+   Start at  02:13:01
+   Duration  23.97s (transform 13.52s, setup 291ms, import 39.93s, tests 81.34s, environment 13.06s)
+

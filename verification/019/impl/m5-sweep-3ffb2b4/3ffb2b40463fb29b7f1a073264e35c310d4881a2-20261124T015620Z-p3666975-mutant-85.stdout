@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/mrun-work/20261124T015620Z-p3666975/mutant-85
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 254ms
+     × matches the frozen box over every typed and corpus input the editor draws without an emoji element 214ms
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  1 failed | 194 passed (195)
+   Start at  02:44:25
+   Duration  36.75s (transform 14.55s, setup 257ms, import 44.27s, tests 122.98s, environment 13.06s)
+

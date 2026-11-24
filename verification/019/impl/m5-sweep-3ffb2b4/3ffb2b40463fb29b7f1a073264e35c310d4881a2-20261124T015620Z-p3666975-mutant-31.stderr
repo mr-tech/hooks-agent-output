@@ -1,0 +1,28 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses only the edited element's unit on the next pass, with its new text
+AssertionError: expected [ [ 'content', '\n*bc*' ] ] to deeply equal [ [ 'content', '*bc*' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
+-     "*bc*",
++     "
++ *bc*",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:74:22
+     72|     editor.children = after as Descendant[];
+     73|     decorateAll(decorate, after);
+     74|     expect(parses()).toEqual([['content', '*bc*']]);
+       |                      ^
+     75|   });
+     76| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
