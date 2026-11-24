@@ -1232,3 +1232,11 @@ Premises:
 - Field limits, read by the helper: content is 2,000 characters (`src/constants/messageLimits.ts:1`) and the embed description 4,096
   (`:3`). So 1,000 and 2,048 one-character lines are reachable. That figure is the helper's arithmetic, not measured in an editor.
 - The cause, a per-line `resolveEmoji` → `unitAround` rebuild in `handleEditor`, was read from code, not run. Browser cost was not measured.
+
+## 2026-11-24T07:13Z — plan 019 AC-6.8: a third revision is decided now (this thread's, steering.md Standing check)
+
+`planner-019` by message (07:1xZ): Revision 17 (record `34850209`, the plan's `Revision` field reads 17) folds QAF-43, QAF-44, CF-25, CF-26 and
+F-45 into AC-6.8. AC-6.8 was created in Revision 16 and revised in Revision 17, so the next fold that touches it is its third consecutive
+revision. **Decided before that fold:** a further AC-6.8 gap below HIGH from Revision 17's gate reads becomes a stated limit in the Planner
+batch, with no Revision 18 round. A gate's severity-floor finding is excepted, and so is a gap that leaves the count limb unable to fail when
+the fix is lost. CR-20's fix round starts once Revision 17's three gates pass. Recipient: `planner-019`.
