@@ -1006,3 +1006,14 @@ background shell. No ask is sent until its seam.
 names a stop; the cause is unread. The coordinator is asked by message. The architect is respawned for the closing pass after M6, unless
 the coordinator says otherwise.
 Usage: weekly_all 45%, live; OOM 0.
+
+## 2026-11-24T02:50Z — plan 019 M3 done; QA cleared; the stop of architect and analyst has no known author
+
+**M3 done.** Code review confirmed QAF-38's fix at `81c68b2`, APPROVED_WITH_COMMENTS (`47e4ccf5`, row `f50fcc0e`). QA then ran its refresh:
+QA Complete, milestone-scoped, at `81c68b2` (`cece4c72`, `e47a438e`, plan R-58 `4222fc9e`), with every M3 finding closed. Review preceded QA
+(02:42Z, then 02:49Z). Read this turn: commit times, and the code-review document's `Reviewed-At`.
+**qa-019** checkpointed (`af589f42`), was cleared at 02:41Z (`tmux-agent clear`, exit 0), and was woken with its Resumption State.
+**architect-019 and analyst-019:** `steering-coordinator` says by message (02:4xZ) that it did not stop them; it found no tmux-agent log and 0
+`Killed process` lines. The stop's author is unknown, and is recorded as unknown.
+QA disclosed in its document (`e47a438e`) that the record-write gate is uneven. The agents inbox has an FYI.
+Next: M5 is the implementer's to hand to code review (its document was uncommitted at 02:50Z), then QA Phase 2 on M5, then M6.
