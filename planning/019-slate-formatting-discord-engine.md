@@ -46,8 +46,12 @@ Status-Detail: >-
   Revision 22 (steering block 14:48Z, and D-25, his selection 17:03Z) is AC-6.9's last fold. The caret limb takes hand-written
   `>>>` texts (`>>> za`, `>>> zabc`, `za`), so the fix round also fixes the `>>>` caret. The no-throw limb refuses a hidden
   throw (CF-30), and the fence ceiling reads 27 and 104 ms. After it, an AC-6.9 finding below HIGH is a stated limit, except a
-  severity floor. The second M6 fix round waits for the three gates on revision 22.
-Revision: 22
+  severity floor. All three gates passed revision 22, and the second fix round was released at R-100.
+  Code review Round 7 REJECTED that round at `85ece66` on CR-25 HIGH (R-103): closing a fence over emoji lines takes 7.6 s at
+  1,000 lines. Revision 23 (steering block 19:43Z, under D-24) adds `a🙂` texts to AC-6.9's fence keystrokes, a standing
+  count limb on work per line, and a rewritten residue. A paste member is put to the owner as a selection. The gates are not
+  cued on revision 23 until his answer, so that each reads it once.
+Revision: 23
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -189,6 +193,7 @@ Lane: full
 | 2026-11-24T19:21 | R-102 | planner-019 | Registered steering's ruling (effort rulings block "2026-11-24T19:20Z", record `7e662177`) in R-101's Planner batch row: QA records the box load beside each growth reading and calls the limb as written, and the planner's hold before a fail is withdrawn. |
 | 2026-11-24T09:30 | R-94 | code-reviewer-019 | Round 6 sub-entry, milestone-scoped: M6 is **APPROVED_WITH_COMMENTS** at website `42128cd` (record `c970a8e`, `code-review/019-slate-formatting-discord-engine-code-review.md`). CR-20 is RESOLVED. CR-22 LOW: a failed median in AC-6.8's timed limb hangs the bench run (exit 124) instead of failing it. CR-23 MEDIUM: the fix's whole-unit settle per dirty line makes closing a fence cost 416 ms at 2,048 lines against 166 ms at `119471f`. Both are stated limits, CR-23 pending the owner's word through steering. Outstanding 1's family is wider than recorded, though still within QAF-48's class. The plan Status is not moved. |
 | 2026-11-24T19:41 | R-103 | code-reviewer-019 | Round 7, milestone-scoped: M6 Fix Round 2 is **REJECTED** at website `85ece66` (record `e92137fe`, `code-review/019-slate-formatting-discord-engine-code-review.md`) on CR-25 HIGH. Its two new memories are keyed on `editor.children`, which every operation replaces, so whole-run work repeats per operation. Closing a code fence above 1,000 emoji lines (3,999 characters) takes 7.6 s against the chain base's 48 ms throw, and pasting 200 emoji lines takes 940 ms against the base's 241. Plan gap: AC-6.9's text class has no emoji-bearing fill and no paste. CR-24 LOW: the mounted write test swallows the act's error. The throw's fix (CF-30) and the caret fix (CF-31, F-56) hold. D-24 governs the fence member. The plan Status is not moved. |
+| 2026-11-24T19:44 | 23 | planner-019 | Triggered by code review Round 7's CR-25 HIGH (R-103, record `e92137fe`) and steering's ruling (effort rulings block "2026-11-24T19:43Z", record `6507ae1e`). AC-6.9's fence keystrokes gain `a🙂` texts at 200 and 1,000 lines, a standing count limb (line settles and fence reads at 1,000 at most 10 times those at 200, seen red at `85ece66`) and a residue that names what stays unbounded; CR-24 LOW is a stated limit. Scope delta: AC-6.9 gains one text and one limb under D-24, and a paste member is held for his selection, joining this revision if he chooses it. Since approval, revisions 10 to 23 have run; the gates are cued once his answer is in, then a third fix round, code review and QA's M6 re-check. The plan still delivers what was first asked, plus three editor fixes he chose. |
 
 ## Resumption State
 
@@ -241,7 +246,9 @@ Revision 21 (D-24) added AC-6.9 for the code-fence and `>>>` keystrokes. QA's M6
 (record `22a797bc`). Revision 22 (block 14:48Z and D-25) is AC-6.9's last fold: after it, an AC-6.9 finding below HIGH from
 any gate is a stated limit, except a severity floor, and a literal a correct fix fails is recorded as the implementer's
 measured reading beside its hand derivation, not a revision. All three gates passed revision 22 (R-98 to R-100), and the
-second M6 fix round was released to implementer-019 at R-100.
+second M6 fix round was released to implementer-019 at R-100. Code review REJECTED it on CR-25 HIGH (R-103). Revision 23 (block
+19:43Z) is written for the fence member. The paste member awaits his selection, relayed by steering, and the gates are cued on
+revision 23 only after that answer.
 
 **Approach in flight.** None. No uncommitted edit.
 
@@ -289,6 +296,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 20's delta: AC-6.8's corpus and generator bound removed, the fenced-quote sized texts added to the equality limb and its "Seen red", and the residue line naming the corpus and generator inputs (steering block 07:42Z) | revision 20 commit | critic (delta read); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-29 LOW as a stated limit (record `81d964c3`). QA re-key: no new finding, with the fenced-quote texts read red at `119471f` by P-Q25 (record `0dca93e`). Critic APPROVED, cycle 13 pass 1, with F-50 MEDIUM (SL-23) and F-51 LOW (SL-24, the same member as CF-29) as Planner batch rows (record `1c6ee275`). Every gate has passed revision 20, so implementer-019's hand-off of CR-20's fix round is released, built to SL-23 and SL-24 |
 | Revision 21's delta: D-24 and AC-6.9 (keystroke class, text class, no-throw, write, fresh-load and caret limbs, the cost limbs, human-observable form, residue); AC-6.8's residue pointer | revision 21 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-30 LOW a stated limit and no owner-authored invariant touched; A-11's `handleEditor` sentence is restated at its closing pass (record `f4a9534b`). Critic APPROVED, cycle 14 pass 1, with F-52 to F-55 as SL-25 to SL-28 (record `3910c29c`). QA re-key: QAF-52 MEDIUM on the `>>>` caret texts, with P-Q26 and B-11 (record `225ef4a6`). All folded at revision 22 |
 | Revision 22's delta: AC-6.9's `>>>` keystroke members and caret limb (hand-written texts, seen red, D-25), the no-throw limb's refusal (CF-30), and the ceiling's 27 and 104 ms with its citation (steering block 14:48Z) | revision 22 commit | critic, architect and QA re-key, each inside its current read | Architect APPROVED, CF-30 resolved as folded, with CF-31 LOW a stated limit (record `f898b32f`). Critic APPROVED, cycle 14 pass 2: F-52 resolved, SL-25 withdrawn as the critic's error, with F-56 LOW a stated limit (record `50b2bbe0`). QA re-key: no new finding, QAF-52 closed, NM-78 to NM-80, B-11 split into K1a and K1b (record `e2890214`). Every gate has passed revision 22, so the second M6 fix round is released |
+| Revision 23's delta: AC-6.9's `a🙂` texts for the fence keystrokes, the work-per-line count limb, the rewritten residue, and CR-25's quoted defect (steering block 19:43Z); a paste member if he chooses it | revision 23 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Not yet cued: held until the owner's answer on the paste (block 19:43Z), so each gate reads revision 23 once |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 was folded at revision 6 and retired at revision 13 (D-21) |
 
 ## Header notes
@@ -1507,6 +1515,10 @@ Acceptance criteria:
     QAF-52 (record `225ef4a6`): after `>` makes `>>> a`, "the caret stays after the `a`, and z gives `>>> az`", where the start
     of the line's text "gives `>>> za`"; "That misplacement is a real defect". The owner was told "The release ships with the
     cursor still jumping to the end, as it does today" for the option he did not choose (ledger block 17:03Z, agent-authored).
+    CR-25 HIGH (record `e92137fe`, at `85ece66`): "Closing a code fence above lines that each hold an emoji: 238 ms at 200
+    lines, and **7.6 s at 1,000 lines (3,999 characters, inside the field's 4,096)**", from "whole-run or whole-document work
+    repeated for every operation of a multi-operation edit"; "AC-6.9's text class fills every line with `a`, and its residue
+    says inputs outside the class carry no bound."
   - **The keystroke class**, in full mode on the `content` and `embedDescription` surfaces:
     - making a fence delimiter: the third backtick typed at the end of a `` `` `` line;
     - unmaking one: Backspace at the end of a ```` ``` ```` line;
@@ -1517,8 +1529,12 @@ Acceptance criteria:
     - unmaking one: Backspace at the start of line 0's text in a loaded text whose line 0 is `>>> a`. The marker is the line's
       `quotePrefix`, not text, so this is the only Backspace that reaches it, and `onKeyDown.ts:normalizeBackspace` sets the line
       back to `div`, dropping the whole marker, as at the chain base.
-  - **The text class:** the keystroke's line, plus plain `a` lines up to N lines, for N of 40, 122, 123, 200, 1,000 (content's
-    limit) and 2,048 (the description's limit; on `content`, N stops at 1,000).
+  - **The text class:**
+    - the keystroke's line, plus plain `a` lines up to N lines, for N of 40, 122, 123, 200, 1,000 (content's limit) and 2,048
+      (the description's limit; on `content`, N stops at 1,000);
+    - for the fence keystrokes, on `embedDescription`, the keystroke's line plus `a🙂` lines up to N lines, for N of 200 and
+      1,000. The 1,000-line text is 3,999 characters, inside the description's 4,096, and every line holds an emoji element
+      (revision 23, CR-25; steering block 19:43Z under D-24).
   - **No throw (standing, in `pnpm test`).** For every keystroke and every N, the keystroke and the normalise it runs raise no
     exception. Seen red at the chain base `af3d95a` and at `42128cd`, at 123 lines and up for `>>>` and at 200 lines and up for
     the fence keystrokes (QA's and the helper's figures; the implementer re-runs them at `42128cd` before the fix, recording
@@ -1546,6 +1562,17 @@ Acceptance criteria:
     at the end of the line's text and gives `>>> az` and `>>> abcz` (steering's helper, effort rulings block 17:03Z; captures
     `verification/019/planning/fence-refute/caret.{af3d95a,42128cd,mounted.42128cd}.raw.txt`). The implementer's N = 40 run at
     `42128cd` cross-checks the unmaking member's text and is never its source.
+  - **Work per line (standing, in `pnpm test`; revision 23, CR-25).** For each fence keystroke on the `a🙂` texts, the number of
+    line settles and the number of fence reads the keystroke runs, over every drain, at N = 1,000 is at most 10 times the number
+    at N = 200. Basis: work linear in the lines whose type changes gives 5 times, and work repeated for every operation of the
+    edit gives about 25 at `85ece66` (code review's measurement). The ratio literal is written by hand and never derived from
+    the production code (axiom E).
+    - **Observed through pass-through `vi.mock`s** at the module boundaries that settle a line and read a line's fence state,
+      never through a counter added to `src` (CF-25). Code review's falsity signature names `spansInLine` and `afterLine` at
+      `85ece66`. If the fix moves that work, the implementer names the boundary it observes and why it holds the same work.
+    - **A positive control** in the same run: one keystroke on a one-line text counts at least 1 on each observed boundary, so
+      a counter that reads 0 fails.
+    - **Seen red** at `85ece66`, where the ratio is about 25, failing on the count and not by a timeout.
   - **Cost (a timed case, outside the standing suite, like AC-6.8's timed limb).**
     - **The growth property (CR-23's class):** for each keystroke, the median at N = 2,048 is at most 20 times the median at
       N = 200. Basis: work linear in the lines whose type changes gives about 10.2 times, and CR-23's once-per-dirty-line settle
@@ -1563,7 +1590,16 @@ Acceptance criteria:
     description, and typing `>` to make `>>> abc` at its top, show no console error, the next character lands at the caret (at
     the start of `abc` for the quote), and a reload of the saved draft shows the keystroke. Checkable in production after
     deploy. QA's walk row is B-11, SL-15's eighth member.
-  - **Residue.** Inputs outside the text class carry no bound. The browser's cost is not measured, and node is the instrument.
+  - **Residue (rewritten at revision 23, CR-25).** The limbs bind the keystroke class over the text class, and nothing else
+    is bounded by them:
+    - a paste of any text (put to the owner as a separate selection; steering block 19:43Z);
+    - undo and redo of any member;
+    - a fill other than plain `a` and `a🙂` lines, such as mixed emoji, links or nested quotes;
+    - the class's other keystrokes, as SL-26 names them;
+    - repeated whole-document work an edit does without remembering it, which neither count observes (CR-25's predicate gap).
+    These are not known to be bounded. CR-25 found the `a🙂` member through exactly this sentence's earlier form. A user report
+    of a slow edit on one of them goes under AC-6.9's row in QA's register. The browser's cost is not measured, and node is the
+    instrument.
     In a browser, where the next character lands is checked only in the walk. QA's browser look (handoff `124c6099`, row
     10:00) could not separate it from its instrument's timing, so the caret limb's standing instrument is node.
 
@@ -1875,6 +1911,8 @@ Revision 4's folds, for reference:
 | CF-31 (LOW, M6): the `>>>` caret defect's mechanism. At `42128cd`, `handleEditor` moves a typed marker out of the text by `Transforms.insertText(editor, content, { at: [childLocation] })`, which replaces the whole node's text, so the caret lands at the end (`>>> az`). Recommended form: delete only the marker's range (0 to the prefix's length) and set `quotePrefix`, so Slate's point transforms keep the caret on the content. Avoid a hand-written `Transforms.select` inside the normaliser | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` § "Delta pass, revision 22" (record `f898b32f`) | Stated limit under steering's block 14:48Z, with no round. It is guidance on how, not a criterion change: AC-6.9's caret limb decides. It goes to implementer-019 with the release. The architect's closing pass restates A-11 to name how the marker leaves the text. |
 | F-56 (LOW, M6), a new member under SL-26: the caret limb binds the `>>>`-making keystroke only, but `withNormalizeNode.ts:handleEditor` replaces a line's text in one branch for `> ` and `>>> ` alike, so a `> ` quote made in front of existing text should have the same caret defect. Read from code, not run | `critiques/closed/019-slate-formatting-discord-engine-critique.md` F-56, cycle 14 pass 2 (record `50b2bbe0`) | Stated limit under steering's block 14:48Z, with no round. The `> `-making keystroke is residue. The implementer settles the premise with one case in the pre-fix run and records the result. Code review reads whether the caret fix sits in the shared branch, and reports a fix keyed to `>>>` alone as a deviation from his sibling rule. Sent to implementer-019 with the release. Settled by the pre-fix run (record `0a086b41`): the `> `-making keystroke had the same defect, and the fix sits in the shared arm. |
 | The second M6 fix round's hand-off figures (website `85ece66`), implementer-019's, not re-run here. (1) At `42128cd`, the unmaking Backspace throws from 122 lines; the making keystrokes from 123. (2) The timed limb, 3 runs at box load 3.6 to 5.1, all exit 0: line-2 fence medians 6.8 to 10.8 ms at 200 lines (ceiling 27) and 77.9 to 88.4 ms at 2,048 (ceiling 104, 95th percentile up to 101.2). Growth 8.2 to 12.8 times over 21 readings, with one 18.5 (the closing-delimiter keystroke, run 1; its other runs 12.2 and 12.1) against 20. (3) SL-28: the throw's fix and CR-23's landed in one commit, so the growth limb was not seen red on a tree; it is red against NM-76 (5,730 ms against 1,194). (4) SL-27: the top sizes run as growth probes, named so in the case titles | `implementation/019-slate-formatting-discord-engine-m6-implementation.md` "Fix Round 2" (record `0a086b41`) | Observations; no limb missed. (1): AC-6.9's "Seen red at 123 lines and up for `>>>`" is one size too late for the unmaking member. The text class holds both 122 and 123, so no member or test changes, and the seam fold corrects the sentence. (2): the growth limb's margin is thin on one keystroke (18.5 against 20, at box load 3.6 to 5.1). AC-6.9 routes only a ceiling miss to steering; a growth miss fails the limb. QA's Phase 2 records the box load beside each growth reading, as AC-6.9 asks, and calls the limb as the criterion words it. A fail routes as any QA fail does, with no hold for another stage's opinion (effort rulings block "2026-11-24T19:20Z", record `7e662177`, withdrawing the planner's hold). (3) and (4) are as SL-28 and SL-27 asked. |
+| CR-25 (HIGH, M6): settled state is remembered under `editor.children` (`withNormalizeNode.ts` `settledIn` and `linesAgree`, at `85ece66`), which every operation replaces, so an edit of E operations over N lines costs O(E × N). Closing a fence over `a🙂` lines takes 7.6 s at 1,000 lines. A paste takes 9.6 s plain and 25 s with emoji at 1,000 lines, against the base's 1.7 and 2.9 s, already so at `42128cd` | `code-review/019-slate-formatting-discord-engine-code-review.md` CR-25, Round 7 (record `e92137fe`) | Not a stated limit: it is HIGH, outside every cap. The fence member is discharged at revision 23 into AC-6.9's `a🙂` texts and count limb (block 19:43Z, under D-24). The paste member is put to the owner as a selection. If he chooses it, it joins revision 23. If not, the planner writes it up as a handoff. |
+| CR-24 (LOW, M6): `SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx` swallows the act's error (`await settle().catch(() => undefined)`), so a mounted-only throw passes whenever the last write is right | `code-review/019-slate-formatting-discord-engine-code-review.md` CR-24, Round 7 (record `e92137fe`) | Stated limit under the AC-6.9 cap (block 14:48Z), with no round. The standing no-throw limb runs unmounted and is unaffected. The implementer removes the swallow if the file is opened in the third fix round, and code review reads it. |
 | F-52 (MEDIUM, M6) as SL-25: AC-6.9's two `>>>` members treat the marker as text in the line, but at `42128cd` `withNormalizeNode.ts:handleEditor` stores a quote line's marker as `quotePrefix`. Making it (`>` at the start of `>> a`) leaves the caret at `[0,0]` offset 1, the end of `a` (QA's `verification/019/qa/m6/gt-marker-base/model-selection-42128cd.out.txt`), so a `z` gives `>>> az`, not the caret limb's `>z>> a`. For unmaking, no caret position exists inside the marker: Backspace at the content's start goes to `onKeyDown.ts:normalizeBackspace`, which sets the line to `div`, so line 0 becomes `a`. Read from code and QA's capture, not run. A new member of RK-8's class | `critiques/closed/019-slate-formatting-discord-engine-critique.md` F-52, cycle 14 pass 1 (record `3910c29c`) | Discharged at revision 22 into AC-6.9's keystroke class and caret limb, with QA's QAF-52 (record `225ef4a6`), the same member. SL-25's reading, the `42128cd` output as the expected value, is not taken: that output is the caret defect (`>>> az`), which D-25 fixes, and the expected texts are hand-written (steering blocks 14:48Z and 17:03Z). At the seam fold, RK-8's record gains this member. |
 | F-53 (MEDIUM, M6) as SL-26: AC-6.9's first line names a class, "a keystroke that changes the type of every line below it", but its keystroke class lists six members, and its residue names texts only | `critiques/closed/019-slate-formatting-discord-engine-critique.md` F-53 (record `3910c29c`) | Stated limit SL-26. The limbs bind the listed members: six at revision 21, seven from revision 22, which lists `>> a` and `>> abc` for the `>>>`-making keystroke. The class's other keystrokes are residue with no bound: a forward delete of a delimiter backtick, a backtick typed or deleted inside a line, a character other than the listed `>` that makes or breaks `>>> `, Enter or a merge on a delimiter line, a paste, and any of these on other lines. All reach the same `handleEditor` pass, and code review reads whether the fix sits there or is keyed to one keystroke. At the seam fold, AC-6.9's residue states it. |
 | F-54 (LOW, M6) as SL-27: each text at its top size is 2N + 1 or 2N + 3 characters, so 2,001 or 2,003 against content's 2,000, and 4,097 or 4,099 against the description's 4,096. The growth limb names no surface | `critiques/closed/019-slate-formatting-discord-engine-critique.md` F-54 (record `3910c29c`) | Stated limit SL-27. The top sizes run as growth probes, with one line in the test saying so, or at 999 and 2,047 lines; the implementer chooses and records which. The cost limbs run on the embed description, as AC-6.8's timed limb does. |
