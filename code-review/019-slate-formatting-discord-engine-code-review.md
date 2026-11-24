@@ -692,27 +692,40 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-Written at 2026-11-23T21:33Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, 345K tokens).
+Written at 2026-11-24T01:09Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, about 351K tokens).
 
 - **Done.**
-  - M2: Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. M2 is
-    closed for review.
-  - M3: Round 3 at `f4060c5`, REJECTED on CR-5 and CR-6. Sub-entry at `1698c80`: CR-5 and CR-6 RESOLVED, REJECTED on CR-10.
-    Sub-entry at `2c1590f`: CR-10 RESOLVED, CR-11 LOW raised, **APPROVED_WITH_COMMENTS**. M3 is with QA Phase 2. Sub-entry at
-    `380e82d` (test-only, QAF-32 and QAF-33): APPROVED_WITH_COMMENTS, CR-14 LOW.
-  - M4: Round 4 at `e58f2ed`, **APPROVED_WITH_COMMENTS** (CR-12, CR-13 LOW, stated limits under the 00:49Z cap). M4 is with QA
-    Phase 2.
-  - Plan rows R-24, R-25, R-27, R-29, R-35 and this sub-entry's row are committed. The verdicts are delivered to
-    `implementer-019`, `qa-019` (M2 and M3 approved) and `planner-019` (CR-7).
+  - **M2:** Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. Closed
+    for review.
+  - **M3:** Round 3 at `f4060c5` (REJECTED), with sub-entries at:
+    - `1698c80`: REJECTED on CR-10;
+    - `2c1590f`: APPROVED_WITH_COMMENTS;
+    - `380e82d` (test-only, QAF-32 and QAF-33): APPROVED_WITH_COMMENTS, CR-14 LOW.
+  - **M4:** Round 4 at `e58f2ed`, **APPROVED_WITH_COMMENTS**.
+    - The link allow-list held at the rendered anchor.
+    - Planner (d) and (f) hold.
+    - AC-3.7's families were read and sampled.
+    - CR-12 LOW is a stated limit; CR-13 is RESOLVED at record `511f704` (`06cbf54d`).
+  - Both milestones are with `qa-019` for Phase 2.
+  - Planner R-47 (record `9b6f7757`) holds CR-11, CR-12 and CR-14 as stated limits, and CR-13's row can close.
+  - Plan rows: R-24, R-25, R-27, R-29, R-35 and R-36, plus the row stamped 2026-11-24T01:01 (`05cc2005`). That row is labelled
+    R-37, a duplicate; per the planner's ruling it is cited by stamp and author.
+  - The verdicts are delivered to `qa-019`, `implementer-019`, `planner-019` and steering.
 - **Next.**
-  - M5 and M6, each at its own document's `Handoff-At`, under the 00:49Z cap. The M5 round owes CR-3.
+  - M5 at its document's `Handoff-At`, after steering's hand-off. Steering's stage start for M5 is commit `4ecb64ff`.
+  - The M5 round owes CR-3: one leaf-role source, `git grep -n TOKEN_LEAF_ROLES`.
+  - M6 after that.
+  - All are capped: a finding below HIGH is a stated limit for the Planner batch (block 00:49Z, `8de0ac3`). A severity-floor
+    finding, and a security finding at HIGH or above, are excepted.
+  - Any question for the owner goes to steering by SendMessage, as a selection prompt (owner's ruling), never as prose in this
+    document.
 - **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` and is never moved by me. The
-  record is on `master`.
-- **Local state.** The scratchpad holds an export of `1698c80` with its install (`x1698/`) and the mutation work directory
-  (`mwork1/`), an export of `2c1590f` (`x2c15/`), `mwork2/`, and an export of `e58f2ed` (`xe58/`, holding the probe copy
-  `crprobe.anchor-attack.test.tsx`). All are disposable. No process of mine is running.
-- **Evidence run but not recorded.** None. Every probe is under `verification/019/code-review/` and committed (`8da611bc`,
-  `dd5b093d`, and this sub-entry's record commit). Install logs are saved as `.log.txt`, because the record ignores `*.log`.
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `e58f2ed`, and I never move it.
+  The record is on `master`.
+- **Local state.** The scratchpad holds exports `x1698/`, `x2c15/` and `xe58/` (the last holds the probe copy
+  `crprobe.anchor-attack.test.tsx`), the work directories `mwork1/` and `mwork2/`, and the rebuild outputs. All are disposable,
+  and none is in any repository.
+- **Evidence run but not recorded.** None. Every capture is under `verification/019/code-review/` and committed. Install logs are
+  `.log.txt`, because the record ignores `*.log`.
 - **Questions sent, and to whom.** None open.
-- **Cache-warm wake.** Armed, re-armed on each wake (next 01:40 local).
+- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
