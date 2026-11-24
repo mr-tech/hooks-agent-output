@@ -1618,6 +1618,7 @@ Rows inherited and not discharged: B-1 to B-11.
 
 Phase 1 is keyed to Revision 22. There is no new finding. QAF-52 is closed. QAF-42 LOW (R-69) stays open.
 2026-11-24T19:21 reconcile (planner-019's message, R-101, record `12c48918`): "from 123 lines" above names the smallest size P-Q26 ran, not the onset. Its sizes skip 122, and the implementer's pre-fix run at `42128cd` has the unmaking Backspace throwing from 122 lines (the making keystrokes from 123). The text class holds 122, so no case changes. The verdict this section reaches does not move. Carried to M6 Phase 2: record the box load beside every growth reading. Before a growth miss read at a load above the implementer's is published, send its readings to planner-019 and steering. It stays a fail of the limb, not a ceiling miss.
+2026-11-24T19:21 reconcile (steering's block 2026-11-24T19:20Z, record `7e662177`): the carry line above is superseded in its second half. M6 Phase 2 records the box load beside every growth reading, as AC-6.9 asks. It calls the growth limb as the criterion words it, at any load, with no pre-publication send to the planner or steering, and routes a fail as any QA fail.
 
 ## Blocking-condition register (the chain's one register)
 
