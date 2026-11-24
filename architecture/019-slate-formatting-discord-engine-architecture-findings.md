@@ -4,6 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 17 (record 34850209, AC-6.8's count and bench folds): APPROVED_WITH_CHANGES. CF-27 (MEDIUM:
+  "one normalisation pass" is not a Slate unit; Slate's normalize drains dirty paths one node at a time, so under equality the
+  window must be one Editor.normalize drain and the literal the dirtied lines, where Enter is 2) folds into AC-6.8 before M6's
+  fix round. The rest is approved.
   Delta pass on plan 019 revision 16 (record 30e2a5b8, AC-6.8 keystroke cost, D-23): APPROVED. CF-25 (LOW: resolve the changed
   line's unit once from handleElement and drop handleEditor's all-lines loop; count through a vi.mock pass-through, not a
   production counter) and CF-26 (LOW: the timed limb as a vitest bench file in the repo) are stated limits for M6's fix round.
@@ -57,6 +61,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T07:13 | architect-019 | Delta pass on plan 019 revision 17 (record `34850209`); § Delta pass, revision 17. APPROVED_WITH_CHANGES on CF-27 MEDIUM | Commissioned by `planner-019`'s message. Read as `git show 34850209` on the plan, with the installed `slate` 0.123.0 `normalize` read read-only. Nothing was run. |
 | 2026-11-24T07:09 | architect-019 | Delta pass on plan 019 revision 16 (record `30e2a5b8`); § Delta pass, revision 16. APPROVED; CF-25 and CF-26 LOW raised as stated limits | Commissioned by `planner-019`'s message under effort rulings block 07:05Z. Read as `git show 30e2a5b8` on the plan. Website `119471f` was read through `git -C … show`/`grep`. Nothing was run. |
 | 2026-11-24T06:55 | architect-019 | Open items gain the Packaging line's release-time rewrite and CR-21's unimported `emoji-regex` | From `code-reviewer-019`'s message. Verified at website `119471f` and `master` through `git -C … show`/`ls-tree`/`grep`. `system-architecture.md` is not edited, because its line still states `master`. |
 | 2026-11-24T04:20 | architect-019 | Delta pass on plan 019 revision 15 (record `79eeced6`); § Delta pass, revision 15. APPROVED; CF-24 LOW raised as a stated limit | Commissioned by `planner-019`'s message. Read as `git show 79eeced6` on the plan, with website `2e36107` `engine.ts`. The package's `parseLossless` was run on the pinned 0.16.0 in a capped scope; the capture is in `verification/019/architect-conformance/rev15/`. |
@@ -80,6 +85,7 @@ Status-Detail: >-
 
 ## Open items
 
+- **CF-27** (MEDIUM) folds into AC-6.8 before M6's fix round. My next delta pass reads its fold.
 - **CF-21** to **CF-26** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
@@ -324,6 +330,51 @@ quoted above and would need that sentence changed, which is M7's convention upda
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
 
+## Delta pass, revision 17 (record `34850209`)
+
+Read as `git show 34850209` on the plan (45 insertions, 24 deletions). The one commit before it since `30e2a5b8` is R-80, a
+registration row. The delta is AC-6.8's count and time limbs, its residue, and the batch cells for QAF-43, QAF-44, CF-25, CF-26
+and F-45. Read beside it: the installed `slate` 0.123.0 `normalize` (`dist/index.js`, read-only), with my revision 16 reading of
+`withNormalizeNode.ts` at website `119471f`.
+
+**What fits.** The bench home and the `vi.mock` observation are taken as CF-26 and CF-25 put them. The `a🙂` text holds an emoji
+element on every line. Its size checks: 1,000 × 3 UTF-16 units plus 999 newlines is 3,999. The positive control closes the
+counter-reads-0 hole. The residue for a character that completes an emoji or a fence goes to AC-6.5's typed-edit property, which
+holds it.
+
+### CF-27 MEDIUM — "One normalisation pass" is not a unit Slate has; under equality, the window and the literal must be stated in Slate's terms
+
+Revision 17 turns the count from an upper bound into equality: "in each pass, the number of run-unit builds equals the number of
+distinct run units holding a line the keystroke changed". Equality makes the window decide the result, and the window is not a
+mechanism.
+- **How Slate normalises** (`slate` 0.123.0 `normalize`, read this pass). It has no pass. One `Editor.normalize` drains the dirty
+  paths, calling `editor.normalizeNode` once per dirty path until none remain. A node the override changes is dirtied again, and
+  the same drain picks it up. An `insert_text` dirties the text, its line and the editor. Enter's `split_node` dirties both
+  lines.
+- **What the CF-25 form then counts.** `handleElement` runs once per dirty line, and each run builds that line's unit. So Enter
+  inside one unit builds it twice, while the property's literal for "distinct run units" is 1. The criterion as written can only
+  be met by a dedupe that spans `normalizeNode` calls. That needs state carried across a drain that nothing holds today, such as
+  a map cleared by an `editor.normalize` override. That is machinery the bound does not need.
+- **"`handleEditor` returns after `resolveEmoji` changes the document"** describes the loop CF-25 removes. After the fix, the
+  re-run is Slate re-dirtying the changed line inside the same drain, not a second pass.
+
+**Required change**, before M6's fix round:
+- **Window:** one `Editor.normalize` drain after the keystroke's operations. The property holds over the drain, and the
+  implementation document records the `normalizeNode` calls per keystroke kind in place of a pass count.
+- **(a) Recommended literal:** the number of lines the keystroke's operations dirty, written by hand per fixture. That is 1 for
+  an in-line insert or delete, 2 for Enter (both halves of the split), and 1 for a merge (the surviving line). It is still a
+  literal (axiom E), it still separates the fixed tree from the per-line rebuild at every size, and the positive control stays 1.
+- **(b) The other choice:** keep "distinct run units" and name the per-drain dedupe as part of the fix, with its own mutant.
+- **Unread, for QA Phase 1:** NM-72's fixture, a Backspace that joins lines from two units. Whether the merge then makes
+  `handleEditor`'s structure walk `setNodes` further lines, and so dirty more of them, is not read. Its literal must come from that
+  read, not from either rule above.
+
+MEDIUM: as written, the criterion fails a correct fix or forces extra state. AC-6.8 is CR-20's criterion under D-23's lifted cap,
+so this folds as criterion text in a revision, not as a stated limit.
+
+**Verdict on revision 17:** APPROVED_WITH_CHANGES. CF-27 is MEDIUM, to fold before M6's fix round. The rest of the delta is
+approved. Nothing needs the owner.
+
 ## Delta pass, revision 16 (record `30e2a5b8`)
 
 Read as `git show 30e2a5b8` on the plan (42 insertions, 3 deletions). The commits before it since `79eeced6` are registration rows
@@ -362,6 +413,10 @@ cross-line bold (F-40). That need is per unit, not per document.
 
 LOW: the criterion holds either form, and this is the home. A stated limit. The cap is lifted for CR-20 under D-23, but this is
 below HIGH and not a defect.
+
+Correction (2026-11-24T07:13, revision 17 pass): the recommended form's sentence "the count limb's literal … then falls out of
+the structure, not out of a dedupe" was wrong, and the error was mine. Called from `handleElement`, the build runs once per
+*dirty line*, not once per unit, so Enter inside one unit builds it twice. CF-27 states the literal that fits the form.
 
 ### CF-26 LOW — Give the timed limb a home in the repo: a `vitest bench` file, not a one-off probe
 
