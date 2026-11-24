@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/m5/xov
+
+
+ Test Files  2 passed (2)
+      Tests  8 passed (8)
+   Start at  05:13:18
+   Duration  1.47s (transform 584ms, setup 0ms, import 1.35s, tests 136ms, environment 0ms)
+

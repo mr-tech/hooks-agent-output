@@ -2,7 +2,7 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "2e36107 — repos=website; Round 5 is M5 at 2e36107 (its 5 commits 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107); M3's latest sub-entry at 81c68b2; Round 4 is M4 at e58f2ed; M2 closed at 7dcedc9"
+Reviewed-At: "cf126ea — repos=website; the latest verdict is the M5 Round 5 sub-entry at cf126ea (QAF-39, test-only, checked on 2e36107's M5 source with cf126ea's four test paths laid over it); Round 5 is M5 at 2e36107; M3's latest sub-entry at 81c68b2; Round 4 is M4 at e58f2ed; M2 closed at 7dcedc9"
 Status: In Review
 Round: 5
 Verdict: APPROVED_WITH_COMMENTS
@@ -31,6 +31,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-24T02:07 | implementer-019 (M3 fix round 7, website `d6aab03`, record `5305177e`) | Round 3 sub-entry: confirm CR-15 | CR-15 RESOLVED at `d6aab03`: 10 of 11 mutants KILLED, network-isolated. The two operand mutants fail on `match` (`expected true to be false`). The live default passes 15 of 15, `equal`. The only survivor is CR-16 LOW, a stated limit (plan R-54). APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. The 192 fewer offline cases between `b04c09f` and `d6aab03` come from M5's commits; that is M5's round. |
 | 2026-11-24T02:42 | steering-hooks-fixer (hand-off); implementer-019 (M3 fix round 8, website `81c68b2`, record `d43e2b40`) | Round 3 sub-entry: confirm QAF-38 | QAF-38's fix confirmed at `81c68b2`: 14 of 14 mutants KILLED, network-isolated (QA's six constants, five operand or member swaps, both `switchReferrers` forms, and the fetcher not passed on). The live default passes 5 of 5. APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. |
 | 2026-11-24T03:58 | implementer-019 (M5 hand-off, record `b9e9247c`, `Handoff-At: 2e36107`); steering-hooks-fixer (M5 hand-off; eslint ruling block 03:48Z, record `6866cd75`) | Review M5 | Round 5 at `2e36107`: **APPROVED_WITH_COMMENTS**. CR-3 RESOLVED (one leaf-role source). The `visibleForm` defect is confirmed, but the preview's inline code is guarded by M4's own tests (2 of 2 mutants KILLED), so it is CR-17 LOW. The AC-5.8 emoji exclusion drops whole inputs; the probe's sampled differences are the Slate layer's lift (AC-6.5, M6), so it is CR-18 LOW, carried to M6. Three dead interactive parsers are CR-19 LOW. The eslint FAILs are under the owner's ruling. |
+| 2026-11-24T05:14 | implementer-019 (M5 Fix Round 1, website `cf126ea`, record `2c45c566`) | Round 5 sub-entry: confirm QAF-39 | QAF-39's fix is confirmed on M5's own decorator (`2e36107` with `cf126ea`'s four test paths laid over it): 8 of 8 green, and m5-d2 is KILLED on x8 by assertion. The live box passes 10 of 10, its frozen entries re-derived. APPROVED_WITH_COMMENTS. Record correction: the M5 paths at `cf126ea` carry M6's changes (`8cb4d83`, `c3af0ac`, `f58a816`), which are M6's round. My Round 5 acceptance of m5-d2 was a miss, and QA's separating input is recorded. |
 
 ## Scope of this round
 
@@ -988,10 +989,57 @@ CR-19 LOW Round 5 (M5, capped: a stated limit for the Planner batch)
 - CR-17, CR-18 and CR-19 are LOW stated limits under the cap, for the Planner batch. CR-18's carrier is M6's round.
 - M5 goes to QA Phase 2.
 
+### Round 5 sub-entry: QA's QAF-39 at `cf126ea`
+
+The trigger is implementer-019's message for M5 Fix Round 1 (the M5 document's "Fix Round 1", record `2c45c566`,
+`Handoff-At: cf126ea`). It answers QAF-39 MEDIUM, a severity floor (`qa/019-slate-formatting-discord-engine-m5-qa.md`, record
+`263aa3c6`).
+
+My miss, stated first. Round 5 accepted the implementer's "equivalent so far" for survivor m5-d2, on seven extra inputs that each
+open a delimiter on a plain line and close it on a `> ` line. QA separated it with a different member of the class: a `>>> ` line
+followed by `> ` lines, where Discord reads the later `> ` as text inside the block. My probe's input class did not reach that
+form. The Round 5 survivor paragraph is superseded by this sub-entry.
+
+Scope: `cf126ea` alone, which changes four test paths:
+- `discordNativeBox.json` and `discordTypedCases.json`: members x8 `>>> a⏎> _⏎> _b_` and x9 `>>> *a⏎> b*`;
+- the two counts, 85 to 87, in `discordBoxes.oracle-controls` and `discordInputs.lifted-data`.
+
+This is a scoped check, test-only: no round opens.
+
+**Record correction.** The implementer's message says "the M5 source is unchanged since `2e36107`". At `cf126ea` that does not
+hold. M6's commits `8cb4d83`, `c3af0ac` and `f58a816` come before `cf126ea` on the branch, and they change M5 paths:
+- `decorator.tsx` (+2 −23: `unitAround` moves to a new `runUnit.ts`);
+- `unitStyles.ts` (+6 −11);
+- `SlateEditor/index.tsx` (+3 −5);
+- `Desktop.tsx` and `Mobile.tsx` (−1 each).
+
+(`overlay-manifest.txt`.) The fix commit itself changes no source. The decorator its green runs ran against is M6's form, which
+M6's round reviews. So I checked the fix on M5's own decorator:
+
+Checks (captures in `verification/019/code-review/qaf39-cf126ea/`):
+- **On M5's source.** An export of `2e36107` with `cf126ea`'s four test paths laid over it (blob ids in the manifest), in
+  `unshare -rn`. `decorator.native-box-classes` and `discordInputs.lifted-data` pass 8 of 8 (`overlay-green.txt`).
+- **m5-d2 on the same tree** (the quote-prefix line removed from `unitAround`): **KILLED** on x8, by `AssertionError: expected [
+  '>>> a\n> _\n> _b_' ] to deeply equal []` (`overlay-m5-d2.txt`). The decorator was restored and compared byte for byte with
+  `2e36107`.
+- **Expected values are independent.** In an export of `cf126ea`, the live `discordBoxes.oracle-controls` exits 0 with 10 of 10
+  passed (`live-boxes-cf126ea.txt`). That includes the case "are re-derived live on the pinned wasm, naming both values where one
+  departs", which compares every `NATIVE_BOX_FROZEN` entry, x8 and x9 among them, with the box's live output. The two values are
+  the box's, not the decorator's.
+
+QAF-39 is closed for review:
+- The class has a member in the frozen set that fails when the prefix is lost.
+- Captured check: `decorator.native-box-classes` on x8.
+- The closure itself is QA's.
+
+Verdict, Round 5 sub-entry at `cf126ea`: **APPROVED_WITH_COMMENTS**, for the fix's four test paths. It is checked on M5's source
+as at `2e36107`, and at `cf126ea` for the live box. It does not cover the M6 content of the M5 paths at `cf126ea`: that is M6's
+round. CR-17, CR-18 and CR-19 stand as before.
+
 ## Verdict
 
 **Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
-- M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`).
+- M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`, with its sub-entry for QAF-39 at `cf126ea`, checked on M5's source).
 - M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`). CR-17 is a LOW stated limit and does not move it.
 - M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
 - M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
@@ -1088,8 +1136,10 @@ Updated 2026-11-24T03:58Z, after Round 5 (M5).
   - **M2:** closed, APPROVED_WITH_COMMENTS at `7dcedc9`.
   - **M3:** APPROVED_WITH_COMMENTS at `81c68b2`.
   - **M4:** APPROVED_WITH_COMMENTS at `e58f2ed`.
-  - **M5:** APPROVED_WITH_COMMENTS at `2e36107`. CR-3 is RESOLVED, and CR-17, CR-18 and CR-19 are LOW stated limits.
-- **Next.** M6 at its document's `Handoff-At`, after steering's hand-off.
+  - **M5:** APPROVED_WITH_COMMENTS at `2e36107`, with QAF-39's fix confirmed at `cf126ea` on M5's source. CR-3 is RESOLVED, and CR-17,
+    CR-18 and CR-19 are LOW stated limits.
+- **Next.** M6 at its document's `Handoff-At`, after steering's hand-off. M6's round reviews the M6 changes to M5 paths (`runUnit.ts`
+  and the `decorator.tsx` and `unitStyles.ts` deltas from `2e36107`) as a first review.
   - It owes CR-18: retire AC-5.8's whole-input emoji exclusion once AC-6.5's lift reads the engine. Re-run
     `verification/019/code-review/m5-2e36107/crprobe.preview-equals-emoji.test.tsx.txt`.
   - It owes CR-19 if the dead parsers were not taken earlier.

@@ -1,0 +1,13 @@
+overlay: git archive 2e36107, then these four paths from cf126ea (blob ids):
+d03c946a39f6c66859f0b455a315f535302652db src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts
+81151acab16149cf61427a3302188b481a4d4437 src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts
+d198523df1a12faf5d01400cfb8223d7709925ad src/utils/markdown/__tests__/helpers/data/discordNativeBox.json
+d55a61c1d8284bfd9bb56cd4c1d9cc5566e23865 src/utils/markdown/__tests__/helpers/data/discordTypedCases.json
+m5-d2: removed from 2e36107 decorator.tsx unitAround the line:
+    if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';
+M5 paths changed between 2e36107 and cf126ea (by 8cb4d83, c3af0ac, f58a816):
+0	1	src/components/DiscordContentEditor/Desktop.tsx
+0	1	src/components/DiscordContentEditor/Mobile.tsx
+3	5	src/components/SlateEditor/index.tsx
+2	23	src/components/SlateEditor/utils/decorator.tsx
+6	11	src/components/SlateEditor/utils/unitStyles.ts
