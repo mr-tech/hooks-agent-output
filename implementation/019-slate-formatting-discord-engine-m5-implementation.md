@@ -5,10 +5,10 @@ UUID: 286c730a
 Status: Active
 Status-Detail: >-
   M5 is built on chain/019-slate-formatting-discord-engine (slices at website 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107), was approved
-  by code review (fdb41883) and QA Failed on QAF-39 (263aa3c6); Fix Round 1 is at cf126ea and goes to code review first. Earlier text: handed to code review at 2e36107. Open: the convention check's 8 FAILs, all eslint errors already in SlateEditor/index.tsx at the base
+  by code review (fdb41883) and QA Failed on QAF-39 (263aa3c6); Fix Round 1 is at cf126ea and was approved with comments by code review (record 79f96321). Earlier text: handed to code review at 2e36107. Open: the convention check's 8 FAILs, all eslint errors already in SlateEditor/index.tsx at the base
   (Outstanding 1, ruled (a) below); 9 sweep survivors dispositioned as equivalent or not M5's (Outstanding 3); the emoji and block-layer
   exclusions of AC-5.8 (Outstanding 4); a blind spot in M4's visibleForm helper (Outstanding 5).
-Handoff-At: cf126ea — repos=website — M5 fix round 1 (QAF-39), handed to code review; the M5 source is unchanged since 2e36107 (the round adds frozen test data and two counts); M5 itself was handed at 2e36107, approved by code review (record fdb41883), and QA Failed on QAF-39 only
+Handoff-At: cf126ea — repos=website — M5 fix round 1 (QAF-39), handed to code review; the fix commit itself adds frozen test data and two counts and changes no source; the tree at cf126ea also holds M6's 8cb4d83, c3af0ac and f58a816, which change decorator.tsx, unitStyles.ts, SlateEditor/index.tsx and Desktop/Mobile, and which M6 hands over (code review's correction, record 79f96321); M5 itself was handed at 2e36107, approved by code review (record fdb41883), and QA Failed on QAF-39 only
 ---
 
 # Implementation 019 — M5: the editor's colouring on `parseLossless`
