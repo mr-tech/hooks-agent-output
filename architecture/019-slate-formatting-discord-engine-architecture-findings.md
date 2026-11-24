@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 21 (record 81523bd6, D-24 and AC-6.9): APPROVED. No owner-authored invariant is touched; A-11
+  is restated at the closing pass. CF-30 (LOW: retype before the drain starts, so Slate's 42-per-dirty-path budget scales; never
+  lift it unboundedly or catch the throw) is a stated limit for the second fix round. It holds nothing.
   Delta pass on plan 019 revision 20 (record cf7e4d91, the corpus bound dropped and the fenced-quote texts added): APPROVED.
   CF-29 (LOW: the fenced-quote 2,048-line size exceeds every field limit; name it a growth probe and settle the timed limb's
   scope) is a stated limit. It holds nothing.
@@ -69,6 +72,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T14:39 | architect-019 | Delta pass on plan 019 revision 21 (record `81523bd6`); § Delta pass, revision 21. APPROVED; CF-30 LOW raised as a stated limit; the architecture record's Slate-layer entries checked, and A-11 is owed a restatement at the closing pass | Commissioned by `planner-019`'s message under D-24 (block 14:33Z). Read as `git show 81523bd6`, with the installed `slate` 0.123.0 `shouldNormalize` read read-only and website `42128cd` grepped. Nothing was run. |
 | 2026-11-24T07:45 | architect-019 | Delta pass on plan 019 revision 20 (record `cf7e4d91`); § Delta pass, revision 20. APPROVED; CF-29 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:42Z. Read as `git show cf7e4d91` on the plan. Only the fixture's size arithmetic was run. |
 | 2026-11-24T07:23 | architect-019 | Delta pass on plan 019 revision 19 (record `4a68f286`); § Delta pass, revision 19. APPROVED; CF-27's literal withdrawn (my error, shown by F-48's probe); CF-28 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:21Z. Read as `git show 4a68f286` on the plan, with `runUnit.ts` at website `119471f`. Nothing was run. |
 | 2026-11-24T07:17 | architect-019 | Delta pass on plan 019 revision 18 (record `18e434e6`); § Delta pass, revision 18. APPROVED; CF-27 resolved | Commissioned by `planner-019`'s message under steering block 07:15Z. Read as `git show 18e434e6` on the plan. |
@@ -97,7 +101,9 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21** to **CF-26**, **CF-28** and **CF-29** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant (§ Delta pass,
+  revision 21).
+- **CF-21** to **CF-26**, **CF-28**, **CF-29** and **CF-30** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -340,6 +346,65 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 21 (record `81523bd6`)
+
+Read as `git show 81523bd6` on the plan (the plan's hunks, and the handoff's move to `closed/`). The commits before it since
+`cf7e4d91` are registration rows. The delta is D-24, AC-6.9, AC-6.8's residue pointer, and the CR-23 and Outstanding 2 cells.
+D-24 is effort rulings block "2026-11-24T14:33Z" (record `d7eb0a40`). Read beside it:
+- the installed `slate` 0.123.0, read-only: `shouldNormalize` in `dist/index.js` and its declaration in
+  `dist/interfaces/editor.d.ts`;
+- `website.md`'s Slate-layer entries, W-1, W-3, A-6 and A-11;
+- website `42128cd`, a `git grep -c shouldNormalize` over `src`, which exits 1, so the site does not override it.
+
+**Why the throw happens** (a mechanism read, which bears on the fix's home). Slate's `normalize` takes its iteration budget at the
+start of a drain: `maxIterations = initialDirtyPathsLength * 42`. That is in `shouldNormalize`, which an editor may override.
+A keystroke dirties about three paths: the text, its line and the editor. So it gets about 126 iterations, the number in the
+error. A fence or `>>>` keystroke changes the type of every line below it. `handleEditor`, called on the editor node,
+`setNodes` each of those lines, and each line is then dirtied and visited inside the same drain. Past about 123 lines, the
+visits exceed the budget, which was fixed before they were dirtied. That matches QAF-51's 122 settles and 123 throws. The model
+is right after the throw because the work converges and Slate stops counting too early. So the defect is where the retype runs:
+inside a drain whose budget was sized for one keystroke.
+
+**AC-6.9 fits.** Its "fresh load" limb is the right invariant for this layer: each line's type, quote prefix, fence state and
+emoji elements equal what `getInitialValue` builds from the saved text. Line structure is stored state derived from the text,
+and the editor must never hold a derivation a fresh load would not make. It also rules out the cheap fix, leaving lines
+untyped. The write and caret limbs guard the keystroke the throw drops. The growth property (at most 20 times, against 10.2 linear
+and about 100 for CR-23's settle) is mechanism-independent, which is the form AC-6.8 settled on. The fence ceiling is honest
+about its basis: the base threw part-way, and a miss goes to steering.
+
+### CF-30 LOW — Retype before the drain starts, so Slate sizes the budget to the lines changed; do not lift the budget by hand
+
+There are two ways to stop the throw, and AC-6.9 passes both.
+- **Recommended form.** Move the cascade out of `normalizeNode`. Retype the lines a keystroke's fence or `>>>` change affects in
+  the input-path override, inside `Editor.withoutNormalizing`, after the user's operation and before the drain begins. A-11
+  names that override as the place where editor behaviour is added. Slate then counts those lines in
+  `initialDirtyPathsLength`, so the budget scales with the work by construction. Each line's `normalizeNode` visit finds it
+  already settled, and `handleEditor` is left checking, not retyping. That is the same move CF-22 made for the carry: do the
+  work at the entry the behaviour belongs to.
+- **Workable, less clean:** an `editor.shouldNormalize` override that raises the budget with the document's line count. It
+  must keep a finite bound and must not drop the throw, which is Slate's only signal of a normaliser that does not converge.
+  It leaves the cascade inside the drain. The implementation document must state the bound and why it is finite.
+- **Not acceptable under any limb's spirit:** a `shouldNormalize` that always returns true, or a caught throw. Either hides a
+  real non-convergence as well as this one. AC-6.9's no-throw limb passes a caught throw only if the write and fresh-load limbs
+  also pass, so this is guidance, not a gap.
+
+LOW: the criterion is right for every form. D-24 lifts the cap for these two items, but this is design guidance below HIGH, so
+it is a stated limit for the fix round.
+
+**Does the change touch an invariant in the architecture record?** No owner-authored entry is touched:
+- **W-3** (one component tree for editing and preview): the fix stays inside the editor's normaliser.
+- **W-1** (no serialiser on the persist path removes user content) governs serialisers, and `flattenNodeText` is unchanged. The
+  dropped `onChange` write until the next keystroke is the nearest behaviour to it. That is a transient loss in the editor, not
+  a serialiser deletion, and AC-6.9's write limb closes it.
+- **A-6** (agent-designed: the editor persists its own message through one step) is untouched, because `onChange` still feeds
+  it.
+- **A-11** (agent-designed) is the entry the fix changes. Its sentence "line structure … is rebuilt in `handleEditor` from each
+  line's flattened text" will no longer describe the code if the retype moves to the input path. I restate A-11 from the fixed
+  tree at the closing pass, with the fresh-load invariant above added as its consequence: stored line structure always equals
+  `getInitialValue` of the saved text. That lands then because it is agent-designed and describes code that does not yet hold.
+
+**Verdict on revision 21:** APPROVED. CF-30 is LOW, a stated limit for the second M6 fix round. Nothing needs the owner.
 
 ## Delta pass, revision 20 (record `cf7e4d91`)
 
