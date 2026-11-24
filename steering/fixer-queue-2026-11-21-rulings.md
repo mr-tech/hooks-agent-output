@@ -1240,3 +1240,18 @@ F-45 into AC-6.8. AC-6.8 was created in Revision 16 and revised in Revision 17, 
 revision. **Decided before that fold:** a further AC-6.8 gap below HIGH from Revision 17's gate reads becomes a stated limit in the Planner
 batch, with no Revision 18 round. A gate's severity-floor finding is excepted, and so is a gap that leaves the count limb unable to fail when
 the fix is lost. CR-20's fix round starts once Revision 17's three gates pass. Recipient: `planner-019`.
+
+## 2026-11-24T07:15Z — plan 019 AC-6.8 CF-27: a Revision 18 exception, the count literal only (this thread's)
+
+`planner-019` by message (07:1xZ): the architect read Revision 17 as APPROVED_WITH_CHANGES on CF-27 MEDIUM (record `328a6eba`). In Slate one
+`Editor.normalize` drain calls `normalizeNode` once per dirty path, and Enter dirties two lines, so Revision 17's literal "distinct run
+units = 1" fails a correct fix. The planner registered a governing reading as a stated limit (R-82, `75aa1dad`): the window is one drain, and
+the literal is the dirtied lines, hand-written per fixture (1 in-line, 2 Enter, 1 merge). It asked whether this counts as a Revision 18
+exception.
+**Ruling: it does, narrowly.** A stated limit records a gap that ships. This finding instead makes the criterion's own literal reject correct
+code, and a register row that replaces a criterion's literal is a criterion change, so it is a planning revision (steering.md, Registration).
+If it stayed a row, the critic and QA, still reading Revision 17, would pass a text that the fix round then does not build to. So the block
+07:13Z exceptions gain a third: **a literal that a correct fix would fail.**
+**Revision 18** changes only AC-6.8's count literal and window to R-82's reading, with no other change. The critic and QA take its delta inside
+their current reads, and the architect confirms CF-27 on it. CR-20's fix round starts once all three gates pass Revision 18. Recipient:
+`planner-019`, which cues the gates.
