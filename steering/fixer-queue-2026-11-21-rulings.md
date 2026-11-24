@@ -1314,3 +1314,26 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
   and equal counts on `> x` lines.
 - qa-019, critic-019 (medium), code-reviewer-019 and planner-019 are each cleared on a committed Resumption State. Standing check
   `bb3697e8` is at 08:39Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty.
+
+## 2026-11-24T08:17Z — plan 019 AC-3.3's 60 s cap after CR-20's fix: the generator count drops to fit (this thread's, the criterion's own remedy)
+
+`implementer-019` by message (08:1xZ, copy to `planner-019`) is holding its hand-off for a ruling. With the CR-20 fix, the whole offline suite
+is 3,715 of 3,715, exit 0, 128.0 s (its record `verification/019/impl/m6-fix-suite.*`). The typed-generated file run alone takes 29.6 s at
+`2e36107`, 99.5 s at `119471f` and 96.9 s with the fix. Its cause: M6 removed the base's emoji and held-out filters, so 1,000 generator inputs
+are typed where the base typed 354 and 226. Per-character cost is unchanged. These figures are the implementer's, not re-run by this thread.
+It offers (1) cut the generator count to fit, (2) move the cap to the whole suite and raise it, or (3) run the typed generator class in
+`test:discord` only.
+**Ruling: (1). It needs no plan change and no question to him.** AC-3.3's Count limb already says so (plan lines 909–914, read this turn): "Where
+it exceeds the cap, the generator count drops to fit, and the plan records the new count at its next pass". The full count already runs in
+`pnpm test:discord` (line 911). AC-6.5's typed emoji edits share the same cap (line 1290).
+- **Which quantity the count is fitted to:** QA's instrument, because QA is the verifier (`qa/019-…-m6-qa.md` line 118 and Next, line 268,
+  record `def0f6cc`, read this turn). That is both whole offline suites run back to back, against the chain base `af3d95a`'s 31.1 s, with
+  60 s added. The implementer's per-file figure is not it. By the implementer's own suite figure, 128.0 s is about 97 s added. So the count is
+  fitted until the whole suite is under 91.1 s on that instrument, with a margin for box load that the implementer names.
+- The implementer records the count and the times in its document. `planner-019` records the new count at the seam fold. QA's refresh
+  re-measures.
+- (2) is refused: it rewrites the criterion's cap, which would take a planning revision, and AC-3.3's own remedy makes it unneeded. (3) is refused:
+  it removes the typed generator limb from `pnpm test`, which is more than "drops to fit".
+Recipients: `implementer-019` (it executes), `planner-019` (it registers at the seam fold), `qa-019` (it verifies at the refresh, and gets the
+pointer in its wake). Not put to him: the criterion's own words answer it, and it is test sizing inside his "fix it before release" choice
+(block 07:05Z).
