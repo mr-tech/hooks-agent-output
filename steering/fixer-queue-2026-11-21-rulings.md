@@ -1255,3 +1255,25 @@ If it stayed a row, the critic and QA, still reading Revision 17, would pass a t
 **Revision 18** changes only AC-6.8's count literal and window to R-82's reading, with no other change. The critic and QA take its delta inside
 their current reads, and the architect confirms CF-27 on it. CR-20's fix round starts once all three gates pass Revision 18. Recipient:
 `planner-019`, which cues the gates.
+
+## 2026-11-24T07:21Z — plan 019 AC-6.8 F-48: the count limb drops per-keystroke literals; Revision 19 is the last (this thread's)
+
+`critic-019` by message (07:2xZ): cycle 11 pass 2 on Revision 18 is APPROVED with F-48 MEDIUM and SL-21 (record `e1106d42`). Its probe ran on
+plain slate 0.123.0 (critique Appendix, "Slate probe"; the probe was the critic's, not re-run by this thread). A merge sends its line to
+`normalizeNode` twice, against the literal 1. Enter plus `splitCarrying`'s marker write on a `> ` line sends lines 3 times over two drains,
+against the literal 2 and the one-drain window. So Revision 18's literal still fails a correct fix, which is block 07:15Z's third exception.
+AC-6.8's count limb has been rewritten in Revisions 16, 17 and 18, three consecutive revisions, so this thread decides before the next fold
+(steering.md, Standing check).
+**Decision: neither the critic's (a) nor its (b).** Each hand-written literal per keystroke kind depends on how Slate dirties paths, and three
+revisions have each found that dependency wrong. Building to SL-21 with no round (b) would replace a criterion's literal by a register row,
+which block 07:15Z already ruled a criterion change. **Revision 19 restates the count limb so that it holds no per-kind literal.** CR-20's
+property is that a keystroke's work does not grow with the message's line count. So, over every drain the keystroke runs:
+- the run-unit builds for a keystroke on a sized text are equal at its 200-line and 2,048-line sizes, for each text and keystroke position;
+- they are at least 1, and QAF-43's positive control (an in-line insert in a one-line text, counting 1) is kept;
+- they are seen red on the per-line rebuild at 119471f, which grows with N.
+For the corpus and generator inputs, the planner sets one size-independent upper bound, written as a literal and not derived from production
+code (axiom E). It also keeps the timed limb as it stands. The `normalizeNode` calls per kind stay a recorded observation, not an assertion.
+**The last fold:** after Revision 19, every AC-6.8 finding below HIGH from any gate is a stated limit with no further round. Only a severity
+floor is excepted, and block 07:15Z's third exception retires with the literals. Critic's decision 2 is answered by the same act: no exact
+per-kind literal, and an invariance property in place of a bare upper bound.
+Recipients: `planner-019` (Revision 19, cues the gates), `critic-019`.
