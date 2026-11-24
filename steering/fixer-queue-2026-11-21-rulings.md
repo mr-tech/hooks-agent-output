@@ -978,3 +978,15 @@ thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fi
 - M5 is being built (slice 1 at `921eeb8`).
 - Code reviewer and planner were cleared at 01:10Z and 01:11Z.
 - Standing check `220f2916` (02:09Z).
+
+## 2026-11-24T01:47Z — resumed after the clear; M3 round 6 sent to code review (a stalled act, driven)
+
+Resumed at the coordinator's message. CronList shows standing check `220f2916` (02:09Z) armed, so it was not re-armed. Read this turn: M3's
+document's `Handoff-At` is `b04c09f`, fix round 6 (QAF-36), handed to "QA's refresh pass" (record fe8ce8f3, 01:17Z). QA's M3 document was last
+committed at 01:11Z (`908aeee0`), and the code-review document at 01:09Z (`01d1a1ad`). The `qa-019` pane (01:46Z) says it waits for code review's
+re-verdict of round 6. The `code-reviewer-019` pane shows only its `/clear`. So nothing was working on the act. **Driven:** `code-reviewer-019`
+was briefed by message at 01:47Z with its Resumption State, the `Handoff-At` and its document commit, the caps, and delivery to `qa-019`, and it
+was asked to re-arm its wake. Lodged in `~/.claude/agents/INBOX.md` (FYI). **This thread's error:** the brief says the SHA was "copied 01:5xZ";
+it was copied at about 01:47Z. This is not re-sent (a record-hygiene correction).
+AC-5.7 timing, read from `implementer-019`'s pane (01:46Z), not yet committed: median 4.87 ms for a 4,160-character unit. This is below the
+docket's line of about 10 ms, so no D-15 prompt is owed unless the committed figure differs.
