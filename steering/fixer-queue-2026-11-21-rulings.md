@@ -1472,3 +1472,11 @@ critic `50b2bbe0` (cycle 14 pass 2, F-56 LOW) and QA's Phase 1 re-key `e2890214`
   If the pre-fix run shows otherwise, the planner reports to this thread.
 - The hand-off goes to `code-reviewer-019`. Before code review moves, this thread reads AC-6.9's ceiling, at 27 and 104 ms. A miss with growth
   met comes here before hand-off.
+
+## 2026-11-24T17:20Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (17:19Z) asked for `/checkpoint`: 262,450 by `cc-usage.py sessions`, past the 225K steering threshold. The
+Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, rewritten whole).
+- Plan 019 is at Revision 22 (`960052d1`), and all three gates passed it. M6's second fix round (D-24, D-25) is with `implementer-019`.
+- At its hand-off this thread reads AC-6.9's fence ceiling and F-56's `> ` caret, then code review, then QA's M6 refresh.
+- Standing check `9e1c6d02` is at 17:34Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
