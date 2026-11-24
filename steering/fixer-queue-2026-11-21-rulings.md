@@ -1635,3 +1635,40 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
 - At its hand-off, this thread reads the round's figures, then code review, then QA Phase 2 with SL-29. `critic-019` is at 339K, idle, and
   past 325K, so it is asked for `/checkpoint` at the next check.
 - Standing check `4e57be3b` is at 21:26Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
+
+## 2026-11-24T22:41Z — plan 019 M6 Fix Round 3 at 2b82972: SL-29's `a🙂` fence members are over the line, so they go back for a fix under D-24; the architect gives the lift's design first (this thread's)
+
+`implementer-019` handed Fix Round 3 to `code-reviewer-019` at website `2b82972` (record `731ff3a1`; `Handoff-At` 2b82972, suite 4,219 of
+4,219, exit 0, read this turn). By message (22:3xZ) it routes SL-29's fence reading here and asks for a call: accept it, or send it back.
+These reads are from the M6 implementation document, § Fix Round 3, lines 543–682, read this turn. Every figure is the implementer's and was
+not re-run here.
+- **Paste: within the line.** Each fill is 0.4 to 0.7 times its base median. For `a🙂`, 143.6/150.9 ms against 238.7/244.4 at 200 lines, and
+  2,118/2,125 against 3,061/3,125 at 1,000 (line 609).
+- **The four `a🙂` fence keystrokes: over the line** (block 20:58Z yardstick: the larger base median at that N, plus a quarter). At 200 lines
+  they take 23.9 to 96.7 ms against 13.7 to 18.1. At 1,000 lines they take 159 to 1,134 ms against 30.6 to 51.4 (lines 610–613). The base
+  throws on all of them but one, and the implementer names this. Its reading is that the cost is 4 Slate operations per emoji line at about
+  250 µs each, with no repeated whole-run scan left. It found no cheaper lift "inside this round's scope". The candidates it names are
+  hand-built operations, or rebuilding a line's children (line 617).
+- **The rest of the hand-off reads, as at block 19:20Z.** The count limb holds: every ratio is 5 or less, against a limit of 10 (line 601).
+  The AC-6.9 benches exit 0 at the tip (line 641). The disclosures sit in § Gate satisfactions (lines 662–669). Every commit since
+  `85ece66` is inside the round: CR-25, D-26, CR-24, plus the quote-prefix defect the paste wrap introduced (line 552), which the round
+  found and fixed itself. One paste regression remains against `85ece66` (Outstanding 2), and it is code review's to weigh.
+**Ruling: the fence members go back for a fix under D-24. Nothing is accepted, and no question goes to him now.**
+- **His words answer it.** The SL-29 option he chose says "anything not roughly today's speed comes back to me, and goes back for fixing"
+  (block 20:54Z). His D-24 choice was "fix both first", the throw and the slowdown together, over "ship as is", whose option text named "up
+  to about half a second of lag" (block 14:33Z). A 1.1 s close is past the lag he declined.
+- **The redesign is in scope.** A lift form that rebuilds a line's children or builds its operations by hand sits in
+  `src/components/SlateEditor/**`. That region was swept at the determination (standing entry 7), so the redesign is in scope on this
+  thread's ruling, not a re-scope. "Outside this round's scope" in the implementer's document is read as "past CR-25's named fix". The cap
+  stays lifted for this item (D-24).
+- **The architect first.** `architect-019` gives a design read on the lift for these four keystrokes (steering.md, Conformance: the
+  architect returns to a defect's fix). Its question: which lift form inside the region can settle every line, keeping D-24's throw fix,
+  within SL-29's line at 200 and 1,000 lines, or, if none can, what bound the best form reaches. It records the read in its 019 findings
+  document, and the implementer is the consumer.
+- **If the best form still misses the line,** the implementer brings the figures here. Then it goes to him as a selection, because "fix
+  both" would then have two requirements that cannot both hold, and that choice is his.
+- **Order.** Code review of `2b82972` runs as handed, without a hold. Its findings and the architect's read go into one Fix Round 4. The
+  round starts when both have landed. `implementer-019` is at 400,755 (`cc-usage.py sessions`, 22:40Z), idle at its hand-off seam and past
+  225K, so it is asked for `/checkpoint`, cleared, and briefed for Round 4 naming its Resumption State.
+Recipients: `implementer-019` (it asked), `code-reviewer-019` (it applies SL-29 and need not rule on the fence members), `architect-019`
+(the design read), and `planner-019` (it registers this).
