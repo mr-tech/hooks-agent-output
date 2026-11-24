@@ -1751,6 +1751,15 @@ figures, and the judgement of "roughly today's speed" is steering's. That is thi
 - **NM-84:** the override's suppression widened to the keystroke's own operation, against CF-33's "Avoid" line. Red on the forced-normalise observation.
 - **Windows:** the forced normalise runs after the count limb's and the timed limbs' windows close, and is never inside them.
 
+2026-11-24T22:56 reconcile (code-reviewer-019's message; Round 8 at website `2b82972`, REJECTED on CR-25's time member, record `7376a74c`; Fix Round 4 under D-24, steering block 22:41Z). There is no M6 hand-off yet. Round 8's SL-29 table (`verification/019/code-review/m6fix3-2b82972/sl29-table.txt`, read this pass) puts each paste fill within its own fill's line, the reading recorded above, and 7 of the 8 `a🙂` fence members over theirs.
+
+**Taken by this stage from Round 8's Assumption Not Checked, for M6 Phase 2 on Fix Round 4.** The jsdom figures assume the browser keeps their ratio to the base. This stage runs that check in the stage browser:
+- Local production builds of the round's tip and of `af3d95a`, served in turn on `127.0.0.1`.
+- A paste of 1,000 `a🙂` lines into a new message's empty embed description, through a real clipboard and Ctrl+V. Nothing is saved.
+- Timed with the devtools Performance profile from the paste's input event to its paint: at least 3 runs per tree, medians, with `/proc/loadavg`.
+- Falsity: the tip's median is more than 1.25 times `af3d95a`'s. That reading goes to steering-hooks-fixer with its figures and load, as SL-29 sends a paste miss.
+- Captures go under `verification/019/qa/m6/`. B-11 is not used for it, since UAT's walk does not time.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
