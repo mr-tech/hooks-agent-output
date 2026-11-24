@@ -3,16 +3,19 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 12 pass 1 on plan revision 19: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19) and F-47 (SL-20) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row). F-49 is closed by property with stated limit SL-22 and closes as landed-by-author, a stated limit for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 13."
-Artifact-Revision: 19 — read as the delta 18e434e6..4a68f286 (cycle 12 pass 1)
-Reviewed-At: "4a68f286 — repos=agent-output; website read at 119471f"
+Status-Detail: "Cycle 13 pass 1 on plan revision 20: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 14."
+Artifact-Revision: 20 — read as the delta 4a68f286..cf7e4d91 (cycle 13 pass 1)
+Reviewed-At: "cf7e4d91 — repos=agent-output; website read at 119471f"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 19 (`4a68f286`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 19 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 20 (`cf7e4d91`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 20 as deltas.
+**Read at cycle 13 pass 1**: the plan's diff `4a68f286..cf7e4d91`; effort rulings block 2026-11-24T07:42Z (record
+`bc96c93b`); website at `119471f`: `src/constants/messageLimits.ts` at its first three constants, and `handleEditor`'s type
+check in `withNormalizeNode.ts` as read at cycle 12.
 **Read at cycle 12 pass 1**: the plan's diff `18e434e6..4a68f286`; effort rulings block 2026-11-24T07:21Z (record
 `9e980e29`); website at `119471f`: `withNormalizeNode.ts` at `handleEditor`'s type check and its `update` branch, and
 `handleElement` from its first line to its closing `resolveEmoji` call.
@@ -120,7 +123,45 @@ for the 15,480 figure.
 | 2026-11-24T07:24 | planner-019 (message naming revision 19 at `4a68f286`) | cycle 12 pass 1: plan revision 19 | Cycle 12 opens because revision 19 changes AC-6.8's text. Depth: delta-bounded; the delta `18e434e6..4a68f286` is 38 added and 23 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added F-48 and SL-21, in registration rows. The diff, read whole, changes AC-6.8's count limb and its residue only; its other hunks are the header, the changelog, the Resumption State and the owed re-verdicts table. Artifact changes: no per-keystroke literal; the count over every drain is equal across a sized text's sizes and at least 1; corpus and generator inputs take one bound of 4; the residue gains deletes at a fence delimiter. Findings addressed: F-48 RESOLVED. New finding: F-49 (MEDIUM), the third instance of the residue shape of F-45 and F-46, closed by property with stated limit SL-22, the stop authority firing. Verdict APPROVED. |
 | 2026-11-24T07:24 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-49 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
+| 2026-11-24T07:45 | planner-019 (message naming revision 20 at `cf7e4d91`) | cycle 13 pass 1: plan revision 20 | Cycle 13 opens because revision 20 changes AC-6.8's text. Depth: delta-bounded; the delta `4a68f286..cf7e4d91` is 57 added and 33 removed lines (`git diff --numstat`, 4 commits, 3 of them registrations and a checkpoint), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added CF-28, F-49, QAF-45 and SL-22, all in registration rows. The diff, read whole, changes AC-6.8's text class, its bound line, its "Seen red" line and its residue; its other hunks are the header, the changelog, the planner's rewritten Resumption State, the owed re-verdicts table and Planner batch rows. Artifact changes: the corpus and generator bound of 4 is gone and those inputs are residue; fenced-quote texts of 200 and 2,048 lines join the equality limb. New findings: F-50 (MEDIUM), a new member under SL-22's property, whose wording this pass corrects, stated limit SL-23; F-51 (LOW), stated limit SL-24. The cycle 11 pass 2 assumption is recorded as false by the implementer's report. Verdict APPROVED. |
+| 2026-11-24T07:45 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-50 and F-51 close as landed-by-author, their discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 13, pass 1.** The stop authority stays fired on the residue shape, and its new member is a stated limit
+(F-50). The hard stop did not fire (pass 1 of 15 in this cycle). Pricing: sized to the ask plus his rulings. Revision 20
+removes one bound and adds one sized text to the criterion his 07:05Z selection added, to steering's block 07:42Z.
+
+The hand-off of CR-20's fix round is released by this gate, read with SL-23 and SL-24. The architect's and QA's reads of
+revision 20 are separate.
+
+What holds in revision 20's delta:
+- **The fold is the block's**: the bound is removed, a literal of 8 is not taken, and the fenced-quote texts join the
+  equality limb and its "Seen red".
+- **The bound's basis was this critique's probe**, a plain editor with no website override. The cycle 11 pass 2 assumption
+  said so and named its signature, and the implementer's report is that signature (its figures are not re-derived here or
+  in the plan).
+- **What is given up is stated**: the corpus and generator inputs carry no count or time bound, growth on a construct no
+  sized text holds goes uncaught, the distribution is recorded as an observation, and a user report has a row.
+- **The new text keeps the property CR-20 is about** on the construct the report names: the keystroke sits on a fenced line
+  inside a quote, at the same line index at both sizes, and both sizes close every fence they open.
+
+**F-50** (MEDIUM): on the new text, a forward delete at the end of a `> x` line joins the closing fence onto it, and every
+fence below then opens where it closed. `handleEditor` retypes those lines, and there are about 1,848 more of them below
+the same line index at the larger size, so the counts differ on a correct fix. It is a member of the residue SL-22 states, but SL-22's wording, mine, names a line's type
+and not its fence state. Stated limit SL-23 corrects the wording. Read from code, not run.
+
+**F-51** (LOW): the fenced-quote text at 2,048 lines is 10,239 characters, past the description's 4,096; the plan gives that
+reason for holding `a🙂` at 1,000 lines. Stated limit SL-24.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `cf7e4d91`). Routed to the owner: nothing.
+
+The cycle 12 verdict follows, as written at that pass.
 
 **APPROVED — cycle 12, pass 1.** The stop authority fired on one shape (F-49). The hard stop did not fire (pass 1 of 15 in
 this cycle). Pricing: sized to the ask plus his rulings. Revision 19 restates one limb of the criterion his 07:05Z selection
@@ -663,6 +704,15 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 13 pass 1: this pass assumes that an ordinary keystroke on a `> x` line of the fenced-quote text (a letter typed, a
+Backspace inside the line, Enter) makes the editor retype the same number of lines at both sizes, and does not test it. No
+gate has run a fixed tree on that text; the implementer's 40 green cases are the earlier sized texts. If it is false, the
+equality is red on a correct fix for a keystroke outside SL-23's residue. The signature is differing counts at 200 and
+2,048 lines for an in-line `x`. The implementer owns closing it before hand-off.
+
+Cycle 11 pass 2's line, below, is answered: implementer-019's report, relayed in effort rulings block 07:42Z and not
+re-derived, is that the website's override sends more entries than a plain editor (up to 8 builds against the probe's 3).
+
 Cycle 12 pass 1: this pass assumes that the fix, in CF-25's form, builds a unit once for each line the normaliser retypes,
 and does not test it. No fixed tree exists. The ground is a read of `handleEditor` at `119471f`: when one line's type is
 wrong it re-enters with `update` and sets each line whose type differs, and each set line reaches `handleElement`. If it is
@@ -776,6 +826,39 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 13 pass 1
+
+F-50 MEDIUM cycle 13 pass 1 — closed as landed-by-author, with stated limit SL-23; discharging document: the plan's Planner batch. Duplicates the shape of F-49 in this document
+- **Title**: on the fenced-quote text, one keystroke in the class flips every fence below it, and SL-22's wording does not
+  name fence state.
+- **Location**: plan revision 20, AC-6.8 "The text class", the fenced-quote texts; the Planner batch row for F-49 (SL-22).
+- **Description**: the text repeats `> ```⏎> x⏎> ```⏎> y`, and "the keystroke falls on a `> x` line" for every kind in the
+  class. A forward delete at the end of `> x` joins the closing fence line onto it. The fence that line closed stays open,
+  and each fence line below changes from opening to closing or back. At `119471f`, `handleEditor`'s check includes
+  `child.startCodeBlock !== fence.inCodeBlock`, so it retypes every line below. Read from code, not run.
+- **Impact**: 1 of the 4 keystroke kinds, at 1 of 2 positions on the new text, gives counts that differ with size on a
+  correct fix. SL-22's property is "a different type (code block, quote or plain)"; these lines may keep their type and
+  change only their fence state, so the property as I worded it does not reach them.
+- **SL-23**: SL-22's residue reads "a different type, fence state (`startCodeBlock`, `lang`) or set of emoji elements". On
+  the fenced-quote text the count limb runs over the class less that residue, which removes the forward delete at the end
+  of `> x`. The implementer bears it and records which keystrokes on that text it left out; QA at Phase 2 on M6 reads the
+  list against the property.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2, with SL-22's text; the
+  planner sends SL-23 to the implementer and QA now, since it bears on the hand-off.
+
+F-51 LOW cycle 13 pass 1 — closed as landed-by-author, with stated limit SL-24; discharging document: the plan's Planner batch
+- **Title**: the fenced-quote text's larger size is longer than any field allows.
+- **Location**: plan revision 20, AC-6.8 "The text class", the fenced-quote texts.
+- **Description**: 512 repeats of the four lines are 10,239 characters (computed in this pass). At `119471f`,
+  `MAX_EMBED_DESCRIPTION_LENGTH` is 4,096 and `MAX_MESSAGE_CONTENT_LENGTH` is 2,000. The same class holds `a🙂` at 1,000
+  lines because 2,048 "exceed the description's 4,096", and the timed limb says its sizes are reachable. The largest
+  fenced-quote text inside the description is 204 repeats, 816 lines and 4,079 characters.
+- **Impact**: none on what the equality can detect, since growth shows at any two sizes. The class gives two reasons for
+  its sizes and this member follows neither.
+- **SL-24**: the fenced-quote text runs at 200 and 816 lines, or keeps 2,048 with one line in the implementation document
+  saying the size is past the field's limit and is used for growth only. The implementer chooses.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
 
 ### Closed at cycle 12 pass 1
 
@@ -1265,7 +1348,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Written at the close of cycle 12 pass 1 on 2026-11-24 (APPROVED on plan revision 19, `4a68f286`). Nothing is in flight, no process is running and no question awaits an answer; steering answered F-48 by its block 07:21Z, which makes revision 19 AC-6.8's last fold and every later AC-6.8 finding below HIGH a stated limit. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-49 with SL-22), `implementer-019` (CR-20's fix round is released by this gate, read with SL-22) and `steering-hooks-fixer` (the unbounded cost of residue keystrokes, as an item he may want to see). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 13: read the plan as the `git diff` from `4a68f286` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Written at the close of cycle 13 pass 1 on 2026-11-24 (APPROVED on plan revision 20, `cf7e4d91`). Nothing is in flight, no process is running and no question awaits an answer. Steering's block 07:21Z makes every AC-6.8 finding below HIGH a stated limit, and block 07:42Z reopened it for revision 20 only. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-50 with SL-23 and F-51 with SL-24) and `implementer-019` (the hand-off of CR-20's fix round is released by this gate, read with SL-23 and SL-24). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 14: read the plan as the `git diff` from `cf7e4d91` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
