@@ -1,0 +1,14 @@
+[
+ {
+  "id": "preview-inline-code-text-dropped",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "return <code className='inline'>{kind.value as string}</code>;",
+  "new": "return <code className='inline'>{''}</code>;"
+ },
+ {
+  "id": "preview-inline-code-element-not-code",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "return <code className='inline'>{kind.value as string}</code>;",
+  "new": "return <span className='inline'>{kind.value as string}</span>;"
+ }
+]

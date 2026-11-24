@@ -1,0 +1,78 @@
+{
+ "sha": "2e361079a673f37ec44eae148d2849699d87d284",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m5/qa-inline-code-mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "src/utils/markdown",
+  "src/components",
+  "src/app"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 600.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m5/qa-inline-code-mutants.json",
+   "blob": "c3323b0cafb2c517a8b97d92692f9c0cb177d232"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m5/qa-inline-code-mutants-out/2e361079a673f37ec44eae148d2849699d87d284-20261124T040931Z-p1107527-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m5/qa-inline-code-mutants-out/2e361079a673f37ec44eae148d2849699d87d284-20261124T040931Z-p1107527-control-1.stderr",
+   "seconds": 71.73,
+   "exit": 1,
+   "timedOut": false,
+   "tests_run": 1349,
+   "tests": [],
+   "passed": false
+  }
+ },
+ "mutants": [
+  {
+   "id": "preview-inline-code-text-dropped",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  },
+  {
+   "id": "preview-inline-code-element-not-code",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/preview.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  }
+ ],
+ "score": "0 of 0 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 2; qa-inline-code-mutants.json (blob c3323b0cafb2c517a8b97d92692f9c0cb177d232))"
+}

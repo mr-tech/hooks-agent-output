@@ -1,0 +1,16 @@
+[
+ {
+  "id": "G5",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "if (!partialMarkdown) fence = afterLine(fence, line);",
+  "new": "fence = afterLine(fence, line);",
+  "limb": "load tracks fences in partial mode"
+ },
+ {
+  "id": "W12",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown) return handleEditor(editor, false);",
+  "new": "return handleEditor(editor, false);",
+  "limb": "partial mode runs block normalisation"
+ }
+]

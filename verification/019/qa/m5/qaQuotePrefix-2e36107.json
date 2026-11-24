@@ -1,0 +1,3205 @@
+{
+ "quoted": 1852,
+ "rows": [
+  {
+   "surface": "content",
+   "src": "cand:12",
+   "text": ">>> a\n> _\n> _b_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "a",
+       "withPrefix": [],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_b_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "content",
+   "src": "gen:181",
+   "text": ">>> C++ \\:x\\:\n> _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_\n> _<@!1558266761101447248>_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "C++ \\:x\\:",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_*_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": " a*b_ [",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "](https://x.y) <t",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "f>* https://x.y. ",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_<@!1558266761101447248>_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 25
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "embedDescription",
+   "src": "cand:12",
+   "text": ">>> a\n> _\n> _b_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "a",
+       "withPrefix": [],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_b_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "embedDescription",
+   "src": "gen:181",
+   "text": ">>> C++ \\:x\\:\n> _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_\n> _<@!1558266761101447248>_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "C++ \\:x\\:",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_*_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": " a*b_ [",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "](https://x.y) <t",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "f>* https://x.y. ",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_<@!1558266761101447248>_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 25
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "fieldValue",
+   "src": "cand:12",
+   "text": ">>> a\n> _\n> _b_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "a",
+       "withPrefix": [],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_b_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "fieldValue",
+   "src": "gen:181",
+   "text": ">>> C++ \\:x\\:\n> _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_\n> _<@!1558266761101447248>_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "C++ \\:x\\:",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_*_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": " a*b_ [",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "](https://x.y) <t",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "f>* https://x.y. ",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_<@!1558266761101447248>_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 25
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "v2Text",
+   "src": "cand:12",
+   "text": ">>> a\n> _\n> _b_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "a",
+       "withPrefix": [],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_b_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "surface": "v2Text",
+   "src": "gen:181",
+   "text": ">>> C++ \\:x\\:\n> _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_\n> _<@!1558266761101447248>_",
+   "detail": [
+    {
+     "type": "blockQuote",
+     "prefix": ">>> ",
+     "nodes": [
+      {
+       "text": "C++ \\:x\\:",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 5
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 7
+         },
+         "focus": {
+          "path": [
+           0,
+           0
+          ],
+          "offset": 8
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_*_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           0
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": " a*b_ [",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 3
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 6
+         },
+         "focus": {
+          "path": [
+           1,
+           2
+          ],
+          "offset": 7
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "](https://x.y) <t",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 14
+         },
+         "focus": {
+          "path": [
+           1,
+           4
+          ],
+          "offset": 17
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "f>* https://x.y. ",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 2
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 3
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 4
+         },
+         "focus": {
+          "path": [
+           1,
+           6
+          ],
+          "offset": 15
+         },
+         "classNames": [
+          "linkText"
+         ],
+         "syntax": false
+        }
+       ]
+      },
+      {
+       "element": true
+      },
+      {
+       "text": "_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           1,
+           8
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": []
+      }
+     ]
+    },
+    {
+     "type": "blockQuote",
+     "prefix": "> ",
+     "nodes": [
+      {
+       "text": "_<@!1558266761101447248>_",
+       "withPrefix": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ],
+       "without": [
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 0
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "classNames": [],
+         "syntax": true
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 1
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "classNames": [
+          "emText"
+         ],
+         "syntax": false
+        },
+        {
+         "anchor": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 24
+         },
+         "focus": {
+          "path": [
+           2,
+           0
+          ],
+          "offset": 25
+         },
+         "classNames": [],
+         "syntax": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

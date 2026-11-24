@@ -24,3 +24,6 @@ The box and edit-box innerText hide the quote marker (Slate renders a blockquote
   inserted.
 - Paste does not continue the quote.
 - Screenshots stay out of the commit, as the workspace's convention requires. They are in this folder on disk.
+- Reconcile, 2026-11-24T04:10 (qa-019): the walk posted its two messages in `#general`. QA's brief and register entry E-7 name
+  `#slate-oracle-walk` for posts to the test server. My brief to the walker said "any ordinary text channel", so the error is
+  mine. The posts stayed inside the agents' own server.

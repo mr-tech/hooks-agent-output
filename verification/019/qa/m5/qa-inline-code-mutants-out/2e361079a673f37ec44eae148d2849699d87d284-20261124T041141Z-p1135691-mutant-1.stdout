@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1b2c4c75-4b3c-410c-899a-14d7c1470a50/scratchpad/mwork6/20261124T041141Z-p1135691/mutant-1
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 70ms
+     × draws inline code 6ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 281ms
+     × inline code 9ms
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 63 passed (65)
+   Start at  04:11:47
+   Duration  2.51s (transform 1.03s, setup 15ms, import 2.74s, tests 351ms, environment 721ms)
+

@@ -1,0 +1,23 @@
+e58f2ed 3454 212 2e36107 3280 224
+removed /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/exp-e58f2ed/bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts 2
+removed /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/exp-e58f2ed/bot/scripts/app_commands/__tests__/common.localized-strings.test.ts 3
+removed /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/exp-e58f2ed/bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts 3
+removed src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts 262
+added /tmp/claude-1000/-usr-local-bin-hooks/1b2c4c75-4b3c-410c-899a-14d7c1470a50/scratchpad/exp-2e36107/bot/scripts/app_commands/__tests__/common.admin-permissions.test.ts 2
+added /tmp/claude-1000/-usr-local-bin-hooks/1b2c4c75-4b3c-410c-899a-14d7c1470a50/scratchpad/exp-2e36107/bot/scripts/app_commands/__tests__/common.localized-strings.test.ts 3
+added /tmp/claude-1000/-usr-local-bin-hooks/1b2c4c75-4b3c-410c-899a-14d7c1470a50/scratchpad/exp-2e36107/bot/utils/__tests__/DiscordEmbed.set-timestamp.test.ts 3
+added src/components/DiscordContentEditor/__tests__/DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx 4
+added src/components/DiscordMessageEditor/components/__tests__/DiscordContentEditor.call-site-surfaces.test.tsx 4
+added src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx 3
+added src/components/SlateEditor/utils/__tests__/decorator.code-line-scopes.test.tsx 7
+added src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts 19
+added src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts 2
+added src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts 5
+added src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx 5
+added src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts 7
+added src/components/SlateEditor/utils/__tests__/highlightScan.scope-classes.test.ts 10
+added src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts 9
+added src/utils/markdown/__tests__/discordLive.drift-compare.test.ts 3
+added src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts 4
+changed src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx 2 -> 4
+changed src/utils/markdown/__tests__/discordRouting.predicates.test.ts 8 -> 12

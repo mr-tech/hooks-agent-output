@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1b2c4c75-4b3c-410c-899a-14d7c1470a50/scratchpad/mwork6/20261124T040931Z-p1107527/control-1
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 6745ms
+     × draws nothing while the engine is pending 5060ms
+
+ Test Files  1 failed | 116 passed (117)
+      Tests  1 failed | 1348 passed (1349)
+   Start at  04:09:32
+   Duration  70.37s (transform 51.42s, setup 2.22s, import 258.63s, tests 371.32s, environment 145.69s)
+

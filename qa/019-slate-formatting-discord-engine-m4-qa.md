@@ -119,6 +119,10 @@ Reconcile, 2026-11-24T02:09: M5's `921eeb8` changes four M4 production paths: `T
 `EmbedField.tsx` and `EmbedTitle.tsx`, 5 lines (`git diff --stat e58f2ed d6aab03`). The editing branch's `interactiveParser`
 becomes `surface`. This verdict binds to `e58f2ed` and does not carry to a later tip. A refresh pass is owed before UAT, scoped by a
 differential that runs both trees over the preview surface. It is taken with M5's Phase 2.
+Reconcile, 2026-11-24T04:13: the differential ran (`qa/019-slate-formatting-discord-engine-m5-qa.md`, § Execution). The preview
+DOM of 6 surfaces × 2,379 inputs is identical at `e58f2ed` and `2e36107`: 0 of 14,280 rows differ, and a planted control moves
+2,356. M4's own cases pass in the whole suite at `2e36107`, and `discordPreview.legacy-equality` passes live. This verdict
+re-anchors at `2e36107` for the preview surface, the five legacy surfaces and the edit page's channel names.
 
 **QA Complete**, milestone-scoped, for M4 at website `e58f2ed`. Every assessed criterion passes (§ Criteria). QAF-37 LOW is a stated
 limit under the cap. The verdict binds to `e58f2ed`, and a production change to an M4 path expires it. The plan's Status is not

@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > inline code
+AssertionError: expected [ { t: 'N', name: 'c', …(2) } ] to deeply equal [ { t: 'N', name: 'c', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "\"a b\"",
++     "attr": "\"\"",
+      "kids": null,
+      "name": "c",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:61:27
+     59|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     60|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     61|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws inline code
+AssertionError: expected '<code class="inline"></code>' to be '<code class="inline">a</code>' // Object.is equality
+
+Expected: "<code class="inline">a</code>"
+Received: "<code class="inline"></code>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:53:39
+     51|     ['a second-level heading', '## h', '<h2>h</h2>'],
+     52|   ])('draws %s', (_name, source, expected) => {
+     53|     expect(render('content', source)).toBe(expected);
+       |                                       ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

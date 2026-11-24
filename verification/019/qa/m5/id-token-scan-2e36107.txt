@@ -1,0 +1,2 @@
+files 20 hits 0
+control hits 3 [('basename', 'x.QAF-12.test.ts'), (1, 'title', 'names QAF-12 here'), (2, 'comment', '// see CR-7')]
