@@ -1,0 +1,39 @@
+import { beforeAll, it, vi } from 'vitest';
+import { Editor, Transforms } from 'slate';
+
+import type { Element } from 'slate';
+
+import { editorHolding } from '../../__tests__/helpers/keystrokes';
+import flattenNodeText from '../flattenNodeText';
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const lines = (n: number, l: string) => Array.from({ length: n }, () => l).join('\n');
+const summary = (editor: Editor) => {
+  const counts: Record<string, number> = {};
+  (editor.children as Element[]).forEach((c) => { counts[c.type] = (counts[c.type] ?? 0) + 1; });
+  return JSON.stringify(counts);
+};
+
+it('gt marker typed at the start of ">> a" over N-1 lines of "a"', () => {
+  const out: string[] = [];
+  [2, 3, 5, 10, 40, 100, 110, 120, 121, 122, 123, 124, 125, 126, 127, 200, 1000, 2048].forEach((n) => {
+    ['content', 'embedDescription'].forEach((surface) => {
+      const text = `>> a\n${lines(n - 1, 'a')}`;
+      let before = '';
+    let held: Editor | undefined;
+      try {
+        const editor = editorHolding(text, surface as 'content');
+        held = editor;
+        before = summary(editor);
+        Transforms.select(editor, Editor.start(editor, [0]));
+        editor.insertText('>');
+        out.push(`${n} ${surface}: ok before=${before} after=${summary(editor)} text-ok=${flattenNodeText(editor.children) === `>${text}`}`);
+      } catch (e) {
+        out.push(`${n} ${surface}: THROW before=${before} ${(e as Error).message.slice(0, 90)} | after-throw=${held ? summary(held) : '-'} text-ok=${held ? flattenNodeText(held.children) === `>${text}` : '-'} sel=${held ? JSON.stringify(held.selection?.anchor) : '-'}`);
+      }
+    });
+  });
+  process.stdout.write(`GT-TIP\n${out.join('\n')}\n`);
+});

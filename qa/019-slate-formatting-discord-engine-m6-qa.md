@@ -28,6 +28,7 @@ row. B-10 (AC-6.8) was minted at the Phase 1 re-key on Revision 16.
 |------|---------------|---------|---------|
 | 2026-11-24T06:58 | code-reviewer-019 (message: M6 APPROVED_WITH_COMMENTS at `119471f`, record `8c2a4593`) | QA Phase 2 on M6 | Phase 2, step 2: the TDD compliance gate **rejected** M6. Five new or changed production functions have a "No" under test-first and no stub-tree red and green. `parseUnit` also has a "No". No M6 suite was run for this verdict. Steering's M6 Phase 2 brief had not arrived, so this pass read the plan's D-20 to D-22, R-77 and R-78 and the code review's Round 6 itself. The export of `119471f` is installed (frozen, offline, exit 0) and kept for the pass. |
 | 2026-11-24T07:57 | implementer-019 (message: stub-tree records at `78f93bdd`, no production path moved) | Re-open the gate; run Phase 2 at `119471f` | The gate passes on the stub-tree records. Offline 3,651 of 3,651, exit 0; typecheck exit 0; live 41 of 41; `test:discord` offline exits 1, loud; `next build` exit 0. M4 differential 0 of 14,280 (control 2,356); M5 differential 0 of 6,486 (control 681). Hand mutants: 13 of 15 killed, W9 and W12 survive. AC-3.3's cap is exceeded (141.9 s against 31.1 s). AC-6.8 fails here as it should. **QAF-50 MEDIUM** (a severity floor: partial mode's plain lines, unasserted). QAF-46 to QAF-49 LOW. The 451-mutant sweep was withdrawn unscored: its controls failed under load, and the effort-final sweep moves to the fix tip. Verdict **QA Failed**. |
+| 2026-11-24T09:14 | planner-019 (message: CR-20 fix round hand-off, Outstanding 2; implementation record `9c6bb958`, plan R-92 at `7100aab8`) | Probe Outstanding 2 at the chain base `af3d95a` and set a severity | Not the fix-round refresh: code review's verdict on the round has not been given. Both trees throw Slate's cap error, the chain base `af3d95a` and the fix tip `42128cd` alike, on the same threshold: they settle at 122 lines and throw from 123. After the throw the document is correct. So the defect is **pre-existing**: **QAF-51 LOW**, for the planner's handoff. No browser look was taken. Captured at `verification/019/qa/m6/gt-marker-base/`. The record-write hook refused a shell heredoc for that README, so it was written with the Write tool. |
 
 ## Scope and stage start
 
@@ -211,6 +212,22 @@ text properties cannot see it. The gap is pre-existing (W12 survived at M3), but
 gap's age. Remedy, for the fix round: a spec-form case that types `> a` into a single-line editor and asserts the line's type
 is `div`, recorded red under W12.
 
+QAF-51 LOW Phase 2 (pre-existing)
+Typing `>` at the start of `>> a` turns it into `>>> a`, which retypes every line below it. On a message of 123 lines or more,
+that keystroke throws Slate's "Could not completely normalize the editor after 126 iterations". Measured at the chain base
+`af3d95a` (built the way the base's `SlateEditor/index.tsx` builds it, which covers both content and embed description) and at
+the fix tip `42128cd` (`editorHolding` on `content` and `embedDescription`). Both trees settle at 122 lines and throw from 123,
+which also covers 200, 1,000 and 2,048. A positive control on the same run shows the probe sees the cap. After the throw, the
+model on both trees is in its intended end state: every line is `blockQuote`, the text is intact and the caret is after the
+`>`. So the saved text is not harmed. The chain neither introduced the defect nor moved its threshold.
+(`verification/019/qa/m6/gt-marker-base/`: probes, outputs and README.) The severity rests on the model state. This record
+assumes, and does not test, that slate-react in a browser shows the user nothing worse than a console error, with the editor
+still usable after the throw. The falsity signature: in the browser, the editor stops taking input, or the page's error
+boundary replaces it, after `>` is typed on a 123-line message. That would raise the severity. **Owner: QA**, as a single
+browser look at Phase 2 on the fix round, against the build that pass runs. Property wanted (for the handoff, not this chain):
+the keystroke settles at any message length, or it degrades without throwing. Routed to planner-019, which carries it by a
+handoff.
+
 ## Verdict
 
 **QA Failed**, milestone-scoped, for M6 at website `119471f`:
@@ -264,6 +281,10 @@ Written at steering's ask (`/checkpoint`, about 413K tokens), at a seam: every p
   checked (`verification/019/qa/m6/blob-identity.py`). Owed:
   - the TDD rows of the round (each new function red at assertion level, or stub-tree red and green);
   - the whole offline suite (JSON and exit code), typecheck, live, `pnpm test:discord` offline and `next build`;
+  - **the full 1,000 generator inputs once, `MOUNTED_GENERATOR_COUNT=1000`, with its exit code** (planner-019, R-92: AC-3.3's
+    full count has no home in `pnpm test:discord`; `pnpm test` runs 400). It is owed again at Phase 3 on the release tip;
+  - Outstanding 1 (3 of 161,136 differences, `\` typed on an unclosed fence's opening line) is residue in QAF-48's class;
+  - QAF-51's browser look: `>` typed at the start of `>> a` on a message of 123 lines, in the round's build;
   - **typed-generated alone, once, before the suite** (this document's Assumption Not Checked: no extra writes, no timeout);
   - **AC-3.3's 60 s cap:** both whole suites back to back, `2e36107` and the fix tip, against the chain base's 31.1 s;
   - **AC-6.8:**

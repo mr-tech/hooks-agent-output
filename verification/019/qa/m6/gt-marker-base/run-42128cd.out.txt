@@ -1,0 +1,46 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/3158170a-883f-476c-97da-d73d3658850c/scratchpad/tipx
+
+GT-TIP
+2 content: ok before={"div":2} after={"blockQuote":2} text-ok=true
+2 embedDescription: ok before={"div":2} after={"blockQuote":2} text-ok=true
+3 content: ok before={"div":3} after={"blockQuote":3} text-ok=true
+3 embedDescription: ok before={"div":3} after={"blockQuote":3} text-ok=true
+5 content: ok before={"div":5} after={"blockQuote":5} text-ok=true
+5 embedDescription: ok before={"div":5} after={"blockQuote":5} text-ok=true
+10 content: ok before={"div":10} after={"blockQuote":10} text-ok=true
+10 embedDescription: ok before={"div":10} after={"blockQuote":10} text-ok=true
+40 content: ok before={"div":40} after={"blockQuote":40} text-ok=true
+40 embedDescription: ok before={"div":40} after={"blockQuote":40} text-ok=true
+100 content: ok before={"div":100} after={"blockQuote":100} text-ok=true
+100 embedDescription: ok before={"div":100} after={"blockQuote":100} text-ok=true
+110 content: ok before={"div":110} after={"blockQuote":110} text-ok=true
+110 embedDescription: ok before={"div":110} after={"blockQuote":110} text-ok=true
+120 content: ok before={"div":120} after={"blockQuote":120} text-ok=true
+120 embedDescription: ok before={"div":120} after={"blockQuote":120} text-ok=true
+121 content: ok before={"div":121} after={"blockQuote":121} text-ok=true
+121 embedDescription: ok before={"div":121} after={"blockQuote":121} text-ok=true
+122 content: ok before={"div":122} after={"blockQuote":122} text-ok=true
+122 embedDescription: ok before={"div":122} after={"blockQuote":122} text-ok=true
+123 content: THROW before={"div":123} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":123} text-ok=true sel={"path":[0,0],"offset":1}
+123 embedDescription: THROW before={"div":123} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":123} text-ok=true sel={"path":[0,0],"offset":1}
+124 content: THROW before={"div":124} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":124} text-ok=true sel={"path":[0,0],"offset":1}
+124 embedDescription: THROW before={"div":124} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":124} text-ok=true sel={"path":[0,0],"offset":1}
+125 content: THROW before={"div":125} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":125} text-ok=true sel={"path":[0,0],"offset":1}
+125 embedDescription: THROW before={"div":125} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":125} text-ok=true sel={"path":[0,0],"offset":1}
+126 content: THROW before={"div":126} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":126} text-ok=true sel={"path":[0,0],"offset":1}
+126 embedDescription: THROW before={"div":126} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":126} text-ok=true sel={"path":[0,0],"offset":1}
+127 content: THROW before={"div":127} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":127} text-ok=true sel={"path":[0,0],"offset":1}
+127 embedDescription: THROW before={"div":127} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":127} text-ok=true sel={"path":[0,0],"offset":1}
+200 content: THROW before={"div":200} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":200} text-ok=true sel={"path":[0,0],"offset":1}
+200 embedDescription: THROW before={"div":200} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":200} text-ok=true sel={"path":[0,0],"offset":1}
+1000 content: THROW before={"div":1000} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":1000} text-ok=true sel={"path":[0,0],"offset":1}
+1000 embedDescription: THROW before={"div":1000} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":1000} text-ok=true sel={"path":[0,0],"offset":1}
+2048 content: THROW before={"div":2048} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":2048} text-ok=true sel={"path":[0,0],"offset":1}
+2048 embedDescription: THROW before={"div":2048} Could not completely normalize the editor after 126 iterations! This is usually due to inc | after-throw={"blockQuote":2048} text-ok=true sel={"path":[0,0],"offset":1}
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  09:13:13
+   Duration  3.18s (transform 158ms, setup 29ms, import 301ms, tests 2.11s, environment 613ms)
+

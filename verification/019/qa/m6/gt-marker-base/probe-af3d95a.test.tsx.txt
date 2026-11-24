@@ -1,0 +1,68 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { it, vi } from 'vitest';
+
+import {
+  flattenNodeText, getInitialValue, withEmojis, withNormalizeNode,
+} from '..';
+
+import type { Element } from 'slate';
+
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+// The chain base's own construction (src/components/SlateEditor/index.tsx, useMemo + useState):
+// content and embed description both pass partialMarkdown=false and markdown.interactive.parseEmoji.
+const loadedEditor = (text: string) => {
+  const editor = withNormalizeNode(
+    withEmojis(withHistory(withReact(createEditor()))),
+    false,
+    markdown.interactive.parseEmoji,
+  );
+  editor.children = getInitialValue(text, markdown.interactive.parseEmoji, false);
+  return editor;
+};
+const lines = (n: number, l: string) => Array.from({ length: n }, () => l).join('\n');
+const summary = (editor: Editor) => {
+  const types = (editor.children as Element[]).map((c) => c.type);
+  const counts: Record<string, number> = {};
+  types.forEach((t) => { counts[t] = (counts[t] ?? 0) + 1; });
+  return JSON.stringify(counts);
+};
+
+it('gt marker typed at the start of ">> a" over N-1 lines of "a"', () => {
+  const out: string[] = [];
+  [2, 3, 5, 10, 40, 100, 110, 120, 121, 122, 123, 124, 125, 126, 127, 200, 1000, 2048].forEach((n) => {
+    const text = `>> a\n${lines(n - 1, 'a')}`;
+    let before = '';
+    let held: Editor | undefined;
+    try {
+      const editor = loadedEditor(text);
+      held = editor;
+      before = summary(editor);
+      Transforms.select(editor, Editor.start(editor, [0]));
+      editor.insertText('>');
+      const flat = flattenNodeText(editor.children);
+      out.push(`${n}: ok before=${before} after=${summary(editor)} text-ok=${flat === `>${text}`}`);
+    } catch (e) {
+      out.push(`${n}: THROW before=${before} ${(e as Error).message.slice(0, 90)} | after-throw=${held ? summary(held) : '-'} text-ok=${held ? flattenNodeText(held.children) === `>${text}` : '-'} sel=${held ? JSON.stringify(held.selection?.anchor) : '-'}`);
+    }
+  });
+  // Positive control on the same run: Slate's cap throws when a normaliser never settles.
+  try {
+    const editor = loadedEditor('a');
+    const { normalizeNode } = editor;
+    editor.normalizeNode = (entry) => {
+      const [, path] = entry;
+      if (path.length === 1) Transforms.setNodes(editor, { lang: String(Math.random()) } as Partial<Element>, { at: path });
+      else normalizeNode(entry);
+    };
+    Editor.normalize(editor, { force: true });
+    out.push('control: no throw (control FAILED to fire)');
+  } catch (e) {
+    out.push(`control: THROW ${(e as Error).message.slice(0, 60)}`);
+  }
+  process.stdout.write(`GT-BASE\n${out.join('\n')}\n`);
+});
