@@ -1,0 +1,50 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/mutant-30
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (396 tests | 33 failed) 4403ms
+       × puts the next typed character where the keystroke leaves the caret 8ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 2ms
+       × puts the next typed character where the keystroke leaves the caret 2ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 7ms
+       × puts the next typed character where the keystroke leaves the caret 2ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 0ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 0ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+       × puts the next typed character where the keystroke leaves the caret 1ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 15610ms
+     × hands the message that text in a full-markdown editor 3208ms
+     × hands the message that text in a full-markdown editor 3662ms
+     × hands the message that text in a full-markdown editor 2920ms
+     × hands the message that text in a full-markdown editor 2558ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 16289ms
+     × hands the message that text in a full-markdown editor 7199ms
+
+ Test Files  3 failed | 10 passed (13)
+      Tests  38 failed | 757 passed (795)
+   Start at  19:12:09
+   Duration  18.96s (transform 2.73s, setup 293ms, import 10.24s, tests 76.03s, environment 11.39s)
+

@@ -1,0 +1,69 @@
+Benchmarking is an experimental feature.
+Breaking changes might not follow SemVer, please pin Vitest's version when using it.
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/export-mut
+
+fence-and-quote-time {"name":"the third backtick typed at the end of line 2","lines":200,"keystrokes":25,"medianMs":11.251418999999942,"p95Ms":15.499030000000175,"load":"4.25 21.57 31.87 3/1144 4132432"}
+fence-and-quote-time {"name":"the third backtick typed at the end of line 2","lines":2048,"keystrokes":25,"medianMs":85.17701500000021,"p95Ms":102.38495899999998,"load":"4.07 21.24 31.71 2/1160 4132774"}
+fence-and-quote-time {"name":"Backspace at the end of the ``` on line 2","lines":200,"keystrokes":25,"medianMs":61.2578739999999,"p95Ms":66.09778799999913,"load":"4.07 21.24 31.71 3/1153 4133108"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…' 3082ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999     rme  samples
+   · settles in a message of 200 lines   88.9808   7.4154  16.5284  11.2384  13.5801  16.5284  16.5284  16.5284  ±9.93%       27
+   · settles in a message of 2048 lines  10.7970  80.1709   181.37  92.6179  93.4670   181.37   181.37   181.37  ±7.98%       27
+fence-and-quote-time {"name":"Backspace at the end of the ``` on line 2","lines":2048,"keystrokes":25,"medianMs":5700.44780400001,"p95Ms":5780.3814869999915,"load":"2.17 13.21 26.93 2/1127 4159031"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the ``` on li…' 162887ms
+     name                                    hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · settles in a message of 200 lines   0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  ±0.00%        0
+   · settles in a message of 2048 lines  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  ±0.00%        0
+(node:4132203) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 2)
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts [ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts ]
+AssertionError: expected 61.2578739999999 to be less than or equal to 27
+ ❯ check src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts:46:39
+     44|         if (lines === SMALL) smallMedians.set(keystroke.name, median);
+     45|         else expect(median).toBeLessThanOrEqual(GROWTH * smallMedians.…
+     46|         if (onLineTwo) expect(median).toBeLessThanOrEqual(CEILING_MS[l…
+       |                                       ^
+     47|       };
+     48|
+ ❯ b.iterations [as fn] src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts:54:54
+ ❯ a ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:285:17
+ ❯ b.loop ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:292:34
+ ❯ b.run ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:313:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+AssertionError: expected 61.2578739999999 to be less than or equal to 27
+ ❯ check src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts:46:39
+ ❯ b.iterations [as fn] src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts:54:54
+ ❯ a ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:285:17
+ ❯ b.loop ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:292:34
+ ❯ b.run ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:313:36
+ ❯ Timeout._onTimeout ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_cdad2253cb500984f4c425f868ad603b/node_modules/vitest/dist/chunks/test.p_J6dB8a.js:4081:13
+
+This error originated in "src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ BENCH  Summary
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…'
+    8.24x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the ``` on li…'
+    NaNx faster than settles in a message of 2048 lines
+
+Command exited with non-zero status 1
+167.96 s wall
+exit=1

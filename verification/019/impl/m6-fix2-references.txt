@@ -1,0 +1,14 @@
+## retypeLines
+src/components/SlateEditor/utils/withNormalizeNode.ts:30 definition
+src/components/SlateEditor/utils/withNormalizeNode.ts:54 reference
+src/components/SlateEditor/utils/withNormalizeNode.ts:102 reference
+## linesAgree
+src/components/SlateEditor/utils/withNormalizeNode.ts:100 definition
+src/components/SlateEditor/utils/withNormalizeNode.ts:108 reference
+src/components/SlateEditor/utils/withNormalizeNode.ts:392 reference
+## resolveEmoji
+src/components/SlateEditor/utils/withNormalizeNode.ts:170 definition
+src/components/SlateEditor/utils/withNormalizeNode.ts:339 reference
+## settledIn
+src/components/SlateEditor/utils/withNormalizeNode.ts:162 definition
+src/components/SlateEditor/utils/withNormalizeNode.ts:171 reference

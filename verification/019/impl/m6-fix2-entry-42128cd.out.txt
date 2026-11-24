@@ -1,0 +1,192 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/export-42128cd
+
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"content","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"content","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"embedDescription","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"embedDescription","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F1 make fence (line 2)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"content","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"content","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"embedDescription","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"embedDescription","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F2 unmake fence (line 2)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["2.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["20.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"content","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"content","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["100.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["500.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["20.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"embedDescription","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"embedDescription","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["100.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["500.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F3 make closing delimiter (middle)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["1024.0",3,3],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["20.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"content","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"content","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["100.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["500.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["20.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"embedDescription","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["61.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"embedDescription","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["100.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["500.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F4 unmake closing delimiter (middle)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["1024.0",2,2],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"content","n":123,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"content","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"embedDescription","n":123,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"embedDescription","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q1 make >>> (>> a)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",1,1],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"content","n":123,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"content","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"embedDescription","n":123,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"embedDescription","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q2 make >>> (>> abc)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 126 iteratio","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"content","n":122,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"content","n":123,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"content","n":200,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"content","n":1000,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"embedDescription","n":122,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"embedDescription","n":123,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"embedDescription","n":200,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"embedDescription","n":1000,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"Q3 unmake >>> (>>> a)","surface":"embedDescription","n":2048,"thrown":"Could not completely normalize the editor after 84 iteration","textOk":true,"loadDiffLines":0,"sel":["0.0",0,0],"zOk":true,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"content","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"content","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"content","n":1000,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"embedDescription","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"embedDescription","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"embedDescription","n":1000,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56a make > ( abc, > typed at start)","surface":"embedDescription","n":2048,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"content","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"content","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"content","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"content","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"content","n":1000,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"embedDescription","n":40,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"embedDescription","n":122,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"embedDescription","n":123,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"embedDescription","n":200,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"embedDescription","n":1000,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"node","m":"F56b make > (>abc, space typed after >)","surface":"embedDescription","n":2048,"thrown":"","textOk":true,"loadDiffLines":0,"sel":["0.0",3,3],"zOk":false,"zThrown":""}
+RESULT {"lim":"mounted","m":"F1 make fence (line 2)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F1 make fence (line 2)","n":123,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F2 unmake fence (line 2)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F2 unmake fence (line 2)","n":123,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F2 unmake fence (line 2)","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F2 unmake fence (line 2)","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F3 make closing delimiter (middle)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F3 make closing delimiter (middle)","n":123,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F3 make closing delimiter (middle)","n":200,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F4 unmake closing delimiter (middle)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F4 unmake closing delimiter (middle)","n":123,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F4 unmake closing delimiter (middle)","n":200,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F4 unmake closing delimiter (middle)","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q1 make >>> (>> a)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q1 make >>> (>> a)","n":123,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q1 make >>> (>> a)","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q1 make >>> (>> a)","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q2 make >>> (>> abc)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q2 make >>> (>> abc)","n":123,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q2 make >>> (>> abc)","n":200,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q2 make >>> (>> abc)","n":1000,"thrown":"Could not completely normalize the editor after 126 iteratio","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q3 unmake >>> (>>> a)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q3 unmake >>> (>>> a)","n":123,"thrown":"Could not completely normalize the editor after 84 iteration","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q3 unmake >>> (>>> a)","n":200,"thrown":"Could not completely normalize the editor after 84 iteration","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"Q3 unmake >>> (>>> a)","n":1000,"thrown":"Could not completely normalize the editor after 84 iteration","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56a make > ( abc, > typed at start)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56a make > ( abc, > typed at start)","n":123,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56a make > ( abc, > typed at start)","n":200,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56a make > ( abc, > typed at start)","n":1000,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56b make > (>abc, space typed after >)","n":40,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56b make > (>abc, space typed after >)","n":123,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56b make > (>abc, space typed after >)","n":200,"thrown":"","writeOk":true,"writes":2}
+RESULT {"lim":"mounted","m":"F56b make > (>abc, space typed after >)","n":1000,"thrown":"","writeOk":true,"writes":2}
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/zz-entry-probe.test.tsx (135 tests | 3 failed) 440808ms
+     × mounted content 200 1639ms
+     × mounted content 1000 6482ms
+     × mounted content 1000 5275ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/zz-entry-probe.test.tsx > mounted 'F1 make fence (line 2)' > mounted content 200
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/zz-entry-probe.test.tsx > mounted 'F1 make fence (line 2)' > mounted content 1000
+Error: Cannot resolve a DOM point from Slate point: {"path":[2,0],"offset":3}
+ ❯ Object.toDOMPoint ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:638:12
+ ❯ toDOMPoint ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:651:32
+ ❯ toDOMRange ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:453:35
+ ❯ focus ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:442:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/zz-entry-probe.test.tsx > mounted 'F3 make closing delimiter (middle)' > mounted content 1000
+Error: Cannot resolve a DOM point from Slate point: {"path":[500,0],"offset":3}
+ ❯ Object.toDOMPoint ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:638:12
+ ❯ toDOMPoint ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:651:32
+ ❯ toDOMRange ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:453:35
+ ❯ focus ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:442:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 132 passed (135)
+   Start at  17:17:52
+   Duration  487.07s (transform 5.52s, setup 226ms, import 27.71s, tests 440.81s, environment 15.99s)
+
+Command exited with non-zero status 1
+	Command being timed: "npx vitest run --project dom src/components/SlateEditor/utils/__tests__/zz-entry-probe.test.tsx"
+	User time (seconds): 383.44
+	System time (seconds): 21.18
+	Percent of CPU this job got: 79%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:32.02
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 830856
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 231
+	Minor (reclaiming a frame) page faults: 313627
+	Voluntary context switches: 32165
+	Involuntary context switches: 52605
+	Swaps: 0
+	File system inputs: 158800
+	File system outputs: 1904
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1

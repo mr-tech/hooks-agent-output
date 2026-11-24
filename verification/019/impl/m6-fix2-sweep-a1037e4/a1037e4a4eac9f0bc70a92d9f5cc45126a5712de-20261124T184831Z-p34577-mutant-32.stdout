@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/mutant-32
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (59 tests | 18 failed) 4484ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 56ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 42ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 37ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 33ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 40ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 97ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 83ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 59ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 47ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 41ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 48ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 61ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 65ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 80ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 61ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 57ms
+       × builds as many run units in the longest message as in the shortest 177ms
+       × builds as many run units in the longest message as in the shortest 120ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  18 failed | 777 passed (795)
+   Start at  19:12:50
+   Duration  18.60s (transform 3.01s, setup 337ms, import 10.42s, tests 74.09s, environment 11.63s)
+

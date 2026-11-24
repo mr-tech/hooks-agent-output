@@ -1,0 +1,523 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 132 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 3: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 4: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 5: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 3: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 4: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 5: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 20: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,true,\"\",[]]",
++   "line 21: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 22: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 61: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,true,\"\",[]]",
++   "line 62: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 63: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 100: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,true,\"\",[]]",
++   "line 101: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 102: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 500: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,true,\"\",[]]",
++   "line 501: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 502: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 1024: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,true,\"\",[]]",
++   "line 1025: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 1026: [\"codeBlock\",null,true,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 20: [\"div\",null,true,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 21: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 22: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 61: [\"div\",null,true,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 62: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 63: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 100: [\"div\",null,true,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 101: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 102: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 500: [\"div\",null,true,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 501: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 502: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 1024: [\"div\",null,true,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 1025: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++   "line 1026: [\"div\",null,false,\"\",[]] but expected [\"codeBlock\",null,true,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"div\",null,false,\"\",[]] but expected [\"blockQuote\",\">>> \",false,\"\",[]]",
++   "line 1: [\"div\",null,false,\"\",[]] but expected [\"blockQuote\",\"\",false,\"\",[]]",
++   "line 2: [\"div\",null,false,\"\",[]] but expected [\"blockQuote\",\"\",false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 40 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 122 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 123 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 200 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on content, in a message of 1000 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 40 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 122 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 123 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 200 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 1000 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> a"' > on embedDescription, in a message of 2048 > puts the next typed character where the keystroke leaves the caret
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: >z>> a but expected >>> za",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:66:103
+     64|
+     65|     it('puts the next typed character where the keystroke leaves the c…
+     66|       expect(firstDifferences(outcome.afterZ.split('\n'), keystroke.ch…
+       |                                                                                                       ^
+     67|     });
+     68|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 40 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 122 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 123 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 200 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on content, in a message of 1000 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 40 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 122 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 123 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 200 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 1000 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 ">> ab…' > on embedDescription, in a message of 2048 > puts the next typed character where the keystroke leaves the caret
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: >z>> abc but expected >>> zabc",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:66:103
+     64|
+     65|     it('puts the next typed character where the keystroke leaves the c…
+     66|       expect(firstDifferences(outcome.afterZ.split('\n'), keystroke.ch…
+       |                                                                                                       ^
+     67|     });
+     68|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"div\",\">>> \",false,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 1: [\"blockQuote\",\"\",false,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++   "line 2: [\"blockQuote\",\"\",false,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a space typed after the > of line 0 "…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"div\",null,false,\"\",[]] but expected [\"blockQuote\",\"> \",false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:58:67
+     56|     it('leaves each line typed as a fresh load of the changed text bui…
+     57|       const fresh = getInitialValue(keystroke.changed(lines), surface,…
+     58|       expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEq…
+       |                                                                   ^
+     59|     });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/132]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 40 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 122 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 123 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 200 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on content, in a message of 1000 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 40 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 122 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 123 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 200 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 1000 > puts the next typed character where the keystroke leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > '> typed at the start of line 0 " abc"' > on embedDescription, in a message of 2048 > puts the next typed character where the keystroke leaves the caret
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: >z abc but expected > zabc",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:66:103
+     64|
+     65|     it('puts the next typed character where the keystroke leaves the c…
+     66|       expect(firstDifferences(outcome.afterZ.split('\n'), keystroke.ch…
+       |                                                                                                       ^
+     67|     });
+     68|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/132]⎯
+

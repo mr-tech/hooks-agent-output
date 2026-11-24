@@ -1,0 +1,51 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > single-line box receiving typed text > keeps "> a" a plain line while it is typed
+AssertionError: expected [ '> a', [ 'blockQuote' ] ] to deeply equal [ '> a', [ 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    "> a",
+    [
+-     "div",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:217:47
+    215|     Transforms.select(editor, Editor.start(editor, []));
+    216|     Array.from(text).forEach((key) => editor.insertText(key));
+    217|     expect([textOf(editor), typesOf(editor)]).toEqual([text, ['div']]);
+       |                                               ^
+    218|   });
+    219| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > single-line box receiving typed text > keeps ">>> a" a plain line while it is typed
+AssertionError: expected [ '>>> a', [ 'blockQuote' ] ] to deeply equal [ '>>> a', [ 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    ">>> a",
+    [
+-     "div",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:217:47
+    215|     Transforms.select(editor, Editor.start(editor, []));
+    216|     Array.from(text).forEach((key) => editor.insertText(key));
+    217|     expect([textOf(editor), typesOf(editor)]).toEqual([text, ['div']]);
+       |                                               ^
+    218|   });
+    219| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,50 @@
+Benchmarking is an experimental feature.
+Breaking changes might not follow SemVer, please pin Vitest's version when using it.
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/export-mut
+
+fence-and-quote-time {"name":"the third backtick typed at the end of line 2","lines":200,"keystrokes":25,"medianMs":10.122928999999885,"p95Ms":14.376297999999906,"load":"2.20 12.49 26.40 4/1132 4162755"}
+fence-and-quote-time {"name":"the third backtick typed at the end of line 2","lines":2048,"keystrokes":25,"medianMs":83.57874099999981,"p95Ms":98.69583499999999,"load":"2.20 12.49 26.40 1/1139 4163255"}
+fence-and-quote-time {"name":"Backspace at the end of the ``` on line 2","lines":200,"keystrokes":25,"medianMs":59.711896999999226,"p95Ms":63.648895999999695,"load":"2.10 12.30 26.26 2/1135 4163442"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…' 3006ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999     rme  samples
+   · settles in a message of 200 lines   97.8848   7.1299  16.4570  10.2161  11.7993  16.4570  16.4570  16.4570  ±9.71%       27
+   · settles in a message of 2048 lines  11.0132  79.8558   178.29  90.8000  93.8474   178.29   178.29   178.29  ±7.99%       27
+fence-and-quote-time {"name":"Backspace at the end of the ``` on line 2","lines":2048,"keystrokes":25,"medianMs":5730.453164999984,"p95Ms":5804.7527249999985,"load":"2.27 8.04 22.42 2/1161 4190461"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the ``` on li…' 163256ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999     rme  samples
+   · settles in a message of 200 lines   16.6539  56.4644  69.0436  60.0460  60.9597  69.0436  69.0436  69.0436  ±1.74%       27
+   · settles in a message of 2048 lines   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  ±0.00%        0
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts [ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts ]
+AssertionError: expected 5730.453164999984 to be less than or equal to 1194.2379399999845
+ ❯ check src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts:45:29
+     43|         })}\n`);
+     44|         if (lines === SMALL) smallMedians.set(keystroke.name, median);
+     45|         else expect(median).toBeLessThanOrEqual(GROWTH * smallMedians.…
+       |                             ^
+     46|         if (onLineTwo) expect(median).toBeLessThanOrEqual(CEILING_MS[l…
+     47|       };
+ ❯ b.iterations [as fn] src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts:54:54
+ ❯ a ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:285:17
+ ❯ b.loop ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:292:34
+ ❯ b.run ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/tinybench@2.9.0/node_modules/tinybench/dist/index.js:313:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ BENCH  Summary
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…'
+    8.89x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the ``` on li…'
+    NaNx faster than settles in a message of 2048 lines
+
+Command exited with non-zero status 1
+168.71 s wall
+exit=1

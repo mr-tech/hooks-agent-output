@@ -1,0 +1,12 @@
+import json,sys,collections
+rows=[json.loads(l.split('RESULT ',1)[1]) for l in open(sys.argv[1]) if l.startswith('RESULT ')]
+node=[r for r in rows if r['lim']=='node']
+by=collections.OrderedDict()
+for r in node:
+    k=(r['m'],r['surface']); by.setdefault(k,[]).append(r)
+print('NODE: member | surface | throws at N | textOk false at | loadDiff>0 at (n:diffs) | zOk false at | zThrown at')
+for (m,s),rs in by.items():
+    print(m,'|',s,'|',[r['n'] for r in rs if r['thrown']],'|',[r['n'] for r in rs if not r['textOk']],'|',[(r['n'],r['loadDiffLines']) for r in rs if r['loadDiffLines']!=0],'|',[r['n'] for r in rs if not r['zOk']],'|',[r['n'] for r in rs if r['zThrown']])
+print('MOUNTED: member | n | thrown | writeOk')
+for r in rows:
+    if r['lim']=='mounted': print(r['m'],r['n'],bool(r['thrown']),r['writeOk'],r['writes'])

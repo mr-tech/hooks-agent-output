@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (59 tests | 5 failed) 38569ms
+       × builds as many run units in the longest message as in the shortest 8461ms
+       × builds as many run units in the longest message as in the shortest 2097ms
+       × builds as many run units in the longest message as in the shortest 8580ms
+       × builds as many run units in the longest message as in the shortest 8326ms
+       × builds as many run units in the longest message as in the shortest 8220ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  5 failed | 790 passed (795)
+   Start at  18:53:08
+   Duration  53.94s (transform 2.32s, setup 320ms, import 9.57s, tests 188.28s, environment 11.15s)
+

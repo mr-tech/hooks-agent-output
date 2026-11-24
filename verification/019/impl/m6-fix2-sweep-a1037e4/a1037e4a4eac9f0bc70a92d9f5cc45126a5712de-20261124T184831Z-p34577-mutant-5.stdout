@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 8 failed) 143ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 8ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 4ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 8ms
+     × takes in a typed quote marker inside a fence opened on a quote line 8ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 6ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 8ms
+     × is cleared when the marker of a carried code line is deleted by hand 2ms
+     × is resolved on the first line of the editor too 4ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 16615ms
+     × hands the message that text in a full-markdown editor 9168ms
+     × hands the message that text in a full-markdown editor 6980ms
+
+ Test Files  2 failed | 11 passed (13)
+      Tests  10 failed | 785 passed (795)
+   Start at  18:50:24
+   Duration  19.36s (transform 2.53s, setup 266ms, import 9.93s, tests 77.05s, environment 11.00s)
+

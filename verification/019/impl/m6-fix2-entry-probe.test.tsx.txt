@@ -1,0 +1,136 @@
+import { act } from 'react';
+import { Editor, Transforms } from 'slate';
+import {
+  afterEach, beforeAll, describe, expect, it, vi,
+} from 'vitest';
+
+import {
+  editorHolding, textOf,
+} from '../../__tests__/helpers/keystrokes';
+import { mountEditor, unmountEditor } from '../../__tests__/helpers/mountedEditor';
+import getInitialValue from '../getInitialValue';
+import onKeyDown from '../onKeyDown';
+
+import type { Element } from 'slate';
+import type { KeyboardEvent } from 'react';
+import type { Surface } from '~/utils/markdown/engine';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { try { unmountEditor(); } catch { /* none mounted */ } });
+
+type Member = {
+  name: string;
+  text: (n: number) => string;
+  at: (n: number) => { line: number; place: 'start' | 'end' };
+  key: 'type' | 'backspace' | 'gt-backspace';
+  char?: string;
+  keystroke: string;
+  expected: (n: number) => string;
+  afterZ: (n: number) => string;
+};
+
+const mk = (n: number, special: Record<number, string>) => Array.from({ length: n }, (_, i) => special[i] ?? 'a').join('\n');
+const mid = (n: number) => Math.floor(n / 2);
+
+const MEMBERS: Member[] = [
+  {
+    name: 'F1 make fence (line 2)', text: (n) => mk(n, { 2: '``' }), at: () => ({ line: 2, place: 'end' }), key: 'type', char: '`', keystroke: 'tick',
+    expected: (n) => mk(n, { 2: '```' }), afterZ: (n) => mk(n, { 2: '```z' }),
+  },
+  {
+    name: 'F2 unmake fence (line 2)', text: (n) => mk(n, { 2: '```' }), at: () => ({ line: 2, place: 'end' }), key: 'backspace', keystroke: 'bs',
+    expected: (n) => mk(n, { 2: '``' }), afterZ: (n) => mk(n, { 2: '``z' }),
+  },
+  {
+    name: 'F3 make closing delimiter (middle)', text: (n) => mk(n, { 2: '```', [mid(n)]: '``' }), at: (n) => ({ line: mid(n), place: 'end' }), key: 'type', char: '`', keystroke: 'tick',
+    expected: (n) => mk(n, { 2: '```', [mid(n)]: '```' }), afterZ: (n) => mk(n, { 2: '```', [mid(n)]: '```z' }),
+  },
+  {
+    name: 'F4 unmake closing delimiter (middle)', text: (n) => mk(n, { 2: '```', [mid(n)]: '```' }), at: (n) => ({ line: mid(n), place: 'end' }), key: 'backspace', keystroke: 'bs',
+    expected: (n) => mk(n, { 2: '```', [mid(n)]: '``' }), afterZ: (n) => mk(n, { 2: '```', [mid(n)]: '``z' }),
+  },
+  {
+    name: 'Q1 make >>> (>> a)', text: (n) => mk(n, { 0: '>> a' }), at: () => ({ line: 0, place: 'start' }), key: 'type', char: '>', keystroke: 'gt',
+    expected: (n) => mk(n, { 0: '>>> a' }), afterZ: (n) => mk(n, { 0: '>>> za' }),
+  },
+  {
+    name: 'Q2 make >>> (>> abc)', text: (n) => mk(n, { 0: '>> abc' }), at: () => ({ line: 0, place: 'start' }), key: 'type', char: '>', keystroke: 'gt',
+    expected: (n) => mk(n, { 0: '>>> abc' }), afterZ: (n) => mk(n, { 0: '>>> zabc' }),
+  },
+  {
+    name: 'Q3 unmake >>> (>>> a)', text: (n) => mk(n, { 0: '>>> a' }), at: () => ({ line: 0, place: 'start' }), key: 'gt-backspace', keystroke: 'bs-start',
+    expected: (n) => mk(n, { 0: 'a' }), afterZ: (n) => mk(n, { 0: 'za' }),
+  },
+  {
+    name: 'F56a make > ( abc, > typed at start)', text: (n) => mk(n, { 0: ' abc' }), at: () => ({ line: 0, place: 'start' }), key: 'type', char: '>', keystroke: 'gt',
+    expected: (n) => mk(n, { 0: '> abc' }), afterZ: (n) => mk(n, { 0: '> zabc' }),
+  },
+  {
+    name: 'F56b make > (>abc, space typed after >)', text: (n) => mk(n, { 0: '>abc' }), at: () => ({ line: 0, place: 'start' }), key: 'type', char: ' ', keystroke: 'sp-after-gt',
+    expected: (n) => mk(n, { 0: '> abc' }), afterZ: (n) => mk(n, { 0: '> zabc' }),
+  },
+];
+
+const shape = (line: Element) => JSON.stringify([line.type, line.quotePrefix ?? null, line.startCodeBlock, line.lang,
+  line.children.filter((c) => (c as { type: string }).type === 'emoji').map((c) => (c as { source: string }).source)]);
+
+const backspaceEvent = () => ({ key: 'Backspace', defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } });
+
+function keystroke(editor: Editor, m: Member, n: number) {
+  const { line, place } = m.at(n);
+  let point = place === 'start' ? Editor.start(editor, [line]) : Editor.end(editor, [line]);
+  if (m.keystroke === 'sp-after-gt') point = { path: [0, 0], offset: 1 };
+  Transforms.select(editor, point);
+  if (m.key === 'type') editor.insertText(m.char as string);
+  else if (m.key === 'backspace') editor.deleteBackward('character');
+  else {
+    const ev = backspaceEvent();
+    onKeyDown(editor, false, undefined)(ev as unknown as KeyboardEvent<HTMLDivElement>);
+    if (!ev.defaultPrevented) editor.deleteBackward('character');
+  }
+}
+
+const out = (o: object) => process.stdout.write(`RESULT ${JSON.stringify(o)}\n`);
+const SIZES: Array<[Surface, number[]]> = [
+  ['content', [40, 122, 123, 200, 1000]],
+  ['embedDescription', [40, 122, 123, 200, 1000, 2048]],
+];
+
+describe.each(MEMBERS)('$name', (m) => {
+  it.each(SIZES.flatMap(([surface, sizes]) => sizes.map((n) => [surface, n] as const)))('node %s %i', (surface, n) => {
+    const editor = editorHolding(m.text(n), surface);
+    let thrown = '';
+    try { keystroke(editor, m, n); } catch (e) { thrown = (e as Error).message.slice(0, 60); }
+    const text = textOf(editor);
+    const fresh = getInitialValue(m.expected(n), surface, false) as Element[];
+    const lines = editor.children as Element[];
+    const diffs = lines.length !== fresh.length ? -1 : lines.filter((l, i) => shape(l) !== shape(fresh[i])).length;
+    const sel = editor.selection;
+    let zText = '';
+    let zThrown = '';
+    try { editor.insertText('z'); zText = textOf(editor); } catch (e) { zThrown = (e as Error).message.slice(0, 40); }
+    out({
+      lim: 'node', m: m.name, surface, n, thrown, textOk: text === m.expected(n), loadDiffLines: diffs,
+      sel: sel ? [sel.anchor.path.join('.'), sel.anchor.offset, sel.focus.offset] : null, zOk: zText === m.afterZ(n), zThrown,
+    });
+    expect(true).toBe(true);
+  }, 300_000);
+});
+
+describe.each(MEMBERS)('mounted $name', (m) => {
+  it.each([40, 123, 200, 1000])('mounted content %i', async (n) => {
+    const mounted = mountEditor(m.text(n), false);
+    const { editor, writes } = mounted;
+    let thrown = '';
+    try { await act(async () => { keystroke(editor, m, n); }); } catch (e) { thrown = (e as Error).message.slice(0, 60); }
+    await act(async () => { vi.runOnlyPendingTimers(); });
+    const lastWrite = writes.at(-1) ?? '';
+    out({ lim: 'mounted', m: m.name, n, thrown, writeOk: lastWrite === m.expected(n), writes: writes.length });
+    unmountEditor();
+    expect(true).toBe(true);
+  }, 300_000);
+});

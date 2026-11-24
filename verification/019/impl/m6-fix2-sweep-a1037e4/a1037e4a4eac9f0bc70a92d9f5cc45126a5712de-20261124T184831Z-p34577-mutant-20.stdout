@@ -1,0 +1,82 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (59 tests | 5 failed) 3117ms
+       × builds as many run units in the longest message as in the shortest 18ms
+       × builds as many run units in the longest message as in the shortest 94ms
+       × builds as many run units in the longest message as in the shortest 19ms
+       × builds as many run units in the longest message as in the shortest 40ms
+       × builds as many run units in the longest message as in the shortest 15ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (396 tests | 39 failed) 4208ms
+       × raises no error 5ms
+       × raises no error 1ms
+       × raises no error 2ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 0ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (49 tests | 2 failed) 9697ms
+     × keeps "> a" a plain line while it is typed 10ms
+     × keeps ">>> a" a plain line while it is typed 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 23 failed) 12253ms
+     × hands the message the changed text on content, in a message of 200 lines 181ms
+     × hands the message the changed text on content, in a message of 1000 lines 611ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1336ms
+     × hands the message the changed text on content, in a message of 200 lines 73ms
+     × hands the message the changed text on content, in a message of 1000 lines 376ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 819ms
+     × hands the message the changed text on content, in a message of 1000 lines 380ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 723ms
+     × hands the message the changed text on content, in a message of 1000 lines 361ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 716ms
+     × hands the message the changed text on content, in a message of 123 lines 62ms
+     × hands the message the changed text on content, in a message of 200 lines 72ms
+     × hands the message the changed text on content, in a message of 1000 lines 362ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 820ms
+     × hands the message the changed text on content, in a message of 123 lines 55ms
+     × hands the message the changed text on content, in a message of 200 lines 66ms
+     × hands the message the changed text on content, in a message of 1000 lines 331ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 923ms
+     × hands the message the changed text on content, in a message of 122 lines 71ms
+     × hands the message the changed text on content, in a message of 123 lines 76ms
+     × hands the message the changed text on content, in a message of 200 lines 88ms
+     × hands the message the changed text on content, in a message of 1000 lines 362ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1338ms
+
+ Test Files  4 failed | 9 passed (13)
+      Tests  69 failed | 726 passed (795)
+   Start at  18:58:37
+   Duration  20.12s (transform 2.62s, setup 333ms, import 10.60s, tests 74.72s, environment 11.54s)
+

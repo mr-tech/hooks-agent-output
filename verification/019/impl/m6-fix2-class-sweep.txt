@@ -1,0 +1,83 @@
+### 42128cd: Transforms in non-test SlateEditor sources
+src/components/SlateEditor/index.tsx:72:          Transforms.select(editor, Editor.end(editor, []));
+src/components/SlateEditor/utils/onChange.ts:25:        Transforms.select(editor, {
+src/components/SlateEditor/utils/onCopy.ts:36:      Transforms.delete(editor, {
+src/components/SlateEditor/utils/onKeyDown.ts:38:    Transforms.delete(editor, { at: { anchor: from, focus: to, classNames: [] } });
+src/components/SlateEditor/utils/onKeyDown.ts:39:    Transforms.setNodes(editor, { carried: undefined }, { at: [anchor.path[0]] });
+src/components/SlateEditor/utils/onKeyDown.ts:50:        Transforms.setNodes(editor, { ...element, type: 'div' });
+src/components/SlateEditor/utils/onKeyDown.ts:54:        Transforms.delete(editor, { at: editor.selection });
+src/components/SlateEditor/utils/withNormalizeNode.ts:62:            Transforms.insertText(editor, child.quotePrefix, { at });
+src/components/SlateEditor/utils/withNormalizeNode.ts:68:            Transforms.insertText(editor, content, { at: [childLocation] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:74:        Transforms.setNodes(editor, {
+src/components/SlateEditor/utils/withNormalizeNode.ts:131:      Transforms.insertNodes(editor, [emojiElementOf(span)], {
+src/components/SlateEditor/utils/withNormalizeNode.ts:173:      Transforms.removeNodes(editor, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:174:      Transforms.insertNodes(editor, { type: 'span', text: element.source }, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:190:    Transforms.removeNodes(editor, { at: [lineIndex, at + 1] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:191:    Transforms.removeNodes(editor, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:194:    Transforms.insertText(editor, joined, { at: end });
+src/components/SlateEditor/utils/withNormalizeNode.ts:204:    Transforms.select(editor, { anchor, focus, classNames: [] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:212:    Transforms.setSelection(editor, { anchor: point, focus: point });
+src/components/SlateEditor/utils/withNormalizeNode.ts:231:    Transforms.setNodes(editor, { ...node, empty: true }, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:236:    Transforms.insertNodes(editor, [{
+src/components/SlateEditor/utils/withNormalizeNode.ts:247:    Transforms.insertNodes(editor, [{
+src/components/SlateEditor/utils/withNormalizeNode.ts:258:    Transforms.delete(editor, {
+src/components/SlateEditor/utils/withNormalizeNode.ts:269:        Transforms.insertNodes(editor, [{
+src/components/SlateEditor/utils/withNormalizeNode.ts:297:          Transforms.insertText(editor, apostrophe ? "'" : '"', {
+src/components/SlateEditor/utils/withNormalizeNode.ts:305:        if (selection) Transforms.setSelection(editor, selection);
+src/components/SlateEditor/utils/withNormalizeNode.ts:347:        Transforms.delete(editor, { at: { anchor: from, focus: to, classNames: [] } });
+src/components/SlateEditor/utils/withNormalizeNode.ts:348:        Transforms.setNodes(editor, { carried: undefined }, { at: [i] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:352:        Transforms.setNodes(editor, { carried: undefined }, { at: [i] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:381:        Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carried: true }, { at });
+src/components/SlateEditor/utils/withNormalizeNode.ts:383:        Transforms.insertText(editor, QUOTE_MARKER, { at: Editor.start(editor, at) });
+src/components/SlateEditor/utils/withNormalizeNode.ts:384:        Transforms.setNodes(editor, { carried: true }, { at });
+### a1037e4: Transforms in non-test SlateEditor sources
+src/components/SlateEditor/index.tsx:72:          Transforms.select(editor, Editor.end(editor, []));
+src/components/SlateEditor/utils/onChange.ts:25:        Transforms.select(editor, {
+src/components/SlateEditor/utils/onCopy.ts:36:      Transforms.delete(editor, {
+src/components/SlateEditor/utils/onKeyDown.ts:38:    Transforms.delete(editor, { at: { anchor: from, focus: to, classNames: [] } });
+src/components/SlateEditor/utils/onKeyDown.ts:39:    Transforms.setNodes(editor, { carried: undefined }, { at: [anchor.path[0]] });
+src/components/SlateEditor/utils/onKeyDown.ts:50:        Transforms.setNodes(editor, { ...element, type: 'div' });
+src/components/SlateEditor/utils/onKeyDown.ts:54:        Transforms.delete(editor, { at: editor.selection });
+src/components/SlateEditor/utils/withNormalizeNode.ts:63:            Transforms.insertText(editor, child.quotePrefix, { at });
+src/components/SlateEditor/utils/withNormalizeNode.ts:74:            Transforms.delete(editor, { at: marker });
+src/components/SlateEditor/utils/withNormalizeNode.ts:80:        Transforms.setNodes(editor, {
+src/components/SlateEditor/utils/withNormalizeNode.ts:146:      Transforms.insertNodes(editor, [emojiElementOf(span)], {
+src/components/SlateEditor/utils/withNormalizeNode.ts:201:      Transforms.removeNodes(editor, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:202:      Transforms.insertNodes(editor, { type: 'span', text: element.source }, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:218:    Transforms.removeNodes(editor, { at: [lineIndex, at + 1] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:219:    Transforms.removeNodes(editor, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:222:    Transforms.insertText(editor, joined, { at: end });
+src/components/SlateEditor/utils/withNormalizeNode.ts:232:    Transforms.select(editor, { anchor, focus, classNames: [] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:240:    Transforms.setSelection(editor, { anchor: point, focus: point });
+src/components/SlateEditor/utils/withNormalizeNode.ts:259:    Transforms.setNodes(editor, { ...node, empty: true }, { at: path });
+src/components/SlateEditor/utils/withNormalizeNode.ts:264:    Transforms.insertNodes(editor, [{
+src/components/SlateEditor/utils/withNormalizeNode.ts:275:    Transforms.insertNodes(editor, [{
+src/components/SlateEditor/utils/withNormalizeNode.ts:286:    Transforms.delete(editor, {
+src/components/SlateEditor/utils/withNormalizeNode.ts:297:        Transforms.insertNodes(editor, [{
+src/components/SlateEditor/utils/withNormalizeNode.ts:325:          Transforms.insertText(editor, apostrophe ? "'" : '"', {
+src/components/SlateEditor/utils/withNormalizeNode.ts:333:        if (selection) Transforms.setSelection(editor, selection);
+src/components/SlateEditor/utils/withNormalizeNode.ts:375:        Transforms.delete(editor, { at: { anchor: from, focus: to, classNames: [] } });
+src/components/SlateEditor/utils/withNormalizeNode.ts:376:        Transforms.setNodes(editor, { carried: undefined }, { at: [i] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:380:        Transforms.setNodes(editor, { carried: undefined }, { at: [i] });
+src/components/SlateEditor/utils/withNormalizeNode.ts:414:        Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carried: true }, { at });
+src/components/SlateEditor/utils/withNormalizeNode.ts:416:        Transforms.insertText(editor, QUOTE_MARKER, { at: Editor.start(editor, at) });
+src/components/SlateEditor/utils/withNormalizeNode.ts:417:        Transforms.setNodes(editor, { carried: true }, { at });
+### shouldNormalize / catch / try in SlateEditor sources (a1037e4)
+src/components/SlateEditor/index.tsx:81:      } catch {
+### unitAround
+42128cd src/components/SlateEditor/utils/decorator.tsx:6:import { unitAround } from './runUnit';
+42128cd src/components/SlateEditor/utils/decorator.tsx:81:      unit = unitAround(editor.children, lineIndex);
+42128cd src/components/SlateEditor/utils/emojiLift.ts:3:import { unitAround } from './runUnit';
+42128cd src/components/SlateEditor/utils/emojiLift.ts:110:    const unit = unitAround(lines, first);
+42128cd src/components/SlateEditor/utils/runUnit.ts:11:export function unitAround(children: Descendant[], line: number, emojiAs: 'placeholder' | 'source' = 'placeholder'): Unit {
+42128cd src/components/SlateEditor/utils/withNormalizeNode.ts:13:import { unitAround } from './runUnit';
+42128cd src/components/SlateEditor/utils/withNormalizeNode.ts:146:  const unit = unitAround(editor.children, lineIndex, 'source');
+a1037e4 src/components/SlateEditor/utils/decorator.tsx:6:import { unitAround } from './runUnit';
+a1037e4 src/components/SlateEditor/utils/decorator.tsx:81:      unit = unitAround(editor.children, lineIndex);
+a1037e4 src/components/SlateEditor/utils/emojiLift.ts:3:import { unitAround } from './runUnit';
+a1037e4 src/components/SlateEditor/utils/emojiLift.ts:110:    const unit = unitAround(lines, first);
+a1037e4 src/components/SlateEditor/utils/runUnit.ts:11:export function unitAround(children: Descendant[], line: number, emojiAs: 'placeholder' | 'source' = 'placeholder'): Unit {
+a1037e4 src/components/SlateEditor/utils/withNormalizeNode.ts:13:import { unitAround } from './runUnit';
+a1037e4 src/components/SlateEditor/utils/withNormalizeNode.ts:173:  const unit = unitAround(editor.children, lineIndex, 'source');
+### whole-node text replacement: insertText with at: [ path ]
+42128cd src/components/SlateEditor/utils/withNormalizeNode.ts:68:            Transforms.insertText(editor, content, { at: [childLocation] });

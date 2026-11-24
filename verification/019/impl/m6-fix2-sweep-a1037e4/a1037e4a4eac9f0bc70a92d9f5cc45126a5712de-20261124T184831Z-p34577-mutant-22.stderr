@@ -1,0 +1,271 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n> a', '> a\n> ', …(14) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ > a",
++   "> a
++ > ",
++   "> a
++ > > a",
++   "> a
++ > >>> a",
++   "> 
++ > a",
++   "> 
++ > ",
++   "> 
++ > > a",
++   "> 
++ > >>> a",
++   "> > a
++ > a",
++   "> > a
++ > ",
++   "> > a
++ > > a",
++   "> > a
++ > >>> a",
++   "> >>> a
++ > a",
++   "> >>> a
++ > ",
++   "> >>> a
++ > > a",
++   "> >>> a
++ > >>> a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ Array(8) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```js
++ ```c++*js||
++ > _
++ > `",
++   " 
++ > js~~
++ > 
++ js||\\",
++   "> > _*
++ > ||`\\
++ ```c++ _||
++ >> 
++ >_||",
++   "bb`
++ > 
++ > \\```",
++   "> #
++ > js||
++ >>> ```",
++   "``||
++
++ >  
++ > a**",
++   " > \\
++ > 
++ > `
++ ```c++*\\`
++ ```js||~~",
++   "> __
++ > `> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of a quote line, in front of text that starts with a quote marker saves what the table says
+AssertionError: expected '> a  \n> > b' to be '> a  \n> b' // Object.is equality
+
+- Expected
++ Received
+
+  > a  
+- > b
++ > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:61:49
+     59|     ['at the end of a quoted code line that follows another one in a f…
+     60|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     61|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     62|   });
+     63| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a quote marker types the line as typed once the carried marker is taken in or removed
+AssertionError: expected '> a\n> > b' to be '> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+  > a
+- > b
++ > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:77:28
+     75|     if (!typed.startsWith('> ')) pressBackspace(editor);
+     76|     typeKeys(editor, typed);
+     77|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two quote markers types the line as typed once the carried marker is taken in or removed
+AssertionError: expected '> a\n> > > b' to be '> a\n> > b' // Object.is equality
+
+- Expected
++ Received
+
+  > a
+- > > b
++ > > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:77:28
+     75|     if (!typed.startsWith('> ')) pressBackspace(editor);
+     76|     typeKeys(editor, typed);
+     77|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker inside a fence opened on a quote line
+AssertionError: expected '> ```\n> > x\n> > ```' to be '> ```\n> x\n> ```' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+- > x
+- > ```
++ > > x
++ > > ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:96:28
+     94|     Transforms.select(editor, Editor.end(editor, [0]));
+     95|     typeKeys(editor, '\n> x\n> ```');
+     96|     expect(textOf(editor)).toBe('> ```\n> x\n> ```');
+       |                            ^
+     97|   });
+     98| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket
+AssertionError: expected [ 1 ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   1,
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:120:34
+    118|     const editor = enterAt(text, line, 'end');
+    119|     typeKeys(editor, typed);
+    120|     expect(carriedLines(editor)).toEqual(expected);
+       |                                  ^
+    121|   });
+    122|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket
+AssertionError: expected [ 2 ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   2,
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:120:34
+    118|     const editor = enterAt(text, line, 'end');
+    119|     typeKeys(editor, typed);
+    120|     expect(carriedLines(editor)).toEqual(expected);
+       |                                  ^
+    121|   });
+    122|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared when the marker of a carried code line is deleted by hand
+AssertionError: expected [ '> ```\n> x\n', [ 2 ] ] to deeply equal [ '> ```\n> x\n', [] ]
+
+- Expected
++ Received
+
+  [
+    "> ```
+  > x
+  ",
+-   [],
++   [
++     2,
++   ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:127:52
+    125|     const marker = { anchor: at([2, 0], 0), focus: at([2, 0], 2), clas…
+    126|     Transforms.delete(editor, { at: marker });
+    127|     expect([textOf(editor), carriedLines(editor)]).toEqual(['> ```\n> …
+       |                                                    ^
+    128|   });
+    129|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is resolved on the first line of the editor too
+AssertionError: expected '> > b' to be '> b' // Object.is equality
+
+Expected: "> b"
+Received: "> > b"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:141:28
+    139|     Transforms.select(editor, Editor.end(editor, [0]));
+    140|     typeKeys(editor, '> b');
+    141|     expect(textOf(editor)).toBe('> b');
+       |                            ^
+    142|   });
+    143| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+

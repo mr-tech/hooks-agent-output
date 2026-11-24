@@ -1,0 +1,11 @@
+[
+ {
+  "id": "hand:NM-74b-no-retype-no-loop",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "          Editor.withoutNormalizing(editor, () => { retypeLines(editor, true); });\n          return true;",
+  "new": "          return false;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx"
+  ]
+ }
+]

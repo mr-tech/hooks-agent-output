@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/export-scan
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (61 tests | 2 failed) 4148ms
+     × reads the fence state of each line of a 200-line message once for a insert that changes no line type 12ms
+     × reads the fence state of each line of a 200-line message once for a backspace that changes no line type 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > reads the fence state of each line of a 200-line message once for a insert that changes no line type
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > reads the fence state of each line of a 200-line message once for a backspace that changes no line type
+AssertionError: expected 600 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 600
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:128:52
+    126|     vi.mocked(afterLine).mockClear();
+    127|     press(editor, kind);
+    128|     expect(vi.mocked(afterLine).mock.calls.length).toBe(200);
+       |                                                    ^
+    129|   });
+    130|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 59 passed (61)
+   Start at  19:02:03
+   Duration  5.35s (transform 202ms, setup 23ms, import 390ms, tests 4.15s, environment 654ms)
+
+exit=1

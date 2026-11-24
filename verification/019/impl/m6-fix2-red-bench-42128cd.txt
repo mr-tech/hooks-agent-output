@@ -1,0 +1,60 @@
+Benchmarking is an experimental feature.
+Breaking changes might not follow SemVer, please pin Vitest's version when using it.
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…' 403ms
+     name                                    hz     min     max    mean     p75     p99    p995    p999     rme  samples
+   · settles in a message of 200 lines   0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  ±0.00%        0
+   · settles in a message of 2048 lines  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  ±0.00%        0
+(node:4108103) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 2)
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts [ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts ]
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ BENCH  Summary
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…'
+    NaNx faster than settles in a message of 2048 lines
+
+Command exited with non-zero status 1
+2.45 s wall
+exit=1

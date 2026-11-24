@@ -1,0 +1,52 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/export-42128cd
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (59 tests | 5 failed) 2474ms
+       × builds as many run units in the longest message as in the shortest 52ms
+       × builds as many run units in the longest message as in the shortest 309ms
+       × builds as many run units in the longest message as in the shortest 62ms
+       × builds as many run units in the longest message as in the shortest 52ms
+       × builds as many run units in the longest message as in the shortest 33ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'Backspace at the end of the ``` on li…' > builds as many run units in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'the third backtick typed at the end o…' > builds as many run units in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for '> typed at the start of line 0 ">> a"' > builds as many run units in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for '> typed at the start of line 0 ">> ab…' > builds as many run units in the longest message as in the shortest
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'Backspace at the start of the text of…' > builds as many run units in the longest message as in the shortest
+Error: Could not completely normalize the editor after 84 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 54 passed (59)
+   Start at  18:37:02
+   Duration  3.83s (transform 184ms, setup 24ms, import 356ms, tests 2.47s, environment 610ms)
+
+exit=1

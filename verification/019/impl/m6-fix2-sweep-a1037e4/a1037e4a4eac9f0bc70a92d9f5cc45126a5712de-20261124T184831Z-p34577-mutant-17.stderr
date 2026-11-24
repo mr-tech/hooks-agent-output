@@ -1,0 +1,62 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'Backspace at the end of the ``` on li…' > builds as many run units in the longest message as in the shortest
+AssertionError: expected 2046 to be 198 // Object.is equality
+
+- Expected
++ Received
+
+- 198
++ 2046
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:110:31
+    108|         };
+    109|         const shortest = builtIn(200);
+    110|         expect(builtIn(2048)).toBe(shortest);
+       |                               ^
+    111|         expect(shortest).toBeGreaterThanOrEqual(1);
+    112|       }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'the third backtick typed at the end o…' > builds as many run units in the longest message as in the shortest
+AssertionError: expected 1023 to be 99 // Object.is equality
+
+- Expected
++ Received
+
+- 99
++ 1023
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:110:31
+    108|         };
+    109|         const shortest = builtIn(200);
+    110|         expect(builtIn(2048)).toBe(shortest);
+       |                               ^
+    111|         expect(shortest).toBeGreaterThanOrEqual(1);
+    112|       }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for '> typed at the start of line 0 ">> a"' > builds as many run units in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for '> typed at the start of line 0 ">> ab…' > builds as many run units in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'Backspace at the start of the text of…' > builds as many run units in the longest message as in the shortest
+AssertionError: expected 2047 to be 199 // Object.is equality
+
+- Expected
++ Received
+
+- 199
++ 2047
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:110:31
+    108|         };
+    109|         const shortest = builtIn(200);
+    110|         expect(builtIn(2048)).toBe(shortest);
+       |                               ^
+    111|         expect(shortest).toBeGreaterThanOrEqual(1);
+    112|       }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+

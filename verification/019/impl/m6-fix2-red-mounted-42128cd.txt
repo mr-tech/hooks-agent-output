@@ -1,0 +1,4 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix2-red-mounted-42128cd.json
+Command exited with non-zero status 1
+344.18 s wall
+exit=1

@@ -1,0 +1,79 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/mutant-19
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (59 tests | 5 failed) 2946ms
+       × builds as many run units in the longest message as in the shortest 23ms
+       × builds as many run units in the longest message as in the shortest 98ms
+       × builds as many run units in the longest message as in the shortest 14ms
+       × builds as many run units in the longest message as in the shortest 37ms
+       × builds as many run units in the longest message as in the shortest 15ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (396 tests | 39 failed) 4011ms
+       × raises no error 5ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 2ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 0ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 0ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+       × raises no error 1ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 23 failed) 11018ms
+     × hands the message the changed text on content, in a message of 200 lines 201ms
+     × hands the message the changed text on content, in a message of 1000 lines 592ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 1316ms
+     × hands the message the changed text on content, in a message of 200 lines 85ms
+     × hands the message the changed text on content, in a message of 1000 lines 393ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 747ms
+     × hands the message the changed text on content, in a message of 1000 lines 431ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 625ms
+     × hands the message the changed text on content, in a message of 1000 lines 305ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 632ms
+     × hands the message the changed text on content, in a message of 123 lines 55ms
+     × hands the message the changed text on content, in a message of 200 lines 59ms
+     × hands the message the changed text on content, in a message of 1000 lines 309ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 713ms
+     × hands the message the changed text on content, in a message of 123 lines 51ms
+     × hands the message the changed text on content, in a message of 200 lines 64ms
+     × hands the message the changed text on content, in a message of 1000 lines 344ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 804ms
+     × hands the message the changed text on content, in a message of 122 lines 71ms
+     × hands the message the changed text on content, in a message of 123 lines 74ms
+     × hands the message the changed text on content, in a message of 200 lines 81ms
+     × hands the message the changed text on content, in a message of 1000 lines 372ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 807ms
+
+ Test Files  3 failed | 10 passed (13)
+      Tests  67 failed | 728 passed (795)
+   Start at  18:58:18
+   Duration  18.09s (transform 2.58s, setup 409ms, import 10.20s, tests 66.27s, environment 11.77s)
+

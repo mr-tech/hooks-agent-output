@@ -1,0 +1,23 @@
+const ts = require('/usr/local/bin/hooks/website/node_modules/typescript');
+const path = require('path');
+const root = '/usr/local/bin/hooks/website';
+const cfg = ts.getParsedCommandLineOfConfigFile(path.join(root, 'tsconfig.json'), {}, { ...ts.sys, onUnRecoverableConfigFileDiagnostic: () => {} });
+const files = new Map(cfg.fileNames.map((f) => [f, 0]));
+const host = {
+  getScriptFileNames: () => cfg.fileNames, getScriptVersion: () => '0',
+  getScriptSnapshot: (f) => (ts.sys.fileExists(f) ? ts.ScriptSnapshot.fromString(ts.sys.readFile(f)) : undefined),
+  getCurrentDirectory: () => root, getCompilationSettings: () => cfg.options, getDefaultLibFileName: ts.getDefaultLibFilePath,
+  fileExists: ts.sys.fileExists, readFile: ts.sys.readFile, readDirectory: ts.sys.readDirectory,
+};
+const ls = ts.createLanguageService(host);
+const file = path.join(root, 'src/components/SlateEditor/utils/withNormalizeNode.ts');
+const text = ts.sys.readFile(file);
+for (const name of ['retypeLines', 'linesAgree', 'resolveEmoji', 'settledIn']) {
+  console.log(`## ${name}`);
+  const at = text.indexOf(`function ${name}(`) + 'function '.length + 1;
+  const refs = ls.findReferences(file, at) ?? [];
+  for (const group of refs) for (const r of group.references) {
+    const line = ts.sys.readFile(r.fileName).slice(0, r.textSpan.start).split('\n').length;
+    console.log(`${path.relative(root, r.fileName)}:${line} ${r.isDefinition ? 'definition' : 'reference'}`);
+  }
+}

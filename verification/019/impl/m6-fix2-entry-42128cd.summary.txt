@@ -1,0 +1,53 @@
+NODE: member | surface | throws at N | textOk false at | loadDiff>0 at (n:diffs) | zOk false at | zThrown at
+F1 make fence (line 2) | content | [200, 1000] | [] | [] | [] | []
+F1 make fence (line 2) | embedDescription | [200, 1000, 2048] | [] | [] | [] | []
+F2 unmake fence (line 2) | content | [200, 1000] | [] | [] | [] | []
+F2 unmake fence (line 2) | embedDescription | [200, 1000, 2048] | [] | [] | [] | []
+F3 make closing delimiter (middle) | content | [1000] | [] | [] | [] | []
+F3 make closing delimiter (middle) | embedDescription | [1000, 2048] | [] | [] | [] | []
+F4 unmake closing delimiter (middle) | content | [1000] | [] | [] | [] | []
+F4 unmake closing delimiter (middle) | embedDescription | [1000, 2048] | [] | [] | [] | []
+Q1 make >>> (>> a) | content | [123, 200, 1000] | [] | [] | [40, 122, 123, 200, 1000] | []
+Q1 make >>> (>> a) | embedDescription | [123, 200, 1000, 2048] | [] | [] | [40, 122, 123, 200, 1000, 2048] | []
+Q2 make >>> (>> abc) | content | [123, 200, 1000] | [] | [] | [40, 122, 123, 200, 1000] | []
+Q2 make >>> (>> abc) | embedDescription | [123, 200, 1000, 2048] | [] | [] | [40, 122, 123, 200, 1000, 2048] | []
+Q3 unmake >>> (>>> a) | content | [122, 123, 200, 1000] | [] | [] | [] | []
+Q3 unmake >>> (>>> a) | embedDescription | [122, 123, 200, 1000, 2048] | [] | [] | [] | []
+F56a make > ( abc, > typed at start) | content | [] | [] | [] | [40, 122, 123, 200, 1000] | []
+F56a make > ( abc, > typed at start) | embedDescription | [] | [] | [] | [40, 122, 123, 200, 1000, 2048] | []
+F56b make > (>abc, space typed after >) | content | [] | [] | [] | [40, 122, 123, 200, 1000] | []
+F56b make > (>abc, space typed after >) | embedDescription | [] | [] | [] | [40, 122, 123, 200, 1000, 2048] | []
+MOUNTED: member | n | thrown | writeOk
+F1 make fence (line 2) 40 False True 2
+F1 make fence (line 2) 123 False True 2
+F2 unmake fence (line 2) 40 False True 2
+F2 unmake fence (line 2) 123 False True 2
+F2 unmake fence (line 2) 200 True True 2
+F2 unmake fence (line 2) 1000 True True 2
+F3 make closing delimiter (middle) 40 False True 2
+F3 make closing delimiter (middle) 123 False True 2
+F3 make closing delimiter (middle) 200 False True 2
+F4 unmake closing delimiter (middle) 40 False True 2
+F4 unmake closing delimiter (middle) 123 False True 2
+F4 unmake closing delimiter (middle) 200 False True 2
+F4 unmake closing delimiter (middle) 1000 True True 2
+Q1 make >>> (>> a) 40 False True 2
+Q1 make >>> (>> a) 123 True True 2
+Q1 make >>> (>> a) 200 True True 2
+Q1 make >>> (>> a) 1000 True True 2
+Q2 make >>> (>> abc) 40 False True 2
+Q2 make >>> (>> abc) 123 True True 2
+Q2 make >>> (>> abc) 200 True True 2
+Q2 make >>> (>> abc) 1000 True True 2
+Q3 unmake >>> (>>> a) 40 False True 2
+Q3 unmake >>> (>>> a) 123 True True 2
+Q3 unmake >>> (>>> a) 200 True True 2
+Q3 unmake >>> (>>> a) 1000 True True 2
+F56a make > ( abc, > typed at start) 40 False True 2
+F56a make > ( abc, > typed at start) 123 False True 2
+F56a make > ( abc, > typed at start) 200 False True 2
+F56a make > ( abc, > typed at start) 1000 False True 2
+F56b make > (>abc, space typed after >) 40 False True 2
+F56b make > (>abc, space typed after >) 123 False True 2
+F56b make > (>abc, space typed after >) 200 False True 2
+F56b make > (>abc, space typed after >) 1000 False True 2

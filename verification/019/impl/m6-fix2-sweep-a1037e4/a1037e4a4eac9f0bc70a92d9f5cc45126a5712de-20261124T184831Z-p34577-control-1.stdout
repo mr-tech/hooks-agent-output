@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a0587103-dc83-400b-bd03-5af36c741f00/scratchpad/sweep-work/20261124T184831Z-p34577/control-1
+
+
+ Test Files  13 passed (13)
+      Tests  795 passed (795)
+   Start at  18:48:32
+   Duration  19.64s (transform 2.75s, setup 408ms, import 10.04s, tests 76.32s, environment 11.20s)
+
