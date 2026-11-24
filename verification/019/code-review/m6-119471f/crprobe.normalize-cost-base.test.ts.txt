@@ -1,0 +1,35 @@
+import { createEditor, Transforms } from 'slate';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import withNormalizeNode from '../withNormalizeNode';
+
+import type { Descendant } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+beforeAll(async () => { await startEngine(); });
+
+function timeEdits(lines: number, width: number) {
+  const text = Array.from({ length: lines }, (_, i) => `l${String(i).padStart(width - 2, '0')} `.slice(0, width)).join('\n');
+  const editor = withNormalizeNode(createEditor(), false, markdown.interactive.parseEmoji);
+  editor.children = getInitialValue(text, markdown.interactive.parseEmoji, false) as Descendant[];
+  const times: number[] = [];
+  for (let k = 0; k < 22; k += 1) {
+    const at = { path: [Math.floor(lines / 2), 0], offset: 1 };
+    const t0 = performance.now();
+    Transforms.insertText(editor, 'x', { at });
+    times.push(performance.now() - t0);
+  }
+  const sorted = times.slice(2).sort((a, b) => a - b);
+  return { lines, chars: text.length, median: sorted[Math.floor(sorted.length / 2)], max: sorted.at(-1) };
+}
+
+it('normalize cost per keystroke', { timeout: 120000 }, () => {
+  const rows = [timeEdits(35, 117), timeEdits(400, 10), timeEdits(1000, 4)];
+  writeFileSync('/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/m6/normalize-cost-base.out', JSON.stringify(rows, null, 1));
+});

@@ -1,0 +1,41 @@
+import { createEditor, Text } from 'slate';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import decorator from '../decorator';
+import decoratorM5 from '../decoratorM5';
+import getInitialValue from '../getInitialValue';
+
+import type { Descendant, Element } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+import { CORPUS, LINK_INPUTS, NATIVE_BOX_FROZEN } from '~/utils/markdown/__tests__/helpers/discordInputs';
+import { generateInputs } from '~/utils/markdown/__tests__/helpers/markdownGenerator';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const SURFACES = ['content', 'embedDescription', 'fieldValue', 'embedTitle', 'embedTitleWithUrl', 'v2Text'] as const;
+const INPUTS = [...CORPUS.map((c) => c.text), ...LINK_INPUTS, ...NATIVE_BOX_FROZEN.map((f: { text: string }) => f.text), ...generateInputs(20261123, 2000).map((g) => g.text)];
+
+beforeAll(async () => { await startEngine(); });
+
+it('both trees decorate alike', () => {
+  let nodes = 0; let differ = 0; const samples: unknown[] = [];
+  for (const surface of SURFACES) {
+    for (const text of INPUTS) {
+      const value = getInitialValue(text, surface, false) as Element[];
+      const editor = createEditor();
+      editor.children = value as Descendant[];
+      const a = decorator(editor, true, false, surface);
+      const b = decoratorM5(editor, true, false, surface);
+      value.forEach((line, li) => line.children.forEach((child, ci) => {
+        if (!Text.isText(child)) return;
+        nodes += 1;
+        const ra = JSON.stringify(a([child, [li, ci]]));
+        const rb = JSON.stringify(b([child, [li, ci]]));
+        if (ra !== rb) { differ += 1; if (samples.length < 5) samples.push({ surface, text, li, ci, ra, rb }); }
+      }));
+    }
+  }
+  writeFileSync('/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/m6/both-trees.out', JSON.stringify({ inputs: INPUTS.length, surfaces: SURFACES.length, nodes, differ, samples }, null, 1));
+});

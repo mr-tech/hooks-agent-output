@@ -1,0 +1,12 @@
+src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx
+src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts
+src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts
+src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts
+src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts
+src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx
+src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx
+src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx
+src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx
+src/utils/markdown/__tests__/discordEmojiSpans.frozen-literals.test.ts
+src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts
+src/utils/markdown/__tests__/simpleMarkdown.absent-from-product.test.ts

@@ -2,9 +2,9 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "cf126ea — repos=website; the latest verdict is the M5 Round 5 sub-entry at cf126ea (QAF-39, test-only, checked on 2e36107's M5 source with cf126ea's four test paths laid over it); Round 5 is M5 at 2e36107; M3's latest sub-entry at 81c68b2; Round 4 is M4 at e58f2ed; M2 closed at 7dcedc9"
+Reviewed-At: "119471f — repos=website; Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
 Status: In Review
-Round: 5
+Round: 6
 Verdict: APPROVED_WITH_COMMENTS
 ---
 
@@ -32,6 +32,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-24T02:42 | steering-hooks-fixer (hand-off); implementer-019 (M3 fix round 8, website `81c68b2`, record `d43e2b40`) | Round 3 sub-entry: confirm QAF-38 | QAF-38's fix confirmed at `81c68b2`: 14 of 14 mutants KILLED, network-isolated (QA's six constants, five operand or member swaps, both `switchReferrers` forms, and the fetcher not passed on). The live default passes 5 of 5. APPROVED_WITH_COMMENTS; M3 goes to QA's refresh. |
 | 2026-11-24T03:58 | implementer-019 (M5 hand-off, record `b9e9247c`, `Handoff-At: 2e36107`); steering-hooks-fixer (M5 hand-off; eslint ruling block 03:48Z, record `6866cd75`) | Review M5 | Round 5 at `2e36107`: **APPROVED_WITH_COMMENTS**. CR-3 RESOLVED (one leaf-role source). The `visibleForm` defect is confirmed, but the preview's inline code is guarded by M4's own tests (2 of 2 mutants KILLED), so it is CR-17 LOW. The AC-5.8 emoji exclusion drops whole inputs; the probe's sampled differences are the Slate layer's lift (AC-6.5, M6), so it is CR-18 LOW, carried to M6. Three dead interactive parsers are CR-19 LOW. The eslint FAILs are under the owner's ruling. |
 | 2026-11-24T05:14 | implementer-019 (M5 Fix Round 1, website `cf126ea`, record `2c45c566`) | Round 5 sub-entry: confirm QAF-39 | QAF-39's fix is confirmed on M5's own decorator (`2e36107` with `cf126ea`'s four test paths laid over it): 8 of 8 green, and m5-d2 is KILLED on x8 by assertion. The live box passes 10 of 10, its frozen entries re-derived. APPROVED_WITH_COMMENTS. Record correction: the M5 paths at `cf126ea` carry M6's changes (`8cb4d83`, `c3af0ac`, `f58a816`), which are M6's round. My Round 5 acceptance of m5-d2 was a miss, and QA's separating input is recorded. |
+| 2026-11-24T06:54 | implementer-019 (M6 hand-off, record `128c224d`, `Handoff-At: 119471f`; steering's brief not yet arrived) | Review M6 | Round 6 at `119471f`: **APPROVED_WITH_COMMENTS**. CR-18 and CR-19 RESOLVED. AC-6.1b's read holds at `5ec0621` and the tip. The run-unit move is decision-neutral: 0 of 36,690 nodes differ, and the m5-d2 control gives 24. CR-20 MEDIUM, measured: the normaliser rebuilds the run unit per line on every operation, 71 ms per keystroke at 400 lines against 1.1 ms at the base (about 20 ms at 200 lines). It is a stated limit under the cap and goes to steering as an owner question. CR-21 LOW: `emoji-regex` has no importer. |
 
 ## Scope of this round
 
@@ -1036,9 +1037,175 @@ Verdict, Round 5 sub-entry at `cf126ea`: **APPROVED_WITH_COMMENTS**, for the fix
 as at `2e36107`, and at `cf126ea` for the live box. It does not cover the M6 content of the M5 paths at `cf126ea`: that is M6's
 round. CR-17, CR-18 and CR-19 stand as before.
 
+## Round 6 at `119471f` (M6)
+
+The trigger is implementer-019's M6 hand-off (`implementation/019-slate-formatting-discord-engine-m6-implementation.md`, record
+`128c224d`, `Handoff-At: 119471f`). Steering's M6 brief had not arrived by round open, so I read the plan's M6 section, its
+Decisions Register rows D-21 and D-22, and R-74 myself.
+
+Scope: the M6 commits in `cf126ea^..119471f` plus `8cb4d83`, `c3af0ac` and `f58a816`, which sat in the tree at M5's Fix Round 1.
+- This is the first review of all of them, read through `git show 119471f:<path>`.
+- 29 product paths (+459 −1,092) and their tests. `cf126ea` itself was reviewed in Round 5's sub-entry.
+
+Criteria, as the plan states them at round open (Revision 15, plan record `9fc7d011`): AC-6.1, AC-6.1b (the read the plan gives
+code review), AC-6.2, AC-6.5, AC-6.6 and AC-6.7. AC-6.3 is UAT's walk (B-4), and AC-6.4 is an optional owner observation (M6 makes
+no `setOnInsert` edit). Carried: CR-18 and CR-19.
+
+Rulings that bound this round:
+- the cap (block 00:49Z);
+- D-20, the 8 eslint FAILs in `SlateEditor/index.tsx`, listed and not a finding;
+- steering's block 04:51Z on AC-6.5's 22 hand-control members;
+- R-74: the lift parses elements as their source text, the decorator as `?`. This is a stated limit, so the plan sentence "with
+  existing emoji elements as one `?` each" is read through that ruling.
+
+Process whose output is the evidence:
+- the suite's own cases;
+- three probes of mine, each with a control: a both-trees differential, two timing probes, and a re-read of the save callers.
+
+### Reading, file by file
+
+- **`runUnit.ts` and `unitParse.ts` (`8cb4d83` onward).** M5's `unitAround` and `styleUnit`'s fence framing move out verbatim.
+  - `unitAround` gains `emojiAs`, which defaults to `'placeholder'` and gives `?` for any inline element, as M5 did. The decorator
+    calls the default.
+  - A decision-neutrality claim, so it is settled by execution (below).
+- **`withNormalizeNode.ts`.**
+  - **S-29**: `handleEditor` inserts a blockQuote's `quotePrefix` as text when the line becomes code.
+  - **The lift and the re-decide**: `resolveEmoji` reverts first, then lifts. It makes one change per call, so Slate re-runs the
+    normaliser to the fixed point. It reads the unit in source space (`sourceWidthOf`), and inserts at an offset that is the same in
+    both spaces because it lies within one text child.
+  - **`revertToText`'s caret mapping** after `d652d12`:
+    - a caret on the reverting element maps past its source;
+    - one at its start stays;
+    - one on a later element lands at the start of the text after that element.
+    Traced by hand on each case.
+  - **The carry (AC-6.7)**: `carriesMarker` follows the table. It requires a line starting with `> `, not inside a `>>>` block, and
+    not inside a fence unless the fence was opened on a `> ` line. Partial mode never carries. The `apply` override strips
+    `quotePrefix` from every `split_node`, so a paste carries nothing (CF-22). `resolveCarried` takes in one typed `> ` and clears
+    the flag otherwise.
+- **`emojiLift.ts`.**
+  - `emojiLayout` collects the engine's `emoji` nodes of a fence-framed unit parse, cached by surface, fence context and text, FIFO
+    256.
+  - `liftLoaded` visits each unit once (`done`). A code line's unit is the line itself, because its neighbours are `codeBlock`
+    fence lines, so it parses inside the fence framing and lifts nothing.
+  - `spanOf` takes `src` from M4's `emojiSrc`.
+- **The readers.**
+  - `common.ts`: `isEmojiElement` is `type === 'emoji'`.
+  - `flattenNodeText.ts` saves `source`.
+  - `renderElementFactory.tsx` draws one `<Image>` from `src`, `alt` and `title`, at 18 px for a custom emoji or in an embed,
+    otherwise 22.
+  - `slate.d.ts` holds the new shape.
+- **`jumboable`.** The plan's reader list says `emojiToImage` reads "`src` and `jumboable`", and the tip has no `jumboable`. At
+  `2e36107`, `jumboify` (`emoji.tsx`) has no caller (`git grep -n jumboify 2e36107 -- src`: the definition only), so no editor
+  element was ever jumboable. The tip's sizes equal the base's for every element type. So this is behaviour-preserving, and the
+  plan names a reader that never fired. No finding.
+- **The `simple-markdown` removal (AC-6.6).**
+  - `git grep -n -i simple-markdown 119471f -- . ':!pnpm-lock.yaml'`: only the absence test.
+  - `pnpm-lock.yaml`: 0 hits.
+  - `patches/` is empty, and `src/@types/simple-markdown.d.ts` is deleted.
+  - `pnpm-workspace.yaml` is deleted. At `2e36107` it held only that `patchedDependencies` entry.
+  - The implementer's frozen install exits 0 (`m6-frozen-install.txt`).
+- **Tests.** The 12 new test files meet the positive form with 0 ID tokens (`m6-new-tests.txt`), and none is bug-form. The frozen
+  `emojiSpans.json` is the oracle helper's output, as D-21 prescribes, re-derived by `discordEmojiSpans.frozen-literals`.
+- **Conventions.** `convention-check.js --since=2e36107` gives 8 FAIL, all D-20's eslint lines; 0 CANDIDATE; 37 SKIP, the ID-token
+  check among them, done by hand above (`convention-check-since-2e36107.txt`).
+- **TDD Compliance.** The table has a row for every function. Its "No" rows are closed by named mutants and by the stub-tree reds
+  at `1aaa960`: `resolveEmoji` stubbed fails 17 of 21, and `revertToText` stubbed fails 7 of 21. The sweep's 24 survivors are each
+  dispositioned. Two are guards kept as unreachable (`withNormalizeNode.ts:152` and `:161`, named by line at `119471f`), which I
+  accept as type fallbacks.
+
+### Checks run this round
+
+All captures are in `verification/019/code-review/m6-119471f/`.
+- **AC-6.1b, the read the plan gives code review.** `git grep -n "saveMessage(" <ref> -- src ':!**/__tests__/**'` at the chain base
+  `5ec0621` and at `119471f`: the same four sites, `Navigation.tsx:143` and `:294` and `edit/page.tsx:65` and `:221`, all user
+  acts.
+  - The five `message.upsert` writers are the same at both refs: `NewMessageModal.tsx`, `message/f/[id]/page.tsx`,
+    `SaveAsMenu.tsx`, `message/m/new/page.tsx` and `MessageProvider/index.tsx`.
+  - So opening a box still writes nothing to the server. **AC-6.1b holds.**
+- **The run-unit move is decision-neutral, measured.**
+  - Method: M5's `decorator.tsx` and `unitStyles.ts` from `2e36107`, placed beside the tip's in an export of `119471f`. Both
+    decorate every text node of `getInitialValue`'s value, over 2,659 inputs (corpus, link inputs, the 87 frozen box cases, 2,000
+    generator inputs) on all six surfaces.
+  - Result: **0 of 36,690 nodes differ** (`both-trees-head.out.txt`).
+  - Positive control: with m5-d2 planted in the M5 copy, 24 nodes differ, x8 among them (`both-trees-control-m5-d2.out.txt`). The
+    differential can fire.
+- **The normaliser's cost per keystroke.** Probe `crprobe.normalize-cost`: one `insertText` mid-unit, on an editor wrapped in
+  `withNormalizeNode`, median of 20 after 2 warm-ups. Node, vitest `--project node`, this box, `unshare -rn`. Base (`2e36107`) and
+  tip, same text:
+
+  | Lines in one run unit | Characters | Base median | Tip median |
+  |---|---|---|---|
+  | 35 | 4,129 | 0.36 ms | 2.0 ms |
+  | 400 | 4,399 | 1.1 ms | 71 ms |
+  | 1,000 | 4,999 | 2.1 ms | 413 ms |
+
+  At the tip, on `content` and `embedDescription`, the medians are 2.6 and 2.3 ms at 50 lines, 6.3 and 6.1 ms at 100, 20.6 and
+  19.6 ms at 200 (2,199 characters), and 75 and 70 ms at 400. CR-20 below.
+- **CR-18 and CR-19, re-run.**
+  - CR-18: `decorator.preview-equals` now asserts `compared > 2200` per surface, that the six named inputs still differ, and that
+    nothing else differs. The implementer reports 2,239 of 2,245 compared, and the suite run is QA's.
+    `decorator.native-box-classes` compares its 12 element-holding inputs (floor 10). `git grep -c "holdsElement" 119471f -- src`
+    prints nothing. **RESOLVED.**
+  - CR-19: `git grep -c -i "interactiveParser\|interactiveBase\|interactiveWithoutLinks\|markdown\.interactive\|\.interactive\."
+    119471f -- src` prints nothing. **RESOLVED.**
+
+### Findings (Round 6)
+
+CR-20 MEDIUM Round 6 (M6, capped: a stated limit for the Planner batch; sent to steering as an owner question, below)
+- **Location**: `src/components/SlateEditor/utils/withNormalizeNode.ts`, `handleEditor`'s loop
+  `for (let i …) if (resolveEmoji(editor, surface, i))`, and `resolveEmoji`'s `unitAround(editor.children, lineIndex, 'source')`,
+  at `119471f`.
+- **Class**: per-line work that rebuilds the whole run unit on every editor normalisation. On a unit of N lines, each operation
+  costs O(N × unit length) in string building and cache-key hashing.
+- **Magnitude**: measured, in the table above: 64 times the base at 400 lines and 190 times at 1,000. The cost passes one 16 ms
+  frame at about 200 lines (2,200 characters, within content's 2,000/4,000 limit), before slate-react's render is added.
+  - Node, vitest, this box. The browser cost is not measured, so that part is a hypothesis for UAT's walk.
+  - The parse itself is cached (`emojiLayout`). The cost is the per-line `unitAround` and its 4 KB cache key.
+- **Enumeration**: `git grep -n "unitAround(" 119471f -- src` gives 4 hits:
+  - `decorator.tsx`: one unit per pass (`pass.units`), so not the class;
+  - `emojiLift.ts` `liftLoaded`: once per unit (`done`), not the class;
+  - `withNormalizeNode.ts` `resolveEmoji`, called from `handleEditor`'s loop over every line: **the member**;
+  - the same call reached from `handleElement`, once per dirty element: not the class.
+
+  The predicate does not see a per-line rebuild of another whole-document structure, for example `carriesMarker`'s walk from line
+  0, which runs once per Enter and so is not per operation.
+- **Required Action**:
+  - **Preferred (structural)**: `handleEditor` resolves per unit, not per line. It walks the lines once, builds each unit once (as
+    the decorator's `pass` does), and calls a unit-level resolve that returns at its first change.
+  - **Minimum**: memoise `unitAround` per `editor.children` identity inside the normaliser.
+  - Callers: `resolveEmoji` has two. `handleEditor` changes under both forms. `handleElement`'s single-line call keeps its
+    behaviour under either.
+  - **Falsity signature**: a counting case through a pass-through mock of `unitAround`, as AC-5.7 counts the engine. One
+    `insertText` on a 200-line single-unit value builds the unit at most a small constant number of times per normalisation pass
+    (at most 2). At the tip it builds it once per line, about 200, and the assertion fails on that count, not by a timeout.
+- **Not a severity floor**: no criterion states the normaliser's cost.
+
+CR-21 LOW Round 6 (M6, capped: a stated limit for the Planner batch)
+- **Location**: `package.json` `dependencies` `"emoji-regex": "^10.2.1"`, at `119471f`.
+- **Class**: a dependency with no importer, left by the change that removed its last reader. This is the implementer's own
+  Outstanding 5.
+- **Enumeration**: `git grep -n "emoji-regex" 119471f -- src package.json` gives `package.json` only. The predicate does not see a
+  dynamic `require` by computed name.
+- **Required Action**: remove it with its lockfile entries in a change that owns a lockfile move, AC-2.2's form, and disposition
+  any pin it moves.
+
+To the architect, not a finding against M6: `architecture/system-architecture.md`'s Packaging line reads "pnpm with a patched
+dependency (`simple-markdown` via `patches/`)", which is stale from M6. Sent to `architect-019`.
+
+### Verdict, Round 6
+
+**APPROVED_WITH_COMMENTS** for M6 at `119471f`.
+- CR-18 and CR-19 are RESOLVED.
+- AC-6.1b's read holds at the chain base and at the tip.
+- The run-unit move is measured decision-neutral.
+- CR-20 MEDIUM and CR-21 LOW are stated limits under the cap. CR-20, a measured user-visible regression on long messages, goes to
+  steering for the owner's word on whether the cap holds for it.
+- M6 goes to QA Phase 2.
+
 ## Verdict
 
 **Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
+- M6 is **APPROVED_WITH_COMMENTS** (Round 6 at `119471f`). CR-20 MEDIUM is a stated limit, with the owner's word on the cap sought through steering.
 - M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`, with its sub-entry for QAF-39 at `cf126ea`, checked on M5's source).
 - M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`). CR-17 is a LOW stated limit and does not move it.
 - M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
@@ -1067,7 +1234,8 @@ Open LOWs, each with its carrier:
 - CR-12 (M4) and CR-14 (M3): sent to `planner-019` for the Planner batch as stated limits (cap block 00:49Z).
 - The pre-existing `GuildProvider.tsx:162` lint FAIL: the implementer's follow-up.
 - CR-11: M4 Outstanding -1, not taken at `e58f2ed`; it is now a stated limit under the caps, sent with the batch above.
-- CR-17, CR-18 and CR-19 (Round 5): sent to `planner-019` for the Planner batch as stated limits. CR-18's carrier is M6's round.
+- CR-20 MEDIUM and CR-21 LOW (Round 6): sent to `planner-019` for the Planner batch as stated limits. CR-20 is also with steering for the owner.
+- CR-17 (Round 5): Planner batch, R-61. CR-18 and CR-19 are RESOLVED at Round 6.
 - CR-4's remainder, CR-8 and CR-9: M3 Outstanding 11.
 - CR-7's split and re-keying: M3 Outstanding 11. Its M6 deletion: plan R-30.
 - CR-5's preferred form (a zero cell fails the coverage run): M3 Outstanding 11.
@@ -1102,6 +1270,8 @@ member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA
 
 Round 2's Assumption Not Checked is closed at Round 4: it held for list type and link kind, and its residue is CR-12.
 
+Round 6: This review assumes that slate-react in Chrome routes Enter and Shift+Enter in a `> ` quote line through `editor.insertBreak` and `editor.insertSoftBreak`, the two methods M6's carry overrides, as the jsdom drive does, and does not test it. The suite drives the editor's methods, not the browser's `beforeinput` path. Falsity signature: in Chrome on a local production build, `> a`, Enter, `b` saves `> a\nb` (no carried marker), or Shift+Enter carries where Enter does. Owner: UAT, at AC-6.7's human-observable walk on AC-6.3's local build.
+
 Round 5: This review assumes that the run-unit decorator's per-edit cost in a real browser is of the same order as the node timing the implementer recorded (median 4.87 ms over a 4,160-character, 35-line unit), and does not test it. The timing was read under vitest in node, not in Chrome with slate-react's render loop. Falsity signature: in Chrome on a local production build, a decorate pass over AC-5.7's 4,096-character multi-line unit, profiled during typing, takes over 16 ms (one frame), or typing shows visible input lag. Owner: UAT, at AC-5.5's real-browser walk (QA register B-3), which runs on that build.
 
 Round 3 sub-entry at `81c68b2`: This review assumes that the whole offline suite passes at `81c68b2` (the implementer reports 223 files, 3,272 of 3,272, exit 0, on a rerun after one load timeout in `preview.engine-not-ready`), and does not test it. I ran only `discordRouting.predicates` offline and the live routing file. Falsity signature: in an export of `81c68b2`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,272. Owner: QA's refresh pass on M3.
@@ -1125,30 +1295,27 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
   - the refresh pass on M3's `380e82d` (QAF-32 and QAF-33);
   - the M3 items as before.
 - Planner (`planner-019`): CR-11, CR-12, CR-14 and CR-16 as stated limits in the Planner batch (CR-13 is resolved).
-- M6's implementer and this review's M6 round: CR-18 (retire AC-5.8's whole-input emoji exclusion once AC-6.5 lands) and CR-19 (the dead parsers, if not taken earlier). CR-3 is RESOLVED at Round 5.
+- QA (`qa-019`): Phase 2 on M6 at `119471f`, with CR-20's timing probe available (`verification/019/code-review/m6-119471f/`).
+- Steering (`steering-hooks-fixer`): CR-20, the owner's word on whether the cap holds for a measured typing regression.
+- Architect (`architect-019`): the stale Packaging line in `system-architecture.md`.
 - QA (`qa-019`): Phase 2 on M5 at `2e36107`. That covers the offline suite (Round 5's Assumption Not Checked is UAT's) and CR-18's population past the sample.
 
 ## Resumption State
 
-Updated 2026-11-24T03:58Z, after Round 5 (M5).
+Updated 2026-11-24T06:54Z, after Round 6 (M6).
 
 - **Done.**
-  - **M2:** closed, APPROVED_WITH_COMMENTS at `7dcedc9`.
-  - **M3:** APPROVED_WITH_COMMENTS at `81c68b2`.
-  - **M4:** APPROVED_WITH_COMMENTS at `e58f2ed`.
-  - **M5:** APPROVED_WITH_COMMENTS at `2e36107`, with QAF-39's fix confirmed at `cf126ea` on M5's source. CR-3 is RESOLVED, and CR-17,
-    CR-18 and CR-19 are LOW stated limits.
-- **Next.** M6 at its document's `Handoff-At`, after steering's hand-off. M6's round reviews the M6 changes to M5 paths (`runUnit.ts`
-  and the `decorator.tsx` and `unitStyles.ts` deltas from `2e36107`) as a first review.
-  - It owes CR-18: retire AC-5.8's whole-input emoji exclusion once AC-6.5's lift reads the engine. Re-run
-    `verification/019/code-review/m5-2e36107/crprobe.preview-equals-emoji.test.tsx.txt`.
-  - It owes CR-19 if the dead parsers were not taken earlier.
-  - It is capped. A severity floor is excepted.
-- **Approach in flight.** None. Round 5's plan row is R-60 (`11d4e7c6`), written after `planner-019` committed Revision 13
-  (`f9b406d6`), which changes AC-6.5 only.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `2e36107`, with another
-  session's uncommitted M6 work in `withNormalizeNode.ts`. I never move it.
-- **Local state.** The scratchpad holds `qaf36/` and `m5/`, including the export `m5/x2e/` with the probe files, all disposable.
-  Everything cited is under `verification/019/code-review/` (`qaf36-b04c09f/`, `cr15-d6aab03/`, `qaf38-81c68b2/`, `m5-2e36107/`).
-- **Questions sent, and to whom.** None open.
-- **Cache-warm wake.** Armed as a one-shot (04:33 local).
+  - M2 at `7dcedc9`, M3 at `81c68b2`, M4 at `e58f2ed`, M5 at `2e36107` (with QAF-39 at `cf126ea`) and M6 at `119471f`: all
+    APPROVED_WITH_COMMENTS.
+  - Open stated limits: CR-17 (R-61), and CR-20 MEDIUM and CR-21 LOW (Round 6).
+- **Next.**
+  - CR-20: if the owner lifts the cap for it, its fix confirmation is a Round 6 sub-entry. Re-run
+    `verification/019/code-review/m6-119471f/crprobe.normalize-cost-tip.test.ts.txt` at the fix SHA, and check the counting case
+    fails under the per-line form.
+  - Then M7 is devops's. This review has no M7 round unless steering asks for one.
+- **Approach in flight.** None.
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `119471f`. I never move it.
+- **Local state.** The scratchpad holds `qaf36/`, `m5/` and `m6/`, with the exports, all disposable. Everything cited is under
+  `verification/019/code-review/`.
+- **Questions sent, and to whom.** CR-20's cap question, to `steering-hooks-fixer`.
+- **Cache-warm wake.** Armed as a one-shot.
