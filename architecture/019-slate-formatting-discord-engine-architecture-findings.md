@@ -433,6 +433,12 @@ Slate operations' floor comes to about 21 ms warm at 1,000 lines, against the mi
 member is in reach by this bound. The fence scan and the drain's remainder are still unmeasured, and SL-29's timed reading at Fix
 Round 4's tip decides.
 
+**Code review's figures agree** (code review Round 8 at `2b82972`, record `7376a74c`; figures in
+`verification/019/code-review/m6fix3-2b82972/sl29-table.txt`, the reviewer's, not re-run). The Backspace close on line 2 runs 790
+operations at 123 µs each at 200 lines, and 3,990 at 308 µs each at 1,000. The reviewer's hypothesis, that the cost per operation
+grows with Slate's dirty set, is the cause `dirty-probe` measures on plain Slate. So a form that only cuts the operations per line
+by a constant ratio stays quadratic, as `dirty-probe-2`'s rebuild row shows.
+
 **A criterion's wording this form bears on.** AC-6.9's no-throw limb refuses "any change that stops `Editor.normalize` from
 reporting a drain that does not settle" (revision 22, my CF-30). Suppressing dirty paths takes lines out of the drain. My reading
 is that it does not hide an unsettled drain, because the suppressed lines are settled by construction and the fresh-load limb
