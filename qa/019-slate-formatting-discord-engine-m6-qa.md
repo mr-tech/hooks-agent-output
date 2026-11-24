@@ -359,14 +359,27 @@ absence of the throw.
 
 ## Resumption State
 
-Rewritten 2026-11-24T14:35 at steering's stop (block 14:33Z, record `d7eb0a40`), at a seam. Every write is committed.
+Rewritten 2026-11-24T17:04 at steering's `/checkpoint` (about 404K tokens), at a seam. Every write is committed.
 
-- **Superseding the list below.** The refresh at `42128cd` is stopped and recorded in § Results at `42128cd`. **Next**: the Phase 1
-  re-key on the planner's revision for the new fix round (the code-fence normalise throw in QAF-51's form, and CR-23). Then the
-  M6 refresh at that round's code-reviewed tip. The owed list below still applies, plus the sweep carry-over in § Results, and
-  QAF-51's caret-placement observation checked again in the round's build. Every scratch export of this pass is deleted
-  (`tipx`, `basex`, `redx` and the sweep work directories). The local database is down (`uat-local-stack.sh down`), and `ps` at
-  14:36 shows no server, sweep or vitest of mine. The model-selection probe outputs that back QAF-51's handoff row are in
+- **Since 14:35.** The Phase 1 re-key on Revision 21 is committed (record `225ef4a6`, Phase 1 document § Re-key on Revision 21):
+  P-Q26, **QAF-52 MEDIUM**, NM-73 to NM-77, and **B-11** minted with its walk run at `42128cd`. planner-019 took QAF-52 into
+  Revision 22. Its unmaking member becomes Backspace at the start of the quote line's text, giving `a` and then `za`. Revision 22
+  also carries the 27 and 104 ms ceilings and CF-30, which refuses a caught throw or an unbounded `shouldNormalize`.
+- **Steering's message at 17:03Z, verbatim:** "the owner chose to fix your QAF-52 caret in this release (selection 17:03Z; effort
+  rulings block "2026-11-24T17:03Z", record 0fa784d0). Expected: `>> a` → `>>> za`, `>> abc` → `>>> zabc`. My helper's run puts
+  the caret at the end of the line's text (`>> abc` gives `>>> abcz`), at af3d95a and 42128cd. The planner folds this into
+  Revision 22, which your re-key reads." My offset-1 reading on `a` is the end of that one-character text, so the two agree.
+- **Next: the Phase 1 re-key on Revision 22**, when planner-019 sends it. Read it as the diff from `81523bd6`. Check QAF-52's fold:
+  making gives `>>> za` and `>>> zabc`, with the caret fix in scope; unmaking gives `a`, then `za`. Check CF-30's refusal against
+  NM-73 (a swallowed throw). NM-73 then becomes a mutant the criterion forbids by construction. Re-check B-11's K1 prediction
+  (now `>>> za`, and add `>> abc`), then sweep the register on rows citing AC-6.9. Then the M6 refresh at the second fix
+  round's code-reviewed tip. The owed list below still applies, plus the sweep carry-over in § Results, and
+  QAF-51's caret-placement observation checked again in the round's build, and AC-6.9's limbs and NM-73 to NM-77 (Phase 1
+  document). Every scratch export is deleted, including the 14:50 `tipx` used for P-Q26 and the walk. The local database is
+  down (`uat-local-stack.sh down`, 14:47), and the 3107 server is stopped (0 listeners). No server, sweep or vitest of mine runs.
+  Website is on `chain/019-slate-formatting-discord-engine` at HEAD `42128cd`, and I wrote nothing there. Nothing of mine is
+  uncommitted, and no evidence is run but unrecorded. The walk's PNGs stay untracked under `phase1-rev21/walk/` and
+  `m6/fix/browser/`, as captured media. Questions open: QAF-52 with planner-019, folding into Revision 22. The model-selection probe outputs that back QAF-51's handoff row are in
   `fix/browser/model-selection-*.out.txt`: the selection stays at `[0,0]` offset 1 after `>` at 2 to 123 lines, on both trees.
 
 - **Done.**
