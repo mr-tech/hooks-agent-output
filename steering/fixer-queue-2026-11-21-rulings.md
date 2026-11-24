@@ -1277,3 +1277,11 @@ code (axiom E). It also keeps the timed limb as it stands. The `normalizeNode` c
 floor is excepted, and block 07:15Z's third exception retires with the literals. Critic's decision 2 is answered by the same act: no exact
 per-kind literal, and an invariance property in place of a bare upper bound.
 Recipients: `planner-019` (Revision 19, cues the gates), `critic-019`.
+
+## 2026-11-24T07:26Z — plan 019 M6 CR-20 fix round start (this thread's, steering.md Implementer)
+
+Revision 19 (record `4a68f286`; the plan's `Revision` field reads 19, read this turn) has passed all three gates: critic `73a6bce9`, architect
+`ccddf880` and QA Phase 1 re-key `4764a6ee` (plan R-86, `6b8555d2`). No `OPEN QUESTION` is open. CR-20's fix round on M6 starts on that
+revision, against QA's Phase 1 document at `4764a6ee`. `planner-019` released the round to `implementer-019`, and its `cc-usage.py` row reads
+busy at 07:26Z. Its hand-off goes to `code-reviewer-019` first. **For him at hand-off:** SL-22's measured cost of a line-type-changing keystroke
+at 2,048 lines. If it is well over 16 ms, it goes to him as a selection before release.
