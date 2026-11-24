@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/mrwork2/20261124T012705Z-p3268180/mutant-2
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 262ms
+     × is the style once: the repeated node gives its children to the one around it 7ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 40 passed (41)
+   Start at  01:27:13
+   Duration  2.35s (transform 498ms, setup 23ms, import 1.24s, tests 262ms, environment 658ms)
+

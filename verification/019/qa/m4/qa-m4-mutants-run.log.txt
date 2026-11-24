@@ -1,0 +1,4 @@
+QA-S1 preview.tsx:42:walk-last:2 (self-check survivor not re-run) KILLED 53.41
+QA-N1 Markdown.tsx channel list not passed to the parser KILLED 57.48
+QA-N2 Markdown.tsx span rewrite drops the character after the span KILLED 52.3
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qa-m4-mutants.json (blob 0a367fb5d4d360e559d276966504245abb331b93))

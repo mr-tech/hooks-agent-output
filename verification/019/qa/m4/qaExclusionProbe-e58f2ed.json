@@ -1,0 +1,24 @@
+{
+ "inputs": 2378,
+ "byPattern": 402,
+ "byWalk": 402,
+ "patternNotWalk": [],
+ "walkNotPattern": [],
+ "tsPattern": [
+  "corpus:191"
+ ],
+ "tsWalk": [
+  "corpus:191"
+ ],
+ "perKind": {
+  "channel": 58,
+  "command": 66,
+  "everyone": 65,
+  "game": 74,
+  "here": 61,
+  "role": 60,
+  "static": 283,
+  "user": 134
+ },
+ "excludedEither": 403
+}

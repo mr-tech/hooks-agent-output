@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/mrwork/20261124T012022Z-p3151444/mutant-1
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 1 failed) 852ms
+     × names a thread of the second listed channel, and one of the first, in the same list 10ms
+
+ Test Files  1 failed | 78 passed (79)
+      Tests  1 failed | 1367 passed (1368)
+   Start at  01:21:13
+   Duration  52.19s (transform 20.46s, setup 875ms, import 116.90s, tests 199.82s, environment 62.84s)
+

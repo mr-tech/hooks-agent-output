@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/mrwork/20261124T012022Z-p3151444/mutant-2
+
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 7 failed) 1928ms
+     × names the channel after content  when the guild list is in reach 678ms
+     × names the channel after title  when the guild list is in reach 149ms
+     × names the channel after description  when the guild list is in reach 113ms
+     × names the channel after field name  when the guild list is in reach 116ms
+     × names the channel after field value  when the guild list is in reach 103ms
+     × names the channel after linked title  when the guild list is in reach 109ms
+     × names the channel after text display  when the guild list is in reach 76ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 3 failed) 314ms
+     × names a listed channel 141ms
+     × names a thread under a listed channel 16ms
+     × shows the new name when the list changes under a mounted preview 57ms
+
+ Test Files  2 failed | 77 passed (79)
+      Tests  10 failed | 1358 passed (1368)
+   Start at  01:22:07
+   Duration  56.15s (transform 31.50s, setup 1.66s, import 149.93s, tests 224.98s, environment 79.05s)
+

@@ -1,0 +1,98 @@
+{
+ "sha": "e58f2ed825e47da31e251c5e1457abc4bc065280",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "sh",
+  "-c",
+  "ip link set lo up; npx vitest run --project dom src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants.json",
+   "blob": "115851c44df491fd280ba9ab81ed1e8c75083052"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants-out/e58f2ed825e47da31e251c5e1457abc4bc065280-20261124T012705Z-p3268180-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants-out/e58f2ed825e47da31e251c5e1457abc4bc065280-20261124T012705Z-p3268180-control-1.stderr",
+   "seconds": 3.5,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 41,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "QA-C1 collapseRepeatedStyles collapses any style nested in any style",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/__tests__/helpers/canonFromDom.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 41,
+   "control_tests_run": 41,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > a style inside the same style > is the style once: the repeated node gives its children to the one around it",
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > a style inside the same style > leaves two different styles, and the same style in two places, as they are"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.54,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants-out/e58f2ed825e47da31e251c5e1457abc4bc065280-20261124T012705Z-p3268180-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants-out/e58f2ed825e47da31e251c5e1457abc4bc065280-20261124T012705Z-p3268180-mutant-1.stderr"
+  },
+  {
+   "id": "QA-C2 collapseRepeatedStyles collapses nothing",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/__tests__/helpers/canonFromDom.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 41,
+   "control_tests_run": 41,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > a style inside the same style > is the style once: the repeated node gives its children to the one around it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.49,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants-out/e58f2ed825e47da31e251c5e1457abc4bc065280-20261124T012705Z-p3268180-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/qa/m4/qa-m4-instrument-mutants-out/e58f2ed825e47da31e251c5e1457abc4bc065280-20261124T012705Z-p3268180-mutant-2.stderr"
+  }
+ ],
+ "score": "2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qa-m4-instrument-mutants.json (blob 115851c44df491fd280ba9ab81ed1e8c75083052))"
+}

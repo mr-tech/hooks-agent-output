@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/mrwork/20261124T012022Z-p3151444/mutant-3
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 6 failed) 5176ms
+     × with one timestamp between text 814ms
+     × with identical duplicates, the first 423ms
+     × with a timestamp inside a spoiler, the first 366ms
+     × with the bare form 301ms
+     × with three timestamps, the middle one 218ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 369ms
+
+ Test Files  1 failed | 78 passed (79)
+      Tests  6 failed | 1362 passed (1368)
+   Start at  01:23:05
+   Duration  50.97s (transform 28.08s, setup 958ms, import 129.39s, tests 200.38s, environment 68.45s)
+

@@ -1,0 +1,20 @@
+[
+ {
+  "id": "QA-S1 preview.tsx:42:walk-last:2 (self-check survivor not re-run)",
+  "file": "src/utils/markdown/preview.tsx",
+  "old": "n channels.f",
+  "new": "n (Array.isArray(channels) ? channels.slice(-1) : channels).f"
+ },
+ {
+  "id": "QA-N1 Markdown.tsx channel list not passed to the parser",
+  "file": "src/components/Markdown.tsx",
+  "old": "    channels,\n",
+  "new": "    channels: null,\n"
+ },
+ {
+  "id": "QA-N2 Markdown.tsx span rewrite drops the character after the span",
+  "file": "src/components/Markdown.tsx",
+  "old": "value.slice(span.end)",
+  "new": "value.slice(span.end + 1)"
+ }
+]

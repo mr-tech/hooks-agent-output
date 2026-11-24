@@ -1,0 +1,78 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > a style inside the same style > is the style once: the repeated node gives its children to the one around it
+AssertionError: expected [ { t: 'N', name: 'i', …(2) } ] to deeply equal [ { t: 'N', name: 'i', …(2) } ]
+
+- Expected
++ Received
+
+@@ -1,20 +1,13 @@
+  [
+    {
+      "attr": "",
+      "kids": [
+        {
+-         "attr": "",
+-         "kids": [
+-           {
+          "attr": "user:1",
+          "kids": null,
+          "name": "m",
+-             "t": "N",
+-           },
+-         ],
+-         "name": "b",
+          "t": "N",
+        },
+      ],
+      "name": "i",
+      "t": "N",
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:128:8
+    126|     expect(collapseRepeatedStyles([N('i', '', [N('i', '', [T('a')])])]…
+    127|     expect(collapseRepeatedStyles([N('i', '', [N('b', '', [N('i', '', …
+    128|       .toEqual([N('i', '', [N('b', '', [N('m', 'user:1', null)])])]);
+       |        ^
+    129|   });
+    130|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > a style inside the same style > leaves two different styles, and the same style in two places, as they are
+AssertionError: expected [ { t: 'N', name: 'i', …(2) } ] to deeply equal [ { t: 'N', name: 'i', …(2) } ]
+
+- Expected
++ Received
+
+@@ -1,19 +1,12 @@
+  [
+    {
+      "attr": "",
+      "kids": [
+        {
+-         "attr": "",
+-         "kids": [
+-           {
+          "s": "a",
+          "t": "T",
+-           },
+-         ],
+-         "name": "b",
+-         "t": "N",
+        },
+      ],
+      "name": "i",
+      "t": "N",
+    },
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:132:74
+    130|
+    131|   it('leaves two different styles, and the same style in two places, a…
+    132|     expect(collapseRepeatedStyles([N('i', '', [N('b', '', [T('a')])])]…
+       |                                                                          ^
+    133|     expect(collapseRepeatedStyles([N('i', '', [T('a')]), N('i', '', [T…
+    134|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,252 @@
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to MarkdownProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Author inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#general' ]
+
+- Expected
++ Received
+
+  [
+-   "#general",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:36:23
+     34|   it('names a listed channel', () => {
+     35|     const el = mountDom(<Context.Provider value={guild([channel('111',…
+     36|     expect(pills(el)).toEqual(['#general']);
+       |                       ^
+     37|   });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a thread under a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#a-thread' ]
+
+- Expected
++ Received
+
+  [
+-   "#a-thread",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:42:23
+     40|     const list = [channel('222', 'rules', 0, [{ id: '111', name: 'a-th…
+     41|     const el = mountDom(<Context.Provider value={guild(list)}>{drawn('…
+     42|     expect(pills(el)).toEqual(['#a-thread']);
+       |                       ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > shows the new name when the list changes under a mounted preview
+AssertionError: expected [ '#111' ] to deeply equal [ '#general' ]
+
+- Expected
++ Received
+
+  [
+-   "#general",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:58:23
+     56|     }
+     57|     const el = mountDom(<Harness />);
+     58|     expect(pills(el)).toEqual(['#general']);
+       |                       ^
+     59|
+     60|     act(() => { setList([channel('111', 'renamed')]); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after title  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after description  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after field name  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after field value  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after linked title  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after text display  when the guild list is in reach
+AssertionError: expected '#111' to be '#general' // Object.is equality
+
+Expected: "#general"
+Received: "#111"
+
+ ❯ src/app/preview/__tests__/page.channel-names.test.tsx:63:35
+     61|   it.each(SURFACES)('names the channel after %s when the guild list is…
+     62|     const el = await mountPage(true);
+     63|     expect(drawnNextTo(el, lead)).toBe('#general');
+       |                                   ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+

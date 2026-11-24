@@ -1,0 +1,14 @@
+[
+ {
+  "id": "QA-C1 collapseRepeatedStyles collapses any style nested in any style",
+  "file": "src/utils/markdown/__tests__/helpers/canonFromDom.ts",
+  "old": "return around.has(n.name) ? kids : [{ ...n, kids }];",
+  "new": "return around.size > 0 ? kids : [{ ...n, kids }];"
+ },
+ {
+  "id": "QA-C2 collapseRepeatedStyles collapses nothing",
+  "file": "src/utils/markdown/__tests__/helpers/canonFromDom.ts",
+  "old": "return around.has(n.name) ? kids : [{ ...n, kids }];",
+  "new": "return [{ ...n, kids }];"
+ }
+]

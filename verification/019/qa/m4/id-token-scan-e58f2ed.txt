@@ -1,0 +1,4 @@
+files 32 hits 0
+HIT CONTROL 1 it('renders QAF-12 case', () => {
+HIT CONTROL 2 // see CR-7 here
+control hits 2 of 2 expected

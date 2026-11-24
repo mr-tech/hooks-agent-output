@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/57821669-214f-4057-8b6c-89a192747021/scratchpad/mrwork/20261124T012022Z-p3151444/control-1
+
+
+ Test Files  79 passed (79)
+      Tests  1368 passed (1368)
+   Start at  01:20:23
+   Duration  49.31s (transform 22.62s, setup 1.09s, import 122.25s, tests 191.22s, environment 64.91s)
+
