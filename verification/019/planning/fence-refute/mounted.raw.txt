@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/73f0c622-8edf-4924-bc82-4f6ccb72e068/scratchpad/fence-refute/42128cd
+
+RESULT {"name":"open fence line 2 of 200","ms":10,"thrown":"Could not completely normalize the editor after 126 iterations! This is usually due to incorrect nor","consoleErrors":[],"uncaught":[],"onChangeTextEqualsExpected":false,"writesCount":2,"lastLen":400,"furtherCharThrown":"","furtherCharTextEqualsExpected":true,"furtherCharLine2":"```z"}
+RESULT {"name":"close fence line 2 of 200","ms":10,"thrown":"Could not completely normalize the editor after 126 iterations! This is usually due to incorrect nor","consoleErrors":[],"uncaught":[],"onChangeTextEqualsExpected":true,"writesCount":3,"lastLen":400,"furtherCharThrown":"","furtherCharTextEqualsExpected":true,"furtherCharLine2":"``z"}
+RESULT {"name":"plain insert control line 2 of 200","ms":10,"thrown":"","consoleErrors":[],"uncaught":[],"onChangeTextEqualsExpected":true,"writesCount":3,"lastLen":400,"furtherCharThrown":"","furtherCharTextEqualsExpected":true,"furtherCharLine2":"axz"}
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  09:24:06
+   Duration  2.47s (transform 343ms, setup 20ms, import 1.06s, tests 687ms, environment 569ms)
+
+exit=0

@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/73f0c622-8edf-4924-bc82-4f6ccb72e068/scratchpad/fence-refute/42128cd
+
+RESULT {"name":"open","size":200,"runs":10,"threw":"12/12","medianMs":10.4,"maxMs":13.7,"textAsExpected":"12/12","msg":"Could not completely normalize the editor after 126 iterations! This is usually due to inc","load":"2.97 2.10 1.92 3/1180 286684"}
+RESULT {"name":"close","size":200,"runs":10,"threw":"12/12","medianMs":40.4,"maxMs":41.6,"textAsExpected":"12/12","msg":"Could not completely normalize the editor after 126 iterations! This is usually due to inc","load":"2.97 2.10 1.92 5/1180 286685"}
+RESULT {"name":"plain-insert (control)","size":200,"runs":10,"threw":"0/12","medianMs":0.7,"maxMs":1,"textAsExpected":"12/12","msg":"","load":"2.97 2.10 1.92 2/1180 286685"}
+RESULT {"name":"open","size":2048,"runs":10,"threw":"12/12","medianMs":72.4,"maxMs":77.8,"textAsExpected":"12/12","msg":"Could not completely normalize the editor after 126 iterations! This is usually due to inc","load":"2.97 2.10 1.92 2/1173 286787"}
+RESULT {"name":"close","size":2048,"runs":10,"threw":"12/12","medianMs":411.8,"maxMs":561.7,"textAsExpected":"12/12","msg":"Could not completely normalize the editor after 126 iterations! This is usually due to inc","load":"2.90 2.10 1.92 2/1184 287313"}
+RESULT {"name":"plain-insert (control)","size":2048,"runs":10,"threw":"0/12","medianMs":5.5,"maxMs":5.7,"textAsExpected":"12/12","msg":"","load":"2.98 2.13 1.93 2/1184 287313"}
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  09:23:38
+   Duration  7.91s (transform 151ms, setup 20ms, import 295ms, tests 6.88s, environment 585ms)
+
+exit=0
