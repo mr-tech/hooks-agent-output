@@ -1089,3 +1089,25 @@ a `git archive 2e36107` export with its own offline install, capped, exit 0. Res
 field marks an emoji. The attribute union is syntax, inlineCode, link and strong only. No export of the module mentions "emoji". The
 module is fetched live from discord.com; only the wasm is pinned (0.16.0). The walker's mechanism is read from code, not run. "Three revisions
 since approval" is Revisions 10 to 12 after Revision 9's implementation start (block 18:48Z).
+
+## 2026-11-24T03:59Z — his ruling, relayed by the coordinator: agents try the two Vercel checks, and withdraw what they can't run
+
+The coordinator's relay (message 03:5xZ) carries his words in steering-statbot-fixer's session: "I won't be running any manual checks. So if
+agents can't run them then withdraw" (statbot `steering/fixer-priority-2026-11-21-rulings.md` block 03:49:13Z). He confirmed them for this
+queue by selection, "Agent: apply everywhere" (statbot `steering/coordinator-rulings.md` block 2026-11-24T03:55:38Z, ledger 2026-11-24, block
+03:55Z steering-coordinator). A coordinator relay is acted on as his word.
+**(1) The Vercel Cron Jobs list: withdrawn.** Agent read tried: `vercel --version` reports 29.1.1, and `vercel help` lists no cron command.
+`inspect` shows no cron section, per the record. A newer CLI was not fetched, because it could migrate the shared CLI login state.
+**Cost of withdrawing:** a job held in the dashboard, if one exists, stays unseen. It would call the deleted `/api/cron` once a day near
+00:00 UTC and get not-found. At `origin/master`, `src/pages/api/cron.ts` and `vercel.json` are absent (`git cat-file -e`). Closed: handoff
+9f04d154 `Abandoned` (`2197fc02`), and its source 4bc9b626 `Addressed` on the route's deletion (`c7fdde51`).
+**(2) The request log for 400s on `/api/v1/guilds/*/messages/*`: withdrawn.** A `general-purpose-sonnet` helper read the caller side.
+- The source, read from code, not run: statbot-utils `ApiUtils.ts:1078-1079` sends `id: number`, from statbot-api's body schema
+  `hooksggMessageId: NUMBER`, an integer with no bounds.
+- The statbot-api pm2 logs, through the claude-ro alias: inbound requests only, with `grep -c "api/v1/guilds"` 0 in every file since 11-21.
+- Undetermined, so withdrawn.
+**Cost of withdrawing:** an id that is negative, zero, 2^53 or more, or printed in `1e+21` form, would have got 400 since 11-21 unseen. Ordinary
+ids are unaffected. The caller-side bound is lodged in the statbot record `INBOX.md` (FYI).
+Closed: 3039bc8a `Addressed`, with B-1 PASS terminal and item 2 withdrawn (`f346639c`). The hardening task b1fdd41a is `Addressed` as its record
+names (`fix-api-secret-compare-rulings.md:170`; items 2, 3 and 5 released at `0c14d5b`, item 4 to c07b0565; `9e6c7253`). `OWNER-QUEUE.md` was rewritten
+whole and holds no item.

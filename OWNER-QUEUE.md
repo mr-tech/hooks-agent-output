@@ -25,25 +25,3 @@ commit message states what the deleted text carried and where it went. **The sam
 lines about items nobody is waiting on.** If it does not need the owner to act, it is not here.
 
 ---
-
-## Check Vercel has no daily job left for the website
-
-The release that removed the website's old once-a-day job is now live. That job could also have been set up in Vercel's own settings,
-outside the code, and no tool the agents have can show that list.
-
-In the Vercel dashboard, open the project **hooks-gg-website** → **Settings → Cron Jobs**.
-Pass: the list is empty. If a job is listed, it now calls an address that no longer exists, once a day near 00:00 UTC.
-
-Tell steering-hooks-fixer "empty", or the job's name and schedule.
-
-## Check the website's request logs on Vercel for refused message numbers
-
-The website change that makes the API and the bot check their passwords more safely is live (since 18:35 UTC on 21 Nov) and the bot
-works. One thing is left that the agents' Vercel tool cannot show — request logs:
-
-In the Vercel website project's **Logs**, filter to Production, since 18:35 UTC on 21 Nov, path `/api/v1/guilds/`, status 400.
-Pass: no 400s on addresses ending in a message number. If there are some, tell steering-hooks-fixer the paths you see (the Statbot API may
-be sending message numbers in a form the site now refuses).
-
-Tell steering-hooks-fixer the result; it then closes the old hardening task.
-
