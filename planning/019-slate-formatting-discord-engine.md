@@ -35,9 +35,12 @@ Status-Detail: >-
   Revision 18 (steering block 07:15Z, the count literal only) sets AC-6.8's count window to one `Editor.normalize` drain and its
   literal to the lines the keystroke dirties (CF-27).
   Revision 19 (steering block 07:21Z, the last for AC-6.8) drops the per-keystroke literals for F-48. The count over every drain
-  is equal at 200 and 2,048 lines and at least 1, and corpus and generator inputs are bounded at 4. CR-20's fix round waits for
-  the three gates on revision 19. After it, an AC-6.8 finding below HIGH is a stated limit unless it is a severity floor.
-Revision: 19
+  is equal at 200 and 2,048 lines and at least 1. CR-20's fix round waits for the three gates on revision 19. After it, an
+  AC-6.8 finding below HIGH is a stated limit unless it is a severity floor.
+  Revision 20 (steering block 07:42Z, reopening block 07:21Z for this change only) removes the corpus and generator bound of 4,
+  which a correct fix exceeds, and adds fenced-quote texts of 200 and 2,048 lines to the equality limb. implementer-019's
+  hand-off waits for the three gates' delta reads of revision 20.
+Revision: 20
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -159,6 +162,7 @@ Lane: full
 | 2026-11-24T07:22 | 19 | planner-019 | Triggered by steering's ruling on the critic's F-48 (effort rulings block "2026-11-24T07:21Z", record `9e980e29`), with QA's re-key on revisions 17 and 18 (`e74108e`, P-Q23). AC-6.8's count limb drops every per-keystroke literal. Over every drain, the run-unit count is equal at each sized text's 200-line and 2,048-line sizes (1,000 for `a🙂`) and at least 1, and the corpus and generator inputs take one hand-written bound of 4. `normalizeNode` calls are recorded, not asserted. NM-72's two-unit fixture and the fence-delimiter delete residue come from P-Q23. The timed limb is unchanged. Scope delta: AC-6.8's count property only, with no work outside M6's fix round. Since approval, revisions 10 to 19 have run, and this is AC-6.8's fourth, the last by steering's block. It triggers one round of each gate. The plan still delivers what was first asked. |
 | 2026-11-24T07:24 | R-85 | planner-019 | Recorded the architect's delta pass on revision 19 (APPROVED; § "Delta pass, revision 19", record `ccddf880`) in the owed re-verdicts table, and registered CF-28 LOW as a Planner batch row, a stated limit under block 07:21Z, sent to implementer-019 and qa-019 because it adds a member to AC-6.8's text class. |
 | 2026-11-24T07:25 | R-86 | planner-019 | Recorded critique cycle 12 pass 1 (APPROVED; record `73a6bce9`) and QA's re-key on revision 19 (record `4764a6e`) in the owed re-verdicts table. Every gate has passed revision 19, so CR-20's fix round is released. Registered F-49 MEDIUM (SL-22) and QAF-45 LOW, the same class, as one Planner batch row under block 07:21Z, sent to implementer-019 and qa-019. |
+| 2026-11-24T07:44 | 20 | planner-019 | Triggered by steering's ruling (effort rulings block "2026-11-24T07:42Z", record `bc96c93b`) on implementer-019's report, not re-derived here, that a correct fix exceeds the corpus and generator bound of 4 (430 of about 26,000 keystrokes, maximum 8). AC-6.8 drops that bound, and its literal 8 is refused under axiom E. The equality limb gains fenced-quote texts of 200 and 2,048 lines, with the keystroke on a `> x` line, and the residue now states that the corpus and generator inputs carry no count bound. Scope delta: AC-6.8's count limb loses one bound and gains one sized text, with no work outside M6's fix round. Since approval, revisions 10 to 20 have run, and this is AC-6.8's fifth revision, reopening block 07:21Z for this change only. It triggers one delta read by each gate, and implementer-019's hand-off waits for all three. The plan still delivers what was first asked. |
 
 ## Resumption State
 
@@ -204,6 +208,9 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T07:39Z, after R-8
   - the earlier open rows: QAF-27, CF-15 and CF-16, the critic's two assumptions, and AN-8 limb 5.
 - Any question for him goes to steering by SendMessage as a selection prompt, never as prose here (his ruling, relayed 23:3xZ).
 
+**Since the checkpoint.** Revision 20 (steering block 07:42Z) removed AC-6.8's corpus and generator bound and added the
+fenced-quote sized texts. Its three gate reads are open, and implementer-019's hand-off waits for them.
+
 **Approach in flight.** None. No uncommitted edit.
 
 **Refs.** Record `master`. The website was read only through `git -C /usr/local/bin/hooks/website show` or `git grep`, at
@@ -247,6 +254,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 17's delta: AC-6.8's count limb (equality per pass, positive control, `vi.mock` observation, window, character, positions, merge fixture), the `a🙂` text in both limbs, the bench-file home, residue and B-10 | revision 17 commit | critic (cycle 11); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED_WITH_CHANGES on CF-27 MEDIUM (record `328a6eba`), re-dispositioned as APPROVED (record `73b316ad`); CF-27 is folded at revision 18. Critic APPROVED, cycle 11 pass 1, with F-46 MEDIUM (SL-19) and F-47 LOW (SL-20) as Planner batch rows (record `2170bc3d`). QA re-key: open |
 | Revision 18's delta: AC-6.8's count window (one `Editor.normalize` drain) and its literal (lines dirtied, 1, 2, 1) only (steering block 07:15Z) | revision 18 commit | critic and QA, inside their current reads; architect (confirming CF-27) | Architect APPROVED, CF-27 resolved as folded (record `2f2d99a0`). Critic APPROVED, cycle 11 pass 2, with F-48 MEDIUM (SL-21) on the count literal, whose form, revision 19 or a Planner batch row, is steering's ruling under block 07:15Z (record `e1106d42`); folded at revision 19 by block 07:21Z. QA re-key on revisions 17 and 18: no new finding, with QAF-43 and QAF-44 closed and P-Q23 read (record `e74108e`) |
 | Revision 19's delta: AC-6.8's count limb restated with no per-kind literal (cross-size equality, at least 1, corpus bound 4, every drain), the `a🙂` 200-line size, NM-72's fixture, and the delete residue (steering block 07:21Z) | revision 19 commit | critic (cycle 12); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-28 LOW as a stated limit, and CF-27's literal withdrawn as its own error (record `ccddf880`). Critic APPROVED, cycle 12 pass 1, F-48 resolved, with F-49 MEDIUM (SL-22) (record `73a6bce9`). QA re-key: CF-28 agreed, NM-72 dispositioned as equivalent (Phase 2 expects it to survive), and QAF-45 LOW (record `4764a6e`). Every gate has passed revision 19, so CR-20's fix round is released |
+| Revision 20's delta: AC-6.8's corpus and generator bound removed, the fenced-quote sized texts added to the equality limb and its "Seen red", and the residue line naming the corpus and generator inputs (steering block 07:42Z) | revision 20 commit | critic (delta read); architect (delta pass); QA Phase 1 (re-key) | Open. implementer-019's hand-off of CR-20's fix round waits for all three |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 was folded at revision 6 and retired at revision 13 (D-21) |
 
 ## Header notes
@@ -1396,8 +1404,10 @@ Acceptance criteria:
       keystroke that leaves two changed run units: Enter in the middle of a code line in a fence, `a⏎```⏎xy⏎```⏎b` with Enter
       after `x` (QA's NM-72 fixture, P-Q23, record `e74108e`).
     - **The text class:**
-      - the 272 corpus and 1,000 generator inputs at the committed seed;
       - plain, `> ` quote and `>>>` texts of 200, 400, 1,000 and 2,048 one-character lines;
+      - fenced-quote texts of 200 and 2,048 lines, a quote whose lines open and close code fences (revision 20, steering block
+        07:42Z). They repeat the four lines `> ```⏎> x⏎> ```⏎> y`, so both sizes close every fence they open (50 and 512 repeats).
+        The keystroke falls on a `> x` line, the fenced line inside the quote, at the same line index at both sizes;
       - `a🙂` texts of 200 and 1,000 lines in the embed description (1,000 lines is 3,999 characters), so that every line holds
         an emoji element (QAF-44). 2,048 lines of `a🙂` exceed the description's 4,096.
     - **The window is every `Editor.normalize` drain the keystroke runs** (revision 19, steering block 07:21Z; CF-27, F-48).
@@ -1406,16 +1416,16 @@ Acceptance criteria:
     - **The property: size-independent (revision 19).** No per-kind literal is asserted. For each sized text, keystroke kind and
       position, the count on the 200-line size equals the count on the 2,048-line size (on the 1,000-line size for `a🙂`), and
       it is at least 1.
-    - **For the corpus and generator inputs**, the count for every keystroke in the class is at most 4. That is one literal,
-      written by hand, and it does not depend on the input's size. Its basis is the critic's Slate probe (F-48, record
-      `e1106d42`, read, not re-run): 3 line entries at most per keystroke in the class, for Enter on a `> ` line with the
-      carried marker, plus one.
+    - **No upper bound is asserted** (revision 20, steering block 07:42Z). A bound on the corpus and generator inputs has no
+      basis independent of this editor: the only one to hand was a plain-slate probe, which the editor's own retyping exceeds.
+      Its measured maximum is the fixed code's own figure, which axiom E bars. A bound on short inputs also does not test growth.
+      The corpus and generator inputs are outside the count limb (residue, below).
     - **Observed through a `vi.mock` pass-through of `./runUnit`** (CF-25), never through a counter added to `src`. A positive
       control in the same run, an in-line insert in a one-line text, counts at least 1 (QAF-43). So a counter that reads 0 fails.
     - **Every bound is a literal or a cross-size equality**, never derived from the production unit function (axiom E).
     - **Seen red** on the tip's per-line rebuild at `119471f` (`withNormalizeNode.ts:resolveEmoji` called once per line), which
       is the decision-only tree for this limb. There the count grows with the line count, so the 200-line and 2,048-line counts
-      differ.
+      differ. The fenced-quote texts are seen red there too, by the same differing counts.
   - **Residue (F-45; SL-19).** These keystrokes are outside the count limb, and AC-6.5's typed-edit property holds them:
     - a keystroke whose character completes an emoji or a fence (`:` after `:smile`, or a third backtick);
     - a delete that removes or completes a fence delimiter or an emoji, such as a Backspace at the start of a closing fence. QA
@@ -1440,8 +1450,11 @@ Acceptance criteria:
       measured figures go to steering before hand-off.
   - **Human-observable form.** Typing in a 2,000-line embed description on UAT's local build shows no lag a person can see.
     Checkable in production after deploy. QA's register row is B-10, and the walk is SL-15's seventh member.
-  - **Residue.** The cost inside a browser is not measured, and node is the instrument. Inputs other than the text class are
-    bounded by the count limb, never by the time limb.
+  - **Residue.** The cost inside a browser is not measured, and node is the instrument. Inputs outside the text class, among
+    them the 272 corpus and 1,000 generator inputs, carry no count or time bound. Growth on a construct that none of the sized
+    texts holds goes uncaught by either limb. The implementation document records the per-kind distribution of builds over the
+    corpus and generator inputs as an observation, not an assertion. A user report of a pause on such an input goes under
+    AC-6.8's row in QA's register.
 
 Re-derivation gate: M6 changes a stored representation (D-10's saved emoji). When it ships on the chain branch, M7, if not yet
 authorised, is marked `PREMISE-STALE` until re-argued.
