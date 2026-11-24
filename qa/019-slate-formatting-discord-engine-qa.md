@@ -5,9 +5,8 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 16 (record 30e2a5b8, AC-6.8). QAF-43 MEDIUM: AC-6.8's count limb is an upper bound only,
-  so a counter that reads 0 passes; it needs an exact literal and a positive control. QAF-44 LOW: its sized texts hold no emoji.
-  QAF-42 LOW (R-69) stands. Register: B-1 to B-10.
+  Phase 1 re-keyed on plan 019 Revision 18 (record 18e434e6, AC-6.8). QAF-43 and QAF-44 are closed. NM-72's fixture is Enter mid
+  code line (two code-line units, literal 2); the merge's literal is 1 (P-Q23). QAF-42 LOW (R-69) stands. Register: B-1 to B-10.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -54,8 +53,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 16 (record
-`30e2a5b8`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 18 (record
+`18e434e6`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -80,6 +79,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T04:16 | planner-019 (messages: Revision 13 at `f9b406d6`, Revision 14 at `2c3c8d1a`, SL-15 and SL-16 at R-63) | Phase 1 re-key on Revisions 13 and 14, as one | § Re-key on Revisions 13 and 14. AC-6.5's helper (`nativeSurfaceParse`) imports only `@discord/markdown-wasm`, read at `2e36107`. Its `parse` output gives no source span: `😄:smile:`, `:smile:😄` and `😄😄` parse to one identical tree, and `\*a😄`'s text is `*a`. Disclosed: the record-write gate refused one shell command because it named record paths beside a `sed -i` on a scratch file. It was split into separate commands. **QAF-40 MEDIUM.** AC-6.7's two exclusion conjuncts have no mutant: **QAF-41 LOW**. **B-9** minted for AC-6.7's walk (SL-15, SL-16 (1)). A user-report note for AC-6.5 and AC-6.7 added under the register. |
 | 2026-11-24T04:20 | planner-019 (message: Revision 15 at `79eeced6`, steering block 04:18Z) | Phase 1 re-key on Revision 15 | § Re-key on Revision 15. QAF-40 closed: remedy (b), five members with literals and the first-occurrence join mutant, in AC-6.5's control. QAF-41 closed: NM-68 and NM-69 in AC-6.7's "Seen red", and AC-3.3's drive keyed on the input's text. **QAF-42 LOW**: the fixtures need a line after the quoted one, or a stated Enter. Nothing holds AC-6.5's literal freeze on QA's account. |
 | 2026-11-24T07:10 | planner-019 (message: Revision 16 at `30e2a5b8`, steering block 07:05Z) | Phase 1 re-key on Revision 16 | § Re-key on Revision 16. Premise P-Q22: the keystroke cost at AC-6.8's sizes, both trees (433 ms and 1,798 ms at the tip, against 2.3 ms and 3.8 ms at M5). AC-6.8 is re-keyed, with named mutants NM-70 to NM-72. **QAF-43 MEDIUM**: the count limb is an upper bound on a function the fix may rename, so a counter that reads 0 passes. **QAF-44 LOW**: the sized texts hold no emoji element. **B-10** minted for the human-observable form. |
+| 2026-11-24T07:22 | planner-019 (messages: Revision 17 at `34850209`, Revision 18 at `18e434e6`; steering block 07:15Z) | Phase 1 re-key on Revisions 17 and 18, as one | § Re-key on Revisions 17 and 18. QAF-43 and QAF-44 closed. P-Q23 at `119471f`: the `vi.mock` observer sees the production builds (the positive control counts 2 at the tip). A merge in the class dirties one line, so its literal is 1. The two-unit keystroke in the class is Enter mid code line, which dirties two code-line units: NM-72's fixture, literal 2. A merge that removes a fence delimiter visits its line twice and is SL-19's residue. No new finding. |
 
 ## Reading
 
@@ -1328,6 +1328,53 @@ Register sweep. The predicate is rows whose predicted value reads typing in the 
 saved text, which AC-6.8 does not change, so they are checked and cleared. Rows inherited and not discharged: B-1 to B-10.
 
 Phase 1 is keyed to Revision 16. Open for the planner: QAF-43 MEDIUM and QAF-44 LOW, plus QAF-42 LOW (R-69) from before.
+## Re-key on Revisions 17 and 18
+
+Revisions 17 (record `34850209`) and 18 (record `18e434e6`) were read as one diff from `30e2a5b8`, as steering asked (block
+07:15Z). They move only AC-6.8, and register the critic's SL-19 and SL-20.
+
+| Item | Where folded | Check |
+|---|---|---|
+| QAF-43 | AC-6.8 count limb: "the number of run-unit builds equals the number of lines the keystroke dirties, a literal written by hand per fixture"; a positive control, an in-line insert in a one-line text, counts 1 | Equality, a hand literal and a same-run control that a counter reading 0 fails. **Closed.** |
+| QAF-44 | AC-6.8 text class and time limb: 1,000 lines of `a🙂`, 3,999 characters, embed description | In both limbs. **Closed.** |
+| CF-25, CF-27 | the observer is a `vi.mock` pass-through of `./runUnit`; the window is one `Editor.normalize` drain | Read below (P-Q23). The observer form works at the tip. |
+| CF-26, SL-20 | the time limb lives in a `*.bench.ts` under `__tests__/`, run by `vitest bench` | How the bench runs under the config's projects is read at Phase 2 on the fix round |
+| F-45 | a non-completing inserted character; start and end on one-character lines; a character that completes an emoji or a fence is residue held by AC-6.5 | Agreed |
+| SL-19 | a two-unit keystroke is exhibited, or the class is recorded as having none; QA dispositions NM-72; a delete that removes or completes a fence delimiter or an emoji is residue under AC-6.5 | Read below. The class has a member |
+
+**Premise run in this pass (P-Q23), the read revision 18 asks for.** At website `119471f`, in an export, network-isolated:
+`qa-probes/qaMergeDirties.probe.test.ts`, output `verification/019/qa/m6/merge-dirties-119471f.json` (exit 0). It records the
+paths one drain passes to `normalizeNode` and the `unitAround` calls seen through a `vi.mock` pass-through of `../runUnit`.
+- **The observer works.** At the tip, the positive control (an in-line insert in `ab`) counts 2, not 0: one build from the
+  line's own `handleElement`, and one from `handleEditor`'s loop over every line. So the pass-through sees the production
+  calls, and the control is red at `119471f` as the criterion expects. On a 5-line plain text, an in-line insert counts 6 (1 plus
+  5), Enter counts 8 and a merge 5. This is the per-line rebuild, and it is red against every literal.
+- **What a keystroke dirties, in lines, in one drain.**
+  - In-line insert: `[2,0]`, `[2]`, `[]`. One line.
+  - Enter mid-line: `[1]`, `[2]` and their texts. Two lines.
+  - Backspace joining two plain lines, or two quote lines: the line above only (`[1]`, then `[]`). One line.
+  - Backspace joining two code lines in a fence: `[2]`. One line.
+- **The two-unit keystroke inside the class (SL-19).** A code line is a run unit of its own: `unitAround`'s `isRun` stops at a
+  `codeBlock` neighbour. So Enter in the middle of a code line in a fence (`a⏎```⏎xy⏎```⏎b`, Enter after `x`) dirties `[2]` and
+  `[3]`, two code lines and two changed run units, each visited once. **NM-72's fixture is this one, with the literal 2.** A
+  resolve on the first changed unit only counts 1, so it can fail. The merge fixtures in the class each leave one changed unit,
+  so NM-72 cannot fail on them.
+- **The merge's literal is 1.** A Backspace joining two plain lines, two quote lines or two code lines dirties the line above,
+  visited once.
+- **A merge that removes a fence delimiter is outside the count.** Example: `a⏎```⏎x⏎```⏎b⏎c`, Backspace at the start of the
+  closing fence. It joins two run units into one. The drain visits the merged line twice, `[2]`, `[]`, `[2]`, `[]`, because
+  `handleEditor` re-types it from code to plain and dirties it again. Counted per visit that is 2 builds for 1 line. SL-19 makes
+  that delete residue under AC-6.5, so it carries no count literal. It is named here so that no fixture takes it in by
+  accident.
+
+**Named mutants for Phase 2 on the fix round, restated.** NM-70: the unit cache keyed on line index, red on AC-6.5's typed-edit
+property. NM-71: the per-line resolve back, red on every count literal, the positive control's included. NM-72: a resolve on the
+first changed unit only, red on the code-line Enter fixture (literal 2).
+
+Register sweep. The predicate is rows citing AC-6.8: B-10. Its predicted value does not move, so it is checked and cleared.
+Rows inherited and not discharged: B-1 to B-10.
+
+Phase 1 is keyed to Revision 18. Open for the planner: QAF-42 LOW (R-69). QAF-43 and QAF-44 are closed.
 
 ## Blocking-condition register (the chain's one register)
 

@@ -1,0 +1,352 @@
+[
+ {
+  "name": "positive control: in-line insert, one-line text",
+  "text": "ab",
+  "line": 0,
+  "lineText": "ab",
+  "offset": 1,
+  "key": "insert",
+  "after": "axb",
+  "types": [
+   "div"
+  ],
+  "normalisedPaths": [
+   "[0,0]",
+   "[0]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   0,
+   0
+  ],
+  "unitBuilds": 2
+ },
+ {
+  "name": "in-line insert, 5 plain lines",
+  "text": "a\nb\nc\nd\ne",
+  "line": 2,
+  "lineText": "c",
+  "offset": 1,
+  "key": "insert",
+  "after": "a\nb\ncx\nd\ne",
+  "types": [
+   "div",
+   "div",
+   "div",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[2,0]",
+   "[2]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   2,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 6
+ },
+ {
+  "name": "enter mid-line, 5 plain lines",
+  "text": "a\nbc\nc\nd\ne",
+  "line": 1,
+  "lineText": "bc",
+  "offset": 1,
+  "key": "enter",
+  "after": "a\nb\nc\nc\nd\ne",
+  "types": [
+   "div",
+   "div",
+   "div",
+   "div",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[1]",
+   "[2,0]",
+   "[1,0]",
+   "[2]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   1,
+   2,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "unitBuilds": 8
+ },
+ {
+  "name": "merge two plain lines (same unit)",
+  "text": "a\nb\nc\nd\ne",
+  "line": 2,
+  "lineText": "c",
+  "offset": 0,
+  "key": "backspace",
+  "after": "a\nbc\nd\ne",
+  "types": [
+   "div",
+   "div",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[1]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "unitBuilds": 5
+ },
+ {
+  "name": "merge a plain line into a closing fence (two units: above and below the block)",
+  "text": "a\n```\nx\n```\nb\nc",
+  "line": 4,
+  "lineText": "b",
+  "offset": 0,
+  "key": "backspace",
+  "after": "a\n```\nx\n```b\nc",
+  "types": [
+   "div",
+   "div",
+   "codeBlock",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[3]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   3,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 6
+ },
+ {
+  "name": "merge a closing fence into its code line (the block opens to the end)",
+  "text": "a\n```\nx\n```\nb\nc",
+  "line": 3,
+  "lineText": "```",
+  "offset": 0,
+  "key": "backspace",
+  "after": "a\n```\nx```\nb\nc",
+  "types": [
+   "div",
+   "div",
+   "div",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[2]",
+   "[]",
+   "[2]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   2,
+   2,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 7
+ },
+ {
+  "name": "merge an opening fence into the line above (fence opened mid-line)",
+  "text": "a\n```\nx\n```\nb\nc",
+  "line": 1,
+  "lineText": "```",
+  "offset": 0,
+  "key": "backspace",
+  "after": "a```\nx\n```\nb\nc",
+  "types": [
+   "div",
+   "codeBlock",
+   "div",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[0]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   0,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 6
+ },
+ {
+  "name": "delete forward at end of a plain line before an opening fence",
+  "text": "a\n```\nx\n```\nb\nc",
+  "line": 0,
+  "lineText": "a",
+  "offset": "end",
+  "key": "delete",
+  "after": "a```\nx\n```\nb\nc",
+  "types": [
+   "div",
+   "codeBlock",
+   "div",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[0]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   0,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 6
+ },
+ {
+  "name": "merge two quote lines",
+  "text": "> a\n> b\nc",
+  "line": 1,
+  "lineText": "> b",
+  "offset": 0,
+  "key": "backspace",
+  "after": "> ab\nc",
+  "types": [
+   "blockQuote",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[0]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   0,
+   0,
+   1
+  ],
+  "unitBuilds": 3
+ },
+ {
+  "name": "enter mid code line inside a fence",
+  "text": "a\n```\nxy\n```\nb",
+  "line": 2,
+  "lineText": "xy",
+  "offset": 1,
+  "key": "enter",
+  "after": "a\n```\nx\ny\n```\nb",
+  "types": [
+   "div",
+   "div",
+   "codeBlock",
+   "codeBlock",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[2]",
+   "[3,0]",
+   "[2,0]",
+   "[3]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   2,
+   3,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "unitBuilds": 8
+ },
+ {
+  "name": "merge two code lines inside a fence",
+  "text": "a\n```\nx\ny\n```\nb",
+  "line": 3,
+  "lineText": "y",
+  "offset": 0,
+  "key": "backspace",
+  "after": "a\n```\nxy\n```\nb",
+  "types": [
+   "div",
+   "div",
+   "codeBlock",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[2]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   2,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 6
+ },
+ {
+  "name": "in-line insert in a code line",
+  "text": "a\n```\nxy\n```\nb",
+  "line": 2,
+  "lineText": "xy",
+  "offset": 1,
+  "key": "insert",
+  "after": "a\n```\nxxy\n```\nb",
+  "types": [
+   "div",
+   "div",
+   "codeBlock",
+   "div",
+   "div"
+  ],
+  "normalisedPaths": [
+   "[2,0]",
+   "[2]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   2,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 6
+ }
+]
