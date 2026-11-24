@@ -33,8 +33,11 @@ Status-Detail: >-
   Revision 17 folds those findings into AC-6.8: an exact count per pass with a positive control, a text with an emoji on every
   line, and a bench-file home for the timed limb.
   Revision 18 (steering block 07:15Z, the count literal only) sets AC-6.8's count window to one `Editor.normalize` drain and its
-  literal to the lines the keystroke dirties (CF-27). CR-20's fix round waits for the three gates on revision 18.
-Revision: 18
+  literal to the lines the keystroke dirties (CF-27).
+  Revision 19 (steering block 07:21Z, the last for AC-6.8) drops the per-keystroke literals for F-48. The count over every drain
+  is equal at 200 and 2,048 lines and at least 1, and corpus and generator inputs are bounded at 4. CR-20's fix round waits for
+  the three gates on revision 19. After it, an AC-6.8 finding below HIGH is a stated limit unless it is a severity floor.
+Revision: 19
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -153,6 +156,7 @@ Lane: full
 | 2026-11-24T07:17 | 18 | planner-019 | Triggered by steering's ruling making CF-27 a revision 18 exception, for the count literal only (effort rulings block "2026-11-24T07:15Z", record `5638dfe6`). AC-6.8's count window becomes one `Editor.normalize` drain, and its literal the lines the keystroke dirties (1, 2, 1), replacing "distinct run units" per pass. Nothing else changes. The same pass registers the critic's cycle 11 F-46 (SL-19) and F-47 (SL-20) as Planner batch rows (record `2170bc3d`). Scope delta: AC-6.8's count window and literal only. Since approval, revisions 10 to 18 have run. This is AC-6.8's third revision, under steering's exception, and it is read inside the critic's and QA's current reads with the architect confirming CF-27. The plan still delivers what was first asked. |
 | 2026-11-24T07:18 | R-83 | planner-019 | Recorded the architect's delta pass on revision 18 (APPROVED, CF-27 resolved as folded; § "Delta pass, revision 18", record `2f2d99a0`) in the owed re-verdicts table. |
 | 2026-11-24T07:20 | R-84 | planner-019 | Recorded critique cycle 11 pass 2 on revision 18 (APPROVED; record `e1106d42`) in the owed re-verdicts table. F-48 MEDIUM (SL-21) is held unregistered in form, at the critic's ask, until steering rules whether it is revision 19 or a Planner batch row. |
+| 2026-11-24T07:22 | 19 | planner-019 | Triggered by steering's ruling on the critic's F-48 (effort rulings block "2026-11-24T07:21Z", record `9e980e29`), with QA's re-key on revisions 17 and 18 (`e74108e`, P-Q23). AC-6.8's count limb drops every per-keystroke literal. Over every drain, the run-unit count is equal at each sized text's 200-line and 2,048-line sizes (1,000 for `a🙂`) and at least 1, and the corpus and generator inputs take one hand-written bound of 4. `normalizeNode` calls are recorded, not asserted. NM-72's two-unit fixture and the fence-delimiter delete residue come from P-Q23. The timed limb is unchanged. Scope delta: AC-6.8's count property only, with no work outside M6's fix round. Since approval, revisions 10 to 19 have run, and this is AC-6.8's fourth, the last by steering's block. It triggers one round of each gate. The plan still delivers what was first asked. |
 
 ## Resumption State
 
@@ -170,10 +174,10 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
 
 **Next.**
 - Revisions 13, 14 and 15 have passed all three gates, with stated limits. Under steering's block 04:18Z, a further AC-6.5 gap
-  below HIGH is a stated limit. Revision 17 (AC-6.8's second revision) is out for delta reads by the critic, the architect and
-  QA. Under steering's block 07:13Z, a further AC-6.8 gap below HIGH from those reads is a Planner batch stated limit, with no
-  revision 18. There are two exceptions: a gate's severity-floor finding, and a gap that leaves the count limb unable to fail
-  when the fix is lost. No other planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
+  below HIGH is a stated limit. Revision 19 (AC-6.8's last revision, steering block 07:21Z) is out for delta reads by the
+  critic, the architect and QA. After it, every AC-6.8 finding below HIGH is a Planner batch stated limit with no further round,
+  and only a severity floor is excepted. CR-20's fix round starts when all three pass revision 19. No other planning pass is
+  owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
   Planner batch row, a stated limit, with no revision. A severity-floor finding is excepted. A third revision of AC-3.7 goes to
   steering before any fold.
 - The seam fold, after the last milestone's QA Phase 2 and before the UAT anchor, lands the open rows' text:
@@ -232,7 +236,8 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 15's delta: AC-6.5's control gains QAF-40's five members and the first-occurrence join mutant; AC-6.7's "Seen red" gains NM-68 and NM-69; AC-3.3's drive reads the table from the input's text (QAF-41) | revision 15 commit | critic (cycle 9); architect (delta pass); QA Phase 1 (re-key) | QA re-key: QAF-40 and QAF-41 closed, with QAF-42 LOW a Planner batch row; nothing holds the freeze on QA's account (record `3b264329`). Architect APPROVED, with CF-24 LOW as a stated limit (record `f6f6651e`). Critic APPROVED, cycle 9 pass 1, with F-43 (SL-17) a Planner batch row and F-44 the same member as QAF-42 (record `bf589c96`). Every gate has passed revision 15, so AC-6.5's literal freeze is released |
 | Revision 16's delta: AC-6.8 (count limb, timed limb, human-observable form, residue); D-23 | revision 16 commit | critic (cycle 10); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-25 and CF-26 LOW (record `ce656dca`). QA re-key: QAF-43 MEDIUM and QAF-44 LOW (record `d53b1b30`). Critic APPROVED, cycle 10 pass 1, with F-45 MEDIUM (SL-18) (record `0ff39772`). All are folded at revision 17 |
 | Revision 17's delta: AC-6.8's count limb (equality per pass, positive control, `vi.mock` observation, window, character, positions, merge fixture), the `a🙂` text in both limbs, the bench-file home, residue and B-10 | revision 17 commit | critic (cycle 11); architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED_WITH_CHANGES on CF-27 MEDIUM (record `328a6eba`), re-dispositioned as APPROVED (record `73b316ad`); CF-27 is folded at revision 18. Critic APPROVED, cycle 11 pass 1, with F-46 MEDIUM (SL-19) and F-47 LOW (SL-20) as Planner batch rows (record `2170bc3d`). QA re-key: open |
-| Revision 18's delta: AC-6.8's count window (one `Editor.normalize` drain) and its literal (lines dirtied, 1, 2, 1) only (steering block 07:15Z) | revision 18 commit | critic and QA, inside their current reads; architect (confirming CF-27) | Architect APPROVED, CF-27 resolved as folded (record `2f2d99a0`). Critic APPROVED, cycle 11 pass 2, with F-48 MEDIUM (SL-21) on the count literal, whose form, revision 19 or a Planner batch row, is steering's ruling under block 07:15Z (record `e1106d42`). QA: open. CR-20's fix round waits for QA and steering's F-48 ruling |
+| Revision 18's delta: AC-6.8's count window (one `Editor.normalize` drain) and its literal (lines dirtied, 1, 2, 1) only (steering block 07:15Z) | revision 18 commit | critic and QA, inside their current reads; architect (confirming CF-27) | Architect APPROVED, CF-27 resolved as folded (record `2f2d99a0`). Critic APPROVED, cycle 11 pass 2, with F-48 MEDIUM (SL-21) on the count literal, whose form, revision 19 or a Planner batch row, is steering's ruling under block 07:15Z (record `e1106d42`); folded at revision 19 by block 07:21Z. QA re-key on revisions 17 and 18: no new finding, with QAF-43 and QAF-44 closed and P-Q23 read (record `e74108e`) |
+| Revision 19's delta: AC-6.8's count limb restated with no per-kind literal (cross-size equality, at least 1, corpus bound 4, every drain), the `a🙂` 200-line size, NM-72's fixture, and the delete residue (steering block 07:21Z) | revision 19 commit | critic (cycle 12); architect (delta pass); QA Phase 1 (re-key) | Open. CR-20's fix round waits for all three |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 was folded at revision 6 and retired at revision 13 (D-21) |
 
 ## Header notes
@@ -1371,33 +1376,41 @@ Acceptance criteria:
     `EDITS_BASE_RED` list is deleted at `8cb4d83`, with 15,480 of 15,480 edits passing (the implementer's account, not
     re-derived). An edit in that differential that inserts a line break into a `> ` quote line has, as its expected text, the
     string edit with `> ` after the break, taken from this table.
-- **AC-6.8 One keystroke's normalise cost (D-23, revisions 16 to 18; CR-20).** The editor's emoji resolve after one keystroke
+- **AC-6.8 One keystroke's normalise cost (D-23, revisions 16 to 19; CR-20).** The editor's emoji resolve after one keystroke
   works per run unit, not per line. Two limbs.
   - **Count (the standing instrument, in `pnpm test`).**
     - **The keystroke class:**
       - inserting one character that completes no emoji and no fence (the implementer names it, for example `x`);
       - deleting one character backward and forward;
       - Enter.
-      Each runs at a line's start, middle and end; on a one-character line, at start and end (F-45). The class includes at least
-      one keystroke that leaves two changed run units, for example a Backspace that joins lines from two units (QA's NM-72).
+      Each runs at a line's start, middle and end; on a one-character line, at start and end (F-45). The class includes one
+      keystroke that leaves two changed run units: Enter in the middle of a code line in a fence, `a⏎```⏎xy⏎```⏎b` with Enter
+      after `x` (QA's NM-72 fixture, P-Q23, record `e74108e`).
     - **The text class:**
       - the 272 corpus and 1,000 generator inputs at the committed seed;
       - plain, `> ` quote and `>>>` texts of 200, 400, 1,000 and 2,048 one-character lines;
-      - 1,000 lines of `a🙂`, 3,999 characters in the embed description, so that every line holds an emoji element (QAF-44).
-    - **The window is one `Editor.normalize` drain after the keystroke** (CF-27, revision 18). slate 0.123.0's `normalize`
-      drains dirty paths, calling `normalizeNode` once per dirty path, and a node the override changes is dirtied again within
-      the same drain. The implementation document records the `normalizeNode` calls per keystroke kind.
-    - **The property (QAF-43; CF-27).** In the drain, the number of run-unit builds equals the number of lines the keystroke
-      dirties, a literal written by hand per fixture from a read of the operation: 1 for an in-line insert or delete, 2 for
-      Enter, whose `split_node` dirties both lines, and 1 for a merge. The merge fixture's literal comes from QA's read of what
-      the merge dirties.
+      - `a🙂` texts of 200 and 1,000 lines in the embed description (1,000 lines is 3,999 characters), so that every line holds
+        an emoji element (QAF-44). 2,048 lines of `a🙂` exceed the description's 4,096.
+    - **The window is every `Editor.normalize` drain the keystroke runs** (revision 19, steering block 07:21Z; CF-27, F-48).
+      The count is the total of run-unit builds over those drains. The implementation document records the `normalizeNode`
+      calls per keystroke kind as an observation, not an assertion.
+    - **The property: size-independent (revision 19).** No per-kind literal is asserted. For each sized text, keystroke kind and
+      position, the count on the 200-line size equals the count on the 2,048-line size (on the 1,000-line size for `a🙂`), and
+      it is at least 1.
+    - **For the corpus and generator inputs**, the count for every keystroke in the class is at most 4. That is one literal,
+      written by hand, and it does not depend on the input's size. Its basis is the critic's Slate probe (F-48, record
+      `e1106d42`, read, not re-run): 3 line entries at most per keystroke in the class, for Enter on a `> ` line with the
+      carried marker, plus one.
     - **Observed through a `vi.mock` pass-through of `./runUnit`** (CF-25), never through a counter added to `src`. A positive
-      control in the same run, an in-line insert in a one-line text, counts 1. So a counter that reads 0 fails.
-    - **The literal is written by hand from the fixture's text**, never derived from the production unit function (axiom E).
+      control in the same run, an in-line insert in a one-line text, counts at least 1 (QAF-43). So a counter that reads 0 fails.
+    - **Every bound is a literal or a cross-size equality**, never derived from the production unit function (axiom E).
     - **Seen red** on the tip's per-line rebuild at `119471f` (`withNormalizeNode.ts:resolveEmoji` called once per line), which
-      is the decision-only tree for this limb.
-  - **Residue (F-45).** A keystroke whose character completes an emoji or a fence (`:` after `:smile`, or a third backtick) is
-    outside the count limb. AC-6.5's typed-edit property holds it.
+      is the decision-only tree for this limb. There the count grows with the line count, so the 200-line and 2,048-line counts
+      differ.
+  - **Residue (F-45; SL-19).** These keystrokes are outside the count limb, and AC-6.5's typed-edit property holds them:
+    - a keystroke whose character completes an emoji or a fence (`:` after `:smile`, or a third backtick);
+    - a delete that removes or completes a fence delimiter or an emoji, such as a Backspace at the start of a closing fence. QA
+      read that one joining two units with its merged line visited twice (P-Q23, record `e74108e`).
   - **Time (a timed case, outside the standing suite).**
     - **Home (CF-26):** a `*.bench.ts` beside the code, run by `vitest bench`. `pnpm test`'s `*.test.ts` include leaves it out by
       name, so a later chain can re-run it. How it runs under the config's projects is QA's to read at Phase 2.
