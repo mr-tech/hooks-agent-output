@@ -3,16 +3,20 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 8 pass 1 on plan revision 14: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37 and F-40 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12) and F-39 (SL-13) are Planner batch rows in the plan (R-32, R-41). F-41 is closed by property with stated limit SL-15, and F-42 carries stated limit SL-16; both close as landed-by-author, stated limits for the plan's Planner batch under the cap on M6. A later revision that changes a criterion's text opens cycle 9."
-Artifact-Revision: 14 — read as the delta f9b406d6..2c3c8d1a (cycle 8 pass 1)
-Reviewed-At: "2c3c8d1a — repos=agent-output; website read at 2e36107"
+Status-Detail: "Cycle 9 pass 1 on plan revision 15: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37 and F-40 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15) and F-42 (SL-16) are Planner batch rows in the plan (R-32, R-41, R-63). F-43 is closed by property with stated limit SL-17, and F-44 duplicates QA's QAF-42 (Planner batch, R-69); both close as landed-by-author, stated limits under steering's block 04:18Z and the cap on M6. A later revision that changes a criterion's text opens cycle 10."
+Artifact-Revision: 15 — read as the delta 2c3c8d1a..79eeced6 (cycle 9 pass 1)
+Reviewed-At: "79eeced6 — repos=agent-output; website read at 2e36107"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 14 (`2c3c8d1a`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 14 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 15 (`79eeced6`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 15 as deltas.
+**Read at cycle 9 pass 1**: the plan's diff `2c3c8d1a..79eeced6`; the plan at `79eeced6` at AC-6.5 and AC-6.7 whole; effort
+rulings block 2026-11-24T04:18Z (record `56a44cc0`); QA's document at "QAF-40", "QAF-41" and "Re-key on Revision 15" (QAF-42),
+as it stands at record `c1028a1d`; website at `2e36107`: `src/utils/markdown/engine.ts` at its import line; the pinned engine
+(`@discord/markdown-wasm` 0.16.0 in the website's `node_modules`), run on the five new control members.
 **Read at cycle 8 pass 1**: the plan's diff `f9b406d6..2c3c8d1a`; effort rulings block 2026-11-24T04:00Z; the plan at
 `2c3c8d1a` at every line naming UAT as a walker, the Reading Order's `uat` row and Testing Strategy's walk list; website at
 `2e36107`: `src/components/SlateEditor/utils/withNormalizeNode.ts` at `quotePrefixOf` and the `editor.apply` override;
@@ -86,7 +90,45 @@ for the 15,480 figure.
 | 2026-11-24T04:06 | planner-019 (message naming revision 14 at `2c3c8d1a`) | cycle 8 pass 1: plan revision 14 | Cycle 8 opens because revision 14 adds AC-6.7 and changes AC-3.3's and AC-6.5's text. Depth: delta-bounded; the delta `f9b406d6..2c3c8d1a` is 67 added and 7 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations), fully readable as a diff. It adds one criterion to M6 and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added AC-6.7 and D-22. The diff, read whole, changes AC-3.3's typed limb, AC-6.5's control and adds AC-6.7; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-22 and Planner batch rows. Artifact changes: AC-6.7 is D-22's decision table for Enter, a paste and a typed `> ` on a carried line; AC-3.3's typed drive follows it; AC-6.5's control gains the cross-line bold member. Findings addressed: F-40 RESOLVED. New findings: F-41 (LOW), the second instance of F-35's shape, closed by property with stated limit SL-15, the stop authority firing; F-42 (MEDIUM) with stated limit SL-16. Verdict APPROVED. |
 | 2026-11-24T04:06 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-41 and F-42 close as landed-by-author, their discharging document the plan's Planner batch. |
 
+| 2026-11-24T04:22 | planner-019 (message naming revision 15 at `79eeced6`) | cycle 9 pass 1: plan revision 15 | Resumed after a clear from this document's Resumption State at `8af264cb`; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 9 opens because revision 15 changes AC-6.5's, AC-6.7's and AC-3.3's text. Depth: delta-bounded; the delta `2c3c8d1a..79eeced6` is 39 added and 8 removed lines (`git diff --numstat`, 7 commits, 6 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added NM-68 and NM-69, and B-9, SL-15 and SL-16 in registration rows. The diff, read whole, changes AC-6.5's control, AC-6.7's "Seen red" and AC-3.3's drive clause; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table and Planner batch rows. Artifact changes: AC-6.5's control gains five members and a first-occurrence join mutant (QAF-40, steering block 04:18Z); AC-6.7 gains NM-68 and NM-69; AC-3.3's drive computes the table over the input's text. New findings: F-43 (LOW), the second instance of QAF-42's shape, closed by property with stated limit SL-17, the stop authority firing; F-44 (LOW), a duplicate of QAF-42. Verdict APPROVED. |
+| 2026-11-24T04:22 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-43 and F-44 close as landed-by-author, their discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 9, pass 1.** The stop authority fired on one shape (F-43). The hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings. Revision 15 adds members and mutants to two existing criteria and one
+clause to a third, on steering's block 04:18Z, and adds no criterion, milestone or instrument.
+
+AC-6.5's literal freeze is released by this gate, read with SL-17. The architect's and QA's reads of revision 15 are separate.
+
+What holds in revision 15's delta:
+- **The fold is the remedy the block names.** AC-6.5's control carries the block's five members and its mutant, word for
+  word. Remedy (a) is not taken, and the Planner batch row says why.
+- **The engine premise is true.** Run in this pass on the pinned engine (0.16.0, `parse`, default flags): `😄:smile:`,
+  `:smile:😄` and `😄😄` return one identical tree, two emoji nodes of value `😄` with no span, and `\*a😄` and `a\_b😄` return
+  the texts `*a` and `a_b` followed by one emoji node.
+- **The mutant can fail on the three side-by-side members.** A join that takes each value at its first occurrence gives
+  both nodes of each member one span, and the literals hold two.
+- **Remedy (a) stays open to the helper, as the batch row says.** At `2e36107`, `engine.ts` imports `parseLossless` from
+  `@discord/markdown-wasm`, the helper's one permitted import. The five members and their literals bind either way.
+- **AC-3.3's drive clause** makes the test decide carry, replace or remove from AC-6.7's table over the input, so a wrong
+  carry is no longer written back as the same text. The table is the criterion's, not production's, and the expected values
+  stay literals composed from the keys sent.
+- **The owed re-verdicts table** has a row for revision 15, and the rows for 13 and 14 say what each gate found.
+
+**Stop authority: F-43.** "Seen red on them" names five members, and the mutant cannot be red on two of them. QA's QAF-42,
+raised on this revision and registered at R-69, is the same shape on NM-68 and NM-69 (F-44). Neither is sent back. The class
+is stated as a property over every mutant and fixture pair the delta names, checked in this pass, and its gaps are stated
+limit SL-17 with its bearer. Under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit, and M6 is capped.
+
+Wording for the seam fold, with no finding: AC-6.7's "Seen red" still says "by three mutants" above five.
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+No milestone is marked `PREMISE-STALE` by this delta. `Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7
+lines without `[RESOLVED]` or `[CLOSED]`, counted in memory over the plan at `79eeced6`). Routed to the owner: nothing.
+
+The cycle 8 verdict follows, as written at that pass.
 
 **APPROVED — cycle 8, pass 1.** The stop authority fired on one shape (F-41). The hard stop did not fire (pass 1 of 15 in this
 cycle). Pricing: sized to the ask plus his rulings. Revision 14 adds one criterion to M6 on his 04:00Z selection, which the
@@ -433,6 +475,11 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 9 pass 1: this pass assumes that AC-3.3's typed drive presses Enter only between the input's lines, which is QA's
+reading in QAF-42, and does not test it against the drive at `8cb4d83`. If it is false, NM-68 and NM-69 can go red on the
+fixtures as written, and F-44 has no member. The signature is NM-68 red on `>>> a⏎> b` with no line added after `> b`. QA owns
+closing it at Phase 2 on M6, where it reads both mutants on the fixtures as built.
+
 Cycle 8 pass 1: this pass assumes that the editor's own test for a quote line picks the same lines as AC-6.7's definition, "a
 line whose saved text begins with `> `", and does not test it. At `2e36107`, `quotePrefixOf` in `withNormalizeNode.ts`
 matches `^ *> `, which admits leading spaces, and nothing was run in this pass. If it is false, a line such as ` > a` carries
@@ -516,6 +563,41 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 9 pass 1
+
+F-43 LOW cycle 9 pass 1 — closed by property with stated limit SL-17; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of QAF-42 in `qa/019-slate-formatting-discord-engine-qa.md`
+- **Title**: AC-6.5's join mutant cannot be red on the two escape members it is said to be seen red on.
+- **Location**: plan revision 15, AC-6.5 "Expected value", the hand-written control's member "one value from two source
+  forms side by side, and an escape before an emoji".
+- **Description**: the line lists `😄:smile:`, `:smile:😄`, `😄😄`, `\*a😄` and `a\_b😄` and says the mutant "a join that
+  matches each value at its first occurrence in the line" is "seen red on them". In `\*a😄` and `a\_b😄` the emoji occurs
+  once, so its first occurrence is its true place and the mutant gives the literal's span. Run in this pass: the engine
+  returns one emoji node for each. The mutant is red on 3 of the 5 members. The two escape members still tell a wrong join
+  apart, since a join that counts offsets over the engine's text, where the backslash is gone, places the emoji one
+  character early; no named mutant shows it.
+- **Impact**: read as "red on each", the line cannot be met. Read as "red on the set", 2 of 5 members are added without
+  having been seen to fail (Test Conventions, axiom A).
+- **The property, in place of a revision**: every mutant and fixture pair a "seen red" line names is a pair on which the
+  mutant gives a result other than the expected literal. Its domain here is the pairs revision 15's delta names, 8 of them:
+  the join mutant on each of the five members, NM-68 on `>>> a⏎> b` and on a `>>> a` line split, and NM-69 on `` ```⏎> x ``.
+  It holds for 3 (the side-by-side members). It fails for 2 (the escape members). For NM-68 on `>>> a⏎> b` and NM-69 on its
+  fixture it fails by QA's reading of the drive (F-44, not re-derived). For NM-68 on a `>>> a` line split it depends on what
+  the mutant carries from a line that opens a block, which the plan does not say. The pairs named before revision 15 are
+  outside this claim and were not re-read.
+- **SL-17**: the join mutant is owed red on the three side-by-side members. Each escape member is owed one mutant of the
+  join that it reddens, named by the implementer, or it is recorded under AC-6.5's row in QA's register as held by its
+  literal alone. QA at Phase 2 on M6 bears the detection: it reads every pair red on the fixtures as built, and a pair that
+  is not red goes to the implementer as a fixture or a mutant to add, with no revision round.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2, where AC-6.5's line names
+  which members the mutant reddens.
+
+F-44 LOW cycle 9 pass 1 — closed as landed-by-author under SL-17; discharging document: the plan's Planner batch (R-69). Duplicates: QAF-42 in `qa/019-slate-formatting-discord-engine-qa.md`
+- **Title**: NM-68's and NM-69's fixtures end on the line their dropped conjunct governs.
+- **Location**: plan revision 15, AC-6.7 "Seen red", the NM-68 and NM-69 lines.
+- **Description**: as QAF-42 states it. The typed drive presses Enter between the input's lines, and in `>>> a⏎> b` and
+  `` ```⏎> x `` no Enter follows the last line. QA's QAF-41 named the key, and the fold dropped it.
+- **Landing trigger**: QAF-42's Planner batch row; QA reads both mutants at Phase 2 on M6.
 
 ### Closed at cycle 8 pass 1
 
@@ -833,7 +915,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Checkpoint written at steering's ask on 2026-11-24, at a seam, for a clear. Closed at cycle 8 pass 1 (APPROVED on plan revision 14, `2c3c8d1a`; this document at record `f0488807`), with nothing in flight, nothing uncommitted, no process running and no question awaiting an answer. The planner registered the cycle 8 findings at plan R-63 (record `ef3f8d52`, by its message; not re-read here). On resume, arm the cache-warm wake again. The verdict was sent to `planner-019` (F-41 with SL-15 and F-42 with SL-16 for the Planner batch) and `implementer-019` (M6's quote-carry change is released by this gate, read with SL-16). M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 9: read the plan as the `git diff` from `2c3c8d1a` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Written at the close of cycle 9 pass 1 on 2026-11-24 (APPROVED on plan revision 15, `79eeced6`), replacing the checkpoint of record `8af264cb`. Nothing is in flight, no process is running and no question awaits an answer. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-43 with SL-17 for the Planner batch, F-44 as a duplicate of QAF-42, and the "three mutants" wording) and `implementer-019` (AC-6.5's literal freeze is released by this gate, read with SL-17). M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 10: read the plan as the `git diff` from `79eeced6` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
