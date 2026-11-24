@@ -1,0 +1,39 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { it, vi } from 'vitest';
+import { flattenNodeText, getInitialValue, withEmojis, withNormalizeNode } from '..';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import { startEngine } from '~/utils/markdown/engine'; import { beforeAll } from 'vitest'; beforeAll(async () => { await startEngine(); });
+const N = Number(process.env.SAMPLES ?? 10);
+const mk = (text: string): Editor => {
+  const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'content');
+  e.children = getInitialValue(text, 'content', false);
+  return e;
+};
+const med = (a: number[]) => { const s = a.slice().sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
+const lines = (n: number, l2: string) => ['a', 'a', l2, ...Array.from({ length: n - 3 }, () => 'a')].join('\n');
+const out = (o: object) => process.stdout.write(`RESULT ${JSON.stringify(o)}\n`);
+const load = () => require('fs').readFileSync('/proc/loadavg', 'utf8').trim();
+
+it('probe', () => {
+  [200, 2048].forEach((size) => {
+    ([['open', '``', (e: Editor) => e.insertText('`'), lines(size, '```')],
+      ['close', '```', (e: Editor) => e.deleteBackward('character'), lines(size, '``')],
+      ['plain-insert (control)', 'a', (e: Editor) => e.insertText('x'), lines(size, 'ax')]] as const).forEach(([name, l2, act, expect]) => {
+      const t: number[] = []; let threw = 0; let msg = ''; let okText = 0;
+      for (let i = 0; i < N + 2; i += 1) {
+        const e = mk(lines(size, l2));
+        Transforms.select(e, Editor.end(e, [2]));
+        const s = performance.now();
+        try { act(e); } catch (err) { threw += 1; msg = (err as Error).message.slice(0, 90); }
+        const d = performance.now() - s;
+        if (i >= 2) t.push(d);
+        if (flattenNodeText(e.children) === expect) okText += 1;
+      }
+      out({ name, size, runs: t.length, threw: `${threw}/${N + 2}`, medianMs: +med(t).toFixed(1), maxMs: +Math.max(...t).toFixed(1), textAsExpected: `${okText}/${N + 2}`, msg, load: load() });
+    });
+  });
+}, 600000);

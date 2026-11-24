@@ -1,0 +1,20 @@
+Benchmarking is an experimental feature.
+Breaking changes might not follow SemVer, please pin Vitest's version when using it.
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/0380c447-6f27-4944-8b28-389197260b3c/scratchpad/fix
+
+keystroke-time {"name":"plain lines","lines":400,"keystrokes":50,"medianMs":2.3453159999999116,"p95Ms":6.665279999999939}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 400 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  348.14  1.3981  9.2562  2.8724  3.0384  9.2562  9.2562  9.2562  ±17.05%       50
+
+ BENCH  Summary
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 400 lines
+
+
+real	0m2.085s
+user	0m2.263s
+sys	0m0.550s
+exit=0

@@ -1,0 +1,4 @@
+keystrokes 27252 inputs 1278
+differ 8 ['0|0|start|\\', '4|0|start|\\', '5|0|start|`', '5|0|end|`', '5|1|start|\\', '429|0|start|\\', '707|0|start|\\', '1179|0|start|\\']
+A non-fixed-point 0 [] errors 0
+B non-fixed-point 8 ['0|0|start|\\', '4|0|start|\\', '5|0|start|`', '5|0|end|`', '5|1|start|\\', '429|0|start|\\', '707|0|start|\\', '1179|0|start|\\'] errors 0

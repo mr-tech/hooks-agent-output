@@ -1,0 +1,60 @@
+plain lines|insert|start|100|small=true:1|large=true:1
+plain lines|insert|end|100|small=true:1|large=true:1
+plain lines|backspace|start|100|small=true:1|large=true:1
+plain lines|backspace|end|100|small=true:1|large=true:1
+plain lines|delete|start|100|small=true:1|large=true:1
+plain lines|delete|end|100|small=true:1|large=true:1
+plain lines|enter|start|100|small=true:2|large=true:2
+plain lines|enter|end|100|small=true:2|large=true:2
+"> " quote lines|insert|start|100|small=true:1|large=true:1
+"> " quote lines|insert|end|100|small=true:1|large=true:1
+"> " quote lines|backspace|start|100|small=true:1|large=true:1
+"> " quote lines|backspace|end|100|small=true:1|large=true:1
+"> " quote lines|delete|start|100|small=true:1|large=true:1
+"> " quote lines|delete|end|100|small=true:1|large=true:1
+"> " quote lines|enter|start|100|small=true:6|large=true:6
+"> " quote lines|enter|end|100|small=true:5|large=true:5
+lines after a ">>> " marker|insert|start|100|small=true:1|large=true:1
+lines after a ">>> " marker|insert|end|100|small=true:1|large=true:1
+lines after a ">>> " marker|backspace|start|100|small=true:1|large=true:1
+lines after a ">>> " marker|backspace|end|100|small=true:1|large=true:1
+lines after a ">>> " marker|delete|start|100|small=true:1|large=true:1
+lines after a ">>> " marker|delete|end|100|small=true:1|large=true:1
+lines after a ">>> " marker|enter|start|100|small=true:2|large=true:2
+lines after a ">>> " marker|enter|end|100|small=true:2|large=true:2
+lines that each hold an emoji|insert|start|100|small=true:1|large=true:1
+lines that each hold an emoji|insert|middle|100|small=true:1|large=true:1
+lines that each hold an emoji|insert|end|100|small=true:1|large=true:1
+lines that each hold an emoji|backspace|start|100|small=true:1|large=true:1
+lines that each hold an emoji|backspace|middle|100|small=true:1|large=true:1
+lines that each hold an emoji|backspace|end|100|small=true:1|large=true:1
+lines that each hold an emoji|delete|start|100|small=true:1|large=true:1
+lines that each hold an emoji|delete|middle|100|small=true:1|large=true:1
+lines that each hold an emoji|delete|end|100|small=true:1|large=true:1
+lines that each hold an emoji|enter|start|100|small=true:2|large=true:2
+lines that each hold an emoji|enter|middle|100|small=true:2|large=true:2
+lines that each hold an emoji|enter|end|100|small=true:2|large=true:2
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|insert|start|101|small=true:1|large=true:1
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|insert|end|101|small=true:1|large=true:1
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|backspace|start|101|small=true:1|large=true:1
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|backspace|end|101|small=true:1|large=true:1
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|delete|start|101|small=true:1|large=true:1
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|delete|end|101|small=true:2|large=true:2
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|enter|start|101|small=true:4|large=true:4
+fenced quote blocks (2,048 lines is past the field limit, used for growth only)|enter|end|101|small=true:3|large=true:3
+fenced blocks of three lines between plain lines|insert|start|100|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|insert|start|102|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|insert|end|100|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|insert|end|102|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|backspace|start|100|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|backspace|start|102|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|backspace|end|100|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|backspace|end|102|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|delete|start|100|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|delete|start|102|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|delete|end|100|small=true:1|large=true:1
+fenced blocks of three lines between plain lines|delete|end|102|small=true:2|large=true:2
+fenced blocks of three lines between plain lines|enter|start|100|small=true:2|large=true:2
+fenced blocks of three lines between plain lines|enter|start|102|small=true:2|large=true:2
+fenced blocks of three lines between plain lines|enter|end|100|small=true:2|large=true:2
+fenced blocks of three lines between plain lines|enter|end|102|small=true:2|large=true:2

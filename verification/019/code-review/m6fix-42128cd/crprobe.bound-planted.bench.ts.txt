@@ -1,0 +1,79 @@
+import {
+  bench, describe, expect, vi,
+} from 'vitest';
+
+import { caretAt, editorHolding, press } from '../../__tests__/helpers/keystrokes';
+
+import type { Editor } from 'slate';
+import type { Kind, Place } from '../../__tests__/helpers/keystrokes';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const FRAME_MS = 0.001;
+const KEYSTROKES = 50;
+
+const lines = (count: number, line: string) => Array.from({ length: count }, () => line).join('\n');
+
+type Step = { line: number; place: Place; kind: Kind };
+
+const cycle = (target: number): Step[] => [
+  { line: target, place: 'middle', kind: 'insert' },
+  { line: target, place: 'end', kind: 'backspace' },
+  { line: target, place: 'start', kind: 'insert' },
+  { line: target, place: 'start', kind: 'delete' },
+  { line: target, place: 'middle', kind: 'enter' },
+  { line: target + 1, place: 'start', kind: 'backspace' },
+  { line: target, place: 'end', kind: 'enter' },
+  { line: target + 1, place: 'start', kind: 'backspace' },
+];
+
+const percentile = (sorted: number[], share: number) => sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * share))];
+
+const TEXTS: Array<[string, number, (size: number) => string]> = [
+  ...[200, 400, 1000, 2048].flatMap((size): Array<[string, number, (size: number) => string]> => [
+    ['plain lines', size, (n) => lines(n, 'a')],
+    ['"> " quote lines', size, (n) => lines(n, '> a')],
+    ['lines after a ">>> " marker', size, (n) => `>>> a\n${lines(n - 1, 'a')}`],
+  ]),
+  ['lines that each hold an emoji', 1000, (n) => lines(n, 'a🙂')],
+  ['fenced blocks of three lines between plain lines', 1364, (n) => lines(n / 4, 'a\n```\nx\n```')],
+];
+
+describe.each(TEXTS)('one keystroke in %s, %i lines', (name, size, text) => {
+  let editor: Editor;
+  let steps: Step[];
+  let next = 0;
+  const timings: number[] = [];
+
+  const setup = async () => {
+    await startEngine();
+    editor = editorHolding(text(size), 'embedDescription');
+    steps = cycle(name.startsWith('fenced') ? Math.floor(size / 8) * 4 : Math.floor(size / 2));
+    next = 0;
+    timings.length = 0;
+  };
+
+  const report = () => {
+    if (timings.length < KEYSTROKES) return;
+    const sorted = timings.slice(-KEYSTROKES).sort((a, b) => a - b);
+    const median = percentile(sorted, 0.5);
+    const p95 = percentile(sorted, 0.95);
+    process.stdout.write(`keystroke-time ${JSON.stringify({
+      name, lines: size, keystrokes: sorted.length, medianMs: median, p95Ms: p95,
+    })}\n`);
+    expect(median).toBeLessThanOrEqual(FRAME_MS);
+  };
+
+  bench('normalises', () => {
+    const step = steps[next % steps.length];
+    next += 1;
+    caretAt(editor, step.line, step.place);
+    const started = performance.now();
+    press(editor, step.kind);
+    timings.push(performance.now() - started);
+  }, {
+    iterations: KEYSTROKES, warmupIterations: 0, time: 0, warmupTime: 0, setup, teardown: report,
+  });
+});

@@ -1,0 +1,85 @@
+import {
+  beforeAll, describe, expect, it, vi,
+} from 'vitest';
+
+import { unitAround } from '../runUnit';
+import {
+  caretAt, editorHolding, KINDS, leavesOtherLinesAlone, PLACES, press, signatures,
+} from '../../__tests__/helpers/keystrokes';
+
+import type { Kind, Place } from '../../__tests__/helpers/keystrokes';
+import type { Surface } from '~/utils/markdown/engine';
+import type * as RunUnit from '../runUnit';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('../runUnit', async (importOriginal) => {
+  const actual = await importOriginal<typeof RunUnit>();
+  return { ...actual, unitAround: vi.fn(actual.unitAround) };
+});
+
+beforeAll(async () => { await startEngine(); });
+
+const builds = () => vi.mocked(unitAround).mock.calls.length;
+
+type Pressed = { count: number; alone: boolean };
+
+function pressed(text: string, surface: Surface, line: number, place: Place, kind: Kind): Pressed {
+  const editor = editorHolding(text, surface);
+  const before = signatures(editor);
+  caretAt(editor, line, place);
+  vi.mocked(unitAround).mockClear();
+  press(editor, kind);
+  return { count: builds(), alone: leavesOtherLinesAlone(before, signatures(editor), line, kind) };
+}
+
+const lines = (count: number, line: string) => Array.from({ length: count }, () => line).join('\n');
+
+type Sized = { name: string; sizes: [number, number]; text: (size: number) => string; targets: (size: number) => number[]; places: readonly Place[] };
+
+const ENDS: readonly Place[] = ['start', 'end'];
+const middle = (size: number) => [Math.floor(size / 2)];
+const blocks = (size: number) => { const block = Math.floor(size / 8) * 4; return [block, block + 2]; };
+
+const SIZED: Sized[] = [
+  {
+    name: 'plain lines', sizes: [200, 2048], text: (size) => lines(size, 'a'), targets: middle, places: ENDS,
+  },
+  {
+    name: '"> " quote lines', sizes: [200, 2048], text: (size) => lines(size, '> a'), targets: middle, places: ENDS,
+  },
+  {
+    name: 'lines after a ">>> " marker', sizes: [200, 2048], text: (size) => `>>> a\n${lines(size - 1, 'a')}`, targets: middle, places: ENDS,
+  },
+  {
+    name: 'lines that each hold an emoji', sizes: [200, 1000], text: (size) => lines(size, 'a🙂'), targets: middle, places: PLACES,
+  },
+  {
+    name: 'fenced quote blocks (2,048 lines is past the field limit, used for growth only)',
+    sizes: [200, 2048],
+    text: (size) => lines(size / 4, '> ```\n> x\n> ```\n> y'),
+    targets: () => [101],
+    places: ENDS,
+  },
+  {
+    name: 'fenced blocks of three lines between plain lines',
+    sizes: [200, 1364],
+    text: (size) => lines(size / 4, 'a\n```\nx\n```'),
+    targets: blocks,
+    places: ENDS,
+  },
+];
+
+import { writeFileSync } from 'node:fs';
+it('alone at both sizes', () => {
+  const rows: string[] = [];
+  SIZED.forEach(({ name, sizes, text, targets, places }) => {
+    KINDS.forEach((kind) => places.forEach((place) => targets(sizes[0]).forEach((line, index) => {
+      const a = pressed(text(sizes[0]), 'embedDescription', line, place, kind);
+      const b = pressed(text(sizes[1]), 'embedDescription', targets(sizes[1])[index], place, kind);
+      rows.push(`${name}|${kind}|${place}|${line}|small=${a.alone}:${a.count}|large=${b.alone}:${b.count}`);
+    })));
+  });
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.join('\n'));
+}, 600_000);

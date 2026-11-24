@@ -1,0 +1,38 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+
+const median = (xs: number[]) => { const s = xs.slice(2).sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
+
+function run(lines: number, line: string, wrapped: boolean, viaSelection: boolean) {
+  const text = Array.from({ length: lines }, () => line).join('\n');
+  const base = wrapped ? withEmojis(withHistory(withReact(createEditor()))) : createEditor();
+  const editor = withNormalizeNode(base, false, 'embedDescription');
+  editor.children = getInitialValue(text, 'embedDescription', false) as Descendant[];
+  const times: number[] = [];
+  for (let k = 0; k < 22; k += 1) {
+    const at = { path: [Math.floor(lines / 2), 0], offset: 1 };
+    const t0 = performance.now();
+    if (viaSelection) { Transforms.select(editor, at); editor.insertText('x'); } else Transforms.insertText(editor, 'x', { at });
+    times.push(performance.now() - t0);
+  }
+  return { lines, line, wrapped, viaSelection, median: median(times) };
+}
+
+it('cost variants', { timeout: 590000 }, () => {
+  const rows = [];
+  for (const n of [200, 1000, 2048]) for (const line of ['l', 'a']) for (const wrapped of [false, true]) for (const via of [false, true]) rows.push(run(n, line, wrapped, via));
+  writeFileSync(process.env.CRPROBE_OUT as string, JSON.stringify(rows));
+});
