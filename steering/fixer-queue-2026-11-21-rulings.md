@@ -1550,3 +1550,29 @@ The planner proposes Revision 23, on AC-6.9 only: (1) fence keystrokes over `a�
 - The reviewer's tools-inbox sighting (the heredoc writes passing `record-write-gate-hook`) is already logged in `~/.claude/agents/INBOX.md`
   (lines 93–102, read this turn), so nothing is added.
 Recipients: `planner-019` (the revision), `code-reviewer-019` (it asked about the cap), then him (the paste).
+
+## 2026-11-24T20:07Z — selection: plan 019, the paste slowdown is fixed too (put 19:48Z, answered 20:07Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T20:07Z — steering-hooks-fixer`. The wording is this thread's, and he
+answered by selection. Options:
+- *Agent: fix it too (Recommended)*: "Matches your 'fix everything we find' ruling. The paste check joins the plan revision already waiting for
+  the reviewers, so they read it once with no extra round. It rides the fix round already needed for the code-block slowdown, then code review
+  and QA. Release waits only for that round, as it already does."
+- *Agent: track it for later*: "No extra work beyond the code-block fix round already planned. Paste is written up for a later editor fix, and
+  the release ships with pasting 3 to 9 times slower than today's site, worst on long messages with emoji."
+- *Discuss first*: "Nothing moves on the paste part until we talk it through. The reviewers wait too, so they read the revision once."
+**Chosen by selection: fix it too.** CR-25's paste member (a paste through `insertData` of plain and `a🙂` lines) joins Revision 23 and is
+fixed in M6's third fix round, before the one release (D-19). It is a milestone-level scope delta on M6, confirmed by this selection. Like
+D-23 to D-25, it lifts the cap for this item alone.
+Premises, each read this turn:
+- The refutation helper (`general-purpose-sonnet`) ran the review's own probe, unmounted `insertData` in node/jsdom, in `git archive` exports
+  under `systemd-run` caps at load 1.4 to 2.6. The medians, `a` / `a🙂`, are 135 / 237 ms (200 lines) and 1,695 / 2,972 ms (1,000) at `af3d95a`;
+  472 / 1,004 and 10,536 / 27,603 at `42128cd`; 419 / 954 and 9,773 / 25,548 at `85ece66`. The claim holds, and it was already present at
+  `42128cd`. Neither a browser nor a mounted editor was measured, and the option text says "outside a browser". Its raw files are this thread's
+  scratch `paste-refute/`.
+- The base equals production over the editor paths: `git diff --quiet af3d95a origin/master -- src/components/SlateEditor src/utils/markdown`
+  exits 0, with `origin/master` at `5ec0621`, fetched 19:48Z.
+- The plan has seen revisions 10 to 23 since approval: Revision 23 is committed (`6ef51baa`, by `planner-019`'s message, 19:4xZ), and the gates
+  have not been cued.
+Recipients: `planner-019` (it adds the member to 23 and cues the three gates once) and `implementer-019` (it holds its paste work until this
+answer). The implementer's start still waits on all three gates passing Revision 23.
