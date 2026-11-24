@@ -1070,3 +1070,22 @@ Recipients: `implementer-019`, `code-reviewer-019` (told the question was pendin
   record `7e3d6c1d`, its message 03:4xZ), registration only and no scope delta.
 - The M5 and M6 flows hold no decision for him (`8bfb6f9e`), and M6 is capped (block 00:49Z).
 M6's code may touch `SlateEditor/index.tsx` under D-20: a new error there beyond the handoff's list is M6's own, per the planner.
+
+## 2026-11-24T03:55Z — selection: plan 019 AC-6.5, the box exposes no emoji spans (put 03:5xZ, answered 03:55Z)
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T03:55Z — steering-hooks-fixer`. The wording is this thread's. It arose
+from `implementer-019`'s BLOCKED message (03:5xZ). AC-6.5's M6 entry condition, "the box exposes its spans", is false. The plan (line 1215ff)
+routes the result to the planner. steering.md puts a BLOCKED to him first. Options:
+- *Agent: planner picks a source (Recommended)*: "As the plan says for this case: the planner picks a replacement (Discord's older formatter,
+  hand-written answers, or the test helper already used elsewhere) in one small plan revision, re-read once by the three reviewers. The
+  implementer keeps building the rest of M6 meanwhile; the test's answers are frozen after."
+- *Agent: list it as a known limit*: "No replacement and no plan revision: this one comparison is listed as not checked against Discord…
+  Fastest; leaves loaded messages' emoji placement unchecked against Discord."
+**Chosen by selection: the planner picks a source.** `planner-019` is commissioned for one planning revision of AC-6.5's expected-span source.
+Its candidates are the implementer's (A), (B) and (C). The criterion change re-runs the gates on its delta, critic, QA and architect. The
+architect is not live (block 02:40Z), so this thread spawns it for that read. M6's other limbs proceed.
+Premises: a `general-purpose-sonnet` refutation helper re-ran the box through the repo's helpers (`openLive`, `openBoxes`, `nativeBox`). It used
+a `git archive 2e36107` export with its own offline install, capped, exit 0. Result: CONFIRMED. Over the 10 inputs plus `**a😀b**`, no attribute or
+field marks an emoji. The attribute union is syntax, inlineCode, link and strong only. No export of the module mentions "emoji". The
+module is fetched live from discord.com; only the wasm is pinned (0.16.0). The walker's mechanism is read from code, not run. "Three revisions
+since approval" is Revisions 10 to 12 after Revision 9's implementation start (block 18:48Z).
