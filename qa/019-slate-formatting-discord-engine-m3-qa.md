@@ -2,12 +2,12 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Verified-At: "2c1590f — repos=website; M3 paths at the code review's Round 3 sub-entry Reviewed-At, run in a git-archive export with the shared tree's install linked (lockfile identical); the tree also holds M4's 93b26fd, f131f06, c32e058, outside this verdict"
+Verified-At: "e58f2ed — repos=website; refresh pass over fix round 5 (380e82d, test-only, code review Round 3 sub-entry), run at the M4 tip e58f2ed, which contains 380e82d with its two files and package.json unchanged (git diff --quiet 380e82d e58f2ed, exit 0); git-archive export with its own frozen offline install; the first pass was at 2c1590f"
 Status: QA Failed
 Status-Detail: >-
-  M3 at website 2c1590f fails, milestone-scoped, on QAF-32 MEDIUM (AC-3.5: offline, the whole command reports a pass count) and
-  QAF-33 MEDIUM (the drift alarm writes nothing to the run output). Both are severity floors, excepted from the M3 cap. Every other
-  assessed criterion passes. A fix round is owed to the implementer, then a refresh pass. Register row B-8 appended.
+  Refresh over fix round 5 (380e82d), run at e58f2ed. QAF-32 is closed, and QAF-33's write limb is closed. M3 still fails, on
+  QAF-36 MEDIUM, a severity floor excepted from the cap: nothing tests that the drift alarm fires on a mismatch. With the comparison
+  forced to "equal", every live case stays green. One more fix round is owed to the implementer, then a refresh pass over its diff.
 Phase: 2
 ---
 
@@ -25,6 +25,7 @@ APPROVED_WITH_COMMENTS at `Reviewed-At: 2c1590f` (record `6c55e994`; plan R-36 a
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T22:48 | code-reviewer-019 (message: M3 APPROVED_WITH_COMMENTS, record `6c55e994`, Reviewed-At website `2c1590f`) | QA Phase 2 on M3 | Phase 2: milestone-scoped pass on M3 at `2c1590f`, in an export. Steering's Phase 2 brief has not arrived, so this pass read the Decisions Register, the 22:35Z M3 cap and the code review's Assumption Not Checked lines itself. Offline 3348 of 3348, exit 0. Live 38 of 38, exit 0, the attempts case included. Typecheck exit 0 with Next's generated declaration copied in. Findings 5 reproduced at `f4060c5`. AC-3.4: 22 of 29 product mutants killed, 7 survivors dispositioned. Verdict **QA Failed** on QAF-32 and QAF-33, both MEDIUM severity floors. B-8 appended for the `beforeinput` paste branch. One command was stopped by the built-in destructive-command check and re-issued with literal paths (§ Execution). |
+| 2026-11-24T01:08 | implementer-019 (message: fix round 5 at `380e82d`), code-reviewer-019 (message: Round 3 sub-entry at `380e82d` APPROVED_WITH_COMMENTS, record `d31214e4`) | Phase 2 refresh pass over fix round 5 | Phase 2 refresh at `e58f2ed`, which contains `380e82d` (§ Refresh pass). Frozen offline install exit 0. Offline 3454 of 3454, exit 0. Whole `pnpm test:discord` offline: exit 1, names the page, no pass count. Live: 41 of 41, exit 0, with the drift message on stderr and at the report head. **QAF-32 closed**: a planted file that passes offline turns its case red. **QAF-33's write limb closed.** **QAF-36 MEDIUM raised**: a QA mutant forcing the comparison to "equal" survives, 15 of 15 live. Verdict **QA Failed** on QAF-36. The M3 Assumption Not Checked (the install) is settled by the frozen install. |
 
 ## Scope and stage start
 
@@ -119,35 +120,9 @@ below are severity floors. Each is a behaviour M3 relies on that no assertion fa
 whole command, and C2's "reported in the run output". So both are excepted from the cap. Neither asks for a plan revision either:
 each is an implementation fix, for the implementer's fix round.
 
-QAF-32 MEDIUM Phase 2
-AC-3.5 says that in the loopback-only namespace, `pnpm test:discord` "exits non-zero, naming the fetch, and reports no pass count".
-Run whole at `2c1590f` (`discord-offline-2c1590f.log.txt`), it exits 1 and names `https://discord.com/app`, and it prints
-`Test Files 5 failed | 1 passed (6)` and `Tests 3 passed | 35 skipped (38)`. The three passes are
-`discord/discordOffline.fetch-failure.test.ts`, the case that states AC-3.5. It spawns only the controls file
-(`discordLive.oracle-controls.test.ts`) in the namespace and asserts no pass count there, so it stays green while the command it
-stands for reports one. It is therefore not discriminating for the criterion's subject: it cannot fail when the command prints a pass
-count, because it is the source of that count. The property: a C1 run of the gate, the run devops and QA read, shows no count a reader
-can take for a pass. The failure in operator terms: a Stage 1 run without network reads `3 passed` beside the failures. Remedy, for
-the implementer: move the case into `pnpm test` (it already spawns its own namespace, so the offline suite can hold it) and have it
-spawn the whole `pnpm test:discord`, asserting exit non-zero, the page named, and no `\d+ passed` in that output. Then
-`test:discord` offline reports no pass, and the case would go red if one file came to pass offline. The planner may instead narrow the
-criterion; either closes it. Seen red: the case's assertion `expect(output).not.toMatch(/\d+ passed/)`, applied to the whole
-command's output, fails on `Tests 3 passed` (the capture above).
+QAF-32 MEDIUM Phase 2 RESOLVED — `discordOffline.whole-command.test.ts`, in `pnpm test`, spawns the whole live command offline and asserts exit non-zero, the page named, and no `\d+ passed`. It was red with the old spawner present (`verification/019/impl/m4-m3fix-red-1.txt`) and red on a QA-planted file that passes offline. Fix round 5 at `380e82d`. § Refresh pass.
 
-QAF-33 MEDIUM Phase 2
-M3's outcome table says a drift alarm (C2) is "reported in the run output with both hashes", and devops at Stage 1 writes an upgrade
-handoff from it. At `2c1590f`, `discordLive.oracle-controls.test.ts` "the drift alarm" computes `driftReport(live)` and asserts that
-its `message` holds both hashes, but nothing writes the message to the run output or a report. `git grep` over the test tree finds no
-writer of `report.message`, and `known-differences.md` and `coverage.md` contain no hash (`grep -ic "da7b9e5e|drift"`: 0 and 0). The
-live run's whole stdout and stderr hold only the coverage line (`discord-live-2c1590f.log.txt`, 2 lines). So under drift the command
-stays green and silent: "says the two are equal exactly when their hashes are" passes whichever way they compare. A served wasm that
-moved would reach no one, and no upgrade handoff would be written. Discord's release interval is 2 to 12 days, by the plan's own
-reading. Today the hashes are equal; a QA probe printed the report (`qaDriftProbe-2c1590f.log.txt`: served and pinned both
-`da7b9e5e…57fb0`, `equal`). The property: the run output names both hashes on every run, and names a mismatch as C2. The same holds
-for the native-box limbs' "not comparable under drift" report, which has no writer either. Remedy, for the implementer: write the
-drift message to stderr on every run, the way `discordReports.run.test.ts` writes the unexamined cells, and add it to the
-known-differences report's head. A case seen red when the write is removed, for example one that reads the report file's head for
-both hashes, makes it a gate.
+QAF-33 MEDIUM Phase 2 RESOLVED on its write limb — the drift message goes to stderr and to the head of `known-differences.md` on every run. Two cases read that head; they were red with the head write removed (`verification/019/impl/m4-m3fix-red-2.txt`) and green live at `e58f2ed`. Fix round 5 at `380e82d`. The native-box limbs' "not comparable under drift" report is covered by the same one message (implementer, M3 document Round 5). The limb "names a mismatch as C2" is not closed: QAF-36. § Refresh pass.
 
 ## Verdict
 
@@ -188,3 +163,69 @@ Carried, not owed now:
 - **M4's pass:** the frozen install (Assumption Not Checked).
 - **M5's pass:** the partial-mode element-type survivors (G5, W12) and the untested smart-quote repair (W9).
 - **M6's pass:** W8.
+
+## Refresh pass — fix round 5 (`380e82d`), run at `e58f2ed`
+
+- **Stage start.** The code review's committed Round 3 sub-entry at `380e82d`, APPROVED_WITH_COMMENTS, re-derived from the record
+  (`d31214e4`, `Reviewed-At` names `380e82d` as test-only). The implementer's and the code reviewer's messages are the hand-offs.
+  Plan read at Revision 12 with registrations to R-48. The caps (effort rulings blocks 22:35Z and 2026-11-24T00:49Z, record
+  `8de0ac3`) apply: a gap below HIGH is a stated limit, and a severity floor is excepted.
+- **Scope.** Round 5's diff: `discordReports.run.test.ts`, and `discordOffline.fetch-failure.test.ts` renamed to
+  `discordOffline.whole-command.test.ts` and moved into `pnpm test`. Both are test files; no production path changed. QAF-32's and
+  QAF-33's properties are re-checked, and so is the instrument the fix relies on (the drift comparison).
+- **Tree.** Website `e58f2ed`, the M4 tip, contains `380e82d`. Between the two, the round's two files, `helpers/discordReports.ts`,
+  `package.json` and `vitest.config.ts` are unchanged: `git diff --quiet 380e82d e58f2ed -- <those paths>`, exit 0. Running
+  at the tip lets one export serve this pass. Export: `git archive e58f2ed` into this session's scratchpad. Blob identity: 654 blobs,
+  0 mismatches (`verification/019/qa/m3-refresh/blob-identity-e58f2ed.txt`). The export has its own `pnpm install
+  --frozen-lockfile --offline`, exit 0 (`frozen-install-e58f2ed.{log.txt,exit}`). That settles this document's first Assumption
+  Not Checked by construction: the suite below ran on the lockfile's install, not the shared tree's. Next's generated
+  `next-env.d.ts` was copied in (`next-env.sha256`). The shared tree was not switched or written.
+
+| Command (in the export of `e58f2ed`), captures under `verification/019/qa/m3-refresh/` | Result |
+|---|---|
+| `unshare -rn` (lo up) `npx vitest run --project node --project dom --reporter=json` (`suite-offline-e58f2ed.*`) | **exit 0**; 212 files (`testResults` entries), 3,454 of 3,454 passed; 0 files under `__tests__/discord/` collected; the three `discordOffline.whole-command` cases passed. 69 s wall time (start 01:04:29Z, end 01:05:38Z) |
+| `unshare -rn` (lo up) `pnpm test:discord`, whole (`discord-offline-e58f2ed.*`) | **exit 1**; names `https://discord.com/app` (`OracleError`); `Test Files 6 failed (6)`, `Tests 41 skipped (41)`; `grep -c -E '[0-9]+ passed'` over the capture: **0** |
+| `npx vitest run --project discord-node --project discord-dom` live, with network (`discord-live-e58f2ed.*`) | **exit 0**; 6 files, 41 of 41 passed; stderr carries `wasm: served wasm sha256 da7b9e5e…57fb0, pinned wasm sha256 da7b9e5e…57fb0: equal` and the coverage line (five unexamined cells, as at `2c1590f`); line 1 of `known-differences.md` is `> Oracle wasm: ` plus that message (`discord-reports-e58f2ed/`) |
+| QA positive control for QAF-32: a planted `discord/qaPlanted.offline-pass.test.ts` holding one empty case (text at `qaPlanted.offline-pass.test.ts.txt`), then `npx vitest run --project node` on the whole-command file (`qa-planted-offline-pass.*`) | **exit 1**; `× reports no pass count`, the spawned command printing `Tests 1 passed \| 41 skipped (42)`. The other two cases stay green. Planted file removed afterwards (`ls -d`: absent) |
+| QA mutant for QAF-36: `helpers/discordLive.ts` `driftReport`, `const match = served === pinned;` to `const match = true;` (one match, by `grep -c`), then the live `discordLive.oracle-controls` and `discordReports.run` files (`qa-mutant-drift-match-true.*`; hashes before, mutated, restored in `qa-mutant-drift.sha256`) | **exit 0, 15 of 15 passed: SURVIVED.** Restored (hash `a52ce0a3…` back) |
+
+**QAF-32.** The case states the criterion's subject now: it spawns the whole command, and it reddens when any file in the live
+projects passes offline (the planted control). It was also red with the old spawner present (the implementer's
+`m4-m3fix-red-1.txt`, read: `Tests 3 failed | 3 passed`). **Closed.** CR-14 LOW is a stated limit (planner R-47): the case
+spawns a copy of the `test:discord` command, not the script. At `e58f2ed` the copy reads `npx vitest run --project discord-node
+--project discord-dom` and `package.json`'s script reads `vitest run --project discord-node --project discord-dom`, equal, by
+reading both. Phase 3's own run of `pnpm test:discord` at the release tip is what checks the script.
+
+**QAF-33.** The report head carries both hashes and the verdict on every run, and the two cases reading that head were red with
+the write removed (`m4-m3fix-red-2.txt`, read: `Tests 2 failed | 4 passed`). **Closed on the write limb.** The stderr line has no
+case of its own. QAF-33's remedy named the report head as the gate, so this is not a finding: the head is what devops reads.
+
+QAF-36 MEDIUM Phase 2
+The drift alarm is an equality check, and nothing in the suite shows it can say "different". `driftReport`
+(`helpers/discordLive.ts`) sets `match = served === pinned` and words the message from `match`. Its only assertions are live:
+`discordLive.oracle-controls` "the drift alarm" checks `report.message` contains `report.match ? 'equal' : 'DIFFERENT'`, and
+`discordReports.run` checks that the head holds the message. Both pass whatever `match` is. With `match` forced to `true`, all 15
+cases of those two files pass live at `e58f2ed`. So a served wasm that moved would be reported `equal`, the run would stay green,
+and devops at Stage 1 would write no upgrade handoff. That is the C2 outcome M3 relies on ("names a mismatch as C2", QAF-33's
+property). The equality check also has no positive control on any run (qa.md: "an equality or no-movement check carries a
+positive control on the same run that fires on a known difference"). This is a severity floor: a behaviour the change relies on,
+with no assertion that fails when it is lost. So it is MEDIUM and excepted from the cap. This pass's own QAF-33 remedy named only
+the write, so the gap is mine to have caught at `2c1590f`. Remedy, for the implementer: make the comparison testable apart from the
+fetch, for example `driftReport` comparing against pinned bytes it is handed or a pure `compareWasm(servedBytes, pinnedBytes)`, and
+add an offline case in `pnpm test`. In that case, bytes that differ from the pinned file give `match: false` and a message holding
+`DIFFERENT (drift, outcome C2)` and both hashes, and identical bytes give `equal`. It must be seen red under `match = true` and
+under `match = false`. Then the live head check carries the real hashes, and the offline case carries the decision.
+
+**Verdict.** **QA Failed**, milestone-scoped, for M3's fix round 5, run at website `e58f2ed`: QAF-32 is closed, QAF-33's write
+limb is closed, and QAF-36 MEDIUM (a severity floor) is open. Every criterion the first pass passed stays passed on this run: the
+offline Form, AC-3.5's `pnpm test` limb, the live controls 41 of 41, and the coverage and known-differences reports. A change to the
+drift helper or its cases expires this verdict, and the next refresh covers that round's diff. Rows inherited and not discharged:
+B-1 to B-8 (register in `qa/019-slate-formatting-discord-engine-qa.md`). This pass appends none. The plan's Status is not moved.
+
+**Assumption Not Checked.** This pass assumes that the wasm `discord.com` served to this box at 01:06Z is the one it serves to
+other readers, and does not test it. If Discord serves builds by region or by experiment bucket, an `equal` here says nothing about
+the build another reader gets. Falsity signature: a Stage 1 run from another network reports a different served hash at the same
+time. **Owner: devops at Stage 1**, whose live run is the one the release reads.
+
+**Handoff.** To `implementer-019`, for M3's fix round 6: QAF-36, with its red run under both mutants recorded. Then code review
+re-verdicts the round, and QA runs a refresh pass over its diff.
