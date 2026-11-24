@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/mwork-fix2/20261124T083305Z-p4115697/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 2 failed) 106ms
+     × puts an emoji element on the first line when the second is edited back to text 9ms
+     × puts an emoji element on the second line when the third is edited back to text 3ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  2 failed | 322 passed (324)
+   Start at  08:33:35
+   Duration  7.83s (transform 1.29s, setup 189ms, import 3.69s, tests 15.82s, environment 5.30s)
+

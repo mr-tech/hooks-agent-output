@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix-suite-10abfa9.json
+exit=0

@@ -1,0 +1,42 @@
+OBS
+normalizeNode entries and unit builds per keystroke (one keystroke each, the whole keystroke = every drain it runs):
+plain 200 lines | insert at start: entries=3 builds=1
+plain 200 lines | insert at end: entries=3 builds=1
+plain 200 lines | backspace at start: entries=2 builds=1
+plain 200 lines | backspace at end: entries=4 builds=1
+plain 200 lines | delete at start: entries=4 builds=1
+plain 200 lines | delete at end: entries=2 builds=1
+plain 200 lines | enter at start: entries=6 builds=2
+plain 200 lines | enter at end: entries=6 builds=2
+plain 2048 lines | insert at start: entries=3 builds=1
+plain 2048 lines | insert at end: entries=3 builds=1
+plain 2048 lines | backspace at start: entries=2 builds=1
+plain 2048 lines | backspace at end: entries=4 builds=1
+plain 2048 lines | delete at start: entries=4 builds=1
+plain 2048 lines | delete at end: entries=2 builds=1
+plain 2048 lines | enter at start: entries=6 builds=2
+plain 2048 lines | enter at end: entries=6 builds=2
+quote 200 lines | insert at start: entries=3 builds=1
+quote 200 lines | insert at end: entries=3 builds=1
+quote 200 lines | backspace at start: entries=2 builds=1
+quote 200 lines | backspace at end: entries=3 builds=1
+quote 200 lines | delete at start: entries=3 builds=1
+quote 200 lines | delete at end: entries=2 builds=1
+quote 200 lines | enter at start: entries=15 builds=6
+quote 200 lines | enter at end: entries=14 builds=5
+a🙂 200 lines | insert at start: entries=3 builds=1
+a🙂 200 lines | insert at middle: entries=3 builds=1
+a🙂 200 lines | insert at end: entries=3 builds=1
+a🙂 200 lines | backspace at start: entries=2 builds=1
+a🙂 200 lines | backspace at middle: entries=3 builds=1
+a🙂 200 lines | backspace at end: entries=3 builds=1
+a🙂 200 lines | delete at start: entries=3 builds=1
+a🙂 200 lines | delete at middle: entries=3 builds=1
+a🙂 200 lines | delete at end: entries=2 builds=1
+a🙂 200 lines | enter at start: entries=6 builds=2
+a🙂 200 lines | enter at middle: entries=5 builds=2
+a🙂 200 lines | enter at end: entries=6 builds=2
+residue keystroke: a character typed in front of ">>> " on line 0, then every following line is retyped
+>>> text 200 lines | insert x at start of line 0: entries=3 builds=1 median_ms=0.8 (5 runs: 0.7, 0.8, 0.8, 1.0, 2.1)
+>>> text 2048 lines | insert x at start of line 0: entries=3 builds=1 median_ms=6.5 (5 runs: 6.1, 6.4, 6.5, 7.0, 21.1)
+

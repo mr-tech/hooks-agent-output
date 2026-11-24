@@ -1,0 +1,5 @@
+Document-and-selection hash after one keystroke (corpus 272, link, probe 1,662, generator 1,000; 8 typed characters, Backspace, Delete, Enter, selection delete; 3 places per line; surface content). Keys compared as a dictionary in python, not by diff.
+119471f vs 119471f rerun (determinism): 161136 keys, 0 differ []
+119471f vs 10abfa9 (before the neighbour step): 161136 keys, 3 differ ['gen:151:content:0:start:t:\\', 'gen:429:content:0:start:t:\\', 'gen:901:content:0:start:t:\\']
+119471f vs acd9df8 (the neighbour step, run at the same file content): 161136 keys, 0 differ []
+(The five hash files are gzipped beside this file: m6-fix-diff-{tip,tip-rerun,10abfa9,neighbours,codelineshares-mutant}.txt.gz; one "key hash" line per keystroke.)

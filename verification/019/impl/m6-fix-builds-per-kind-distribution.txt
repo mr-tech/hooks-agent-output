@@ -1,0 +1,17 @@
+Run-unit builds (unitAround calls) per keystroke over the 272 corpus and 1,000 generator inputs,
+surface content, every line, 4 kinds x 3 places, keystrokes that move no other line (residue
+excluded by the test's own filter). Observation only; no assertion rests on it.
+Instrument: scratch probe over the working tree with the fix (withNormalizeNode.ts as in the
+M6 fix round), vi.mock pass-through of ../runUnit, same helper as the count test.
+Keystroke kind : builds -> number of keystrokes
+insert:1 6449  insert:2 250  insert:6 1
+backspace:0 1318  backspace:1 4828  backspace:2 518  backspace:3 1
+delete:0 1379  delete:1 4847  delete:2 397
+enter:2 5785  enter:3 419  enter:4 67  enter:5 149  enter:6 218  enter:7 57  enter:8 5
+Total 26,688 keystrokes; 430 above 4; maximum 8 (enter).
+Examples above 4: enter on "> ```\n> x\n> ```" (5, 6, 7); insert at the end of line 0 of
+"```\n\n\nx\n\n\n```" (6); enter in "## ``||||[<:hooks:1558266761101447248>](https://x.y)|||| <id:guide>``\n> ||[a 🙂 b](https://example.com/a_b)🪿||" (8).
+
+At 119471f (per-line rebuild), same population, from m6-fix-red-count-corpus-bound-119471f.txt:
+5,746 keystrokes above 4, 459 above 8, maximum 18 (the per-line rebuild exceeds 8 on corpus
+and generator inputs; planner's revision 19-to-20 condition).

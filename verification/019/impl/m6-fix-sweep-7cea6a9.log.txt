@@ -1,0 +1,11 @@
+withNormalizeNode.ts:148:if-false KILLED 9.67
+withNormalizeNode.ts:148:not KILLED 9.08
+withNormalizeNode.ts:148:false SURVIVED 9.86
+withNormalizeNode.ts:150:=== KILLED 9.4
+withNormalizeNode.ts:151:walk-first KILLED 9.2
+withNormalizeNode.ts:151:walk-last KILLED 9.25
+hand:loop-back (NM-71) KILLED 283.97
+hand:edited-line-only KILLED 9.45
+hand:code-line-shares SURVIVED 9.97
+7 of 9 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m6-fix-mutants-7cea6a9.json (blob 35a281459634c570c35e7fd7dc000b96671591f1))
+exit=0

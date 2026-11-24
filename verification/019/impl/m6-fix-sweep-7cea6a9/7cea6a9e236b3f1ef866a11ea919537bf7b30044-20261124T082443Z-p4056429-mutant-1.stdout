@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/mwork-fix/20261124T082443Z-p4056429/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx (1 test | 1 failed) 8ms
+     × keeps an emoji element where it is and changes no text 7ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  1 failed | 323 passed (324)
+   Start at  08:24:54
+   Duration  8.48s (transform 1.32s, setup 151ms, import 3.72s, tests 17.18s, environment 5.66s)
+

@@ -1,0 +1,7 @@
+src/components/SlateEditor/utils/runUnit.ts:11 definition
+src/components/SlateEditor/utils/decorator.tsx:6 reference
+src/components/SlateEditor/utils/decorator.tsx:81 reference
+src/components/SlateEditor/utils/emojiLift.ts:3 reference
+src/components/SlateEditor/utils/emojiLift.ts:110 reference
+src/components/SlateEditor/utils/withNormalizeNode.ts:13 reference
+src/components/SlateEditor/utils/withNormalizeNode.ts:146 reference

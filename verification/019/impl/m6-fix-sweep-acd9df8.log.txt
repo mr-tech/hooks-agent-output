@@ -1,0 +1,24 @@
+withNormalizeNode.ts:153:num SURVIVED 10.9
+withNormalizeNode.ts:153:num:2 KILLED 9.77
+withNormalizeNode.ts:155:if-false KILLED 9.52
+withNormalizeNode.ts:155:not KILLED 9.03
+withNormalizeNode.ts:155:false SURVIVED 9.44
+withNormalizeNode.ts:156:walk-first KILLED 9.22
+withNormalizeNode.ts:156:walk-last KILLED 9.24
+withNormalizeNode.ts:160:=== SURVIVED 10.74
+withNormalizeNode.ts:162:if-false SURVIVED 9.49
+withNormalizeNode.ts:163:num SURVIVED 9.55
+withNormalizeNode.ts:163:num:2 SURVIVED 10.69
+withNormalizeNode.ts:163:num:3 SURVIVED 9.34
+withNormalizeNode.ts:163:num:4 KILLED 9.33
+withNormalizeNode.ts:164:walk-first SURVIVED 9.45
+withNormalizeNode.ts:164:walk-last SURVIVED 10.34
+withNormalizeNode.ts:164:walk-first:2 KILLED 9.24
+withNormalizeNode.ts:164:walk-last:2 SURVIVED 9.35
+withNormalizeNode.ts:169:=== SURVIVED 9.64
+hand:loop-back (NM-71) KILLED 287.32
+hand:edited-line-only KILLED 9.32
+hand:code-line-shares SURVIVED 10.35
+hand:no-neighbours KILLED 9.22
+10 of 22 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m6-fix-mutants-acd9df8.json (blob 005258fb7a3d1e9612ba2122e663eb6cef698f2b))
+exit=0

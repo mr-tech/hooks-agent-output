@@ -1,0 +1,112 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/export-fix
+
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\nb" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n\nb" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n> b" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its start
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its end
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its start
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its start
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its end
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its start
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its end
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed after a multi-line quote marker followed by a bare fence
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps every line after a multi-line quote marker as a quote line
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns ">>> x" typed into a plain line into a quote line that keeps its marker
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns "> x" typed into a plain line into a quote line that keeps its marker
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives the code lines the language typed onto their opening fence
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > marks which fence lines start inside a code block once a fence typed above them opens one
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > starts a quoted line with no marker when a line of a multi-line quote is split
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the lines after a code block holding a multi-line quote marker as plain lines
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > makes the lines after a removed multi-line quote marker plain lines
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > single-line box receiving typed text > keeps "> a" a plain line while it is typed 24ms
+   → expected [ '> a', [ 'blockQuote' ] ] to deeply equal [ '> a', [ 'div' ] ]
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > single-line box receiving typed text > keeps ">>> a" a plain line while it is typed 4ms
+   → expected [ '>>> a', [ 'blockQuote' ] ] to deeply equal [ '>>> a', [ 'div' ] ]
+ ↓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > single-line box receiving typed text > keeps "> a" a plain line while it is typed
+AssertionError: expected [ '> a', [ 'blockQuote' ] ] to deeply equal [ '> a', [ 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    "> a",
+    [
+-     "div",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:217:47
+    215|     Transforms.select(editor, Editor.start(editor, []));
+    216|     Array.from(text).forEach((key) => editor.insertText(key));
+    217|     expect([textOf(editor), typesOf(editor)]).toEqual([text, ['div']]);
+       |                                               ^
+    218|   });
+    219| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > single-line box receiving typed text > keeps ">>> a" a plain line while it is typed
+AssertionError: expected [ '>>> a', [ 'blockQuote' ] ] to deeply equal [ '>>> a', [ 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    ">>> a",
+    [
+-     "div",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:217:47
+    215|     Transforms.select(editor, Editor.start(editor, []));
+    216|     Array.from(text).forEach((key) => editor.insertText(key));
+    217|     expect([textOf(editor), typesOf(editor)]).toEqual([text, ['div']]);
+       |                                               ^
+    218|   });
+    219| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 47 skipped (49)
+   Start at  08:07:47
+   Duration  1.23s (transform 245ms, setup 21ms, import 415ms, tests 35ms, environment 598ms)
+
+exit=1

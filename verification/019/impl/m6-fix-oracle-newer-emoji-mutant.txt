@@ -1,0 +1,184 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/export-fix
+
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ] ] for 'a Unicode emoji on its own' 11ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 4 ] ] for 'a Unicode emoji inside bold' 1ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji inside inline code' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji inside a code block' 0ms
+ × |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ] ] for 'an emoji newer than the site\'s table…' 7ms
+   → expected [] to deeply equal [ [ +0, 2 ] ]
+ × |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 4 ] ] for 'an emoji newer than the site\'s table…' 1ms
+   → expected [] to deeply equal [ [ 2, 4 ] ]
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji newer than the site\'s table…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji newer than the site\'s table…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 8 ] ] for 'a ZWJ sequence on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 10 ] ] for 'a ZWJ sequence inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a ZWJ sequence inside inline code' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a ZWJ sequence inside a code block' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 4 ] ] for 'a skin-tone sequence on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 6 ] ] for 'a skin-tone sequence inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence inside inline co…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence inside a code bl…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 3 ] ] for 'a keycap on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 5 ] ] for 'a keycap inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap inside inline code' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap inside a code block' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 4 ] ] for 'a flag on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 6 ] ] for 'a flag inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag inside inline code' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag inside a code block' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 14 ] ] for 'a tag sequence on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 16 ] ] for 'a tag sequence inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a tag sequence inside inline code' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a tag sequence inside a code block' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ] ] for 'a heart with emoji presentation on it…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 4 ] ] for 'a heart with emoji presentation insid…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation insid…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation insid…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 7 ] ] for 'an emoji typed as a name on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 9 ] ] for 'an emoji typed as a name inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name inside inlin…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name inside a cod…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 8 ] ] for 'a custom emoji on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 10 ] ] for 'a custom emoji inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a custom emoji inside inline code' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a custom emoji inside a code block' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 9 ] ] for 'an animated custom emoji on its own' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 11 ] ] for 'an animated custom emoji inside bold' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an animated custom emoji inside inlin…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an animated custom emoji inside a cod…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with text presentation on its…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 1, 3 ] ] for 'a colon-wrapped emoji' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation after…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a tag sequence after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a name after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a custom emoji after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 1, 4 ] ] for 'a keycap after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 4, 9 ] ] for 'a ZWJ sequence after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 3, 5 ] ] for 'a skin-tone sequence after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 3, 5 ] ] for 'a flag after a backslash' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 4 ] ] for 'a colon-wrapped emoji after a backsla…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji in a masked link addr…' 6ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji in an address in angl…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a Unicode emoji in a masked link\'s l…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji newer than the site\'s table…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji newer than the site\'s table…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji newer than the site\'s table…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji newer than the site\'s table…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 16, 24 ] ] for 'a ZWJ sequence in a masked link addre…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 12, 20 ] ] for 'a ZWJ sequence in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 13, 21 ] ] for 'a ZWJ sequence in an address in angle…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a ZWJ sequence in a masked link\'s la…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence in a masked link…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence in an address in…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a skin-tone sequence in a masked link…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap in a masked link address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap in an address in angle brack…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a keycap in a masked link\'s label' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag in a masked link address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag in an address in angle brackets' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a flag in a masked link\'s label' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 16, 30 ] ] for 'a tag sequence in a masked link addre…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 12, 26 ] ] for 'a tag sequence in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 13, 27 ] ] for 'a tag sequence in an address in angle…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a tag sequence in a masked link\'s la…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation in a …' 1ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation in a …' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation in an…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a heart with emoji presentation in a …' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name in a masked …' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name in a bare ad…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name in an addres…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an emoji typed as a name in a masked …' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 16, 24 ] ] for 'a custom emoji in a masked link addre…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 12, 20 ] ] for 'a custom emoji in a bare address' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 13, 21 ] ] for 'a custom emoji in an address in angle…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'a custom emoji in a masked link\'s la…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 16, 25 ] ] for 'an animated custom emoji in a masked …' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 12, 21 ] ] for 'an animated custom emoji in a bare ad…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 13, 22 ] ] for 'an animated custom emoji in an addres…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [] for 'an animated custom emoji in a masked …' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ], [ 2, 9 ] ] for 'a character emoji then a name' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 7 ], [ 7, 9 ] ] for 'a name then a character emoji' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ], [ 2, 4 ] ] for 'two character emoji side by side' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 3, 5 ] ] for 'an emoji after an escaped asterisk' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 4, 6 ] ] for 'an emoji after an escaped underscore' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 4, 6 ] ] for 'an emoji on the second line of a bold…' 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in a masked link as plain text: "[🙂](https://x.y)" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in a bare address as plain text: "https://x.y/🙂" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in an address in angle brackets as plain text: "<https://x.y/🙂>" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a Unicode emoji in an address with the emoji directly after its host as plain text: "https://x.y🙂" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in a masked link as plain text: "[:smile:](https://x.y)" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in a bare address as plain text: "https://x.y/:smile:" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in an address in angle brackets as plain text: "<https://x.y/:smile:>" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of an emoji typed as a name in an address with the emoji directly after its host as plain text: "https://x.y:smile:" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a custom emoji in a masked link as plain text: "[<:n:123>](https://x.y)" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a custom emoji in a bare address as plain text: "https://x.y/<:n:123>" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a custom emoji in an address in angle brackets as plain text: "<https://x.y/<:n:123>>" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds the emoji of a custom emoji in an address with the emoji directly after its host as plain text: "https://x.y<:n:123>" 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds in a title with no embed url, where links are on, a Unicode emoji in a bare address 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds in a title with no embed url, where links are on, a Unicode emoji in an address in angle brackets 0ms
+ ✓ |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans where a title's embed has a url, which turns links off > finds in a title with no embed url, where links are on, a custom emoji after a bare address's slash, where an angle bracket ends the address 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ +0, 2 ] ] for 'an emoji newer than the site\'s table…'
+AssertionError: expected [] to deeply equal [ [ +0, 2 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     0,
+-     2,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:126:47
+    124| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    125|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    126|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    127|   });
+    128| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts > the oracle helper's emoji spans under content's mask, against literals written by hand > gives [ [ 2, 4 ] ] for 'an emoji newer than the site\'s table…'
+AssertionError: expected [] to deeply equal [ [ 2, 4 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     2,
+-     4,
+-   ],
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discordOracle.emoji-spans.test.ts:126:47
+    124| describe('the oracle helper\'s emoji spans under content\'s mask, agai…
+    125|   it.each([...members, ...LINKS, ...NEIGHBOURS])('gives $spans for $na…
+    126|     expect(nativeEmojiSpans('content', text)).toEqual(spans);
+       |                                               ^
+    127|   });
+    128| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 119 passed (121)
+   Start at  08:07:05
+   Duration  258ms (transform 39ms, setup 0ms, import 62ms, tests 49ms, environment 0ms)
+
+exit=1

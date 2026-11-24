@@ -1,0 +1,10 @@
+Probe (scratch, not committed): forward delete at the end of "> x" (line 1) in six repeats of
+"> ```\n> x\n> ```\n> y" at the fixed tree; signatures are type|startCodeBlock|lang|emoji sources.
+After the keystroke the text is ["> ```","> x```","> y","> ```","> x","> ```","> y",...].
+BEFORE blockQuote|false|| ; codeBlock|true|| ; blockQuote|true|| ; blockQuote|false|| ; blockQuote|false|| ; codeBlock|true|| ; blockQuote|true|| ; blockQuote|false|| ; blockQuote|false||
+AFTER  blockQuote|false|| ; blockQuote|true|| ; blockQuote|false|| ; blockQuote|false|| ; codeBlock|true|| ; blockQuote|true|| ; blockQuote|false|| ; blockQuote|false|| ; codeBlock|true||
+The joined line "> x```" still closes the fence (the next line "> y" has startCodeBlock false), so
+every line below keeps its type and fence state: lines 3.. of BEFORE equal lines 2.. of AFTER.
+The critic's read (F-50: this keystroke flips every fence below) does not hold in this editor;
+the residue filter, which now compares type, startCodeBlock, lang and emoji sources, leaves out
+none of the 8 kinds-and-places on the fenced-quote text (line 101, both sizes).

@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > number more than 700 emoji tokens of the 1,662-line probe 1ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 2825ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 3643ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a code span opened 1ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a web address in an opened code span 1ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a code span 3ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a link address 4ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a bare address 4ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed after a backslash 4ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 9ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  08:49:31
+   Duration  7.71s (transform 292ms, setup 20ms, import 488ms, tests 6.50s, environment 568ms)
+
+exit=0

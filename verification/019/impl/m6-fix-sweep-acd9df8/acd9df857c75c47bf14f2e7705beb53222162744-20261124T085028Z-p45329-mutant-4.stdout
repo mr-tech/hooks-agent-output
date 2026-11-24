@@ -1,0 +1,40 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/mwork-fix3/20261124T085028Z-p45329/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx (1 test | 1 failed) 10ms
+     × keeps an emoji element where it is and changes no text 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 19 failed) 78ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 21ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 4ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 3ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 2ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 4ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 2ms
+     × puts an emoji element on the first line when the second is edited back to text 2ms
+     × puts an emoji element on the second line when the third is edited back to text 1ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 8ms
+     × puts an emoji element back to text once a web address is typed in front of it 2ms
+     × puts an emoji element of the second line of a code block back to text 5ms
+     × puts each emoji element of a fenced code line back to text 1ms
+     × puts a caret on the element at the same place in the text 2ms
+     × puts a caret right after the element at the same place in the text 1ms
+     × puts a caret after the element and a typed backtick at the same place in the text 1ms
+     × puts a caret on a second element at the same place in the text 2ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (10 tests | 8 failed) 3699ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 1970ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 1663ms
+     × are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a code span opened 1ms
+     × are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a web address in an opened code span 1ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 7ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 35ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 4ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 4ms
+
+ Test Files  3 failed | 6 passed (9)
+      Tests  28 failed | 298 passed (326)
+   Start at  08:51:10
+   Duration  7.91s (transform 1.48s, setup 189ms, import 3.73s, tests 13.70s, environment 5.26s)
+

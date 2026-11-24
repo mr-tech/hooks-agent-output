@@ -1,0 +1,7 @@
+Probe m6-fix-gt-marker-probe.test.tsx.txt (scratch test; run under vitest dom at 119471f and at the fix 10abfa9):
+typing ">" at the start of line 0 of ">> a" followed by N-1 lines "a" (it makes ">>> a" and retypes every line below).
+Both trees, identical: N = 2, 3, 5, 10, 40 settle (every line blockQuote); N = 200 on both surfaces content and embedDescription
+throws Slate's "Could not completely normalize the editor after 126 iterations! This is usually due to incorrect
+normalization logic that leaves a node in an invalid state." (126 = Slate's 42 x dirty-path cap).
+The base 2e36107 was not probed: its tree needs the simple-markdown emoji plumbing (parseEmoji) that the probe's editor does not mock.
+Not a CR-20 member (the throw is the same before and after the fix); the residue keystroke of SL-22/QAF-45.

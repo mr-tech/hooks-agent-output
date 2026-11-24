@@ -1,0 +1,63 @@
+import { createHash } from 'crypto';
+import { appendFileSync, writeFileSync } from 'fs';
+
+import { Editor, Transforms } from 'slate';
+import { beforeAll, describe, it, vi } from 'vitest';
+
+import { editorHolding, pointOf } from '../../__tests__/helpers/keystrokes';
+import { corpusTexts, generatorTexts, probeLines, linkTexts } from '../../__tests__/helpers/roundTripInputs';
+
+import type { Element } from 'slate';
+import type { Place } from '../../__tests__/helpers/keystrokes';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+
+const OUT = process.env.DIFF_OUT as string;
+const SURFACES = (process.env.DIFF_SURFACES ?? 'content').split(',') as Array<'content' | 'embedDescription'>;
+const TYPED = ['x', '`', ':', '>', ' ', '🙂', '*', '\\'];
+const PLACES: Place[] = ['start', 'middle', 'end'];
+
+const hash = (value: unknown) => createHash('sha1').update(JSON.stringify(value)).digest('hex').slice(0, 12);
+
+function run(text: string, surface: 'content' | 'embedDescription', line: number, place: Place, what: string) {
+  const editor = editorHolding(text, surface);
+  const point = pointOf(editor, line, place);
+  Transforms.select(editor, point);
+  if (what.startsWith('t:')) editor.insertText(what.slice(2));
+  else if (what === 'back') editor.deleteBackward('character');
+  else if (what === 'fwd') editor.deleteForward('character');
+  else if (what === 'enter') editor.insertBreak();
+  else if (what === 'selDel') {
+    const end = Editor.end(editor, [Math.min(line + 1, editor.children.length - 1)]);
+    Transforms.delete(editor, { at: { anchor: point, focus: end, classNames: [] } });
+  }
+  return hash({ children: editor.children, selection: editor.selection });
+}
+
+const WHAT = [...TYPED.map((c) => `t:${c}`), 'back', 'fwd', 'enter', 'selDel'];
+
+describe('document after one keystroke', () => {
+  it('writes a hash per keystroke', () => {
+    writeFileSync(OUT, '');
+    const groups: Array<[string, string[]]> = [
+      ['corpus', corpusTexts()], ['link', linkTexts()], ['probe', probeLines()], ['gen', generatorTexts(1000)],
+    ];
+    groups.forEach(([name, texts]) => texts.forEach((text, index) => {
+      SURFACES.forEach((surface) => {
+        const count = editorHolding(text, surface).children.length;
+        const out: string[] = [];
+        for (let line = 0; line < count; line += 1) {
+          PLACES.forEach((place) => WHAT.forEach((what) => {
+            let result: string;
+            try { result = run(text, surface, line, place, what); } catch (e) { result = `throw:${(e as Error).message.slice(0, 40)}`; }
+            out.push(`${name}:${index}:${surface}:${line}:${place}:${what} ${result}`);
+          }));
+        }
+        appendFileSync(OUT, `${out.join('\n')}\n`);
+      });
+    }));
+  }, 3_600_000);
+});

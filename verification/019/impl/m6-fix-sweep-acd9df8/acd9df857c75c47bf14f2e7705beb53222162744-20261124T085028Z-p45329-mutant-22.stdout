@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/mwork-fix3/20261124T085028Z-p45329/mutant-22
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (10 tests | 2 failed) 5559ms
+     × are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a code span opened 5ms
+     × are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a web address in an opened code span 1ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  2 failed | 324 passed (326)
+   Start at  08:58:44
+   Duration  8.12s (transform 1.37s, setup 185ms, import 3.82s, tests 16.41s, environment 5.18s)
+

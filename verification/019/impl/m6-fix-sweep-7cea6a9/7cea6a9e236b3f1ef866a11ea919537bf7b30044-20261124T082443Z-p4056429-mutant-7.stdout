@@ -1,0 +1,62 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/mwork-fix/20261124T082443Z-p4056429/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (54 tests | 52 failed) 281265ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7229ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 6618ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 6501ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 6423ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7275ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 6467ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 6634ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 6683ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7194ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 8264ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7204ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7267ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7229ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 7162ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 15542ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 15440ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 6879ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 7540ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 6890ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7047ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 6747ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 6742ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 7317ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 6967ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 7540ms
+       × builds as many for insert at the middle of a line in the longest message as in the shortest 7594ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 7522ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 7496ms
+       × builds as many for backspace at the middle of a line in the longest message as in the shortest 7635ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 7607ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 7611ms
+       × builds as many for delete at the middle of a line in the longest message as in the shortest 7575ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 7697ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 7743ms
+       × builds as many for enter at the middle of a line in the longest message as in the shortest 7712ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 7685ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 32ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 21ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 23ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 23ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 26ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 60ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 50ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 40ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 31ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 28ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 30ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 30ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 27ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 52ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 31ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 31ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  52 failed | 272 passed (324)
+   Start at  08:25:51
+   Duration  282.58s (transform 1.24s, setup 145ms, import 3.73s, tests 297.10s, environment 5.34s)
+

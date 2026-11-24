@@ -1,0 +1,418 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/export-tip
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > builds at least one run unit for a character typed in a one-line message 17ms
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for insert at the start of a line in the longest message as in the shortest 3256ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for insert at the end of a line in the longest message as in the shortest 3079ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for backspace at the start of a line in the longest message as in the shortest 2679ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for backspace at the end of a line in the longest message as in the shortest 2634ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for delete at the start of a line in the longest message as in the shortest 2690ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for delete at the end of a line in the longest message as in the shortest 2637ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for enter at the start of a line in the longest message as in the shortest 2860ms
+   → expected 2051 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for enter at the end of a line in the longest message as in the shortest 2839ms
+   → expected 2051 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for insert at the start of a line in the longest message as in the shortest 3249ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for insert at the end of a line in the longest message as in the shortest 3247ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for backspace at the start of a line in the longest message as in the shortest 3272ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for backspace at the end of a line in the longest message as in the shortest 3461ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for delete at the start of a line in the longest message as in the shortest 3942ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for delete at the end of a line in the longest message as in the shortest 3297ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for enter at the start of a line in the longest message as in the shortest 6808ms
+   → expected 4104 to be 408 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for enter at the end of a line in the longest message as in the shortest 6581ms
+   → expected 4103 to be 407 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for insert at the start of a line in the longest message as in the shortest 2913ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for insert at the end of a line in the longest message as in the shortest 2814ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for backspace at the start of a line in the longest message as in the shortest 3100ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for backspace at the end of a line in the longest message as in the shortest 2799ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for delete at the start of a line in the longest message as in the shortest 2848ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for delete at the end of a line in the longest message as in the shortest 2895ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for enter at the start of a line in the longest message as in the shortest 2906ms
+   → expected 2051 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for enter at the end of a line in the longest message as in the shortest 2946ms
+   → expected 2051 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for insert at the start of a line in the longest message as in the shortest 1412ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for insert at the middle of a line in the longest message as in the shortest 1387ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for insert at the end of a line in the longest message as in the shortest 1344ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the start of a line in the longest message as in the shortest 1329ms
+   → expected 1000 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the middle of a line in the longest message as in the shortest 1399ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the end of a line in the longest message as in the shortest 1450ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the start of a line in the longest message as in the shortest 1338ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the middle of a line in the longest message as in the shortest 1337ms
+   → expected 1001 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the end of a line in the longest message as in the shortest 1345ms
+   → expected 1000 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for enter at the start of a line in the longest message as in the shortest 1383ms
+   → expected 1003 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for enter at the middle of a line in the longest message as in the shortest 1407ms
+   → expected 1003 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for enter at the end of a line in the longest message as in the shortest 1348ms
+   → expected 1003 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for insert at the start of a line in the longest message as in the shortest 45ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for insert at the end of a line in the longest message as in the shortest 20ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for backspace at the start of a line in the longest message as in the shortest 19ms
+   → expected 2048 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for backspace at the end of a line in the longest message as in the shortest 19ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the start of a line in the longest message as in the shortest 26ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the end of a line in the longest message as in the shortest 56ms
+   → expected 2049 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for enter at the start of a line in the longest message as in the shortest 41ms
+   → expected 4102 to be 406 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for enter at the end of a line in the longest message as in the shortest 32ms
+   → expected 4101 to be 405 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for insert at the start of a line in the longest message as in the shortest 22ms
+   → expected 1365 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for insert at the end of a line in the longest message as in the shortest 24ms
+   → expected 1365 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for backspace at the start of a line in the longest message as in the shortest 24ms
+   → expected 1364 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for backspace at the end of a line in the longest message as in the shortest 23ms
+   → expected 1365 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the start of a line in the longest message as in the shortest 23ms
+   → expected 1365 to be 201 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the end of a line in the longest message as in the shortest 44ms
+   → expected 1364 to be 200 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for enter at the start of a line in the longest message as in the shortest 24ms
+   → expected 1367 to be 203 // Object.is equality
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for enter at the end of a line in the longest message as in the shortest 25ms
+   → expected 1367 to be 203 // Object.is equality
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 1139ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 52 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for insert at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for insert at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for delete at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for insert at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for insert at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for delete at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for insert at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for insert at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for delete at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for insert at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for insert at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 2049 to be 201 // Object.is equality
+
+- Expected
++ Received
+
+- 201
++ 2049
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for backspace at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for delete at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for backspace at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for delete at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for backspace at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for delete at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for backspace at the start of a line in the longest message as in the shortest
+AssertionError: expected 2048 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 2048
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for enter at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'plain lines' > builds as many for enter at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for enter at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines after a ">>> " marker' > builds as many for enter at the end of a line in the longest message as in the shortest
+AssertionError: expected 2051 to be 203 // Object.is equality
+
+- Expected
++ Received
+
+- 203
++ 2051
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for enter at the start of a line in the longest message as in the shortest
+AssertionError: expected 4104 to be 408 // Object.is equality
+
+- Expected
++ Received
+
+- 408
++ 4104
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in '"> " quote lines' > builds as many for enter at the end of a line in the longest message as in the shortest
+AssertionError: expected 4103 to be 407 // Object.is equality
+
+- Expected
++ Received
+
+- 407
++ 4103
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for insert at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for insert at the middle of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for insert at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the middle of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the middle of a line in the longest message as in the shortest
+AssertionError: expected 1001 to be 201 // Object.is equality
+
+- Expected
++ Received
+
+- 201
++ 1001
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for backspace at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 1000 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 1000
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for enter at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for enter at the middle of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'lines that each hold an emoji' > builds as many for enter at the end of a line in the longest message as in the shortest
+AssertionError: expected 1003 to be 203 // Object.is equality
+
+- Expected
++ Received
+
+- 203
++ 1003
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for enter at the start of a line in the longest message as in the shortest
+AssertionError: expected 4102 to be 406 // Object.is equality
+
+- Expected
++ Received
+
+- 406
++ 4102
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for enter at the end of a line in the longest message as in the shortest
+AssertionError: expected 4101 to be 405 // Object.is equality
+
+- Expected
++ Received
+
+- 405
++ 4101
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for insert at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for insert at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for backspace at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the start of a line in the longest message as in the shortest
+AssertionError: expected 1365 to be 201 // Object.is equality
+
+- Expected
++ Received
+
+- 201
++ 1365
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for backspace at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 1364 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 1364
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/52]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for enter at the start of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for enter at the end of a line in the longest message as in the shortest
+AssertionError: expected 1367 to be 203 // Object.is equality
+
+- Expected
++ Received
+
+- 203
++ 1367
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:92:25
+     90|       }).filter((pair): pair is number[] => pair !== null);
+     91|       counts.forEach(([shortest, longest]) => {
+     92|         expect(longest).toBe(shortest);
+       |                         ^
+     93|         expect(shortest).toBeGreaterThanOrEqual(1);
+     94|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:91:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/52]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  52 failed | 2 passed (54)
+   Start at  08:17:18
+   Duration  98.96s (transform 165ms, setup 23ms, import 310ms, tests 97.86s, environment 633ms)
+
+exit=1

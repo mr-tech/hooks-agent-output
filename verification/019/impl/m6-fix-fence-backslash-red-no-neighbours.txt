@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1a11ed03-ad83-47e7-9dc0-a687308da5df/scratchpad/export-7cea6a9
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > number more than 700 emoji tokens of the 1,662-line probe 1ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 2823ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2412ms
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a code span opened 5ms
+   → expected '\```ts\n``a 🙂\n```' to be null
+ × |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a web address in an opened code span 1ms
+   → expected '\```ts\n``https://x.y/a 🙂\n```' to be null
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a code span 3ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a link address 4ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a bare address 3ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed after a backslash 3ms
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a code span opened
+AssertionError: expected '\```ts\n``a 🙂\n```' to be null
+
+- Expected:
+null
+
++ Received:
+"\\```ts
+``a 🙂
+```"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:117:27
+    115|     const editor = editorHolding(text);
+    116|     insert(editor, 0, '\\');
+    117|     expect(wrong(editor)).toBeNull();
+       |                           ^
+    118|   });
+    119|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji on the line below a fence line once a backslash is typed in front of the fence, with a web address in an opened code span
+AssertionError: expected '\```ts\n``https://x.y/a 🙂\n```' to be null
+
+- Expected:
+null
+
++ Received:
+"\\```ts
+``https://x.y/a 🙂
+```"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:117:27
+    115|     const editor = editorHolding(text);
+    116|     insert(editor, 0, '\\');
+    117|     expect(wrong(editor)).toBeNull();
+       |                           ^
+    118|   });
+    119|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 8 passed (10)
+   Start at  08:49:39
+   Duration  6.49s (transform 289ms, setup 18ms, import 497ms, tests 5.27s, environment 579ms)
+
+exit=1

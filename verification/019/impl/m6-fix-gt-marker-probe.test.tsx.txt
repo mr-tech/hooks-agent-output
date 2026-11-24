@@ -1,0 +1,22 @@
+import { beforeAll, it, vi } from 'vitest';
+import { Editor, Transforms } from 'slate';
+import { editorHolding } from '../../__tests__/helpers/keystrokes';
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const lines = (n: number, l: string) => Array.from({ length: n }, () => l).join('\n');
+it('gt', () => {
+  const out: string[] = [];
+  [2, 3, 5, 10, 40, 200].forEach((n) => {
+    ['embedDescription', 'content'].forEach((surface) => {
+      try {
+        const editor = editorHolding(`>> a\n${lines(n - 1, 'a')}`, surface as 'content');
+        Transforms.select(editor, Editor.start(editor, [0]));
+        editor.insertText('>');
+        out.push(`${n} ${surface}: ok types=${[...new Set((editor.children as Array<{ type: string }>).map((c) => c.type))]}`);
+      } catch (e) { out.push(`${n} ${surface}: THROW ${(e as Error).message.slice(0, 60)}`); }
+    });
+  });
+  process.stdout.write(`GT\n${out.join('\n')}\n`);
+});
