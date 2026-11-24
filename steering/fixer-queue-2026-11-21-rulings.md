@@ -1285,3 +1285,21 @@ Revision 19 (record `4a68f286`; the plan's `Revision` field reads 19, read this 
 revision, against QA's Phase 1 document at `4764a6ee`. `planner-019` released the round to `implementer-019`, and its `cc-usage.py` row reads
 busy at 07:26Z. Its hand-off goes to `code-reviewer-019` first. **For him at hand-off:** SL-22's measured cost of a line-type-changing keystroke
 at 2,048 lines. If it is well over 16 ms, it goes to him as a selection before release.
+
+## 2026-11-24T07:42Z — plan 019 AC-6.8: the corpus/generator bound is dropped; Revision 20 (this thread's, correcting its own 07:21Z)
+
+`planner-019` by message (07:4xZ) relays `implementer-019`'s report, which neither re-derived: with the fix, all 40 sized-text cases are green and
+the two corpus/generator bound cases are red. 430 of about 26,000 keystrokes exceed 4, with a maximum of 8, mostly Enter on a `> ` line or a
+fenced line inside a quote. The cause is that this editor's own retyping sends more `normalizeNode` entries than plain slate.
+**This thread's error.** Block 07:21Z told the planner to set a corpus bound with no basis that is independent of the editor. The only reading to
+hand was the critic's plain-slate probe, which this editor's retyping exceeds. The bound came from that, so this block's author made the defect.
+**Ruling: Revision 20 removes the corpus/generator bound** (the planner's option 3), and adds to the equality limb's sized texts a quote whose
+lines open and close code fences, at 200 and 2,048 lines. So fences inside quotes keep count coverage on the property CR-20 is about, which is
+work that does not grow with line count.
+The planner's option 1, a literal of 8, is refused. Its basis is the fixed code's own measured maximum, and axiom E of the workspace Test
+Conventions bars an expected value computed by the code under test. A corpus bound on short inputs also doesn't test growth.
+The guard that skips the build on lines with no emoji stays rejected, as the planner wrote.
+This reopens block 07:21Z for this one change only, and the block's last-fold rule otherwise stands. The gates each take one delta read. The
+implementer continues the rest of the round meanwhile, and its hand-off waits for Revision 20's three passes.
+Cost told to him in chat: AC-6.8's fifth revision, and Revisions 10 to 20 since approval. Recipient: `planner-019`, which cues the gates and the
+implementer.
