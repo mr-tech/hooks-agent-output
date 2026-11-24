@@ -170,6 +170,7 @@ Lane: full
 | 2026-11-24T08:18 | R-91 | planner-019 | Registered steering's ruling on AC-3.3's 60 s cap after CR-20's fix (effort rulings block "2026-11-24T08:17Z", record `9c5a0a04`) as a Planner batch row: the generator count drops to fit, and the seam fold records the new count. |
 | 2026-11-24T09:08 | R-92 | planner-019 | Registered the CR-20 fix round's hand-off items (implementation document, record `9c6bb958`) as Planner batch rows: the full generator count's missing home, Outstanding 1 as residue, Outstanding 2 held for QA's probe at the chain base, and SL-23's measured premise. R-91's row now records the new count and drops its `pnpm test:discord` sentence. |
 | 2026-11-24T09:15 | R-93 | planner-019 | Registered QA's QAF-51 LOW, pre-existing (record `b7a5d9c6`), in Outstanding 2's Planner batch row, carried by a new handoff cited there. |
+| 2026-11-24T09:30 | R-94 | code-reviewer-019 | Round 6 sub-entry, milestone-scoped: M6 is **APPROVED_WITH_COMMENTS** at website `42128cd` (record `c970a8e`, `code-review/019-slate-formatting-discord-engine-code-review.md`). CR-20 is RESOLVED. CR-22 LOW: a failed median in AC-6.8's timed limb hangs the bench run (exit 124) instead of failing it. CR-23 MEDIUM: the fix's whole-unit settle per dirty line makes closing a fence cost 416 ms at 2,048 lines against 166 ms at `119471f`. Both are stated limits, CR-23 pending the owner's word through steering. Outstanding 1's family is wider than recorded, though still within QAF-48's class. The plan Status is not moved. |
 
 ## Resumption State
 
