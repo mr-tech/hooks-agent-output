@@ -1576,3 +1576,35 @@ Premises, each read this turn:
   have not been cued.
 Recipients: `planner-019` (it adds the member to 23 and cues the three gates once) and `implementer-019` (it holds its paste work until this
 answer). The implementer's start still waits on all three gates passing Revision 23.
+
+## 2026-11-24T20:54Z — selection: plan 019, paste and code-block speed is timed at QA (SL-29), no Revision 24 (put 20:14Z, answered 20:54Z); third fix round start
+
+Ledger: `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T20:54Z — steering-hooks-fixer`. The wording is this thread's, and he
+answered by selection. The question came from the critic's F-57 HIGH, closed by property as SL-29 under its stop authority (cycle 15 pass 1,
+`d58217d4`; Verdict APPROVED and Status Resolved, read this turn), a residual routed to him (steering.md, Critic). Options:
+- *Agent: time it at QA (Recommended)*: "No further plan revision. The fix round starts as soon as QA approves the current revision. Before QA
+  can pass the fix, it times paste and code-block closing on emoji-heavy messages against today's site on the same test; anything not roughly
+  today's speed comes back to me, and goes back for fixing under your 'fix it too' choice."
+- *Agent: add a time limit to the plan*: "One more revision with a fixed time limit for paste, read again by all three plan reviewers before the
+  fix round can start, so release waits longer. A fixed time limit can fail on this machine's load alone."
+- *Discuss first*: "The fix round waits until we've talked it through."
+**Chosen by selection: time it at QA.** No Revision 24. SL-29 stands as an entry condition on QA Phase 2 of M6's third fix round. The record
+holds a timed reading at that round's tip beside `af3d95a`'s, on the same probe, with the box load, for each paste member and each fence
+keystroke on the `a🙂` texts, at 200 and 1,000 lines. A reading that is not roughly today's speed comes to this thread, and it goes back to a
+fix under D-26 or D-24.
+- **QAF-53 MEDIUM** (QA's severity floor, re-key `d46f68ff`) is the same class (plan R-105 and R-106, `d1be35da`, by `planner-019`'s message).
+  This answer decides it: (a) is met by SL-29's timed reading, not by a plan limb, and (c) is done. (b), the headline's paste clause, is not
+  folded, since no revision runs; the planner registers it in the Planner batch. **QAF-54 LOW and F-58 LOW** are stated limits under block
+  14:48Z.
+- Premise marked in the option text as unread: the critic's and QA's reading that the count limbs can pass with paste still slow. By the
+  planner's message, the implementer's spike meets every count ratio while paste time grows 11.8 to 22.5 times. Either option times it, so this
+  premise decides nothing between them.
+**Third fix round start (steering.md, Implementer).** All three gates have passed Revision 23 (plan `Revision: 23`, read this turn): architect
+`569a0fb6` (CF-32 LOW, R-104), critic `d58217d4`, and QA's Phase 1 re-key `d46f68ff`, with QAF-53 resolved by this answer.
+- No `OPEN QUESTION` is open: all 7 of the plan's mentions read `[RESOLVED]` (`grep`, this turn).
+- No `handoff/` record has been added since Revision 23 (`git log --since=19:45Z --diff-filter=A -- handoff/`: none).
+- M6's third fix round therefore starts on Revision 23, against QA Phase 1 at `d46f68ff`, with SL-29 riding it. Its scope is CR-25: D-24's
+  fence keystrokes over `a🙂` lines and D-26's paste, each under AC-6.9's count limb. CF-32 LOW (R-104, its Planner batch row) is the
+  architect's design guidance.
+Recipients: `planner-019` (it registers this and sends SL-29 to the implementer, reviewer and QA), `implementer-019` (its start),
+`critic-019` (it asked) and `qa-019` (QAF-53 is its floor).
