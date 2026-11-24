@@ -408,8 +408,10 @@ With no dirty paths pending, the same operations take 3.7 ms (in place) and 1.0 
    is never inside a replaced line. Both the line-2 and the middle-delimiter members change only lines below the keystroke's line.
 
 **Why skipping their normalisation is sound.** The skipped lines are the load path's output, the state the normaliser must
-converge to anyway (the fresh-load invariant, § Delta pass, revision 21). Whether slate-react normalises an initial value on
-mount, which would show that load output is trusted unnormalised today, is unread. That is an item for the implementer to read.
+converge to anyway (the fresh-load invariant, § Delta pass, revision 21). Load output is trusted unnormalised today. In
+slate-react 0.123.0 (`dist/index.es.js`, the `Slate` component), the mount hook checks `Node.isNodeList(initialValue)` and sets
+`editor.children = initialValue`, with no normalise call. The implementer read this, and I re-read it at 22:56Z. The site forces
+no `Editor.normalize` outside its tests: a `git grep -c` over `src/components/SlateEditor` at `2b82972` exits 1.
 The fresh-load limb then asserts the result after every member. A suppression that leaves a line unsettled fails that limb at once, so the safety net already exists.
 
 **Side effects:**
