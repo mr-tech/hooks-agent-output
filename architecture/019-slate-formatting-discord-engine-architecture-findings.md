@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 23 (record 49a20690, CR-25 and D-26 in AC-6.9): APPROVED. CF-32 (LOW: key the settle memory on
+  Slate's line objects plus the incoming fence state, not editor.children, and run a paste in one withoutNormalizing drain) is a
+  stated limit for the third fix round. It holds nothing.
   Delta pass on plan 019 revision 22 (record 960052d1, AC-6.9's last fold, D-25): APPROVED. CF-30 is resolved as folded. CF-31
   (LOW: handleEditor's whole-line insertText puts the caret at the end; delete the marker's range instead) is a stated limit for
   the second fix round. It holds nothing.
@@ -75,6 +78,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T20:10 | architect-019 | Delta pass on plan 019 revision 23 (record `49a20690`); § Delta pass, revision 23. APPROVED; CF-32 LOW raised as a stated limit; A-11's owed restatement gains the memoisation consequence | Commissioned by `planner-019`'s message. Read as `git diff 17bb8f2c 49a20690` on the plan, with `withNormalizeNode.ts` at website `85ece66` read. Nothing was run. |
 | 2026-11-24T17:07 | architect-019 | Delta pass on plan 019 revision 22 (record `960052d1`); § Delta pass, revision 22. APPROVED; CF-30 resolved; CF-31 LOW raised as a stated limit | Commissioned by `planner-019`'s message, inside the revision 21 pass. Read as `git show 960052d1` on the plan, with `withNormalizeNode.ts` at website `42128cd` grepped. Nothing was run. |
 | 2026-11-24T14:39 | architect-019 | Delta pass on plan 019 revision 21 (record `81523bd6`); § Delta pass, revision 21. APPROVED; CF-30 LOW raised as a stated limit; the architecture record's Slate-layer entries checked, and A-11 is owed a restatement at the closing pass | Commissioned by `planner-019`'s message under D-24 (block 14:33Z). Read as `git show 81523bd6`, with the installed `slate` 0.123.0 `shouldNormalize` read read-only and website `42128cd` grepped. Nothing was run. |
 | 2026-11-24T07:45 | architect-019 | Delta pass on plan 019 revision 20 (record `cf7e4d91`); § Delta pass, revision 20. APPROVED; CF-29 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:42Z. Read as `git show cf7e4d91` on the plan. Only the fixture's size arithmetic was run. |
@@ -106,8 +110,8 @@ Status-Detail: >-
 ## Open items
 
 - **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant (§ Delta pass,
-  revision 21).
-- **CF-21** to **CF-26**, **CF-28**, **CF-29** and **CF-31** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+  revision 21), how the marker leaves the text (revision 22) and the memoisation key (revision 23).
+- **CF-21** to **CF-26**, **CF-28**, **CF-29**, **CF-31** and **CF-32** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -350,6 +354,60 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 23 (record `49a20690`)
+
+Read as `git diff 17bb8f2c 49a20690` on the plan: revision 23's two commits, `6ef51baa` and `49a20690`, from the last record I
+read past. The delta is AC-6.9's paste members (D-26), the `a🙂` fence texts, the standing work-per-line count limb, the growth
+limb's scope and the rewritten residue (CR-25, steering block 19:43Z). Read beside it at website `85ece66`, through `git -C … show`
+and `grep`: `withNormalizeNode.ts`'s `verifiedLines`/`linesAgree`, `settledLines`/`settledIn`, `resolveEmoji`, and the
+`normalize`, `apply` and `splitCarrying` overrides. A `git grep -c` shows that no `insertData` or `insertTextData` override
+exists there (exit 1). Nothing was run.
+
+**The count limb fits.** A ratio of work from 200 to 1,000 lines, observed through pass-through `vi.mock`s at the settle and
+fence-read boundaries, with a positive control and a hand-written literal (10 against 5 linear and about 25 at `85ece66`), is
+the form AC-6.8 settled on (CF-25, CF-28). The residue now names what is unbounded, including undo and redo and the predicate
+gap, which is honest.
+
+### CF-32 LOW — Key the settle memory on line objects and the incoming fence state, and run a paste as one drain
+
+The plan leaves the fix's form open. Two mechanism facts decide it.
+- **The memory's key.** `linesAgree` stores `editor.children` in `verifiedLines`, and `settledIn` keys its set of settled line
+  indices on `editor.children`. Slate's state is immutable, so every operation makes a new `children` array, and both memories
+  are emptied on each operation of an edit. An edit of E operations then redoes the whole-document fence scan (`retypeLines`) and
+  the unit settles E times, which is CR-25's O(E × N). Slate shares structure: an operation replaces only the elements on its path
+  and keeps every other line object as it was. So the identity that survives an operation is the **line object**, not the array.
+- **The paste path.** A paste of N lines reaches the editor through `slate-dom`'s `insertTextData`, one `splitNodes` and one
+  `insertText` per line (read at revision 14). Each transform normalises when it ends, so the paste runs about N drains, each over
+  a run unit that grows with the paste. Even with a correct memory, the unit text is rebuilt per drain, which is quadratic. That
+  fits the base `af3d95a`'s already-superlinear paste: 135 ms at 200 lines against 1,695 ms at 1,000.
+
+**Recommended form:**
+- **Fence state, incrementally.** Store per line, keyed on the line object (a `WeakMap<Element, …>`), the fence state the line was
+  typed under. Scan down from the first line whose object or incoming state changed, and stop at the first line whose object is
+  unchanged and whose incoming state equals the stored one. That is the convergence stop incremental lexers use. A fence keystroke
+  still visits every line whose type changes, which is the work AC-6.9 allows, but an operation that changes no fence visits O(1)
+  lines.
+- **Emoji settle per unit.** Keep "settled" per run unit, keyed on the unit's line objects, for example the first line's object
+  plus a check that each member is unchanged. A neighbour's change then re-opens its unit and nothing else. A line's own object is
+  not enough, because cross-line constructs (F-40) make a line's emoji depend on its unit.
+- **Paste in one drain.** Wrap `insertTextData` (or `insertData`) in an override that runs the inherited call inside
+  `Editor.withoutNormalizing`. The N splits then end in one drain, which sees N dirty lines in one unit and builds it once. This is
+  CF-22's and CF-30's move again: do the work at the input path's own entry. Slate sizes the drain's budget to those N dirty paths
+  (CF-30's mechanism), so the iteration cap does not bite.
+
+**Avoid:** keying the memory on a text hash of the document, or of every line. That costs O(N) per operation to compute, which
+is the cost being removed.
+
+LOW: AC-6.9's count limb verifies whichever form is built. This is the home. D-24 and D-26 lift the cap for these items, but this
+is design guidance below HIGH, so it is a stated limit for the third fix round.
+
+**Does it touch the architecture record?** No entry records the normaliser's memoisation. The owner-authored W entries are
+unaffected, by the same reading as revision 21's pass. A-11's restatement, owed at the closing pass, gains a consequence from the
+fixed tree: per-line derived state is remembered on Slate's line objects and the incoming fence state, never on `editor.children`,
+and a multi-line input runs as one drain.
+
+**Verdict on revision 23:** APPROVED. CF-32 is LOW, a stated limit for the third M6 fix round. Nothing needs the owner.
 
 ## Delta pass, revision 22 (record `960052d1`)
 
