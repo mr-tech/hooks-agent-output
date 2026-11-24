@@ -5,10 +5,10 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revisions 13 and 14 as one re-key (record 2c3c8d1a): AC-6.5's expected-span source, AC-6.7's
-  quote-continuation table and AC-3.3's typed drive. QAF-40 MEDIUM (AC-6.5's helper cannot place a span its engine call does not
-  give) and QAF-41 LOW (AC-6.7's two exclusion conjuncts carry no mutant) go to the planner. B-9 is minted for AC-6.7's walk
-  (SL-15). Register: B-1 to B-9. Phase 2 passes are in their own documents.
+  Phase 1 re-keyed on plan 019 Revision 15 (record 79eeced6). QAF-40 and QAF-41 are closed at their cited places. QAF-42 LOW: as
+  written, NM-68's and NM-69's fixtures end on the quoted line, so the typed drive never presses Enter where the mutant's carry
+  would fire. It is a stated limit under the M6 cap. AC-6.5's literal freeze is not held on QA's account. Register: B-1 to B-9.
+  Phase 2 passes are in their own documents.
 Phase: 1
 ---
 
@@ -78,6 +78,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-23T22:39 | planner-019 (message: R-41 at record `d130532a`) | Phase 1, revision 12 stated limits (SL-12, SL-13) | Reconcile line in § Re-key on Revision 12: the atom fixtures are read on kind at the same place plus legacy's identifying fields (SL-12), one fixture and mutant per field; SL-13 noted. No new finding. |
 | 2026-11-23T22:49 | (own pass: QA Phase 2 on M3, `qa/019-slate-formatting-discord-engine-m3-qa.md`) | Register row from the M3 pass | B-8 appended: AC-3.3's paste limb on Chrome's `beforeinput` branch, walked by UAT on an M6 build. |
 | 2026-11-24T04:16 | planner-019 (messages: Revision 13 at `f9b406d6`, Revision 14 at `2c3c8d1a`, SL-15 and SL-16 at R-63) | Phase 1 re-key on Revisions 13 and 14, as one | § Re-key on Revisions 13 and 14. AC-6.5's helper (`nativeSurfaceParse`) imports only `@discord/markdown-wasm`, read at `2e36107`. Its `parse` output gives no source span: `😄:smile:`, `:smile:😄` and `😄😄` parse to one identical tree, and `\*a😄`'s text is `*a`. Disclosed: the record-write gate refused one shell command because it named record paths beside a `sed -i` on a scratch file. It was split into separate commands. **QAF-40 MEDIUM.** AC-6.7's two exclusion conjuncts have no mutant: **QAF-41 LOW**. **B-9** minted for AC-6.7's walk (SL-15, SL-16 (1)). A user-report note for AC-6.5 and AC-6.7 added under the register. |
+| 2026-11-24T04:20 | planner-019 (message: Revision 15 at `79eeced6`, steering block 04:18Z) | Phase 1 re-key on Revision 15 | § Re-key on Revision 15. QAF-40 closed: remedy (b), five members with literals and the first-occurrence join mutant, in AC-6.5's control. QAF-41 closed: NM-68 and NM-69 in AC-6.7's "Seen red", and AC-3.3's drive keyed on the input's text. **QAF-42 LOW**: the fixtures need a line after the quoted one, or a stated Enter. Nothing holds AC-6.5's literal freeze on QA's account. |
 
 ## Reading
 
@@ -1232,6 +1233,32 @@ and a `>>> ` quote, stands under AC-6.7's paste column, which adds no marker. Ch
 Rows inherited and not discharged: B-1 to B-9.
 
 Phase 1 is keyed to Revision 14. Open for the planner: QAF-40 MEDIUM and QAF-41 LOW.
+
+## Re-key on Revision 15
+
+Revision 15 (record `79eeced6`) was read as its diff from `48877a9d`. That covers AC-6.5's control, AC-6.7's "Seen red", AC-3.3's
+drive clause, and the batch rows for QAF-40 and QAF-41.
+
+| Item | Where revision 15 folds it | Check |
+|---|---|---|
+| QAF-40 | AC-6.5, hand-written control: `😄:smile:`, `:smile:😄`, `😄😄`, `\*a😄` and `a\_b😄`, each with its literal, and the mutant "a join that matches each value at its first occurrence in the line" seen red on them | Remedy (b), as asked. A first-occurrence join gives both of `😄😄`'s nodes the span `[0,2)` against the literals `[0,2) [2,4)`, so the mutant can fail. **Closed.** |
+| QAF-41, drive | AC-3.3: "Where AC-6.7's table, computed over the input's text and never read from the editor's state …"; repeated under AC-6.7's "Seen red" | As asked. **Closed.** |
+| QAF-41, mutants | AC-6.7 "Seen red": NM-68 on `>>> a⏎> b` and on a `>>> a` line split; NM-69 on `` ```⏎> x `` | The mutants are named. Their fixtures are below. **Closed**, with QAF-42 |
+
+QAF-42 LOW Phase 1
+Under AC-3.3's typed drive, Enter is pressed only between the input's lines. NM-68 carries a marker when Enter is pressed at the
+end of a `> ` line inside a `>>>` block. In `>>> a⏎> b`, the `> b` line is last, so no Enter follows it. The one split, after `>>> a`,
+is on a line that does not begin with `> `, so the mutant's carry does not fire there either, whatever the `>>>` conjunct does.
+NM-69's `` ```⏎> x `` has the same shape. As written, neither fixture can redden its mutant under the drive. My QAF-41 named "Enter
+at the end of `> b`", and the fold dropped the key. The property wanted: each mutant's fixture presses Enter at the end of the line
+the dropped conjunct governs. For example `>>> a⏎> b⏎c` and `` ```⏎> x⏎y ``, or an AC-6.7 case that sends Enter there explicitly.
+Under the M6 cap it is a stated limit for the Planner batch. Phase 2 reads NM-68 and NM-69 red on the fixtures as built, so the
+gap is caught there if it is not fixed first.
+
+Register sweep. The predicate is rows citing AC-6.5, AC-6.7 or AC-3.3. B-8 and B-9 are members, and neither predicted value moves
+(the drive clause changes no saved text the walks read). Checked and cleared. Rows inherited and not discharged: B-1 to B-9.
+
+Phase 1 is keyed to Revision 15. Open for the planner: QAF-42 LOW. Nothing holds AC-6.5's literal freeze on QA's account.
 
 ## Blocking-condition register (the chain's one register)
 
