@@ -1179,3 +1179,23 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
 - Plan 019 is at Revision 15 (`79eeced6`), and all three gates passed it. M2, M3 and M4 are done.
 - M5 is QA Failed on QAF-39 MEDIUM, with the fix round next, to code review first. M6 is being built.
 - Standing check `8e3c1eb4` (04:39Z). Nothing waits on him, and `OWNER-QUEUE.md` is empty.
+
+## 2026-11-24T04:51Z — plan 019 AC-6.5: the 22 members where a hand literal and the helper differ (this thread's ruling)
+
+`implementer-019` by message (04:4xZ), under AC-6.5's rule (plan line 1260: a differing member goes to steering before the literals freeze).
+The helper `nativeEmojiSpans` agrees with the hand literals on 52 members and differs on 22, under content's mask. The values below are the
+implementer's run, not re-run by this thread.
+**(1) Link address, 12 members** (`[x](https://x.y/F)`, `https://x.y/F`, `<https://x.y/F>`; F = ZWJ sequence, tag sequence, `<:n:123>`,
+`<a:n:123>`). The helper lifts F; the hand literal was []. **Ruling: the literal is the helper's value.** The hand literal's basis was the
+form's own definition, not an AN-7 DOM read (AN-7 read no emoji in an address: `verification/019/analysis/an7/`, file list read this turn).
+D-13 names the engine as the authority on the emoji decision, and AC-6.5 tests the lift, not that decision (plan lines 1241–1243). So no
+engine/display disagreement is shown. What Discord draws for these 12 is unread. Under the M3–M6 cap that is a stated limit, below HIGH, for
+the Planner batch, with no round.
+**(2) Link label, 10 members** (`[F](https://x.y)`). The helper gives []. AN-7's G-14 reads split: as the bot it's not a link, and through a
+webhook the label emoji is drawn as an image. **Ruling: the literal is the helper's [], and it is not put to him.** His D-5 already answers
+it: "the site is held to Discord only where both agree", and the disagreeing cases are known differences. The analysis (lines 337–343) and the
+plan (line 380: "in AC-3.6's class and the known-differences report"; line 743) already list the G-14 emoji-label class there. Native `parse`
+leaves the label emoji as text (`g14-native.txt`, read this turn), so the [] is the engine's, as D-13 requires. Each of the 10 literals cites D-5 and G-14 as its
+basis.
+Recipients: `implementer-019` (it executes the freeze), `planner-019` (it registers the stated limit and this pointer). Not prompted: both
+answers are his D-5 and D-13 words applied, and the remaining gap is below HIGH under the cap.
