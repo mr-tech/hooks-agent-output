@@ -3,16 +3,20 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 14 pass 1 on plan revision 21: APPROVED, and closed at that pass. F-52 (SL-25), F-53 (SL-26), F-54 (SL-27) and F-55 (SL-28) close as landed-by-author, stated limits for the plan's Planner batch; SL-25 changes what AC-6.9's two '>>>' members expect and goes to the implementer and QA before code. Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 15."
-Artifact-Revision: 21 — read as the delta cf7e4d91..81523bd6 (cycle 14 pass 1)
-Reviewed-At: "81523bd6 — repos=agent-output; website read at 42128cd"
+Status-Detail: "Cycle 14 pass 2 on plan revision 22: APPROVED, and closed at that pass. F-52 is RESOLVED, verified landed, and SL-25 is withdrawn as this critique's error. F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 (under SL-26) are stated limits for the plan's Planner batch; F-55 points 1 and 2 are verified landed. Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 15."
+Artifact-Revision: 22 — read as the delta 81523bd6..960052d1 (cycle 14 pass 2)
+Reviewed-At: "960052d1 — repos=agent-output; website read at 42128cd"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 21 (`81523bd6`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 21 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 22 (`960052d1`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 22 as deltas.
+**Read at cycle 14 pass 2**: the plan's diff `81523bd6..960052d1`; effort rulings blocks 2026-11-24T14:48Z (record `46278c24`)
+and 17:03Z (record `0fa784d0`); the selection ledger's block 2026-11-24T17:03Z; QA's Phase 1 document at QAF-52 (record
+`225ef4a6`); `verification/019/planning/fence-refute/` (`af3d95a.raw.txt` and the three `caret.*.raw.txt` files); slate
+0.123.0 in the website's `node_modules`, `dist/index.js` at `shouldNormalize`; website at `42128cd` as read at pass 1.
 **Read at cycle 14 pass 1**: the plan's diff `cf7e4d91..81523bd6`, and AC-6.8 as it stands at `81523bd6`; effort rulings
 blocks 2026-11-24T09:22Z and 14:33Z (record `d7eb0a40`); the selection ledger's block 2026-11-24T14:32Z; QA's M6 document at
 QAF-51 and at its `42128cd` findings (record `22a797bc`); `verification/019/qa/m6/gt-marker-base/` (README and
@@ -136,8 +140,47 @@ for the 15,480 figure.
 
 | 2026-11-24T14:44 | planner-019 (message naming revision 21 at `81523bd6`) | cycle 14 pass 1: plan revision 21 | Resumed after a clear from this document's Resumption State at `9561f66e`; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 14 opens because revision 21 adds AC-6.9; it is not the seam fold the Resumption State expected, so M7 stays unread. Depth: delta-bounded; the delta `cf7e4d91..81523bd6` is 89 added and 4 removed lines (`git diff --numstat`, 11 commits, 10 of them registrations R-87 to R-95 and a verdict row), fully readable as a diff. It adds one criterion to M6 and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added AC-6.9 and D-24, and CF-29, CR-22, CR-23, F-50, F-51, QAF-46 to QAF-51, SL-23 and SL-24 in registration rows. The diff, read whole, adds AC-6.9, register row D-24 and one pointer line in AC-6.8's residue; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table and Planner batch rows. Artifact changes: AC-6.9 requires the code-fence and `>>>` keystrokes to settle without Slate's iteration error, write their text, match a fresh load and place the caret, with a growth property and a fence ceiling timed outside the suite, on his 14:32Z selection. New findings: F-52 (MEDIUM), a member of RK-8's class, closed by property with stated limit SL-25, the stop authority firing; F-53 (MEDIUM), the fifth instance of the residue shape, stated limit SL-26; F-54 (LOW), SL-27; F-55 (MEDIUM), SL-28. M7 is out of scope for this pass. Verdict APPROVED. |
 | 2026-11-24T14:44 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-52 to F-55 close as landed-by-author, their discharging document the plan's Planner batch. |
+| 2026-11-24T17:08 | planner-019 (message naming revision 22 at `960052d1`; steering block 14:48Z asks for it inside the current read) | cycle 14 pass 2: plan revision 22 | Taken as pass 2 of cycle 14, as block 14:48Z asks, though pass 1 had closed. Depth: delta-bounded; the delta `81523bd6..960052d1` is 58 added and 19 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations R-96 and R-97), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-25, and A-11, B-11, CF-30, F-52 to F-55, QAF-52 and SL-25 to SL-28 in registration rows. The diff, read whole, changes AC-6.9's first line, its reports, its `>>>` keystroke members, its no-throw and caret limbs, its ceiling and its walk; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-25 and Planner batch rows. Artifact changes: the `>>>` members are stated in the marker model with hand-written caret texts, on his 17:03Z selection (D-25); the no-throw limb refuses a hidden throw (CF-30); the ceiling reads 27 and 104 ms and cites a committed capture. Findings addressed: F-52 RESOLVED, with SL-25 withdrawn as this critique's error; F-55 points 1 and 2 landed. The pass-1 assumption is answered. New finding: F-56 (LOW), a new member under SL-26. Verdict APPROVED. |
+| 2026-11-24T17:08 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-56 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
 ## Verdict
+
+**APPROVED — cycle 14, pass 2.** The stop authority stays fired on the residue shape (F-53), and its new member is a stated
+limit (F-56). The hard stop did not fire (pass 2 of 15 in this cycle). Pricing: sized to the ask plus his rulings. Revision 22
+restates one criterion and widens the fix round by one item he chose (D-25). It adds no milestone.
+
+This gate passes revision 22 for the second M6 fix round, read with SL-26 to SL-28. The architect's and QA's reads of revision
+22 are separate.
+
+What holds in revision 22's delta:
+- **D-25 is the ledger's block.** The option text and the other option match `steering/selection-ledger/2026-11-24.md`, block
+  17:03Z, as read in this pass. His question named the expected text, `>>> zabc`.
+- **F-52 is resolved.** Both `>>>` members are stated in the marker model. The making member's caret texts are written by
+  hand, `>>> za` and `>>> zabc`, and are red on both trees: the captures give `>>> az` and `>>> abcz` at `af3d95a` and at
+  `42128cd`, at 3 and 40 lines, and mounted. The unmaking member is the one Backspace that reaches the marker, with `za`.
+- **SL-25 is withdrawn, and the error was mine.** It made the editor's output at `42128cd` the expected value. That output is
+  the caret defect, so SL-25 would have frozen it into the criterion. QA's QAF-52 caught it.
+- **The no-throw limb can no longer pass with the defect left in.** A caught error and an unbounded `shouldNormalize` are
+  refused, and code review is named as the reader. The mechanism is as the architect read it: slate 0.123.0's
+  `shouldNormalize` throws past `initialDirtyPathsLength * 42` iterations.
+- **The ceiling follows its arithmetic and cites a capture.** 27 and 104 ms come from 20.9 and 82.7 ms, and
+  `verification/019/planning/fence-refute/af3d95a.raw.txt` holds all four base medians.
+- **The walk has its row**: B-11, named as SL-15's eighth member.
+
+**F-56** (LOW): the caret limb binds the `>>>`-making keystroke only. A `> ` quote made in front of existing text goes
+through the same branch of `handleEditor`, so by this pass's reading it has the same caret defect, and no limb names it. It
+is a new member under SL-26. Read from code, not run.
+
+SL-26's batch row says "six listed members"; revision 22 lists seven. The fold corrects the count.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `960052d1`). Routed to the owner: nothing.
+
+The cycle 14 pass 1 verdict follows, as written at that pass. Its SL-25 is withdrawn above.
 
 **APPROVED — cycle 14, pass 1.** The stop authority fired on one shape (F-52, RK-8's class) and stays fired on the residue
 shape (F-53). The hard stop did not fire (pass 1 of 15 in this cycle). Pricing: sized to the ask plus his rulings. Revision 21
@@ -766,6 +809,16 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 14 pass 2: this pass assumes that `> ` made in front of existing text (a space typed after a leading `>` on a line
+`>abc`) leaves the caret at the end of the line's text, as the `>>>` keystroke does, and does not test it. The ground is a
+read of `handleEditor` at `42128cd`: one branch replaces the line's text for both markers. A run needs an export of the
+website with its packages installed. If it is false, a `z` typed next gives `> zabc` and F-56 has no member. The implementer
+owns closing it with one case in the pre-fix run AC-6.9 already owes.
+
+Cycle 14 pass 1's line, below, is answered. The first half holds: steering's helper measured `>>> az` and `>>> abcz`
+(`verification/019/planning/fence-refute/caret.*.raw.txt`). The second half holds by QA's measurement: Backspace writes `a`
+(QAF-52, record `225ef4a6`).
+
 Cycle 14 pass 1: this pass assumes that, at `42128cd` on a 40-line text, a `z` typed after the `>` keystroke gives `>>> az`
 on line 0, and that Backspace at the start of a loaded `>>> a` line's content gives `a`, and does not test either. Both are
 read from `handleEditor`, `normalizeBackspace` and QA's capture. A run needs an export of the website with its packages
@@ -896,45 +949,32 @@ None.
 
 None.
 
+### Closed at cycle 14 pass 2
+
+F-56 LOW cycle 14 pass 2 — closed as landed-by-author, a new member under SL-26; discharging document: the plan's Planner batch. Duplicates the shape of F-53 in this document
+- **Title**: the caret limb binds the `>>>`-making keystroke, and the `> `-making one shares its code path.
+- **Location**: plan revision 22, AC-6.9 "The caret"; D-25;
+  `website@42128cd src/components/SlateEditor/utils/withNormalizeNode.ts:handleEditor`, its `isBlockQuote` branch.
+- **Description**: D-25 fixes the caret after `>` makes a `>>> ` quote. When a line becomes a quote, `handleEditor`
+  replaces its text with the content after the marker, in one branch, for `> ` and `>>> ` alike. So a `> ` made in front
+  of existing text should leave the caret at the end of the text too. Nothing has run it.
+- **Impact**: a fix keyed to `>>>` meets the limb and leaves the same misplacement on `> `. His standing rule is that a
+  bug in a shared pattern is fixed once, in the shared code.
+- **Under SL-26**: the caret limb binds the listed members. The `> `-making keystroke is residue. Code review bears it: it
+  reads whether the caret fix sits in the shared branch, and reports a fix keyed to `>>>` as a deviation from the sibling
+  rule. A user report goes under AC-6.9's row in QA's register.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
+
 ### Closed at cycle 14 pass 1
 
-F-52 MEDIUM cycle 14 pass 1 — closed by property with stated limit SL-25; landed-by-author, discharging document: the plan's Planner batch
-- **Title**: AC-6.9's caret point for `>` and its unmaking keystroke treat the `>>>` marker as text in the line, and it is not.
-- **Location**: plan revision 21, AC-6.9 "The keystroke class" (its last member) and "The caret";
-  `website@42128cd src/components/SlateEditor/utils/withNormalizeNode.ts:handleEditor`, `utils/onKeyDown.ts:normalizeBackspace`,
-  `utils/flattenNodeText.ts`.
-- **Description**: when a line becomes a quote, `handleEditor` replaces its text with the content after the marker and
-  stores the marker as `quotePrefix`. `flattenNodeText` puts it back when the text is saved. QA's capture
-  (`verification/019/qa/m6/gt-marker-base/model-selection-42128cd.out.txt`) has the caret at `[0,0]` offset 1 after the
-  keystroke, at 2 to 122 lines, and line 0's text is then `a`. So the caret is at the end of `a`, and by this reading a `z`
-  gives `>>> az`. The limb expects the text "with `z` inserted" after the typed `>`, which is `>z>> a`. For the unmaking
-  member, a caret cannot sit after one `>` of the marker. Backspace at the start of a quote line's content is answered by
-  `normalizeBackspace`, which sets the line to `div`. That removes the whole marker and leaves `a`, not `>> a`.
-- **Impact**: 2 of the 6 keystroke members. On the making member the caret limb is red on a correct fix at every size. The
-  unmaking member cannot be driven as written, and its three standing limbs take a wrong expected text. The cost is bounded:
-  both show at 40 lines, before any fix code.
-- **The property, in place of a revision**: every statement AC-6.9 makes of what the editor does holds at `42128cd`. Its
-  domain, listed from the diff and each read in this pass:
-  - a third backtick makes a delimiter, and Backspace on it unmakes one (`codeFence.ts:afterLine`): holds;
-  - the lines below a made or unmade delimiter change type (`isCodeLine`, `handleEditor`): holds;
-  - `>` at the start of `>> a` makes every line a quote (`handleEditor`; QA's capture): holds;
-  - both throw Slate's 126-iteration error on long texts (QA's capture; `fence-toggle.out.txt`): holds as captured;
-  - `getInitialValue` builds the type, quote prefix, fence state and emoji elements: holds;
-  - `SlateEditor`'s `onChange` hands the flattened text (`index.tsx`): holds;
-  - the caret is after the typed character, or where the deleted one was: holds for the four fence members, whose
-    delimiter stays in the line's text; fails for `>`;
-  - "Backspace after that `>`" unmakes the marker: fails.
-- **SL-25**: for the making member, the write and fresh-load limbs stand. Its caret limb reads: the caret, and the text
-  after a `z` typed next, equal at every N what they are at N = 40 at `42128cd`, which the implementer records as literals
-  before the fix. The unmaking member reads: Backspace with the caret at the start of line 0's content in a loaded `>>> a`
-  text, with the expected text the implementer records at N = 40 before the fix (`a` on line 0, by this pass's reading).
-  If either record is something a person would call wrong, the figures go to steering before code, as the entry condition
-  already says for a load and a typing that disagree. The implementer bears it. QA at Phase 2 reads the literals against
-  that record.
-- **Residue of the property**: statements the plan makes about the editor outside AC-6.9 were not re-read. The cost figures
-  are F-55's.
-- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2. The planner sends SL-25 to
-  the implementer and QA now, since it changes what two members expect.
+F-52 MEDIUM cycle 14 pass 1 RESOLVED — AC-6.9's `>>>` members are stated in the marker model, with hand-written caret texts. Plan revision 22 (`960052d1`), with QAF-52 and D-25. The argument is in this document at record `3910c29c`.
+- **Reconcile note, 2026-11-24T17:08, SL-25 withdrawn.** Pass 1 closed F-52 with SL-25, which read the caret limb as "what
+  the editor gives at N = 40 at `42128cd`". That seemed defensible because the plan's entry condition already ran there.
+  It was wrong: that output is the caret defect, and a tree's own output is not an expected value (axioms D and E). The
+  error was this critique's. QA's QAF-52 caught it, and steering's block 17:03Z records it.
+- **The class** (a stated limit of this critique that makes a tree's own output an expected value): SL-26 to SL-28 were
+  re-read in this pass and none does. SL-1 to SL-24 were not swept. The seam fold's pass owns that sweep, where each is
+  read against its batch row.
 
 F-53 MEDIUM cycle 14 pass 1 — closed as landed-by-author, with stated limit SL-26; discharging document: the plan's Planner batch. Duplicates the shape of F-49 in this document
 - **Title**: the keystroke class lists members of the class its first line names, and the residue names no keystroke.
@@ -972,6 +1012,9 @@ F-54 LOW cycle 14 pass 1 — closed as landed-by-author, with stated limit SL-27
 - **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
 
 F-55 MEDIUM cycle 14 pass 1 — closed as landed-by-author, with stated limit SL-28; discharging document: the plan's Planner batch
+- **State at cycle 14 pass 2**: its first two points, the uncited base figures and the ceiling's arithmetic, are verified
+  landed at plan revision 22. The capture is `verification/019/planning/fence-refute/af3d95a.raw.txt`, and the ceiling
+  reads 27 and 104 ms. The growth limb's red and the middle-line member's red sizes stay under SL-28.
 - **Title**: the cost limbs' figures have no capture, the ceiling's literals do not follow from its arithmetic, and the
   growth limb has not been seen red.
 - **Location**: plan revision 21, AC-6.9 "Cost" and "No throw".
@@ -1481,6 +1524,9 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 14 pass 2: the plan was read as `git diff 81523bd6 960052d1` and both revisions as `git show` copies, saved in this
+  session's scratchpad; the ID comparison and the open-question count ran in memory. Nothing was installed or run beyond
+  reads. The architect's and QA's reads of revision 22 were not read before this pass was written.
 - Cycle 14 pass 1: the plan was read as `git diff cf7e4d91 81523bd6` and both revisions as `git show` copies, saved in this
   session's scratchpad; the ID comparison and the open-question count ran in memory over those copies. One command that
   wrote those copies was not completed, then re-run with the scratchpad's literal paths. Nothing was installed or run
@@ -1523,11 +1569,13 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-**Since the checkpoint.** Cycle 14 pass 1 ran on plan revision 21 (`81523bd6`), which added AC-6.9 and was not the seam
-fold: APPROVED, closed at that pass, with F-52 to F-55 as stated limits SL-25 to SL-28. The verdict was sent to
-`planner-019`. The next pass is still the seam fold's read, now cycle 15, read as the `git diff` from `81523bd6` with M7
-whole; the fold should carry SL-11 to SL-28. The cache-warm wake is armed again. The checkpoint below is otherwise as
-written.
+**Since the checkpoint.** Cycle 14 ran on plan revisions 21 (`81523bd6`, pass 1) and 22 (`960052d1`, pass 2), which added
+and restated AC-6.9 and were not the seam fold. Both passes are APPROVED and closed. F-52 is resolved and SL-25 is
+withdrawn. F-53, F-54, F-55's last two points and F-56 are stated limits SL-26 to SL-28. Each verdict was sent to
+`planner-019`. Revision 22 is AC-6.9's last fold (effort rulings block 14:48Z). The next pass is still the seam fold's
+read, now cycle 15, read as the `git diff` from `960052d1` with M7 whole. The fold should carry SL-11 to SL-24 and SL-26
+to SL-28, and that pass sweeps SL-1 to SL-24 for the class F-52's reconcile note names. The cache-warm wake is armed
+again. The checkpoint below is otherwise as written.
 
 Checkpoint written at steering's ask on 2026-11-24T08:09Z, at a seam, for a clear. Closed at cycle 13 pass 1 (APPROVED on plan revision 20, `cf7e4d91`; this document at record `1c6ee275`). Nothing is in flight, nothing is uncommitted, no process is running and no question awaits an answer. **Next pass: the seam fold's read.** The fold is a plan revision the planner writes after the last milestone's QA Phase 2 on M6 and before the UAT anchor; it lands the open Planner batch rows' text and M7's re-argument paragraph, and it opens cycle 14. M7 is read there for the first time since its `PREMISE-STALE` mark, so that pass reads M7 whole and the rest as a delta. The fold should carry this critique's stated limits SL-11 to SL-24 as their batch rows say; check each against its row. Steering's block 07:21Z makes every AC-6.8 finding below HIGH a stated limit, and block 07:42Z reopened it for revision 20 only. The cache-warm wake was deleted at this checkpoint; on resume, arm it again. The plan's registrations after `cf7e4d91` (to R-90 at `14309101`) were not read. The verdict was sent to `planner-019` (F-50 with SL-23 and F-51 with SL-24) and `implementer-019` (the hand-off of CR-20's fix round is released by this gate, read with SL-23 and SL-24). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 14: read the plan as the `git diff` from `cf7e4d91` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
