@@ -162,27 +162,36 @@ Lane: full
 
 ## Resumption State
 
-Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-48.
+Written at steering's ask (checkpoint for a clear), 2026-11-24T07:39Z, after R-86.
 
 **Done.**
-- Revisions 0 to 12 and registrations R-1 to R-48 are committed. Other stages' rows carry duplicate numbers; R-47 records the
-  reconcile, and they are cited by stamp and author.
-- Revision 12 (`b0af4dc3`) is approved by all three gates: QA `e645035`, architect `f7b21366` and critic `575a52bc`. Their
-  findings are stated limits SL-12 and SL-13.
-- Decisions D-17 (mentions), D-18 (D-14 kept with its measured residue) and D-19 (one release) are registered.
-- M1 and M2 are complete. M3's QA Phase 2 failed (qa-019's 22:50 row); its fix round 5 at `380e82d` was approved by code review,
-  and its QA refresh is the next M3 event. M4 is built at website `e58f2ed`, with code review Round 4 APPROVED_WITH_COMMENTS
-  (record `d31214e4`), and QA Phase 2 on M4 is next. M5 and M6 are not started.
+- Revisions 0 to 19 and registrations R-1 to R-86 are committed. Other stages' rows carry duplicate numbers (R-47 records the
+  reconcile); they are cited by stamp and author.
+- Revision 19 (`4a68f286`) has passed all three gates: critic `73a6bce9` (cycle 12), architect `ccddf880` and QA `4764a6e`.
+  Revisions 13 to 18 each passed their gates, with stated limits. Decisions D-20 (pre-existing lint errors), D-21 (AC-6.5's
+  source), D-22 (quote continuation) and D-23 (CR-20 fixed before release) are registered.
+- M1 to M5 are complete; M5 was QA Complete after QAF-39 (R-75). M4 and M5 shipped on the chain branch, so M7 is marked
+  `PREMISE-STALE` (R-76).
+- M6 is built to website `119471f`, with code review Round 6 APPROVED_WITH_COMMENTS (R-77). QA Phase 2 on M6 failed at the TDD
+  gate (R-79). CR-20's fix round, under AC-6.8 as revision 19 states it, was released to implementer-019 at R-86.
 
 **Next.**
-- Revisions 13, 14 and 15 have passed all three gates, with stated limits. Under steering's block 04:18Z, a further AC-6.5 gap
-  below HIGH is a stated limit. Revision 19 (AC-6.8's last revision, steering block 07:21Z) is out for delta reads by the
-  critic, the architect and QA. After it, every AC-6.8 finding below HIGH is a Planner batch stated limit with no further round,
-  and only a severity floor is excepted. CR-20's fix round starts when all three pass revision 19. No other planning pass is
-  owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
-  Planner batch row, a stated limit, with no revision. A severity-floor finding is excepted. A third revision of AC-3.7 goes to
-  steering before any fold.
-- The seam fold, after the last milestone's QA Phase 2 and before the UAT anchor, lands the open rows' text:
+- No planning pass is owed until the seam fold. The caps stand:
+  - M3 to M6 (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a Planner batch stated limit, except a severity floor;
+  - AC-6.5 (block 04:18Z): a further gap below HIGH is a stated limit;
+  - AC-6.8 (block 07:21Z): every finding below HIGH is a stated limit, and only a severity floor is excepted.
+  Register findings from the CR-20 fix round's code review and QA as batch rows.
+- The seam fold comes after the last milestone's QA Phase 2 on M6 and before the UAT anchor. It is a revision, gated by the
+  critic, and it lands the open Planner batch rows' text:
+  - M7's re-argument paragraph against M4's, M5's and M6's shipped behaviour (R-76), which opens a critique cycle;
+  - AC-6.8's residue property (SL-22), its text class with CF-28's many-unit text, the bench under `__tests__/` (SL-20), and the
+    delete residue (SL-19);
+  - AC-6.7's "five mutants" and QAF-42's fixtures; SL-16's three cells in AC-6.7's table;
+  - AC-6.5's named pairing (SL-17), CF-21's deviation line, the 12 link-address residue (R-72), the run-unit source-text
+    sentence (R-74), and the `jumboable` reader wording (R-78);
+  - the `uat` Reading Order row and the walk list naming all seven UAT-walked criteria (SL-15, with AC-6.7's B-9 and AC-6.8's
+    B-10);
+  - CR-21 (`emoji-regex`, with a lockfile-owning change), CR-17, CF-22, CF-23 and CF-24 as their rows state;
   - SL-11 (forum ids) and RK-8's new members (F-34, `jumboify`);
   - F-35 (AC-4.4's walk in the `uat` Reading Order row);
   - the emoji `alt` exception and CF-10's "Today" correction;
@@ -190,9 +199,6 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
   - R-44's (e) AC-3.1 exclusion, (g) X-27 and (h) AC-4.5's check, and QAF-37's line in AC-3.6's residue (R-52);
   - CR-15's Risks line, the drift alarm's wiring falsifier (R-54);
   - D-20's Exclusions row for `SlateEditor/index.tsx`'s pre-existing eslint errors (R-59);
-  - M7's re-argument paragraph, clearing its `PREMISE-STALE` mark against M4's, M5's and M6's shipped behaviour (R-76);
-  - SL-16's three cells in AC-6.7's table, the `uat` row and walk list naming all six UAT-walked criteria (SL-15), and CF-21's
-    deviation line in AC-6.5 (R-62, R-63);
   - CR-7's M6 exit condition;
   - D-18's line in RK-9's record;
   - the earlier open rows: QAF-27, CF-15 and CF-16, the critic's two assumptions, and AN-8 limb 5.
@@ -201,7 +207,8 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
 **Approach in flight.** None. No uncommitted edit.
 
 **Refs.** Record `master`. The website was read only through `git -C /usr/local/bin/hooks/website show` or `git grep`, at
-`af3d95a`, `5ec0621`, `7dcedc9` and `f4060c5`. Probe captures are under `verification/019/planning/`. The shell runs from
+`af3d95a`, `5ec0621`, `7dcedc9`, `f4060c5`, `2e36107` and `119471f`. Record shell edits are refused by the record-write gate;
+edit the plan with the Edit tool only. Probe captures are under `verification/019/planning/`. The shell runs from
 `/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z). Effort rulings:
 `steering/fixer-queue-2026-11-21-rulings.md`.
 
