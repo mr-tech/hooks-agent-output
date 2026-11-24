@@ -1512,7 +1512,8 @@ Written 2026-11-24T07:07Z for a `/clear`, at steering's ask (`steering-hooks-fix
 - **Done since (2026-11-24T09:29Z).** The CR-20 fix confirmation is the Round 6 sub-entry at `42128cd`: APPROVED_WITH_COMMENTS,
   with CR-22 LOW and CR-23 MEDIUM. The fix did not touch `runUnit.ts` or `decorator.tsx`, so step 3 of the earlier plan (the
   both-trees decorator differential) was not owed.
-- **Next (pending).** Nothing of this review's, unless the owner's word on CR-23 or the iteration-cap throw brings a fix round.
+- **Next (pending).** The owner chose to fix CR-23 and the code-fence throw before release (selection 14:32Z, effort rulings
+  block 14:33Z, record `d7eb0a40`). The planner writes the revision, and the fix round reaches this review at its hand-off.
   That round's confirmation would be a sub-entry of Round 6, with the fence-toggle probe (`m6fix-42128cd/crprobe.fence-toggle…`)
   re-run and the falsity signature in CR-23 checked. M7 is devops's. This review has no M7 round unless steering asks.
 - **Approach in flight.** None.
