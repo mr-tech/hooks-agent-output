@@ -343,5 +343,5 @@ Written at the checkpoint after M4 was handed to code review, for a `/clear`.
 - **Approach in flight.** None.
 - **Local state not restored.** None. Scratch only: `scratchpad/export-m4c` (disposable mutant export), `scratchpad/mrwork*`, the build script `build_entries.py` that cut the list (its rules are in the document's family table).
 - **Evidence run but not recorded.** None. The measurement drivers' texts are records (`m4-dom-residue-driver.test.tsx.txt`, `m4-dom-residue-signatures-driver.test.tsx.txt`); the one unreproducible figure (the adjustment's reach) is named in the document.
-- **Questions sent.** Plan questions to `planner-019` (c to h, open). Steering has none from me. No owner question.
+- **Questions sent.** Plan questions to `planner-019` (c to h): answered, plan R-44 (record `49cb5d73`), all six disposed as stated limits with no revision: (c) families are labels, the entries decide; (d) size 0 accepted as M4's recorded size; (e) AC-3.1's exclusion accepted, QA checks it by predicate; (f) both normalisations accepted, code review checks they apply to both sides; (g) X-27 added at the fold; (h) the absent-export check accepted as stronger than AC-4.5's. Steering has none from me. No owner question.
 - **Cache-warm wake.** Deleted at this checkpoint. Arm a new one on the next turn.
