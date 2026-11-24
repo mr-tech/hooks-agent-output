@@ -4,10 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Delta pass on plan 019 revision 17 (record 34850209, AC-6.8's count and bench folds): APPROVED_WITH_CHANGES. CF-27 (MEDIUM:
-  "one normalisation pass" is not a Slate unit; Slate's normalize drains dirty paths one node at a time, so under equality the
-  window must be one Editor.normalize drain and the literal the dirtied lines, where Enter is 2) folds into AC-6.8 before M6's
-  fix round. The rest is approved.
+  Delta pass on plan 019 revision 17 (record 34850209, AC-6.8's count and bench folds): APPROVED, re-dispositioned under
+  steering's block 07:13Z. CF-27 (MEDIUM: the count's window is one Editor.normalize drain, and the literal is the lines the
+  keystroke dirties: 1, 2, 1) is a stated limit (R-82) whose reading governs the count limb until the seam fold. It holds
+  nothing.
   Delta pass on plan 019 revision 16 (record 30e2a5b8, AC-6.8 keystroke cost, D-23): APPROVED. CF-25 (LOW: resolve the changed
   line's unit once from handleElement and drop handleEditor's all-lines loop; count through a vi.mock pass-through, not a
   production counter) and CF-26 (LOW: the timed limb as a vitest bench file in the repo) are stated limits for M6's fix round.
@@ -61,6 +61,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T07:15 | architect-019 | Revision 17 verdict re-dispositioned under steering's block 07:13Z: APPROVED, with CF-27 a stated limit (plan R-82, record `75aa1dad`) whose reading governs the count limb | A reconcile note in § Delta pass, revision 17, with the original verdict kept in place. |
 | 2026-11-24T07:13 | architect-019 | Delta pass on plan 019 revision 17 (record `34850209`); § Delta pass, revision 17. APPROVED_WITH_CHANGES on CF-27 MEDIUM | Commissioned by `planner-019`'s message. Read as `git show 34850209` on the plan, with the installed `slate` 0.123.0 `normalize` read read-only. Nothing was run. |
 | 2026-11-24T07:09 | architect-019 | Delta pass on plan 019 revision 16 (record `30e2a5b8`); § Delta pass, revision 16. APPROVED; CF-25 and CF-26 LOW raised as stated limits | Commissioned by `planner-019`'s message under effort rulings block 07:05Z. Read as `git show 30e2a5b8` on the plan. Website `119471f` was read through `git -C … show`/`grep`. Nothing was run. |
 | 2026-11-24T06:55 | architect-019 | Open items gain the Packaging line's release-time rewrite and CR-21's unimported `emoji-regex` | From `code-reviewer-019`'s message. Verified at website `119471f` and `master` through `git -C … show`/`ls-tree`/`grep`. `system-architecture.md` is not edited, because its line still states `master`. |
@@ -85,8 +86,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-27** (MEDIUM) folds into AC-6.8 before M6's fix round. My next delta pass reads its fold.
-- **CF-21** to **CF-26** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-27** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -374,6 +374,15 @@ so this folds as criterion text in a revision, not as a stated limit.
 
 **Verdict on revision 17:** APPROVED_WITH_CHANGES. CF-27 is MEDIUM, to fold before M6's fix round. The rest of the delta is
 approved. Nothing needs the owner.
+
+Reconcile note (2026-11-24T07:15): steering's block "2026-11-24T07:13Z" was written before this verdict reached the planner, and
+it applies to this pass. It bars a revision 18 for AC-6.8 except for a severity-floor finding or a count limb that cannot fail
+when the fix is lost. CF-27 is neither: it is MEDIUM, and its failure mode is a count that fails a correct fix. So it is a stated
+limit (plan R-82, record `75aa1dad`), and its reading governs the count limb until the seam fold. That reading is a one-drain
+window, literal (a) (1, 2, 1), and `normalizeNode` calls recorded. The verdict on revision 17 now reads **APPROVED**. The text
+still says "distinct run units" until the fold. The M6 implementer, code review and QA therefore read the count limb with the
+Planner batch row, and the planner has told steering this replaces a literal. NM-72's literal is still owed from a read of what
+the merge dirties.
 
 ## Delta pass, revision 16 (record `30e2a5b8`)
 
