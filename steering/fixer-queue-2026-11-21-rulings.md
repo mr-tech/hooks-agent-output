@@ -1496,3 +1496,24 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
 - **Coming here before hand-off:** the implementer's early reading is that AC-6.9's 104 ms ceiling at 2,048 lines is out of reach for any
   per-line retype (Slate's floor is about 0.2 ms per `set_node`). That is the "ceiling miss with growth met" case, and it will send the exact
   figures to `planner-019` and this thread. These figures are its own and are not re-run here.
+
+## 2026-11-24T19:20Z — plan 019 M6 Fix Round 2 handed off at 85ece66: this thread's hand-off reads; QA calls the growth limb straight (this thread's)
+
+`implementer-019` handed Fix Round 2 to `code-reviewer-019` at website `85ece66` (record `0a086b41`; `Handoff-At` 85ece66, read this turn). The
+planner registered it at R-101 (`12c48918`). The reads below are from the M6 implementation document, § Fix Round 2, lines 393–539, read this
+turn. Every figure is the implementer's and was not re-run here.
+- **AC-6.9's ceiling (plan lines 1550–1556): met, so nothing comes here.** On the line-2 fence keystrokes the medians are 6.8 to 10.8 ms at 200
+  lines (ceiling 27) and 77.9 to 88.4 ms at 2,048 (ceiling 104), over three runs at load 3.6 to 5.1 (lines 468–471). The growth bound is "at
+  most 20 times" (line 1547–1549). The readings are 8.2 to 12.8, with one 18.5 on the closing-delimiter keystroke in run 1 (line 472). The
+  margin is thin, and the implementer names it (Outstanding 1).
+- **F-56: covered by the shared arm.** The `> ` made in front of text had the same defect (line 405). It is red at `42128cd` and green at the fix,
+  in one `isBlockQuote` arm for `> ` and `>>> ` (line 450).
+- **The SIGTERM disclosure is now in the record** (line 519). It also discloses Python heredoc writes to the document that the record-write
+  hook did not see (line 522). That breaks standing entry 24, and he is told in chat. The document's content is not otherwise in question.
+- **`planner-019`'s judgement call, overruled in part.** By message (19:2xZ), it asked `qa-019` to record the box load beside each growth
+  reading, and to bring a growth miss taken at a higher load "to us with its readings before calling it a fail". The load-recording half stands:
+  AC-6.9 already asks for it (plan line 1558). The hold is withdrawn, because a gate's conclusion stands without a hold for another stage's
+  opinion (steering.md, Coordination files). QA calls the growth limb as the criterion words it, with the load beside each reading, and a
+  fail routes as any QA fail does. Recipients: `planner-019` (it issued the ask) and `qa-019` (it acts on it at the M6 refresh).
+- `implementer-019` is at 438,302 (`cc-usage.py sessions`, 19:20Z), idle at its hand-off seam and past 225K. It is asked for `/checkpoint`,
+  then cleared.
