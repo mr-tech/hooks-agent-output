@@ -6,7 +6,7 @@ Status: Active
 Status-Detail: >-
   M5 is built on chain/019-slate-formatting-discord-engine (slices at website 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107) and is
   handed to code review at 2e36107. Open: the convention check's 8 FAILs, all eslint errors already in SlateEditor/index.tsx at the base
-  (Outstanding 1, a ruling owed); 9 sweep survivors dispositioned as equivalent or not M5's (Outstanding 3); the emoji and block-layer
+  (Outstanding 1, ruled (a) below); 9 sweep survivors dispositioned as equivalent or not M5's (Outstanding 3); the emoji and block-layer
   exclusions of AC-5.8 (Outstanding 4); a blind spot in M4's visibleForm helper (Outstanding 5).
 Handoff-At: 2e36107 — repos=website — M5 complete, handed to code review; the self-check sweep ran at 3ffb2b4, whose M5 source equals this tip's (later commits add tests and M3 helper changes only); whole offline suite at this tree: 224 files, 3,280 of 3,280, exit 0
 ---
@@ -27,7 +27,7 @@ Handoff-At: 2e36107 — repos=website — M5 complete, handed to code review; th
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
-| 2026-11-24T04:20 | steering-hooks-fixer (message: resume M5 from the Resumption State) | Slices 2 and 3, hand-off | Code lines `6f4d48f`, properties and call sites `65b8e2c`, comment removal `3ffb2b4`, sweep-survivor cases `2e36107`; handed to code review at `2e36107`. Between: M3 fix rounds 7 (CR-15, `d6aab03`) and 8 (QAF-38, `81c68b2`), both closed by their reviewers. |
+| 2026-11-24T03:49 | steering-hooks-fixer (message: resume M5 from the Resumption State) | Slices 2 and 3, hand-off | Code lines `6f4d48f`, properties and call sites `65b8e2c`, comment removal `3ffb2b4`, sweep-survivor cases `2e36107`; handed to code review at `2e36107`. Between: M3 fix rounds 7 (CR-15, `d6aab03`) and 8 (QAF-38, `81c68b2`), both closed by their reviewers. |
 | 2026-11-24T01:28 | steering-hooks-fixer (message, M5 stage start, block 2026-11-24T01:02Z) | Build M5 | Slice 1 at `921eeb8`. Between: M3 fix round 6 (`9a5f4fe`, `b04c09f`) and M4's stub-tree records, for qa-019's record `908aeee0`. |
 
 ## Implementation Summary
@@ -187,7 +187,7 @@ Not a fix round.
 | self-check sweep (`mutant-gen.js --range b04c09f..3ffb2b4`, `mutation-run.py` over an export of `3ffb2b4`, vitest with `--no-cache --configLoader runner` and a transcribed config for `__dirname`) | 126 mutants (decorator 66, unitStyles 44, highlightScan 7, Desktop 6, Mobile 3): **108 killed, 18 survived** (table `m5-sweep-3ffb2b4/mutation-table-*.json`, mutants `m5-mutants-3ffb2b4.json`, config `m5-sweep-vitest.config.ts`). After the tightening below, the 9 survivors that were real gaps are killed (`m5-sv-*.txt`); 9 remain, dispositioned in Outstanding 3 |
 | the whole suite at `2e36107` (the handoff tip) | exit 0; 224 files, 3,280 of 3,280 (`m5-suite-final.{log.txt,exit}`); typecheck exit 0 (`m5-typecheck-final.txt`); convention check as above |
 
-`SlateEditor/index.tsx` FAILs: the 8 eslint errors are at the base too (`b04c09f:index.tsx`, 9 errors, same rules: `no-unused-vars` on `e`, `react-hooks/immutability` on `editor.children =`, `react-hooks/use-memo` on the `useCallback(factory(...))` forms). M5 changed 13 lines of that file (the `surface` prop and the memo deps). Clearing them rewrites the file's hook structure, beyond the plan; I did not, and I ask for a ruling (Outstanding 1).
+`SlateEditor/index.tsx` FAILs: the 8 eslint errors are at the base too (`b04c09f:index.tsx`, 9 errors, same rules: `no-unused-vars` on `e`, `react-hooks/immutability` on `editor.children =`, `react-hooks/use-memo` on the `useCallback(factory(...))` forms). M5 changed 13 lines of that file (the `surface` prop and the memo deps). Clearing them rewrites the file's hook structure, beyond the plan; I did not; the owner ruled (a) (Outstanding 1).
 
 **Account of the offline suite's change, 3,460 cases in 214 files at `b04c09f` to 3,268 in 223 at `d6aab03` (−192 cases, +9 files; measured by running each file's JSON, `m5cases.json`).**
 Removed: `decorator.emphasis-syntax-ranges.test.ts`, 262 cases (measured at an export of `b04c09f`), the width-inference decorator's range shapes (the "superseded implementation" class; the decorator they pinned is gone, and the cases are replaced by `decorator.native-box-classes`, which compares every frozen typed and corpus input to the native box, `unitStyles.char-classes`, and `decorator.emoji-split-invariance`; each is mutation-checked in the table above). Added: 68 cases in 10 new files (`unitStyles.char-classes` 9, `decorator.native-box-classes` 2, `decorator.emoji-split-invariance` 19, `SlateEditor.coloured-by-surface` 3, `decorator.code-line-scopes` 6, `highlightScan.scope-classes` 10, `decorator.one-parse-per-unit` 3, `decorator.range-bounds` 7, `decorator.preview-equals` 5, `DiscordContentEditor.call-site-surfaces` 4), plus 1 in `DiscordContentEditor.desktop-typed-text-reaches-message` (2 to 3, the pending gate). Net −262 + 69 = −193, and M3's round 7 case (+1, `discordLive.drift-compare`) gives the −192. File count: 214 − 1 + 10 = 223. After that, M3's round 8 (+4 `discordRouting.predicates`, `81c68b2`: 3,272) and this document's survivor cases (+8: mobile 4, desktop 1, code-line third node 1, cache bound 2; one more file): 224 files, 3,280 cases at `2e36107`.
@@ -196,7 +196,7 @@ Evidence and input counts for AC-5.8: each of `embedDescription`, `fieldValue`, 
 
 ## Outstanding Items
 
-1. **Ruling owed (a convention-check FAIL, not fixed):** the 8 eslint errors in `SlateEditor/index.tsx` are older than M5 (same 9 at `b04c09f`). Options: (a) a later chain clears them, M5 hands off with this named; (b) M5 clears them now, a hook rewrite of `SlateEditor` outside the plan. I took (a) pending steering's word.
+1. **Ruled (a) by the owner, rulings block 2026-11-24T03:48Z (record `6866cd75`); carrier `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md` (UUID `67001740`):** the 8 eslint errors in `SlateEditor/index.tsx` are older than M5 (same 9 at `b04c09f`). Options: (a) a later chain clears them, M5 hands off with this named; (b) M5 clears them now, a hook rewrite of `SlateEditor` outside the plan. Option (a) stands: M5's hand-off at `2e36107` is unchanged and the errors are not cleared here. A refutation helper's eslint runs found 9 at the chain base `5ec0621` and 8 at `2e36107`.
 2. **AC-5.5** (the real-browser walk, 65 comparable cases) is UAT's, not run here.
 3. **18 survivors of the sweep; 9 were gaps and are closed by new cases, 9 are equivalent or not M5's.** Closed (each KILLED under its own mutant, `m5-sv-*.txt`, driver `m5-driver-mut9.py`):
    - `Mobile.tsx` pending gate (3 mutants: `===` to `!==`, `||` to `&&`, `!markdown` to `markdown`): new `DiscordContentEditor.mobile-opens-after-engine-settles.test.tsx`, 4 cases (open when resolved, when rejected; closed when pending, with no provider).

@@ -26,8 +26,8 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
-| 2026-11-24T02:40 | qa-019 (message, refresh pass rounds 6 and 7, record `08b8193`) | Fix QAF-38 (MEDIUM, severity floor) | Fixed at `81c68b2` (Round 8 below). |
-| 2026-11-24T02:06 | code-reviewer-019 (message, Round 3 sub-entry QAF-36, records `7b4c1ad3` and `6ee6d66b`) | Fix CR-15 (MEDIUM, severity floor); TDD rows for Round 6's two files; CR-16 a stated limit | Fixed at `d6aab03` (Round 7 below). |
+| 2026-11-24T02:20 | qa-019 (message, refresh pass rounds 6 and 7, record `08b8193`) | Fix QAF-38 (MEDIUM, severity floor) | Fixed at `81c68b2` (Round 8 below). |
+| 2026-11-24T02:03 | code-reviewer-019 (message, Round 3 sub-entry QAF-36, records `7b4c1ad3` and `6ee6d66b`) | Fix CR-15 (MEDIUM, severity floor); TDD rows for Round 6's two files; CR-16 a stated limit | Fixed at `d6aab03` (Round 7 below). |
 | 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry, record `62c1ba99`) | Fix CR-10 (MEDIUM); three record corrections | CR-10 fixed at `2c1590f`; corrections below. |
 | 2026-11-23T21:42 | code-reviewer-019 (message, Round 3, record `dd5b093d`) | Fix CR-5 and CR-6 (MEDIUM); CR-4 remainder, CR-7 to CR-9 optional | CR-5 and CR-6 fixed in the commit named under Handoff-At's next move; CR-4 remainder, CR-7 to CR-9 not done this round (Outstanding 11). |
 | 2026-11-23T21:13 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 M3 from the Resumption State | Items 5, 6, 7, 9, 10, 11 and the residue grouping, commits `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`. M3 handed to code review. |
