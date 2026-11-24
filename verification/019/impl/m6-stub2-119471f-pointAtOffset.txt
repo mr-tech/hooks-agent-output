@@ -1,0 +1,199 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/export-tip
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 6 failed) 98ms
+     × puts a caret right in front of the element at the same place in the text 10ms
+     × puts a caret on the element at the same place in the text 3ms
+     × puts a caret right after the element at the same place in the text 2ms
+     × puts a caret after the element and a typed backtick at the same place in the text 2ms
+     × puts a caret on a second element at the same place in the text 4ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret right in front of the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -1,15 +1,15 @@
+  [
+    {
+-     "offset": 2,
++     "offset": 6,
+      "path": [
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 2,
++     "offset": 6,
+      "path": [
+        0,
+        0,
+      ],
+    },
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:144:65
+    142|     Transforms.select(editor, caret);
+    143|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    144|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    145|   });
+    146| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on the element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret right after the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -1,15 +1,15 @@
+  [
+    {
+-     "offset": 4,
++     "offset": 6,
+      "path": [
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 4,
++     "offset": 6,
+      "path": [
+        0,
+        0,
+      ],
+    },
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:144:65
+    142|     Transforms.select(editor, caret);
+    143|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    144|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    145|   });
+    146| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret after the element and a typed backtick at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -1,15 +1,15 @@
+  [
+    {
+-     "offset": 5,
++     "offset": 6,
+      "path": [
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 5,
++     "offset": 6,
+      "path": [
+        0,
+        0,
+      ],
+    },
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:144:65
+    142|     Transforms.select(editor, caret);
+    143|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    144|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    145|   });
+    146| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+AssertionError: expected [ { path: [ +0, 1, +0 ], …(1) }, …(1) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "offset": 0,
+      "path": [
+        0,
+-       2,
++       1,
++       0,
+      ],
+    },
+    {
+      "offset": 0,
+      "path": [
++       0,
++       1,
+        0,
+-       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:144:65
+    142|     Transforms.select(editor, caret);
+    143|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    144|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    145|   });
+    146| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret at the end of the text in front of a second element at the same place in the text
+AssertionError: expected [ { path: [ +0, 1, +0 ], …(1) }, …(1) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "offset": 6,
++     "offset": 0,
+      "path": [
+        0,
++       1,
+        0,
+      ],
+    },
+    {
+-     "offset": 6,
++     "offset": 0,
+      "path": [
+        0,
++       1,
+        0,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:144:65
+    142|     Transforms.select(editor, caret);
+    143|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    144|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    145|   });
+    146| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  6 failed | 64 passed (70)
+   Start at  06:59:35
+   Duration  7.38s (transform 1.10s, setup 22ms, import 2.08s, tests 7.24s, environment 2.24s)
+

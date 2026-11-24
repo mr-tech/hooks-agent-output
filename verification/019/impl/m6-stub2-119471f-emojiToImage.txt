@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/export-tip
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx (3 tests | 2 failed) 41ms
+     × shows alt, title and source from the element, at 22 pixels in the content editor 33ms
+     × draws a server emoji and any emoji in an embed at 18 pixels 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx > an emoji element is drawn as one image carrying the element's own text > shows alt, title and source from the element, at 22 pixels in the content editor
+AssertionError: expected [ '', '', null, null, null ] to deeply equal [ '🙂', 'slightly smiling face', …(3) ]
+
+- Expected
++ Received
+
+  [
+-   "🙂",
+-   "slightly smiling face",
+-   "/e/smile.png",
+-   "22",
+-   "22",
++   "",
++   "",
++   null,
++   null,
++   null,
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx:46:8
+     44|     const img = mount(emoji({}), false).querySelector('img') as HTMLIm…
+     45|     expect([img.alt, img.title, img.getAttribute('src'), img.getAttrib…
+     46|       .toEqual(['🙂', 'slightly smiling face', '/e/smile.png', '22', '…
+       |        ^
+     47|     expect(img.className).toBe('discord-visualizer__emoji');
+     48|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx > an emoji element is drawn as one image carrying the element's own text > draws a server emoji and any emoji in an embed at 18 pixels
+AssertionError: expected [ null, null ] to deeply equal [ '18', '18' ]
+
+- Expected
++ Received
+
+  [
+-   "18",
+-   "18",
++   null,
++   null,
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx:52:75
+     50|   it('draws a server emoji and any emoji in an embed at 18 pixels', ()…
+     51|     const custom = mount(emoji({ custom: true }), false).querySelector…
+     52|     expect([custom.getAttribute('height'), custom.getAttribute('width'…
+       |                                                                           ^
+     53|     const embedded = mount(emoji({}), true).querySelector('img') as HT…
+     54|     expect([embedded.getAttribute('height'), embedded.getAttribute('wi…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  2 failed | 68 passed (70)
+   Start at  07:00:53
+   Duration  7.04s (transform 988ms, setup 26ms, import 1.86s, tests 6.97s, environment 2.10s)
+

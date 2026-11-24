@@ -1,0 +1,115 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/export-tip
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (24 tests | 4 failed) 63ms
+     × holds a span of a layout when both ends match 5ms
+     × holds a span of a layout when only the start matches 1ms
+     × holds a span of a layout when only the end matches 0ms
+     × holds a span of a layout when neither end matches 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (23 tests | 15 failed) 261ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 41ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 17ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 14ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 14ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 14ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 14ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 17ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 12ms
+     × puts an emoji in a link label back to text once "](" is typed after it 12ms
+     × puts a caret in front of the element at the same place in the text 15ms
+     × puts a caret right in front of the element at the same place in the text 14ms
+     × puts a caret on the element at the same place in the text 16ms
+     × puts a caret after the element and a typed backtick at the same place in the text 9ms
+     × puts a caret on a second element at the same place in the text 10ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 11ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 130ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 34ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 13ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 21ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 15ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 15ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 14ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 25 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a:smile:b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](" is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret in front of the element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret right in front of the element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on the element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret after the element and a typed backtick at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret at the end of the text in front of a second element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a link address
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a bare address
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed after a backslash
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed between two characters of plain text
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/25]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds a span of a layout when both ends match
+AssertionError: expected undefined to be true // Object.is equality
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:98:82
+     96|     ['neither end matches', 3, 9, false],
+     97|   ])('holds a span of a layout when %s', (_name, start, end, expected)…
+     98|     expect(holdsSpan(emojiLayout('content', 'x <:n:123>') as never, st…
+       |                                                                                  ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/25]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds a span of a layout when only the start matches
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds a span of a layout when only the end matches
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds a span of a layout when neither end matches
+AssertionError: expected undefined to be false // Object.is equality
+
+- Expected:
+false
+
++ Received:
+undefined
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:98:82
+     96|     ['neither end matches', 3, 9, false],
+     97|   ])('holds a span of a layout when %s', (_name, start, end, expected)…
+     98|     expect(holdsSpan(emojiLayout('content', 'x <:n:123>') as never, st…
+       |                                                                                  ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/25]⎯
+
+
+ Test Files  3 failed | 3 passed (6)
+      Tests  25 failed | 45 passed (70)
+   Start at  07:00:11
+   Duration  3.02s (transform 2.03s, setup 37ms, import 2.92s, tests 1.62s, environment 2.08s)
+
