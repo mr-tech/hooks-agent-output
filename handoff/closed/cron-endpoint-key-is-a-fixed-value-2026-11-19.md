@@ -1,7 +1,7 @@
 ---
 UUID: 4bc9b626
-Status: Open
-Status-Detail: "The cron endpoint's key is the fixed string 'vercel' in source. Left out of the access-defects fixer chain; no stage owns it yet."
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-delete-dead-cron: the endpoint and its schedule were deleted at website 132a7ab, released to production 2026-11-22. At origin/master, src/pages/api/cron.ts and vercel.json are absent. The dashboard read was withdrawn on his ruling (handoff 9f04d154)."
 Owning-Stage: steering thread for the website access surfaces (to route it to a stage)
 Review-Trigger: when website src/pages/api/cron.ts is next edited, or when the next chain touching website access control opens
 ---
@@ -37,3 +37,4 @@ Raised by the scoping determination of the chain `fix-personal-message-access` (
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T22:36 | helper for steering-roadmap-hooks | Created. |
+| 2026-11-24T03:57 | steering-hooks-fixer | Document closed | Status: Addressed. The endpoint no longer exists: `deployment/closed/fix-delete-dead-cron-deployment.md` released website `132a7ab`, and `git cat-file -e origin/master:src/pages/api/cron.ts` fails. Its dashboard residue read (handoff 9f04d154) was withdrawn on his ruling. |
