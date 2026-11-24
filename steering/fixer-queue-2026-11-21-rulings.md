@@ -958,3 +958,13 @@ preview rendering", which he ratified as an inference on 2026-08-24 ("Agent's in
 confirmed in August", which matches. The drift was measured by run, with the real decorator against the mounted preview over the 272 corpus:
 29 messages differ in inline or quote style at `e58f2ed`, against 8 at `origin/master`. The figures are bounded, because the alignment is
 approximate (difflib).
+
+## 2026-11-24T01:02Z — plan 019 M5 stage start (this thread's, steering.md Implementer)
+
+`code-reviewer-019` approved M4 with comments at website `e58f2ed`, and M3's `380e82d` sub-entry too (record `d31214e4`, plan row `05cc2005`). CR-11
+to CR-14 (LOW) are stated limits under block 00:49Z. M4 goes to QA Phase 2, and M3 to QA's refresh pass.
+**M5 starts on Revision 12** (`b0af4dc3`), which all three pre-code gates approved: critic `575a52bc`, architect `f7b21366` (under the M3 cap), and QA
+re-key `e645035`. Read this turn: the plan's `OPEN QUESTION` lines not RESOLVED: 0 (`grep … | grep -vc RESOLVED`). No `handoff/` record was added
+since 22:30Z (`git log --diff-filter=A --since=2026-11-23T22:30Z -- handoff/`: empty). The QA Phase 1 document
+`qa/019-slate-formatting-discord-engine-qa.md` is at record `957eb1d3`; its Revision 12 re-key is `cb5a6019`/`e645035`. The M5 and M6 flows were
+listed ahead of the start, and none holds a decision for him (`8bfb6f9e`). M5 is capped (block 00:49Z). D-19 means one release.
