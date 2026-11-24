@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-36
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 3 failed) 66ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 10ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 6ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 8 failed) 7859ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 10ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 2ms
+     × gives the code lines the language typed onto their opening fence 2ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 2ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 3ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 1ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 2ms
+     × makes the lines after a removed multi-line quote marker plain lines 2ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 9427ms
+     × hands the message that text in a full-markdown editor 5546ms
+
+ Test Files  3 failed | 3 passed (6)
+      Tests  12 failed | 93 passed (105)
+   Start at  05:44:56
+   Duration  22.64s (transform 1.17s, setup 193ms, import 4.04s, tests 44.04s, environment 4.71s)
+

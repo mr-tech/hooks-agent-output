@@ -1,0 +1,1167 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 34 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:1113', 'gen:1368', …(3) ] to deeply equal [ 'gen:1113', 'gen:1368', …(4) ]
+
+- Expected
++ Received
+
+@@ -2,7 +2,6 @@
+    "gen:1113",
+    "gen:1368",
+    "gen:1677",
+    "gen:709",
+    "gen:870",
+-   "link:61",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:151:26
+    149|     }
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+       |                          ^
+    152|     expect(differing).toEqual([]);
+    153|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/34]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:1677', 'gen:870' ] to deeply equal [ 'gen:1677', 'gen:870', 'link:61' ]
+
+- Expected
++ Received
+
+  [
+    "gen:1677",
+    "gen:870",
+-   "link:61",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:151:26
+    149|     }
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+       |                          ^
+    152|     expect(differing).toEqual([]);
+    153|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/34]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ Array(683) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:71",
++   "gen:75",
++   "gen:76",
++   "gen:77",
++   "gen:78",
++   "gen:111",
++   "gen:113",
++   "gen:117",
++   "gen:119",
++   "gen:121",
++   "gen:126",
++   "gen:128",
++   "gen:129",
++   "gen:130",
++   "gen:133",
++   "gen:134",
++   "gen:142",
++   "gen:144",
++   "gen:151",
++   "gen:158",
++   "gen:160",
++   "gen:162",
++   "gen:163",
++   "gen:168",
++   "gen:174",
++   "gen:175",
++   "gen:177",
++   "gen:179",
++   "gen:185",
++   "gen:191",
++   "gen:193",
++   "gen:194",
++   "gen:197",
++   "gen:198",
++   "gen:200",
++   "gen:202",
++   "gen:205",
++   "gen:206",
++   "gen:208",
++   "gen:212",
++   "gen:213",
++   "gen:221",
++   "gen:227",
++   "gen:229",
++   "gen:235",
++   "gen:236",
++   "gen:237",
++   "gen:246",
++   "gen:247",
++   "gen:249",
++   "gen:251",
++   "gen:252",
++   "gen:253",
++   "gen:257",
++   "gen:260",
++   "gen:261",
++   "gen:262",
++   "gen:263",
++   "gen:265",
++   "gen:268",
++   "gen:270",
++   "gen:272",
++   "gen:278",
++   "gen:281",
++   "gen:284",
++   "gen:287",
++   "gen:289",
++   "gen:290",
++   "gen:299",
++   "gen:301",
++   "gen:304",
++   "gen:305",
++   "gen:307",
++   "gen:310",
++   "gen:314",
++   "gen:315",
++   "gen:316",
++   "gen:318",
++   "gen:319",
++   "gen:321",
++   "gen:322",
++   "gen:323",
++   "gen:326",
++   "gen:329",
++   "gen:334",
++   "gen:339",
++   "gen:340",
++   "gen:346",
++   "gen:347",
++   "gen:348",
++   "gen:350",
++   "gen:352",
++   "gen:357",
++   "gen:359",
++   "gen:361",
++   "gen:363",
++   "gen:366",
++   "gen:369",
++   "gen:372",
++   "gen:373",
++   "gen:376",
++   "gen:380",
++   "gen:386",
++   "gen:393",
++   "gen:397",
++   "gen:398",
++   "gen:401",
++   "gen:404",
++   "gen:405",
++   "gen:407",
++   "gen:412",
++   "gen:415",
++   "gen:416",
++   "gen:417",
++   "gen:418",
++   "gen:420",
++   "gen:421",
++   "gen:424",
++   "gen:433",
++   "gen:435",
++   "gen:438",
++   "gen:449",
++   "gen:450",
++   "gen:451",
++   "gen:454",
++   "gen:456",
++   "gen:457",
++   "gen:458",
++   "gen:460",
++   "gen:462",
++   "gen:474",
++   "gen:476",
++   "gen:483",
++   "gen:484",
++   "gen:486",
++   "gen:488",
++   "gen:494",
++   "gen:500",
++   "gen:502",
++   "gen:505",
++   "gen:506",
++   "gen:509",
++   "gen:511",
++   "gen:512",
++   "gen:517",
++   "gen:518",
++   "gen:522",
++   "gen:523",
++   "gen:528",
++   "gen:529",
++   "gen:530",
++   "gen:535",
++   "gen:536",
++   "gen:540",
++   "gen:542",
++   "gen:543",
++   "gen:544",
++   "gen:546",
++   "gen:548",
++   "gen:553",
++   "gen:557",
++   "gen:558",
++   "gen:559",
++   "gen:560",
++   "gen:562",
++   "gen:563",
++   "gen:565",
++   "gen:569",
++   "gen:571",
++   "gen:575",
++   "gen:576",
++   "gen:580",
++   "gen:581",
++   "gen:582",
++   "gen:583",
++   "gen:587",
++   "gen:595",
++   "gen:597",
++   "gen:599",
++   "gen:600",
++   "gen:601",
++   "gen:602",
++   "gen:604",
++   "gen:606",
++   "gen:609",
++   "gen:612",
++   "gen:620",
++   "gen:621",
++   "gen:622",
++   "gen:623",
++   "gen:624",
++   "gen:627",
++   "gen:632",
++   "gen:635",
++   "gen:636",
++   "gen:639",
++   "gen:645",
++   "gen:647",
++   "gen:653",
++   "gen:657",
++   "gen:658",
++   "gen:660",
++   "gen:662",
++   "gen:663",
++   "gen:664",
++   "gen:669",
++   "gen:671",
++   "gen:684",
++   "gen:685",
++   "gen:694",
++   "gen:695",
++   "gen:696",
++   "gen:701",
++   "gen:708",
++   "gen:710",
++   "gen:715",
++   "gen:716",
++   "gen:717",
++   "gen:722",
++   "gen:723",
++   "gen:724",
++   "gen:731",
++   "gen:735",
++   "gen:737",
++   "gen:738",
++   "gen:740",
++   "gen:741",
++   "gen:743",
++   "gen:745",
++   "gen:747",
++   "gen:749",
++   "gen:757",
++   "gen:763",
++   "gen:766",
++   "gen:767",
++   "gen:771",
++   "gen:772",
++   "gen:773",
++   "gen:777",
++   "gen:780",
++   "gen:781",
++   "gen:783",
++   "gen:784",
++   "gen:789",
++   "gen:794",
++   "gen:797",
++   "gen:798",
++   "gen:800",
++   "gen:801",
++   "gen:802",
++   "gen:803",
++   "gen:805",
++   "gen:807",
++   "gen:808",
++   "gen:810",
++   "gen:814",
++   "gen:817",
++   "gen:818",
++   "gen:820",
++   "gen:821",
++   "gen:834",
++   "gen:835",
++   "gen:837",
++   "gen:839",
++   "gen:845",
++   "gen:846",
++   "gen:847",
++   "gen:848",
++   "gen:853",
++   "gen:856",
++   "gen:857",
++   "gen:864",
++   "gen:870",
++   "gen:872",
++   "gen:873",
++   "gen:877",
++   "gen:883",
++   "gen:892",
++   "gen:893",
++   "gen:899",
++   "gen:900",
++   "gen:901",
++   "gen:902",
++   "gen:906",
++   "gen:908",
++   "gen:911",
++   "gen:912",
++   "gen:913",
++   "gen:915",
++   "gen:917",
++   "gen:921",
++   "gen:924",
++   "gen:925",
++   "gen:926",
++   "gen:927",
++   "gen:930",
++   "gen:933",
++   "gen:934",
++   "gen:937",
++   "gen:938",
++   "gen:942",
++   "gen:947",
++   "gen:949",
++   "gen:950",
++   "gen:951",
++   "gen:955",
++   "gen:961",
++   "gen:962",
++   "gen:974",
++   "gen:977",
++   "gen:979",
++   "gen:980",
++   "gen:982",
++   "gen:986",
++   "gen:987",
++   "gen:988",
++   "gen:990",
++   "gen:991",
++   "gen:998",
++   "gen:999",
++   "gen:1000",
++   "gen:1002",
++   "gen:1008",
++   "gen:1017",
++   "gen:1026",
++   "gen:1030",
++   "gen:1037",
++   "gen:1044",
++   "gen:1050",
++   "gen:1052",
++   "gen:1058",
++   "gen:1059",
++   "gen:1061",
++   "gen:1062",
++   "gen:1063",
++   "gen:1066",
++   "gen:1067",
++   "gen:1074",
++   "gen:1075",
++   "gen:1076",
++   "gen:1085",
++   "gen:1089",
++   "gen:1091",
++   "gen:1093",
++   "gen:1095",
++   "gen:1096",
++   "gen:1099",
++   "gen:1102",
++   "gen:1105",
++   "gen:1109",
++   "gen:1113",
++   "gen:1114",
++   "gen:1117",
++   "gen:1118",
++   "gen:1120",
++   "gen:1121",
++   "gen:1123",
++   "gen:1130",
++   "gen:1134",
++   "gen:1136",
++   "gen:1138",
++   "gen:1141",
++   "gen:1143",
++   "gen:1145",
++   "gen:1148",
++   "gen:1149",
++   "gen:1150",
++   "gen:1152",
++   "gen:1155",
++   "gen:1158",
++   "gen:1160",
++   "gen:1161",
++   "gen:1162",
++   "gen:1167",
++   "gen:1169",
++   "gen:1171",
++   "gen:1173",
++   "gen:1174",
++   "gen:1175",
++   "gen:1177",
++   "gen:1178",
++   "gen:1179",
++   "gen:1181",
++   "gen:1183",
++   "gen:1187",
++   "gen:1190",
++   "gen:1192",
++   "gen:1200",
++   "gen:1202",
++   "gen:1203",
++   "gen:1204",
++   "gen:1206",
++   "gen:1209",
++   "gen:1210",
++   "gen:1211",
++   "gen:1218",
++   "gen:1223",
++   "gen:1230",
++   "gen:1231",
++   "gen:1250",
++   "gen:1254",
++   "gen:1257",
++   "gen:1260",
++   "gen:1262",
++   "gen:1264",
++   "gen:1267",
++   "gen:1276",
++   "gen:1277",
++   "gen:1278",
++   "gen:1279",
++   "gen:1282",
++   "gen:1284",
++   "gen:1285",
++   "gen:1286",
++   "gen:1287",
++   "gen:1289",
++   "gen:1291",
++   "gen:1300",
++   "gen:1302",
++   "gen:1303",
++   "gen:1306",
++   "gen:1308",
++   "gen:1311",
++   "gen:1315",
++   "gen:1318",
++   "gen:1319",
++   "gen:1320",
++   "gen:1322",
++   "gen:1324",
++   "gen:1326",
++   "gen:1328",
++   "gen:1331",
++   "gen:1333",
++   "gen:1335",
++   "gen:1338",
++   "gen:1339",
++   "gen:1340",
++   "gen:1343",
++   "gen:1344",
++   "gen:1351",
++   "gen:1358",
++   "gen:1359",
++   "gen:1360",
++   "gen:1361",
++   "gen:1362",
++   "gen:1363",
++   "gen:1364",
++   "gen:1365",
++   "gen:1368",
++   "gen:1370",
++   "gen:1377",
++   "gen:1378",
++   "gen:1381",
++   "gen:1382",
++   "gen:1384",
++   "gen:1385",
++   "gen:1386",
++   "gen:1388",
++   "gen:1391",
++   "gen:1393",
++   "gen:1395",
++   "gen:1397",
++   "gen:1398",
++   "gen:1399",
++   "gen:1403",
++   "gen:1404",
++   "gen:1405",
++   "gen:1412",
++   "gen:1413",
++   "gen:1416",
++   "gen:1417",
++   "gen:1420",
++   "gen:1425",
++   "gen:1427",
++   "gen:1432",
++   "gen:1435",
++   "gen:1436",
++   "gen:1444",
++   "gen:1450",
++   "gen:1451",
++   "gen:1452",
++   "gen:1457",
++   "gen:1461",
++   "gen:1465",
++   "gen:1466",
++   "gen:1467",
++   "gen:1469",
++   "gen:1471",
++   "gen:1473",
++   "gen:1474",
++   "gen:1478",
++   "gen:1479",
++   "gen:1483",
++   "gen:1484",
++   "gen:1485",
++   "gen:1490",
++   "gen:1494",
++   "gen:1496",
++   "gen:1497",
++   "gen:1504",
++   "gen:1505",
++   "gen:1506",
++   "gen:1509",
++   "gen:1514",
++   "gen:1515",
++   "gen:1518",
++   "gen:1522",
++   "gen:1523",
++   "gen:1529",
++   "gen:1530",
++   "gen:1541",
++   "gen:1545",
++   "gen:1546",
++   "gen:1550",
++   "gen:1556",
++   "gen:1557",
++   "gen:1559",
++   "gen:1560",
++   "gen:1562",
++   "gen:1564",
++   "gen:1568",
++   "gen:1570",
++   "gen:1580",
++   "gen:1581",
++   "gen:1585",
++   "gen:1586",
++   "gen:1591",
++   "gen:1593",
++   "gen:1595",
++   "gen:1597",
++   "gen:1601",
++   "gen:1603",
++   "gen:1605",
++   "gen:1606",
++   "gen:1609",
++   "gen:1610",
++   "gen:1614",
++   "gen:1615",
++   "gen:1623",
++   "gen:1627",
++   "gen:1628",
++   "gen:1632",
++   "gen:1634",
++   "gen:1635",
++   "gen:1641",
++   "gen:1642",
++   "gen:1645",
++   "gen:1647",
++   "gen:1648",
++   "gen:1651",
++   "gen:1652",
++   "gen:1654",
++   "gen:1656",
++   "gen:1659",
++   "gen:1665",
++   "gen:1670",
++   "gen:1672",
++   "gen:1674",
++   "gen:1677",
++   "gen:1680",
++   "gen:1688",
++   "gen:1691",
++   "gen:1694",
++   "gen:1697",
++   "gen:1698",
++   "gen:1699",
++   "gen:1705",
++   "gen:1709",
++   "gen:1714",
++   "gen:1716",
++   "gen:1718",
++   "gen:1719",
++   "gen:1720",
++   "gen:1721",
++   "gen:1728",
++   "gen:1730",
++   "gen:1732",
++   "gen:1734",
++   "gen:1735",
++   "gen:1736",
++   "gen:1738",
++   "gen:1745",
++   "gen:1748",
++   "gen:1750",
++   "gen:1751",
++   "gen:1758",
++   "gen:1760",
++   "gen:1764",
++   "gen:1765",
++   "gen:1766",
++   "gen:1773",
++   "gen:1779",
++   "gen:1780",
++   "gen:1783",
++   "gen:1784",
++   "gen:1786",
++   "gen:1787",
++   "gen:1788",
++   "gen:1789",
++   "gen:1790",
++   "gen:1796",
++   "gen:1799",
++   "gen:1802",
++   "gen:1804",
++   "gen:1805",
++   "gen:1806",
++   "gen:1807",
++   "gen:1808",
++   "gen:1815",
++   "gen:1817",
++   "gen:1818",
++   "gen:1819",
++   "gen:1824",
++   "gen:1827",
++   "gen:1828",
++   "gen:1829",
++   "gen:1830",
++   "gen:1831",
++   "gen:1835",
++   "gen:1837",
++   "gen:1838",
++   "gen:1840",
++   "gen:1841",
++   "gen:1843",
++   "gen:1845",
++   "gen:1849",
++   "gen:1851",
++   "gen:1853",
++   "gen:1855",
++   "gen:1856",
++   "gen:1858",
++   "gen:1859",
++   "gen:1865",
++   "gen:1866",
++   "gen:1873",
++   "gen:1874",
++   "gen:1877",
++   "gen:1879",
++   "gen:1880",
++   "gen:1882",
++   "gen:1885",
++   "gen:1889",
++   "gen:1893",
++   "gen:1895",
++   "gen:1897",
++   "gen:1899",
++   "gen:1900",
++   "gen:1902",
++   "gen:1906",
++   "gen:1909",
++   "gen:1911",
++   "gen:1912",
++   "gen:1913",
++   "gen:1915",
++   "gen:1920",
++   "gen:1923",
++   "gen:1924",
++   "gen:1930",
++   "gen:1931",
++   "gen:1932",
++   "gen:1936",
++   "gen:1939",
++   "gen:1941",
++   "gen:1942",
++   "gen:1944",
++   "gen:1945",
++   "gen:1950",
++   "gen:1952",
++   "gen:1955",
++   "gen:1958",
++   "gen:1963",
++   "gen:1969",
++   "gen:1973",
++   "gen:1974",
++   "gen:1975",
++   "gen:1978",
++   "gen:1986",
++   "gen:1989",
++   "gen:1990",
++   "gen:1993",
++   "gen:1994",
++   "gen:1995",
++   "gen:1997",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/34]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a:smile:b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](" is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a link address
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a bare address
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed after a backslash
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed between two characters of plain text
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries bold across an emoji element
+AssertionError: expected [ [ [ 'S', 'S', …(2) ], …(1) ] ] to deeply equal [ [ [ 'S', 'S', …(2) ], …(1) ] ]
+
+- Expected
++ Received
+
+@@ -7,10 +7,10 @@
+        "strongText",
+      ],
+      [
+        "strongText",
+        "strongText",
+-       "S",
++       "strongText",
+        "S",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:52:48
+     50|
+     51|   it('carries bold across an emoji element', () => {
+     52|     expect(labels(lifted(`**a ${EMOJI} b**`))).toEqual([[
+       |                                                ^
+     53|       ['S', 'S', 'strongText', 'strongText'],
+     54|       ['strongText', 'strongText', 'S', 'S'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > keeps the delimiters on either side of an emoji as syntax
+AssertionError: expected [ [ [ 'S' ], [ 'emText' ] ] ] to deeply equal [ [ [ 'S' ], [ 'S' ] ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      [
+        "S",
+      ],
+      [
+-       "S",
++       "emText",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:59:42
+     57|
+     58|   it('keeps the delimiters on either side of an emoji as syntax', () =…
+     59|     expect(labels(lifted(`*${EMOJI}*`))).toEqual([[['S'], ['S']]]);
+       |                                          ^
+     60|   });
+     61|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > carries italic across an emoji element on a quote line
+AssertionError: expected [ [ …(2) ] ] to deeply equal [ [ …(2) ] ]
+
+- Expected
++ Received
+
+@@ -4,9 +4,9 @@
+        "S",
+        "emText",
+        "emText",
+      ],
+      [
+-       "S",
++       "emText",
+      ],
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:63:46
+     61|
+     62|   it('carries italic across an emoji element on a quote line', () => {
+     63|     expect(labels(lifted(`> *a ${EMOJI}*`))).toEqual([[['S', 'emText',…
+       |                                              ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**X**" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'strongText', 'S' ] ] to deeply equal [ [ 'S', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+-     "S",
++     "strongText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'emText', 'emText', …(3) ] ] to deeply equal [ [ 'S', 'emText', 'emText', …(3) ] ]
+
+- Expected
++ Received
+
+@@ -3,8 +3,8 @@
+      "S",
+      "emText",
+      "emText",
+      "emText",
+      "emText",
+-     "S",
++     "emText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'sText', 'S' ] ] to deeply equal [ [ 'S', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+-     "S",
++     "sText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "__X__" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'uText', 'S' ] ] to deeply equal [ [ 'S', 'S', 'S', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "S",
+-     "S",
++     "uText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "||a X||" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'spoilerText', …(3) ] ] to deeply equal [ [ 'S', 'S', 'spoilerText', …(3) ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      "S",
+      "S",
+      "spoilerText",
+      "spoilerText",
+-     "S",
++     "spoilerText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'emText' ], …(1) ] to deeply equal [ [ 'S', 'emText' ], …(1) ]
+
+- Expected
++ Received
+
+@@ -4,8 +4,8 @@
+      "emText",
+    ],
+    [
+      "emText",
+      "emText",
+-     "S",
++     "emText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'emText', 'emText', …(1) ] ] to deeply equal [ [ 'S', 'emText', 'emText', 'S' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "S",
+      "emText",
+      "emText",
+-     "S",
++     "emText",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place
+AssertionError: expected [ [ 'S', 'S', 'strongText' ], …(1) ] to deeply equal [ [ 'S', 'S', 'strongText' ], …(1) ]
+
+- Expected
++ Received
+
+@@ -3,9 +3,9 @@
+      "S",
+      "S",
+      "strongText",
+    ],
+    [
+-     "S",
++     "strongText",
+      "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place
+AssertionError: expected [ [ '-', '-', '-', '-', 'S', …(1) ] ] to deeply equal [ [ '-', '-', '-', 'S', …(2) ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "-",
+      "-",
+      "-",
++     "-",
+      "S",
+      "emText",
+-     "S",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:79:29
+     77|       return [...line.slice(0, before), ...line.slice(before + 1)];
+     78|     });
+     79|     expect(flat(withEmoji)).toEqual(withoutEmojiChars);
+       |                             ^
+     80|   });
+     81| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box on every input, an emoji element's source characters left out
+AssertionError: expected [ '**:smile:**' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "**:smile:**",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:111:23
+    109|     expect(compared).toBeGreaterThan(200);
+    110|     expect(withElement).toBeGreaterThanOrEqual(10);
+    111|     expect(differing).toEqual([]);
+       |                       ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of 51 text nodes once
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:30:63
+     28|   const ranges: Range[] = [];
+     29|   let start = 0;
+     30|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                               ^
+     31|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     32|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:34:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:90:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:49:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/34]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of three lines once, and a unit after a code block once more
+TypeError: Cannot read properties of undefined (reading 'syntax')
+ ❯ same src/components/SlateEditor/utils/decorator.tsx:30:50
+     28|   const ranges: Range[] = [];
+     29|   let start = 0;
+     30|   const same = (a: CharStyle, b: CharStyle) => a.syntax === b.syntax
+       |                                                  ^
+     31|     && a.classNames.length === b.classNames.length && a.classNames.eve…
+     32|   for (let i = 1; i <= length; i += 1) {
+ ❯ rangesOf src/components/SlateEditor/utils/decorator.tsx:34:23
+ ❯ src/components/SlateEditor/utils/decorator.tsx:90:12
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:58:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/34]⎯
+

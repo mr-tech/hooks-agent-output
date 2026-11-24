@@ -1,0 +1,75 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -1,15 +1,15 @@
+  [
+    {
+-     "offset": 4,
++     "offset": 2,
+      "path": [
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 4,
++     "offset": 2,
+      "path": [
+        0,
+        0,
+      ],
+    },
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "offset": 0,
++     "offset": 6,
+      "path": [
++       0,
+        0,
+-       2,
+      ],
+    },
+    {
+-     "offset": 0,
++     "offset": 6,
+      "path": [
+        0,
+-       2,
++       0,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T055331Z-p2313369/mutant-14
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 7 failed) 120ms
+     × marks bold delimiters as syntax and the inside as bold 26ms
+     × draws a masked link label as link text and the brackets and destination as syntax 17ms
+     × draws a bare link address as link text 14ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 2ms
+     × carries italic across a line break and gives the break itself no class 5ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 2ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (21 tests | 8 failed) 127ms
+     × lists a unicode emoji with its source span and image 25ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 4ms
+     × lists a skin-tone sequence with its source span and image 2ms
+     × lists a still custom emoji with its source span and image 6ms
+     × lists an animated custom emoji with its source span and image 8ms
+     × lists the emoji outside a code span and none inside it 2ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 3ms
+     × holds a span of a layout when both ends match 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 8 failed) 135ms
+     × carries bold across an emoji element 38ms
+     × keeps the delimiters on either side of an emoji as syntax 5ms
+     × carries italic across an emoji element on a quote line 5ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 5ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 7ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 193ms
+     × matches the frozen box on every input, an emoji element's source characters left out 150ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 6ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 250ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 15ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 74ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 19ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 22ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 72ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 32723ms
+     × on embedDescription, every content character carries the style set its preview gives it 8812ms
+     × on fieldValue, every content character carries the style set its preview gives it 7295ms
+     × on embedTitle, every content character carries the style set its preview gives it 5565ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5534ms
+     × on v2Text, every content character carries the style set its preview gives it 5495ms
+
+ Test Files  6 failed | 2 passed (8)
+      Tests  36 failed | 36 passed (72)
+   Start at  06:01:41
+   Duration  36.26s (transform 2.57s, setup 20ms, import 6.32s, tests 37.48s, environment 2.28s)
+

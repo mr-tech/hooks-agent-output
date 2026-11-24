@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T051630Z-p1937009/mutant-25
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 16123ms
+     × hands the message that text in a full-markdown editor 9229ms
+     × hands the message that text in a single-line editor 6588ms
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  2 failed | 103 passed (105)
+   Start at  05:34:31
+   Duration  50.31s (transform 2.00s, setup 157ms, import 6.49s, tests 88.24s, environment 7.02s)
+

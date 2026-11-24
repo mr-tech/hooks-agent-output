@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-11
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 3 failed) 217ms
+     × parses a unit of three lines once, and a unit after a code block once more 13ms
+     × parses only the edited element's unit on the next pass, with its new text 9ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 40ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 199ms
+     × matches the frozen box on every input, an emoji element's source characters left out 150ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 2 failed) 162ms
+     × puts an emoji element on the first line when the second is edited back to text 11ms
+     × puts an emoji element on the second line when the third is edited back to text 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 10023ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 5300ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 28306ms
+     × on embedDescription, every content character carries the style set its preview gives it 7087ms
+     × on fieldValue, every content character carries the style set its preview gives it 6190ms
+     × on embedTitle, every content character carries the style set its preview gives it 5252ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5842ms
+     × on v2Text, every content character carries the style set its preview gives it 3918ms
+
+ Test Files  5 failed | 4 passed (9)
+      Tests  12 failed | 82 passed (94)
+   Start at  06:00:56
+   Duration  31.78s (transform 3.35s, setup 57ms, import 8.03s, tests 43.25s, environment 3.53s)
+

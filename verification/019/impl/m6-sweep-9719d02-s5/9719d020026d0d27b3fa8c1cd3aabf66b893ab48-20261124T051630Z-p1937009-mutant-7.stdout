@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T051630Z-p1937009/mutant-7
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (6 tests | 6 failed) 2744ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 1003ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 412ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 363ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 321ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 282ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 285ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 2759ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 13ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 3ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  8 failed | 236 passed (244)
+   Start at  05:21:38
+   Duration  15.80s (transform 3.63s, setup 169ms, import 8.60s, tests 21.56s, environment 5.93s)
+

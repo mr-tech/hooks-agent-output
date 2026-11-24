@@ -1,0 +1,102 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 15 failed) 211ms
+     × at the end of a quote line saves what the table says 60ms
+     × in the middle of a quote line saves what the table says 27ms
+     × in the middle of the first line of a multi-line quote saves what the table says 6ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 16ms
+     × at the end of a plain line saves what the table says 13ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 9ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 18ms
+     × at the end of a quote line that opens a fence saves what the table says 3ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 17ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 4ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 2ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 4ms
+     × leaves an empty line when the carried marker is removed with Backspace 5ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 2ms
+     × takes in a typed quote marker inside a fence opened on a quote line 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 13 failed) 280ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 103ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 12ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 33ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 28ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 4ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 6ms
+     × keeps an emoji typed into a fenced code line as text 6ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 4ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 14ms
+     × puts an emoji in a link label back to text once "](" is typed after it 8ms
+     × puts an emoji element back to text once a web address is typed in front of it 5ms
+     × puts an emoji element of the second line of a code block back to text 7ms
+     × puts each emoji element of a fenced code line back to text 6ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 7 failed) 165ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 84ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 14ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a code span 4ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 14ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 4ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 3ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 11ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 41 failed) 3076ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 73ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 48ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 7ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 2ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 1ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 3ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 1ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 3ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 9ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 4ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 4ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 5ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 6ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 3ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 2ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 2ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 2ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 7ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 3ms
+     × gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise 2ms
+     × gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise 7ms
+     × keeps every line after a multi-line quote marker as a quote line 4ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 8ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 3ms
+     × gives the code lines the language typed onto their opening fence 2ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 4ms
+     × writes no text to the lines a typed multi-line quote marker takes in 3ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 5ms
+     × keeps the lines after a code block holding a multi-line quote marker as plain lines 2ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 6ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 4ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 4ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 4ms
+     × makes the lines after a removed multi-line quote marker plain lines 1ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 1ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 6ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 28ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 9ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 1ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 16ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 91ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 5 failed) 8395ms
+     × hands the message a write of a after a is typed into an empty full-markdown editor 97ms
+     × hands the message one write per typed character, each the text so far 20ms
+     × hands the message a line break typed as a new line 22ms
+     × hands the message no write for a character typed in a synchronous act, because the editor reports its change after the act returns 40ms
+     × hands the message that text in a full-markdown editor 17ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 35895ms
+     × keeps a multi-line paste as lines in a full-markdown editor 41ms
+     × hands the message that text in a full-markdown editor 4089ms
+     × hands the message that text in a full-markdown editor 11975ms
+     × hands the message that text in a full-markdown editor 6553ms
+     × hands the message that text in a full-markdown editor 5294ms
+
+ Test Files  6 failed (6)
+      Tests  86 failed | 19 passed (105)
+     Errors  1993 errors
+   Start at  05:27:00
+   Duration  46.34s (transform 8.68s, setup 489ms, import 26.98s, tests 48.02s, environment 9.15s)
+

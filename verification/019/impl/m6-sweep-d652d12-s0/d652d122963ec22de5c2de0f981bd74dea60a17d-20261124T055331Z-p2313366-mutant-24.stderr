@@ -1,0 +1,304 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+AssertionError: expected [ [ 'a`', '🙂', '`b' ], 'a`🙂`b' ] to deeply equal [ [ 'a`🙂`b' ], 'a`🙂`b' ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "a`🙂`b",
++     "a`",
++     "🙂",
++     "`b",
+    ],
+    "a`🙂`b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:72:66
+     70|     expect(shown(editor, 0)).toEqual(['a`', '[🙂]', 'b']);
+     71|     Transforms.insertText(editor, '`', { at: at([0, 2], 0) });
+     72|     expect([shown(editor, 0), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+     73|     const backtick = { anchor: at([0, 0], 1), focus: at([0, 0], 2), cl…
+     74|     Transforms.delete(editor, { at: backtick });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it
+AssertionError: expected [ [ '', '👍', '🏽' ], '👍🏽' ] to deeply equal [ [ '', '[👍🏽]', '' ], '👍🏽' ]
+
+- Expected
++ Received
+
+  [
+    [
+      "",
+-     "[👍🏽]",
+-     "",
++     "👍",
++     "🏽",
+    ],
+    "👍🏽",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:81:66
+     79|     const editor = holding('👍');
+     80|     Transforms.insertText(editor, '🏽', { at: at([0, 2], 0) });
+     81|     expect([shown(editor, 0), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](https://x.y)" is typed after it
+AssertionError: expected [ '[', '🙂', '](https://x.y)' ] to deeply equal [ '[🙂](https://x.y)' ]
+
+- Expected
++ Received
+
+  [
+-   "[🙂](https://x.y)",
++   "[",
++   "🙂",
++   "](https://x.y)",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:101:30
+     99|     const editor = holding('[🙂');
+    100|     Transforms.insertText(editor, typed, { at: at([0, 2], 0) });
+    101|     expect(shown(editor, 0)).toEqual(children);
+       |                              ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element back to text once a web address is typed in front of it
+AssertionError: expected [ 'https://x.y/a', '🙂' ] to deeply equal [ 'https://x.y/a🙂' ]
+
+- Expected
++ Received
+
+  [
+-   "https://x.y/a🙂",
++   "https://x.y/a",
++   "🙂",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:107:30
+    105|     const editor = holding('a🙂');
+    106|     Transforms.insertText(editor, 'https://x.y/', { at: at([0, 0], 0) …
+    107|     expect(shown(editor, 0)).toEqual(['https://x.y/a🙂']);
+       |                              ^
+    108|   });
+    109|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element of the second line of a code block back to text
+AssertionError: expected [ [ 'c', '🙂', 'd' ], …(1) ] to deeply equal [ [ 'c🙂d' ], '```\nab\nc🙂d\n```' ]
+
+- Expected
++ Received
+
+@@ -1,8 +1,10 @@
+  [
+    [
+-     "c🙂d",
++     "c",
++     "🙂",
++     "d",
+    ],
+    "```
+  ab
+  c🙂d
+  ```",
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:115:66
+    113|       type: 'emoji', lang: '', startCodeBlock: false, empty: false, ch…
+    114|     }], { at: at([2, 0], 1) });
+    115|     expect([shown(editor, 2), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+    116|   });
+    117|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+AssertionError: expected [ Array(2) ] to deeply equal [ [ 'a🙂b' ], '```\na🙂b\n```' ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "a🙂b",
++     "a",
++     "🙂",
++     "b",
+    ],
+    "```
+  a🙂b
+  ```",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:123:66
+    121|       type: 'emoji', lang: '', startCodeBlock: false, empty: false, ch…
+    122|     }], { at: at([1, 0], 1) });
+    123|     expect([shown(editor, 1), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+    124|   });
+    125| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -1,15 +1,15 @@
+  [
+    {
+-     "offset": 4,
++     "offset": 2,
+      "path": [
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 4,
++     "offset": 2,
+      "path": [
+        0,
+        0,
+      ],
+    },
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret right after the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "offset": 4,
++     "offset": 0,
+      "path": [
+-       0,
+        0,
++       2,
+      ],
+    },
+    {
+-     "offset": 4,
++     "offset": 0,
+      "path": [
+        0,
+-       0,
++       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret after the element and a typed backtick at the same place in the text
+AssertionError: expected [ Array(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "offset": 5,
++     "offset": 1,
+      "path": [
+-       0,
+        0,
++       2,
+      ],
+    },
+    {
+-     "offset": 5,
++     "offset": 1,
+      "path": [
+        0,
+-       0,
++       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+AssertionError: expected [ { path: [ +0, 3, +0 ], …(1) }, …(1) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "offset": 0,
+      "path": [
+        0,
+-       2,
++       3,
++       0,
+      ],
+    },
+    {
+      "offset": 0,
+      "path": [
++       0,
++       3,
+        0,
+-       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+

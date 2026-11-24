@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 1 failed) 141ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 17ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 14211ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 7497ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 6638ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  3 failed | 102 passed (105)
+   Start at  05:30:23
+   Duration  49.43s (transform 2.83s, setup 196ms, import 8.54s, tests 98.63s, environment 9.78s)
+

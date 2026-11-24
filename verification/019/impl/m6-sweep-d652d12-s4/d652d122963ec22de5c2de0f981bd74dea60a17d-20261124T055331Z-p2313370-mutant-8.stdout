@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T055331Z-p2313370/mutant-8
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 3 failed) 219ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 20ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 17ms
+     × leaves an empty line when the carried marker is removed with Backspace 11ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 1 failed) 14970ms
+     × makes the lines after a removed multi-line quote marker plain lines 26ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 20460ms
+     × hands the message that text in a full-markdown editor 12712ms
+
+ Test Files  3 failed | 1 passed (4)
+      Tests  5 failed | 79 passed (84)
+   Start at  05:58:29
+   Duration  47.00s (transform 2.05s, setup 338ms, import 6.64s, tests 78.81s, environment 4.63s)
+

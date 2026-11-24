@@ -1,0 +1,182 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a line break typed as a new line
+AssertionError: expected [ 'a\n> b', 2 ] to deeply equal [ 'a\nb', 2 ]
+
+- Expected
++ Received
+
+  [
+    "a
+- b",
++ > b",
+    2,
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:35:69
+     33|     const mounted = mountEditor('', false);
+     34|     await typeText(mounted, 'a\nb');
+     35|     expect([mounted.writes.at(-1), mounted.editor.children.length]).to…
+       |                                                                     ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ 'text\n# after text', …(37) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "text
++ # after text",
++   "# a
++ # b",
++   "text
++ -# after",
++   "[te
++ xt](https://example.com)",
++   "||a
++ b||",
++   "*a
++ b*",
++   "**a
++
++ b**",
++   "```
++ block
++ ```",
++   "```js
++ let a = 1;
++ ```",
++   "```JS
++ x
++ ```",
++   "```c++
++ x
++ ```",
++   "```notalang
++ x
++ ```",
++   "```
++
++
++ x
++
++
++ ```",
++   "```unclosed
++ x",
++   "```
++ ```",
++   "```js
++ ```",
++   "```a
++ b```c```",
++   "`a
++ b`",
++   "- a
++ - b",
++   "1. a
++ 2. b",
++   "5. a
++ 6. b",
++   "- a
++   - b",
++   "- a
++  - b",
++   "- a
++     - b",
++   "- a
++
++ - b",
++   "text
++ - a",
++   "- a
++ text",
++   "1. a
++ - b",
++   "- a
++   continued",
++   "1. a
++ 1. b",
++   "a\\
++ b",
++   "a
++ b",
++   "a
++
++ b",
++   "a
++
++
++ b",
++   "a  
++ b",
++   "# h
++ text
++ - a
++ > q
++ -# s",
++   "- [t](https://example.com)
++ - `c`",
++   "1. a
++    - b
++ 2. c",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says
+AssertionError: expected '>>> a\n> b\n> ' to be '>>> a\n> b\n' // Object.is equality
+
+- Expected
++ Received
+
+  >>> a
+  > b
+-
++ > 
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a plain line saves what the table says
+AssertionError: expected 'ab\n> ' to be 'ab\n' // Object.is equality
+
+- Expected
++ Received
+
+  ab
+-
++ > 
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

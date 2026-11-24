@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T055331Z-p2313367/control-5
+
+
+ Test Files  8 passed (8)
+      Tests  72 passed (72)
+   Start at  05:55:29
+   Duration  32.13s (transform 2.22s, setup 24ms, import 5.47s, tests 40.61s, environment 2.29s)
+

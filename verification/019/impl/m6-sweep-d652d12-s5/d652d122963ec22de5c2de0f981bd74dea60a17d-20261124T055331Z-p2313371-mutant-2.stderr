@@ -1,0 +1,41 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts > the emoji layouts of run units kept between calls > parses a unit once for the same surface, text and code-block start, and again when either differs
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts:27:22
+     25|     emojiLayout('content', 'once 🙂');
+     26|     emojiLayout('content', 'once 🙂');
+     27|     expect(parses()).toBe(1);
+       |                      ^
+     28|     emojiLayout('embedDescription', 'once 🙂');
+     29|     emojiLayout('content', 'once 🙂', true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts > the emoji layouts of run units kept between calls > forgets the oldest unit once 256 others have followed it, and keeps the newest
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts:38:22
+     36|     vi.mocked(parseLossless).mockClear();
+     37|     layoutOf('other255');
+     38|     expect(parses()).toBe(0);
+       |                      ^
+     39|     layoutOf('first');
+     40|     expect(parses()).toBe(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

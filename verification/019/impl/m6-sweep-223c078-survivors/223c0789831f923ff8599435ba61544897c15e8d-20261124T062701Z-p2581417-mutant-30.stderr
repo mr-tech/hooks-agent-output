@@ -1,0 +1,40 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret at the end of the text in front of a second element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "offset": 6,
++     "offset": -1,
+      "path": [
+-       0,
+        0,
++       2,
+      ],
+    },
+    {
+-     "offset": 6,
++     "offset": -1,
+      "path": [
+        0,
+-       0,
++       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:144:65
+    142|     Transforms.select(editor, caret);
+    143|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    144|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    145|   });
+    146| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,53 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses only the edited element's unit on the next pass, with its new text
+AssertionError: expected [ [ 'content', '\n*bc*' ] ] to deeply equal [ [ 'content', '*bc*' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
+-     "*bc*",
++     "
++ *bc*",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:74:22
+     72|     editor.children = after as Descendant[];
+     73|     decorateAll(decorate, after);
+     74|     expect(parses()).toEqual([['content', '*bc*']]);
+       |                      ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > keeps the styles of the last 512 units it parsed > keeps the second unit and parses the oldest again, when 513 units have been drawn
+AssertionError: expected [ [ 'content', '\nunit 0' ] ] to deeply equal [ [ 'content', 'unit 0' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
+-     "unit 0",
++     "
++ unit 0",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:105:24
+    103|       expect(parses()).toHaveLength(0);
+    104|       at(0);
+    105|       expect(parses()).toEqual([['content', 'unit 0']]);
+       |                        ^
+    106|     });
+    107|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

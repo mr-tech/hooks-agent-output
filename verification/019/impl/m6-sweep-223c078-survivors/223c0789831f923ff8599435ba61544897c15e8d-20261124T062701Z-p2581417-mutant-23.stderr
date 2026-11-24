@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is resolved on the first line of the editor too
+AssertionError: expected '> > b' to be '> b' // Object.is equality
+
+Expected: "> b"
+Received: "> > b"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:140:28
+    138|     Transforms.select(editor, Editor.end(editor, [0]));
+    139|     typeKeys(editor, '> b');
+    140|     expect(textOf(editor)).toBe('> b');
+       |                            ^
+    141|   });
+    142| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

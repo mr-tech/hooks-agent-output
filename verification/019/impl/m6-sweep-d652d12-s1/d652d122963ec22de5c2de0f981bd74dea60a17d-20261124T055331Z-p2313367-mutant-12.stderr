@@ -1,0 +1,50 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an emoji typed into a fenced code line as text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the first line when the second is edited back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:108:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:301:3
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:387:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the second line when the third is edited back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element of the second line of a code block back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:108:16
+ ❯ handleEditor src/components/SlateEditor/utils/withNormalizeNode.ts:90:11
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:385:36
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+

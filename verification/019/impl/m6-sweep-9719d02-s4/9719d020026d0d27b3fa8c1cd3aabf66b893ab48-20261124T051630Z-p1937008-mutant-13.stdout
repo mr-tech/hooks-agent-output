@@ -1,0 +1,57 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T051630Z-p1937008/mutant-13
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 13 failed) 156ms
+     × carries bold across an emoji element 36ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × carries italic across an emoji element on a quote line 5ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 5ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 6ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 233ms
+     × parses a unit of 51 text nodes once 17ms
+     × parses a unit of three lines once, and a unit after a code block once more 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 194ms
+     × matches the frozen box on every input, an emoji element's source characters left out 149ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 357ms
+     × on content, over every input of the generator and the corpus 124ms
+     × on embedDescription, over every input of the generator and the corpus 45ms
+     × on fieldValue, over every input of the generator and the corpus 48ms
+     × on embedTitle, over every input of the generator and the corpus 28ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 18ms
+     × on v2Text, over every input of the generator and the corpus 28ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 8 failed) 312ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 73ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 49ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 32ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 30ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 24ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 27ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 21ms
+     × puts an emoji in a link label back to text once "](" is typed after it 26ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 197ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 49ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 25ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 32ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 29ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 20ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 14ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 1812ms
+     × on embedDescription, every content character carries the style set its preview gives it 731ms
+     × on fieldValue, every content character carries the style set its preview gives it 367ms
+     × on embedTitle, every content character carries the style set its preview gives it 277ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 203ms
+     × on v2Text, every content character carries the style set its preview gives it 208ms
+
+ Test Files  7 failed | 2 passed (9)
+      Tests  41 failed | 39 passed (80)
+   Start at  05:24:36
+   Duration  6.36s (transform 2.38s, setup 67ms, import 8.09s, tests 3.46s, environment 3.44s)
+

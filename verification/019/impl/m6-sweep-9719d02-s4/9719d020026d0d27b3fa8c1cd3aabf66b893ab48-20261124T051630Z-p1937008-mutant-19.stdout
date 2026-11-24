@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T051630Z-p1937008/mutant-19
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 7 failed) 166ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 36ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 5ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 12ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 3ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 4ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 6ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 19ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 12000ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 6331ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 5553ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 12ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 13ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 46ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 11ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  13 failed | 92 passed (105)
+   Start at  05:28:34
+   Duration  44.78s (transform 2.18s, setup 191ms, import 6.74s, tests 93.99s, environment 5.75s)
+

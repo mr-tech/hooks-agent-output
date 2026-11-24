@@ -1,0 +1,131 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+AssertionError: expected [ [ 'a`', '🙂', '`b' ], 'a`🙂`b' ] to deeply equal [ [ 'a`🙂`b' ], 'a`🙂`b' ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "a`🙂`b",
++     "a`",
++     "🙂",
++     "`b",
+    ],
+    "a`🙂`b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:72:66
+     70|     expect(shown(editor, 0)).toEqual(['a`', '[🙂]', 'b']);
+     71|     Transforms.insertText(editor, '`', { at: at([0, 2], 0) });
+     72|     expect([shown(editor, 0), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+     73|     const backtick = { anchor: at([0, 0], 1), focus: at([0, 0], 2), cl…
+     74|     Transforms.delete(editor, { at: backtick });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](https://x.y)" is typed after it
+AssertionError: expected [ '[', '🙂', '](https://x.y)' ] to deeply equal [ '[🙂](https://x.y)' ]
+
+- Expected
++ Received
+
+  [
+-   "[🙂](https://x.y)",
++   "[",
++   "🙂",
++   "](https://x.y)",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:84:30
+     82|     const editor = holding('[🙂');
+     83|     Transforms.insertText(editor, typed, { at: at([0, 2], 0) });
+     84|     expect(shown(editor, 0)).toEqual(children);
+       |                              ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element back to text once a web address is typed in front of it
+AssertionError: expected [ 'https://x.y/a', '🙂' ] to deeply equal [ 'https://x.y/a🙂' ]
+
+- Expected
++ Received
+
+  [
+-   "https://x.y/a🙂",
++   "https://x.y/a",
++   "🙂",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:90:30
+     88|     const editor = holding('a🙂');
+     89|     Transforms.insertText(editor, 'https://x.y/', { at: at([0, 0], 0) …
+     90|     expect(shown(editor, 0)).toEqual(['https://x.y/a🙂']);
+       |                              ^
+     91|   });
+     92|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element of the second line of a code block back to text
+AssertionError: expected [ [ 'c', '🙂', 'd' ], …(1) ] to deeply equal [ [ 'c🙂d' ], '```\nab\nc🙂d\n```' ]
+
+- Expected
++ Received
+
+@@ -1,8 +1,10 @@
+  [
+    [
+-     "c🙂d",
++     "c",
++     "🙂",
++     "d",
+    ],
+    "```
+  ab
+  c🙂d
+  ```",
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:98:66
+     96|       type: 'emoji', lang: '', startCodeBlock: false, empty: false, ch…
+     97|     }], { at: at([2, 0], 1) });
+     98|     expect([shown(editor, 2), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+     99|   });
+    100|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+AssertionError: expected [ Array(2) ] to deeply equal [ [ 'a🙂b' ], '```\na🙂b\n```' ]
+
+- Expected
++ Received
+
+  [
+    [
+-     "a🙂b",
++     "a",
++     "🙂",
++     "b",
+    ],
+    "```
+  a🙂b
+  ```",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:106:66
+    104|       type: 'emoji', lang: '', startCodeBlock: false, empty: false, ch…
+    105|     }], { at: at([1, 0], 1) });
+    106|     expect([shown(editor, 1), flattenNodeText(editor.children)]).toEqu…
+       |                                                                  ^
+    107|   });
+    108| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

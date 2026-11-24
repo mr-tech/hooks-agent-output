@@ -1,0 +1,48 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n\n> b' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++
++ > b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a code line inside a fence opened on a quote line saves what the table says
+AssertionError: expected '> ```\n> x\n\n> ```' to be '> ```\n> x\n> \n> ```' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+  > x
+- > 
++
+  > ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

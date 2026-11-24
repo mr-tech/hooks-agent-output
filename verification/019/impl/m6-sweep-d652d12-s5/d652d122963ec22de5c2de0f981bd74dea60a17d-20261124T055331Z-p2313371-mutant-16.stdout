@@ -1,0 +1,48 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 14 failed) 269ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 46ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 15ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 9ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 48ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 9ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 5ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 12ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 5ms
+     × puts an emoji in a link label back to text once "](" is typed after it 7ms
+     × puts a caret in front of the element at the same place in the text 11ms
+     × puts a caret right in front of the element at the same place in the text 8ms
+     × puts a caret on the element at the same place in the text 10ms
+     × puts a caret after the element and a typed backtick at the same place in the text 8ms
+     × puts a caret on a second element at the same place in the text 24ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 5 failed) 823ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 365ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 245ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 53ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 30ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 55ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 8 failed) 16719ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 207ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 97ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 576ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 585ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 81ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 50ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 440ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 652ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 25656ms
+     × hands the message that text in a full-markdown editor 14204ms
+     × hands the message that text in a single-line editor 11158ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 58803ms
+     × hands the message that text in a full-markdown editor 5241ms
+     × hands the message that text in a single-line editor 3361ms
+     × hands the message that text in a full-markdown editor 28931ms
+     × hands the message that text in a single-line editor 7810ms
+
+ Test Files  5 failed | 2 passed (7)
+      Tests  33 failed | 82 passed (115)
+     Errors  172 errors
+   Start at  06:03:29
+   Duration  64.28s (transform 5.20s, setup 227ms, import 13.65s, tests 102.48s, environment 9.56s)
+

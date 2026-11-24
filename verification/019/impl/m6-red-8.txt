@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (19 tests | 1 failed) 64ms
+     × puts a caret on a second element at the same place in the text 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "offset": 0,
++     "offset": 4,
+      "path": [
++       0,
+        0,
+-       2,
+      ],
+    },
+    {
+-     "offset": 0,
++     "offset": 4,
+      "path": [
+        0,
+-       2,
++       0,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:132:29
+    130|       : text === 'a🙂`b' ? [[[0, 0], 1, '`']] : [[[0, 0], 1, '`'], [[0…
+    131|     const [, anchor, focus] = caretAfter(text, caret, edits);
+    132|     expect([anchor, focus]).toEqual([expected, expected]);
+       |                             ^
+    133|   });
+    134| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Start at  05:47:13
+   Duration  1.15s (transform 165ms, setup 21ms, import 326ms, tests 64ms, environment 601ms)
+

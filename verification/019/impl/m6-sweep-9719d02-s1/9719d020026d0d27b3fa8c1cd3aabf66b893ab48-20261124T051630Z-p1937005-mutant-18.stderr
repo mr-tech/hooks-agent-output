@@ -1,0 +1,637 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 101 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > hands the message a pasted word after an empty editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > keeps a multi-line paste as lines in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > accepts a paste of 6,000 characters in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting into a mounted editor, read as the message receives it > accepts a paste of 6,000 characters in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a single-line editor
+Error: Cannot get the start point in the node at path [] because it has no start text node.
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/point.ts:23:12
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:162:29
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:917:18
+ ❯ point node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/start.ts:4:16
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:177:29
+ ❯ start node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:957:18
+ ❯ start node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:459:41
+ ❯ focus node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/dom-editor.ts:442:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/101]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a write of a after a is typed into an empty full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a write of a after a is typed into an empty single-line editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message one write per typed character, each the text so far
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message a line break typed as a new line
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing into a mounted editor, read as the message receives it > hands the message no write for a character typed in a synchronous act, because the editor reports its change after the act returns
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a:smile:b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an emoji typed into a fenced code line as text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](https://x.y)" is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](" is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element back to text once a web address is typed in front of it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element of the second line of a code block back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a code span
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a link address
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed inside a bare address
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed after a backslash
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each emoji token of the probe is typed between two characters of plain text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\nb" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n\nb" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n> b" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed after a multi-line quote marker followed by a bare fence
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps every line after a multi-line quote marker as a quote line
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns ">>> x" typed into a plain line into a quote line that keeps its marker
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns "> x" typed into a plain line into a quote line that keeps its marker
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives the code lines the language typed onto their opening fence
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > marks which fence lines start inside a code block once a fence typed above them opens one
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > starts a quoted line with no marker when a line of a multi-line quote is split
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the lines after a code block holding a multi-line quote marker as plain lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > makes the lines after a removed multi-line quote marker plain lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a full-markdown box over the round-trip input classes > keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded text in a single-line box over the round-trip input classes > keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of a quote line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of the first line of a multi-line quote saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a plain line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a code line inside a fence opened on a plain line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a code line inside a fence opened on a quote line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line that opens a fence saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a plain line types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a quote marker types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two quote markers types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two angle brackets with no space types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker is removed with Backspace
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker inside a fence opened on a quote line
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest .yarn/berry/cache/@babel-runtime-npm-7.23.2-d013d6cf7e-10.zip/node_modules/@babel/runtime/helpers/nonIterableRest.js:2:8
+ ❯ _slicedToArray .yarn/berry/cache/@babel-runtime-npm-7.23.2-d013d6cf7e-10.zip/node_modules/@babel/runtime/helpers/slicedToArray.js:6:102
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/insert-nodes.ts:34:24
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/insert-nodes.ts:17:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:140:41
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/node.ts:167:11
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+    162|     Editor.withoutNormalizing(editor, () => {
+    163|       Transforms.removeNodes(editor, { at: path });
+    164|       Transforms.insertNodes(editor, { type: 'span', text: element.sou…
+       |                  ^
+    165|     });
+    166|     return;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/101]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 26 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message a pasted word after an empty editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "keeps a multi-line paste as lines in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "accepts a paste of 6,000 characters in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "accepts a paste of 6,000 characters in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.
+ ❯ _nonIterableRest node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:494:9
+ ❯ _slicedToArray node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:503:103
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5066:17
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:5047:10
+ ❯ Object.insertNodes$1 [as insertNodes] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6303:26
+ ❯ Object.insertNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2537:12
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:164:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a single-line editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+

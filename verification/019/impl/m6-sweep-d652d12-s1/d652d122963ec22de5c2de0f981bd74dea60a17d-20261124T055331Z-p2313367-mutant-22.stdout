@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T055331Z-p2313367/mutant-22
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 1 failed) 242ms
+     × puts a caret on a second element at the same place in the text 32ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 114 passed (115)
+   Start at  06:08:47
+   Duration  52.29s (transform 4.33s, setup 285ms, import 13.43s, tests 105.12s, environment 10.83s)
+

@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork0/20261124T055331Z-p2313366/mutant-21
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 8 failed) 138ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 35ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 5ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 3ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 4ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 5ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 4ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 10ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 10627ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 4856ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 5703ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 12ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 10ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 10ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 12ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  14 failed | 101 passed (115)
+   Start at  06:08:36
+   Duration  49.73s (transform 2.44s, setup 218ms, import 7.56s, tests 101.67s, environment 8.32s)
+

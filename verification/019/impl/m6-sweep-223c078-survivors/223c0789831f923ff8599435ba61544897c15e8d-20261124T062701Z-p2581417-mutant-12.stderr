@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says
+AssertionError: expected '```\n> x\n> y\n> ' to be '```\n> x\n> y\n' // Object.is equality
+
+- Expected
++ Received
+
+  ```
+  > x
+  > y
+-
++ > 
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:60:49
+     58|     ['at the end of a quoted code line that follows another one in a f…
+     59|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     60|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     61|   });
+     62| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

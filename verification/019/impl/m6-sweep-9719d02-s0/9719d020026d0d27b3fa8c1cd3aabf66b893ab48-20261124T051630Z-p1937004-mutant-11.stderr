@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx > an emoji element is drawn as one image carrying the element's own text > draws a server emoji and any emoji in an embed at 18 pixels
+AssertionError: expected [ '22', '22' ] to deeply equal [ '18', '18' ]
+
+- Expected
++ Received
+
+  [
+-   "18",
+-   "18",
++   "22",
++   "22",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/renderElementFactory.emoji-element.test.tsx:49:75
+     47|   it('draws a server emoji and any emoji in an embed at 18 pixels', ()…
+     48|     const custom = mount(emoji({ custom: true }), false).querySelector…
+     49|     expect([custom.getAttribute('height'), custom.getAttribute('width'…
+       |                                                                           ^
+     50|     const embedded = mount(emoji({}), true).querySelector('img') as HT…
+     51|     expect([embedded.getAttribute('height'), embedded.getAttribute('wi…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

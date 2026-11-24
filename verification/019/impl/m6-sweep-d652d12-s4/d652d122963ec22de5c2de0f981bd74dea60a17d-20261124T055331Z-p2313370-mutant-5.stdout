@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T055331Z-p2313370/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 5 failed) 369ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 6ms
+     × puts an emoji element on the first line when the second is edited back to text 42ms
+     × puts an emoji element on the second line when the third is edited back to text 5ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 9ms
+     × puts an emoji in a link label back to text once "](" is typed after it 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 2828ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 825ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 488ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 424ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 323ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 307ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 364ms
+     × are literal for an emoji before and one after a fenced block 3ms
+     × are literal for an emoji only in the run after a fenced block 2ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 14 failed) 3380ms
+     × loads the text on each side of the emoji in "\\🙂 🙂" into its own text node 32ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 11ms
+     × loads the text on each side of the emoji in "`🙂` 🙂" into its own text node 4ms
+     × loads a unicode emoji as one emoji element that saves as the typed text 2ms
+     × loads a ZWJ sequence as one emoji element that saves as the typed text 2ms
+     × loads a skin-tone sequence as one emoji element that saves as the typed text 5ms
+     × loads a keycap as one emoji element that saves as the typed text 2ms
+     × loads a flag as one emoji element that saves as the typed text 1ms
+     × loads a tag sequence as one emoji element that saves as the typed text 7ms
+     × loads a heart with emoji presentation as one emoji element that saves as the typed text 1ms
+     × loads an emoji typed as a name as one emoji element that saves as the typed text 7ms
+     × loads a skin-toned name as one emoji element that saves as the typed text 1ms
+     × loads a custom emoji as one emoji element that saves as the typed text 1ms
+     × loads an animated custom emoji as one emoji element that saves as the typed text 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 10640ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 6776ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 3781ms
+
+ Test Files  4 failed | 6 passed (10)
+      Tests  30 failed | 236 passed (266)
+   Start at  05:57:35
+   Duration  15.16s (transform 5.89s, setup 137ms, import 13.68s, tests 21.47s, environment 10.21s)
+

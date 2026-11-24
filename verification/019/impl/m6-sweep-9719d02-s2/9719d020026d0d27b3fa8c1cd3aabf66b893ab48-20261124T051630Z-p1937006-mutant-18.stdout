@@ -1,0 +1,47 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-18
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 12 failed) 289ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 75ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 36ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 25ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 26ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 25ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 22ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 21ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 17ms
+     × puts an emoji in a link label back to text once "](" is typed after it 19ms
+     × puts an emoji element back to text once a web address is typed in front of it 2ms
+     × puts an emoji element of the second line of a code block back to text 4ms
+     × puts each emoji element of a fenced code line back to text 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 499ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 149ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 113ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 64ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 41ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 36ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 31ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 10 failed) 14252ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 247ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 77ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 117ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 54ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 65ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 66ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 45ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 58ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 78ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 75ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 20229ms
+     × hands the message that text in a full-markdown editor 11474ms
+     × hands the message that text in a single-line editor 8371ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 49587ms
+     × hands the message that text in a full-markdown editor 22814ms
+     × hands the message that text in a full-markdown editor 5783ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  32 failed | 73 passed (105)
+     Errors  563 errors
+   Start at  05:28:36
+   Duration  56.33s (transform 5.23s, setup 286ms, import 15.25s, tests 84.98s, environment 7.26s)
+

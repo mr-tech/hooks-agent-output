@@ -1,0 +1,217 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists a unicode emoji with its source span and image
+AssertionError: expected [ { start: +0, end: 2, …(5) } ] to deeply equal [ { start: +0, end: 2, …(5) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "alt": "🙂",
+-     "custom": false,
++     "custom": true,
+      "end": 2,
+      "source": "🙂",
+      "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f642.svg",
+      "start": 0,
+-     "title": "",
++     "title": undefined,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:33:50
+     31|     }]],
+     32|   ] as const)('lists %s with its source span and image', (_name, text,…
+     33|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists an emoji typed as a name, with the characters around it with its source span and image
+AssertionError: expected [ { start: 1, end: 8, …(5) } ] to deeply equal [ { start: 1, end: 8, …(5) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "alt": "😄",
+-     "custom": false,
++     "alt": ":smile:",
++     "custom": true,
+      "end": 8,
+      "source": ":smile:",
+      "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f604.svg",
+      "start": 1,
+-     "title": "",
++     "title": undefined,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:33:50
+     31|     }]],
+     32|   ] as const)('lists %s with its source span and image', (_name, text,…
+     33|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists a skin-tone sequence with its source span and image
+AssertionError: expected [ { start: +0, end: 4, …(5) } ] to deeply equal [ { start: +0, end: 4, …(5) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "alt": "👍🏽",
+-     "custom": false,
++     "custom": true,
+      "end": 4,
+      "source": "👍🏽",
+      "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d-1f3fd.svg",
+      "start": 0,
+-     "title": "",
++     "title": undefined,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:33:50
+     31|     }]],
+     32|   ] as const)('lists %s with its source span and image', (_name, text,…
+     33|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists a still custom emoji with its source span and image
+AssertionError: expected [ { start: 2, end: 10, …(5) } ] to deeply equal [ { start: 2, end: 10, …(5) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "alt": "<:n:123>",
+-     "custom": true,
++     "alt": {
++       "animated": false,
++       "id": 123n,
++       "name": "n",
++     },
++     "custom": false,
+      "end": 10,
+      "source": "<:n:123>",
+      "src": "https://cdn.discordapp.com/emojis/123.png",
+      "start": 2,
+-     "title": "n",
++     "title": "",
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:33:50
+     31|     }]],
+     32|   ] as const)('lists %s with its source span and image', (_name, text,…
+     33|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists an animated custom emoji with its source span and image
+AssertionError: expected [ { start: +0, end: 9, …(5) } ] to deeply equal [ { start: +0, end: 9, …(5) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "alt": "<a:n:456>",
+-     "custom": true,
++     "alt": {
++       "animated": true,
++       "id": 456n,
++       "name": "n",
++     },
++     "custom": false,
+      "end": 9,
+      "source": "<a:n:456>",
+      "src": "https://cdn.discordapp.com/emojis/456.gif",
+      "start": 0,
+-     "title": "n",
++     "title": "",
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:33:50
+     31|     }]],
+     32|   ] as const)('lists %s with its source span and image', (_name, text,…
+     33|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > keeps an id past 2^53 as digits that survive JSON
+TypeError: Do not know how to serialize a BigInt
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:47:28
+     45|   it('keeps an id past 2^53 as digits that survive JSON', () => {
+     46|     const [emoji] = emojiLayout('content', '<:n:1574460051593240606>')…
+     47|     expect(JSON.parse(JSON.stringify(emoji)).src).toBe('https://cdn.di…
+       |                            ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > builds the element of a span with the span's own image, alt and title and no line fields set
+AssertionError: expected { type: 'emoji', lang: '', …(8) } to deeply equal { type: 'emoji', lang: '', …(8) }
+
+- Expected
++ Received
+
+  {
+-   "alt": "<:n:123>",
++   "alt": {
++     "animated": false,
++     "id": 123n,
++     "name": "n",
++   },
+    "children": [
+      {
+        "text": "",
+        "type": "span",
+      },
+    ],
+-   "custom": true,
++   "custom": false,
+    "empty": false,
+    "lang": "",
+    "source": "<:n:123>",
+    "src": "https://cdn.discordapp.com/emojis/123.png",
+    "startCodeBlock": false,
+-   "title": "n",
++   "title": "",
+    "type": "emoji",
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:70:34
+     68|   it('builds the element of a span with the span\'s own image, alt and…
+     69|     const [span] = emojiLayout('content', 'x <:n:123>')?.emojis ?? [];
+     70|     expect(emojiElementOf(span)).toEqual({
+       |                                  ^
+     71|       type: 'emoji',
+     72|       lang: '',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+

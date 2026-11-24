@@ -1,0 +1,1574 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:104', …(53) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:135",
++   "corpus:136",
++   "corpus:139",
++   "gen:145",
++   "gen:158",
++   "gen:160",
++   "gen:175",
++   "gen:310",
++   "gen:348",
++   "gen:352",
++   "gen:366",
++   "gen:409",
++   "gen:449",
++   "gen:453",
++   "gen:526",
++   "gen:620",
++   "gen:637",
++   "gen:643",
++   "gen:647",
++   "gen:674",
++   "gen:723",
++   "gen:865",
++   "gen:887",
++   "gen:909",
++   "gen:911",
++   "gen:912",
++   "gen:923",
++   "gen:946",
++   "gen:950",
++   "gen:999",
++   "gen:1039",
++   "gen:1130",
++   "gen:1136",
++   "gen:1199",
++   "gen:1248",
++   "gen:1302",
++   "gen:1310",
++   "gen:1311",
++   "gen:1373",
++   "gen:1384",
++   "gen:1389",
++   "gen:1486",
++   "gen:1569",
++   "gen:1591",
++   "gen:1592",
++   "gen:1596",
++   "gen:1623",
++   "gen:1742",
++   "gen:1788",
++   "gen:1869",
++   "gen:1892",
++   "gen:1952",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:104', …(55) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:139",
++   "gen:145",
++   "gen:158",
++   "gen:160",
++   "gen:175",
++   "gen:310",
++   "gen:348",
++   "gen:352",
++   "gen:366",
++   "gen:409",
++   "gen:449",
++   "gen:453",
++   "gen:526",
++   "gen:620",
++   "gen:637",
++   "gen:643",
++   "gen:647",
++   "gen:674",
++   "gen:709",
++   "gen:723",
++   "gen:865",
++   "gen:887",
++   "gen:909",
++   "gen:911",
++   "gen:912",
++   "gen:923",
++   "gen:946",
++   "gen:950",
++   "gen:999",
++   "gen:1039",
++   "gen:1113",
++   "gen:1130",
++   "gen:1136",
++   "gen:1199",
++   "gen:1248",
++   "gen:1257",
++   "gen:1302",
++   "gen:1310",
++   "gen:1311",
++   "gen:1368",
++   "gen:1373",
++   "gen:1384",
++   "gen:1389",
++   "gen:1486",
++   "gen:1569",
++   "gen:1591",
++   "gen:1592",
++   "gen:1596",
++   "gen:1623",
++   "gen:1742",
++   "gen:1788",
++   "gen:1869",
++   "gen:1892",
++   "gen:1952",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:67', 'corpus:104', …(59) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:67",
++   "corpus:104",
++   "corpus:105",
++   "corpus:139",
++   "gen:145",
++   "gen:158",
++   "gen:160",
++   "gen:175",
++   "gen:249",
++   "gen:310",
++   "gen:348",
++   "gen:352",
++   "gen:366",
++   "gen:409",
++   "gen:449",
++   "gen:453",
++   "gen:526",
++   "gen:620",
++   "gen:637",
++   "gen:643",
++   "gen:647",
++   "gen:674",
++   "gen:709",
++   "gen:723",
++   "gen:745",
++   "gen:865",
++   "gen:887",
++   "gen:909",
++   "gen:911",
++   "gen:912",
++   "gen:923",
++   "gen:946",
++   "gen:950",
++   "gen:962",
++   "gen:999",
++   "gen:1039",
++   "gen:1113",
++   "gen:1130",
++   "gen:1199",
++   "gen:1248",
++   "gen:1257",
++   "gen:1302",
++   "gen:1310",
++   "gen:1311",
++   "gen:1368",
++   "gen:1373",
++   "gen:1384",
++   "gen:1389",
++   "gen:1485",
++   "gen:1486",
++   "gen:1569",
++   "gen:1591",
++   "gen:1592",
++   "gen:1596",
++   "gen:1623",
++   "gen:1642",
++   "gen:1742",
++   "gen:1788",
++   "gen:1869",
++   "gen:1892",
++   "gen:1952",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the first line when the second is edited back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the second line when the third is edited back to text
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:92:28
+     90|     expect(holdsElement()).toBe(true);
+     91|     Transforms.insertText(editor, '`', { at: where });
+     92|     expect(holdsElement()).toBe(false);
+       |                            ^
+     93|   });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+AssertionError: expected [ …(303) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   " o`:a:ok
++ ```js
++ :a:up:100a*
++ ```",
++   "`<:x:123>:_:m
++ ```js
++ ❤️:b:a:skin-tone-1a_:a
++ ```",
++   "\\:m`:ao:*<:x:123>:up_
++ ```js
++ :cool
++ ```",
++   "\\:m:ao:`*<:x:123>:up_
++ ```js
++ :cool
++ ```",
++   "\\:m:ao:*`<:x:123>:up_
++ ```js
++ :cool
++ ```",
++   "#:skin-tone-1`:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:`*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:*.`:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "`❤️:oka:m🔥:x.\\
++ ```js
++ thumbsup:.#_:ok<:x:123>🙂a
++ ```",
++   "❤️`:oka:m🔥:x.\\
++ ```js
++ thumbsup:.#_:ok<:x:123>🙂a
++ ```",
++   "❤️:oka:m`🔥:x.\\
++ ```js
++ thumbsup:.#_:ok<:x:123>🙂a
++ ```",
++   "\\:skin-tone-1:a_:o`🔥
++ ```js
++ :::a:othumbsup:
++ ```",
++   "`:b:b:ok
++ ```js
++ :cool❤️_🙂:o:a#\\
++ ```",
++   "thumbsup:`:up:m
++ ```js
++ :*o:
++ ```",
++   "o`:thumbsup::a
++ ```js
++ :o❤️
++ ```",
++   "`:ok:~~
++ ```js
++ #
++ ```",
++   ":x*.:b`🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂`:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂`:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   "thumbsup:`:m:skin-tone-1👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:`skin-tone-1👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1`👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1👍🏻`:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1👍🏻`:id:cool 
++ ```js
++ :x
++ ```",
++   "*`:ok:🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:`🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:`🙂
++ ```js
++ o:##
++ ```",
++   " `🔥:o<:x:123>:100
++ ```js
++ *:skin-tone-1~~<:x:123>👍🏻~~\\
++ ```",
++   " 🔥`:o<:x:123>:100
++ ```js
++ *:skin-tone-1~~<:x:123>👍🏻~~\\
++ ```",
++   " 🔥:o`<:x:123>:100
++ ```js
++ *:skin-tone-1~~<:x:123>👍🏻~~\\
++ ```",
++   "`:id:.:100
++ ```js
++ :ok:🔥
++ ```",
++   "`:ok:\\:o:
++ ```js
++ _🔥a:ok:\\:m~~
++ ```",
++   "#ok:`:m:cool_:m
++ ```js
++ 🙂:skin-tone-1::👍🏻:id:up
++ ```",
++   "thumbsup::mthumbsup`:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup:`:o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup:`:o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o:`:🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::`🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "`:ok:up
++ ```js
++ thumbsup: :skin-tone-1:id:m.
++ ```",
++   "thumbsup:`:cool:ok:🙂a
++ ```js
++ *❤️:skin-tone-1:b:100:o
++ ```",
++   "thumbsup::cool:`ok:🙂a
++ ```js
++ *❤️:skin-tone-1:b:100:o
++ ```",
++   "thumbsup::cool:ok:`🙂a
++ ```js
++ *❤️:skin-tone-1:b:100:o
++ ```",
++   "#`<:x:123>
++ ```js
++ :id:up
++ ```",
++   "thumbsup:`:100:ok:
++ ```js
++ :skin-tone-1\\:100:id:cool:a
++ ```",
++   "`:100:o*:ok: :o❤️:o
++ ```js
++ 🙂
++ ```",
++   ":100:`o*:ok: :o❤️:o
++ ```js
++ 🙂
++ ```",
++   ":100:o*`:ok: :o❤️:o
++ ```js
++ 🙂
++ ```",
++   ":100:o*:ok:` :o❤️:o
++ ```js
++ 🙂
++ ```",
++   ":100:o*:ok: :o`❤️:o
++ ```js
++ 🙂
++ ```",
++   "`<:x:123>
++ ```js
++ :~~:okthumbsup::100:skin-tone-1🙂
++ ```",
++   ":#:upthumbsup:`:a:ok:
++ ```js
++ ok:
++ ```",
++   "o`:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok:`:id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok:`:id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:`100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100`🙂
++ ```js
++ :100:ok:
++ ```",
++   ".`👍🏻🙂 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   ".👍🏻`🙂 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   ".👍🏻`🙂 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   ".👍🏻🙂` 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   ".👍🏻🙂 `🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   "`<:x:123>👍🏻:.:100a
++ ```js
++ # 
++ ```",
++   "<:x:123>`👍🏻:.:100a
++ ```js
++ # 
++ ```",
++   "<:x:123>`👍🏻:.:100a
++ ```js
++ # 
++ ```",
++   "`🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥`:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:`🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   ":m`🔥a:idok:
++ ```js
++ ❤️:b
++ ```",
++   "`🙂:coola:cool:a:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   "🙂`:coola:cool:a:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   "🙂:coola`:cool:a:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   "🙂:coola:cool:`a:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   "🙂:coola:cool:a`:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   "`:ok::up:ok :oo::m
++ ```js
++ :id
++ ```",
++   ":ok:`:up:ok :oo::m
++ ```js
++ :id
++ ```",
++   ":ok:`:up:ok :oo::m
++ ```js
++ :id
++ ```",
++   "`<:x:123>:skin-tone-1 _:100thumbsup:
++ ```js
++ *:ok::cool:x
++ ```",
++   ":m`🔥:cool:ok:.ok:.
++ ```js
++ ❤️#o:thumbsup:~~❤️:cool🙂
++ ```",
++   ":m🔥`:cool:ok:.ok:.
++ ```js
++ ❤️#o:thumbsup:~~❤️:cool🙂
++ ```",
++   ":m🔥`:cool:ok:.ok:.
++ ```js
++ ❤️#o:thumbsup:~~❤️:cool🙂
++ ```",
++   ":cool~~_#`:o:100o:
++ ```js
++ :ok🙂_:
++ ```",
++   " a`:o:ook::up.
++ ```js
++ :cool#
++ ```",
++   "`🔥:o:x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥`:o:x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥`:o:x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥:o:`x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥:o:x`:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "`:o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:`cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#`:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:`m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m `🔥
++ ```js
++ :x:id
++ ```",
++   "`🔥.:
++ ```js
++ :a👍🏻:x_thumbsup::id
++ ```",
++   "`:thumbsup:
++ ```js
++ :100:b👍🏻🙂_thumbsup:
++ ```",
++   ":skin-tone-1:skin-tone-1 o: thumbsup`:a:up
++ ```js
++ 🙂:up:o🙂ok:<:x:123>:cool:o
++ ```",
++   "`<:x:123>:o:m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   "<:x:123>`:o:m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   "<:x:123>`:o:m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   ":skin-tone-1:100`🙂:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂`:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂`:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:`🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:`🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:🙂`~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:🙂~~`❤️~~
++ ```js
++ #:100_*
++ ```",
++   "\\❤️`:ok:
++ ```js
++ o:~~:b
++ ```",
++   "`<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>`:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>`:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:`x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x`:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "`🙂 🙂:a ~~
++ ```js
++ ok::ok:o#a<:x:123>ok:
++ ```",
++   "🙂` 🙂:a ~~
++ ```js
++ ok::ok:o#a<:x:123>ok:
++ ```",
++   "🙂 `🙂:a ~~
++ ```js
++ ok::ok:o#a<:x:123>ok:
++ ```",
++   "`<:x:123>:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>`:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>`:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:`🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:`🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   ":m`🙂:ok:#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂`:ok:#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂`:ok:#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂:ok:`#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂:ok:#`:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂:ok:#:m:`ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂:ok:#:m:ok`:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":b#`❤️
++ ```js
++ ::b👍🏻a:ok:~~:skin-tone-1:skin-tone-1
++ ```",
++   ".:x`<:x:123>::ok athumbsup:
++ ```js
++ \\:okathumbsup:o:o:
++ ```",
++   "`🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂`:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂`:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:`ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:`👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "`:x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:`100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️`👍🏻
++ ```js
++ _\\.*
++ ```",
++   "`:x:o~~:x_
++ ```js
++ :up
++ ```",
++   "*`🙂:ok:a_thumbsup:a.
++ ```js
++ ❤️.::id
++ ```",
++   "*🙂`:ok:a_thumbsup:a.
++ ```js
++ ❤️.::id
++ ```",
++   "*🙂`:ok:a_thumbsup:a.
++ ```js
++ ❤️.::id
++ ```",
++   "`🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥`<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥`<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "_`👍🏻:m:ok:
++ ```js
++ 🙂:m~~:ok.<:x:123>
++ ```",
++   "_👍🏻`:m:ok:
++ ```js
++ 🙂:m~~:ok.<:x:123>
++ ```",
++   "_👍🏻`:m:ok:
++ ```js
++ 🙂:m~~:ok.<:x:123>
++ ```",
++   ":ok`<:x:123>:id
++ ```js
++ #_:x#:m:id
++ ```",
++   ".`🔥thumbsup: 
++ ```js
++ #_:m:id:id*:a:skin-tone-1
++ ```",
++   ":up`<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>`:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>`:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:`ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:`<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>`🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>`🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   "~~:aa:100`👍🏻
++ ```js
++ :up :a👍🏻:ok:m
++ ```",
++   "`<:x:123>:o:a
++ ```js
++ .
++ ```",
++   "<:x:123>`:o:a
++ ```js
++ .
++ ```",
++   "<:x:123>`:o:a
++ ```js
++ .
++ ```",
++   "`❤️#
++ ```js
++ thumbsup::m:a:b❤️a:m
++ ```",
++   "o:`:a:ok: 
++ ```js
++ :okok:🔥
++ ```",
++   "`:100:ok::up:m:m
++ ```js
++ ok:a ❤️\\:100ok:
++ ```",
++   ":100:`ok::up:m:m
++ ```js
++ ok:a ❤️\\:100ok:
++ ```",
++   ":100:ok:`:up:m:m
++ ```js
++ ok:a ❤️\\:100ok:
++ ```",
++   "`:cool:a
++ ```js
++ 👍🏻
++ ```",
++   "*`🔥:100# 
++ ```js
++ :x🔥:a<:x:123>thumbsup:
++ ```",
++   "thumbsup:`:ok:up
++ ```js
++ :ido:~~:a_
++ ```",
++   "*:ok::skin-tone-1`:a:ok<:x:123>thumbsup:a
++ ```js
++ :m👍🏻:o :x:ok:👍🏻:skin-tone-1
++ ```",
++   "*:ok::skin-tone-1:a:`ok<:x:123>thumbsup:a
++ ```js
++ :m👍🏻:o :x:ok:👍🏻:skin-tone-1
++ ```",
++   "*:ok::skin-tone-1:a:ok`<:x:123>thumbsup:a
++ ```js
++ :m👍🏻:o :x:ok:👍🏻:skin-tone-1
++ ```",
++   ".*`🙂:cool_
++ ```js
++ :m :a:100a~~.:x
++ ```",
++   "`🔥thumbsup::100:ok:
++ ```js
++ _❤️:ok:o:a.👍🏻
++ ```",
++   "🔥`thumbsup::100:ok:
++ ```js
++ _❤️:ok:o:a.👍🏻
++ ```",
++   "🔥thumbsup:`:100:ok:
++ ```js
++ _❤️:ok:o:a.👍🏻
++ ```",
++   "`:a:id:m
++ ```js
++ :ok🔥ao::ok
++ ```",
++   ":x~~`:100:a:id.
++ ```js
++ :b:up🔥
++ ```",
++   "*`<:x:123><:x:123> 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "*<:x:123>`<:x:123> 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "*<:x:123>`<:x:123> 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "*<:x:123><:x:123>` 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "*<:x:123><:x:123> `🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "`👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻`\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up`:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:`cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool`👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻`<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻`<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "_:.`🔥:
++ ```js
++ a🙂❤️:skin-tone-1:100:b
++ ```",
++   "`❤️thumbsup::cool thumbsup:ok:\\:m
++ ```js
++ :o🙂:up
++ ```",
++   "❤️`thumbsup::cool thumbsup:ok:\\:m
++ ```js
++ :o🙂:up
++ ```",
++   "❤️thumbsup::cool thumbsup`:ok:\\:m
++ ```js
++ :o🙂:up
++ ```",
++   "`👍🏻
++ ```js
++ :skin-tone-1🙂thumbsup:ok:\\
++ ```",
++   "`👍🏻:athumbsup::100\\
++ ```js
++ 👍🏻👍🏻:o
++ ```",
++   "ok:#.`<:x:123>:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   "ok:#.<:x:123>`:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   "ok:#.<:x:123>`:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   "*`🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥`❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥`❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️`👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️`👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻`:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x`🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   ":a~~`:ok:ok:#a#thumbsup:
++ ```js
++ 🙂:ok
++ ```",
++   "`:id:o:cool:
++ ```js
++ :o
++ ```",
++   ":id:`o:cool:
++ ```js
++ :o
++ ```",
++   ":id:o`:cool:
++ ```js
++ :o
++ ```",
++   "`👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻`\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup:`:ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:`🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:`🔥
++ ```js
++ .o:🔥
++ ```",
++   "`:up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:`ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba`🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   "`:ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:`cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool`🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂`#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#`<:x:123>
++ ```js
++ *a
++ ```",
++   ":skin-tone-1:o`❤️
++ ```js
++ :skin-tone-1a
++ ```",
++   "*:`🙂::o:ok
++ ```js
++ _:id🙂❤️o::id:ok:o:
++ ```",
++   "*:🙂`::o:ok
++ ```js
++ _:id🙂❤️o::id:ok:o:
++ ```",
++   "*:🙂:`:o:ok
++ ```js
++ _:id🙂❤️o::id:ok:o:
++ ```",
++   "`👍🏻~~:skin-tone-1:skin-tone-1👍🏻*
++ ```js
++ o:#:up:
++ ```",
++   "👍🏻`~~:skin-tone-1:skin-tone-1👍🏻*
++ ```js
++ o:#:up:
++ ```",
++   "👍🏻~~:skin-tone-1:skin-tone-1`👍🏻*
++ ```js
++ o:#:up:
++ ```",
++   "`:o:x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:`x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~`:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~:ok:`🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~:ok:`🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":xo:\\~~~~`:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:`🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:`🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   "`:100:100
++ ```js
++ :o:id:100
++ ```",
++   "`🙂❤️:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂`❤️:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂`❤️:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂❤️`:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂❤️:xo::`❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   ":skin-tone-1~~:ok_`👍🏻
++ ```js
++ :a#thumbsup:
++ ```",
++   "`👍🏻:b.# :o_\\
++ ```js
++ .
++ ```",
++   ":#`❤️
++ ```js
++ <:x:123> 
++ ```",
++   "#`<:x:123>.:up🔥:.
++ ```js
++ ::x👍🏻:cool:b🔥
++ ```",
++   "#<:x:123>`.:up🔥:.
++ ```js
++ ::x👍🏻:cool:b🔥
++ ```",
++   "#<:x:123>.:up`🔥:.
++ ```js
++ ::x👍🏻:cool:b🔥
++ ```",
++   ":up`<:x:123>#:id:*:m
++ ```js
++ _:cool\\~~:100
++ ```",
++   ":up<:x:123>`#:id:*:m
++ ```js
++ _:cool\\~~:100
++ ```",
++   ":up<:x:123>#`:id:*:m
++ ```js
++ _:cool\\~~:100
++ ```",
++   "`❤️\\
++ ```js
++ :id :id👍🏻_🔥_
++ ```",
++   "`:o:100❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:`100❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100`❤️
++ ```js
++ ❤️:
++ ```",
++   "`👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻`🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻`🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥`:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok`🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂`ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o`🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂`<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂`<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "`❤️:100:skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️`:100:skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️`:100:skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️:100:`skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️:100:skin-tone-1ok:`:100:b::cool
++ ```js
++ ❤️
++ ```",
++   "`<:x:123>:up:100o:
++ ```js
++ :x❤️
++ ```",
++   "<:x:123>`:up:100o:
++ ```js
++ :x❤️
++ ```",
++   "<:x:123>`:up:100o:
++ ```js
++ :x❤️
++ ```",
++   "ok:`:ok:\\
++ ```js
++ :up~~:o:x<:x:123>:up
++ ```",
++   "`👍🏻:#:upo::o
++ ```js
++ :cool:ok:m:a
++ ```",
++   "`:100:100:a
++ ```js
++ <:x:123>~~:b:ok::x thumbsup:
++ ```",
++   ":up`🙂:a:o:b#
++ ```js
++ :ok👍🏻👍🏻:bo:
++ ```",
++   ":up🙂`:a:o:b#
++ ```js
++ :ok👍🏻👍🏻:bo:
++ ```",
++   ":up🙂`:a:o:b#
++ ```js
++ :ok👍🏻👍🏻:bo:
++ ```",
++   "`<:x:123>\\:cool
++ ```js
++ *:a*:up❤️:m
++ ```",
++   "_`:id:id👍🏻 _:skin-tone-1
++ ```js
++ :b.<:x:123>
++ ```",
++   "_:id:`id👍🏻 _:skin-tone-1
++ ```js
++ :b.<:x:123>
++ ```",
++   "_:id:id`👍🏻 _:skin-tone-1
++ ```js
++ :b.<:x:123>
++ ```",
++   "*`:ok:
++ ```js
++ :100👍🏻:mo:
++ ```",
++   "ok:`:ok::bthumbsup:❤️#o:
++ ```js
++ .
++ ```",
++   "ok::ok:`:bthumbsup:❤️#o:
++ ```js
++ .
++ ```",
++   "ok::ok::bthumbsup:`❤️#o:
++ ```js
++ .
++ ```",
++   "`🔥:up\\:b🙂:oko::ok
++ ```js
++ :id:ok
++ ```",
++   "🔥`:up\\:b🙂:oko::ok
++ ```js
++ :id:ok
++ ```",
++   "🔥:up\\:b`🙂:oko::ok
++ ```js
++ :id:ok
++ ```",
++   "`:cool:100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":cool:`100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":cool:100`:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   "*thumbsup:~~:skin-tone-1`🙂::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂`::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂:`:ok:
++ ```js
++ #::m:cool
++ ```",
++   "`:m:xthumbsup::x
++ ```js
++ :b
++ ```",
++   "`🔥:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥`:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥`:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:`🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:`🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:🔥`.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:🔥.#`:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:91:23
+     89|       return states.filter((state) => state !== null);
+     90|     });
+     91|     expect(offending).toEqual([]);
+       |                       ^
+     92|   }, 120_000);
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box on every input, an emoji element's source characters left out
+AssertionError: expected [ …(9) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[te
++ xt](https://example.com)",
++   "||a
++ b||",
++   "*a
++ b*",
++   "**a
++
++ b**",
++   "```
++ ```",
++   "```js
++ ```",
++   "`a
++ b`",
++   ">>> a
++ > _
++ > _b_",
++   ">>> *a
++ > b*",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:111:23
+    109|     expect(compared).toBeGreaterThan(200);
+    110|     expect(withElement).toBeGreaterThanOrEqual(10);
+    111|     expect(differing).toEqual([]);
+       |                       ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of three lines once, and a unit after a code block once more
+AssertionError: expected [ [ 'content', …(1) ], …(2) ] to have a length of 2 but got 3
+
+- Expected
++ Received
+
+- 2
++ 3
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:59:22
+     57|     editor.children = lines as Descendant[];
+     58|     decorateAll(decorator(editor, true, false, 'content'), lines);
+     59|     expect(parses()).toHaveLength(2);
+       |                      ^
+     60|   });
+     61|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > keeps the styles of the last 512 units it parsed > keeps the second unit and parses the oldest again, when 513 units have been drawn
+AssertionError: expected [ [ 'content', 'unit 0\nc' ] ] to deeply equal [ [ 'content', 'unit 0' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
+-     "unit 0",
++     "unit 0
++ c",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:105:24
+    103|       expect(parses()).toHaveLength(0);
+    104|       at(0);
+    105|       expect(parses()).toEqual([['content', 'unit 0']]);
+       |                        ^
+    106|     });
+    107|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+

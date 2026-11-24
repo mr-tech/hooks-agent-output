@@ -1,0 +1,141 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:370:19
+    368|     const created = editor.children[at[0]] as Element;
+    369|     Editor.withoutNormalizing(editor, () => {
+    370|       if (created.type === 'blockQuote') {
+       |                   ^
+    371|         Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carri…
+    372|       } else {
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ Object.insertBreak src/components/SlateEditor/utils/withNormalizeNode.ts:369:12
+ ❯ src/components/SlateEditor/__tests__/helpers/mountedEditor.tsx:55:38
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ typeText src/components/SlateEditor/__tests__/helpers/mountedEditor.tsx:55:13
+ ❯ mismatches src/components/SlateEditor/__tests__/helpers/mountedEditor.tsx:88:5
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of a quote line saves what the table says
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line that opens a fence saves what the table says
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:370:19
+    368|     const created = editor.children[at[0]] as Element;
+    369|     Editor.withoutNormalizing(editor, () => {
+    370|       if (created.type === 'blockQuote') {
+       |                   ^
+    371|         Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carri…
+    372|       } else {
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ Object.insertBreak src/components/SlateEditor/utils/withNormalizeNode.ts:369:12
+ ❯ enterAt src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:32:10
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a code line inside a fence opened on a quote line saves what the table says
+AssertionError: expected '> ```\n> x\n\n> ```' to be '> ```\n> x\n> \n> ```' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+  > x
+- > 
++
+  > ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:59:49
+     57|     ['at the end of a quote line that opens a fence', '> ```', 0, 'end…
+     58|   ] as const)('%s saves what the table says', (_name, text, line, offs…
+     59|     expect(textOf(enterAt(text, line, offset))).toBe(expected);
+       |                                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a plain line types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a quote marker types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two quote markers types the line as typed once the carried marker is taken in or removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two angle brackets with no space types the line as typed once the carried marker is taken in or removed
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:370:19
+    368|     const created = editor.children[at[0]] as Element;
+    369|     Editor.withoutNormalizing(editor, () => {
+    370|       if (created.type === 'blockQuote') {
+       |                   ^
+    371|         Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carri…
+    372|       } else {
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ Object.insertBreak src/components/SlateEditor/utils/withNormalizeNode.ts:369:12
+ ❯ typeKeys src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:43:30
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:72:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker is removed with Backspace
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:370:19
+    368|     const created = editor.children[at[0]] as Element;
+    369|     Editor.withoutNormalizing(editor, () => {
+    370|       if (created.type === 'blockQuote') {
+       |                   ^
+    371|         Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carri…
+    372|       } else {
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ Object.insertBreak src/components/SlateEditor/utils/withNormalizeNode.ts:369:12
+ ❯ enterAt src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:32:10
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:79:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:370:19
+    368|     const created = editor.children[at[0]] as Element;
+    369|     Editor.withoutNormalizing(editor, () => {
+    370|       if (created.type === 'blockQuote') {
+       |                   ^
+    371|         Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carri…
+    372|       } else {
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ Object.insertBreak src/components/SlateEditor/utils/withNormalizeNode.ts:369:12
+ ❯ enterAt src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:32:10
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:85:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker inside a fence opened on a quote line
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:370:19
+    368|     const created = editor.children[at[0]] as Element;
+    369|     Editor.withoutNormalizing(editor, () => {
+    370|       if (created.type === 'blockQuote') {
+       |                   ^
+    371|         Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carri…
+    372|       } else {
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ Object.insertBreak src/components/SlateEditor/utils/withNormalizeNode.ts:369:12
+ ❯ typeKeys src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:43:30
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:93:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+

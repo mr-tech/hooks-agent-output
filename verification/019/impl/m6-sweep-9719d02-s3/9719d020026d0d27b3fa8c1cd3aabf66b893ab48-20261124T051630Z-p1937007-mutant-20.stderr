@@ -1,0 +1,2658 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements
+AssertionError: expected [ '<:n:123>x' ] to deeply equal [ '', '[<:n:123>]', 'x' ]
+
+- Expected
++ Received
+
+  [
+-   "",
+-   "[<:n:123>]",
+-   "x",
++   "<:n:123>x",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:50:62
+     48|     ['<:n:123>x', ['', '[<:n:123>]', 'x']],
+     49|   ] as const)('keeps every character of %j and turns the emoji the eng…
+     50|     expect(typedInto([line('div', '', false, '')], 0, text)).toEqual(c…
+       |                                                              ^
+     51|   });
+     52|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+AssertionError: expected [ '🙂` *a*', '🙂 *a*', …(1911) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "🙂` *a*",
++   "🙂 *a*",
++   ":thumbsup:`🏻 x",
++   ":thumbsup:🏻 x",
++   ":thumbsup:🏻` x",
++   ":thumbsup:🏻 x",
++   "👍🏻` *a*",
++   "👍🏻 *a*",
++   ":a:`up:100a*",
++   ":a:up:100a*",
++   "<:x:123>`:_:m",
++   "<:x:123>:_:m",
++   "❤️`:b:a:skin-tone-1a_:a",
++   "❤️:b:a:skin-tone-1a_:a",
++   "❤️:b:`a:skin-tone-1a_:a",
++   "❤️:b:a:skin-tone-1a_:a",
++   "❤️`:oka:m🔥:x.\\",
++   "❤️:oka:m🔥:x.\\",
++   "thumbsup:.#_:ok<:x:123>🙂`a",
++   "thumbsup:.#_:ok<:x:123>🙂a",
++   ":b:`b:ok",
++   ":b:b:ok",
++   ":cool❤️_🙂:o:`a#\\",
++   ":cool❤️_🙂:o:a#\\",
++   ":ok:`~~",
++   ":ok:~~",
++   ":x*.:b🙂:ok:`",
++   ":x*.:b🙂:ok:",
++   "<:x:123>`:o:up:skin-tone-1🔥_:xo:",
++   "<:x:123>:o:up:skin-tone-1🔥_:xo:",
++   "<:x:123>:o:`up:skin-tone-1🔥_:xo:",
++   "<:x:123>:o:up:skin-tone-1🔥_:xo:",
++   "thumbsup::m:skin-tone-1👍🏻:id:`cool ",
++   "thumbsup::m:skin-tone-1👍🏻:id:cool ",
++   "*:ok:🙂`",
++   "*:ok:🙂",
++   "*:skin-tone-1~~<:x:123>👍🏻`~~\\",
++   "*:skin-tone-1~~<:x:123>👍🏻~~\\",
++   "🙂`🙂_",
++   "🙂🙂_",
++   "🙂🙂`_",
++   "🙂🙂_",
++   ":id:`.:100",
++   ":id:.:100",
++   ":ok:`🔥",
++   ":ok:🔥",
++   ":ok:🔥`",
++   ":ok:🔥",
++   ":ok:`\\:o:",
++   ":ok:\\:o:",
++   "🙂`:skin-tone-1::👍🏻:id:up",
++   "🙂:skin-tone-1::👍🏻:id:up",
++   "🙂:skin-tone-1::👍🏻:id:`up",
++   "🙂:skin-tone-1::👍🏻:id:up",
++   "thumbsup::mthumbsup:thumbsup::o:`:🔥",
++   "thumbsup::mthumbsup:thumbsup::o::🔥",
++   ":ok:`up",
++   ":ok:up",
++   ":id:`up",
++   ":id:up",
++   ":100:`o*:ok: :o❤️:o",
++   ":100:o*:ok: :o❤️:o",
++   "🙂`",
++   "🙂",
++   "<:x:123>`",
++   "<:x:123>",
++   "o:ok::id:`100🙂",
++   "o:ok::id:100🙂",
++   ":100:`ok:",
++   ":100:ok:",
++   ".👍🏻🙂` 🙂~~##",
++   ".👍🏻🙂 🙂~~##",
++   "<:x:123>`👍🏻:.:100a",
++   "<:x:123>👍🏻:.:100a",
++   "<:x:123>👍🏻`:.:100a",
++   "<:x:123>👍🏻:.:100a",
++   ":cool:`:m:x",
++   ":cool::m:x",
++   ":cool::m:`x",
++   ":cool::m:x",
++   "🔥`:100ok:a  ok:🙂",
++   "🔥:100ok:a  ok:🙂",
++   "❤️`:b",
++   "❤️:b",
++   "🙂`:coola:cool:a:m:skin-tone-1:x",
++   "🙂:coola:cool:a:m:skin-tone-1:x",
++   ":cool:`skin-tone-1:cool:skin-tone-1:x*:b",
++   ":cool:skin-tone-1:cool:skin-tone-1:x*:b",
++   ":ok:`:up:ok :oo::m",
++   ":ok::up:ok :oo::m",
++   ":ok::up:`ok :oo::m",
++   ":ok::up:ok :oo::m",
++   "<:x:123>`:skin-tone-1 _:100thumbsup:",
++   "<:x:123>:skin-tone-1 _:100thumbsup:",
++   "*:ok::cool:`x",
++   "*:ok::cool:x",
++   ":m🔥:cool:`ok:.ok:.",
++   ":m🔥:cool:ok:.ok:.",
++   "❤️`#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "🔥`:o:x:b:upo:",
++   "🔥:o:x:b:upo:",
++   "🔥:o:`x:b:upo:",
++   "🔥:o:x:b:upo:",
++   ":o:`cool\\#:up:m 🔥",
++   ":o:cool\\#:up:m 🔥",
++   ":x:`id",
++   ":x:id",
++   "🔥`.:",
++   "🔥.:",
++   ":thumbsup:`",
++   ":thumbsup:",
++   ":100:`b👍🏻🙂_thumbsup:",
++   ":100:b👍🏻🙂_thumbsup:",
++   ":100:b👍🏻🙂`_thumbsup:",
++   ":100:b👍🏻🙂_thumbsup:",
++   "🙂`:up:o🙂ok:<:x:123>:cool:o",
++   "🙂:up:o🙂ok:<:x:123>:cool:o",
++   "🙂:up:`o🙂ok:<:x:123>:cool:o",
++   "🙂:up:o🙂ok:<:x:123>:cool:o",
++   "🙂:up:o🙂ok:<:x:123>:cool:`o",
++   "🙂:up:o🙂ok:<:x:123>:cool:o",
++   "<:x:123>`:o:m#:idok::a",
++   "<:x:123>:o:m#:idok::a",
++   "<:x:123>:o:`m#:idok::a",
++   "<:x:123>:o:m#:idok::a",
++   ":ok:`🙂*",
++   ":ok:🙂*",
++   ":ok:🙂`*",
++   ":ok:🙂*",
++   ":skin-tone-1:100🙂:ok:`🙂~~❤️~~",
++   ":skin-tone-1:100🙂:ok:🙂~~❤️~~",
++   ":skin-tone-1:100🙂:ok:🙂`~~❤️~~",
++   ":skin-tone-1:100🙂:ok:🙂~~❤️~~",
++   "<:x:123>`:100:x:a:",
++   "<:x:123>:100:x:a:",
++   "<:x:123>:100:`x:a:",
++   "<:x:123>:100:x:a:",
++   "👍🏻`:x",
++   "👍🏻:x",
++   " 👍🏻❤️` 🔥:cool:b",
++   " 👍🏻❤️ 🔥:cool:b",
++   " 👍🏻❤️ 🔥:cool:`b",
++   " 👍🏻❤️ 🔥:cool:b",
++   "🙂` 🙂:a ~~",
++   "🙂 🙂:a ~~",
++   "<:x:123>`:ok:🔥:b",
++   "<:x:123>:ok:🔥:b",
++   "<:x:123>:ok:`🔥:b",
++   "<:x:123>:ok:🔥:b",
++   "<:x:123>:ok:🔥`:b",
++   "<:x:123>:ok:🔥:b",
++   "<:x:123>`:ok::b:ok::ok:m",
++   "<:x:123>:ok::b:ok::ok:m",
++   "<:x:123>:ok:`:b:ok::ok:m",
++   "<:x:123>:ok::b:ok::ok:m",
++   "<:x:123>:ok::b:`ok::ok:m",
++   "<:x:123>:ok::b:ok::ok:m",
++   ":m🙂:ok:`#:m:ok:100:cool",
++   ":m🙂:ok:#:m:ok:100:cool",
++   "🙂`:b:ok:👍🏻",
++   "🙂:b:ok:👍🏻",
++   "🙂:b:`ok:👍🏻",
++   "🙂:b:ok:👍🏻",
++   "🙂`:b_ ",
++   "🙂:b_ ",
++   "<:x:123>`🙂:id",
++   "<:x:123>🙂:id",
++   "<:x:123>🙂`:id",
++   "<:x:123>🙂:id",
++   ":x:`100\\❤️👍🏻",
++   ":x:100\\❤️👍🏻",
++   ":x:`o~~:x_",
++   ":x:o~~:x_",
++   "*🙂:ok:`a_thumbsup:a.",
++   "*🙂:ok:a_thumbsup:a.",
++   "❤️`.::id",
++   "❤️.::id",
++   "🔥`<:x:123>",
++   "🔥<:x:123>",
++   "🔥<:x:123>`",
++   "🔥<:x:123>",
++   ":ok:`:cool\\<:x:123>",
++   ":ok::cool\\<:x:123>",
++   "_👍🏻:m:`ok:",
++   "_👍🏻:m:ok:",
++   "🙂`:m~~:ok.<:x:123>",
++   "🙂:m~~:ok.<:x:123>",
++   ":up<:x:123>:a:`ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥`",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up :a👍🏻:ok:`m",
++   ":up :a👍🏻:ok:m",
++   "<:x:123>`:o:a",
++   "<:x:123>:o:a",
++   "<:x:123>:o:`a",
++   "<:x:123>:o:a",
++   "❤️`#",
++   "❤️#",
++   ":100:`ok::up:m:m",
++   ":100:ok::up:m:m",
++   "🙂`:skin-tone-1:_",
++   "🙂:skin-tone-1:_",
++   ":cool:`a",
++   ":cool:a",
++   "👍🏻`",
++   "👍🏻",
++   ":b:`:a:id:skin-tone-1:o:ok:",
++   ":b::a:id:skin-tone-1:o:ok:",
++   ":b::a:`id:skin-tone-1:o:ok:",
++   ":b::a:id:skin-tone-1:o:ok:",
++   "🔥`thumbsup::100:ok:",
++   "🔥thumbsup::100:ok:",
++   "_❤️:ok:`o:a.👍🏻",
++   "_❤️:ok:o:a.👍🏻",
++   ":a:`id:m",
++   ":a:id:m",
++   ":b:`up🔥",
++   ":b:up🔥",
++   "*<:x:123><:x:123>` 🔥o:_",
++   "*<:x:123><:x:123> 🔥o:_",
++   "👍🏻`\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>`",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   ":o:`id:o<:x:123>🔥:x",
++   ":o:id:o<:x:123>🔥:x",
++   ":o:id:o<:x:123>🔥`:x",
++   ":o:id:o<:x:123>🔥:x",
++   "a🙂❤️`:skin-tone-1:100:b",
++   "a🙂❤️:skin-tone-1:100:b",
++   ":bo:`:cool",
++   ":bo::cool",
++   "❤️`thumbsup::cool thumbsup:ok:\\:m",
++   "❤️thumbsup::cool thumbsup:ok:\\:m",
++   "👍🏻`",
++   "👍🏻",
++   "👍🏻`:athumbsup::100\\",
++   "👍🏻:athumbsup::100\\",
++   "👍🏻`👍🏻:o",
++   "👍🏻👍🏻:o",
++   "👍🏻👍🏻`:o",
++   "👍🏻👍🏻:o",
++   "ok:#.<:x:123>:a:`m:a*",
++   "ok:#.<:x:123>:a:m:a*",
++   ":a:`skin-tone-1.",
++   ":a:skin-tone-1.",
++   "*🔥❤️`👍🏻:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥❤️👍🏻`:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "🙂`:x",
++   "🙂:x",
++   "🙂`:ok",
++   "🙂:ok",
++   ":id:`o:cool:",
++   ":id:o:cool:",
++   "👍🏻`\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup::ok:🔥`",
++   "👍🏻\\ thumbsup::ok:🔥",
++   ":up:`ba🔥",
++   ":up:ba🔥",
++   ":id🔥🔥`:ao::ok:🙂:b",
++   ":id🔥🔥:ao::ok:🙂:b",
++   ":id🔥🔥:ao:`:ok:🙂:b",
++   ":id🔥🔥:ao::ok:🙂:b",
++   ":id🔥🔥:ao::ok:`🙂:b",
++   ":id🔥🔥:ao::ok:🙂:b",
++   ":id🔥🔥:ao::ok:🙂`:b",
++   ":id🔥🔥:ao::ok:🙂:b",
++   ":ok:`cool🙂#<:x:123>",
++   ":ok:cool🙂#<:x:123>",
++   "_:id🙂❤️`o::id:ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "👍🏻`~~:skin-tone-1:skin-tone-1👍🏻*",
++   "👍🏻~~:skin-tone-1:skin-tone-1👍🏻*",
++   ":b:`skin-tone-1\\",
++   ":b:skin-tone-1\\",
++   ":o:`x~~:ok:🔥:up _",
++   ":o:x~~:ok:🔥:up _",
++   ":o:x~~:ok:🔥`:up _",
++   ":o:x~~:ok:🔥:up _",
++   ":ok:`*",
++   ":ok:*",
++   ":xo:\\~~~~:ok:🙂`",
++   ":xo:\\~~~~:ok:🙂",
++   ":100:`100",
++   ":100:100",
++   ":o:`id:100",
++   ":o:id:100",
++   ":ok:`bthumbsup:#",
++   ":ok:bthumbsup:#",
++   "🙂`❤️:xo::❤️:skin-tone-1",
++   "🙂❤️:xo::❤️:skin-tone-1",
++   "🙂❤️`:xo::❤️:skin-tone-1",
++   "🙂❤️:xo::❤️:skin-tone-1",
++   "👍🏻`:b.# :o_\\",
++   "👍🏻:b.# :o_\\",
++   "<:x:123>` ",
++   "<:x:123> ",
++   "::x👍🏻:cool:`b🔥",
++   "::x👍🏻:cool:b🔥",
++   "❤️`\\",
++   "❤️\\",
++   ":o:`100❤️",
++   ":o:100❤️",
++   "❤️`:",
++   "❤️:",
++   "👍🏻`🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥`:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>`",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "🙂`👍🏻*:ok::m:cool",
++   "🙂👍🏻*:ok::m:cool",
++   "🙂👍🏻`*:ok::m:cool",
++   "🙂👍🏻*:ok::m:cool",
++   "🙂👍🏻*:ok::m:`cool",
++   "🙂👍🏻*:ok::m:cool",
++   "❤️`:100:skin-tone-1ok::100:b::cool",
++   "❤️:100:skin-tone-1ok::100:b::cool",
++   "❤️:100:`skin-tone-1ok::100:b::cool",
++   "❤️:100:skin-tone-1ok::100:b::cool",
++   "❤️`",
++   "❤️",
++   "<:x:123>`:up:100o:",
++   "<:x:123>:up:100o:",
++   "<:x:123>:up:`100o:",
++   "<:x:123>:up:100o:",
++   "👍🏻`:#:upo::o",
++   "👍🏻:#:upo::o",
++   ":cool:`ok:m:a",
++   ":cool:ok:m:a",
++   ":100:`100:a",
++   ":100:100:a",
++   "<:x:123>`~~:b:ok::x thumbsup:",
++   "<:x:123>~~:b:ok::x thumbsup:",
++   ":up🙂:a:`o:b#",
++   ":up🙂:a:o:b#",
++   ":ok👍🏻👍🏻`:bo:",
++   ":ok👍🏻👍🏻:bo:",
++   ":ok👍🏻👍🏻:bo:`",
++   ":ok👍🏻👍🏻:bo:",
++   "<:x:123>`\\:cool",
++   "<:x:123>\\:cool",
++   ":100👍🏻:mo:`",
++   ":100👍🏻:mo:",
++   "🔥`:up\\:b🙂:oko::ok",
++   "🔥:up\\:b🙂:oko::ok",
++   ":id:`ok",
++   ":id:ok",
++   ":cool:`100:id:bthumbsup:",
++   ":cool:100:id:bthumbsup:",
++   ":skin-tone-1:b:🙂`:up🔥_",
++   ":skin-tone-1:b:🙂:up🔥_",
++   ":m:`xthumbsup::x",
++   ":m:xthumbsup::x",
++   "🔥`:thumbsup:🔥.#:ok::x",
++   "🔥:thumbsup:🔥.#:ok::x",
++   "🔥:thumbsup:`🔥.#:ok::x",
++   "🔥:thumbsup:🔥.#:ok::x",
++   "🔥:thumbsup:🔥`.#:ok::x",
++   "🔥:thumbsup:🔥.#:ok::x",
++   "#o:thumbsup::b:`m",
++   "#o:thumbsup::b:m",
++   ":100:`oo:",
++   ":100:oo:",
++   ":x👍🏻:ok:`::a.:id",
++   ":x👍🏻:ok:::a.:id",
++   ".:x👍🏻#❤️<:x:123>`",
++   ".:x👍🏻#❤️<:x:123>",
++   ":b:`mok::m:ok thumbsup::ok",
++   ":b:mok::m:ok thumbsup::ok",
++   ":cool<:x:123>:id:`#",
++   ":cool<:x:123>:id:#",
++   ".:id:o<:x:123>:o:`id",
++   ".:id:o<:x:123>:o:id",
++   ":ok:`a🔥 <:x:123>:a:o",
++   ":ok:a🔥 <:x:123>:a:o",
++   ":ok:a🔥 <:x:123>:a:`o",
++   ":ok:a🔥 <:x:123>:a:o",
++   "🙂`",
++   "🙂",
++   ":100:`b👍🏻_",
++   ":100:b👍🏻_",
++   ":ok:`❤️ok:*:ok:",
++   ":ok:❤️ok:*:ok:",
++   ":ok:❤️`ok:*:ok:",
++   ":ok:❤️ok:*:ok:",
++   "_:ok::ok:`id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.🔥",
++   ":ok:`x:skin-tone-1",
++   ":ok:x:skin-tone-1",
++   ":b :b<:x:123><:x:123>`",
++   ":b :b<:x:123><:x:123>",
++   ":ok:`:up:id",
++   ":ok::up:id",
++   ":ok::up:`id",
++   ":ok::up:id",
++   ":x:`100❤️:x:100",
++   ":x:100❤️:x:100",
++   ":x:100❤️:x:`100",
++   ":x:100❤️:x:100",
++   "~~:ok:<:x:123>`<:x:123>",
++   "~~:ok:<:x:123><:x:123>",
++   "~~:ok:<:x:123><:x:123>`",
++   "~~:ok:<:x:123><:x:123>",
++   "👍🏻`:a",
++   "👍🏻:a",
++   ":cool:`100:\\#",
++   ":cool:100:\\#",
++   "ok:🙂.:cool<:x:123>:ok:`",
++   "ok:🙂.:cool<:x:123>:ok:",
++   "ok:thumbsup::o:`up🙂.",
++   "ok:thumbsup::o:up🙂.",
++   "_:*~~:ok:👍🏻`*",
++   "_:*~~:ok:👍🏻*",
++   "👍🏻`:a:ok_:m:a",
++   "👍🏻:a:ok_:m:a",
++   "👍🏻:a:`ok_:m:a",
++   "👍🏻:a:ok_:m:a",
++   "🔥`*:skin-tone-1",
++   "🔥*:skin-tone-1",
++   ":ok:`a:ok::a:id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a:ok::a:`id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   "❤️`",
++   "❤️",
++   "<:x:123>`:100.:ok::x\\<:x:123>:100",
++   "<:x:123>:100.:ok::x\\<:x:123>:100",
++   "❤️`🔥a:coolo::ba",
++   "❤️🔥a:coolo::ba",
++   "❤️🔥`a:coolo::ba",
++   "❤️🔥a:coolo::ba",
++   ".🔥👍🏻` ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   "❤️` :up:m\\:up:",
++   "❤️ :up:m\\:up:",
++   "❤️`:a👍🏻#:b:100🙂_",
++   "❤️:a👍🏻#:b:100🙂_",
++   "~~🔥:x:`x:ok::upthumbsup:",
++   "~~🔥:x:x:ok::upthumbsup:",
++   ":up:`skin-tone-1 :100~~ ",
++   ":up:skin-tone-1 :100~~ ",
++   "_a❤️:ok:`🙂thumbsup::m",
++   "_a❤️:ok:🙂thumbsup::m",
++   "_a❤️:ok:🙂`thumbsup::m",
++   "_a❤️:ok:🙂thumbsup::m",
++   ":cool:`skin-tone-1❤️:bok::",
++   ":cool:skin-tone-1❤️:bok::",
++   ":ok:`o:",
++   ":ok:o:",
++   "👍🏻`:up:a#",
++   "👍🏻:up:a#",
++   "👍🏻:up:`a#",
++   "👍🏻:up:a#",
++   ":x🙂🔥`*:skin-tone-1 ",
++   ":x🙂🔥*:skin-tone-1 ",
++   "<:x:123>`:cool🔥",
++   "<:x:123>:cool🔥",
++   ":cool:`ok:*:100:a__",
++   ":cool:ok:*:100:a__",
++   "👍🏻`:100*",
++   "👍🏻:100*",
++   "ok::cool*:x<:x:123><:x:123>`👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻`<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>`",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   ":ok:`cool*🔥_ ",
++   ":ok:cool*🔥_ ",
++   "👍🏻`:",
++   "👍🏻:",
++   ":a:`m:ida:x:x",
++   ":a:m:ida:x:x",
++   ":ok:`\\🙂:x:b:m:100",
++   ":ok:\\🙂:x:b:m:100",
++   ":a:`ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>`🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥`",
++   ":a:ok:<:x:123><:x:123>🔥",
++   "❤️`ok::100:skin-tone-1a:m",
++   "❤️ok::100:skin-tone-1a:m",
++   "👍🏻`",
++   "👍🏻",
++   "🔥` a",
++   "🔥 a",
++   "<:x:123>`.:b_:o.a:m",
++   "<:x:123>.:b_:o.a:m",
++   ":skin-tone-1.<:x:123>:ok:`_\\🔥.",
++   ":skin-tone-1.<:x:123>:ok:_\\🔥.",
++   ":id_👍🏻:id:`b",
++   ":id_👍🏻:id:b",
++   ":100:`skin-tone-1",
++   ":100:skin-tone-1",
++   ":cool:`b:cool:up",
++   ":cool:b:cool:up",
++   ":100:`ok:",
++   ":100:ok:",
++   ":\\*❤️:ok:`ok:id",
++   ":\\*❤️:ok:ok:id",
++   "<:x:123>`👍🏻ok:~~a:o",
++   "<:x:123>👍🏻ok:~~a:o",
++   "<:x:123>👍🏻`ok:~~a:o",
++   "<:x:123>👍🏻ok:~~a:o",
++   "o::cool:up:a.:ok::ok:`_",
++   "o::cool:up:a.:ok::ok:_",
++   "thumbsup:_🙂🔥`:b",
++   "thumbsup:_🙂🔥:b",
++   ":o:`b👍🏻~~:m:skin-tone-1",
++   ":o:b👍🏻~~:m:skin-tone-1",
++   ":thumbsup:`:m:id#",
++   ":thumbsup::m:id#",
++   ":thumbsup::m:`id#",
++   ":thumbsup::m:id#",
++   ":id:`id:a:up# thumbsup::id",
++   ":id:id:a:up# thumbsup::id",
++   "<:x:123>`",
++   "<:x:123>",
++   "🔥`:m<:x:123><:x:123>thumbsup::ok:o:a",
++   "🔥:m<:x:123><:x:123>thumbsup::ok:o:a",
++   "🔥:m<:x:123><:x:123>`thumbsup::ok:o:a",
++   "🔥:m<:x:123><:x:123>thumbsup::ok:o:a",
++   ":x:`up:o<:x:123> a",
++   ":x:up:o<:x:123> a",
++   ":ok:`x\\:ok:m",
++   ":ok:x\\:ok:m",
++   "👍🏻`:b:ok::m:100_:b",
++   "👍🏻:b:ok::m:100_:b",
++   "👍🏻:b:`ok::m:100_:b",
++   "👍🏻:b:ok::m:100_:b",
++   ":ok:`:athumbsup::up❤️:",
++   ":ok::athumbsup::up❤️:",
++   ":ok:`:b❤️❤️a:ok<:x:123>_",
++   ":ok::b❤️❤️a:ok<:x:123>_",
++   ":ok::b❤️❤️`a:ok<:x:123>_",
++   ":ok::b❤️❤️a:ok<:x:123>_",
++   ":ok:`#👍🏻o:*ao:",
++   ":ok:#👍🏻o:*ao:",
++   "❤️`",
++   "❤️",
++   ":skin-tone-1~~thumbsup:🔥:x:`skin-tone-1:ok",
++   ":skin-tone-1~~thumbsup:🔥:x:skin-tone-1:ok",
++   "🔥`** :a",
++   "🔥** :a",
++   ":upok::up:ok❤️:a:`cool",
++   ":upok::up:ok❤️:a:cool",
++   ":ok:`:b",
++   ":ok::b",
++   "<:x:123>`:skin-tone-1:x _a",
++   "<:x:123>:skin-tone-1:x _a",
++   "~~:skin-tone-1ok::cool🔥❤️`:up",
++   "~~:skin-tone-1ok::cool🔥❤️:up",
++   "a~~o::ok:<:x:123>`:o:100:cool",
++   "a~~o::ok:<:x:123>:o:100:cool",
++   "a~~o::ok:<:x:123>:o:`100:cool",
++   "a~~o::ok:<:x:123>:o:100:cool",
++   "a#:id🙂👍🏻`:100\\*",
++   "a#:id🙂👍🏻:100\\*",
++   "🔥`",
++   "🔥",
++   "<:x:123>`~~*:id:ok",
++   "<:x:123>~~*:id:ok",
++   "🙂`:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:🔥❤️`",
++   "🙂:skin-tone-1o:🔥❤️",
++   "\\:ok:<:x:123>:up:`o",
++   "\\:ok:<:x:123>:up:o",
++   "🙂`:id👍🏻:100\\:b",
++   "🙂:id👍🏻:100\\:b",
++   "🔥`:skin-tone-1",
++   "🔥:skin-tone-1",
++   ":ok:`#:up ❤️👍🏻",
++   ":ok:#:up ❤️👍🏻",
++   ":ok:#:up ❤️👍🏻`",
++   ":ok:#:up ❤️👍🏻",
++   "❤️`<:x:123>:up :up\\#:a",
++   "❤️<:x:123>:up :up\\#:a",
++   "❤️<:x:123>`:up :up\\#:a",
++   "❤️<:x:123>:up :up\\#:a",
++   "<:x:123>`o:#:100",
++   "<:x:123>o:#:100",
++   "❤️`:up",
++   "❤️:up",
++   "🔥`<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123>` :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   ":*🙂:b:`a❤️❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂:b:a❤️❤️`",
++   ":*🙂:b:a❤️❤️",
++   ":o:`mo:❤️:cool_o::a",
++   ":o:mo:❤️:cool_o::a",
++   ":ok:`x:cool",
++   ":ok:x:cool",
++   "👍🏻`o:_:ok.~~",
++   "👍🏻o:_:ok.~~",
++   "❤️`❤️:ok:skin-tone-1:id::x",
++   "❤️❤️:ok:skin-tone-1:id::x",
++   "❤️❤️`:ok:skin-tone-1:id::x",
++   "❤️❤️:ok:skin-tone-1:id::x",
++   "❤️❤️:ok:`skin-tone-1:id::x",
++   "❤️❤️:ok:skin-tone-1:id::x",
++   ":othumbsup:👍🏻<:x:123>`*o::100.",
++   ":othumbsup:👍🏻<:x:123>*o::100.",
++   "👍🏻`~~🙂a<:x:123>:coolo:",
++   "👍🏻~~🙂a<:x:123>:coolo:",
++   "<:x:123>`ok:🔥thumbsup::100 ",
++   "<:x:123>ok:🔥thumbsup::100 ",
++   ":b:`a:b~~",
++   ":b:a:b~~",
++   "<:x:123>`ok:",
++   "<:x:123>ok:",
++   "❤️`🙂##\\",
++   "❤️🙂##\\",
++   "❤️🙂`##\\",
++   "❤️🙂##\\",
++   ".:b👍🏻👍🏻`thumbsup::b:ok",
++   ".:b👍🏻👍🏻thumbsup::b:ok",
++   "👍🏻`",
++   "👍🏻",
++   "<:x:123>`",
++   "<:x:123>",
++   ":m:`upao:*",
++   ":m:upao:*",
++   "❤️`:ok",
++   "❤️:ok",
++   "👍🏻`❤️*🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻❤️`*🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻❤️*🙂:b:`",
++   "👍🏻❤️*🙂:b:",
++   "🔥`:",
++   "🔥:",
++   ":ok:`cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   "👍🏻`🔥 :100a",
++   "👍🏻🔥 :100a",
++   "👍🏻🔥` :100a",
++   "👍🏻🔥 :100a",
++   "🔥`🙂#:xthumbsup::id:a",
++   "🔥🙂#:xthumbsup::id:a",
++   "🔥🙂`#:xthumbsup::id:a",
++   "🔥🙂#:xthumbsup::id:a",
++   "❤️`:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:`a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "*~~:up🙂👍🏻`ok:.:up",
++   "*~~:up🙂👍🏻ok:.:up",
++   ":a:`a:up:a",
++   ":a:a:up:a",
++   "🔥`:up:up",
++   "🔥:up:up",
++   "🔥:up:`up",
++   "🔥:up:up",
++   ":ok:`_\\:b:mthumbsup::a",
++   ":ok:_\\:b:mthumbsup::a",
++   ":ok:`#:xa~~",
++   ":ok:#:xa~~",
++   ":m:`ok🙂",
++   ":m:ok🙂",
++   ":m:`ok::100",
++   ":m:ok::100",
++   "🔥`a:x",
++   "🔥a:x",
++   "~~🙂🔥`:skin-tone-1",
++   "~~🙂🔥:skin-tone-1",
++   ":ok:` :up",
++   ":ok: :up",
++   "<:x:123>`o:",
++   "<:x:123>o:",
++   "❤️`.<:x:123>🙂",
++   "❤️.<:x:123>🙂",
++   "❤️.<:x:123>🙂`",
++   "❤️.<:x:123>🙂",
++   "❤️`:ok:#<:x:123>",
++   "❤️:ok:#<:x:123>",
++   "❤️:ok:`#<:x:123>",
++   "❤️:ok:#<:x:123>",
++   ":o:`id:x_:#🔥",
++   ":o:id:x_:#🔥",
++   "❤️`:m<:x:123>.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂🙂",
++   "🙂`ok:",
++   "🙂ok:",
++   ":ok:`100:ok::b*::id ",
++   ":ok:100:ok::b*::id ",
++   ":ok:`ok:id",
++   ":ok:ok:id",
++   "<:x:123>`:o:100:o👍🏻a*",
++   "<:x:123>:o:100:o👍🏻a*",
++   "<:x:123>:o:`100:o👍🏻a*",
++   "<:x:123>:o:100:o👍🏻a*",
++   "\\:xthumbsup:ok::a:`m<:x:123>:cool",
++   "\\:xthumbsup:ok::a:m<:x:123>:cool",
++   "❤️`:100#\\_",
++   "❤️:100#\\_",
++   "<:x:123>`:cool",
++   "<:x:123>:cool",
++   ":o:`up:m:ok\\:o:skin-tone-1:ok",
++   ":o:up:m:ok\\:o:skin-tone-1:ok",
++   ":ok:`",
++   ":ok:",
++   ":o\\:b🔥:thumbsup:`:a",
++   ":o\\:b🔥:thumbsup::a",
++   ":b<:x:123>:cool:`o🙂\\",
++   ":b<:x:123>:cool:o🙂\\",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻:ok:`",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻:ok:",
++   "❤️`:ok#",
++   "❤️:ok#",
++   ":skin-tone-1👍🏻:b:`ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_<:x:123>",
++   ":ok:`ma#",
++   ":ok:ma#",
++   "<:x:123>`*",
++   "<:x:123>*",
++   "<:x:123>`:100aok:<:x:123>🙂#",
++   "<:x:123>:100aok:<:x:123>🙂#",
++   "<:x:123>:100aok:<:x:123>🙂`#",
++   "<:x:123>:100aok:<:x:123>🙂#",
++   "🔥`",
++   "🔥",
++   "👍🏻`🔥",
++   "👍🏻🔥",
++   "👍🏻🔥`",
++   "👍🏻🔥",
++   "❤️`:x:ok",
++   "❤️:x:ok",
++   "❤️:x:`ok",
++   "❤️:x:ok",
++   "👍🏻`o::ok:",
++   "👍🏻o::ok:",
++   "❤️`.:m#\\:::a",
++   "❤️.:m#\\:::a",
++   ":skin-tone-1❤️🔥`*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up <:x:123>",
++   ":up:`ok:👍🏻a:skin-tone-1",
++   ":up:ok:👍🏻a:skin-tone-1",
++   "👍🏻`🔥:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "👍🏻🔥`:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "❤️`:m:ok:o👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "❤️:m:`ok:o👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "👍🏻`",
++   "👍🏻",
++   "❤️`",
++   "❤️",
++   ".🔥:ok:`_",
++   ".🔥:ok:_",
++   ":<:x:123>:100:`x*.",
++   ":<:x:123>:100:x*.",
++   "o:o:\\👍🏻<:x:123>`:ok::cool",
++   "o:o:\\👍🏻<:x:123>:ok::cool",
++   "o:o:\\👍🏻<:x:123>:ok:`:cool",
++   "o:o:\\👍🏻<:x:123>:ok::cool",
++   ":o:`a:100:cool#:cool<:x:123>:cool",
++   ":o:a:100:cool#:cool<:x:123>:cool",
++   "ok:👍🏻:a:`up:aa",
++   "ok:👍🏻:a:up:aa",
++   ":ok:`.:100❤️🙂:ok",
++   ":ok:.:100❤️🙂:ok",
++   ":ok:.:100❤️🙂`:ok",
++   ":ok:.:100❤️🙂:ok",
++   ":100:`ok::up",
++   ":100:ok::up",
++   "❤️`#:ok:",
++   "❤️#:ok:",
++   "<:x:123>`:a.ok::b",
++   "<:x:123>:a.ok::b",
++   "<:x:123>`:m :a:id",
++   "<:x:123>:m :a:id",
++   "👍🏻`#👍🏻",
++   "👍🏻#👍🏻",
++   ":m_\\:ok👍🏻:x:`skin-tone-1:",
++   ":m_\\:ok👍🏻:x:skin-tone-1:",
++   "\\ <:x:123>:ba:`100",
++   "\\ <:x:123>:ba:100",
++   ".\\:m ❤️<:x:123>`:cool~~",
++   ".\\:m ❤️<:x:123>:cool~~",
++   ".🙂❤️`",
++   ".🙂❤️",
++   "❤️`🔥:*:ok:ok:🙂_",
++   "❤️🔥:*:ok:ok:🙂_",
++   "❤️🔥`:*:ok:ok:🙂_",
++   "❤️🔥:*:ok:ok:🙂_",
++   "❤️`🙂",
++   "❤️🙂",
++   "❤️🙂`",
++   "❤️🙂",
++   ":ok:`~~",
++   ":ok:~~",
++   "🙂`:a:",
++   "🙂:a:",
++   "🙂:a:`",
++   "🙂:a:",
++   "<:x:123>`:thumbsup:ok:",
++   "<:x:123>:thumbsup:ok:",
++   "<:x:123>:thumbsup:`ok:",
++   "<:x:123>:thumbsup:ok:",
++   "🔥`",
++   "🔥",
++   ":b:`a::100:id:b",
++   ":b:a::100:id:b",
++   "*:ok::a:`o",
++   "*:ok::a:o",
++   "<:x:123>`_:x",
++   "<:x:123>_:x",
++   "<:x:123>`",
++   "<:x:123>",
++   "🙂`:skin-tone-1:skin-tone-1_:ok:100",
++   "🙂:skin-tone-1:skin-tone-1_:ok:100",
++   ":ao:`",
++   ":ao:",
++   "🙂`:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂:ok:`:100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   ":b:`skin-tone-1:id:100:o~~:id:skin-tone-1",
++   ":b:skin-tone-1:id:100:o~~:id:skin-tone-1",
++   ":ok:`:ok::o❤️:a🔥\\:id",
++   ":ok::ok::o❤️:a🔥\\:id",
++   ":ok::ok:`:o❤️:a🔥\\:id",
++   ":ok::ok::o❤️:a🔥\\:id",
++   "thumbsup:🙂:up:`ok:👍🏻*~~",
++   "thumbsup:🙂:up:ok:👍🏻*~~",
++   ":up:`100 :id:ok:❤️",
++   ":up:100 :id:ok:❤️",
++   "❤️`:upa",
++   "❤️:upa",
++   ":id:`skin-tone-1::a",
++   ":id:skin-tone-1::a",
++   "_:skin-tone-1👍🏻ok:o::ok:`m:b",
++   "_:skin-tone-1👍🏻ok:o::ok:m:b",
++   ":id🔥:b:`o~~..",
++   ":id🔥:b:o~~..",
++   "~~:skin-tone-1:m<:x:123>🔥`",
++   "~~:skin-tone-1:m<:x:123>🔥",
++   "👍🏻`",
++   "👍🏻",
++   ":cool:`cool:<:x:123>:cool:skin-tone-1:",
++   ":cool:cool:<:x:123>:cool:skin-tone-1:",
++   ":cool:cool:<:x:123>:cool:`skin-tone-1:",
++   ":cool:cool:<:x:123>:cool:skin-tone-1:",
++   "<:x:123>`:a",
++   "<:x:123>:a",
++   ":skin-tone-1🔥:b:`o",
++   ":skin-tone-1🔥:b:o",
++   "🙂`::ok👍🏻",
++   "🙂::ok👍🏻",
++   "a👍🏻❤️`:b",
++   "a👍🏻❤️:b",
++   "::x:a❤️:🙂:100:`up",
++   "::x:a❤️:🙂:100:up",
++   ":a:`up",
++   ":a:up",
++   "<:x:123>`",
++   "<:x:123>",
++   "🙂`:x_:100",
++   "🙂:x_:100",
++   ":m:`skin-tone-1ok::❤️:ma\\",
++   ":m:skin-tone-1ok::❤️:ma\\",
++   "<:x:123>`:a👍🏻",
++   "<:x:123>:a👍🏻",
++   "👍🏻`",
++   "👍🏻",
++   ":up#❤️:100:`up❤️:x:100",
++   ":up#❤️:100:up❤️:x:100",
++   ":up#❤️:100:up❤️:x:`100",
++   ":up#❤️:100:up❤️:x:100",
++   "🙂`o:a🙂_:up:",
++   "🙂o:a🙂_:up:",
++   ":ok:`100o:ok:",
++   ":ok:100o:ok:",
++   "❤️`#o::100:ok🔥 :ok",
++   "❤️#o::100:ok🔥 :ok",
++   "<:x:123>`:o:x:mthumbsup:",
++   "<:x:123>:o:x:mthumbsup:",
++   "<:x:123>:o:`x:mthumbsup:",
++   "<:x:123>:o:x:mthumbsup:",
++   ":a:`id# .🙂o:\\",
++   ":a:id# .🙂o:\\",
++   "🔥`~~",
++   "🔥~~",
++   "🔥`❤️:o\\",
++   "🔥❤️:o\\",
++   "🔥❤️`:o\\",
++   "🔥❤️:o\\",
++   ":thumbsup:`~~🙂a🔥:m",
++   ":thumbsup:~~🙂a🔥:m",
++   "🔥`",
++   "🔥",
++   ":ok:`:cool❤️👍🏻:cool_",
++   ":ok::cool❤️👍🏻:cool_",
++   ":ok::cool❤️👍🏻`:cool_",
++   ":ok::cool❤️👍🏻:cool_",
++   ":ok:`<:x:123>",
++   ":ok:<:x:123>",
++   ":ok:<:x:123>`",
++   ":ok:<:x:123>",
++   ":x:`up\\",
++   ":x:up\\",
++   "#:x:cool:ok::up:`ok~~",
++   "#:x:cool:ok::up:ok~~",
++   ":id:`skin-tone-1:100o::skin-tone-1:m ",
++   ":id:skin-tone-1:100o::skin-tone-1:m ",
++   ":100:`ok::othumbsup: ",
++   ":100:ok::othumbsup: ",
++   ":b:`x~~:bo:",
++   ":b:x~~:bo:",
++   "<:x:123>`",
++   "<:x:123>",
++   "👍🏻`:upa#:100👍🏻:o:id",
++   "👍🏻:upa#:100👍🏻:o:id",
++   "👍🏻:upa#:100👍🏻:o:`id",
++   "👍🏻:upa#:100👍🏻:o:id",
++   ":ok:`",
++   ":ok:",
++   "❤️`🔥:ok*a",
++   "❤️🔥:ok*a",
++   "❤️🔥`:ok*a",
++   "❤️🔥:ok*a",
++   ":x<:x:123>:cool:`b",
++   ":x<:x:123>:cool:b",
++   "o:\\:m🙂:a:`id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool<:x:123>",
++   "❤️`:m👍🏻 ❤️:id",
++   "❤️:m👍🏻 ❤️:id",
++   "👍🏻`<:x:123>:up",
++   "👍🏻<:x:123>:up",
++   "👍🏻<:x:123>`:up",
++   "👍🏻<:x:123>:up",
++   "🙂`ok:.",
++   "🙂ok:.",
++   ":o:`x:mo:🔥<:x:123>:o",
++   ":o:x:mo:🔥<:x:123>:o",
++   ":o:x:mo:🔥`<:x:123>:o",
++   ":o:x:mo:🔥<:x:123>:o",
++   ":o:x:mo:🔥<:x:123>`:o",
++   ":o:x:mo:🔥<:x:123>:o",
++   ":ao:`::b.\\🙂",
++   ":ao:::b.\\🙂",
++   ":a:`bo:",
++   ":a:bo:",
++   "#:m👍🏻❤️`:m_:b",
++   "#:m👍🏻❤️:m_:b",
++   ":o:`m~~:ok::x:🔥thumbsup:",
++   ":o:m~~:ok::x:🔥thumbsup:",
++   ":o:m~~:ok::x:`🔥thumbsup:",
++   ":o:m~~:ok::x:🔥thumbsup:",
++   ":o:m~~:ok::x:🔥`thumbsup:",
++   ":o:m~~:ok::x:🔥thumbsup:",
++   "🔥`.❤️",
++   "🔥.❤️",
++   "❤️`❤️ok:thumbsup:#",
++   "❤️❤️ok:thumbsup:#",
++   "❤️❤️`ok:thumbsup:#",
++   "❤️❤️ok:thumbsup:#",
++   "🔥`:cool❤️❤️:a",
++   "🔥:cool❤️❤️:a",
++   "🔥:cool❤️❤️`:a",
++   "🔥:cool❤️❤️:a",
++   ":id:`id",
++   ":id:id",
++   ":x:`",
++   ":x:",
++   "👍🏻`",
++   "👍🏻",
++   ":up:`:ok#:ok",
++   ":up::ok#:ok",
++   ":m:`b🔥:cool<:x:123>ok:~~:id",
++   ":m:b🔥:cool<:x:123>ok:~~:id",
++   "❤️`:o:up",
++   "❤️:o:up",
++   "❤️:o:`up",
++   "❤️:o:up",
++   "🔥`:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.:ok:",
++   ":mthumbsup:🔥:x:`id",
++   ":mthumbsup:🔥:x:id",
++   "#_*_:ok::id:`ok:",
++   "#_*_:ok::id:ok:",
++   ":a:`x~~:x❤️:id\\:id",
++   ":a:x~~:x❤️:id\\:id",
++   "<:x:123>`<:x:123>",
++   "<:x:123><:x:123>",
++   "<:x:123><:x:123>`",
++   "<:x:123><:x:123>",
++   ":100:`bthumbsup::cool::x",
++   ":100:bthumbsup::cool::x",
++   "~~:ok::o:`athumbsup::ok",
++   "~~:ok::o:athumbsup::ok",
++   ":x:`skin-tone-1<:x:123>ok: \\:x",
++   ":x:skin-tone-1<:x:123>ok: \\:x",
++   ":cool:`100:ok",
++   ":cool:100:ok",
++   "👍🏻`:up❤️:ok:",
++   "👍🏻:up❤️:ok:",
++   "👍🏻:up❤️:ok:`",
++   "👍🏻:up❤️:ok:",
++   "🙂`~~:b:id",
++   "🙂~~:b:id",
++   "<:x:123>`:ok:a:100:a#",
++   "<:x:123>:ok:a:100:a#",
++   "<:x:123>:ok:`a:100:a#",
++   "<:x:123>:ok:a:100:a#",
++   ":m:`xa:100",
++   ":m:xa:100",
++   ":100:`xok::m",
++   ":100:xok::m",
++   "❤️`:b",
++   "❤️:b",
++   "🔥`*:skin-tone-1:cool:b\\ok:",
++   "🔥*:skin-tone-1:cool:b\\ok:",
++   ":a:`m_:m",
++   ":a:m_:m",
++   ":m:`up\\#:id🔥",
++   ":m:up\\#:id🔥",
++   ":b:`x*:cool::",
++   ":b:x*:cool::",
++   ":a:`o:b:a:skin-tone-1",
++   ":a:o:b:a:skin-tone-1",
++   ":up:`ok~~##:cool:",
++   ":up:ok~~##:cool:",
++   ":id:`skin-tone-1ok::up",
++   ":id:skin-tone-1ok::up",
++   "❤️`:up:x\\👍🏻:skin-tone-1o:.",
++   "❤️:up:x\\👍🏻:skin-tone-1o:.",
++   "❤️:up:`x\\👍🏻:skin-tone-1o:.",
++   "❤️:up:x\\👍🏻:skin-tone-1o:.",
++   "❤️`:id:a:skin-tone-1#\\:m~~",
++   "❤️:id:a:skin-tone-1#\\:m~~",
++   "❤️:id:`a:skin-tone-1#\\:m~~",
++   "❤️:id:a:skin-tone-1#\\:m~~",
++   ":x🔥❤️`:coolo:#:id:up",
++   ":x🔥❤️:coolo:#:id:up",
++   ":ok:`",
++   ":ok:",
++   ":ok:`xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥`",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   ":m:`100:up❤️:skin-tone-1👍🏻ok:",
++   ":m:100:up❤️:skin-tone-1👍🏻ok:",
++   "._❤️❤️`:ok:ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️❤️:ok:`ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   ":skin-tone-1:a:ok:<:x:123>🔥`<:x:123>~~",
++   ":skin-tone-1:a:ok:<:x:123>🔥<:x:123>~~",
++   ":skin-tone-1:a:ok:<:x:123>🔥<:x:123>`~~",
++   ":skin-tone-1:a:ok:<:x:123>🔥<:x:123>~~",
++   "🔥`:ok~~:100:skin-tone-1",
++   "🔥:ok~~:100:skin-tone-1",
++   ":up_:a:b🔥🙂`*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   "🔥`:b.:ok#<:x:123> ",
++   "🔥:b.:ok#<:x:123> ",
++   ":ok:`ok:<:x:123>",
++   ":ok:ok:<:x:123>",
++   "🔥`:a🔥:b.",
++   "🔥:a🔥:b.",
++   "❤️`🔥 ",
++   "❤️🔥 ",
++   "❤️🔥` ",
++   "❤️🔥 ",
++   "a_:skin-tone-1:id:x🙂<:x:123>`",
++   "a_:skin-tone-1:id:x🙂<:x:123>",
++   "🔥`o:🔥 :skin-tone-1",
++   "🔥o:🔥 :skin-tone-1",
++   ":id:`ok::a<:x:123> :",
++   ":id:ok::a<:x:123> :",
++   "❤️`<:x:123>",
++   "❤️<:x:123>",
++   "❤️<:x:123>`",
++   "❤️<:x:123>",
++   "🙂`*thumbsup::id:id*:a:100",
++   "🙂*thumbsup::id:id*:a:100",
++   ":b<:x:123>:ok:`.",
++   ":b<:x:123>:ok:.",
++   ".:up🙂👍🏻`:up:m🔥:a",
++   ".:up🙂👍🏻:up:m🔥:a",
++   ".:up🙂👍🏻:up:`m🔥:a",
++   ".:up🙂👍🏻:up:m🔥:a",
++   "🔥`👍🏻",
++   "🔥👍🏻",
++   "🔥👍🏻`",
++   "🔥👍🏻",
++   ":x:`ok: :x:b❤️🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: :x:b❤️🔥`",
++   ":x:ok: :x:b❤️🔥",
++   "a:ok::b:`idthumbsup::❤️ ",
++   "a:ok::b:idthumbsup::❤️ ",
++   ":100:`x~~❤️",
++   ":100:x~~❤️",
++   "~~:ok::up:`xthumbsup:ok:\\#",
++   "~~:ok::up:xthumbsup:ok:\\#",
++   ".🔥:cool:`m❤️:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥:cool:m❤️:ok:`",
++   ".🔥:cool:m❤️:ok:",
++   ":a:`id:100:a_🙂",
++   ":a:id:100:a_🙂",
++   ":id:`:100:ok:*<:x:123>:b",
++   ":id::100:ok:*<:x:123>:b",
++   ":id::100:`ok:*<:x:123>:b",
++   ":id::100:ok:*<:x:123>:b",
++   ":ok:`👍🏻:x o::~~thumbsup:",
++   ":ok:👍🏻:x o::~~thumbsup:",
++   ":ok:👍🏻`:x o::~~thumbsup:",
++   ":ok:👍🏻:x o::~~thumbsup:",
++   "🙂`::a.",
++   "🙂::a.",
++   ":up:`100:b🔥~~",
++   ":up:100:b🔥~~",
++   "<:x:123>`::m:a:idthumbsup::b#",
++   "<:x:123>::m:a:idthumbsup::b#",
++   ":m:`b:",
++   ":m:b:",
++   "<:x:123>`",
++   "<:x:123>",
++   "👍🏻`❤️:ok_:a.*",
++   "👍🏻❤️:ok_:a.*",
++   "👍🏻❤️`:ok_:a.*",
++   "👍🏻❤️:ok_:a.*",
++   "👍🏻`thumbsup:thumbsup:ok:🔥🙂:a",
++   "👍🏻thumbsup:thumbsup:ok:🔥🙂:a",
++   "👍🏻thumbsup:thumbsup:ok:🔥🙂`:a",
++   "👍🏻thumbsup:thumbsup:ok:🔥🙂:a",
++   ":o:` :o",
++   ":o: :o",
++   ":m:`coolthumbsup:🔥<:x:123>o:.:o",
++   ":m:coolthumbsup:🔥<:x:123>o:.:o",
++   ":m:coolthumbsup:🔥<:x:123>`o:.:o",
++   ":m:coolthumbsup:🔥<:x:123>o:.:o",
++   " 🔥:100:`ok::cool",
++   " 🔥:100:ok::cool",
++   "::up:cool❤️:o:`cool",
++   "::up:cool❤️:o:cool",
++   "❤️` 👍🏻:ok:thumbsup:a:x",
++   "❤️ 👍🏻:ok:thumbsup:a:x",
++   "❤️ 👍🏻:ok:`thumbsup:a:x",
++   "❤️ 👍🏻:ok:thumbsup:a:x",
++   ":100:`o:skin-tone-1:m:up\\#",
++   ":100:o:skin-tone-1:m:up\\#",
++   "o:#👍🏻a:ok::ok:`",
++   "o:#👍🏻a:ok::ok:",
++   "👍🏻`:ido:🙂o:",
++   "👍🏻:ido:🙂o:",
++   ":a:`x<:x:123>.",
++   ":a:x<:x:123>.",
++   ":a:`up<:x:123>*:100:m:ok:a",
++   ":a:up<:x:123>*:100:m:ok:a",
++   ":a:`ok",
++   ":a:ok",
++   "❤️`ok::b_a:ok:ok",
++   "❤️ok::b_a:ok:ok",
++   "❤️`",
++   "❤️",
++   "<:x:123>`",
++   "<:x:123>",
++   "🔥` o:👍🏻::b:",
++   "🔥 o:👍🏻::b:",
++   "*a👍🏻<:x:123>`",
++   "*a👍🏻<:x:123>",
++   ":id:`up:o:b:a~~::cool",
++   ":id:up:o:b:a~~::cool",
++   ":ok:`ok::up:b",
++   ":ok:ok::up:b",
++   "👍🏻`\\*ok:",
++   "👍🏻\\*ok:",
++   "🙂`o:.",
++   "🙂o:.",
++   "thumbsup:#:b👍🏻a👍🏻:ok:`",
++   "thumbsup:#:b👍🏻a👍🏻:ok:",
++   "🔥`🙂\\",
++   "🔥🙂\\",
++   "🔥🙂`\\",
++   "🔥🙂\\",
++   ":b:`x<:x:123>~~#:m:id:100",
++   ":b:x<:x:123>~~#:m:id:100",
++   "🔥`:ok: :ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥:ok:` :ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "❤️`<:x:123>*",
++   "❤️<:x:123>*",
++   "❤️<:x:123>`*",
++   "❤️<:x:123>*",
++   "<:x:123>`thumbsup:",
++   "<:x:123>thumbsup:",
++   "🔥`~~\\o::up_",
++   "🔥~~\\o::up_",
++   ":o:`ok::okok:❤️:id",
++   ":o:ok::okok:❤️:id",
++   ":o:`100:id❤️:ok👍🏻",
++   ":o:100:id❤️:ok👍🏻",
++   ":a:`id ",
++   ":a:id ",
++   ":ok<:x:123>:100:`cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻`",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   "<:x:123>`.",
++   "<:x:123>.",
++   ":o:`b~~#o:",
++   ":o:b~~#o:",
++   "a👍🏻:id:`cool<:x:123>",
++   "a👍🏻:id:cool<:x:123>",
++   "~~👍🏻❤️`🔥:m:skin-tone-1",
++   "~~👍🏻❤️🔥:m:skin-tone-1",
++   "~~👍🏻❤️🔥`:m:skin-tone-1",
++   "~~👍🏻❤️🔥:m:skin-tone-1",
++   "~~👍🏻❤️🔥:m:`skin-tone-1",
++   "~~👍🏻❤️🔥:m:skin-tone-1",
++   ":ok:`o::o🔥🙂:",
++   ":ok:o::o🔥🙂:",
++   ":ok:o::o🔥🙂`:",
++   ":ok:o::o🔥🙂:",
++   ":ok:`:up\\_",
++   ":ok::up\\_",
++   "#👍🏻:a:`skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m❤️",
++   ":m:`cool:ok::ok:\\a:mok:",
++   ":m:cool:ok::ok:\\a:mok:",
++   ":m:cool:ok::ok:`\\a:mok:",
++   ":m:cool:ok::ok:\\a:mok:",
++   ":o:`o~~:a",
++   ":o:o~~:a",
++   ":b:`a",
++   ":b:a",
++   ":a🔥:x:`x:ok:a:m:a",
++   ":a🔥:x:x:ok:a:m:a",
++   "🔥`",
++   "🔥",
++   "\\:a:a:ok :cool❤️<:x:123>`",
++   "\\:a:a:ok :cool❤️<:x:123>",
++   ":x:`b_*thumbsup:",
++   ":x:b_*thumbsup:",
++   ":b:`ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:`",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":id:`ok::o",
++   ":id:ok::o",
++   "🙂`:up:up",
++   "🙂:up:up",
++   "🙂:up:`up",
++   "🙂:up:up",
++   "🔥`thumbsup:",
++   "🔥thumbsup:",
++   "#❤️~~🙂:id:`b:o",
++   "#❤️~~🙂:id:b:o",
++   ":ok:`up🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥`ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":cool:`x",
++   ":cool:x",
++   "❤️`~~:up",
++   "❤️~~:up",
++   ":up:`up",
++   ":up:up",
++   "~~:skin-tone-1a:cool<:x:123>🙂`:ok::ok",
++   "~~:skin-tone-1a:cool<:x:123>🙂:ok::ok",
++   "~~:skin-tone-1a:cool<:x:123>🙂:ok:`:ok",
++   "~~:skin-tone-1a:cool<:x:123>🙂:ok::ok",
++   "🔥`:m:a",
++   "🔥:m:a",
++   "🔥:m:`a",
++   "🔥:m:a",
++   ":m:`okok:",
++   ":m:okok:",
++   "👍🏻`ok:.:b:b",
++   "👍🏻ok:.:b:b",
++   "🙂`:cool👍🏻:o",
++   "🙂:cool👍🏻:o",
++   "🔥`",
++   "🔥",
++   ":ma:`ok::up\\~~o:",
++   ":ma:ok::up\\~~o:",
++   ":cool:`upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100🔥 <:x:123>",
++   ":cool:`xa:o\\:a",
++   ":cool:xa:o\\:a",
++   ":skin-tone-1:up::up:`m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥`",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   "❤️`:b.",
++   "❤️:b.",
++   "👍🏻`ok::x🙂",
++   "👍🏻ok::x🙂",
++   ":up:`id:ok:a\\",
++   ":up:id:ok:a\\",
++   "🔥`:ok:id.",
++   "🔥:ok:id.",
++   "🔥:ok:`id.",
++   "🔥:ok:id.",
++   ":o:`👍🏻_*:100",
++   ":o:👍🏻_*:100",
++   ":o:👍🏻`_*:100",
++   ":o:👍🏻_*:100",
++   ".🔥thumbsup:🙂🙂`👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻`:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:`",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   "🔥`",
++   "🔥",
++   "🔥`",
++   "🔥",
++   ":ok:`a::",
++   ":ok:a::",
++   ":o:`thumbsup:",
++   ":o:thumbsup:",
++   ":x:`b~~:o*~~:up",
++   ":x:b~~:o*~~:up",
++   "🙂`:up:upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂:up:`upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🔥`",
++   "🔥",
++   "🔥`",
++   "🔥",
++   ":up:`up :b",
++   ":up:up :b",
++   "🔥`:ok::a:up:id:skin-tone-1:cool",
++   "🔥:ok::a:up:id:skin-tone-1:cool",
++   "🔥:ok:`:a:up:id:skin-tone-1:cool",
++   "🔥:ok::a:up:id:skin-tone-1:cool",
++   "🔥:ok::a:`up:id:skin-tone-1:cool",
++   "🔥:ok::a:up:id:skin-tone-1:cool",
++   "🙂`",
++   "🙂",
++   ":x:`skin-tone-1",
++   ":x:skin-tone-1",
++   "🙂`🙂❤️:ok:🔥:",
++   "🙂🙂❤️:ok:🔥:",
++   "🙂🙂`❤️:ok:🔥:",
++   "🙂🙂❤️:ok:🔥:",
++   "🙂🙂❤️`:ok:🔥:",
++   "🙂🙂❤️:ok:🔥:",
++   "🙂🙂❤️:ok:`🔥:",
++   "🙂🙂❤️:ok:🔥:",
++   "🙂🙂❤️:ok:🔥`:",
++   "🙂🙂❤️:ok:🔥:",
++   ":ok:`ok:",
++   ":ok:ok:",
++   "<:x:123>`*👍🏻",
++   "<:x:123>*👍🏻",
++   ":bo:`thumbsup:",
++   ":bo:thumbsup:",
++   ":ok:`\\:100 :b",
++   ":ok:\\:100 :b",
++   ":up:`skin-tone-1~~:cool",
++   ":up:skin-tone-1~~:cool",
++   "<:x:123>`:100:b❤️ok::up",
++   "<:x:123>:100:b❤️ok::up",
++   "<:x:123>:100:`b❤️ok::up",
++   "<:x:123>:100:b❤️ok::up",
++   "<:x:123>`",
++   "<:x:123>",
++   ":x:`x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>`:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":b:`skin-tone-1\\:id",
++   ":b:skin-tone-1\\:id",
++   ":up:`🙂ok::up",
++   ":up:🙂ok::up",
++   ":up:🙂`ok::up",
++   ":up:🙂ok::up",
++   "🙂`:id*~~:ok::x:ok:",
++   "🙂:id*~~:ok::x:ok:",
++   "🙂:id*~~:ok::x:`ok:",
++   "🙂:id*~~:ok::x:ok:",
++   ":100:`id:ok::ok::aa:o",
++   ":100:id:ok::ok::aa:o",
++   ":100:id:ok::ok:`:aa:o",
++   ":100:id:ok::ok::aa:o",
++   "🙂`:ok:",
++   "🙂:ok:",
++   "🙂:ok:`",
++   "🙂:ok:",
++   ".🔥a<:x:123>🔥`:xo:#",
++   ".🔥a<:x:123>🔥:xo:#",
++   "🙂`",
++   "🙂",
++   "❤️`a:cool👍🏻",
++   "❤️a:cool👍🏻",
++   ":100:`up:up:m:b:up:coola",
++   ":100:up:up:m:b:up:coola",
++   ":id:`b.:ok:_a🔥:skin-tone-1",
++   ":id:b.:ok:_a🔥:skin-tone-1",
++   ":cool:`a\\:o",
++   ":cool:a\\:o",
++   ":id:`_thumbsup:🔥__",
++   ":id:_thumbsup:🔥__",
++   ":ok:`:ida<:x:123>",
++   ":ok::ida<:x:123>",
++   ":a:`👍🏻:\\ok::ok::a",
++   ":a:👍🏻:\\ok::ok::a",
++   ":a:👍🏻`:\\ok::ok::a",
++   ":a:👍🏻:\\ok::ok::a",
++   ":ok:`.o::ok:\\~~:id",
++   ":ok:.o::ok:\\~~:id",
++   "<:x:123>`:a:m*.o:",
++   "<:x:123>:a:m*.o:",
++   "<:x:123>:a:`m*.o:",
++   "<:x:123>:a:m*.o:",
++   "👍🏻`❤️~~<:x:123>a:cool:100",
++   "👍🏻❤️~~<:x:123>a:cool:100",
++   "👍🏻❤️`~~<:x:123>a:cool:100",
++   "👍🏻❤️~~<:x:123>a:cool:100",
++   "🙂`:ok:❤️",
++   "🙂:ok:❤️",
++   "🙂:ok:`❤️",
++   "🙂:ok:❤️",
++   "🙂:ok:❤️`",
++   "🙂:ok:❤️",
++   "~~🔥🔥`*#:a.:up",
++   "~~🔥🔥*#:a.:up",
++   ":up~~❤️:up:`id:a🙂",
++   ":up~~❤️:up:id:a🙂",
++   "👍🏻`~~:b o:~~",
++   "👍🏻~~:b o:~~",
++   ":o:`100\\\\ao:\\:x",
++   ":o:100\\\\ao:\\:x",
++   "🙂`:skin-tone-1👍🏻:mthumbsup:",
++   "🙂:skin-tone-1👍🏻:mthumbsup:",
++   "👍🏻`",
++   "👍🏻",
++   ":ok:`:x:🙂o: :skin-tone-1:skin-tone-1",
++   ":ok::x:🙂o: :skin-tone-1:skin-tone-1",
++   ":ok::x:`🙂o: :skin-tone-1:skin-tone-1",
++   ":ok::x:🙂o: :skin-tone-1:skin-tone-1",
++   ":ok::x:🙂`o: :skin-tone-1:skin-tone-1",
++   ":ok::x:🙂o: :skin-tone-1:skin-tone-1",
++   "👍🏻`o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>`🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥`",
++   "👍🏻o:a:<:x:123>🔥",
++   ":coolo:👍🏻🙂`",
++   ":coolo:👍🏻🙂",
++   ":skin-tone-1:a👍🏻🔥`",
++   ":skin-tone-1:a👍🏻🔥",
++   ":x*:100<:x:123>:a:`skin-tone-1:skin-tone-1:up",
++   ":x*:100<:x:123>:a:skin-tone-1:skin-tone-1:up",
++   "🙂`:id*",
++   "🙂:id*",
++   "thumbsup::ok::a:`mok::up🔥",
++   "thumbsup::ok::a:mok::up🔥",
++   ":ok:`~~~~a:cool\\ok:",
++   ":ok:~~~~a:cool\\ok:",
++   " #\\:ok👍🏻:b:`a",
++   " #\\:ok👍🏻:b:a",
++   ":o:`id:m<:x:123>:a_:b",
++   ":o:id:m<:x:123>:a_:b",
++   ":x:`id:id:up:skin-tone-1o::skin-tone-1",
++   ":x:id:id:up:skin-tone-1o::skin-tone-1",
++   "🙂`",
++   "🙂",
++   "ok:_❤️🔥`*🔥",
++   "ok:_❤️🔥*🔥",
++   ":cool:`up::cool❤️:up:bthumbsup:",
++   ":cool:up::cool❤️:up:bthumbsup:",
++   ":cool:up::cool❤️:up:`bthumbsup:",
++   ":cool:up::cool❤️:up:bthumbsup:",
++   ":x:`id:ok.~~:m  ",
++   ":x:id:ok.~~:m  ",
++   ":id:`",
++   ":id:",
++   ":a:`m❤️:cool",
++   ":a:m❤️:cool",
++   "🔥`:cool",
++   "🔥:cool",
++   ":a:`cool:ok:ok:",
++   ":a:cool:ok:ok:",
++   ":x:`id:skin-tone-1:id:b ",
++   ":x:id:skin-tone-1:id:b ",
++   "🔥`a#\\",
++   "🔥a#\\",
++   "<:x:123>`:skin-tone-1❤️",
++   "<:x:123>:skin-tone-1❤️",
++   ":bo:`::a",
++   ":bo:::a",
++   ":ok:`skin-tone-1",
++   ":ok:skin-tone-1",
++   "<:x:123>`👍🏻_",
++   "<:x:123>👍🏻_",
++   "<:x:123>👍🏻`_",
++   "<:x:123>👍🏻_",
++   ":a:`x",
++   ":a:x",
++   ":cool:`o:a:b",
++   ":cool:o:a:b",
++   "<:x:123>`:cool:skin-tone-1::100:a_",
++   "<:x:123>:cool:skin-tone-1::100:a_",
++   "<:x:123>:cool:`skin-tone-1::100:a_",
++   "<:x:123>:cool:skin-tone-1::100:a_",
++   "❤️`:id🔥_",
++   "❤️:id🔥_",
++   "🔥`:id ",
++   "🔥:id ",
++   ":100:`a.ok:🙂:oo:*",
++   ":100:a.ok:🙂:oo:*",
++   ":ok:`:x:coola\\",
++   ":ok::x:coola\\",
++   ":ok::x:`coola\\",
++   ":ok::x:coola\\",
++   "❤️`",
++   "❤️",
++   ":ok:`a:b",
++   ":ok:a:b",
++   ":b:`o",
++   ":b:o",
++   "🔥`🙂:skin-tone-1",
++   "🔥🙂:skin-tone-1",
++   "🔥🙂`:skin-tone-1",
++   "🔥🙂:skin-tone-1",
++   ":o:`b",
++   ":o:b",
++   "<:x:123>`:m",
++   "<:x:123>:m",
++   "👍🏻`:skin-tone-1:a🙂",
++   "👍🏻:skin-tone-1:a🙂",
++   "🙂`*:id:a:ok:ok:",
++   "🙂*:id:a:ok:ok:",
++   ":up:`ok::a_🙂🔥*",
++   ":up:ok::a_🙂🔥*",
++   ":up:ok::a_🙂🔥`*",
++   ":up:ok::a_🙂🔥*",
++   ":o:`oao: :id",
++   ":o:oao: :id",
++   "*:ok🙂<:x:123>`🙂:id:skin-tone-1:skin-tone-1",
++   "*:ok🙂<:x:123>🙂:id:skin-tone-1:skin-tone-1",
++   "*:ok🙂<:x:123>🙂`:id:skin-tone-1:skin-tone-1",
++   "*:ok🙂<:x:123>🙂:id:skin-tone-1:skin-tone-1",
++   "*:ok🙂<:x:123>🙂:id:`skin-tone-1:skin-tone-1",
++   "*:ok🙂<:x:123>🙂:id:skin-tone-1:skin-tone-1",
++   "~~\\#❤️🔥`:o:o",
++   "~~\\#❤️🔥:o:o",
++   "~~\\#❤️🔥:o:`o",
++   "~~\\#❤️🔥:o:o",
++   "❤️`:cool:cool",
++   "❤️:cool:cool",
++   "❤️:cool:`cool",
++   "❤️:cool:cool",
++   ":cool:`id\\_thumbsup::o\\",
++   ":cool:id\\_thumbsup::o\\",
++   ":up:`:upo::skin-tone-1#:m:cool",
++   ":up::upo::skin-tone-1#:m:cool",
++   "👍🏻`*.:cool:up:b:b",
++   "👍🏻*.:cool:up:b:b",
++   "_:up:o👍🏻:a:`cool\\:ok:",
++   "_:up:o👍🏻:a:cool\\:ok:",
++   ":o:`100:cool*:b:a#_",
++   ":o:100:cool*:b:a#_",
++   ":ok:`:a\\ ",
++   ":ok::a\\ ",
++   ":ok:`:",
++   ":ok::",
++   ":o:`🙂 <:x:123> _ok:",
++   ":o:🙂 <:x:123> _ok:",
++   ":o:🙂` <:x:123> _ok:",
++   ":o:🙂 <:x:123> _ok:",
++   "👍🏻`*",
++   "👍🏻*",
++   "🔥`~~aa🙂:a:a",
++   "🔥~~aa🙂:a:a",
++   "🔥~~aa🙂:a:`a",
++   "🔥~~aa🙂:a:a",
++   "🔥`ok:",
++   "🔥ok:",
++   "👍🏻`ok::up<:x:123>:100:100:x:cool",
++   "👍🏻ok::up<:x:123>:100:100:x:cool",
++   "👍🏻ok::up<:x:123>:100:`100:x:cool",
++   "👍🏻ok::up<:x:123>:100:100:x:cool",
++   ":100🔥<:x:123>`",
++   ":100🔥<:x:123>",
++   ":id:`ok::o a:m",
++   ":id:ok::o a:m",
++   ":b:`a~~🙂:a_",
++   ":b:a~~🙂:a_",
++   "❤️`",
++   "❤️",
++   ":ok:`:cool:100:m~~",
++   ":ok::cool:100:m~~",
++   ":ok::cool:`100:m~~",
++   ":ok::cool:100:m~~",
++   "<:x:123>`:ok:<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "<:x:123>:ok:`<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "<:x:123>:ok:<:x:123>`",
++   "<:x:123>:ok:<:x:123>",
++   ":ok:`::a::x",
++   ":ok:::a::x",
++   ":o:`b.",
++   ":o:b.",
++   "_:o:m:ba🙂:id:`ok:",
++   "_:o:m:ba🙂:id:ok:",
++   "<:x:123>`.🔥",
++   "<:x:123>.🔥",
++   "🔥`:o#",
++   "🔥:o#",
++   ":🔥:up:`id#:id~~🔥",
++   ":🔥:up:id#:id~~🔥",
++   ":ok:` #_:skin-tone-1",
++   ":ok: #_:skin-tone-1",
++   "🔥`",
++   "🔥",
++   ":cool:`100a.a",
++   ":cool:100a.a",
++   "👍🏻`~~:cool:ao::up.",
++   "👍🏻~~:cool:ao::up.",
++   "<:x:123>`#~~a:skin-tone-1:cool:b",
++   "<:x:123>#~~a:skin-tone-1:cool:b",
++   "❤️`*:.",
++   "❤️*:.",
++   "<:x:123>`:cool❤️:b :cool.",
++   "<:x:123>:cool❤️:b :cool.",
++   ":ok:`",
++   ":ok:",
++   "🔥`.:m.",
++   "🔥.:m.",
++   ":ok:`:x~~",
++   ":ok::x~~",
++   ":ok:`~~_",
++   ":ok:~~_",
++   ":id:`b👍🏻~~:a:x:up",
++   ":id:b👍🏻~~:a:x:up",
++   ":ok:`<:x:123>o:::cool_\\",
++   ":ok:<:x:123>o:::cool_\\",
++   ":ok:<:x:123>`o:::cool_\\",
++   ":ok:<:x:123>o:::cool_\\",
++   "❤️`:o:ido:*",
++   "❤️:o:ido:*",
++   "❤️:o:`ido:*",
++   "❤️:o:ido:*",
++   "*:x_<:x:123><:x:123>`",
++   "*:x_<:x:123><:x:123>",
++   ":id:`100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:`a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":up:`x*:a🙂",
++   ":up:x*:a🙂",
++   ":up:`m🙂:cool🙂:skin-tone-1",
++   ":up:m🙂:cool🙂:skin-tone-1",
++   "👍🏻`🙂#:100",
++   "👍🏻🙂#:100",
++   "👍🏻🙂`#:100",
++   "👍🏻🙂#:100",
++   ":ok<:x:123>👍🏻`<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>`*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":o:`cool~~:100thumbsup:",
++   ":o:cool~~:100thumbsup:",
++   "<:x:123>`:_:m
++ ```js
++ ❤️:b:a:skin-tone-1a_:a
++ ```",
++   "<:x:123>:_:m
++ ```js
++ ❤️:b:a:skin-tone-1a_:a
++ ```",
++   "❤️`:oka:m🔥:x.\\
++ ```js
++ thumbsup:.#_:ok<:x:123>🙂a
++ ```",
++   "❤️:oka:m🔥:x.\\
++ ```js
++ thumbsup:.#_:ok<:x:123>🙂a
++ ```",
++   ":b:`b:ok
++ ```js
++ :cool❤️_🙂:o:a#\\
++ ```",
++   ":b:b:ok
++ ```js
++ :cool❤️_🙂:o:a#\\
++ ```",
++   ":ok:`~~
++ ```js
++ #
++ ```",
++   ":ok:~~
++ ```js
++ #
++ ```",
++   ":x*.:b🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂:ok:`
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   "thumbsup:`:m:`skin-tone-1👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1👍🏻:id:`cool 
++ ```js
++ :x
++ ```",
++   "thumbsup::m:skin-tone-1👍🏻:id:cool 
++ ```js
++ :x
++ ```",
++   "*:ok:🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:🙂`
++ ```js
++ o:##
++ ```",
++   "*:ok:🙂
++ ```js
++ o:##
++ ```",
++   ":id:`.:100
++ ```js
++ :ok:🔥
++ ```",
++   ":id:.:100
++ ```js
++ :ok:🔥
++ ```",
++   ":ok:`\\:o:
++ ```js
++ _🔥a:ok:\\:m~~
++ ```",
++   ":ok:\\:o:
++ ```js
++ _🔥a:ok:\\:m~~
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o:`:🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   ":ok:`up
++ ```js
++ thumbsup: :skin-tone-1:id:m.
++ ```",
++   ":ok:up
++ ```js
++ thumbsup: :skin-tone-1:id:m.
++ ```",
++   ":100:`o*:ok: :o❤️:o
++ ```js
++ 🙂
++ ```",
++   ":100:o*:ok: :o❤️:o
++ ```js
++ 🙂
++ ```",
++   "<:x:123>`
++ ```js
++ :~~:okthumbsup::100:skin-tone-1🙂
++ ```",
++   "<:x:123>
++ ```js
++ :~~:okthumbsup::100:skin-tone-1🙂
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:`100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   ".👍🏻🙂 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   ".👍🏻🙂` 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   ".👍🏻🙂 🙂~~##
++ ```js
++ *:x:x*
++ ```",
++   "<:x:123>`👍🏻:.:100a
++ ```js
++ # 
++ ```",
++   "<:x:123>👍🏻:.:100a
++ ```js
++ # 
++ ```",
++   "<:x:123>👍🏻`:.:100a
++ ```js
++ # 
++ ```",
++   "<:x:123>👍🏻:.:100a
++ ```js
++ # 
++ ```",
++   "🔥`:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🙂`:coola:cool:a:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   "🙂:coola:cool:a:m:skin-tone-1:x
++ ```js
++ :cool:skin-tone-1:cool:skin-tone-1:x*:b
++ ```",
++   ":ok:`:up:ok :oo::m
++ ```js
++ :id
++ ```",
++   ":ok::up:ok :oo::m
++ ```js
++ :id
++ ```",
++   ":ok::up:`ok :oo::m
++ ```js
++ :id
++ ```",
++   ":ok::up:ok :oo::m
++ ```js
++ :id
++ ```",
++   "<:x:123>`:skin-tone-1 _:100thumbsup:
++ ```js
++ *:ok::cool:x
++ ```",
++   "<:x:123>:skin-tone-1 _:100thumbsup:
++ ```js
++ *:ok::cool:x
++ ```",
++   ":m🔥:cool:ok:.ok:.
++ ```js
++ ❤️#o:thumbsup:~~❤️:cool🙂
++ ```",
++   ":m🔥:cool:`ok:.ok:.
++ ```js
++ ❤️#o:thumbsup:~~❤️:cool🙂
++ ```",
++   ":m🔥:cool:ok:.ok:.
++ ```js
++ ❤️#o:thumbsup:~~❤️:cool🙂
++ ```",
++   "🔥`:o:x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥:o:x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥:o:`x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   "🔥:o:x:b:upo:
++ ```js
++ o::ok::❤️:skin-tone-1:a_
++ ```",
++   ":o:`cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   "🔥`.:
++ ```js
++ :a👍🏻:x_thumbsup::id
++ ```",
++   "🔥.:
++ ```js
++ :a👍🏻:x_thumbsup::id
++ ```",
++   ":thumbsup:`
++ ```js
++ :100:b👍🏻🙂_thumbsup:
++ ```",
++   ":thumbsup:
++ ```js
++ :100:b👍🏻🙂_thumbsup:
++ ```",
++   "<:x:123>`:o:m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   "<:x:123>:o:m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   "<:x:123>:o:`m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   "<:x:123>:o:m#:idok::a
++ ```js
++ :ok:🙂*
++ ```",
++   ":skin-tone-1:100`🙂`:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:`🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:🙂`~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   ":skin-tone-1:100🙂:ok:🙂~~❤️~~
++ ```js
++ #:100_*
++ ```",
++   "<:x:123>`:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:`x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "🙂` 🙂:a ~~
++ ```js
++ ok::ok:o#a<:x:123>ok:
++ ```",
++   "🙂 🙂:a ~~
++ ```js
++ ok::ok:o#a<:x:123>ok:
++ ```",
++   "`<:x:123>`:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>`:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:`🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:🔥`:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   "<:x:123>:ok:🔥:b
++ ```js
++ <:x:123>:ok::b:ok::ok:m
++ ```",
++   ":m🙂:ok:#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂:ok:`#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   ":m🙂:ok:#:m:ok:100:cool
++ ```js
++ thumbsup::ok🔥a🙂:xok:
++ ```",
++   "🙂`:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:`ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   ":x:`100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:`o~~:x_
++ ```js
++ :up
++ ```",
++   ":x:o~~:x_
++ ```js
++ :up
++ ```",
++   "*🙂:ok:a_thumbsup:a.
++ ```js
++ ❤️.::id
++ ```",
++   "*🙂:ok:`a_thumbsup:a.
++ ```js
++ ❤️.::id
++ ```",
++   "*🙂:ok:a_thumbsup:a.
++ ```js
++ ❤️.::id
++ ```",
++   "🔥`<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥<:x:123>`
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "_👍🏻:m:ok:
++ ```js
++ 🙂:m~~:ok.<:x:123>
++ ```",
++   "_👍🏻:m:`ok:
++ ```js
++ 🙂:m~~:ok.<:x:123>
++ ```",
++   "_👍🏻:m:ok:
++ ```js
++ 🙂:m~~:ok.<:x:123>
++ ```",
++   ":up`<:x:123>`:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>`:a:`ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:`ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥`
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   "<:x:123>`:o:a
++ ```js
++ .
++ ```",
++   "<:x:123>:o:a
++ ```js
++ .
++ ```",
++   "<:x:123>:o:`a
++ ```js
++ .
++ ```",
++   "<:x:123>:o:a
++ ```js
++ .
++ ```",
++   "❤️`#
++ ```js
++ thumbsup::m:a:b❤️a:m
++ ```",
++   "❤️#
++ ```js
++ thumbsup::m:a:b❤️a:m
++ ```",
++   ":100:`ok::up:m:m
++ ```js
++ ok:a ❤️\\:100ok:
++ ```",
++   ":100:ok::up:m:m
++ ```js
++ ok:a ❤️\\:100ok:
++ ```",
++   ":cool:`a
++ ```js
++ 👍🏻
++ ```",
++   ":cool:a
++ ```js
++ 👍🏻
++ ```",
++   "🔥`thumbsup::100:ok:
++ ```js
++ _❤️:ok:o:a.👍🏻
++ ```",
++   "🔥thumbsup::100:ok:
++ ```js
++ _❤️:ok:o:a.👍🏻
++ ```",
++   ":a:`id:m
++ ```js
++ :ok🔥ao::ok
++ ```",
++   ":a:id:m
++ ```js
++ :ok🔥ao::ok
++ ```",
++   "*<:x:123><:x:123> 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "*<:x:123><:x:123>` 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "*<:x:123><:x:123> 🔥o:_
++ ```js
++ thumbsup::up:ok:
++ ```",
++   "`👍🏻`\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻`\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up`:a:`cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>`
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "❤️`thumbsup::cool thumbsup:ok:\\:m
++ ```js
++ :o🙂:up
++ ```",
++   "❤️thumbsup::cool thumbsup:ok:\\:m
++ ```js
++ :o🙂:up
++ ```",
++   "👍🏻`
++ ```js
++ :skin-tone-1🙂thumbsup:ok:\\
++ ```",
++   "👍🏻
++ ```js
++ :skin-tone-1🙂thumbsup:ok:\\
++ ```",
++   "👍🏻`:athumbsup::100\\
++ ```js
++ 👍🏻👍🏻:o
++ ```",
++   "👍🏻:athumbsup::100\\
++ ```js
++ 👍🏻👍🏻:o
++ ```",
++   "ok:#.<:x:123>:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   "ok:#.<:x:123>:a:`m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   "ok:#.<:x:123>:a:m:a*
++ ```js
++ :a:skin-tone-1.
++ ```",
++   "*`🔥`❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️`👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻`:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   ":id:`o:cool:
++ ```js
++ :o
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   "`👍🏻`\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻`\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥`
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   ":up:`ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":ok:`cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   "👍🏻`~~:skin-tone-1:skin-tone-1👍🏻*
++ ```js
++ o:#:up:
++ ```",
++   "👍🏻~~:skin-tone-1:skin-tone-1👍🏻*
++ ```js
++ o:#:up:
++ ```",
++   "`:o:`x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:`x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~:ok:🔥`:up _
++ ```js
++ :ok:*
++ ```",
++   ":o:x~~:ok:🔥:up _
++ ```js
++ :ok:*
++ ```",
++   ":xo:\\~~~~:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:🙂`
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":100:`100
++ ```js
++ :o:id:100
++ ```",
++   ":100:100
++ ```js
++ :o:id:100
++ ```",
++   "🙂`❤️:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂❤️:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂❤️`:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "🙂❤️:xo::❤️:skin-tone-1
++ ```js
++ :skin-tone-1:
++ ```",
++   "👍🏻`:b.# :o_\\
++ ```js
++ .
++ ```",
++   "👍🏻:b.# :o_\\
++ ```js
++ .
++ ```",
++   "❤️`\\
++ ```js
++ :id :id👍🏻_🔥_
++ ```",
++   "❤️\\
++ ```js
++ :id :id👍🏻_🔥_
++ ```",
++   ":o:`100❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100❤️
++ ```js
++ ❤️:
++ ```",
++   "`👍🏻`🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻`🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻`🔥`:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥`:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok`🙂`ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>`
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "❤️`:100:skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️:100:skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️:100:`skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "❤️:100:skin-tone-1ok::100:b::cool
++ ```js
++ ❤️
++ ```",
++   "<:x:123>`:up:100o:
++ ```js
++ :x❤️
++ ```",
++   "<:x:123>:up:100o:
++ ```js
++ :x❤️
++ ```",
++   "<:x:123>:up:`100o:
++ ```js
++ :x❤️
++ ```",
++   "<:x:123>:up:100o:
++ ```js
++ :x❤️
++ ```",
++   "👍🏻`:#:upo::o
++ ```js
++ :cool:ok:m:a
++ ```",
++   "👍🏻:#:upo::o
++ ```js
++ :cool:ok:m:a
++ ```",
++   ":100:`100:a
++ ```js
++ <:x:123>~~:b:ok::x thumbsup:
++ ```",
++   ":100:100:a
++ ```js
++ <:x:123>~~:b:ok::x thumbsup:
++ ```",
++   ":up🙂:a:o:b#
++ ```js
++ :ok👍🏻👍🏻:bo:
++ ```",
++   ":up🙂:a:`o:b#
++ ```js
++ :ok👍🏻👍🏻:bo:
++ ```",
++   ":up🙂:a:o:b#
++ ```js
++ :ok👍🏻👍🏻:bo:
++ ```",
++   "<:x:123>`\\:cool
++ ```js
++ *:a*:up❤️:m
++ ```",
++   "<:x:123>\\:cool
++ ```js
++ *:a*:up❤️:m
++ ```",
++   "🔥`:up\\:b🙂:oko::ok
++ ```js
++ :id:ok
++ ```",
++   "🔥:up\\:b🙂:oko::ok
++ ```js
++ :id:ok
++ ```",
++   ":cool:`100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":cool:100:id:bthumbsup:
++ ```js
++ :b
++ ```",
++   ":m:`xthumbsup::x
++ ```js
++ :b
++ ```",
++   ":m:xthumbsup::x
++ ```js
++ :b
++ ```",
++   "`🔥`:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥`:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:`🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:🔥`.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++   "🔥:thumbsup:🔥.#:ok::x
++ ```js
++ #o:thumbsup::b:m
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:91:23
+     89|       return states.filter((state) => state !== null);
+     90|     });
+     91|     expect(offending).toEqual([]);
+       |                       ^
+     92|   }, 120_000);
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

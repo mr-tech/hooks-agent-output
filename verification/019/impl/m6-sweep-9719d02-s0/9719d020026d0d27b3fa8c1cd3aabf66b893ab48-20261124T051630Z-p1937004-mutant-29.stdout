@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork0/20261124T051630Z-p1937004/mutant-29
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 2 failed) 191ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 16ms
+     × at the end of a plain line saves what the table says 7ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 20213ms
+     × hands the message a line break typed as a new line 108ms
+     × hands the message that text in a full-markdown editor 12680ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  4 failed | 101 passed (105)
+   Start at  05:38:10
+   Duration  53.37s (transform 3.17s, setup 198ms, import 9.01s, tests 97.50s, environment 8.71s)
+

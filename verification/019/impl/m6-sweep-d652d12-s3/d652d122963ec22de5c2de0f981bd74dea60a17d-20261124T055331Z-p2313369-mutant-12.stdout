@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T055331Z-p2313369/mutant-12
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 1 failed) 290ms
+     × parses a unit of three lines once, and a unit after a code block once more 21ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 2 failed) 165ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 7ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 75ms
+     × matches the frozen box on every input, an emoji element's source characters left out 26ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 4ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 105ms
+     × on content, over every input of the generator and the corpus 28ms
+     × on embedDescription, over every input of the generator and the corpus 4ms
+     × on fieldValue, over every input of the generator and the corpus 2ms
+     × on embedTitle, over every input of the generator and the corpus 1ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 2ms
+     × on v2Text, over every input of the generator and the corpus 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 5 failed) 199ms
+     × keeps an emoji typed into a fenced code line as text 26ms
+     × puts an emoji element on the first line when the second is edited back to text 24ms
+     × puts an emoji element on the second line when the third is edited back to text 3ms
+     × puts an emoji element of the second line of a code block back to text 2ms
+     × puts each emoji element of a fenced code line back to text 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 134ms
+     × on embedDescription, every content character carries the style set its preview gives it 62ms
+     × on fieldValue, every content character carries the style set its preview gives it 19ms
+     × on embedTitle, every content character carries the style set its preview gives it 14ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 16ms
+     × on v2Text, every content character carries the style set its preview gives it 13ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 8866ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 4707ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 4096ms
+
+ Test Files  7 failed | 2 passed (9)
+      Tests  23 failed | 71 passed (94)
+   Start at  06:00:56
+   Duration  11.51s (transform 4.00s, setup 60ms, import 8.76s, tests 10.19s, environment 3.60s)
+

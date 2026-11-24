@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts (2 tests | 2 failed) 145ms
+     × parses a unit once for the same surface, text and code-block start, and again when either differs 22ms
+     × forgets the oldest unit once 256 others have followed it, and keeps the newest 44ms
+
+ Test Files  1 failed | 9 passed (10)
+      Tests  2 failed | 264 passed (266)
+   Start at  05:56:49
+   Duration  15.66s (transform 3.76s, setup 81ms, import 9.19s, tests 22.33s, environment 5.62s)
+

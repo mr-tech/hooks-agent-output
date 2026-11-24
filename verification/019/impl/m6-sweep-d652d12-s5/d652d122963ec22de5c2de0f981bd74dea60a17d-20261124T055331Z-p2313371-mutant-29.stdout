@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-29
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 3 failed) 209ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 15ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 9ms
+     × takes in a typed quote marker inside a fence opened on a quote line 14ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 18332ms
+     × hands the message that text in a full-markdown editor 12452ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  4 failed | 111 passed (115)
+   Start at  06:15:23
+   Duration  50.15s (transform 3.81s, setup 410ms, import 11.44s, tests 91.39s, environment 11.51s)
+

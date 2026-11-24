@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T055331Z-p2313368/mutant-12
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 240ms
+     × parses a unit of three lines once, and a unit after a code block once more 13ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 44ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 247ms
+     × matches the frozen box on every input, an emoji element's source characters left out 205ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 2 failed) 129ms
+     × puts an emoji element on the first line when the second is edited back to text 13ms
+     × puts an emoji element on the second line when the third is edited back to text 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 9454ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 5519ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 26349ms
+     × on embedDescription, every content character carries the style set its preview gives it 7053ms
+     × on fieldValue, every content character carries the style set its preview gives it 4218ms
+     × on embedTitle, every content character carries the style set its preview gives it 4401ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5112ms
+     × on v2Text, every content character carries the style set its preview gives it 5555ms
+
+ Test Files  5 failed | 4 passed (9)
+      Tests  11 failed | 83 passed (94)
+   Start at  06:01:14
+   Duration  29.51s (transform 2.44s, setup 35ms, import 6.08s, tests 41.51s, environment 3.44s)
+

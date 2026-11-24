@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T055331Z-p2313369/mutant-5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 2567ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 809ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 381ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 282ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 341ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 307ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 320ms
+     × are literal for an emoji before and one after a fenced block 2ms
+     × are literal for an emoji only in the run after a fenced block 1ms
+     × are literal for an emoji on each side of two fenced blocks 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 6 failed) 3053ms
+     × loads each text of 1,000 generator inputs with its text unchanged 434ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 184ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 687ms
+     × loads each text of 1,000 generator inputs with its text unchanged 195ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 116ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 586ms
+
+ Test Files  2 failed | 8 passed (10)
+      Tests  15 failed | 251 passed (266)
+   Start at  05:57:36
+   Duration  17.37s (transform 5.73s, setup 140ms, import 12.38s, tests 23.98s, environment 9.00s)
+

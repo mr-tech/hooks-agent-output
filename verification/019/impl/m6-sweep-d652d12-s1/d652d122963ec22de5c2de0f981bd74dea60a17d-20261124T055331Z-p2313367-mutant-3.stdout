@@ -1,0 +1,95 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T055331Z-p2313367/mutant-3
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts (2 tests | 2 failed) 298ms
+     × parses a unit once for the same surface, text and code-block start, and again when either differs 51ms
+     × forgets the oldest unit once 256 others have followed it, and keeps the newest 109ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (21 tests | 21 failed) 360ms
+     × lists a unicode emoji with its source span and image 93ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 3ms
+     × lists a skin-tone sequence with its source span and image 12ms
+     × lists a still custom emoji with its source span and image 28ms
+     × lists an animated custom emoji with its source span and image 11ms
+     × lists no emoji for a copyright sign and a trademark sign 1ms
+     × lists no emoji for a heart with no emoji presentation 1ms
+     × lists no emoji for an emoji after a backslash 13ms
+     × lists no emoji for a name that is no emoji 4ms
+     × keeps an id past 2^53 as digits that survive JSON 5ms
+     × lists no emoji inside inline code 3ms
+     × lists no emoji inside a masked link 28ms
+     × lists no emoji inside a bare link address 14ms
+     × lists no emoji inside a fenced code block 1ms
+     × lists no emoji in a unit that starts inside a code block 1ms
+     × lists the emoji outside a code span and none inside it 1ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 2ms
+     × holds a span of a layout when both ends match 1ms
+     × holds a span of a layout when only the start matches 1ms
+     × holds a span of a layout when only the end matches 0ms
+     × holds a span of a layout when neither end matches 8ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts (1 test | 1 failed) 37ms
+     × loads a message with an emoji as one text span and styles nothing 35ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx (1 test | 1 failed) 34ms
+     × keeps an emoji element where it is and changes no text 32ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 20 failed) 218ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 53ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 36ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 6ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 10ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 4ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 3ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 4ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 4ms
+     × puts an emoji element on the first line when the second is edited back to text 2ms
+     × puts an emoji element on the second line when the third is edited back to text 3ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 2ms
+     × puts an emoji in a link label back to text once "](" is typed after it 1ms
+     × puts an emoji element of the second line of a code block back to text 13ms
+     × puts each emoji element of a fenced code line back to text 6ms
+     × puts a caret in front of the element at the same place in the text 4ms
+     × puts a caret right in front of the element at the same place in the text 7ms
+     × puts a caret on the element at the same place in the text 2ms
+     × puts a caret right after the element at the same place in the text 4ms
+     × puts a caret after the element and a typed backtick at the same place in the text 6ms
+     × puts a caret on a second element at the same place in the text 8ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 2962ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 1189ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 464ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 329ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 268ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 274ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 274ms
+     × are literal for an emoji before and one after a fenced block 2ms
+     × are literal for an emoji only in the run after a fenced block 1ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 18 failed) 3425ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 59ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 7ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 2ms
+     × loads the text on each side of the emoji in "\\🙂 🙂" into its own text node 1ms
+     × loads the text on each side of the emoji in "a:smile:b" into its own text node 1ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 2ms
+     × loads the text on each side of the emoji in "`🙂` 🙂" into its own text node 19ms
+     × loads a unicode emoji as one emoji element that saves as the typed text 2ms
+     × loads a ZWJ sequence as one emoji element that saves as the typed text 9ms
+     × loads a skin-tone sequence as one emoji element that saves as the typed text 1ms
+     × loads a keycap as one emoji element that saves as the typed text 11ms
+     × loads a flag as one emoji element that saves as the typed text 8ms
+     × loads a tag sequence as one emoji element that saves as the typed text 6ms
+     × loads a heart with emoji presentation as one emoji element that saves as the typed text 8ms
+     × loads an emoji typed as a name as one emoji element that saves as the typed text 2ms
+     × loads a skin-toned name as one emoji element that saves as the typed text 6ms
+     × loads a custom emoji as one emoji element that saves as the typed text 1ms
+     × loads an animated custom emoji as one emoji element that saves as the typed text 7ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 6972ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 4081ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2832ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 11ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 9ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 7ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 9ms
+
+ Test Files  8 failed | 2 passed (10)
+      Tests  78 failed | 188 passed (266)
+   Start at  05:57:19
+   Duration  12.79s (transform 6.17s, setup 126ms, import 14.68s, tests 17.59s, environment 12.49s)
+

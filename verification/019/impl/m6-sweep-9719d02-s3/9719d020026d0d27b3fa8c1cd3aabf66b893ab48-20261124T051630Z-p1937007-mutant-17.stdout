@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T051630Z-p1937007/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 11 failed) 87ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 25ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 5ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 3ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 5ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 4ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 4ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 5ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 11ms
+     × puts an emoji element back to text once a web address is typed in front of it 3ms
+     × puts an emoji element of the second line of a code block back to text 5ms
+     × puts each emoji element of a fenced code line back to text 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 5530ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 2777ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2662ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 8ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 7ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 5ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 5ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  17 failed | 88 passed (105)
+   Start at  05:27:23
+   Duration  44.01s (transform 1.68s, setup 184ms, import 5.26s, tests 73.04s, environment 6.25s)
+

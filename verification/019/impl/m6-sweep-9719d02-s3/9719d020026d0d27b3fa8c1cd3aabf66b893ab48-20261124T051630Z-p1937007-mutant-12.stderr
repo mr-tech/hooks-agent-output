@@ -1,0 +1,171 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ editorChars src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:42:17
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:138:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an emoji typed into a fenced code line as text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element of the second line of a code block back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:108:16
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:303:3
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:389:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ editorHolding src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:29:21
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:79:22
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:78:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ editorHolding src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:29:21
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:96:22
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:95:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/21]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts > the editor colours a character the same wherever an emoji element splits its text > colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ lifted src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:33:34
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts:70:30
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/21]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box on every input, an emoji element's source characters left out
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:92:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/21]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:115:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/21]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses a unit of three lines once, and a unit after a code block once more
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/decorator.tsx:81:14
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:35:29
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:46
+ ❯ decorateAll src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:34:9
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:58:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/21]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on content, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedDescription, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on fieldValue, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitle, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on embedTitleWithUrl, over every input of the generator and the corpus
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts > the editor draws no range that is empty or reaches outside its text node > on v2Text, over every input of the generator and the corpus
+TypeError: Cannot read properties of undefined (reading 'type')
+ ❯ unitAround src/components/SlateEditor/utils/runUnit.ts:25:17
+     23|     const element = children[index] as Element;
+     24|     if (index > first) text += '\n';
+     25|     if (element.type === 'blockQuote') text += element.quotePrefix ?? …
+       |                 ^
+     26|     lineStarts.set(index, text.length);
+     27|     text += element.children.map((child) => (Text.isText(child) ? chil…
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:110:18
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts:30:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/21]⎯
+

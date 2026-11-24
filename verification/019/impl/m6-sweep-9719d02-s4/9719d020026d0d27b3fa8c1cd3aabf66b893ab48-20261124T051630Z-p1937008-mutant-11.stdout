@@ -1,0 +1,69 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T051630Z-p1937008/mutant-11
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 5 failed) 99ms
+     × parses a unit of 51 text nodes once 8ms
+     × parses a unit of three lines once, and a unit after a code block once more 1ms
+     × parses only the edited element's unit on the next pass, with its new text 1ms
+       × parses none again when 512 units are drawn twice 2ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 15 failed) 161ms
+     × carries bold across an emoji element 24ms
+     × keeps the delimiters on either side of an emoji as syntax 6ms
+     × carries italic across an emoji element on a quote line 21ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "-# a X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 0ms
+     × colours the characters around an emoji in "# X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 0ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 144ms
+     × matches the frozen box on every input, an emoji element's source characters left out 18ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 170ms
+     × on content, over every input of the generator and the corpus 20ms
+     × on embedDescription, over every input of the generator and the corpus 4ms
+     × on fieldValue, over every input of the generator and the corpus 3ms
+     × on embedTitle, over every input of the generator and the corpus 3ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 2ms
+     × on v2Text, over every input of the generator and the corpus 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 13 failed) 117ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 61ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 9ms
+     × keeps an emoji typed into a fenced code line as text 2ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 10ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 1ms
+     × puts an emoji in a link label back to text once "](" is typed after it 1ms
+     × puts an emoji element back to text once a web address is typed in front of it 1ms
+     × puts an emoji element of the second line of a code block back to text 1ms
+     × puts each emoji element of a fenced code line back to text 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 7 failed) 42ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 12ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a code span 3ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 4ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 2ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 2ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 20ms
+     × on embedDescription, every content character carries the style set its preview gives it 6ms
+     × on fieldValue, every content character carries the style set its preview gives it 2ms
+     × on embedTitle, every content character carries the style set its preview gives it 1ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 0ms
+     × on v2Text, every content character carries the style set its preview gives it 1ms
+
+ Test Files  7 failed | 2 passed (9)
+      Tests  53 failed | 27 passed (80)
+   Start at  05:24:19
+   Duration  4.42s (transform 3.79s, setup 47ms, import 8.32s, tests 987ms, environment 3.83s)
+

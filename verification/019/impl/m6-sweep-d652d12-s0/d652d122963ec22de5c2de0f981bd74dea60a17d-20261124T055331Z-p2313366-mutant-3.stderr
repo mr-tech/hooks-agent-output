@@ -1,0 +1,40 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx > the editor normalizer before the markdown engine has loaded > keeps an emoji element where it is and changes no text
+TypeError: Cannot read properties of undefined (reading 'tree')
+ ❯ emojiLayout src/components/SlateEditor/utils/emojiLift.ts:64:18
+     62|   if (false && !parsed) return undefined;
+     63|   const layout: EmojiLayout = { emojis: [] };
+     64|   collect(parsed.tree, text, parsed.shift, layout);
+       |                  ^
+     65|   if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {
+     66|     layoutCache.delete(layoutCache.keys().next().value as string);
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:109:18
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:301:3
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:387:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts > the editor before the markdown engine has loaded > loads a message with an emoji as one text span and styles nothing
+TypeError: Cannot read properties of undefined (reading 'tree')
+ ❯ emojiLayout src/components/SlateEditor/utils/emojiLift.ts:64:18
+     62|   if (false && !parsed) return undefined;
+     63|   const layout: EmojiLayout = { emojis: [] };
+     64|   collect(parsed.tree, text, parsed.shift, layout);
+       |                  ^
+     65|   if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {
+     66|     layoutCache.delete(layoutCache.keys().next().value as string);
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:111:20
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:108:9
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:58:10
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts:15:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

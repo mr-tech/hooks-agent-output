@@ -1,0 +1,1167 @@
+{
+ "sha": "223c0789831f923ff8599435ba61544897c15e8d",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-mutants-223c078-survivors.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/019/impl/m5-sweep-vitest.config.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 400.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-mutants-223c078-survivors.json",
+   "blob": "6c1d92b765a3817bdeb60f6eadfee0a88a18ac84"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/019/impl/m5-sweep-vitest.config.ts",
+   "blob": "690ae82da2a3661d5e097d652a0ef0fb6fc1dd4d"
+  }
+ ],
+ "controls": {
+  "[\"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx\", \"src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts\", \"src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts\", \"src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts\", \"src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx\", \"src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx\", \"src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts\", \"src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-1.stderr",
+   "seconds": 9.41,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 270,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "passed": true
+  },
+  "[\"src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx\", \"src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx\", \"src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-2.stderr",
+   "seconds": 26.42,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 128,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "passed": true
+  },
+  "[\"src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx\", \"src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx\", \"src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx\"]": {
+   "id": "control-3",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-3.stderr",
+   "seconds": 24.96,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 96,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+   ],
+   "passed": true
+  },
+  "[\"src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts\", \"src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx\", \"src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts\", \"src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts\", \"src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts\", \"src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts\", \"src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx\"]": {
+   "id": "control-4",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-control-4.stderr",
+   "seconds": 17.98,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 75,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts",
+    "src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts",
+    "src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts",
+    "src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts",
+    "src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "emojiLift.ts:114:walk-first",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "walk-first",
+    "line": 114,
+    "text": "const text = lines[index].children.map((child) => (Text.isText(child) ? child.text : '')).join('');"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 8.8,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:118:true",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 118,
+    "text": "return true;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 24.88,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-2.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:123:num:2",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 123,
+    "text": "for (let i = 0; i < line.children.length; i += 1) {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-3.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:152:if-false",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 152,
+    "text": "if (at === -1) return Editor.end(editor, [lineIndex]);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.41,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-4.stderr"
+  },
+  {
+   "id": "emojiLift.ts:26:num",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 26,
+    "text": "const { value } = node.kind as unknown as { value: Parameters<typeof emojiSrc>[0] };"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 8.85,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-5.stderr"
+  },
+  {
+   "id": "emojiLift.ts:109:if-false",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 109,
+    "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 8.99,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-6.stderr"
+  },
+  {
+   "id": "emojiLift.ts:114:walk-last",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "walk-last",
+    "line": 114,
+    "text": "const text = lines[index].children.map((child) => (Text.isText(child) ? child.text : '')).join('');"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 8.76,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-7.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:&&:2",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 96,
+   "control_tests_run": 96,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 25.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-8.stderr"
+  },
+  {
+   "id": "unitParse.ts:14:num:2",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/unitParse.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts",
+    "src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts",
+    "src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts",
+    "src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts",
+    "src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 14,
+    "text": "const fences = text.split(FENCE).length - 1 + (startsInCodeBlock ? 1 : 0);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 75,
+   "control_tests_run": 75,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists the emoji of a unit that starts inside a code block after a fence that opens a block with no closing fence as the table says",
+    "|node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists the emoji of a unit that starts inside a code block after the closing fence, an emoji, and a second opening fence as the table says"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 19.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-9.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:137:true",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 137,
+    "text": "return true;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 28.28,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-10.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:161:||",
+   "run": "mutant-11",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "||",
+    "line": 161,
+    "text": "if (!Text.isText(prev) || !Text.isText(next)) {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 26.46,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-11.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:320:&&",
+   "run": "mutant-12",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 320,
+    "text": "if (!insideFence && fence.inCodeBlock) fenceQuoted = text.startsWith(QUOTE_MARKER);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 26.87,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-12.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:339:true",
+   "run": "mutant-13",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 339,
+    "text": "return true;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 27.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-13.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:152:num",
+   "run": "mutant-14",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 152,
+    "text": "if (at === -1) return Editor.end(editor, [lineIndex]);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 28.03,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-14.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:308:false",
+   "run": "mutant-15",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 308,
+    "text": "let fenceQuoted = false;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 27.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-15.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:322:false",
+   "run": "mutant-16",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 322,
+    "text": "return false;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 30.52,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-16.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:341:if-false",
+   "run": "mutant-17",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 341,
+    "text": "if (!markerKept || (content !== '' && content !== '>')) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared when the marker of a carried code line is deleted by hand"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 28.48,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-17.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:343:true",
+   "run": "mutant-18",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 343,
+    "text": "return true;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.39,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-18.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-18.stderr"
+  },
+  {
+   "id": "emojiLift.ts:109:||",
+   "run": "mutant-19",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "||",
+    "line": 109,
+    "text": "if (line.type === 'codeBlock' || done.has(first)) return;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 9.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-19.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-19.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:35:&&",
+   "run": "mutant-20",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 35,
+    "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 96,
+   "control_tests_run": 96,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 25.79,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-20.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-20.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:58:&&",
+   "run": "mutant-21",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 58,
+    "text": "if (child.type === 'blockQuote' && child.quotePrefix) {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.57,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-21.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-21.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:121:num",
+   "run": "mutant-22",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 121,
+    "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.74,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-22.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-22.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:326:num",
+   "run": "mutant-23",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 326,
+    "text": "for (let i = 0; i < editor.children.length; i += 1) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is resolved on the first line of the editor too"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 26.51,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-23.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-23.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:370:if-false",
+   "run": "mutant-24",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 370,
+    "text": "if (created.type === 'blockQuote') {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 27.25,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-24.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-24.stderr"
+  },
+  {
+   "id": "emojiLift.ts:112:walk-first",
+   "run": "mutant-25",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "walk-first",
+    "line": 112,
+    "text": "unit.lineStarts.forEach((lineStart, index) => {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 8.45,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-25.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-25.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:110:false",
+   "run": "mutant-26",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 110,
+    "text": "if (!layout) return false;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-26.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-26.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:341:||",
+   "run": "mutant-27",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "||",
+    "line": 341,
+    "text": "if (!markerKept || (content !== '' && content !== '>')) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > on the line made from a quote line is cleared once \"> a\" is typed after the marker and kept for a bare angle bracket",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > on the line made from a code line inside a fence opened on a quote line is cleared once \"> ```\\n> x\" is typed after the marker and kept for a bare angle bracket",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared when the marker of a carried code line is deleted by hand"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 24.18,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-27.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-27.stderr"
+  },
+  {
+   "id": "emojiLift.ts:112:walk-last",
+   "run": "mutant-28",
+   "file": "src/components/SlateEditor/utils/emojiLift.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+    "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts",
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "walk-last",
+    "line": 112,
+    "text": "unit.lineStarts.forEach((lineStart, index) => {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 270,
+   "control_tests_run": 270,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 9.77,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-28.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-28.stderr"
+  },
+  {
+   "id": "onKeyDown.ts:39:num",
+   "run": "mutant-29",
+   "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 39,
+    "text": "Transforms.setNodes(editor, { carried: undefined }, { at: [anchor.path[0]] });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 96,
+   "control_tests_run": 96,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 27.2,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-29.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-29.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:151:<=",
+   "run": "mutant-30",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "<=",
+    "line": 151,
+    "text": "const at = line.children.findIndex((child, i) => !isEmojiElement(child) && flat <= starts[i] + widthOf(child));"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret at the end of the text in front of a second element at the same place in the text"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 29.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-30.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-30.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:161:if-false",
+   "run": "mutant-31",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 161,
+    "text": "if (!Text.isText(prev) || !Text.isText(next)) {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 26.22,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-31.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-31.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:363:num:2",
+   "run": "mutant-32",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 363,
+    "text": "const lineIndex = editor.selection ? Range.start(editor.selection).path[0] : -1;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.67,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-32.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-32.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:371:true",
+   "run": "mutant-33",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 371,
+    "text": "Transforms.setNodes(editor, { quotePrefix: QUOTE_MARKER, carried: true }, { at });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 128,
+   "control_tests_run": 128,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-33.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-sweep-223c078-survivors/223c0789831f923ff8599435ba61544897c15e8d-20261124T062701Z-p2581417-mutant-33.stderr"
+  }
+ ],
+ "score": "8 of 33 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m6-mutants-223c078-survivors.json (blob 6c1d92b765a3817bdeb60f6eadfee0a88a18ac84))"
+}

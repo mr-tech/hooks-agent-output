@@ -1,0 +1,31 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > builds the element of a span with the span's own image, alt and title and no line fields set
+AssertionError: expected { type: 'emoji', lang: '', …(8) } to deeply equal { type: 'emoji', lang: '', …(8) }
+
+- Expected
++ Received
+
+@@ -9,9 +9,9 @@
+    "custom": true,
+    "empty": false,
+    "lang": "",
+    "source": "<:n:123>",
+    "src": "https://cdn.discordapp.com/emojis/123.png",
+-   "startCodeBlock": false,
++   "startCodeBlock": true,
+    "title": "n",
+    "type": "emoji",
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:70:34
+     68|   it('builds the element of a span with the span\'s own image, alt and…
+     69|     const [span] = emojiLayout('content', 'x <:n:123>')?.emojis ?? [];
+     70|     expect(emojiElementOf(span)).toEqual({
+       |                                  ^
+     71|       type: 'emoji',
+     72|       lang: '',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

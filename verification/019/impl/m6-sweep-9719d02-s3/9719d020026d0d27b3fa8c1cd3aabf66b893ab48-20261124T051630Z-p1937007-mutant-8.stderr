@@ -1,0 +1,31 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace
+AssertionError: expected [ '> ```\n> x\n> ', …(1) ] to deeply equal [ '> ```\n> x\n', …(1) ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    "> ```
+  > x
+- ",
++ > ",
+    [
+      "blockQuote",
+      "codeBlock",
+      "codeBlock",
+    ],
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:87:87
+     85|     const editor = enterAt('> ```\n> x', 1, 'end');
+     86|     pressBackspace(editor);
+     87|     expect([textOf(editor), (editor.children as Element[]).map((line) …
+       |                                                                                       ^
+     88|   });
+     89|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

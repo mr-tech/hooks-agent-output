@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork6/20261124T062701Z-p2581417/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (27 tests | 1 failed) 141ms
+     × is cleared when the marker of a carried code line is deleted by hand 11ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 127 passed (128)
+   Start at  06:34:16
+   Duration  26.90s (transform 1.87s, setup 371ms, import 5.48s, tests 52.79s, environment 5.89s)
+

@@ -1,0 +1,42 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T051630Z-p1937009/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 8 failed) 165ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 44ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 14ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 17ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 34ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 8ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 3ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 7ms
+     × puts an emoji in a link label back to text once "](" is typed after it 5ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 5 failed) 647ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 280ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 196ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 39ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 63ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 34ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 8 failed) 14542ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 133ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 74ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 451ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 408ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 55ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 36ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 260ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 458ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 24490ms
+     × hands the message that text in a full-markdown editor 12320ms
+     × hands the message that text in a single-line editor 11960ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 4 failed) 47151ms
+     × hands the message that text in a full-markdown editor 3918ms
+     × hands the message that text in a single-line editor 3076ms
+     × hands the message that text in a full-markdown editor 25372ms
+     × hands the message that text in a single-line editor 4406ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  27 failed | 78 passed (105)
+     Errors  172 errors
+   Start at  05:26:41
+   Duration  51.16s (transform 2.77s, setup 367ms, import 8.13s, tests 87.13s, environment 7.08s)
+

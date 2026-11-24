@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-3
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (21 tests | 1 failed) 268ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 14ms
+
+ Test Files  1 failed | 9 passed (10)
+      Tests  1 failed | 265 passed (266)
+   Start at  05:57:08
+   Duration  15.98s (transform 6.05s, setup 395ms, import 12.05s, tests 20.51s, environment 8.00s)
+

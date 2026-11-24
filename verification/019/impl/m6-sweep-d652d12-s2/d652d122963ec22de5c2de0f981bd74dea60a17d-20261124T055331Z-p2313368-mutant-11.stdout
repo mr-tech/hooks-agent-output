@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T055331Z-p2313368/mutant-11
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 165ms
+     × parses a unit of 51 text nodes once 28ms
+     × parses a unit of three lines once, and a unit after a code block once more 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 12 failed) 145ms
+     × carries bold across an emoji element 28ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × carries italic across an emoji element on a quote line 4ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 5ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 10ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 14ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 4ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 189ms
+     × matches the frozen box on every input, an emoji element's source characters left out 150ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 28981ms
+     × on embedDescription, every content character carries the style set its preview gives it 6685ms
+     × on fieldValue, every content character carries the style set its preview gives it 5428ms
+     × on embedTitle, every content character carries the style set its preview gives it 5091ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5845ms
+     × on v2Text, every content character carries the style set its preview gives it 5920ms
+
+ Test Files  4 failed | 5 passed (9)
+      Tests  20 failed | 74 passed (94)
+   Start at  06:00:40
+   Duration  31.87s (transform 1.75s, setup 56ms, import 5.02s, tests 42.79s, environment 3.16s)
+

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-27
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 3 failed) 234ms
+     × at the end of a quote line saves what the table says 75ms
+     × in the middle of a quote line saves what the table says 29ms
+     × at the end of a quote line that opens a fence saves what the table says 9ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  3 failed | 112 passed (115)
+   Start at  06:13:29
+   Duration  52.12s (transform 3.73s, setup 286ms, import 12.86s, tests 95.09s, environment 10.78s)
+

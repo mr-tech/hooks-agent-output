@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T055331Z-p2313370/mutant-4
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (21 tests | 2 failed) 140ms
+     × holds a span of a layout when only the start matches 10ms
+     × holds a span of a layout when only the end matches 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 1 failed) 667ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 91ms
+
+ Test Files  2 failed | 8 passed (10)
+      Tests  3 failed | 263 passed (266)
+   Start at  05:57:17
+   Duration  15.68s (transform 4.58s, setup 191ms, import 13.04s, tests 25.96s, environment 5.57s)
+

@@ -1,0 +1,217 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 1,000 generator inputs whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "-# ``🏴󠁧󠁢󠁥󠁮󠁧󠁿 [:smile:](https://x.y)
++ # ``❤️``
++ <@&1558266761101447248>[a 🙂 b](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+Error: Cannot find a descendant at path [0,2] in node: {"children":[{"type":"div","lang":"","startCodeBlock":false,"empty":true,"children":[{"type":"span","text":":thumbsup::skin-tone-3"}]}],"operations":[],"selection":{"anchor":{"path":[0,0],"offset":22},"focus":{"path":[0,2],"offset":12},"classNames":[]},"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,0],"offset":0,"text":":"},{"type":"insert_text","path":[0,0],"offset":1,"text":"t"},{"type":"insert_text","path":[0,0],"offset":2,"text":"h"},{"type":"insert_text","path":[0,0],"offset":3,"text":"u"},{"type":"insert_text","path":[0,0],"offset":4,"text":"m"},{"type":"insert_text","path":[0,0],"offset":5,"text":"b"},{"type":"insert_text","path":[0,0],"offset":6,"text":"s"},{"type":"insert_text","path":[0,0],"offset":7,"text":"u"},{"type":"insert_text","path":[0,0],"offset":8,"text":"p"},{"type":"insert_text","path":[0,0],"offset":9,"text":":"},{"type":"remove_text","path":[0,0],"offset":0,"text":":thumbsup:"},{"type":"insert_node","path":[0,1],"node":{"type":"emoji","lang":"","startCodeBlock":false,"empty":false,"children":[{"type":"span","text":""}],"source":":thumbsup:","src":"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d.svg","alt":"👍","title":"","custom":false}},{"type":"insert_node","path":[0,2],"node":{"type":"span","text":""}}],"selectionBefore":{"anchor":{"path":[0,0],"offset":0},"focus":{"path":[0,0],"offset":0}}},{"operations":[{"type":"insert_text","path":[0,2],"offset":0,"text":":"},{"type":"insert_text","path":[0,2],"offset":1,"text":"s"},{"type":"insert_text","path":[0,2],"offset":2,"text":"k"},{"type":"insert_text","path":[0,2],"offset":3,"text":"i"},{"type":"insert_text","path":[0,2],"offset":4,"text":"n"},{"type":"insert_text","path":[0,2],"offset":5,"text":"-"},{"type":"insert_text","path":[0,2],"offset":6,"text":"t"},{"type":"insert_text","path":[0,2],"offset":7,"text":"o"},{"type":"insert_text","path":[0,2],"offset":8,"text":"n"},{"type":"insert_text","path":[0,2],"offset":9,"text":"e"},{"type":"insert_text","path":[0,2],"offset":10,"text":"-"},{"type":"insert_text","path":[0,2],"offset":11,"text":"3"},{"type":"remove_node","path":[0,2],"node":{"type":"span","text":":skin-tone-3"}},{"type":"remove_node","path":[0,1],"node":{"type":"emoji","lang":"","startCodeBlock":false,"empty":false,"children":[{"type":"span","text":""}],"source":":thumbsup:","src":"https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d.svg","alt":"👍","title":"","custom":false}},{"type":"insert_text","path":[0,0],"offset":0,"text":":thumbsup::skin-tone-3"}],"selectionBefore":{"anchor":{"path":[0,2],"offset":0},"focus":{"path":[0,2],"offset":0}}}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:418:12
+ ❯ get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:513:22
+ ❯ leaf node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/leaf.ts:6:20
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:148:27
+ ❯ leaf node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:870:18
+ ❯ leaf node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-text/delete-text.ts:154:28
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-text/delete-text.ts:11:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](https://x.y)" is typed after it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element back to text once a web address is typed in front of it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element of the second line of a code block back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts each emoji element of a fenced code line back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+TypeError: Cannot read properties of null (reading 'focus')
+ ❯ revertToText src/components/SlateEditor/utils/withNormalizeNode.ts:177:76
+    175|   const { selection } = editor;
+    176|   const anchored = selection?.anchor.path[0] === lineIndex ? moved(sel…
+    177|   const focused = selection?.focus.path[0] !== lineIndex ? moved(selec…
+       |                                                                            ^
+    178|
+    179|   Editor.withoutNormalizing(editor, () => {
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:117:5
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:301:3
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:387:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the first line when the second is edited back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the second line when the third is edited back to text
+TypeError: Cannot read properties of null (reading 'focus')
+ ❯ revertToText src/components/SlateEditor/utils/withNormalizeNode.ts:177:76
+    175|   const { selection } = editor;
+    176|   const anchored = selection?.anchor.path[0] === lineIndex ? moved(sel…
+    177|   const focused = selection?.focus.path[0] !== lineIndex ? moved(selec…
+       |                                                                            ^
+    178|
+    179|   Editor.withoutNormalizing(editor, () => {
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:117:5
+ ❯ handleEditor src/components/SlateEditor/utils/withNormalizeNode.ts:90:11
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:385:36
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -5,12 +5,13 @@
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 4,
++     "offset": 0,
+      "path": [
+        0,
++       1,
+        0,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret right after the element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -5,12 +5,12 @@
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 4,
++     "offset": 0,
+      "path": [
+-       0,
+        0,
++       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret after the element and a typed backtick at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -5,12 +5,12 @@
+        0,
+        0,
+      ],
+    },
+    {
+-     "offset": 5,
++     "offset": 1,
+      "path": [
+-       0,
+        0,
++       2,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+@@ -8,9 +8,10 @@
+    },
+    {
+      "offset": 0,
+      "path": [
+        0,
+-       2,
++       3,
++       0,
+      ],
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:143:65
+    141|     Transforms.select(editor, caret);
+    142|     edits.forEach(([path, offset, typed]) => Transforms.insertText(edi…
+    143|     expect([editor.selection?.anchor, editor.selection?.focus]).toEqua…
+       |                                                                 ^
+    144|   });
+    145| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+

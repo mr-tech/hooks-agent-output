@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T055331Z-p2313369/mutant-25
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 14 failed) 139ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 7ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 2ms
+     × puts an emoji element on the first line when the second is edited back to text 4ms
+     × puts an emoji element on the second line when the third is edited back to text 2ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 9ms
+     × puts an emoji element back to text once a web address is typed in front of it 1ms
+     × puts an emoji element of the second line of a code block back to text 4ms
+     × puts each emoji element of a fenced code line back to text 2ms
+     × puts a caret in front of the element at the same place in the text 2ms
+     × puts a caret right in front of the element at the same place in the text 1ms
+     × puts a caret on the element at the same place in the text 2ms
+     × puts a caret right after the element at the same place in the text 1ms
+     × puts a caret after the element and a typed backtick at the same place in the text 1ms
+     × puts a caret on a second element at the same place in the text 18ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 171ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 28ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 12ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 21183ms
+     × hands the message that text in a full-markdown editor 11791ms
+     × hands the message that text in a single-line editor 9140ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 46804ms
+     × hands the message that text in a full-markdown editor 23829ms
+
+ Test Files  4 failed | 3 passed (7)
+      Tests  19 failed | 96 passed (115)
+     Errors  5 errors
+   Start at  06:11:19
+   Duration  51.62s (transform 5.10s, setup 332ms, import 12.64s, tests 84.22s, environment 8.84s)
+

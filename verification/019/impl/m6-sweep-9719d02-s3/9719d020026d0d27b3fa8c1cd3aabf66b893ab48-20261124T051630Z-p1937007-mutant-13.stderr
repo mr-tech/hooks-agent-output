@@ -1,0 +1,157 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:135', 'corpus:136', …(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:135",
++   "corpus:136",
++   "corpus:261",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:261', 'gen:865', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:261",
++   "gen:865",
++   "gen:999",
++   "gen:1136",
++   "gen:1623",
++   "gen:1760",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:261', 'gen:865', …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:261",
++   "gen:865",
++   "gen:999",
++   "gen:1623",
++   "gen:1760",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts > the content editor colours each character as the native box does > matches the frozen box on every input, an emoji element's source characters left out
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[te
++ xt](https://example.com)",
++   "```
++ ```",
++   "```js
++ ```",
++   "||> q||",
++   ">>> a
++ > _
++ > _b_",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts:111:23
+    109|     expect(compared).toBeGreaterThan(200);
+    110|     expect(withElement).toBeGreaterThanOrEqual(10);
+    111|     expect(differing).toEqual([]);
+       |                       ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > parses only the edited element's unit on the next pass, with its new text
+AssertionError: expected [ [ 'content', '> *bc*' ] ] to deeply equal [ [ 'content', '*bc*' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
+-     "*bc*",
++     "> *bc*",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:74:22
+     72|     editor.children = after as Descendant[];
+     73|     decorateAll(decorate, after);
+     74|     expect(parses()).toEqual([['content', '*bc*']]);
+       |                      ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts > the editor asks the engine once for each run of lines, however many text nodes it holds > keeps the styles of the last 512 units it parsed > keeps the second unit and parses the oldest again, when 513 units have been drawn
+AssertionError: expected [ [ 'content', '> unit 0' ] ] to deeply equal [ [ 'content', 'unit 0' ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "content",
+-     "unit 0",
++     "> unit 0",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts:105:24
+    103|       expect(parses()).toHaveLength(0);
+    104|       at(0);
+    105|       expect(parses()).toEqual([['content', 'unit 0']]);
+       |                        ^
+    106|     });
+    107|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+

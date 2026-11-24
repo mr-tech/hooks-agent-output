@@ -1,0 +1,6987 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 30 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it
+Error: Cannot find a descendant at path [0,2] in node: {"children":[{"type":"div","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"👍"}],"empty":false}],"operations":[],"selection":null,"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,2],"offset":0,"text":"🏽"}],"selectionBefore":null}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:418:12
+ ❯ get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:532:21
+ ❯ Object.n node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3381:775
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/levels.ts:22:2
+ ❯ Object.n node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/dist/index.js:1696:775
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:381:2
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:157:24
+ ❯ apply node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/plugin/with-react.ts:74:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the first line when the second is edited back to text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji element on the second line when the third is edited back to text
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:90:28
+     88|     const editor = holding(text);
+     89|     const holdsElement = () => shown(editor, index).some((part) => par…
+     90|     expect(holdsElement()).toBe(true);
+       |                            ^
+     91|     Transforms.insertText(editor, '`', { at: where });
+     92|     expect(holdsElement()).toBe(false);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](https://x.y)" is typed after it
+Error: Cannot find a descendant at path [0,2] in node: {"children":[{"type":"div","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"[🙂"}],"empty":false}],"operations":[],"selection":null,"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,2],"offset":0,"text":"](https://x.y)"}],"selectionBefore":null}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:418:12
+ ❯ get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:532:21
+ ❯ Object.n node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3381:775
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/levels.ts:22:2
+ ❯ Object.n node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/dist/index.js:1696:775
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:381:2
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:157:24
+ ❯ apply node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/plugin/with-react.ts:74:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer deciding again where an emoji element sits > puts an emoji in a link label back to text once "](" is typed after it
+Error: Cannot find a descendant at path [0,2] in node: {"children":[{"type":"div","lang":"","startCodeBlock":false,"children":[{"type":"span","text":"[🙂"}],"empty":false}],"operations":[],"selection":null,"marks":null,"history":{"undos":[{"operations":[{"type":"insert_text","path":[0,2],"offset":0,"text":"]("}],"selectionBefore":null}],"redos":[]}}
+ ❯ Object.get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:418:12
+ ❯ get node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/node.ts:532:21
+ ❯ Object.n node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3381:775
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/levels.ts:22:2
+ ❯ Object.n node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/dist/index.js:1696:775
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:381:2
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:157:24
+ ❯ apply node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/plugin/with-react.ts:74:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+AssertionError: expected [ '#:skin-tone-1`:ok:*.:ok:', …(1584) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "#:skin-tone-1`:ok:*.:ok:",
++   "#:skin-tone-1`:ok:`*.:ok:",
++   "#:skin-tone-1:ok:`*.:ok:",
++   "#:skin-tone-1:ok:*.:ok:",
++   "#:skin-tone-1:ok:*.`:ok:",
++   "\\:skin-tone-1:a_:o`🔥",
++   ":o`❤️",
++   ":skin-tone-1a:up*:100`<:x:123>",
++   ":x*.:b`🙂:ok:",
++   ":x*.:b`🙂`:ok:",
++   ":x*.:b🙂`:ok:",
++   ":x*.:b🙂:ok:",
++   ":x*.:b🙂`:ok:",
++   "*`:ok:🙂",
++   "*`:ok:`🙂",
++   "*:ok:`🙂",
++   "*:ok:🙂",
++   "*:ok:`🙂",
++   "`:ok:🔥",
++   "`:ok:`🔥",
++   ":ok:`🔥",
++   ":ok:🔥",
++   ":ok:`🔥",
++   "thumbsup::mthumbsup`:thumbsup::o::🔥",
++   "thumbsup::mthumbsup`:thumbsup:`:o::🔥",
++   "thumbsup::mthumbsup:thumbsup:`:o::🔥",
++   "thumbsup::mthumbsup:thumbsup::o::🔥",
++   "thumbsup::mthumbsup:thumbsup:`:o::🔥",
++   "thumbsup::mthumbsup:thumbsup:`:o:`:🔥",
++   "thumbsup::mthumbsup:thumbsup::o:`:🔥",
++   "thumbsup::mthumbsup:thumbsup::o::🔥",
++   "thumbsup::mthumbsup:thumbsup::o::`🔥",
++   "#`<:x:123>",
++   "`🙂",
++   "`<:x:123>",
++   ":~~:okthumbsup:`:100:skin-tone-1🙂",
++   ":~~:okthumbsup:`:100:`skin-tone-1🙂",
++   ":~~:okthumbsup::100:`skin-tone-1🙂",
++   ":~~:okthumbsup::100:skin-tone-1🙂",
++   ":~~:okthumbsup::100:skin-tone-1`🙂",
++   "o`:ok::id:100🙂",
++   "o`:ok:`:id:100🙂",
++   "o:ok:`:id:100🙂",
++   "o:ok::id:100🙂",
++   "o:ok:`:id:100🙂",
++   "o:ok:`:id:`100🙂",
++   "o:ok::id:`100🙂",
++   "o:ok::id:100🙂",
++   "o:ok::id:100`🙂",
++   "`🔥:100ok:a  ok:🙂",
++   "`🔥`:100ok:a  ok:🙂",
++   "🔥`:100ok:a  ok:🙂",
++   "🔥:100ok:a  ok:🙂",
++   "🔥:100ok:a  ok:`🙂",
++   "`❤️#o:thumbsup:~~❤️:cool🙂",
++   "`❤️`#o:thumbsup:~~❤️:cool🙂",
++   "❤️`#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o`:thumbsup:~~❤️:cool🙂",
++   "❤️#o`:thumbsup:`~~❤️:cool🙂",
++   "❤️#o:thumbsup:`~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~`❤️:cool🙂",
++   "❤️#o:thumbsup:~~`❤️`:cool🙂",
++   "❤️#o:thumbsup:~~❤️`:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool`🙂",
++   "`:o:cool\\#:up:m 🔥",
++   "`:o:`cool\\#:up:m 🔥",
++   ":o:`cool\\#:up:m 🔥",
++   ":o:cool\\#:up:m 🔥",
++   ":o:cool\\#`:up:m 🔥",
++   ":o:cool\\#`:up:`m 🔥",
++   ":o:cool\\#:up:`m 🔥",
++   ":o:cool\\#:up:m 🔥",
++   ":o:cool\\#:up:m `🔥",
++   "`:thumbsup:",
++   "\\❤️`:ok:",
++   "`<:x:123>:100:x:a:",
++   "`<:x:123>`:100:x:a:",
++   "<:x:123>`:100:x:a:",
++   "<:x:123>:100:x:a:",
++   "<:x:123>`:100:x:a:",
++   "<:x:123>`:100:`x:a:",
++   "<:x:123>:100:`x:a:",
++   "<:x:123>:100:x:a:",
++   "<:x:123>:100:x`:a:",
++   ":b#`❤️",
++   "`🙂:b:ok:👍🏻",
++   "`🙂`:b:ok:👍🏻",
++   "🙂`:b:ok:👍🏻",
++   "🙂:b:ok:👍🏻",
++   "🙂`:b:ok:👍🏻",
++   "🙂`:b:`ok:👍🏻",
++   "🙂:b:`ok:👍🏻",
++   "🙂:b:ok:👍🏻",
++   "🙂:b:ok:`👍🏻",
++   "`:x:100\\❤️👍🏻",
++   "`:x:`100\\❤️👍🏻",
++   ":x:`100\\❤️👍🏻",
++   ":x:100\\❤️👍🏻",
++   ":x:100\\❤️`👍🏻",
++   "`🔥<:x:123>",
++   "`🔥`<:x:123>",
++   "🔥`<:x:123>",
++   "🔥<:x:123>",
++   "🔥`<:x:123>",
++   "`🙂:m~~:ok.<:x:123>",
++   "`🙂`:m~~:ok.<:x:123>",
++   "🙂`:m~~:ok.<:x:123>",
++   "🙂:m~~:ok.<:x:123>",
++   "🙂:m~~:ok.`<:x:123>",
++   ":up`<:x:123>:a:ok:<:x:123>🔥",
++   ":up`<:x:123>`:a:ok:<:x:123>🔥",
++   ":up<:x:123>`:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>`:a:ok:<:x:123>🔥",
++   ":up<:x:123>`:a:`ok:<:x:123>🔥",
++   ":up<:x:123>:a:`ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:`<:x:123>🔥",
++   ":up<:x:123>:a:ok:`<:x:123>`🔥",
++   ":up<:x:123>:a:ok:<:x:123>`🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>`🔥",
++   "~~:aa:100`👍🏻",
++   ":okok:`🔥",
++   "`👍🏻",
++   "_`❤️:ok:o:a.👍🏻",
++   "_`❤️`:ok:o:a.👍🏻",
++   "_❤️`:ok:o:a.👍🏻",
++   "_❤️:ok:o:a.👍🏻",
++   "_❤️`:ok:o:a.👍🏻",
++   "_❤️`:ok:`o:a.👍🏻",
++   "_❤️:ok:`o:a.👍🏻",
++   "_❤️:ok:o:a.👍🏻",
++   "_❤️:ok:o:a.`👍🏻",
++   "`:b:up🔥",
++   "`:b:`up🔥",
++   ":b:`up🔥",
++   ":b:up🔥",
++   ":b:up`🔥",
++   "`👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "`👍🏻`\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻`\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up`:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up`:a:`cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:`cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool`👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool`👍🏻`<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻`<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻`<:x:123>",
++   "`👍🏻",
++   "*`🔥❤️👍🏻:x🔥",
++   "*`🔥`❤️👍🏻:x🔥",
++   "*🔥`❤️👍🏻:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥`❤️👍🏻:x🔥",
++   "*🔥`❤️`👍🏻:x🔥",
++   "*🔥❤️`👍🏻:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥❤️`👍🏻:x🔥",
++   "*🔥❤️`👍🏻`:x🔥",
++   "*🔥❤️👍🏻`:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥❤️👍🏻:x`🔥",
++   "`:id:o:cool:",
++   "`:id:`o:cool:",
++   ":id:`o:cool:",
++   ":id:o:cool:",
++   ":id:o`:cool:",
++   "`👍🏻\\ thumbsup::ok:🔥",
++   "`👍🏻`\\ thumbsup::ok:🔥",
++   "👍🏻`\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup:`:ok:🔥",
++   "👍🏻\\ thumbsup:`:ok:`🔥",
++   "👍🏻\\ thumbsup::ok:`🔥",
++   "👍🏻\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup::ok:`🔥",
++   ".o:`🔥",
++   "`:up:ba🔥",
++   "`:up:`ba🔥",
++   ":up:`ba🔥",
++   ":up:ba🔥",
++   ":up:ba`🔥",
++   "`:ok:cool🙂#<:x:123>",
++   "`:ok:`cool🙂#<:x:123>",
++   ":ok:`cool🙂#<:x:123>",
++   ":ok:cool🙂#<:x:123>",
++   ":ok:cool`🙂#<:x:123>",
++   ":ok:cool`🙂`#<:x:123>",
++   ":ok:cool🙂`#<:x:123>",
++   ":ok:cool🙂#<:x:123>",
++   ":ok:cool🙂#`<:x:123>",
++   ":skin-tone-1:o`❤️",
++   "_:id`🙂❤️o::id:ok:o:",
++   "_:id`🙂`❤️o::id:ok:o:",
++   "_:id🙂`❤️o::id:ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "_:id🙂`❤️o::id:ok:o:",
++   "_:id🙂`❤️`o::id:ok:o:",
++   "_:id🙂❤️`o::id:ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "_:id🙂❤️o:`:id:ok:o:",
++   "_:id🙂❤️o:`:id:`ok:o:",
++   "_:id🙂❤️o::id:`ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "_:id🙂❤️o::id:ok`:o:",
++   "o:#`:up:",
++   "o:*:coolo:a.`:id:",
++   ":xo:\\~~~~`:ok:🙂",
++   ":xo:\\~~~~`:ok:`🙂",
++   ":xo:\\~~~~:ok:`🙂",
++   ":xo:\\~~~~:ok:🙂",
++   ":xo:\\~~~~:ok:`🙂",
++   ":skin-tone-1~~:ok_`👍🏻",
++   ":#`❤️",
++   "::x`👍🏻:cool:b🔥",
++   "::x`👍🏻`:cool:b🔥",
++   "::x👍🏻`:cool:b🔥",
++   "::x👍🏻:cool:b🔥",
++   "::x👍🏻`:cool:b🔥",
++   "::x👍🏻`:cool:`b🔥",
++   "::x👍🏻:cool:`b🔥",
++   "::x👍🏻:cool:b🔥",
++   "::x👍🏻:cool:b`🔥",
++   "`:o:100❤️",
++   "`:o:`100❤️",
++   ":o:`100❤️",
++   ":o:100❤️",
++   ":o:100`❤️",
++   "`👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "`👍🏻`🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻`🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻`🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻`🔥`:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥`:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok`🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok`🙂`ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂`ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o`🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o`🙂`<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂`<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂`<:x:123>",
++   "`❤️",
++   ":x`❤️",
++   ":ok`👍🏻👍🏻:bo:",
++   ":ok`👍🏻`👍🏻:bo:",
++   ":ok👍🏻`👍🏻:bo:",
++   ":ok👍🏻👍🏻:bo:",
++   ":ok👍🏻`👍🏻:bo:",
++   ":ok👍🏻`👍🏻`:bo:",
++   ":ok👍🏻👍🏻`:bo:",
++   ":ok👍🏻👍🏻:bo:",
++   ":ok👍🏻👍🏻`:bo:",
++   ":b.`<:x:123>",
++   "*`:ok:",
++   ":100`👍🏻:mo:",
++   ":100`👍🏻`:mo:",
++   ":100👍🏻`:mo:",
++   ":100👍🏻:mo:",
++   ":100👍🏻`:mo:",
++   "*thumbsup:~~:skin-tone-1`🙂::ok:",
++   "*thumbsup:~~:skin-tone-1`🙂`::ok:",
++   "*thumbsup:~~:skin-tone-1🙂`::ok:",
++   "*thumbsup:~~:skin-tone-1🙂::ok:",
++   "*thumbsup:~~:skin-tone-1🙂:`:ok:",
++   ".:x`👍🏻#❤️<:x:123>",
++   ".:x`👍🏻`#❤️<:x:123>",
++   ".:x👍🏻`#❤️<:x:123>",
++   ".:x👍🏻#❤️<:x:123>",
++   ".:x👍🏻#`❤️<:x:123>",
++   ".:x👍🏻#`❤️`<:x:123>",
++   ".:x👍🏻#❤️`<:x:123>",
++   ".:x👍🏻#❤️<:x:123>",
++   ".:x👍🏻#❤️`<:x:123>",
++   "._.`👍🏻",
++   "`🙂",
++   "`:ok:❤️ok:*:ok:",
++   "`:ok:`❤️ok:*:ok:",
++   ":ok:`❤️ok:*:ok:",
++   ":ok:❤️ok:*:ok:",
++   ":ok:`❤️ok:*:ok:",
++   ":ok:`❤️`ok:*:ok:",
++   ":ok:❤️`ok:*:ok:",
++   ":ok:❤️ok:*:ok:",
++   ":ok:❤️ok:*`:ok:",
++   "_`:ok::ok:id#:skin-tone-1.🔥",
++   "_`:ok:`:ok:id#:skin-tone-1.🔥",
++   "_:ok:`:ok:id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.🔥",
++   "_:ok:`:ok:id#:skin-tone-1.🔥",
++   "_:ok:`:ok:`id#:skin-tone-1.🔥",
++   "_:ok::ok:`id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.`🔥",
++   ":upok:`🙂",
++   ":b :b`<:x:123><:x:123>",
++   ":b :b`<:x:123>`<:x:123>",
++   ":b :b<:x:123>`<:x:123>",
++   ":b :b<:x:123><:x:123>",
++   ":b :b<:x:123>`<:x:123>",
++   "~~`:ok:<:x:123><:x:123>",
++   "~~`:ok:`<:x:123><:x:123>",
++   "~~:ok:`<:x:123><:x:123>",
++   "~~:ok:<:x:123><:x:123>",
++   "~~:ok:`<:x:123><:x:123>",
++   "~~:ok:`<:x:123>`<:x:123>",
++   "~~:ok:<:x:123>`<:x:123>",
++   "~~:ok:<:x:123><:x:123>",
++   "~~:ok:<:x:123>`<:x:123>",
++   "ok:`🙂.:cool<:x:123>:ok:",
++   "ok:`🙂`.:cool<:x:123>:ok:",
++   "ok:🙂`.:cool<:x:123>:ok:",
++   "ok:🙂.:cool<:x:123>:ok:",
++   "ok:🙂.:cool`<:x:123>:ok:",
++   "ok:🙂.:cool`<:x:123>`:ok:",
++   "ok:🙂.:cool<:x:123>`:ok:",
++   "ok:🙂.:cool<:x:123>:ok:",
++   "ok:🙂.:cool<:x:123>`:ok:",
++   "`:ok:a:ok::a:id:ok:",
++   "`:ok:`a:ok::a:id:ok:",
++   ":ok:`a:ok::a:id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a`:ok::a:id:ok:",
++   ":ok:a`:ok:`:a:id:ok:",
++   ":ok:a:ok:`:a:id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a:ok:`:a:id:ok:",
++   ":ok:a:ok:`:a:`id:ok:",
++   ":ok:a:ok::a:`id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a:ok::a:id`:ok:",
++   "`❤️",
++   ":100thumbsup:`🙂",
++   ".`🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".`🔥`👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥`👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥`👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥`👍🏻` ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻` ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 `❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 `❤️`:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️`:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a`:ok:",
++   "\\❤️:o`<:x:123> a🔥",
++   "\\❤️:o`<:x:123>` a🔥",
++   "\\❤️:o<:x:123>` a🔥",
++   "\\❤️:o<:x:123> a🔥",
++   "\\❤️:o<:x:123> a`🔥",
++   "`<:x:123>:cool🔥",
++   "`<:x:123>`:cool🔥",
++   "<:x:123>`:cool🔥",
++   "<:x:123>:cool🔥",
++   "<:x:123>:cool`🔥",
++   "ok::cool*:x`<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x`<:x:123>`<:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123>`<:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123>`<:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123>`<:x:123>`👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>`👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>`👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>`👍🏻`<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻`<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻`<:x:123>",
++   ":100thumbsup:`:100:cool~~🔥",
++   ":100thumbsup:`:100:`cool~~🔥",
++   ":100thumbsup::100:`cool~~🔥",
++   ":100thumbsup::100:cool~~🔥",
++   ":100thumbsup::100:cool~~`🔥",
++   "`:a:ok:<:x:123><:x:123>🔥",
++   "`:a:`ok:<:x:123><:x:123>🔥",
++   ":a:`ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:`<:x:123><:x:123>🔥",
++   ":a:ok:`<:x:123>`<:x:123>🔥",
++   ":a:ok:<:x:123>`<:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123>`<:x:123>🔥",
++   ":a:ok:<:x:123>`<:x:123>`🔥",
++   ":a:ok:<:x:123><:x:123>`🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>`🔥",
++   "`👍🏻",
++   "::`:ok:ok👍🏻",
++   "::`:ok:`ok👍🏻",
++   ":::ok:`ok👍🏻",
++   ":::ok:ok👍🏻",
++   ":::ok:ok`👍🏻",
++   "o:`🔥",
++   "`<:x:123>",
++   "_:skin-tone-1`🔥\\:m👍🏻",
++   "_:skin-tone-1`🔥`\\:m👍🏻",
++   "_:skin-tone-1🔥`\\:m👍🏻",
++   "_:skin-tone-1🔥\\:m👍🏻",
++   "_:skin-tone-1🔥\\:m`👍🏻",
++   ":id`👍🏻",
++   "`❤️",
++   "o`:ok:a<:x:123>",
++   "o`:ok:`a<:x:123>",
++   "o:ok:`a<:x:123>",
++   "o:ok:a<:x:123>",
++   "o:ok:a`<:x:123>",
++   "`🔥",
++   ":`:a:a:ok:cool<:x:123>",
++   ":`:a:`a:ok:cool<:x:123>",
++   "::a:`a:ok:cool<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "::a:a`:ok:cool<:x:123>",
++   "::a:a`:ok:`cool<:x:123>",
++   "::a:a:ok:`cool<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "::a:a:ok:cool`<:x:123>",
++   "`🙂:skin-tone-1o:🔥❤️",
++   "`🙂`:skin-tone-1o:🔥❤️",
++   "🙂`:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:`🔥❤️",
++   "🙂:skin-tone-1o:`🔥`❤️",
++   "🙂:skin-tone-1o:🔥`❤️",
++   "🙂:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:🔥`❤️",
++   "`:ok:#:up ❤️👍🏻",
++   "`:ok:`#:up ❤️👍🏻",
++   ":ok:`#:up ❤️👍🏻",
++   ":ok:#:up ❤️👍🏻",
++   ":ok:#:up `❤️👍🏻",
++   ":ok:#:up `❤️`👍🏻",
++   ":ok:#:up ❤️`👍🏻",
++   ":ok:#:up ❤️👍🏻",
++   ":ok:#:up ❤️`👍🏻",
++   "*`:o:cool:id:cool~~🙂",
++   "*`:o:`cool:id:cool~~🙂",
++   "*:o:`cool:id:cool~~🙂",
++   "*:o:cool:id:cool~~🙂",
++   "*:o:cool`:id:cool~~🙂",
++   "*:o:cool`:id:`cool~~🙂",
++   "*:o:cool:id:`cool~~🙂",
++   "*:o:cool:id:cool~~🙂",
++   "*:o:cool:id:cool~~`🙂",
++   "thumbsup:::oka`:100:ok:ok:",
++   "thumbsup:::oka`:100:`ok:ok:",
++   "thumbsup:::oka:100:`ok:ok:",
++   "thumbsup:::oka:100:ok:ok:",
++   "thumbsup:::oka:100:ok`:ok:",
++   "`🔥<:x:123> :skin-tone-1a🙂",
++   "`🔥`<:x:123> :skin-tone-1a🙂",
++   "🔥`<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   "🔥`<:x:123> :skin-tone-1a🙂",
++   "🔥`<:x:123>` :skin-tone-1a🙂",
++   "🔥<:x:123>` :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a`🙂",
++   ":*`🙂:b:a❤️❤️",
++   ":*`🙂`:b:a❤️❤️",
++   ":*🙂`:b:a❤️❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂`:b:a❤️❤️",
++   ":*🙂`:b:`a❤️❤️",
++   ":*🙂:b:`a❤️❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂:b:a`❤️❤️",
++   ":*🙂:b:a`❤️`❤️",
++   ":*🙂:b:a❤️`❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂:b:a❤️`❤️",
++   "~~:up`<:x:123>",
++   ".`👍🏻",
++   "o:`❤️ a:100🔥:o❤️",
++   "o:`❤️` a:100🔥:o❤️",
++   "o:❤️` a:100🔥:o❤️",
++   "o:❤️ a:100🔥:o❤️",
++   "o:❤️ a:100`🔥:o❤️",
++   "o:❤️ a:100`🔥`:o❤️",
++   "o:❤️ a:100🔥`:o❤️",
++   "o:❤️ a:100🔥:o❤️",
++   "o:❤️ a:100🔥:o`❤️",
++   "thumbsup:`:ok::x_:x.:b👍🏻",
++   "thumbsup:`:ok:`:x_:x.:b👍🏻",
++   "thumbsup::ok:`:x_:x.:b👍🏻",
++   "thumbsup::ok::x_:x.:b👍🏻",
++   "thumbsup::ok::x_:x.:b`👍🏻",
++   "`👍🏻",
++   "`<:x:123>",
++   " _thumbsup`:o: 🙂",
++   " _thumbsup`:o:` 🙂",
++   " _thumbsup:o:` 🙂",
++   " _thumbsup:o: 🙂",
++   " _thumbsup:o: `🙂",
++   "`👍🏻❤️*🙂:b:",
++   "`👍🏻`❤️*🙂:b:",
++   "👍🏻`❤️*🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻`❤️*🙂:b:",
++   "👍🏻`❤️`*🙂:b:",
++   "👍🏻❤️`*🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻❤️*`🙂:b:",
++   "👍🏻❤️*`🙂`:b:",
++   "👍🏻❤️*🙂`:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻❤️*🙂`:b:",
++   ":ba_.`❤️",
++   "`:ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   "`:ok:`cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:`cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m`🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m`🙂`:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂`:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m`🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m`🔥`thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥`thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:`👍🏻",
++   "`❤️:cool:a<:x:123>:a<:x:123>",
++   "`❤️`:cool:a<:x:123>:a<:x:123>",
++   "❤️`:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️`:cool:a<:x:123>:a<:x:123>",
++   "❤️`:cool:`a<:x:123>:a<:x:123>",
++   "❤️:cool:`a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a`<:x:123>:a<:x:123>",
++   "❤️:cool:a`<:x:123>`:a<:x:123>",
++   "❤️:cool:a<:x:123>`:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a`<:x:123>",
++   "`:m:ok🙂",
++   "`:m:`ok🙂",
++   ":m:`ok🙂",
++   ":m:ok🙂",
++   ":m:ok`🙂",
++   "`❤️.<:x:123>🙂",
++   "`❤️`.<:x:123>🙂",
++   "❤️`.<:x:123>🙂",
++   "❤️.<:x:123>🙂",
++   "❤️.`<:x:123>🙂",
++   "❤️.`<:x:123>`🙂",
++   "❤️.<:x:123>`🙂",
++   "❤️.<:x:123>🙂",
++   "❤️.<:x:123>`🙂",
++   "`❤️:ok:#<:x:123>",
++   "`❤️`:ok:#<:x:123>",
++   "❤️`:ok:#<:x:123>",
++   "❤️:ok:#<:x:123>",
++   "❤️`:ok:#<:x:123>",
++   "❤️`:ok:`#<:x:123>",
++   "❤️:ok:`#<:x:123>",
++   "❤️:ok:#<:x:123>",
++   "❤️:ok:#`<:x:123>",
++   "`:o:id:x_:#🔥",
++   "`:o:`id:x_:#🔥",
++   ":o:`id:x_:#🔥",
++   ":o:id:x_:#🔥",
++   ":o:id:x_:#`🔥",
++   "_:aok:`:a:x:ok👍🏻",
++   "_:aok:`:a:`x:ok👍🏻",
++   "_:aok::a:`x:ok👍🏻",
++   "_:aok::a:x:ok👍🏻",
++   "_:aok::a:x:ok`👍🏻",
++   "`❤️:m<:x:123>.:id\\🙂🙂",
++   "`❤️`:m<:x:123>.:id\\🙂🙂",
++   "❤️`:m<:x:123>.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂🙂",
++   "❤️:m`<:x:123>.:id\\🙂🙂",
++   "❤️:m`<:x:123>`.:id\\🙂🙂",
++   "❤️:m<:x:123>`.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂`🙂",
++   "::100#`:ok:",
++   "`:ok:",
++   ":*:skin-tone-1:skin-tone-1_*`👍🏻:ok:",
++   ":*:skin-tone-1:skin-tone-1_*`👍🏻`:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻`:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻`:ok:",
++   "o`:o::up👍🏻",
++   "o`:o:`:up👍🏻",
++   "o:o:`:up👍🏻",
++   "o:o::up👍🏻",
++   "o:o::up`👍🏻",
++   ":skin-tone-1`👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1`👍🏻`:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻`:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻`:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻`:b:`ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:`ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_`<:x:123>",
++   "`🔥",
++   "#thumbsup:.:up`❤️",
++   "`👍🏻🔥",
++   "`👍🏻`🔥",
++   "👍🏻`🔥",
++   "👍🏻🔥",
++   "👍🏻`🔥",
++   "`👍🏻o::ok:",
++   "`👍🏻`o::ok:",
++   "👍🏻`o::ok:",
++   "👍🏻o::ok:",
++   "👍🏻o:`:ok:",
++   "a\\_`:ok:",
++   ":skin-tone-1`❤️",
++   "thumbsup:`❤️",
++   ":skin-tone-1`❤️🔥*:up <:x:123>",
++   ":skin-tone-1`❤️`🔥*:up <:x:123>",
++   ":skin-tone-1❤️`🔥*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up <:x:123>",
++   ":skin-tone-1❤️`🔥*:up <:x:123>",
++   ":skin-tone-1❤️`🔥`*:up <:x:123>",
++   ":skin-tone-1❤️🔥`*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up `<:x:123>",
++   "`👍🏻🔥:bthumbsup::ok:",
++   "`👍🏻`🔥:bthumbsup::ok:",
++   "👍🏻`🔥:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "👍🏻`🔥:bthumbsup::ok:",
++   "👍🏻`🔥`:bthumbsup::ok:",
++   "👍🏻🔥`:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup:`:ok:",
++   "`❤️:m:ok:o👍🏻",
++   "`❤️`:m:ok:o👍🏻",
++   "❤️`:m:ok:o👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "❤️`:m:ok:o👍🏻",
++   "❤️`:m:`ok:o👍🏻",
++   "❤️:m:`ok:o👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "❤️:m:ok:o`👍🏻",
++   "`👍🏻",
++   "`❤️",
++   "a`<:x:123>aok::ok:a❤️",
++   "a`<:x:123>`aok::ok:a❤️",
++   "a<:x:123>`aok::ok:a❤️",
++   "a<:x:123>aok::ok:a❤️",
++   "a<:x:123>aok:`:ok:a❤️",
++   "a<:x:123>aok:`:ok:`a❤️",
++   "a<:x:123>aok::ok:`a❤️",
++   "a<:x:123>aok::ok:a❤️",
++   "a<:x:123>aok::ok:a`❤️",
++   "o::100thumbsup:*~~ :o`👍🏻",
++   "`❤️#:ok:",
++   "`❤️`#:ok:",
++   "❤️`#:ok:",
++   "❤️#:ok:",
++   "❤️#`:ok:",
++   "`👍🏻#👍🏻",
++   "`👍🏻`#👍🏻",
++   "👍🏻`#👍🏻",
++   "👍🏻#👍🏻",
++   "👍🏻#`👍🏻",
++   ".`🙂❤️",
++   ".`🙂`❤️",
++   ".🙂`❤️",
++   ".🙂❤️",
++   ".🙂`❤️",
++   "`❤️🙂",
++   "`❤️`🙂",
++   "❤️`🙂",
++   "❤️🙂",
++   "❤️`🙂",
++   "`🙂:a:",
++   "`🙂`:a:",
++   "🙂`:a:",
++   "🙂:a:",
++   "🙂`:a:",
++   "`🔥",
++   "`<:x:123>",
++   "a`:ok:",
++   "`:ao:",
++   " `🙂",
++   "`🙂:ok::100#:cool:100<:x:123>",
++   "`🙂`:ok::100#:cool:100<:x:123>",
++   "🙂`:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂`:ok::100#:cool:100<:x:123>",
++   "🙂`:ok:`:100#:cool:100<:x:123>",
++   "🙂:ok:`:100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#`:cool:100<:x:123>",
++   "🙂:ok::100#`:cool:`100<:x:123>",
++   "🙂:ok::100#:cool:`100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100`<:x:123>",
++   ":o*`:m:",
++   ".:skin-tone-1::skin-tone-1`❤️:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1`❤️`:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️`:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️:skin-tone-1`👍🏻",
++   "`:up:100 :id:ok:❤️",
++   "`:up:`100 :id:ok:❤️",
++   ":up:`100 :id:ok:❤️",
++   ":up:100 :id:ok:❤️",
++   ":up:100 `:id:ok:❤️",
++   ":up:100 `:id:`ok:❤️",
++   ":up:100 :id:`ok:❤️",
++   ":up:100 :id:ok:❤️",
++   ":up:100 :id:ok:`❤️",
++   " :ma`👍🏻:skin-tone-1🙂",
++   " :ma`👍🏻`:skin-tone-1🙂",
++   " :ma👍🏻`:skin-tone-1🙂",
++   " :ma👍🏻:skin-tone-1🙂",
++   " :ma👍🏻:skin-tone-1`🙂",
++   "~~:skin-tone-1:m`<:x:123>🔥",
++   "~~:skin-tone-1:m`<:x:123>`🔥",
++   "~~:skin-tone-1:m<:x:123>`🔥",
++   "~~:skin-tone-1:m<:x:123>🔥",
++   "~~:skin-tone-1:m<:x:123>`🔥",
++   "`👍🏻",
++   "~~`:a::id❤️",
++   "~~`:a:`:id❤️",
++   "~~:a:`:id❤️",
++   "~~:a::id❤️",
++   "~~:a::id`❤️",
++   "*:upa`🙂",
++   "`🙂::ok👍🏻",
++   "`🙂`::ok👍🏻",
++   "🙂`::ok👍🏻",
++   "🙂::ok👍🏻",
++   "🙂::ok`👍🏻",
++   "`<:x:123>",
++   ".`🙂",
++   "`<:x:123>:a👍🏻",
++   "`<:x:123>`:a👍🏻",
++   "<:x:123>`:a👍🏻",
++   "<:x:123>:a👍🏻",
++   "<:x:123>:a`👍🏻",
++   "\\<`:x:123>:\\:o:o:ok:o:",
++   "\\<`:x:`123>:\\:o:o:ok:o:",
++   "\\<:x:`123>:\\:o:o:ok:o:",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "\\<:x:123>:\\:o`:o:ok:o:",
++   "\\<:x:123>:\\:o`:o:`ok:o:",
++   "\\<:x:123>:\\:o:o:`ok:o:",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "\\<:x:123>:\\:o:o:ok`:o:",
++   "`👍🏻",
++   "`🙂o:a🙂_:up:",
++   "`🙂`o:a🙂_:up:",
++   "🙂`o:a🙂_:up:",
++   "🙂o:a🙂_:up:",
++   "🙂o:a`🙂_:up:",
++   "🙂o:a`🙂`_:up:",
++   "🙂o:a🙂`_:up:",
++   "🙂o:a🙂_:up:",
++   "🙂o:a🙂_`:up:",
++   "`:ok:100o:ok:",
++   "`:ok:`100o:ok:",
++   ":ok:`100o:ok:",
++   ":ok:100o:ok:",
++   ":ok:100o`:ok:",
++   "a`:b:skin-tone-1~~#<:x:123>",
++   "a`:b:`skin-tone-1~~#<:x:123>",
++   "a:b:`skin-tone-1~~#<:x:123>",
++   "a:b:skin-tone-1~~#<:x:123>",
++   "a:b:skin-tone-1~~#`<:x:123>",
++   ":`🔥::id:a❤️",
++   ":`🔥`::id:a❤️",
++   ":🔥`::id:a❤️",
++   ":🔥::id:a❤️",
++   ":🔥:`:id:a❤️",
++   ":🔥:`:id:`a❤️",
++   ":🔥::id:`a❤️",
++   ":🔥::id:a❤️",
++   ":🔥::id:a`❤️",
++   ". :cool`👍🏻",
++   "`🔥",
++   "o:`❤️*:skin-tone-1:id:o🔥",
++   "o:`❤️`*:skin-tone-1:id:o🔥",
++   "o:❤️`*:skin-tone-1:id:o🔥",
++   "o:❤️*:skin-tone-1:id:o🔥",
++   "o:❤️*:skin-tone-1`:id:o🔥",
++   "o:❤️*:skin-tone-1`:id:`o🔥",
++   "o:❤️*:skin-tone-1:id:`o🔥",
++   "o:❤️*:skin-tone-1:id:o🔥",
++   "o:❤️*:skin-tone-1:id:o`🔥",
++   "`:ok:<:x:123>",
++   "`:ok:`<:x:123>",
++   ":ok:`<:x:123>",
++   ":ok:<:x:123>",
++   ":ok:`<:x:123>",
++   "..`❤️:100ok::x👍🏻",
++   "..`❤️`:100ok::x👍🏻",
++   "..❤️`:100ok::x👍🏻",
++   "..❤️:100ok::x👍🏻",
++   "..❤️:100ok::x`👍🏻",
++   "`:b:x~~:bo:",
++   "`:b:`x~~:bo:",
++   ":b:`x~~:bo:",
++   ":b:x~~:bo:",
++   ":b:x~~`:bo:",
++   "`<:x:123>",
++   "`:ok:",
++   " :xok:`👍🏻",
++   "thumbsup:_`:cool:",
++   "o:\\:m`🙂:a:id:cool<:x:123>",
++   "o:\\:m`🙂`:a:id:cool<:x:123>",
++   "o:\\:m🙂`:a:id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool<:x:123>",
++   "o:\\:m🙂`:a:id:cool<:x:123>",
++   "o:\\:m🙂`:a:`id:cool<:x:123>",
++   "o:\\:m🙂:a:`id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool`<:x:123>",
++   "o:*:ida`🔥",
++   "`🔥.❤️",
++   "`🔥`.❤️",
++   "🔥`.❤️",
++   "🔥.❤️",
++   "🔥.`❤️",
++   ":x`<:x:123>",
++   "`:x:",
++   "`👍🏻",
++   "`🔥:skin-tone-1:ok:up_.:ok:",
++   "`🔥`:skin-tone-1:ok:up_.:ok:",
++   "🔥`:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1`:ok:up_.:ok:",
++   "🔥:skin-tone-1`:ok:`up_.:ok:",
++   "🔥:skin-tone-1:ok:`up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.`:ok:",
++   ".\\_ok::coolthumbsup:`🙂",
++   "`<:x:123><:x:123>",
++   "`<:x:123>`<:x:123>",
++   "<:x:123>`<:x:123>",
++   "<:x:123><:x:123>",
++   "<:x:123>`<:x:123>",
++   "o:`👍🏻",
++   "`👍🏻:up❤️:ok:",
++   "`👍🏻`:up❤️:ok:",
++   "👍🏻`:up❤️:ok:",
++   "👍🏻:up❤️:ok:",
++   "👍🏻:up`❤️:ok:",
++   "👍🏻:up`❤️`:ok:",
++   "👍🏻:up❤️`:ok:",
++   "👍🏻:up❤️:ok:",
++   "👍🏻:up❤️`:ok:",
++   "`:m:up\\#:id🔥",
++   "`:m:`up\\#:id🔥",
++   ":m:`up\\#:id🔥",
++   ":m:up\\#:id🔥",
++   ":m:up\\#:id`🔥",
++   ":skin-tone-1`👍🏻",
++   "`:up:ok~~##:cool:",
++   "`:up:`ok~~##:cool:",
++   ":up:`ok~~##:cool:",
++   ":up:ok~~##:cool:",
++   ":up:ok~~##`:cool:",
++   ":m`<:x:123>",
++   "`:ok:",
++   "~~`🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~`🙂`:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂`:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1`:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1`:o:`idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:`idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup`:thumbsup:",
++   "`:ok:xa:skin-tone-1👍🏻🔥",
++   "`:ok:`xa:skin-tone-1👍🏻🔥",
++   ":ok:`xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1`👍🏻🔥",
++   ":ok:xa:skin-tone-1`👍🏻`🔥",
++   ":ok:xa:skin-tone-1👍🏻`🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻`🔥",
++   "._`❤️❤️:ok:ok:ok:",
++   "._`❤️`❤️:ok:ok:ok:",
++   "._❤️`❤️:ok:ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️`❤️:ok:ok:ok:",
++   "._❤️`❤️`:ok:ok:ok:",
++   "._❤️❤️`:ok:ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️❤️`:ok:ok:ok:",
++   "._❤️❤️`:ok:`ok:ok:",
++   "._❤️❤️:ok:`ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️❤️:ok:ok`:ok:",
++   ":a `🙂",
++   ".`:b:ok:🙂::ok:",
++   ".`:b:`ok:🙂::ok:",
++   ".:b:`ok:🙂::ok:",
++   ".:b:ok:🙂::ok:",
++   ".:b:ok:`🙂::ok:",
++   ".:b:ok:`🙂`::ok:",
++   ".:b:ok:🙂`::ok:",
++   ".:b:ok:🙂::ok:",
++   ".:b:ok:🙂:`:ok:",
++   "ok:`🔥ok:\\👍🏻",
++   "ok:`🔥`ok:\\👍🏻",
++   "ok:🔥`ok:\\👍🏻",
++   "ok:🔥ok:\\👍🏻",
++   "ok:🔥ok:\\👍`🏻",
++   "o`:ok:",
++   ":up_`:a:b🔥🙂*🙂",
++   ":up_`:a:`b🔥🙂*🙂",
++   ":up_:a:`b🔥🙂*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   ":up_:a:b`🔥🙂*🙂",
++   ":up_:a:b`🔥`🙂*🙂",
++   ":up_:a:b🔥`🙂*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   ":up_:a:b🔥`🙂*🙂",
++   ":up_:a:b🔥`🙂`*🙂",
++   ":up_:a:b🔥🙂`*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   ":up_:a:b🔥🙂*`🙂",
++   "`:ok:ok:<:x:123>",
++   "`:ok:`ok:<:x:123>",
++   ":ok:`ok:<:x:123>",
++   ":ok:ok:<:x:123>",
++   ":ok:ok:`<:x:123>",
++   "a_:skin-tone-1`:id:x🙂<:x:123>",
++   "a_:skin-tone-1`:id:`x🙂<:x:123>",
++   "a_:skin-tone-1:id:`x🙂<:x:123>",
++   "a_:skin-tone-1:id:x🙂<:x:123>",
++   "a_:skin-tone-1:id:x`🙂<:x:123>",
++   "a_:skin-tone-1:id:x`🙂`<:x:123>",
++   "a_:skin-tone-1:id:x🙂`<:x:123>",
++   "a_:skin-tone-1:id:x🙂<:x:123>",
++   "a_:skin-tone-1:id:x🙂`<:x:123>",
++   ":skin-tone-1a`:o:",
++   "`❤️<:x:123>",
++   "`❤️`<:x:123>",
++   "❤️`<:x:123>",
++   "❤️<:x:123>",
++   "❤️`<:x:123>",
++   "`🔥👍🏻",
++   "`🔥`👍🏻",
++   "🔥`👍🏻",
++   "🔥👍🏻",
++   "🔥`👍🏻",
++   " `:ok:.:id👍🏻",
++   " `:ok:`.:id👍🏻",
++   " :ok:`.:id👍🏻",
++   " :ok:.:id👍🏻",
++   " :ok:.:id`👍🏻",
++   "`:x:ok: :x:b❤️🔥",
++   "`:x:`ok: :x:b❤️🔥",
++   ":x:`ok: :x:b❤️🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: `:x:b❤️🔥",
++   ":x:ok: `:x:`b❤️🔥",
++   ":x:ok: :x:`b❤️🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: :x:b`❤️🔥",
++   ":x:ok: :x:b`❤️`🔥",
++   ":x:ok: :x:b❤️`🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: :x:b❤️`🔥",
++   "`:100:x~~❤️",
++   "`:100:`x~~❤️",
++   ":100:`x~~❤️",
++   ":100:x~~❤️",
++   ":100:x~~`❤️",
++   ".`🔥:cool:m❤️:ok:",
++   ".`🔥`:cool:m❤️:ok:",
++   ".🔥`:cool:m❤️:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥`:cool:m❤️:ok:",
++   ".🔥`:cool:`m❤️:ok:",
++   ".🔥:cool:`m❤️:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥:cool:m`❤️:ok:",
++   ".🔥:cool:m`❤️`:ok:",
++   ".🔥:cool:m❤️`:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥:cool:m❤️`:ok:",
++   "`:a:id:100:a_🙂",
++   "`:a:`id:100:a_🙂",
++   ":a:`id:100:a_🙂",
++   ":a:id:100:a_🙂",
++   ":a:id`:100:a_🙂",
++   ":a:id`:100:`a_🙂",
++   ":a:id:100:`a_🙂",
++   ":a:id:100:a_🙂",
++   ":a:id:100:a_`🙂",
++   " `👍🏻:id👍🏻:cool❤️",
++   " `👍🏻`:id👍🏻:cool❤️",
++   " 👍🏻`:id👍🏻:cool❤️",
++   " 👍🏻:id👍🏻:cool❤️",
++   " 👍🏻:id`👍🏻:cool❤️",
++   " 👍🏻:id`👍🏻`:cool❤️",
++   " 👍🏻:id👍🏻`:cool❤️",
++   " 👍🏻:id👍🏻:cool❤️",
++   " 👍🏻:id👍🏻:cool`❤️",
++   "`<:x:123>",
++   "\\<`:x:123>:m:100:ok:",
++   "\\<`:x:`123>:m:100:ok:",
++   "\\<:x:`123>:m:100:ok:",
++   "\\<:x:123>:m:100:ok:",
++   "\\<:x:123>`:m:100:ok:",
++   "\\<:x:123>`:m:`100:ok:",
++   "\\<:x:123>:m:`100:ok:",
++   "\\<:x:123>:m:100:ok:",
++   "\\<:x:123>:m:100`:ok:",
++   "o:#`👍🏻a:ok::ok:",
++   "o:#`👍🏻`a:ok::ok:",
++   "o:#👍🏻`a:ok::ok:",
++   "o:#👍🏻a:ok::ok:",
++   "o:#👍🏻a`:ok::ok:",
++   "o:#👍🏻a`:ok:`:ok:",
++   "o:#👍🏻a:ok:`:ok:",
++   "o:#👍🏻a:ok::ok:",
++   "o:#👍🏻a:ok:`:ok:",
++   ":oo`:ok:",
++   "`❤️",
++   "`<:x:123>",
++   "`🔥 o:👍🏻::b:",
++   "`🔥` o:👍🏻::b:",
++   "🔥` o:👍🏻::b:",
++   "🔥 o:👍🏻::b:",
++   "🔥 o:`👍🏻::b:",
++   "🔥 o:`👍🏻`::b:",
++   "🔥 o:👍🏻`::b:",
++   "🔥 o:👍🏻::b:",
++   "🔥 o:👍🏻:`:b:",
++   "*a`👍🏻<:x:123>",
++   "*a`👍🏻`<:x:123>",
++   "*a👍🏻`<:x:123>",
++   "*a👍🏻<:x:123>",
++   "*a👍🏻`<:x:123>",
++   "thumbsup:#:b`👍🏻a👍🏻:ok:",
++   "thumbsup:#:b`👍🏻`a👍🏻:ok:",
++   "thumbsup:#:b👍🏻`a👍🏻:ok:",
++   "thumbsup:#:b👍🏻a👍🏻:ok:",
++   "thumbsup:#:b👍🏻a`👍🏻:ok:",
++   "thumbsup:#:b👍🏻a`👍🏻`:ok:",
++   "thumbsup:#:b👍🏻a👍🏻`:ok:",
++   "thumbsup:#:b👍🏻a👍🏻:ok:",
++   "thumbsup:#:b👍🏻a👍🏻`:ok:",
++   "`🔥:ok: :ok: :ok🔥",
++   "`🔥`:ok: :ok: :ok🔥",
++   "🔥`:ok: :ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥`:ok: :ok: :ok🔥",
++   "🔥`:ok:` :ok: :ok🔥",
++   "🔥:ok:` :ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥:ok: `:ok: :ok🔥",
++   "🔥:ok: `:ok:` :ok🔥",
++   "🔥:ok: :ok:` :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥:ok: :ok: :ok`🔥",
++   "`:o:100:id❤️:ok👍🏻",
++   "`:o:`100:id❤️:ok👍🏻",
++   ":o:`100:id❤️:ok👍🏻",
++   ":o:100:id❤️:ok👍🏻",
++   ":o:100:id`❤️:ok👍🏻",
++   ":o:100:id`❤️`:ok👍🏻",
++   ":o:100:id❤️`:ok👍🏻",
++   ":o:100:id❤️:ok👍🏻",
++   ":o:100:id❤️:ok`👍🏻",
++   ":ok`<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok`<:x:123>`:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>`:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>`:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>`:100:`cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:`cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool`:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool`:o:`ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:`ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:`<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:`<:x:123>`👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>`👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>`👍🏻",
++   "a`👍🏻:id:cool<:x:123>",
++   "a`👍🏻`:id:cool<:x:123>",
++   "a👍🏻`:id:cool<:x:123>",
++   "a👍🏻:id:cool<:x:123>",
++   "a👍🏻`:id:cool<:x:123>",
++   "a👍🏻`:id:`cool<:x:123>",
++   "a👍🏻:id:`cool<:x:123>",
++   "a👍🏻:id:cool<:x:123>",
++   "a👍🏻:id:cool`<:x:123>",
++   ":.`🔥",
++   ":a`🔥",
++   ":b*:100thumbsup:~~`:100:ok:❤️",
++   ":b*:100thumbsup:~~`:100:`ok:❤️",
++   ":b*:100thumbsup:~~:100:`ok:❤️",
++   ":b*:100thumbsup:~~:100:ok:❤️",
++   ":b*:100thumbsup:~~:100:ok:`❤️",
++   "#`👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#`👍🏻`:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻`:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻`:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻`:a:`skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:`skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m`❤️",
++   ":skin-tone-1ok`:o:",
++   "::`❤️",
++   ":a`👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a`👍🏻`:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻`:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok`<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok`<:x:123>`ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>`ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a`<:x:123>",
++   " `<:x:123>",
++   "ok::skin-tone-1:o*`:ok:",
++   "`🔥",
++   ":up~~#.`<:x:123> :o🔥",
++   ":up~~#.`<:x:123>` :o🔥",
++   ":up~~#.<:x:123>` :o🔥",
++   ":up~~#.<:x:123> :o🔥",
++   ":up~~#.<:x:123> :o`🔥",
++   "*o:.a*:skin-tone-1.`👍🏻",
++   "\\:a`:a:ok :cool❤️<:x:123>",
++   "\\:a`:a:`ok :cool❤️<:x:123>",
++   "\\:a:a:`ok :cool❤️<:x:123>",
++   "\\:a:a:ok :cool❤️<:x:123>",
++   "\\:a:a:ok :cool`❤️<:x:123>",
++   "\\:a:a:ok :cool`❤️`<:x:123>",
++   "\\:a:a:ok :cool❤️`<:x:123>",
++   "\\:a:a:ok :cool❤️<:x:123>",
++   "\\:a:a:ok :cool❤️`<:x:123>",
++   "`:b:ok<:x:123>:a<:x:123>:ok:",
++   "`:b:`ok<:x:123>:a<:x:123>:ok:",
++   ":b:`ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok`<:x:123>:a<:x:123>:ok:",
++   ":b:ok`<:x:123>`:a<:x:123>:ok:",
++   ":b:ok<:x:123>`:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a`<:x:123>:ok:",
++   ":b:ok<:x:123>:a`<:x:123>`:ok:",
++   ":b:ok<:x:123>:a<:x:123>`:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>`:ok:",
++   ":m`<:x:123>",
++   ":`:ok:",
++   "`:ok:up🔥🔥ok:👍🏻",
++   "`:ok:`up🔥🔥ok:👍🏻",
++   ":ok:`up🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up`🔥🔥ok:👍🏻",
++   ":ok:up`🔥`🔥ok:👍🏻",
++   ":ok:up🔥`🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up🔥`🔥ok:👍🏻",
++   ":ok:up🔥`🔥`ok:👍🏻",
++   ":ok:up🔥🔥`ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:`👍🏻",
++   ":m.:100`🙂_#<:x:123>",
++   ":m.:100`🙂`_#<:x:123>",
++   ":m.:100🙂`_#<:x:123>",
++   ":m.:100🙂_#<:x:123>",
++   ":m.:100🙂_#`<:x:123>",
++   "`🔥",
++   "`:cool:upo:_:100🔥 <:x:123>",
++   "`:cool:`upo:_:100🔥 <:x:123>",
++   ":cool:`upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100`🔥 <:x:123>",
++   ":cool:upo:_:100`🔥` <:x:123>",
++   ":cool:upo:_:100🔥` <:x:123>",
++   ":cool:upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100🔥 `<:x:123>",
++   ":skin-tone-1`:up::up:m👍🏻🔥",
++   ":skin-tone-1`:up:`:up:m👍🏻🔥",
++   ":skin-tone-1:up:`:up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up:`:up:m👍🏻🔥",
++   ":skin-tone-1:up:`:up:`m👍🏻🔥",
++   ":skin-tone-1:up::up:`m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m`👍🏻🔥",
++   ":skin-tone-1:up::up:m`👍🏻`🔥",
++   ":skin-tone-1:up::up:m👍🏻`🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻`🔥",
++   "`👍🏻ok::x🙂",
++   "`👍🏻`ok::x🙂",
++   "👍🏻`ok::x🙂",
++   "👍🏻ok::x🙂",
++   "👍🏻ok::x`🙂",
++   ".`🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".`🔥`thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥`thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:`🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:`🙂`🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂`🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂`🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂`🙂`👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂`👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂`👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂`👍🏻`:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻`:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻`:ok:",
++   "`🔥",
++   "`🔥",
++   "`🙂:up:upa👍🏻:coola❤️",
++   "`🙂`:up:upa👍🏻:coola❤️",
++   "🙂`:up:upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂`:up:upa👍🏻:coola❤️",
++   "🙂`:up:`upa👍🏻:coola❤️",
++   "🙂:up:`upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂:up:upa`👍🏻:coola❤️",
++   "🙂:up:upa`👍🏻`:coola❤️",
++   "🙂:up:upa👍🏻`:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola`❤️",
++   "`🔥",
++   "`🔥",
++   "`🙂",
++   ":b`🙂",
++   "o`:thumbsup:",
++   "`<:x:123>*👍🏻",
++   "`<:x:123>`*👍🏻",
++   "<:x:123>`*👍🏻",
++   "<:x:123>*👍🏻",
++   "<:x:123>*`👍🏻",
++   "o:`:ok:up❤️",
++   "o:`:ok:`up❤️",
++   "o::ok:`up❤️",
++   "o::ok:up❤️",
++   "o::ok:up`❤️",
++   "ok:`:cool:x:a\\<:x:123><:x:123>",
++   "ok:`:cool:`x:a\\<:x:123><:x:123>",
++   "ok::cool:`x:a\\<:x:123><:x:123>",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   "ok::cool:x:a\\<`:x:123><:x:123>",
++   "ok::cool:x:a\\<`:x:`123><:x:123>",
++   "ok::cool:x:a\\<:x:`123><:x:123>",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   "ok::cool:x:a\\<:x:123>`<:x:123>",
++   "a`<:x:123>",
++   "`<:x:123>",
++   "`:x:x🙂<:x:123>:o<:x:123>",
++   "`:x:`x🙂<:x:123>:o<:x:123>",
++   ":x:`x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x`🙂<:x:123>:o<:x:123>",
++   ":x:x`🙂`<:x:123>:o<:x:123>",
++   ":x:x🙂`<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂`<:x:123>:o<:x:123>",
++   ":x:x🙂`<:x:123>`:o<:x:123>",
++   ":x:x🙂<:x:123>`:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o`<:x:123>",
++   "`🙂:ok:",
++   "`🙂`:ok:",
++   "🙂`:ok:",
++   "🙂:ok:",
++   "🙂`:ok:",
++   "o:`:up:cool:id:",
++   "o:`:up:`cool:id:",
++   "o::up:`cool:id:",
++   "o::up:cool:id:",
++   "o::up:cool`:id:",
++   "`🙂",
++   ":bok:`❤️",
++   "`❤️a:cool👍🏻",
++   "`❤️`a:cool👍🏻",
++   "❤️`a:cool👍🏻",
++   "❤️a:cool👍🏻",
++   "❤️a:cool`👍🏻",
++   "`:ok::ida<:x:123>",
++   "`:ok:`:ida<:x:123>",
++   ":ok:`:ida<:x:123>",
++   ":ok::ida<:x:123>",
++   ":ok::ida`<:x:123>",
++   "_ok:: `❤️",
++   "`🙂:ok:❤️",
++   "`🙂`:ok:❤️",
++   "🙂`:ok:❤️",
++   "🙂:ok:❤️",
++   "🙂`:ok:❤️",
++   "🙂`:ok:`❤️",
++   "🙂:ok:`❤️",
++   "🙂:ok:❤️",
++   "🙂:ok:`❤️",
++   ":up~~`❤️:up:id:a🙂",
++   ":up~~`❤️`:up:id:a🙂",
++   ":up~~❤️`:up:id:a🙂",
++   ":up~~❤️:up:id:a🙂",
++   ":up~~❤️`:up:id:a🙂",
++   ":up~~❤️`:up:`id:a🙂",
++   ":up~~❤️:up:`id:a🙂",
++   ":up~~❤️:up:id:a🙂",
++   ":up~~❤️:up:id:a`🙂",
++   "`👍🏻",
++   "`👍🏻o:a:<:x:123>🔥",
++   "`👍🏻`o:a:<:x:123>🔥",
++   "👍🏻`o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o`:a:<:x:123>🔥",
++   "👍🏻o`:a:`<:x:123>🔥",
++   "👍🏻o:a:`<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:`<:x:123>🔥",
++   "👍🏻o:a:`<:x:123>`🔥",
++   "👍🏻o:a:<:x:123>`🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>`🔥",
++   ":coolo:`👍🏻🙂",
++   ":coolo:`👍🏻`🙂",
++   ":coolo:👍🏻`🙂",
++   ":coolo:👍🏻🙂",
++   ":coolo:👍🏻`🙂",
++   ":skin-tone-1:a`👍🏻🔥",
++   ":skin-tone-1:a`👍🏻`🔥",
++   ":skin-tone-1:a👍🏻`🔥",
++   ":skin-tone-1:a👍🏻🔥",
++   ":skin-tone-1:a👍🏻`🔥",
++   "thumbsup:`:ok::a:mok::up🔥",
++   "thumbsup:`:ok:`:a:mok::up🔥",
++   "thumbsup::ok:`:a:mok::up🔥",
++   "thumbsup::ok::a:mok::up🔥",
++   "thumbsup::ok:`:a:mok::up🔥",
++   "thumbsup::ok:`:a:`mok::up🔥",
++   "thumbsup::ok::a:`mok::up🔥",
++   "thumbsup::ok::a:mok::up🔥",
++   "thumbsup::ok::a:mok::up`🔥",
++   ":m`❤️o:❤️",
++   ":m`❤️`o:❤️",
++   ":m❤️`o:❤️",
++   ":m❤️o:❤️",
++   ":m❤️o:`❤️",
++   "ok:`:o:o👍🏻.❤️",
++   "ok:`:o:`o👍🏻.❤️",
++   "ok::o:`o👍🏻.❤️",
++   "ok::o:o👍🏻.❤️",
++   "ok::o:o`👍🏻.❤️",
++   "ok::o:o`👍🏻`.❤️",
++   "ok::o:o👍🏻`.❤️",
++   "ok::o:o👍🏻.❤️",
++   "ok::o:o👍🏻.`❤️",
++   ":up`🔥",
++   "`🙂",
++   "ok:_`❤️🔥*🔥",
++   "ok:_`❤️`🔥*🔥",
++   "ok:_❤️`🔥*🔥",
++   "ok:_❤️🔥*🔥",
++   "ok:_❤️`🔥*🔥",
++   "ok:_❤️`🔥`*🔥",
++   "ok:_❤️🔥`*🔥",
++   "ok:_❤️🔥*🔥",
++   "ok:_❤️🔥*`🔥",
++   "`:id:",
++   ":skin-tone-1_:m `:up:a:a<:x:123>",
++   ":skin-tone-1_:m `:up:`a:a<:x:123>",
++   ":skin-tone-1_:m :up:`a:a<:x:123>",
++   ":skin-tone-1_:m :up:a:a<:x:123>",
++   ":skin-tone-1_:m :up:a:a`<:x:123>",
++   ":skin-tone-1:upthumbsup:`:ok:_👍🏻",
++   ":skin-tone-1:upthumbsup:`:ok:`_👍🏻",
++   ":skin-tone-1:upthumbsup::ok:`_👍🏻",
++   ":skin-tone-1:upthumbsup::ok:_👍🏻",
++   ":skin-tone-1:upthumbsup::ok:_`👍🏻",
++   ":xthumbsup:\\*`<:x:123>ok:thumbsup:",
++   ":xthumbsup:\\*`<:x:123>`ok:thumbsup:",
++   ":xthumbsup:\\*<:x:123>`ok:thumbsup:",
++   ":xthumbsup:\\*<:x:123>ok:thumbsup:",
++   ":xthumbsup:\\*<:x:123>ok`:thumbsup:",
++   "#o:`👍🏻",
++   "ok::`🔥:id🙂",
++   "ok::`🔥`:id🙂",
++   "ok::🔥`:id🙂",
++   "ok::🔥:id🙂",
++   "ok::🔥:id`🙂",
++   "`<:x:123>:skin-tone-1❤️",
++   "`<:x:123>`:skin-tone-1❤️",
++   "<:x:123>`:skin-tone-1❤️",
++   "<:x:123>:skin-tone-1❤️",
++   "<:x:123>:skin-tone-1`❤️",
++   ":o`❤️ :cool:o:cool*🔥",
++   ":o`❤️` :cool:o:cool*🔥",
++   ":o❤️` :cool:o:cool*🔥",
++   ":o❤️ :cool:o:cool*🔥",
++   ":o❤️ `:cool:o:cool*🔥",
++   ":o❤️ `:cool:`o:cool*🔥",
++   ":o❤️ :cool:`o:cool*🔥",
++   ":o❤️ :cool:o:cool*🔥",
++   ":o❤️ :cool:o:cool*`🔥",
++   ":b`❤️",
++   ":x`❤️",
++   "`❤️",
++   "`👍🏻:skin-tone-1:a🙂",
++   "`👍🏻`:skin-tone-1:a🙂",
++   "👍🏻`:skin-tone-1:a🙂",
++   "👍🏻:skin-tone-1:a🙂",
++   "👍🏻:skin-tone-1:a`🙂",
++   ":b`❤️",
++   ":o :`:up:a~~ ❤️",
++   ":o :`:up:`a~~ ❤️",
++   ":o ::up:`a~~ ❤️",
++   ":o ::up:a~~ ❤️",
++   ":o ::up:a~~ `❤️",
++   " `🙂",
++   ":100`🔥<:x:123>",
++   ":100`🔥`<:x:123>",
++   ":100🔥`<:x:123>",
++   ":100🔥<:x:123>",
++   ":100🔥`<:x:123>",
++   "`❤️",
++   "`<:x:123>:ok:<:x:123>",
++   "`<:x:123>`:ok:<:x:123>",
++   "<:x:123>`:ok:<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "<:x:123>`:ok:<:x:123>",
++   "<:x:123>`:ok:`<:x:123>",
++   "<:x:123>:ok:`<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "<:x:123>:ok:`<:x:123>",
++   "`<:x:123>.🔥",
++   "`<:x:123>`.🔥",
++   "<:x:123>`.🔥",
++   "<:x:123>.🔥",
++   "<:x:123>.`🔥",
++   ":`🔥:up:id#:id~~🔥",
++   ":`🔥`:up:id#:id~~🔥",
++   ":🔥`:up:id#:id~~🔥",
++   ":🔥:up:id#:id~~🔥",
++   ":🔥`:up:id#:id~~🔥",
++   ":🔥`:up:`id#:id~~🔥",
++   ":🔥:up:`id#:id~~🔥",
++   ":🔥:up:id#:id~~🔥",
++   ":🔥:up:id#:id~~`🔥",
++   "a:`:o:ok:\\_.🔥",
++   "a:`:o:`ok:\\_.🔥",
++   "a::o:`ok:\\_.🔥",
++   "a::o:ok:\\_.🔥",
++   "a::o:ok:\\_.`🔥",
++   "`🔥",
++   "`:ok:",
++   "*:x_`<:x:123><:x:123>",
++   "*:x_`<:x:123>`<:x:123>",
++   "*:x_<:x:123>`<:x:123>",
++   "*:x_<:x:123><:x:123>",
++   "*:x_<:x:123>`<:x:123>",
++   "`:id:100<:x:123>:ok:a:cool❤️",
++   "`:id:`100<:x:123>:ok:a:cool❤️",
++   ":id:`100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100`<:x:123>:ok:a:cool❤️",
++   ":id:100`<:x:123>`:ok:a:cool❤️",
++   ":id:100<:x:123>`:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>`:ok:a:cool❤️",
++   ":id:100<:x:123>`:ok:`a:cool❤️",
++   ":id:100<:x:123>:ok:`a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool`❤️",
++   "`:up:x*:a🙂",
++   "`:up:`x*:a🙂",
++   ":up:`x*:a🙂",
++   ":up:x*:a🙂",
++   ":up:x*:a`🙂",
++   ":skin-tone-1`:cool:o:ok:",
++   ":skin-tone-1`:cool:`o:ok:",
++   ":skin-tone-1:cool:`o:ok:",
++   ":skin-tone-1:cool:o:ok:",
++   ":skin-tone-1:cool:o`:ok:",
++   ":ok`<:x:123>👍🏻<:x:123>*:x:",
++   ":ok`<:x:123>`👍🏻<:x:123>*:x:",
++   ":ok<:x:123>`👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>`👍🏻<:x:123>*:x:",
++   ":ok<:x:123>`👍🏻`<:x:123>*:x:",
++   ":ok<:x:123>👍🏻`<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻`<:x:123>*:x:",
++   ":ok<:x:123>👍🏻`<:x:123>`*:x:",
++   ":ok<:x:123>👍🏻<:x:123>`*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*`:x:",
++   "~~`❤️",
++   "#:skin-tone-1`:ok:`*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   ":x*.:b`🙂`:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   "*`:ok:`🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:🙂
++ ```js
++ o:##
++ ```",
++   "thumbsup::mthumbsup`:thumbsup:`:o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup:`:o:`:🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "o`:ok:`:id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok:`:id:`100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "`🔥`:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "`:o:`cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#`:up:`m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   "`<:x:123>`:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>`:100:`x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "`🙂`:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂`:b:`ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "`:x:`100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   "`🔥`<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   ":up`<:x:123>`:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>`:a:`ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:`<:x:123>`🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   "`👍🏻`\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up`:a:`cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool`👍🏻`<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "*`🔥`❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥`❤️`👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️`👍🏻`:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "`:id:`o:cool:
++ ```js
++ :o
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   "`👍🏻`\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup:`:ok:`🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "`:up:`ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   "`:ok:`cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool`🙂`#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":xo:\\~~~~`:ok:`🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   "`:o:`100❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100❤️
++ ```js
++ ❤️:
++ ```",
++   "`👍🏻`🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻`🔥`:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok`🙂`ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o`🙂`<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "*thumbsup:~~:skin-tone-1`🙂`::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂::ok:
++ ```js
++ #::m:cool
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:91:23
+     89|       return states.filter((state) => state !== null);
+     90|     });
+     91|     expect(offending).toEqual([]);
+       |                       ^
+     92|   }, 120_000);
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/30]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+AssertionError: expected [ '#:skin-tone-1[:ok:*.:ok:', …(2356) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "#:skin-tone-1[:ok:*.:ok:",
++   "#:skin-tone-1[:ok:](https://x.y)*.:ok:",
++   "#:skin-tone-1[:ok:*.:ok:",
++   "#:skin-tone-1:ok:*.:ok:",
++   "#:skin-tone-1:ok:*.[:ok:",
++   "#:skin-tone-1:ok:*.[:ok:",
++   "#:skin-tone-1:ok:*.:ok:",
++   "\\:skin-tone-1:a_:o[🔥",
++   "\\:skin-tone-1:a_:o[🔥",
++   "\\:skin-tone-1:a_:o🔥",
++   ":o[❤️",
++   ":o[❤️",
++   ":o❤️",
++   ":skin-tone-1a:up*:100[<:x:123>",
++   ":skin-tone-1a:up*:100[<:x:123>",
++   ":skin-tone-1a:up*:100<:x:123>",
++   ":x*.:b[🙂:ok:",
++   ":x*.:b[🙂](https://x.y):ok:",
++   ":x*.:b[🙂:ok:",
++   ":x*.:b🙂:ok:",
++   ":x*.:b🙂[:ok:",
++   ":x*.:b🙂[:ok:",
++   ":x*.:b🙂:ok:",
++   "*[:ok:🙂",
++   "*[:ok:](https://x.y)🙂",
++   "*[:ok:🙂",
++   "*:ok:🙂",
++   "*:ok:[🙂",
++   "*:ok:[🙂",
++   "*:ok:🙂",
++   "[:ok:🔥",
++   "[:ok:](https://x.y)🔥",
++   "[:ok:🔥",
++   ":ok:🔥",
++   ":ok:[🔥",
++   ":ok:[🔥",
++   ":ok:🔥",
++   "thumbsup::mthumbsup[:thumbsup::o::🔥",
++   "thumbsup::mthumbsup[:thumbsup:](https://x.y):o::🔥",
++   "thumbsup::mthumbsup[:thumbsup::o::🔥",
++   "thumbsup::mthumbsup:thumbsup::o::🔥",
++   "thumbsup::mthumbsup:thumbsup:[:o::🔥",
++   "thumbsup::mthumbsup:thumbsup:[:o:](https://x.y):🔥",
++   "thumbsup::mthumbsup:thumbsup:[:o::🔥",
++   "thumbsup::mthumbsup:thumbsup::o::🔥",
++   "thumbsup::mthumbsup:thumbsup::o::[🔥",
++   "thumbsup::mthumbsup:thumbsup::o::[🔥",
++   "thumbsup::mthumbsup:thumbsup::o::🔥",
++   "#[<:x:123>",
++   "#[<:x:123>",
++   "#<:x:123>",
++   "[🙂",
++   "[🙂",
++   "🙂",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   ":~~:okthumbsup:[:100:skin-tone-1🙂",
++   ":~~:okthumbsup:[:100:](https://x.y)skin-tone-1🙂",
++   ":~~:okthumbsup:[:100:skin-tone-1🙂",
++   ":~~:okthumbsup::100:skin-tone-1🙂",
++   ":~~:okthumbsup::100:skin-tone-1[🙂",
++   ":~~:okthumbsup::100:skin-tone-1[🙂",
++   ":~~:okthumbsup::100:skin-tone-1🙂",
++   "o[:ok::id:100🙂",
++   "o[:ok:](https://x.y):id:100🙂",
++   "o[:ok::id:100🙂",
++   "o:ok::id:100🙂",
++   "o:ok:[:id:100🙂",
++   "o:ok:[:id:](https://x.y)100🙂",
++   "o:ok:[:id:100🙂",
++   "o:ok::id:100🙂",
++   "o:ok::id:100[🙂",
++   "o:ok::id:100[🙂",
++   "o:ok::id:100🙂",
++   "[🔥:100ok:a  ok:🙂",
++   "[🔥](https://x.y):100ok:a  ok:🙂",
++   "[🔥:100ok:a  ok:🙂",
++   "🔥:100ok:a  ok:🙂",
++   "🔥:100ok:a  ok:[🙂",
++   "🔥:100ok:a  ok:[🙂",
++   "🔥:100ok:a  ok:🙂",
++   "[❤️#o:thumbsup:~~❤️:cool🙂",
++   "[❤️](https://x.y)#o:thumbsup:~~❤️:cool🙂",
++   "[❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o[:thumbsup:~~❤️:cool🙂",
++   "❤️#o[:thumbsup:](https://x.y)~~❤️:cool🙂",
++   "❤️#o[:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~[❤️:cool🙂",
++   "❤️#o:thumbsup:~~[❤️](https://x.y):cool🙂",
++   "❤️#o:thumbsup:~~[❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "❤️#o:thumbsup:~~❤️:cool[🙂",
++   "❤️#o:thumbsup:~~❤️:cool[🙂",
++   "❤️#o:thumbsup:~~❤️:cool🙂",
++   "[:o:cool\\#:up:m 🔥",
++   "[:o:](https://x.y)cool\\#:up:m 🔥",
++   "[:o:cool\\#:up:m 🔥",
++   ":o:cool\\#:up:m 🔥",
++   ":o:cool\\#[:up:m 🔥",
++   ":o:cool\\#[:up:](https://x.y)m 🔥",
++   ":o:cool\\#[:up:m 🔥",
++   ":o:cool\\#:up:m 🔥",
++   ":o:cool\\#:up:m [🔥",
++   ":o:cool\\#:up:m [🔥",
++   ":o:cool\\#:up:m 🔥",
++   "[:thumbsup:",
++   "[:thumbsup:",
++   ":thumbsup:",
++   "\\❤️[:ok:",
++   "\\❤️[:ok:",
++   "\\❤️:ok:",
++   "[<:x:123>:100:x:a:",
++   "[<:x:123>](https://x.y):100:x:a:",
++   "[<:x:123>:100:x:a:",
++   "<:x:123>:100:x:a:",
++   "<:x:123>[:100:x:a:",
++   "<:x:123>[:100:](https://x.y)x:a:",
++   "<:x:123>[:100:x:a:",
++   "<:x:123>:100:x:a:",
++   "<:x:123>:100:x[:a:",
++   "<:x:123>:100:x[:a:",
++   "<:x:123>:100:x:a:",
++   ":b#[❤️",
++   ":b#[❤️",
++   ":b#❤️",
++   "[🙂:b:ok:👍🏻",
++   "[🙂](https://x.y):b:ok:👍🏻",
++   "[🙂:b:ok:👍🏻",
++   "🙂:b:ok:👍🏻",
++   "🙂[:b:ok:👍🏻",
++   "🙂[:b:](https://x.y)ok:👍🏻",
++   "🙂[:b:ok:👍🏻",
++   "🙂:b:ok:👍🏻",
++   "🙂:b:ok:[👍🏻",
++   "🙂:b:ok:[👍🏻",
++   "🙂:b:ok:👍🏻",
++   "[:x:100\\❤️👍🏻",
++   "[:x:](https://x.y)100\\❤️👍🏻",
++   "[:x:100\\❤️👍🏻",
++   ":x:100\\❤️👍🏻",
++   ":x:100\\❤️[👍🏻",
++   ":x:100\\❤️[👍🏻",
++   ":x:100\\❤️👍🏻",
++   "[🔥<:x:123>",
++   "[🔥](https://x.y)<:x:123>",
++   "[🔥<:x:123>",
++   "🔥<:x:123>",
++   "🔥[<:x:123>",
++   "🔥[<:x:123>",
++   "🔥<:x:123>",
++   "[🙂:m~~:ok.<:x:123>",
++   "[🙂](https://x.y):m~~:ok.<:x:123>",
++   "[🙂:m~~:ok.<:x:123>",
++   "🙂:m~~:ok.<:x:123>",
++   "🙂:m~~:ok.[<:x:123>",
++   "🙂:m~~:ok.[<:x:123>",
++   "🙂:m~~:ok.<:x:123>",
++   ":up[<:x:123>:a:ok:<:x:123>🔥",
++   ":up[<:x:123>](https://x.y):a:ok:<:x:123>🔥",
++   ":up[<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>[:a:ok:<:x:123>🔥",
++   ":up<:x:123>[:a:](https://x.y)ok:<:x:123>🔥",
++   ":up<:x:123>[:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:[<:x:123>🔥",
++   ":up<:x:123>:a:ok:[<:x:123>](https://x.y)🔥",
++   ":up<:x:123>:a:ok:[<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   ":up<:x:123>:a:ok:<:x:123>[🔥",
++   ":up<:x:123>:a:ok:<:x:123>[🔥",
++   ":up<:x:123>:a:ok:<:x:123>🔥",
++   "~~:aa:100[👍🏻",
++   "~~:aa:100[👍🏻",
++   "~~:aa:100👍🏻",
++   ":okok:[🔥",
++   ":okok:[🔥",
++   ":okok:🔥",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "_[❤️:ok:o:a.👍🏻",
++   "_[❤️](https://x.y):ok:o:a.👍🏻",
++   "_[❤️:ok:o:a.👍🏻",
++   "_❤️:ok:o:a.👍🏻",
++   "_❤️[:ok:o:a.👍🏻",
++   "_❤️[:ok:](https://x.y)o:a.👍🏻",
++   "_❤️[:ok:o:a.👍🏻",
++   "_❤️:ok:o:a.👍🏻",
++   "_❤️:ok:o:a.[👍🏻",
++   "_❤️:ok:o:a.[👍🏻",
++   "_❤️:ok:o:a.👍🏻",
++   "[:b:up🔥",
++   "[:b:](https://x.y)up🔥",
++   "[:b:up🔥",
++   ":b:up🔥",
++   ":b:up[🔥",
++   ":b:up[🔥",
++   ":b:up🔥",
++   "[👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "[👍🏻](https://x.y)\\:up:a:cool👍🏻<:x:123>",
++   "[👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up[:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up[:a:](https://x.y)cool👍🏻<:x:123>",
++   "👍🏻\\:up[:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool[👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool[👍🏻](https://x.y)<:x:123>",
++   "👍🏻\\:up:a:cool[👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻[<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻[<:x:123>",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "*[🔥❤️👍🏻:x🔥",
++   "*[🔥](https://x.y)❤️👍🏻:x🔥",
++   "*[🔥❤️👍🏻:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥[❤️👍🏻:x🔥",
++   "*🔥[❤️](https://x.y)👍🏻:x🔥",
++   "*🔥[❤️👍🏻:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥❤️[👍🏻:x🔥",
++   "*🔥❤️[👍🏻](https://x.y):x🔥",
++   "*🔥❤️[👍🏻:x🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "*🔥❤️👍🏻:x[🔥",
++   "*🔥❤️👍🏻:x[🔥",
++   "*🔥❤️👍🏻:x🔥",
++   "[:id:o:cool:",
++   "[:id:](https://x.y)o:cool:",
++   "[:id:o:cool:",
++   ":id:o:cool:",
++   ":id:o[:cool:",
++   ":id:o[:cool:",
++   ":id:o:cool:",
++   "[👍🏻\\ thumbsup::ok:🔥",
++   "[👍🏻](https://x.y)\\ thumbsup::ok:🔥",
++   "[👍🏻\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup:[:ok:🔥",
++   "👍🏻\\ thumbsup:[:ok:](https://x.y)🔥",
++   "👍🏻\\ thumbsup:[:ok:🔥",
++   "👍🏻\\ thumbsup::ok:🔥",
++   "👍🏻\\ thumbsup::ok:[🔥",
++   "👍🏻\\ thumbsup::ok:[🔥",
++   "👍🏻\\ thumbsup::ok:🔥",
++   ".o:[🔥",
++   ".o:[🔥",
++   ".o:🔥",
++   "[:up:ba🔥",
++   "[:up:](https://x.y)ba🔥",
++   "[:up:ba🔥",
++   ":up:ba🔥",
++   ":up:ba[🔥",
++   ":up:ba[🔥",
++   ":up:ba🔥",
++   "[:ok:cool🙂#<:x:123>",
++   "[:ok:](https://x.y)cool🙂#<:x:123>",
++   "[:ok:cool🙂#<:x:123>",
++   ":ok:cool🙂#<:x:123>",
++   ":ok:cool[🙂#<:x:123>",
++   ":ok:cool[🙂](https://x.y)#<:x:123>",
++   ":ok:cool[🙂#<:x:123>",
++   ":ok:cool🙂#<:x:123>",
++   ":ok:cool🙂#[<:x:123>",
++   ":ok:cool🙂#[<:x:123>",
++   ":ok:cool🙂#<:x:123>",
++   ":skin-tone-1:o[❤️",
++   ":skin-tone-1:o[❤️",
++   ":skin-tone-1:o❤️",
++   "_:id[🙂❤️o::id:ok:o:",
++   "_:id[🙂](https://x.y)❤️o::id:ok:o:",
++   "_:id[🙂❤️o::id:ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "_:id🙂[❤️o::id:ok:o:",
++   "_:id🙂[❤️](https://x.y)o::id:ok:o:",
++   "_:id🙂[❤️o::id:ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "_:id🙂❤️o:[:id:ok:o:",
++   "_:id🙂❤️o:[:id:](https://x.y)ok:o:",
++   "_:id🙂❤️o:[:id:ok:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "_:id🙂❤️o::id:ok[:o:",
++   "_:id🙂❤️o::id:ok[:o:",
++   "_:id🙂❤️o::id:ok:o:",
++   "o:#[:up:",
++   "o:#[:up:",
++   "o:#:up:",
++   "o:*:coolo:a.[:id:",
++   "o:*:coolo:a.[:id:",
++   "o:*:coolo:a.:id:",
++   ":xo:\\~~~~[:ok:🙂",
++   ":xo:\\~~~~[:ok:](https://x.y)🙂",
++   ":xo:\\~~~~[:ok:🙂",
++   ":xo:\\~~~~:ok:🙂",
++   ":xo:\\~~~~:ok:[🙂",
++   ":xo:\\~~~~:ok:[🙂",
++   ":xo:\\~~~~:ok:🙂",
++   ":skin-tone-1~~:ok_[👍🏻",
++   ":skin-tone-1~~:ok_[👍🏻",
++   ":skin-tone-1~~:ok_👍🏻",
++   ":#[❤️",
++   ":#[❤️",
++   ":#❤️",
++   "::x[👍🏻:cool:b🔥",
++   "::x[👍🏻](https://x.y):cool:b🔥",
++   "::x[👍🏻:cool:b🔥",
++   "::x👍🏻:cool:b🔥",
++   "::x👍🏻[:cool:b🔥",
++   "::x👍🏻[:cool:](https://x.y)b🔥",
++   "::x👍🏻[:cool:b🔥",
++   "::x👍🏻:cool:b🔥",
++   "::x👍🏻:cool:b[🔥",
++   "::x👍🏻:cool:b[🔥",
++   "::x👍🏻:cool:b🔥",
++   "[:o:100❤️",
++   "[:o:](https://x.y)100❤️",
++   "[:o:100❤️",
++   ":o:100❤️",
++   ":o:100[❤️",
++   ":o:100[❤️",
++   ":o:100❤️",
++   "[👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "[👍🏻](https://x.y)🔥:ok🙂ok::o🙂<:x:123>",
++   "[👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻[🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻[🔥](https://x.y):ok🙂ok::o🙂<:x:123>",
++   "👍🏻[🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok[🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok[🙂](https://x.y)ok::o🙂<:x:123>",
++   "👍🏻🔥:ok[🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o[🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o[🙂](https://x.y)<:x:123>",
++   "👍🏻🔥:ok🙂ok::o[🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂[<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂[<:x:123>",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   ":x[❤️",
++   ":x[❤️",
++   ":x❤️",
++   ":ok[👍🏻👍🏻:bo:",
++   ":ok[👍🏻](https://x.y)👍🏻:bo:",
++   ":ok[👍🏻👍🏻:bo:",
++   ":ok👍🏻👍🏻:bo:",
++   ":ok👍🏻[👍🏻:bo:",
++   ":ok👍🏻[👍🏻](https://x.y):bo:",
++   ":ok👍🏻[👍🏻:bo:",
++   ":ok👍🏻👍🏻:bo:",
++   ":ok👍🏻👍🏻[:bo:",
++   ":ok👍🏻👍🏻[:bo:",
++   ":ok👍🏻👍🏻:bo:",
++   ":b.[<:x:123>",
++   ":b.[<:x:123>",
++   ":b.<:x:123>",
++   "*[:ok:",
++   "*[:ok:",
++   "*:ok:",
++   ":100[👍🏻:mo:",
++   ":100[👍🏻](https://x.y):mo:",
++   ":100[👍🏻:mo:",
++   ":100👍🏻:mo:",
++   ":100👍🏻[:mo:",
++   ":100👍🏻[:mo:",
++   ":100👍🏻:mo:",
++   "*thumbsup:~~:skin-tone-1[🙂::ok:",
++   "*thumbsup:~~:skin-tone-1[🙂](https://x.y)::ok:",
++   "*thumbsup:~~:skin-tone-1[🙂::ok:",
++   "*thumbsup:~~:skin-tone-1🙂::ok:",
++   "*thumbsup:~~:skin-tone-1🙂:[:ok:",
++   "*thumbsup:~~:skin-tone-1🙂:[:ok:",
++   "*thumbsup:~~:skin-tone-1🙂::ok:",
++   ".:x[👍🏻#❤️<:x:123>",
++   ".:x[👍🏻](https://x.y)#❤️<:x:123>",
++   ".:x[👍🏻#❤️<:x:123>",
++   ".:x👍🏻#❤️<:x:123>",
++   ".:x👍🏻#[❤️<:x:123>",
++   ".:x👍🏻#[❤️](https://x.y)<:x:123>",
++   ".:x👍🏻#[❤️<:x:123>",
++   ".:x👍🏻#❤️<:x:123>",
++   ".:x👍🏻#❤️[<:x:123>",
++   ".:x👍🏻#❤️[<:x:123>",
++   ".:x👍🏻#❤️<:x:123>",
++   "._.[👍🏻",
++   "._.[👍🏻",
++   "._.👍🏻",
++   "[🙂",
++   "[🙂",
++   "🙂",
++   "[:ok:❤️ok:*:ok:",
++   "[:ok:](https://x.y)❤️ok:*:ok:",
++   "[:ok:❤️ok:*:ok:",
++   ":ok:❤️ok:*:ok:",
++   ":ok:[❤️ok:*:ok:",
++   ":ok:[❤️](https://x.y)ok:*:ok:",
++   ":ok:[❤️ok:*:ok:",
++   ":ok:❤️ok:*:ok:",
++   ":ok:❤️ok:*[:ok:",
++   ":ok:❤️ok:*[:ok:",
++   ":ok:❤️ok:*:ok:",
++   "_[:ok::ok:id#:skin-tone-1.🔥",
++   "_[:ok:](https://x.y):ok:id#:skin-tone-1.🔥",
++   "_[:ok::ok:id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.🔥",
++   "_:ok:[:ok:id#:skin-tone-1.🔥",
++   "_:ok:[:ok:](https://x.y)id#:skin-tone-1.🔥",
++   "_:ok:[:ok:id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.🔥",
++   "_:ok::ok:id#:skin-tone-1.[🔥",
++   "_:ok::ok:id#:skin-tone-1.[🔥",
++   "_:ok::ok:id#:skin-tone-1.🔥",
++   ":upok:[🙂",
++   ":upok:[🙂",
++   ":upok:🙂",
++   ":b :b[<:x:123><:x:123>",
++   ":b :b[<:x:123>](https://x.y)<:x:123>",
++   ":b :b[<:x:123><:x:123>",
++   ":b :b<:x:123><:x:123>",
++   ":b :b<:x:123>[<:x:123>",
++   ":b :b<:x:123>[<:x:123>",
++   ":b :b<:x:123><:x:123>",
++   "~~[:ok:<:x:123><:x:123>",
++   "~~[:ok:](https://x.y)<:x:123><:x:123>",
++   "~~[:ok:<:x:123><:x:123>",
++   "~~:ok:<:x:123><:x:123>",
++   "~~:ok:[<:x:123><:x:123>",
++   "~~:ok:[<:x:123>](https://x.y)<:x:123>",
++   "~~:ok:[<:x:123><:x:123>",
++   "~~:ok:<:x:123><:x:123>",
++   "~~:ok:<:x:123>[<:x:123>",
++   "~~:ok:<:x:123>[<:x:123>",
++   "~~:ok:<:x:123><:x:123>",
++   "ok:[🙂.:cool<:x:123>:ok:",
++   "ok:[🙂](https://x.y).:cool<:x:123>:ok:",
++   "ok:[🙂.:cool<:x:123>:ok:",
++   "ok:🙂.:cool<:x:123>:ok:",
++   "ok:🙂.:cool[<:x:123>:ok:",
++   "ok:🙂.:cool[<:x:123>](https://x.y):ok:",
++   "ok:🙂.:cool[<:x:123>:ok:",
++   "ok:🙂.:cool<:x:123>:ok:",
++   "ok:🙂.:cool<:x:123>[:ok:",
++   "ok:🙂.:cool<:x:123>[:ok:",
++   "ok:🙂.:cool<:x:123>:ok:",
++   "[:ok:a:ok::a:id:ok:",
++   "[:ok:](https://x.y)a:ok::a:id:ok:",
++   "[:ok:a:ok::a:id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a[:ok::a:id:ok:",
++   ":ok:a[:ok:](https://x.y):a:id:ok:",
++   ":ok:a[:ok::a:id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a:ok:[:a:id:ok:",
++   ":ok:a:ok:[:a:](https://x.y)id:ok:",
++   ":ok:a:ok:[:a:id:ok:",
++   ":ok:a:ok::a:id:ok:",
++   ":ok:a:ok::a:id[:ok:",
++   ":ok:a:ok::a:id[:ok:",
++   ":ok:a:ok::a:id:ok:",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   ":100thumbsup:[🙂",
++   ":100thumbsup:[🙂",
++   ":100thumbsup:🙂",
++   ".[🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".[🔥](https://x.y)👍🏻 ❤️:skin-tone-1a:ok:",
++   ".[🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥[👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥[👍🏻](https://x.y) ❤️:skin-tone-1a:ok:",
++   ".🔥[👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 [❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 [❤️](https://x.y):skin-tone-1a:ok:",
++   ".🔥👍🏻 [❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a[:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a[:ok:",
++   ".🔥👍🏻 ❤️:skin-tone-1a:ok:",
++   "\\❤️:o[<:x:123> a🔥",
++   "\\❤️:o[<:x:123>](https://x.y) a🔥",
++   "\\❤️:o[<:x:123> a🔥",
++   "\\❤️:o<:x:123> a🔥",
++   "\\❤️:o<:x:123> a[🔥",
++   "\\❤️:o<:x:123> a[🔥",
++   "\\❤️:o<:x:123> a🔥",
++   "[<:x:123>:cool🔥",
++   "[<:x:123>](https://x.y):cool🔥",
++   "[<:x:123>:cool🔥",
++   "<:x:123>:cool🔥",
++   "<:x:123>:cool[🔥",
++   "<:x:123>:cool[🔥",
++   "<:x:123>:cool🔥",
++   "ok::cool*:x[<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x[<:x:123>](https://x.y)<:x:123>👍🏻<:x:123>",
++   "ok::cool*:x[<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123>[<:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123>[<:x:123>](https://x.y)👍🏻<:x:123>",
++   "ok::cool*:x<:x:123>[<:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>[👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>[👍🏻](https://x.y)<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>[👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻[<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻[<:x:123>",
++   "ok::cool*:x<:x:123><:x:123>👍🏻<:x:123>",
++   ":100thumbsup:[:100:cool~~🔥",
++   ":100thumbsup:[:100:](https://x.y)cool~~🔥",
++   ":100thumbsup:[:100:cool~~🔥",
++   ":100thumbsup::100:cool~~🔥",
++   ":100thumbsup::100:cool~~[🔥",
++   ":100thumbsup::100:cool~~[🔥",
++   ":100thumbsup::100:cool~~🔥",
++   "[:a:ok:<:x:123><:x:123>🔥",
++   "[:a:](https://x.y)ok:<:x:123><:x:123>🔥",
++   "[:a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:[<:x:123><:x:123>🔥",
++   ":a:ok:[<:x:123>](https://x.y)<:x:123>🔥",
++   ":a:ok:[<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123>[<:x:123>🔥",
++   ":a:ok:<:x:123>[<:x:123>](https://x.y)🔥",
++   ":a:ok:<:x:123>[<:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   ":a:ok:<:x:123><:x:123>[🔥",
++   ":a:ok:<:x:123><:x:123>[🔥",
++   ":a:ok:<:x:123><:x:123>🔥",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "::[:ok:ok👍🏻",
++   "::[:ok:](https://x.y)ok👍🏻",
++   "::[:ok:ok👍🏻",
++   ":::ok:ok👍🏻",
++   ":::ok:ok[👍🏻",
++   ":::ok:ok[👍🏻",
++   ":::ok:ok👍🏻",
++   "o:[🔥",
++   "o:[🔥",
++   "o:🔥",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   "_:skin-tone-1[🔥\\:m👍🏻",
++   "_:skin-tone-1[🔥](https://x.y)\\:m👍🏻",
++   "_:skin-tone-1[🔥\\:m👍🏻",
++   "_:skin-tone-1🔥\\:m👍🏻",
++   "_:skin-tone-1🔥\\:m[👍🏻",
++   "_:skin-tone-1🔥\\:m[👍🏻",
++   "_:skin-tone-1🔥\\:m👍🏻",
++   ":id[👍🏻",
++   ":id[👍🏻",
++   ":id👍🏻",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   "o[:ok:a<:x:123>",
++   "o[:ok:](https://x.y)a<:x:123>",
++   "o[:ok:a<:x:123>",
++   "o:ok:a<:x:123>",
++   "o:ok:a[<:x:123>",
++   "o:ok:a[<:x:123>",
++   "o:ok:a<:x:123>",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   ":[:a:a:ok:cool<:x:123>",
++   ":[:a:](https://x.y)a:ok:cool<:x:123>",
++   ":[:a:a:ok:cool<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "::a:a[:ok:cool<:x:123>",
++   "::a:a[:ok:](https://x.y)cool<:x:123>",
++   "::a:a[:ok:cool<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "::a:a:ok:cool[<:x:123>",
++   "::a:a:ok:cool[<:x:123>",
++   "::a:a:ok:cool<:x:123>",
++   "[🙂:skin-tone-1o:🔥❤️",
++   "[🙂](https://x.y):skin-tone-1o:🔥❤️",
++   "[🙂:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:[🔥❤️",
++   "🙂:skin-tone-1o:[🔥](https://x.y)❤️",
++   "🙂:skin-tone-1o:[🔥❤️",
++   "🙂:skin-tone-1o:🔥❤️",
++   "🙂:skin-tone-1o:🔥[❤️",
++   "🙂:skin-tone-1o:🔥[❤️",
++   "🙂:skin-tone-1o:🔥❤️",
++   "[:ok:#:up ❤️👍🏻",
++   "[:ok:](https://x.y)#:up ❤️👍🏻",
++   "[:ok:#:up ❤️👍🏻",
++   ":ok:#:up ❤️👍🏻",
++   ":ok:#:up [❤️👍🏻",
++   ":ok:#:up [❤️](https://x.y)👍🏻",
++   ":ok:#:up [❤️👍🏻",
++   ":ok:#:up ❤️👍🏻",
++   ":ok:#:up ❤️[👍🏻",
++   ":ok:#:up ❤️[👍🏻",
++   ":ok:#:up ❤️👍🏻",
++   "*[:o:cool:id:cool~~🙂",
++   "*[:o:](https://x.y)cool:id:cool~~🙂",
++   "*[:o:cool:id:cool~~🙂",
++   "*:o:cool:id:cool~~🙂",
++   "*:o:cool[:id:cool~~🙂",
++   "*:o:cool[:id:](https://x.y)cool~~🙂",
++   "*:o:cool[:id:cool~~🙂",
++   "*:o:cool:id:cool~~🙂",
++   "*:o:cool:id:cool~~[🙂",
++   "*:o:cool:id:cool~~[🙂",
++   "*:o:cool:id:cool~~🙂",
++   "thumbsup:::oka[:100:ok:ok:",
++   "thumbsup:::oka[:100:](https://x.y)ok:ok:",
++   "thumbsup:::oka[:100:ok:ok:",
++   "thumbsup:::oka:100:ok:ok:",
++   "thumbsup:::oka:100:ok[:ok:",
++   "thumbsup:::oka:100:ok[:ok:",
++   "thumbsup:::oka:100:ok:ok:",
++   "[🔥<:x:123> :skin-tone-1a🙂",
++   "[🔥](https://x.y)<:x:123> :skin-tone-1a🙂",
++   "[🔥<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   "🔥[<:x:123> :skin-tone-1a🙂",
++   "🔥[<:x:123>](https://x.y) :skin-tone-1a🙂",
++   "🔥[<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   "🔥<:x:123> :skin-tone-1a[🙂",
++   "🔥<:x:123> :skin-tone-1a[🙂",
++   "🔥<:x:123> :skin-tone-1a🙂",
++   ":*[🙂:b:a❤️❤️",
++   ":*[🙂](https://x.y):b:a❤️❤️",
++   ":*[🙂:b:a❤️❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂[:b:a❤️❤️",
++   ":*🙂[:b:](https://x.y)a❤️❤️",
++   ":*🙂[:b:a❤️❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂:b:a[❤️❤️",
++   ":*🙂:b:a[❤️](https://x.y)❤️",
++   ":*🙂:b:a[❤️❤️",
++   ":*🙂:b:a❤️❤️",
++   ":*🙂:b:a❤️[❤️",
++   ":*🙂:b:a❤️[❤️",
++   ":*🙂:b:a❤️❤️",
++   "~~:up[<:x:123>",
++   "~~:up[<:x:123>",
++   "~~:up<:x:123>",
++   ".[👍🏻",
++   ".[👍🏻",
++   ".👍🏻",
++   "o:[❤️ a:100🔥:o❤️",
++   "o:[❤️](https://x.y) a:100🔥:o❤️",
++   "o:[❤️ a:100🔥:o❤️",
++   "o:❤️ a:100🔥:o❤️",
++   "o:❤️ a:100[🔥:o❤️",
++   "o:❤️ a:100[🔥](https://x.y):o❤️",
++   "o:❤️ a:100[🔥:o❤️",
++   "o:❤️ a:100🔥:o❤️",
++   "o:❤️ a:100🔥:o[❤️",
++   "o:❤️ a:100🔥:o[❤️",
++   "o:❤️ a:100🔥:o❤️",
++   "thumbsup:[:ok::x_:x.:b👍🏻",
++   "thumbsup:[:ok:](https://x.y):x_:x.:b👍🏻",
++   "thumbsup:[:ok::x_:x.:b👍🏻",
++   "thumbsup::ok::x_:x.:b👍🏻",
++   "thumbsup::ok::x_:x.:b[👍🏻",
++   "thumbsup::ok::x_:x.:b[👍🏻",
++   "thumbsup::ok::x_:x.:b👍🏻",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   " _thumbsup[:o: 🙂",
++   " _thumbsup[:o:](https://x.y) 🙂",
++   " _thumbsup[:o: 🙂",
++   " _thumbsup:o: 🙂",
++   " _thumbsup:o: [🙂",
++   " _thumbsup:o: [🙂",
++   " _thumbsup:o: 🙂",
++   "[👍🏻❤️*🙂:b:",
++   "[👍🏻](https://x.y)❤️*🙂:b:",
++   "[👍🏻❤️*🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻[❤️*🙂:b:",
++   "👍🏻[❤️](https://x.y)*🙂:b:",
++   "👍🏻[❤️*🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻❤️*[🙂:b:",
++   "👍🏻❤️*[🙂](https://x.y):b:",
++   "👍🏻❤️*[🙂:b:",
++   "👍🏻❤️*🙂:b:",
++   "👍🏻❤️*🙂[:b:",
++   "👍🏻❤️*🙂[:b:",
++   "👍🏻❤️*🙂:b:",
++   ":ba_.[❤️",
++   ":ba_.[❤️",
++   ":ba_.❤️",
++   "[:ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   "[:ok:](https://x.y)cool:m🙂:m🔥thumbsup:👍🏻",
++   "[:ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m[🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m[🙂](https://x.y):m🔥thumbsup:👍🏻",
++   ":ok:cool:m[🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m[🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m[🔥](https://x.y)thumbsup:👍🏻",
++   ":ok:cool:m🙂:m[🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:[👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:[👍🏻",
++   ":ok:cool:m🙂:m🔥thumbsup:👍🏻",
++   "[❤️:cool:a<:x:123>:a<:x:123>",
++   "[❤️](https://x.y):cool:a<:x:123>:a<:x:123>",
++   "[❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️[:cool:a<:x:123>:a<:x:123>",
++   "❤️[:cool:](https://x.y)a<:x:123>:a<:x:123>",
++   "❤️[:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a[<:x:123>:a<:x:123>",
++   "❤️:cool:a[<:x:123>](https://x.y):a<:x:123>",
++   "❤️:cool:a[<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "❤️:cool:a<:x:123>:a[<:x:123>",
++   "❤️:cool:a<:x:123>:a[<:x:123>",
++   "❤️:cool:a<:x:123>:a<:x:123>",
++   "[:m:ok🙂",
++   "[:m:](https://x.y)ok🙂",
++   "[:m:ok🙂",
++   ":m:ok🙂",
++   ":m:ok[🙂",
++   ":m:ok[🙂",
++   ":m:ok🙂",
++   "[❤️.<:x:123>🙂",
++   "[❤️](https://x.y).<:x:123>🙂",
++   "[❤️.<:x:123>🙂",
++   "❤️.<:x:123>🙂",
++   "❤️.[<:x:123>🙂",
++   "❤️.[<:x:123>](https://x.y)🙂",
++   "❤️.[<:x:123>🙂",
++   "❤️.<:x:123>🙂",
++   "❤️.<:x:123>[🙂",
++   "❤️.<:x:123>[🙂",
++   "❤️.<:x:123>🙂",
++   "[❤️:ok:#<:x:123>",
++   "[❤️](https://x.y):ok:#<:x:123>",
++   "[❤️:ok:#<:x:123>",
++   "❤️:ok:#<:x:123>",
++   "❤️[:ok:#<:x:123>",
++   "❤️[:ok:](https://x.y)#<:x:123>",
++   "❤️[:ok:#<:x:123>",
++   "❤️:ok:#<:x:123>",
++   "❤️:ok:#[<:x:123>",
++   "❤️:ok:#[<:x:123>",
++   "❤️:ok:#<:x:123>",
++   "[:o:id:x_:#🔥",
++   "[:o:](https://x.y)id:x_:#🔥",
++   "[:o:id:x_:#🔥",
++   ":o:id:x_:#🔥",
++   ":o:id:x_:#[🔥",
++   ":o:id:x_:#[🔥",
++   ":o:id:x_:#🔥",
++   "_:aok:[:a:x:ok👍🏻",
++   "_:aok:[:a:](https://x.y)x:ok👍🏻",
++   "_:aok:[:a:x:ok👍🏻",
++   "_:aok::a:x:ok👍🏻",
++   "_:aok::a:x:ok[👍🏻",
++   "_:aok::a:x:ok[👍🏻",
++   "_:aok::a:x:ok👍🏻",
++   "[❤️:m<:x:123>.:id\\🙂🙂",
++   "[❤️](https://x.y):m<:x:123>.:id\\🙂🙂",
++   "[❤️:m<:x:123>.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂🙂",
++   "❤️:m[<:x:123>.:id\\🙂🙂",
++   "❤️:m[<:x:123>](https://x.y).:id\\🙂🙂",
++   "❤️:m[<:x:123>.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂🙂",
++   "❤️:m<:x:123>.:id\\🙂[🙂",
++   "❤️:m<:x:123>.:id\\🙂[🙂",
++   "❤️:m<:x:123>.:id\\🙂🙂",
++   "::100#[:ok:",
++   "::100#[:ok:",
++   "::100#:ok:",
++   "[:ok:",
++   "[:ok:",
++   ":ok:",
++   ":*:skin-tone-1:skin-tone-1_*[👍🏻:ok:",
++   ":*:skin-tone-1:skin-tone-1_*[👍🏻](https://x.y):ok:",
++   ":*:skin-tone-1:skin-tone-1_*[👍🏻:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻[:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻[:ok:",
++   ":*:skin-tone-1:skin-tone-1_*👍🏻:ok:",
++   "o[:o::up👍🏻",
++   "o[:o:](https://x.y):up👍🏻",
++   "o[:o::up👍🏻",
++   "o:o::up👍🏻",
++   "o:o::up[👍🏻",
++   "o:o::up[👍🏻",
++   "o:o::up👍🏻",
++   ":skin-tone-1[👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1[👍🏻](https://x.y):b:ok:_<:x:123>",
++   ":skin-tone-1[👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻[:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻[:b:](https://x.y)ok:_<:x:123>",
++   ":skin-tone-1👍🏻[:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_[<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_[<:x:123>",
++   ":skin-tone-1👍🏻:b:ok:_<:x:123>",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "#thumbsup:.:up[❤️",
++   "#thumbsup:.:up[❤️",
++   "#thumbsup:.:up❤️",
++   "[👍🏻🔥",
++   "[👍🏻](https://x.y)🔥",
++   "[👍🏻🔥",
++   "👍🏻🔥",
++   "👍🏻[🔥",
++   "👍🏻[🔥",
++   "👍🏻🔥",
++   "[👍🏻o::ok:",
++   "[👍🏻](https://x.y)o::ok:",
++   "[👍🏻o::ok:",
++   "👍🏻o::ok:",
++   "👍🏻o:[:ok:",
++   "👍🏻o:[:ok:",
++   "👍🏻o::ok:",
++   "a\\_[:ok:",
++   "a\\_[:ok:",
++   "a\\_:ok:",
++   ":skin-tone-1[❤️",
++   ":skin-tone-1[❤️",
++   ":skin-tone-1❤️",
++   "thumbsup:[❤️",
++   "thumbsup:[❤️",
++   "thumbsup:❤️",
++   ":skin-tone-1[❤️🔥*:up <:x:123>",
++   ":skin-tone-1[❤️](https://x.y)🔥*:up <:x:123>",
++   ":skin-tone-1[❤️🔥*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up <:x:123>",
++   ":skin-tone-1❤️[🔥*:up <:x:123>",
++   ":skin-tone-1❤️[🔥](https://x.y)*:up <:x:123>",
++   ":skin-tone-1❤️[🔥*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up <:x:123>",
++   ":skin-tone-1❤️🔥*:up [<:x:123>",
++   ":skin-tone-1❤️🔥*:up [<:x:123>",
++   ":skin-tone-1❤️🔥*:up <:x:123>",
++   "[👍🏻🔥:bthumbsup::ok:",
++   "[👍🏻](https://x.y)🔥:bthumbsup::ok:",
++   "[👍🏻🔥:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "👍🏻[🔥:bthumbsup::ok:",
++   "👍🏻[🔥](https://x.y):bthumbsup::ok:",
++   "👍🏻[🔥:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "👍🏻🔥:bthumbsup:[:ok:",
++   "👍🏻🔥:bthumbsup:[:ok:",
++   "👍🏻🔥:bthumbsup::ok:",
++   "[❤️:m:ok:o👍🏻",
++   "[❤️](https://x.y):m:ok:o👍🏻",
++   "[❤️:m:ok:o👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "❤️[:m:ok:o👍🏻",
++   "❤️[:m:](https://x.y)ok:o👍🏻",
++   "❤️[:m:ok:o👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "❤️:m:ok:o[👍🏻",
++   "❤️:m:ok:o[👍🏻",
++   "❤️:m:ok:o👍🏻",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   "a[<:x:123>aok::ok:a❤️",
++   "a[<:x:123>](https://x.y)aok::ok:a❤️",
++   "a[<:x:123>aok::ok:a❤️",
++   "a<:x:123>aok::ok:a❤️",
++   "a<:x:123>aok:[:ok:a❤️",
++   "a<:x:123>aok:[:ok:](https://x.y)a❤️",
++   "a<:x:123>aok:[:ok:a❤️",
++   "a<:x:123>aok::ok:a❤️",
++   "a<:x:123>aok::ok:a[❤️",
++   "a<:x:123>aok::ok:a[❤️",
++   "a<:x:123>aok::ok:a❤️",
++   "o::100thumbsup:*~~ :o[👍🏻",
++   "o::100thumbsup:*~~ :o[👍🏻",
++   "o::100thumbsup:*~~ :o👍🏻",
++   "[❤️#:ok:",
++   "[❤️](https://x.y)#:ok:",
++   "[❤️#:ok:",
++   "❤️#:ok:",
++   "❤️#[:ok:",
++   "❤️#[:ok:",
++   "❤️#:ok:",
++   "[👍🏻#👍🏻",
++   "[👍🏻](https://x.y)#👍🏻",
++   "[👍🏻#👍🏻",
++   "👍🏻#👍🏻",
++   "👍🏻#[👍🏻",
++   "👍🏻#[👍🏻",
++   "👍🏻#👍🏻",
++   ".[🙂❤️",
++   ".[🙂](https://x.y)❤️",
++   ".[🙂❤️",
++   ".🙂❤️",
++   ".🙂[❤️",
++   ".🙂[❤️",
++   ".🙂❤️",
++   "[❤️🙂",
++   "[❤️](https://x.y)🙂",
++   "[❤️🙂",
++   "❤️🙂",
++   "❤️[🙂",
++   "❤️[🙂",
++   "❤️🙂",
++   "[🙂:a:",
++   "[🙂](https://x.y):a:",
++   "[🙂:a:",
++   "🙂:a:",
++   "🙂[:a:",
++   "🙂[:a:",
++   "🙂:a:",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   "a[:ok:",
++   "a[:ok:",
++   "a:ok:",
++   "[:ao:",
++   "[:ao:",
++   ":ao:",
++   " [🙂",
++   " [🙂",
++   " 🙂",
++   "[🙂:ok::100#:cool:100<:x:123>",
++   "[🙂](https://x.y):ok::100#:cool:100<:x:123>",
++   "[🙂:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂[:ok::100#:cool:100<:x:123>",
++   "🙂[:ok:](https://x.y):100#:cool:100<:x:123>",
++   "🙂[:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#[:cool:100<:x:123>",
++   "🙂:ok::100#[:cool:](https://x.y)100<:x:123>",
++   "🙂:ok::100#[:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   "🙂:ok::100#:cool:100[<:x:123>",
++   "🙂:ok::100#:cool:100[<:x:123>",
++   "🙂:ok::100#:cool:100<:x:123>",
++   ":o*[:m:",
++   ":o*[:m:",
++   ":o*:m:",
++   ".:skin-tone-1::skin-tone-1[❤️:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1[❤️](https://x.y):skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1[❤️:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️:skin-tone-1👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️:skin-tone-1[👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️:skin-tone-1[👍🏻",
++   ".:skin-tone-1::skin-tone-1❤️:skin-tone-1👍🏻",
++   "[:up:100 :id:ok:❤️",
++   "[:up:](https://x.y)100 :id:ok:❤️",
++   "[:up:100 :id:ok:❤️",
++   ":up:100 :id:ok:❤️",
++   ":up:100 [:id:ok:❤️",
++   ":up:100 [:id:](https://x.y)ok:❤️",
++   ":up:100 [:id:ok:❤️",
++   ":up:100 :id:ok:❤️",
++   ":up:100 :id:ok:[❤️",
++   ":up:100 :id:ok:[❤️",
++   ":up:100 :id:ok:❤️",
++   " :ma[👍🏻:skin-tone-1🙂",
++   " :ma[👍🏻](https://x.y):skin-tone-1🙂",
++   " :ma[👍🏻:skin-tone-1🙂",
++   " :ma👍🏻:skin-tone-1🙂",
++   " :ma👍🏻:skin-tone-1[🙂",
++   " :ma👍🏻:skin-tone-1[🙂",
++   " :ma👍🏻:skin-tone-1🙂",
++   "~~:skin-tone-1:m[<:x:123>🔥",
++   "~~:skin-tone-1:m[<:x:123>](https://x.y)🔥",
++   "~~:skin-tone-1:m[<:x:123>🔥",
++   "~~:skin-tone-1:m<:x:123>🔥",
++   "~~:skin-tone-1:m<:x:123>[🔥",
++   "~~:skin-tone-1:m<:x:123>[🔥",
++   "~~:skin-tone-1:m<:x:123>🔥",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "~~[:a::id❤️",
++   "~~[:a:](https://x.y):id❤️",
++   "~~[:a::id❤️",
++   "~~:a::id❤️",
++   "~~:a::id[❤️",
++   "~~:a::id[❤️",
++   "~~:a::id❤️",
++   "*:upa[🙂",
++   "*:upa[🙂",
++   "*:upa🙂",
++   "[🙂::ok👍🏻",
++   "[🙂](https://x.y)::ok👍🏻",
++   "[🙂::ok👍🏻",
++   "🙂::ok👍🏻",
++   "🙂::ok[👍🏻",
++   "🙂::ok[👍🏻",
++   "🙂::ok👍🏻",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   ".[🙂",
++   ".[🙂",
++   ".🙂",
++   "[<:x:123>:a👍🏻",
++   "[<:x:123>](https://x.y):a👍🏻",
++   "[<:x:123>:a👍🏻",
++   "<:x:123>:a👍🏻",
++   "<:x:123>:a[👍🏻",
++   "<:x:123>:a[👍🏻",
++   "<:x:123>:a👍🏻",
++   "\\<[:x:123>:\\:o:o:ok:o:",
++   "\\<[:x:](https://x.y)123>:\\:o:o:ok:o:",
++   "\\<[:x:123>:\\:o:o:ok:o:",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "\\<:x:123>:\\:o[:o:ok:o:",
++   "\\<:x:123>:\\:o[:o:](https://x.y)ok:o:",
++   "\\<:x:123>:\\:o[:o:ok:o:",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "\\<:x:123>:\\:o:o:ok[:o:",
++   "\\<:x:123>:\\:o:o:ok[:o:",
++   "\\<:x:123>:\\:o:o:ok:o:",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "[🙂o:a🙂_:up:",
++   "[🙂](https://x.y)o:a🙂_:up:",
++   "[🙂o:a🙂_:up:",
++   "🙂o:a🙂_:up:",
++   "🙂o:a[🙂_:up:",
++   "🙂o:a[🙂](https://x.y)_:up:",
++   "🙂o:a[🙂_:up:",
++   "🙂o:a🙂_:up:",
++   "🙂o:a🙂_[:up:",
++   "🙂o:a🙂_[:up:",
++   "🙂o:a🙂_:up:",
++   "[:ok:100o:ok:",
++   "[:ok:](https://x.y)100o:ok:",
++   "[:ok:100o:ok:",
++   ":ok:100o:ok:",
++   ":ok:100o[:ok:",
++   ":ok:100o[:ok:",
++   ":ok:100o:ok:",
++   "a[:b:skin-tone-1~~#<:x:123>",
++   "a[:b:](https://x.y)skin-tone-1~~#<:x:123>",
++   "a[:b:skin-tone-1~~#<:x:123>",
++   "a:b:skin-tone-1~~#<:x:123>",
++   "a:b:skin-tone-1~~#[<:x:123>",
++   "a:b:skin-tone-1~~#[<:x:123>",
++   "a:b:skin-tone-1~~#<:x:123>",
++   ":[🔥::id:a❤️",
++   ":[🔥](https://x.y)::id:a❤️",
++   ":[🔥::id:a❤️",
++   ":🔥::id:a❤️",
++   ":🔥:[:id:a❤️",
++   ":🔥:[:id:](https://x.y)a❤️",
++   ":🔥:[:id:a❤️",
++   ":🔥::id:a❤️",
++   ":🔥::id:a[❤️",
++   ":🔥::id:a[❤️",
++   ":🔥::id:a❤️",
++   ". :cool[👍🏻",
++   ". :cool[👍🏻",
++   ". :cool👍🏻",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "o:[❤️*:skin-tone-1:id:o🔥",
++   "o:[❤️](https://x.y)*:skin-tone-1:id:o🔥",
++   "o:[❤️*:skin-tone-1:id:o🔥",
++   "o:❤️*:skin-tone-1:id:o🔥",
++   "o:❤️*:skin-tone-1[:id:o🔥",
++   "o:❤️*:skin-tone-1[:id:](https://x.y)o🔥",
++   "o:❤️*:skin-tone-1[:id:o🔥",
++   "o:❤️*:skin-tone-1:id:o🔥",
++   "o:❤️*:skin-tone-1:id:o[🔥",
++   "o:❤️*:skin-tone-1:id:o[🔥",
++   "o:❤️*:skin-tone-1:id:o🔥",
++   "[:ok:<:x:123>",
++   "[:ok:](https://x.y)<:x:123>",
++   "[:ok:<:x:123>",
++   ":ok:<:x:123>",
++   ":ok:[<:x:123>",
++   ":ok:[<:x:123>",
++   ":ok:<:x:123>",
++   "..[❤️:100ok::x👍🏻",
++   "..[❤️](https://x.y):100ok::x👍🏻",
++   "..[❤️:100ok::x👍🏻",
++   "..❤️:100ok::x👍🏻",
++   "..❤️:100ok::x[👍🏻",
++   "..❤️:100ok::x[👍🏻",
++   "..❤️:100ok::x👍🏻",
++   "[:b:x~~:bo:",
++   "[:b:](https://x.y)x~~:bo:",
++   "[:b:x~~:bo:",
++   ":b:x~~:bo:",
++   ":b:x~~[:bo:",
++   ":b:x~~[:bo:",
++   ":b:x~~:bo:",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   "[:ok:",
++   "[:ok:",
++   ":ok:",
++   " :xok:[👍🏻",
++   " :xok:[👍🏻",
++   " :xok:👍🏻",
++   "thumbsup:_[:cool:",
++   "thumbsup:_[:cool:",
++   "thumbsup:_:cool:",
++   "o:\\:m[🙂:a:id:cool<:x:123>",
++   "o:\\:m[🙂](https://x.y):a:id:cool<:x:123>",
++   "o:\\:m[🙂:a:id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool<:x:123>",
++   "o:\\:m🙂[:a:id:cool<:x:123>",
++   "o:\\:m🙂[:a:](https://x.y)id:cool<:x:123>",
++   "o:\\:m🙂[:a:id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool<:x:123>",
++   "o:\\:m🙂:a:id:cool[<:x:123>",
++   "o:\\:m🙂:a:id:cool[<:x:123>",
++   "o:\\:m🙂:a:id:cool<:x:123>",
++   "o:*:ida[🔥",
++   "o:*:ida[🔥",
++   "o:*:ida🔥",
++   "[🔥.❤️",
++   "[🔥](https://x.y).❤️",
++   "[🔥.❤️",
++   "🔥.❤️",
++   "🔥.[❤️",
++   "🔥.[❤️",
++   "🔥.❤️",
++   ":x[<:x:123>",
++   ":x[<:x:123>",
++   ":x<:x:123>",
++   "[:x:",
++   "[:x:",
++   ":x:",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "[🔥:skin-tone-1:ok:up_.:ok:",
++   "[🔥](https://x.y):skin-tone-1:ok:up_.:ok:",
++   "[🔥:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1[:ok:up_.:ok:",
++   "🔥:skin-tone-1[:ok:](https://x.y)up_.:ok:",
++   "🔥:skin-tone-1[:ok:up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.:ok:",
++   "🔥:skin-tone-1:ok:up_.[:ok:",
++   "🔥:skin-tone-1:ok:up_.[:ok:",
++   "🔥:skin-tone-1:ok:up_.:ok:",
++   ".\\_ok::coolthumbsup:[🙂",
++   ".\\_ok::coolthumbsup:[🙂",
++   ".\\_ok::coolthumbsup:🙂",
++   "[<:x:123><:x:123>",
++   "[<:x:123>](https://x.y)<:x:123>",
++   "[<:x:123><:x:123>",
++   "<:x:123><:x:123>",
++   "<:x:123>[<:x:123>",
++   "<:x:123>[<:x:123>",
++   "<:x:123><:x:123>",
++   "o:[👍🏻",
++   "o:[👍🏻",
++   "o:👍🏻",
++   "[👍🏻:up❤️:ok:",
++   "[👍🏻](https://x.y):up❤️:ok:",
++   "[👍🏻:up❤️:ok:",
++   "👍🏻:up❤️:ok:",
++   "👍🏻:up[❤️:ok:",
++   "👍🏻:up[❤️](https://x.y):ok:",
++   "👍🏻:up[❤️:ok:",
++   "👍🏻:up❤️:ok:",
++   "👍🏻:up❤️[:ok:",
++   "👍🏻:up❤️[:ok:",
++   "👍🏻:up❤️:ok:",
++   "[:m:up\\#:id🔥",
++   "[:m:](https://x.y)up\\#:id🔥",
++   "[:m:up\\#:id🔥",
++   ":m:up\\#:id🔥",
++   ":m:up\\#:id[🔥",
++   ":m:up\\#:id[🔥",
++   ":m:up\\#:id🔥",
++   ":skin-tone-1[👍🏻",
++   ":skin-tone-1[👍🏻",
++   ":skin-tone-1👍🏻",
++   "[:up:ok~~##:cool:",
++   "[:up:](https://x.y)ok~~##:cool:",
++   "[:up:ok~~##:cool:",
++   ":up:ok~~##:cool:",
++   ":up:ok~~##[:cool:",
++   ":up:ok~~##[:cool:",
++   ":up:ok~~##:cool:",
++   ":m[<:x:123>",
++   ":m[<:x:123>",
++   ":m<:x:123>",
++   "[:ok:",
++   "[:ok:",
++   ":ok:",
++   "~~[🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~[🙂](https://x.y):skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~[🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1[:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1[:o:](https://x.y)idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1[:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup[:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup[:thumbsup:",
++   "~~🙂:skin-tone-1:o:idthumbsup:thumbsup:",
++   "[:ok:xa:skin-tone-1👍🏻🔥",
++   "[:ok:](https://x.y)xa:skin-tone-1👍🏻🔥",
++   "[:ok:xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1[👍🏻🔥",
++   ":ok:xa:skin-tone-1[👍🏻](https://x.y)🔥",
++   ":ok:xa:skin-tone-1[👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   ":ok:xa:skin-tone-1👍🏻[🔥",
++   ":ok:xa:skin-tone-1👍🏻[🔥",
++   ":ok:xa:skin-tone-1👍🏻🔥",
++   "._[❤️❤️:ok:ok:ok:",
++   "._[❤️](https://x.y)❤️:ok:ok:ok:",
++   "._[❤️❤️:ok:ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️[❤️:ok:ok:ok:",
++   "._❤️[❤️](https://x.y):ok:ok:ok:",
++   "._❤️[❤️:ok:ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️❤️[:ok:ok:ok:",
++   "._❤️❤️[:ok:](https://x.y)ok:ok:",
++   "._❤️❤️[:ok:ok:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   "._❤️❤️:ok:ok[:ok:",
++   "._❤️❤️:ok:ok[:ok:",
++   "._❤️❤️:ok:ok:ok:",
++   ":a [🙂",
++   ":a [🙂",
++   ":a 🙂",
++   ".[:b:ok:🙂::ok:",
++   ".[:b:](https://x.y)ok:🙂::ok:",
++   ".[:b:ok:🙂::ok:",
++   ".:b:ok:🙂::ok:",
++   ".:b:ok:[🙂::ok:",
++   ".:b:ok:[🙂](https://x.y)::ok:",
++   ".:b:ok:[🙂::ok:",
++   ".:b:ok:🙂::ok:",
++   ".:b:ok:🙂:[:ok:",
++   ".:b:ok:🙂:[:ok:",
++   ".:b:ok:🙂::ok:",
++   "ok:[🔥ok:\\👍🏻",
++   "ok:[🔥](https://x.y)ok:\\👍🏻",
++   "ok:[🔥ok:\\👍🏻",
++   "ok:🔥ok:\\👍🏻",
++   "ok:🔥ok:\\👍[🏻",
++   "ok:🔥ok:\\👍[🏻",
++   "ok:🔥ok:\\👍🏻",
++   "o[:ok:",
++   "o[:ok:",
++   "o:ok:",
++   ":up_[:a:b🔥🙂*🙂",
++   ":up_[:a:](https://x.y)b🔥🙂*🙂",
++   ":up_[:a:b🔥🙂*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   ":up_:a:b[🔥🙂*🙂",
++   ":up_:a:b[🔥](https://x.y)🙂*🙂",
++   ":up_:a:b[🔥🙂*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   ":up_:a:b🔥[🙂*🙂",
++   ":up_:a:b🔥[🙂](https://x.y)*🙂",
++   ":up_:a:b🔥[🙂*🙂",
++   ":up_:a:b🔥🙂*🙂",
++   ":up_:a:b🔥🙂*[🙂",
++   ":up_:a:b🔥🙂*[🙂",
++   ":up_:a:b🔥🙂*🙂",
++   "[:ok:ok:<:x:123>",
++   "[:ok:](https://x.y)ok:<:x:123>",
++   "[:ok:ok:<:x:123>",
++   ":ok:ok:<:x:123>",
++   ":ok:ok:[<:x:123>",
++   ":ok:ok:[<:x:123>",
++   ":ok:ok:<:x:123>",
++   "a_:skin-tone-1[:id:x🙂<:x:123>",
++   "a_:skin-tone-1[:id:](https://x.y)x🙂<:x:123>",
++   "a_:skin-tone-1[:id:x🙂<:x:123>",
++   "a_:skin-tone-1:id:x🙂<:x:123>",
++   "a_:skin-tone-1:id:x[🙂<:x:123>",
++   "a_:skin-tone-1:id:x[🙂](https://x.y)<:x:123>",
++   "a_:skin-tone-1:id:x[🙂<:x:123>",
++   "a_:skin-tone-1:id:x🙂<:x:123>",
++   "a_:skin-tone-1:id:x🙂[<:x:123>",
++   "a_:skin-tone-1:id:x🙂[<:x:123>",
++   "a_:skin-tone-1:id:x🙂<:x:123>",
++   ":skin-tone-1a[:o:",
++   ":skin-tone-1a[:o:",
++   ":skin-tone-1a:o:",
++   "[❤️<:x:123>",
++   "[❤️](https://x.y)<:x:123>",
++   "[❤️<:x:123>",
++   "❤️<:x:123>",
++   "❤️[<:x:123>",
++   "❤️[<:x:123>",
++   "❤️<:x:123>",
++   "[🔥👍🏻",
++   "[🔥](https://x.y)👍🏻",
++   "[🔥👍🏻",
++   "🔥👍🏻",
++   "🔥[👍🏻",
++   "🔥[👍🏻",
++   "🔥👍🏻",
++   " [:ok:.:id👍🏻",
++   " [:ok:](https://x.y).:id👍🏻",
++   " [:ok:.:id👍🏻",
++   " :ok:.:id👍🏻",
++   " :ok:.:id[👍🏻",
++   " :ok:.:id[👍🏻",
++   " :ok:.:id👍🏻",
++   "[:x:ok: :x:b❤️🔥",
++   "[:x:](https://x.y)ok: :x:b❤️🔥",
++   "[:x:ok: :x:b❤️🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: [:x:b❤️🔥",
++   ":x:ok: [:x:](https://x.y)b❤️🔥",
++   ":x:ok: [:x:b❤️🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: :x:b[❤️🔥",
++   ":x:ok: :x:b[❤️](https://x.y)🔥",
++   ":x:ok: :x:b[❤️🔥",
++   ":x:ok: :x:b❤️🔥",
++   ":x:ok: :x:b❤️[🔥",
++   ":x:ok: :x:b❤️[🔥",
++   ":x:ok: :x:b❤️🔥",
++   "[:100:x~~❤️",
++   "[:100:](https://x.y)x~~❤️",
++   "[:100:x~~❤️",
++   ":100:x~~❤️",
++   ":100:x~~[❤️",
++   ":100:x~~[❤️",
++   ":100:x~~❤️",
++   ".[🔥:cool:m❤️:ok:",
++   ".[🔥](https://x.y):cool:m❤️:ok:",
++   ".[🔥:cool:m❤️:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥[:cool:m❤️:ok:",
++   ".🔥[:cool:](https://x.y)m❤️:ok:",
++   ".🔥[:cool:m❤️:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥:cool:m[❤️:ok:",
++   ".🔥:cool:m[❤️](https://x.y):ok:",
++   ".🔥:cool:m[❤️:ok:",
++   ".🔥:cool:m❤️:ok:",
++   ".🔥:cool:m❤️[:ok:",
++   ".🔥:cool:m❤️[:ok:",
++   ".🔥:cool:m❤️:ok:",
++   "[:a:id:100:a_🙂",
++   "[:a:](https://x.y)id:100:a_🙂",
++   "[:a:id:100:a_🙂",
++   ":a:id:100:a_🙂",
++   ":a:id[:100:a_🙂",
++   ":a:id[:100:](https://x.y)a_🙂",
++   ":a:id[:100:a_🙂",
++   ":a:id:100:a_🙂",
++   ":a:id:100:a_[🙂",
++   ":a:id:100:a_[🙂",
++   ":a:id:100:a_🙂",
++   " [👍🏻:id👍🏻:cool❤️",
++   " [👍🏻](https://x.y):id👍🏻:cool❤️",
++   " [👍🏻:id👍🏻:cool❤️",
++   " 👍🏻:id👍🏻:cool❤️",
++   " 👍🏻:id[👍🏻:cool❤️",
++   " 👍🏻:id[👍🏻](https://x.y):cool❤️",
++   " 👍🏻:id[👍🏻:cool❤️",
++   " 👍🏻:id👍🏻:cool❤️",
++   " 👍🏻:id👍🏻:cool[❤️",
++   " 👍🏻:id👍🏻:cool[❤️",
++   " 👍🏻:id👍🏻:cool❤️",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   "\\<[:x:123>:m:100:ok:",
++   "\\<[:x:](https://x.y)123>:m:100:ok:",
++   "\\<[:x:123>:m:100:ok:",
++   "\\<:x:123>:m:100:ok:",
++   "\\<:x:123>[:m:100:ok:",
++   "\\<:x:123>[:m:](https://x.y)100:ok:",
++   "\\<:x:123>[:m:100:ok:",
++   "\\<:x:123>:m:100:ok:",
++   "\\<:x:123>:m:100[:ok:",
++   "\\<:x:123>:m:100[:ok:",
++   "\\<:x:123>:m:100:ok:",
++   "o:#[👍🏻a:ok::ok:",
++   "o:#[👍🏻](https://x.y)a:ok::ok:",
++   "o:#[👍🏻a:ok::ok:",
++   "o:#👍🏻a:ok::ok:",
++   "o:#👍🏻a[:ok::ok:",
++   "o:#👍🏻a[:ok:](https://x.y):ok:",
++   "o:#👍🏻a[:ok::ok:",
++   "o:#👍🏻a:ok::ok:",
++   "o:#👍🏻a:ok:[:ok:",
++   "o:#👍🏻a:ok:[:ok:",
++   "o:#👍🏻a:ok::ok:",
++   ":oo[:ok:",
++   ":oo[:ok:",
++   ":oo:ok:",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   "[🔥 o:👍🏻::b:",
++   "[🔥](https://x.y) o:👍🏻::b:",
++   "[🔥 o:👍🏻::b:",
++   "🔥 o:👍🏻::b:",
++   "🔥 o:[👍🏻::b:",
++   "🔥 o:[👍🏻](https://x.y)::b:",
++   "🔥 o:[👍🏻::b:",
++   "🔥 o:👍🏻::b:",
++   "🔥 o:👍🏻:[:b:",
++   "🔥 o:👍🏻:[:b:",
++   "🔥 o:👍🏻::b:",
++   "*a[👍🏻<:x:123>",
++   "*a[👍🏻](https://x.y)<:x:123>",
++   "*a[👍🏻<:x:123>",
++   "*a👍🏻<:x:123>",
++   "*a👍🏻[<:x:123>",
++   "*a👍🏻[<:x:123>",
++   "*a👍🏻<:x:123>",
++   "thumbsup:#:b[👍🏻a👍🏻:ok:",
++   "thumbsup:#:b[👍🏻](https://x.y)a👍🏻:ok:",
++   "thumbsup:#:b[👍🏻a👍🏻:ok:",
++   "thumbsup:#:b👍🏻a👍🏻:ok:",
++   "thumbsup:#:b👍🏻a[👍🏻:ok:",
++   "thumbsup:#:b👍🏻a[👍🏻](https://x.y):ok:",
++   "thumbsup:#:b👍🏻a[👍🏻:ok:",
++   "thumbsup:#:b👍🏻a👍🏻:ok:",
++   "thumbsup:#:b👍🏻a👍🏻[:ok:",
++   "thumbsup:#:b👍🏻a👍🏻[:ok:",
++   "thumbsup:#:b👍🏻a👍🏻:ok:",
++   "[🔥:ok: :ok: :ok🔥",
++   "[🔥](https://x.y):ok: :ok: :ok🔥",
++   "[🔥:ok: :ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥[:ok: :ok: :ok🔥",
++   "🔥[:ok:](https://x.y) :ok: :ok🔥",
++   "🔥[:ok: :ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥:ok: [:ok: :ok🔥",
++   "🔥:ok: [:ok:](https://x.y) :ok🔥",
++   "🔥:ok: [:ok: :ok🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "🔥:ok: :ok: :ok[🔥",
++   "🔥:ok: :ok: :ok[🔥",
++   "🔥:ok: :ok: :ok🔥",
++   "[:o:100:id❤️:ok👍🏻",
++   "[:o:](https://x.y)100:id❤️:ok👍🏻",
++   "[:o:100:id❤️:ok👍🏻",
++   ":o:100:id❤️:ok👍🏻",
++   ":o:100:id[❤️:ok👍🏻",
++   ":o:100:id[❤️](https://x.y):ok👍🏻",
++   ":o:100:id[❤️:ok👍🏻",
++   ":o:100:id❤️:ok👍🏻",
++   ":o:100:id❤️:ok[👍🏻",
++   ":o:100:id❤️:ok[👍🏻",
++   ":o:100:id❤️:ok👍🏻",
++   ":ok[<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok[<:x:123>](https://x.y):100:cool:o:ok:<:x:123>👍🏻",
++   ":ok[<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>[:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>[:100:](https://x.y)cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>[:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool[:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool[:o:](https://x.y)ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool[:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:[<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:[<:x:123>](https://x.y)👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:[<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>[👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>[👍🏻",
++   ":ok<:x:123>:100:cool:o:ok:<:x:123>👍🏻",
++   "a[👍🏻:id:cool<:x:123>",
++   "a[👍🏻](https://x.y):id:cool<:x:123>",
++   "a[👍🏻:id:cool<:x:123>",
++   "a👍🏻:id:cool<:x:123>",
++   "a👍🏻[:id:cool<:x:123>",
++   "a👍🏻[:id:](https://x.y)cool<:x:123>",
++   "a👍🏻[:id:cool<:x:123>",
++   "a👍🏻:id:cool<:x:123>",
++   "a👍🏻:id:cool[<:x:123>",
++   "a👍🏻:id:cool[<:x:123>",
++   "a👍🏻:id:cool<:x:123>",
++   ":.[🔥",
++   ":.[🔥",
++   ":.🔥",
++   ":a[🔥",
++   ":a[🔥",
++   ":a🔥",
++   ":b*:100thumbsup:~~[:100:ok:❤️",
++   ":b*:100thumbsup:~~[:100:](https://x.y)ok:❤️",
++   ":b*:100thumbsup:~~[:100:ok:❤️",
++   ":b*:100thumbsup:~~:100:ok:❤️",
++   ":b*:100thumbsup:~~:100:ok:[❤️",
++   ":b*:100thumbsup:~~:100:ok:[❤️",
++   ":b*:100thumbsup:~~:100:ok:❤️",
++   "#[👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#[👍🏻](https://x.y):a:skin-tone-1\\:ok::m❤️",
++   "#[👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻[:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻[:a:](https://x.y)skin-tone-1\\:ok::m❤️",
++   "#👍🏻[:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m[❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m[❤️",
++   "#👍🏻:a:skin-tone-1\\:ok::m❤️",
++   ":skin-tone-1ok[:o:",
++   ":skin-tone-1ok[:o:",
++   ":skin-tone-1ok:o:",
++   "::[❤️",
++   "::[❤️",
++   "::❤️",
++   ":a[👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a[👍🏻](https://x.y):ok<:x:123>ok::a<:x:123>",
++   ":a[👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok[<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok[<:x:123>](https://x.y)ok::a<:x:123>",
++   ":a👍🏻:ok[<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a[<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a[<:x:123>",
++   ":a👍🏻:ok<:x:123>ok::a<:x:123>",
++   " [<:x:123>",
++   " [<:x:123>",
++   " <:x:123>",
++   "ok::skin-tone-1:o*[:ok:",
++   "ok::skin-tone-1:o*[:ok:",
++   "ok::skin-tone-1:o*:ok:",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   ":up~~#.[<:x:123> :o🔥",
++   ":up~~#.[<:x:123>](https://x.y) :o🔥",
++   ":up~~#.[<:x:123> :o🔥",
++   ":up~~#.<:x:123> :o🔥",
++   ":up~~#.<:x:123> :o[🔥",
++   ":up~~#.<:x:123> :o[🔥",
++   ":up~~#.<:x:123> :o🔥",
++   "*o:.a*:skin-tone-1.[👍🏻",
++   "*o:.a*:skin-tone-1.[👍🏻",
++   "*o:.a*:skin-tone-1.👍🏻",
++   "\\:a[:a:ok :cool❤️<:x:123>",
++   "\\:a[:a:](https://x.y)ok :cool❤️<:x:123>",
++   "\\:a[:a:ok :cool❤️<:x:123>",
++   "\\:a:a:ok :cool❤️<:x:123>",
++   "\\:a:a:ok :cool[❤️<:x:123>",
++   "\\:a:a:ok :cool[❤️](https://x.y)<:x:123>",
++   "\\:a:a:ok :cool[❤️<:x:123>",
++   "\\:a:a:ok :cool❤️<:x:123>",
++   "\\:a:a:ok :cool❤️[<:x:123>",
++   "\\:a:a:ok :cool❤️[<:x:123>",
++   "\\:a:a:ok :cool❤️<:x:123>",
++   "[:b:ok<:x:123>:a<:x:123>:ok:",
++   "[:b:](https://x.y)ok<:x:123>:a<:x:123>:ok:",
++   "[:b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok[<:x:123>:a<:x:123>:ok:",
++   ":b:ok[<:x:123>](https://x.y):a<:x:123>:ok:",
++   ":b:ok[<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a[<:x:123>:ok:",
++   ":b:ok<:x:123>:a[<:x:123>](https://x.y):ok:",
++   ":b:ok<:x:123>:a[<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":b:ok<:x:123>:a<:x:123>[:ok:",
++   ":b:ok<:x:123>:a<:x:123>[:ok:",
++   ":b:ok<:x:123>:a<:x:123>:ok:",
++   ":m[<:x:123>",
++   ":m[<:x:123>",
++   ":m<:x:123>",
++   ":[:ok:",
++   ":[:ok:",
++   "::ok:",
++   "[:ok:up🔥🔥ok:👍🏻",
++   "[:ok:](https://x.y)up🔥🔥ok:👍🏻",
++   "[:ok:up🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up[🔥🔥ok:👍🏻",
++   ":ok:up[🔥](https://x.y)🔥ok:👍🏻",
++   ":ok:up[🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up🔥[🔥ok:👍🏻",
++   ":ok:up🔥[🔥](https://x.y)ok:👍🏻",
++   ":ok:up🔥[🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":ok:up🔥🔥ok:[👍🏻",
++   ":ok:up🔥🔥ok:[👍🏻",
++   ":ok:up🔥🔥ok:👍🏻",
++   ":m.:100[🙂_#<:x:123>",
++   ":m.:100[🙂](https://x.y)_#<:x:123>",
++   ":m.:100[🙂_#<:x:123>",
++   ":m.:100🙂_#<:x:123>",
++   ":m.:100🙂_#[<:x:123>",
++   ":m.:100🙂_#[<:x:123>",
++   ":m.:100🙂_#<:x:123>",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[:cool:upo:_:100🔥 <:x:123>",
++   "[:cool:](https://x.y)upo:_:100🔥 <:x:123>",
++   "[:cool:upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100[🔥 <:x:123>",
++   ":cool:upo:_:100[🔥](https://x.y) <:x:123>",
++   ":cool:upo:_:100[🔥 <:x:123>",
++   ":cool:upo:_:100🔥 <:x:123>",
++   ":cool:upo:_:100🔥 [<:x:123>",
++   ":cool:upo:_:100🔥 [<:x:123>",
++   ":cool:upo:_:100🔥 <:x:123>",
++   ":skin-tone-1[:up::up:m👍🏻🔥",
++   ":skin-tone-1[:up:](https://x.y):up:m👍🏻🔥",
++   ":skin-tone-1[:up::up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up:[:up:m👍🏻🔥",
++   ":skin-tone-1:up:[:up:](https://x.y)m👍🏻🔥",
++   ":skin-tone-1:up:[:up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m[👍🏻🔥",
++   ":skin-tone-1:up::up:m[👍🏻](https://x.y)🔥",
++   ":skin-tone-1:up::up:m[👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   ":skin-tone-1:up::up:m👍🏻[🔥",
++   ":skin-tone-1:up::up:m👍🏻[🔥",
++   ":skin-tone-1:up::up:m👍🏻🔥",
++   "[👍🏻ok::x🙂",
++   "[👍🏻](https://x.y)ok::x🙂",
++   "[👍🏻ok::x🙂",
++   "👍🏻ok::x🙂",
++   "👍🏻ok::x[🙂",
++   "👍🏻ok::x[🙂",
++   "👍🏻ok::x🙂",
++   ".[🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".[🔥](https://x.y)thumbsup:🙂🙂👍🏻:ok:",
++   ".[🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:[🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:[🙂](https://x.y)🙂👍🏻:ok:",
++   ".🔥thumbsup:[🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂[🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂[🙂](https://x.y)👍🏻:ok:",
++   ".🔥thumbsup:🙂[🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂[👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂[👍🏻](https://x.y):ok:",
++   ".🔥thumbsup:🙂🙂[👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻[:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻[:ok:",
++   ".🔥thumbsup:🙂🙂👍🏻:ok:",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[🙂:up:upa👍🏻:coola❤️",
++   "[🙂](https://x.y):up:upa👍🏻:coola❤️",
++   "[🙂:up:upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂[:up:upa👍🏻:coola❤️",
++   "🙂[:up:](https://x.y)upa👍🏻:coola❤️",
++   "🙂[:up:upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂:up:upa[👍🏻:coola❤️",
++   "🙂:up:upa[👍🏻](https://x.y):coola❤️",
++   "🙂:up:upa[👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "🙂:up:upa👍🏻:coola[❤️",
++   "🙂:up:upa👍🏻:coola[❤️",
++   "🙂:up:upa👍🏻:coola❤️",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[🙂",
++   "[🙂",
++   "🙂",
++   ":b[🙂",
++   ":b[🙂",
++   ":b🙂",
++   "o[:thumbsup:",
++   "o[:thumbsup:",
++   "o:thumbsup:",
++   "[<:x:123>*👍🏻",
++   "[<:x:123>](https://x.y)*👍🏻",
++   "[<:x:123>*👍🏻",
++   "<:x:123>*👍🏻",
++   "<:x:123>*[👍🏻",
++   "<:x:123>*[👍🏻",
++   "<:x:123>*👍🏻",
++   "o:[:ok:up❤️",
++   "o:[:ok:](https://x.y)up❤️",
++   "o:[:ok:up❤️",
++   "o::ok:up❤️",
++   "o::ok:up[❤️",
++   "o::ok:up[❤️",
++   "o::ok:up❤️",
++   "ok:[:cool:x:a\\<:x:123><:x:123>",
++   "ok:[:cool:](https://x.y)x:a\\<:x:123><:x:123>",
++   "ok:[:cool:x:a\\<:x:123><:x:123>",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   "ok::cool:x:a\\<[:x:123><:x:123>",
++   "ok::cool:x:a\\<[:x:](https://x.y)123><:x:123>",
++   "ok::cool:x:a\\<[:x:123><:x:123>",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   "ok::cool:x:a\\<:x:123>[<:x:123>",
++   "ok::cool:x:a\\<:x:123>[<:x:123>",
++   "ok::cool:x:a\\<:x:123><:x:123>",
++   "a[<:x:123>",
++   "a[<:x:123>",
++   "a<:x:123>",
++   "[<:x:123>",
++   "[<:x:123>",
++   "<:x:123>",
++   "[:x:x🙂<:x:123>:o<:x:123>",
++   "[:x:](https://x.y)x🙂<:x:123>:o<:x:123>",
++   "[:x:x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x[🙂<:x:123>:o<:x:123>",
++   ":x:x[🙂](https://x.y)<:x:123>:o<:x:123>",
++   ":x:x[🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂[<:x:123>:o<:x:123>",
++   ":x:x🙂[<:x:123>](https://x.y):o<:x:123>",
++   ":x:x🙂[<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   ":x:x🙂<:x:123>:o[<:x:123>",
++   ":x:x🙂<:x:123>:o[<:x:123>",
++   ":x:x🙂<:x:123>:o<:x:123>",
++   "[🙂:ok:",
++   "[🙂](https://x.y):ok:",
++   "[🙂:ok:",
++   "🙂:ok:",
++   "🙂[:ok:",
++   "🙂[:ok:",
++   "🙂:ok:",
++   "o:[:up:cool:id:",
++   "o:[:up:](https://x.y)cool:id:",
++   "o:[:up:cool:id:",
++   "o::up:cool:id:",
++   "o::up:cool[:id:",
++   "o::up:cool[:id:",
++   "o::up:cool:id:",
++   "[🙂",
++   "[🙂",
++   "🙂",
++   ":bok:[❤️",
++   ":bok:[❤️",
++   ":bok:❤️",
++   "[❤️a:cool👍🏻",
++   "[❤️](https://x.y)a:cool👍🏻",
++   "[❤️a:cool👍🏻",
++   "❤️a:cool👍🏻",
++   "❤️a:cool[👍🏻",
++   "❤️a:cool[👍🏻",
++   "❤️a:cool👍🏻",
++   "[:ok::ida<:x:123>",
++   "[:ok:](https://x.y):ida<:x:123>",
++   "[:ok::ida<:x:123>",
++   ":ok::ida<:x:123>",
++   ":ok::ida[<:x:123>",
++   ":ok::ida[<:x:123>",
++   ":ok::ida<:x:123>",
++   "_ok:: [❤️",
++   "_ok:: [❤️",
++   "_ok:: ❤️",
++   "[🙂:ok:❤️",
++   "[🙂](https://x.y):ok:❤️",
++   "[🙂:ok:❤️",
++   "🙂:ok:❤️",
++   "🙂[:ok:❤️",
++   "🙂[:ok:](https://x.y)❤️",
++   "🙂[:ok:❤️",
++   "🙂:ok:❤️",
++   "🙂:ok:[❤️",
++   "🙂:ok:[❤️",
++   "🙂:ok:❤️",
++   ":up~~[❤️:up:id:a🙂",
++   ":up~~[❤️](https://x.y):up:id:a🙂",
++   ":up~~[❤️:up:id:a🙂",
++   ":up~~❤️:up:id:a🙂",
++   ":up~~❤️[:up:id:a🙂",
++   ":up~~❤️[:up:](https://x.y)id:a🙂",
++   ":up~~❤️[:up:id:a🙂",
++   ":up~~❤️:up:id:a🙂",
++   ":up~~❤️:up:id:a[🙂",
++   ":up~~❤️:up:id:a[🙂",
++   ":up~~❤️:up:id:a🙂",
++   "[👍🏻",
++   "[👍🏻",
++   "👍🏻",
++   "[👍🏻o:a:<:x:123>🔥",
++   "[👍🏻](https://x.y)o:a:<:x:123>🔥",
++   "[👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o[:a:<:x:123>🔥",
++   "👍🏻o[:a:](https://x.y)<:x:123>🔥",
++   "👍🏻o[:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:[<:x:123>🔥",
++   "👍🏻o:a:[<:x:123>](https://x.y)🔥",
++   "👍🏻o:a:[<:x:123>🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   "👍🏻o:a:<:x:123>[🔥",
++   "👍🏻o:a:<:x:123>[🔥",
++   "👍🏻o:a:<:x:123>🔥",
++   ":coolo:[👍🏻🙂",
++   ":coolo:[👍🏻](https://x.y)🙂",
++   ":coolo:[👍🏻🙂",
++   ":coolo:👍🏻🙂",
++   ":coolo:👍🏻[🙂",
++   ":coolo:👍🏻[🙂",
++   ":coolo:👍🏻🙂",
++   ":skin-tone-1:a[👍🏻🔥",
++   ":skin-tone-1:a[👍🏻](https://x.y)🔥",
++   ":skin-tone-1:a[👍🏻🔥",
++   ":skin-tone-1:a👍🏻🔥",
++   ":skin-tone-1:a👍🏻[🔥",
++   ":skin-tone-1:a👍🏻[🔥",
++   ":skin-tone-1:a👍🏻🔥",
++   "thumbsup:[:ok::a:mok::up🔥",
++   "thumbsup:[:ok:](https://x.y):a:mok::up🔥",
++   "thumbsup:[:ok::a:mok::up🔥",
++   "thumbsup::ok::a:mok::up🔥",
++   "thumbsup::ok:[:a:mok::up🔥",
++   "thumbsup::ok:[:a:](https://x.y)mok::up🔥",
++   "thumbsup::ok:[:a:mok::up🔥",
++   "thumbsup::ok::a:mok::up🔥",
++   "thumbsup::ok::a:mok::up[🔥",
++   "thumbsup::ok::a:mok::up[🔥",
++   "thumbsup::ok::a:mok::up🔥",
++   ":m[❤️o:❤️",
++   ":m[❤️](https://x.y)o:❤️",
++   ":m[❤️o:❤️",
++   ":m❤️o:❤️",
++   ":m❤️o:[❤️",
++   ":m❤️o:[❤️",
++   ":m❤️o:❤️",
++   "ok:[:o:o👍🏻.❤️",
++   "ok:[:o:](https://x.y)o👍🏻.❤️",
++   "ok:[:o:o👍🏻.❤️",
++   "ok::o:o👍🏻.❤️",
++   "ok::o:o[👍🏻.❤️",
++   "ok::o:o[👍🏻](https://x.y).❤️",
++   "ok::o:o[👍🏻.❤️",
++   "ok::o:o👍🏻.❤️",
++   "ok::o:o👍🏻.[❤️",
++   "ok::o:o👍🏻.[❤️",
++   "ok::o:o👍🏻.❤️",
++   ":up[🔥",
++   ":up[🔥",
++   ":up🔥",
++   "[🙂",
++   "[🙂",
++   "🙂",
++   "ok:_[❤️🔥*🔥",
++   "ok:_[❤️](https://x.y)🔥*🔥",
++   "ok:_[❤️🔥*🔥",
++   "ok:_❤️🔥*🔥",
++   "ok:_❤️[🔥*🔥",
++   "ok:_❤️[🔥](https://x.y)*🔥",
++   "ok:_❤️[🔥*🔥",
++   "ok:_❤️🔥*🔥",
++   "ok:_❤️🔥*[🔥",
++   "ok:_❤️🔥*[🔥",
++   "ok:_❤️🔥*🔥",
++   "[:id:",
++   "[:id:",
++   ":id:",
++   ":skin-tone-1_:m [:up:a:a<:x:123>",
++   ":skin-tone-1_:m [:up:](https://x.y)a:a<:x:123>",
++   ":skin-tone-1_:m [:up:a:a<:x:123>",
++   ":skin-tone-1_:m :up:a:a<:x:123>",
++   ":skin-tone-1_:m :up:a:a[<:x:123>",
++   ":skin-tone-1_:m :up:a:a[<:x:123>",
++   ":skin-tone-1_:m :up:a:a<:x:123>",
++   ":skin-tone-1:upthumbsup:[:ok:_👍🏻",
++   ":skin-tone-1:upthumbsup:[:ok:](https://x.y)_👍🏻",
++   ":skin-tone-1:upthumbsup:[:ok:_👍🏻",
++   ":skin-tone-1:upthumbsup::ok:_👍🏻",
++   ":skin-tone-1:upthumbsup::ok:_[👍🏻",
++   ":skin-tone-1:upthumbsup::ok:_[👍🏻",
++   ":skin-tone-1:upthumbsup::ok:_👍🏻",
++   ":xthumbsup:\\*[<:x:123>ok:thumbsup:",
++   ":xthumbsup:\\*[<:x:123>](https://x.y)ok:thumbsup:",
++   ":xthumbsup:\\*[<:x:123>ok:thumbsup:",
++   ":xthumbsup:\\*<:x:123>ok:thumbsup:",
++   ":xthumbsup:\\*<:x:123>ok[:thumbsup:",
++   ":xthumbsup:\\*<:x:123>ok[:thumbsup:",
++   ":xthumbsup:\\*<:x:123>ok:thumbsup:",
++   "#o:[👍🏻",
++   "#o:[👍🏻",
++   "#o:👍🏻",
++   "ok::[🔥:id🙂",
++   "ok::[🔥](https://x.y):id🙂",
++   "ok::[🔥:id🙂",
++   "ok::🔥:id🙂",
++   "ok::🔥:id[🙂",
++   "ok::🔥:id[🙂",
++   "ok::🔥:id🙂",
++   "[<:x:123>:skin-tone-1❤️",
++   "[<:x:123>](https://x.y):skin-tone-1❤️",
++   "[<:x:123>:skin-tone-1❤️",
++   "<:x:123>:skin-tone-1❤️",
++   "<:x:123>:skin-tone-1[❤️",
++   "<:x:123>:skin-tone-1[❤️",
++   "<:x:123>:skin-tone-1❤️",
++   ":o[❤️ :cool:o:cool*🔥",
++   ":o[❤️](https://x.y) :cool:o:cool*🔥",
++   ":o[❤️ :cool:o:cool*🔥",
++   ":o❤️ :cool:o:cool*🔥",
++   ":o❤️ [:cool:o:cool*🔥",
++   ":o❤️ [:cool:](https://x.y)o:cool*🔥",
++   ":o❤️ [:cool:o:cool*🔥",
++   ":o❤️ :cool:o:cool*🔥",
++   ":o❤️ :cool:o:cool*[🔥",
++   ":o❤️ :cool:o:cool*[🔥",
++   ":o❤️ :cool:o:cool*🔥",
++   ":b[❤️",
++   ":b[❤️",
++   ":b❤️",
++   ":x[❤️",
++   ":x[❤️",
++   ":x❤️",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   "[👍🏻:skin-tone-1:a🙂",
++   "[👍🏻](https://x.y):skin-tone-1:a🙂",
++   "[👍🏻:skin-tone-1:a🙂",
++   "👍🏻:skin-tone-1:a🙂",
++   "👍🏻:skin-tone-1:a[🙂",
++   "👍🏻:skin-tone-1:a[🙂",
++   "👍🏻:skin-tone-1:a🙂",
++   ":b[❤️",
++   ":b[❤️",
++   ":b❤️",
++   ":o :[:up:a~~ ❤️",
++   ":o :[:up:](https://x.y)a~~ ❤️",
++   ":o :[:up:a~~ ❤️",
++   ":o ::up:a~~ ❤️",
++   ":o ::up:a~~ [❤️",
++   ":o ::up:a~~ [❤️",
++   ":o ::up:a~~ ❤️",
++   " [🙂",
++   " [🙂",
++   " 🙂",
++   ":100[🔥<:x:123>",
++   ":100[🔥](https://x.y)<:x:123>",
++   ":100[🔥<:x:123>",
++   ":100🔥<:x:123>",
++   ":100🔥[<:x:123>",
++   ":100🔥[<:x:123>",
++   ":100🔥<:x:123>",
++   "[❤️",
++   "[❤️",
++   "❤️",
++   "[<:x:123>:ok:<:x:123>",
++   "[<:x:123>](https://x.y):ok:<:x:123>",
++   "[<:x:123>:ok:<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "<:x:123>[:ok:<:x:123>",
++   "<:x:123>[:ok:](https://x.y)<:x:123>",
++   "<:x:123>[:ok:<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "<:x:123>:ok:[<:x:123>",
++   "<:x:123>:ok:[<:x:123>",
++   "<:x:123>:ok:<:x:123>",
++   "[<:x:123>.🔥",
++   "[<:x:123>](https://x.y).🔥",
++   "[<:x:123>.🔥",
++   "<:x:123>.🔥",
++   "<:x:123>.[🔥",
++   "<:x:123>.[🔥",
++   "<:x:123>.🔥",
++   ":[🔥:up:id#:id~~🔥",
++   ":[🔥](https://x.y):up:id#:id~~🔥",
++   ":[🔥:up:id#:id~~🔥",
++   ":🔥:up:id#:id~~🔥",
++   ":🔥[:up:id#:id~~🔥",
++   ":🔥[:up:](https://x.y)id#:id~~🔥",
++   ":🔥[:up:id#:id~~🔥",
++   ":🔥:up:id#:id~~🔥",
++   ":🔥:up:id#:id~~[🔥",
++   ":🔥:up:id#:id~~[🔥",
++   ":🔥:up:id#:id~~🔥",
++   "a:[:o:ok:\\_.🔥",
++   "a:[:o:](https://x.y)ok:\\_.🔥",
++   "a:[:o:ok:\\_.🔥",
++   "a::o:ok:\\_.🔥",
++   "a::o:ok:\\_.[🔥",
++   "a::o:ok:\\_.[🔥",
++   "a::o:ok:\\_.🔥",
++   "[🔥",
++   "[🔥",
++   "🔥",
++   "[:ok:",
++   "[:ok:",
++   ":ok:",
++   "*:x_[<:x:123><:x:123>",
++   "*:x_[<:x:123>](https://x.y)<:x:123>",
++   "*:x_[<:x:123><:x:123>",
++   "*:x_<:x:123><:x:123>",
++   "*:x_<:x:123>[<:x:123>",
++   "*:x_<:x:123>[<:x:123>",
++   "*:x_<:x:123><:x:123>",
++   "[:id:100<:x:123>:ok:a:cool❤️",
++   "[:id:](https://x.y)100<:x:123>:ok:a:cool❤️",
++   "[:id:100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100[<:x:123>:ok:a:cool❤️",
++   ":id:100[<:x:123>](https://x.y):ok:a:cool❤️",
++   ":id:100[<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>[:ok:a:cool❤️",
++   ":id:100<:x:123>[:ok:](https://x.y)a:cool❤️",
++   ":id:100<:x:123>[:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   ":id:100<:x:123>:ok:a:cool[❤️",
++   ":id:100<:x:123>:ok:a:cool[❤️",
++   ":id:100<:x:123>:ok:a:cool❤️",
++   "[:up:x*:a🙂",
++   "[:up:](https://x.y)x*:a🙂",
++   "[:up:x*:a🙂",
++   ":up:x*:a🙂",
++   ":up:x*:a[🙂",
++   ":up:x*:a[🙂",
++   ":up:x*:a🙂",
++   ":skin-tone-1[:cool:o:ok:",
++   ":skin-tone-1[:cool:](https://x.y)o:ok:",
++   ":skin-tone-1[:cool:o:ok:",
++   ":skin-tone-1:cool:o:ok:",
++   ":skin-tone-1:cool:o[:ok:",
++   ":skin-tone-1:cool:o[:ok:",
++   ":skin-tone-1:cool:o:ok:",
++   ":ok[<:x:123>👍🏻<:x:123>*:x:",
++   ":ok[<:x:123>](https://x.y)👍🏻<:x:123>*:x:",
++   ":ok[<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>[👍🏻<:x:123>*:x:",
++   ":ok<:x:123>[👍🏻](https://x.y)<:x:123>*:x:",
++   ":ok<:x:123>[👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻[<:x:123>*:x:",
++   ":ok<:x:123>👍🏻[<:x:123>](https://x.y)*:x:",
++   ":ok<:x:123>👍🏻[<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   ":ok<:x:123>👍🏻<:x:123>*[:x:",
++   ":ok<:x:123>👍🏻<:x:123>*[:x:",
++   ":ok<:x:123>👍🏻<:x:123>*:x:",
++   "~~[❤️",
++   "~~[❤️",
++   "~~❤️",
++   "#:skin-tone-1[:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1[:ok:](https://x.y)*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1[:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:*.[:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:*.[:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "#:skin-tone-1:ok:*.:ok:
++ ```js
++ \\ :up:up:o:ok:o
++ ```",
++   "\\:skin-tone-1:a_:o[🔥
++ ```js
++ :::a:othumbsup:
++ ```",
++   "\\:skin-tone-1:a_:o[🔥
++ ```js
++ :::a:othumbsup:
++ ```",
++   "\\:skin-tone-1:a_:o🔥
++ ```js
++ :::a:othumbsup:
++ ```",
++   ":x*.:b[🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b[🙂](https://x.y):ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b[🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂[:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂[:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   ":x*.:b🙂:ok:
++ ```js
++ <:x:123>:o:up:skin-tone-1🔥_:xo:
++ ```",
++   "*[:ok:🙂
++ ```js
++ o:##
++ ```",
++   "*[:ok:](https://x.y)🙂
++ ```js
++ o:##
++ ```",
++   "*[:ok:🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:[🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:[🙂
++ ```js
++ o:##
++ ```",
++   "*:ok:🙂
++ ```js
++ o:##
++ ```",
++   "thumbsup::mthumbsup[:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup[:thumbsup:](https://x.y):o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup[:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup:[:o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup:[:o:](https://x.y):🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup:[:o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::[🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::[🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "thumbsup::mthumbsup:thumbsup::o::🔥
++ ```js
++ \\:x:up<:x:123>:id❤️~~ 
++ ```",
++   "#[<:x:123>
++ ```js
++ :id:up
++ ```",
++   "#[<:x:123>
++ ```js
++ :id:up
++ ```",
++   "#<:x:123>
++ ```js
++ :id:up
++ ```",
++   "[<:x:123>
++ ```js
++ :~~:okthumbsup::100:skin-tone-1🙂
++ ```",
++   "[<:x:123>
++ ```js
++ :~~:okthumbsup::100:skin-tone-1🙂
++ ```",
++   "<:x:123>
++ ```js
++ :~~:okthumbsup::100:skin-tone-1🙂
++ ```",
++   "o[:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o[:ok:](https://x.y):id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o[:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok:[:id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok:[:id:](https://x.y)100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok:[:id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100[🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100[🙂
++ ```js
++ :100:ok:
++ ```",
++   "o:ok::id:100🙂
++ ```js
++ :100:ok:
++ ```",
++   "[🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "[🔥](https://x.y):100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "[🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:[🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:[🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "🔥:100ok:a  ok:🙂
++ ```js
++ a_~~:a_👍🏻ok:
++ ```",
++   "[:o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   "[:o:](https://x.y)cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   "[:o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#[:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#[:up:](https://x.y)m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#[:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m [🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m [🔥
++ ```js
++ :x:id
++ ```",
++   ":o:cool\\#:up:m 🔥
++ ```js
++ :x:id
++ ```",
++   "[:thumbsup:
++ ```js
++ :100:b👍🏻🙂_thumbsup:
++ ```",
++   "[:thumbsup:
++ ```js
++ :100:b👍🏻🙂_thumbsup:
++ ```",
++   ":thumbsup:
++ ```js
++ :100:b👍🏻🙂_thumbsup:
++ ```",
++   "\\❤️[:ok:
++ ```js
++ o:~~:b
++ ```",
++   "\\❤️[:ok:
++ ```js
++ o:~~:b
++ ```",
++   "\\❤️:ok:
++ ```js
++ o:~~:b
++ ```",
++   "[<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "[<:x:123>](https://x.y):100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "[<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>[:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>[:100:](https://x.y)x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>[:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x[:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x[:a:
++ ```js
++ 👍🏻:x
++ ```",
++   "<:x:123>:100:x:a:
++ ```js
++ 👍🏻:x
++ ```",
++   ":b#[❤️
++ ```js
++ ::b👍🏻a:ok:~~:skin-tone-1:skin-tone-1
++ ```",
++   ":b#[❤️
++ ```js
++ ::b👍🏻a:ok:~~:skin-tone-1:skin-tone-1
++ ```",
++   ":b#❤️
++ ```js
++ ::b👍🏻a:ok:~~:skin-tone-1:skin-tone-1
++ ```",
++   "[🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "[🙂](https://x.y):b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "[🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂[:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂[:b:](https://x.y)ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂[:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:[👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:[👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "🙂:b:ok:👍🏻
++ ```js
++ 🙂:b_ 
++ ```",
++   "[:x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   "[:x:](https://x.y)100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   "[:x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️[👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️[👍🏻
++ ```js
++ _\\.*
++ ```",
++   ":x:100\\❤️👍🏻
++ ```js
++ _\\.*
++ ```",
++   "[🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "[🔥](https://x.y)<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "[🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥[<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥[<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   "🔥<:x:123>
++ ```js
++ :ok::cool\\<:x:123>
++ ```",
++   ":up[<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up[<:x:123>](https://x.y):a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up[<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>[:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>[:a:](https://x.y)ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>[:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:[<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:[<:x:123>](https://x.y)🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:[<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>[🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>[🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   ":up<:x:123>:a:ok:<:x:123>🔥
++ ```js
++ :100.❤️:ok
++ ```",
++   "~~:aa:100[👍🏻
++ ```js
++ :up :a👍🏻:ok:m
++ ```",
++   "~~:aa:100[👍🏻
++ ```js
++ :up :a👍🏻:ok:m
++ ```",
++   "~~:aa:100👍🏻
++ ```js
++ :up :a👍🏻:ok:m
++ ```",
++   "[👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "[👍🏻](https://x.y)\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "[👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up[:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up[:a:](https://x.y)cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up[:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool[👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool[👍🏻](https://x.y)<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool[👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻[<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻[<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "👍🏻\\:up:a:cool👍🏻<:x:123>
++ ```js
++ :o:id:o<:x:123>🔥:x
++ ```",
++   "[👍🏻
++ ```js
++ :skin-tone-1🙂thumbsup:ok:\\
++ ```",
++   "[👍🏻
++ ```js
++ :skin-tone-1🙂thumbsup:ok:\\
++ ```",
++   "👍🏻
++ ```js
++ :skin-tone-1🙂thumbsup:ok:\\
++ ```",
++   "*[🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*[🔥](https://x.y)❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*[🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥[❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥[❤️](https://x.y)👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥[❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️[👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️[👍🏻](https://x.y):x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️[👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x[🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x[🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "*🔥❤️👍🏻:x🔥
++ ```js
++ :a👍🏻:up
++ ```",
++   "[:id:o:cool:
++ ```js
++ :o
++ ```",
++   "[:id:](https://x.y)o:cool:
++ ```js
++ :o
++ ```",
++   "[:id:o:cool:
++ ```js
++ :o
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   ":id:o[:cool:
++ ```js
++ :o
++ ```",
++   ":id:o[:cool:
++ ```js
++ :o
++ ```",
++   ":id:o:cool:
++ ```js
++ :o
++ ```",
++   "[👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "[👍🏻](https://x.y)\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "[👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup:[:ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup:[:ok:](https://x.y)🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup:[:ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:[🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:[🔥
++ ```js
++ .o:🔥
++ ```",
++   "👍🏻\\ thumbsup::ok:🔥
++ ```js
++ .o:🔥
++ ```",
++   "[:up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   "[:up:](https://x.y)ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   "[:up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba[🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba[🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   ":up:ba🔥
++ ```js
++ :id🔥🔥:ao::ok:🙂:b
++ ```",
++   "[:ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   "[:ok:](https://x.y)cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   "[:ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool[🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool[🙂](https://x.y)#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool[🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#[<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#[<:x:123>
++ ```js
++ *a
++ ```",
++   ":ok:cool🙂#<:x:123>
++ ```js
++ *a
++ ```",
++   ":skin-tone-1:o[❤️
++ ```js
++ :skin-tone-1a
++ ```",
++   ":skin-tone-1:o[❤️
++ ```js
++ :skin-tone-1a
++ ```",
++   ":skin-tone-1:o❤️
++ ```js
++ :skin-tone-1a
++ ```",
++   ":xo:\\~~~~[:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~[:ok:](https://x.y)🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~[:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:[🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:[🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":xo:\\~~~~:ok:🙂
++ ```js
++ :skin-tone-1#
++ ```",
++   ":skin-tone-1~~:ok_[👍🏻
++ ```js
++ :a#thumbsup:
++ ```",
++   ":skin-tone-1~~:ok_[👍🏻
++ ```js
++ :a#thumbsup:
++ ```",
++   ":skin-tone-1~~:ok_👍🏻
++ ```js
++ :a#thumbsup:
++ ```",
++   ":#[❤️
++ ```js
++ <:x:123> 
++ ```",
++   ":#[❤️
++ ```js
++ <:x:123> 
++ ```",
++   ":#❤️
++ ```js
++ <:x:123> 
++ ```",
++   "[:o:100❤️
++ ```js
++ ❤️:
++ ```",
++   "[:o:](https://x.y)100❤️
++ ```js
++ ❤️:
++ ```",
++   "[:o:100❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100[❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100[❤️
++ ```js
++ ❤️:
++ ```",
++   ":o:100❤️
++ ```js
++ ❤️:
++ ```",
++   "[👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "[👍🏻](https://x.y)🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "[👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻[🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻[🔥](https://x.y):ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻[🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok[🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok[🙂](https://x.y)ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok[🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o[🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o[🙂](https://x.y)<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o[🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂[<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂[<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "👍🏻🔥:ok🙂ok::o🙂<:x:123>
++ ```js
++ thumbsup::m:100:up:a:b:id
++ ```",
++   "*[:ok:
++ ```js
++ :100👍🏻:mo:
++ ```",
++   "*[:ok:
++ ```js
++ :100👍🏻:mo:
++ ```",
++   "*:ok:
++ ```js
++ :100👍🏻:mo:
++ ```",
++   "*thumbsup:~~:skin-tone-1[🙂::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1[🙂](https://x.y)::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1[🙂::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂::ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂:[:ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂:[:ok:
++ ```js
++ #::m:cool
++ ```",
++   "*thumbsup:~~:skin-tone-1🙂::ok:
++ ```js
++ #::m:cool
++ ```",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx:108:23
+    106|       return states.filter((state) => state !== null);
+    107|     });
+    108|     expect(offending).toEqual([]);
+       |                       ^
+    109|   }, 120_000);
+    110|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text
+AssertionError: expected [ 'corpus:214', 'corpus:215', …(477) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:214",
++   "corpus:215",
++   "corpus:216",
++   "corpus:218",
++   "corpus:219",
++   "corpus:220",
++   "corpus:226",
++   "corpus:228",
++   "corpus:230",
++   "link:59",
++   "link:61",
++   "probe:18",
++   "probe:24",
++   "probe:33",
++   "probe:37",
++   "probe:40",
++   "probe:46",
++   "probe:53",
++   "probe:58",
++   "probe:64",
++   "probe:69",
++   "probe:70",
++   "probe:71",
++   "probe:74",
++   "probe:84",
++   "probe:95",
++   "probe:102",
++   "probe:108",
++   "probe:118",
++   "probe:120",
++   "probe:136",
++   "probe:142",
++   "probe:146",
++   "probe:152",
++   "probe:155",
++   "probe:162",
++   "probe:164",
++   "probe:171",
++   "probe:177",
++   "probe:189",
++   "probe:193",
++   "probe:196",
++   "probe:204",
++   "probe:210",
++   "probe:222",
++   "probe:224",
++   "probe:225",
++   "probe:226",
++   "probe:228",
++   "probe:230",
++   "probe:233",
++   "probe:235",
++   "probe:243",
++   "probe:244",
++   "probe:254",
++   "probe:258",
++   "probe:261",
++   "probe:266",
++   "probe:270",
++   "probe:275",
++   "probe:277",
++   "probe:285",
++   "probe:289",
++   "probe:290",
++   "probe:291",
++   "probe:300",
++   "probe:317",
++   "probe:326",
++   "probe:328",
++   "probe:331",
++   "probe:334",
++   "probe:336",
++   "probe:338",
++   "probe:342",
++   "probe:350",
++   "probe:362",
++   "probe:365",
++   "probe:366",
++   "probe:369",
++   "probe:379",
++   "probe:393",
++   "probe:400",
++   "probe:402",
++   "probe:409",
++   "probe:412",
++   "probe:428",
++   "probe:450",
++   "probe:456",
++   "probe:465",
++   "probe:478",
++   "probe:488",
++   "probe:511",
++   "probe:512",
++   "probe:513",
++   "probe:515",
++   "probe:519",
++   "probe:521",
++   "probe:526",
++   "probe:528",
++   "probe:530",
++   "probe:532",
++   "probe:535",
++   "probe:538",
++   "probe:541",
++   "probe:563",
++   "probe:565",
++   "probe:573",
++   "probe:574",
++   "probe:578",
++   "probe:579",
++   "probe:586",
++   "probe:598",
++   "probe:609",
++   "probe:610",
++   "probe:611",
++   "probe:614",
++   "probe:615",
++   "probe:627",
++   "probe:632",
++   "probe:637",
++   "probe:648",
++   "probe:650",
++   "probe:655",
++   "probe:656",
++   "probe:659",
++   "probe:663",
++   "probe:665",
++   "probe:667",
++   "probe:670",
++   "probe:675",
++   "probe:677",
++   "probe:681",
++   "probe:683",
++   "probe:685",
++   "probe:694",
++   "probe:697",
++   "probe:700",
++   "probe:704",
++   "probe:708",
++   "probe:713",
++   "probe:718",
++   "probe:721",
++   "probe:728",
++   "probe:729",
++   "probe:733",
++   "probe:734",
++   "probe:735",
++   "probe:737",
++   "probe:744",
++   "probe:745",
++   "probe:752",
++   "probe:754",
++   "probe:757",
++   "probe:758",
++   "probe:765",
++   "probe:767",
++   "probe:772",
++   "probe:775",
++   "probe:788",
++   "probe:789",
++   "probe:791",
++   "probe:794",
++   "probe:795",
++   "probe:798",
++   "probe:810",
++   "probe:814",
++   "probe:821",
++   "probe:828",
++   "probe:833",
++   "probe:840",
++   "probe:841",
++   "probe:842",
++   "probe:844",
++   "probe:849",
++   "probe:856",
++   "probe:857",
++   "probe:866",
++   "probe:882",
++   "probe:887",
++   "probe:889",
++   "probe:890",
++   "probe:900",
++   "probe:904",
++   "probe:908",
++   "probe:909",
++   "probe:920",
++   "probe:930",
++   "probe:936",
++   "probe:937",
++   "probe:948",
++   "probe:955",
++   "probe:956",
++   "probe:957",
++   "probe:964",
++   "probe:966",
++   "probe:969",
++   "probe:973",
++   "probe:981",
++   "probe:987",
++   "probe:992",
++   "probe:1003",
++   "probe:1007",
++   "probe:1008",
++   "probe:1013",
++   "probe:1014",
++   "probe:1018",
++   "probe:1022",
++   "probe:1028",
++   "probe:1029",
++   "probe:1043",
++   "probe:1044",
++   "probe:1051",
++   "probe:1063",
++   "probe:1064",
++   "probe:1084",
++   "probe:1085",
++   "probe:1086",
++   "probe:1090",
++   "probe:1100",
++   "probe:1108",
++   "probe:1123",
++   "probe:1127",
++   "probe:1132",
++   "probe:1136",
++   "probe:1142",
++   "probe:1144",
++   "probe:1145",
++   "probe:1149",
++   "probe:1150",
++   "probe:1157",
++   "probe:1158",
++   "probe:1160",
++   "probe:1162",
++   "probe:1165",
++   "probe:1166",
++   "probe:1167",
++   "probe:1173",
++   "probe:1176",
++   "probe:1181",
++   "probe:1186",
++   "probe:1205",
++   "probe:1206",
++   "probe:1210",
++   "probe:1213",
++   "probe:1218",
++   "probe:1225",
++   "probe:1226",
++   "probe:1227",
++   "probe:1234",
++   "probe:1236",
++   "probe:1239",
++   "probe:1244",
++   "probe:1250",
++   "probe:1257",
++   "probe:1258",
++   "probe:1260",
++   "probe:1263",
++   "probe:1273",
++   "probe:1275",
++   "probe:1278",
++   "probe:1284",
++   "probe:1288",
++   "probe:1290",
++   "probe:1291",
++   "probe:1292",
++   "probe:1301",
++   "probe:1312",
++   "probe:1314",
++   "probe:1317",
++   "probe:1321",
++   "probe:1323",
++   "probe:1325",
++   "probe:1326",
++   "probe:1329",
++   "probe:1333",
++   "probe:1337",
++   "probe:1338",
++   "probe:1339",
++   "probe:1340",
++   "probe:1346",
++   "probe:1347",
++   "probe:1354",
++   "probe:1355",
++   "probe:1360",
++   "probe:1366",
++   "probe:1368",
++   "probe:1369",
++   "probe:1370",
++   "probe:1384",
++   "probe:1391",
++   "probe:1399",
++   "probe:1408",
++   "probe:1413",
++   "probe:1420",
++   "probe:1434",
++   "probe:1437",
++   "probe:1440",
++   "probe:1450",
++   "probe:1452",
++   "probe:1453",
++   "probe:1455",
++   "probe:1468",
++   "probe:1496",
++   "probe:1497",
++   "probe:1498",
++   "probe:1501",
++   "probe:1504",
++   "probe:1505",
++   "probe:1515",
++   "probe:1518",
++   "probe:1526",
++   "probe:1529",
++   "probe:1535",
++   "probe:1538",
++   "probe:1541",
++   "probe:1543",
++   "probe:1548",
++   "probe:1557",
++   "probe:1560",
++   "probe:1565",
++   "probe:1566",
++   "probe:1574",
++   "probe:1577",
++   "probe:1579",
++   "probe:1582",
++   "probe:1587",
++   "probe:1588",
++   "probe:1604",
++   "probe:1608",
++   "probe:1611",
++   "probe:1617",
++   "probe:1618",
++   "probe:1619",
++   "probe:1620",
++   "probe:1621",
++   "probe:1628",
++   "probe:1633",
++   "probe:1635",
++   "probe:1639",
++   "probe:1641",
++   "probe:1651",
++   "probe:1656",
++   "gen:0",
++   "gen:1",
++   "gen:2",
++   "gen:3",
++   "gen:4",
++   "gen:5",
++   "gen:6",
++   "gen:8",
++   "gen:11",
++   "gen:13",
++   "gen:14",
++   "gen:56",
++   "gen:64",
++   "gen:72",
++   "gen:118",
++   "gen:120",
++   "gen:127",
++   "gen:141",
++   "gen:142",
++   "gen:152",
++   "gen:161",
++   "gen:163",
++   "gen:176",
++   "gen:177",
++   "gen:191",
++   "gen:197",
++   "gen:201",
++   "gen:209",
++   "gen:210",
++   "gen:221",
++   "gen:229",
++   "gen:235",
++   "gen:236",
++   "gen:244",
++   "gen:276",
++   "gen:283",
++   "gen:289",
++   "gen:297",
++   "gen:302",
++   "gen:306",
++   "gen:310",
++   "gen:312",
++   "gen:316",
++   "gen:322",
++   "gen:325",
++   "gen:332",
++   "gen:333",
++   "gen:337",
++   "gen:341",
++   "gen:351",
++   "gen:352",
++   "gen:371",
++   "gen:383",
++   "gen:392",
++   "gen:396",
++   "gen:397",
++   "gen:406",
++   "gen:413",
++   "gen:420",
++   "gen:428",
++   "gen:436",
++   "gen:439",
++   "gen:443",
++   "gen:451",
++   "gen:454",
++   "gen:480",
++   "gen:491",
++   "gen:501",
++   "gen:503",
++   "gen:507",
++   "gen:513",
++   "gen:519",
++   "gen:520",
++   "gen:522",
++   "gen:529",
++   "gen:536",
++   "gen:542",
++   "gen:548",
++   "gen:562",
++   "gen:567",
++   "gen:570",
++   "gen:575",
++   "gen:580",
++   "gen:583",
++   "gen:596",
++   "gen:608",
++   "gen:609",
++   "gen:615",
++   "gen:629",
++   "gen:637",
++   "gen:650",
++   "gen:662",
++   "gen:663",
++   "gen:679",
++   "gen:684",
++   "gen:689",
++   "gen:691",
++   "gen:706",
++   "gen:715",
++   "gen:720",
++   "gen:730",
++   "gen:734",
++   "gen:740",
++   "gen:743",
++   "gen:751",
++   "gen:758",
++   "gen:761",
++   "gen:768",
++   "gen:789",
++   "gen:802",
++   "gen:809",
++   "gen:819",
++   "gen:828",
++   "gen:831",
++   "gen:833",
++   "gen:844",
++   "gen:845",
++   "gen:863",
++   "gen:864",
++   "gen:872",
++   "gen:873",
++   "gen:880",
++   "gen:889",
++   "gen:891",
++   "gen:894",
++   "gen:898",
++   "gen:900",
++   "gen:912",
++   "gen:918",
++   "gen:935",
++   "gen:939",
++   "gen:956",
++   "gen:962",
++   "gen:966",
++   "gen:970",
++   "gen:972",
++   "gen:989",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:35:19
+     33|       ))
+     34|       .map((input) => input.key);
+     35|     expect(wrong).toEqual([]);
+       |                   ^
+     36|   }, 120_000);
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle
+AssertionError: expected [ 'corpus:214', 'corpus:215', …(478) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:214",
++   "corpus:215",
++   "corpus:216",
++   "corpus:218",
++   "corpus:219",
++   "corpus:220",
++   "corpus:226",
++   "corpus:228",
++   "corpus:230",
++   "link:59",
++   "link:61",
++   "probe:18",
++   "probe:24",
++   "probe:33",
++   "probe:37",
++   "probe:40",
++   "probe:46",
++   "probe:53",
++   "probe:58",
++   "probe:64",
++   "probe:69",
++   "probe:70",
++   "probe:71",
++   "probe:74",
++   "probe:84",
++   "probe:95",
++   "probe:102",
++   "probe:108",
++   "probe:118",
++   "probe:120",
++   "probe:136",
++   "probe:142",
++   "probe:146",
++   "probe:152",
++   "probe:155",
++   "probe:162",
++   "probe:164",
++   "probe:171",
++   "probe:177",
++   "probe:189",
++   "probe:193",
++   "probe:196",
++   "probe:204",
++   "probe:210",
++   "probe:222",
++   "probe:224",
++   "probe:225",
++   "probe:226",
++   "probe:228",
++   "probe:230",
++   "probe:233",
++   "probe:235",
++   "probe:243",
++   "probe:244",
++   "probe:254",
++   "probe:258",
++   "probe:261",
++   "probe:266",
++   "probe:270",
++   "probe:275",
++   "probe:277",
++   "probe:285",
++   "probe:289",
++   "probe:290",
++   "probe:291",
++   "probe:300",
++   "probe:317",
++   "probe:326",
++   "probe:328",
++   "probe:331",
++   "probe:334",
++   "probe:336",
++   "probe:338",
++   "probe:342",
++   "probe:350",
++   "probe:362",
++   "probe:365",
++   "probe:366",
++   "probe:369",
++   "probe:379",
++   "probe:393",
++   "probe:400",
++   "probe:402",
++   "probe:409",
++   "probe:412",
++   "probe:428",
++   "probe:450",
++   "probe:456",
++   "probe:465",
++   "probe:478",
++   "probe:488",
++   "probe:511",
++   "probe:512",
++   "probe:513",
++   "probe:515",
++   "probe:519",
++   "probe:521",
++   "probe:526",
++   "probe:528",
++   "probe:530",
++   "probe:532",
++   "probe:535",
++   "probe:538",
++   "probe:541",
++   "probe:563",
++   "probe:565",
++   "probe:573",
++   "probe:574",
++   "probe:578",
++   "probe:579",
++   "probe:586",
++   "probe:598",
++   "probe:609",
++   "probe:610",
++   "probe:611",
++   "probe:614",
++   "probe:615",
++   "probe:627",
++   "probe:632",
++   "probe:637",
++   "probe:648",
++   "probe:650",
++   "probe:655",
++   "probe:656",
++   "probe:659",
++   "probe:663",
++   "probe:665",
++   "probe:667",
++   "probe:670",
++   "probe:675",
++   "probe:677",
++   "probe:681",
++   "probe:683",
++   "probe:685",
++   "probe:694",
++   "probe:697",
++   "probe:700",
++   "probe:704",
++   "probe:708",
++   "probe:713",
++   "probe:718",
++   "probe:721",
++   "probe:728",
++   "probe:729",
++   "probe:733",
++   "probe:734",
++   "probe:735",
++   "probe:737",
++   "probe:744",
++   "probe:745",
++   "probe:752",
++   "probe:754",
++   "probe:757",
++   "probe:758",
++   "probe:765",
++   "probe:767",
++   "probe:772",
++   "probe:775",
++   "probe:788",
++   "probe:789",
++   "probe:791",
++   "probe:794",
++   "probe:795",
++   "probe:798",
++   "probe:810",
++   "probe:814",
++   "probe:821",
++   "probe:828",
++   "probe:833",
++   "probe:840",
++   "probe:841",
++   "probe:842",
++   "probe:844",
++   "probe:849",
++   "probe:856",
++   "probe:857",
++   "probe:866",
++   "probe:882",
++   "probe:887",
++   "probe:889",
++   "probe:890",
++   "probe:900",
++   "probe:904",
++   "probe:908",
++   "probe:909",
++   "probe:920",
++   "probe:930",
++   "probe:936",
++   "probe:937",
++   "probe:948",
++   "probe:955",
++   "probe:956",
++   "probe:957",
++   "probe:964",
++   "probe:966",
++   "probe:969",
++   "probe:973",
++   "probe:981",
++   "probe:987",
++   "probe:992",
++   "probe:1003",
++   "probe:1007",
++   "probe:1008",
++   "probe:1013",
++   "probe:1014",
++   "probe:1018",
++   "probe:1022",
++   "probe:1028",
++   "probe:1029",
++   "probe:1043",
++   "probe:1044",
++   "probe:1051",
++   "probe:1063",
++   "probe:1064",
++   "probe:1084",
++   "probe:1085",
++   "probe:1086",
++   "probe:1090",
++   "probe:1100",
++   "probe:1108",
++   "probe:1123",
++   "probe:1127",
++   "probe:1132",
++   "probe:1136",
++   "probe:1142",
++   "probe:1144",
++   "probe:1145",
++   "probe:1149",
++   "probe:1150",
++   "probe:1157",
++   "probe:1158",
++   "probe:1160",
++   "probe:1162",
++   "probe:1165",
++   "probe:1166",
++   "probe:1167",
++   "probe:1173",
++   "probe:1176",
++   "probe:1181",
++   "probe:1186",
++   "probe:1205",
++   "probe:1206",
++   "probe:1210",
++   "probe:1213",
++   "probe:1218",
++   "probe:1225",
++   "probe:1226",
++   "probe:1227",
++   "probe:1234",
++   "probe:1236",
++   "probe:1239",
++   "probe:1244",
++   "probe:1250",
++   "probe:1257",
++   "probe:1258",
++   "probe:1260",
++   "probe:1263",
++   "probe:1273",
++   "probe:1275",
++   "probe:1278",
++   "probe:1284",
++   "probe:1288",
++   "probe:1290",
++   "probe:1291",
++   "probe:1292",
++   "probe:1301",
++   "probe:1312",
++   "probe:1314",
++   "probe:1317",
++   "probe:1321",
++   "probe:1323",
++   "probe:1325",
++   "probe:1326",
++   "probe:1329",
++   "probe:1333",
++   "probe:1337",
++   "probe:1338",
++   "probe:1339",
++   "probe:1340",
++   "probe:1346",
++   "probe:1347",
++   "probe:1354",
++   "probe:1355",
++   "probe:1360",
++   "probe:1366",
++   "probe:1368",
++   "probe:1369",
++   "probe:1370",
++   "probe:1384",
++   "probe:1391",
++   "probe:1399",
++   "probe:1408",
++   "probe:1413",
++   "probe:1420",
++   "probe:1434",
++   "probe:1437",
++   "probe:1440",
++   "probe:1450",
++   "probe:1452",
++   "probe:1453",
++   "probe:1455",
++   "probe:1468",
++   "probe:1496",
++   "probe:1497",
++   "probe:1498",
++   "probe:1501",
++   "probe:1504",
++   "probe:1505",
++   "probe:1515",
++   "probe:1518",
++   "probe:1526",
++   "probe:1529",
++   "probe:1535",
++   "probe:1538",
++   "probe:1541",
++   "probe:1543",
++   "probe:1548",
++   "probe:1557",
++   "probe:1560",
++   "probe:1565",
++   "probe:1566",
++   "probe:1574",
++   "probe:1577",
++   "probe:1579",
++   "probe:1582",
++   "probe:1587",
++   "probe:1588",
++   "probe:1604",
++   "probe:1608",
++   "probe:1611",
++   "probe:1617",
++   "probe:1618",
++   "probe:1619",
++   "probe:1620",
++   "probe:1621",
++   "probe:1628",
++   "probe:1633",
++   "probe:1635",
++   "probe:1639",
++   "probe:1641",
++   "probe:1651",
++   "probe:1656",
++   "gen:0",
++   "gen:1",
++   "gen:2",
++   "gen:3",
++   "gen:4",
++   "gen:5",
++   "gen:6",
++   "gen:8",
++   "gen:11",
++   "gen:13",
++   "gen:14",
++   "gen:56",
++   "gen:64",
++   "gen:72",
++   "gen:118",
++   "gen:120",
++   "gen:127",
++   "gen:141",
++   "gen:142",
++   "gen:152",
++   "gen:161",
++   "gen:163",
++   "gen:176",
++   "gen:177",
++   "gen:191",
++   "gen:197",
++   "gen:201",
++   "gen:209",
++   "gen:210",
++   "gen:221",
++   "gen:229",
++   "gen:235",
++   "gen:236",
++   "gen:244",
++   "gen:276",
++   "gen:283",
++   "gen:289",
++   "gen:297",
++   "gen:302",
++   "gen:306",
++   "gen:310",
++   "gen:312",
++   "gen:316",
++   "gen:322",
++   "gen:325",
++   "gen:332",
++   "gen:333",
++   "gen:337",
++   "gen:341",
++   "gen:351",
++   "gen:352",
++   "gen:371",
++   "gen:383",
++   "gen:392",
++   "gen:396",
++   "gen:397",
++   "gen:406",
++   "gen:413",
++   "gen:420",
++   "gen:428",
++   "gen:429",
++   "gen:436",
++   "gen:439",
++   "gen:443",
++   "gen:451",
++   "gen:454",
++   "gen:480",
++   "gen:491",
++   "gen:501",
++   "gen:503",
++   "gen:507",
++   "gen:513",
++   "gen:519",
++   "gen:520",
++   "gen:522",
++   "gen:529",
++   "gen:536",
++   "gen:542",
++   "gen:548",
++   "gen:562",
++   "gen:567",
++   "gen:570",
++   "gen:575",
++   "gen:580",
++   "gen:583",
++   "gen:596",
++   "gen:608",
++   "gen:609",
++   "gen:615",
++   "gen:629",
++   "gen:637",
++   "gen:650",
++   "gen:662",
++   "gen:663",
++   "gen:679",
++   "gen:684",
++   "gen:689",
++   "gen:691",
++   "gen:706",
++   "gen:715",
++   "gen:720",
++   "gen:730",
++   "gen:734",
++   "gen:740",
++   "gen:743",
++   "gen:751",
++   "gen:758",
++   "gen:761",
++   "gen:768",
++   "gen:789",
++   "gen:802",
++   "gen:809",
++   "gen:819",
++   "gen:828",
++   "gen:831",
++   "gen:833",
++   "gen:844",
++   "gen:845",
++   "gen:863",
++   "gen:864",
++   "gen:872",
++   "gen:873",
++   "gen:880",
++   "gen:889",
++   "gen:891",
++   "gen:894",
++   "gen:898",
++   "gen:900",
++   "gen:912",
++   "gen:918",
++   "gen:935",
++   "gen:939",
++   "gen:956",
++   "gen:962",
++   "gen:966",
++   "gen:970",
++   "gen:972",
++   "gen:989",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:35:19
+     33|       ))
+     34|       .map((input) => input.key);
+     35|     expect(wrong).toEqual([]);
+       |                   ^
+     36|   }, 120_000);
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl
+AssertionError: expected [ 'corpus:214', 'corpus:215', …(511) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:214",
++   "corpus:215",
++   "corpus:216",
++   "corpus:218",
++   "corpus:219",
++   "corpus:220",
++   "corpus:226",
++   "corpus:228",
++   "corpus:230",
++   "link:56",
++   "link:59",
++   "link:61",
++   "link:63",
++   "probe:18",
++   "probe:24",
++   "probe:33",
++   "probe:37",
++   "probe:40",
++   "probe:46",
++   "probe:53",
++   "probe:58",
++   "probe:64",
++   "probe:69",
++   "probe:70",
++   "probe:71",
++   "probe:74",
++   "probe:84",
++   "probe:95",
++   "probe:102",
++   "probe:108",
++   "probe:118",
++   "probe:120",
++   "probe:136",
++   "probe:142",
++   "probe:146",
++   "probe:152",
++   "probe:155",
++   "probe:162",
++   "probe:164",
++   "probe:171",
++   "probe:177",
++   "probe:189",
++   "probe:193",
++   "probe:196",
++   "probe:204",
++   "probe:210",
++   "probe:222",
++   "probe:224",
++   "probe:225",
++   "probe:226",
++   "probe:228",
++   "probe:230",
++   "probe:233",
++   "probe:235",
++   "probe:243",
++   "probe:244",
++   "probe:254",
++   "probe:258",
++   "probe:261",
++   "probe:266",
++   "probe:270",
++   "probe:275",
++   "probe:277",
++   "probe:285",
++   "probe:289",
++   "probe:290",
++   "probe:291",
++   "probe:300",
++   "probe:317",
++   "probe:326",
++   "probe:328",
++   "probe:331",
++   "probe:334",
++   "probe:336",
++   "probe:338",
++   "probe:342",
++   "probe:350",
++   "probe:362",
++   "probe:365",
++   "probe:366",
++   "probe:369",
++   "probe:379",
++   "probe:393",
++   "probe:400",
++   "probe:402",
++   "probe:409",
++   "probe:412",
++   "probe:428",
++   "probe:450",
++   "probe:456",
++   "probe:465",
++   "probe:478",
++   "probe:488",
++   "probe:511",
++   "probe:512",
++   "probe:513",
++   "probe:515",
++   "probe:519",
++   "probe:521",
++   "probe:526",
++   "probe:528",
++   "probe:530",
++   "probe:532",
++   "probe:535",
++   "probe:538",
++   "probe:541",
++   "probe:563",
++   "probe:565",
++   "probe:573",
++   "probe:574",
++   "probe:578",
++   "probe:579",
++   "probe:586",
++   "probe:598",
++   "probe:609",
++   "probe:610",
++   "probe:611",
++   "probe:614",
++   "probe:615",
++   "probe:627",
++   "probe:632",
++   "probe:637",
++   "probe:648",
++   "probe:650",
++   "probe:655",
++   "probe:656",
++   "probe:659",
++   "probe:663",
++   "probe:665",
++   "probe:667",
++   "probe:670",
++   "probe:675",
++   "probe:677",
++   "probe:681",
++   "probe:683",
++   "probe:685",
++   "probe:694",
++   "probe:697",
++   "probe:700",
++   "probe:704",
++   "probe:708",
++   "probe:713",
++   "probe:718",
++   "probe:721",
++   "probe:728",
++   "probe:729",
++   "probe:733",
++   "probe:734",
++   "probe:735",
++   "probe:737",
++   "probe:744",
++   "probe:745",
++   "probe:752",
++   "probe:754",
++   "probe:757",
++   "probe:758",
++   "probe:765",
++   "probe:767",
++   "probe:772",
++   "probe:775",
++   "probe:788",
++   "probe:789",
++   "probe:791",
++   "probe:794",
++   "probe:795",
++   "probe:798",
++   "probe:810",
++   "probe:814",
++   "probe:821",
++   "probe:828",
++   "probe:833",
++   "probe:840",
++   "probe:841",
++   "probe:842",
++   "probe:844",
++   "probe:849",
++   "probe:856",
++   "probe:857",
++   "probe:866",
++   "probe:882",
++   "probe:887",
++   "probe:889",
++   "probe:890",
++   "probe:900",
++   "probe:904",
++   "probe:908",
++   "probe:909",
++   "probe:920",
++   "probe:930",
++   "probe:936",
++   "probe:937",
++   "probe:948",
++   "probe:955",
++   "probe:956",
++   "probe:957",
++   "probe:964",
++   "probe:966",
++   "probe:969",
++   "probe:973",
++   "probe:981",
++   "probe:987",
++   "probe:992",
++   "probe:1003",
++   "probe:1007",
++   "probe:1008",
++   "probe:1013",
++   "probe:1014",
++   "probe:1018",
++   "probe:1022",
++   "probe:1028",
++   "probe:1029",
++   "probe:1043",
++   "probe:1044",
++   "probe:1051",
++   "probe:1063",
++   "probe:1064",
++   "probe:1084",
++   "probe:1085",
++   "probe:1086",
++   "probe:1090",
++   "probe:1100",
++   "probe:1108",
++   "probe:1123",
++   "probe:1127",
++   "probe:1132",
++   "probe:1136",
++   "probe:1142",
++   "probe:1144",
++   "probe:1145",
++   "probe:1149",
++   "probe:1150",
++   "probe:1157",
++   "probe:1158",
++   "probe:1160",
++   "probe:1162",
++   "probe:1165",
++   "probe:1166",
++   "probe:1167",
++   "probe:1173",
++   "probe:1176",
++   "probe:1181",
++   "probe:1186",
++   "probe:1205",
++   "probe:1206",
++   "probe:1210",
++   "probe:1213",
++   "probe:1218",
++   "probe:1225",
++   "probe:1226",
++   "probe:1227",
++   "probe:1234",
++   "probe:1236",
++   "probe:1239",
++   "probe:1244",
++   "probe:1250",
++   "probe:1257",
++   "probe:1258",
++   "probe:1260",
++   "probe:1263",
++   "probe:1273",
++   "probe:1275",
++   "probe:1278",
++   "probe:1284",
++   "probe:1288",
++   "probe:1290",
++   "probe:1291",
++   "probe:1292",
++   "probe:1301",
++   "probe:1312",
++   "probe:1314",
++   "probe:1317",
++   "probe:1321",
++   "probe:1323",
++   "probe:1325",
++   "probe:1326",
++   "probe:1329",
++   "probe:1333",
++   "probe:1337",
++   "probe:1338",
++   "probe:1339",
++   "probe:1340",
++   "probe:1346",
++   "probe:1347",
++   "probe:1354",
++   "probe:1355",
++   "probe:1360",
++   "probe:1366",
++   "probe:1368",
++   "probe:1369",
++   "probe:1370",
++   "probe:1384",
++   "probe:1391",
++   "probe:1399",
++   "probe:1408",
++   "probe:1413",
++   "probe:1420",
++   "probe:1434",
++   "probe:1437",
++   "probe:1440",
++   "probe:1450",
++   "probe:1452",
++   "probe:1453",
++   "probe:1455",
++   "probe:1468",
++   "probe:1496",
++   "probe:1497",
++   "probe:1498",
++   "probe:1501",
++   "probe:1504",
++   "probe:1505",
++   "probe:1515",
++   "probe:1518",
++   "probe:1526",
++   "probe:1529",
++   "probe:1535",
++   "probe:1538",
++   "probe:1541",
++   "probe:1543",
++   "probe:1548",
++   "probe:1557",
++   "probe:1560",
++   "probe:1565",
++   "probe:1566",
++   "probe:1574",
++   "probe:1577",
++   "probe:1579",
++   "probe:1582",
++   "probe:1587",
++   "probe:1588",
++   "probe:1604",
++   "probe:1608",
++   "probe:1611",
++   "probe:1617",
++   "probe:1618",
++   "probe:1619",
++   "probe:1620",
++   "probe:1621",
++   "probe:1628",
++   "probe:1633",
++   "probe:1635",
++   "probe:1639",
++   "probe:1641",
++   "probe:1651",
++   "probe:1656",
++   "gen:0",
++   "gen:1",
++   "gen:2",
++   "gen:3",
++   "gen:4",
++   "gen:5",
++   "gen:6",
++   "gen:8",
++   "gen:11",
++   "gen:13",
++   "gen:14",
++   "gen:56",
++   "gen:57",
++   "gen:64",
++   "gen:65",
++   "gen:72",
++   "gen:73",
++   "gen:118",
++   "gen:120",
++   "gen:122",
++   "gen:127",
++   "gen:141",
++   "gen:142",
++   "gen:152",
++   "gen:161",
++   "gen:163",
++   "gen:176",
++   "gen:177",
++   "gen:183",
++   "gen:191",
++   "gen:192",
++   "gen:197",
++   "gen:201",
++   "gen:209",
++   "gen:210",
++   "gen:221",
++   "gen:229",
++   "gen:235",
++   "gen:236",
++   "gen:242",
++   "gen:243",
++   "gen:244",
++   "gen:249",
++   "gen:275",
++   "gen:276",
++   "gen:283",
++   "gen:289",
++   "gen:297",
++   "gen:298",
++   "gen:302",
++   "gen:306",
++   "gen:310",
++   "gen:312",
++   "gen:316",
++   "gen:322",
++   "gen:325",
++   "gen:332",
++   "gen:333",
++   "gen:337",
++   "gen:341",
++   "gen:351",
++   "gen:352",
++   "gen:371",
++   "gen:373",
++   "gen:383",
++   "gen:391",
++   "gen:392",
++   "gen:396",
++   "gen:397",
++   "gen:398",
++   "gen:406",
++   "gen:413",
++   "gen:420",
++   "gen:425",
++   "gen:428",
++   "gen:429",
++   "gen:436",
++   "gen:439",
++   "gen:443",
++   "gen:451",
++   "gen:454",
++   "gen:480",
++   "gen:491",
++   "gen:501",
++   "gen:503",
++   "gen:507",
++   "gen:513",
++   "gen:519",
++   "gen:520",
++   "gen:522",
++   "gen:529",
++   "gen:536",
++   "gen:542",
++   "gen:546",
++   "gen:548",
++   "gen:551",
++   "gen:562",
++   "gen:567",
++   "gen:570",
++   "gen:571",
++   "gen:572",
++   "gen:575",
++   "gen:580",
++   "gen:582",
++   "gen:583",
++   "gen:591",
++   "gen:596",
++   "gen:608",
++   "gen:609",
++   "gen:615",
++   "gen:629",
++   "gen:637",
++   "gen:650",
++   "gen:662",
++   "gen:663",
++   "gen:679",
++   "gen:684",
++   "gen:689",
++   "gen:691",
++   "gen:696",
++   "gen:705",
++   "gen:706",
++   "gen:715",
++   "gen:720",
++   "gen:730",
++   "gen:734",
++   "gen:740",
++   "gen:743",
++   "gen:744",
++   "gen:751",
++   "gen:758",
++   "gen:761",
++   "gen:768",
++   "gen:789",
++   "gen:791",
++   "gen:797",
++   "gen:802",
++   "gen:804",
++   "gen:809",
++   "gen:819",
++   "gen:828",
++   "gen:831",
++   "gen:833",
++   "gen:844",
++   "gen:845",
++   "gen:857",
++   "gen:863",
++   "gen:864",
++   "gen:872",
++   "gen:873",
++   "gen:880",
++   "gen:889",
++   "gen:891",
++   "gen:894",
++   "gen:898",
++   "gen:900",
++   "gen:908",
++   "gen:912",
++   "gen:918",
++   "gen:927",
++   "gen:935",
++   "gen:939",
++   "gen:956",
++   "gen:962",
++   "gen:966",
++   "gen:970",
++   "gen:972",
++   "gen:978",
++   "gen:989",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:35:19
+     33|       ))
+     34|       .map((input) => input.key);
+     35|     expect(wrong).toEqual([]);
+       |                   ^
+     36|   }, 120_000);
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are literal for an emoji before and one after a fenced block
+AssertionError: expected [ [ +0, 2 ] ] to deeply equal [ [ +0, 2 ], [ 15, 17 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      0,
+      2,
+    ],
+-   [
+-     15,
+-     17,
+-   ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:44:43
+     42|     ['an emoji on each side of two fenced blocks', '🙂\n```\na\n```\n�…
+     43|   ] as const)('are literal for %s', (_label, text, ranges) => {
+     44|     expect(liftedRanges(text, 'content')).toEqual(ranges);
+       |                                           ^
+     45|   });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are literal for an emoji only in the run after a fenced block
+AssertionError: expected [] to deeply equal [ [ 10, 12 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     10,
+-     12,
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:44:43
+     42|     ['an emoji on each side of two fenced blocks', '🙂\n```\na\n```\n�…
+     43|   ] as const)('are literal for %s', (_label, text, ranges) => {
+     44|     expect(liftedRanges(text, 'content')).toEqual(ranges);
+       |                                           ^
+     45|   });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are literal for an emoji on each side of two fenced blocks
+AssertionError: expected [] to deeply equal [ [ +0, 2 ], [ 13, 15 ], [ 26, 28 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     0,
+-     2,
+-   ],
+-   [
+-     13,
+-     15,
+-   ],
+-   [
+-     26,
+-     28,
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:44:43
+     42|     ['an emoji on each side of two fenced blocks', '🙂\n```\na\n```\n�…
+     43|   ] as const)('are literal for %s', (_label, text, ranges) => {
+     44|     expect(liftedRanges(text, 'content')).toEqual(ranges);
+       |                                           ^
+     45|   });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "\\🙂 🙂" into its own text node
+AssertionError: expected [ '\🙂 🙂' ] to deeply equal [ '\🙂 ', '[🙂]', '' ]
+
+- Expected
++ Received
+
+  [
+-   "\\🙂 ",
+-   "[🙂]",
+-   "",
++   "\\🙂 🙂",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:25
+     75|     ['©™', ['©™']],
+     76|   ] as const)('loads the text on each side of the emoji in %j into its…
+     77|     expect(shown(text)).toEqual(children);
+       |                         ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node
+AssertionError: expected [ '', '[<:n:123>]', '<a:m:4>' ] to deeply equal [ '', '[<:n:123>]', '', …(2) ]
+
+- Expected
++ Received
+
+  [
+    "",
+    "[<:n:123>]",
+-   "",
+-   "[<a:m:4>]",
+-   "",
++   "<a:m:4>",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:25
+     75|     ['©™', ['©™']],
+     76|   ] as const)('loads the text on each side of the emoji in %j into its…
+     77|     expect(shown(text)).toEqual(children);
+       |                         ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "`🙂` 🙂" into its own text node
+AssertionError: expected [ '`🙂` 🙂' ] to deeply equal [ '`🙂` ', '[🙂]', '' ]
+
+- Expected
++ Received
+
+  [
+-   "`🙂` ",
+-   "[🙂]",
+-   "",
++   "`🙂` 🙂",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:77:25
+     75|     ['©™', ['©™']],
+     76|   ] as const)('loads the text on each side of the emoji in %j into its…
+     77|     expect(shown(text)).toEqual(children);
+       |                         ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a unicode emoji as one emoji element that saves as the typed text
+AssertionError: expected [ '🙂', [] ] to deeply equal [ '🙂', [ '🙂' ] ]
+
+- Expected
++ Received
+
+  [
+    "🙂",
+-   [
+-     "🙂",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a ZWJ sequence as one emoji element that saves as the typed text
+AssertionError: expected [ '👨\u200d👩\u200d👧', [] ] to deeply equal [ '👨\u200d👩\u200d👧', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "👨‍👩‍👧",
+-   [
+-     "👨‍👩‍👧",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a skin-tone sequence as one emoji element that saves as the typed text
+AssertionError: expected [ '👍🏽', [] ] to deeply equal [ '👍🏽', [ '👍🏽' ] ]
+
+- Expected
++ Received
+
+  [
+    "👍🏽",
+-   [
+-     "👍🏽",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a keycap as one emoji element that saves as the typed text
+AssertionError: expected [ '1️⃣', [] ] to deeply equal [ '1️⃣', [ '1️⃣' ] ]
+
+- Expected
++ Received
+
+  [
+    "1️⃣",
+-   [
+-     "1️⃣",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a flag as one emoji element that saves as the typed text
+AssertionError: expected [ '🇬🇧', [] ] to deeply equal [ '🇬🇧', [ '🇬🇧' ] ]
+
+- Expected
++ Received
+
+  [
+    "🇬🇧",
+-   [
+-     "🇬🇧",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a tag sequence as one emoji element that saves as the typed text
+AssertionError: expected [ '🏴󠁧󠁢󠁥󠁮󠁧󠁿', [] ] to deeply equal [ '🏴󠁧󠁢󠁥󠁮󠁧󠁿', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+-   [
+-     "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a heart with emoji presentation as one emoji element that saves as the typed text
+AssertionError: expected [ '❤️', [] ] to deeply equal [ '❤️', [ '❤️' ] ]
+
+- Expected
++ Received
+
+  [
+    "❤️",
+-   [
+-     "❤️",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads an emoji typed as a name as one emoji element that saves as the typed text
+AssertionError: expected [ ':smile:', [] ] to deeply equal [ ':smile:', [ ':smile:' ] ]
+
+- Expected
++ Received
+
+  [
+    ":smile:",
+-   [
+-     ":smile:",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a skin-toned name as one emoji element that saves as the typed text
+AssertionError: expected [ ':thumbsup::skin-tone-3:', [] ] to deeply equal [ ':thumbsup::skin-tone-3:', …(1) ]
+
+- Expected
++ Received
+
+  [
+    ":thumbsup::skin-tone-3:",
+-   [
+-     ":thumbsup::skin-tone-3:",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads a custom emoji as one emoji element that saves as the typed text
+AssertionError: expected [ '<:n:123>', [] ] to deeply equal [ '<:n:123>', [ '<:n:123>' ] ]
+
+- Expected
++ Received
+
+  [
+    "<:n:123>",
+-   [
+-     "<:n:123>",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/30]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads an animated custom emoji as one emoji element that saves as the typed text
+AssertionError: expected [ '<a:n:123>', [] ] to deeply equal [ '<a:n:123>', [ '<a:n:123>' ] ]
+
+- Expected
++ Received
+
+  [
+    "<a:n:123>",
+-   [
+-     "<a:n:123>",
+-   ],
++   [],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:82:113
+     80|   it.each(EMOJI_FORMS)('loads %s as one emoji element that saves as th…
+     81|     const [first] = loaded(form) as Element[];
+     82|     expect([flattenNodeText(loaded(form)), first.children.filter(isEmo…
+       |                                                                                                                 ^
+     83|   });
+     84|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/30]⎯
+

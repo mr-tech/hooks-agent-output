@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts > the editor before the markdown engine has loaded > loads a message with an emoji as one text span and styles nothing
+TypeError: Cannot destructure property 'tree' of 'parsed' as it is undefined.
+ ❯ styleUnit src/components/SlateEditor/utils/unitStyles.ts:100:11
+     98|   const parsed = parseUnit(surface, text, startsInCodeBlock);
+     99|   if (false && !parsed) return undefined;
+    100|   const { tree, shift } = parsed;
+       |           ^
+    101|   const styles: CharStyle[] = Array.from({ length: text.length }, () =…
+    102|   const paint: Painter = (token, classNames, syntax) => {
+ ❯ stylesOf src/components/SlateEditor/utils/decorator.tsx:61:20
+ ❯ src/components/SlateEditor/utils/decorator.tsx:84:20
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts:21:74
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

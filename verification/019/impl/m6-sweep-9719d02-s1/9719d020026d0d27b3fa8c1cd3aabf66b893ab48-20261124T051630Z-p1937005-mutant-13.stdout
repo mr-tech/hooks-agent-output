@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T051630Z-p1937005/mutant-13
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 183ms
+     × parses only the edited element's unit on the next pass, with its new text 13ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 26ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  2 failed | 78 passed (80)
+   Start at  05:24:50
+   Duration  30.82s (transform 2.43s, setup 34ms, import 5.89s, tests 41.12s, environment 3.19s)
+

@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-14
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 1 failed) 93ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 9ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 207ms
+     × parses only the edited element's unit on the next pass, with its new text 13ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 43ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 214ms
+     × matches the frozen box on every input, an emoji element's source characters left out 165ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 11027ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 5793ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 32514ms
+     × on embedDescription, every content character carries the style set its preview gives it 5718ms
+     × on fieldValue, every content character carries the style set its preview gives it 6001ms
+     × on embedTitle, every content character carries the style set its preview gives it 6256ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 7108ms
+     × on v2Text, every content character carries the style set its preview gives it 7399ms
+
+ Test Files  5 failed | 3 passed (8)
+      Tests  11 failed | 56 passed (67)
+   Start at  05:25:34
+   Duration  35.50s (transform 2.24s, setup 23ms, import 5.22s, tests 47.80s, environment 2.18s)
+

@@ -1,0 +1,629 @@
+[
+ {
+  "id": "emojiLift.ts:44:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "\n  if (ren",
+  "new": "\n  if (false && ren",
+  "op": "if-false",
+  "line": 44,
+  "text": "if (renderer === 'emoji') layout.emojis.push(spanOf(node, text, shift));",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "emojiLift.ts:50:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "256",
+  "new": "257",
+  "op": "num",
+  "line": 50,
+  "text": "const LAYOUT_CACHE_LIMIT = 256;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "emojiLift.ts:65:>=",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "e >= L",
+  "new": "e > L",
+  "op": ">=",
+  "line": 65,
+  "text": "if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "emojiLift.ts:92:===",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "t === s",
+  "new": "t !== s",
+  "op": "===",
+  "line": 92,
+  "text": "layout.emojis.some((emoji) => emoji.start === start && emoji.end === end)",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "emojiLift.ts:102:&&",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "m && e",
+  "new": "m || e",
+  "op": "&&",
+  "line": 102,
+  "text": "return layout.emojis.filter((emoji) => emoji.start >= from && emoji.end <= from + width);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "emojiLift.ts:109:||",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "||",
+  "new": "&&",
+  "op": "||",
+  "line": 109,
+  "text": "if (line.type === 'codeBlock' || done.has(first)) return;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "emojiLift.ts:126:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 126,
+  "text": "let offset = 0;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+   "src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+  ]
+ },
+ {
+  "id": "onKeyDown.ts:33:num",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "itor, [anchor.path[0]]) as Element;\n  c",
+  "new": "itor, [anchor.path[1]]) as Element;\n  c",
+  "op": "num",
+  "line": 33,
+  "text": "const line = Node.get(editor, [anchor.path[0]]) as Element;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "onKeyDown.ts:35:&&",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": "  && a",
+  "new": "  || a",
+  "op": "&&",
+  "line": 35,
+  "text": "&& anchor.path[1] === 0 && anchor.offset === CARRIED_MARKER.length;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "onKeyDown.ts:36:if-false",
+  "file": "src/components/SlateEditor/utils/onKeyDown.ts",
+  "old": " if (a",
+  "new": " if (false && a",
+  "op": "if-false",
+  "line": 36,
+  "text": "if (afterCarriedMarker) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "runUnit.ts:14:!==",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "t !== u",
+  "new": "t === u",
+  "op": "!==",
+  "line": 14,
+  "text": "return element !== undefined && element.type !== 'codeBlock';",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts",
+   "src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx"
+  ]
+ },
+ {
+  "id": "runUnit.ts:19:num:2",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "+= 1;\n ",
+  "new": "+= 2;\n ",
+  "op": "num",
+  "line": 19,
+  "text": "while (isRun(last + 1)) last += 1;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts",
+   "src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx"
+  ]
+ },
+ {
+  "id": "runUnit.ts:25:===",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "e === '",
+  "new": "e !== '",
+  "op": "===",
+  "line": 25,
+  "text": "if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts",
+   "src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx"
+  ]
+ },
+ {
+  "id": "unitParse.ts:15:num",
+  "file": "src/components/SlateEditor/utils/unitParse.ts",
+  "old": " 0;",
+  "new": " 1;",
+  "op": "num",
+  "line": 15,
+  "text": "const shift = startsInCodeBlock ? OPENED.length : 0;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts",
+   "src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts",
+   "src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts",
+   "src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:58:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e' && ch",
+  "new": "e' || ch",
+  "op": "&&",
+  "line": 58,
+  "text": "if (child.type === 'blockQuote' && child.quotePrefix) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:89:num:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "th; i += 1) {\n     ",
+  "new": "th; i += 2) {\n     ",
+  "op": "num",
+  "line": 89,
+  "text": "for (let i = 0; i < editor.children.length; i += 1) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:110:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(!l",
+  "new": "(l",
+  "op": "not",
+  "line": 110,
+  "text": "if (!layout) return false;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:116:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (rev",
+  "new": "\n  if (false && rev",
+  "op": "if-false",
+  "line": 116,
+  "text": "if (reverted !== -1) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:121:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " 0)",
+  "new": " 1)",
+  "op": "num",
+  "line": 121,
+  "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:128:>=",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t >= f",
+  "new": "t > f",
+  "op": ">=",
+  "line": 128,
+  "text": ": spans.find((emoji) => emoji.start - lineStart >= from && emoji.end - lineStart <= to);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:145:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "h[1]]",
+  "new": "h[2]]",
+  "op": "num",
+  "line": 145,
+  "text": "const before = startsOf(line)[point.path[1]];",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:151:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "> !is",
+  "new": "> is",
+  "op": "not",
+  "line": 151,
+  "text": "const at = line.children.findIndex((child, i) => !isEmojiElement(child) && flat <= starts[i] + widthOf(child));",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:159:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t - 1];\n ",
+  "new": "t - 2];\n ",
+  "op": "num",
+  "line": 159,
+  "text": "const prev = line.children[at - 1];",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:170:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "- 1;\n",
+  "new": "- 2;\n",
+  "op": "num",
+  "line": 170,
+  "text": "const grown = element.source.length - 1;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:174:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t === e",
+  "new": "t !== e",
+  "op": "===",
+  "line": 174,
+  "text": "const onElement = point.path.length > 2 || flat === elementStart + 1;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:182:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "+ 1] ",
+  "new": "+ 2] ",
+  "op": "num",
+  "line": 182,
+  "text": "Transforms.removeNodes(editor, { at: [lineIndex, at + 1] });",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:311:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "te = false;\n  f",
+  "new": "te = true;\n  f",
+  "op": "false",
+  "line": 311,
+  "text": "let inMultilineBlockQuote = false;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:316:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e && /",
+  "new": "e || /",
+  "op": "&&",
+  "line": 316,
+  "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!code && /^ *>>> /.test(text));",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:319:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "& (!ins",
+  "new": "& (ins",
+  "op": "not",
+  "line": 319,
+  "text": "return quoted && (!insideFence || fenceQuoted);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:328:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  for (let i = 0; i < editor.chi",
+  "new": "\n  for (let i = 1; i < editor.chi",
+  "op": "num",
+  "line": 328,
+  "text": "for (let i = 0; i < editor.children.length; i += 1) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:333:===:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x === Q",
+  "new": "x !== Q",
+  "op": "===",
+  "line": 333,
+  "text": "const markerKept = line.type === 'blockQuote' ? line.quotePrefix === QUOTE_MARKER : text.startsWith(QUOTE_MARKER);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:343:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(!m",
+  "new": "(m",
+  "op": "not",
+  "line": 343,
+  "text": "if (!markerKept || (content !== '' && content !== '>')) {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:349:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "eturn false;\n}\n\ne",
+  "new": "eturn true;\n}\n\ne",
+  "op": "false",
+  "line": 349,
+  "text": "return false;",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:366:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= 0 &",
+  "new": "= 1 &",
+  "op": "num",
+  "line": 366,
+  "text": "const carries = !partialMarkdown && lineIndex >= 0 && carriesMarker(editor, lineIndex);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:372:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (cr",
+  "new": "  if (false && cr",
+  "op": "if-false",
+  "line": 372,
+  "text": "if (created.type === 'blockQuote') {",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ },
+ {
+  "id": "withNormalizeNode.ts:387:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " false,",
+  "new": " true,",
+  "op": "false",
+  "line": 387,
+  "text": "if (!partialMarkdown) return handleEditor(editor, false, surface);",
+  "tests": [
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+   "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx",
+   "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx"
+  ]
+ }
+]

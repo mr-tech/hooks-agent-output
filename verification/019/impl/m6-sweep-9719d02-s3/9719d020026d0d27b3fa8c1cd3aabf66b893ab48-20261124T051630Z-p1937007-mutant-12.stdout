@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T051630Z-p1937007/mutant-12
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 1 failed) 293ms
+     × parses a unit of three lines once, and a unit after a code block once more 15ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 2 failed) 149ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 12ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 136ms
+     × matches the frozen box on every input, an emoji element's source characters left out 75ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.range-bounds.test.ts (7 tests | 6 failed) 139ms
+     × on content, over every input of the generator and the corpus 45ms
+     × on embedDescription, over every input of the generator and the corpus 10ms
+     × on fieldValue, over every input of the generator and the corpus 2ms
+     × on embedTitle, over every input of the generator and the corpus 2ms
+     × on embedTitleWithUrl, over every input of the generator and the corpus 5ms
+     × on v2Text, over every input of the generator and the corpus 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 3 failed) 110ms
+     × keeps an emoji typed into a fenced code line as text 8ms
+     × puts an emoji element of the second line of a code block back to text 2ms
+     × puts each emoji element of a fenced code line back to text 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 155ms
+     × on embedDescription, every content character carries the style set its preview gives it 76ms
+     × on fieldValue, every content character carries the style set its preview gives it 24ms
+     × on embedTitle, every content character carries the style set its preview gives it 12ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 8ms
+     × on v2Text, every content character carries the style set its preview gives it 10ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 9133ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 5097ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 3969ms
+
+ Test Files  7 failed | 2 passed (9)
+      Tests  21 failed | 59 passed (80)
+   Start at  05:24:20
+   Duration  11.64s (transform 3.21s, setup 48ms, import 8.16s, tests 10.46s, environment 4.19s)
+

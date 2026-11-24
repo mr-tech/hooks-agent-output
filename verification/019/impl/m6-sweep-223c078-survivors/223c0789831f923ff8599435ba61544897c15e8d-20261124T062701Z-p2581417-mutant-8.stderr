@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > deletes the marker only with the caret right after it, as the first text of a collapsed selection
+AssertionError: expected '> ```\n> x\n ' to be '> ```\n> x\n> ' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+  > x
+- > 
++  
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:152:28
+    150|     Transforms.select(editor, { path: [2, 0], offset: 1 });
+    151|     pressBackspace(editor);
+    152|     expect(textOf(editor)).toBe('> ```\n> x\n> ');
+       |                            ^
+    153|   });
+    154|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Backspace on a carried marker > leaves a caret at the end of a second text node of the line alone
+AssertionError: expected '> ```\n> x\n>' to be '> ```\n> x\n> >' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+  > x
+- > >
++ >
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:169:28
+    167|     const before = textOf(editor);
+    168|     pressBackspace(editor);
+    169|     expect(textOf(editor)).toBe(before);
+       |                            ^
+    170|   });
+    171| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

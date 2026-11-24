@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork6/20261124T062701Z-p2581417/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (27 tests | 2 failed) 96ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 7ms
+     × leaves a caret at the end of a second text node of the line alone 4ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  2 failed | 94 passed (96)
+   Start at  06:35:19
+   Duration  24.48s (transform 947ms, setup 68ms, import 3.14s, tests 39.22s, environment 2.89s)
+

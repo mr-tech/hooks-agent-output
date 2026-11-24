@@ -1,0 +1,29 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is cleared when the marker of a carried code line is deleted by hand
+AssertionError: expected [ '> ```\n> x\n', [ 2 ] ] to deeply equal [ '> ```\n> x\n', [] ]
+
+- Expected
++ Received
+
+  [
+    "> ```
+  > x
+  ",
+-   [],
++   [
++     2,
++   ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:126:52
+    124|     const marker = { anchor: at([2, 0], 0), focus: at([2, 0], 2), clas…
+    125|     Transforms.delete(editor, { at: marker });
+    126|     expect([textOf(editor), carriedLines(editor)]).toEqual(['> ```\n> …
+       |                                                    ^
+    127|   });
+    128|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

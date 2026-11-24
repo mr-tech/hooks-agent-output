@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T055331Z-p2313368/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 2 failed) 226ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 31ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 2856ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 843ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 346ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 477ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 357ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 407ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 337ms
+     × are literal for an emoji before and one after a fenced block 2ms
+     × are literal for an emoji only in the run after a fenced block 2ms
+     × are literal for an emoji on each side of two fenced blocks 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 12 failed) 2893ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 20ms
+     × loads a unicode emoji as one emoji element that saves as the typed text 2ms
+     × loads a ZWJ sequence as one emoji element that saves as the typed text 19ms
+     × loads a skin-tone sequence as one emoji element that saves as the typed text 2ms
+     × loads a keycap as one emoji element that saves as the typed text 2ms
+     × loads a flag as one emoji element that saves as the typed text 2ms
+     × loads a tag sequence as one emoji element that saves as the typed text 2ms
+     × loads a heart with emoji presentation as one emoji element that saves as the typed text 1ms
+     × loads an emoji typed as a name as one emoji element that saves as the typed text 2ms
+     × loads a skin-toned name as one emoji element that saves as the typed text 17ms
+     × loads a custom emoji as one emoji element that saves as the typed text 1ms
+     × loads an animated custom emoji as one emoji element that saves as the typed text 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 11638ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 7094ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 4458ms
+
+ Test Files  4 failed | 6 passed (10)
+      Tests  25 failed | 241 passed (266)
+   Start at  05:57:51
+   Duration  15.09s (transform 6.46s, setup 215ms, import 12.63s, tests 22.18s, environment 6.86s)
+

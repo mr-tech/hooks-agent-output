@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T055331Z-p2313368/mutant-13
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 277ms
+     × matches the frozen box on every input, an emoji element's source characters left out 207ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  1 failed | 93 passed (94)
+   Start at  06:01:46
+   Duration  36.75s (transform 3.51s, setup 52ms, import 7.90s, tests 51.62s, environment 3.92s)
+

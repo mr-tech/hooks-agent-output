@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T055331Z-p2313370/mutant-15
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 2 failed) 181ms
+     × puts an emoji element on the first line when the second is edited back to text 12ms
+     × puts an emoji element on the second line when the third is edited back to text 5ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 3 failed) 180ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 17ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 8ms
+     × takes in a typed quote marker inside a fence opened on a quote line 18ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 20228ms
+     × hands the message that text in a full-markdown editor 12900ms
+
+ Test Files  3 failed | 4 passed (7)
+      Tests  6 failed | 109 passed (115)
+   Start at  06:01:48
+   Duration  49.49s (transform 3.43s, setup 269ms, import 9.84s, tests 92.11s, environment 9.06s)
+

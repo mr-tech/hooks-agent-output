@@ -1,0 +1,41 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork0/20261124T051630Z-p1937004/mutant-15
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 9 failed) 432ms
+     × at the end of a quote line saves what the table says 112ms
+     × in the middle of a quote line saves what the table says 53ms
+     × at the end of a quote line that opens a fence saves what the table says 37ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 38ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 29ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 29ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 28ms
+     × leaves an empty line when the carried marker is removed with Backspace 32ms
+     × takes in a typed quote marker inside a fence opened on a quote line 31ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 12 failed) 5641ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 106ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 23ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 24ms
+     × gives the code lines the language typed onto their opening fence 35ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 31ms
+     × writes no text to the lines a typed multi-line quote marker takes in 16ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 30ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 26ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 48ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 14ms
+     × makes the lines after a removed multi-line quote marker plain lines 30ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 139ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 17211ms
+     × hands the message that text in a full-markdown editor 6671ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 5 failed) 57852ms
+     × keeps a multi-line paste as lines in a full-markdown editor 217ms
+     × hands the message that text in a full-markdown editor 5368ms
+     × hands the message that text in a full-markdown editor 25928ms
+     × hands the message that text in a full-markdown editor 9068ms
+     × hands the message that text in a full-markdown editor 8898ms
+
+ Test Files  4 failed | 2 passed (6)
+      Tests  27 failed | 78 passed (105)
+     Errors  890 errors
+   Start at  05:25:45
+   Duration  61.26s (transform 2.42s, setup 228ms, import 6.95s, tests 93.37s, environment 7.09s)
+

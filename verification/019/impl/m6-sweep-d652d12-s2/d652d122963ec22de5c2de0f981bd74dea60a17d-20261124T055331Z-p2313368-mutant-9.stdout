@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T055331Z-p2313368/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 1 failed) 125ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 12ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 83 passed (84)
+   Start at  05:59:07
+   Duration  44.29s (transform 1.34s, setup 195ms, import 4.46s, tests 74.47s, environment 3.85s)
+

@@ -1,0 +1,49 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T051630Z-p1937007/mutant-14
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 7 failed) 100ms
+     × marks bold delimiters as syntax and the inside as bold 22ms
+     × draws a masked link label as link text and the brackets and destination as syntax 12ms
+     × draws a bare link address as link text 10ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 3ms
+     × carries italic across a line break and gives the break itself no class 2ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 2ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (16 tests | 6 failed) 127ms
+     × lists a unicode emoji with its source span and image 25ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 4ms
+     × lists a skin-tone sequence with its source span and image 3ms
+     × lists a still custom emoji with its source span and image 10ms
+     × lists an animated custom emoji with its source span and image 3ms
+     × lists the emoji outside a code span and none inside it 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 8 failed) 115ms
+     × carries bold across an emoji element 33ms
+     × keeps the delimiters on either side of an emoji as syntax 4ms
+     × carries italic across an emoji element on a quote line 3ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 4ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 3ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 6ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 5ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 172ms
+     × matches the frozen box on every input, an emoji element's source characters left out 122ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 206ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 18ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 56ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 18ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 14ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 36ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 28768ms
+     × on embedDescription, every content character carries the style set its preview gives it 5825ms
+     × on fieldValue, every content character carries the style set its preview gives it 6687ms
+     × on embedTitle, every content character carries the style set its preview gives it 6157ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5041ms
+     × on v2Text, every content character carries the style set its preview gives it 5048ms
+
+ Test Files  6 failed | 2 passed (8)
+      Tests  34 failed | 33 passed (67)
+   Start at  05:25:07
+   Duration  32.18s (transform 2.34s, setup 69ms, import 5.80s, tests 33.09s, environment 2.10s)
+

@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T051630Z-p1937007/mutant-5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (6 tests | 6 failed) 2122ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 643ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 301ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 279ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 271ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 263ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 300ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 6 failed) 2459ms
+     × loads each text of 1,000 generator inputs with its text unchanged 320ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 138ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 482ms
+     × loads each text of 1,000 generator inputs with its text unchanged 148ms
+     × loads each text of the 1,662-line probe corpus with its text unchanged 106ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 572ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  12 failed | 232 passed (244)
+   Start at  05:21:03
+   Duration  15.34s (transform 3.30s, setup 107ms, import 7.07s, tests 21.79s, environment 5.72s)
+

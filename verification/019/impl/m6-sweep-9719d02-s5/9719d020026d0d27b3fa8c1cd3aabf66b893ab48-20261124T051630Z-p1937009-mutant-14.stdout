@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T051630Z-p1937009/mutant-14
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/unitStyles.char-classes.test.ts (9 tests | 9 failed) 156ms
+     × marks bold delimiters as syntax and the inside as bold 22ms
+     × draws a masked link label as link text and the brackets and destination as syntax 14ms
+     × draws a bare link address as link text 38ms
+     × marks the subtext marker and its space as syntax and the rest as subtext 4ms
+     × colours no heading marker and no list marker 5ms
+     × carries italic across a line break and gives the break itself no class 4ms
+     × counts positions in UTF-16 units, so text after an astral character lines up 1ms
+     × gives an unclosed opening fence the code classes, as the native box does while typing 2ms
+     × gives an empty unit no characters 5ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 3 failed) 145ms
+     × carries bold across an emoji element 39ms
+     × keeps the delimiters on either side of an emoji as syntax 9ms
+     × carries italic across an emoji element on a quote line 5ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 5 failed) 318ms
+     × parses a unit of 51 text nodes once 153ms
+     × parses a unit of three lines once, and a unit after a code block once more 11ms
+     × parses only the edited element's unit on the next pass, with its new text 6ms
+       × parses none again when 512 units are drawn twice 67ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 19ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 2 failed) 311ms
+     × matches the frozen box on every input, an emoji element's source characters left out 246ms
+     × marks the fence that closes and opens again on one line as syntax, by the Slate layer's fence parity 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 29853ms
+     × on embedDescription, every content character carries the style set its preview gives it 8660ms
+     × on fieldValue, every content character carries the style set its preview gives it 5295ms
+     × on embedTitle, every content character carries the style set its preview gives it 5023ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 4983ms
+     × on v2Text, every content character carries the style set its preview gives it 5877ms
+
+ Test Files  5 failed | 3 passed (8)
+      Tests  24 failed | 43 passed (67)
+   Start at  05:25:16
+   Duration  33.47s (transform 2.31s, setup 108ms, import 5.96s, tests 48.68s, environment 2.34s)
+

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork5/20261124T055331Z-p2313371/mutant-5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 3 failed) 1766ms
+     × are literal for an emoji before and one after a fenced block 10ms
+     × are literal for an emoji only in the run after a fenced block 2ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+
+ Test Files  1 failed | 9 passed (10)
+      Tests  3 failed | 263 passed (266)
+   Start at  05:57:44
+   Duration  14.13s (transform 4.12s, setup 79ms, import 9.11s, tests 18.45s, environment 6.31s)
+

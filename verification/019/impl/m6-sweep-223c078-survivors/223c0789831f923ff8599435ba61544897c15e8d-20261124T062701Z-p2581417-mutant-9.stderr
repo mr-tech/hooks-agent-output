@@ -1,0 +1,54 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists the emoji of a unit that starts inside a code block after a fence that opens a block with no closing fence as the table says
+AssertionError: expected [ [ 7, 9 ] ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   [
++     7,
++     9,
++   ],
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:68:97
+     66|     ['the closing fence, an emoji, and a second opening fence', '```x\…
+     67|   ] as const)('lists the emoji of a unit that starts inside a code blo…
+     68|     expect(emojiLayout('content', text, true)?.emojis.map((emoji) => […
+       |                                                                                                 ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists the emoji of a unit that starts inside a code block after the closing fence, an emoji, and a second opening fence as the table says
+AssertionError: expected [ [ 5, 7 ], [ 12, 14 ] ] to deeply equal [ [ 5, 7 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      5,
+      7,
+    ],
++   [
++     12,
++     14,
++   ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:68:97
+     66|     ['the closing fence, an emoji, and a second opening fence', '```x\…
+     67|   ] as const)('lists the emoji of a unit that starts inside a code blo…
+     68|     expect(emojiLayout('content', text, true)?.emojis.map((emoji) => […
+       |                                                                                                 ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

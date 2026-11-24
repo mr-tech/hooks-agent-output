@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/export-stub
+
+
+ Test Files  2 passed (2)
+      Tests  21 passed (21)
+   Start at  05:15:01
+   Duration  7.69s (transform 537ms, setup 50ms, import 981ms, tests 6.35s, environment 1.27s)
+

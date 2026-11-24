@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-29
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 4 failed) 229ms
+     × in the middle of the first line of a multi-line quote saves what the table says 21ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 8ms
+     × at the end of a plain line saves what the table says 12ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 1 failed) 17036ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 14ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 24062ms
+     × hands the message a line break typed as a new line 79ms
+     × hands the message that text in a full-markdown editor 14934ms
+
+ Test Files  3 failed | 3 passed (6)
+      Tests  7 failed | 98 passed (105)
+   Start at  05:38:32
+   Duration  52.75s (transform 3.07s, setup 335ms, import 8.11s, tests 104.56s, environment 6.52s)
+

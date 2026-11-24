@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T055331Z-p2313367/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 2 failed) 302ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 52ms
+     × puts a caret on a second element at the same place in the text 8ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 2747ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 916ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 376ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 483ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 324ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 264ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 316ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 3224ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 14ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 11273ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 6822ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 4368ms
+
+ Test Files  4 failed | 6 passed (10)
+      Tests  12 failed | 254 passed (266)
+   Start at  05:57:51
+   Duration  14.44s (transform 4.29s, setup 236ms, import 10.52s, tests 22.29s, environment 5.72s)
+

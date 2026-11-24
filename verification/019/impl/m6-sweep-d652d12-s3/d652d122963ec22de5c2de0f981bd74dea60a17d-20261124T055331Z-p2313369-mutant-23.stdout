@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork3/20261124T055331Z-p2313369/mutant-23
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 10 failed) 161ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 15ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 6ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 13ms
+     × puts an emoji element back to text once a web address is typed in front of it 4ms
+     × puts an emoji element of the second line of a code block back to text 3ms
+     × puts each emoji element of a fenced code line back to text 3ms
+     × puts a caret on the element at the same place in the text 4ms
+     × puts a caret right after the element at the same place in the text 4ms
+     × puts a caret after the element and a typed backtick at the same place in the text 4ms
+     × puts a caret on a second element at the same place in the text 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 12988ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 5137ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 48463ms
+     × hands the message that text in a full-markdown editor 24999ms
+
+ Test Files  3 failed | 4 passed (7)
+      Tests  12 failed | 103 passed (115)
+   Start at  06:09:29
+   Duration  52.04s (transform 2.86s, setup 303ms, import 7.69s, tests 102.88s, environment 8.20s)
+

@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T055331Z-p2313367/mutant-35
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (15 tests | 3 failed) 204ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 15ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 10ms
+     × takes in a typed quote marker inside a fence opened on a quote line 22ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 2 failed) 274ms
+     × puts an emoji element on the first line when the second is edited back to text 26ms
+     × puts an emoji element on the second line when the third is edited back to text 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 8 failed) 11068ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 20ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 4ms
+     × gives the code lines the language typed onto their opening fence 3ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 8ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 8ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 3ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 5ms
+     × makes the lines after a removed multi-line quote marker plain lines 6ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 16723ms
+     × hands the message that text in a full-markdown editor 10626ms
+
+ Test Files  4 failed | 3 passed (7)
+      Tests  14 failed | 101 passed (115)
+   Start at  06:21:11
+   Duration  38.55s (transform 3.92s, setup 333ms, import 11.80s, tests 73.07s, environment 9.80s)
+

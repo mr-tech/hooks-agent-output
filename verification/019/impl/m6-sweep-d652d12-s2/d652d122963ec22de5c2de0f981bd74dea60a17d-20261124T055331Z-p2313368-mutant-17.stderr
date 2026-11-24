@@ -1,0 +1,23 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx > the editor normalizer before the markdown engine has loaded > keeps an emoji element where it is and changes no text
+TypeError: Cannot read properties of undefined (reading 'emojis')
+ ❯ holdsSpan src/components/SlateEditor/utils/emojiLift.ts:92:10
+     90|
+     91| export const holdsSpan = (layout: EmojiLayout, start: number, end: num…
+     92|   layout.emojis.some((emoji) => emoji.start === start && emoji.end ===…
+       |          ^
+     93| );
+     94|
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:115:9
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:114:34
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:301:3
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:387:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

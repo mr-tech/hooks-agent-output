@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork4/20261124T055331Z-p2313370/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (22 tests | 1 failed) 205ms
+     × puts a caret on a second element at the same place in the text 28ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 1991ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 625ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 330ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 269ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 223ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 211ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 251ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 2292ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 14ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 3ms
+
+ Test Files  3 failed | 7 passed (10)
+      Tests  9 failed | 257 passed (266)
+   Start at  05:58:10
+   Duration  16.40s (transform 4.92s, setup 138ms, import 10.58s, tests 22.27s, environment 8.50s)
+

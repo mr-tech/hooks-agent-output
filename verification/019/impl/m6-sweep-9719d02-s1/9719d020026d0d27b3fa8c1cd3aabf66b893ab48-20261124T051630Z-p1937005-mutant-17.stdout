@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork1/20261124T051630Z-p1937005/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (13 tests | 8 failed) 340ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 89ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 43ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 43ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 34ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 33ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 18ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 21ms
+     × puts an emoji in a link label back to text once "](" is typed after it 21ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 270ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 68ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 43ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 41ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 31ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 21ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 23ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (47 tests | 10 failed) 14839ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 167ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 59ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 77ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 40ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 58ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 67ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 42ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 39ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 70ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 48ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 19236ms
+     × hands the message that text in a full-markdown editor 11492ms
+     × hands the message that text in a single-line editor 7413ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 47584ms
+     × hands the message that text in a full-markdown editor 22745ms
+     × hands the message that text in a full-markdown editor 5476ms
+
+ Test Files  5 failed | 1 passed (6)
+      Tests  28 failed | 77 passed (105)
+     Errors  563 errors
+   Start at  05:27:36
+   Duration  53.34s (transform 5.32s, setup 255ms, import 14.11s, tests 82.41s, environment 6.81s)
+

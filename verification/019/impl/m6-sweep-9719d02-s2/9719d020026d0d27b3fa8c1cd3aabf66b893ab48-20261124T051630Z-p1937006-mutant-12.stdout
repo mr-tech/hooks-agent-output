@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ba9d1188-1c08-4231-aad5-554dd6ad3b75/scratchpad/mwork2/20261124T051630Z-p1937006/mutant-12
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.one-parse-per-unit.test.ts (5 tests | 2 failed) 328ms
+     × parses a unit of three lines once, and a unit after a code block once more 19ms
+       × keeps the second unit and parses the oldest again, when 513 units have been drawn 99ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.native-box-classes.test.ts (2 tests | 1 failed) 315ms
+     × matches the frozen box on every input, an emoji element's source characters left out 234ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 1 failed) 9873ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 4845ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 29280ms
+     × on embedDescription, every content character carries the style set its preview gives it 6641ms
+     × on fieldValue, every content character carries the style set its preview gives it 6105ms
+     × on embedTitle, every content character carries the style set its preview gives it 5089ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 5928ms
+     × on v2Text, every content character carries the style set its preview gives it 5508ms
+
+ Test Files  4 failed | 5 passed (9)
+      Tests  9 failed | 71 passed (80)
+   Start at  05:24:25
+   Duration  32.95s (transform 2.92s, setup 50ms, import 6.94s, tests 45.10s, environment 3.66s)
+

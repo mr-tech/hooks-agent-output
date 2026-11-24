@@ -1,0 +1,1333 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 93 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a ZWJ sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-tone sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a flag typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with emoji presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji newer than the site's table typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-toned name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link label typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a name in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals two emoji side by side typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside inline code typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji after a backslash typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a Unicode emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-tone sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a flag typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with emoji presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji newer than the site's table typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-toned name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link label typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a name in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals two emoji side by side typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside inline code typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer keeping the caret in place when an emoji element goes back to text > puts a caret on a second element at the same place in the text
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx > the emoji elements of an editor after an edit around an emoji > are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a keycap typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a tag sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with text presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji typed as a name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a colon-wrapped emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an animated custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji between words typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside bold typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside a code block typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a ZWJ sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a keycap typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a tag sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with text presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji typed as a name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a colon-wrapped emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an animated custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji between words typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside bold typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji after a backslash typed one character at a time
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a Unicode emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a Unicode emoji pasted whole
+AssertionError: expected '' to be '🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a ZWJ sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a ZWJ sequence pasted whole
+AssertionError: expected '' to be '👨\u200d👩\u200d👧' // Object.is equality
+
+- Expected
++ Received
+
+- 👨‍👩‍👧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-tone sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-tone sequence pasted whole
+AssertionError: expected '' to be '👍🏽' // Object.is equality
+
+- Expected
++ Received
+
+- 👍🏽
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a keycap pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a keycap pasted whole
+AssertionError: expected '' to be '1️⃣' // Object.is equality
+
+- Expected
++ Received
+
+- 1️⃣
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a flag pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a flag pasted whole
+AssertionError: expected '' to be '🇬🇧' // Object.is equality
+
+- Expected
++ Received
+
+- 🇬🇧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a tag sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a tag sequence pasted whole
+AssertionError: expected '' to be '🏴󠁧󠁢󠁥󠁮󠁧󠁿' // Object.is equality
+
+- Expected
++ Received
+
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with emoji presentation pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with emoji presentation pasted whole
+AssertionError: expected '' to be '❤️' // Object.is equality
+
+- Expected
++ Received
+
+- ❤️
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with text presentation pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with text presentation pasted whole
+AssertionError: expected '' to be '❤' // Object.is equality
+
+- Expected
++ Received
+
+- ❤
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji newer than the site's table pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji newer than the site's table pasted whole
+AssertionError: expected '' to be '🫩' // Object.is equality
+
+- Expected
++ Received
+
+- 🫩
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji typed as a name pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji typed as a name pasted whole
+AssertionError: expected '' to be ':smile:' // Object.is equality
+
+- Expected
++ Received
+
+- :smile:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-toned name pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-toned name pasted whole
+AssertionError: expected '' to be ':thumbsup::skin-tone-3:' // Object.is equality
+
+- Expected
++ Received
+
+- :thumbsup::skin-tone-3:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a colon-wrapped emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a colon-wrapped emoji pasted whole
+AssertionError: expected '' to be ':🙂:' // Object.is equality
+
+- Expected
++ Received
+
+- :🙂:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a custom emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a custom emoji pasted whole
+AssertionError: expected '' to be '<:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an animated custom emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an animated custom emoji pasted whole
+AssertionError: expected '' to be '<a:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <a:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link label pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link label pasted whole
+AssertionError: expected '' to be '[🙂](https://x.y)' // Object.is equality
+
+- Expected
++ Received
+
+- [🙂](https://x.y)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link address pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link address pasted whole
+AssertionError: expected '' to be '[a](https://x.y/🙂)' // Object.is equality
+
+- Expected
++ Received
+
+- [a](https://x.y/🙂)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a name in a link address pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a name in a link address pasted whole
+AssertionError: expected '' to be '<https://x.y/:smile:>' // Object.is equality
+
+- Expected
++ Received
+
+- <https://x.y/:smile:>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji between words pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji between words pasted whole
+AssertionError: expected '' to be 'a 🙂 b' // Object.is equality
+
+- Expected
++ Received
+
+- a 🙂 b
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals two emoji side by side pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals two emoji side by side pasted whole
+AssertionError: expected '' to be '🙂🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside bold pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside bold pasted whole
+AssertionError: expected '' to be '**🙂 b**' // Object.is equality
+
+- Expected
++ Received
+
+- **🙂 b**
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside inline code pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside inline code pasted whole
+AssertionError: expected '' to be '`🙂`' // Object.is equality
+
+- Expected
++ Received
+
+- `🙂`
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside a code block pasted whole
+AssertionError: expected '' to be '```js\nx = "🙂"\n```' // Object.is equality
+
+- Expected
++ Received
+
+- ```js
+- x = "🙂"
+- ```
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/93]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji after a backslash pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji after a backslash pasted whole
+AssertionError: expected '' to be '\🙂' // Object.is equality
+
+- Expected
++ Received
+
+- \🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/93]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 45 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a Unicode emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a ZWJ sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-tone sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a keycap pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a flag pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a tag sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a heart with emoji presentation pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a heart with text presentation pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji newer than the site's table pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji typed as a name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-toned name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a colon-wrapped emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an animated custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji in a link label pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji in a link address pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a name in a link address pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji between words pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals two emoji side by side pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji inside bold pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji inside inline code pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji inside a code block pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji after a backslash pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a Unicode emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a ZWJ sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-tone sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a keycap pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a flag pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a tag sequence pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a heart with emoji presentation pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a heart with text presentation pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji newer than the site's table pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji typed as a name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a skin-toned name pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a colon-wrapped emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an animated custom emoji pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji in a link label pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji in a link address pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals a name in a link address pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji between words pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals two emoji side by side pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji inside bold pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji inside inline code pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: Could not completely normalize the editor after 168 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3031:11
+ ❯ Object.shouldNormalize$1 [as shouldNormalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6200:30
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3767:19
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:3729:10
+ ❯ Object.normalize$1 [as normalize] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6405:24
+ ❯ Object.normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1781:12
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4406:10
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "equals an emoji after a backslash pasted whole". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
