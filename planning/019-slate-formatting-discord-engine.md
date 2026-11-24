@@ -17,7 +17,10 @@ Status-Detail: >-
   residue-list commit is released, read with them.
   From 2026-11-24T00:49Z, M3 to M6 are all capped (his selection, block 00:49Z): a finding below HIGH is a stated limit, with
   no fix or revision round. He chose to keep one release (D-19, block 00:55Z), so M7 stands and the plan is not revised.
-Revision: 12
+  Revision 13 (D-21, block 03:55Z) replaces AC-6.5's expected-span source, because Discord's box exposes no emoji spans. The
+  oracle helper is now the source on every surface, frozen, with hand-written literals as its content control, and EC-7 is
+  retired. AC-6.5's literals wait for the critic, QA's re-key and the architect's delta read. The rest of M6 proceeds.
+Revision: 13
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -105,6 +108,7 @@ Lane: full
 | 2026-11-24T02:43 | R-57 | code-reviewer-019 | Code review, fix confirmation of QA's QAF-38 at website `81c68b2` (M3 fix round 8): **APPROVED_WITH_COMMENTS**, milestone-scoped. 14 of 14 mutants were killed, network-isolated: QA's six constants, five operand or member swaps, both `switchReferrers` forms, and the fetcher not passed on. The live routing controls pass 5 of 5. M3 goes to QA's refresh. Record `47e4ccf5`. The plan's Status is not moved. |
 | 2026-11-24T02:50 | R-58 | qa-019 | QA refresh on M3 fix round 8 at website `81c68b2`: **QA Complete**, milestone-scoped. QAF-38 is closed: 6 of 6 `routingReport` field mutants killed offline. Offline 3,272 of 3,272, exit 0; live 41 of 41, exit 0; typecheck exit 0. Every M3 finding is closed. The plan's Status is not moved. Document: `qa/019-slate-formatting-discord-engine-m3-qa.md`, § Refresh pass, round 8. |
 | 2026-11-24T03:49 | R-59 | planner-019 | Registered D-20 (his selection on `SlateEditor/index.tsx`'s pre-existing eslint errors; effort rulings block "2026-11-24T03:48Z", record `6866cd75`) and its Planner batch row, a stated limit carried by `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md` (UUID 67001740). |
+| 2026-11-24T03:57 | 13 | planner-019 | Triggered by D-21 (block 03:55Z, record `5781bb73`), and by implementer-019's probe at `2e36107` showing that Discord's box exposes no emoji spans, which M6's entry condition routes to the planner. AC-6.5's expected spans now come from AC-2.1's oracle helper on every surface, frozen as literals, with hand-written literals replacing the box's content control and QAF-24's mask control kept. EC-7 is retired, since the source is now the engine D-13 names. Candidate (B), the legacy formatter, was not taken because it is not the formatter D-13 chose, and its disagreeing inputs would be listed, not checked. Candidate (C) alone would turn the property into examples, so it serves only as the content control. Scope delta: AC-6.5 changes its expected-value source and entry conditions, and no other milestone moves. Since approval, revisions 10 to 13 have each been read once by the three gates, and this one triggers one round of each. The plan still delivers what was first asked. |
 
 ## Resumption State
 
@@ -121,7 +125,8 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
   (record `d31214e4`), and QA Phase 2 on M4 is next. M5 and M6 are not started.
 
 **Next.**
-- No planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
+- Revision 13 (D-21, AC-6.5's expected-span source) is out for its delta read by the critic, QA's re-key and the architect,
+  whom steering spawns. Fold their verdicts as one batch. No other planning pass is owed. Every milestone M3 to M6 is capped (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a
   Planner batch row, a stated limit, with no revision. A severity-floor finding is excepted. A third revision of AC-3.7 goes to
   steering before any fold.
 - The seam fold, after the last milestone's QA Phase 2 and before the UAT anchor, lands the open rows' text:
@@ -171,7 +176,8 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 10's delta: AC-4.4 (D-17's decision table, its residue and its human-observable form), M4's Mirrors line, and G-13's carriage line only | revision 10 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Architect APPROVED, with CF-17 LOW as a stated limit (record `b8d11f1b`). Critic APPROVED, cycle 4 pass 1, critique closed, with F-34 / SL-11 and F-35 as Planner batch rows (record `71b981ad`). QA re-key: nothing blocking, with QAF-31 LOW, the same member as F-34 (record `f79d7f77`). Every gate has approved revision 10, and M4's mention code is released |
 | Revision 11's delta: AC-3.7's frozen residue list (per-input entries, family and reason, the stale-entry failure, RK-9's count unit) only | revision 11 commit | critic; architect (delta pass); QA Phase 1 (re-key) | QA re-key: QAF-34 MEDIUM, which holds the residue-list commit, and QAF-35 LOW (record `047add44`). Architect APPROVED_WITH_CHANGES: the per-input list is approved, with CF-18 MEDIUM (the same member as QAF-34) and CF-19 LOW (record `744abb20`). Critic APPROVED, cycle 5 pass 1, critique closed, with F-36 MEDIUM (the same member) and F-37 LOW (record `08caeb87`). All folded at revision 12 |
 | Revision 12's delta: AC-3.7's atom-bearing population and atom unit, the family check, M4's full measurement and the exercise of its new limbs; RK-9's fire condition, route and record; the Reading Order's `code-reviewer` row | revision 12 commit | critic; architect (delta pass); QA Phase 1 (re-key) | QA re-key: nothing open, with QAF-34 and QAF-35 closed (record `e645035`). Architect APPROVED: CF-18 and CF-19 resolved, with CF-20 LOW (record `237da08`, re-dispositioned under the M3 cap as APPROVED at record `f7b21366`). Critic APPROVED, cycle 6 pass 1, with F-38 MEDIUM (the same member as CF-20) and F-39 LOW (record `575a52bc`). Every gate has approved revision 12. Under the M3 cap (block 22:35Z), the findings are stated limits SL-12 and SL-13, with no revision 13. M4's residue-list commit is released, read with them |
-| AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass |
+| AC-6.5's expected value from module 818948 (CF-11) | revision 5 commit | architect (delta pass) | APPROVED, with CF-12 LOW non-blocking (record `681ae51`); CF-12 is folded at the next planning pass. Superseded at revision 13 (D-21): the box is no longer a source |
+| Revision 13's delta: AC-6.5's "Expected value" (the helper on every surface, frozen; the hand-written content control; the residue) and "Entry conditions" (the box condition recorded false; EC-7 retired) only | revision 13 commit | critic; architect (delta pass, spawned by steering); QA Phase 1 (re-key) | Open. AC-6.5's literals hold until all three have passed it. The rest of M6 is not held (D-21) |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 for AC-6.5 is folded at the next planning pass |
 
 ## Header notes
@@ -253,6 +259,7 @@ except D-8.
 | D-18 | D-14 stands with its residue now measured. No adjustment qualified under the plan's rule, so every visible difference on the legacy-only surfaces stays listed: about 1,300 per embed field, of which 42 of the 272 realistic messages differ on the description. Any new difference fails the tests. RK-9's M4 firing is answered, nothing reopens, and nothing waits on it. | 2026-11-23 | By selection: "Agent: keep your choice (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "Nothing changes. The leftover differences stay listed, about 1,300 per embed field, and any new one fails the tests. Most of those 1,300 come from test inputs broken on purpose; 42 come from the 272 realistic messages. No extra work or time." The other options were "Agent: fix the common ones" and "Agent: older rules for embeds". Ledger `steering/selection-ledger/2026-11-23.md`, block "2026-11-23T23:33Z — steering-hooks-fixer"; effort rulings block "2026-11-23T23:33Z" (record `3572a0bd`), whose premises were re-run by steering's helper. | Owner withdrawal only. RK-9's later firing, a count above M4's on any surface or mask (QA at Phase 2, or a later chain's re-measure under SL-13), goes back to him through steering. Consequence: RK-9 and AC-3.7's list. |
 | D-19 | The preview and the editor ship together in one release, once M6 is done. M4 does not ship alone, M7 stands, and the plan is not revised. | 2026-11-24 | By selection: "Agent: keep one release (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The preview and the editor ship together, once M6 is done. No extra work, and one production approval from you. Cost: the preview reaches users later; the planner estimates several hours to about a day, which isn't measured…" The other option was "Agent: ship the preview first", whose text gave the measured drift ("the editor and preview disagree on about 29 of 272 realistic messages"). Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T00:55Z — steering-hooks-fixer"; effort rulings block "2026-11-24T00:55Z" (record `11fab77b`). | Owner withdrawal only. Consequence: M7, `Target-Release`, M4's rollback line. |
 | D-20 | The eslint errors in website `src/components/SlateEditor/index.tsx` that pre-exist at the chain base `5ec0621` ship listed with plan 019's release. M5 goes ahead at `2e36107` without fixing them, the release is not held for them, and their fix comes inside this effort after the release. | 2026-11-24 | By selection: "Agent: list them, fix later (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "M5 goes ahead as it is, with the 8 errors listed as known. A follow-up record carries them to a small fix inside this effort once this release is out. No extra work or review now; nothing changes for users, since the live site already has them." The other option was "Agent: fix them in M5 now". Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T03:47Z — steering-hooks-fixer"; effort rulings block "2026-11-24T03:48Z" (record `6866cd75`). Counts by steering's eslint helper: 9 at `5ec0621`, 8 at `2e36107` (`verification/019/steering/slateeditor-index-lint/`). | Owner withdrawal only. Consequence: a gate's convention check that reports these errors on this file is read against the handoff's list, not as a finding. |
+| D-21 | AC-6.5's expected emoji spans get a replacement source, because Discord's box exposes none. The planner picks it in one small revision, re-read once by the three gates. The implementer builds the rest of M6 meanwhile, and the answers are frozen afterwards. | 2026-11-24 | By selection: "Agent: planner picks a source (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "As the plan says for this case: the planner picks a replacement (Discord's older formatter, hand-written answers, or the test helper already used elsewhere) in one small plan revision, re-read once by the three reviewers. The implementer keeps building the rest of M6 meanwhile; the test's answers are frozen after." The other option was "Agent: list it as a known limit". Ledger `steering/selection-ledger/2026-11-24.md`, block "2026-11-24T03:55Z — steering-hooks-fixer"; effort rulings block "2026-11-24T03:55Z" (record `5781bb73`). The pick (revision 13) is the planner's: the oracle helper on every surface, frozen, with hand-written literals as its content control. | Owner withdrawal only. Consequence: AC-6.5's "Expected value" and "Entry conditions"; EC-7 is retired. |
 
 **Revision cap on M4 and M6 (steering's ruling, not his).** Effort rulings block "2026-11-23T17:56Z" (record `b95a3d43`), by
 `steering-hooks-fixer` under steering.md's standing check: "from Revision 7's verdicts onward, each further gap below HIGH on M4
@@ -1192,36 +1199,50 @@ Acceptance criteria:
       edits alone.
     Its count in `pnpm test` is fitted inside AC-3.3's 60 s cap, shared with AC-3.3's typed limb. The implementer records the
     count and the time at M6.
-  - **Expected value (QAF-21, CF-11, CF-12; axiom E).** The expected spans are never computed by the adapter's parse that the
-    lift itself reads. They come from two sources, by surface:
-    - **Discord's native box (module 818948)**, for content and for every surface whose mask equals content's on the bits that
-      decide whether an emoji sits inside a construct: the code-block, inline-code, link and emoji bits. Those surfaces are the
-      embed description and the V2 text display (both `0x3fffffff`, equal to content), and the field value (`0x3dffffff`). The
-      field value differs from content in one bit, `0x02000000`, which is `Syntax.HEADING` at the pin
-      (`verification/019/planning/syntax-bits-0.16.0.txt`, run). The architect measured that it moves no emoji span: 0 of 50,012
-      inputs on the pinned wasm, against 494 under a control that clears only `CODE` (`verification/019/architect-conformance/rev6/`,
-      record `93708612`). The box is Discord's message box, so it parses under
-      content's mask. Whether it takes a flags argument is unread (CF-12). It runs on the pinned wasm in `pnpm test:discord`, the
-      box doing its own join, and its spans are frozen as literals for `pnpm test` (C4 re-derives them).
-    - **AC-2.1's oracle helper**, for the title and field name masks, where code blocks, headings, lists and (with an embed url)
-      links are off, so the box's spans could be wrong. The helper runs the engine under AN-3's literal masks with its own join
-      written from AN-6. It has two controls:
-      - **content**: over content, the helper's spans equal the box's frozen literals;
+  - **Expected value (QAF-21, CF-11, CF-12; axiom E; D-21, revision 13).** On every surface, the expected spans are the output of
+    AC-2.1's oracle helper (`website@2e36107 src/utils/markdown/__tests__/helpers/discordOracle.ts:nativeSurfaceParse`), which M6
+    extends with an emoji-span join.
+    - **How it is independent of the lift.** The helper runs the pinned engine under AN-3's literal surface masks
+      (`SURFACE_MASK_LITERALS`), with its own join written from AN-6, over the raw text. Its one import is
+      `@discord/markdown-wasm` (read at `2e36107`). It imports nothing from the adapter or the lift, so no expected span is
+      computed by the parse the lift reads, or by the lift's own unit, `?` placeholders or offset mapping.
+    - **What is and is not under test.** The engine is the authority D-13 names ("the editor's lift takes its emoji from
+      Discord's formatter"). So this property tests the lift's run unit, placeholders, offsets and re-deciding, not the engine's
+      emoji decision.
+    - **Frozen.** The helper's spans over the property's class are generated once at M6 and committed as literals for
+      `pnpm test`. That mirrors `website@2e36107 src/utils/markdown/__tests__/helpers/data/discordNativeBox.json` and the AC-3.7
+      residue list. A pin change re-derives them (C4).
+    - It has two controls:
+      - **hand-written literals, under content's mask** (replaces the box's content control). The members are:
+        - every AC-6.2 emoji form on its own;
+        - each form inside bold, inline code, a code block and a link label;
+        - each form in a link URL (`[x](https://x.y/🙂)`, `https://x.y/🙂`, `<https://x.y/🙂>`);
+        - each form after a backslash.
+        Over these members, the helper's spans equal literals written by hand, never taken from a run. Each literal states its
+        basis: AN-7's DOM reads where they cover the form, otherwise the form's own definition. A join that drops, shifts or keeps
+        an emoji inside code or a URL fails it. If a literal and the helper differ, the member is listed and goes to steering
+        before the literals freeze, because it would mean the engine and Discord's display disagree on a form D-13 covers.
       - **its mask is read (QAF-24)**. The content run cannot catch a helper that ignores its mask. QA measured that the no-url
         title and field name mask moves no emoji span over 417 inputs, and only the url variant differs, on link constructs (QA
         P-Q16, record `b5985b20`). So the helper also runs url-variant link fixtures, `[🙂](https://x.y)`, `https://x.y/🙂`,
         `<https://x.y/🙂>` and `https://x.y🙂`, each with a Unicode, a `:name:` and a custom emoji. QA's mutant NM-44, a helper that
         ignores its mask, is shown red on them.
+    - **Residue.** The lift is not compared with what Discord's own client lifts, because its box marks no emoji (below). Beyond
+      the hand-written members, an emoji decision Discord's client makes outside the engine is unobserved. A user report of one is
+      recorded under AC-6.5's row in QA's register.
   - **Entry conditions at M6, before AC-6.5's literals freeze.**
-    - **The box exposes its spans** (critique pass 5's assumption). M3 records whether a run of module 818948 exposes the emoji
-      spans of its own parse; AN-6's table shows an emoji as an `atom` token. If it does not, the result goes to the planner
-      before M6, and the helper with its content control is not a substitute until a planning pass says so.
-    - **The lift and the box agree (QA EC-7).** The implementer runs the adapter's `parseLossless` emoji set and the box's over the
-      272 corpus and the 1,662 probe, and records how many inputs differ.
-      - On 0, the clauses agree.
-      - On any member, the lift follows the box, which is what AC-6.5's property asserts. Each member is listed.
-      - A member whose box-following form changes what D-13's option described ("the editor's lift takes its emoji from Discord's
-        formatter") goes to him through steering before M6's literals freeze.
+    - **The box exposes its spans: false (D-21).** Implementer-019's probe at `2e36107` is
+      `verification/019/impl/m6-box-emoji-probe-2e36107.test.ts`, with outputs `m6-box-emoji-probe-2e36107.json` and
+      `m6-box-emoji-entries-2e36107.json`. Read this pass, over its 12 inputs (`grep -c '"t":'`):
+      - an entry carries only `text`, `start`, `attributes` and `data`;
+      - the attributes are syntax markers, `strong`, `inlineCode` and `link`;
+      - an emoji sits inside a plain-text entry (`a😀b` is one entry with no attribute);
+      - the module's exports are `Sd`, `p0` and `tA`.
+      Steering's refutation helper confirmed it (effort rulings block 03:55Z). The box is no longer a source, and this revision
+      makes the helper the source.
+    - **EC-7 is retired (D-21).** It compared the lift's emoji set with the box's, and the box has none. Its question was
+      whether following the expected source changes what D-13 described. That cannot arise now that the expected source is the
+      engine D-13 names. The hand-written control's route to steering (above) carries the remaining form of it.
   - **Readers (CF-2's list with CF-10's addition).** The emoji element no longer stores a `simple-markdown` node, and its readers
     move to the new shape: `renderElementFactory.tsx` (`emojiToImage`, reading `src` and `jumboable` from M4's emoji display
     helper), `flattenNodeText.ts`, `common.ts` (its two `isEmojiNode(node?.ast)` predicates), `onCopy.ts`, `getInitialValue.ts`,
