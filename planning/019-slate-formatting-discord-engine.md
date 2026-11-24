@@ -134,6 +134,7 @@ Lane: full
 | 2026-11-24T05:14 | R-73 | code-reviewer-019 | Code review, Round 5 sub-entry on M5 Fix Round 1 (QAF-39) at website `cf126ea`: **APPROVED_WITH_COMMENTS**, milestone-scoped. Checked on M5's own source (`2e36107` with `cf126ea`'s four test paths laid over it): the new frozen members x8 and x9 pass, m5-d2 is killed on x8, and the live box re-derives both values (10 of 10). The M5 paths at `cf126ea` carry M6's changes, which are M6's round. Record `79f96321`. The plan's Status is not moved. |
 | 2026-11-24T05:17 | R-74 | planner-019 | Registered implementer-019's reading of AC-6.5's run-unit sentence (source text for the lift, `?` for the decorator; M6 document Outstanding Items 2) as a Planner batch row, confirmed as a stated limit under block 04:18Z. |
 | 2026-11-24T05:20 | R-75 | qa-019 | QA refresh on M5's QAF-39 fix round (`cf126ea`, test-only), run on `2e36107` with the round's four test paths laid over it, the tree code review approved (steering block 05:14Z): **QA Complete**, milestone-scoped. QAF-39 is closed: m5-d2 is KILLED by `decorator.native-box-classes` on x8. Offline 3,280 of 3,280, exit 0; typecheck exit 0; live 41 of 41, exit 0. AC-5.5 is UAT's (B-3). The plan's Status is not moved. Document: `qa/019-slate-formatting-discord-engine-m5-qa.md`, § Refresh pass — QAF-39 fix round. |
+| 2026-11-24T05:21 | R-76 | planner-019 | Marked M7 `PREMISE-STALE` under the re-derivation gates of M4 and M5, both now shipped on the chain branch. M7 is the one downstream milestone not yet authorised. Its re-argument paragraph is owed as a plan revision before devops Stage 1, at the seam fold. The marking was owed from M4's ship at `e58f2ed`, and I missed it then. Retrospective note: the gate has no trigger that reaches the planner when a milestone ships. |
 
 ## Resumption State
 
@@ -162,6 +163,7 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T01:06Z, after R-4
   - R-44's (e) AC-3.1 exclusion, (g) X-27 and (h) AC-4.5's check, and QAF-37's line in AC-3.6's residue (R-52);
   - CR-15's Risks line, the drift alarm's wiring falsifier (R-54);
   - D-20's Exclusions row for `SlateEditor/index.tsx`'s pre-existing eslint errors (R-59);
+  - M7's re-argument paragraph, clearing its `PREMISE-STALE` mark against M4's, M5's and M6's shipped behaviour (R-76);
   - SL-16's three cells in AC-6.7's table, the `uat` row and walk list naming all six UAT-walked criteria (SL-15), and CF-21's
     deviation line in AC-6.5 (R-62, R-63);
   - CR-7's M6 exit condition;
@@ -1352,6 +1354,10 @@ Rollback: revert its commits; the implementer or devops, as above. Reverting M6 
 after M4 reads `simple-markdown`. Reverting M4 or M5 after AC-6.6 has landed takes M6 with it (M4's rollback).
 
 ### M7 — Release
+
+**`PREMISE-STALE`** (R-76). M4 changes the preview and M5 the editor, and both have shipped on the chain branch (M4 at
+`e58f2ed`, M5 at `2e36107` with `cf126ea`). M7 is not implemented, reviewed or run until a plan revision adds one paragraph
+re-arguing its premise against that behaviour. That paragraph is owed at the seam fold, before devops Stage 1.
 
 The same release carries M2 to M7 (AF-2). No release tree holds M4 without M5, checked by devops at Stage 1 from the chain's commit
 list.
