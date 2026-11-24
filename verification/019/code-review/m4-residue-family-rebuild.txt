@@ -1,0 +1,8 @@
+committed entries 6142 rebuilt entries 6142
+same keys True order identical True
+field mismatches {'text': 0, 'signature': 6142, 'family': 0}
+families identical True
+whole document byte-equal as parsed JSON False
+signature check: the rebuilt per-position signatures, collapsed into runs of consecutive positions with equal dimensions: 6142 of 6142 equal the committed run form; first mismatches []
+negative control: rules F12 and F13 swapped in order (scratch copy of the script), rebuilt families differing from the committed: 0 of 6142
+negative control: rules F02 and F03 swapped in order (F03 is a superset of F02), rebuilt families differing from the committed: 700 of 6142 (the F02 total is 700)

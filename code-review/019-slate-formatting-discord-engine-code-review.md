@@ -26,6 +26,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-23T22:00 | implementer-019 (M3 fix round 3, website `1698c80`, record `e1c265a7`); steering-hooks-fixer (resume message after `/clear`) | Round 3 sub-entry: confirm CR-5 and CR-6 | Round 3 sub-entry at `1698c80`, scoped to the fix commit's 7 paths. CR-5 and CR-6 are RESOLVED: the removal test shows `GAME_MENTION` live, and the 18-path re-attack, with a positive control, reaches the listener 0 times. A new finding, CR-10 MEDIUM (severity floor), makes the verdict REJECTED: the live control says "no request attempt" by reading `oracle.attempts`, and no assertion fails when `loadBuild`'s wiring of that list is cut (the mutant SURVIVED), or when a refused XHR is touched before `open`. `93b26fd` (M4) is not reviewed here. |
 | 2026-11-23T22:11 | implementer-019 (M3 fix round 4, website `2c1590f`, record `72b59f64`) | Round 3 sub-entry: confirm CR-10 | Round 3 sub-entry at `2c1590f`, scoped to the fix commit's 2 paths. CR-10 RESOLVED: 4 of 4 probes KILLED, the `loadBuild` disconnect among them. CR-11 LOW raised: the XHR Proxy records a member when it is called, not when it is read (`x.upload.addEventListener` and `x.readyState` unrecorded; network still closed). The record corrections are made. APPROVED_WITH_COMMENTS, and M3 goes to QA Phase 2. |
 | 2026-11-24T01:00 | implementer-019 (M4 hand-off, website `e58f2ed`, record `bc73f58c`; M3 Round 5 at `380e82d`); planner-019 (R-44, record `49cb5d73`); steering-hooks-fixer (cap, block 00:49Z, `8de0ac3`) | Review M4; Round 3 sub-entry for `380e82d` | Round 4 at `e58f2ed`: APPROVED_WITH_COMMENTS. The link allow-list held at the rendered anchor: 24,170 renders on each of the 6 surfaces, 0 defects. Planner (d) and (f) hold. AC-3.7's families, counts and a sample were read. CR-12 and CR-13 LOW are stated limits under the cap. Round 3 sub-entry at `380e82d` (test-only): APPROVED_WITH_COMMENTS, CR-14 LOW. |
+| 2026-11-24T01:04 | implementer-019 (record `511f704`, the family-assignment script) | Confirm CR-13 | CR-13 RESOLVED: the committed script reproduces every one of the 6,142 families, and the signatures once collapsed into runs. A rule-order swap moves 700 entries, so the check can fail. The verdict is unchanged. |
 
 ## Scope of this round
 
@@ -588,18 +589,17 @@ CR-12 LOW Round 4 (M4, capped: a stated limit for the Planner batch)
 - **Falsity signature**: a fixture tree (one that invents engine output, named so) with level 4 draws `<h4>` today, and draws its
   source plus the unmapped line after the fix.
 
-CR-13 LOW Round 4 (M4, capped: a stated limit for the Planner batch)
-- **Location**: `helpers/data/discordResidueList.json` `entries[].family`; the build script the M4 document cites as "the build
-  script's rules".
-- **Class**: a committed classification whose rule is in no record, so the family of an entry is a claim that cannot be
-  re-derived.
-- **Enumeration**:
-  - `grep -l "F12\|F99"` over `verification/019/impl/` gives 0 files. The family rules exist neither there nor in the website.
-  - `residueList.check.test.ts` checks that families and counts agree. It does not check that an entry belongs to its family.
-  - The sample above shows the labels holding, for 30 entries.
-- **Required Action**: commit the family-assignment script, its regular expressions in order, under `verification/019/impl/`, with
-  a run over `m4-dom-residue-all.json` whose output equals the committed `family` of every entry.
-- **Falsity signature**: changing one rule's order changes at least one entry's family in that run's output.
+CR-13 LOW Round 4 RESOLVED at record `511f704`. The implementer committed the family-assignment script
+(`verification/019/impl/m4-build-entries.py`), and I ran it (`python3 -I`, output to the session scratchpad) and compared the
+result with the list committed at `e58f2ed`. The record is `verification/019/code-review/m4-residue-family-rebuild.txt`.
+- **Families:** 6,142 of 6,142 equal, in the same entry order, and the family blocks (code, name, reason, counts) are identical.
+- **Signatures:** the script writes them per position. Collapsed into runs of consecutive positions with equal dimensions, they
+  equal the committed run form for all 6,142 entries. That collapse step is not in the script; the signatures keep their own
+  instrument, the live `discordPreview.legacy-equality` test, which re-derives them.
+- **Negative control:** with rules F02 and F03 swapped in order, 700 of 6,142 families move, all of F02. An F12/F13 swap moves 0,
+  because the two never overlap.
+- The captured check that fails if the class returns is the rebuild comparison in that file. The planner's Planner batch row for
+  CR-13 (R-47) can close.
 
 Disclosures for Round 4:
 - **My plan row is numbered R-37, which `planner-019` already holds.** I committed it as `05cc2005`, stamped 01:01. I took the
@@ -638,7 +638,7 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 ## Required Actions
 
 None blocking. Open LOWs, each with its carrier:
-- CR-12, CR-13 (M4) and CR-14 (M3): sent to `planner-019` for the Planner batch as stated limits (cap block 00:49Z).
+- CR-12 (M4) and CR-14 (M3): sent to `planner-019` for the Planner batch as stated limits (cap block 00:49Z).
 - The pre-existing `GuildProvider.tsx:162` lint FAIL: the implementer's follow-up.
 - CR-11: M4 Outstanding -1, not taken at `e58f2ed`; it is now a stated limit under the caps, sent with the batch above.
 - CR-4's remainder, CR-8 and CR-9: M3 Outstanding 11.
