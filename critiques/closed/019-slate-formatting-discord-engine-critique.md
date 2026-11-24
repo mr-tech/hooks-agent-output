@@ -3,16 +3,19 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 11 pass 2 on plan revision 18: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37, F-40 and F-45 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19) and F-47 (SL-20) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row). F-48 is closed by property with stated limit SL-21 and closes as landed-by-author; whether it is a further revision of AC-6.8 is with steering under its block 07:15Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 12."
-Artifact-Revision: 18 — read as the delta 34850209..18e434e6 (cycle 11 pass 2)
-Reviewed-At: "18e434e6 — repos=agent-output; website read at 119471f"
+Status-Detail: "Cycle 12 pass 1 on plan revision 19: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19) and F-47 (SL-20) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row). F-49 is closed by property with stated limit SL-22 and closes as landed-by-author, a stated limit for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 13."
+Artifact-Revision: 19 — read as the delta 18e434e6..4a68f286 (cycle 12 pass 1)
+Reviewed-At: "4a68f286 — repos=agent-output; website read at 119471f"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 18 (`18e434e6`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 18 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 19 (`4a68f286`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 19 as deltas.
+**Read at cycle 12 pass 1**: the plan's diff `18e434e6..4a68f286`; effort rulings block 2026-11-24T07:21Z (record
+`9e980e29`); website at `119471f`: `withNormalizeNode.ts` at `handleEditor`'s type check and its `update` branch, and
+`handleElement` from its first line to its closing `resolveEmoji` call.
 **Read at cycle 11 pass 2**: the plan's diff `34850209..18e434e6`; effort rulings block 2026-11-24T07:15Z (record
 `5638dfe6`) and the tail of block 07:13Z quoted in its diff; website at `119471f`: `withNormalizeNode.ts` at `splitCarrying`;
 slate 0.123.0 from the website's `node_modules`, run on a plain editor (Appendix, "Slate probe").
@@ -114,7 +117,49 @@ for the 15,480 figure.
 | 2026-11-24T07:19 | planner-019 (message naming revision 18 at `18e434e6`; steering block 07:15Z asks for it inside the current read) | cycle 11 pass 2: plan revision 18 | Taken as pass 2 of cycle 11, as block 07:15Z asks, though pass 1 had closed. Depth: delta-bounded; the delta `34850209..18e434e6` is 24 added and 12 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added CF-27, F-46, F-47, SL-19 and SL-20, all in registration rows. The diff, read whole, changes AC-6.8's window and property lines only; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table and Planner batch rows. Artifact changes: the count window is one `Editor.normalize` drain and the literal is the lines the keystroke dirties (1, 2, 1). Findings addressed: F-46 (1) and (3) are superseded by the new literal, and (2) stands as SL-19. New finding: F-48 (MEDIUM), the second instance of CF-27's shape, closed by property with stated limit SL-21, the stop authority firing; it is sent to steering under block 07:15Z. Verdict APPROVED. |
 | 2026-11-24T07:19 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-48 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
+| 2026-11-24T07:24 | planner-019 (message naming revision 19 at `4a68f286`) | cycle 12 pass 1: plan revision 19 | Cycle 12 opens because revision 19 changes AC-6.8's text. Depth: delta-bounded; the delta `18e434e6..4a68f286` is 38 added and 23 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added F-48 and SL-21, in registration rows. The diff, read whole, changes AC-6.8's count limb and its residue only; its other hunks are the header, the changelog, the Resumption State and the owed re-verdicts table. Artifact changes: no per-keystroke literal; the count over every drain is equal across a sized text's sizes and at least 1; corpus and generator inputs take one bound of 4; the residue gains deletes at a fence delimiter. Findings addressed: F-48 RESOLVED. New finding: F-49 (MEDIUM), the third instance of the residue shape of F-45 and F-46, closed by property with stated limit SL-22, the stop authority firing. Verdict APPROVED. |
+| 2026-11-24T07:24 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-49 closes as landed-by-author, its discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 12, pass 1.** The stop authority fired on one shape (F-49). The hard stop did not fire (pass 1 of 15 in
+this cycle). Pricing: sized to the ask plus his rulings. Revision 19 restates one limb of the criterion his 07:05Z selection
+added, to steering's block 07:21Z, and that block makes it AC-6.8's last fold.
+
+CR-20's fix round is released by this gate, read with SL-22. The architect's and QA's reads of revision 19 are separate.
+
+What holds in revision 19's delta:
+- **The fold is the block's**: equal counts at a sized text's two sizes over every drain, at least 1, one hand-written bound
+  for the corpus and generator inputs, the positive control kept, and `normalizeNode` calls recorded and not asserted.
+- **F-48 is resolved.** No literal depends on how Slate dirties a path, so the merge's two entries and the two drains of
+  Enter on a `> ` line no longer fail a correct fix.
+- **The red tree is still red.** At `119471f` the per-line loop adds one build for every line, so the 200-line and
+  2,048-line counts differ.
+- **"At least 1" holds through `handleElement`'s early return.** A delete that empties a one-character line returns after
+  setting `empty` and is entered again, and the second entry reaches `resolveEmoji`.
+- **The bound of 4 names its basis and its reader**: this critique's probe, 3 line entries at most on a plain editor, plus
+  one, marked as read and not re-run.
+- **The `a🙂` text's sizes are 200 and 1,000**, with the reason the larger size cannot exist.
+
+**Stop authority: F-49.** The residue lists keystrokes by example for the third time (F-45's inserted characters, F-46's
+deletes, now P-Q23's Backspace), and members remain outside the list that fail the new property on a correct fix. It is not
+sent back: block 07:21Z makes every further AC-6.8 gap below HIGH a stated limit. The class is stated once as a property,
+and what it leaves open is stated limit SL-22 with its bearer.
+
+**For steering, as an item he may want to see, not a question.** The keystrokes in that residue are bounded by neither
+limb. Where one of them changes the type of every line, for example a character typed in front of `>>>` on a long message,
+the fix in CF-25's form builds the unit once per line again. By the tip's cost of under 1 ms a build that is a single pause
+of up to about 1.6 s at 2,048 lines, on that one keystroke. It is arithmetic from the block's figures, read from code and
+not run, and the implementer can measure it in the fix round.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `4a68f286`). Routed to the owner: nothing by this gate.
+
+The cycle 11 pass 2 verdict follows, as written at that pass.
 
 **APPROVED — cycle 11, pass 2.** The stop authority fired on one shape (F-48). The hard stop did not fire (pass 2 of 15 in
 this cycle). Pricing: sized to the ask plus his rulings. Revision 18 changes two lines of the one criterion his 07:05Z
@@ -618,6 +663,13 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 12 pass 1: this pass assumes that the fix, in CF-25's form, builds a unit once for each line the normaliser retypes,
+and does not test it. No fixed tree exists. The ground is a read of `handleEditor` at `119471f`: when one line's type is
+wrong it re-enters with `update` and sets each line whose type differs, and each set line reaches `handleElement`. If it is
+false, because the fix keeps one unit per unchanged document, F-49's cost figure does not arise and its members pass the
+count limb as written. The signature is a count that stays equal at 200 and 2,048 lines for a character typed in front of
+`>>>`. The implementer owns closing it in M6's fix round.
+
 Cycle 11 pass 2: this pass assumes that the website's `normalizeNode` override, with the fix in CF-25's form, sends lines
 to `handleElement` as often as a plain editor sends them to `normalizeNode`, and does not test it. The probe ran plain slate
 with no override. If it is false, for example because `handleEditor` rewrites a line's type and dirties it again, the count
@@ -724,6 +776,40 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 12 pass 1
+
+F-48 MEDIUM cycle 11 pass 2 — RESOLVED at cycle 12 pass 1 — the count limb asserts no per-keystroke literal. Plan revision 19 (`4a68f286`), on steering's block 07:21Z.
+
+F-49 MEDIUM cycle 12 pass 1 — closed by property with stated limit SL-22; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of F-46 in this document
+- **Title**: AC-6.8's residue is a list of examples, and the keystrokes it misses fail the size-equality on a correct fix
+  and have no cost bound.
+- **Location**: plan revision 19, AC-6.8 "Count": the keystroke class, "The property", "For the corpus and generator
+  inputs" and "Residue".
+- **Description**: the residue excludes an inserted character that completes an emoji or a fence, and a delete that removes
+  or completes a fence delimiter or an emoji. Read at `119471f`, `handleEditor` retypes every line whose type a keystroke
+  changed, and each retyped line reaches `handleElement`. Three kinds of keystroke in the class do that and are not in the
+  residue: (1) a character inserted inside a fence delimiter, which breaks the fence without completing one; (2) Enter
+  inside a fence delimiter; (3) any keystroke on a `>>>` marker, which turns every line below it from a quote line into a
+  plain one. The sized `>>>` texts hold such a marker on their first line, and "each at a line's start, middle and end"
+  does not say which line. Read from code, not run.
+- **Impact**: on the `>>>` text a keystroke at the first line's start retypes 199 lines at one size and 2,047 at the other,
+  so the two counts differ on a correct fix; on a corpus input with a fence of more than 4 lines, cases (1) and (2) exceed
+  the bound of 4. Beyond the test, the cost of these keystrokes is bounded by neither limb: the timed limb is a median over
+  50 keystrokes, and the residue says only that AC-6.5 holds their result. At 2,048 lines that is up to about 1.6 s on the
+  one keystroke, by the tip's cost a build. That is arithmetic, not a measurement.
+- **The property, in place of a revision**: the residue is every keystroke after which a line the keystroke did not edit
+  has a different type (code block, quote or plain) or a different set of emoji elements than before. It is enumerable from
+  the editor's own value before and after the keystroke. The count limb's properties hold over the class less that residue.
+  Checked against the members known so far: F-45's two inserted characters, SL-19's deletes, P-Q23's Backspace and the
+  three above are all inside it, and an in-line `x`, Enter and a merge on plain and `> ` lines are all outside it.
+- **SL-22**: M6 builds the count limb over the class less that residue, and on the sized `>>>` texts the keystroke falls on
+  a line other than the first. The implementer records, in the implementation document, the count and the time of one
+  residue keystroke at 200 and 2,048 lines, a character typed in front of `>>>`, as an observation. A user report of a
+  pause on such a keystroke in a long message is recorded under AC-6.8's row in QA's register. QA at Phase 2 on M6 bears
+  finding a keystroke in the class that changes another line's type and is counted, and tells the planner.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2, where AC-6.8's residue takes
+  the property; the planner sends SL-22 to the implementer and QA now, since it bears on the fix round.
 
 ### Closed at cycle 11 pass 2
 
@@ -1179,7 +1265,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Written at the close of cycle 11 pass 2 on 2026-11-24 (APPROVED on plan revision 18, `18e434e6`). Nothing is in flight and no process is running. One question awaits an answer: F-48 with SL-21, and whether the count limb keeps an exact literal, sent to `steering-hooks-fixer` as a selection under its block 07:15Z. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-48 with SL-21) and `implementer-019` (CR-20's fix round is released by this gate only as read with SL-21, pending steering). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 12: read the plan as the `git diff` from `34850209` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Written at the close of cycle 12 pass 1 on 2026-11-24 (APPROVED on plan revision 19, `4a68f286`). Nothing is in flight, no process is running and no question awaits an answer; steering answered F-48 by its block 07:21Z, which makes revision 19 AC-6.8's last fold and every later AC-6.8 finding below HIGH a stated limit. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-49 with SL-22), `implementer-019` (CR-20's fix round is released by this gate, read with SL-22) and `steering-hooks-fixer` (the unbounded cost of residue keystrokes, as an item he may want to see). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 13: read the plan as the `git diff` from `4a68f286` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
