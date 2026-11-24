@@ -1199,3 +1199,12 @@ leaves the label emoji as text (`g14-native.txt`, read this turn), so the [] is 
 basis.
 Recipients: `implementer-019` (it executes the freeze), `planner-019` (it registers the stated limit and this pointer). Not prompted: both
 answers are his D-5 and D-13 words applied, and the remaining gap is below HIGH under the cap.
+
+## 2026-11-24T05:14Z — plan 019 M5: QA's QAF-39 refresh runs on the tree code review approved (this thread's routing)
+
+`code-reviewer-019` by message (05:1xZ) approved QAF-39's fix (record `79f96321`, `Reviewed-At` cf126ea, read this turn). It checked the fix on
+2e36107's M5 source with cf126ea's four test paths laid over it. The chain tip at cf126ea also carries M6's 8cb4d83, c3af0ac and f58a816,
+which change decorator.tsx, unitStyles.ts, SlateEditor/index.tsx and Desktop/Mobile, and have had no review.
+**Routing: QA refreshes M5 on that same overlay** (a 2e36107 export with cf126ea's four test paths over it), so the review and the QA verdict
+cover one tree. M6's code is verified at M6's own review and Phase 2, and the release tip takes its own verdict at Phase 3 (D-19, one release).
+Recipient: `qa-019`. This block was first written by a shell heredoc. The record-write gate refused that, and it was re-made with Edit.
