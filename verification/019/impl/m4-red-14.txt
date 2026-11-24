@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/adjustments.single-character-host.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/adjustments.single-character-host.test.ts [ src/utils/markdown/__tests__/adjustments.single-character-host.test.ts ]
+Error: Cannot find module '../adjustments' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/adjustments.single-character-host.test.ts
+ ❯ src/utils/markdown/__tests__/adjustments.single-character-host.test.ts:3:1
+      1| import { beforeAll, describe, expect, it } from 'vitest';
+      2|
+      3| import { adjustmentsFor, isBareLinkOfOneCharacterHost, unlinkBareLinks…
+       | ^
+      4| import { parseLossless, startEngine } from '../engine';
+      5|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  22:28:21
+   Duration  205ms (transform 32ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

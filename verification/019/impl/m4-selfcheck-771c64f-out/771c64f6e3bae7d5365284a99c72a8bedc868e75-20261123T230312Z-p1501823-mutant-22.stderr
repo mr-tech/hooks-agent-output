@@ -1,0 +1,895 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 192 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a listed channel
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a thread under a listed channel
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > keeps the id form when the list is empty
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > shows the new name when the list changes under a mounted preview
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with no guild provider above it > renders, and draws the channel in its id form
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp in a code block before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an escaped timestamp before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with an invalid style letter before it
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the second
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a link label, which the engine leaves as text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with the bare form
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with three timestamps, the middle one
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added before the existing ones while the preview stays mounted
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added between and after the existing ones
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > a timestamp whose source changes while the preview stays mounted > shows the new time, not the one it first drew
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ Markdown src/components/Markdown.tsx:20:10
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+ ❯ updateMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > bold
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > italic
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > underline
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > strikethrough
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > spoiler
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > masked link
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > bare link
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > code block with a language
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > code block with none
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a user mention
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a user mention with the nickname mark
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a role mention
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a channel mention with no list
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > everyone
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > here
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a timestamp, by its seconds and style
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a timestamp with no style
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ drawn src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:26:59
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ drawn src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:26:59
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:74:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > gives the same visible form string for the same rendering
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ drawn src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:26:59
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:78:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > is told apart from a tree that differs in one style
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ drawn src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:26:59
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:82:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads a channel mention by its id when the preview shows the channel's name
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:96:52
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:104:52
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > tells a timestamp of one value from a timestamp of another
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ drawn src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:26:59
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:111:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > tells a mention of one id from a mention of another, and one kind from another
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ drawn src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:26:59
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:117:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ Module.drawnDom src/utils/markdown/__tests__/helpers/previewDom.tsx:26:48
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:40:62
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:40:29
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is told apart from an engine tree of another text
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ Module.drawnDom src/utils/markdown/__tests__/helpers/previewDom.tsx:26:48
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:51:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text
+AssertionError: expected 32 to be 22 // Object.is equality
+
+- Expected
++ Received
+
+- 22
++ 32
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:27:23
+     25|     expect(img.alt).toBe('🙂');
+     26|     expect(addressOf(img)).toBe('https://cdn.jsdelivr.net/gh/twitter/t…
+     27|     expect(img.width).toBe(22);
+       |                       ^
+     28|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     29|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > small once any text sits beside it
+AssertionError: expected [ 32 ] to deeply equal [ 22 ]
+
+- Expected
++ Received
+
+  [
+-   22,
++   32,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:72:44
+     70|   it('small once any text sits beside it', () => {
+     71|     const images = imagesOf(draw('🙂 hi'));
+     72|     expect(images.map((img) => img.width)).toEqual([22]);
+       |                                            ^
+     73|   });
+     74| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws t as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws T as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws d as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws D as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws f as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws F as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws s as its text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws S as its text
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws the bare form as f
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:60:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws R as the time from a fixed clock, three hours on
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:66:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in the viewer's zone once mounted
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:79:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in UTC before mount, whatever the viewer's zone
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:84:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > follows a locale dayjs has a file for
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:88:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/192]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > reads in the language dayjs resolves to, not the tag, where dayjs has no file for the tag
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ draw src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:33:42
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:92:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/192]⎯
+
+ FAIL  |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx > a spoiler the engine splits into pieces > leaves a different spoiler hidden
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ mount src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:17:46
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:43:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for text after an emoji
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for text before an emoji
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:59:27
+     57|     ['an emoji line above a quote', '🙂\n> x'],
+     58|   ])('is not large for %s', (_name, source) => {
+     59|     expect(jumbo(source)).toBe(false);
+       |                           ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for an emoji inside bold
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for an emoji inside a link label
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ Module.isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ jumbo src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:15:10
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:59:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws bold
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws italic
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws underline
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws strikethrough
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:17:17
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:53:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws a masked link as an anchor whose href is the engine url and whose label is its text
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:17:17
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:61:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders the engine tree on the content surface > draws a bare link with the normalised url as its label
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:17:17
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:65:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws a code block with its body and a language it does not know as plain
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:17:17
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:85:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > keeps a https link as an anchor
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > keeps a mailto link as an anchor
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ Module.renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ markupOf src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:22:61
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:102:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > draws a javascript link as its label with no href
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > draws a data link as its label with no href
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ Module.renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ markupOf src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:22:61
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:109:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is threadOnly
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given a listed forum channel its name
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:79:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given an active post under a listed forum channel its name
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:84:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > keeps the id form for a category, which the list leaves out
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:88:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:93:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the content surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedDescription surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitle surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitleWithUrl surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the fieldValue surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the v2Text surface when the list holds it
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:100:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders game as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders game as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders game as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders game as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders game as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders command as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders command as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders command as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders command as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders command as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders home as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders home as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders home as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders home as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders home as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders browse as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders browse as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders browse as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders browse as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders browse as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders customize as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders customize as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders customize as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders customize as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders customize as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders guide as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders guide as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders guide as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders guide as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders guide as today's form when the list state is threadOnly
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders linked_roles as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders linked_roles as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders linked_roles as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders linked_roles as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders linked_roles as today's form when the list state is threadOnly
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps the typed form of a user mention that carries a bang
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:114:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[37/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a role mention in its form when the role id is a listed channel id
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:118:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[38/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a user mention in its form when the user id is a listed channel id
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:122:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws no text that says unknown in any of the 60 cells
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:129:84
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:129:70
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:129:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[40/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws every one of the 60 cells as something visible
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:136:84
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:136:70
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:136:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[41/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with no provider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with a list without the id
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/preview.mention-table.test.ts:36:39
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:153:44
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:153:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[42/192]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for no tag and one line
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a one-line fence
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for an empty line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for an empty line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for two empty lines inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a whitespace-only line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for a whitespace-only line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for text before and an empty line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseContent fenced code blocks > renders a code block for text after and an empty line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and two lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and three lines
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for no tag and one line
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a one-line fence
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for an empty line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for an empty line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for two empty lines inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a whitespace-only line inside, no tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for a whitespace-only line inside, a tag
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for text before and an empty line inside
+ FAIL  |node| src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts > parseEmbedField fenced code blocks > renders a code block for text after and an empty line inside
+TypeError: node.kind.value.trim is not a function
+ ❯ isBlank src/utils/markdown/emojiDisplay.ts:13:86
+     11|
+     12| const nodesOf = (node: LosslessNode) => node.children.flatMap((child) …
+     13| const isBlank = (node: LosslessNode) => node.kind.type === 'text' || n…
+       |                                                                                      ^
+     14|
+     15| export function isJumboTree(tree: LosslessNode): boolean {
+ ❯ isJumboTree src/utils/markdown/emojiDisplay.ts:22:19
+ ❯ renderLosslessTree src/utils/markdown/preview.tsx:195:56
+ ❯ src/utils/markdown/preview.tsx:206:19
+ ❯ render src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:20:61
+ ❯ src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts:49:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[43/192]⎯
+

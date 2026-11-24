@@ -1,0 +1,5 @@
+// Driver text of m4-adjustment-reach-after.json. It imports `isBareLinkOfOneCharacterHost` from an adjustments module and
+// `parseUnadjusted` from the adapter; both were my uncommitted work and are deleted (no commit holds them), so this record documents
+// the instrument, and the figure (0 reached of 2,378 on each of the five surfaces) is not reproducible from a commit.
+//   for each surface and input: tree = parseUnadjusted(surface, text); reached = any node n of tree with isBareLinkOfOneCharacterHost(n);
+//   record reached inputs, and which of them still differ from legacy after the adjustment (domDiffersFromLegacy, or an atom held).

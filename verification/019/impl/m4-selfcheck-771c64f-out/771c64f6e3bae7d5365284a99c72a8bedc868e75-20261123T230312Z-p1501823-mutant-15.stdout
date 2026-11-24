@@ -1,0 +1,42 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-15
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 14 failed) 400ms
+     × with one timestamp between text 87ms
+     × with identical duplicates, the first 67ms
+     × with identical duplicates, the second 24ms
+     × with a timestamp in a code span before it 33ms
+     × with a timestamp in a code block before it 21ms
+     × with an escaped timestamp before it 6ms
+     × with an invalid style letter before it 6ms
+     × with a timestamp inside a spoiler, the first 18ms
+     × with a timestamp inside a spoiler, the second 11ms
+     × with a timestamp inside a link label, which the engine leaves as text 20ms
+     × with the bare form 8ms
+     × with three timestamps, the middle one 11ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 20ms
+     × after a timestamp is added between and after the existing ones 9ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 4 failed) 857ms
+     × a timestamp, by its seconds and style 301ms
+     × a timestamp with no style 36ms
+     × reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well 6ms
+     × tells a timestamp of one value from a timestamp of another 159ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 12608ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 2170ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 1221ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 1033ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 1041ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 938ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 990ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 936ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 901ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 781ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 899ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 830ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 711ms
+
+ Test Files  3 failed | 73 passed (76)
+      Tests  30 failed | 1257 passed (1287)
+   Start at  23:15:58
+   Duration  45.63s (transform 17.91s, setup 1.07s, import 100.39s, tests 174.51s, environment 56.50s)
+

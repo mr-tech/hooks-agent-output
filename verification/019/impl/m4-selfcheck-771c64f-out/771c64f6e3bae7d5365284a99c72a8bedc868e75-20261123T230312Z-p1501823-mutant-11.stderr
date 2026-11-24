@@ -1,0 +1,131 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws s as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '11/14/23, 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws S as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '11/14/23, 10:13:20 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13:20 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in the viewer's zone once mounted
+AssertionError: expected [ '3 years ago', '3 years ago' ] to deeply equal [ '11/14/23, 5:13 PM', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 5:13 PM",
+-   "11/14/23, 5:13:20 PM",
++   "3 years ago",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:79:62
+     77|   it('formats in the viewer\'s zone once mounted', () => {
+     78|     process.env.TZ = 'America/New_York';
+     79|     expect(stampText(draw(`<t:${STAMP}:s> <t:${STAMP}:S>`))).toEqual([…
+       |                                                              ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in UTC before mount, whatever the viewer's zone
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '11/14/23, 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:84:54
+     82|   it('formats in UTC before mount, whatever the viewer\'s zone', () =>…
+     83|     process.env.TZ = 'America/New_York';
+     84|     expect(stampText(draw(`<t:${STAMP}:s>`, false))).toEqual(['11/14/2…
+       |                                                      ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > follows a locale dayjs has a file for
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '14/11/2023, 22:13' ]
+
+- Expected
++ Received
+
+  [
+-   "14/11/2023, 22:13",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:88:62
+     86|
+     87|   it('follows a locale dayjs has a file for', () => {
+     88|     expect(stampText(draw(`<t:${STAMP}:s>`, true, 'en-GB'))).toEqual([…
+       |                                                              ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > reads in the language dayjs resolves to, not the tag, where dayjs has no file for the tag
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '11/14/23, 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:92:62
+     90|
+     91|   it('reads in the language dayjs resolves to, not the tag, where dayj…
+     92|     expect(stampText(draw(`<t:${STAMP}:s>`, true, 'vi-VN'))).toEqual([…
+       |                                                              ^
+     93|   });
+     94| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-44
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 1830ms
+     × reads a channel mention by its id when the preview shows the channel's name 47ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 3 failed) 316ms
+     × names a listed channel 137ms
+     × names a thread under a listed channel 24ms
+     × shows the new name when the list changes under a mounted preview 31ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 6937ms
+     × draws nothing while the engine is pending 5007ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 13 failed) 830ms
+     × renders as the table says when the list state is withoutId 18ms
+     × renders as the table says when the list state is topLevel 11ms
+     × renders as the table says when the list state is threadOnly 2ms
+     × is given a listed forum channel its name 2ms
+     × is given an active post under a listed forum channel its name 1ms
+     × keeps the id form for a category, which the list leaves out 3ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 2ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+
+ Test Files  4 failed | 72 passed (76)
+      Tests  18 failed | 1269 passed (1287)
+   Start at  23:41:29
+   Duration  82.93s (transform 66.78s, setup 2.85s, import 278.86s, tests 322.73s, environment 142.70s)
+

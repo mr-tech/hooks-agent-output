@@ -1,0 +1,67 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 280ms
+     × a timestamp, by its seconds and style 12ms
+     × tells a timestamp of one value from a timestamp of another 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a timestamp, by its seconds and style
+AssertionError: expected [ { t: 'N', name: 'ts', …(2) } ] to deeply equal [ { t: 'N', name: 'ts', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "1700000000:R",
++     "attr": "1700000000:",
+      "kids": null,
+      "name": "ts",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > tells a timestamp of one value from a timestamp of another
+AssertionError: expected [ { at: +0, dimensions: [ 'text' ] } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 0,
++     "dimensions": [
++       "text",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:113:109
+    111|     expect(visibleDifferences(drawn('<t:1700000000:R>'), 'dom', native…
+    112|     expect(visibleDifferences(drawn('<t:1700000000:R>'), 'dom', native…
+    113|     expect(visibleDifferences(drawn('<t:1700000000:R>'), 'dom', native…
+       |                                                                                                             ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 39 passed (41)
+   Start at  23:01:56
+   Duration  2.41s (transform 512ms, setup 21ms, import 1.26s, tests 280ms, environment 694ms)
+

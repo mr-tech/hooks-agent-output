@@ -1,0 +1,72 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-61
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 8 failed) 937ms
+     × a user mention 34ms
+     × a user mention with the nickname mark 9ms
+     × a role mention 5ms
+     × a channel mention with no list 17ms
+     × everyone 6ms
+     × here 5ms
+     × reads a channel mention by its id when the preview shows the channel's name 5ms
+     × tells a mention of one id from a mention of another, and one kind from another 27ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 9123ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 1263ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 958ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 644ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 1086ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 746ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 838ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 524ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 531ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 602ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 688ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 482ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 442ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 5260ms
+     × draws nothing while the engine is pending 5178ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 38 failed) 1062ms
+     × renders as the table says when the list state is noProvider 37ms
+     × renders as the table says when the list state is empty 3ms
+     × renders as the table says when the list state is withoutId 3ms
+     × renders as the table says when the list state is topLevel 19ms
+     × renders as the table says when the list state is threadOnly 2ms
+     × is given a listed forum channel its name 8ms
+     × is given an active post under a listed forum channel its name 2ms
+     × keeps the id form for a category, which the list leaves out 2ms
+     × names the second of two listed channels when the mention names the second 5ms
+     × is named on the content surface when the list holds it 9ms
+     × is named on the embedDescription surface when the list holds it 9ms
+     × is named on the embedTitle surface when the list holds it 2ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 2ms
+     × is named on the v2Text surface when the list holds it 1ms
+     × renders user as today's form when the list state is noProvider 1ms
+     × renders user as today's form when the list state is empty 1ms
+     × renders user as today's form when the list state is withoutId 1ms
+     × renders user as today's form when the list state is topLevel 2ms
+     × renders user as today's form when the list state is threadOnly 1ms
+     × renders role as today's form when the list state is noProvider 2ms
+     × renders role as today's form when the list state is empty 1ms
+     × renders role as today's form when the list state is withoutId 1ms
+     × renders role as today's form when the list state is topLevel 1ms
+     × renders role as today's form when the list state is threadOnly 1ms
+     × renders everyone as today's form when the list state is noProvider 1ms
+     × renders everyone as today's form when the list state is empty 1ms
+     × renders everyone as today's form when the list state is withoutId 1ms
+     × renders everyone as today's form when the list state is topLevel 1ms
+     × renders everyone as today's form when the list state is threadOnly 1ms
+     × renders here as today's form when the list state is noProvider 1ms
+     × renders here as today's form when the list state is empty 1ms
+     × renders here as today's form when the list state is withoutId 1ms
+     × renders here as today's form when the list state is topLevel 1ms
+     × renders here as today's form when the list state is threadOnly 1ms
+     × keeps the typed form of a user mention that carries a bang 1ms
+     × keeps a role mention in its form when the role id is a listed channel id 1ms
+     × keeps a user mention in its form when the user id is a listed channel id 1ms
+
+ Test Files  4 failed | 72 passed (76)
+      Tests  59 failed | 1228 passed (1287)
+   Start at  00:02:22
+   Duration  67.79s (transform 44.32s, setup 1.56s, import 170.90s, tests 242.55s, environment 77.11s)
+

@@ -1,0 +1,89 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji
+AssertionError: expected 22 to be 32 // Object.is equality
+
+- Expected
++ Received
+
+- 32
++ 22
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:56:23
+     54|   it('large, at 32 pixels with the large class, when the message holds…
+     55|     const [img] = imagesOf(draw('🙂'));
+     56|     expect(img.width).toBe(32);
+       |                       ^
+     57|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     58|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them
+AssertionError: expected [ 22, 22 ] to deeply equal [ 32, 32 ]
+
+- Expected
++ Received
+
+  [
+-   32,
+-   32,
++   22,
++   22,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:62:44
+     60|   it('large when only emoji and spaces make up the message, for every …
+     61|     const images = imagesOf(draw('🙂 <:wave:123>'));
+     62|     expect(images.map((img) => img.width)).toEqual([32, 32]);
+       |                                            ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for one emoji
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for one emoji typed as a name
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for two emoji with a space between
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for two emoji side by side
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for two custom emoji side by side
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for emoji surrounded by spaces
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is large for 26 emoji
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:41:27
+     39|     ['26 emoji', '🙂'.repeat(26)],
+     40|   ])('is large for %s', (_name, source) => {
+     41|     expect(jumbo(source)).toBe(true);
+       |                           ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > whether a message draws its emoji large > is not large for a heading holding an emoji
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:59:27
+     57|     ['an emoji line above a quote', '🙂\n> x'],
+     58|   ])('is not large for %s', (_name, source) => {
+     59|     expect(jumbo(source)).toBe(false);
+       |                           ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+

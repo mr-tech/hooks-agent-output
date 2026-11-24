@@ -1,0 +1,304 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 34 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#general' ]
+
+- Expected
++ Received
+
+  [
+-   "#general",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:36:23
+     34|   it('names a listed channel', () => {
+     35|     const el = mountDom(<Context.Provider value={guild([channel('111',…
+     36|     expect(pills(el)).toEqual(['#general']);
+       |                       ^
+     37|   });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/34]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a thread under a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#a-thread' ]
+
+- Expected
++ Received
+
+  [
+-   "#a-thread",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:42:23
+     40|     const list = [channel('222', 'rules', 0, [{ id: '111', name: 'a-th…
+     41|     const el = mountDom(<Context.Provider value={guild(list)}>{drawn('…
+     42|     expect(pills(el)).toEqual(['#a-thread']);
+       |                       ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/34]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > shows the new name when the list changes under a mounted preview
+AssertionError: expected [ '#111' ] to deeply equal [ '#general' ]
+
+- Expected
++ Received
+
+  [
+-   "#general",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:58:23
+     56|     }
+     57|     const el = mountDom(<Harness />);
+     58|     expect(pills(el)).toEqual(['#general']);
+       |                       ^
+     59|
+     60|     act(() => { setList([channel('111', 'renamed')]); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/34]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with no guild provider above it > renders, and draws the channel in its id form
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:40:24
+     38| function channelName(channels: Ctx['channels'], id: string) {
+     39|   if (channels) return undefined;
+     40|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     41|   if (top) return top.name;
+     42|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:80:20
+ ❯ renderNode src/utils/markdown/preview.tsx:159:14
+ ❯ src/utils/markdown/preview.tsx:92:52
+ ❯ renderInline src/utils/markdown/preview.tsx:92:16
+ ❯ renderNode src/utils/markdown/preview.tsx:121:14
+ ❯ src/utils/markdown/preview.tsx:98:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:96:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/34]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a channel mention with no list
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:40:24
+     38| function channelName(channels: Ctx['channels'], id: string) {
+     39|   if (channels) return undefined;
+     40|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     41|   if (top) return top.name;
+     42|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:80:20
+ ❯ renderNode src/utils/markdown/preview.tsx:159:14
+ ❯ src/utils/markdown/preview.tsx:92:52
+ ❯ renderInline src/utils/markdown/preview.tsx:92:16
+ ❯ renderNode src/utils/markdown/preview.tsx:121:14
+ ❯ src/utils/markdown/preview.tsx:98:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:96:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/34]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads a channel mention by its id when the preview shows the channel's name
+AssertionError: expected '#123' to be '#general' // Object.is equality
+
+Expected: "#general"
+Received: "#123"
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:99:28
+     97|       mounted: false, isEmbed: false, channels: [{ id: '123', name: 'g…
+     98|     } as never)}</>);
+     99|     expect(el.textContent).toBe('#general');
+       |                            ^
+    100|     expect(canonFromDom(el)).toEqual([N('m', 'channel:123', null)]);
+    101|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/34]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:40:24
+     38| function channelName(channels: Ctx['channels'], id: string) {
+     39|   if (channels) return undefined;
+     40|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     41|   if (top) return top.name;
+     42|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:80:20
+ ❯ renderNode src/utils/markdown/preview.tsx:159:14
+ ❯ src/utils/markdown/preview.tsx:92:52
+ ❯ renderInline src/utils/markdown/preview.tsx:92:16
+ ❯ renderModifier src/utils/markdown/preview.tsx:177:20
+ ❯ renderNode src/utils/markdown/preview.tsx:146:14
+ ❯ src/utils/markdown/preview.tsx:92:52
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/34]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:40:24
+     38| function channelName(channels: Ctx['channels'], id: string) {
+     39|   if (channels) return undefined;
+     40|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     41|   if (top) return top.name;
+     42|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:80:20
+ ❯ renderNode src/utils/markdown/preview.tsx:159:14
+ ❯ src/utils/markdown/preview.tsx:92:52
+ ❯ renderInline src/utils/markdown/preview.tsx:92:16
+ ❯ renderNode src/utils/markdown/preview.tsx:131:9
+ ❯ src/utils/markdown/preview.tsx:98:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:96:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > draws nothing while the engine is pending
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:30:3
+     28|
+     29| describe('the preview parser before the engine is ready', () => {
+     30|   it('draws nothing while the engine is pending', async () => {
+       |   ^
+     31|     const { preview } = await fresh();
+     32|     expect(preview.previewParser('content')('**a**')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws no text that says unknown in any of the 60 cells
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws every one of the 60 cells as something visible
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with no provider
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:40:24
+     38| function channelName(channels: Ctx['channels'], id: string) {
+     39|   if (channels) return undefined;
+     40|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     41|   if (top) return top.name;
+     42|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:80:20
+ ❯ renderNode src/utils/markdown/preview.tsx:159:14
+ ❯ src/utils/markdown/preview.tsx:92:52
+ ❯ renderInline src/utils/markdown/preview.tsx:92:16
+ ❯ renderNode src/utils/markdown/preview.tsx:121:14
+ ❯ src/utils/markdown/preview.tsx:98:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:96:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is topLevel
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#a-thread</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="444">#help-forum</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="444">#444</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:79:77
+     77|
+     78|   it('is given a listed forum channel its name', () => {
+     79|     expect(render('content', '<#444>', [channel('444', 'help-forum', 1…
+       |                                                                             ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given an active post under a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#my-question</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#555</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:84:47
+     82|   it('is given an active post under a listed forum channel its name', …
+     83|     const list = [channel('444', 'help-forum', 15, [{ id: '555', name:…
+     84|     expect(render('content', '<#555>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:93:47
+     91|   it('names the second of two listed channels when the mention names t…
+     92|     const list = [channel('222', 'rules', 0), channel('111', 'general'…
+     93|     expect(render('content', '<#111>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     94|     expect(render('content', '<#222>', list)).toBe(`${INTERACTIVE('cha…
+     95|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/34]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the content surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedDescription surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitle surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitleWithUrl surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the fieldValue surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the v2Text surface when the list holds it
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:100:55
+     98|     ['content'], ['embedDescription'], ['embedTitle'], ['embedTitleWit…
+     99|   ] as Array<[Surface]>)('is named on the %s surface when the list hol…
+    100|     expect(render(surface, '<#111>', LISTS.topLevel)).toBe(`${INTERACT…
+       |                                                       ^
+    101|   });
+    102| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/34]⎯
+

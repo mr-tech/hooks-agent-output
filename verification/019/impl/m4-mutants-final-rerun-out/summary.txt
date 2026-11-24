@@ -1,0 +1,2 @@
+NM-1	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	Link href: the label text as href
+M4-r1	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	stale: input no longer in the classes, not read

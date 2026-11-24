@@ -1,0 +1,40 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (38 tests | 1 failed) 182ms
+     × a timestamp with no style 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a timestamp with no style
+AssertionError: expected [ { t: 'N', name: 'ts', …(2) } ] to deeply equal [ { t: 'N', name: 'ts', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "1700000000:",
++     "attr": "1700000000:f",
+      "kids": null,
+      "name": "ts",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 37 passed (38)
+   Start at  22:39:44
+   Duration  2.88s (transform 668ms, setup 29ms, import 1.56s, tests 182ms, environment 925ms)
+

@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-64
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 738ms
+     × reads a channel mention by its id when the preview shows the channel's name 30ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 5 failed) 339ms
+     × names a listed channel 96ms
+     × names a thread under a listed channel 55ms
+     × keeps the id form when the list is empty 26ms
+     × shows the new name when the list changes under a mounted preview 97ms
+     × renders, and draws the channel in its id form 27ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 15 failed) 1257ms
+     × renders as the table says when the list state is noProvider 120ms
+     × renders as the table says when the list state is empty 3ms
+     × renders as the table says when the list state is withoutId 4ms
+     × renders as the table says when the list state is topLevel 24ms
+     × renders as the table says when the list state is threadOnly 3ms
+     × is given a listed forum channel its name 2ms
+     × is given an active post under a listed forum channel its name 2ms
+     × keeps the id form for a category, which the list leaves out 4ms
+     × names the second of two listed channels when the mention names the second 16ms
+     × is named on the content surface when the list holds it 2ms
+     × is named on the embedDescription surface when the list holds it 3ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+
+ Test Files  3 failed | 73 passed (76)
+      Tests  21 failed | 1266 passed (1287)
+   Start at  00:05:44
+   Duration  63.28s (transform 42.40s, setup 1.39s, import 156.64s, tests 230.99s, environment 74.15s)
+

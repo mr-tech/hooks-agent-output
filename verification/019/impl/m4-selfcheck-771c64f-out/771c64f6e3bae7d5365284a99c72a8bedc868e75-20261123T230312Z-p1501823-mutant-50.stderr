@@ -1,0 +1,56 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a thread under a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#a-thread' ]
+
+- Expected
++ Received
+
+  [
+-   "#a-thread",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:42:23
+     40|     const list = [channel('222', 'rules', 0, [{ id: '111', name: 'a-th…
+     41|     const el = mountDom(<Context.Provider value={guild(list)}>{drawn('…
+     42|     expect(pills(el)).toEqual(['#a-thread']);
+       |                       ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#a-thread</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given an active post under a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#my-question</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#555</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:84:47
+     82|   it('is given an active post under a listed forum channel its name', …
+     83|     const list = [channel('444', 'help-forum', 15, [{ id: '555', name:…
+     84|     expect(render('content', '<#555>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

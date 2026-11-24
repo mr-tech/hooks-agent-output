@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |node| src/utils/markdown/__tests__/residueList.check.test.ts (11 tests | 1 failed) 113ms
+     × names an entry whose input now differs in another way 27ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/residueList.check.test.ts > the frozen residue list read against a measurement > names an entry whose input now differs in another way
+AssertionError: expected [] to deeply equal [ { kind: 'signature', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "kind": "signature",
+-     "src": "corpus:6",
+-     "surface": "embedDescription",
+-   },
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/residueList.check.test.ts:32:8
+     30|     measured[0] = { ...measured[0], signature: [...measured[0].signatu…
+     31|     expect(checkResidue(LIST, measured, LIST.entries.map((e) => `${e.s…
+     32|       .toEqual([{ kind: 'signature', surface: first.surface, src: firs…
+       |        ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  23:02:22
+   Duration  1.46s (transform 993ms, setup 0ms, import 1.22s, tests 113ms, environment 0ms)
+

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork2/20261124T001533Z-p2367515/mutant-6
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 5528ms
+     × draws nothing while the engine is pending 5007ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 1 failed) 877ms
+     × names a thread of the second listed channel, and one of the first, in the same list 23ms
+
+ Test Files  2 failed | 77 passed (79)
+      Tests  2 failed | 1366 passed (1368)
+   Start at  00:20:49
+   Duration  62.32s (transform 41.81s, setup 1.83s, import 159.82s, tests 236.70s, environment 76.23s)
+

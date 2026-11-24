@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-68
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 11 failed) 9878ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 1313ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 1051ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 815ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 780ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 788ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 885ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 602ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 872ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 685ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 654ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 640ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 5376ms
+     × draws nothing while the engine is pending 5009ms
+
+ Test Files  2 failed | 74 passed (76)
+      Tests  12 failed | 1275 passed (1287)
+   Start at  00:10:12
+   Duration  64.77s (transform 40.88s, setup 1.77s, import 166.32s, tests 245.51s, environment 76.20s)
+

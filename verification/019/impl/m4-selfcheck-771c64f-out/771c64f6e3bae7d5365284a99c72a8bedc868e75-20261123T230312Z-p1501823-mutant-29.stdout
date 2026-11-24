@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-29
+
+ ❯ |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts (26 tests | 1 failed) 151ms
+     × is large for 26 emoji 12ms
+
+ Test Files  1 failed | 75 passed (76)
+      Tests  1 failed | 1286 passed (1287)
+   Start at  23:26:45
+   Duration  43.06s (transform 16.68s, setup 1.16s, import 100.83s, tests 162.95s, environment 57.35s)
+

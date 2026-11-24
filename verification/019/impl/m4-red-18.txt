@@ -1,0 +1,73 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (4 tests | 1 failed) 2575ms
+     × is the same in the visible form, for every input 2452ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for every input
+AssertionError: expected [ 'corpus:60', 'gen:48', …(37) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:60",
++   "gen:48",
++   "gen:140",
++   "gen:147",
++   "gen:179",
++   "gen:253",
++   "gen:267",
++   "gen:349",
++   "gen:357",
++   "gen:379",
++   "gen:407",
++   "gen:415",
++   "gen:500",
++   "gen:559",
++   "gen:615",
++   "gen:633",
++   "gen:701",
++   "gen:711",
++   "gen:944",
++   "gen:989",
++   "gen:998",
++   "gen:1007",
++   "gen:1156",
++   "gen:1199",
++   "gen:1202",
++   "gen:1213",
++   "gen:1251",
++   "gen:1302",
++   "gen:1332",
++   "gen:1337",
++   "gen:1352",
++   "gen:1420",
++   "gen:1565",
++   "gen:1690",
++   "gen:1760",
++   "gen:1838",
++   "gen:1983",
++   "gen:1993",
++   "gen:1999",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:39:41
+     37|   it('is the same in the visible form, for every input', () => {
+     38|     const differing = held.filter((i) => visibleDifferences(drawnDom('…
+     39|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     40|   });
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  22:50:16
+   Duration  4.90s (transform 568ms, setup 23ms, import 1.52s, tests 2.57s, environment 648ms)
+

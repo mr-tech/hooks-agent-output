@@ -1,0 +1,10 @@
+Embed.tsx:98:not KILLED 47.85
+MarkdownEmoji.tsx:23:false KILLED 51.32
+MarkdownTimestamp.tsx:45:if-false SURVIVED 50.49
+MarkdownTimestamp.tsx:45:not SURVIVED 54.11
+MarkdownTimestamp.tsx:65:|| SURVIVED 61.9
+preview.tsx:42:walk-first KILLED 63.82
+preview.tsx:42:walk-first:2 KILLED 61.8
+preview.tsx:107:&& KILLED 52.09
+preview.tsx:107:> KILLED 47.37
+6 of 9 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m4-selfcheck-survivors-e58f2ed.json (blob b02c1715478c1a2f9163de20bfb2780fe83d09b6))

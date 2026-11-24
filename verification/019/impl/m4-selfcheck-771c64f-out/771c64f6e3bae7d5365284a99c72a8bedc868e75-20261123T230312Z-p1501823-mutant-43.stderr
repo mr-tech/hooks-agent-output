@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="222">#rules</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="222">#222</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:94:47
+     92|     const list = [channel('222', 'rules', 0), channel('111', 'general'…
+     93|     expect(render('content', '<#111>', list)).toBe(`${INTERACTIVE('cha…
+     94|     expect(render('content', '<#222>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     95|   });
+     96|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

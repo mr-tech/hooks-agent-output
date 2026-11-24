@@ -1,0 +1,58 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji
+AssertionError: expected 22 to be 32 // Object.is equality
+
+- Expected
++ Received
+
+- 32
++ 22
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:56:23
+     54|   it('large, at 32 pixels with the large class, when the message holds…
+     55|     const [img] = imagesOf(draw('🙂'));
+     56|     expect(img.width).toBe(32);
+       |                       ^
+     57|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     58|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them
+AssertionError: expected [ 22, 22 ] to deeply equal [ 32, 32 ]
+
+- Expected
++ Received
+
+  [
+-   32,
+-   32,
++   22,
++   22,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:62:44
+     60|   it('large when only emoji and spaces make up the message, for every …
+     61|     const images = imagesOf(draw('🙂 <:wave:123>'));
+     62|     expect(images.map((img) => img.width)).toEqual([32, 32]);
+       |                                            ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > draws nothing while the engine is pending
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:30:3
+     28|
+     29| describe('the preview parser before the engine is ready', () => {
+     30|   it('draws nothing while the engine is pending', async () => {
+       |   ^
+     31|     const { preview } = await fresh();
+     32|     expect(preview.previewParser('content')('**a**')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-62
+
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 2 failed) 262ms
+     × keeps the id form when the list is empty 36ms
+     × renders, and draws the channel in its id form 26ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 17 failed) 1046ms
+     × renders as the table says when the list state is noProvider 50ms
+     × renders as the table says when the list state is empty 4ms
+     × renders as the table says when the list state is withoutId 9ms
+     × keeps the id form for a category, which the list leaves out 2ms
+     × renders user as today's form when the list state is noProvider 6ms
+     × renders user as today's form when the list state is empty 1ms
+     × renders user as today's form when the list state is withoutId 6ms
+     × renders user as today's form when the list state is topLevel 5ms
+     × renders user as today's form when the list state is threadOnly 2ms
+     × renders role as today's form when the list state is noProvider 2ms
+     × renders role as today's form when the list state is empty 1ms
+     × renders role as today's form when the list state is withoutId 1ms
+     × renders role as today's form when the list state is topLevel 4ms
+     × renders role as today's form when the list state is threadOnly 4ms
+     × keeps the typed form of a user mention that carries a bang 1ms
+     × keeps a role mention in its form when the role id is a listed channel id 1ms
+     × keeps a user mention in its form when the user id is a listed channel id 2ms
+
+ Test Files  2 failed | 74 passed (76)
+      Tests  19 failed | 1268 passed (1287)
+   Start at  00:03:32
+   Duration  60.86s (transform 37.18s, setup 1.69s, import 159.39s, tests 222.98s, environment 73.28s)
+

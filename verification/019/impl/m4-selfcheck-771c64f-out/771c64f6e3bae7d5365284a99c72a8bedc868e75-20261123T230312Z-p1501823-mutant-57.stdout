@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-57
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 3 failed) 217ms
+     × as an image of the Twemoji file, with the character as its alt text 88ms
+     × from a typed name, as an image whose alt text is the character 15ms
+     × for a custom emoji, as an image of its CDN file with the name as alt text and title 38ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 3 failed) 715ms
+     × unicode emoji 53ms
+     × custom emoji 17ms
+     × animated custom emoji 8ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 9876ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 2126ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 855ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 694ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 830ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 819ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 731ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 614ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 498ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 533ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 761ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 598ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 591ms
+
+ Test Files  3 failed | 73 passed (76)
+      Tests  18 failed | 1269 passed (1287)
+   Start at  23:57:52
+   Duration  69.56s (transform 43.10s, setup 1.42s, import 168.23s, tests 248.48s, environment 81.70s)
+

@@ -1,0 +1,570 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 24 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > custom emoji
+AssertionError: expected [ { t: 'N', name: 'e', …(2) } ] to deeply equal [ { t: 'N', name: 'e', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "c:123:wave:0",
++     "attr": "u::wave:",
+      "kids": null,
+      "name": "e",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > animated custom emoji
+AssertionError: expected [ { t: 'N', name: 'e', …(2) } ] to deeply equal [ { t: 'N', name: 'e', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "c:456:wave:1",
++     "attr": "u::wave:",
+      "kids": null,
+      "name": "e",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+AssertionError: expected [ 'gen:210', 'gen:506', …(6) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:210",
++   "gen:506",
++   "gen:567",
++   "gen:684",
++   "gen:908",
++   "gen:1166",
++   "gen:1292",
++   "gen:1820",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+AssertionError: expected [ 'gen:322', 'gen:336', …(6) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:322",
++   "gen:336",
++   "gen:507",
++   "gen:833",
++   "gen:1347",
++   "gen:1579",
++   "gen:1719",
++   "gen:1762",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+AssertionError: expected [ Array(8) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:13",
++   "gen:160",
++   "gen:230",
++   "gen:660",
++   "gen:1211",
++   "gen:1279",
++   "gen:1883",
++   "gen:1994",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+AssertionError: expected [ Array(9) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:14",
++   "gen:481",
++   "gen:745",
++   "gen:959",
++   "gen:1411",
++   "gen:1641",
++   "gen:1706",
++   "gen:1824",
++   "gen:1954",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+AssertionError: expected [ 'gen:1074', 'gen:1139', …(6) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:1074",
++   "gen:1139",
++   "gen:1226",
++   "gen:1264",
++   "gen:1369",
++   "gen:1427",
++   "gen:1455",
++   "gen:1642",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+AssertionError: expected [ 'corpus:215', 'link:62', …(10) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:215",
++   "link:62",
++   "gen:120",
++   "gen:390",
++   "gen:604",
++   "gen:637",
++   "gen:690",
++   "gen:1025",
++   "gen:1172",
++   "gen:1338",
++   "gen:1415",
++   "gen:1886",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+AssertionError: expected [ 'corpus:216', 'gen:529', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:216",
++   "gen:529",
++   "gen:560",
++   "gen:962",
++   "gen:1076",
++   "gen:1253",
++   "gen:1386",
++   "gen:1644",
++   "gen:1920",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+AssertionError: expected [ 'corpus:229', 'gen:236', …(10) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:229",
++   "gen:236",
++   "gen:439",
++   "gen:530",
++   "gen:578",
++   "gen:666",
++   "gen:679",
++   "gen:737",
++   "gen:872",
++   "gen:1474",
++   "gen:1787",
++   "gen:1873",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+AssertionError: expected [ 'gen:316', 'gen:652', …(7) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:316",
++   "gen:652",
++   "gen:667",
++   "gen:983",
++   "gen:1030",
++   "gen:1063",
++   "gen:1373",
++   "gen:1514",
++   "gen:1858",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+AssertionError: expected [ 'gen:609', 'gen:874', …(8) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:609",
++   "gen:874",
++   "gen:1145",
++   "gen:1206",
++   "gen:1404",
++   "gen:1560",
++   "gen:1591",
++   "gen:1603",
++   "gen:1876",
++   "gen:1924",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+AssertionError: expected [ 'gen:206', 'gen:413', …(11) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:206",
++   "gen:413",
++   "gen:428",
++   "gen:726",
++   "gen:1016",
++   "gen:1146",
++   "gen:1478",
++   "gen:1492",
++   "gen:1531",
++   "gen:1592",
++   "gen:1635",
++   "gen:1908",
++   "gen:1978",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+AssertionError: expected [ 'gen:141', 'gen:491', …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:141",
++   "gen:491",
++   "gen:727",
++   "gen:939",
++   "gen:1208",
++   "gen:1463",
++   "gen:1532",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text
+AssertionError: expected 'https://cdn.discordapp.com/emojis/und…' to be 'https://cdn.jsdelivr.net/gh/twitter/t…' // Object.is equality
+
+Expected: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f642.svg"
+Received: "https://cdn.discordapp.com/emojis/undefined.png"
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:26:28
+     24|     const [img] = imagesOf(draw('a 🙂'));
+     25|     expect(img.alt).toBe('🙂');
+     26|     expect(addressOf(img)).toBe('https://cdn.jsdelivr.net/gh/twitter/t…
+       |                            ^
+     27|     expect(img.width).toBe(22);
+     28|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > for a custom emoji, as an image of its CDN file with the name as alt text and title
+AssertionError: expected 'https://cdn.jsdelivr.net/gh/twitter/t…' to be 'https://cdn.discordapp.com/emojis/123…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/123.png"
+Received: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/.svg"
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:46:28
+     44|     expect(img.alt).toBe(':wave:');
+     45|     expect(img.title).toBe('wave');
+     46|     expect(addressOf(img)).toBe('https://cdn.discordapp.com/emojis/123…
+       |                            ^
+     47|   });
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/24]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > for an animated custom emoji, as its gif
+AssertionError: expected 'https://cdn.jsdelivr.net/gh/twitter/t…' to be 'https://cdn.discordapp.com/emojis/456…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/456.gif"
+Received: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/.svg"
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:51:28
+     49|   it('for an animated custom emoji, as its gif', () => {
+     50|     const [img] = imagesOf(draw('a <a:wave:456>'));
+     51|     expect(addressOf(img)).toBe('https://cdn.discordapp.com/emojis/456…
+       |                            ^
+     52|   });
+     53|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for a unicode emoji
+AssertionError: expected 'https://cdn.discordapp.com/emojis/und…' to be 'https://cdn.jsdelivr.net/gh/twitter/t…' // Object.is equality
+
+Expected: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f642.svg"
+Received: "https://cdn.discordapp.com/emojis/undefined.png"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for a skin-toned unicode emoji
+AssertionError: expected 'https://cdn.discordapp.com/emojis/und…' to be 'https://cdn.jsdelivr.net/gh/twitter/t…' // Object.is equality
+
+Expected: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d-1f3fd.svg"
+Received: "https://cdn.discordapp.com/emojis/undefined.png"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for a still custom emoji
+AssertionError: expected 'https://cdn.jsdelivr.net/gh/twitter/t…' to be 'https://cdn.discordapp.com/emojis/123…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/123.png"
+Received: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/.svg"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for an animated custom emoji
+AssertionError: expected 'https://cdn.jsdelivr.net/gh/twitter/t…' to be 'https://cdn.discordapp.com/emojis/456…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/456.gif"
+Received: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/.svg"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for a custom emoji whose id is past 2^53
+AssertionError: expected 'https://cdn.jsdelivr.net/gh/twitter/t…' to be 'https://cdn.discordapp.com/emojis/157…' // Object.is equality
+
+Expected: "https://cdn.discordapp.com/emojis/1574460051593240606.png"
+Received: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/.svg"
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts > the image address of an emoji > is the expected address for a symbol Twemoji has no image for
+AssertionError: expected 'https://cdn.discordapp.com/emojis/und…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ https://cdn.discordapp.com/emojis/undefined.png
+
+ ❯ src/utils/markdown/__tests__/emojiDisplay.src-and-jumbo.test.ts:27:62
+     25|     ['a symbol Twemoji has no image for', { type: 'unicode', value: '©…
+     26|   ])('is the expected address for %s', (_name, kind, expected) => {
+     27|     expect(emojiSrc(kind as Parameters<typeof emojiSrc>[0])).toBe(expe…
+       |                                                              ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/24]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws an emoji the image table has no file for > as its source text, with no image, for a fixture tree that invents engine output
+AssertionError: expected '<span class="discord-visualizer__emoj…' to be '©' // Object.is equality
+
+Expected: "©"
+Received: "<span class="discord-visualizer__emoji-container"><img draggable="false" alt="©" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="discord-visualizer__emoji discord-visualizer__emoji-jumboable" style="color:transparent" srcSet="/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Femojis%2Fundefined.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Femojis%2Fundefined.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Femojis%2Fundefined.png&amp;w=64&amp;q=75"/></span>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:115:46
+    113| describe('the preview draws an emoji the image table has no file for',…
+    114|   it('as its source text, with no image, for a fixture tree that inven…
+    115|     expect(markupOf(emojiFixture('©'), '©')).toBe('©');
+       |                                              ^
+    116|   });
+    117| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/24]⎯
+

@@ -1,0 +1,16 @@
+M4-a1	exit=1	36 ⎯⎯⎯⎯⎯⎯⎯	mention kind always user (SL-12 atom kind)
+M4-a2	exit=1	6 ⎯⎯⎯⎯⎯⎯⎯	mention id dropped
+M4-a3	exit=1	3 ⎯⎯⎯⎯⎯⎯⎯	timestamp seconds dropped on the plain span
+M4-a4	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	timestamp style dropped on the plain span
+M4-a5	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	timestamp seconds dropped on the popover trigger
+M4-a6	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	timestamp style dropped on the popover trigger
+M4-a7	exit=1	11 ⎯⎯⎯⎯⎯⎯⎯	contact link label reverted
+NM-1	exit=0	22 passed (22)	Link href: the label text as href
+NM-24	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	scheme allow-list removed
+M4-r1	exit=0	11 passed (11)	stale: input no longer in the classes, not read
+M4-r2	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	stale: entry now equal to legacy, not read
+M4-r3	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	signature not compared
+M4-r4	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	unlisted not reported
+M4-r5	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	unknown family not reported
+M4-r6	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	family count not compared
+M4-r7	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	signature run ignores the dimensions

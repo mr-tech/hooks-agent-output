@@ -1,0 +1,978 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 59 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a user mention
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a user mention with the nickname mark
+AssertionError: expected [ { t: 'N', name: 'm', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "user:123",
++     "attr": "user:",
+      "kids": null,
+      "name": "m",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a role mention
+AssertionError: expected [ { t: 'N', name: 'm', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "role:123",
++     "attr": "role:",
+      "kids": null,
+      "name": "m",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a channel mention with no list
+AssertionError: expected [ { t: 'N', name: 'm', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "channel:123",
++     "attr": "channel:",
+      "kids": null,
+      "name": "m",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > everyone
+AssertionError: expected [ { t: 'N', name: 'm', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "everyone:",
++     "attr": "everyone:undefined",
+      "kids": null,
+      "name": "m",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > here
+AssertionError: expected [ { t: 'N', name: 'm', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "here:",
++     "attr": "here:undefined",
+      "kids": null,
+      "name": "m",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads a channel mention by its id when the preview shows the channel's name
+AssertionError: expected [ { t: 'N', name: 'm', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "channel:123",
++     "attr": "channel:",
+      "kids": null,
+      "name": "m",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:100:30
+     98|     } as never)}</>);
+     99|     expect(el.textContent).toBe('#general');
+    100|     expect(canonFromDom(el)).toEqual([N('m', 'channel:123', null)]);
+       |                              ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > tells a mention of one id from a mention of another, and one kind from another
+AssertionError: expected [ { at: +0, dimensions: [ 'text' ] } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 0,
++     "dimensions": [
++       "text",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:119:85
+    117|     expect(visibleDifferences(drawn('<@1>'), 'dom', nativeParse('<@2>'…
+    118|     expect(visibleDifferences(drawn('<@1>'), 'dom', nativeParse('<@&1>…
+    119|     expect(visibleDifferences(drawn('<@1>'), 'dom', nativeParse('<@1>'…
+       |                                                                                     ^
+    120|   });
+    121| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+AssertionError: expected [ 'corpus:208', 'gen:130', …(22) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:208",
++   "gen:130",
++   "gen:210",
++   "gen:259",
++   "gen:321",
++   "gen:446",
++   "gen:464",
++   "gen:584",
++   "gen:627",
++   "gen:714",
++   "gen:742",
++   "gen:756",
++   "gen:784",
++   "gen:832",
++   "gen:1247",
++   "gen:1361",
++   "gen:1480",
++   "gen:1718",
++   "gen:1732",
++   "gen:1748",
++   "gen:1761",
++   "gen:1847",
++   "gen:1896",
++   "gen:1992",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+AssertionError: expected [ 'gen:131', 'gen:229', …(15) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:131",
++   "gen:229",
++   "gen:336",
++   "gen:385",
++   "gen:416",
++   "gen:431",
++   "gen:465",
++   "gen:479",
++   "gen:523",
++   "gen:673",
++   "gen:1210",
++   "gen:1248",
++   "gen:1277",
++   "gen:1321",
++   "gen:1624",
++   "gen:1638",
++   "gen:1651",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+AssertionError: expected [ 'corpus:212', 'gen:117', …(33) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:212",
++   "gen:117",
++   "gen:132",
++   "gen:179",
++   "gen:310",
++   "gen:324",
++   "gen:337",
++   "gen:354",
++   "gen:524",
++   "gen:539",
++   "gen:601",
++   "gen:615",
++   "gen:631",
++   "gen:660",
++   "gen:703",
++   "gen:716",
++   "gen:772",
++   "gen:801",
++   "gen:820",
++   "gen:866",
++   "gen:895",
++   "gen:975",
++   "gen:1021",
++   "gen:1102",
++   "gen:1118",
++   "gen:1249",
++   "gen:1306",
++   "gen:1335",
++   "gen:1410",
++   "gen:1502",
++   "gen:1520",
++   "gen:1565",
++   "gen:1582",
++   "gen:1720",
++   "gen:1735",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+AssertionError: expected [ 'corpus:213', 'gen:118', …(19) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:213",
++   "gen:118",
++   "gen:161",
++   "gen:325",
++   "gen:338",
++   "gen:602",
++   "gen:717",
++   "gen:993",
++   "gen:1307",
++   "gen:1336",
++   "gen:1349",
++   "gen:1395",
++   "gen:1425",
++   "gen:1521",
++   "gen:1539",
++   "gen:1610",
++   "gen:1706",
++   "gen:1721",
++   "gen:1809",
++   "gen:1935",
++   "gen:1983",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+AssertionError: expected [ 'corpus:198', 'gen:15', …(15) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:198",
++   "gen:15",
++   "gen:119",
++   "gen:181",
++   "gen:232",
++   "gen:264",
++   "gen:541",
++   "gen:805",
++   "gen:822",
++   "gen:852",
++   "gen:1201",
++   "gen:1226",
++   "gen:1396",
++   "gen:1522",
++   "gen:1752",
++   "gen:1797",
++   "gen:1825",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+AssertionError: expected [ 'corpus:199', 'gen:16', …(15) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:199",
++   "gen:16",
++   "gen:163",
++   "gen:373",
++   "gen:576",
++   "gen:823",
++   "gen:948",
++   "gen:1214",
++   "gen:1239",
++   "gen:1282",
++   "gen:1310",
++   "gen:1325",
++   "gen:1384",
++   "gen:1682",
++   "gen:1696",
++   "gen:1709",
++   "gen:1903",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+AssertionError: expected [ 'corpus:200', 'gen:17', …(22) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:200",
++   "gen:17",
++   "gen:218",
++   "gen:250",
++   "gen:392",
++   "gen:453",
++   "gen:470",
++   "gen:577",
++   "gen:721",
++   "gen:749",
++   "gen:778",
++   "gen:792",
++   "gen:1156",
++   "gen:1298",
++   "gen:1326",
++   "gen:1352",
++   "gen:1416",
++   "gen:1614",
++   "gen:1710",
++   "gen:1740",
++   "gen:1754",
++   "gen:1786",
++   "gen:1829",
++   "gen:1920",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+AssertionError: expected [ 'corpus:201', 'gen:18', …(30) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:201",
++   "gen:18",
++   "gen:185",
++   "gen:236",
++   "gen:269",
++   "gen:359",
++   "gen:439",
++   "gen:499",
++   "gen:516",
++   "gen:593",
++   "gen:639",
++   "gen:651",
++   "gen:679",
++   "gen:723",
++   "gen:855",
++   "gen:933",
++   "gen:951",
++   "gen:1046",
++   "gen:1110",
++   "gen:1124",
++   "gen:1229",
++   "gen:1268",
++   "gen:1327",
++   "gen:1353",
++   "gen:1387",
++   "gen:1631",
++   "gen:1711",
++   "gen:1814",
++   "gen:1830",
++   "gen:1940",
++   "gen:1958",
++   "gen:1974",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+AssertionError: expected [ 'corpus:202', 'gen:203', …(20) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:202",
++   "gen:203",
++   "gen:459",
++   "gen:710",
++   "gen:724",
++   "gen:780",
++   "gen:794",
++   "gen:811",
++   "gen:841",
++   "gen:1063",
++   "gen:1175",
++   "gen:1230",
++   "gen:1328",
++   "gen:1342",
++   "gen:1354",
++   "gen:1514",
++   "gen:1529",
++   "gen:1632",
++   "gen:1646",
++   "gen:1658",
++   "gen:1788",
++   "gen:1858",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+AssertionError: expected [ 'corpus:203', 'gen:22', …(23) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:203",
++   "gen:22",
++   "gen:317",
++   "gen:363",
++   "gen:378",
++   "gen:411",
++   "gen:460",
++   "gen:474",
++   "gen:519",
++   "gen:681",
++   "gen:711",
++   "gen:739",
++   "gen:1031",
++   "gen:1079",
++   "gen:1145",
++   "gen:1256",
++   "gen:1287",
++   "gen:1389",
++   "gen:1460",
++   "gen:1619",
++   "gen:1674",
++   "gen:1714",
++   "gen:1816",
++   "gen:1859",
++   "gen:1989",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+AssertionError: expected [ 'gen:23', 'gen:206', …(22) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:23",
++   "gen:206",
++   "gen:272",
++   "gen:502",
++   "gen:520",
++   "gen:533",
++   "gen:642",
++   "gen:712",
++   "gen:890",
++   "gen:1178",
++   "gen:1207",
++   "gen:1257",
++   "gen:1302",
++   "gen:1357",
++   "gen:1405",
++   "gen:1478",
++   "gen:1576",
++   "gen:1716",
++   "gen:1730",
++   "gen:1790",
++   "gen:1817",
++   "gen:1860",
++   "gen:1877",
++   "gen:1927",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/59]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+AssertionError: expected [ 'gen:289', 'gen:382', …(16) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "gen:289",
++   "gen:382",
++   "gen:398",
++   "gen:414",
++   "gen:626",
++   "gen:754",
++   "gen:921",
++   "gen:955",
++   "gen:1017",
++   "gen:1099",
++   "gen:1233",
++   "gen:1258",
++   "gen:1319",
++   "gen:1547",
++   "gen:1649",
++   "gen:1661",
++   "gen:1717",
++   "gen:1880",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:41:41
+     39|     const slice = held.filter((_, at) => at % SLICES === k);
+     40|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     41|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > draws nothing while the engine is pending
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:30:3
+     28|
+     29| describe('the preview parser before the engine is ready', () => {
+     30|   it('draws nothing while the engine is pending', async () => {
+       |   ^
+     31|     const { preview } = await fresh();
+     32|     expect(preview.previewParser('content')('**a**')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is withoutId
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is topLevel
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#general</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#a-thread</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#a-thread</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="444">#help-forum</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#help-forum</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:79:77
+     77|
+     78|   it('is given a listed forum channel its name', () => {
+     79|     expect(render('content', '<#444>', [channel('444', 'help-forum', 1…
+       |                                                                             ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given an active post under a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#my-question</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#my-question</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:84:47
+     82|   it('is given an active post under a listed forum channel its name', …
+     83|     const list = [channel('444', 'help-forum', 15, [{ id: '555', name:…
+     84|     expect(render('content', '<#555>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > keeps the id form for a category, which the list leaves out
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="666">#666</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#666</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:88:71
+     86|
+     87|   it('keeps the id form for a category, which the list leaves out', ()…
+     88|     expect(render('content', '<#666>', [channel('222', 'rules', 0)])).…
+       |                                                                       ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#general</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:93:47
+     91|   it('names the second of two listed channels when the mention names t…
+     92|     const list = [channel('222', 'rules', 0), channel('111', 'general'…
+     93|     expect(render('content', '<#111>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     94|     expect(render('content', '<#222>', list)).toBe(`${INTERACTIVE('cha…
+     95|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the content surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedDescription surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitle surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitleWithUrl surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the fieldValue surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the v2Text surface when the list holds it
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="">#general</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:100:55
+     98|     ['content'], ['embedDescription'], ['embedTitle'], ['embedTitleWit…
+     99|   ] as Array<[Surface]>)('is named on the %s surface when the list hol…
+    100|     expect(render(surface, '<#111>', LISTS.topLevel)).toBe(`${INTERACT…
+       |                                                       ^
+    101|   });
+    102| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="user" data-mention-id="9">@9</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="user" data-mention-id="">@9</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:53
+    108|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    109|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    110|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention" data-mention-kind="role" data-mention-id="7">@&amp;7</span>"
+Received: "<span class="discord-visualizer__mention" data-mention-kind="role" data-mention-id="">@&amp;7</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:53
+    108|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    109|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    110|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention" data-mention-kind="everyone" data-mention-id="">@everyone</span>"
+Received: "<span class="discord-visualizer__mention" data-mention-kind="everyone" data-mention-id="undefined">@everyone</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:53
+    108|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    109|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    110|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention" data-mention-kind="here" data-mention-id="">@here</span>"
+Received: "<span class="discord-visualizer__mention" data-mention-kind="here" data-mention-id="undefined">@here</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:53
+    108|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    109|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    110|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps the typed form of a user mention that carries a bang
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="user" data-mention-id="9">@!9</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="user" data-mention-id="">@!9</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:114:56
+    112|
+    113|   it('keeps the typed form of a user mention that carries a bang', () …
+    114|     expect(render('content', '<@!9>', LISTS.topLevel)).toBe(`${INTERAC…
+       |                                                        ^
+    115|   });
+    116|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a role mention in its form when the role id is a listed channel id
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention" data-mention-kind="role" data-mention-id="111">@&amp;111</span>"
+Received: "<span class="discord-visualizer__mention" data-mention-kind="role" data-mention-id="">@&amp;111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:118:58
+    116|
+    117|   it('keeps a role mention in its form when the role id is a listed ch…
+    118|     expect(render('content', '<@&111>', LISTS.topLevel)).toBe(`${PILL(…
+       |                                                          ^
+    119|   });
+    120|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/59]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a user mention in its form when the user id is a listed channel id
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="user" data-mention-id="111">@111</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="user" data-mention-id="">@111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:122:57
+    120|
+    121|   it('keeps a user mention in its form when the user id is a listed ch…
+    122|     expect(render('content', '<@111>', LISTS.topLevel)).toBe(`${INTERA…
+       |                                                         ^
+    123|   });
+    124| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/59]⎯
+

@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-14
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 3 failed) 950ms
+     × a timestamp, by its seconds and style 266ms
+     × a timestamp with no style 43ms
+     × tells a timestamp of one value from a timestamp of another 166ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 13881ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 2291ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 1184ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 1347ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 1333ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 1010ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 975ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 1057ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 881ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 967ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 841ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 798ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 964ms
+
+ Test Files  2 failed | 74 passed (76)
+      Tests  15 failed | 1272 passed (1287)
+   Start at  23:15:09
+   Duration  47.23s (transform 25.96s, setup 1.40s, import 122.26s, tests 192.28s, environment 63.09s)
+

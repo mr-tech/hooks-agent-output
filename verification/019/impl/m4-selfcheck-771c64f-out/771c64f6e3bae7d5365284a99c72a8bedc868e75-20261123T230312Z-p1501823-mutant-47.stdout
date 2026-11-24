@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-47
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 6211ms
+     × draws nothing while the engine is pending 5010ms
+
+ Test Files  1 failed | 75 passed (76)
+      Tests  1 failed | 1286 passed (1287)
+   Start at  23:45:52
+   Duration  82.25s (transform 50.61s, setup 1.92s, import 203.26s, tests 288.74s, environment 94.71s)
+

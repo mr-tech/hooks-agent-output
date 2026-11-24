@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > at the embed size, 18 pixels, in an embed, even when the message holds only emoji
+AssertionError: expected 32 to be 18 // Object.is equality
+
+- Expected
++ Received
+
+- 18
++ 32
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:67:23
+     65|   it('at the embed size, 18 pixels, in an embed, even when the message…
+     66|     const [img] = imagesOf(draw('🙂', true));
+     67|     expect(img.width).toBe(18);
+       |                       ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

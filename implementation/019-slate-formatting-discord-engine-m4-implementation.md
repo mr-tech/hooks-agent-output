@@ -4,11 +4,12 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  M4 is in progress on chain/019-slate-formatting-discord-engine. Slice 1 (the preview renderer over the engine tree, the static parsers
-  switched, subtext and shared spoiler reveal) and slice 2a (mentions, AC-4.4 under D-17, at website `f131f06`) are committed and not yet
-  handed to review. Slice 2b (the emoji display helper and the emoji renderer, `c32e058`), slice 2c (timestamps, AC-4.3 and AC-4.7, `36924ae`) and slice 2d (the field name with an embed url, `6379abc`) are committed. Not built yet: timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
-  of AC-3.1 and AC-3.6, the reader sweep for AC-4.5.
-Handoff-At: not yet handed over
+  M4 is built and handed to code review at website e58f2ed on chain/019-slate-formatting-discord-engine: slices 1, 2a to 2d and 3 (the
+  DOM reader, atoms from element data, the adjustment measurement (size 0), the frozen residue list of 6,142 entries, AC-3.1, AC-3.6,
+  AC-3.7, AC-4.5). Open for code review and QA: the plan questions of Outstanding 0a, the stub-tree records not made (TDD Compliance),
+  and three equivalent self-check survivors (Test Execution Results). The M3 fix round for QAF-32 and QAF-33 is committed at 380e82d
+  and recorded in the M3 document, Round 5.
+Handoff-At: e58f2ed — repos=website — M4 handed to code review; the offline suite, typecheck and convention check recorded below are the tree at this SHA
 ---
 
 # Implementation 019 — M4: the preview on the engine
@@ -28,6 +29,7 @@ for M3 is owed before M4 is handed on, see Outstanding 1).
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-23T23:05 | steering-hooks-fixer (message, resume M4), planner-019 (R-35, R-37, R-41/R-42, R-12), qa-019 (M3 Phase 2 QA Failed: QAF-32, QAF-33) | Resume M4 from the Resumption State; AC-3.7 per-input list; atoms read from element data (SL-12); M3 fix round | Slice 3 committed at `0b9f76f`, `5ccb54d`, `35c4b40`, `cf605d0`, `aa728f3`, `2149ce2`, `771c64f`; M3 fix at `380e82d`. |
 | 2026-11-23T21:33 | steering-hooks-fixer (message, session `2581957`) | Start plan 019 M4; send the flows that hold a decision before code | Flow ask sent 21:18Z. Slice 1 coded and committed. |
 | 2026-11-23T22:20 | (own order) | Slice 2c timestamps, slice 2d field name | Committed at `36924ae` and `6379abc`. |
 | 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry) | M3 CR-10 | Fixed at `2c1590f` (M3 document, Round 4); M3 re-handed. Slice 2b (emoji) committed at `c32e058`. |
@@ -170,6 +172,101 @@ The two rows marked "No" under "Test Written First?" are owed an assertion-level
 
 The renderer-level scheme control uses a fixture tree that invents engine output (the engine returns no `javascript:` or `data:` link); named so, per QAF-17.
 
+## Slice 3: the DOM reader, atoms, the adjustment measurement, the frozen residue list, AC-3.1/3.6/3.7, AC-4.5
+
+Flows (user-visible work). Mention pills and timestamps carry `data-mention-kind`, `data-mention-id`, `data-timestamp` and
+`data-timestamp-format`; no visible change (surface: the preview, trigger: as today; rung: the existing pills and
+`MarkdownTimestamp`, extended by attributes). A contact link `<a@b.co>` now draws its label `a@b.co` where slice 1 drew
+`mailto:a@b.co` (found by AC-3.6's test below; spec-form red `m4-red-18.txt`). No flow holds a decision.
+
+**Reproduction of the recorded counts (steering's finding, refutation helper at `5ccb54d`).** The measurement drivers
+were untracked scratch files, and `helpers/previewDom.tsx` was untracked until `cf605d0`, so no commit up to `5ccb54d` reproduced
+`m4-dom-residue-*.json`. Disposition: `previewDom.tsx` is committed (`cf605d0`, with its lint fixes at `268b9fb`); the drivers'
+texts are records `m4-dom-residue-driver.test.tsx.txt` and `m4-dom-residue-signatures-driver.test.tsx.txt` (placed under
+`src/utils/markdown/__tests__/discord/` for a run and removed after); the list those drivers produced is committed data
+(`aa728f3`), and the committed live test `discordPreview.legacy-equality.test.tsx` re-derives it and fails on any difference, so the
+counts reproduce from commit `268b9fb` by `pnpm test:discord`. The one figure no commit reproduces is the adjustment's reach
+(`m4-adjustment-reach-driver.test.tsx.txt`: it needed the module I deleted). The earlier file `m4-dom-residue-before.json` and
+`m4-dom-residue-after.json` were taken at an intermediate tree (atom-free inputs only, before the data attributes) and are kept
+as records of that round, not as the counts cited here; the cited counts are `m4-dom-residue-all.json` and
+`m4-dom-residue-signatures.json` at the list's commit.
+
+**Reader.** `helpers/canonFromDom.ts` reads a mounted preview's DOM into the canonical nodes the visible form already compares
+(`canonFromDom`, `drawnLanguages`, `collapseRepeatedStyles`); `visibleForm.ts` takes a `'dom'` side. An atom's kind and id come from
+the element's data attributes, never its text (SL-12; the channel's name may be shown, D-17). An emoji's id, name and animated flag
+come from the image address. A code block's language is the highlighter's class where it knows it, none where it does not, and both
+sides take that (the page cannot show an unknown language). A style inside the same style is one style on both sides (`_*x*_`).
+
+**The adjustment module (D-14): size 0.** One candidate was built test-first (a bare link of a one-character host unlinked,
+`adjustments.single-character-host.test.ts`, red `m4-red-14.txt`, green `m4-green-14.txt`) and then removed. Over all 2,378 inputs on the
+five surfaces it reached 0 members (`m4-adjustment-reach-after.json`), so AC-3.8 (ii) ("an adjustment that reaches no member fails") and
+condition (c) fail. The minimal inputs that looked like it (`http://x)`, `http://x\\`) are legacy's url-end rule over the source text
+(probed: `m4-` probe lists in the session scratchpad, 33 host forms), which fails (a). The module and its hook in the adapter were my own
+uncommitted work and are deleted; no commit holds them. `parseUnadjusted` was removed with them. Class decisions are in the families
+below. Before and after adjustment are the same figures (RK-9, sent to steering).
+
+**The frozen residue list (AC-3.7, plan revision 12; planner R-41/R-42, per-input entries).** `helpers/data/discordResidueList.json`:
+6,142 entries over the 2,378 inputs (272 corpus, 106 link, 2,000 generator at seed 20261123) and the five surface-and-mask pairs
+(description, field value, title without url, title with url, V2 text), each with its surface, input id and text, its exact signature
+(runs of consecutive differing unit positions with their dimensions), and its family. The families, reasons and per-surface counts are
+committed beside the entries (SL-13) and copied here; the committed data decides where they differ.
+
+| Family | Name (a grouping label of the minimal input, not a predicate) | Reason | embedDescription | v2Text | fieldValue | embedTitle | embedTitleWithUrl |
+|---|---|---|---|---|---|---|---|
+| F01 | bare url the engine links and legacy does not, or links over a different extent | (c) one adjustment was tried, a bare link of a one-character host, and reached none of the 2,378 inputs; the rest is a text rule over where a url starts and ends, which fails (a) | 331 | 331 | 338 | 797 | 0 |
+| F02 | emoji inside a masked link | (a) legacy reads a masked link holding an emoji by a text rule over the source (G-14); no predicate over the link node and its spans separates the class | 232 | 232 | 236 | 0 | 0 |
+| F03 | empty masked link, or a destination holding markup | (a) legacy and the engine disagree on an empty masked link or a destination holding markup; the difference is in how the source is cut, not in the tree | 39 | 39 | 41 | 1 | 0 |
+| F04 | quote marker with an empty or one-character body | (b) no predicate over the tree defines the class: a quote marker with an empty or one-character body is read differently by the two parsers | 60 | 60 | 61 | 60 | 84 |
+| F05 | guild-navigation chip | (a) Exclusions X-14: the site draws the five static mentions (the guild-navigation chips) as their source text, where legacy draws a chip node; a rewrite of the tree cannot produce the chip | 171 | 171 | 171 | 188 | 240 |
+| F06 | emoji, joiner, keycap or flag sequence | (a) legacy and the engine cut an emoji, joiner, keycap or flag sequence at different points; the cut is a text rule | 43 | 43 | 42 | 46 | 23 |
+| F07 | list item with an unusual content character | (b) no predicate over the tree defines the class: a list item after a newline with an unusual content character is read differently | 58 | 58 | 70 | 0 | 0 |
+| F08 | code span of backtick runs | (b) no predicate over the tree defines the class: a code span of backtick runs is paired differently by the two parsers | 23 | 23 | 26 | 81 | 121 |
+| F09 | empty or odd heading | (b) no predicate over the tree defines the class: an empty or odd heading is read differently | 38 | 38 | 11 | 9 | 9 |
+| F10 | spoiler runs | (b) no predicate over the tree defines the class: spoiler delimiter runs are paired differently | 15 | 15 | 14 | 14 | 25 |
+| F11 | strikethrough runs | (b) no predicate over the tree defines the class: strikethrough delimiter runs are paired differently | 10 | 10 | 12 | 15 | 30 |
+| F12 | unbalanced or empty emphasis run | (b) no predicate over the tree defines the class: unbalanced or empty emphasis runs are paired differently | 157 | 157 | 165 | 171 | 244 |
+| F13 | timestamp, mention or special-token chip | (a) Exclusions X-14 and AC-4.4: the site draws a command or game mention as its source text where legacy has a node; legacy also cuts @silent, an out-of-range timestamp and short-code forms by a text rule | 93 | 93 | 93 | 68 | 53 |
+| F14 | whitespace-only or control content | (b) whitespace-only or control content is trimmed differently | 5 | 5 | 4 | 2 | 2 |
+| F99 | backtick, pipe and bracket runs no family names | (a) four minimal inputs of backtick, pipe and bracket runs that no family rule names; the engine and legacy cut them differently by a text rule | 5 | 5 | 5 | 5 | 5 |
+| total | | | 1280 | 1280 | 1289 | 1457 | 836 |
+
+Entries by input class: description and V2 text 41 corpus, 14 link, 1,225 generator; field value 37, 14, 1,238; title 57, 38, 1,362;
+title with url 40, 2, 794. The generator holds about 95% because it emits unbalanced and empty delimiter runs on purpose. Family
+assignment is a regex grouping of each entry's minimal differing input (`m4-dom-residue-all.json`, the build script's rules): a label,
+not a class predicate; an entry's family is a claim the reason supports, not a test of its input.
+Checks: offline `residueList.check.test.ts` (families agree with entries; an unknown family; a count that does not match; each
+failure limb on the real list as a real member and a real non-member) and live `discord/discordPreview.legacy-equality.test.tsx`
+(unlisted, signature, stale; run green, `m4-live-legacy-equality.log.txt`, exit 0). Mutants M4-r1 to M4-r7 each red.
+
+**AC-3.1 (content, agree class), live.** For the inputs where legacy and the engine agree in the loose canonical form (more than
+1,000 asserted), the DOM equals legacy's tree in the loose form with the two normalisations above (drawn language, repeated style).
+Left out and named: inputs holding a command, game or static mention, which AC-4.4 draws as source text (legacy holds a node). I ask the
+planner whether AC-3.1 names that exclusion (Outstanding 0 (e)).
+
+**AC-3.6 (content, engine tree), offline.** `preview.dom-equals-engine-tree.test.tsx`: the content preview's DOM equals the engine's
+tree in the visible form for every one of the 2,378 inputs (not only the disagree class, which is a subset), but the inputs holding a
+command, game or static mention (402) or a timestamp past the safe integers (1: `Number(value)` rounds `99999999999999999`).
+
+**AC-4.5.** `utils.static-pre-transform-gone.test.ts` (the export is absent). The module-graph instrument of AC-2.1 reads package
+importers, not a function's callers; `git grep staticParserFor` over `src` has no hit (read by hand, a source-text read, so not a test).
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `canonFromDom`, `drawnLanguages`, `visibleFromDom` | `canonFromDom.element-map.test.tsx` | Yes | Yes | ModuleNotFoundError (first row of the module; `m4-red-13.txt`) | Yes (27 of 27 at first; two fixtures of mine re-derived: the highlighter keeps the typed alias) |
+| mention and timestamp atoms read from `data-` attributes (`preview.tsx` `atom`, `MarkdownTimestamp`) | same | Yes | Yes | AssertionError, 11 failed (`m4-red-16.txt`) | Yes; mutants M4-a1 to M4-a6 each red (kind, id, seconds and style, on the plain span and on the popover trigger) |
+| `collapseRepeatedStyles`, `timestampsByPresence` (removed) | same | No: written with the helper | Yes by stand-in only (the cases' first run was green) | not owed a stub-tree record; named here | Yes |
+| contact link label (`preview.tsx` `linkLabel`) | `preview.dom-equals-engine-tree.test.tsx` | Yes | Yes | AssertionError, 39 inputs differ (`m4-red-18.txt`) | Yes (`m4-green-18.txt`); mutant M4-a7 red |
+| `residueList.ts` `checkResidue`, `checkFamilies`, `signatureOf` | `residueList.check.test.ts` | Yes for the two checks (ModuleNotFoundError, `m4-red-17.txt`); `signatureOf` No: its two cases were added after the function | Yes by mutants M4-r1 to M4-r7 (each red; M4-r1 survived until the fixture kept the entry measured) | AssertionError by mutation | Yes (11 of 11) |
+| the residue list against the live legacy rendering | `discord/discordPreview.legacy-equality.test.tsx` | Yes (the list was cut from the measurement it checks) | Yes: the first run before the contact-label fix and the loose form failed on 176 content inputs; the list check held | AssertionError | Yes (4 of 4, exit 0) |
+| the whole live command offline (M3 fix, QAF-32) | `discordOffline.whole-command.test.ts` | Yes | Yes | AssertionError: `Tests 3 failed | 3 passed` (`m4-m3fix-red-1.txt`) | Yes (3 of 3) |
+| the drift message at the head of the report (M3 fix, QAF-33) | `discord/discordReports.run.test.ts` | Yes | Yes, with the head write removed in the working tree (restored) | AssertionError, 2 failed (`m4-m3fix-red-2.txt`) | Yes (live 6 of 6) |
+| no export `staticParserFor` | `utils.static-pre-transform-gone.test.ts` | No: the function was deleted in slice 1 | not owed (a pure deletion with no behaviour) | n/a | Yes |
+
+I committed `0bc8e02` with one failing case in `canonFromDom.element-map.test.tsx` (a pipeline hid the exit code); `2149ce2` fixes it. The
+case's fixture had not allowed for the popover's own empty container beside the trigger. Intra-chain.
+
+Disclosed in the round: no control blocked an action of mine this round.
+
 ## Class Sweep
 
 No reviewer finding on M4 yet.
@@ -186,21 +283,55 @@ Slice 2a: `unshare -rn` vitest over `src/utils/markdown src/components src/app/p
 | `pnpm run typecheck` | exit 0 | console |
 | `node ~/.claude/tools/convention-check.js website --since=f4060c5` | 0 FAIL, 0 CANDIDATE (the id-token basename check is SKIPPED by the tool: unchecked by tool); by hand, no ID token in a new basename, title or comment | console |
 
+Slice 3 and the tip (`e58f2ed`): `unshare -rn` (lo up) `TZ=UTC npx vitest run --project node --project dom`: 212 files, 3,454 of 3,454, exit 0
+(`m4-suite-tip-e58f2ed.{log.txt,exit}`). `pnpm run typecheck` exit 0 (`m4-typecheck-e58f2ed.txt`). Live: `pnpm test:discord`'s
+equality and reports files, 4 of 4 and 6 of 6, exit 0 (`m4-live-legacy-equality.*`), run at `aa728f3`'s tree plus the lint-only commit after it.
+`convention-check.js website --since=1698c80` at the tip: 1 FAIL, 3 CANDIDATE, 19 SKIP. The FAIL is `GuildProvider.tsx:162`
+`react-hooks/use-memo`, a line from commit `003b81f` (an ancestor of the chain base `1698c80`, `git blame`), flagged because the chain
+touched the file's `Context` export; I did not edit shared code the plan does not name, and report it as a follow-up (a lint error at
+base, severity LOW, shown by `npx eslint src/providers/GuildProvider.tsx`). The three CANDIDATEs are poll budgets of `waitFor`
+(`page.channel-names`, `page.field-name-links`, `preview.timestamp-edit`), the form `page.invalid-data.test.tsx` already uses, not time-based
+assertions. The id-token basename check is SKIPPED by the tool: unchecked by tool; by hand, no ID token in a new basename, title or comment.
+
+**Self-check sweep** (`mutant-gen.js --range 1698c80..771c64f`, 71 mutants over the product source of the chain's range, run by
+`mutation-run.py` in an isolated `git archive` export under `unshare -rn`, suite `src/utils/markdown src/components`):
+61 of 71 killed (`m4-selfcheck-771c64f.log.txt`, `m4-selfcheck-mutants-771c64f.json`). Ten survivors, each dispositioned and the ones
+that were not equivalent re-run at `e58f2ed` after the tests were tightened (`m4-selfcheck-survivors-e58f2ed.*`; 6 of 9 killed, the 3 left are equivalent):
+
+| Survivor | Disposition |
+|---|---|
+| `Embed.tsx:98` `!!url` to `!url` | Covered by `src/app/preview/__tests__/page.field-name-links.test.tsx`, outside the sweep's command; killed when that file is in the suite. |
+| `MarkdownEmoji.tsx:23` `draggable={false}` to `true` | Not asserted. `preview.emoji-draw.test.tsx` now asserts `img.draggable` is false; killed. |
+| `MarkdownTimestamp.tsx:45` `if (!mounted) date = date.utc()`, two operators | Equivalent: `date` is read only as `date.toDate()`, and `.utc()` does not move the instant (M4-t11, slices 2c and 2d). |
+| `MarkdownTimestamp.tsx:65` `\|\| !onEdit` to `&& !onEdit` | Equivalent: `onChange` is the popover's `afterLeave`, wired only in the branch that holds `onEdit`, so it is never called without it. The guard stays for the type narrowing. |
+| `preview.tsx:42` three truncations of the thread search's receivers | The case with threads under two listed channels now fails each (`preview.mention-table.test.ts`); killed. |
+| `preview.tsx:107` `&&` to `\|\|`, `>` to `>=` | The engine returns no `masked` or `contact` link without label nodes at 0.16.0 (`[](u)` is text; probed), so no input reaches the guard. A fixture tree that invents engine output now drives it (`preview.engine-tree-render.test.ts`, named so, QAF-17); both killed. |
+
+**Named mutants** (QA document, "Named mutants"), each made as one change in an isolated export and the suite run on it:
+NM-1 (the label text as `href`): red, `m4-mutants-final-rerun-out`; NM-8, NM-9, NM-10 (timestamp target by search, n-th match,
+`localDate` not resynced): M4-t1 to M4-t4 and M4-t9, each red, `m4-mutants-timestamp-out/` (slice 2c); NM-24 (allow-list removed): red,
+`m4-mutants-final-2149ce2-out`; NM-26 (the pre-transform export back): red, `m4-mutants-nm26-out`; NM-27 and NM-48 to NM-57 (mentions):
+M4-n1 to M4-n14 each red, `m4-mutants-mentions-out/`. NM-38 to NM-47 and the plan's AC-4.7 rows (timestamp styles): NM-45 and NM-46
+are the M4-t5 and M4-t5b mutants, red. Not yet built or unplaced: NM-2 to NM-7, NM-11 to NM-23 and NM-28 belong to M2, M3, M5 and M6
+(guards a later milestone builds, or built and recorded in an earlier document). SL-12's atom dimensions each differ under a mutant:
+kind (M4-a1), id (M4-a2), seconds and style on both the plain span and the popover trigger (M4-a3 to M4-a6); none reported unable to differ.
+
 ## Outstanding Items
 
+0a. **For the planner (plan questions, nothing blocked).** (c) AC-3.7: per-input entries as planner ruled; the family set is a grouping, not predicates. (d) The adjustment module is size 0; if the plan keeps "its size is recorded at M4" as a gate, the figure is 0 of 0 reached. (e) AC-3.1 holds for the agree class except inputs holding a command, game or static mention: AC-4.4 draws them as source text (X-14) and legacy holds a node; the plan's AC-3.1 names no exclusion. (f) AC-3.1 and AC-3.6 are compared in the visible form with `drawnLanguages` and `collapseRepeatedStyles`, not in the plan's loose canonical form alone, since the loose form counts `i(i(x))` and an undrawn code language as differences; AC-3.1's live run uses the loose form with those two normalisations. (g) A timestamp past the safe integers (`<t:99999999999999999>`) renders from `Number(value)` rounded: one input, left out of AC-3.6, X-item owed. (h) AC-4.5's "module-graph instrument" reads package importers; a function-caller read has no instrument in the record (Outstanding 3).
 -1. **CR-11 (LOW, M3, code review's note at `2c1590f`):** the XHR Proxy records when the returned function is called, so `x.upload.addEventListener` and a bare `x.readyState` read record nothing; the network stays closed. Not done this round; I take it with the next M3 touch or state the gap in the M3 Class Sweep if no round comes (code review checks it at M4's round).
 0. **Emoji, decisions to read (slice 2b).** (a) Today's `jumboify` has had no caller since `fae733f` (2023), so the site's preview never drew a large emoji; the helper now does, by the rule the corpus shows: a message of only emoji and whitespace is large (`dom-all-bot.json`: `:smile:`, a skin-toned emoji, two emoji with a space, two custom side by side are large; `**:smile:**` and `a:smile:b` are not). That is a visible change from today, stated in the plan (CF-10) and not asked. The limit (27, from `jumboify`) and the multi-line, quote and embed cases have no Discord observation: X-25. In an embed the size stays 18, as `discordEmoji` had it. (b) The plan contradicts itself on the custom emoji's `alt`: AC-4.4 says `:name:`, M4's "output unchanged" would keep `<:name:id>`. I took AC-4.4's, which is also what Discord's DOM shows (`an7-g13-dom.json`); for steering to confirm with the planner.
 
 1. **M3 fix round is owed first** (code review REJECTED M3: CR-5, CR-6 MEDIUM; CR-4's remainder, CR-7 to CR-9 LOW). M4 slice 1 is committed on the same branch at a different set of paths; the M3 fix lands as its own commits.
 2. **Mentions** are built (slice 2a). Recorded limits, per AC-4.4's Residue and SL-11: the name is the list's at fetch time (5 min client, 10 s server); category, archived-thread and unlisted ids render `#<id>`. The human-observable form (UAT B-7) needs a signed-in local production build, not run here. The bigint note: the engine gives the channel id as a `bigint`, so the lookup compares `String(id)`, exact beyond 2^53.
-3. **Not built yet in M4:** the emoji display helper (CF-10) and the emoji renderer (the engine's `emoji` node draws as source text for now); timestamps (AC-4.3, AC-4.7); field name with an embed url (the preview has no embed-url flag at the field; it uses the title mask, AN-8 table, row "Field name, embed has url"); the adjustment module, the frozen residue list and AC-3.8 (ii); the site-DOM limbs of AC-3.1, AC-3.6, AC-3.7 and AC-4.1; AC-4.2's UAT form; AC-4.5's module-graph instrument over the reader sites (slice 1 removes the only caller; the instrument and `staticBaseRules`' `react` functions are not yet removed).
+3. **(Slice 3 update, the earlier list below is stale)** Built: the DOM site limbs of AC-3.1, AC-3.6, AC-3.7, AC-4.1; the adjustment measurement and the frozen residue list; AC-4.5's removal. Not done: removal of the now-dead `react` functions of `staticBaseRules` (no preview caller; `rules.tsx`'s interactive parsers still spread the rules, so the removal belongs with M6's removal of the package, AC-6.6); AC-4.2's UAT form; the stub-tree red records named above. **Earlier list:**  the emoji display helper (CF-10) and the emoji renderer (the engine's `emoji` node draws as source text for now); timestamps (AC-4.3, AC-4.7); field name with an embed url (the preview has no embed-url flag at the field; it uses the title mask, AN-8 table, row "Field name, embed has url"); the adjustment module, the frozen residue list and AC-3.8 (ii); the site-DOM limbs of AC-3.1, AC-3.6, AC-3.7 and AC-4.1; AC-4.2's UAT form; AC-4.5's module-graph instrument over the reader sites (slice 1 removes the only caller; the instrument and `staticBaseRules`' `react` functions are not yet removed).
 4. The decision to render a paragraph's line ending as `\n` only between siblings (not after the last) is mine, taken from the text the engine gives and the `white-space` rules in `visualizer.scss`; the visible-form comparison against the legacy tree is the instrument that will confirm or correct it (slice 2).
 5. Self-diagnosis (method): I wrote the renderer, then the not-ready cases and the subtext case after it, so two rows lack a red-first. I should have written each case before the branch it covers.
 6. R-30 (planner, record `9caf57ff`): M6 does not exit while `MOUNTED_BASE_RED`, `EDITS_BASE_RED` or `holdsEmoji` is in `src`; check `git grep -c "BASE_RED\|holdsEmoji" <tip> -- src` prints nothing.
 
 ## Next Steps
 
-M3 fix round, then M4 slice 2 (timestamps, emoji helper, then the site-DOM comparison and the adjustment measurement), after Q1's answer for mentions.
+Code review of M4 at `e58f2ed`; the M3 fix round (Round 5 in the M3 document) goes to code review and then QA's refresh pass; QA Phase 2 on M4 after review.
 
 ## Resumption State
 

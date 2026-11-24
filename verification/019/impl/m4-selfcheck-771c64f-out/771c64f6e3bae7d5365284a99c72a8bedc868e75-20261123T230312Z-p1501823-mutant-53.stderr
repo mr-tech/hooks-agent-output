@@ -1,0 +1,98 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > as an image of the Twemoji file, with the character as its alt text
+AssertionError: expected 32 to be 22 // Object.is equality
+
+- Expected
++ Received
+
+- 22
++ 32
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:27:23
+     25|     expect(img.alt).toBe('🙂');
+     26|     expect(addressOf(img)).toBe('https://cdn.jsdelivr.net/gh/twitter/t…
+     27|     expect(img.width).toBe(22);
+       |                       ^
+     28|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     29|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large, at 32 pixels with the large class, when the message holds only emoji
+AssertionError: expected 22 to be 32 // Object.is equality
+
+- Expected
++ Received
+
+- 32
++ 22
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:56:23
+     54|   it('large, at 32 pixels with the large class, when the message holds…
+     55|     const [img] = imagesOf(draw('🙂'));
+     56|     expect(img.width).toBe(32);
+       |                       ^
+     57|     expect(img.classList.contains('discord-visualizer__emoji-jumboable…
+     58|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them
+AssertionError: expected [ 22, 22 ] to deeply equal [ 32, 32 ]
+
+- Expected
++ Received
+
+  [
+-   32,
+-   32,
++   22,
++   22,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:62:44
+     60|   it('large when only emoji and spaces make up the message, for every …
+     61|     const images = imagesOf(draw('🙂 <:wave:123>'));
+     62|     expect(images.map((img) => img.width)).toEqual([32, 32]);
+       |                                            ^
+     63|   });
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > small once any text sits beside it
+AssertionError: expected [ 32 ] to deeply equal [ 22 ]
+
+- Expected
++ Received
+
+  [
+-   22,
++   32,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:72:44
+     70|   it('small once any text sits beside it', () => {
+     71|     const images = imagesOf(draw('🙂 hi'));
+     72|     expect(images.map((img) => img.width)).toEqual([22]);
+       |                                            ^
+     73|   });
+     74| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > draws nothing while the engine is pending
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:30:3
+     28|
+     29| describe('the preview parser before the engine is ready', () => {
+     30|   it('draws nothing while the engine is pending', async () => {
+       |   ^
+     31|     const { preview } = await fresh();
+     32|     expect(preview.previewParser('content')('**a**')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

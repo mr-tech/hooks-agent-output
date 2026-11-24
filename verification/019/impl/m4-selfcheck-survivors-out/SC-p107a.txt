@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 2 failed) 61ms
+     × as its address, for a masked link in a fixture tree that invents engine output 5ms
+     × as its address, for a contact link in a fixture tree that invents engine output 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link whose tree holds no label > as its address, for a masked link in a fixture tree that invents engine output
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link whose tree holds no label > as its address, for a contact link in a fixture tree that invents engine output
+AssertionError: expected '<a href="https://a.b/"></a>' to be '<a href="https://a.b/">https://a.b/</…' // Object.is equality
+
+Expected: "<a href="https://a.b/">https://a.b/</a>"
+Received: "<a href="https://a.b/"></a>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:125:61
+    123|
+    124|   it.each(['masked', 'contact'])('as its address, for a %s link in a f…
+    125|     expect(markupOf(unlabelled(kind, 'https://a.b/'), 'x')).toBe('<a h…
+       |                                                             ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 22 passed (24)
+   Start at  00:15:13
+   Duration  1.37s (transform 449ms, setup 0ms, import 1.16s, tests 61ms, environment 0ms)
+

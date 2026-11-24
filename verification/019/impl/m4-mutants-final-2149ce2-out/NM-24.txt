@@ -1,0 +1,47 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (22 tests | 2 failed) 77ms
+     × draws a javascript link as its label with no href 6ms
+     × draws a data link as its label with no href 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > draws a javascript link as its label with no href
+AssertionError: expected '<a href="javascript:throw new Error(&…' to be 'x' // Object.is equality
+
+Expected: "x"
+Received: "<a href="javascript:throw new Error(&#x27;React has blocked a javascript: URL as a security precaution.&#x27;)">x</a>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:109:61
+    107|     ['data', 'text/html,x'],
+    108|   ])('draws a %s link as its label with no href', (scheme, rest) => {
+    109|     expect(markupOf(linkFixture(`${scheme}:${rest}`), 'x')).toBe('x');
+       |                                                             ^
+    110|   });
+    111| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link only when its scheme is allowed > draws a data link as its label with no href
+AssertionError: expected '<a href="data:text/html,x">x</a>' to be 'x' // Object.is equality
+
+Expected: "x"
+Received: "<a href="data:text/html,x">x</a>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:109:61
+    107|     ['data', 'text/html,x'],
+    108|   ])('draws a %s link as its label with no href', (scheme, rest) => {
+    109|     expect(markupOf(linkFixture(`${scheme}:${rest}`), 'x')).toBe('x');
+       |                                                             ^
+    110|   });
+    111| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 20 passed (22)
+   Start at  23:02:14
+   Duration  1.38s (transform 448ms, setup 0ms, import 1.16s, tests 77ms, environment 0ms)
+

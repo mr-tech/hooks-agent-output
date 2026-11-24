@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-11
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 6 failed) 234ms
+     × draws s as its text 53ms
+     × draws S as its text 13ms
+     × formats in the viewer's zone once mounted 9ms
+     × formats in UTC before mount, whatever the viewer's zone 7ms
+     × follows a locale dayjs has a file for 11ms
+     × reads in the language dayjs resolves to, not the tag, where dayjs has no file for the tag 8ms
+
+ Test Files  1 failed | 75 passed (76)
+      Tests  6 failed | 1281 passed (1287)
+   Start at  23:12:51
+   Duration  42.61s (transform 18.37s, setup 1.15s, import 98.21s, tests 160.68s, environment 55.90s)
+

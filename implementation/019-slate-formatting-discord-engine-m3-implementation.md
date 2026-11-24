@@ -7,7 +7,7 @@ Status-Detail: >-
   M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine and handed to code review at f4060c5.
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: 2c1590f — repos=website — M3 fix round 4 (CR-10) handed to code review; CR-5 and CR-6 stand resolved at 1698c80. At this SHA: the offline suite (204 files, 3348 of 3348, exit 0, `m3fix4-suite-2c1590f.{log.txt,exit}`, run under `unshare -rn`) and both typechecks (exit 0). The live controls file was not re-run
+Handoff-At: 380e82d — repos=website — M3 fix round 5 (QAF-32, QAF-33) handed to code review and QA's refresh pass; at this SHA's tree the whole offline suite ran 212 files, 3,454 of 3,454, exit 0 (the M4 document's `m4-suite-tip-e58f2ed`, a later tip that holds this round), and the live reports run 6 of 6
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -191,6 +191,25 @@ Red run `m3fix4-red-1.txt`: the new case in `discordBuild.locators.test.ts` fail
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---------|---------------------|----------------------------------|--------------------------|
 | CR-10 (an "attempted nothing" claim read from a record that can be empty while an attempt was made) | `git grep -n "attempts" -- src` | 22 lines in 4 files at `2c1590f`: the writer `helpers/discordBuild.ts` `refuse()` (called from fetch, XHR proxy, WebSocket, EventSource, sendBeacon); the carrier `loadBuild` → `Oracle.attempts`; readers: `discord/discordLive.oracle-controls.test.ts:48` (the live control), `discordBuild.locators.test.ts` (new case, reads it after a `loadBuild`), `discordBuild.network-refusal.test.ts` (own array, five reads) | The one production-path reader of a `loadBuild` window's record is the live control; the new offline case is the failing assertion for its wiring and for the XHR member gap. `EventSource` and `sendBeacon` record by address and have a case each in `network-refusal`. Residual: the live control still reads the record at Discord's evaluated code, which the offline case does not reproduce; whether that code attempts a request is unmeasured and stays so. Not in the class: the 7 paths jsdom never loads (the reviewer's blind spot). |
+
+### Round 5 (QA Phase 2 at `2c1590f`: QAF-32 and QAF-33, MEDIUM severity floors)
+
+Fixed at website `380e82d` on the chain branch (this round's commit); the records are `verification/019/impl/m4-m3fix-red-1.txt`,
+`m4-m3fix-green-1.txt`, `m4-m3fix-red-2.txt` and the live run `m4-live-legacy-equality.log.txt` (the reports run, 6 of 6).
+
+- **QAF-32 (AC-3.5).** `discordOffline.whole-command.test.ts` now sits in `pnpm test`, outside the discord directory, and spawns the
+  whole `npx vitest run --project discord-node --project discord-dom` in a loopback-only namespace: non-zero exit, the page named, no
+  `\d+ passed`. Seen red first with the old spawner still in the discord directory: `Tests 3 failed | 3 passed`, the case "reports no
+  pass count" failing. The old `discord/discordOffline.fetch-failure.test.ts` is deleted (the new case holds its three assertions).
+- **QAF-33 (C2 drift alarm).** `discord/discordReports.run.test.ts` writes the drift message to stderr in every run and at the head of
+  `known-differences.md`; two cases read the report's head for both hashes and for the whole message. Seen red with the head write
+  removed (2 failed, restored). The report holds one drift message for both the content comparison and the native-box section, which
+  share the one pinned wasm; there is no separate "not comparable under drift" report to write.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| QAF-32: a test that spawns a partial command and so cannot see the whole command's output | `grep -rlc "spawnSync\|execSync\|spawn(" src --include=*.test.ts --include=*.test.tsx` (derived; the finding carries none) | 1 hit before the fix (`discord/discordOffline.fetch-failure.test.ts`), 1 after (`discordOffline.whole-command.test.ts`) | the one hit is the whole-command case, residual 1 and it is the fix |
+| QAF-33: a diagnostic the live run computes and nothing writes out | `grep -rn "process.stderr.write\|writeFileSync" src/utils/markdown/__tests__` over the tests, plus `grep -n "message:" helpers/*.ts` for returned diagnostics (derived) | 6 writer hits, 2 returned-message hits (`DriftReport.message`, `OracleError`'s constructor) | `coverage unexamined` already written to stderr; `DriftReport.message` now written; `OracleError` messages fail the run itself (a throw); the `engine.import-confinement` writes build a throwaway tree. Residual 0 unwritten |
 
 ## Test Execution Results
 

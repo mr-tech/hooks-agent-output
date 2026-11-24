@@ -1,0 +1,195 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordOffline.whole-command.test.ts (3 tests | 1 failed) 8ms
+     × reports no pass count 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordOffline.whole-command.test.ts > the whole live Discord command, in a network namespace with only loopback up > reports no pass count
+AssertionError: expected '\n RUN  v4.1.2 /usr/local/bin/hooks/w…' not to match /\d+ passed/
+
+- Expected:
+/\d+ passed/
+
++ Received:
+"
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts (5 tests | 5 skipped) 30ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts (7 tests | 7 skipped) 30ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/zz-probe.run.test.ts (1 test | 1 failed) 32ms
+   × probe 31ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts (9 tests | 9 skipped) 26ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts (10 tests | 10 skipped) 23ms
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordReports.run.test.ts (4 tests | 4 skipped) 24ms
+ ❯ |discord-dom| src/utils/markdown/__tests__/discord/zz-sig.run.test.tsx (1 test | 1 failed) 28ms
+   × signatures 21ms
+ ❯ |discord-dom| src/utils/markdown/__tests__/discord/zz-dom-residue.run.test.tsx (1 test | 1 failed) 29ms
+   × dom residue 21ms
+ ❯ |discord-dom| src/utils/markdown/__tests__/discord/discordPreview.legacy-equality.test.tsx (3 tests | 3 skipped) 24ms
+
+ Test Files  9 failed | 1 passed (10)
+      Tests  3 failed | 3 passed | 38 skipped (44)
+   Start at  22:51:53
+   Duration  3.40s (transform 3.06s, setup 195ms, import 14.68s, tests 251ms, environment 2.69s)
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts:13:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts:14:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordReports.run.test.ts [ src/utils/markdown/__tests__/discord/discordReports.run.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordReports.run.test.ts:17:30
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts:14:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts:13:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |discord-dom| src/utils/markdown/__tests__/discord/discordPreview.legacy-equality.test.tsx [ src/utils/markdown/__tests__/discord/discordPreview.legacy-equality.test.tsx ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordPreview.legacy-equality.test.tsx:31:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/zz-probe.run.test.ts > probe
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/zz-probe.run.test.ts:8:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  |discord-dom| src/utils/markdown/__tests__/discord/zz-dom-residue.run.test.tsx > dom residue
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/zz-dom-residue.run.test.tsx:15:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  |discord-dom| src/utils/markdown/__tests__/discord/zz-sig.run.test.tsx > signatures
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/zz-sig.run.test.tsx:12:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+
+"
+
+ ❯ src/utils/markdown/__tests__/discordOffline.whole-command.test.ts:22:24
+     20|
+     21|   it('reports no pass count', () => {
+     22|     expect(output).not.toMatch(/\d+ passed/);
+       |                        ^
+     23|   });
+     24| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  22:51:52
+   Duration  4.60s (transform 22ms, setup 0ms, import 4.46s, tests 8ms, environment 0ms)
+

@@ -1,0 +1,166 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > a timestamp whose source changes while the preview stays mounted > shows the new time, not the one it first drew
+AssertionError: expected '3 years ago' to be '10:13 PM' // Object.is equality
+
+Expected: "10:13 PM"
+Received: "3 years ago"
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:97:41
+     95|   it('shows the new time, not the one it first drew', () => {
+     96|     const el = mountDom(<Harness initial='<t:1700000000:t>' />);
+     97|     expect(triggers(el)[0].textContent).toBe('10:13 PM');
+       |                                         ^
+     98|
+     99|     act(() => { handle.setSource('<t:1700003600:t>'); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws t as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws T as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '10:13:20 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "10:13:20 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws d as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ '11/14/2023' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/2023",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws D as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ 'November 14, 2023' ]
+
+- Expected
++ Received
+
+  [
+-   "November 14, 2023",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws f as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ 'November 14, 2023 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "November 14, 2023 10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws F as its text
+AssertionError: expected [ '3 years ago' ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "Tuesday, November 14, 2023 10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:56:55
+     54|     ['S', '11/14/23, 10:13:20 PM'],
+     55|   ])('draws %s as its text', (letter, expected) => {
+     56|     expect(stampText(draw(`<t:${STAMP}:${letter}>`))).toEqual([expecte…
+       |                                                       ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > a timestamp in the preview, by style letter > draws the bare form as f
+AssertionError: expected [ '3 years ago' ] to deeply equal [ 'November 14, 2023 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "November 14, 2023 10:13 PM",
++   "3 years ago",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:60:45
+     58|
+     59|   it('draws the bare form as f', () => {
+     60|     expect(stampText(draw(`<t:${STAMP}>`))).toEqual(['November 14, 202…
+       |                                             ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+

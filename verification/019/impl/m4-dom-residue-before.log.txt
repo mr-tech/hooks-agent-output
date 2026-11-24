@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  22:24:56
+   Duration  97.59s (transform 721ms, setup 25ms, import 1.64s, tests 94.96s, environment 787ms)
+

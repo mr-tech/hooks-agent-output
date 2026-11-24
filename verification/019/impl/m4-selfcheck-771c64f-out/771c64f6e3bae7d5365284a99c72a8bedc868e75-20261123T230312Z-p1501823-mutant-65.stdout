@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-65
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 853ms
+     × masked link 44ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 15ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 9766ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 1122ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 981ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 590ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 687ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 499ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 627ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 605ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 915ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 900ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 1151ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 558ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 656ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 5368ms
+     × draws nothing while the engine is pending 5007ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (22 tests | 5 failed) 244ms
+     × draws a masked link as an anchor whose href is the engine url and whose label is its text 19ms
+     × keeps a https link as an anchor 17ms
+     × keeps a mailto link as an anchor 10ms
+     × draws a javascript link as its label with no href 1ms
+     × draws a data link as its label with no href 1ms
+
+ Test Files  4 failed | 72 passed (76)
+      Tests  20 failed | 1267 passed (1287)
+   Start at  00:06:49
+   Duration  66.41s (transform 36.02s, setup 1.85s, import 161.98s, tests 247.17s, environment 78.45s)
+

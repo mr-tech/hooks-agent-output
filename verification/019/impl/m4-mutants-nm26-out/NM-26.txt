@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |node| src/utils/markdown/__tests__/utils.static-pre-transform-gone.test.ts (1 test | 1 failed) 6ms
+     × is no longer a function the markdown utilities offer to a caller 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/utils.static-pre-transform-gone.test.ts > the static emoji pre-transform > is no longer a function the markdown utilities offer to a caller
+AssertionError: expected [ 'staticParserFor', 'default' ] to not include 'staticParserFor'
+ ❯ src/utils/markdown/__tests__/utils.static-pre-transform-gone.test.ts:9:36
+      7| describe('the static emoji pre-transform', () => {
+      8|   it('is no longer a function the markdown utilities offer to a caller…
+      9|     expect(Object.keys(utils)).not.toContain('staticParserFor');
+       |                                    ^
+     10|     expect((utils as Record<string, unknown>).staticParserFor).toBeUnd…
+     11|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  00:24:44
+   Duration  552ms (transform 313ms, setup 0ms, import 404ms, tests 6ms, environment 0ms)
+

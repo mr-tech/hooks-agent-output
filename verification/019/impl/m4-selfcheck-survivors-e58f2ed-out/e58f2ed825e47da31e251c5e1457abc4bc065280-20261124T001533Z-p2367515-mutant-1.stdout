@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork2/20261124T001533Z-p2367515/mutant-1
+
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 2 failed) 762ms
+     × draws its links as links when the embed has no url 690ms
+     × keeps its link syntax as text when the embed has a url 70ms
+
+ Test Files  1 failed | 78 passed (79)
+      Tests  2 failed | 1366 passed (1368)
+   Start at  00:16:22
+   Duration  46.63s (transform 19.55s, setup 1.25s, import 112.21s, tests 183.79s, environment 64.29s)
+

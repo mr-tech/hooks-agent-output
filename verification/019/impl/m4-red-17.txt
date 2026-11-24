@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/residueList.check.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/residueList.check.test.ts [ src/utils/markdown/__tests__/residueList.check.test.ts ]
+Error: Cannot find module './helpers/residueList' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/residueList.check.test.ts
+ ❯ src/utils/markdown/__tests__/residueList.check.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import { checkFamilies, checkResidue, type ResidueList } from './helpe…
+       | ^
+      4|
+      5| import raw from './helpers/data/discordResidueList.json';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  22:44:47
+   Duration  249ms (transform 38ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

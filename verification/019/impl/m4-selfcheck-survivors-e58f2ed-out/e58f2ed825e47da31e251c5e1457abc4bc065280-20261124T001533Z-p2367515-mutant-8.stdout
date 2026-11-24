@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork2/20261124T001533Z-p2367515/mutant-8
+
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 2 failed) 144ms
+     × as its address, for a masked link in a fixture tree that invents engine output 8ms
+     × as its address, for a contact link in a fixture tree that invents engine output 2ms
+
+ Test Files  1 failed | 78 passed (79)
+      Tests  2 failed | 1366 passed (1368)
+   Start at  00:22:55
+   Duration  50.76s (transform 29.72s, setup 1.59s, import 137.86s, tests 201.06s, environment 79.01s)
+

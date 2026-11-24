@@ -1,0 +1,6 @@
+SC-embed98	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	embedHasUrl inverted
+SC-emoji23	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	emoji draggable
+SC-p107a	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	label guard && to ||
+SC-p107b	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	label guard > to >=
+SC-p42a	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	threads of the first channel only
+SC-p42b	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	threads of the last channel only

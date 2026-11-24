@@ -1,0 +1,37 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |node| src/utils/markdown/__tests__/residueList.check.test.ts (11 tests | 1 failed) 196ms
+     × name the surface and family whose count does not match 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/residueList.check.test.ts > the families the list names, and their counts > name the surface and family whose count does not match
+AssertionError: expected [] to deep equally contain { kind: 'familyCount', …(2) }
+
+- Expected:
+{
+  "family": "F01",
+  "kind": "familyCount",
+  "surface": "embedDescription",
+}
+
++ Received:
+[]
+
+ ❯ src/utils/markdown/__tests__/residueList.check.test.ts:61:37
+     59|     const counts = { ...LIST.families[0].counts, [first.surface]: (LIS…
+     60|     const tampered = { ...LIST, families: [{ ...LIST.families[0], coun…
+     61|     expect(checkFamilies(tampered)).toContainEqual({ kind: 'familyCoun…
+       |                                     ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  23:02:29
+   Duration  1.57s (transform 993ms, setup 0ms, import 1.23s, tests 196ms, environment 0ms)
+

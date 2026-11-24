@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-45
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 1509ms
+     × reads a channel mention by its id when the preview shows the channel's name 51ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 2 failed) 297ms
+     × names a listed channel 140ms
+     × shows the new name when the list changes under a mounted preview 36ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 9 failed) 2064ms
+     × renders as the table says when the list state is topLevel 87ms
+     × is given a listed forum channel its name 29ms
+     × names the second of two listed channels when the mention names the second 6ms
+     × is named on the content surface when the list holds it 11ms
+     × is named on the embedDescription surface when the list holds it 4ms
+     × is named on the embedTitle surface when the list holds it 17ms
+     × is named on the embedTitleWithUrl surface when the list holds it 4ms
+     × is named on the fieldValue surface when the list holds it 4ms
+     × is named on the v2Text surface when the list holds it 15ms
+ ❯ |node| src/utils/markdown/__tests__/engine.import-confinement.test.ts (5 tests | 1 failed) 7065ms
+     × lets the adapter, and at most one test oracle helper, name an engine package 5026ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (32 tests | 2 failed) 20558ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 5573ms
+     × loads each text of the joins of up to three block atoms that holds no emoji with its text unchanged 7518ms
+
+ Test Files  5 failed | 71 passed (76)
+      Tests  15 failed | 1272 passed (1287)
+   Start at  23:42:54
+   Duration  98.77s (transform 46.31s, setup 2.05s, import 235.90s, tests 405.93s, environment 113.55s)
+

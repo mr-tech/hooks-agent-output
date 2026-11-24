@@ -1,0 +1,48 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-41
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 3541ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 301ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 179ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 164ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 62ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 330ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 465ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 165ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 29ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 295ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 598ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 167ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 516ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 777ms
+     × a channel mention with no list 23ms
+     × reads a channel mention by its id when the preview shows the channel's name 39ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 4 failed) 178ms
+     × names a listed channel 60ms
+     × names a thread under a listed channel 9ms
+     × shows the new name when the list changes under a mounted preview 35ms
+     × renders, and draws the channel in its id form 26ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts (2 tests | 1 failed) 5511ms
+     × draws nothing while the engine is pending 5007ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 15 failed) 751ms
+     × renders as the table says when the list state is noProvider 53ms
+     × renders as the table says when the list state is topLevel 29ms
+     × renders as the table says when the list state is threadOnly 16ms
+     × is given a listed forum channel its name 2ms
+     × is given an active post under a listed forum channel its name 3ms
+     × names the second of two listed channels when the mention names the second 3ms
+     × is named on the content surface when the list holds it 8ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 2ms
+     × is named on the v2Text surface when the list holds it 1ms
+     × draws no text that says unknown in any of the 60 cells 20ms
+     × draws every one of the 60 cells as something visible 20ms
+     × draws no text that says unknown over the corpus, with no provider 1ms
+
+ Test Files  5 failed | 71 passed (76)
+      Tests  34 failed | 1253 passed (1287)
+   Start at  23:38:00
+   Duration  69.11s (transform 42.13s, setup 1.83s, import 165.38s, tests 239.18s, environment 81.94s)
+

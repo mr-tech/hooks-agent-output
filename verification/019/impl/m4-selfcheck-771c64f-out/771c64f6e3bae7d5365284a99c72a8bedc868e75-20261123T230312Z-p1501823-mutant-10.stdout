@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/mrwork/20261123T230312Z-p1501823/mutant-10
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 7 failed) 265ms
+     × draws t as its text 58ms
+     × draws T as its text 12ms
+     × draws d as its text 26ms
+     × draws D as its text 39ms
+     × draws f as its text 12ms
+     × draws F as its text 11ms
+     × draws the bare form as f 24ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 1 failed) 5017ms
+     × shows the new time, not the one it first drew 33ms
+
+ Test Files  2 failed | 74 passed (76)
+      Tests  8 failed | 1279 passed (1287)
+   Start at  23:12:02
+   Duration  47.41s (transform 19.12s, setup 1.27s, import 105.63s, tests 175.69s, environment 56.85s)
+

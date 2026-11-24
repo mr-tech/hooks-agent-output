@@ -1,0 +1,50 @@
+// Driver text of the measurement recorded in m4-dom-residue-all.json (placed in src/utils/markdown/__tests__/discord/ for the run, removed after).
+// Needs helpers/previewDom.tsx and helpers/canonFromDom.ts, committed at cf605d0 and 268b9fb.
+import { writeFileSync } from 'node:fs';
+import { beforeAll, it, vi } from 'vitest';
+
+import { startEngine } from '../../engine';
+import { CORPUS, LINK_INPUTS } from '../helpers/discordInputs';
+import { openLive } from '../helpers/discordLive';
+import { LEGACY_SURFACES, type LegacySurface } from '../helpers/discordSurfaces';
+import { generateInputs } from '../helpers/markdownGenerator';
+import { domDiffersFromLegacy } from '../helpers/previewDom';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+beforeAll(async () => { await startEngine(); });
+
+it('dom residue', async () => {
+  const live = await openLive();
+  const inputs = [
+    ...CORPUS.map((c) => ({ src: `corpus:${c.id}`, text: c.text })),
+    ...LINK_INPUTS.map((t, i) => ({ src: `link:${i}`, text: t })),
+    ...generateInputs(20261123, 2000).map((g, i) => ({ src: `gen:${i}`, text: g.text })),
+  ];
+  const differs = (surface: LegacySurface, text: string) => {
+    try { return domDiffersFromLegacy(live, surface, text); } catch { return false; }
+  };
+  const shrink = (surface: LegacySurface, text: string) => {
+    let cur = [...text];
+    let n = 2;
+    while (cur.length >= 2) {
+      const size = Math.ceil(cur.length / n);
+      let reduced = false;
+      for (let i = 0; i < cur.length; i += size) {
+        const cand = [...cur.slice(0, i), ...cur.slice(i + size)];
+        if (cand.length > 0 && differs(surface, cand.join(''))) { cur = cand; n = Math.max(n - 1, 2); reduced = true; break; }
+      }
+      if (!reduced) { if (n >= cur.length) break; n = Math.min(n * 2, cur.length); }
+    }
+    return cur.join('');
+  };
+  const out: Record<string, { n: number; atomFree: number; count: number; classes: Record<string, string[]> }> = {};
+  for (const surface of LEGACY_SURFACES) {
+    const classes: Record<string, string[]> = {};
+    let count = 0;
+    for (const input of inputs) {
+      if (differs(surface, input.text)) { count += 1; (classes[shrink(surface, input.text)] ??= []).push(input.src); }
+    }
+    out[surface] = { n: inputs.length, atomFree: inputs.length, count, classes };
+  }
+  writeFileSync(process.env.DRIVER_OUT!, JSON.stringify(out));
+}, 1_500_000);

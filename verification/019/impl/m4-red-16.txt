@@ -1,0 +1,293 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (38 tests | 11 failed) 455ms
+     × a user mention 20ms
+     × a user mention with the nickname mark 10ms
+     × a role mention 5ms
+     × a channel mention with no list 5ms
+     × everyone 6ms
+     × here 5ms
+     × a timestamp, by its seconds and style 12ms
+     × a timestamp with no style 4ms
+     × reads a channel mention by its id when the preview shows the channel's name 6ms
+     × tells a timestamp of one value from a timestamp of another 12ms
+     × tells a mention of one id from a mention of another, and one kind from another 13ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a user mention
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a user mention with the nickname mark
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "user:123",
++     "attr": "",
+      "kids": null,
+-     "name": "m",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a role mention
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "role:123",
++     "attr": "",
+      "kids": null,
+-     "name": "m",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a channel mention with no list
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "channel:123",
++     "attr": "",
+      "kids": null,
+-     "name": "m",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > everyone
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "everyone:",
++     "attr": "",
+      "kids": null,
+-     "name": "m",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > here
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "here:",
++     "attr": "",
+      "kids": null,
+-     "name": "m",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a timestamp, by its seconds and style
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'ts', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "1700000000:R",
++     "attr": "",
+      "kids": null,
+-     "name": "ts",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a timestamp with no style
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'ts', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "1700000000:",
++     "attr": "",
+      "kids": null,
+-     "name": "ts",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:60:27
+     58|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     59|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     60|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads a channel mention by its id when the preview shows the channel's name
+AssertionError: expected [ { t: 'N', name: '?span', …(2) } ] to deeply equal [ { t: 'N', name: 'm', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "attr": "channel:123",
++     "attr": "",
+      "kids": null,
+-     "name": "m",
++     "name": "?span",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:100:30
+     98|     } as never)}</>);
+     99|     expect(el.textContent).toBe('#general');
+    100|     expect(canonFromDom(el)).toEqual([N('m', 'channel:123', null)]);
+       |                              ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > tells a timestamp of one value from a timestamp of another
+AssertionError: expected [ { at: +0, dimensions: [ 'text' ] } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 0,
++     "dimensions": [
++       "text",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:106:109
+    104|     expect(visibleDifferences(drawn('<t:1700000000:R>'), 'dom', native…
+    105|     expect(visibleDifferences(drawn('<t:1700000000:R>'), 'dom', native…
+    106|     expect(visibleDifferences(drawn('<t:1700000000:R>'), 'dom', native…
+       |                                                                                                             ^
+    107|   });
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > tells a mention of one id from a mention of another, and one kind from another
+AssertionError: expected [ { at: +0, dimensions: [ 'text' ] } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 0,
++     "dimensions": [
++       "text",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:112:85
+    110|     expect(visibleDifferences(drawn('<@1>'), 'dom', nativeParse('<@2>'…
+    111|     expect(visibleDifferences(drawn('<@1>'), 'dom', nativeParse('<@&1>…
+    112|     expect(visibleDifferences(drawn('<@1>'), 'dom', nativeParse('<@1>'…
+       |                                                                                     ^
+    113|   });
+    114| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/11]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 27 passed (38)
+   Start at  22:39:30
+   Duration  4.16s (transform 1.10s, setup 30ms, import 2.35s, tests 455ms, environment 1.07s)
+

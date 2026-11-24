@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+
+ Test Files  1 passed (1)
+      Tests  22 passed (22)
+   Start at  23:02:12
+   Duration  1.36s (transform 448ms, setup 0ms, import 1.18s, tests 52ms, environment 0ms)
+

@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/c49f7331-ca1e-44ec-94d6-d27758594fd3/scratchpad/export-m4c
+
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 261ms
+     × reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well 109ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads an editable timestamp, drawn as the popover's trigger, by its seconds and style as well
+AssertionError: expected { t: 'N', name: 'ts', …(2) } to deeply equal { t: 'N', name: 'ts', …(2) }
+
+- Expected
++ Received
+
+  {
+-   "attr": "1700000000:R",
++   "attr": "1700000000:",
+    "kids": null,
+    "name": "ts",
+    "t": "N",
+  }
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:106:21
+    104|     const el = mountDom(<>{previewParser('content')('<t:1700000000:R>'…
+    105|     const [trigger, ...popover] = canonFromDom(el);
+    106|     expect(trigger).toEqual(N('ts', '1700000000:R', null));
+       |                     ^
+    107|     expect(popover).toEqual([N('?div', '', null)]);
+    108|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 40 passed (41)
+   Start at  23:02:03
+   Duration  2.32s (transform 530ms, setup 27ms, import 1.25s, tests 261ms, environment 643ms)
+

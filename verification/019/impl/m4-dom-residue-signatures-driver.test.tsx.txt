@@ -1,0 +1,32 @@
+// Driver text of the measurement recorded in m4-dom-residue-signatures.json (same placement and needs as the residue driver).
+import { writeFileSync } from 'node:fs';
+import { beforeAll, it, vi } from 'vitest';
+
+import { startEngine } from '../../engine';
+import { CORPUS, LINK_INPUTS } from '../helpers/discordInputs';
+import { openLive } from '../helpers/discordLive';
+import { LEGACY_SURFACES } from '../helpers/discordSurfaces';
+import { generateInputs } from '../helpers/markdownGenerator';
+import { domDifferences } from '../helpers/previewDom';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+beforeAll(async () => { await startEngine(); });
+it('signatures', async () => {
+  const live = await openLive();
+  const inputs = [
+    ...CORPUS.map((c) => ({ src: `corpus:${c.id}`, text: c.text })),
+    ...LINK_INPUTS.map((t, i) => ({ src: `link:${i}`, text: t })),
+    ...generateInputs(20261123, 2000).map((g, i) => ({ src: `gen:${i}`, text: g.text })),
+  ];
+  const rows: unknown[] = [];
+  const errors: string[] = [];
+  for (const surface of LEGACY_SURFACES) {
+    for (const input of inputs) {
+      try {
+        const d = domDifferences(live, surface, input.text);
+        if (d.length > 0) rows.push({ surface, src: input.src, text: input.text, signature: d.map((x) => [x.at, x.dimensions]) });
+      } catch (e) { errors.push(`${surface} ${input.src}: ${String(e)}`); }
+    }
+  }
+  writeFileSync(process.env.O!, JSON.stringify({ rows, errors, inputs: inputs.length }));
+}, 1_500_000);
