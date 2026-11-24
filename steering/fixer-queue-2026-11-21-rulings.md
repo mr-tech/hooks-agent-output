@@ -1303,3 +1303,14 @@ This reopens block 07:21Z for this one change only, and the block's last-fold ru
 implementer continues the rest of the round meanwhile, and its hand-off waits for Revision 20's three passes.
 Cost told to him in chat: AC-6.8's fifth revision, and Revisions 10 to 20 since approval. Recipient: `planner-019`, which cues the gates and the
 implementer.
+
+## 2026-11-24T08:11Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (08:11Z) asked for `/checkpoint`: 266,986 by `cc-usage.py sessions`, past the 225K steering threshold. The
+Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, rewritten whole, under 8 KB).
+- Plan 019 is at Revision 20 (`cf7e4d91`), and all three gates passed it. M2 to M5 are done. M6's CR-20 fix round is with `implementer-019`.
+  QA Phase 2 at 119471f is QA Failed, expected before the fix, with QAF-50 riding the round.
+- At the hand-off this thread reads three things: SL-22's keystroke cost (a selection to him if it is well over 16 ms), AC-3.3's 60 s cap
+  and equal counts on `> x` lines.
+- qa-019, critic-019 (medium), code-reviewer-019 and planner-019 are each cleared on a committed Resumption State. Standing check
+  `bb3697e8` is at 08:39Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty.
