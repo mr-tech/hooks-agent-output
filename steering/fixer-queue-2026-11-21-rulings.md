@@ -1517,3 +1517,36 @@ turn. Every figure is the implementer's and was not re-run here.
   fail routes as any QA fail does. Recipients: `planner-019` (it issued the ask) and `qa-019` (it acts on it at the M6 refresh).
 - `implementer-019` is at 438,302 (`cc-usage.py sessions`, 19:20Z), idle at its hand-off seam and past 225K. It is asked for `/checkpoint`,
   then cleared.
+
+## 2026-11-24T19:43Z — plan 019 M6 Fix Round 2 REJECTED on CR-25 HIGH: the code-block member rides D-24; the paste member goes to him (this thread's)
+
+`code-reviewer-019` REJECTED Fix Round 2 at `85ece66` on CR-25 HIGH (Round 7, record `e92137fe`; Status In Review, Round 7, Verdict REJECTED,
+read this turn). The planner registered it at R-103 (`7054250e`). Both sessions asked this thread for a ruling by message (19:4xZ). The figures
+are the reviewer's and the planner's, and this thread has not re-run them:
+- Closing a code fence above `a🙂` lines takes 238 ms at 200 lines and 7.6 s at 1,000 (3,999 characters, inside the field). The base throws
+  on the same keystroke in 16 to 48 ms.
+- A paste through `insertData` takes 463 ms plain and 940 ms with emoji at 200 lines, against the base's 182 and 241 ms. At 1,000 lines it is
+  9.6 s and 25 s, against 1.7 and 2.9 s. This was already the case at `42128cd`, so the chain introduced it.
+- The cause, by the planner's reading: settled state is keyed on `editor.children`, which every operation replaces, so the cost is O(E × N).
+The planner proposes Revision 23, on AC-6.9 only: (1) fence keystrokes over `a🙂` lines at 200 and 1,000; (2) a paste member, plain and `a🙂`;
+(3) a standing count limb (1,000-line count at most 10 times the 200-line count); (4) the residue sentence rewritten.
+**Rulings:**
+- **The cap does not carve either member out.** The M3–M6 cap and AC-6.9's last-fold rule (block 14:48Z) cover findings below HIGH only, and
+  CR-25 is HIGH. The REJECTED verdict stands as the reviewer wrote it.
+- **Items (1), (3) and (4) ride D-24.** His option text was "Bring code-block closing back to roughly today's speed" (block 14:33Z), and he
+  chose "fix both first". Closing a fence over emoji lines is that keystroke's cost on other text, and 7.6 s is not today's speed. (3) and (4)
+  are the instrument and the residue that let it through.
+- **Item (2), the paste, goes to him as a selection.** D-23's words are "CR-20's keystroke cost" (plan D-23, read this turn), and a paste is
+  not a keystroke. Reading it into D-23 would widen his words, which a scope line may not do (steering.md, Scoping determination). Standing
+  entry 2 ("Just fix everything you find along the way") points to fixing it. But a criterion change on an open milestone is a milestone-level
+  delta, and that goes to him "whatever standing clearance" (steering.md, Planner), as D-24 and D-25 did.
+- **Before the prompt,** a `general-purpose-sonnet` helper is timing the paste at `af3d95a`, `42128cd` and `85ece66` in isolated exports,
+  under `systemd-run` caps. It is trying to refute the figures (steering.md, Prompting the owner).
+- The base `af3d95a` still equals production over the editor paths: `git diff --quiet af3d95a origin/master -- src/components/SlateEditor
+  src/utils/markdown` exits 0, with `origin/master` at `5ec0621`, fetched this turn. So the base's paste cost is today's.
+- `planner-019` drafts Revision 23 with (1), (3) and (4), plus CR-24 LOW as a stated limit. It holds the gates' cue until this thread relays his
+  answer, so that each gate reads 23 once. `code-reviewer-019` is at 367,141 (`cc-usage.py sessions`, 19:4xZ), idle at its verdict seam and
+  past 325K, so it is asked for `/checkpoint`, then cleared.
+- The reviewer's tools-inbox sighting (the heredoc writes passing `record-write-gate-hook`) is already logged in `~/.claude/agents/INBOX.md`
+  (lines 93–102, read this turn), so nothing is added.
+Recipients: `planner-019` (the revision), `code-reviewer-019` (it asked about the cap), then him (the paste).
