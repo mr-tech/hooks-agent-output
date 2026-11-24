@@ -222,4 +222,13 @@ Code review of M5 at `2e36107`, in this order of risk: `highlightScan.ts` and `c
 
 ## Resumption State
 
-None needed: M5 is handed off, the tree is committed (website `d6aab03`; record at the commit after this document). Scratch only under the session scratchpad: `export-m5b`, `mut*.py`, `mrun-work`.
+Written 03:55Z at M5's hand-off seam (about 343K tokens), for a `/clear`.
+
+- **Done.** M5 complete and handed to code review at website `2e36107` (this document's `Handoff-At`); messages sent to `code-reviewer-019` and `steering-hooks-fixer`. The owner ruled (a) on the `SlateEditor/index.tsx` eslint errors (block 2026-11-24T03:48Z, carrier handoff `67001740`). M3 fix rounds 7 and 8 are closed by code review and QA (M3 QA Complete at `81c68b2`). Website commits this session: `6f4d48f`, `65b8e2c`, `3ffb2b4`, `d6aab03`, `81c68b2`, `2e36107`. Record at `bfd894ed`.
+- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `2e36107`; the tree holds only the foreign `?? .playwright-mcp/`.
+- **Next.** (1) If code review of M5 returns findings, a fix round: the Class Sweep table per finding, each fix starts red. (2) M6 (read plan M6 and the M4 document's "M5 and M6 flows, derived ahead of stage start"; the second reading, emoji with no image stays text, belongs to M6). M6 starts only on steering's stage-start word. (3) The M4 follow-up (visibleForm's dead `c` branch) was sent to steering as a carrier question; no action of mine unless asked.
+- **Approach in flight.** None; no uncommitted source work.
+- **Local state not restored.** Scratch only under the session scratchpad: `export-m5b`, `mrun-work`, `mut*.py`, `mutants-m5.json`. No process of mine runs (the sweep and the wait shell are gone).
+- **Evidence run but not recorded.** None; everything is under `verification/019/impl/m5-*` and `m3-r7-*`, `m3-r8-*`.
+- **Questions sent.** None open. To `code-reviewer-019`: M5 ready, with the case-count account. To steering: the visibleForm carrier.
+- **Cache-warm wake.** Deleted at this checkpoint. Arm a new one on the next turn.
