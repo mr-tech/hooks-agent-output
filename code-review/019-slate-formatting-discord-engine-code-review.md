@@ -1379,6 +1379,12 @@ CR-23 MEDIUM Round 6 (M6 fix round; reached by steering's route, below; a stated
 - **Not a severity floor**: no criterion states fence-toggle cost. It rests on CR-20's own fix, so whether the CR-20 cap lift
   reaches it is steering's to read and the owner's to decide.
 
+#### Gate satisfaction disclosed in the round
+
+- The stamp gate refused my plan row R-94 (`stamp-gate-hook`), whose stamp `09:31` I had typed ahead of the clock's `09:30`.
+  `plan-row-commit.js` committed nothing. I re-stamped the row with `record-edit.js`'s `{now}`, which is the form the gate names,
+  and committed it (`fe71de0e`). This changelog's own sub-entry row was typed too, at `09:29` from a `date -u` call made for it.
+
 #### Verdict, Round 6 sub-entry
 
 **APPROVED_WITH_COMMENTS** for M6 at `42128cd`.
