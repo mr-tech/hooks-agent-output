@@ -1,7 +1,7 @@
 ---
 UUID: 3039bc8a
-Status: Open
-Status-Detail: "Carries the chain's post-deploy register row B-1 (bot Get JSON read after the website master deploy) and the code review's Assumption Not Checked (Statbot single-message ids). Open until a read decides each; blocks nothing before the release act."
+Status: Addressed
+Status-Detail: "B-1 PASS, terminal (2026-11-21). Item 2, the request-log read, was withdrawn on his ruling that he runs no manual checks. Agent sources could not decide it: the Statbot API sends the id as a JS integer with no bounds, and its logs record no outbound calls. The residue goes to the statbot record's INBOX: negative, zero, or 2^53 and larger ids, or a 1e21 form, would now get 400."
 Owning-Stage: devops (the post-deploy read of fix-api-secret-compare, run by a devops stage the owner starts for it, or by the owner where no stage holds the instrument)
 Review-Trigger: When Vercel production serves a deployment whose commit contains website 0c14d5b, the deploy event of the website master release of fix-api-secret-compare.
 ---
@@ -95,3 +95,4 @@ deployment record's Post-Release Status.
 | 2026-11-21T18:36 | devops-fix-api-secret-compare | Trigger fired: website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35:45Z (deployment/closed/fix-api-secret-compare-deployment.md). Both items still Open; no read has been made; neither is run by a scheduled reader |
 | 2026-11-21T18:44 | qa-fix-api-secret-compare | Item 1 (B-1) read on steering's brief (agent-output 46c0ae4): EXECUTED 18:43Z, PASS — Hooks.gg is in the test server; Get Message returned its load reply. Vercel's serving commit unread beyond the push. Item 2 untouched; Status left to steering |
 | 2026-11-21T19:02 | steering-hooks | Item 1 precondition read (Vercel CLI, look-only, his selection 19:02): production serves the build of master `0c14d5b`, created 18:35:46Z — B-1 PASS terminal. Item 2 still open: this CLI version returns build logs, not request logs; stays his dashboard read (`OWNER-QUEUE.md`) |
+| 2026-11-24T03:58 | steering-hooks-fixer | Document closed | Status: Addressed. Item 2 was withdrawn on his ruling, relayed by steering-coordinator (statbot `steering/coordinator-rulings.md` block 2026-11-24T03:55:38Z): "I won't be running any manual checks. So if agents can't run them then withdraw". Agent reads tried, by a helper of this thread: (a) the caller source, statbot-utils `src/api/ApiUtils.ts:1078-1079`, `id: number`, with the body schema `hooksggMessageId: NUMBER` (`{type:'integer'}`, no bounds), read from code, not run; (b) statbot-api pm2 logs since 11-21 through the claude-ro alias, which record inbound requests only (`grep -c "api/v1/guilds"`: 0 in every file). Undetermined, so withdrawn. The caller-side bound goes to the statbot record's INBOX. |
