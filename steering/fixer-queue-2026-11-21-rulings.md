@@ -1337,3 +1337,27 @@ it exceeds the cap, the generator count drops to fit, and the plan records the n
 Recipients: `implementer-019` (it executes), `planner-019` (it registers at the seam fold), `qa-019` (it verifies at the refresh, and gets the
 pointer in its wake). Not put to him: the criterion's own words answer it, and it is test sizing inside his "fix it before release" choice
 (block 07:05Z).
+
+## 2026-11-24T09:09Z — plan 019 M6 CR-20 fix round handed off: this thread's hand-off reads; block 08:17Z's premise corrected
+
+`implementer-019` handed Fix Round 1 to `code-reviewer-019` at website `42128cd` (tree identical to `10abfa9`). Its record is at agent-output
+`9c6bb958`, `Handoff-At` 42128cd. The planner registered it at R-92 (`7100aab8`). The reads below come from the implementation document,
+§ Fix Round 1, lines 214–388, read this turn. Each figure is the implementer's and was not re-run by this thread.
+- **AC-3.3's cap:** with `MOUNTED_GENERATOR_COUNT` 400, the whole offline suite is 3,715 of 3,715, exit 0, 64.4 s. That is 33.3 s over the
+  base's 31.1 s, against a 91.1 s line, with box load 2.4 to 9.1. QA re-measures.
+- **Equal counts on `> x` lines:** run-unit builds are equal at 200 and 2,048 lines for every kind and place, the fenced-quote text included
+  (Entry Conditions; Observations). That is the implementer's run. QA verifies it.
+- **SL-22, the cost of a keystroke that changes a line's type, at 2,048 lines:**
+  - "Typing before `>>>`" costs 6.5 ms median at 2,048 lines, because the marker is not text.
+  - Typing `>` to make `>>> ` at the start of a 200-line message **throws** Slate's 126-iteration normalise error, at `119471f` and at the fix
+    (Outstanding 2). That was read against chain work only. `planner-019` has asked `qa-019` to probe it at the chain base `af3d95a` and set a
+    severity. If the chain introduced it, it is a defect owed before release, and it comes to him.
+  - Making or breaking a fence at 2,048 lines is unmeasured. A `general-purpose-sonnet` helper times it on `42128cd` in an isolated export.
+    If it is well over 16 ms, it goes to him as a selection before release (block 07:26Z).
+- **This thread's error in block 08:17Z.** It wrote "The full count already runs in `pnpm test:discord` (line 911)". That was taken from the
+  plan's prose, not the mechanism. No discord project holds a typed-generated file, and one there would break `discordOffline.whole-command`
+  (implementation document line 296). The ruling itself stands, because the count dropped to fit. The full 1,000 runs only through the knob
+  (103.6 s, passes). The planner's governing reading, registered at R-92, is that QA runs the knob once at Phase 2 and once at Phase 3, and the
+  seam fold names it. This thread does not rule otherwise.
+- `implementer-019` is at 452,801 tokens (`cc-usage.py sessions`, 09:09Z), past its 225K threshold, and at its hand-off seam. It is asked for
+  `/checkpoint`, then cleared.
