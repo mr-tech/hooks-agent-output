@@ -1,0 +1,25 @@
+# usage: python3 -I paste-compare.py <85ece66.json> <tip.json>
+import json, sys, collections
+A = json.load(open(sys.argv[1])); B = json.load(open(sys.argv[2]))
+assert A['ALL'] == B['ALL'] and A['BASES'] == B['BASES']
+a, b = A['out'], B['out']; assert a.keys() == b.keys()
+BASES = B['BASES']
+print('pastes', len(a), 'texts', len(A['ALL']), 'bases', len(BASES))
+for name, d in (('85ece66', a), ('tip', b)):
+    print(name, 'errors', sum('error' in r for r in d.values()), 'freshFail', sum(r.get('freshOk') is False for r in d.values()),
+          'textFail', sum(r.get('textOk') is False for r in d.values()), 'zFail', sum(r.get('zOk') is False for r in d.values()))
+for lim in ('freshOk', 'textOk', 'zOk'):
+    reg = [k for k in a if a[k].get(lim) is True and b[k].get(lim) is False]
+    imp = [k for k in a if a[k].get(lim) is False and b[k].get(lim) is True]
+    print(lim, 'tip wrong where 85ece66 right', len(reg), collections.Counter(BASES[int(k.split('|')[1])] for k in reg), reg[:8])
+    print(lim, '85ece66 wrong where tip right', len(imp), collections.Counter(BASES[int(k.split('|')[1])] for k in imp))
+snapdiff = [k for k in a if a[k].get('snap') != b[k].get('snap')]
+print('raw snapshot differs', len(snapdiff), collections.Counter((BASES[int(k.split('|')[1])], k.split('|')[2]) for k in snapdiff).most_common(12))
+def sel(r): return json.loads(r['snap'])['s'] if 'snap' in r else None
+def ch(r): return json.loads(r['snap'])['c'] if 'snap' in r else None
+seldiff = [k for k in snapdiff if sel(a[k]) != sel(b[k])]; cdiff = [k for k in snapdiff if ch(a[k]) != ch(b[k])]
+print('selection differs', len(seldiff), 'children differ', len(cdiff))
+shp = [k for k in cdiff if a[k]['shapes'] != b[k]['shapes']]
+print('shapes differ', len(shp), collections.Counter(BASES[int(k.split('|')[1])] for k in shp).most_common())
+for k in (seldiff[:3] + shp[:3]):
+    i, bi, place = k.split('|'); print('EX', k, repr(A['ALL'][int(i)][:60]), repr(BASES[int(bi)]), 'z85', a[k].get('zOk'), 'ztip', b[k].get('zOk'), 'fresh', a[k].get('freshOk'), b[k].get('freshOk'))

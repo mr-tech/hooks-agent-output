@@ -1,0 +1,21 @@
+paste-differential 2b82972 load_before 1.83 3.28 5.39 2/1017 2535838 22:48:32Z
+paste-differential 2b82972 exit 0 load_after 1.87 3.21 5.33 1/1024 2538434 22:48:48Z
+paste-differential 85ece66 load_before 1.87 3.21 5.33 2/1024 2538436 22:48:48Z
+paste-differential 85ece66 exit 0 load_after 1.97 3.15 5.26 1/1026 2542178 22:49:08Z
+keystroke-fixedpoint 2b82972 load_before 1.97 3.15 5.26 1/1026 2542180 22:49:08Z
+keystroke-fixedpoint 2b82972 exit 0 load_after 2.35 3.17 5.24 2/1054 2545223 22:49:24Z
+keystroke-fixedpoint 85ece66 load_before 2.35 3.17 5.24 2/1054 2545225 22:49:24Z
+keystroke-fixedpoint 85ece66 exit 0 load_after 2.74 3.22 5.22 2/1058 2548432 22:49:40Z
+keystroke-settle 2b82972 load_before 2.74 3.22 5.22 4/1057 2548435 22:49:40Z
+keystroke-settle 2b82972 exit 0 load_after 3.08 3.28 5.23 1/1063 2549196 22:49:43Z
+keystroke-settle 85ece66 load_before 3.08 3.28 5.23 1/1063 2549198 22:49:43Z
+keystroke-settle 85ece66 exit 0 load_after 2.91 3.24 5.20 1/1077 2549810 22:49:46Z
+fence-emoji-count 2b82972 load_before 2.91 3.24 5.20 1/1077 2549812 22:49:46Z
+fence-emoji-count 2b82972 exit 0 load_after 2.91 3.24 5.20 1/1064 2550324 22:49:49Z
+fence-emoji-count 85ece66 load_before 2.91 3.24 5.20 1/1064 2550326 22:49:49Z
+fence-emoji-count 85ece66 exit 0 load_after 2.76 3.20 5.18 1/1048 2551076 22:49:53Z
+paste-count 2b82972 load_before 2.76 3.20 5.18 1/1048 2551078 22:49:53Z
+paste-count 2b82972 exit 0 load_after 2.70 3.18 5.16 4/1047 2551725 22:49:56Z
+paste-count 85ece66 load_before 2.70 3.18 5.16 4/1046 2551727 22:49:56Z
+paste-count 85ece66 exit 0 load_after 2.66 3.16 5.14 3/1040 2553315 22:50:07Z
+done

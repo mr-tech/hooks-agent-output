@@ -1,0 +1,51 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import flattenNodeText from '../flattenNodeText';
+import { corpusTexts, generatorTexts } from '../../__tests__/helpers/roundTripInputs';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+import { startEngine } from '~/utils/markdown/engine';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const SURFACE = (process.env.CRPROBE_SURFACE ?? 'embedDescription') as 'embedDescription';
+const BASES = ['', 'x', 'a 🙂 b\nc', '```js\nx\n```\n> q', '>>> a\nb', '> q', '>>> a', '```\nx', 'a\n> b\nc'];
+const BULK = ['a', 'a🙂', '', '> a🙂', ':smile: b'].flatMap((fill) => [3, 40].map((n) => Array.from({ length: n }, () => fill).join('\n')));
+const ALL = [...corpusTexts(), ...generatorTexts(600), ...BULK, '```\n', '```\n``a 🙂\n```', '>> a\n🙂', 'a\n```js\n🙂\n```\n🙂', '> ```\n> x\n> ```'];
+const shapes = (lines: Element[]) => lines.map((line) => JSON.stringify([
+  line.type, line.quotePrefix ?? null, line.startCodeBlock ?? null, line.lang ?? null,
+  line.children.map((c) => ((c as { type?: string }).type === 'emoji' ? `[${(c as { source: string }).source}]` : (c as { text: string }).text)),
+]));
+it('paste differential', { timeout: 1190000 }, () => {
+  const out: Record<string, object> = {};
+  ALL.forEach((text, i) => {
+    BASES.forEach((base, b) => {
+      for (const place of ['start', 'end'] as const) {
+        const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, SURFACE);
+        editor.children = getInitialValue(base, SURFACE, false) as Descendant[];
+        const last = editor.children.length - 1;
+        Transforms.select(editor, place === 'start' ? Editor.start(editor, [0]) : Editor.end(editor, [last]));
+        const baseText = flattenNodeText(editor.children);
+        const at = place === 'start' ? 0 : baseText.length;
+        const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+        const row: Record<string, unknown> = {};
+        try {
+          (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data);
+          const finalText = flattenNodeText(editor.children);
+          row.snap = JSON.stringify({ c: editor.children, s: editor.selection });
+          row.shapes = shapes(editor.children as Element[]);
+          row.freshOk = JSON.stringify(row.shapes) === JSON.stringify(shapes(getInitialValue(finalText, SURFACE, false) as Element[]));
+          row.textOk = finalText === baseText.slice(0, at) + text + baseText.slice(at);
+          editor.insertText('Z');
+          row.zOk = flattenNodeText(editor.children) === baseText.slice(0, at) + text + 'Z' + baseText.slice(at);
+          row.zText = flattenNodeText(editor.children).slice(0, 300);
+        } catch (e) { row.error = String(e).slice(0, 100); }
+        out[`${i}|${b}|${place}`] = row;
+      }
+    });
+  });
+  writeFileSync(process.env.CRPROBE_OUT as string, JSON.stringify({ ALL, BASES, out }));
+});

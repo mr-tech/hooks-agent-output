@@ -1,0 +1,9 @@
+136|4|end '> ```\n> x\n> ```' '>>> a\nb' textOk True True zOk True True
+  line 0 85ece66 ["blockQuote",">>> ",false,"",["a"]] | tip ["blockQuote",">>> ",false,"",["a"]] 
+  line 1 85ece66 ["blockQuote","",false,"",["b> ```"]] | tip ["blockQuote","",false,"",["b> ```"]] 
+  line 2 85ece66 ["codeBlock",null,true,"",["> x"]] | tip ["codeBlock",null,true,"",["> x"]] 
+  line 3 85ece66 ["blockQuote","> ",true,"",["```"]] | tip ["blockQuote","",true,"",["> ```"]] <<
+136|6|end '> ```\n> x\n> ```' '>>> a' textOk True True zOk True True
+  line 0 85ece66 ["blockQuote",">>> ",false,"",["a> ```"]] | tip ["blockQuote",">>> ",false,"",["a> ```"]] 
+  line 1 85ece66 ["codeBlock",null,true,"",["> x"]] | tip ["codeBlock",null,true,"",["> x"]] 
+  line 2 85ece66 ["blockQuote","> ",true,"",["```"]] | tip ["blockQuote","",true,"",["> ```"]] <<

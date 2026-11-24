@@ -1,0 +1,21 @@
+member | fill | N | af3d95a r1/r2 (throw?) | line=1.25*max(base medians at N, same kind+fill) | 2b82972 r1/r2 | over? | tip err/mismatch | 85ece66 r1/r2
+close: Backspace at middle closing ``` | a | 200 | 13.5/13.1  | 22.0 | 5.1/5.1 | within | -/0,0 | 5.2/5.2 
+close: Backspace end of ``` line 2 | a | 200 | 17.1/16.6 T | 22.0 | 6.6/8.3 | within | -/0,0 | 6.9/7.4 
+open: third backtick at middle closing delimiter | a | 200 | 13.3/13.3  | 22.0 | 5.4/5.3 | within | -/0,0 | 5.4/5.4 
+open: third backtick end of line 2 | a | 200 | 17.6/16.6 T | 22.0 | 6.6/7.6 | within | -/0,0 | 7/8.4 
+close: Backspace at middle closing ``` | a | 1000 | 30.9/29.4 T | 58.5 | 24.5/28.6 | within | -/0,0 | 26.2/28.2 
+close: Backspace end of ``` line 2 | a | 1000 | 42.3/46.8 T | 58.5 | 38.2/39 | within | -/0,0 | 37.9/38.6 
+open: third backtick at middle closing delimiter | a | 1000 | 32.1/31.6 T | 58.5 | 29/28.3 | within | -/0,0 | 27.3/28.1 
+open: third backtick end of line 2 | a | 1000 | 38.8/39.4 T | 58.5 | 39.4/41 | within | -/0,0 | 39.4/39.2 
+close: Backspace at middle closing ``` | a🙂 | 200 | 15.2/15.4  | 36.1 | 22.3/22.7 | within | -/0,0 | 21.7/33.3 
+close: Backspace end of ``` line 2 | a🙂 | 200 | 22.4/25.5 T | 36.1 | 96.9/99.6 | OVER | -/0,0 | 264.5/301.4 
+open: third backtick at middle closing delimiter | a🙂 | 200 | 15.4/14.8 T | 36.1 | 40.4/41.8 | OVER | -/0,0 | 76.5/83.7 
+open: third backtick end of line 2 | a🙂 | 200 | 25.4/28.9 T | 36.1 | 76.9/72 | OVER | -/0,0 | 66.1/81.1 
+close: Backspace at middle closing ``` | a🙂 | 1000 | 33.6/33.3 T | 65.2 | 166.8/169.7 | OVER | -/0,0 | 169.8/165.2 
+close: Backspace end of ``` line 2 | a🙂 | 1000 | 48.5/52.2 T | 65.2 | 1230.7/1301.4 | OVER | -/0,0 | 7879.6/7681.7 
+open: third backtick at middle closing delimiter | a🙂 | 1000 | 37.8/35.2 T | 65.2 | 381.2/392.5 | OVER | -/0,0 | 1690.5/1576.7 
+open: third backtick end of line 2 | a🙂 | 1000 | 46.7/48.5 T | 65.2 | 437.6/458.3 | OVER | -/0,0 | 421.8/457.9 
+paste through insertData | a | 200 | 134.4/130.9  | 168.0 | 50.7/50.4 | within | -/0,0 | 414.8/448.8 
+paste through insertData | a | 1000 | 1742.2/1789.3  | 2236.6 | 718.4/934.3 | within | -/0,0 | 10253.9/10509.1 
+paste through insertData | a🙂 | 200 | 252.8/257.1  | 321.4 | 151.4/162.4 | within | -/0,0 | 973.6/1073.6 
+paste through insertData | a🙂 | 1000 | 3225.6/3237.8  | 4047.2 | 2316.9/2397 | within | -/0,0 | 27171.6/25834.2 

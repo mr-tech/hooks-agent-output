@@ -2,9 +2,9 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "85ece66 — repos=website; Round 7 is M6 Fix Round 2 at 85ece66 (42128cd..85ece66); Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
+Reviewed-At: "2b82972 — repos=website; Round 8 is M6 Fix Round 3 at 2b82972 (85ece66..2b82972); Round 7 is M6 Fix Round 2 at 85ece66 (42128cd..85ece66); Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
 Status: In Review
-Round: 7
+Round: 8
 Verdict: REJECTED
 ---
 
@@ -35,6 +35,7 @@ Verdict: REJECTED
 | 2026-11-24T06:54 | implementer-019 (M6 hand-off, record `128c224d`, `Handoff-At: 119471f`; steering's brief not yet arrived) | Review M6 | Round 6 at `119471f`: **APPROVED_WITH_COMMENTS**. CR-18 and CR-19 RESOLVED. AC-6.1b's read holds at `5ec0621` and the tip. The run-unit move is decision-neutral: 0 of 36,690 nodes differ, and the m5-d2 control gives 24. CR-20 MEDIUM, measured: the normaliser rebuilds the run unit per line on every operation, 71 ms per keystroke at 400 lines against 1.1 ms at the base (about 20 ms at 200 lines). It is a stated limit under the cap and goes to steering as an owner question. CR-21 LOW: `emoji-regex` has no importer. |
 | 2026-11-24T09:29 | implementer-019 (M6 Fix Round 1, record `9c6bb958`, `Handoff-At: 42128cd`); planner-019 (dispositions, R-92, record `7100aab8`); steering-hooks-fixer (a finding reached outside the hand-off route: two helper measurements, effort rulings block 09:22Z, record `ed4ab9b8`); steering's brief for the round not arrived | Round 6 sub-entry: confirm CR-20 | Round 6 sub-entry at `42128cd` (tree = `10abfa9`): **APPROVED_WITH_COMMENTS**. CR-20 RESOLVED: one unit build per call, both sweeps reconciled, 2 of 2 mutants KILLED by assertion on the count test. AC-6.8's timed limb holds in its shape (5.5 ms at 2,048 lines). The residue is confirmed by a fixed-point oracle: 8 of 27,252 keystrokes, every one in an unclean-fence input, a wider family than recorded. CR-22 LOW: a failed bench median hangs the run (exit 124). CR-23 MEDIUM, steering's route, re-measured: closing a fence costs 416 ms at 2,048 lines against 166 ms at `119471f`, because of the whole-unit settle per dirty line. It is a stated limit pending the owner's word through steering. Milestone-scoped: the plan Status is not moved. |
 | 2026-11-24T19:40 | implementer-019 (M6 Fix Round 2, record `0a086b41`, `Handoff-At: 85ece66`); steering's brief for the round not arrived | Review M6 Fix Round 2 (AC-6.9) | Round 7 at `85ece66`: **REJECTED** on CR-25 HIGH, whole-run work repeated per operation, because both new memories are keyed on `editor.children`. Closing a code fence above 1,000 emoji lines (3,999 characters) takes 7.6 s, where the chain base throws in 48 ms; a paste of 200 emoji lines takes 940 ms against the base's 241. CF-30's form holds (Slate 0.123.0's budget read; no `catch`, no `shouldNormalize`). The caret fix covers its class: 306 of 36,560 keystrokes differ, all in the selection, each now on the edited line. No throw, mounted or not. The bench fails by assertion (planted ceiling: exit 1, 4.7 s). CR-24 LOW: the mounted test swallows the act's error. CR-23's named member is resolved and its class carried by CR-25. D-24's words govern the fence member. Milestone-scoped: the plan Status is not moved. |
+| 2026-11-24T22:55 | implementer-019 (M6 Fix Round 3, record `731ff3a1`, `Handoff-At: 2b82972`); steering-hooks-fixer (blocks 20:58Z `493aa6cc`, 22:41Z `40823e74`); planner-019 (SL-29 brief, `e241aa14`; R-111, `b1f0f60c`) | Review M6 Fix Round 3 (CR-25, D-26, CR-24) with SL-29 | Round 8 at `2b82972` (a round: `retypeLines`' marker change is outside the findings): **REJECTED** on CR-25 HIGH's time member, 7 of 8 `a🙂` fence members over SL-29's line (line-2 close 1,230.7 ms at 1,000 lines against the base's 52.2 ms throw), already sent back under D-24 by block 22:41Z. CR-25's count member RESOLVED (count limb red at `85ece66` by assertion, linear at the tip); CR-24 RESOLVED; paste within the line at both sizes and fills; 0 of 39,320 keystrokes differ; CR-26 LOW new (4 of 15,966 pastes: a fence-closing `> ` line inside `>>>` keeps its marker in its text). Evidence `verification/019/code-review/m6fix3-2b82972/`. |
 
 ## Scope of this round
 
@@ -1589,10 +1590,125 @@ CR-24 LOW Round 7 (AC-6.9; a stated limit under the cap)
   - The paste member is outside D-24's words but in the same class. A HIGH is outside the cap and off the rounds-stop ladder.
   - Steering is told, so it can read the cap for paste if it reads it otherwise.
 
+## Round 8 at `2b82972` (M6 Fix Round 3: CR-25, D-26, CR-24)
+
+**Why a round, not a sub-entry.** `2b82972` changes `retypeLines` (`holdsMarkerInText`), which no finding named. The whole delta
+`85ece66..2b82972` is therefore reviewed as a first review of that tree. The delta is 7 commits and 8 files, one of them production
+(`withNormalizeNode.ts`, +36 −9).
+
+**Identity, and the record read.**
+- Website HEAD was `2b82972` at the start and at the end. Files were read through `git show`, and the probes ran in exports.
+- Stage start is the hand-off: implementer-019's message and the implementation document's "Fix Round 3" at `Handoff-At: 2b82972`
+  (record `731ff3a1`).
+- The plan read is Revision 23, with the Decisions Register through D-27 and R-111.
+- Steering's rulings read: block 20:58Z (SL-29's comparator, record `493aa6cc`) and block 22:41Z (record `40823e74`). Under 22:41Z,
+  SL-29's `a🙂` fence members are already ruled over the line and go back under D-24, and this review runs without a hold.
+- The planner's R-111 (record `b1f0f60c`, CF-33's form under AC-6.9's no-throw limb) is for Fix Round 4. It is not read against this
+  tree.
+
+**Criteria assessed** (as they stood at round open):
+- CR-25's falsity signature: the two count cases, at most 10 times the count at 1,000 lines as at 200.
+- D-26's paste members.
+- CR-24's Required Action.
+- SL-29: tip beside `af3d95a`, with the load, judged against block 20:58Z's line.
+- AC-6.9's four limbs, on the delta's own `a🙂` and paste cases.
+
+**Reading, file by file.**
+- `withNormalizeNode.ts`:
+  - `resolveEmoji` now settles every line of the run through `settleLine`, which loops until `resolveLine` reports nothing, and
+    then takes the settled set for the current children.
+  - `editor.apply` carries the settled memo across `insert_node` of an empty text (`keepsSourceText`).
+  - `insertTextData` is wrapped in `Editor.withoutNormalizing`.
+  - `retypeLines` treats a `blockQuote` with stored prefix `''` outside a multi-line quote as holding its marker in its text.
+  - CF-32's form (key on line objects) is not taken. The implementer's reason holds: a lift replaces the line's object, and the
+    padding replaces it again. The count limb is what decides, and it passes. The departure is disclosed in Fix Round 3.
+- Tests:
+  - The count limb uses pass-through `vi.mock`s of `spansInLine` and `afterLine`, with a hand literal of 10 and a positive control.
+  - The settle limbs now take `a🙂` and paste cases, through `limbs()`.
+  - The mounted test no longer has its `.catch`.
+  - There is one `emoji-keeps-line-text` case and three paste-into-quote cases.
+  - Every test is spec-form and placed beside the code it covers. No test is bug-form, and none was owed: every defect here is
+    intra-chain.
+  - Helpers: `pasteAtSelection`, `pasteLines` and `linesOf` are each used by two files, so the third-duplicate lift rule is not
+    reached. `FENCE_KEYSTROKES` and `EMOJI_*` extend the found helper.
+- No source comment is added.
+
+### Checks run this round
+
+All are under `verification/019/code-review/m6fix3-2b82972/` (README there). The box load was 1.4 to 3.7.
+
+| Check | Result |
+|---|---|
+| SL-29, two interleaved rounds over `af3d95a`, `2b82972` and `85ece66` (`sl29-table.txt`) | **Paste, within the line at both sizes and fills.** `a`: 50.7/50.4 ms at 200 lines (line 168.0) and 718.4/934.3 ms at 1,000 (line 2,236.6). `a🙂`: 151.4/162.4 at 200 (line 321.4) and 2,316.9/2,397.0 at 1,000 (line 4,047.2). No throws, 0 mismatches. **The `a🙂` fence members: 7 of 8 are over the line** (lines 36.1 ms at 200 and 65.2 at 1,000). The line-2 close takes 96.9/99.6 ms at 200 and **1,230.7/1,301.4 ms at 1,000**. The middle close is within the line at 200 (22.3/22.7). The base throws on 7 of the 8. The tip throws on none and has 0 mismatches. This reproduces the implementer's figures (at `3d988f7`) at the tip, and steering's 22:41Z ruling already disposes of it. |
+| Per-operation cost of the line-2 close over `a🙂` (the same rows) | 790 operations in 96.9 ms at 200 lines (123 µs each), and 3,990 operations in 1,230.7 ms at 1,000 (308 µs each). The growth is in the cost of each operation, not only in their number. That is an input to architect-019's lift design read. |
+| Counts (`fence-emoji-count-*.jsonl`, `paste-count-*.jsonl`, Round 7's probes) | **Linear at the tip.** Close over `a🙂`: 1 build and 97/197/397/797 line settles at 50/100/200/400 lines. At `85ece66` the same keystroke made 71 to 596 builds and 2,469 to 159,794 settles. Paste of `a🙂`: 1 build and 200/400/800 fence reads at 100/200/400 lines, against 15,149 to 240,599 at `85ece66`. |
+| The committed count limb, run at `85ece66` with its helpers (`red-count-limb-85ece66.log.txt`) | Exit 1, failing by assertion: 4 failed and 3 passed. The figures are 999494 ≤ 398940, 250249 ≤ 100490, 1000999 ≤ 401990 and 1501499 ≤ 602990, the same as the implementer's red log. |
+| Keystroke differentials (`crprobe.keystroke-fixedpoint`, `crprobe.keystroke-settle`) | **0 of 36,560 and 0 of 2,760 differ** in document and selection. The same 8 and 1 non-fixed-point keystrokes occur at both trees, with 0 errors. caret-line-check finds nothing to classify. |
+| Paste differential (mine: 15,966 pastes, 9 bases including `> q`, `>>> a` and `a\n> b\nc`; `paste-compare.out.txt`) | Text limb: 0 regressions. Caret limb (type Z after the paste, expected value from the input strings): 0 regressions. Errors: 0 at both trees. Raw selection differs in 95 pastes, and in every one the next typed character lands in the same place, so the difference is only in how the selection is stored. **Fresh-load limb: 4 regressions** (CR-26) and 7 improvements. The 246 failures shared by both trees predate this round. |
+| CR-25's enumeration, re-run at `2b82972` with the identity predicate widened (`children === `) | 3 hits in `withNormalizeNode.ts`: `linesAgree`, `settledIn` and the carry. That matches the implementer's sweep. The second instrument, `new WeakMap\|useMemo\|memo` over `src/components/SlateEditor`, finds the same 2 memories and the React render memos, which are per render, not per operation. |
+| CR-24's class: `git grep -n "catch("` over `src/components/SlateEditor/**/__tests__/**` | 0 hits. The settle limbs' `try` records the error and asserts that it is `''`. The implementer's red log at `42128cd` shows 23 of 42 failing on Slate's iteration error. |
+| `convention-check.js website --since=85ece66` | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 foreign `.playwright-mcp` captures, plus the ID-token check). By hand, the added lines hold no ID token: the one hit is "1,000" in a title, a count. They add no comment line. |
+
+### Findings (Round 8)
+
+CR-25 HIGH Round 7: **the count member is RESOLVED; the time member is not, and it goes to Fix Round 4 under D-24** (block 22:41Z).
+- Class gone, on counts: `settledIn` resets no more than once per edit, and the paste drains once. Both counting cases fail at
+  `85ece66` and pass at the tip.
+  - Check that fails if it returns: `withNormalizeNode.keystroke-run-unit-builds.test.tsx`'s "in proportion to the lines" cases.
+  - NM-82 survives as QAF-54's stated limit.
+- Not gone, on time: 7 of SL-29's 8 `a🙂` fence members are over the line, so CR-25 stays unresolved, as F-57 placed it.
+  - Per-operation cost grows 2.5 times from 200 to 1,000 lines, so fewer operations per line may not be enough on their own. The
+    figures go to the architect's read.
+  - Check that fails if it returns: `sl29-table.txt`'s probe, re-run at Fix Round 4's tip. It is not a suite case.
+
+CR-24 LOW Round 7: **RESOLVED.** The `.catch(() => undefined)` is gone, and the class has 0 hits in the SlateEditor tests.
+- Check that fails if it returns: `SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx` itself (23 of 42 red at
+  `42128cd`).
+
+CR-26 LOW Round 8 (M6; this round's `retypeLines` change)
+- **Location**: `withNormalizeNode.ts` `holdsMarkerInText` and its use in `quotePrefixOf` and `retypeLines`, at `2b82972`.
+- **Class**: `retypeLines`' rule for whether a quote line's `> ` lives in its text or in `quotePrefix` disagrees with the load
+  path's (`getInitialValue`) for some line states. Two implementations of one rule.
+  - Member: inside a `>>>` quote, a pasted fence-closing `> ```` line stays `["blockQuote","",true,"",["> ```"]]`.
+  - A fresh load and `85ece66` build `["blockQuote","> ",true,"",["```"]]` (`paste-regression-shapes.out.txt`).
+  - Text and caret are right at both trees, so the saved text is unchanged. What differs is the line's shape until a reload.
+- **Enumeration**: the paste differential's fresh-load limb, read as "tip wrong where `85ece66` right": 4 hits of 15,966. They are
+  text `> ```\n> x\n> ```` at the end of `>>> a\nb` and of `>>> a`, two of the 887 texts each.
+  - The predicate does not see a keystroke that makes such a line. The keystroke differential compares trees, not fresh loads.
+  - It also does not see bases outside the nine.
+  - The 246 fresh-load failures shared by both trees are pre-existing members of the same broad class, not this round's.
+- **Required Action**:
+  - **Preferred (structural)**: `retypeLines` decides a line's marker placement with the same function the load path uses for
+    that line state, so the two cannot disagree. Its callers, `linesAgree` (`!update`) and the `update` pass, take the decision
+    unchanged in form.
+  - **Minimum**: inside a multi-line quote, a `> `-led line that opens or closes a fence takes its marker into `quotePrefix`, as a
+    fresh load does.
+  - **Falsity signature**: a paste-into-quote case asserting `lineShapes` equal to a fresh load. For a paste of `> ```\n> x\n>
+    ```\nc` at the end of `>>> a`, at `2b82972` the assertion fails on the fence-closing line (`""` against `"> "`).
+  - Fixture property: the fence-closing line is neither the first nor the last line of the paste.
+- Rides Fix Round 4 (block 22:41Z: this round's findings and the architect's read go into one round). A LOW below the cap, it
+  would otherwise be a stated limit.
+
+INFO: the implementer's SL-29 readings were taken at `3d988f7`, not at the tip. `2b82972` changes `retypeLines`, which every drain
+runs, so the tip reading was owed. It is now in the record (`sl29-table.txt`) and agrees with the implementer's within noise. No
+action is owed.
+
+### Verdict, Round 8
+
+**REJECTED** for M6 at `2b82972`, on CR-25 HIGH's time member, which steering has already sent back under D-24 (block 22:41Z).
+- Everything else holds:
+  - CR-25's count member and CR-24 are RESOLVED;
+  - the paste is within SL-29's line at both sizes and fills, and 0.38 to 0.74 times the base;
+  - no keystroke or paste of mine throws;
+  - 0 of 39,320 keystrokes differ from `85ece66`.
+- CR-26 LOW rides Fix Round 4.
+
+Round 8's Assumption Not Checked is in § Assumption Not Checked.
+
 ## Verdict
 
 **Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
-- M6 is **REJECTED** at `85ece66` (Round 7), on CR-25 HIGH: whole-run work repeated per operation, 7.6 s to close a code fence above 1,000 emoji lines, and paste 2.5 to 9 times the base. CR-24 LOW is a stated limit. CR-23's named member is resolved and its class carried by CR-25. CR-22 LOW stands for AC-6.8's bench. Before Round 7, M6 was APPROVED_WITH_COMMENTS at `42128cd` (Round 6 sub-entry); D-24 then reopened it.
+- M6 is **REJECTED** at `2b82972` (Round 8), on CR-25 HIGH's time member: 7 of SL-29's 8 `a🙂` fence members are over the line (1.2 s to close a fence above 1,000 emoji lines, against the base's 50 ms throw), and steering has already sent them back under D-24 (block 22:41Z). CR-25's count member and CR-24 are RESOLVED, the paste is within SL-29's line, and CR-26 LOW is new. Before that, M6 was **REJECTED** at `85ece66` (Round 7), on CR-25 HIGH: whole-run work repeated per operation, 7.6 s to close a code fence above 1,000 emoji lines, and paste 2.5 to 9 times the base. CR-24 LOW is a stated limit. CR-23's named member is resolved and its class carried by CR-25. CR-22 LOW stands for AC-6.8's bench. Before Round 7, M6 was APPROVED_WITH_COMMENTS at `42128cd` (Round 6 sub-entry); D-24 then reopened it.
 - M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`, with its sub-entry for QAF-39 at `cf126ea`, checked on M5's source).
 - M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`). CR-17 is a LOW stated limit and does not move it.
 - M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
@@ -1614,7 +1730,9 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 
 ## Required Actions
 
-Blocking (Round 7, M6 at `85ece66`): **CR-25 HIGH**. Eliminate the class, whole-run or whole-document work repeated for every
+Blocking (Round 8, M6 at `2b82972`): **CR-25 HIGH, the time member**: bring the `a🙂` fence keystrokes within SL-29's line (block 20:58Z) at 200 and 1,000 lines, keeping the count limb and D-24's throw fix, in the lift form architect-019's design read gives (block 22:41Z). Fix Round 4 also carries **CR-26 LOW** (marker placement inside a `>>>` quote).
+
+Blocking (Round 7, M6 at `85ece66`, superseded by Round 8): **CR-25 HIGH**. Eliminate the class, whole-run or whole-document work repeated for every
 operation of a multi-operation edit, by its Preferred form or another that meets its falsity signature: the two counting cases over
 emoji-bearing lines, for a fence close and a paste. CR-24 LOW rides the same round if the implementer touches the mounted test; it
 is otherwise a stated limit.
@@ -1667,6 +1785,8 @@ Round 2's Assumption Not Checked is closed at Round 4: it held for list type and
 
 Round 6: This review assumes that slate-react in Chrome routes Enter and Shift+Enter in a `> ` quote line through `editor.insertBreak` and `editor.insertSoftBreak`, the two methods M6's carry overrides, as the jsdom drive does, and does not test it. The suite drives the editor's methods, not the browser's `beforeinput` path. Falsity signature: in Chrome on a local production build, `> a`, Enter, `b` saves `> a\nb` (no carried marker), or Shift+Enter carries where Enter does. Owner: UAT, at AC-6.7's human-observable walk on AC-6.3's local build.
 
+Round 8 at `2b82972`: This review assumes that the per-keystroke and per-paste times in Chrome, with slate-react mounted, keep the ratio to the chain base that unmounted jsdom gives, and does not test it. Every SL-29 reading here is node and jsdom, unmounted. Falsity signature: in Chrome on a local production build of Fix Round 4's tip, a paste of 1,000 `a🙂` lines into the embed description, profiled, takes more than 1.25 times the same paste at `af3d95a`, where node gives about 0.7 times. Owner: QA Phase 2 on Fix Round 4 (SL-29's entry condition), or UAT's B-11 walk if QA has no browser.
+
 Round 7 at `85ece66`: This review assumes that a paste in Chrome reaches slate-react's `insertData` and splits into one operation set per line, as my unmounted drive of `insertData` does, and does not test it. I timed the paste unmounted, because the mounted helper's fake timers freeze the clock, so CR-25's paste magnitude rests on that path. Falsity signature: in Chrome on a local production build of `85ece66`, pasting 200 lines of `a🙂` into the embed description, profiled, shows normalise time within a few times the chain base's for the same paste (where node gives 940 ms against 241 ms). Owner: QA Phase 2 on CR-25's fix round, against the counting case's figures, or UAT's B-11 walk if QA has no browser.
 
 Round 6 sub-entry at `42128cd`: This review assumes that in a mounted editor in Chrome, the residue's unsettled line (an emoji shown as text after a key that crosses an unclean fence) is settled by the next keystroke anywhere in its unit, and does not test it. I tested the residue against a forced `Editor.normalize` in node, not against later typing or slate-react's render. Falsity signature: in Chrome on a local production build of `42128cd`, after typing `` ` `` at the start of `q` in `q⏎```ts⏎``a 🙂⏎```⏎🙂`, the 🙂 on line 2 stays plain text after a further keystroke on line 0 or 2, or the editor throws. Owner: UAT, at B-10's human-observable walk on AC-6.3's local build.
@@ -1694,7 +1814,10 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
   - the refresh pass on M3's `380e82d` (QAF-32 and QAF-33);
   - the M3 items as before.
 - Planner (`planner-019`): CR-11, CR-12, CR-14 and CR-16 as stated limits in the Planner batch (CR-13 is resolved).
-- Implementer (`implementer-019`): **CR-25 HIGH** (Round 7, REJECTED at `85ece66`). Its falsity signature and my probes are in `verification/019/code-review/m6fix2-85ece66/`. CR-24 LOW too if the mounted test is touched.
+- Implementer (`implementer-019`), Fix Round 4: **CR-25 HIGH's time member** (Round 8, REJECTED at `2b82972`) with architect-019's lift design read, and **CR-26 LOW**. The SL-29 probe and the paste differential are in `verification/019/code-review/m6fix3-2b82972/`.
+- Architect (`architect-019`): Round 8's per-operation cost (123 µs at 200 lines, 308 µs at 1,000, line-2 close over `a🙂`), for the lift design read.
+- QA (`qa-019`): no M6 hand-off until Fix Round 4 is reviewed. Round 8's Assumption Not Checked is QA's on that round.
+- Implementer (`implementer-019`), superseded: **CR-25 HIGH** (Round 7, REJECTED at `85ece66`). Its falsity signature and my probes are in `verification/019/code-review/m6fix2-85ece66/`. CR-24 LOW too if the mounted test is touched.
 - Planner (`planner-019`): CR-25's plan gap (no emoji-bearing fill, and no paste, in AC-6.9's text class) and CR-24 as a stated limit.
 - Steering (`steering-hooks-fixer`): Round 7's reject holds a production defect's fix. D-24's words govern the fence member; the cap reading for the paste member is steering's.
 - QA (`qa-019`): no M6 hand-off until CR-25's fix is reviewed. Round 7's Assumption Not Checked is QA's on that round.
@@ -1724,7 +1847,9 @@ Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fix
   both-trees decorator differential) was not owed.
 - **Done since (Round 7).** M6 Fix Round 2 at `85ece66` is REJECTED on CR-25 HIGH, with CR-24 LOW. Probes are in
   `verification/019/code-review/m6fix2-85ece66/`.
-- **Next (pending).** Fix Round 3 (CR-25), which reaches this review at its hand-off. It is a sub-entry of Round 7 unless it
+- **Done since (Round 8, 2026-11-24T22:55Z).** M6 Fix Round 3 at `2b82972` is REJECTED on CR-25's time member (steering block 22:41Z already sends it back under D-24). CR-25's count member and CR-24 are RESOLVED, and CR-26 LOW is new. The evidence is in `verification/019/code-review/m6fix3-2b82972/`.
+- **Next (pending).** Fix Round 4 (CR-25's time member with architect-019's lift design read, and CR-26), at its hand-off. It is a sub-entry of Round 8 unless it touches beyond those findings. Re-run, from `m6fix3-2b82972/`: `run-sl29.sh` (all three trees, judged against block 20:58Z's line, both fills), `run-diff.sh` (paste and keystroke differentials, counts) and the committed count limb at `85ece66`. Read R-111 (CF-33's form under the no-throw limb): where a suppression is used, a forced `Editor.normalize` after every keystroke member, at every N, applies no operation, and the suppression covers only the replacement operations built from the load path.
+- **Superseded (Fix Round 3 plan).** Fix Round 3 (CR-25), which reaches this review at its hand-off. It is a sub-entry of Round 7 unless it
   touches beyond CR-25's scope, in which case it is Round 8. First read the owner's answer on the paste member (steering's next
   rulings block after 19:43Z), and any plan revision the planner writes for CR-25's gap.
   1. Read the fix diff at its `Handoff-At` through `git show`. Exports go by `git archive` into the scratchpad, with
@@ -1779,7 +1904,7 @@ Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fix
   Sources: the fence medians are from `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl`, and the paste medians from
   `planning/paste-refute/out-af3d95a.jsonl`.
 - **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `85ece66`. I never move it. The
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `2b82972`. I never move it. The
   record is on `master`.
 - **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds probe copies and outputs, all disposable;
   the exports are deleted.

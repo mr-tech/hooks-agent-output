@@ -1,0 +1,71 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import markdown from '~/utils/markdown';
+beforeAll(() => {});
+const parser = markdown.interactive.parseEmoji;
+const fresh = (text: string) => getInitialValue(text, parser, false);
+const build = (text: string) => { const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parser); e.children = fresh(text) as Descendant[]; return e; };
+const median = (xs: number[]) => xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+const shape = (lines: Element[]) => lines.map((line) => JSON.stringify([
+  line.type, line.quotePrefix ?? null, line.startCodeBlock, line.lang,
+  line.children.map((c) => ((c as { type?: string }).type === 'emoji' ? `[${(c as { source: string }).source}]` : (c as { text: string }).text)),
+]));
+const mid = (n: number) => Math.floor(n / 2);
+const lines = (n: number, own: Record<number, string>, fill: string) => Array.from({ length: n }, (_, i) => own[i] ?? fill).join('\n');
+const back = (_e: Editor, at: (e: Editor, n: number) => number) => (ed: Editor, n: number) => { Transforms.select(ed, Editor.end(ed, [at(ed, n)])); ed.deleteBackward('character'); };
+const tick = (at: (e: Editor, n: number) => number) => (ed: Editor, n: number) => { Transforms.select(ed, Editor.end(ed, [at(ed, n)])); ed.insertText('`'); };
+const two = () => 2; const middle = (_: Editor, n: number) => mid(n);
+type M = { name: string; before: (n: number) => Record<number, string>; after: (n: number) => Record<number, string>; act: (e: Editor, n: number) => void };
+const FENCE: M[] = [
+  { name: 'open: third backtick end of line 2', before: () => ({ 2: '``' }), after: () => ({ 2: '```' }), act: tick(two) },
+  { name: 'close: Backspace end of ``` line 2', before: () => ({ 2: '```' }), after: () => ({ 2: '``' }), act: back(null as never, two) },
+  { name: 'open: third backtick at middle closing delimiter', before: (n) => ({ 2: '```', [mid(n)]: '``' }), after: (n) => ({ 2: '```', [mid(n)]: '```' }), act: tick(middle) },
+  { name: 'close: Backspace at middle closing ```', before: (n) => ({ 2: '```', [mid(n)]: '```' }), after: (n) => ({ 2: '```', [mid(n)]: '``' }), act: back(null as never, middle) },
+];
+it('SL-29 members', { timeout: 1190000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a🙂', 'a']) {
+    for (const n of [200, 1000]) {
+      const reps = n === 200 ? 5 : 3;
+      for (const m of FENCE) {
+        const times: number[] = []; let error = ''; let mismatch = -1; let firstBad = ''; let ops = 0;
+        for (let k = 0; k < reps; k += 1) {
+          const editor = build(lines(n, m.before(n), fill));
+          let count = 0; const { apply } = editor; editor.apply = (op) => { count += 1; apply(op); };
+          const t0 = performance.now();
+          try { m.act(editor, n); } catch (e) { error = String(e).slice(0, 70); }
+          times.push(performance.now() - t0);
+          if (k === 0) {
+            ops = count;
+            const got = shape(editor.children as Element[]);
+            const want = shape(fresh(lines(n, m.after(n), fill)) as Element[]);
+            mismatch = got.filter((s, i) => s !== want[i]).length + Math.abs(got.length - want.length);
+            const i = got.findIndex((s, j) => s !== want[j]); if (i >= 0) firstBad = `line ${i}: ${got[i]} want ${want[i]}`.slice(0, 160);
+          }
+        }
+        rows.push({ kind: 'fence', fill, n, name: m.name, medianMs: +median(times).toFixed(1), times: times.map((t) => +t.toFixed(1)), ops, error, mismatch, firstBad });
+      }
+      const times: number[] = []; let error = ''; let mismatch = -1; let ops = 0;
+      for (let k = 0; k < reps; k += 1) {
+        const editor = build('');
+        editor.selection = { anchor: Editor.start(editor, []), focus: Editor.start(editor, []) };
+        const text = Array.from({ length: n }, () => fill).join('\n');
+        const data = { getData: (f: string) => (f === 'text/plain' ? text : ''), types: ['text/plain'], files: [], items: [] } as unknown as DataTransfer;
+        let count = 0; const { apply } = editor; editor.apply = (op) => { count += 1; apply(op); };
+        const t0 = performance.now();
+        try { (editor as unknown as { insertData: (d: DataTransfer) => void }).insertData(data); } catch (e) { error = String(e).slice(0, 70); }
+        times.push(performance.now() - t0);
+        if (k === 0) { ops = count; const got = shape(editor.children as Element[]); const want = shape(fresh(text) as Element[]); mismatch = got.filter((s, i) => s !== want[i]).length + Math.abs(got.length - want.length); }
+      }
+      rows.push({ kind: 'paste', fill, n, name: 'paste through insertData', medianMs: +median(times).toFixed(1), times: times.map((t) => +t.toFixed(1)), ops, error, mismatch });
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

@@ -1,0 +1,4 @@
+keystrokes 2760 inputs 28
+differ 0 []
+A non-fixed-point 1 ['8|0|start|\\'] errors 0
+B non-fixed-point 1 ['8|0|start|\\'] errors 0

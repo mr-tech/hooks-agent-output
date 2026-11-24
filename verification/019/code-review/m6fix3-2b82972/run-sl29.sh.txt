@@ -1,0 +1,10 @@
+#!/bin/sh
+# usage: run-sl29.sh <scratch dir>; two interleaved rounds over af3d95a, 85ece66, 2b82972
+S=$1; D=src/components/SlateEditor/utils/__tests__; OUT=$S/out; mkdir -p $OUT
+for r in 1 2; do for s in af3d95a 2b82972 85ece66; do
+  f=crprobe.sl29-tip.test.tsx; [ $s = af3d95a ] && f=crprobe.sl29-base.test.tsx
+  echo "$s r$r load_before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+  ( cd $S/e-$s && CRPROBE_OUT=$OUT/sl29-$s-r$r.jsonl timeout -k 10 1200 unshare -rn npx vitest run $D/$f > $OUT/log-$s-r$r.txt 2>&1 ); rc=$?
+  echo "$s r$r exit $rc load_after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+done; done
+echo done >> $OUT/loads.txt
