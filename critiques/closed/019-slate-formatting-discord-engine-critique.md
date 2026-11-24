@@ -3,16 +3,19 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 11 pass 1 on plan revision 17: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37, F-40 and F-45 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17) and F-44 are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71). F-46 (SL-19) and F-47 (SL-20) close as landed-by-author, stated limits for the plan's Planner batch. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 12."
-Artifact-Revision: 17 — read as the delta 30e2a5b8..34850209 (cycle 11 pass 1)
-Reviewed-At: "34850209 — repos=agent-output; website read at 119471f"
+Status-Detail: "Cycle 11 pass 2 on plan revision 18: APPROVED, and closed at that pass. F-1 to F-33, F-36, F-37, F-40 and F-45 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19) and F-47 (SL-20) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row). F-48 is closed by property with stated limit SL-21 and closes as landed-by-author; whether it is a further revision of AC-6.8 is with steering under its block 07:15Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 12."
+Artifact-Revision: 18 — read as the delta 34850209..18e434e6 (cycle 11 pass 2)
+Reviewed-At: "18e434e6 — repos=agent-output; website read at 119471f"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 17 (`34850209`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 17 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 18 (`18e434e6`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 18 as deltas.
+**Read at cycle 11 pass 2**: the plan's diff `34850209..18e434e6`; effort rulings block 2026-11-24T07:15Z (record
+`5638dfe6`) and the tail of block 07:13Z quoted in its diff; website at `119471f`: `withNormalizeNode.ts` at `splitCarrying`;
+slate 0.123.0 from the website's `node_modules`, run on a plain editor (Appendix, "Slate probe").
 **Read at cycle 11 pass 1**: the plan's diff `30e2a5b8..34850209`; QA's document at "Re-key on Revision 16" (QAF-43, QAF-44,
 NM-70 to NM-72), as it stands at record `d53b1b30` or later; website at `119471f`: `withNormalizeNode.ts` at its
 `editor.normalizeNode` override, `splitCarrying` and `resolveCarried`, `runUnit.ts` at `unitAround`, `vitest.config.ts` at
@@ -108,7 +111,51 @@ for the 15,480 figure.
 | 2026-11-24T07:14 | planner-019 (message naming revision 17 at `34850209`) | cycle 11 pass 1: plan revision 17 | Cycle 11 opens because revision 17 changes AC-6.8's text. Depth: delta-bounded; the delta `30e2a5b8..34850209` is 46 added and 20 removed lines (`git diff --numstat`, 2 commits, 1 of them a registration), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added NM-72 and B-10, and CF-25, CF-26, QAF-43, QAF-44 and SL-18 in registration rows. The diff, read whole, changes AC-6.8 only; its other hunks are the header, the changelog, the owed re-verdicts table and Planner batch rows. Artifact changes: the count limb is an equality per pass with a positive control and a `vi.mock` observation, its window, character and positions are fixed, a 1,000-line `a🙂` text joins both limbs, and the timed limb's home is a bench file. Findings addressed: F-45 RESOLVED. New findings: F-46 (MEDIUM), three new members under F-45's property, stated limit SL-19; F-47 (LOW), stated limit SL-20. M7 is out of scope for this pass. Verdict APPROVED. |
 | 2026-11-24T07:14 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-46 and F-47 close as landed-by-author, their discharging document the plan's Planner batch. |
 
+| 2026-11-24T07:19 | planner-019 (message naming revision 18 at `18e434e6`; steering block 07:15Z asks for it inside the current read) | cycle 11 pass 2: plan revision 18 | Taken as pass 2 of cycle 11, as block 07:15Z asks, though pass 1 had closed. Depth: delta-bounded; the delta `34850209..18e434e6` is 24 added and 12 removed lines (`git diff --numstat`, 3 commits, 2 of them registrations), fully readable as a diff, and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added CF-27, F-46, F-47, SL-19 and SL-20, all in registration rows. The diff, read whole, changes AC-6.8's window and property lines only; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table and Planner batch rows. Artifact changes: the count window is one `Editor.normalize` drain and the literal is the lines the keystroke dirties (1, 2, 1). Findings addressed: F-46 (1) and (3) are superseded by the new literal, and (2) stands as SL-19. New finding: F-48 (MEDIUM), the second instance of CF-27's shape, closed by property with stated limit SL-21, the stop authority firing; it is sent to steering under block 07:15Z. Verdict APPROVED. |
+| 2026-11-24T07:19 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-48 closes as landed-by-author, its discharging document the plan's Planner batch. |
+
 ## Verdict
+
+**APPROVED — cycle 11, pass 2.** The stop authority fired on one shape (F-48). The hard stop did not fire (pass 2 of 15 in
+this cycle). Pricing: sized to the ask plus his rulings. Revision 18 changes two lines of the one criterion his 07:05Z
+selection added. It is the count limb's third text in three revisions, and the question that follows from that is routed
+below.
+
+CR-20's fix round is released by this gate only as read with SL-21, and steering holds the call on whether SL-21 is a
+revision. The architect's and QA's reads of revision 18 are separate.
+
+What holds in revision 18's delta:
+- **The fold is the block's.** Only AC-6.8's window and literal move, to the reading block 07:15Z names.
+- **The window is a unit Slate has.** Run in this pass on slate 0.123.0: one keystroke's `normalize` calls `normalizeNode`
+  for each dirty text, line and the editor.
+- **Two of the three literals are what a plain editor does.** An in-line insert or delete sends 1 line to `normalizeNode`,
+  and Enter sends 2.
+- **The red tree is still red**: at `119471f` the per-line loop adds one build for every line.
+
+**Stop authority: F-48.** The literal still rejects a correct fix for some keystrokes in the class, which is CF-27's shape
+again, folded one revision ago. Run in this pass: a merge sends its one line to `normalizeNode` twice, against the literal 1,
+and Enter followed by the marker write `splitCarrying` makes on a `> ` line sends lines 3 times over two drains, against the
+literal 2. It is not sent back by this gate. The class is stated once as a property over the seven keystroke cases, checked
+by the probe, and the gap is stated limit SL-21 with its bearer.
+
+**Routed to steering, not to the owner by this gate.** Block 07:15Z says a reading that replaces a criterion's literal is a
+criterion change. SL-21 is such a reading, so whether it is revision 19 or stays a limit is steering's ruling. The scope
+question goes with it: three revisions have gone to the exact count per keystroke kind, which QAF-43 added and his option
+text ("a test that counts that work") did not ask for in that form. Whether the exact literal should stay, or the limb
+should return to a bound with QAF-43's positive control, is put to steering as a selection. Classed ship: the fix round
+shows a wrong literal as a red case within its first run, and nothing ships on it.
+
+**F-46**: (1) and (3) are superseded, as the plan's row says, and (2) stands as SL-19. The row keeps the implementer's
+two-unit exhibit; under the new literal nothing depends on it.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `18e434e6`).
+
+The cycle 11 pass 1 verdict follows, as written at that pass.
 
 **APPROVED — cycle 11, pass 1.** The stop authority stays fired on F-45's shape, and its new members are stated limits
 (F-46). The hard stop did not fire (pass 1 of 15 in this cycle). Pricing: sized to the ask plus his rulings. Revision 17
@@ -571,6 +618,12 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 11 pass 2: this pass assumes that the website's `normalizeNode` override, with the fix in CF-25's form, sends lines
+to `handleElement` as often as a plain editor sends them to `normalizeNode`, and does not test it. The probe ran plain slate
+with no override. If it is false, for example because `handleEditor` rewrites a line's type and dirties it again, the count
+on the fixed tree is higher than SL-21's figures for that keystroke. The signature is a build count above the recorded
+`normalizeNode` line entries. The implementer owns closing it in M6's fix round, from the record AC-6.8 already owes.
+
 Cycle 11 pass 1: this pass assumes that no keystroke in AC-6.8's class leaves two run units each holding a line it changed,
 and does not test it. The ground is a read of `unitAround` at `119471f`, not a run: a unit is every adjacent line that is not
 a code block, so two units always have a code-block line between them, and one keystroke changes one line or two adjacent
@@ -671,6 +724,34 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 11 pass 2
+
+F-48 MEDIUM cycle 11 pass 2 — closed by property with stated limit SL-21; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of CF-27 in `architecture/019-slate-formatting-discord-engine-architecture-findings.md`
+- **Title**: AC-6.8's literal counts lines dirtied, and builds follow line entries to `normalizeNode`, which differ for a
+  merge and for Enter on a `> ` line.
+- **Location**: plan revision 18, AC-6.8 "Count": "The window" and "The property".
+- **Description**: under CF-25's form the unit is built once each time `normalizeNode` receives a line. The literal is "the
+  number of lines the keystroke dirties": 1 in-line, 2 for Enter, 1 for a merge. Run on slate 0.123.0 (Appendix): a Backspace
+  at a line's start and a Delete at a line's end each leave one line and send it to `normalizeNode` twice. Enter sends 2
+  lines; where the line carries a marker, `splitCarrying` then writes the marker in a second `withoutNormalizing` block,
+  which is a second drain and a third line entry. The window is "one `Editor.normalize` drain after the keystroke", and
+  that keystroke has two.
+- **Impact**: the literal fails a correct fix on 3 of the 7 keystroke cases below: both merges, on every text, and Enter on
+  the `> ` texts and the corpus's quote lines. The plan's "the merge fixture's literal comes from QA's read of what the
+  merge dirties" gives QA the merge, and a read of what it dirties gives 1.
+- **The property, in place of a revision**: for every keystroke case in the class, the literal equals the number of times
+  `normalizeNode` receives a line over every drain the keystroke runs, on a plain slate editor. Its domain is seven cases.
+  The probe gives: in-line insert 1; in-line delete 1 (backward run, forward not run); Enter 2; Enter with the marker write
+  3; merge backward 2; merge forward 2. The plan's literals agree on the first three and differ on the last three; the
+  seventh, in-line delete forward, is unrun.
+- **SL-21, the reading M6 builds to**: the literal for a keystroke case is the count of line entries to `normalizeNode` over
+  all the drains that keystroke runs, written by hand from the record AC-6.8 already owes ("the `normalizeNode` calls per
+  keystroke kind"), never from the unit builder. The implementer bears it in the fix round and records the figure per case;
+  QA at Phase 2 reads each literal against that record, and a case whose count the record does not explain goes to the
+  planner.
+- **Landing trigger**: steering's ruling under block 07:15Z, as revision 19 or as a Planner batch row folded at the seam
+  after the last milestone's QA Phase 2.
 
 ### Closed at cycle 11 pass 1
 
@@ -1098,7 +1179,7 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-Written at the close of cycle 11 pass 1 on 2026-11-24 (APPROVED on plan revision 17, `34850209`). Nothing is in flight, no process is running and no question awaits an answer. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-46 with SL-19 and F-47 with SL-20 for the Planner batch) and `implementer-019` (CR-20's fix round is released by this gate, read with SL-19 and SL-20). A third revision of AC-6.8 is steering's to decide before any fold. M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 12: read the plan as the `git diff` from `34850209` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+Written at the close of cycle 11 pass 2 on 2026-11-24 (APPROVED on plan revision 18, `18e434e6`). Nothing is in flight and no process is running. One question awaits an answer: F-48 with SL-21, and whether the count limb keeps an exact literal, sent to `steering-hooks-fixer` as a selection under its block 07:15Z. The cache-warm wake is armed in this session; after a clear, arm it again. The verdict was sent to `planner-019` (F-48 with SL-21) and `implementer-019` (CR-20's fix round is released by this gate only as read with SL-21, pending steering). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 12: read the plan as the `git diff` from `34850209` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
@@ -1133,3 +1214,18 @@ with its default flags (`Syntax.ALL`), 2026-11-23.
 nine letters, and for `<t:1700000000>` with no style.
 
 **Heading levels.** `# a`, `## a` and `### a` return headings of level 1, 2 and 3. `#### a` and `##### a` return a paragraph.
+
+## Appendix — Slate probe (cycle 11 pass 2)
+
+slate 0.123.0 from the website's `node_modules`, Node 24.14.0, 2026-11-24. A plain `createEditor()` with three one-text
+lines `a`, `bc`, `d`, no website override, and `normalizeNode` wrapped to log each entry. Each row is one keystroke on a
+fresh editor, with the entries in the order received.
+
+| Keystroke | `normalizeNode` entries | Line entries |
+|---|---|---|
+| `Transforms.insertText` of `x` inside line 1 | text 1.0, line 1, editor | 1 |
+| `deleteBackward` inside line 1 | text 1.0, line 1, editor | 1 |
+| `insertBreak` inside line 1 | line 1, text 2.0, text 1.0, line 2, editor | 2 |
+| `insertBreak`, then `setNodes` on the new line inside `withoutNormalizing`, as `splitCarrying` does | the row above, then line 2, editor | 3, over two drains |
+| `deleteBackward` at the start of line 1 (a merge) | line 0, text 0.0, line 0, editor | 2 |
+| `deleteForward` at the end of line 1 (a merge) | line 1, text 1.0, line 1, editor | 2 |
