@@ -1688,17 +1688,35 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-**Since the checkpoint.** Cycle 14 ran on plan revisions 21 (`81523bd6`, pass 1) and 22 (`960052d1`, pass 2), which added
-and restated AC-6.9 and were not the seam fold. Both passes are APPROVED and closed. F-52 is resolved and SL-25 is
-withdrawn. F-53, F-54, F-55's last two points and F-56 are stated limits SL-26 to SL-28. Each verdict was sent to
-`planner-019`. Cycle 15 pass 1 ran on revision 23 (`49a20690`, CR-25's answer and D-26's paste members): APPROVED and
-closed, with F-57 HIGH closed by property as SL-29, an entry condition on QA Phase 2 of M6's third fix round, and F-58
-LOW under SL-26. SL-29 stays an entry condition by his selection at 20:54Z (effort rulings block 20:54Z), with no
-revision 24. The next pass is the seam fold's read, now cycle 16, read as the `git diff` from `49a20690` with M7 whole. The fold should carry SL-11 to SL-24 and
-SL-26 to SL-29, and that pass sweeps SL-1 to SL-24 for the class F-52's reconcile note names. The cache-warm wake is armed
-again. The checkpoint below is otherwise as written.
+Checkpoint written at steering's ask on 2026-11-24T21:02Z, at a seam, for a clear. It replaces the checkpoint of 08:09Z
+(this document at record `0fa902d`) and carries each of its standing items below.
 
-Checkpoint written at steering's ask on 2026-11-24T08:09Z, at a seam, for a clear. Closed at cycle 13 pass 1 (APPROVED on plan revision 20, `cf7e4d91`; this document at record `1c6ee275`). Nothing is in flight, nothing is uncommitted, no process is running and no question awaits an answer. **Next pass: the seam fold's read.** The fold is a plan revision the planner writes after the last milestone's QA Phase 2 on M6 and before the UAT anchor; it lands the open Planner batch rows' text and M7's re-argument paragraph, and it opens cycle 14. M7 is read there for the first time since its `PREMISE-STALE` mark, so that pass reads M7 whole and the rest as a delta. The fold should carry this critique's stated limits SL-11 to SL-24 as their batch rows say; check each against its row. Steering's block 07:21Z makes every AC-6.8 finding below HIGH a stated limit, and block 07:42Z reopened it for revision 20 only. The cache-warm wake was deleted at this checkpoint; on resume, arm it again. The plan's registrations after `cf7e4d91` (to R-90 at `14309101`) were not read. The verdict was sent to `planner-019` (F-50 with SL-23 and F-51 with SL-24) and `implementer-019` (the hand-off of CR-20's fix round is released by this gate, read with SL-23 and SL-24). M7 is `PREMISE-STALE` (plan R-76) and is not reviewed until the planner's re-argument revision at the seam fold. M3 to M6 are capped (effort rulings blocks 22:35Z and 00:49Z): a finding below HIGH is a stated limit with no revision round, a severity floor excepted; under block 04:18Z a further AC-6.5 gap below HIGH is a stated limit. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection prompt, never as prose here. A later criterion-changing revision opens cycle 14: read the plan as the `git diff` from `cf7e4d91` with the ID-set comparison computed in memory (no file written from the shell), and work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`: shell in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only) and steering's two standing decisions in the effort rulings file (block 17:56Z, the M4 and M6 cap; block 18:02Z, any AC-4.7 gap to steering before a fold).
+- **Done.** Closed at cycle 15 pass 1: APPROVED on plan revision 23 (`49a20690`), this document at record `d58217d4`,
+  with his 20:54Z selection on F-57 recorded at `0fa902d`. Cycle 14 passes 1 and 2 (revisions 21 and 22) are APPROVED and
+  closed. Every verdict was sent to `planner-019`, and F-57's form to `steering-hooks-fixer`, which answered.
+- **Finding state.** F-52 is resolved and SL-25 is withdrawn. F-53 (SL-26), F-54 (SL-27), F-55's last two points (SL-28),
+  F-56 and F-58 (both under SL-26) are stated limits in the plan's Planner batch; F-58's row was not seen registered.
+  F-57 HIGH is closed by property as SL-29, an entry condition on QA Phase 2 of M6's third fix round, with no revision 24
+  by his selection (effort rulings block 20:54Z).
+- **In flight.** Nothing. Nothing is uncommitted, no process of this session is running, no scratch file is left, and no
+  question awaits an answer. The record repository is on `master`.
+- **Next pass: the seam fold's read, cycle 16.** The fold is the plan revision the planner writes after the last
+  milestone's QA Phase 2 on M6 and before the UAT anchor. It lands the open Planner batch rows' text and M7's re-argument
+  paragraph. Read it as the `git diff` from `49a20690`, with M7 whole: M7 is `PREMISE-STALE` (plan R-76) and has not been
+  reviewed since that mark. The fold should carry SL-11 to SL-24 and SL-26 to SL-29 as their batch rows say; check each
+  against its row. That pass also sweeps SL-1 to SL-24 for the class F-52's reconcile note names, and checks that the
+  record holds SL-29's timed readings. A criterion-changing revision before the fold opens cycle 16 instead.
+- **Not read.** The plan's registrations after `49a20690`. The architect's and QA's reads of revision 23.
+- **Standing rulings.** M3 to M6 are capped (effort rulings blocks 17:56Z, 22:35Z and 00:49Z): a finding below HIGH is a
+  stated limit with no revision round, a severity floor excepted. Block 04:18Z does the same for AC-6.5, block 07:21Z for
+  AC-6.8, and block 14:48Z for AC-6.9, where revision 22 was the last fold. Block 18:02Z sends any AC-4.7 gap to
+  steering before a fold. Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection
+  prompt, never as prose here.
+- **Method.** Work under the brief (`steering/019-brief-critic.md`, `steering/slate-formatting-brief-common.md`): shell
+  in the record folder, website by `git show <sha>:<path>`, record documents by Write or Edit only. Compute the ID-set
+  comparison in memory. A scratch copy written from the shell names its scratchpad path literally, never through a
+  variable.
+- **Wake.** The cache-warm wake was deleted at this checkpoint. On resume, arm it again.
 
 ## Appendix — engine probes (cycle 1 pass 2)
 
