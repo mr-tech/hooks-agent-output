@@ -4,6 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 16 (record 30e2a5b8, AC-6.8 keystroke cost, D-23): APPROVED. CF-25 (LOW: resolve the changed
+  line's unit once from handleElement and drop handleEditor's all-lines loop; count through a vi.mock pass-through, not a
+  production counter) and CF-26 (LOW: the timed limb as a vitest bench file in the repo) are stated limits for M6's fix round.
+  They hold nothing.
   Delta pass on plan 019 revision 15 (record 79eeced6, QAF-40 and QAF-41 folds): APPROVED. CF-24 (LOW: take remedy (a); the
   package's parseLossless gives each emoji node its span and source text on the pinned wasm, so the helper needs no join) is a
   stated limit for the M6 implementer under block 04:18Z. It holds nothing.
@@ -53,6 +57,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T07:09 | architect-019 | Delta pass on plan 019 revision 16 (record `30e2a5b8`); § Delta pass, revision 16. APPROVED; CF-25 and CF-26 LOW raised as stated limits | Commissioned by `planner-019`'s message under effort rulings block 07:05Z. Read as `git show 30e2a5b8` on the plan. Website `119471f` was read through `git -C … show`/`grep`. Nothing was run. |
 | 2026-11-24T06:55 | architect-019 | Open items gain the Packaging line's release-time rewrite and CR-21's unimported `emoji-regex` | From `code-reviewer-019`'s message. Verified at website `119471f` and `master` through `git -C … show`/`ls-tree`/`grep`. `system-architecture.md` is not edited, because its line still states `master`. |
 | 2026-11-24T04:20 | architect-019 | Delta pass on plan 019 revision 15 (record `79eeced6`); § Delta pass, revision 15. APPROVED; CF-24 LOW raised as a stated limit | Commissioned by `planner-019`'s message. Read as `git show 79eeced6` on the plan, with website `2e36107` `engine.ts`. The package's `parseLossless` was run on the pinned 0.16.0 in a capped scope; the capture is in `verification/019/architect-conformance/rev15/`. |
 | 2026-11-24T04:06 | architect-019 | Delta pass on plan 019 revision 14 (record `2c3c8d1a`); § Delta pass, revision 14. APPROVED; CF-22 and CF-23 LOW raised as stated limits under the M6 cap. CF-21's disposition recorded (freezing kept on D-21's option text) | Commissioned by `planner-019`'s message under effort rulings block 04:00Z. Read as `git show 2c3c8d1a` on the plan. Website `2e36107` and `8cb4d83` were read through `git -C … show`/`grep`, and the installed `slate-dom` 0.123.0 `insertTextData` was read read-only. |
@@ -75,7 +80,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21**, **CF-22**, **CF-23** and **CF-24** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-26** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -318,6 +323,64 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 16 (record `30e2a5b8`)
+
+Read as `git show 30e2a5b8` on the plan (42 insertions, 3 deletions). The commits before it since `79eeced6` are registration rows
+and stage records. The delta is AC-6.8, D-23, and CR-20's discharged row. Read beside it at website chain commit `119471f`, through
+`git -C … show`/`grep`:
+- `SlateEditor/utils/withNormalizeNode.ts`: `handleEditor`, `resolveEmoji`, `handleElement`'s tail, and the `normalizeNode`
+  dispatch;
+- `SlateEditor/utils/runUnit.ts` `unitAround`;
+- `decorator.tsx`'s `STYLE_CACHE_LIMIT`;
+- `package.json`'s scripts and the `vi.mock` uses under `SlateEditor/__tests__`.
+
+**Fit.** A bound on one keystroke's cost, standing as a count with the timing as evidence, is the right shape. It is the form
+CF-1 gave M5 (a per-element parse cache with a counted criterion), and the count's expected value is a literal (axiom E). The cause
+is where the plan places it. In `handleEditor`, when not updating, every line is passed to `resolveEmoji`, and each call builds
+`unitAround(editor.children, i, 'source')`. That walks the whole run unit, and then `emojiLayout` parses it. A run of N plain lines
+is one unit, so one pass builds and parses an N-line text N times. That is quadratic, which fits the re-timing: 17 ms at 200
+lines against 1,572 ms at 2,000, about ×100 for ×10.
+
+### CF-25 LOW — The fix's home: resolve the changed line's unit once, from `handleElement`, and drop `handleEditor`'s all-lines loop
+
+`handleElement` already ends `resolveEmoji(editor, surface, path[0])`, so Slate's own dirty-path walk already reaches each changed
+line. The editor-level loop exists so that a change on one line can re-decide emoji on other lines of its unit, such as a
+cross-line bold (F-40). That need is per unit, not per document.
+- **Recommended form.** `resolveEmoji` takes a unit and builds it once (`unitAround` and `emojiLayout`), then resolves each line
+  of that unit. `handleElement` calls it for the changed line's unit. The all-lines loop in `handleEditor` goes, and so does the
+  editor-level path's emoji work, keeping `resolveCarried` and the structure walk. The count limb's literal (one build per changed
+  unit, at most two for Enter or a merge) then falls out of the structure, not out of a dedupe.
+- **The other form**, keeping the loop and skipping lines whose unit was already built in this pass, also meets the count. But it
+  keeps an O(lines) walk on every pass, and a cache keyed on pass identity that the code does not have today.
+- **Not a production counter.** The count limb observes `unitAround` (or what replaces it) through a `vi.mock` pass-through of
+  `./runUnit` that wraps the real function. That follows the module mocks already used under `SlateEditor/__tests__`
+  (`vi.mock('~/providers/MarkdownProvider', …)`). A counter in `src` would be a test hook in production code.
+- **Unread, for QA Phase 1:** whether one keystroke that lifts an emoji runs more than one normalisation pass. `resolveEmoji`
+  returns after one transform, which makes Slate normalise again. The count is stated per pass. A per-keystroke reading would
+  need its own literal.
+
+LOW: the criterion holds either form, and this is the home. A stated limit. The cap is lifted for CR-20 under D-23, but this is
+below HIGH and not a defect.
+
+### CF-26 LOW — Give the timed limb a home in the repo: a `vitest bench` file, not a one-off probe
+
+AC-6.8's time limb runs "outside the standing suite" in M6's fix round and at QA Phase 2, but it names no home. The record's only
+precedent is one-off probes under `verification/019/impl/`, outside the website. Those cannot be re-run by a later chain that
+changes the normaliser. The re-run is exactly the event this bound guards.
+- **Recommended:** a `*.bench.ts` file beside the code, under `SlateEditor/utils/__tests__/`. `pnpm test` is `vitest run
+  --project node --project dom`, whose include is `src/**/*.test.ts`, so a bench file is outside it by name. Vitest's
+  `bench` reports the median and the high percentiles itself, and the 16 ms judgement is read from that report.
+- **Unread, for QA Phase 1:** how `vitest bench` behaves under this config's `projects` (vitest 4.1.2). If it does not fit, the
+  fallback is a named test file in an excluded folder, run by a named script. A probe in the record is not the fallback.
+
+LOW: the criterion's standing instrument is the count limb. A stated limit.
+
+**Residue.** Browser cost is unmeasured, and node is the instrument. Inputs outside the text class are bounded by the count, not
+the time. Both are stated. The human-observable form, no visible lag at 2,000 lines on UAT's build, is the one browser check, and
+it fits the observability the editor has: there is no runtime telemetry on keystroke cost.
+
+**Verdict on revision 16:** APPROVED. CF-25 and CF-26 are LOW stated limits for M6's fix round. Nothing needs the owner.
 
 ## Delta pass, revision 15 (record `79eeced6`)
 
