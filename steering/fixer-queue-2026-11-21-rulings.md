@@ -990,3 +990,19 @@ was asked to re-arm its wake. Lodged in `~/.claude/agents/INBOX.md` (FYI). **Thi
 it was copied at about 01:47Z. This is not re-sent (a record-hygiene correction).
 AC-5.7 timing, read from `implementer-019`'s pane (01:46Z), not yet committed: median 4.87 ms for a 4,160-character unit. This is below the
 docket's line of about 10 ms, so no D-15 prompt is owed unless the committed figure differs.
+
+## 2026-11-24T02:40Z — standing check: M3 round 8 driven to code review; QA asked to checkpoint; architect and analyst gone
+
+**M3:** round 7 (`d6aab03`) was approved by code review (`fed65ffa`). QA's refresh (`08b81933`) closed QAF-36 and failed on **QAF-38 MEDIUM**.
+Round 8 is at `81c68b2` (record `d43e2b40`, `Handoff-At` "handed back to QA's refresh pass"). The implementer sent it to `qa-019` alone. The
+transcript's SendMessage targets are the `qa-019` socket, `3919062`. `qa-019`'s pane (read 02:39Z) waits on code review's verdict. **The stall
+of block 01:47Z recurred, so this thread drove it:** `code-reviewer-019` was briefed on round 8 at 02:40Z.
+**qa-019** is at 346K, idle at a seam and past 325K. It was asked for `/checkpoint`, with an idle subscription. This thread clears it once its
+Resumption State is committed.
+**implementer-019** is at 341K, M5 not yet handed off. Its M5 document is still uncommitted (72+/33−), and its mutation sweep is running on a
+background shell. No ask is sent until its seam.
+**architect-019 and analyst-019 are gone.** Both are absent from ListAgents, `tmux-agent` and `cc-usage.py sessions`. Their transcripts (`ab4e1d8f`,
+`431f24ac`) end cleanly at 02:26:20Z and 02:26:38Z, with no turn and their cron wakes stopped. This thread did not stop them, and no record
+names a stop; the cause is unread. The coordinator is asked by message. The architect is respawned for the closing pass after M6, unless
+the coordinator says otherwise.
+Usage: weekly_all 45%, live; OOM 0.
