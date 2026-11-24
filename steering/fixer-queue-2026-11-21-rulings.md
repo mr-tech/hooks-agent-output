@@ -1059,3 +1059,14 @@ Premises: a `general-purpose-sonnet` refutation helper ran eslint at each SHA (c
 PARTLY. The unused `e` is local; the six `use-memo` sites are mechanical but behaviour-sensitive; the `editor.children` mutation is
 structural. The helper also found 100 other base messages that the tip does not show, cause not isolated (recorded in the handoff).
 Recipients: `implementer-019`, `code-reviewer-019` (told the question was pending), and `planner-019` (Planner batch stated limit).
+
+## 2026-11-24T03:49Z — plan 019 M6 stage start (this thread's, steering.md Implementer); implementer cleared
+
+`implementer-019` checkpointed at M5's hand-off (record `294cf515`, M5 document § Resumption State). It was cleared at 03:49Z
+(`tmux-agent clear`, exit 0). Before the clear it cited handoff 67001740 and removed the future stamp (`grep -c`: 2 and 0).
+**M6 starts on Revision 12** (`b0af4dc3`), approved by all three pre-code gates (block 01:02Z). Read this turn:
+- The plan's `OPEN QUESTION` lines not RESOLVED: 0.
+- One `handoff/` record was added since 22:30Z, this thread's 67001740 (`git log --diff-filter=A`). `planner-019` disposed of it as D-20 (R-59,
+  record `7e3d6c1d`, its message 03:4xZ), registration only and no scope delta.
+- The M5 and M6 flows hold no decision for him (`8bfb6f9e`), and M6 is capped (block 00:49Z).
+M6's code may touch `SlateEditor/index.tsx` under D-20: a new error there beyond the handoff's list is M6's own, per the planner.
