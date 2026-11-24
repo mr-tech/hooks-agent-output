@@ -1,0 +1,10 @@
+Running scope as unit: run-ree31065e5352421693a0c3c48e6c2ab8.scope
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/16578806-8133-49f3-acce-186117c5217c/scratchpad/paste-refute/85ece66
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  19:45:59
+   Duration  114.56s (transform 162ms, setup 20ms, import 329ms, tests 113.26s, environment 584ms)
+

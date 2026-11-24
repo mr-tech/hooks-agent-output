@@ -1,0 +1,8 @@
+#!/bin/bash
+S=/tmp/claude-1000/-usr-local-bin-hooks/16578806-8133-49f3-acce-186117c5217c/scratchpad/paste-refute
+for s in af3d95a 42128cd 85ece66; do
+ echo "$s load_before $(cat /proc/loadavg)" >> $S/loads.txt
+ cd $S/$s && CRPROBE_OUT=$S/out-$s.jsonl systemd-run --user --scope -p RuntimeMaxSec=900 -p MemoryMax=6G -p TasksMax=512 npx vitest run --project dom src/components/SlateEditor/utils/__tests__/pasteprobe.test.tsx > $S/log-$s.txt 2>&1
+ echo "$s exit $? load_after $(cat /proc/loadavg)" >> $S/loads.txt
+done
+echo done >> $S/loads.txt
