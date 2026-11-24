@@ -1134,3 +1134,22 @@ Premises:
 - "Four revisions since approval" is Revisions 10 to 13.
 **architect-019** was spawned fresh at 04:0xZ (`tmux-agent spawn slate-formatting architect architect-019 …`, exit 0; brief
 `steering/019-brief-architect.md`, `bfd216e2`) for Revision 13's delta read. Its pane was read past the start prompt, and it was working.
+
+## 2026-11-24T04:05Z — plan 019 Revisions 13 and 14 not re-put to him; M5 approved by code review
+
+`planner-019` committed Revision 14 (D-22, record `2c3c8d1a`), and the plan's `Revision` field reads 14. It folds his 04:00Z selection into a new
+AC-6.7 and AC-3.3's typed drive:
+- Enter continues a `> ` line.
+- A paste is saved exactly.
+- The first `> ` typed onto a carried marker replaces it.
+- A `>>>` block, or a fence opened on an unquoted line, carries nothing. That limb is the planner's reading, and Discord was not read for it.
+
+**Not put to him as a scope-delta prompt.** The delta is the execution of his selection five minutes earlier, under his "follow Discord" words,
+as at block 21:38Z. The `>>>` limb is a design choice inside that option, which he may veto.
+Revision 13 (D-21): critic APPROVED (`fad4948a`), and its F-40 is folded into Revision 14. The architect APPROVED with CF-21 LOW (`d9ddfd22`),
+on freezing the literals versus calling the helper live. The planner keeps the freeze, because his D-21 option text says "frozen after", and
+CF-21 is a stated limit under the M6 cap. **Not put to him:** it is below HIGH and capped, and his own words chose the freeze.
+**M5:** code review Round 5 APPROVED_WITH_COMMENTS (plan row `11d4e7c6`). CR-17 to CR-19 LOW are Planner batch rows (R-61, `d34e941c`). QA
+Phase 2 on M5 is next; the reviewer delivers to `qa-019`.
+`implementer-019` holds 4 mounted cases red under its S-29 fix (`8cb4d83`) until Revision 14's typed limb lands. Its message 04:0xZ was sent
+on to the planner by the implementer itself, as this thread asked.
