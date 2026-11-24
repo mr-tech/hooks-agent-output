@@ -1672,3 +1672,21 @@ not re-run here.
   225K, so it is asked for `/checkpoint`, cleared, and briefed for Round 4 naming its Resumption State.
 Recipients: `implementer-019` (it asked), `code-reviewer-019` (it applies SL-29 and need not rule on the fence members), `architect-019`
 (the design read), and `planner-019` (it registers this).
+
+## 2026-11-24T22:48Z — plan 019 CF-33: whether AC-6.9's no-throw limb admits the dirty-path override is the planner's to read (this thread's)
+
+`architect-019` committed its design read, CF-33 (agent-output `dffb4dc4`, findings changelog row 22:46, read this turn), and delivered it to
+`implementer-019`. Its figures, measured on plain Slate and not re-run here: both of the implementer's candidates stay quadratic, at 1,470
+to 1,559 ms for 1,000 lines. The one form that reaches SL-29's line rebuilds the changed lines from the load path, and overrides
+`editor.getDirtyPaths` to return `[]` for those operations. Its op floor is 11.6 ms at 1,000 lines. The site's own build time is unmeasured.
+By message (22:4xZ), the architect asks for one reading of AC-6.9's no-throw limb, so that code review and QA read it the same way.
+- **The limb's words** (plan lines 1563–1565, read this turn): it is "not met ... by any change that stops `Editor.normalize` from reporting
+  a drain that does not settle". The override takes lines out of the drain. The architect reads it as admitted, because the lines are settled
+  by construction and the fresh-load limb (lines 1571–1572) proves it. Read the other way, no form reaches the line.
+- **Ruling: the reading is `planner-019`'s.** The criterion is the plan's. A ruling on what a criterion requires, and any doubt about it, goes
+  to the planner (steering.md, Registration). The planner either records the reading against the limb's words with no revision, or names
+  the revision the form needs. A revision comes here before drafting. His D-27 choice took the path with "no further plan revision"
+  (block 20:54Z), so a Revision 24 is weighed here before any gate round.
+- Fix Round 4 now starts once three things have landed: code review's verdict on `2b82972`, CF-33, and this reading.
+Recipients: `planner-019` (the reading), `architect-019` (it asked). The reading reaches `implementer-019`, `code-reviewer-019` and `qa-019`
+from the planner's register, and from this thread's Round 4 brief.
