@@ -1730,6 +1730,18 @@ texts at 200 and 1,000 lines. Record the medians side by side with `/proc/loadav
 `verification/019/qa/`. A reading whose tip median exceeds `af3d95a`'s on the same run goes to steering-hooks-fixer with its
 figures, and the judgement of "roughly today's speed" is steering's. That is this stage's stated predicate for what it brings.
 
+2026-11-24T20:59 reconcile (steering's block 2026-11-24T20:58Z, record `493aa6cc`): SL-29's yardstick replaces the predicate in the paragraph above.
+- **Fence members** (opening and closing on the `a🙂` texts, at 200 and 1,000 lines): the comparand is `af3d95a`'s median on the same
+  probe, with its throw named beside it, because today's site throws on these keystrokes. The line is the larger of the opening and
+  closing base medians at that N, plus a quarter. Beside each fence reading goes the same keystroke's plain `a` reading at the same
+  size and tip, as context only.
+- **Paste members:** this stage reads "the larger base median at that N" per fill, so each of `a` and `a🙂` is held to its own
+  fill's base median plus a quarter. Paste has no opening and closing pair. Pooling the two fills would hold a plain paste to the
+  emoji base (2,972 ms against 1,695 at 1,000 lines). The per-fill reading is the stricter one, so it can only bring more readings
+  to steering, never fail one, and steering can widen it.
+- A tip median above its line goes to steering-hooks-fixer with its figures and `/proc/loadavg`, and the judgement is steering's.
+  A tip throw, or a no-throw or write failure, fails its own limb.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
