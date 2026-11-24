@@ -5,8 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 18 (record 18e434e6, AC-6.8). QAF-43 and QAF-44 are closed. NM-72's fixture is Enter mid
-  code line (two code-line units, literal 2); the merge's literal is 1 (P-Q23). QAF-42 LOW (R-69) stands. Register: B-1 to B-10.
+  Phase 1 re-keyed on plan 019 Revision 19 (record 4a68f286, AC-6.8's count without literals). NM-72 is dispositioned: the count
+  cannot redden it, and inside the class it is equivalent in behaviour. QAF-45 LOW: typing the > that makes >>> is outside the
+  class and the residue. QAF-42 LOW (R-69) stands. Register: B-1 to B-10.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -53,8 +54,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 18 (record
-`18e434e6`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 19 (record
+`4a68f286`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -80,6 +81,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T04:20 | planner-019 (message: Revision 15 at `79eeced6`, steering block 04:18Z) | Phase 1 re-key on Revision 15 | § Re-key on Revision 15. QAF-40 closed: remedy (b), five members with literals and the first-occurrence join mutant, in AC-6.5's control. QAF-41 closed: NM-68 and NM-69 in AC-6.7's "Seen red", and AC-3.3's drive keyed on the input's text. **QAF-42 LOW**: the fixtures need a line after the quoted one, or a stated Enter. Nothing holds AC-6.5's literal freeze on QA's account. |
 | 2026-11-24T07:10 | planner-019 (message: Revision 16 at `30e2a5b8`, steering block 07:05Z) | Phase 1 re-key on Revision 16 | § Re-key on Revision 16. Premise P-Q22: the keystroke cost at AC-6.8's sizes, both trees (433 ms and 1,798 ms at the tip, against 2.3 ms and 3.8 ms at M5). AC-6.8 is re-keyed, with named mutants NM-70 to NM-72. **QAF-43 MEDIUM**: the count limb is an upper bound on a function the fix may rename, so a counter that reads 0 passes. **QAF-44 LOW**: the sized texts hold no emoji element. **B-10** minted for the human-observable form. |
 | 2026-11-24T07:22 | planner-019 (messages: Revision 17 at `34850209`, Revision 18 at `18e434e6`; steering block 07:15Z) | Phase 1 re-key on Revisions 17 and 18, as one | § Re-key on Revisions 17 and 18. QAF-43 and QAF-44 closed. P-Q23 at `119471f`: the `vi.mock` observer sees the production builds (the positive control counts 2 at the tip). A merge in the class dirties one line, so its literal is 1. The two-unit keystroke in the class is Enter mid code line, which dirties two code-line units: NM-72's fixture, literal 2. A merge that removes a fence delimiter visits its line twice and is SL-19's residue. No new finding. |
+| 2026-11-24T07:25 | planner-019 (message: Revision 19 at `4a68f286`, steering block 07:21Z) | Phase 1 re-key on Revision 19 | § Re-key on Revision 19. The cross-size equality and the bound of 4 can fail at the tip. The floor is held by the control. NM-72 is dispositioned: the count cannot redden it, and inside the class it is equivalent in behaviour (code lines hold no element). P-Q24: typing the `>` that makes `>>> ` re-types every following line in one drain. **QAF-45 LOW**: that keystroke is outside the class and outside the residue. |
 
 ## Reading
 
@@ -1375,6 +1377,46 @@ Register sweep. The predicate is rows citing AC-6.8: B-10. Its predicted value d
 Rows inherited and not discharged: B-1 to B-10.
 
 Phase 1 is keyed to Revision 18. Open for the planner: QAF-42 LOW (R-69). QAF-43 and QAF-44 are closed.
+## Re-key on Revision 19
+
+Revision 19 (record `4a68f286`) was read as its diff from `18e434e6`. It changes only AC-6.8's count property: no per-kind
+literal, the same count at the 200-line and 2,048-line sizes (1,000 for `a🙂`, which gains a 200-line size), at least 1, and a
+hand bound of 4 on corpus and generator inputs. It also names NM-72's fixture and the fence-delimiter delete as residue (P-Q23).
+After it, an AC-6.8 finding below HIGH is a stated limit unless it is a severity floor (steering block 07:21Z).
+
+- **It can fail at the tip.** At `119471f` the count grows with the line count: 6 on 5 lines for an in-line insert (P-Q23).
+  So the 200-line and 2,048-line counts differ, and the corpus inputs of 4 or more lines exceed 4.
+- **The floor.** The positive control asserts at least 1, which a counter reading 0 fails. The tip reads 2 there.
+- **NM-72, dispositioned.** With no per-kind literal, a resolve on the first changed unit only counts 1 on the code-line Enter
+  fixture, and 1 satisfies every bound. So the count limb cannot redden it. Inside the class it is equivalent in behaviour: the
+  second changed unit is a code line, and a code line holds no emoji element (CF-9 reverts one in code), so skipping its resolve
+  changes no text and no element. Phase 2 on the fix round runs NM-72 and expects it to survive. If AC-6.5's typed-edit property
+  reddens it, that is a kill.
+- **CF-28 (plan R-85, record `47a9a9a0`), read in this re-key.** A many-unit sized text, `a⏎```⏎x⏎```⏎` repeated, at 200 and
+  1,364 lines, under the same cross-size equality. Agreed: every other sized text is one run unit, so a fix that rebuilds every
+  unit on each keystroke passed them. Code lines are units of their own (P-Q23), so this text holds about one unit per two lines.
+- **The corpus bound, 4.** It rests on the critic's Slate probe, which I read and did not re-run. P-Q23's in-class keystrokes
+  visit at most 2 lines at the tip, so it is consistent with this pass.
+
+**Premise run in this pass (P-Q24), a keystroke outside the class.** Same probe, `merge-dirties-119471f.json` (re-run, exit 0).
+Typing `>` at the start of `>> a`, which makes it `>>> a`, in a 5-line text re-types every following line in the same drain.
+The visits are `[0,0]`, `[0]`, `[]`, `[4]`, `[3]`, `[2]`, `[1]`, `[0,0]`, `[0]`, `[]`, and the tip builds 11. A Backspace that
+would break the marker is not a text edit: `>>> ` is held in `quotePrefix`, so a Backspace at offset 3 of the line's text did
+nothing.
+
+QAF-45 LOW Phase 1
+AC-6.8's keystroke class inserts a non-completing character such as `x`. So a keystroke that changes the quote structure of the
+lines after it is outside the count limb and the time limb, and no residue names it. Typing the `>` that makes `>>> ` (or the
+gesture that removes it) re-types every following line in one drain (P-Q24). A fix that resolves once per dirtied line still
+does work in proportion to the line count, times the unit's size, on that one keystroke. On a 2,048-line message that is one
+visible stall, which the human-observable form (B-10) does not type. The property wanted: either the sized `>>>` and `> ` texts
+take one keystroke that makes or breaks `>>> ` on their first line, under the same cross-size equality, or the residue names
+the class. Under block 07:21Z this is a stated limit.
+
+Register sweep. The predicate is rows citing AC-6.8: B-10. Its predicted value does not move, so it is checked and cleared.
+Rows inherited and not discharged: B-1 to B-10.
+
+Phase 1 is keyed to Revision 19. Open for the planner: QAF-42 LOW (R-69) and QAF-45 LOW.
 
 ## Blocking-condition register (the chain's one register)
 

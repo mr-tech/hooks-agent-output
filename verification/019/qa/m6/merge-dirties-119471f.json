@@ -348,5 +348,89 @@
    4
   ],
   "unitBuilds": 6
+ },
+ {
+  "name": "backspace breaks the >>> marker (5 lines)",
+  "text": ">>> a\nb\nc\nd\ne",
+  "line": 0,
+  "lineText": ">>> a",
+  "offset": 3,
+  "key": "backspace",
+  "after": ">>> a\nb\nc\nd\ne",
+  "types": [
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote"
+  ],
+  "normalisedPaths": [],
+  "unitBuildsByLine": [],
+  "unitBuilds": 0
+ },
+ {
+  "name": "backspace breaks the >>> marker (9 lines)",
+  "text": ">>> a\nb\nc\nd\ne\nf\ng\nh\ni",
+  "line": 0,
+  "lineText": ">>> a",
+  "offset": 3,
+  "key": "backspace",
+  "after": ">>> a\nb\nc\nd\ne\nf\ng\nh\ni",
+  "types": [
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote"
+  ],
+  "normalisedPaths": [],
+  "unitBuildsByLine": [],
+  "unitBuilds": 0
+ },
+ {
+  "name": "typing the third > makes >>> (5 lines)",
+  "text": ">> a\nb\nc\nd\ne",
+  "line": 0,
+  "lineText": ">> a",
+  "offset": 2,
+  "key": "insert-gt",
+  "after": ">>> a\nb\nc\nd\ne",
+  "types": [
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote",
+   "blockQuote"
+  ],
+  "normalisedPaths": [
+   "[0,0]",
+   "[0]",
+   "[]",
+   "[4]",
+   "[3]",
+   "[2]",
+   "[1]",
+   "[0,0]",
+   "[0]",
+   "[]"
+  ],
+  "unitBuildsByLine": [
+   0,
+   4,
+   3,
+   2,
+   1,
+   0,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "unitBuilds": 11
  }
 ]

@@ -21,7 +21,7 @@ const { default: flattenNodeText } = await import('../flattenNodeText');
 
 beforeAll(async () => { await startEngine(); });
 
-type Key = 'insert' | 'backspace' | 'delete' | 'enter';
+type Key = 'insert' | 'insert-gt' | 'backspace' | 'delete' | 'enter';
 function drain(name: string, text: string, line: number, offset: number | 'end', key: Key) {
   const editor = withNormalizeNode(createEditor(), false, 'embedDescription');
   editor.children = getInitialValue(text, 'embedDescription', false) as Descendant[];
@@ -36,6 +36,7 @@ function drain(name: string, text: string, line: number, offset: number | 'end',
   builds.length = 0;
   Editor.withoutNormalizing(editor, () => {
     if (key === 'insert') editor.insertText('x');
+    if (key === 'insert-gt') editor.insertText('>');
     if (key === 'backspace') editor.deleteBackward('character');
     if (key === 'delete') editor.deleteForward('character');
     if (key === 'enter') editor.insertBreak();
@@ -64,6 +65,9 @@ it('records what one drain normalises and builds per keystroke', { timeout: 1200
     drain('enter mid code line inside a fence', 'a\n```\nxy\n```\nb', 2, 1, 'enter'),
     drain('merge two code lines inside a fence', 'a\n```\nx\ny\n```\nb', 3, 0, 'backspace'),
     drain('in-line insert in a code line', 'a\n```\nxy\n```\nb', 2, 1, 'insert'),
+    drain('backspace breaks the >>> marker (5 lines)', '>>> a\nb\nc\nd\ne', 0, 3, 'backspace'),
+    drain('backspace breaks the >>> marker (9 lines)', '>>> a\nb\nc\nd\ne\nf\ng\nh\ni', 0, 3, 'backspace'),
+    drain('typing the third > makes >>> (5 lines)', '>> a\nb\nc\nd\ne', 0, 2, 'insert-gt'),
   ];
   writeFileSync(process.env.QA_OUT as string, JSON.stringify(rows, null, 1));
 });
