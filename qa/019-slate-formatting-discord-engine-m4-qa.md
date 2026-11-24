@@ -111,6 +111,7 @@ example, still leaves at least 1,915 held inputs (1,975 less at most 60), above 
 source-text kinds and X-27's timestamp, is true at `e58f2ed`: this pass re-derived the set by a tree walk (402 and 1, the same
 members). Remedy: assert the exclusion's membership against an independent fact, for example the walk's kinds, or the
 left-out sources as a literal list. Under the cap this is a stated limit for the Planner batch, sent to `planner-019`.
+Reconcile, 2026-11-24T01:30: registered as plan R-52, a Planner batch row (record `e5c73298`).
 
 ## Verdict
 
