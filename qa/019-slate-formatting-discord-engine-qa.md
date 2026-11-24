@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 19 (record 4a68f286, AC-6.8's count without literals). NM-72 is dispositioned: the count
-  cannot redden it, and inside the class it is equivalent in behaviour. QAF-45 LOW: typing the > that makes >>> is outside the
-  class and the residue. QAF-42 LOW (R-69) stands. Register: B-1 to B-10.
+  Phase 1 re-keyed on plan 019 Revision 20 (record cf7e4d91, AC-6.8's corpus bound removed and fenced-quote texts added). The
+  fenced-quote texts are red at 119471f (P-Q25). No new finding. QAF-42 LOW (R-69) stands; QAF-45 is folded as SL-22.
+  Register: B-1 to B-10.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -54,8 +54,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 19 (record
-`4a68f286`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 20 (record
+`cf7e4d91`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -82,6 +82,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T07:10 | planner-019 (message: Revision 16 at `30e2a5b8`, steering block 07:05Z) | Phase 1 re-key on Revision 16 | § Re-key on Revision 16. Premise P-Q22: the keystroke cost at AC-6.8's sizes, both trees (433 ms and 1,798 ms at the tip, against 2.3 ms and 3.8 ms at M5). AC-6.8 is re-keyed, with named mutants NM-70 to NM-72. **QAF-43 MEDIUM**: the count limb is an upper bound on a function the fix may rename, so a counter that reads 0 passes. **QAF-44 LOW**: the sized texts hold no emoji element. **B-10** minted for the human-observable form. |
 | 2026-11-24T07:22 | planner-019 (messages: Revision 17 at `34850209`, Revision 18 at `18e434e6`; steering block 07:15Z) | Phase 1 re-key on Revisions 17 and 18, as one | § Re-key on Revisions 17 and 18. QAF-43 and QAF-44 closed. P-Q23 at `119471f`: the `vi.mock` observer sees the production builds (the positive control counts 2 at the tip). A merge in the class dirties one line, so its literal is 1. The two-unit keystroke in the class is Enter mid code line, which dirties two code-line units: NM-72's fixture, literal 2. A merge that removes a fence delimiter visits its line twice and is SL-19's residue. No new finding. |
 | 2026-11-24T07:25 | planner-019 (message: Revision 19 at `4a68f286`, steering block 07:21Z) | Phase 1 re-key on Revision 19 | § Re-key on Revision 19. The cross-size equality and the bound of 4 can fail at the tip. The floor is held by the control. NM-72 is dispositioned: the count cannot redden it, and inside the class it is equivalent in behaviour (code lines hold no element). P-Q24: typing the `>` that makes `>>> ` re-types every following line in one drain. **QAF-45 LOW**: that keystroke is outside the class and outside the residue. |
+| 2026-11-24T07:45 | planner-019 (message: Revision 20 at `cf7e4d91`, steering block 07:42Z) | Phase 1 re-key on Revision 20 | § Re-key on Revision 20. P-Q25: the fenced-quote texts are many-unit, and at `119471f` they build 201 at 200 lines and 2,049 at 2,048, so they are red by differing counts. The bound's removal is agreed: the sized texts hold every unit structure. AC-6.8 is added to the register's user-report line. No new finding. |
 
 ## Reading
 
@@ -1417,6 +1418,34 @@ Register sweep. The predicate is rows citing AC-6.8: B-10. Its predicted value d
 Rows inherited and not discharged: B-1 to B-10.
 
 Phase 1 is keyed to Revision 19. Open for the planner: QAF-42 LOW (R-69) and QAF-45 LOW.
+## Re-key on Revision 20
+
+Revision 20 (record `cf7e4d91`) was read as its diff from `4a68f286`. It is AC-6.8's fifth revision (steering block 07:42Z).
+It removes the corpus and generator bound of 4, adds fenced-quote sized texts to the equality limb and its "Seen red", and
+names the corpus and generator inputs as residue, with their build distribution recorded as an observation.
+
+**Premise run in this pass (P-Q25).** Same probe, `merge-dirties-119471f.json` (re-run, exit 0). The four-line block is
+`> ```⏎> x⏎> ```⏎> y`, repeated 50 and 512 times, with `x` inserted at the end of line 1 (`> x`) at both sizes:
+- The Slate layer reads it as many units. Line types run `blockQuote`, `codeBlock`, `blockQuote`, `blockQuote` per repeat,
+  giving 50 and 512 code lines. Each code line is a unit of its own, so the text alternates quote runs and code-line units.
+- **It is red at the tip by differing counts**: 201 builds at 200 lines, 2,049 at 2,048. The drain visits `[1,0]`, `[1]` and
+  `[]`, so the growth is `handleEditor`'s loop over every line.
+
+**The removed bound.** The bound was 4. Implementer-019's maximum of 8 is its own report, which no one has re-derived, and this
+pass does not re-derive it either. Removing the bound leaves no count or time assertion on short inputs. That is agreed:
+- A fix decides cost by unit structure: where `codeBlock` lines split runs, and where quote and `>>>` lines extend them. It does
+  not decide cost by markdown construct.
+- The sized texts now hold every unit structure: one plain unit, one `> ` quote unit, one `>>>` unit, alternating code-line
+  units (CF-28), fenced-quote alternation, and an element on every line.
+- A construct inside a unit (a list, a heading, a spoiler, a link) does not change how many units a keystroke touches.
+- What stays uncaught is the residue the revision names: growth on a construct none of the sized texts holds. QAF-45's
+  `>>>`-marker keystroke is SL-22's member of it.
+
+Register sweep. The predicate is rows citing AC-6.8: B-10. Its predicted value does not move, so it is checked and cleared. The
+user-report line under the register gains AC-6.8: a user report of a pause on an input outside the sized texts is recorded
+there, dated, with its text. Rows inherited and not discharged: B-1 to B-10.
+
+Phase 1 is keyed to Revision 20. No new finding. Open for the planner: QAF-42 LOW (R-69). QAF-45 LOW is folded as SL-22.
 
 ## Blocking-condition register (the chain's one register)
 
@@ -1447,7 +1476,8 @@ Rows inherited and not discharged: B-1 to B-6, all open (no implementation exist
 **User reports recorded against the register (revisions 13 and 14).** No instrument reads these, so they are not rows. A user
 report of an emoji that Discord's client lifts or leaves as text, where the engine decides otherwise, is recorded here under
 AC-6.5, dated, with its text and the stage that read it. So is a user report that a continued quote cannot be ended, under
-AC-6.7 (B-9). None is recorded yet.
+AC-6.7 (B-9). So is a user report of a pause on an input outside AC-6.8's sized texts, under AC-6.8 (B-10; revision 20).
+None is recorded yet.
 
 ## Assumption Not Checked
 
