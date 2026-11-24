@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 4 failed) 45ms
+     × reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse 24ms
+     × reports both surfaces behind the switch, no call to the facade 8ms
+     × reports only the embed behind the switch, and only its description call left 3ms
+     × reports only the V2 text behind the switch, and only the embed title without links left 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the embed behind the switch, and only its description call left
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the V2 text behind the switch, and only the embed title without links left
+OracleError: discord-oracle: fetching https://discord.com/assets/abcd.js failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ loadLazyChunks src/utils/markdown/__tests__/helpers/discordBuild.ts:167:20
+ ❯ src/utils/markdown/__tests__/helpers/discordRouting.ts:47:7
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:112:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 8 passed (12)
+   Start at  02:15:27
+   Duration  786ms (transform 51ms, setup 0ms, import 603ms, tests 45ms, environment 0ms)
+
+exit 1

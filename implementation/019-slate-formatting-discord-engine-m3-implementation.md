@@ -4,10 +4,10 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine; fix round 7 (CR-15) is handed back to code review at d6aab03.
+  M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine; fix round 8 (QAF-38) is handed back to QA at 81c68b2 (round 7, CR-15, was approved by code review at d6aab03).
   Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
   jsdom paste drive does not show (Outstanding 7).
-Handoff-At: d6aab03 — repos=website — M3 fix round 7 (CR-15) handed back to code review; round 6 was b04c09f; at this SHA's tree the whole offline suite ran 223 files, 3,268 of 3,268, exit 0 (`m3-suite-r7-d6aab03.{log.txt,exit}`), typecheck exit 0 (`m3-r7-typecheck.txt`)
+Handoff-At: 81c68b2 — repos=website — M3 fix round 8 (QAF-38) handed back to QA's refresh pass; round 7 was d6aab03; at this SHA's tree the whole offline suite ran 223 files, 3,272 of 3,272, exit 0 (`m3-suite-r8.{log.txt,exit}`), typecheck exit 0 (`m3-r8-typecheck.txt`)
 ---
 
 # Implementation 019 — M3: the fuzzer and oracle, in the suite
@@ -26,6 +26,7 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
+| 2026-11-24T02:40 | qa-019 (message, refresh pass rounds 6 and 7, record `08b8193`) | Fix QAF-38 (MEDIUM, severity floor) | Fixed at `81c68b2` (Round 8 below). |
 | 2026-11-24T02:06 | code-reviewer-019 (message, Round 3 sub-entry QAF-36, records `7b4c1ad3` and `6ee6d66b`) | Fix CR-15 (MEDIUM, severity floor); TDD rows for Round 6's two files; CR-16 a stated limit | Fixed at `d6aab03` (Round 7 below). |
 | 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry, record `62c1ba99`) | Fix CR-10 (MEDIUM); three record corrections | CR-10 fixed at `2c1590f`; corrections below. |
 | 2026-11-23T21:42 | code-reviewer-019 (message, Round 3, record `dd5b093d`) | Fix CR-5 and CR-6 (MEDIUM); CR-4 remainder, CR-7 to CR-9 optional | CR-5 and CR-6 fixed in the commit named under Handoff-At's next move; CR-4 remainder, CR-7 to CR-9 not done this round (Outstanding 11). |
@@ -150,6 +151,7 @@ TDD Gate, this round: `discordBuild.locators` lazy-chunk cases fail as expected 
 | `compareWasm` (Round 6) | `discordLive.drift-compare.test.ts` | Yes | Yes | TypeError `compareWasm is not a function`, both cases (`m3-red-drift-1.txt`); mutants `match = true` and `match = false` each fail one case (`m3-mutant-drift-match-true.txt`, `m3-mutant-drift-match-false.txt`) | Yes |
 | `richRuleIds` shape and require checks (Round 6) | `discordSurfaces.rich-rule-ids.test.ts` | No: the function existed (its row above) and the file tightened its coverage at `b04c09f` | Yes, by stub tree | AssertionError on all four cases against a copy whose `richRuleIds` holds no body (`m3-r7-stub-rich-rule-ids.txt`); green at the real code (`m3-r7-stub-rich-rule-ids-green.txt`). The reviewer's mutants (comma form, shape check, `!rulesId` dropped) are KILLED; `!combineId` dropped survives (CR-16, a stated limit) | Yes |
 | `driftReport` with an injected fetch (Round 7) | `discordLive.drift-compare.test.ts` | Yes | Yes | OracleError `fetching https://discord.com/assets/cafe01.wasm failed: fetch failed`: the stub was not used, the real fetch ran in `unshare -rn` (`m3-r7-red-1.txt`); mutants `compareWasm(readFileSync(PINNED_WASM), readFileSync(PINNED_WASM))` and `compareWasm(bytes, bytes)` each fail the `match` toBe(false) assertion (`m3-r7-a.txt`, `m3-r7-b.txt`); the fetch not injected fails as OracleError (`m3-r7-c.txt`) | Yes (`m3-r7-green-1.txt`) |
+| `routingReport` with an injected fetcher (Round 8) | `discordRouting.predicates.test.ts` | Yes | Yes | OracleError `fetching https://discord.com/assets/abcd.js failed: fetch failed` in all four cases: the stub was not used, the real fetch ran in `unshare -rn` (`m3-r8-red-1.txt`); QA's six constant mutants and two operand swaps and the fetcher not passed on: all KILLED on `toEqual` (`m3-r8-q1.txt` to `m3-r8-s3.txt`) | Yes (`m3-r8-green-1.txt`) |
 
 Premise corrections made while writing (each fixed in the test, recorded for the reviewer): the legacy box names its styles `strong`, `em` and `link` (not
 `bold`, `italic`, `url`) and a bare url `url`; the legacy box writes a tab as one space and ends a line holding an inline object with a newline-only entry;
@@ -257,6 +259,25 @@ the tree with `node_modules` linked), the driver sending output to files and kil
 | Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
 |---------|---------------------|----------------------------------|--------------------------|
 | CR-15: an assembler of a served-versus-pinned comparison whose wiring can force its "equal" outcome with no assertion failing | derived: `grep -rn "export \(async \)\?function [A-Za-z]*Report" src/utils/markdown/__tests__` (`m3-r7-class-enum.txt`), then, for each hit, whether it pairs two operands | 3 hits: `buildReports` (`helpers/discordReportBuild.ts:39`), `driftReport` (`helpers/discordLive.ts:111`), `routingReport` (`helpers/discordRouting.ts:42`). A second query for a direct `fetch(` call in the helpers: 0 hits outside `driftReport`'s injected `fetchImpl` | `driftReport`: fixed above. `buildReports`: assembles the report text from the frozen and live readings and has an offline test of its forms (`discordReports.report-forms.test.ts`); it pairs no served operand with a pinned one: not in the class. `routingReport`: reads one live build and pairs no two operands, so no mis-wiring can force an "equal" outcome; its fields feed live assertions whose expected values are literals of today's served build, a separate property (a field forced to today's value) that the reviewer did not probe and I did not either: **not measured**, QA's population as the review names it. Residual after the fix: driftReport wiring mutants run 3, killed 3 |
+
+### Round 8 (QA's QAF-38 at `d6aab03`, record `08b8193`: MEDIUM, a severity floor)
+
+Fixed at website `81c68b2`. Records `verification/019/impl/m3-r8-*`; the mutants ran in an isolated export (`export-m5b`), every run under `unshare -rn`, output to files.
+
+- **QAF-38 (`routingReport`'s fields are read by live cases only, so a field forced to today's value survives).** `routingReport(live, fetcher = fetch)`
+  passes the fetcher on to `loadLazyChunks`; the live callers pass `live` alone. `discordRouting.predicates.test.ts` gains a case in four shapes, each over a stub
+  `Live` (three modules built with `node:vm` so their source is kept verbatim; a build whose runtime names one lazy chunk, served by a stubbed fetcher returning a
+  real `Response`): today's shape (no switch reference, the embed calls its three facade members, the V2 text calls `parse`); both surfaces behind the switch with no
+  call; only the embed behind the switch with only its description call left; only the V2 text behind the switch with only `parseEmbedTitleWithoutLinks` left. Each asserts
+  the whole report, `switchReferrers` included.
+  TDD Gate: all four fail as expected against the old `routingReport` (the stubbed fetcher unused, the real fetch refused in `unshare -rn`, `m3-r8-red-1.txt`).
+  Mutants: QA's six (`embedReferencesSwitch`, `v2ReferencesSwitch` constant false; the three `embedCalls` and `v2CallsParse` constant true) are KILLED, as are two operand
+  swaps of mine (the embed reading the V2 module for the switch; the V2 call read from the embed module) and the fetcher not passed on (`m3-r8-driver-mut8.py`).
+- Suite at `81c68b2`: 223 files, 3,272 of 3,272, exit 0 (`m3-suite-r8.{log.txt,exit}`); typecheck exit 0 (`m3-r8-typecheck.txt`). A first suite run had one 5,000 ms timeout in `preview.engine-not-ready` under load (the M5 sweep ran beside it), kept as `m3-suite-r8-first-run.log.txt`; the file alone passes and the rerun is green.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| QAF-38: a report of the served build's shape whose fields are read only by live cases | derived: `grep -rln "live\.oracle\|live: Live" helpers` and `grep -rn "^export \(async \)\?function [A-Za-z]*(live: Live" helpers` (`m3-r8-class-enum.txt`) | 6 files, 7 exported functions taking `live`: `routingReport`; `driftReport` (Round 7); `legacySurfaceParse`, `openBoxes`, `legacyBox`, `nativeBox`; `domDifferences` and `domDiffersFromLegacy` in `previewDom.tsx` | `routingReport`: fixed above. `driftReport`: fixed in Round 7. The others return a parse or a comparison of one input through served code, checked against the expected value of each of 106 to 2,378 inputs: a field forced to a constant cannot match them all, so they are not the class by effect; QA's sweep of the rest of the class found nothing open (the message). Residual after the fix: report assemblers with live-only reads, 0 |
 
 ## Test Execution Results
 

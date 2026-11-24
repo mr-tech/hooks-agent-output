@@ -1,0 +1,74 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 2 failed) 25ms
+     × reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse 13ms
+     × reports only the embed behind the switch, and only its description call left 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -6,9 +6,9 @@
+    },
+    "embedId": "200",
+    "embedReferencesSwitch": false,
+    "switchId": "100",
+    "switchReferrers": [],
+-   "v2CallsParse": true,
++   "v2CallsParse": false,
+    "v2Id": "300",
+    "v2ReferencesSwitch": false,
+  }
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:113:20
+    111|   ])('reports %s', async (_name, shape, expected) => {
+    112|     const report = await routingReport(stubLive(shape), served);
+    113|     expect(report).toEqual({
+       |                    ^
+    114|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    115|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the embed behind the switch, and only its description call left
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -8,9 +8,9 @@
+    "embedReferencesSwitch": true,
+    "switchId": "100",
+    "switchReferrers": [
+      "200",
+    ],
+-   "v2CallsParse": true,
++   "v2CallsParse": false,
+    "v2Id": "300",
+    "v2ReferencesSwitch": false,
+  }
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:113:20
+    111|   ])('reports %s', async (_name, shape, expected) => {
+    112|     const report = await routingReport(stubLive(shape), served);
+    113|     expect(report).toEqual({
+       |                    ^
+    114|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    115|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  02:16:03
+   Duration  740ms (transform 52ms, setup 0ms, import 588ms, tests 25ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: V2 call read from the embed module
+exit 1

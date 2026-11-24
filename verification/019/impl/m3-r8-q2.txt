@@ -1,0 +1,70 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 2 failed) 28ms
+     × reports both surfaces behind the switch, no call to the facade 11ms
+     × reports only the V2 text behind the switch, and only the embed title without links left 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -11,7 +11,7 @@
+      "200",
+      "300",
+    ],
+    "v2CallsParse": false,
+    "v2Id": "300",
+-   "v2ReferencesSwitch": true,
++   "v2ReferencesSwitch": false,
+  }
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:113:20
+    111|   ])('reports %s', async (_name, shape, expected) => {
+    112|     const report = await routingReport(stubLive(shape), served);
+    113|     expect(report).toEqual({
+       |                    ^
+    114|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    115|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the V2 text behind the switch, and only the embed title without links left
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -10,7 +10,7 @@
+    "switchReferrers": [
+      "300",
+    ],
+    "v2CallsParse": false,
+    "v2Id": "300",
+-   "v2ReferencesSwitch": true,
++   "v2ReferencesSwitch": false,
+  }
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:113:20
+    111|   ])('reports %s', async (_name, shape, expected) => {
+    112|     const report = await routingReport(stubLive(shape), served);
+    113|     expect(report).toEqual({
+       |                    ^
+    114|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    115|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  02:15:52
+   Duration  850ms (transform 62ms, setup 0ms, import 674ms, tests 28ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: QA-R2 v2ReferencesSwitch constant false
+exit 1

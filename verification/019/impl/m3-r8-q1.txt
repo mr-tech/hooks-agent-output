@@ -1,0 +1,78 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 2 failed) 41ms
+     × reports both surfaces behind the switch, no call to the facade 18ms
+     × reports only the embed behind the switch, and only its description call left 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -3,11 +3,11 @@
+      "parseEmbedTitle": false,
+      "parseEmbedTitleWithoutLinks": false,
+      "parseRichEmbedText": false,
+    },
+    "embedId": "200",
+-   "embedReferencesSwitch": true,
++   "embedReferencesSwitch": false,
+    "switchId": "100",
+    "switchReferrers": [
+      "200",
+      "300",
+    ],
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:113:20
+    111|   ])('reports %s', async (_name, shape, expected) => {
+    112|     const report = await routingReport(stubLive(shape), served);
+    113|     expect(report).toEqual({
+       |                    ^
+    114|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    115|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the embed behind the switch, and only its description call left
+AssertionError: expected { switchId: '100', …(7) } to deeply equal { switchId: '100', …(7) }
+
+- Expected
++ Received
+
+@@ -3,11 +3,11 @@
+      "parseEmbedTitle": false,
+      "parseEmbedTitleWithoutLinks": false,
+      "parseRichEmbedText": true,
+    },
+    "embedId": "200",
+-   "embedReferencesSwitch": true,
++   "embedReferencesSwitch": false,
+    "switchId": "100",
+    "switchReferrers": [
+      "200",
+    ],
+    "v2CallsParse": true,
+
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:113:20
+    111|   ])('reports %s', async (_name, shape, expected) => {
+    112|     const report = await routingReport(stubLive(shape), served);
+    113|     expect(report).toEqual({
+       |                    ^
+    114|       switchId: '100', embedId: '200', v2Id: '300', ...expected,
+    115|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  02:15:49
+   Duration  1.03s (transform 83ms, setup 0ms, import 785ms, tests 41ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: QA-R1 embedReferencesSwitch constant false
+exit 1

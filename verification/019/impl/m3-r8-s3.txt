@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b
+
+ ❯ |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts (12 tests | 4 failed) 45ms
+     × reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse 24ms
+     × reports both surfaces behind the switch, no call to the facade 9ms
+     × reports only the embed behind the switch, and only its description call left 4ms
+     × reports only the V2 text behind the switch, and only the embed title without links left 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports today's shape: neither surface behind the switch, the embed calls its three, the V2 text calls parse
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports both surfaces behind the switch, no call to the facade
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the embed behind the switch, and only its description call left
+ FAIL  |node| src/utils/markdown/__tests__/discordRouting.predicates.test.ts > the routing report of a build > reports only the V2 text behind the switch, and only the embed title without links left
+OracleError: discord-oracle: fetching https://discord.com/assets/abcd.js failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ loadLazyChunks src/utils/markdown/__tests__/helpers/discordBuild.ts:167:20
+ ❯ src/utils/markdown/__tests__/helpers/discordRouting.ts:47:7
+ ❯ src/utils/markdown/__tests__/discordRouting.predicates.test.ts:112:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 8 passed (12)
+   Start at  02:16:04
+   Duration  788ms (transform 54ms, setup 0ms, import 600ms, tests 45ms, environment 0ms)
+
+export: /tmp/claude-1000/-usr-local-bin-hooks-website/36f3a347-2d9f-4e78-ba00-9aeb83ebc4ce/scratchpad/export-m5b/
+mutant: the fetcher is not passed on
+exit 1
