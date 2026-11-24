@@ -1,0 +1,13 @@
+Running scope as unit: run-read69ae63d8349e486be40c1805ec8cb.scope
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/73f0c622-8edf-4924-bc82-4f6ccb72e068/scratchpad/fence-refute/42128cd
+
+RESULT {"text":">> abc","sel1":{"anchor":{"path":[0,0],"offset":3},"focus":{"path":[0,0],"offset":3}},"afterGt":">>> abc|a","afterZ":">>> abcz|a","sel2":{"anchor":{"path":[0,0],"offset":4},"focus":{"path":[0,0],"offset":4}}}
+RESULT {"text":">> a","sel1":{"anchor":{"path":[0,0],"offset":1},"focus":{"path":[0,0],"offset":1}},"afterGt":">>> a|a","afterZ":">>> az|a","sel2":{"anchor":{"path":[0,0],"offset":2},"focus":{"path":[0,0],"offset":2}}}
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  14:51:01
+   Duration  2.10s (transform 356ms, setup 21ms, import 1.08s, tests 241ms, environment 629ms)
+
+exit=0

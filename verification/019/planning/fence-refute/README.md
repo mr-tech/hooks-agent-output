@@ -12,3 +12,7 @@ steering-hooks-fixer (effort rulings block 2026-11-24T14:33Z, Premises). planner
   - the size and the throw count;
   - the median and max milliseconds over 10 timed runs after 2 warm-ups, with `/proc/loadavg`.
 - `mounted.raw.txt`: the mounted-editor run at `42128cd`, with the `onChange` write per keystroke.
+- `caret.{af3d95a,42128cd}.raw.txt` and `caret.mounted.42128cd.raw.txt`: the same helper's caret runs (effort rulings block
+  2026-11-24T17:03Z, Premises), copied verbatim at 17:05Z. After `>` typed at the start of `>> a` or `>> abc`, each records the
+  selection (`sel1`) and the text after the next key (`afterFirstKey`, lines joined by `|`). The caret lands at the end of the
+  line's text: offset 1 for `a`, offset 3 for `abc`.
