@@ -1,0 +1,254 @@
+{
+ "sha": "b04c09fe6ae49756809e77b6308e77949ad74954",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "mutants-offline.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "mutants-offline.json",
+   "blob": "212ea33255808137772e71b4c2bd4b313327d2ef"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/utils/markdown/__tests__/discordLive.drift-compare.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-control-1.stderr",
+   "seconds": 1.92,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2,
+   "tests": [
+    "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts\"]": {
+   "id": "control-2",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-control-2.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-control-2.stderr",
+   "seconds": 1.95,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 4,
+   "tests": [
+    "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "compare-match-true",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports different bytes as drift, naming both hashes"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.06,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-1.stderr"
+  },
+  {
+   "id": "compare-match-false",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports identical bytes as equal"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.03,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-2.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-2.stderr"
+  },
+  {
+   "id": "compare-message-arms-swapped",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports different bytes as drift, naming both hashes",
+    "|node| src/utils/markdown/__tests__/discordLive.drift-compare.test.ts > the drift alarm comparison > reports identical bytes as equal"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.08,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-3.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-3.stderr"
+  },
+  {
+   "id": "drift-served-bytes-not-wired",
+   "run": "mutant-4",
+   "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordLive.drift-compare.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.98,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-4.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-4.stderr"
+  },
+  {
+   "id": "rich-comma-form-dropped",
+   "run": "mutant-5",
+   "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts > locating the rich-text rule modules in the served facade > names the combine module and the rules module from the call shape and their requires",
+    "|node| src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts > locating the rich-text rule modules in the served facade > reads a require that follows a comma as well as one that follows var"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.97,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-5.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-5.stderr"
+  },
+  {
+   "id": "rich-shape-check-off",
+   "run": "mutant-6",
+   "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts > locating the rich-text rule modules in the served facade > names the predicate when the call shape is absent"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.02,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-6.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-6.stderr"
+  },
+  {
+   "id": "rich-combine-require-check-off",
+   "run": "mutant-7",
+   "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.86,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-7.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-7.stderr"
+  },
+  {
+   "id": "rich-rules-require-check-off",
+   "run": "mutant-8",
+   "file": "src/utils/markdown/__tests__/helpers/discordSurfaces.ts",
+   "tests": [
+    "src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/markdown/__tests__/discordSurfaces.rich-rule-ids.test.ts > locating the rich-text rule modules in the served facade > names the predicate when the shape names a module the facade does not require"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.91,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-8.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/81fbd451-b207-46a6-8c8e-c090f9b4086b/scratchpad/qaf36/out-off/b04c09fe6ae49756809e77b6308e77949ad74954-20261124T014936Z-p3572549-mutant-8.stderr"
+  }
+ ],
+ "score": "6 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-offline.json (blob 212ea33255808137772e71b4c2bd4b313327d2ef))"
+}

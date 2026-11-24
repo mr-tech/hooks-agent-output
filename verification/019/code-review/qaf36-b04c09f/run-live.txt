@@ -1,0 +1,2 @@
+drift-served-bytes-not-wired SURVIVED 30.45
+0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-live.json (blob 55ca29173a8a07202bfec3c5f79039b093e624d2))

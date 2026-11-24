@@ -2,10 +2,10 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "e58f2ed — repos=website; Round 4 is M4 at e58f2ed (its 13 commits in f4060c5..e58f2ed); M3's Round 3 sub-entries at 380e82d (test-only), 2c1590f and 1698c80; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
+Reviewed-At: "b04c09f — repos=website; the latest verdict is the M3 Round 3 sub-entry at b04c09f (QAF-36, test-only, REJECTED on CR-15); Round 4 is M4 at e58f2ed (its 13 commits in f4060c5..e58f2ed); M3's Round 3 sub-entries at 380e82d (test-only), 2c1590f and 1698c80; Round 3 itself at f4060c5; M2 closed at Round 2, 7dcedc9"
 Status: In Review
 Round: 4
-Verdict: APPROVED_WITH_COMMENTS
+Verdict: REJECTED
 ---
 
 # Code Review: 019 — Slate formatting: one Discord engine for the preview and the editor
@@ -27,6 +27,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-23T22:11 | implementer-019 (M3 fix round 4, website `2c1590f`, record `72b59f64`) | Round 3 sub-entry: confirm CR-10 | Round 3 sub-entry at `2c1590f`, scoped to the fix commit's 2 paths. CR-10 RESOLVED: 4 of 4 probes KILLED, the `loadBuild` disconnect among them. CR-11 LOW raised: the XHR Proxy records a member when it is called, not when it is read (`x.upload.addEventListener` and `x.readyState` unrecorded; network still closed). The record corrections are made. APPROVED_WITH_COMMENTS, and M3 goes to QA Phase 2. |
 | 2026-11-24T01:00 | implementer-019 (M4 hand-off, website `e58f2ed`, record `bc73f58c`; M3 Round 5 at `380e82d`); planner-019 (R-44, record `49cb5d73`); steering-hooks-fixer (cap, block 00:49Z, `8de0ac3`) | Review M4; Round 3 sub-entry for `380e82d` | Round 4 at `e58f2ed`: APPROVED_WITH_COMMENTS. The link allow-list held at the rendered anchor: 24,170 renders on each of the 6 surfaces, 0 defects. Planner (d) and (f) hold. AC-3.7's families, counts and a sample were read. CR-12 and CR-13 LOW are stated limits under the cap. Round 3 sub-entry at `380e82d` (test-only): APPROVED_WITH_COMMENTS, CR-14 LOW. |
 | 2026-11-24T01:04 | implementer-019 (record `511f704`, the family-assignment script) | Confirm CR-13 | CR-13 RESOLVED: the committed script reproduces every one of the 6,142 families, and the signatures once collapsed into runs. A rule-order swap moves 700 entries, so the check can fail. The verdict is unchanged. |
+| 2026-11-24T02:00 | steering-hooks-fixer (resume message); implementer-019 (M3 fix round 6, `Handoff-At: b04c09f`, record `fe8ce8f3`) | Round 3 sub-entry: confirm QAF-36 | Round 3 sub-entry at `b04c09f` (test-only: `9a5f4fe`, `b04c09f`). Of 9 probes, 6 were KILLED. `compareWasm` is killed under `match = true`, under `match = false` and with its message arms swapped. **REJECTED** on CR-15 MEDIUM, a severity floor: with `driftReport` handing the pinned file to the comparison as the served bytes, 15 of 15 live cases and the offline case pass. CR-16 LOW is a stated limit. The M4 verdict at `e58f2ed` stands. Steering's brief had not arrived; the resume message was read in its place. |
 
 ## Scope of this round
 
@@ -517,6 +518,97 @@ CR-14 LOW Round 3 (M3, capped: a stated limit for the Planner batch)
 
 Verdict, Round 3 sub-entry at `380e82d`: **APPROVED_WITH_COMMENTS**. QAF-32 and QAF-33 are QA's to close at its refresh.
 
+### Round 3 sub-entry: QA's QAF-36 at `b04c09f`
+
+The trigger is the M3 document's Round 6, `Handoff-At: b04c09f` (record `fe8ce8f3`), carried by steering's resume message.
+Steering's brief stays `steering/019-brief-code-reviewer.md`.
+- Scope: `9a5f4fe` and `b04c09f`. Both touch files under `__tests__/` only:
+  - `helpers/discordLive.ts`: `compareWasm` is extracted, and `driftReport` now calls it;
+  - `discordLive.drift-compare.test.ts`, new;
+  - `discordSurfaces.rich-rule-ids.test.ts`, new.
+  The scoped check applies, and no round opens. Test adequacy is QA's, at its refresh pass.
+- Tree: the files were read through `git show b04c09f:<path>`. The four paths in the shared tree equal `b04c09f`
+  (`git diff --quiet b04c09f`). The mutants ran in `mutation-run.py` exports of `b04c09f`.
+- Cap: M3 is capped (blocks 22:35Z and 00:49Z). A severity floor is excepted.
+- Process whose output is the evidence: the suite's own cases, run against mutants of the helper. I authored the mutants, not the
+  cases, so this is a probe of the cases.
+
+Checks:
+- **Expectations are independent.** The literal hashes in the drift-compare case match `sha256sum` of `01 02 03` and `01 02 04`,
+  run here (`fixture-hashes.txt`).
+- **The extraction preserves behaviour.** The old body of `driftReport` moved verbatim into `compareWasm`. `driftReport` passes
+  `compareWasm` the fetched `bytes` and `readFileSync(PINNED_WASM)`, the same two operands the old body hashed.
+- **Mutants.** The table is in `mutation-table-offline.json` and `mutation-table-live.json`, and every control passed.
+
+| Mutant | Run against | Outcome |
+|---|---|---|
+| `compareWasm` `match = true` | `drift-compare` | KILLED |
+| `compareWasm` `match = false` | `drift-compare` | KILLED |
+| message arms swapped | `drift-compare` | KILLED |
+| `driftReport` calls `compareWasm(readFileSync(PINNED_WASM), readFileSync(PINNED_WASM))` | `drift-compare` | **SURVIVED** |
+| the same | live `discordLive.oracle-controls` and `discordReports.run`, 15 cases | **SURVIVED**, 15 of 15 passed |
+| `richRuleIds`: the comma form dropped | `rich-rule-ids` | KILLED |
+| `richRuleIds`: the shape check off | `rich-rule-ids` | KILLED |
+| `richRuleIds`: `!combineId` dropped | `rich-rule-ids` | **SURVIVED** |
+| `richRuleIds`: `!rulesId` dropped | `rich-rule-ids` | KILLED |
+
+- **Conventions.** `convention-check.js --files` over the four paths: 0 FAIL, 0 CANDIDATE, 1 SKIP (`convention-check.txt`).
+  - The SKIP is the id-token basename check. I checked it by hand: the basenames `discordLive.drift-compare` and
+    `discordSurfaces.rich-rule-ids` and their six titles hold no ID token.
+  - Both basenames meet the positive form, and each module segment is the helper's own basename.
+- **TDD record.** Round 6's red run and mutants are recorded in its prose (`m3-red-drift-1.txt`, `m3-mutant-drift-match-*.txt`).
+  The TDD Compliance table carries no row for the two new files. That correction is owed in CR-15's fix round.
+
+CR-15 MEDIUM Round 3 (M3, a severity floor, excepted from the cap). It is the member of QAF-36's class that the round left.
+- **Location**: `src/utils/markdown/__tests__/helpers/discordLive.ts`, `driftReport`, its `return compareWasm(…)`, at `b04c09f`.
+- **Class**: the drift alarm can be wired so that it can only say "equal", and no assertion fails. The offline case covers the
+  comparison, but nothing covers that the served bytes reach it. The live state today is "equal", which is exactly the outcome a
+  mis-wiring forces, so the live cases cannot tell the two apart.
+- **Enumeration**:
+  - The mutant above: `driftReport` handing `compareWasm` the pinned file as the served operand. It SURVIVED offline and live
+    (`live-drift-served-bytes-not-wired.stdout.txt`: `Tests 15 passed (15)`). Measured hits: 1.
+  - Search for the class's other forms: the implementer's sweep of oracle helpers (Round 6's table) names one other live-only
+    assembler, `routingReport`. Its fields feed live assertions whose expected values are literals of today's served build. A
+    mis-wiring that forces a field to today's value survives in the same way. I ran no mutant there.
+  - What the predicate cannot see: a mis-wiring that is not of the operand-swap form, such as `compareWasm(bytes, bytes)`, which
+    survives for the same reason and was not run. Also any field of `routingReport`: not measured, so that population is QA's.
+- **Required Action**:
+  - **Preferred (structural)**: make the fetch part of what the offline case runs, so that served bytes not reaching the
+    comparison cannot be expressed in `driftReport`. Two ways:
+    - Move the fetch-and-compare into a function that takes the URL and a fetch, for example
+      `compareServed(url, fetchImpl, pinnedBytes)`.
+    - Or give `driftReport` an injectable fetch.
+    Then add an offline case in which the stubbed fetch returns a real `Response` whose bytes differ from the pinned operand.
+    - Callers: `driftReport` has three call sites, two in `discord/discordLive.oracle-controls.test.ts` and one in
+      `discord/discordReports.run.test.ts`. Each passes `live` alone. With a defaulted parameter, all three keep their behaviour
+      and change nothing. No caller sits outside the class.
+  - **Minimum**: an offline case that runs `driftReport` itself against a stubbed `fetch`, using the smallest `Live` whose glue
+    module names one wasm file.
+  - **Falsity signature**: the case's `match` toBe(false) assertion fails under each of the two mutants `compareWasm(readFileSync(PINNED_WASM),
+    readFileSync(PINNED_WASM))` and `compareWasm(bytes, bytes)`, as an assertion and not a timeout.
+  - **Fixture property**: the stubbed served bytes differ from the pinned bytes, and the stub is the real `Response` class,
+    never an invented object (Iron Law 5).
+  - **Record**: the TDD Compliance rows for this round's files.
+- **Risks row**: this is the falsifier of the drift alarm's C2 outcome, the property QAF-33 and QAF-36 name.
+
+CR-16 LOW Round 3 (M3, capped: a stated limit for the Planner batch)
+- **Location**: `discordSurfaces.rich-rule-ids.test.ts`, the case "names the predicate when the shape names a module the facade
+  does not require", at `b04c09f`.
+- **Class**: a two-operand absence check whose fixture omits only one operand, so the guard on the other operand is dead.
+- **Enumeration**: `richRuleIds`'s `!combineId || !rulesId` is the one two-operand require check in the file
+  (`git grep -n "if (!.* || !" b04c09f -- src/utils/markdown/__tests__/helpers` gives 1 hit). With `!combineId` dropped, the
+  mutant SURVIVED (`offline-rich-combine-require-check-off.stdout.txt`). The predicate does not see absence checks spelled any
+  other way.
+- **Effect if lost**: live, `req(undefined)` still throws, so the run fails, but with a less legible error. It does not fail
+  silently, which is why this is LOW.
+- **Required Action**: a case whose omitted require is the combine module. The fixture property: the absent operand is the
+  first one named, not the second.
+
+Verdict, Round 3 sub-entry at `b04c09f`: **REJECTED**, on CR-15 MEDIUM (a severity floor).
+- QAF-36's comparison limb is closed: `compareWasm` is killed under both of QA's named mutants.
+- The wiring limb is open.
+- CR-16 goes to the Planner batch as a stated limit.
+
 ## Round 4 at `e58f2ed` (M4)
 
 The trigger is implementer-019's M4 hand-off: `implementation/019-slate-formatting-discord-engine-m4-implementation.md`, record
@@ -617,8 +709,9 @@ Verdict, Round 4 (M4 at `e58f2ed`): **APPROVED_WITH_COMMENTS**.
 
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (Round 4, M4 at `e58f2ed`).
-- M3 stays APPROVED_WITH_COMMENTS: at `2c1590f`, and for its test-only fix at `380e82d`.
+**Status**: M3 is **REJECTED**, at the Round 3 sub-entry at `b04c09f`, on CR-15 MEDIUM (a severity floor).
+- M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`).
+- M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`.
 - M2 stays APPROVED_WITH_COMMENTS at `7dcedc9` (Round 2).
 
 **Rationale**: in Round 4 and in the Round 3 sub-entries above. Every MEDIUM is resolved with a captured check that fails if it
@@ -637,7 +730,10 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 
 ## Required Actions
 
-None blocking. Open LOWs, each with its carrier:
+Blocking (M3): CR-15. The implementer makes the served bytes reach the comparison in an offline case, and adds the TDD Compliance rows for Round 6's files (§ Round 3 sub-entry at `b04c09f`).
+
+Open LOWs, each with its carrier:
+- CR-16 (M3): sent to `planner-019` for the Planner batch as a stated limit.
 - CR-12 (M4) and CR-14 (M3): sent to `planner-019` for the Planner batch as stated limits (cap block 00:49Z).
 - The pre-existing `GuildProvider.tsx:162` lint FAIL: the implementer's follow-up.
 - CR-11: M4 Outstanding -1, not taken at `e58f2ed`; it is now a stated limit under the caps, sent with the batch above.
@@ -675,6 +771,8 @@ member. Owner: QA Phase 2 on M3, which runs the live command at the approved SHA
 
 Round 2's Assumption Not Checked is closed at Round 4: it held for list type and link kind, and its residue is CR-12.
 
+Round 3 sub-entry at `b04c09f`: This review assumes that the whole offline suite passes at `b04c09f`, exit 0 with 3,460 cases, and does not test it. I ran only the two new files and the two live drift files, about a minute each, under mutation-run's controls. Falsity signature: in an export of `b04c09f`, `npx vitest run --project node --project dom` exits non-zero or counts other than 3,460. Owner: QA's refresh pass on M3, which runs the offline suite at the SHA it verifies.
+
 Round 4: This review assumes that `discord/discordPreview.legacy-equality.test.tsx` passes at `e58f2ed`, and does not test it.
 The implementer ran it at `aa728f3`'s tree plus the lint-only commit, and I did not run the live command. Falsity signature: a live
 run in an export of `e58f2ed` fails its unlisted, signature or stale case, or prints counts other than the list's 6,142. Owner: QA
@@ -682,50 +780,37 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Next Steps
 
+- Implementer (`implementer-019`): CR-15, M3's fix round 7.
 - QA (`qa-019`):
+  - the M3 refresh pass waits for CR-15's fix round, then covers its diff and runs the offline suite (the `b04c09f` Assumption Not Checked);
   - Phase 2 on M4 at `e58f2ed`: `pnpm test:discord` at the approved SHA (Round 4's Assumption Not Checked), and the self-check
     sweep's survivors;
   - the refresh pass on M3's `380e82d` (QAF-32 and QAF-33);
   - the M3 items as before.
-- Planner (`planner-019`): CR-11, CR-12, CR-13 and CR-14 as stated limits in the Planner batch.
+- Planner (`planner-019`): CR-11, CR-12, CR-14 and CR-16 as stated limits in the Planner batch (CR-13 is resolved).
 - M5 implementer and this review's M5 round: CR-3.
 
 ## Resumption State
 
-Written at 2026-11-24T01:09Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, about 351K tokens).
+Updated 2026-11-24T02:00Z, after the Round 3 sub-entry at `b04c09f`.
 
 - **Done.**
-  - **M2:** Round 1 at `22f3e58` (REJECTED), its sub-entry at `78c5f74`, and Round 2 at `7dcedc9`, APPROVED_WITH_COMMENTS. Closed
-    for review.
-  - **M3:** Round 3 at `f4060c5` (REJECTED), with sub-entries at:
-    - `1698c80`: REJECTED on CR-10;
-    - `2c1590f`: APPROVED_WITH_COMMENTS;
-    - `380e82d` (test-only, QAF-32 and QAF-33): APPROVED_WITH_COMMENTS, CR-14 LOW.
-  - **M4:** Round 4 at `e58f2ed`, **APPROVED_WITH_COMMENTS**.
-    - The link allow-list held at the rendered anchor.
-    - Planner (d) and (f) hold.
-    - AC-3.7's families were read and sampled.
-    - CR-12 LOW is a stated limit; CR-13 is RESOLVED at record `511f704` (`06cbf54d`).
-  - Both milestones are with `qa-019` for Phase 2.
-  - Planner R-47 (record `9b6f7757`) holds CR-11, CR-12 and CR-14 as stated limits, and CR-13's row can close.
-  - Plan rows: R-24, R-25, R-27, R-29, R-35 and R-36, plus the row stamped 2026-11-24T01:01 (`05cc2005`). That row is labelled
-    R-37, a duplicate; per the planner's ruling it is cited by stamp and author.
-  - The verdicts are delivered to `qa-019`, `implementer-019`, `planner-019` and steering.
+  - **M2:** closed for review, APPROVED_WITH_COMMENTS at `7dcedc9`.
+  - **M3:** REJECTED at `b04c09f` on CR-15 MEDIUM, a severity floor: the drift alarm's served bytes are not wired under any test.
+    CR-16 LOW is a stated limit.
+  - **M4:** APPROVED_WITH_COMMENTS at `e58f2ed`, with `qa-019`.
+  - The verdict is delivered to `implementer-019`, `qa-019`, `planner-019` (CR-16) and steering.
 - **Next.**
-  - M5 at its document's `Handoff-At`, after steering's hand-off. Steering's stage start for M5 is commit `4ecb64ff`.
-  - The M5 round owes CR-3: one leaf-role source, `git grep -n TOKEN_LEAF_ROLES`.
-  - M6 after that.
-  - All are capped: a finding below HIGH is a stated limit for the Planner batch (block 00:49Z, `8de0ac3`). A severity-floor
-    finding, and a security finding at HIGH or above, are excepted.
-  - Any question for the owner goes to steering by SendMessage, as a selection prompt (owner's ruling), never as prose in this
-    document.
+  - The CR-15 fix confirmation, as a Round 3 sub-entry at the fix SHA.
+    - Re-run `verification/019/code-review/qaf36-b04c09f/mutants-*.json` through `mutation-run.py` at that SHA.
+    - Add the `compareWasm(bytes, bytes)` mutant.
+    - Expect KILLED offline.
+  - After that, M5 at its document's `Handoff-At`, which owes CR-3; then M6.
+  - All of it is capped.
 - **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `e58f2ed`, and I never move it.
-  The record is on `master`.
-- **Local state.** The scratchpad holds exports `x1698/`, `x2c15/` and `xe58/` (the last holds the probe copy
-  `crprobe.anchor-attack.test.tsx`), the work directories `mwork1/` and `mwork2/`, and the rebuild outputs. All are disposable,
-  and none is in any repository.
-- **Evidence run but not recorded.** None. Every capture is under `verification/019/code-review/` and committed. Install logs are
-  `.log.txt`, because the record ignores `*.log`.
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `6f4d48f` (M5 commits past
+  `b04c09f`), and I never move it.
+- **Local state.** The scratchpad `qaf36/` holds the mutation work and output folders, which are disposable. Everything cited is
+  copied to `verification/019/code-review/qaf36-b04c09f/`.
 - **Questions sent, and to whom.** None open.
-- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
+- **Cache-warm wake.** Armed: a one-shot for 02:42 local.

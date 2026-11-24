@@ -1,0 +1,9 @@
+compare-match-true KILLED 2.06
+compare-match-false KILLED 2.03
+compare-message-arms-swapped KILLED 2.08
+drift-served-bytes-not-wired SURVIVED 1.98
+rich-comma-form-dropped KILLED 1.97
+rich-shape-check-off KILLED 2.02
+rich-combine-require-check-off SURVIVED 1.86
+rich-rules-require-check-off KILLED 1.91
+6 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-offline.json (blob 212ea33255808137772e71b4c2bd4b313327d2ef))

@@ -1,0 +1,3 @@
+fixture hashes recomputed with sha256sum, 2026-11-24T01:5xZ:
+039058c6f2c0cb492c533b0a4d14ef77cc0f78abccced5287d84a1a2011cfb81  -
+d4b29a968c40173638ded8d174c86957afa211be479cee020dba5dfe127d91ca  -

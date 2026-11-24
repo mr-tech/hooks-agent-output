@@ -1,0 +1,12 @@
+[
+ {
+  "id": "drift-served-bytes-not-wired",
+  "file": "src/utils/markdown/__tests__/helpers/discordLive.ts",
+  "old": "return compareWasm(bytes, readFileSync(PINNED_WASM));",
+  "new": "return compareWasm(readFileSync(PINNED_WASM), readFileSync(PINNED_WASM));",
+  "tests": [
+   "src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts",
+   "src/utils/markdown/__tests__/discord/discordReports.run.test.ts"
+  ]
+ }
+]
