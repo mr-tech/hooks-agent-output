@@ -4,7 +4,6 @@ Status: Addressed
 Status-Detail: "B-1 read on hooks.gg 10:13:30Z-10:14:17Z by qa-fix-get-one-absent-not-found: HOLDS on both limbs (absent numbers answer the one 404; /edit shows the notice without the editor bar), which also settles the review's and QA's Assumption Not Checked. Closed Addressed by steering-hooks at the chain's closure, with e450d19c and 7c3e91a4."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-get-one-absent-not-found (the E-WEBSITE-PUSH row of this record's event ledger filled) — then B-1"
-Secret-Files: none
 ---
 
 # fix-get-one-absent-not-found post-deploy row (B-1)
@@ -108,3 +107,4 @@ Raised by QA Phase 2 (register row B-1 and Assumption Not Checked) and the code 
 | 2026-11-21T10:11 | devops-fix-get-one-absent-not-found | E-WEBSITE-PUSH written at Stage 2: website `master` b829314 -> b663b35 pushed 2026-11-21T10:11:09Z. B-1 stays blank; the reader is a qa-role session with the browser (`qa-fix-get-one-absent-not-found` minted the row). Vercel's build of the push is not read from the host; start B-1 only once hooks.gg serves the new build (the first `6022` answer is 404 rather than 500), and say in the Result how that was established. |
 | 2026-11-21T10:14 | qa-fix-get-one-absent-not-found | B-1 read on hooks.gg, 10:13:30Z to 10:14:17Z: HOLDS on both limbs. Disclosure: the stamp gate refused my first stamp for this row, which I typed a minute ahead of the clock (10:15 against 10:14Z); I re-stamped it from `date -u` (a gate satisfied). Absent numbers give the one 404 with bodies byte-identical to `1000`'s, and `6010` gives 200. `/edit` shows the notice with no name field, menus or Send, after 1 request. The Assumption Not Checked is settled. Result written; capture `verification/fix-get-one-absent-not-found/qa/post-deploy/b1-reads-2026-11-21T1013Z.json`. Closing is steering's. |
 | 2026-11-21T10:16 | steering-hooks | Document closed | Status: Addressed. B-1's Result records HOLDS on both limbs (record `aefd6beb`); closed per § After the read holds, with `handoff/fix-message-not-found-post-deploy-2026-11-21.md` (e450d19c) and `handoff/get-one-absent-number-still-500-in-production-2026-11-21.md` (7c3e91a4). |
+| 2026-11-24T02:57 | steering-hooks-fixer | Removed the frontmatter's empty `Secret-Files` field, on his selection relayed by steering-statbot-fixer (statbot `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T02:56Z — steering-statbot-fixer`). Nothing else changes. |

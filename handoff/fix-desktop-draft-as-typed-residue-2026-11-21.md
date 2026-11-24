@@ -4,7 +4,6 @@ Status: Open
 Status-Detail: "Two limits that fix-desktop-draft-as-typed ships with, unmeasured and unobserved: the per-keystroke draft-write cost on desktop, and caret behaviour in browsers other than Chrome. Neither gates the release; neither is a finding of the chain."
 Owning-Stage: planner
 Review-Trigger: "when the draft store (src/utils/messageDrafts.ts) or its 1 MiB bound is next changed, or when a report of typing lag in the message editor on desktop, or of a jumping caret in the embed author name or footer in Firefox or Safari, reaches the owner or a stage"
-Secret-Files: none
 ---
 
 # fix-desktop-draft-as-typed residue (cost and browsers)
@@ -35,3 +34,4 @@ restart in `CLAUDE.md` before any save), or a walk in Firefox. Whether either is
 | Date (UTC) | Agent | Change | Token |
 |---|---|---|---|
 | 2026-11-21T11:28 | devops-fix-desktop-draft-as-typed | Created at Stage 1 to carry the chain's two stated limits. | opened |
+| 2026-11-24T02:57 | steering-hooks-fixer | Removed the frontmatter's empty `Secret-Files` field, on his selection relayed by steering-statbot-fixer (statbot `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T02:56Z — steering-statbot-fixer`). Nothing else changes. | field-removed |

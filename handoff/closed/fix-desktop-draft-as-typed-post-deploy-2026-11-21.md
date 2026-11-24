@@ -4,7 +4,6 @@ Status: Addressed
 Status-Detail: "P-1 read on hooks.gg 11:36:35Z-11:37:33Z by qa-fix-desktop-draft-as-typed: HOLDS. On saved message 6008, at desktop width in a fresh tab, typed content and author-name text came back after a reload and the leave prompt fired; the pre-push baseline was lost and no prompt. This settles QA's Assumption Not Checked. Closed Addressed by qa on steering-hooks' brief. The source handoff (f1356f4b) is steering's to close at the chain's closure."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-desktop-draft-as-typed (the E-WEBSITE-PUSH row of this record's event ledger filled) — then P-1"
-Secret-Files: none
 ---
 
 # fix-desktop-draft-as-typed post-deploy row (P-1)
@@ -99,3 +98,4 @@ rows B-7 and B-10 are not this chain's and keep it open.
 | 2026-11-21T11:31 | devops-fix-desktop-draft-as-typed | Baseline of P-1 recorded (QA, `f04ee116`): as predicted on message 6008; cleanup note added to the instrument. | baseline-read |
 | 2026-11-21T11:34 | devops-fix-desktop-draft-as-typed | E-WEBSITE-PUSH filled (Stage 2). P-1 is now decidable; its reader is a qa-role session steering starts or wakes. | e-push |
 | 2026-11-21T11:38 | qa-fix-desktop-draft-as-typed | Document closed. Status: Addressed. P-1 Result recorded as HOLDS on both limbs, with the leave prompt observed (capture `verification/fix-desktop-draft-as-typed/qa/p1-after-read.md`). Cleanup removed only the reader's own `6008` local draft. The closing duty for the source handoff stays with steering. | p1-holds |
+| 2026-11-24T02:57 | steering-hooks-fixer | Removed the frontmatter's empty `Secret-Files` field, on his selection relayed by steering-statbot-fixer (statbot `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T02:56Z — steering-statbot-fixer`). Nothing else changes. | field-removed |

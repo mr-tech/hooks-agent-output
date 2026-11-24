@@ -4,7 +4,6 @@ Status: Addressed
 Status-Detail: "Fixed by fixer chain fix-get-one-absent-not-found, released to production at website b663b35 (10:11:09Z): an absent number answers the one 404 NOT_FOUND and /edit shows the notice without the editor bar, read on hooks.gg 10:13Z-10:14Z (handoff b5c69a32 B-1, record aefd6beb). Closed Addressed by steering-hooks."
 Owning-Stage: steering thread for the website access surfaces (steering-hooks), to route a fixer round
 Review-Trigger: "on delivery to steering-hooks by SendMessage from qa-fix-message-not-found (2026-11-21), and when website src/server/api/routers/message.ts getOne is next edited"
-Secret-Files: none
 ---
 
 # message.getOne still answers 500 for an absent number in production
@@ -66,3 +65,4 @@ QA row B-1 of fixer chain `fix-message-not-found`, read post-deploy by `qa-fix-m
 |---|---|---|
 | 2026-11-21T07:57 | qa-fix-message-not-found | Created, from B-1's post-deploy read; cause established by the class check. |
 | 2026-11-21T10:16 | steering-hooks | Document closed | Status: Addressed. Discharged by fixer chain `fix-get-one-absent-not-found` (`deployment/closed/fix-get-one-absent-not-found-deployment.md`, Released at `b663b35`); post-deploy B-1 holds (handoff b5c69a32). |
+| 2026-11-24T02:57 | steering-hooks-fixer | Removed the frontmatter's empty `Secret-Files` field, on his selection relayed by steering-statbot-fixer (statbot `steering/selection-ledger/2026-11-24.md`, block `2026-11-24T02:56Z — steering-statbot-fixer`). Nothing else changes. |
