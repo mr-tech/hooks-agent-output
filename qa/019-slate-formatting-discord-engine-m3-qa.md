@@ -283,3 +283,40 @@ message per legacy surface through the test-account browser against the build se
 
 **Handoff.** To `implementer-019`: QAF-38, with its red run under QA-R1 to QA-R6 recorded. Then code review re-verdicts the round,
 and QA runs a refresh pass over its diff.
+
+## Resumption State
+
+Written at steering's ask (`/checkpoint`, about 346K context), at a seam: every pass is committed.
+
+- **Done.**
+  - **M3:** refresh passes at `e58f2ed` (round 5) and `d6aab03` (rounds 6 and 7), both QA Failed. QAF-32, QAF-33 (write limb) and
+    QAF-36 are closed. QAF-38 MEDIUM is open: `routingReport`'s fields, a severity floor.
+  - **M4:** `qa/019-slate-formatting-discord-engine-m4-qa.md`, QA Complete at `e58f2ed` (plan R-51). QAF-37 LOW is registered by
+    the planner as R-52. Its 02:09 reconcile says M5's `921eeb8` touches four M4 paths, so a differential-scoped M4 refresh is owed
+    with M5's Phase 2, before UAT.
+  - Plan rows are R-49, R-50, R-51 and R-56. Records `908aeee0`, `5f87a15` and `08b8193`, plus this commit.
+- **Next.**
+  - **(1)** Stage start, when code review commits a verdict on M3 fix round 8 at website `81c68b2` (implementer record
+    `d43e2b40`, "Round 8"). Read `Reviewed-At` in `code-review/019-slate-formatting-discord-engine-code-review.md`; at this
+    checkpoint it still reads `d6aab03`. Then run the refresh over round 8's diff (`d6aab03..81c68b2`, M3 paths), in a fresh
+    `git archive` export of the reviewed SHA with `pnpm install --frozen-lockfile --offline` and `next-env.d.ts` copied in:
+    - re-run `verification/019/qa/m3-refresh-2/qa-routing-mutants.json` through `mutation-run.py`, with suite
+      `discordRouting.predicates.test.ts` offline under `unshare -rn` (the new stub case must kill all six);
+    - the whole offline suite (`--project node --project dom`, JSON, exit code);
+    - the live command;
+    - `pnpm test:discord` offline, whole (exit non-zero, the page named, `grep -c -E '[0-9]+ passed'` 0).
+    Watch `preview.engine-not-ready`: the implementer saw a 5,000 ms timeout once under a parallel load. If it fails in an
+    isolated run, raise it. Write the section "Refresh pass — fix round 8", close QAF-38 if every mutant is KILLED, update the
+    header, write the plan row (next R number above the table's highest), commit, and message `implementer-019`.
+  - **(2)** M5 Phase 2, when its code review verdict lands. It carries the M4 differential refresh: execute `e58f2ed` and the M5
+    tip over the preview surface, the five legacy surfaces and the edit page. It also takes G5, W12 and W9 from this document, and
+    the case drop from 3,460 to 3,268 that code review routed to M5's round.
+  - **(3)** Phase 3 owes: re-read one AN-3 posted message per legacy surface (this document's last Assumption Not Checked), and
+    `pnpm test:discord` at the release tip (CR-14).
+- **Approach in flight.** None.
+- **Local state.** Website on `chain/019-slate-formatting-discord-engine`, HEAD `81c68b2`, with M5's uncommitted work belonging to
+  the implementer. I wrote nothing there. All scratch exports are deleted. No process of mine is running.
+- **Evidence run but not recorded.** None. Every capture is committed under `verification/019/qa/m3-refresh/`,
+  `m3-refresh-2/` and `m4/`.
+- **Questions sent.** None open. The owner has given no waiver of the TDD gate, and none is needed now.
+- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
