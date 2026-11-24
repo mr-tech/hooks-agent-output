@@ -1261,6 +1261,10 @@ Register sweep. The predicate is rows citing AC-6.5, AC-6.7 or AC-3.3. B-8 and B
 (the drive clause changes no saved text the walks read). Checked and cleared. Rows inherited and not discharged: B-1 to B-9.
 
 Phase 1 is keyed to Revision 15. Open for the planner: QAF-42 LOW. Nothing holds AC-6.5's literal freeze on QA's account.
+Reconcile, 2026-11-24T04:24: every gate has passed revision 15 (critic cycle 9, record `bf589c96`; plan R-71, record `efa66eae`).
+SL-17 (F-43) is owed at M6's Phase 2. Each AC-6.5 escape member (`\*a😄`, `a\_b😄`) is either reddened by a mutant the implementer
+names, recorded red, or gets a line under AC-6.5's row in the register saying it is held by its literal alone. The critic's F-44
+is the same member as QAF-42.
 
 ## Blocking-condition register (the chain's one register)
 
