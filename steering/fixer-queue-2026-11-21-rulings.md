@@ -1712,3 +1712,14 @@ Two reads come first.
 - No `handoff/` record has been added since 19:45Z (`git log --diff-filter=A`: nothing).
 - Its scope: the four `a🙂` fence members to SL-29's line in CF-33's form (`dffb4dc4`), under R-111's reading, and CR-26 LOW.
 - Its brief goes to `implementer-019`, naming its Resumption State (`c036287a`). Code review follows, then QA Phase 2 with SL-29.
+
+## 2026-11-24T23:41Z — plan 019 Fix Round 4: implementer-019's uncapped mutation sweep is stopped and re-run capped, at the coordinator's ask (this thread's)
+
+`steering-coordinator` sent a blocking message (23:4xZ) about `implementer-019`'s sweep at `4a7fb49` (pid 2893138). Its figures, which
+this thread did not re-read: vitest per mutant with no worker cap, 12 workers at about 5.7 GB, and at 23:40Z 582 MB available with swap at
+3.5 of 4 GB.
+- This thread's reads at 23:41Z: the pid is alive at 15:31 elapsed (`ps -p`), 7,081 MB is available between mutants, swap is at 2,715 of
+  4,095 MB, and the OOM count is 0.
+- `implementer-019` is told, as a blocking message, to stop the sweep and re-run it with `--maxWorkers` and a memory ceiling (lifecycle
+  `SKILL.md`, Background work), and to record both in the round. Fix Round 3's sweeps ran the same way, uncapped; that round's document
+  states its runner's flags (lines 648 on).
