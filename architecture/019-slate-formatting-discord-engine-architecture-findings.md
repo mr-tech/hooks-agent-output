@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 15 (record 79eeced6, QAF-40 and QAF-41 folds): APPROVED. CF-24 (LOW: take remedy (a); the
+  package's parseLossless gives each emoji node its span and source text on the pinned wasm, so the helper needs no join) is a
+  stated limit for the M6 implementer under block 04:18Z. It holds nothing.
   Delta pass on plan 019 revision 14 (record 2c3c8d1a, AC-6.7 quote continuation, D-22): APPROVED under the M6 cap. CF-22 (LOW:
   carry the marker in an insertBreak override, since paste emits the same split_node op) and CF-23 (LOW: "carried" is state no
   field holds; a transient element field is the home) are stated limits for the Planner batch. They hold nothing.
@@ -50,6 +53,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T04:20 | architect-019 | Delta pass on plan 019 revision 15 (record `79eeced6`); § Delta pass, revision 15. APPROVED; CF-24 LOW raised as a stated limit | Commissioned by `planner-019`'s message. Read as `git show 79eeced6` on the plan, with website `2e36107` `engine.ts`. The package's `parseLossless` was run on the pinned 0.16.0 in a capped scope; the capture is in `verification/019/architect-conformance/rev15/`. |
 | 2026-11-24T04:06 | architect-019 | Delta pass on plan 019 revision 14 (record `2c3c8d1a`); § Delta pass, revision 14. APPROVED; CF-22 and CF-23 LOW raised as stated limits under the M6 cap. CF-21's disposition recorded (freezing kept on D-21's option text) | Commissioned by `planner-019`'s message under effort rulings block 04:00Z. Read as `git show 2c3c8d1a` on the plan. Website `2e36107` and `8cb4d83` were read through `git -C … show`/`grep`, and the installed `slate-dom` 0.123.0 `insertTextData` was read read-only. |
 | 2026-11-24T04:02 | architect-019 | Delta pass on plan 019 revision 13 (record `f9b406d6`); § Delta pass, revision 13. APPROVED; CF-21 LOW raised as a stated limit under the M6 cap. `website.md` A-9 gains the freeze-only-what-cannot-run sentence | Fresh session (brief `steering/019-brief-architect.md`). Read as the revision 13 commit's hunks of `git diff b0af4dc3 f9b406d6` on the plan. Website `2e36107` was read through `git -C … show`/`grep`. The pinned engine was run once over the 272 corpus in a capped scope; the capture is in `verification/019/architect-conformance/rev13/`. |
 | 2026-11-23T22:37 | architect-019 | Revision 12 verdict re-dispositioned under steering's M3 cap (block 22:35Z, commit `41101e7`): APPROVED, with CF-20 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 12, with the original verdict kept in place. |
@@ -70,7 +74,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21**, **CF-22** and **CF-23** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21**, **CF-22**, **CF-23** and **CF-24** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -307,6 +311,52 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 15 (record `79eeced6`)
+
+Read as `git show 79eeced6` on the plan (25 insertions, 9 deletions). The four commits before it since `2c3c8d1a` are
+registration rows and QA records. The delta is AC-6.5's five QAF-40 members with the first-occurrence join mutant, AC-6.7's
+NM-68 and NM-69, AC-3.3's drive clause, and the QAF-40 and QAF-41 Planner batch cells. Read beside it at website `2e36107`:
+`src/utils/markdown/engine.ts` `parseLossless`, and the installed package's `parseLossless` typing
+(`src/lib/discord_markdown_wasm.d.ts`, read-only). The package's `parseLossless` was run once over QAF-40's members in a capped
+scope. The capture is in `verification/019/architect-conformance/rev15/`.
+
+**The AC-6.7 and AC-3.3 delta fits.** A drive that works out carry, replace or remove from the input's text, never from the
+editor, is the axiom E form the expected values already use. NM-68 and NM-69 give the `>>>` and fence rows one carrier each,
+which CF-22's single `insertBreak` home decides. Nothing in it touches CF-22 or CF-23.
+
+### CF-24 LOW — Take remedy (a): the engine's `parseLossless` already gives every emoji span, so the helper needs no join
+
+QAF-40's premise is that `parse` gives an emoji node with no span, so the join M6 writes decides the spans. That is true of
+`parse`. The same package exports `parseLossless(data, flags?, fuel?)`, and run on the pinned 0.16.0 under content's literal mask,
+it gives each emoji node its own `span` and its source text:
+- `😄:smile:` gives two emoji nodes, at 0–2 (`😄`) and 2–9 (`:smile:`);
+- `\*a😄` gives an escape token at 0–1, text to 3, and the emoji at 3–5;
+- `:smile:😄`, `😄😄` and `a\_b😄` give 2, 2 and 1 emoji nodes.
+
+So the spans the join would recover are the engine's own output. Remedy (b) keeps a hand-written join and adds members and a
+mutant to catch its mistakes. Remedy (a) removes the join, and with it the class of mistake QAF-40 names. It is smaller in code,
+even if longer in the plan's text. It is also the form the plan's own boundary implies: "the engine is the authority D-13
+names", and the join re-derives what the engine already states. A second grammar written beside the engine is what the B3 rule
+forbids for adjustments (§ Legacy-only surfaces).
+
+**Independence holds under (a).** The adapter's `parseLossless` in `engine.ts` is `parseWasm(text, SURFACE_MASKS[surface])`,
+gated on the engine being ready. The helper would call the package function directly with `SURFACE_MASK_LITERALS`, over the raw
+text. What the lift adds stays independently checked: the run unit, the `?` placeholders, the offset mapping and re-deciding.
+AC-2.3 already pins the adapter's mask constants to the literals. A wrong adapter mask therefore fails AC-2.3, and it does not
+become the expected value.
+
+- **Follow the engine (recommended):** the helper reads `parseLossless` under `SURFACE_MASK_LITERALS` and collects the emoji
+  nodes' spans. The five QAF-40 members stay as hand-written control members, since they are cheap. The first-occurrence join
+  mutant has no join to act on. A mutant of the helper that collects spans by first occurrence of the value takes its place.
+- **Keep the join, as written:** this works, and its mistakes are caught by the five members and the mutant.
+
+The planner's QAF-40 cell already records that AC-6.5's text admits (a) as the helper's own choice. So this needs no revision:
+it is a recommendation to the M6 implementer, carried as a stated limit under block 04:18Z ("a further AC-6.5 gap below HIGH is
+a stated limit"). Under CF-21's recommended live form, (a) is one call per input.
+
+**Verdict on revision 15:** APPROVED. CF-24 is LOW and goes to the Planner batch as a stated limit, for the M6 implementer.
+Nothing needs the owner.
 
 ## Delta pass, revision 14 (record `2c3c8d1a`)
 
