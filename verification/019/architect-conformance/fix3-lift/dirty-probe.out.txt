@@ -1,0 +1,6 @@
+{"quiet":false,"n":200,"medianMs":96.6,"perOpUs":120.7}
+{"quiet":false,"n":1000,"medianMs":1996.7,"perOpUs":499.2}
+{"quiet":false,"n":2000,"medianMs":8357,"perOpUs":1044.6}
+{"quiet":true,"n":200,"medianMs":26.1,"perOpUs":32.7}
+{"quiet":true,"n":1000,"medianMs":517.7,"perOpUs":129.4}
+{"quiet":true,"n":2000,"medianMs":2039.8,"perOpUs":255}

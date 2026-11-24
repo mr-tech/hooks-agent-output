@@ -4,6 +4,11 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Design read for M6 Fix Round 4 (block 22:41Z), CF-33. The `a🙂` fence cost is Slate's pending dirty-path list, rebuilt on every
+  path-transforming op, which makes it O(N²). Measured on plain Slate: hand-built ops and per-line rebuild both stay quadratic. The
+  form that reaches the line is to rebuild the changed lines from the load path (liftLoaded), 2 ops each, with getDirtyPaths
+  suppressed for those ops. Its op floor is 11.6 ms at 1,000 lines; the site's own build time is unmeasured. It bears on AC-6.9's
+  no-throw refusal wording, which goes to steering. For implementer-019.
   Delta pass on plan 019 revision 23 (record 49a20690, CR-25 and D-26 in AC-6.9): APPROVED. CF-32 (LOW: key the settle memory on
   Slate's line objects plus the incoming fence state, not editor.children, and run a paste in one withoutNormalizing drain) is a
   stated limit for the third fix round. It holds nothing.
@@ -78,6 +83,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T22:46 | architect-019 | Design read for M6 Fix Round 4 (§ Design read: the emoji lift for `a🙂` fence keystrokes); CF-33 | Commissioned by `steering-hooks-fixer` under block 22:41Z (agent-output `40823e74`). Read the implementation document at `731ff3a1`, `slate` 0.123.0 (read-only) and website `2b82972`. Two plain-Slate probes ran in capped scopes; the captures are in `verification/019/architect-conformance/fix3-lift/`. Process fact: the two probe scripts were written with a shell heredoc. They are captures, not record documents, and the README says so. |
 | 2026-11-24T20:10 | architect-019 | Delta pass on plan 019 revision 23 (record `49a20690`); § Delta pass, revision 23. APPROVED; CF-32 LOW raised as a stated limit; A-11's owed restatement gains the memoisation consequence | Commissioned by `planner-019`'s message. Read as `git diff 17bb8f2c 49a20690` on the plan, with `withNormalizeNode.ts` at website `85ece66` read. Nothing was run. |
 | 2026-11-24T17:07 | architect-019 | Delta pass on plan 019 revision 22 (record `960052d1`); § Delta pass, revision 22. APPROVED; CF-30 resolved; CF-31 LOW raised as a stated limit | Commissioned by `planner-019`'s message, inside the revision 21 pass. Read as `git show 960052d1` on the plan, with `withNormalizeNode.ts` at website `42128cd` grepped. Nothing was run. |
 | 2026-11-24T14:39 | architect-019 | Delta pass on plan 019 revision 21 (record `81523bd6`); § Delta pass, revision 21. APPROVED; CF-30 LOW raised as a stated limit; the architecture record's Slate-layer entries checked, and A-11 is owed a restatement at the closing pass | Commissioned by `planner-019`'s message under D-24 (block 14:33Z). Read as `git show 81523bd6`, with the installed `slate` 0.123.0 `shouldNormalize` read read-only and website `42128cd` grepped. Nothing was run. |
@@ -111,7 +117,7 @@ Status-Detail: >-
 
 - **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant (§ Delta pass,
   revision 21), how the marker leaves the text (revision 22) and the memoisation key (revision 23).
-- **CF-21** to **CF-26**, **CF-28**, **CF-29**, **CF-31** and **CF-32** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-26**, **CF-28**, **CF-29**, **CF-31**, **CF-32** and **CF-33** (design guidance for Fix Round 4, carried by implementer-019) go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -354,6 +360,80 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Design read: the emoji lift for `a🙂` fence keystrokes (Fix Round 4)
+
+Commissioned by `steering-hooks-fixer` by message, under effort rulings block "2026-11-24T22:41Z" (agent-output `40823e74`). The
+consumer is `implementer-019`, for Fix Round 4. I read:
+- the M6 implementation document at agent-output `731ff3a1`, § Fix Round 3 (lines 543–625), including § SL-29 and its reason for
+  not taking CF-32 (line 553). Its figures are the implementer's;
+- the rulings blocks 22:41Z and 20:58Z (the yardstick: the larger `af3d95a` median at that N, plus a quarter);
+- `slate` 0.123.0's `apply`, `updateDirtyPaths` and `batchDirtyPaths` (installed copy, read-only), and the `getDirtyPaths`
+  declaration in `dist/interfaces/editor.d.ts`;
+- `getInitialValue.ts` and `emojiLift.ts` (`liftLoaded`) at website `2b82972`.
+
+Two probes ran on plain Slate. The captures are in `verification/019/architect-conformance/fix3-lift/`. Line 617's "Outstanding
+Items 1" pointer and the `m6-fix3-timing/` captures were not re-run.
+
+**Where the time goes (measured).** A plain Slate document of N `a🙂` lines takes the round's 4 operations per line after a retype
+that dirties every line. That costs 96.6 ms at 200 lines, the implementer's 96.7. At 1,000 lines it costs 1,997 ms, and at 2,000
+it costs 8,357 ms. The cost per operation grows linearly with N, from 121 to 1,045 µs. The cause is in `slate`'s `apply`: on every
+path-transforming operation (`insert_node`, `remove_node`), `updateDirtyPaths` rebuilds the whole pending dirty-path list,
+joining each path into a string key. A fence keystroke leaves about N lines pending, and the lift then issues two `insert_node`s
+per line, so the work is O(N) operations × O(N) pending = O(N²). The implementer's "about 250 µs each" is this cost at its sizes.
+It is not a fixed cost per operation.
+
+**The two named candidates do not reach the line on their own** (measured, `dirty-probe-2`, operations dirtying as normal):
+- **Hand-built operations** (`editor.apply` directly, 4 per line): 72 ms at 200 lines and 1,559 ms at 1,000.
+- **Rebuilding a line's children** (`remove_node` plus `insert_node`, 2 per line): 59 ms and 1,470 ms.
+
+Both stay quadratic, because neither shrinks the pending list. The line at 1,000 lines is about 38 to 64 ms.
+
+### CF-33 — The lift form that reaches the line: rebuild the changed lines from the load path, with their dirty paths suppressed
+
+With no dirty paths pending, the same operations take 3.7 ms (in place) and 1.0 ms (rebuild) at 200 lines, and 30.6 and 11.6 ms at
+1,000. Slate gives the means: `editor.getDirtyPaths` is a declared editor method (`editor.d.ts`), and `apply` calls
+`editor.getDirtyPaths(op)`, so an override can return no paths.
+
+**Recommended form:**
+1. **Find the changed range.** In the input-path entry (CF-30's home), after the keystroke's own operation, derive the lines
+   whose type or fence state changes, and the run units they belong to, from the text alone.
+2. **Build those lines from the load path.** Build them with the same functions a load uses: the fence derivation, then
+   `liftLoaded` (`emojiLift.ts`) over those units. So each rebuilt line is, by construction, the line a fresh load makes. That is
+   AC-6.9's fresh-load limb.
+3. **Replace each changed line** with `remove_node` and `insert_node` of the built line, 2 operations, inside
+   `Editor.withoutNormalizing`. Hold a scoped flag (set and cleared in `try`/`finally`) under which an `editor.getDirtyPaths`
+   override returns `[]` for those replacement operations alone.
+4. **Leave the keystroke's own line** to the normal path, so its caret and the D-25 range delete (CF-31) are untouched. A selection
+   is never inside a replaced line. Both the line-2 and the middle-delimiter members change only lines below the keystroke's line.
+
+**Why skipping their normalisation is sound.** The skipped lines are the load path's output, the state the normaliser must
+converge to anyway (the fresh-load invariant, § Delta pass, revision 21). Whether slate-react normalises an initial value on
+mount, which would show that load output is trusted unnormalised today, is unread. That is an item for the implementer to read.
+The fresh-load limb then asserts the result after every member. A suppression that leaves a line unsettled fails that limb at once, so the safety net already exists.
+
+**Side effects:**
+- CF-32's obstacle (line 553: a lift replaces the line's object, then the padding replaces it again) goes away. The rebuilt line is
+  inserted once, so the settle memory can be keyed on that object.
+- Undo records 2 operations per line and stays exact.
+
+**Bound, and what is not measured.** The Slate operations' floor in this form is 1.0 ms at 200 lines and 11.6 ms at 1,000. That
+leaves about 16 to 22 ms at 200 lines, and about 26 to 52 ms at 1,000, for the site's own work. That work is the fence scan, the
+unit parse through the wasm, and `liftLoaded` over the changed lines, which this read did not measure. If `liftLoaded`'s cost over
+1,000 `a🙂` lines in a mounted-free run is above about 25 ms, no form inside the site reaches the 1,000-line line for the middle
+delimiter, whose base is 30.6 / 32.9 ms, giving a line of about 41 ms. The implementer can tell before writing the form by timing
+`getInitialValue` on the 1,000-line `a🙂` text, which bounds steps 1 and 2. If it misses, the best bound is that time plus about
+12 ms of Slate operations. That reading goes to steering under block 20:58Z with the figures.
+
+**A criterion's wording this form bears on.** AC-6.9's no-throw limb refuses "any change that stops `Editor.normalize` from
+reporting a drain that does not settle" (revision 22, my CF-30). Suppressing dirty paths takes lines out of the drain. My reading
+is that it does not hide an unsettled drain, because the suppressed lines are settled by construction and the fresh-load limb
+proves it. But the sentence can be read to bar it. **Code review and QA must read it the same way.** I name it here, as the brief
+asks, and route it through steering. A reading that bars it leaves no form that reaches the line, by the measurement above.
+
+**Avoid:**
+- `batchDirtyPaths`. It is Slate-internal and not exported (`grep -c` over `dist/index.js`'s exports gives 0).
+- Suppressing dirty paths for any operation the code has not itself built from the load path.
 
 ## Delta pass, revision 23 (record `49a20690`)
 

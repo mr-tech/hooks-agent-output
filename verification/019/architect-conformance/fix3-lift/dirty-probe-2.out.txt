@@ -1,0 +1,12 @@
+{"form":"inPlace","quietAll":false,"n":200,"medianMs":72.3}
+{"form":"inPlace","quietAll":false,"n":1000,"medianMs":1559}
+{"form":"inPlace","quietAll":false,"n":2000,"medianMs":6818.3}
+{"form":"inPlace","quietAll":true,"n":200,"medianMs":3.7}
+{"form":"inPlace","quietAll":true,"n":1000,"medianMs":30.6}
+{"form":"inPlace","quietAll":true,"n":2000,"medianMs":88.6}
+{"form":"rebuild","quietAll":false,"n":200,"medianMs":59}
+{"form":"rebuild","quietAll":false,"n":1000,"medianMs":1469.6}
+{"form":"rebuild","quietAll":false,"n":2000,"medianMs":6523.6}
+{"form":"rebuild","quietAll":true,"n":200,"medianMs":1}
+{"form":"rebuild","quietAll":true,"n":1000,"medianMs":11.6}
+{"form":"rebuild","quietAll":true,"n":2000,"medianMs":39.2}
