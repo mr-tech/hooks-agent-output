@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 20 (record cf7e4d91, the corpus bound dropped and the fenced-quote texts added): APPROVED.
+  CF-29 (LOW: the fenced-quote 2,048-line size exceeds every field limit; name it a growth probe and settle the timed limb's
+  scope) is a stated limit. It holds nothing.
   Delta pass on plan 019 revision 19 (record 4a68f286, AC-6.8's count without per-kind literals): APPROVED. CF-27's literal is
   withdrawn, and the error was mine (F-48's probe). CF-28 (LOW: every sized text is one run unit, so add a many-unit sized text)
   is a stated limit. It holds nothing.
@@ -66,6 +69,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-24T07:45 | architect-019 | Delta pass on plan 019 revision 20 (record `cf7e4d91`); § Delta pass, revision 20. APPROVED; CF-29 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:42Z. Read as `git show cf7e4d91` on the plan. Only the fixture's size arithmetic was run. |
 | 2026-11-24T07:23 | architect-019 | Delta pass on plan 019 revision 19 (record `4a68f286`); § Delta pass, revision 19. APPROVED; CF-27's literal withdrawn (my error, shown by F-48's probe); CF-28 LOW raised as a stated limit | Commissioned by `planner-019`'s message under steering block 07:21Z. Read as `git show 4a68f286` on the plan, with `runUnit.ts` at website `119471f`. Nothing was run. |
 | 2026-11-24T07:17 | architect-019 | Delta pass on plan 019 revision 18 (record `18e434e6`); § Delta pass, revision 18. APPROVED; CF-27 resolved | Commissioned by `planner-019`'s message under steering block 07:15Z. Read as `git show 18e434e6` on the plan. |
 | 2026-11-24T07:15 | architect-019 | Revision 17 verdict re-dispositioned under steering's block 07:13Z: APPROVED, with CF-27 a stated limit (plan R-82, record `75aa1dad`) whose reading governs the count limb | A reconcile note in § Delta pass, revision 17, with the original verdict kept in place. |
@@ -93,7 +97,7 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-21** to **CF-26**, and **CF-28**, go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
+- **CF-21** to **CF-26**, **CF-28** and **CF-29** go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
   that the rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
@@ -336,6 +340,37 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 20 (record `cf7e4d91`)
+
+Read as `git show cf7e4d91` on the plan, under steering's block "2026-11-24T07:42Z" (record `bc96c93b`), which reopens block 07:21Z
+for this change only. The three commits before it since `4a68f286` are R-85, R-86 and a Resumption State. The delta is the
+corpus and generator bound's removal, the fenced-quote sized texts, and the residue. implementer-019's measurement (a correct fix
+exceeds 4, with a maximum of 8) is the implementer's, re-derived by no one, this pass included.
+
+**Dropping the bound is right.** Its basis was a plain-slate probe, and this editor's own retyping (`splitCarrying` plus
+`handleEditor`) sends more `normalizeNode` entries than plain slate. That is the same dependency on dirtying detail that sank
+CF-27's literals. A bound measured on the fixed code would break axiom E, and a bound on short inputs tests no growth. The
+property CR-20 is about stays on the equality limb, which the fenced-quote texts widen to quoted fences. With CF-28's many-unit
+text that steering adopted (R-85), the class now covers single-unit, many-unit and quoted-fence structure. The residue says
+plainly that the corpus and generator inputs carry no bound, that growth on an unheld construct goes uncaught, and that the
+per-kind distribution is recorded as an observation with a register route for a user report. That is the right
+observability for a gap that is accepted.
+
+### CF-29 LOW — The fenced-quote 2,048-line size exceeds every field's limit; say it is a growth probe, and say whether the timed limb runs it
+
+`> ```⏎> x⏎> ```⏎> y⏎` is 20 characters per 4 lines, so 512 repeats are 10,239 characters. The embed description allows 4,096,
+which is 816 lines of this pattern, and content allows 2,000. The `a🙂` text was sized down to 1,000 for exactly this reason
+("2,048 lines of `a🙂` exceed the description's 4,096"), and CF-28's text is sized to 1,364. For the count limb an unreachable
+size does no harm, since equality tests growth, not a product case. But the text should say so, and it should not cite the
+field limits as it does for the other sizes. The timed limb's sentence ("each of the 200, 400, 1,000 and 2,048-line texts")
+leaves open whether the fenced-quote texts enter it.
+- **Recommended:** the count limb names 2,048 as a growth probe beyond the field limits. The timed limb either leaves the
+  fenced-quote texts out, or runs them at 816 lines, the description's maximum.
+
+LOW: a wording gap with no wrong result. Under block 07:21Z it is a stated limit.
+
+**Verdict on revision 20:** APPROVED. CF-29 is LOW, a stated limit. Nothing needs the owner.
 
 ## Delta pass, revision 19 (record `4a68f286`)
 
