@@ -1751,11 +1751,38 @@ Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fix
   "several times the base" has no valid denominator for the fence members. The paste members' base runs have no errors. The fence
   members wait for steering's ruling on the comparator. Until then, the tip readings are recorded beside the base's throw time,
   and the throw is named on each row.
+- **SL-29 comparator, ruled (effort rulings block 2026-11-24T20:58Z, record `493aa6cc`).** A fence tip reading compares
+  against `af3d95a`'s median on the same probe, with the base's throw named beside it, built as the plain-line fence ceiling
+  (plan § the fence keystrokes' ceiling) is built. The ruling's arithmetic:
+  - Roughly today's speed is a tip median of at most (the larger base median at that N) × 1.25, for fence and paste alike.
+  - A reading above that line goes to steering with its figures and the load. It is not a fail on its own.
+  - A tip throw, or a write failure, fails on its own limb.
+  - Context only: the same keystroke's plain `a` reading, at the same size, at the tip.
+
+  How I apply it:
+  - For a fence, "larger" means the larger of the open and close medians, as in the plan's ceiling.
+  - A paste member has one base median per fill and N. I hold each paste member to its own median, which is the stricter
+    reading, and I have told steering so.
+  - I re-run the base in the same session as the tip and judge against that run. Round 7's figures are recorded beside it.
+
+  Lines from the committed figures:
+
+  | Member | Base medians | Line (× 1.25) |
+  |---|---|---|
+  | `a🙂` fence, N = 200 | close 16.2, open 16.9 ms | 21.1 ms |
+  | `a🙂` fence, N = 1,000 | close 48.1, open 43.5 ms | 60.1 ms |
+  | Paste `a`, N = 200 | 135.1 ms | 168.9 ms |
+  | Paste `a`, N = 1,000 | 1,695 ms | 2,118.8 ms |
+  | Paste `a🙂`, N = 200 | 237 ms | 296.3 ms |
+  | Paste `a🙂`, N = 1,000 | 2,972.1 ms | 3,715.1 ms |
+
+  Sources: the fence medians are from `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl`, and the paste medians from
+  `planning/paste-refute/out-af3d95a.jsonl`.
 - **Approach in flight.** None.
 - **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `85ece66`. I never move it. The
   record is on `master`.
 - **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds probe copies and outputs, all disposable;
   the exports are deleted.
 - **Evidence run but not recorded.** None. Everything cited is under `verification/019/code-review/`.
-- **Questions sent, and to whom.** None of mine is open. Steering has the paste-member scope question with the owner.
+- **Questions sent, and to whom.** None of mine is open: the SL-29 fence comparator is ruled (block 20:58Z).
 - **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
