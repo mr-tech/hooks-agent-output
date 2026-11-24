@@ -1254,6 +1254,8 @@ at the end of `> b`", and the fold dropped the key. The property wanted: each mu
 the dropped conjunct governs. For example `>>> a⏎> b⏎c` and `` ```⏎> x⏎y ``, or an AC-6.7 case that sends Enter there explicitly.
 Under the M6 cap it is a stated limit for the Planner batch. Phase 2 reads NM-68 and NM-69 red on the fixtures as built, so the
 gap is caught there if it is not fixed first.
+Reconcile, 2026-11-24T04:21: registered as plan R-69, a Planner batch row (record `c1028a1d`), and sent to implementer-019 with
+both fixture forms.
 
 Register sweep. The predicate is rows citing AC-6.5, AC-6.7 or AC-3.3. B-8 and B-9 are members, and neither predicted value moves
 (the drive clause changes no saved text the walks read). Checked and cleared. Rows inherited and not discharged: B-1 to B-9.
