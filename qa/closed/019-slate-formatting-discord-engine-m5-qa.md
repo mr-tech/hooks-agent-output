@@ -3,11 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "2e36107 — repos=website; M5's production source at 2e36107 with cf126ea's four test paths laid over it (QAF-39's fix round, test-only), the tree code review approved (record 79f96321) and steering named (block 05:14Z). Manifest: verification/019/qa/m5-refresh-qaf39/overlay-manifest.txt (668 of 668 paths at their expected blobs). The cf126ea tip's M6 commits are outside this verdict"
-Status: QA Complete
-Status-Detail: >-
-  Refresh over QAF-39's fix round (cf126ea, test-only), run on 2e36107 with the round's four test paths laid over it. QAF-39 is
-  closed: m5-d2 is KILLED by `decorator.native-box-classes` on x8. Offline 3,280 of 3,280, typecheck exit 0, live 41 of 41.
-  M5 passes, milestone-scoped; AC-5.5 is UAT's (B-3). The plan's Status is not moved.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Phase: 2
 ---
 
@@ -28,6 +25,7 @@ row. B-3 (AC-5.5) is M5's row left open for UAT.
 |------|---------------|---------|---------|
 | 2026-11-24T04:12 | code-reviewer-019 (message: M5 APPROVED_WITH_COMMENTS at `2e36107`, record `fdb41883`) | QA Phase 2 on M5, with the M4 differential refresh, G5, W12, W9 and the case-count drop | Phase 2 at `2e36107` in an export. The TDD gate passes. Offline 3,280 of 3,280 over 224 files, exit 0. Typecheck exit 0. Live 41 of 41, exit 0. `next build` exit 0. The M4 differential: 14,280 preview rows, 0 moved, and the planted control moves 2,356. **QAF-39 MEDIUM** (a severity floor): survivor m5-d2 is separated by `>>> a\n> _\n> _b_`. Verdict **QA Failed**, milestone-scoped. Disclosed: one read was not completed and was re-issued as exact-path reads (§ Scope); my brief to the quote-probe walker named any channel, not `#slate-oracle-walk` (reconcile line in `verification/019/qa/discord-quote-probe/walk.md`). |
 | 2026-11-24T05:19 | code-reviewer-019 (message: QAF-39 fix APPROVED_WITH_COMMENTS, Round 5 sub-entry at `cf126ea`, record `79f96321`); steering-hooks-fixer (block 05:14Z, record `3184b3b5`: run on the approved tree) | Refresh pass over QAF-39's fix round | § Refresh pass — QAF-39 fix round. Overlay of `2e36107` with `cf126ea`'s four test paths, 668 of 668 blobs as expected. Frozen offline install exit 0. Offline 3,280 of 3,280 over 224 files, exit 0. Typecheck exit 0. Live 41 of 41, exit 0, with `discordBoxes.oracle-controls` 10 of 10. m5-d2 **KILLED** on x8. **QAF-39 closed.** Verdict **QA Complete**, milestone-scoped. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Scope and stage start
 
@@ -183,41 +181,4 @@ from `runUnit.ts` survives the suite. **Owner: QA at M6's Phase 2**, which re-ru
 
 ## Resumption State
 
-Written 2026-11-24T05:39 at steering's ask (`/checkpoint`, about 342K tokens), at a seam: every pass is committed.
-
-- **Done.**
-  - **M3:** QA Complete at `81c68b2` (refresh over round 8, `qa/019-slate-formatting-discord-engine-m3-qa.md`).
-  - **M4:** QA Complete at `e58f2ed`, re-anchored at `2e36107` by this document's differential (M4 document, reconcile 04:13).
-  - **M5:** QA Complete on `2e36107` with `cf126ea`'s test paths (this document). QAF-39 is closed.
-  - **Phase 1:** re-keyed to plan Revision 15 (`qa/019-slate-formatting-discord-engine-qa.md`). QAF-40 and QAF-41 are closed.
-    QAF-42 LOW is registered as R-69. B-9 is minted. Reconciles are at 04:21 and 04:24.
-  - Discord quote probe: `verification/019/qa/discord-quote-probe/walk.md` (`1e84abe1`; reconcile at 04:10).
-  - Plan rows R-58, R-65, R-66, R-68 and R-75. Records: `cece4c72`, `e47a438e`, `1e84abe1`, `263aa3c6`, `a1b54c49`,
-    `3b264329`, `5a1108d0`, `2f91ea71` and `e668730b`, plus this commit.
-- **Next: M6 Phase 2**, when M6's code review verdict lands. Stage start is the review's committed `Reviewed-At`. Run in a
-  `git archive` export of the reviewed SHA, with a frozen offline install and `next-env.d.ts` copied in. Owed:
-  - the TDD gate; the whole offline suite (JSON and exit code); typecheck; live; `pnpm test:discord` offline; `next build`
-    with the network (offline it fails only on `next/font`);
-  - **m5-d2 in its M6 form**: remove the quote-prefix line from `runUnit.ts`, the new home of `unitAround`. It must redden
-    `decorator.native-box-classes` on x8. This is the Assumption Not Checked above;
-  - **NM-68 and NM-69** red on QAF-42's fixture forms (`>>> a⏎> b⏎c`, `` ```⏎> x⏎y ``, or an explicit Enter); R-69;
-  - **SL-17 (F-43)**: each AC-6.5 escape member (`\*a😄`, `a\_b😄`) is either reddened by a mutant the implementer names, or
-    gets a line under AC-6.5's row in the register saying it is held by its literal alone;
-  - AC-6.5's control: the five QAF-40 members and the first-occurrence join mutant red; NM-44 red;
-  - **R-74**: AC-5.8's BOX_READS_ELEMENT_AS_QUESTION_MARK members by id: `link:61`, `gen:870`, `gen:1677`;
-  - the M6 document's **Outstanding 4**: the fence-parity inputs (`hasCleanFences`) left out of AC-6.5's loaded-text
-    property under X-19. Measure them per surface and judge whether they narrow the criterion's class;
-  - M3's W8 (and W9, W12, both in `withNormalizeNode`, which M6 changes);
-  - CR-7's exit check (the 194 `MOUNTED_BASE_RED` inputs; `EDITS_BASE_RED` gone);
-  - an M4 and M5 differential if M6 touches their paths (M6's `8cb4d83`, `c3af0ac` and `f58a816` touch `decorator.tsx`,
-    `unitStyles.ts`, `SlateEditor/index.tsx` and the desktop and mobile editors);
-  - the Irreversible Side-Effect Register: M6 changes `flattenNodeText` and the save path (E-2), so a bounded mutation sweep on
-    those guards is owed.
-- **Watch.** `preview.engine-not-ready` hits vitest's 5 s default under a 117-file load; run alone it passes. A sweep's control
-  can fail on it. If so, re-run with the named killing files.
-- **Approach in flight.** None.
-- **Local state.** Website is on `chain/019-slate-formatting-discord-engine`, HEAD `9719d02`, the implementer's. I wrote nothing
-  there. All scratch exports are deleted. No process of mine is running.
-- **Evidence run but not recorded.** None.
-- **Questions sent.** None open.
-- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
