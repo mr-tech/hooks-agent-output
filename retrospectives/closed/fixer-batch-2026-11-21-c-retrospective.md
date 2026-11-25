@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixer-batch-2026-11-21-c
 UUID: 82a92f3c
-Status: Active
-Status-Detail: "Fixer-batch retrospective over fix-import-save-conflict (website f4baebb..b829314) and fix-get-one-absent-not-found (website b829314..b663b35), both released and closed out."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch 2026-11-21-c): fix-import-save-conflict, fix-get-one-absent-not-found
@@ -24,6 +24,7 @@ keeps the brief's name so that the day's three batches sort together.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T10:24 | steering-hooks (spawn brief; rulings block 2026-11-21T10:18Z) | Fixer-batch retrospective over chains 3 and 3b of effort `fixer-queue-2026-11-21` | Written from the documents. The cost was read once per chain, and the captures are in `verification/fixer-batch-2026-11-21-c/cost/`. Says whether chain 3b applied the previous batch's lessons. Seven recommendations, plus sightings of the previous batch's pending ones. No handoff created. Disclosed: a shell-run Python edit of this document (two wording fixes) was refused by the record-write gate; re-issued with the Edit tool (a gate satisfied). The cost captures were written by shell redirect of `cc-usage.py` output under `verification/`, not a record document. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
