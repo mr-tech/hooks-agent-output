@@ -1,0 +1,12 @@
+date=2026-11-25T16:38:44Z build=export of 48eb60a
+BUILD_ID=qlVc7napyMC761oMa9kqx
+wasm files under .next/static:
+1230190 discord_markdown_wasm_bg.2658mkht2lx08.wasm
+da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0
+installed package wasm:
+da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0 node_modules/@discord/markdown-wasm/src/lib/discord_markdown_wasm_bg.wasm
+client files with the Discord copyright notice: 5
+client files naming simple-markdown: 0
+client files naming the oracle module ids or host (discord.com/assets): 0
+next-env/package version installed:
+0.16.0

@@ -1,0 +1,23 @@
+{
+  "carrier": "handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md",
+  "agent": "devops",
+  "allowedTools": [
+    "Bash(node verification/019/post-deploy/kit/b5-read.js:*)",
+    "Bash(git commit --only:*)",
+    "Bash(git add --intent-to-add:*)",
+    "Bash(git diff:*)",
+    "Bash(git status:*)",
+    "Bash(git log:*)",
+    "Bash(date:*)",
+    "Bash(ls:*)",
+    "Bash(mkdir:*)",
+    "Bash(node tools/check-repo.js:*)",
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob"
+  ],
+  "timeoutSeconds": 900,
+  "lock": "019-post-deploy"
+}
