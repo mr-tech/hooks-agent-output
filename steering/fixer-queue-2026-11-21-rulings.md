@@ -1943,3 +1943,18 @@ planner record `f1a2f2f7` (R-124, R-125). The other start conditions, read this 
 - the design guidance: CF-34 with block 06:07Z's (b), which keeps lines `afterLine` miscounts out of the rebuild;
 - QA Phase 2's entry condition, SL-30 (D-30).
 Sweeps and probes run capped (a MemoryMax scope, one worker, `unshare -rn`).
+
+## 2026-11-25T06:46Z — plan 019: he switched implementer-019 to Opus mid Fix Round 5 (his act, for the retrospective)
+
+The coordinator relays his words, given to it at about 06:4xZ: "I changed implementer-019 to Opus", "probably just a turn ago". The act was
+his, reported by the coordinator.
+**Read this turn** from the transcript `~/.claude/projects/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8.jsonl`
+(assistant entries' `message.model`):
+- `claude-sonnet-5-5` from the generation's first entry at 2026-11-25T05:30:24Z;
+- `claude-opus-5-5` from **2026-11-25T06:37:58Z**, which is the boundary.
+The definition pins `model: sonnet`, `effort: high` (`~/.claude/agents/implementer.md` lines 4–5). The operative effort was not read.
+**For the retrospective:**
+- He wants to see whether the implementer codes faster and needs fewer review passes on Opus.
+- Fix Round 5 started 06:20Z (block 06:20Z), so its first 18 minutes ran on Sonnet and the rest on Opus.
+- The comparison is with Rounds 1 to 4, all on the pinned model; that is this thread's reading of the definition, not read per round.
+- There is a matching agents INBOX entry, steering-coordinator, 2026-11-25.
