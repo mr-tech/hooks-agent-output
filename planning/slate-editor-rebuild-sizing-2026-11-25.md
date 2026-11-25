@@ -2,7 +2,7 @@
 UUID: 9e25f695
 Parent: slate-editor-design-2026-11-25
 Status: Active
-Status-Detail: "He chose 'Agent: rebuild after 019 (Recommended)' (effort rulings block 2026-11-25T15:36Z). The rebuild of the editor's Slate layer on Discord's model is its own effort after plan 019's release. It does not open on that release: at the release, steering tells him it is ready, and it opens on his word, with a scoping determination then (block 2026-11-25T15:38Z). There is no ID and no plan until then. This document carries that decision until it opens, and is closed by the rebuild plan that cites it. At entry the rebuild takes the four Slate-layer handoffs named in § What it does to 019, and the 77 unfolded rows of plan 019's Planner batch, as they stand (D-33, 019 revision 26)."
+Status-Detail: "He chose 'Agent: rebuild after 019 (Recommended)' (effort rulings block 2026-11-25T15:36Z). The rebuild of the editor's Slate layer on Discord's model is its own effort after plan 019's release. It does not open on that release: at the release, steering tells him it is ready, and it opens on his word, with a scoping determination then (block 2026-11-25T15:38Z). There is no ID and no plan until then. This document carries that decision until it opens, and is closed by the rebuild plan that cites it. At entry the rebuild takes the four Slate-layer handoffs named in § What it does to 019, and plan 019's unfolded Planner batch as it stands (D-33, 019 revision 26): every row with an open clause, read row by row, not a count (critic F-65)."
 Review-Trigger: "plan 019's release (the production deploy of website master carrying M7)"
 ---
 
@@ -16,6 +16,7 @@ Review-Trigger: "plan 019's release (the production deploy of website master car
 | 2026-11-25T15:37 | R-1 | planner-019 | Registered his choice "Agent: rebuild after 019 (Recommended)" (effort rulings block "2026-11-25T15:36Z", record `b7a4b8d2`; ledger `steering/selection-ledger/2026-11-25.md`, block "2026-11-25T15:36Z — steering-hooks-fixer", option text agent-authored). The rebuild opens as its own effort on 019's release, with a scoping determination then. Trigger "019's release" is in the frontmatter. The four Slate-layer handoffs in § What it does to 019 are the rebuild's at entry. Kept Active as the decision's carrier, at steering's ask. |
 | 2026-11-25T15:39 | R-2 | planner-019 | Corrected R-1's opening condition on his words in effort rulings block "2026-11-25T15:38Z" (record `710506e4`): "Don't immediately start on the next effort when 019 ends. This isn't a long-term hold. This is just a one-time command." The rebuild opens on his word, not on 019's release. At the release, steering tells him it is ready. The Review-Trigger stands as the point it comes up for him. |
 | 2026-11-25T15:53 | R-3 | planner-019 | Became the carrier of plan 019's unfolded Planner batch: 77 rows, as they stand, under D-33 (019 revision 26, record `d79f481`; effort rulings block "2026-11-25T15:46Z"). A rebuild plan reads them at entry, in `planning/019-slate-formatting-discord-engine.md` § Planner batch, beside the four handoffs. |
+| 2026-11-25T15:58 | R-4 | planner-019 | Took plan 019's critique cycle 18 findings F-63 to F-65, all LOW (`critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `3cbae50e`), into § "Carried from plan 019". The "77" in R-3 undercounts (F-65). |
 
 ## What was asked, and what binds it
 
@@ -191,6 +192,21 @@ AC-6.5, AC-6.8 and AC-6.9 hold as released behaviour of 019. In a rebuild plan t
 - **019's seam fold may name the rebuild in the residue it writes.** Rows whose limit a rebuild removes, such as CR-31, R-129's
   unbound off-selection forms and CR-30, may state "a rebuild, if he opens one, discharges this" beside their carrier. That
   sentence changes no criterion. Whether to write it is the fold's call, not settled here.
+
+## Carried from plan 019
+
+The rebuild's plan reads these at entry. They are carried here by D-33 and are not folded in 019.
+- **Plan 019's Planner batch**, as it stands at 019 revision 26. Take every row with an open clause. The "77" in this document's
+  R-3 was rows without the word "discharged", less two, and that predicate leaves out partly discharged rows: CF-25, F-52, the
+  CR-20 fix round's Outstanding 2, and QAF-53 (b) at least (critic F-65). Read each row; do not take the count.
+- **F-63 (SL-32)**: plan 019's D-32 and D-34 quote the rulings blocks' paraphrase of his options, not the selection ledger's
+  words. The ledger blocks those rows cite hold his text: 2026-11-25T15:36Z and 15:49Z in `steering/selection-ledger/2026-11-25.md`.
+  The rebuild's register quotes the ledger.
+- **F-64**: 019's M7 marks its rollback sentence as inference. The critic read it at website `5ec0621`
+  (`flattenNodeText.ts` and the emoji lines of `getInitialValue.ts`), and it holds for the editor's load and save: the base
+  editor re-saves a stored emoji character in its `:name:` form. A rollback by reverting the release push is devops's act,
+  and a push to production needs his approval.
+- **F-65**: the count predicate, above.
 
 ## OQ-4: colouring and preview under a rebuild
 
