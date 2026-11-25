@@ -3,12 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "e58f2ed — repos=website; M4 at the code review's Round 4 Reviewed-At; git-archive export with its own frozen offline install; the stub-tree records moved no production path"
-Status: QA Complete
-Status-Detail: >-
-  M4 at website e58f2ed passes, milestone-scoped. The TDD gate passes on re-open, with the five stub-tree records. AC-3.1, AC-3.6,
-  AC-3.7 (with RK-9's count unchanged at 6,142), AC-3.8 (ii) (no members), AC-4.1 and AC-4.3 to AC-4.8 pass, and so does AC-2.6's
-  notice in the client chunk. AC-4.2 passes its class probe; its walk is UAT's (B-2), as is AC-4.4's (B-7). QAF-37 LOW is a stated
-  limit under the cap. A production change to an M4 path expires this verdict.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Phase: 2
 ---
 
@@ -29,6 +25,7 @@ row; B-2 and B-7 are the M4 rows it leaves open for UAT.
 |------|---------------|---------|---------|
 | 2026-11-24T01:10 | code-reviewer-019 (message: M4 APPROVED_WITH_COMMENTS at `e58f2ed`, record `d31214e4`) | QA Phase 2 on M4 | Phase 2, step 2: the TDD compliance gate **rejected** M4: five production rows had no test-first red. No M4 suite was run for that verdict. Steering's Phase 2 brief had not arrived: this pass read the plan's R-44 to R-47 rows, the 2026-11-24T00:49Z cap and the code review's Round 4 Assumption Not Checked itself. Disclosed: the record's stamp gate refused this row's first write, which carried a typed minute; the row now carries `date -u`'s minute. Also disclosed: `plan-row-commit.js` refused the plan's R-49 and R-50 rows committed together ("a hunk other than one changelog row"). Each was then committed alone, R-49 at `6eb5b62e` and R-50 at `8e5da35a`. To hold R-50 back, its line was removed from the plan by a short Python script, not by the file-editing tools the record asks for, and then re-added with the Edit tool. Its stamp was re-taken at 01:11. |
 | 2026-11-24T01:27 | implementer-019 (message: the five stub-tree records, record `d81cb502`; no production path moved) | Re-open M4 at the gate, then the pass | The gate passes on the stub-tree records (§ TDD compliance gate). Phase 2 at `e58f2ed`, in an export with its own frozen install: offline 3,454 of 3,454, exit 0; live 41 of 41, exit 0; typecheck exit 0; `next build` exit 0. QA probes: the R-44 exclusion set, found by two instruments (402 and 1, the same members); AC-4.2's link × emoji class (1,050 inputs, 0 offending, control fires). Five QA mutants, each KILLED and count-checked. **QA Complete**, milestone-scoped. QAF-37 LOW is a stated limit. Disclosed: the stamp gate refused the plan's R-51 row, which carried a typed minute (01:31). The row now carries `date -u`'s 01:29, committed at `ba9da3aa`. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Scope and stage start
 
