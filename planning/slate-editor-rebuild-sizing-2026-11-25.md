@@ -2,7 +2,7 @@
 UUID: 9e25f695
 Parent: slate-editor-design-2026-11-25
 Status: Active
-Status-Detail: "He chose 'Agent: rebuild after 019 (Recommended)' (effort rulings block 2026-11-25T15:36Z). The rebuild of the editor's Slate layer on Discord's model is its own effort after plan 019's release. It does not open on that release: at the release, steering tells him it is ready, and it opens on his word, with a scoping determination then (block 2026-11-25T15:38Z). There is no ID and no plan until then. This document carries that decision until it opens, and is closed by the rebuild plan that cites it. At entry the rebuild takes the four Slate-layer handoffs named in § What it does to 019, and plan 019's unfolded Planner batch as it stands (D-33, 019 revision 26): every row with an open clause, read row by row, not a count (critic F-65)."
+Status-Detail: "He chose 'Agent: rebuild after 019 (Recommended)' (effort rulings block 2026-11-25T15:36Z). The rebuild of the editor's Slate layer on Discord's model is its own effort after plan 019's release. It does not open on that release: at the release, steering tells him it is ready, and it opens on his word, with a scoping determination then (block 2026-11-25T15:38Z). There is no ID and no plan until then. This document carries that decision until it opens, and is closed by the rebuild plan that cites it. At entry the rebuild takes the four Slate-layer handoffs named in § What it does to 019, and plan 019's unfolded Planner batch as it stands (D-33, 019 revision 26): every row with an open clause, read row by row, not a count (critic F-65); and UAT-1 from 019's UAT (§ Carried from plan 019)."
 Review-Trigger: "plan 019's release (the production deploy of website master carrying M7)"
 ---
 
@@ -17,6 +17,7 @@ Review-Trigger: "plan 019's release (the production deploy of website master car
 | 2026-11-25T15:39 | R-2 | planner-019 | Corrected R-1's opening condition on his words in effort rulings block "2026-11-25T15:38Z" (record `710506e4`): "Don't immediately start on the next effort when 019 ends. This isn't a long-term hold. This is just a one-time command." The rebuild opens on his word, not on 019's release. At the release, steering tells him it is ready. The Review-Trigger stands as the point it comes up for him. |
 | 2026-11-25T15:53 | R-3 | planner-019 | Became the carrier of plan 019's unfolded Planner batch: 77 rows, as they stand, under D-33 (019 revision 26, record `d79f481`; effort rulings block "2026-11-25T15:46Z"). A rebuild plan reads them at entry, in `planning/019-slate-formatting-discord-engine.md` § Planner batch, beside the four handoffs. |
 | 2026-11-25T15:58 | R-4 | planner-019 | Took plan 019's critique cycle 18 findings F-63 to F-65, all LOW (`critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `3cbae50e`), into § "Carried from plan 019". The "77" in R-3 undercounts (F-65). |
+| 2026-11-25T16:40 | R-5 | planner-019 | Took UAT-1 (LOW, pre_existing) from `uat/019-slate-formatting-discord-engine-uat.md` § Findings (record `d06fe6b5`) into § "Carried from plan 019", on steering's routing (effort rulings block "2026-11-25T16:33Z", record `4465cfbe`). |
 
 ## What was asked, and what binds it
 
@@ -207,6 +208,12 @@ The rebuild's plan reads these at entry. They are carried here by D-33 and are n
   editor re-saves a stored emoji character in its `:name:` form. A rollback by reverting the release push is devops's act,
   and a push to production needs his approval.
 - **F-65**: the count predicate, above.
+- **UAT-1 (LOW, pre_existing)**, from plan 019's UAT (`uat/019-slate-formatting-discord-engine-uat.md` § Findings, record
+  `d06fe6b5`; routed here by effort rulings block "2026-11-25T16:33Z"). The UAT document's words: "In the content editor, Ctrl+A
+  then Delete over `> pq` leaves an empty quote line. The message's content saves as `> `, not empty. Pasting `> pq` into that
+  line then saves `> > pq`. A Backspace removes the quote." It was read at website `48eb60a` locally and on production hooks.gg,
+  both `"content": "> "`, so 019 did not introduce it. No 019 criterion covers select-all deletion. The rebuild's plan
+  dispositions it at entry beside the handoffs above.
 
 ## OQ-4: colouring and preview under a rebuild
 
