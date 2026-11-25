@@ -4,6 +4,11 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 24 (record 80d6d143, D-28's class and CR-27's sub-limb in AC-6.9): APPROVED. Three LOW
+  findings are stated limits under the M6 cap. CF-34: the rebuild trigger compares line type only, so compare the class's whole
+  state, emoji layout included. CF-35: the corpus differential's condition is equal documents on both trees. CF-36: take fence
+  state from the engine, not codeFence.ts's hand scan. CF-33's soundness premise is corrected (my error, shown by AN-9 B1). It
+  holds nothing. Whether the handoff's fence fix rides Fix Round 5 goes to steering.
   Design read for M6 Fix Round 4 (block 22:41Z), CF-33. The `a🙂` fence cost is Slate's pending dirty-path list, rebuilt on every
   path-transforming op, which makes it O(N²). Measured on plain Slate: hand-built ops and per-line rebuild both stay quadratic. The
   form that reaches the line is to rebuild the changed lines from the load path (liftLoaded), 2 ops each, with getDirtyPaths
@@ -83,6 +88,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-25T06:05 | architect-019 | Delta pass on plan 019 revision 24 (record `80d6d143`); § Delta pass, revision 24. APPROVED; CF-34, CF-35 and CF-36 LOW raised as stated limits. CF-33's soundness premise and revision 21's A-11 consequence get reconcile notes (my error, shown by AN-9 B1). `system-architecture.md`'s hand-regex Problem Area gains B1's measured consequence | Commissioned by `planner-019`'s message. Read as `git diff 49a20690 80d6d143` on the plan, with AN-9 (record `00c91e3a`), the re-aimed handoff, and website `a7ad3f2` `codeFence.ts` and `withNormalizeNode.ts` through `git show`/`git grep`. Nothing was run. Resumed after a `/clear` from the Resumption State at `4dfc0505`. |
 | 2026-11-24T22:46 | architect-019 | Design read for M6 Fix Round 4 (§ Design read: the emoji lift for `a🙂` fence keystrokes); CF-33 | Commissioned by `steering-hooks-fixer` under block 22:41Z (agent-output `40823e74`). Read the implementation document at `731ff3a1`, `slate` 0.123.0 (read-only) and website `2b82972`. Two plain-Slate probes ran in capped scopes; the captures are in `verification/019/architect-conformance/fix3-lift/`. Process fact: the two probe scripts were written with a shell heredoc. They are captures, not record documents, and the README says so. |
 | 2026-11-24T20:10 | architect-019 | Delta pass on plan 019 revision 23 (record `49a20690`); § Delta pass, revision 23. APPROVED; CF-32 LOW raised as a stated limit; A-11's owed restatement gains the memoisation consequence | Commissioned by `planner-019`'s message. Read as `git diff 17bb8f2c 49a20690` on the plan, with `withNormalizeNode.ts` at website `85ece66` read. Nothing was run. |
 | 2026-11-24T17:07 | architect-019 | Delta pass on plan 019 revision 22 (record `960052d1`); § Delta pass, revision 22. APPROVED; CF-30 resolved; CF-31 LOW raised as a stated limit | Commissioned by `planner-019`'s message, inside the revision 21 pass. Read as `git show 960052d1` on the plan, with `withNormalizeNode.ts` at website `42128cd` grepped. Nothing was run. |
@@ -115,33 +121,35 @@ Status-Detail: >-
 
 ## Resumption State
 
-Written 2026-11-24T22:57Z at steering's ask (`/checkpoint`; `steering-hooks-fixer`'s message). Record branch `master`. My last
-commit is `4dfc0505`.
+Written 2026-11-25T06:05Z, after the revision 24 delta pass. Record branch `master`.
 
-**Done.** Delta passes on plan 019 revisions 13 to 23 are recorded, each a section below. The last plan revision read is revision
-23, at record `49a20690`. The Fix Round 4 design read (CF-33) is committed and delivered to `implementer-019`. Its open terms are
-closed: `getInitialValue` at 1,000 `a🙂` lines takes 9.3 ms (the implementer's figure), and slate-react does not normalise on
-mount (re-read). `website.md` A-9 gained "Which expected values are frozen", and A-11 was added; both are committed.
+**Done.** Delta passes on plan 019 revisions 13 to 24 are recorded, each a section below. The last plan revision read is revision
+24, at record `80d6d143`. The Fix Round 4 design read (CF-33) was delivered. Its soundness premise carries a reconcile note
+(revision 24 pass). The question it raised, whether the suppression is admitted, was answered at R-111 and bound at revision 24.
 
 **Next.**
 - The **closing conformance pass** (architect.md), when `steering-hooks-fixer` starts it, once M6's fold has had its critic read.
-  It reads the delta from revision 23 to the plan's revision at that time, landing each confirmed pattern and Problem Area. It
+  It reads the delta from revision 24 to the plan's revision at that time, landing each confirmed pattern and Problem Area. It
   restates `website.md` A-11 from the fixed tree (Open items), and then closes this document under Document Lifecycle.
-- Or a **delta read** of any revision planner-019 cues before then. Read it as `git show <commit>` against revision 23.
-- Or a **Fix Round 4 question** from `implementer-019` or `code-reviewer-019` on CF-33.
+- Or a **delta read** of any revision planner-019 cues before then. Read it as `git diff 80d6d143 <commit>` on the plan.
+- Or a **Fix Round 5 question** from `implementer-019` or `code-reviewer-019` on CF-34 to CF-36.
 
-**Approach in flight.** None. Nothing in the record is uncommitted. Nothing in the shared website tree was mutated. The only probe
-scripts are under `verification/019/architect-conformance/{rev13,rev15,fix3-lift}/` and are committed.
+**Approach in flight.** None. Nothing in the shared website tree was mutated. The only probe scripts are under
+`verification/019/architect-conformance/{rev13,rev15,fix3-lift}/` and are committed.
 
-**Questions out.** AC-6.9's no-throw wording, and whether CF-33's `getDirtyPaths` suppression is admitted. Steering sent it to
-`planner-019` (block 22:48Z, record `97303579`). The answer is planner-019's; I read it from the plan when it lands.
+**Questions out.** CF-34's consequence: whether the handoff's fence-count fix rides Fix Round 5. Sent to `steering-hooks-fixer`
+and `planner-019`. The answer is steering's.
 
 ## Open items
 
-- **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant (§ Delta pass,
-  revision 21), how the marker leaves the text (revision 22) and the memoisation key (revision 23).
-- **CF-21** to **CF-26**, **CF-28**, **CF-29**, **CF-31**, **CF-32** and **CF-33** (design guidance for Fix Round 4, carried by implementer-019) go to the plan's Planner batch as stated limits under the M6 cap. My next pass reads only
-  that the rows exist.
+- **`website.md` A-11** is restated from the fixed tree at the closing pass, with the fresh-load invariant as revision 24's
+  pass restates it (stored line structure equals the engine's reading; `getInitialValue` departs from it where `codeFence.ts`
+  miscounts), how the marker leaves the text (revision 22), the memoisation key (revision 23), and the rebuild path's state
+  comparison (CF-34).
+- **CF-21** to **CF-26**, **CF-28**, **CF-29**, **CF-31** to **CF-36** go to the plan's Planner batch as stated limits under the
+  M6 cap. CF-33 was design guidance for Fix Round 4, carried by implementer-019. CF-34 and CF-35 are guidance for Fix Round 5.
+  CF-36 is carried by `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md`. My next pass reads only that the
+  rows exist.
 - **CF-20** is a stated limit carried by the plan's Planner batch under the M3 cap. My next pass reads only that the row exists.
 - **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
 - **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
@@ -384,6 +392,127 @@ quoted above and would need that sentence changed, which is M7's convention upda
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
 
+## Delta pass, revision 24 (record `80d6d143`)
+
+Read as `git diff 49a20690 80d6d143` on the plan. That covers the register rows R-104 to R-118 and revision 24's commit. The
+planner cued the diff from `ca1ba0eb`, but I read from revision 23, the last revision I read. Read beside it:
+- analysis § AN-9 A, B1, B2, its reconciliation and its gaps (record `00c91e3a`);
+- the re-aimed handoff `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md`;
+- website `a7ad3f2` through `git show` and `git grep`: `codeFence.ts` whole, and in `withNormalizeNode.ts` `sameType`,
+  `rebuildLines`, `retypeLines`'s trigger, `resolveLine`, `settledIn`, `resolveEmoji` and the `getDirtyPaths` override.
+
+Nothing was run.
+
+**What fits.**
+- **The class statement (D-28)** names the state AC-6.9's limbs already compare: type, `quotePrefix`, fence state and emoji
+  elements. Its members are AN-9's measured six. The class beyond the grid is in the residue (G-9a), as SL-26 did for the fence
+  class.
+- **The sub-limb "A suppressed line is a fixed point"** binds the condition CF-33's form was admitted on (R-111). The corpus
+  differential separates what the suppression causes from the load's own disagreement, which is the right split. The 8 shared
+  keystrokes are the load's defect, and the handoff carries them.
+- **The pending timer's error** in the no-throw limb is the mounted symptom of the same unsettled drain, so it belongs in that limb.
+- **The handoff** is aimed at the cause the code shows (CF-36).
+
+**A correction of my own (CF-33).** CF-33's "Why skipping their normalisation is sound" said: "The skipped lines are the load
+path's output, the state the normaliser must converge to anyway". That is false on AN-9 B1's 12 texts.
+- On those texts, `codeFence.ts` `afterLine` counts a triple backtick the engine does not read as a fence. The load types the
+  next line as code and leaves its emoji as text.
+- The normaliser reads emoji from the engine over a run unit, so it lifts that emoji. The load's output is not the normaliser's
+  fixed point there, and suppressing those lines hides normaliser work. That is CR-27's six.
+- It was defensible when written: the load and the normaliser share `codeFence.ts` and `liftLoaded`, and no measured text yet
+  showed them disagreeing. But it was an unread premise. I read that the two are built from the same functions, not that they
+  agree on every text. Revision 24's sub-limb is the measurement that premise needed.
+- **Class swept.** `grep -n -i 'converge\|fixed point\|fresh-load invariant\|state a fresh load\|trusted unnormalised'` over
+  this document (at HEAD before this pass), `website.md` and `system-architecture.md` gives 9, 0 and 0 hits (`grep -c`). Two
+  state this claim:
+  - CF-33's premise (above);
+  - the consequence revision 21's pass owes A-11: "stored line structure always equals `getInitialValue` of the saved text".
+
+  Both get reconcile notes in place, and the A-11 consequence is restated below. The other seven are two forward pointers to
+  that consequence (Open items, and revision 22's pass), plus "converge" in other senses: CF-32's lexer stop, three lines of
+  CF-30's throw, and a legacy-adjustment line.
+
+### CF-34 LOW — The rebuild trigger compares line type only, so D-28's members take the per-line path; compare the class's whole state
+
+- **Severity**: LOW
+
+**Mechanism, read at `a7ad3f2`.**
+- `retypeLines` (with `update` false) enters the rebuild only when a line's type, `lang`, `startCodeBlock` or quote placement
+  differs from its fence and quote scan. `rebuildLines` then replaces only the lines `sameType` finds different, comparing
+  `type`, `lang`, `startCodeBlock` and `quotePrefix`. Neither compares emoji elements.
+- A1 to A6 change only emoji elements, on N − 1 lines (AN-9's table). So they never reach `rebuildLines`. They go through
+  `resolveEmoji`, where `settleLine` loops on `resolveLine`, which applies one `revertToText` or one `insertNodes` per call.
+  `settledIn` is still keyed on `editor.children` (CF-32's key), which every operation replaces. The result is AN-9's 797 and
+  3,997 operations, about four per line, in one drain Slate's budget does not cover (CF-30's mechanism).
+- This scope was mine. CF-33's step 1 derives "the lines whose type or fence state changes", because its brief was the fence
+  keystrokes. D-28's class adds emoji elements to the state.
+
+**Recommended form: one path for the class.**
+- CF-33's step 1 compares each line of the affected run units with the load path's built and lifted line, over the whole state
+  AC-6.9 names: `type`, `lang`, `startCodeBlock`, `quotePrefix` and the emoji layout. It replaces each line that differs, and the
+  keystroke's own line stays on the normal path.
+- The fence, `>>>` and inline-code members then share one mechanism. A member found later (G-9a: a middle line, the partner line,
+  Delete) is covered by construction, not by a keystroke branch.
+
+**Avoid:** a branch keyed on the backtick, or on line 0's start or end.
+
+**Consequence.** This form takes the suppression to emoji rebuilds, so the load path's agreement with the normaliser carries
+weight on more inputs. A rebuilt line where `afterLine` miscounts (CF-36) is a non-fixed point the sub-limb counts. So Fix Round 5
+may meet B1-shaped texts through the new path. The fix then either corrects the fence count in the round, which is the handoff's
+work, or keeps out of the rebuild any line where the two can disagree. Whether the handoff's fix rides Fix Round 5 is a scope
+question for steering. The sub-limb catches either outcome, so no defect passes unseen.
+
+LOW: AC-6.9's limbs verify whichever form is built. This is design guidance below HIGH, so it is a stated limit for Fix Round 5
+under the M6 cap. D-28 lifts the cap for the class's fix, not for guidance on its form.
+
+### CF-35 LOW — The corpus differential exempts a keystroke the pass-through leaves unsettled; the admitted condition is that suppression changes no outcome
+
+- **Severity**: LOW
+
+The sub-limb's second reading counts a keystroke only where, on the pass-through tree, a forced normalise applies no operation.
+On a keystroke the pass-through itself leaves unsettled (the 8 shared with `85ece66`), a suppression-caused change on another line
+of the same text is not counted.
+
+What R-111 admits is that the suppression skips only work the normaliser would not do. So the condition is equality: after each
+corpus keystroke, the document on the fixed tree equals the document on the pass-through tree.
+- It needs no exemption, it covers the 8, and both trees already run for the differential.
+- **Derived, not run.** It counts every keystroke the current reading counts: two equal documents give the same forced-normalise
+  result, so a keystroke the current form counts (fixed tree unsettled, pass-through settled) has unequal documents.
+
+LOW: a stated limit under the M6 cap. Code review and QA may record both readings beside each other.
+
+### CF-36 LOW — Two recognisers of "this line is code": fence state from a hand scan, emoji from the engine
+
+- **Severity**: LOW
+
+**Mechanism, read at `a7ad3f2`.**
+- `codeFence.ts` `afterLine` toggles the fence on the parity of `line.split('```')`, and `isCodeLine` tests `line.includes('```')`.
+  Neither reads an escape or inline code.
+- That scan is the fence model of both the load (`getInitialValue.ts`) and the normaliser (`withNormalizeNode.ts` `retypeLines`
+  and the scan beside `linesAgree`).
+- Emoji layout comes from the engine: `emojiLayout` over `runUnit.ts` `unitAround`.
+- B1 is where the two recognisers disagree, and B2 shows the engine's side is Discord's.
+
+It is the class of CF-2, two recognisers of one construct that drift apart. It is also the master document's Problem Area "Slate
+block structure is recognised by hand regexes", which now has a measured consequence.
+
+**Recommended form for the handoff's work.** Take fence state from the engine's parse of the text: its `code_block` spans, which
+the lossless tree carries (AF-9). Do not teach `afterLine` escapes and line-crossing inline code. That copies the engine's grammar
+into a second place, which drifts at the next engine pin.
+- **Cost, unmeasured.** A whole-document parse on every keystroke is O(N). CF-32's convergence stop applies: parse from the first
+  changed line until the incoming fence state matches the stored one.
+
+The handoff is `planner-019`'s, so I send the form to it. I update the Problem Area row in `system-architecture.md` in this pass.
+
+LOW: a stated limit, carried by the handoff. It is not a criterion change.
+
+**Does it touch the architecture record?** No owner-authored entry is touched. A-11's owed consequence is restated: stored line
+structure equals the engine's reading of the saved text. `getInitialValue` equals that reading only where `codeFence.ts` agrees
+with the engine, and AN-9 B1 shows it does not on 12 keystroke-produced texts. That lands at the closing pass, from the fixed tree.
+
+**Verdict on revision 24:** APPROVED. CF-34, CF-35 and CF-36 are LOW, stated limits under the M6 cap. Nothing needs the owner.
+CF-34's consequence, whether the handoff's fence fix rides Fix Round 5, goes to steering as a scope point.
+
 ## Design read: the emoji lift for `a🙂` fence keystrokes (Fix Round 4)
 
 Commissioned by `steering-hooks-fixer` by message, under effort rulings block "2026-11-24T22:41Z" (agent-output `40823e74`). The
@@ -436,6 +565,11 @@ slate-react 0.123.0 (`dist/index.es.js`, the `Slate` component), the mount hook 
 `editor.children = initialValue`, with no normalise call. The implementer read this, and I re-read it at 22:56Z. The site forces
 no `Editor.normalize` outside its tests: a `git grep -c` over `src/components/SlateEditor` at `2b82972` exits 1.
 The fresh-load limb then asserts the result after every member. A suppression that leaves a line unsettled fails that limb at once, so the safety net already exists.
+
+*Reconcile note, 2026-11-25T06:05Z (revision 24 pass):* the premise "the state the normaliser must converge to anyway" is false
+on AN-9 B1's 12 texts. On those, the load's code-line typing is not the normaliser's fixed point, and the fresh-load limb cannot
+see it, because the load is its oracle. It was written from the load and the normaliser sharing their functions, not from a read
+that they agree. See § Delta pass, revision 24 and CF-36.
 
 **Side effects:**
 - CF-32's obstacle (line 553: a lift replaces the line's object, then the padding replaces it again) goes away. The rebuilt line is
@@ -625,6 +759,8 @@ it is a stated limit for the fix round.
   line's flattened text" will no longer describe the code if the retype moves to the input path. I restate A-11 from the fixed
   tree at the closing pass, with the fresh-load invariant above added as its consequence: stored line structure always equals
   `getInitialValue` of the saved text. That lands then because it is agent-designed and describes code that does not yet hold.
+  *Reconcile note, 2026-11-25T06:05Z (revision 24 pass):* restated as "stored line structure equals the engine's reading of the
+  saved text". `getInitialValue` departs from that reading on AN-9 B1's 12 texts (CF-36).
 
 **Verdict on revision 21:** APPROVED. CF-30 is LOW, a stated limit for the second M6 fix round. Nothing needs the owner.
 
