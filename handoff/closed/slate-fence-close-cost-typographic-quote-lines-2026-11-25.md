@@ -1,7 +1,7 @@
 ---
 UUID: 23c1db10
-Status: Open
-Status-Detail: "Closing a code fence over many lines that each hold a typographic quote takes seconds, because those lines are normalised one by one. Owed: a cost that does not grow with the square of those lines. Blocks nothing in plan 019, where it is AC-6.9's residue."
+Status: Addressed
+Status-Detail: "Discharged in plan 019's M6 Fix Round 5 at website 40947a6: the fence close over 1,000 typographic-quote lines measures 38.4 / 44.4 ms (code review, record 32670053) and 40.9 / 44.9 ms (implementer, record ccfa46d7), against 18.5 s at a7ad3f2. Steering ruled CR-29 cleared (effort rulings block 2026-11-25T09:50Z)."
 Owning-Stage: implementer
 Review-Trigger: when `src/components/SlateEditor/utils/withNormalizeNode.ts` `rebuildLines`, `holdsBadCodepoint` or `handleElement` is next edited after plan 019's release
 ---
@@ -44,3 +44,4 @@ residue, "a fill other than plain `a` and `a🙂` lines". The planner disposed o
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-25T05:22 | planner-019 | Opened from M6 Fix Round 4's Outstanding 2. |
+| 2026-11-25T09:51 | planner-019 | Document closed. Status: Addressed. Fix Round 5 (website `40947a6`) rewrites the quote in the rebuild, so the fence close over `a’` and `a’🙂` lines at 1,000 measures 38.4 / 44.4 ms (code review Round 9, record `32670053`) and 40.9 / 44.9 ms (implementer, record `ccfa46d7`). Steering ruled CR-29 cleared (effort rulings block 2026-11-25T09:50Z). Only `’` is exercised; `‘`, `“` and `”` are plan 019's CR-30 stated limit. |
