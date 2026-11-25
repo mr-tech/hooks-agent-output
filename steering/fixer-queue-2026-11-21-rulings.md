@@ -1908,3 +1908,12 @@ the 05:28Z prompt. This thread's error.
   round. Three gate reads follow before Fix Round 5. Revision 24's reads took 06:02–06:08 by `git log` commit times.
 **Acted:** this goes to `planner-019` for Revision 25 and SL-30's registration. The critic, the architect and QA read Revision 25 per the
 next-act table. Fix Round 5 starts once all three pass, with this thread's recorded start naming Revision 25, SL-30 and block 06:07Z's (b).
+
+## 2026-11-25T06:17Z — plan 019 Revision 25 committed; a possible premise error in the 06:14Z option text, told to him
+
+Revision 25 is at `cf62ffc1` (`Revision: 25` in the plan header, read this turn). It registers D-29 to D-31, with SL-30 as QA Phase 2's
+entry condition (D-30), and is cued to the three gates.
+`planner-019` by message, its reading and not re-derived: Q1's option text said "the emoji drawing collapse that production doesn't have".
+That may describe correct behaviour. AN-9 B2 found that inside real inline code Discord's formatter treats an emoji as text, so the defect may
+be the page error alone. His choice does not turn on it, since the release still adds the error. AC-6.9's fresh-load limb decides the tip's
+emoji state. Told to him in chat at 06:1xZ as a candidate correction.
