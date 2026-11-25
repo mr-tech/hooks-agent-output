@@ -356,6 +356,62 @@ production files, 0 dropped (`effort-sweep-mutants-5ec0621-42128cd.json`). To th
 the fix round now discharges. Its test should assert where the next character lands after the keystroke, as well as the
 absence of the throw.
 
+## Pass on Fix Round 6 at `48eb60a`
+
+### Stage start and tree
+
+- **Stage start.** Code review's committed Round 9 sub-entry, APPROVED_WITH_COMMENTS at `Reviewed-At: 48eb60a` (record
+  `2f94aff4`), re-derived from the record; plan R-131 (`744b54b1`). The plan is at Revision 25 with registrations to R-133. Its
+  delta since this document last read it is registrations only (R-126 to R-133), and none of them moves a criterion.
+- **Tree.** Website `48eb60a` (the chain branch's head), exported with `git archive` into this session's scratchpad: 686 of
+  686 tracked blobs equal (`verification/019/qa/m6/fr6/blob-identity-48eb60a.txt`). It has its own frozen, offline install
+  (exit 0, `install-48eb60a.*`), with `next-env.d.ts` copied in. The control trees use the same method: `40947a6`,
+  `a7ad3f2`, `af3d95a` and `5ec0621` (`blob-identity-controls.txt`, `install-<sha>.exit`, all 0). The pass-through tree `x48n`
+  is `48eb60a` with the `getDirtyPaths` override made a pass-through (`mutant-no-suppression-48eb60a.diff.txt`, read back from
+  the export). The shared tree was neither switched nor written.
+
+### TDD compliance gate (Fix Rounds 1 to 6)
+
+**Passes.** A helper enumerated the new and changed production functions of each round's diff and matched each to its round's
+table (`verification/019/qa/m6/fr6/tdd-audit-fr1-fr6.md`). I re-derived each flagged function's newness myself: `git grep -q
+-w` exit codes at the round's base, at the round and at `48eb60a`. Then I read each row. The rule is for new functions and
+classes. Changed functions with no row of their own (`handleEditor` in Fix Rounds 1 and 2, and `liftLoaded`'s `only` and
+`emojiLayout`'s sort in Fix Round 4) are not gate items; their coverage is the sweep's to judge. Each flagged new function is
+dispositioned below:
+
+| Function (new in) | Disposition |
+|---|---|
+| `settleLine` (FR3) | Covered by a test-first row: FR3 row 1, `resolveEmoji` once per call. It is red at `85ece66` by assertion (`expected 999494 to be less than or equal to 398940`), and `settleLine` is the code that turned it green. The row does not name the function. The red is not a caller's stub (the 119471f gate's case); the test came first |
+| `sameType` (FR4) | The same: FR4 row 1 (`rebuildLines`), test-first, red at `2b82972` by assertion (`expected 4987 to be less than or equal to 2014`) |
+| `buildLines` (FR4) | An extraction claimed to keep behaviour. The claim is established by executing both trees: code review's load differential runs `getInitialValue` over 3,287 texts × 2 surfaces × partial mode at `2b82972` and `a7ad3f2`, and 0 of 13,148 differ (`verification/019/code-review/m6fix4-a7ad3f2/load-differential.out.txt`) |
+| `firstStartingFrom` (FR4) | Inside the `holdsSpan` / `spansInLine` refactor row. Its exemption evidence is executed on both trees: the new cases pass at `2b82972`'s code, and the paste, fixed-point and settle outputs are byte-identical across the change |
+| `ownLines` (FR4) | Written after the first sweep's survivors, and red against `ownLines`' own mutants in the increment sweep. That is the standard the 119471f gate closed guard-branch rows on |
+| `holdsBadCodepoint` (FR4) | Absent at `48eb60a` (`git grep` exit 1), so it owes no row on this tree |
+| `emojiAgrees` (FR5) | A refactor with both-trees evidence: four corpora byte-identical (`cmp`) between `70c5a86` and `ded68fc`, and the class probe identical |
+| `linesOf`'s top-level `split_node`, `merge_node`, `remove_node` and `insert_node` branches (FR6) | `linesOf` itself is not new (present at `40947a6`). The branches are behaviour changes. FR6 row 1 is test-first and red at `40947a6` by assertion. Its whole-line rows (`e2b5a15`) were written after, and their red is mutant reds of the branch |
+| `linesOf`'s `move_node` branch (FR6) | No test. The branch is CR-31's stated limit (plan R-132, R-133). An untested branch is a sweep item: its survivors are dispositioned in this pass's sweep, never assumed covered |
+
+### Criteria this pass assesses (recorded before execution)
+
+1. **Entry conditions.**
+   - SL-29 (D-27, block 20:58Z's line), with two interleaved rounds against `af3d95a`.
+   - SL-30 (D-30): the implementer's positions probe, mounted, 126 rows. `a7ad3f2` is the real-tree control (61 of 126 red in
+     the implementer's run). The `5ec0621` control named at Phase 1 cannot run this probe, because the mount helper is absent
+     there (record `91388b39`'s finding, of the same kind).
+   - R-129 and R-130: code review's off-selection probe at the tip, 24 rows, each with no throw and fresh-load shapes, with
+     `40947a6` as the control. Its timer clause is this stage's mounted probe over the 16 none and other-unit rows
+     (`fr6/qaMountedOffSelection.probe.test.tsx.txt`), with a planted pending-timer row and the `40947a6` control.
+2. **AC-6.9's obligations**, as listed in the Resumption State: CF-35's equality against the round's own pass-through tree, and
+   the remaining limbs.
+3. **The owed list**: the whole offline suite (JSON and exit code), typecheck (both programs), live, `test:discord` offline,
+   `next build`, `MOUNTED_GENERATOR_COUNT=1000`, AC-3.3's 60 s cap, AC-6.8's limbs, the reds of QAF-50 and QAF-46, the M4 and
+   M5 differentials if their paths moved, and the effort-final sweep over `git diff 5ec0621..48eb60a` production paths.
+4. **Code review's Round 9 owed items.**
+   - Its Assumption Not Checked: the browser drag-and-drop move of a backtick off line 0 into a run past a code block.
+   - Its sub-entry's ask: log `editor.apply` during the paste and drag walks for any top-level `move_node`.
+
+Driver: `verification/019/qa/m6/fr6/run-fr6.sh`, one worker, no network, each probe in its own capped scope.
+
 ## Resumption State
 
 Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a seam. Every write is committed.

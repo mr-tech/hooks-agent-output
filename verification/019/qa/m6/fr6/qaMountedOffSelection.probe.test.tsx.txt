@@ -1,0 +1,72 @@
+// QA probe (plan 019, R-129/R-130 timer clause): code review's off-selection inline-code rows, mounted, with the pending timers run.
+// Placed at src/components/SlateEditor/__tests__/ in an export with `.txt` removed; never in the shared tree.
+// Rows: insert or delete x none, other-unit, at-edit (control) x N 5, 100, 200, 1,000, over a🙂 embedDescription lines (the text
+// shape of crprobe.offselection-inline), plus one planted row whose pending timer throws, to show the instrument sees one.
+import { act } from 'react';
+import { afterEach, beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import { Editor, Element as SlateElement, Transforms } from 'slate';
+
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+import getInitialValue from '../utils/getInitialValue';
+
+import type { Element } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { unmountEditor(); });
+
+const SURFACE = 'embedDescription' as const;
+const shape = (line: Element) => JSON.stringify([line.type, line.quotePrefix ?? null, line.startCodeBlock, line.lang,
+  line.children.filter((c) => SlateElement.isElement(c) && (c as Element).type === 'emoji').map((c) => (c as unknown as { source: string }).source)]);
+const shapes = (lines: Element[]) => lines.map(shape);
+function textOf(n: number, lineZero: string, tail: boolean) {
+  const lines = Array.from({ length: n }, (_, i) => (i === 0 ? lineZero : i === n - 1 ? 'a🙂`' : 'a🙂'));
+  return lines.join('\n') + (tail ? '\n```\ncode\n```\nz' : '');
+}
+type Where = 'none' | 'other-unit' | 'at-edit' | 'planted-timer';
+const CASES: [string, Where, number][] = [];
+for (const kind of ['insert', 'delete']) for (const where of ['none', 'other-unit', 'at-edit'] as Where[]) for (const n of [5, 100, 200, 1000]) CASES.push([kind, where, n]);
+CASES.push(['insert', 'planted-timer', 5]);
+
+const rows: object[] = [];
+it.each(CASES)('%s %s %i mounted', async (kind, where, n) => {
+  const tail = where === 'other-unit';
+  const before = textOf(n, kind === 'insert' ? 'a🙂' : 'a🙂`', tail);
+  const expected = textOf(n, kind === 'insert' ? 'a🙂`' : 'a🙂', tail);
+  const mounted = mountEditor(before, false, SURFACE);
+  const { editor } = mounted;
+  const windowErrors: string[] = [];
+  const onError = (e: ErrorEvent) => { windowErrors.push(String(e.message).slice(0, 90)); };
+  window.addEventListener('error', onError);
+  const consoleErrors: string[] = [];
+  const spy = vi.spyOn(console, 'error').mockImplementation((...a: unknown[]) => { consoleErrors.push(String(a[0]).slice(0, 90)); });
+  let editThrown = ''; let timerThrown = '';
+  const writesBefore = mounted.writes.length;
+  try {
+    await act(async () => {
+      const end0 = Editor.end(editor, [0]);
+      if (where === 'none') Transforms.deselect(editor);
+      else if (where === 'other-unit') Transforms.select(editor, Editor.end(editor, [editor.children.length - 1]));
+      else Transforms.select(editor, end0);
+      if (kind === 'insert') Transforms.insertText(editor, '`', { at: end0 });
+      else Transforms.delete(editor, { at: { anchor: { path: end0.path, offset: end0.offset - 1 }, focus: end0 } });
+      if (where === 'planted-timer') setTimeout(() => { throw new Error('planted pending-timer error'); }, 0);
+    });
+  } catch (e) { editThrown = String(e).slice(0, 90); }
+  try {
+    await act(async () => { vi.runOnlyPendingTimers(); });
+  } catch (e) { timerThrown = String(e).slice(0, 90); }
+  spy.mockRestore();
+  window.removeEventListener('error', onError);
+  const want = shapes(getInitialValue(expected, SURFACE, false) as Element[]);
+  const got = shapes(editor.children as Element[]);
+  const linesUnlikeFreshLoad = got.length === want.length ? got.filter((s, i) => s !== want[i]).length : -1;
+  const last = mounted.writes.at(-1) ?? '';
+  rows.push({
+    kind, where, n, editThrown, timerThrown, windowErrors, consoleErrors, linesUnlikeFreshLoad,
+    writesAfterEdit: mounted.writes.length - writesBefore, lastWriteEqualsExpected: last === expected,
+  });
+  writeFileSync(process.env.QAPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+}, 600_000);
