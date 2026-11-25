@@ -4,60 +4,14 @@ Origin: 019
 UUID: 286c730a
 Status: In Progress
 Status-Detail: >-
-  Revision 9 is approved by all three pre-code gates (critic c1e40234, architect 559253f1, QA 26f3a3c). Implementation of M2 to M6
-  started 2026-11-23T18:49Z by implementer-019 on chain/019-slate-formatting-discord-engine (steering's recorded start, effort
-  rulings block 18:48Z); M7 is devops's. Steering bounds later changes: M4 and M6 are
-  capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z).
-  Revision 10 folds his mentions selection (D-17) into AC-4.4 and corrects M4's Mirrors line. The critic (71b981ad), the
-  architect (b8d11f1b) and QA (f79d7f77) have all approved it, so M4's mention code is released.
-  Revision 11 changed AC-3.7's frozen residue list to one literal entry per differing input, and all three gates read it.
-  Revision 12 folds their findings: atom-bearing inputs join the list's population, the family check is added, and RK-9 gains
-  a fire condition and route. All three gates approved revision 12 (QA e645035, architect 237da08, critic 575a52bc). Steering
-  capped M3 at revision 12 (block 22:35Z), so their findings are stated limits SL-12 and SL-13 with no revision 13, and M4's
-  residue-list commit is released, read with them.
-  From 2026-11-24T00:49Z, M3 to M6 are all capped (his selection, block 00:49Z): a finding below HIGH is a stated limit, with
-  no fix or revision round. He chose to keep one release (D-19, block 00:55Z), so M7 stands and the plan is not revised.
-  Revision 13 (D-21, block 03:55Z) replaces AC-6.5's expected-span source, because Discord's box exposes no emoji spans. The
-  oracle helper is now the source on every surface, frozen, with hand-written literals as its content control, and EC-7 is
-  retired. AC-6.5's literals wait for the critic, QA's re-key and the architect's delta read. The rest of M6 proceeds.
-  Revision 14 (D-22, block 04:00Z) adds AC-6.7: Enter continues a `> ` quote, a paste is kept exactly, and a typed `> ` on a
-  carried line replaces the carried marker. AC-3.3's typed drive follows it. It also folds the critic's F-40 into AC-6.5's
-  control. All three gates passed revision 14, with stated limits.
-  Revision 15 (steering block 04:18Z) folds QA's QAF-40 into AC-6.5's control (five side-by-side and escape members, plus a
-  join mutant) and QAF-41 into AC-6.7 (NM-68, NM-69, and a drive keyed on the input). All three gates passed revision 15
-  (QA 3b264329, architect f6f6651e, critic bf589c96), with stated limits, so AC-6.5's literal freeze and the quote-carry change
-  are both released.
-  Revision 16 (D-23, block 07:05Z) adds AC-6.8: one keystroke's emoji resolve works per run unit, with a counting limb in
-  `pnpm test` and a 16 ms median timed limb outside the suite. CR-20's fix enters M6, and the release waits for M6's fix round,
-  code review and QA. All three gates approved revision 16 with findings.
-  Revision 17 folds those findings into AC-6.8: an exact count per pass with a positive control, a text with an emoji on every
-  line, and a bench-file home for the timed limb.
-  Revision 18 (steering block 07:15Z, the count literal only) sets AC-6.8's count window to one `Editor.normalize` drain and its
-  literal to the lines the keystroke dirties (CF-27).
-  Revision 19 (steering block 07:21Z, the last for AC-6.8) drops the per-keystroke literals for F-48. The count over every drain
-  is equal at 200 and 2,048 lines and at least 1. CR-20's fix round waits for the three gates on revision 19. After it, an
-  AC-6.8 finding below HIGH is a stated limit unless it is a severity floor.
-  Revision 20 (steering block 07:42Z, reopening block 07:21Z for this change only) removes the corpus and generator bound of 4,
-  which a correct fix exceeds, and adds fenced-quote texts of 200 and 2,048 lines to the equality limb. implementer-019's
-  hand-off waits for the three gates' delta reads of revision 20.
-  Revision 21 (D-24, his selection 14:32Z) adds AC-6.9: code-fence and `>>>` keystrokes settle without Slate's iteration error,
-  write their text, match a fresh load, and do not grow per line (QAF-51, CR-23). M6 gains a second fix round, which waits for
-  the three gates on revision 21.
-  Revision 22 (steering block 14:48Z, and D-25, his selection 17:03Z) is AC-6.9's last fold. The caret limb takes hand-written
-  `>>>` texts (`>>> za`, `>>> zabc`, `za`), so the fix round also fixes the `>>>` caret. The no-throw limb refuses a hidden
-  throw (CF-30), and the fence ceiling reads 27 and 104 ms. After it, an AC-6.9 finding below HIGH is a stated limit, except a
-  severity floor. All three gates passed revision 22, and the second fix round was released at R-100.
-  Code review Round 7 REJECTED that round at `85ece66` on CR-25 HIGH (R-103): closing a fence over emoji lines takes 7.6 s at
-  1,000 lines. Revision 23 (steering block 19:43Z, under D-24) adds `a🙂` texts to AC-6.9's fence keystrokes, a standing
-  count limb on work per line, and a rewritten residue. His selection at 20:07Z (D-26) adds a paste member to it. Every gate
-  passed revision 23, and Fix Rounds 3 and 4 ran on it.
-  Revision 24 (D-28, his selection 05:28Z; AN-9) adds the inline-code keystrokes that throw Slate's iteration error over emoji
-  lines, which the release would add, to AC-6.9's class. It also binds R-111's fixed-point condition over code review's
-  corpus (CR-27). Every gate read revision 24.
-  Revision 25 (D-29 to D-31, his selections 06:14Z) adds the six inline-code members to AC-6.9's work-per-line count limb. It
-  also takes CF-35's equality form for the corpus differential and F-61's wording. SL-30 is QA Phase 2's entry condition for
-  the members' other positions. Fix Round 5 waits for the critic, the architect and QA's re-key on revision 25.
-Revision: 25
+  M1 to M6 are complete. M6 is approved by code review at website `48eb60a` (R-131) and is QA Complete at Phase 2 there (R-135).
+  He cut 019 to release essentials (D-33, block 2026-11-25T15:46Z): QA's effort-final mutation sweep, the Planner batch fold
+  and the architect's closing pass are waived. UAT walks all nine flows (D-34), and devops Stage 1, QA Phase 3 and his release
+  approval stand. Revision 26 is that minimal revision. It re-argues M7's premise, so M7 is no longer `PREMISE-STALE`, registers
+  D-32 to D-34, and points the batch's open rows at the rebuild sizing document. No criterion changes. It waits for the critic's
+  read, and devops Stage 1 waits on that. UAT runs alongside on Revision 25's criteria, which Revision 26 does not change. A
+  rebuild of the editor is its own effort after this release, opened on his word (D-32).
+Revision: 26
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
 Lane: full
@@ -235,6 +189,7 @@ Lane: full
 | 2026-11-25T12:37 | R-133 | planner-019 | Corrected CR-31's Planner batch row on code review's point (record `5f224c30`): a found move path re-reads its severity from what it reaches, not as HIGH by default. The planner's error. Scope delta: none — registration only. |
 | 2026-11-25T15:31 | R-134 | planner-019 | Registered QA's QAF-56 MEDIUM (record `3ffb466`) as a Planner batch stated limit under block 07:21Z. The run count of AC-6.8's timed limb goes to the seam fold. Recorded that the planner's sizing of a Slate-layer rebuild after 019's release (`planning/slate-editor-rebuild-sizing-2026-11-25.md`, `a7e10f4`; blocks 15:25Z and 15:28Z) changes nothing in this plan: "019 will not carry the new work." Scope delta: none — registration only. |
 | 2026-11-25T15:49 | R-135 | qa-019 | QA Phase 2 on M6 (milestone-scoped): **QA Complete** at website `48eb60a` (Fix Round 6, code review's Round 9 sub-entry), record `5f7a5b7c`. R-129, R-130's timer clause, SL-29 and SL-30 are met. Suite 4,785 of 4,785, exit 0. QAF-56 MEDIUM is a stated limit (R-134). The effort-final mutation sweep was not run, on the owner's waiver (rulings block 2026-11-25T15:46Z). Plan-level Status unchanged. Next is UAT, with B-11. |
+| 2026-11-25T15:52 | 26 | planner-019 | Triggered by his rulings at effort rulings blocks "2026-11-25T15:28Z", "15:36Z", "15:38Z", "15:46Z" and "15:49Z" (D-32 to D-34) and by M6's QA Phase 2 verdict (R-135). The revision re-argues M7's premise against M4 to M6's shipped behaviour, so M7 is no longer `PREMISE-STALE` (R-76). It waives the architect's closing-pass rows in M7, routes UAT to all nine walks, and carries the unfolded Planner batch to the rebuild sizing document as it stands. Scope delta: no criterion changes. M7 loses its architect record-update rows, and the planned batch fold is dropped to the rebuild. Of the batch's 124 rows, 79 do not contain "discharged" (`grep -v -i -c` over the table at this write). Two of those, F-35 and F-41, are discharged here, so 77 are carried. Since approval, revisions 10 to 26 have run. This one triggers one critic read and no other gate. The plan still delivers what was first asked, plus the editor fixes he chose, and releases the current editor. |
 
 ## Resumption State
 
@@ -263,10 +218,9 @@ Written at steering's ask (checkpoint for a clear), 2026-11-25T06:27Z, after R-1
   AN-9's under `verification/019/analysis/an9/`.
 
 **Next.**
-- **Superseding the items below (2026-11-25T15:50Z).** He cut 019 to release essentials (effort rulings blocks "2026-11-25T15:46Z"
-  and "15:49Z"). Code review approved M6 at `48eb60a` (R-131), and QA Phase 2 on M6 is running without its effort-final mutation
-  sweep. The seam fold is replaced by one minimal revision, written once QA's Phase 2 verdict lands and read by the critic. It
-  carries:
+- **Superseding the items below (2026-11-25T15:52Z).** Revision 26, the minimal revision, is written. It waits for the critic's
+  read, and devops Stage 1 waits on that. After the critic, register its verdict, fold any finding that is release-essential,
+  and carry the rest to the sizing document. Nothing else in 019 is owed by the planner. Revision 26 carries (D-32 to D-34):
   - M7's re-argument paragraph (R-76), naming R-126's caret change;
   - registration of his three waivers: QA's effort-final sweep on M6, the Planner batch fold, and the architect's closing pass.
     M7's architect closing-pass rows go. M7's workspace `CLAUDE.md` Test Conventions update stays;
@@ -341,7 +295,7 @@ Each role reads these sections, in this order, by heading. Every other section i
 | implementer | Decisions Register; M1 — Analysis before code; M2 — The engine and its adapter; M3 — The fuzzer and oracle, in the suite; M4 to M6 (each by its heading) |
 | code-reviewer | Decisions Register; M2 — The engine and its adapter; M3 — The fuzzer and oracle, in the suite (AC-3.7's families, their reasons and counts, and sampled entries); M4 — The preview on the engine (the adjustment module); M5 — The editor's colouring on `parseLossless`; M6 — The Slate layer: round trip and input; Exclusions |
 | qa | Testing Strategy; M3 — The fuzzer and oracle, in the suite; Acceptance criteria of M2 and M4 to M6; Risks; Exclusions |
-| uat | Value Statement and Business Objective; Testing Strategy; M2 — The engine and its adapter (AC-2.5); M4 — The preview on the engine (AC-4.2); M6 — The Slate layer: round trip and input (AC-6.3) |
+| uat | Value Statement and Business Objective; Testing Strategy (the walk list, nine walks, D-34); M2 — The engine and its adapter (AC-2.5); M4 — The preview on the engine (AC-4.2, AC-4.4); M6 — The Slate layer: round trip and input (AC-6.3, AC-6.7, AC-6.8, AC-6.9). AC-5.5 and AC-3.3's browser paste are reached from the walk list |
 | devops | Header notes; M7 — Release; Testing Strategy (the post-deploy observable); Exclusions |
 
 There is no Handoff Notes section; this table is the plan's one routing surface.
@@ -371,6 +325,7 @@ There is no Handoff Notes section; this table is the plan's one routing surface.
 | Revision 23's delta: AC-6.9's `a🙂` texts for the fence keystrokes, the work-per-line count limb, the rewritten residue, and CR-25's quoted defect (steering block 19:43Z); a paste member if he chooses it | revision 23 commit | critic; architect (delta pass); QA Phase 1 (re-key) | Cued once, with the paste member added on his selection (D-26). Architect APPROVED, with CF-32 LOW a stated limit (record `569a0fb6`). Critic APPROVED, cycle 15 pass 1, with F-57 HIGH closed by property as SL-29 (an entry condition on QA Phase 2 of the third fix round) and F-58 LOW a stated limit (record `d58217d4`). QA re-key: QAF-53 MEDIUM, a severity floor of F-57's class, and QAF-54 LOW a stated limit (record `d46f68ff`). D-27 (block 20:54Z) decides QAF-53 with no revision 24: SL-29 is QA Phase 2's entry condition, and QAF-53 (b) is a Planner batch row. Every gate has passed revision 23, so the third M6 fix round is released (block 20:54Z) |
 | Revision 24's delta: AC-6.9's class statement and its six inline-code members, with their text class (D-28, AN-9); the no-throw limb's pending-timer error and its sub-limb "A suppressed line is a fixed point" with its corpus differential (CR-27, R-111); the write limb's red; the caret and human-observable lines; and the residue's AN-9 gaps and non-fixed-point loads | revision 24 commit | critic; architect (delta pass); QA Phase 1 (re-key) | QA re-key: A1 to A6 checked against AN-9's table, the sub-limb has real red members, with QAF-55 MEDIUM a severity floor and NM-85 to NM-87 and K4 added (record `7a6087f6`). Architect APPROVED, with CF-34 to CF-36 LOW (record `6a5aa33`). Critic APPROVED, cycle 16 pass 1, critique closed, with F-59 HIGH as SL-30 (an entry condition on QA Phase 2 of Fix Round 5, its form with him), F-60 MEDIUM (SL-31) and F-61 LOW (record `343b1ed0`). Every gate has read revision 24. His selections at 06:14Z (D-29 to D-31) settle F-59's form and QAF-55, folded at revision 25 |
 | Revision 25's delta: AC-6.9's work-per-line limb over the six inline-code members (D-31, QAF-55, F-60); the corpus differential's equality form (CF-35); F-61's wording points (the owner-told sentence, the mounted timer clause, A4's two forms, the class statement's `\` and `5ec0621` run, the residue's opening); D-29 to D-31 | revision 25 commit | critic; architect (delta pass); QA Phase 1 (re-key) | QA re-key: no new finding, QAF-55 closed, SL-30's probe set read, NM-88 added (record `f7df4423`). Architect APPROVED, no new finding; the equality differential is measured at 6 of 36,560 keystrokes (`verification/019/architect-conformance/rev25/equality-count.txt`; record `e0228ee5`). Critic APPROVED, cycle 17 pass 1, with F-62 LOW a Planner batch row (record `fdebc3ac`). Every gate has passed revision 25, so Fix Round 5 is released on steering's word, with SL-30 (D-30) as QA Phase 2's entry condition |
+| Revision 26's delta: M7's premise paragraph (R-76); D-32 to D-34; M7's architect closing-pass rows waived; the `uat` row and Testing Strategy's walk list naming nine walks; the Planner batch carried to the rebuild sizing document. No criterion changes | revision 26 commit | critic only (D-33: the architect's pass is waived, and QA's re-key is not owed because no criterion changes) | Cued |
 | AC-2.3's six literals; AC-6.5's typed-edit class (QAF-23) and expected value | revision 5 commit | QA Phase 1 (re-key) | Nothing open (record `d060162`); entry condition EC-7 was folded at revision 6 and retired at revision 13 (D-21) |
 
 ## Header notes
@@ -463,6 +418,9 @@ except D-8.
 | D-29 | D-28 stands after the corrected premise: in Chrome the backtick's write is kept, the release adds a page error and the emoji drawing change, and the class fix continues. | 2026-11-25 | By selection: "Keep fixing the class (Recommended)". He was told first, agent-authored (`steering-hooks-fixer`): "That came from a test harness, not a browser, and I should have had it typed in a real browser before asking. … The error shows once as a page error. The backtick stays in the message, and a reload keeps it. In that run the emoji on screen dropped from 200 drawn to 1 after the error." Option text: "Your earlier choice stands. The release would otherwise add a page error and the emoji drawing collapse that production doesn't have. The next two questions settle how far the fix reaches." The other option was "Withdraw: known limit". The last sentence was restored at R-125 (critic F-62). Ledger `steering/selection-ledger/2026-11-25.md`, block "2026-11-25T06:14Z — steering-hooks-fixer", question 1; effort rulings block "2026-11-25T06:14Z" (record `a7b6ee15`). | Owner withdrawal only. Consequence: D-28's class work continues (R-123's weakened premise is answered). See body note on "emoji drawing collapse" (Planner batch row "Fix Round 4's Outstanding 3"). |
 | D-30 | The D-28 positions beyond the six listed members are checked before QA passes M6, with no plan revision for them: each position shows no error at the fixed branch, and an error sends it back to the fix. This is SL-30's form. | 2026-11-25 | By selection: "Check them before QA passes (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "No plan revision, so Fix Round 5 starts now. Before QA passes M6, each of these positions must show no error at the fixed branch. An error sends it back to the fix." The question named: "A backtick typed mid-line on line 1 errors. So do removing the closing backtick with Backspace, and removing the opening one with Delete. A backtick at the end of a middle line errors at 200 and 1,000 lines. Production errors on none of them." The other options were "List them in the plan" and "Leave as written". Ledger block "2026-11-25T06:14Z — steering-hooks-fixer", question 2; effort rulings block "2026-11-25T06:14Z" (record `a7b6ee15`). | Owner withdrawal only. Consequence: SL-30 is an entry condition on QA Phase 2 of Fix Round 5 (its Planner batch row). "Fix Round 5 starts now" in the option is overtaken by D-31, which takes Revision 25 and its three reads first. |
 | D-31 | The six inline-code members join AC-6.9's standing work-per-line count limb (at 1,000 lines at most 10 times the count at 200), in Revision 25, read by the three plan gates before Fix Round 5. | 2026-11-25 | By selection: "Add a speed check (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "The six cases join the existing check that 1,000 lines cost no more than 10 times 200 lines. That needs a Revision 25 (shared with the previous question's revision if you chose one) and three plan-review reads before Fix Round 5 starts." The other option was "No speed check". Ledger block "2026-11-25T06:14Z — steering-hooks-fixer", question 3; effort rulings block "2026-11-25T06:14Z" (record `a7b6ee15`). | Owner withdrawal only. Consequence: AC-6.9's "Work per line" limb (revision 25); QAF-55 and F-60 (SL-31) are discharged into it. |
+| D-32 | 019 carries no rebuild of the editor. A rebuild of the Slate layer on Discord's model is its own effort after 019's release, and it opens on his word, not on the release itself. | 2026-11-25 | His words (witnessed by `steering-hooks-fixer`, relayed by it): "019 will not carry the new work." (effort rulings block "2026-11-25T15:28Z", record `f3096590`). By selection: "Agent: rebuild after 019 (Recommended)", with option text agent-authored (`steering-hooks-fixer`): "once 019 ships, a new effort rebuilds the editor on Discord's model with his emoji (per line) and quote-mark (hidden) answers…" (ledger `steering/selection-ledger/2026-11-25.md`, block "2026-11-25T15:36Z — steering-hooks-fixer"; effort rulings block 15:36Z, record `b7a4b8d2`). His words, relayed: "Don't immediately start on the next effort when 019 ends. This isn't a long-term hold. This is just a one-time command." (block 15:38Z, record `710506e4`). | Owner withdrawal only. Consequence: M7 releases the current editor. The open Planner batch rows are carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md`, which carries the decision until the rebuild opens. His per-line emoji and hidden-marker answers (block 15:25Z) bind a rebuild only and are recorded there, not here. |
+| D-33 | 019 runs to release on its essentials. QA's effort-final mutation sweep on M6 is not run. The Planner batch is not folded beyond M7's premise paragraph. The architect's closing pass is not run. | 2026-11-25 | His words (witnessed by `steering-hooks-fixer`, relayed by it): "Is there much value in maintaining the mutation sweeps since we're just going to be rebuilding? In fact, we should only be doing the bare minimum on 019 now." By selection, two questions: "Agent: stop the sweep (Recommended)", and "Agent: release essentials only (Recommended)". The second's option text, agent-authored (`steering-hooks-fixer`): "Keep user testing of the five flows, the one plan paragraph the release step needs (with the critic's read), devops' release checks, QA's check of the release build, and your approval. Drop the catch-up of minor findings and the architect's closing review. Those findings are handed to the rebuild as they stand." Its "five flows" was a wrong premise, corrected at D-34. Ledger block "2026-11-25T15:46Z — steering-hooks-fixer"; effort rulings block 15:46Z (record `95913e2e`). | Owner withdrawal only. Consequence: Revision 26's scope. M7's architect closing-pass rows go. The Planner batch's open rows go to the rebuild as they stand. QA's Phase 2 verdict records the sweep as not run (R-135). |
+| D-34 | UAT walks all nine pre-release flows in QA's register: B-1, B-2, B-3, B-4, B-7, B-8, B-9, B-10 and B-11. B-5 and B-6 stay in the kept steps. | 2026-11-25 | By selection: "Agent: all nine walks (Recommended)". Option text, agent-authored (`steering-hooks-fixer`): "the most work, mostly the emoji picker's database and sign-in set-up". The other options were "Agent: the five plus links" and "Agent: only the five". It was put after the planner found that D-33's "five flows" left out four walks (`planner-019`'s message after 15:46Z). Ledger block "2026-11-25T15:49Z — steering-hooks-fixer"; effort rulings block 15:49Z (record `81d56eb4`). | Owner withdrawal only. Consequence: the `uat` Reading Order row and Testing Strategy's walk list name all nine. In the same block, steering ruled on the planner's other items: AC-3.3's full generator count runs at QA Phase 3, QAF-53 (b) goes to the rebuild as written, and M7's Test Conventions update stays. |
 
 **Revision cap on M4 and M6 (steering's ruling, not his).** Effort rulings block "2026-11-23T17:56Z" (record `b95a3d43`), by
 `steering-hooks-fixer` under steering.md's standing check: "from Revision 7's verdicts onward, each further gap below HIGH on M4
@@ -1761,9 +1719,29 @@ after M4 reads `simple-markdown`. Reverting M4 or M5 after AC-6.6 has landed tak
 
 ### M7 — Release
 
-**`PREMISE-STALE`** (R-76). M4 changes the preview and M5 the editor, and both have shipped on the chain branch (M4 at
-`e58f2ed`, M5 at `2e36107` with `cf126ea`). M7 is not implemented, reviewed or run until a plan revision adds one paragraph
-re-arguing its premise against that behaviour. That paragraph is owed at the seam fold, before devops Stage 1.
+**Premise, re-argued at revision 26 (the re-derivation gate, R-76).** M4, M5 and M6 have shipped product behaviour on the chain
+branch:
+- M4: the preview on the engine (`e58f2ed`);
+- M5: the editor's colouring on `parseLossless` (`2e36107`, `cf126ea`);
+- M6: the Slate layer at `48eb60a`. This includes D-10's stored representation (a typed emoji is saved as the character) and
+  R-126's caret change.
+
+M7's premise is that one release carries them together and that nothing in them asks the release for more than moving `master`.
+It holds against each:
+- **M4 and M5** change what users see, not what the release does. AF-2 and D-19 still require that no release tree holds M4
+  without M5, which devops checks from the commit list. The post-deploy observable (B-5) reads M4's link behaviour in production.
+- **M6's stored representation** is the one change a release can make lasting. After the push, messages saved by the new editor
+  hold emoji characters where the old site wrote `:name:`. Messages already saved stay as they are (D-10, AC-6.2). So a rollback
+  by reverting the push leaves those newer messages in the character form. The planner reads this from the record's S-07, and it
+  is inference, not a read at the base: the base editor already receives characters whenever a user pastes one, and re-saves them
+  in its own `:name:` form. So a rollback's worst case is the behaviour production has today. It is not read at `af3d95a` and is a
+  stated limit of this release.
+- **R-126's caret change** and M6's other editor behaviour are user-visible only, and UAT walks them (B-9 to B-11, D-34).
+- **D-32 and D-33** change what follows the release, not the release. 019 releases the current editor. The rebuild waits for his
+  word. The architect's closing pass is waived, so its record rows are not M7's work.
+
+So M7 still moves `master` from the chain base to the tip, lands the Test Conventions update, and lands its housekeeping in one
+commit before QA Phase 3. It is no longer `PREMISE-STALE`. The critic reads this paragraph (D-33).
 
 The same release carries M2 to M7 (AF-2). No release tree holds M4 without M5, checked by devops at Stage 1 from the chain's commit
 list.
@@ -1774,8 +1752,8 @@ list.
     and every pin change, with devops at Stage 1 as the runner at a later release, and the outcome table's later-release column,
     which holds no release (CF-3, F-2, F-24, F-28). The sentence "runs the whole suite" changes with them. The
     implementer proposes the text in its implementation document at M3, and steering lands it in the record at release.
-  - The architect's closing pass: the Problem Area rows (Header notes), the Dependencies line, and the Quality Attributes "Tests"
-    line.
+  - The architect's closing pass is waived (D-33). The Problem Area rows, the Dependencies line and the Quality Attributes
+    "Tests" line named in Header notes are not updated by this release, and the architecture record stays as it is.
 - The tip-moving housekeeping lands in one commit before QA Phase 3.
 
 ## Testing Strategy
@@ -1787,8 +1765,9 @@ The binding standard is the workspace `CLAUDE.md` § Test Conventions (`agent-ou
   uat). Puppeteer at the generator's pin runs in an export. Discord's oracle code (the legacy facade, both box tables, the native
   box) runs under Node in jsdom (AN-4), with no browser. Discord reads use the test-account browser on guild
   `1566742402180456559`. There is no WebKit (X-17).
-- **Probe versus gate**: AN-1 to AN-8 are pre-landing probes. AC-2.5, AC-4.2, AC-5.5 and AC-6.3 are post-landing walks (QA
-  register B-1 to B-4).
+- **Probe versus gate**: AN-1 to AN-8 are pre-landing probes. UAT's post-landing walks are QA register B-1 (AC-2.5), B-2 (AC-4.2),
+  B-3 (AC-5.5), B-4 (AC-6.3), B-7 (AC-4.4), B-8 (AC-3.3's paste in a real browser), B-9 (AC-6.7), B-10 (AC-6.8) and B-11 (AC-6.9),
+  all nine (D-34). B-5 (production) and B-6 (QA Phase 3) are not UAT's.
 - **Tools changed by this chain and used by its own gates**: the normaliser (M3), in its loose canonical form and its visible form,
   each with its positive controls and second instrument as stated there. The `test` script itself changes: QA Phase 2 runs the chain base's `vitest run` beside the tip's two commands, and
   compares the files collected by path membership.
@@ -1970,6 +1949,15 @@ Revision 4's folds, for reference:
 | QA `24d537bf` | E-4 declined | X-21 stands final |
 
 ## Planner batch
+
+**Carried to the rebuild (D-33, revision 26).** The batch is not folded. Every row below whose disposition does not record a
+discharge is carried, as it stands, by `planning/slate-editor-rebuild-sizing-2026-11-25.md`, the carrier of D-32's rebuild.
+No row gets its own disposition. The carried rows are written as stated limits of this release. Two rows are discharged by
+revision 26 itself: F-35 and F-41 (SL-15), through the `uat` row and the walk list (D-34). A carried row that names "the seam
+fold" now reads "the rebuild". The release-essential items found among them stay in the kept steps (D-34's block):
+- QA Phase 3 keeps B-5, B-6 and AC-3.3's full generator count;
+- QAF-53 (b)'s paste-cost claim is QA's SL-29 reading;
+- M7 keeps the Test Conventions update.
 
 | Item | Source row | Disposition |
 |---|---|---|
