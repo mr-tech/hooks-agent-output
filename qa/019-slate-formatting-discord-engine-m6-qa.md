@@ -381,6 +381,14 @@ Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a
     - **SL-30** (D-30). Run F-59's wider set, mounted: a backtick or `\` typed, Backspace or Delete, mid-line 0, on a middle
       line, or on the partner line. Sizes: 5, 100, 200 and 1,000 on `embedDescription`, and 5, 100 and 200 on `content`, over
       `a🙂` lines with a partner. Run `5ec0621` as the control. A throw goes to steering as a D-28 member.
+    - **CR-28's off-selection member** (R-129, planning `d8fd2eb`, D-30's form; added 2026-11-25T09:58 from planner-019's
+      message). This is an entry condition on Phase 2 of Fix Round 6. At the round's tip, run code review's
+      `verification/019/code-review/m6fix5-40947a6/crprobe.offselection-inline.test.tsx.txt` (sha256 `e38d4f2b…`) over its
+      24 rows: an inline-code backtick inserted at or removed from line 0's end, with the selection null or in a separate run
+      unit after a code block, over `a🙂` `embedDescription` lines at 40 to 1,000. Every row must show no thrown error, no
+      pending timer's error, and line shapes equal to a fresh load of its text. A failing row sends the round back to the fix.
+      Earlier readings were 12 of 24 red at `40947a6`, 18 of 24 at `a7ad3f2` and 0 of 24 at `af3d95a`. No criterion's text
+      changes.
   - **AC-6.9's obligations** (Phase 1 document, § Re-key on Revisions 21 to 25):
     - every limb over every member and N;
     - NM-73 to NM-88, with CF-30's diff read for a `catch` or a `shouldNormalize` budget;
