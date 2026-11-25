@@ -1,0 +1,16 @@
+#!/bin/sh
+# usage: run9b.sh <scratch dir>; Round 9 sub-entry probes at 48eb60a, each in its own 5G no-swap scope, one worker, no network
+S=$1; OUT=$S/out9b; mkdir -p $OUT; U=src/components/SlateEditor/utils/__tests__; M=src/components/SlateEditor/__tests__
+probe() { echo "$1 $2 before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+  ( cd $S/e-$1 && CRPROBE_OUT=$OUT/$3 timeout -k 10 2400 systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 unshare -rn npx vitest run --maxWorkers=1 --project node --project dom $2 > $OUT/log-$3.txt 2>&1 ); echo "exit $?" >> $OUT/log-$3.txt
+  echo "$1 $2 after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt; }
+for t in 48eb60a 40947a6 af3d95a; do probe $t $U/crprobe.offselection-forms.test.tsx offforms-$t.jsonl; done
+probe 48eb60a $U/crprobe.offselection-inline.test.tsx offsel-48eb60a.jsonl
+probe 48eb60a $U/crprobe.class-tip.test.tsx class-48eb60a.jsonl
+probe 48eb60a $M/crprobe.mounted-lone-backtick.test.tsx mounted-lone-backtick-48eb60a.jsonl
+probe 48eb60a $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-48eb60a.json
+probe 48eb60a-nosupp $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-48eb60a-nosupp.json
+probe 48eb60a $U/crprobe.keystroke-settle.test.tsx keystroke-settle-48eb60a.json
+probe 48eb60a $U/crprobe.paste-differential.test.tsx paste-differential-48eb60a.json
+for r in 1 2; do probe af3d95a $U/crprobe.sl29-base.test.tsx sl29-af3d95a-r$r.jsonl; probe 48eb60a $U/crprobe.sl29-tip.test.tsx sl29-48eb60a-r$r.jsonl; done
+echo "done $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt

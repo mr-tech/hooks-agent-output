@@ -1,0 +1,24 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import { startEngine } from '~/utils/markdown/engine';
+beforeAll(async () => { await startEngine(); });
+const S = 'embedDescription' as const;
+const brief = (ls: Element[]) => ls.map((l) => `${l.type}:${l.children.map((c) => ('text' in c ? JSON.stringify((c as { text: string }).text) : `<${(c as unknown as { source: string }).source}>`)).join('')}`);
+it('move shapes', () => {
+  const before = ['`', 'a🙂', 'a🙂', 'a🙂', 'a🙂', 'a🙂`', '```', 'code', '```', 'z'].join('\n');
+  const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, S);
+  e.children = getInitialValue(before, S, false) as Descendant[];
+  Transforms.select(e, Editor.end(e, [e.children.length - 1]));
+  const ops: string[] = []; const { apply } = e; e.apply = (op) => { ops.push(op.type); apply(op); };
+  Transforms.moveNodes(e, { at: [0], to: [e.children.length - 1] });
+  const after = ['a🙂', 'a🙂', 'a🙂', 'a🙂', 'a🙂`', '```', 'code', '```', 'z', '`'].join('\n');
+  const text = (e.children as Element[]).map((l) => l.children.map((c) => ('text' in c ? (c as { text: string }).text : (c as unknown as { source: string }).source)).join('')).join('\n');
+  writeFileSync(process.env.CRPROBE_OUT as string, JSON.stringify({ ops, textEqualsExpected: text === after, text, tip: brief(e.children as Element[]), fresh: brief(getInitialValue(after, S, false) as Element[]) }, null, 1));
+});

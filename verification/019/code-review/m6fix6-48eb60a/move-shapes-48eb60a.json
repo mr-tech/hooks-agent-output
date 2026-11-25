@@ -1,0 +1,31 @@
+{
+ "ops": [
+  "move_node"
+ ],
+ "textEqualsExpected": true,
+ "text": "a🙂\na🙂\na🙂\na🙂\na🙂`\n```\ncode\n```\nz\n`",
+ "tip": [
+  "div:\"a🙂\"",
+  "div:\"a🙂\"",
+  "div:\"a🙂\"",
+  "div:\"a🙂\"",
+  "div:\"a🙂`\"",
+  "div:\"```\"",
+  "codeBlock:\"code\"",
+  "div:\"```\"",
+  "div:\"z\"",
+  "div:\"`\""
+ ],
+ "fresh": [
+  "div:\"a\"<🙂>\"\"",
+  "div:\"a\"<🙂>\"\"",
+  "div:\"a\"<🙂>\"\"",
+  "div:\"a\"<🙂>\"\"",
+  "div:\"a\"<🙂>\"`\"",
+  "div:\"```\"",
+  "codeBlock:\"code\"",
+  "div:\"```\"",
+  "div:\"z\"",
+  "div:\"`\""
+ ]
+}

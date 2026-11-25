@@ -2,10 +2,10 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Reviewed-At: "40947a6 — repos=website; Round 9 is M6 Fix Round 5 at 40947a6 (a7ad3f2..40947a6); Round 8's sub-entry is M6 Fix Round 4 at a7ad3f2 (2b82972..a7ad3f2); Round 8 is M6 Fix Round 3 at 2b82972 (85ece66..2b82972); Round 7 is M6 Fix Round 2 at 85ece66 (42128cd..85ece66); Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
+Reviewed-At: "48eb60a — repos=website; Round 9's sub-entry is M6 Fix Round 6 at 48eb60a (40947a6..48eb60a); Round 9 is M6 Fix Round 5 at 40947a6 (a7ad3f2..40947a6); Round 8's sub-entry is M6 Fix Round 4 at a7ad3f2 (2b82972..a7ad3f2); Round 8 is M6 Fix Round 3 at 2b82972 (85ece66..2b82972); Round 7 is M6 Fix Round 2 at 85ece66 (42128cd..85ece66); Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
 Status: In Review
 Round: 9
-Verdict: REJECTED
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: 019 — Slate formatting: one Discord engine for the preview and the editor
@@ -38,6 +38,7 @@ Verdict: REJECTED
 | 2026-11-24T22:55 | implementer-019 (M6 Fix Round 3, record `731ff3a1`, `Handoff-At: 2b82972`); steering-hooks-fixer (blocks 20:58Z `493aa6cc`, 22:41Z `40823e74`); planner-019 (SL-29 brief, `e241aa14`; R-111, `b1f0f60c`) | Review M6 Fix Round 3 (CR-25, D-26, CR-24) with SL-29 | Round 8 at `2b82972` (a round: `retypeLines`' marker change is outside the findings): **REJECTED** on CR-25 HIGH's time member, 7 of 8 `a🙂` fence members over SL-29's line (line-2 close 1,230.7 ms at 1,000 lines against the base's 52.2 ms throw), already sent back under D-24 by block 22:41Z. CR-25's count member RESOLVED (count limb red at `85ece66` by assertion, linear at the tip); CR-24 RESOLVED; paste within the line at both sizes and fills; 0 of 39,320 keystrokes differ; CR-26 LOW new (4 of 15,966 pastes: a fence-closing `> ` line inside `>>>` keeps its marker in its text). Evidence `verification/019/code-review/m6fix3-2b82972/`. |
 | 2026-11-25T05:29 | implementer-019 (M6 Fix Round 4, record `32c4a684`, `Handoff-At: a7ad3f2`); architect-019 (CF-33, `4dfc0505`); planner-019 (R-111, `b1f0f60c`) | Round 8 sub-entry: confirm CR-25's time member and CR-26 | Round 8 sub-entry at `a7ad3f2`: **REJECTED** on CR-28 HIGH (a lone backtick at the end of line 0, paired with one ending the last line, throws Slate's iteration error from 100 `a🙂` lines at `85ece66` and the tip, and mounted the backtick never reaches the message; `af3d95a` takes 2 operations with no throw). CR-27 MEDIUM is a severity floor: 6 corpus keystrokes leave rebuilt lines that a forced normalise changes, and the no-suppression mutant restores them. CR-29 MEDIUM goes to steering (block 20:58Z): a fence close over typographic-quote lines takes 9.6 to 18.5 s at 1,000 lines. CR-25 HIGH RESOLVED (SL-29 0 of 20 over); CR-26 LOW RESOLVED; load unchanged in 0 of 13,148; no paste regressions. Evidence `verification/019/code-review/m6fix4-a7ad3f2/`. |
 | 2026-11-25T09:47 | implementer-019 (M6 Fix Round 5, record `ccfa46d7`, `Handoff-At: 40947a6`); planner-019 (Revision 25 notice, record `f1a2f2f7`); steering-hooks-fixer (round start 06:20Z `e78f4d69`, widening 07:09Z); steering's brief for the round not arrived | Review M6 Fix Round 5 (D-28's inline-code members, CR-28, CR-27, the typographic fold) | Round 9 at `40947a6`, a round because it adds Revision 25's members, the widening and the caret change: **REJECTED** on CR-28 HIGH, still open on one member. An inline-code backtick inserted or removed away from the selection (selection null, or in another run unit) throws Slate's iteration error from 100 `a🙂` lines, where `af3d95a` throws in 0 of 24 rows. slate-react 0.123.0's default `onDrop` reaches it by code read. Routed to steering as a D-28 member. Everything else assessed holds: the six members and controls, mounted too; CF-35's equality, 0 of 36,560 on two instruments; CR-27 RESOLVED; CR-29's `’` fill measured cleared; SL-29 0 of 20 over; no paste regressions; the 16 caret changes all on the edited line. CR-30 LOW is new (the typographic rule is written twice). Evidence `verification/019/code-review/m6fix5-40947a6/`. Milestone-scoped: the plan Status is not moved. |
+| 2026-11-25T12:34 | implementer-019 (M6 Fix Round 6, record `6c1e3e33`, `Handoff-At: 48eb60a`); steering-hooks-fixer (ruling block 09:50Z `1dae25f0`); planner-019 (R-129, R-130); steering's brief for the round not arrived | Round 9 sub-entry: confirm CR-28's off-selection member | Round 9 sub-entry at `48eb60a`: **APPROVED_WITH_COMMENTS**. CR-28 HIGH RESOLVED: Round 9's probe is 24 of 24 clean, and the falsity case is red at `40947a6` by assertion. The re-attack's seven off-selection forms are clean at the tip, except `moveNodes`, which throws nothing but leaves the run's emoji lines unsettled (3 forced operations per line, at every N). That is CR-31 LOW, unreached (no move source in `src`), a stated limit. The four corpora are byte-identical to `40947a6`'s; CF-35 0 of 36,560; SL-29 0 of 20 over. M6 goes to QA Phase 2. Evidence `verification/019/code-review/m6fix6-48eb60a/`. Milestone-scoped: the plan Status is not moved. |
 
 ## Scope of this round
 
@@ -1855,54 +1856,11 @@ Dragging a selected backtick off line 0 and dropping it into a run unit past a c
 **Dispositions.**
 - CR-27 MEDIUM: RESOLVED (disposition line in Round 8's sub-entry).
 - CR-29 MEDIUM: measured cleared for `’` (disposition line in Round 8's sub-entry).
-- CR-28 HIGH: **not resolved**. The selection-anchored members are fixed. The class is not gone, because the stale check reads
-  the selection, not the lines the edit changed (below).
-
-CR-28 HIGH Round 8 (M6; Round 9 status: open on one member)
-- **Location**: `withNormalizeNode.ts` `staleEmojiLines`, which takes its units from `ownLines` (the selection's two lines), and the
-  per-line path it falls back to (`handleElement` → `resolveEmoji` → `resolveLine` / `revertToText`), at `40947a6`.
-- **Class**: an edit whose emoji-layout change spans more lines than Slate's iteration budget allows throws Slate's `Could not
-  completely normalize the editor`. At `40947a6` the one-pass rebuild is triggered only from the run units that hold the
-  selection. An edit whose line is in no such unit falls back to per-line settling and throws as at `a7ad3f2`. The fence
-  sibling's trigger, the type scan in `retypeLines`, reads every line. Its off-selection form is a committed case ("a code fence
-  opened by text inserted at a point, while the selection is elsewhere"), and the emoji trigger has no such case.
-- **Magnitude**: measured in node, `embedDescription`, load 0.5 to 2.4 (`offsel-40947a6.jsonl`).
-  - Inserting or removing the backtick at line 0's end throws at 100, 200 and 1,000 lines, with the selection null or in a later
-    run unit: 12 of 12 rows from 100 lines, at 23 to 856 ms before the throw.
-  - At `af3d95a`, 0 of 24 rows throw. So the release adds the throw.
-  - Whether the browser's drag path leaves the dropped text saved is not measured. On CR-28's measured member, D-29 records that
-    Chrome kept the write and showed a page error.
-- **Enumeration**: cannot enumerate by text predicate, because the members are edits. Members by probe and by code read:
-  - a transform inserting or deleting a pairing backtick, with the selection null or in another unit: measured, throws;
-  - slate-react's internal drag-and-drop move of such a backtick: reached by code read (`Editable` `onDrop` at 0.123.0), not
-    driven;
-  - the other D-28 characters, and SL-30's positions, done off the selection: not measured.
-  - What this misses: an off-selection edit whose line shares a unit with the selection (the check reaches it), and edits made
-    by code paths other than slate-react's (none found: `git grep -n -E 'Transforms\.(insertText|delete|insertNodes)\('
-    40947a6 -- src/components/SlateEditor ':!*__tests__*'` gives 15 hits by `git grep -c`: 1 in `onCopy.ts`, 2 in `onKeyDown.ts`,
-    12 in `withNormalizeNode.ts`. Each one is at the selection or is inside the normaliser).
-- **Required Action**:
-  - **Preferred (structural)**: key the check on the lines the drain's operations changed, not on the selection. Record the
-    top-level line of each text and node operation applied since `verifiedLines` last matched. Run `staleEmojiLines` over those
-    lines' units. Keep `rebuildLines`' own-line exclusion as it is, so the selection's lines stay on the normal path.
-    - `staleEmojiLines` has one caller, `retypeLines`, and its form is unchanged.
-    - `ownLines` has two callers. `rebuildLines` keeps it as written; `staleEmojiLines` stops using it as its unit source.
-  - **Minimum**: also check the units of the lines Slate dirtied in the drain, beside the selection's.
-  - Under either form, a keystroke at the selection takes the same operations as at `40947a6`, and the corpus differentials stay
-    at 0.
-- **Falsity signature**:
-  - A case with `Transforms.delete` over the backtick ending line 0, and the selection at the end of a line in a separate run unit
-    after a code block, over 200 `a🙂` lines whose last ends in a backtick. It asserts no error and the fresh load's line shapes.
-    At `40947a6` it fails on the error assertion with Slate's message, not by a timeout.
-  - The same case with `Transforms.deselect` first.
-  - Fixture property: the selection's run unit is not the edited line's unit.
-- **Route**: steering. The planner's notice names this route for any throw found in D-28's class ("Any throw goes to steering as
-  a D-28 member"). AC-6.9's class is stated for keystrokes, and a drag-and-drop move is not one. Whether the member is inside D-28
-  is steering's to read, and then the owner's if needed. If it is ruled outside, CR-28 becomes a stated limit and the verdict is
-  re-dispositioned in a sub-entry.
-  - Ruled 2026-11-25 by steering's block 09:50Z (record `1dae25f0`): **fixed in this chain**, under standing ruling 2 ("Just fix
-    everything you find along the way"), not under D-28's keystroke wording. CR-28 stays HIGH, and the verdict stands with no
-    re-disposition. Fix Round 6 starts on planner-019's reading of R-128's possible plan gap. Steering also reads CR-29 as cleared.
+- CR-28 HIGH Round 8 RESOLVED at `48eb60a` (Round 9 sub-entry, below), by the Preferred form: the emoji check is keyed on the
+  lines the edit changed. At `40947a6` the off-selection member (an inline-code backtick inserted or removed away from the
+  selection) threw from 100 `a🙂` lines in 12 of 24 rows, where `af3d95a` threw in 0. Steering ruled it fixed in this chain
+  (block 09:50Z, `1dae25f0`, standing ruling 2). Check that fails if it returns: the settle file's "an edit made at a point while
+  the selection is elsewhere", red at `40947a6` by assertion. Evidence: `m6fix5-40947a6/`, `m6fix6-48eb60a/`.
 
 CR-30 LOW Round 9 (M6)
 - **Location**: `withNormalizeNode.ts`: `straightened`, used by `rebuildLines`, and `BAD_APOSTROPHE_CODEPOINTS`,
@@ -1950,10 +1908,93 @@ an estimate) and not read it from the clock. I re-wrote the stamp from `date -u 
 - CR-30 LOW is a stated limit.
 - Milestone-scoped: the plan's Status does not move.
 
+### Round 9 sub-entry: Fix Round 6 at `48eb60a` (CR-28's off-selection member)
+
+**Scope and identity.**
+- The fix covers `40947a6..48eb60a`: 5 commits and 2 files, one of them production (`withNormalizeNode.ts`, +34 −6). Every
+  production change serves CR-28's member, so this is a sub-entry and not a round.
+- Website HEAD was `48eb60a` at the start and at the end.
+- Hand-off: implementer-019's message, and Fix Round 6 in the implementation document (record `6c1e3e33`, `Handoff-At: 48eb60a`).
+  Steering's round start is block 09:53Z; no brief to me has arrived.
+- Plan: Revision 25 with rows to R-130. R-129 and R-130 add an entry condition on QA Phase 2: my off-selection probe reads clean,
+  and QA reads the timer clause on its own mounted run. No criterion moves.
+
+**Reading.** In `withNormalizeNode.ts`:
+- The `apply` wrapper calls `noteEdited` after each operation outside the rebuild, in full mode only.
+- `linesOf` maps an operation to the top-level lines it leaves changed:
+  - an operation inside a line: that line;
+  - `split_node`: both halves;
+  - `merge_node`: the line merged into;
+  - `remove_node`: its two neighbours;
+  - `move_node`: both `Path.transform` reads.
+- The lines are noted by node identity, so no index shifting is needed.
+- `staleEmojiLines` finds the noted nodes' indices in one scan, builds their units (a code line is still skipped) and excludes
+  the selection's lines from the comparison.
+- `linesAgree` clears the note when it verifies.
+- `rebuildLines`, the suppression and its scope are unchanged.
+- Test: the existing off-selection fence case is widened into "an edit made at a point while the selection is elsewhere".
+  - Rows: the inline-code insert and delete with no selection, with a range in the same unit, and with the caret past a code
+    block; plus whole-line removal, merge, and two runs edited in one change.
+  - Expected texts come from literals. It is red at `40947a6` by assertion on Slate's message (the implementer's log). It meets
+    the falsity signature and its fixture property: the selection's unit is not the edited line's.
+- 0 ID tokens and 0 comment lines over the 120 added lines (`grep -c`). The convention check: 0 FAIL, 0 CANDIDATE, 18 SKIP.
+
+| Check (`verification/019/code-review/m6fix6-48eb60a/`, README there; OOM count 8) | Result |
+|---|---|
+| Round 9's probe, unchanged (`offsel-48eb60a.jsonl`) | **24 of 24 clean**: no error, 0 lines unlike a fresh load, 0 forced operations. This reproduces R-129's condition |
+| **Re-attack from first principles** (new, `crprobe.offselection-forms`): seven forms of an edit away from the selection, with the selection null or past a code block, at N 5, 100, 200 and 1,000, at `48eb60a`, `40947a6` and `af3d95a` (`offforms-*.jsonl`) | At the tip, 6 forms are clean in all 8 rows: the inserted backtick and backslash, `insertFragment`, an inserted line, a removed line, and a split. At `40947a6` the four insert forms throw from 100 lines, and the removal leaves N lines stale. **`moveNodes` of a backtick line out of the run: no throw, but every emoji line of the run is left unlike a fresh load at every N, and a forced normalise applies 3 operations per line** (15 at 5 lines, 3,000 at 1,000). This holds at the tip and at `40947a6`. `af3d95a` is clean on all 7 forms (CR-31) |
+| CF-35's equality, the tip against its own pass-through (`cf35-equality-48eb60a.out.txt`) | **0 of 36,560** documents and selections differ, with the same 8 non-fixed-point loads on both trees |
+| Against `40947a6`: fixed-point, pass-through, settle and paste outputs | **byte-identical** (`cmp`) to Round 9's runs, so nothing changes at the selection |
+| Class probe and mounted probe (`class-48eb60a.jsonl`, `mounted-lone-backtick-48eb60a.jsonl`) | No error at any size: 8.6 ms at 200 lines and 41.4 ms at 1,000. Mounted, 3 of 3 with the backtick written. CR-29's fill reads 36.1 / 41.2 ms at 1,000 lines |
+| SL-29, two interleaved rounds against `af3d95a` (`sl29-table.txt`) | **0 of 20 over the line**, with no throws or mismatches. Paste `a🙂` at 1,000 lines is within the line |
+| The implementer's sweep predicate (`ownLines(` / `editor.selection` / `.selection`), re-run at `48eb60a` | 9 hits by `git grep -c` (1, 2 and 6), as recorded. None chooses which lines the check reads; `:88` only excludes. The language server is not installed, so the second instrument is the differently shaped probe above. It breaks the predicate's reach with the `move_node` member, which no selection read names |
+
+CR-31 LOW Round 9 (M6)
+- **Location**: `withNormalizeNode.ts` `linesOf`, its `move_node` branch, at `48eb60a`.
+- **Class**: the noted lines of a top-level move are the moved node's new index, read twice: `Path.transform([line], op)` and
+  `Path.transform(op.path, op)` both give `newPath`. The run the line left is never noted. So an off-selection move that changes
+  that run's emoji reading leaves its lines unsettled, which is not a normaliser fixed point, though nothing throws. The
+  implementation document's "`move_node`: source and target" does not hold.
+- **Magnitude**: measured in node, `embedDescription` (`offforms-48eb60a.jsonl`, `move-shapes-48eb60a.json`). Moving a lone
+  backtick line from 0 to the end leaves all N emoji lines as text at N 5, 100, 200 and 1,000. A fresh load lifts them, and so
+  does a forced normalise, at 3 operations per line. `af3d95a` settles them.
+- **Reach**: none found, so it is LOW. `git grep -n -E 'moveNodes|move_node|liftNodes|wrapNodes|unwrapNodes|mergeNodes' 48eb60a
+  -- src ':!*__tests__*'` gives 6 hits in `withNormalizeNode.ts` and none elsewhere. Each is this branch, or matches
+  `removeNodes` or `remove_node` as a substring. In Slate 0.123.0 core, `liftNodes`, `wrapNodes` and `mergeNodes` call
+  `moveNodes`, and `mergeNodes` does so only when the node is not the previous sibling. In this flat list of lines a cross-line
+  delete merges adjacent lines. slate-react's drag is a delete and an insert. What I did not check: Slate's `insertFragment`
+  path line by line, and plugins outside `SlateEditor`.
+- **Required Action**:
+  - **Preferred**: note the move's source neighbours (the lines either side of `op.path` once the node has left), beside the
+    target. Add an off-selection `moveNodes` row to the widened case, asserting fresh-load shapes. It fails at `48eb60a` on N
+    lines unlike, not on an error.
+  - **Minimum**: drop the branch and treat `move_node` as a removal at its source and an insertion at its target, with the same
+    row.
+  - `linesOf` has one caller, `noteEdited`, and no other operation changes under either form.
+  - Fixture property: the moved line leaves a run with at least two other lines, and lands in a different run.
+- Under the M6 cap this is a stated limit for the Planner batch unless a later round touches `linesOf`. In that case it rides
+  that round. It is sent to planner-019, and to implementer-019 for the record's line.
+
+**Dispositions.**
+- CR-28 HIGH: RESOLVED (its disposition line in Round 9).
+- CR-31 LOW: new.
+- The sweep's survivors: the reading is in the implementation document. I agree with the equivalences by construction (the
+  removal's range filter, the empty `forEach`) and with the LOW gaps. One correction: the `move_node` survivors are not only
+  unreached, they are wrong (CR-31). `hand-noted-while-rebuilding` and `hand-record-never-cleared` cost time only, as CF-35's
+  equality shows.
+
+**Verdict, Round 9 sub-entry: APPROVED_WITH_COMMENTS** for M6 at `48eb60a`.
+- CR-28 is resolved, with its falsity case red at `40947a6` by assertion.
+- Nothing changes at the selection: four corpora are byte-identical.
+- CF-35 is 0, and SL-29 is 0 of 20 over.
+- CR-30 LOW and CR-31 LOW are stated limits.
+- M6 goes to QA Phase 2, with R-129's entry condition, SL-30 (D-30), and Round 9's Assumption Not Checked (the browser drag).
+- Milestone-scoped: the plan's Status does not move.
+
 ## Verdict
 
 **Status**: M3 is **APPROVED_WITH_COMMENTS**, at the Round 3 sub-entry's fix confirmation of QAF-38 at `81c68b2`. Before that, CR-15 was RESOLVED at `d6aab03`, and the `b04c09f` sub-entry was REJECTED on CR-15.
-- M6 is **REJECTED** at `40947a6` (Round 9, Fix Round 5), on CR-28 HIGH, which stays open on one member. An inline-code backtick inserted or removed away from the selection throws Slate's iteration error from 100 emoji lines; slate-react's default drag-and-drop move reaches it, and the chain base does not throw. That member goes to steering as a D-28 member. Everything else Round 9 assessed holds: D-28's six members and controls, CF-35's equality (0 of 36,560), CR-27 RESOLVED, CR-29's fill measured cleared, SL-29 0 of 20 over, no regressions. CR-30 LOW is a stated limit. Before that, M6 was **REJECTED** at `a7ad3f2` (Round 8 sub-entry, Fix Round 4), on CR-28 HIGH: a lone backtick typed in a message of 100 or more emoji lines throws Slate's iteration error and loses the keystroke, where today's site does not. CR-27 MEDIUM, a severity floor on R-111's fixed-point condition, also blocks the hand-off to QA. CR-29 MEDIUM goes to steering under block 20:58Z. CR-25 HIGH and CR-26 LOW are RESOLVED, and SL-29 is met at the tip (0 of 20 over). Before that, M6 was **REJECTED** at `2b82972` (Round 8), on CR-25 HIGH's time member: 7 of SL-29's 8 `a🙂` fence members are over the line (1.2 s to close a fence above 1,000 emoji lines, against the base's 50 ms throw), and steering has already sent them back under D-24 (block 22:41Z). CR-25's count member and CR-24 are RESOLVED, the paste is within SL-29's line, and CR-26 LOW is new. Before that, M6 was **REJECTED** at `85ece66` (Round 7), on CR-25 HIGH: whole-run work repeated per operation, 7.6 s to close a code fence above 1,000 emoji lines, and paste 2.5 to 9 times the base. CR-24 LOW is a stated limit. CR-23's named member is resolved and its class carried by CR-25. CR-22 LOW stands for AC-6.8's bench. Before Round 7, M6 was APPROVED_WITH_COMMENTS at `42128cd` (Round 6 sub-entry); D-24 then reopened it.
+- M6 is **APPROVED_WITH_COMMENTS** at `48eb60a` (Round 9 sub-entry, Fix Round 6). CR-28 HIGH is RESOLVED: an edit away from the selection now settles with no throw. CR-30 and CR-31 LOW are stated limits. M6 goes to QA Phase 2. Before that, M6 was **REJECTED** at `40947a6` (Round 9, Fix Round 5), on CR-28 HIGH, which stayed open on one member. An inline-code backtick inserted or removed away from the selection throws Slate's iteration error from 100 emoji lines; slate-react's default drag-and-drop move reaches it, and the chain base does not throw. That member goes to steering as a D-28 member. Everything else Round 9 assessed holds: D-28's six members and controls, CF-35's equality (0 of 36,560), CR-27 RESOLVED, CR-29's fill measured cleared, SL-29 0 of 20 over, no regressions. CR-30 LOW is a stated limit. Before that, M6 was **REJECTED** at `a7ad3f2` (Round 8 sub-entry, Fix Round 4), on CR-28 HIGH: a lone backtick typed in a message of 100 or more emoji lines throws Slate's iteration error and loses the keystroke, where today's site does not. CR-27 MEDIUM, a severity floor on R-111's fixed-point condition, also blocks the hand-off to QA. CR-29 MEDIUM goes to steering under block 20:58Z. CR-25 HIGH and CR-26 LOW are RESOLVED, and SL-29 is met at the tip (0 of 20 over). Before that, M6 was **REJECTED** at `2b82972` (Round 8), on CR-25 HIGH's time member: 7 of SL-29's 8 `a🙂` fence members are over the line (1.2 s to close a fence above 1,000 emoji lines, against the base's 50 ms throw), and steering has already sent them back under D-24 (block 22:41Z). CR-25's count member and CR-24 are RESOLVED, the paste is within SL-29's line, and CR-26 LOW is new. Before that, M6 was **REJECTED** at `85ece66` (Round 7), on CR-25 HIGH: whole-run work repeated per operation, 7.6 s to close a code fence above 1,000 emoji lines, and paste 2.5 to 9 times the base. CR-24 LOW is a stated limit. CR-23's named member is resolved and its class carried by CR-25. CR-22 LOW stands for AC-6.8's bench. Before Round 7, M6 was APPROVED_WITH_COMMENTS at `42128cd` (Round 6 sub-entry); D-24 then reopened it.
 - M5 is **APPROVED_WITH_COMMENTS** (Round 5 at `2e36107`, with its sub-entry for QAF-39 at `cf126ea`, checked on M5's source).
 - M4 stays APPROVED_WITH_COMMENTS (Round 4 at `e58f2ed`). CR-17 is a LOW stated limit and does not move it.
 - M3's earlier sub-entries, `2c1590f` and `380e82d`, are superseded for M3 by `b04c09f`, `d6aab03` and `81c68b2`.
@@ -1975,7 +2016,9 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 
 ## Required Actions
 
-Blocking (Round 9, M6 at `40947a6`):
+Blocking (Round 9 sub-entry, M6 at `48eb60a`): none. CR-31 LOW is a stated limit unless a later round touches `linesOf`: note the move's source neighbours, and add an off-selection `moveNodes` row.
+
+Blocking (Round 9, M6 at `40947a6`, superseded by its sub-entry; CR-28 resolved there):
 - **CR-28 HIGH, its off-selection member**: key the emoji check on the lines the drain changed, not only on the selection's units (Preferred), or also check the units of the lines Slate dirtied (Minimum). The falsity signature is a `Transforms.delete` of line 0's pairing backtick, with the selection in a later run unit, over 200 `a🙂` lines, asserting no error and fresh-load shapes; it fails at `40947a6` on the error assertion. Steering reads first whether the member is inside D-28.
 - CR-30 LOW is a stated limit for the Planner batch (one typographic rule; a case per codepoint).
 
@@ -2039,6 +2082,8 @@ Round 2's Assumption Not Checked is closed at Round 4: it held for list type and
 
 Round 6: This review assumes that slate-react in Chrome routes Enter and Shift+Enter in a `> ` quote line through `editor.insertBreak` and `editor.insertSoftBreak`, the two methods M6's carry overrides, as the jsdom drive does, and does not test it. The suite drives the editor's methods, not the browser's `beforeinput` path. Falsity signature: in Chrome on a local production build, `> a`, Enter, `b` saves `> a\nb` (no carried marker), or Shift+Enter carries where Enter does. Owner: UAT, at AC-6.7's human-observable walk on AC-6.3's local build.
 
+Round 9 sub-entry at `48eb60a`: This review assumes that no path the product takes emits a top-level `move_node`, so CR-31's unsettled run is unreached. It does not test that: the reach is a read of `src` and of Slate 0.123.0's `mergeNodes`, and I did not trace `insertFragment` or log a browser's operation stream. Falsity signature: during QA's browser walk of a paste and a drag-and-drop move on a local build of `48eb60a`, an `editor.apply` log (or a breakpoint in `linesOf`'s `move_node` branch) records a top-level `move_node`, or emoji lines in the edited run stay drawn as text after the edit where a reload draws them as emoji. Owner: QA Phase 2 on M6, beside Round 9's drag walk.
+
 Round 9 at `40947a6`: This review assumes that in Chrome, slate-react's internal drag-and-drop move of a selected backtick runs `Transforms.delete` at the dragged range after the selection has moved to the drop point, as `Editable`'s `onDrop` reads at 0.123.0, and so reaches the off-selection throw that CR-28's Round 9 member measures in node. It does not test that: no browser was driven, and the throw's severity for the user rests on this path. Falsity signature: in Chrome on a local build of `40947a6`, dragging a selected backtick from the end of line 0 of a 200-line `a🙂` embed description (last line ending in a backtick) onto a line below a code block shows no page error, and the emoji keep their drawing. That would mean the browser's drop does not take this path. Owner: QA Phase 2 of the next fix round, with its browser, beside CR-28's falsity case, or UAT's B-11 walk if QA has no browser.
 
 Round 8 sub-entry at `a7ad3f2`: This review assumes that the 6 non-fixed-point states CR-27 names are reached only through the fixed-point probe's corpus texts and keystrokes, which are odd backtick constructs, and that ordinary editing reaches none of them. It does not test that. Falsity signature: a QA corpus run of ordinary texts, holding a code block with emoji beside plain lines and edited on a neighbouring line, shows an emoji element appearing inside a code block at the tip after the second edit. Owner: QA Phase 2 on the next fix round, beside CR-27's falsity case.
@@ -2064,6 +2109,9 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Next Steps
 
+- QA (`qa-019`): **Phase 2 on M6 at `48eb60a`** (Round 9 sub-entry, APPROVED_WITH_COMMENTS). Entry conditions: R-129's (Round 9's probe, 24 rows clean; the timer clause on QA's own mounted run) and SL-30 (D-30). Owed to QA: Round 9's Assumption Not Checked (the browser drag) and the sub-entry's (no `move_node` in the product). The probes are in `verification/019/code-review/m6fix5-40947a6/` and `m6fix6-48eb60a/`.
+- Planner (`planner-019`): CR-31 LOW as a stated limit in the Planner batch, beside CR-30.
+- Implementer (`implementer-019`): the Fix Round 6 record's "`move_node`: source and target" does not hold (CR-31). The correction is the record's own.
 - Steering (`steering-hooks-fixer`): CR-28's Round 9 member (an off-selection inline-code edit throws; slate-react's drag-and-drop reaches it), as a D-28 member per the planner's route, and whether it is inside the class. Also CR-29's `’` fill, measured cleared under block 07:09Z, for its handoff.
 - Implementer (`implementer-019`), the next fix round once steering rules: **CR-28 HIGH**'s off-selection member (Round 9, REJECTED at `40947a6`). Probe: `verification/019/code-review/m6fix5-40947a6/crprobe.offselection-inline.test.tsx.txt`.
 - Planner (`planner-019`): CR-30 LOW, and the sweep's three LOW gaps (Outstanding 5), as stated limits in the Planner batch.
@@ -2094,7 +2142,12 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-**Current, 2026-11-25T09:47Z** (written at Round 9's verdict). Where this block and the ones below disagree, this one holds.
+**Current, 2026-11-25T12:34Z** (written at the Round 9 sub-entry's verdict). Where this block and the ones below disagree, this one holds.
+- **Done.** Round 9's sub-entry at `48eb60a` (Fix Round 6): APPROVED_WITH_COMMENTS. CR-28 RESOLVED; CR-31 LOW new (the `move_node` branch); M6 handed to QA Phase 2. Evidence: `verification/019/code-review/m6fix6-48eb60a/`.
+- **Next.** Nothing owed until QA Phase 2 hands back a finding, or a further fix reaches this review. Any such fix is a sub-entry of Round 9 unless it reaches beyond its findings.
+- **Branch and HEAD.** Website at `48eb60a`, never moved by me. The scratchpad exports are disposable.
+
+The block below, written at 09:47Z, is history.
 - **Done.** Round 9 at `40947a6` (Fix Round 5): REJECTED on CR-28 HIGH, open on its off-selection member, routed to steering as a D-28 member. CR-27 RESOLVED; CR-29's `’` fill measured cleared; CR-30 LOW is new. Evidence: `verification/019/code-review/m6fix5-40947a6/`.
 - **Next.** Wait for steering's reading of the member. If it is ruled inside D-28: the next fix round's review, a sub-entry of Round 9 unless the fix reaches beyond CR-28. Re-run `run9.sh`: the off-selection probe at three trees, CF-35's equality on that tip's own pass-through, SL-29 and the class and mounted probes. CR-28's falsity case must be red at `40947a6` by assertion. If it is ruled outside: a sub-entry that re-dispositions CR-28 as a stated limit.
 - **Branch and HEAD.** Website on `chain/019-slate-formatting-discord-engine` at `40947a6`, never moved by me. The scratchpad exports (`r9/e-*`) are disposable.

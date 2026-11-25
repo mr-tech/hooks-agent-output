@@ -1,0 +1,15 @@
+# usage: python3 -I sl29-table9.py <dir>; SL-29's line (block 20:58Z): 1.25 x the larger base median at that N and fill, a fence's
+# open and close members pooled; a paste member against its own base median. Reads sl29-<sha>-r<n>.jsonl for af3d95a and 48eb60a.
+import json, sys, os
+d = sys.argv[1]
+def rows(t, r): return {(x['kind'], x['fill'], x['n'], x['name']): x for x in map(json.loads, open(os.path.join(d, f'sl29-{t}-r{r}.jsonl')))}
+B = {r: rows('af3d95a', r) for r in (1, 2)}; T = {r: rows('48eb60a', r) for r in (1, 2)}
+over = 0
+for k in T[1]:
+    pool = [j for j in B[1] if j[:3] == k[:3]] if k[0] == 'fence' else [k]
+    line = 1.25 * max(B[r][j]['medianMs'] for r in (1, 2) for j in pool)
+    worst = max(T[r][k]['medianMs'] for r in (1, 2)); bad = worst > line or any(T[r][k]['error'] or T[r][k]['mismatch'] for r in (1, 2))
+    over += bad
+    thr = ' T' if any(B[r][k]['error'] for r in (1, 2)) else ''
+    print(f"{k[3]} | {k[1]} | {k[2]} | base {B[1][k]['medianMs']}/{B[2][k]['medianMs']}{thr} | line {line:.1f} | tip {T[1][k]['medianMs']}/{T[2][k]['medianMs']} | {'OVER' if bad else 'within'} | err {T[1][k]['error'] or '-'} mism {T[1][k]['mismatch']},{T[2][k]['mismatch']} | ops {T[1][k]['ops']}")
+print('over', over, 'of', len(T[1]))

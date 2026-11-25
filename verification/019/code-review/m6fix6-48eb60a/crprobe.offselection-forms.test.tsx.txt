@@ -1,0 +1,56 @@
+import { createEditor, Editor, Element as SlateElement, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import { startEngine } from '~/utils/markdown/engine';
+beforeAll(async () => { await startEngine(); });
+const SURFACE = 'embedDescription' as const;
+const fresh = (text: string) => getInitialValue(text, SURFACE, false) as Element[];
+const build = (text: string) => { const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, SURFACE); e.children = fresh(text) as Descendant[]; return e; };
+const shape = (line: Element) => JSON.stringify([line.type, line.quotePrefix ?? null, line.startCodeBlock, line.lang,
+  line.children.filter((c) => SlateElement.isElement(c) && (c as Element).type === 'emoji').map((c) => (c as unknown as { source: string }).source)]);
+const div = (text: string) => ({ type: 'div', lang: '', startCodeBlock: false, empty: !text, children: [{ type: 'span', text }] }) as unknown as Element;
+const TAIL = '\n```\ncode\n```\nz';
+const lines = (n: number, first: string[]) => [...first, ...Array.from({ length: n - 1 }, (_, i) => (i === n - 2 ? 'a🙂`' : 'a🙂'))];
+
+// Each form changes inline-code pairing over the a🙂 lines by an edit made away from the selection, which sits at the end of a
+// separate run unit after a code block (or is null). `expected` is the text after the edit, written from literals.
+type Form = { name: string; before: (n: number) => string; expected: (n: number) => string; edit: (e: Editor) => void };
+const FORMS: Form[] = [
+  { name: 'insertText backtick at end of line 0', before: (n) => lines(n, ['a🙂']).join('\n') + TAIL, expected: (n) => lines(n, ['a🙂`']).join('\n') + TAIL,
+    edit: (e) => Transforms.insertText(e, '`', { at: Editor.end(e, [0]) }) },
+  { name: 'insertText backslash before a leading backtick', before: (n) => lines(n, ['`a🙂']).join('\n') + TAIL, expected: (n) => lines(n, ['\\`a🙂']).join('\n') + TAIL,
+    edit: (e) => Transforms.insertText(e, '\\', { at: Editor.start(e, [0]) }) },
+  { name: 'insertFragment backtick at end of line 0', before: (n) => lines(n, ['a🙂']).join('\n') + TAIL, expected: (n) => lines(n, ['a🙂`']).join('\n') + TAIL,
+    edit: (e) => Transforms.insertFragment(e, [div('`')], { at: Editor.end(e, [0]) }) },
+  { name: 'insertNodes a line holding a backtick at index 1', before: (n) => lines(n, ['a🙂']).join('\n') + TAIL, expected: (n) => [lines(n, ['a🙂'])[0], '`', ...lines(n, ['a🙂']).slice(1)].join('\n') + TAIL,
+    edit: (e) => Transforms.insertNodes(e, div('`'), { at: [1] }) },
+  { name: 'removeNodes a line holding a backtick at index 0', before: (n) => ['`', ...lines(n, ['a🙂'])].join('\n') + TAIL, expected: (n) => lines(n, ['a🙂']).join('\n') + TAIL,
+    edit: (e) => Transforms.removeNodes(e, { at: [0] }) },
+  { name: 'moveNodes a backtick line from 0 to the end', before: (n) => ['`', ...lines(n, ['a🙂'])].join('\n') + TAIL, expected: (n) => [...lines(n, ['a🙂']), '```', 'code', '```', 'z', '`'].join('\n'),
+    edit: (e) => Transforms.moveNodes(e, { at: [0], to: [e.children.length - 1] }) },
+  { name: 'splitNodes line 0 before its backtick', before: (n) => lines(n, ['a🙂 `x']).join('\n') + TAIL, expected: (n) => ['a🙂 ', ...lines(n, ['`x'])].join('\n') + TAIL,
+    edit: (e) => { const text = (e.children[0] as Element).children; const last = text.length - 1; Transforms.splitNodes(e, { at: { path: [0, last], offset: 1 }, always: true }); } },
+];
+it('off-selection edit forms', { timeout: 1190000 }, () => {
+  const rows: object[] = [];
+  for (const form of FORMS) for (const where of ['other-unit', 'none'] as const) for (const n of [5, 100, 200, 1000]) {
+    const e = build(form.before(n));
+    let ops = 0; const { apply } = e; e.apply = (op) => { ops += 1; apply(op); };
+    if (where === 'none') Transforms.deselect(e); else Transforms.select(e, Editor.end(e, [e.children.length - 1]));
+    let error = '';
+    try { form.edit(e); } catch (x) { error = String(x).slice(0, 80); }
+    const want = fresh(form.expected(n)).map(shape);
+    const got = (e.children as Element[]).map(shape);
+    const unlike = got.length === want.length ? got.filter((s, i) => s !== want[i]).length : `len ${got.length} vs ${want.length}`;
+    let forcedOps = -1;
+    if (!error) { ops = 0; try { Editor.normalize(e, { force: true }); } catch (x) { error = `forced: ${String(x).slice(0, 70)}`; } forcedOps = ops; }
+    rows.push({ form: form.name, where, n, error, unlike, forcedOps });
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});
