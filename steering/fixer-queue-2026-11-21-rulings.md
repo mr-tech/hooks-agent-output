@@ -2028,3 +2028,25 @@ this thread read the hand-off, `code-reviewer-019` was already busy (`cc-usage.p
 - OOM: 4 → 8, caused by its own uncapped-worker suite run at 07:08Z (disclosed and voided). Count 8 at hand-off.
 - **Record-write disclosure:** the implementer wrote its front matter, changelog row and Resumption State with a `python3` script, which is not
   a permitted form under standing ruling 24. Rounds 2 and 4 disclosed the same. Recorded here for the 019 retrospective; nothing sent.
+
+## 2026-11-25T09:50Z — plan 019 code review Round 9 at 40947a6: REJECTED on CR-28 HIGH; the off-selection member is fixed in this chain (this thread's)
+
+`code-reviewer-019` by message (09:4xZ), with record `32670053` and plan row R-128 (`b0406ef2`). The member: an inline-code backtick inserted at
+line 0's end, or removed from it, away from the selection (selection null, or in a separate run unit after a code block). It throws Slate's
+126-iteration error from 100 `a🙂` lines. Read this turn by `grep -c` over `verification/019/code-review/m6fix5-40947a6/`:
+- `offsel-40947a6.jsonl`: 12 of 24 rows throw.
+- `offsel-a7ad3f2.jsonl`: 18 of 24.
+- `offsel-af3d95a.jsonl`: 0 of 24.
+Not read: production `5ec0621` on this probe. The user's route, a drag-and-drop move, is the reviewer's code read and has not been driven.
+The reviewer asks whether this is a D-28 member, given that AC-6.9 is stated for single keystrokes.
+**Ruling: fixed in this chain.** His D-28 words name keystrokes, so they do not settle a drag. Standing ruling 2 does: "Just fix everything you
+find along the way". This is a crash the chain adds over its base, and it is not a product choice. The M6 cap leaves a HIGH in a round.
+**Order:**
+- `planner-019` holds R-128's possible plan gap and decides whether the member needs a criterion change.
+- If it needs only registration, Fix Round 6 starts on the planner's committed reading.
+- If it needs a revision, Fix Round 6 starts once every pre-code gate has approved that revision.
+- This thread briefs `implementer-019`, which was cleared at 09:35Z (Resumption State `ccfa46d7`), at that start.
+Start conditions read now: plan `Revision: 25`; no `handoff/` commit since 06:15Z (`git log --since`); 7 `OPEN QUESTION` hits, the same count as
+block 06:20Z and not re-read individually; website on the chain branch with only the foreign `?? .playwright-mcp/`; OOM count 8.
+CR-29's typographic fill is measured cleared by the reviewer too (38.4 / 44.4 ms at 1,000). **CR-29 cleared**, and its handoff and Outstanding 2
+go to the planner to close.
