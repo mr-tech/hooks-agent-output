@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixer-batch-2026-11-21-b
 UUID: f5faf0aa
-Status: Active
-Status-Detail: "Fixer-batch retrospective over fix-recent-message-ids (website 76da25c..6f76c6d) and fix-message-not-found (website 6f76c6d..f4baebb), both closed out; the second carries an escaped defect on handoff 7c3e91a4. Rests until pi runs on the owner's command."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch 2026-11-21-b): fix-recent-message-ids, fix-message-not-found
@@ -20,6 +20,7 @@ Status-Detail: "Fixer-batch retrospective over fix-recent-message-ids (website 7
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T08:07 | steering-hooks (spawn brief; his selection, effort rulings block 2026-11-21T08:00Z, "Agent: run it now") | Fixer-batch retrospective over chains 1 and 2 of effort `fixer-queue-2026-11-21` | Written from the documents. Cost read once per chain. Eight recommendations, each naming the file it would change, plus sightings for four pending recommendations of the earlier 2026-11-21 batch. No handoff created. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
