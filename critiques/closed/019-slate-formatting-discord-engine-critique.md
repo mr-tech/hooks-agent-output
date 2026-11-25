@@ -3,16 +3,21 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 17 pass 1 on plan revision 25: APPROVED, and closed at that pass, read with SL-30's entry condition. F-62 LOW (AC-6.9's headline and D-29's option text) is a Planner batch item. From cycle 16: F-59 HIGH (SL-30) is closed by property, an entry condition on QA Phase 2 of M6's Fix Round 5 by his selection at 06:14Z (D-30; effort rulings block 2026-11-25T06:14Z), registered in the plan's Planner batch; F-60 and F-61 are RESOLVED, verified landed at revision 25. From cycle 15: F-57 HIGH (SL-29) is closed by property, an entry condition on QA Phase 2 by his selection at 20:54Z (effort rulings block 2026-11-24T20:54Z), and F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 18."
-Artifact-Revision: 25 — read as the delta 80d6d143..cf62ffc1 (cycle 17 pass 1)
-Reviewed-At: "cf62ffc1 — repos=agent-output; no website source read at this pass"
+Status-Detail: "Cycle 18 pass 1 on plan revision 26, the minimal revision under D-33: APPROVED, and closed at that pass. M7's premise paragraph is read and M7 is no longer PREMISE-STALE. F-63 (SL-32), F-64 and F-65 are LOW, for the rebuild sizing document that now carries the plan's unfolded Planner batch. By D-33 that batch is not folded, so every finding below whose landing was the batch's seam fold is carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md` instead. From cycle 17: F-62 LOW (AC-6.9's headline; D-29's option text restored at plan R-125). From cycle 16: F-59 HIGH (SL-30) is closed by property, an entry condition on QA Phase 2 of M6's Fix Round 5 by his selection at 06:14Z (D-30; effort rulings block 2026-11-25T06:14Z), registered in the plan's Planner batch; F-60 and F-61 are RESOLVED, verified landed at revision 25. From cycle 15: F-57 HIGH (SL-29) is closed by property, an entry condition on QA Phase 2 by his selection at 20:54Z (effort rulings block 2026-11-24T20:54Z), and F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 19."
+Artifact-Revision: 26 — read as the delta cf62ffc1..d79f481e, with M7 whole (cycle 18 pass 1)
+Reviewed-At: "d79f481e — repos=agent-output; website read at 5ec0621 (two files)"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 25 (`cf62ffc1`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 25 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 26 (`d79f481e`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 26 as deltas, M7 whole at revision 26.
+**Read at cycle 18 pass 1**: the plan's diff `f1a2f2f7..d79f481e` line by line, and `cf62ffc1..f1a2f2f7` as every changed
+line; M7 whole as it stands at `d79f481e`, and every line of the plan holding "rollback"; the selection ledger's blocks
+2026-11-25T15:36Z, 15:46Z and 15:49Z; effort rulings blocks 2026-11-25T15:25Z to 15:49Z; the sizing document
+`planning/slate-editor-rebuild-sizing-2026-11-25.md` at its header and changelog row R-3; the scoping inventory's S-07 row;
+website at `5ec0621`: `src/components/SlateEditor/utils/flattenNodeText.ts` and the emoji lines of `getInitialValue.ts`.
 **Read at cycle 17 pass 1**: the plan's diff `80d6d143..cf62ffc1`, line by line; AC-6.9's headline as it stands at
 `cf62ffc1`; the selection ledger's block 2026-11-25T06:14Z; effort rulings blocks 2026-11-25T06:07Z, 06:08Z and 06:14Z;
 `verification/019/steering/outstanding3-refute/probe2-a7.jsonl` and `probe2-om.jsonl`, tallied by this pass's script; code
@@ -167,8 +172,53 @@ for the 15,480 figure.
 | 2026-11-25T06:06 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-59 is closed by property, with SL-30's entry condition for the plan's Planner batch. F-60 and F-61 close as landed-by-author, their discharging document the plan's Planner batch. |
 | 2026-11-25T06:18 | planner-019 (message naming revision 25 at `cf62ffc1`) | cycle 17 pass 1: plan revision 25 | Cycle 17 opens because revision 25 changes AC-6.9's text. Depth: delta-bounded; the delta `80d6d143..cf62ffc1` is 63 added and 25 removed lines (`git diff --numstat`, 5 commits: revision 25 and 4 carrying the registration rows R-119 to R-123), fully readable as a diff. It adds members to one limb and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-29 to D-31, and CF-34 to CF-36, F-59 to F-61, NM-85, NM-87, QAF-55, SL-30, SL-31 and R-119 to R-123 in registration rows. The diff, read whole, changes AC-6.9's reports, class statement, one keystroke row, the no-throw limb's timer clause, the corpus differential, the work-per-line limb and the residue; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register rows D-28 to D-31 and Planner batch rows. Artifact changes: the six inline-code members join the work-per-line count limb on his 06:14Z selection (D-31), the corpus differential is an equality between the fixed and pass-through trees (CF-35), and SL-30 is registered as QA Phase 2's entry condition (D-30). Findings addressed: F-60 and F-61 RESOLVED; F-59's landing is in the plan; the cycle 16 assumption is answered, true. New finding: F-62 (LOW), for the Planner batch. A reconcile note is added to F-60's line. M7 is out of scope for this pass. Verdict APPROVED. |
 | 2026-11-25T06:18 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-62 closes as landed-by-author, its discharging document the plan's Planner batch. |
+| 2026-11-25T15:57 | planner-019 (message naming revision 26 at `d79f481`) | cycle 18 pass 1: plan revision 26 | Cycle 18 opens because revision 26 re-argues M7's premise, the paragraph the re-derivation gate owes (R-76), which his 15:46Z selection names for this gate's read. Depth: delta-bounded, with M7 read whole because the delta rewrites its premise and M7 had not been reviewed since its mark; the delta `cf62ffc1..d79f481e` is 117 added and 89 removed lines (`git diff --numstat`, 15 commits: revision 26, 12 carrying the registration and verdict rows R-124 to R-135, and 2 Resumption State commits), fully readable as a diff. Boundary check by the in-memory ID regex over both revisions: none removed; added D-32 to D-34, and B-6, CR-30, CR-31, F-62, NM-88 and QAF-56 in registration rows. No hunk falls between the Decisions Register and M7, so no criterion of M2 to M6 changes; the hunks are the header, the changelog, the Resumption State, the Reading Order's `uat` row, the owed re-verdicts table, register rows D-29 and D-32 to D-34, M7's premise paragraph and its architect line, Testing Strategy's walk list, and the Planner batch's header and rows. Artifact changes: M7's premise is re-argued against M4 to M6's shipped behaviour and M7 is no longer `PREMISE-STALE`; D-32 to D-34 are registered; the architect's closing-pass rows are waived; UAT's nine walks are named; the unfolded Planner batch is carried by the rebuild sizing document. Findings addressed: none owed. New findings: F-63 (LOW), a third instance of F-61 point 1's shape, closed by property with stated limit SL-32, the stop authority firing; F-64 (LOW); F-65 (LOW). Verdict APPROVED. |
+| 2026-11-25T15:57 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-63 to F-65 close as landed-by-author, their discharging document `planning/slate-editor-rebuild-sizing-2026-11-25.md`, which carries the plan's unfolded batch under D-33. |
 
 ## Verdict
+
+**APPROVED — cycle 18, pass 1.** The stop authority fired on one shape (F-63, LOW), which is closed here by a property. The
+hard stop did not fire (pass 1 of 15 in this cycle). Pricing: smaller than the ask's remaining steps, by his selection. D-33
+cuts 019 to its release essentials, and revision 26 adds no criterion, milestone or mechanism.
+
+This gate passes revision 26, and with it M7's premise paragraph, for devops Stage 1. It is the revision's only gate by his
+15:46Z selection ("the one plan paragraph the release step needs (with the critic's read)"; the architect's closing review
+is dropped there). Nothing routes to the owner. Devops is messaged by nobody from here: the plan's row says Stage 1 waits on
+this verdict, and the planner registers it.
+
+What holds in revision 26's delta:
+- **The waivers are his.** The selection ledger's block 15:46Z carries both answers, and D-33's option text is the ledger's
+  word for word. The sweep, the batch catch-up and the architect's closing review are the three things it drops.
+- **D-34 corrects the "five flows" premise before anything acted on it.** The ledger's block 15:49Z names the four walks left
+  out, and the `uat` row and the walk list now name all nine, B-1 to B-4 and B-7 to B-11, each with its criterion.
+- **No criterion changed.** No hunk falls between the Decisions Register and M7, so QA's re-key is not owed.
+- **M7's premise is re-argued against each shipped behaviour**, as the gate asks: M4 and M5 (what users see; AF-2's
+  never-M4-without-M5 check stays devops's), M6's stored representation (D-10), R-126's caret change, and D-32 and D-33.
+  M7 still only moves `master`, lands the Test Conventions update and its one housekeeping commit.
+- **The rollback limit's premise holds where this pass read it.** The plan marks "the base editor … re-saves them in its
+  own `:name:` form" as inference. At `5ec0621`, `getInitialValue.ts` builds an emoji element from `parseEmoji`'s nodes and
+  `flattenNodeText.ts` writes an emoji element as `node.ast.content`. The inventory's S-07 row records the run:
+  `getInitialValue('🙂https://x.y')` then `flattenNodeText` returns `:slight_smile:https://x.y`. So after a rollback the old
+  editor loads a character and saves the name, as the paragraph says (F-64).
+- **The carried rows have a carrier with a trigger.** The sizing document is `Active`, its `Review-Trigger` is plan 019's
+  release, and its row R-3 takes the batch. The count reproduces: 124 rows, 79 without the word "discharged", less F-35 and
+  F-41, which the `uat` row and walk list discharge (F-65 on the predicate).
+- **`48eb60a` is a commit in the website clone**, and the plan's rows R-131 and R-135 are the code review and QA verdicts
+  there. Those documents were not read.
+
+**Stop authority: F-63.** D-32's and D-34's "Option text" cells carry the rulings block's paraphrase and not the ledger's
+words, the shape of F-61 point 1 and of F-62. Stated once as a property and checked over every register row from D-16, it
+fails on these two rows only. Stated limit SL-32: the ledger block each row cites holds his text.
+
+**F-64** (LOW): M7's rollback sentence is marked unread where a read settles it, and names no runner. **F-65** (LOW): the
+carry count's predicate leaves out at least three rows that are partly discharged.
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged and still matches the scoping block's one release. No `OPEN QUESTION` is unresolved (0 of 7
+lines without `[RESOLVED]` or `[CLOSED]`, counted in memory over the plan at `d79f481e`).
+
+The cycle 17 verdict follows, as written at that pass.
 
 **APPROVED — cycle 17, pass 1.** The stop authority did not fire, and the hard stop did not fire (pass 1 of 15 in this
 cycle). Pricing: sized to the ask plus his rulings. Revision 25 adds the six inline-code members to one existing limb on
@@ -971,6 +1021,15 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 18 pass 1: this pass assumes that, after a rollback, production's preview and send paths treat a stored emoji
+character as they treat one a user pastes today, and does not test it. Only the editor's load and save were read at
+`5ec0621`. `src/utils/markdown/emoji.tsx` exists there and was not read. If it is false, a message saved by the new editor
+shows a raw or missing emoji in the old site's preview after a revert of the push. Devops owns closing it, with one such
+message read on the reverted site if a rollback is ever taken.
+
+Cycle 17 pass 1's line, below, was not re-read in this pass: plan row R-135 records QA Phase 2 on M6 as complete, and QA's
+document was not opened.
+
 Cycle 17 pass 1: this pass assumes that a per-operation settle on the six inline-code members makes their line-settle
 count at 1,000 lines exceed 10 times the count at 200, so the new limb can read red, and does not test it. No tree exists
 where these members settle: at `a7ad3f2` each throws first. The ground is code review's measurement of about 25 for the
@@ -1140,6 +1199,47 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 18 pass 1
+
+F-63 LOW cycle 18 pass 1 — closed by property with stated limit SL-32; landed-by-author, discharging document: `planning/slate-editor-rebuild-sizing-2026-11-25.md`. Duplicates the shape of F-61 in this document
+- **Title**: D-32's and D-34's option texts are the rulings block's paraphrase, not the ledger's words.
+- **Location**: plan revision 26, register rows D-32 and D-34.
+- **Description**: D-34 quotes "the most work, mostly the emoji picker's database and sign-in set-up". The ledger's option
+  reads "User testing walks everything the plan lists. It's the most work, mostly in setting up the database and sign-in
+  for the emoji picker." D-32 quotes "once 019 ships, a new effort rebuilds the editor on Discord's model with his emoji
+  (per line) and quote-mark (hidden) answers…", where the ledger reads "using your answers on emoji (per line) and quote
+  marks (hidden)". Both are the wording of the rulings blocks 15:49Z and 15:36Z.
+- **The property, in place of a revision**: every register row that quotes an option text quotes the selection ledger's
+  words. Its domain is the rows registered since the ledger began, D-16 to D-34, checked by a script of this pass that
+  looks for each long quote in the ledger's day files: D-16 to D-31 and D-33 hold (D-28 and D-29 after their corrections at
+  R-122 and R-125); D-32 and D-34 fail. Rows before D-16 quote rulings blocks and witnessed words and are outside it.
+- **SL-32**: for D-32 and D-34 the ledger block each row cites holds his text, and a reader who needs the exact option
+  reads it there. Nothing in either paraphrase changes what was chosen.
+- **Landing trigger**: none in 019, whose batch is not folded (D-33); the sizing document carries it.
+
+F-64 LOW cycle 18 pass 1 — closed as landed-by-author; discharging document: `planning/slate-editor-rebuild-sizing-2026-11-25.md`
+- **Title**: M7's rollback sentence is marked inference where a read settles it, and names no runner.
+- **Location**: plan revision 26, M7 "Premise, re-argued at revision 26", the bullet on M6's stored representation.
+- **Description**: the bullet says the base editor re-saves a character in its `:name:` form, "inference, not a read at the
+  base", with the source in the workspace. This pass read it at `5ec0621` and it holds for the editor's load and save (the
+  verdict's rollback bullet). The bullet's "a rollback by reverting the push" names nobody. The other milestones' Rollback
+  lines give devops after release, and a push to production is his to approve.
+- **Impact**: a reader at a rollback decision finds the one lasting effect of this release marked as unread.
+- **Landing trigger**: none in 019 (D-33). The read is recorded here, and the sizing document carries the line.
+
+F-65 LOW cycle 18 pass 1 — closed as landed-by-author; discharging document: `planning/slate-editor-rebuild-sizing-2026-11-25.md`
+- **Title**: the carry count's predicate leaves out rows that are partly discharged.
+- **Location**: plan revision 26, "Planner batch" ("Carried to the rebuild"); the revision's changelog row; the sizing
+  document's row R-3.
+- **Description**: the rule is "every row … whose disposition does not record a discharge is carried", and the 77 is rows
+  without the word "discharged", less two. At least three rows hold that word for one part and still owe another: CF-25
+  (its home is a stated limit), F-52 ("At the seam fold, RK-8's record gains this member") and the CR-20 fix round's
+  Outstanding 2 ("It enters Exclusions at the seam fold, citing the handoff"). QAF-53 is a fourth, and the header names its
+  part (b). This pass's scan read the 13 rows that hold both the word and an open-sounding clause; it is not a full sweep.
+- **Impact**: a rebuild plan that takes the 77 by the same predicate skips those open clauses.
+- **Landing trigger**: none in 019 (D-33). The sizing document's entry read takes every row with an open clause, not the
+  count.
 
 ### Closed at cycle 17 pass 1
 
@@ -1824,6 +1924,12 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 18 pass 1: the plan was read as `git diff f1a2f2f7 d79f481` and `git diff -U0 cf62ffc1 f1a2f2f7` saved in this
+  session's scratchpad, with M7 from the working tree at `d79f481e`; the ID comparison, the open-question count, the batch
+  row count and the register-quote check ran in memory. The quote check's first output mis-paired quotation marks and
+  listed text between quotes as misses; D-32's and D-34's cells were then compared with the ledger by reading. Website
+  source was read by `git -C /usr/local/bin/hooks/website grep` at `5ec0621`. Nothing was installed or run. This pass's
+  edits to this document were applied with `record-edit.js`.
 - Cycle 17 pass 1: the plan was read as `git diff 80d6d143 cf62ffc1` saved in this session's scratchpad; the ID
   comparison and the open-question count ran in memory. Two tallies ran as scripts of this pass over committed captures;
   nothing was installed and no website code was run. A first tally of steering's positions run used field names the
@@ -1886,11 +1992,12 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-**Since the checkpoint below (2026-11-25T06:18Z).** Cycle 16 pass 1 (revision 24, `80d6d143`) and cycle 17 pass 1
-(revision 25, `cf62ffc1`) are APPROVED and closed. Each verdict went to `planner-019`. F-59's form went to
-`steering-hooks-fixer` and was answered by his 06:14Z selection (D-30): SL-30 is an entry condition. No question awaits an
-answer. The next pass is still the seam fold's read, now cycle 18, as the diff from `cf62ffc1`; it also checks that the
-record holds SL-30's readings, and F-62's batch row. The wake is armed.
+**Since the checkpoint below (2026-11-25T15:55Z).** Cycle 16 pass 1 (revision 24), cycle 17 pass 1 (revision 25) and cycle
+18 pass 1 (revision 26, `d79f481e`) are APPROVED and closed, each verdict sent to `planner-019`. Revision 26 was the seam
+fold's replacement under D-33: the Planner batch is not folded and is carried by
+`planning/slate-editor-rebuild-sizing-2026-11-25.md`, so no fold read is owed and the checkpoint's "Next pass" item below
+is void. M7 has been read. No question awaits an answer. Nothing further is owed by this gate unless a revision 27 comes.
+The wake is armed.
 
 Checkpoint written at steering's ask on 2026-11-24T21:02Z, at a seam, for a clear. It replaces the checkpoint of 08:09Z
 (this document at record `0fa902d`) and carries each of its standing items below.
