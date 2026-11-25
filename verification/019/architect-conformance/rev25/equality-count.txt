@@ -1,0 +1,19 @@
+Architect-019, delta pass on plan 019 revision 25, 2026-11-25T06:17Z.
+CF-35's equality form, measured on code review's existing captures (not a new probe run):
+  ../../code-review/m6fix4-a7ad3f2/keystroke-fixedpoint-a7ad3f2.json.gz         (tip a7ad3f2)
+  ../../code-review/m6fix4-a7ad3f2/keystroke-fixedpoint-a7ad3f2-nosupp.json.gz  (same tree, getDirtyPaths override a pass-through)
+
+Command (run from code-review/m6fix4-a7ad3f2/, under `timeout 120`):
+python3 -I -c "
+import gzip,json
+a=json.load(gzip.open('keystroke-fixedpoint-a7ad3f2.json.gz'));b=json.load(gzip.open('keystroke-fixedpoint-a7ad3f2-nosupp.json.gz'))
+d=[k for k in a if a[k]['after']!=b.get(k,{}).get('after')]
+dc=[k for k in a if json.loads(a[k]['after'])['c']!=json.loads(b[k]['after'])['c']]
+print(len(a),len(b),len(d),len(dc),sorted(dc))"
+
+Output:
+36560 36560 6 6 ['1190|1|end|`', '599|0|end|<delete>', '599|1|start|<backspace>', '728|1|end|`', '941|0|end|<delete>', '941|1|start|<backspace>']
+
+Reading: the document (children, and children plus selection) differs between the two trees on 6 keystrokes. They are the same
+6 keys that compare-fixedpoint-tip-vs-nosuppression-mutant.out.txt lists as "differ". None of the 8 keystrokes the pass-through
+leaves unsettled has unequal documents.

@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 25 (record cf62ffc1, D-29 to D-31, CF-35's equality form): APPROVED, with no new finding.
+  CF-35's equality, measured on code review's captures, gives the same 6 keystrokes at a7ad3f2. One observation goes to
+  steering: the "emoji drawing collapse" in D-29's option is the engine's reading of line-crossing inline code, not a defect.
   Delta pass on plan 019 revision 24 (record 80d6d143, D-28's class and CR-27's sub-limb in AC-6.9): APPROVED. Three LOW
   findings are stated limits under the M6 cap. CF-34: the rebuild trigger compares line type only, so compare the class's whole
   state, emoji layout included. CF-35: the corpus differential's condition is equal documents on both trees. CF-36: take fence
@@ -88,6 +91,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-25T06:17 | architect-019 | Delta pass on plan 019 revision 25 (record `cf62ffc1`); § Delta pass, revision 25. APPROVED, no new finding; CF-35's equality measured; an observation on D-29's option text goes to steering | Commissioned by `planner-019`'s message. Read as `git diff 80d6d143 cf62ffc1` on the plan, with AN-9's `engine-trees.txt` and code review's `m6fix4-a7ad3f2/` captures. One count ran over existing captures, in a capped `timeout`. Its output is in `verification/019/architect-conformance/rev25/`. |
 | 2026-11-25T06:08 | architect-019 | CF-34's scope point recorded as ruled (b) by steering (block 06:07Z, record `9ba0662c`); a form for (b) added under CF-34 | From `steering-hooks-fixer`'s message; the block was read at `9ba0662c`. Derived from AN-9 B1 and `resolveEmoji` at `a7ad3f2`, not run. Process fact: the stamp gate refused this row's first stamp, 06:09, which I typed ahead of the clock. It was corrected to the `date -u` minute. |
 | 2026-11-25T06:05 | architect-019 | Delta pass on plan 019 revision 24 (record `80d6d143`); § Delta pass, revision 24. APPROVED; CF-34, CF-35 and CF-36 LOW raised as stated limits. CF-33's soundness premise and revision 21's A-11 consequence get reconcile notes (my error, shown by AN-9 B1). `system-architecture.md`'s hand-regex Problem Area gains B1's measured consequence | Commissioned by `planner-019`'s message. Read as `git diff 49a20690 80d6d143` on the plan, with AN-9 (record `00c91e3a`), the re-aimed handoff, and website `a7ad3f2` `codeFence.ts` and `withNormalizeNode.ts` through `git show`/`git grep`. Nothing was run. Resumed after a `/clear` from the Resumption State at `4dfc0505`. |
 | 2026-11-24T22:46 | architect-019 | Design read for M6 Fix Round 4 (§ Design read: the emoji lift for `a🙂` fence keystrokes); CF-33 | Commissioned by `steering-hooks-fixer` under block 22:41Z (agent-output `40823e74`). Read the implementation document at `731ff3a1`, `slate` 0.123.0 (read-only) and website `2b82972`. Two plain-Slate probes ran in capped scopes; the captures are in `verification/019/architect-conformance/fix3-lift/`. Process fact: the two probe scripts were written with a shell heredoc. They are captures, not record documents, and the README says so. |
@@ -124,15 +128,15 @@ Status-Detail: >-
 
 Written 2026-11-25T06:05Z, after the revision 24 delta pass. Record branch `master`.
 
-**Done.** Delta passes on plan 019 revisions 13 to 24 are recorded, each a section below. The last plan revision read is revision
-24, at record `80d6d143`. The Fix Round 4 design read (CF-33) was delivered. Its soundness premise carries a reconcile note
+**Done.** Delta passes on plan 019 revisions 13 to 25 are recorded, each a section below. The last plan revision read is revision
+25, at record `cf62ffc1`. The Fix Round 4 design read (CF-33) was delivered. Its soundness premise carries a reconcile note
 (revision 24 pass). The question it raised, whether the suppression is admitted, was answered at R-111 and bound at revision 24.
 
 **Next.**
 - The **closing conformance pass** (architect.md), when `steering-hooks-fixer` starts it, once M6's fold has had its critic read.
-  It reads the delta from revision 24 to the plan's revision at that time, landing each confirmed pattern and Problem Area. It
+  It reads the delta from revision 25 to the plan's revision at that time, landing each confirmed pattern and Problem Area. It
   restates `website.md` A-11 from the fixed tree (Open items), and then closes this document under Document Lifecycle.
-- Or a **delta read** of any revision planner-019 cues before then. Read it as `git diff 80d6d143 <commit>` on the plan.
+- Or a **delta read** of any revision planner-019 cues before then. Read it as `git diff cf62ffc1 <commit>` on the plan.
 - Or a **Fix Round 5 question** from `implementer-019` or `code-reviewer-019` on CF-34 to CF-36.
 
 **Approach in flight.** None. Nothing in the shared website tree was mutated. The only probe scripts are under
@@ -392,6 +396,50 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 25 (record `cf62ffc1`)
+
+Read as `git diff 80d6d143 cf62ffc1` on the plan: the register rows R-119 to R-123 and revision 25's commit. Read beside it:
+- `analysis/an9/engine-trees.txt`;
+- code review's `m6fix4-a7ad3f2/` captures: `compare-fixedpoint-tip-vs-nosuppression-mutant.out.txt` and both
+  `keystroke-fixedpoint-*.json.gz`.
+
+One count ran over those captures. Its command and output are in `verification/019/architect-conformance/rev25/equality-count.txt`.
+
+**What fits.**
+- **The equality form (CF-35)** is folded as recommended. The pass-through tree is built from the round's own suppression,
+  which is the right reference.
+  - Its "seen red: 6 corpus keystrokes, where the two trees differ" is now measured, not only derived. Across all 36,560
+    keystrokes, the two trees' final documents differ on exactly 6, the same six keys code review listed. None of the 8
+    keystrokes the pass-through leaves unsettled has unequal documents.
+  - So at `a7ad3f2` the equality form and the old reading agree, and CF-35's gain is only for later trees.
+- **The inline-code members in the work-per-line limb (D-31).** The basis holds under CF-34's form. A settling fix rebuilds the
+  run unit below the keystroke once per drain, which is linear. Naming the moved boundary is what the limb already asks.
+  - Under CF-34 the work moves from `resolveLine` and `spansInLine` to `rebuildLines` and `liftLoaded`, so `liftLoaded` is the
+    likely boundary.
+- **F-61's wording** and steering's (b) in CF-34's row (R-122) match my record.
+
+**An observation for steering, not a plan finding: the "emoji drawing collapse" put to him in D-29 is Discord's reading.**
+- D-29's option text says the release "would otherwise add a page error and the emoji drawing collapse that production doesn't
+  have". The plan's Outstanding 3 row (R-123) leaves the second half "not re-derived". It can be settled from the engine.
+- **What the engine reads** (`engine-trees.txt`, AN-9's run of the pinned `@discord/markdown-wasm`): the text
+  ``a🙂`\na🙂\na🙂`` `` parses as `text "a"`, `emoji "🙂"`, then one `code` node covering the line break through to the closing
+  backtick. Inside it the following lines' emoji are code text, not emoji nodes.
+- **What K4 saw** was 199 lines' emoji turn to text, with line 0's emoji, which sits before the backtick, kept. That matches the
+  engine. After the throw, a forced normalise on A1 applies 0 operations (AN-9 A), so the state K4 saw is the settled one.
+- **So the emoji change is the release matching Discord**, which is the plan's design (D-6, the engine as the one reading).
+  Production keeps those emoji as images only because it parses line by line, which is AN-9's reason production has no members.
+- **The defect the release adds is the page error alone.** His choice to keep fixing the class rests on that error, so D-29's
+  outcome may not change. But one of its two stated reasons describes correct behaviour as harm.
+- Putting that to him, or not, is steering's call. I send it there.
+- What I do not claim:
+  - how Discord's own client draws an emoji glyph inside inline code;
+  - that the preview renders it so. That rendering is the preview's (M4), and AN-9 did not render it.
+
+**Does it touch the architecture record?** No. Nothing in revision 25 changes A-11's owed restatement.
+
+**Verdict on revision 25:** APPROVED. No new finding. The observation goes to `steering-hooks-fixer`. Nothing needs the owner from
+this gate.
 
 ## Delta pass, revision 24 (record `80d6d143`)
 
