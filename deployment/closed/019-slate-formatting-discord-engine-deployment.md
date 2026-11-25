@@ -2,8 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: "Stage 1 is done and QA Phase 3 is Release Verified at website 48eb60a. The readiness block and runbook are complete to R-1. Waits on the owner release answer in the devops session. No serving ref has moved."
+Status: Released
+Status-Detail: "Released: website master 48eb60a pushed 2026-11-25T17:39Z on the owner release answer. B-5 is read by its scheduled reader from its carrier."
 ---
 
 # Deployment — plan 019, Slate formatting on Discord's engine (website `master`)
@@ -16,6 +16,7 @@ Status-Detail: "Stage 1 is done and QA Phase 3 is Release Verified at website 48
 | 2026-11-23T17:04 | analyst-019 (message: analysis `aafecf1` cites this record) | Delete the spike branch | `spike/019-an1-wasm` deleted at origin, locally and its worktree removed; `master` unchanged at `af3d95a`. |
 | 2026-11-23T18:14 | steering-hooks-fixer (checkpoint request) | Wrap up for a clear | Resumption State written; wake deleted. |
 | 2026-11-25T16:48 | steering-hooks-fixer (brief `steering/019-brief-devops.md`) | Stage 1 for plan 019 from website `48eb60a` | Gates re-derived, install and build pass at the tip, release move dry-runs clean, B-5 carrier and reader armed, readiness block and runbook written. QA Phase 3 next. |
+| 2026-11-25T17:41 | owner (release answer, selection in this session) | Release plan 019 | Two throwaway preview reads, then `master` `5ec0621` → `48eb60a` pushed at 17:39:32Z. Phase 2D done. Status: Released; document closed. |
 
 ## Plan Reference
 
@@ -32,7 +33,7 @@ The `website` package has no `version` field, so no version or CHANGELOG entry i
 
 ## Release Date
 
-Not released.
+2026-11-25T17:39:32Z (the push; `origin/master` reflog, `update by push`).
 
 ## Execution Mode
 
@@ -62,7 +63,7 @@ Chain branch `chain/019-slate-formatting-discord-engine`, local only, tip `48eb6
 ## Serving Ref at cutover
 
 `master` at origin, the one serving ref (`release-move.js --report`: "one serving ref at origin (master); no pair"). Read at the remote
-this round: `git ls-remote origin refs/heads/master` gives `5ec0621`.
+this round: `git ls-remote origin refs/heads/master` gave `5ec0621` before the push and `48eb60a` after it.
 
 ## Stage 1 — plan commit (2026-11-25)
 
@@ -204,12 +205,12 @@ is the evidence the release move cites.
 | Row | Step | Predicted | Result | Abort |
 |---|---|---|---|---|
 | R-1 | QA Phase 3 on `48eb60a`: `pnpm test` offline, `pnpm test:discord` (B-6), AC-3.3's full generator run with `MOUNTED_GENERATOR_COUNT=1000`, and the open-handoff sweep (`qa-phase-3.md` step 1b) | Both commands exit 0; drift-alarm hashes equal or the outcome cause recorded | **PASS** (record `c41a8459`, `qa/website-48eb60a-release-tip-qa.md`, Release Verified): offline 4,785 of 4,785 exit 0; `test:discord` 41 of 41 exit 0, wasm hashes equal; generator 17 of 17 exit 0; step 1b, 39 open handoffs, 11 match, none holds | Any non-zero exit or a release-tip record not at `Release Verified`: no push |
-| R-2 | Owner's release answer, asked in this session | yes |  | Anything but yes: no push, record "Aborted" |
-| R-3 | `git -C website ls-remote origin refs/heads/master` | `5ec0621…` |  | Another value: re-assemble the tip; the verdicts re-key |
-| R-4 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 48eb60a --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-48eb60a-release-tip-qa.md` | every check passed | Rehearsed 2026-11-25T17:10Z: every check passed, nothing moved, remote `master` `5ec0621`. Run again after R-2 | Any refusal: stop |
-| R-5 | The same without `--dry-run` | `master` moves to `48eb60a` at origin and locally; the tree is switched to `master` |  | Any refusal: stop, report, do not retry in another form |
-| R-6 | `git -C website ls-remote origin refs/heads/master` | `48eb60a…` |  | Another value: stop and report |
-| R-7 | Fill E-WEBSITE-PUSH in the B-5 carrier, then `post-deploy-launcher.js … --smoke` | SMOKE OK |  | Smoke failure: fix the kit; the push stands |
+| R-2 | Owner's release answer, asked in this session | yes | **YES** (selection, below) | Anything but yes: no push, record "Aborted" |
+| R-3 | `git -C website ls-remote origin refs/heads/master` | `5ec0621…` | 17:39:22Z: `5ec0621…`, as predicted; tree clean but for `.playwright-mcp/` | Another value: re-assemble the tip; the verdicts re-key |
+| R-4 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 48eb60a --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-48eb60a-release-tip-qa.md` | every check passed | Rehearsed 2026-11-25T17:10Z: every check passed, nothing moved, remote `master` `5ec0621`. Run again after R-2; run again 17:39:22Z: every check passed | Any refusal: stop |
+| R-5 | The same without `--dry-run` | `master` moves to `48eb60a` at origin and locally; the tree is switched to `master` | 17:39:27Z to 17:39:32Z: `OK moved master: 5ec0621… -> 48eb60a… on origin; tree on master`, exit 0 | Any refusal: stop, report, do not retry in another form |
+| R-6 | `git -C website ls-remote origin refs/heads/master` | `48eb60a…` | 17:39:49Z: `48eb60a…`, as predicted; local `master` and `origin/master` the same | Another value: stop and report |
+| R-7 | Fill E-WEBSITE-PUSH in the B-5 carrier, then `post-deploy-launcher.js … --smoke` | SMOKE OK | E-WEBSITE-PUSH filled and committed; `--smoke`: SMOKE OK; gate closed until 15 minutes after the push, as built | Smoke failure: fix the kit; the push stands |
 
 ## Pre-Release Verification
 
@@ -225,29 +226,71 @@ is the evidence the release move cites.
 ## User Confirmation
 
 Put at 2026-11-25T17:38 by selection prompt, in this session, after R-1 passed and with the readiness block above committed. Remote `master` read
-`5ec0621` just before. Answer: pending.
+`5ec0621` just before.
+
+**Answer, by 2026-11-25T17:39Z:** "Agent: release now (Recommended)". Option text, agent-authored: "I move the website's master branch to
+this build, which Vercel deploys to hooks.gg, and record it. A scheduled check reads the link fix on the live site 15 to 75 minutes
+later." The question carried the release summary, the checks, the known limits, what could not be checked, the production slowness seen
+that day, and the rollback form with its limit. The other options were "Agent: wait, not yet" and "Agent: don't release".
 
 ## Release Execution
 
-Not begun. No ref has moved.
+Authorizer: the owner. Environment: production (Vercel). Included plans: 019. Release identifier: website `master` `48eb60a`.
+
+`node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 48eb60a --qa-record <qa/website-48eb60a-release-tip-qa.md>`
+moved `master` `5ec0621` → `48eb60a` at origin and locally and switched the shared tree to `master`. No tag, no registry publish.
+
+**Serving state: deployed**, evidenced by the push (above). No host-side or serving-ref probe was made.
+
+**Deployed against verified.** The commit at the serving ref is `48eb60a02f4af4f27f1a5426bbe7e58301b1d148`, which is the SHA of the
+release-tip verdict, of UAT, of code review and of M6 QA. No difference to diff.
+
+**Consumers.** None resolve to `website`. `preview-image-generator` screenshots `/preview` and is unchanged (plan X-21: no image is read
+after release).
 
 ## Post-Release Status
 
-Not released.
+**Released**, 2026-11-25T17:39Z.
 - **Known limits that ship:** QAF-56 MEDIUM (one bench round of six read 17.1 ms against 16 ms); the effort-final mutation sweep was not
-  run, on the owner's waiver; UAT-1 (select-all delete over a quote line leaves `> `, also in production today); eight pre-existing eslint
-  errors in `SlateEditor/index.tsx` (D-20); the plan's Exclusions X-13 to X-26.
-- **Rollback plan:** the re-derivation block.
-- **Post-deploy row:** B-5, in `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md`. Its read also closes RK-1's open limb
-  (the wasm builds and runs on production's build), since the fixed link targets come from the engine.
-- **Architecture findings** for this chain are still open (`architecture/019-slate-formatting-discord-engine-architecture-findings.md`);
-  routed to the architect by one record-inbox entry (2026-11-25).
+  run, on the owner's waiver; UAT-1 (select-all delete over a quote line leaves `> `, also in production before this release); eight
+  pre-existing eslint errors in `SlateEditor/index.tsx` (D-20); the plan's Exclusions X-13 to X-26.
+- **Rollback plan:** a new commit on `master` with `5ec0621`'s tree and `48eb60a` as parent, moved with `release-move.js --reason`.
+  Messages saved meanwhile keep emoji characters (`handoff/slate-formatting-rollback-stored-emoji-read-2026-11-25.md`).
+- **Post-deploy row:** B-5, in `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md`. The reader's first eligible fire is
+  2026-11-25T18:23Z.
+- **Architecture:** the findings document is still open, and the lines this release closes or invalidates are named in two record-inbox
+  entries (2026-11-25).
+- **Roadmap:** no entry lodged; the plan header names no roadmap epic.
+
+**Chain documents (Phase 2D).** Plan: Released (R-139). Implementation (M2 to M6), analysis, code review, QA (six) and UAT: Committed, in
+`closed/`. Critique: Resolved, in `closed/`. Release-tip QA record: Released, in `qa/closed/`. Architecture findings: Active, routed to the
+architect. This record: Released. No `fix-` chain's hand-off commit lies in `5ec0621..48eb60a`. No open research document names the chain.
+Local branch `chain/019-slate-formatting-discord-engine` is merged (it equals `master`) and is left in place.
+
+**Handoffs the chain answered** (closing them is steering's):
+`handoff/website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md` (rider R-A), Status Open.
+`handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md`, already Addressed.
+
+**Handoffs this release triggers:** `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md` (Open; the lint fix is
+now due) and `planning/slate-editor-rebuild-sizing-2026-11-25.md` (steering tells the owner the rebuild is ready; it opens on his word).
+
+**Forward items beyond the register (Assumption Not Checked, risks, deferrals).** Documents holding an Assumption Not Checked: QA (strategy,
+M2 to M6, release tip), code review, critique, UAT, M6 implementation. Each owed item is either done or carried:
+- Done: the convention text (`16928fc5`); QA M2's notice read and analysis G-3's page errors (Preview read); QA M3's AN-3 re-read (Phase 3);
+  the release-tip record's install assumption (Preview read).
+- Engine, oracle, test helpers and RK-9: `handoff/slate-formatting-engine-and-oracle-follow-ups-2026-11-25.md`.
+- Unwalked browser behaviour and where a user report goes: `handoff/slate-formatting-unwalked-browser-behaviour-2026-11-25.md`.
+- Outside the region (dead thumbnail code, rewritten `>>>` messages for the owner, generator 304):
+  `handoff/website-leftovers-outside-the-formatting-region-2026-11-25.md`.
+- After a rollback only: `handoff/slate-formatting-rollback-stored-emoji-read-2026-11-25.md`.
+- RK-1 (production's build): B-5. The Planner batch, UAT-1 and QA M6's unproven `linesOf` branches: the rebuild sizing document. Other
+  plan risks are accepted limits with no read.
 
 ## Next Actions
 
-- The release question, then R-2 to R-7.
-- At release: the carrier `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md` and the rebuild sizing document
-  have this release as their trigger. Steering tells the owner the rebuild is ready; it opens on his word only (block "2026-11-25T15:38Z").
+- B-5's read: its scheduled reader (carrier above). A failed read sets the carrier's Status-Detail and goes to the owner.
+- Steering: close the answered paracord handoff; route the lint fix; tell the owner the rebuild is ready; rebuild the index.
+- The retrospective is steering's spawn.
 
 ## AN-1 act (2026-11-23)
 
@@ -316,9 +359,10 @@ AN-1's Vercel limb: **previews build, and the spike's wasm builds, is served and
 
 ## Resumption State
 
-The 2026-11-23 checkpoint state is spent: Stage 1 above has taken its items.
+Closed at release (2026-11-25, website `48eb60a`); nothing is in flight.
 
 ## Open items
 
 - **Done 2026-11-23T17:04Z:** the spike branch is deleted at origin, in the local repository and as a worktree, after the analysis (record `aafecf1`, section AN-1, cites this document at `2531c04a`; `git grep` over that record found the citation). `git ls-remote origin 'refs/heads/spike/*'` lists nothing; `master` is `af3d95a`. Deleting deployed nothing.
 - The two spike deployments stay on the Vercel project until Vercel's own retention; no delete is made (a deployment delete is outside the look-only ruling).
+- The two `release-check/019` preview deployments of 2026-11-25 stay on the Vercel project the same way; their branch is deleted.
