@@ -1751,3 +1751,26 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
 - At its hand-off, this thread reads the round's figures, SL-29's readings, the forced-normalise reading and the OOM disclosures, then
   code review, then QA Phase 2. A miss on SL-29's line comes here first (block 22:41Z).
 - Standing check `1b9c6366` is at 04:27Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
+
+## 2026-11-25T05:19Z — plan 019 M6 Fix Round 4 handed to code review at a7ad3f2; its hand-off reads; three found defects to the planner
+
+`implementer-019` by message (05:0xZ) and its document (`implementation/019-…-m6-implementation.md` at `32c4a684`, Fix Round 4, lines 687–857,
+read this turn) hand Round 4 to `code-reviewer-019` at website `a7ad3f2` (busy in `ListAgents`, 05:1xZ). The reads block 04:19Z asked for:
+- **Figures.** Whole suite 4,356 of 4,356, exit 0; typecheck exit 0 (Test Execution Results (Fix Round 4)).
+- **SL-29.** 0 of 20 readings over their line (SL-29 section). The document's fence line (33.9 / 66.5 ms) is computed differently from the
+  reviewer's line recorded at block 20:58Z (21.1 / 60.1). The tip's worst `a🙂` fence readings (13.9 at 200, 42.9 at 1,000) are under both lines,
+  so no miss either way. The reviewer re-runs the probe.
+- **Forced normalise (R-111).** The limb passes for every member at every size. In the corpus, 6 more keystrokes than at `85ece66` end in a
+  state that a second normalise changes (Outstanding 1). R-111 is the planner's reading, so it is the planner's to read.
+- **Sweeps and OOM.** Every sweep's end is in Self-check sweep and Gate satisfactions: the first capped run hit its time limit, the 02:41:10
+  run was stopped, the 35-mutant re-run had no OOM, and both increments ran with no OOM. The mutant hit by the 00:57:20 kill was re-run and
+  killed. The kern.log count is still 4 (05:19Z).
+- **Not a miss**, so there is no selection for him (block 22:41Z's case is not hit).
+**Routed to `planner-019`** for its disposition, with no hold on code review: Outstanding 1 (R-111 and the six corpus keystrokes),
+Outstanding 2 (pre-existing: closing a fence over 1,000 lines with curly quotes takes 9–21 s), Outstanding 3 (pre-existing: Slate's
+126-iteration throw for a lone backtick over 200 or 1,000 `a🙂` lines, which the implementer rates HIGH), and Outstanding 5 (a stale `empty`
+flag, not fixed). These rulings bear on them: the scope's region rule (block 2026-11-23T09:18Z), fix everything found (block 2026-11-22T04:50),
+and the M6 cap (block 2026-11-24T00:49Z: below HIGH is a stated limit, HIGH is not capped). The planner judges each, including whether 3 is a
+criterion change. The candidate severities are the implementer's.
+`implementer-019` ran its own `/checkpoint`: its Resumption State was committed at `32c4a684` and its wake was deleted. It was cleared at
+05:1xZ (`tmux-agent clear`), past its 225K threshold (512K by its own message).
