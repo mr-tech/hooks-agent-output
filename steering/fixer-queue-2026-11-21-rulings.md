@@ -1988,3 +1988,4 @@ limit unless the round's measurement shows it cleared.
 - **OOM:** the kern.log count is 8, up from 4 (06:57Z). There were 4 `Memory cgroup out of memory` kills of `MainThread`, 07:08:20–07:08:29Z.
   The implementer is told to disclose them and to re-run anything killed, capped.
 - The website tip is `55e5fdd` (`git log`, 07:09Z).
+- Gate satisfied: the record-write gate hook refused this thread's shell edit of its docket, so the edit was re-made with the Edit tool.
