@@ -1,0 +1,170 @@
+[
+ {
+  "id": "qa-m5-d2-runUnit-no-quote-prefix",
+  "file": "src/components/SlateEditor/utils/runUnit.ts",
+  "old": "    if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';\n",
+  "new": "    // quote prefix left out\n",
+  "limb": "the run unit leaves each quote line's prefix out (m5-d2 in its M6 home)"
+ },
+ {
+  "id": "qa-NM-68-carry-ignores-multiline-quote",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "const quoted = text.startsWith(QUOTE_MARKER) && !inMultilineBlockQuote;",
+  "new": "const quoted = text.startsWith(QUOTE_MARKER);",
+  "limb": "AC-6.7: a carry that ignores >>>"
+ },
+ {
+  "id": "qa-NM-69-carry-ignores-unquoted-fence",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "return quoted && (!insideFence || fenceQuoted);",
+  "new": "return quoted;",
+  "limb": "AC-6.7: a carry that ignores the unquoted fence"
+ },
+ {
+  "id": "qa-carry-on-paste",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "apply({ ...op, properties: { ...op.properties, quotePrefix: '', carried: undefined } });",
+  "new": "apply(op);",
+  "limb": "AC-6.7: every split, a paste's included, carries the prefix"
+ },
+ {
+  "id": "qa-carry-never-fires",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!carries) return;",
+  "new": "return;",
+  "limb": "AC-6.7: Enter never carries"
+ },
+ {
+  "id": "qa-typed-marker-not-taken-in",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (markerKept && content.startsWith(QUOTE_MARKER)) {",
+  "new": "if (false) {",
+  "limb": "AC-6.7: a typed > on a carried marker is not taken in"
+ },
+ {
+  "id": "qa-W8-trailing-empty-span-kept",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (lastChild?.type === 'span' && node.children.length > 1 && !lastChild.text",
+  "new": "if (false && lastChild?.type === 'span' && node.children.length > 1 && !lastChild.text",
+  "limb": "M3 W8: normalise keeps a trailing empty span"
+ },
+ {
+  "id": "qa-W9-smart-quote-swap",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "Transforms.insertText(editor, apostrophe ? \"'\" : '\"', {",
+  "new": "Transforms.insertText(editor, apostrophe ? '\"' : \"'\", {",
+  "limb": "M3 W9: smart-quote repair swaps the two"
+ },
+ {
+  "id": "qa-W12-partial-runs-block-normalise",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown) return handleEditor(editor, surface);",
+  "new": "return handleEditor(editor, surface);",
+  "limb": "M3 W12: partial mode runs block normalisation (re-anchored at 48eb60a: handleEditor lost its boolean argument)"
+ },
+ {
+  "id": "qa-S29-prefix-not-kept",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (child.type === 'blockQuote' && child.quotePrefix) {",
+  "new": "if (false) {",
+  "limb": "AC-6.1 S-29: a quote line turned into code loses its marker"
+ },
+ {
+  "id": "qa-E2-save-writes-alt",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return allowEmoji ? node.alt : '';",
+  "limb": "E-2 / AC-6.2: the saved text writes an element's alt"
+ },
+ {
+  "id": "qa-E2-save-writes-title",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return allowEmoji ? node.title : '';",
+  "limb": "E-2 / AC-6.2: the saved text writes an element's title"
+ },
+ {
+  "id": "qa-E2-save-drops-element",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+  "new": "if (isEmojiElement(node)) return '';",
+  "limb": "E-2: the saved text drops every element"
+ },
+ {
+  "id": "qa-E2-quote-prefix-default",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;",
+  "new": "if (node.type === 'blockQuote') return `> ${text}`;",
+  "limb": "E-2: a quote line saves '> ' whatever its prefix (>>> lost)"
+ },
+ {
+  "id": "qa-NM-44-helper-ignores-mask",
+  "file": "src/utils/markdown/__tests__/helpers/discordOracle.ts",
+  "old": "collectEmojiSpans(parseLossless(text, SURFACE_MASK_LITERALS[surface]), out);",
+  "new": "collectEmojiSpans(parseLossless(text, SURFACE_MASK_LITERALS.content), out);",
+  "limb": "AC-6.5 control: the oracle helper ignores its mask"
+ },
+ {
+  "id": "qa-fr6-move-node-branch-dropped",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (op.type === 'move_node') {\n    return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]\n      .filter((index): index is number => index !== undefined);\n  }\n",
+  "new": "",
+  "limb": "a top-level move notes only its source line (the move branch dropped)"
+ },
+ {
+  "id": "qa-fr6-split-notes-one-line",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (op.type === 'split_node') return [line, line + 1];",
+  "new": "if (op.type === 'split_node') return [line];",
+  "limb": "a top-level split notes the first half only"
+ },
+ {
+  "id": "qa-fr6-merge-notes-removed-index",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (op.type === 'merge_node') return [line - 1];",
+  "new": "if (op.type === 'merge_node') return [line];",
+  "limb": "a top-level merge notes the removed index, not the surviving line"
+ },
+ {
+  "id": "qa-fr6-remove-notes-nothing",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);",
+  "new": "if (op.type === 'remove_node') return [];",
+  "limb": "a top-level removal notes neither neighbour"
+ },
+ {
+  "id": "qa-fr6-remove-notes-before-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);",
+  "new": "if (op.type === 'remove_node') return [line - 1].filter((index) => index >= 0 && index < lineCount);",
+  "limb": "a top-level removal notes the line before only"
+ },
+ {
+  "id": "qa-fr6-remove-notes-after-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);",
+  "new": "if (op.type === 'remove_node') return [line].filter((index) => index >= 0 && index < lineCount);",
+  "limb": "a top-level removal notes the line after only"
+ },
+ {
+  "id": "qa-fr6-note-during-rebuild",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);",
+  "new": "if (!partialMarkdown) noteEdited(editor, op);",
+  "limb": "coupling: the rebuild's own operations are noted (the rebuilding conjunct dropped)"
+ },
+ {
+  "id": "qa-fr6-note-in-partial",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);",
+  "new": "if (!rebuilding.has(editor)) noteEdited(editor, op);",
+  "limb": "coupling: edits are noted in partial mode (the partial conjunct dropped)"
+ },
+ {
+  "id": "qa-fr6-stale-reads-own-lines",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      if (!layout || own.has(index)) return;",
+  "new": "      if (!layout) return;",
+  "limb": "the emoji check reads the selection's own lines too (the own-lines exclusion dropped)"
+ }
+]
