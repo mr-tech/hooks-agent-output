@@ -2164,3 +2164,24 @@ Reading (this thread's): at 019's release this thread does not open the rebuild 
 tells him 019 is out and the rebuild is ready to open, and opens it on his word. It amends block 15:36Z's "opens on 019's release" for
 this one transition only; it is not a standing rule for other efforts and is not added to the standing file.
 **Recipient:** `planner-019`, whose sizing document's Status-Detail says the rebuild "opens as its own effort on plan 019's release".
+
+## 2026-11-25T15:46Z — selection: plan 019 to the bare minimum; QA's effort-final mutation sweep stopped (put after 15:39Z, answered 15:46Z)
+
+His words (witnessed, this session): "Is there much value in maintaining the mutation sweeps since we're just going to be rebuilding? In
+fact, we should only be doing the bare minimum on 019 now."
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T15:46Z — steering-hooks-fixer`. Put by this thread as two questions,
+answered by selection; the wording is this thread's.
+- Q1, the sweep: *Agent: stop the sweep (Recommended)* (QA stops it now, records it not run on his waiver, and gives its verdict on what it
+  has run: the suite, the crash checks and the timings; then UAT can start) / *Agent: finish the sweep* (duration unmeasured).
+  **Chosen: "Agent: stop the sweep (Recommended)".**
+- Q2, the rest of 019: *Agent: release essentials only (Recommended)* (keep UAT's five flows, the one plan paragraph the release step needs
+  with the critic's read, devops' release checks, QA Phase 3 and his approval; drop the catch-up of minor findings and the architect's
+  closing review; those findings go to the rebuild as they stand) / *Agent: keep every remaining step*.
+  **Chosen: "Agent: release essentials only (Recommended)".**
+Premises read this turn: M7 is `PREMISE-STALE` and owes one re-argument paragraph before devops Stage 1 (plan lines 1749–1755); the sizing's
+25 of 42 test files rewritten or retired (`a7e10f4c`, the planner's count); steering.md, QA: a verdict whose effort-final sweep is owed stops
+short of UAT. UAT's five flows are the docket's B-3, B-7, B-9, B-10, B-11 (not re-read in the plan this turn).
+**Waivers (his, by selection):** QA Phase 2's effort-final mutation sweep on M6; the Planner batch fold beyond M7's premise paragraph; the
+architect's closing pass (devops.md step 2c's wait on it is lifted; devops' brief negates it). The batch's open rows are carried by the
+rebuild's sizing document. **Recipients:** `qa-019` (now), `planner-019` (the minimal revision, which registers these waivers), `critic-019`
+(reads that revision), devops (its Stage 1 brief).
