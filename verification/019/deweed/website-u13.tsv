@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+3368	5	remove	-	yes	846	emojiSrc for the same unicode emoji and the same Twemoji address the drawn preview case already asserts
+3369	7	kept	-	yes	-	only case joining a multi-code-point (skin-tone) sequence into the Twemoji file name
+3370	5	remove	-	yes	849	same still custom emoji id and CDN png address as the drawn preview case
+3371	5	remove	-	yes	850	same animated custom emoji id and gif address as the drawn preview case
+3372	8	kept	-	yes	-	boundary: a snowflake past 2^53 must reach the address as a string, red if the id is ever passed through Number
+3373	5	remove	-	yes	847	same copyright symbol with no image as the drawn preview case
+3374	5	remove	-	yes	851	same single-emoji message the drawn preview case shows large
+3375	6	remove	-	yes	851	one emoji large again, with a name-typed emoji as other example data; isJumboTree does not branch on the emoji form
+3376	6	remove	-	yes	852	emoji-and-spaces message large again with other example data
+3377	6	remove	-	yes	852	several emoji large again, no blank between them; no branch of isJumboTree differs
+3378	6	remove	-	yes	852	several emoji large again with custom emoji as example data
+3379	6	remove	-	yes	852	blank text beside emoji ignored again, with leading and trailing spaces as example data
+3380	8	kept	-	yes	-	upper boundary from below: 26 emoji still large, red if the limit comparison tightens
+3381	5	remove	-	yes	854	text beside an emoji makes it small, same behaviour as the drawn preview case with other text
+3382	5	remove	-	yes	846	same input "a <emoji>" whose image the drawn preview case asserts is not the large class
+3383	8	kept	-	yes	-	decision row: an emoji nested in a modifier does not count, red if the count ever recurses into inline nodes
+3384	7	kept	-	yes	-	emoji nested in a link label; overlaps the bold row only in part, red if labels are flattened
+3385	7	kept	-	yes	-	code node beside no emoji node returns not large; overlaps the nested rows only in part
+3386	6	remove	-	yes	854	non-blank text makes the message not large, same branch with an unknown name as example data
+3387	6	remove	-	yes	854	non-blank text makes the message not large, same branch with no emoji as example data
+3388	9	kept	-	yes	-	the one fixture where the count > 0 conjunct alone decides: no block returns early and the count is zero
+3389	8	kept	-	yes	-	upper boundary from above: 27 emoji not large, red if the comparison becomes inclusive
+3390	8	kept	-	yes	-	decision row: a block that is neither paragraph nor empty makes the message not large
+3391	7	kept	-	yes	-	emoji paragraph followed by another block; red if only the first block is examined
+3392	7	kept	-	yes	-	quote block holding the emoji; same row as the heading with a block kind a change could plausibly exempt
+3393	6	remove	-	yes	3391	emoji paragraph above a second block again, with a quote as other example data
+3394	9	kept	-	no	-	discriminating control of the confinement scan: every import form found, string, comment, near-miss name and skipped directories not
+3395	8	kept	-	no	-	boundary of the scan: a template specifier with a substitution is unreadable, one without is a literal importer
+3396	9	kept	-	no	-	discriminating control of the unreadable-specifier scan: variable and concatenated import and require reported, literals and look-alikes not
+3397	7	kept	Source-text assertion	no	-	only assertion that the engine packages are named by the adapter alone; scans the tree rather than behaviour, undecided from code so 7
+3398	7	kept	Source-text assertion	no	-	keeps the confinement scan sound by refusing unreadable specifiers outside tests; scans the tree rather than behaviour, undecided from code so 7
+3399	7	kept	-	no	-	pending before the load settles and one wasm init for three starts; red if the start memo is dropped
+3400	7	kept	-	no	-	resolved after the load and one notification per subscriber
+3401	7	kept	-	no	-	unsubscribe stops notification; only case of the returned leave function
+3402	8	kept	-	no	-	failure path an operator sees: rejected state, one failure line for three starts, error name only and no url text
+3403	8	kept	-	no	-	failure path: a non-Error rejection is logged under the fixed reason UnknownError, asserted nowhere else
+3404	8	kept	-	yes	-	decision-table row through parseLossless: the content surface hands the engine its own literal mask
+3405	8	kept	-	yes	-	decision-table row through parseLossless: the embedDescription surface hands the engine its own literal mask
+3406	8	kept	-	yes	-	decision-table row through parseLossless: the fieldValue surface hands the engine its own literal mask
+3407	8	kept	-	yes	-	decision-table row through parseLossless: the embedTitle surface hands the engine its own literal mask
+3408	8	kept	-	yes	-	decision-table row through parseLossless: the embedTitleWithUrl surface hands the engine its own literal mask
+3409	8	kept	-	yes	-	decision-table row through parseLossless: the v2Text surface hands the engine its own literal mask
+3410	2	remove	-	yes	3419	key set equals a hand list the satisfies Record<NodeKind,...> clause already enforces at typecheck; values are asserted per kind
+3411	2	remove	-	yes	left unasserted: key set of TOKEN_LEAF_ROLES beyond the satisfies clause the compiler checks	restates the satisfies Record<TokenKind,...> clause; asserts keys only, no role
+3412	2	remove	-	yes	left unasserted: key set of EMOJI_KINDS beyond the satisfies clause the compiler checks	restates the satisfies Record<EmojiKind,...> clause
+3413	2	remove	-	yes	left unasserted: key set of MENTION_KINDS beyond the satisfies clause the compiler checks	restates the satisfies Record<MentionKind,...> clause
+3414	2	remove	-	yes	left unasserted: key set of STATIC_MENTION_KINDS beyond the satisfies clause the compiler checks	restates the satisfies Record<StaticMentionKind,...> clause
+3415	2	remove	-	yes	3435	restates the satisfies Record<ModifierKind,...> clause; styles are asserted per kind
+3416	7	kept	-	no	-	runtime check that every node and token kind the real engine emits has a map entry, which declared types cannot show; undecided from code so 7
+3417	7	kept	-	no	-	observed modifier kinds on nodes and delimiter tokens equal the five mapped ones; red if an input class or a map entry is lost
+3418	7	kept	-	no	-	shows the observed enumerator is not vacuous for the map check; undecided from code so 7
+3419	7	kept	-	yes	-	row of the renderer table through nodeRenderer: document gives fragment against a literal, with no warning; drawn-preview cases overlap in part
+3420	7	kept	-	yes	-	row of the renderer table through nodeRenderer: paragraph gives paragraph against a literal, with no warning; drawn-preview cases overlap in part
+3421	7	kept	-	yes	-	row of the renderer table through nodeRenderer: heading gives heading against a literal, with no warning; drawn-preview cases overlap in part
+3422	7	kept	-	yes	-	row of the renderer table through nodeRenderer: subtext gives subtext against a literal, with no warning; drawn-preview cases overlap in part
+3423	7	kept	-	yes	-	row of the renderer table through nodeRenderer: quote gives quote against a literal, with no warning; drawn-preview cases overlap in part
+3424	7	kept	-	yes	-	row of the renderer table through nodeRenderer: list gives list against a literal, with no warning; drawn-preview cases overlap in part
+3425	7	kept	-	yes	-	row of the renderer table through nodeRenderer: list_item gives listItem against a literal, with no warning; drawn-preview cases overlap in part
+3426	7	kept	-	yes	-	row of the renderer table through nodeRenderer: empty gives empty against a literal, with no warning; drawn-preview cases overlap in part
+3427	7	kept	-	yes	-	row of the renderer table through nodeRenderer: modifier gives modifier against a literal, with no warning; drawn-preview cases overlap in part
+3428	7	kept	-	yes	-	row of the renderer table through nodeRenderer: text gives text against a literal, with no warning; drawn-preview cases overlap in part
+3429	7	kept	-	yes	-	row of the renderer table through nodeRenderer: code gives inlineCode against a literal, with no warning; drawn-preview cases overlap in part
+3430	7	kept	-	yes	-	row of the renderer table through nodeRenderer: code_block gives codeBlock against a literal, with no warning; drawn-preview cases overlap in part
+3431	7	kept	-	yes	-	row of the renderer table through nodeRenderer: emoji gives emoji against a literal, with no warning; drawn-preview cases overlap in part
+3432	7	kept	-	yes	-	row of the renderer table through nodeRenderer: mention gives mention against a literal, with no warning; drawn-preview cases overlap in part
+3433	7	kept	-	yes	-	row of the renderer table through nodeRenderer: timestamp gives timestamp against a literal, with no warning; drawn-preview cases overlap in part
+3434	7	kept	-	yes	-	row of the renderer table through nodeRenderer: link gives link against a literal, with no warning; drawn-preview cases overlap in part
+3435	7	kept	-	yes	-	row of the modifier table through modifierStyle: bold against a literal, with no warning; drawn-preview cases overlap in part
+3436	7	kept	-	yes	-	row of the modifier table through modifierStyle: italic against a literal, with no warning; drawn-preview cases overlap in part
+3437	7	kept	-	yes	-	row of the modifier table through modifierStyle: underline against a literal, with no warning; drawn-preview cases overlap in part
+3438	7	kept	-	yes	-	row of the modifier table through modifierStyle: strikethrough against a literal, with no warning; drawn-preview cases overlap in part
+3439	7	kept	-	yes	-	row of the modifier table through modifierStyle: spoiler against a literal, with no warning; drawn-preview cases overlap in part
+3440	8	kept	-	no	-	failure path an operator sees: unmapped modifier kind gives no style and one structured warning per kind
+3441	8	kept	-	no	-	failure path an operator sees: unmapped node kind gives no renderer and one structured warning per kind
+3442	8	kept	-	yes	-	allow-list row: http admitted, asserted nowhere else
+3443	7	kept	-	yes	-	allow-list row: https admitted; the drawn-preview https anchor case overlaps in part
+3444	7	kept	-	yes	-	scheme matched without regard to case; red if the check becomes a string comparison
+3445	7	kept	-	yes	-	leading whitespace before an allowed scheme still admitted; red if the URL parse is replaced by a prefix test
+3446	7	kept	-	yes	-	allow-list row: mailto admitted; the drawn-preview mailto anchor case overlaps in part
+3447	8	kept	-	yes	-	allow-list row: discord admitted, asserted nowhere else
+3448	8	kept	-	yes	-	allow-list row: tel admitted, asserted nowhere else on this function
+3449	8	kept	-	yes	-	allow-list row: sms admitted, asserted nowhere else on this function
+3450	8	kept	-	yes	-	script scheme refused at the function that gates every href the preview writes
+3451	8	kept	-	yes	-	boundary: mixed-case script scheme refused, red under a case-sensitive deny-list
+3452	8	kept	-	yes	-	boundary: script scheme behind leading whitespace refused, red under a prefix deny-list
+3453	8	kept	-	yes	-	boundary: script scheme split by a tab refused, red under a deny-list that does not strip as the URL parser does
+3454	7	kept	-	yes	-	data scheme refused; the drawn-preview data link case overlaps in part
+3455	6	remove	-	yes	3454	another unlisted scheme refused, same branch with other example data
+3456	7	kept	-	yes	-	the dev scheme the masks keep off is refused here too; red if dev links are admitted
+3457	6	remove	-	yes	3456	another unlisted hierarchical scheme refused, same branch with other example data
+3458	6	remove	-	yes	3456	another unlisted hierarchical scheme refused, same branch with other example data
+3459	8	kept	-	yes	-	failure path: a string with no scheme makes the URL parse throw and is refused, not thrown
+3460	7	kept	-	yes	-	boundary: an allowed scheme with nothing after it is refused
+3461	6	remove	-	yes	3459	the URL parse throws and the url is refused again, with the empty string as other example data
+3462	4	remove	-	yes	3450	asserts what the dependency parses, not the allow-list; no change to project code turns it red
+3463	4	remove	-	yes	3454	asserts what the dependency parses, not the allow-list; no change to project code turns it red
+3464	4	remove	-	yes	3454	asserts what the dependency parses, not the allow-list; no change to project code turns it red
+3465	4	remove	-	yes	3450	asserts what the dependency parses, not the allow-list; no change to project code turns it red
+3466	7	kept	-	no	-	every url the real engine emits for a link, normalised forms included, passes the allow-list; overlaps the admit rows in part
+3467	7	kept	-	no	-	only assertion that the licence notice travels with the loader function; red if the notice is dropped
+3468	8	kept	-	no	-	boundary: parseLossless returns no document before the engine is started, on the real engine
+3469	7	kept	-	no	-	no document while the load is in flight; red if the gate keys on the started promise and not the state
+3470	8	kept	-	no	-	failure path: no document after a rejected load, on the real engine
+3471	7	kept	-	no	-	positive side of the readiness gate on the real engine; many real-engine cases overlap in part
+3472	4	remove	-	no	left unasserted: that SURFACE_MASKS holds no surface beyond the six	red only when a surface is added; a removed surface fails typecheck and its own mask row
+3473	6	remove	-	yes	3404	same literal for the content mask as the earlier case that sees it handed to the engine by parseLossless
+3474	6	remove	-	yes	3405	same literal for the embedDescription mask as the earlier case that sees it handed to the engine by parseLossless
+3475	6	remove	-	yes	3406	same literal for the fieldValue mask as the earlier case that sees it handed to the engine by parseLossless
+3476	6	remove	-	yes	3407	same literal for the embedTitle mask as the earlier case that sees it handed to the engine by parseLossless
+3477	6	remove	-	yes	3408	same literal for the embedTitleWithUrl mask as the earlier case that sees it handed to the engine by parseLossless
+3478	6	remove	-	yes	3409	same literal for the v2Text mask as the earlier case that sees it handed to the engine by parseLossless
+3479	7	kept	-	no	-	pins the bit numbering of the installed engine that the literal masks depend on; exercises the dependency, undecided from code so 7
+3480	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3481	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3482	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3483	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3484	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3485	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3486	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3487	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3488	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3489	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3490	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3491	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3492	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3493	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3494	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3495	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3496	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3497	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3498	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3499	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3500	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3501	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3502	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3503	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3504	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3505	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3506	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3507	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3508	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3509	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3510	5	remove	-	yes	3404	one bit of the content mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3511	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3512	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3513	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3514	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3515	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3516	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails
+3517	5	remove	-	yes	3405	one bit of the embedDescription mask compared with the same bit of the same literal; cannot fail unless the whole-literal case fails

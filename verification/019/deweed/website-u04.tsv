@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+966	8	kept	-	no	-	only case where a bare web address typed in front swallows an existing emoji element; exact children pin the revert-and-merge path
+967	9	kept	-	no	-	the one normalizer fixture whose run unit starts inside a code block (previous line is a code line), so startsInCodeBlock alone decides the revert
+968	7	kept	-	no	-	reverts an inserted element on the first code line, unit holding the opening fence; overlaps 958 (typed, never lifted) only in part
+969	7	kept	-	yes	-	caret before the element keeps its flat offset; fails if the shift is applied to every point or the selection is not restored
+970	8	kept	-	yes	-	caret exactly at the element start: pins the <= boundary of the shift in revertToText
+971	8	kept	-	yes	-	only caret sitting on the reverting element itself (three-level path branch of flatOffset)
+972	8	kept	-	yes	-	caret at offset 0 of the text right after the element: smallest point that must shift by the grown width
+973	6	remove	-	yes	972	same shifted-after branch as 972 one character further along; other example data
+974	7	kept	-	yes	-	caret on a surviving second element is re-placed past emoji children by pointAtOffset; overlaps 971 only in part
+975	8	kept	-	yes	-	caret at the end of the merged text in front of a surviving element: pins the <= boundary of pointAtOffset
+976	9	kept	-	no	-	population control for 977 and 978, which pass on an empty list; fails if the frozen span keys or the probe stop yielding emoji lines
+977	8	kept	-	no	-	editor emoji set equals the oracle after each backtick typed and deleted around every probe emoji; class-wide, 959 is one example
+978	8	kept	-	no	-	same equality through a link label opened and closed around every probe emoji, both directions; 964 is one example
+979	7	kept	-	yes	-	every probe emoji token typed inside a code span stays text; overlaps 959 and 977 in part
+980	8	kept	-	yes	-	only case typing emoji tokens inside a link address
+981	7	kept	-	yes	-	tokens typed inside a bare address; overlaps 966 in part (typed in, not an existing element reverted)
+982	7	kept	-	yes	-	tokens typed after a backslash across all token forms; 953 and 954 are two examples
+983	7	kept	-	yes	-	positive context: tokens between plain characters become elements for every token form; overlaps 952-957 in part
+984	9	kept	-	no	-	the one fixture where a missing engine layout alone decides: the early return in resolveEmoji keeps the element instead of reverting or throwing
+985	9	kept	-	no	-	discriminating control for the forced-normalise limb: shows the operation count is non-zero on an unsettled line
+986	5	remove	-	yes	568	a throw from this keystroke propagates out of the mounted case 568, earlier in the list, which fails first
+987	7	kept	-	yes	-	line types and emoji after the keystroke equal a fresh load (lines after line 2 retyped to code); mounted cases assert text only
+988	7	kept	-	yes	-	fixed point after the keystroke: a forced normalise applies nothing and raises nothing; overlaps the line-shape limb only in part
+989	7	kept	-	yes	-	selection stays collapsed after the rebuild of other lines; overlaps the next-character limb only in part
+990	7	kept	-	yes	-	caret position after the keystroke, pinned by the literal text with z typed; asserted for this keystroke nowhere else
+991	5	remove	-	yes	568	a throw from this keystroke propagates out of the mounted case 568, earlier in the list, which fails first
+992	5	remove	-	yes	987	line shapes limb of 987 with another line count
+993	5	remove	-	yes	988	forced normalise limb of 988 with another line count
+994	5	remove	-	yes	989	collapsed selection limb of 989 with another line count
+995	5	remove	-	yes	990	next character limb of 990 with another line count
+996	5	remove	-	yes	570	a throw from this keystroke propagates out of the mounted case 570, earlier in the list, which fails first
+997	6	remove	-	yes	987	line shapes limb of 987 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570
+998	6	remove	-	yes	988	forced normalise limb of 988 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570
+999	6	remove	-	yes	989	collapsed selection limb of 989 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570
+1000	6	remove	-	yes	990	next character limb of 990 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570
+1001	5	remove	-	yes	570	a throw from this keystroke propagates out of the mounted case 570, earlier in the list, which fails first
+1002	5	remove	-	yes	987	line shapes limb of 987 with another line count
+1003	5	remove	-	yes	988	forced normalise limb of 988 with another line count
+1004	5	remove	-	yes	989	collapsed selection limb of 989 with another line count
+1005	5	remove	-	yes	990	next character limb of 990 with another line count
+1006	5	remove	-	yes	570	a throw from this keystroke propagates out of the mounted case 570, earlier in the list, which fails first
+1007	5	remove	-	yes	987	line shapes limb of 987 at a size the spec itself labels past the field's limit
+1008	5	remove	-	yes	988	forced normalise limb of 988 at a size the spec itself labels past the field's limit
+1009	5	remove	-	yes	989	collapsed selection limb of 989 at a size the spec itself labels past the field's limit
+1010	5	remove	-	yes	990	next character limb of 990 at a size the spec itself labels past the field's limit
+1011	5	remove	-	yes	568	a throw from this keystroke propagates out of the mounted case 568, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1012	5	remove	-	yes	987	line shapes limb of 987 with another line count, on a surface that changes nothing for emoji-free lines
+1013	5	remove	-	yes	988	forced normalise limb of 988 with another line count, on a surface that changes nothing for emoji-free lines
+1014	5	remove	-	yes	989	collapsed selection limb of 989 with another line count, on a surface that changes nothing for emoji-free lines
+1015	5	remove	-	yes	990	next character limb of 990 with another line count, on a surface that changes nothing for emoji-free lines
+1016	5	remove	-	yes	568	a throw from this keystroke propagates out of the mounted case 568, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1017	5	remove	-	yes	987	line shapes limb of 987 with another line count, on a surface that changes nothing for emoji-free lines
+1018	5	remove	-	yes	988	forced normalise limb of 988 with another line count, on a surface that changes nothing for emoji-free lines
+1019	5	remove	-	yes	989	collapsed selection limb of 989 with another line count, on a surface that changes nothing for emoji-free lines
+1020	5	remove	-	yes	990	next character limb of 990 with another line count, on a surface that changes nothing for emoji-free lines
+1021	5	remove	-	yes	570	a throw from this keystroke propagates out of the mounted case 570, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1022	6	remove	-	yes	987	line shapes limb of 987 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570, on a surface that changes nothing for emoji-free lines
+1023	6	remove	-	yes	988	forced normalise limb of 988 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570, on a surface that changes nothing for emoji-free lines
+1024	6	remove	-	yes	989	collapsed selection limb of 989 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570, on a surface that changes nothing for emoji-free lines
+1025	6	remove	-	yes	990	next character limb of 990 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 570, on a surface that changes nothing for emoji-free lines
+1026	5	remove	-	yes	570	a throw from this keystroke propagates out of the mounted case 570, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1027	5	remove	-	yes	987	line shapes limb of 987 with another line count, on a surface that changes nothing for emoji-free lines
+1028	5	remove	-	yes	988	forced normalise limb of 988 with another line count, on a surface that changes nothing for emoji-free lines
+1029	5	remove	-	yes	989	collapsed selection limb of 989 with another line count, on a surface that changes nothing for emoji-free lines
+1030	5	remove	-	yes	990	next character limb of 990 with another line count, on a surface that changes nothing for emoji-free lines
+1031	5	remove	-	yes	570	a throw from this keystroke propagates out of the mounted case 570, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1032	5	remove	-	yes	987	line shapes limb of 987 with another line count, on a surface that changes nothing for emoji-free lines
+1033	5	remove	-	yes	988	forced normalise limb of 988 with another line count, on a surface that changes nothing for emoji-free lines
+1034	5	remove	-	yes	989	collapsed selection limb of 989 with another line count, on a surface that changes nothing for emoji-free lines
+1035	5	remove	-	yes	990	next character limb of 990 with another line count, on a surface that changes nothing for emoji-free lines
+1036	5	remove	-	yes	573	a throw from this keystroke propagates out of the mounted case 573, earlier in the list, which fails first
+1037	5	remove	-	yes	987	line shapes limb of 987 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1038	5	remove	-	yes	988	forced normalise limb of 988 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1039	5	remove	-	yes	989	collapsed selection limb of 989 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1040	5	remove	-	yes	990	next character limb of 990 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1041	5	remove	-	yes	574	a throw from this keystroke propagates out of the mounted case 574, earlier in the list, which fails first
+1042	7	kept	-	yes	-	line types and emoji after the keystroke equal a fresh load (code lines retyped back to plain); mounted cases assert text only
+1043	7	kept	-	yes	-	fixed point after the keystroke: a forced normalise applies nothing and raises nothing; overlaps the line-shape limb only in part
+1044	7	kept	-	yes	-	selection stays collapsed after the rebuild of other lines; overlaps the next-character limb only in part
+1045	7	kept	-	yes	-	caret position after the keystroke, pinned by the literal text with z typed; asserted for this keystroke nowhere else
+1046	5	remove	-	yes	574	a throw from this keystroke propagates out of the mounted case 574, earlier in the list, which fails first
+1047	5	remove	-	yes	1042	line shapes limb of 1042 with another line count
+1048	5	remove	-	yes	1043	forced normalise limb of 1043 with another line count
+1049	5	remove	-	yes	1044	collapsed selection limb of 1044 with another line count
+1050	5	remove	-	yes	1045	next character limb of 1045 with another line count
+1051	5	remove	-	yes	576	a throw from this keystroke propagates out of the mounted case 576, earlier in the list, which fails first
+1052	6	remove	-	yes	1042	line shapes limb of 1042 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576
+1053	6	remove	-	yes	1043	forced normalise limb of 1043 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576
+1054	6	remove	-	yes	1044	collapsed selection limb of 1044 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576
+1055	6	remove	-	yes	1045	next character limb of 1045 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576
+1056	5	remove	-	yes	576	a throw from this keystroke propagates out of the mounted case 576, earlier in the list, which fails first
+1057	5	remove	-	yes	1042	line shapes limb of 1042 with another line count
+1058	5	remove	-	yes	1043	forced normalise limb of 1043 with another line count
+1059	5	remove	-	yes	1044	collapsed selection limb of 1044 with another line count
+1060	5	remove	-	yes	1045	next character limb of 1045 with another line count
+1061	5	remove	-	yes	576	a throw from this keystroke propagates out of the mounted case 576, earlier in the list, which fails first
+1062	5	remove	-	yes	1042	line shapes limb of 1042 at a size the spec itself labels past the field's limit
+1063	5	remove	-	yes	1043	forced normalise limb of 1043 at a size the spec itself labels past the field's limit
+1064	5	remove	-	yes	1044	collapsed selection limb of 1044 at a size the spec itself labels past the field's limit
+1065	5	remove	-	yes	1045	next character limb of 1045 at a size the spec itself labels past the field's limit
+1066	5	remove	-	yes	574	a throw from this keystroke propagates out of the mounted case 574, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1067	5	remove	-	yes	1042	line shapes limb of 1042 with another line count, on a surface that changes nothing for emoji-free lines
+1068	5	remove	-	yes	1043	forced normalise limb of 1043 with another line count, on a surface that changes nothing for emoji-free lines
+1069	5	remove	-	yes	1044	collapsed selection limb of 1044 with another line count, on a surface that changes nothing for emoji-free lines
+1070	5	remove	-	yes	1045	next character limb of 1045 with another line count, on a surface that changes nothing for emoji-free lines
+1071	5	remove	-	yes	574	a throw from this keystroke propagates out of the mounted case 574, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1072	5	remove	-	yes	1042	line shapes limb of 1042 with another line count, on a surface that changes nothing for emoji-free lines
+1073	5	remove	-	yes	1043	forced normalise limb of 1043 with another line count, on a surface that changes nothing for emoji-free lines
+1074	5	remove	-	yes	1044	collapsed selection limb of 1044 with another line count, on a surface that changes nothing for emoji-free lines
+1075	5	remove	-	yes	1045	next character limb of 1045 with another line count, on a surface that changes nothing for emoji-free lines
+1076	5	remove	-	yes	576	a throw from this keystroke propagates out of the mounted case 576, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1077	6	remove	-	yes	1042	line shapes limb of 1042 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576, on a surface that changes nothing for emoji-free lines
+1078	6	remove	-	yes	1043	forced normalise limb of 1043 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576, on a surface that changes nothing for emoji-free lines
+1079	6	remove	-	yes	1044	collapsed selection limb of 1044 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576, on a surface that changes nothing for emoji-free lines
+1080	6	remove	-	yes	1045	next character limb of 1045 at the 123-line boundary; the size-dependent failure there is a throw, caught by mounted 576, on a surface that changes nothing for emoji-free lines
+1081	5	remove	-	yes	576	a throw from this keystroke propagates out of the mounted case 576, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1082	5	remove	-	yes	1042	line shapes limb of 1042 with another line count, on a surface that changes nothing for emoji-free lines
+1083	5	remove	-	yes	1043	forced normalise limb of 1043 with another line count, on a surface that changes nothing for emoji-free lines
+1084	5	remove	-	yes	1044	collapsed selection limb of 1044 with another line count, on a surface that changes nothing for emoji-free lines
+1085	5	remove	-	yes	1045	next character limb of 1045 with another line count, on a surface that changes nothing for emoji-free lines
+1086	5	remove	-	yes	576	a throw from this keystroke propagates out of the mounted case 576, earlier in the list, which fails first; the surface changes nothing for emoji-free fence lines
+1087	5	remove	-	yes	1042	line shapes limb of 1042 with another line count, on a surface that changes nothing for emoji-free lines
+1088	5	remove	-	yes	1043	forced normalise limb of 1043 with another line count, on a surface that changes nothing for emoji-free lines
+1089	5	remove	-	yes	1044	collapsed selection limb of 1044 with another line count, on a surface that changes nothing for emoji-free lines
+1090	5	remove	-	yes	1045	next character limb of 1045 with another line count, on a surface that changes nothing for emoji-free lines
+1091	5	remove	-	yes	579	a throw from this keystroke propagates out of the mounted case 579, earlier in the list, which fails first
+1092	5	remove	-	yes	1042	line shapes limb of 1042 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1093	5	remove	-	yes	1043	forced normalise limb of 1043 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1094	5	remove	-	yes	1044	collapsed selection limb of 1044 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1095	5	remove	-	yes	1045	next character limb of 1045 at a size the spec itself labels past the field's limit, on a surface that changes nothing for emoji-free lines
+1096	5	remove	-	yes	580	a throw from this keystroke propagates out of the mounted case 580, earlier in the list, which fails first
+1097	7	kept	-	yes	-	line types and emoji after the keystroke equal a fresh load (lines after the closing fence retyped to plain); mounted cases assert text only
+1098	7	kept	-	yes	-	fixed point after the keystroke: a forced normalise applies nothing and raises nothing; overlaps the line-shape limb only in part
+1099	7	kept	-	yes	-	selection stays collapsed after the rebuild of other lines; overlaps the next-character limb only in part
+1100	7	kept	-	yes	-	caret position after the keystroke, pinned by the literal text with z typed; asserted for this keystroke nowhere else
+1101	5	remove	-	yes	580	a throw from this keystroke propagates out of the mounted case 580, earlier in the list, which fails first
+1102	5	remove	-	yes	1097	line shapes limb of 1097 with another line count
+1103	5	remove	-	yes	1098	forced normalise limb of 1098 with another line count
+1104	5	remove	-	yes	1099	collapsed selection limb of 1099 with another line count
+1105	5	remove	-	yes	1100	next character limb of 1100 with another line count
+1106	5	remove	-	yes	580	a throw from this keystroke propagates out of the mounted case 580, earlier in the list, which fails first
+1107	5	remove	-	yes	1097	line shapes limb of 1097 with another line count
+1108	5	remove	-	yes	1098	forced normalise limb of 1098 with another line count
+1109	5	remove	-	yes	1099	collapsed selection limb of 1099 with another line count
+1110	5	remove	-	yes	1100	next character limb of 1100 with another line count
+1111	5	remove	-	yes	580	a throw from this keystroke propagates out of the mounted case 580, earlier in the list, which fails first
+1112	5	remove	-	yes	1097	line shapes limb of 1097 with another line count
+1113	5	remove	-	yes	1098	forced normalise limb of 1098 with another line count
+1114	5	remove	-	yes	1099	collapsed selection limb of 1099 with another line count
+1115	5	remove	-	yes	1100	next character limb of 1100 with another line count

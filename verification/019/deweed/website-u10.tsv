@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+1866	6	remove	-	yes	1856	straightening of rebuilt lines is one code path (rebuildLines texts); backtick typed at line start is another trigger of the same rebuild, other example data
+1867	5	remove	-	yes	1856	same keystroke as the 5-line case at 100 lines; no size threshold in the straightening or rebuild code
+1868	5	remove	-	yes	1856	same keystroke as the 5-line case at 200 lines; no size threshold in the straightening or rebuild code
+1869	6	remove	-	yes	1856	straightening of rebuilt lines is one code path (rebuildLines texts); Backspace removing a leading backtick is another trigger of the same rebuild, other example data
+1870	5	remove	-	yes	1856	same keystroke as the 5-line case at 100 lines; no size threshold in the straightening or rebuild code
+1871	5	remove	-	yes	1856	same keystroke as the 5-line case at 200 lines; no size threshold in the straightening or rebuild code
+1872	6	remove	-	yes	1856	straightening of rebuilt lines is one code path (rebuildLines texts); backtick typed at line start before a space is another trigger of the same rebuild, other example data
+1873	5	remove	-	yes	1856	same keystroke as the 5-line case at 100 lines; no size threshold in the straightening or rebuild code
+1874	5	remove	-	yes	1856	same keystroke as the 5-line case at 200 lines; no size threshold in the straightening or rebuild code
+1875	6	remove	-	yes	1856	straightening of rebuilt lines is one code path (rebuildLines texts); Backspace removing a leading backtick before a space is another trigger of the same rebuild, other example data
+1876	5	remove	-	yes	1856	same keystroke as the 5-line case at 100 lines; no size threshold in the straightening or rebuild code
+1877	5	remove	-	yes	1856	same keystroke as the 5-line case at 200 lines; no size threshold in the straightening or rebuild code
+1878	6	remove	-	yes	1856	straightening of rebuilt lines is one code path (rebuildLines texts); backslash typed before a leading backtick is another trigger of the same rebuild, other example data
+1879	5	remove	-	yes	1856	same keystroke as the 5-line case at 100 lines; no size threshold in the straightening or rebuild code
+1880	5	remove	-	yes	1856	same keystroke as the 5-line case at 200 lines; no size threshold in the straightening or rebuild code
+1881	6	remove	-	yes	1856	straightening of rebuilt lines is one code path (rebuildLines texts); Backspace removing that backslash is another trigger of the same rebuild, other example data
+1882	5	remove	-	yes	1856	same keystroke as the 5-line case at 100 lines; no size threshold in the straightening or rebuild code
+1883	5	remove	-	yes	1856	same keystroke as the 5-line case at 200 lines; no size threshold in the straightening or rebuild code
+1884	6	remove	-	yes	1894	paste of 200 plain lines, raises no error: every route it takes is also taken by the emoji-line paste, which adds the emoji lift
+1885	6	remove	-	yes	1895	paste of 200 plain lines, line shapes equal a fresh load: every route it takes is also taken by the emoji-line paste, which adds the emoji lift
+1886	6	remove	-	yes	1896	paste of 200 plain lines, forced normalise finds nothing to change: every route it takes is also taken by the emoji-line paste, which adds the emoji lift
+1887	5	remove	-	yes	1898	paste of 200 plain lines, collapsed selection: every route it takes is also taken by the emoji-line paste, which adds the emoji lift; a non-collapsed or missing selection also fails the typed-character limb
+1888	6	remove	-	yes	1898	paste of 200 plain lines, next typed character lands at the caret: every route it takes is also taken by the emoji-line paste, which adds the emoji lift
+1889	5	remove	-	yes	1894	paste of 1000 plain lines, raises no error: size repeat of the 200-line emoji paste; paste and settle code hold no size threshold
+1890	5	remove	-	yes	1895	paste of 1000 plain lines, line shapes equal a fresh load: size repeat of the 200-line emoji paste; paste and settle code hold no size threshold
+1891	5	remove	-	yes	1896	paste of 1000 plain lines, forced normalise finds nothing to change: size repeat of the 200-line emoji paste; paste and settle code hold no size threshold
+1892	5	remove	-	yes	1898	paste of 1000 plain lines, collapsed selection: size repeat of the 200-line emoji paste; paste and settle code hold no size threshold
+1893	5	remove	-	yes	1898	paste of 1000 plain lines, next typed character lands at the caret: size repeat of the 200-line emoji paste; paste and settle code hold no size threshold
+1894	7	kept	-	yes	-	only no-throw assertion over a multi-line paste whose lines each need an emoji lift, through insertData and the withoutNormalizing wrap
+1895	8	kept	-	yes	-	only assertion that pasted lines end typed and emoji-lifted as a load builds them; mounted paste cases read text only
+1896	7	kept	-	yes	-	fixed point after a paste: fails if the paste leaves a line unsettled or the retype check never agrees
+1897	5	remove	-	yes	1898	collapsed selection after the paste is implied by the next limb: an expanded or null selection puts the typed z elsewhere or nowhere
+1898	7	kept	-	yes	-	caret placement after an emoji-line paste, literal expected text with z appended after the trailing emoji
+1899	6	remove	-	yes	1894	paste of 1000 emoji lines, raises no error: size repeat of the 200-line case; growth itself is counted by the settle-and-fence-read case elsewhere, no threshold in this code
+1900	6	remove	-	yes	1895	paste of 1000 emoji lines, line shapes equal a fresh load: size repeat of the 200-line case; growth itself is counted by the settle-and-fence-read case elsewhere, no threshold in this code
+1901	6	remove	-	yes	1896	paste of 1000 emoji lines, forced normalise finds nothing to change: size repeat of the 200-line case; growth itself is counted by the settle-and-fence-read case elsewhere, no threshold in this code
+1902	5	remove	-	yes	1898	paste of 1000 emoji lines, collapsed selection: size repeat of the 200-line case; growth itself is counted by the settle-and-fence-read case elsewhere, no threshold in this code
+1903	5	remove	-	yes	1898	paste of 1000 emoji lines, next typed character lands at the caret: size repeat of the 200-line case; growth itself is counted by the settle-and-fence-read case elsewhere, no threshold in this code
+1904	7	kept	-	yes	-	forced normalise over quote line plus bare fence: fails if the retype check misfires and rewrites marker text
+1905	6	remove	-	yes	1904	same quote-then-fence text with one plain line between; no further branch of retypeLines decided
+1906	7	kept	-	yes	-	multi-line quote marker followed by fence: fence delimiter lines are quote lines with empty prefix, code line between
+1907	7	kept	-	yes	-	continued quote line with empty quotePrefix: fails if the empty prefix is defaulted to "> " on flatten or retype
+1908	6	remove	-	yes	1907	single-line subset of the ">>> a\nb" case
+1909	6	remove	-	yes	1907	empty continued line inside a multi-line quote; same empty-prefix row as ">>> a\nb"
+1910	7	kept	-	yes	-	continued line that carries its own "> " marker: marker kept as prefix under continuation, a separate splitQuote row
+1911	6	remove	-	yes	1904	quote plus fence with a language; text retention as the bare-fence case, language asserted by the language cases
+1912	7	kept	-	yes	-	typed character at the start of a quote line text beside a bare fence: fails if the per-keystroke retype check rebuilds or moves the marker
+1913	6	remove	-	yes	1912	same document and check, other caret position; no line type changes
+1914	6	remove	-	yes	1912	same document and check, other caret position; fence line still opens, no retype
+1915	7	kept	-	yes	-	character typed after the opening fence gives it a language: the one position that sends the code line through rebuildLines; text must survive
+1916	6	remove	-	yes	1912	same document and check, caret in the code line; no retype
+1917	6	remove	-	yes	1912	same document and check, caret in the code line; no retype
+1918	6	remove	-	yes	1912	same document and check, caret on the closing fence; no retype
+1919	6	remove	-	yes	1912	same document and check, text after the closing fence changes no fence state
+1920	7	kept	-	no	-	typing in a code line whose fence sits inside a multi-line quote; other line typing than the "> a" document
+1921	8	kept	-	yes	-	language boundary: "c++" is no language; literal langs, lineLang/afterLine asserted with an independent oracle nowhere else
+1922	8	kept	-	yes	-	language boundary: space after the fence gives no language; literal langs
+1923	8	kept	-	yes	-	fence line holding two delimiters leaves the block open and its language on the next line; literal langs
+1924	8	kept	-	yes	-	language resets when a block closes: second block with an invalid language gets none, the row where the reset alone decides
+1925	8	kept	-	no	-	literal line types for loaded lines after a multi-line marker; sibling cases read text only
+1926	8	kept	-	yes	-	typed ">>> x" becomes a quote line with the marker moved out of the text, literal type and string
+1927	7	kept	-	yes	-	single-line marker through the same retype branch with marker length 2; overlaps the ">>> x" case in part
+1928	8	kept	-	no	-	language typed onto an opening fence reaches the code lines below it, literal langs
+1929	8	kept	-	no	-	startCodeBlock flags flip on the fence lines below a typed fence, literal before and after
+1930	7	kept	-	no	-	text kept and text operations confined to the typed line when a multi-line marker takes in lines below; operation set is mechanism, text is behaviour
+1931	8	kept	-	no	-	split of a multi-line quote line: new line is a quote line with empty prefix (split_node override), literal text and types
+1932	8	kept	-	no	-	multi-line marker inside a code block opens no quote: literal types for the lines after the block
+1933	8	kept	-	yes	-	quote marker written back into the text when a typed character turns the quote line into a code line; marker loss is data loss
+1934	6	remove	-	yes	1933	same marker-restore branch with the ">>> " prefix, no following line to tell the two apart
+1935	7	kept	-	yes	-	marker restore inside a six-line document where the edit also flips the fence state of the lines below
+1936	8	kept	-	no	-	a later ">>> " marker survives as prefix when a multi-line quote opens above it
+1937	7	kept	-	no	-	Backspace on a loaded multi-line marker: literal text and plain types for the released lines; keystroke limbs compare to a fresh load only
+1938	7	kept	-	yes	-	full-markdown sweep over the 272-case corpus: text kept and second forced normalise idle; input class of its own (inline markdown and emoji forms)
+1939	7	kept	-	yes	-	full-markdown sweep over the 106 link inputs: text kept and second forced normalise idle; input class of its own (emoji inside link labels and addresses)
+1940	7	kept	-	yes	-	full-markdown sweep over the 1,000 generator inputs: text kept and second forced normalise idle; input class of its own (generated inline mixes)
+1941	7	kept	-	yes	-	full-markdown sweep over the probe corpus: text kept and second forced normalise idle; input class of its own (emoji-name and escape edge tokens, fenced)
+1942	7	kept	-	yes	-	full-markdown sweep over the two-atom joins: text kept and second forced normalise idle; input class of its own (exhaustive pairs of block atoms)
+1943	7	kept	-	yes	-	full-markdown sweep over the 3,000 block-layer texts: text kept and second forced normalise idle; input class of its own (seeded quote and fence line mixes)
+1944	7	kept	-	yes	-	single-line box sweep over the 272-case corpus: emoji settle under the embedTitle surface, no block retype; inline markdown and emoji forms
+1945	7	kept	-	yes	-	single-line box sweep over the 106 link inputs: emoji settle under the embedTitle surface, no block retype; emoji inside link labels and addresses
+1946	7	kept	-	yes	-	single-line box sweep over the 1,000 generator inputs: emoji settle under the embedTitle surface, no block retype; generated inline mixes
+1947	7	kept	-	yes	-	single-line box sweep over the probe corpus: emoji settle under the embedTitle surface, no block retype; emoji-name and escape edge tokens, fenced
+1948	6	remove	-	yes	1944	single-line box runs no block retype, so the block-atom class exercises only the emoji settle the corpus sweep already drives
+1949	6	remove	-	yes	1944	single-line box runs no block retype, so block-layer texts exercise only the emoji settle the corpus sweep already drives
+1950	7	kept	-	yes	-	paste onto the end of a quote line: merged first line and pasted quote line typed as a fresh load
+1951	6	remove	-	yes	1952	pasted plain line between quote lines; the longer mixed paste holds the same rows
+1952	7	kept	-	yes	-	paste after a code block: heading text merged into the quote line, plain, quote and subtext lines typed as loaded
+1953	7	kept	-	yes	-	quoted fence pasted into a multi-line quote: fence and code lines typed under continuation
+1954	6	remove	-	yes	1953	same paste with one more continued line in the base text
+1955	9	kept	-	yes	-	partialMarkdown guard alone decides: a single-line box must leave "> a" a plain line; text-only cases cannot see the type
+1956	6	remove	-	yes	1955	same guard with the ">>> " marker
+1957	7	kept	-	no	-	class sweep: a character typed at every offset of every line of 800 block-layer texts lands spliced in place
+1958	6	remove	-	no	1959	count of at least one build is asserted again inside every sized case
+1959	7	kept	-	yes	-	in-line text edit in one document-long run unit: fails if a per-line unit build enters the keystroke path; unit-build count via a pass-through spy, equal at both sizes
+1960	6	remove	-	yes	1959	in-line text edit at the other end of the line; same build-count route as the covering case
+1961	7	kept	-	yes	-	line merge route in a document-long run unit; unit-build count via a pass-through spy, equal at both sizes
+1962	6	remove	-	yes	1959	in-line removal, same edited-line note as insert; same build-count route as the covering case
+1963	6	remove	-	yes	1959	in-line removal, same edited-line note as insert; same build-count route as the covering case
+1964	6	remove	-	yes	1961	line merge from the other side; same build-count route as the covering case
+1965	7	kept	-	yes	-	line split route in a document-long run unit; unit-build count via a pass-through spy, equal at both sizes
+1966	6	remove	-	yes	1965	line split at the other end; same build-count route as the covering case
+1967	6	remove	-	yes	1959	in-line edit; quote prefix changes the unit text, not the number of builds; same build-count route as the covering case
+1968	6	remove	-	yes	1959	in-line edit; quote prefix changes the unit text, not the number of builds; same build-count route as the covering case
+1969	6	remove	-	yes	1961	line merge of quote lines, same route; same build-count route as the covering case
+1970	6	remove	-	yes	1959	in-line removal in a quote line; same build-count route as the covering case
+1971	6	remove	-	yes	1959	in-line removal in a quote line; same build-count route as the covering case
+1972	6	remove	-	yes	1961	line merge of quote lines from the other side; same build-count route as the covering case
+1973	7	kept	-	yes	-	Enter on a "> " line takes the carried-marker route, with its extra operations and normalise rounds; unit-build count via a pass-through spy, equal at both sizes
+1974	6	remove	-	yes	1973	carried-marker Enter at the other end of the line; same build-count route as the covering case
+1975	6	remove	-	yes	1959	in-line edit in a continued quote line; same build-count route as the covering case
+1976	6	remove	-	yes	1959	in-line edit in a continued quote line; same build-count route as the covering case
+1977	6	remove	-	yes	1961	line merge of continued quote lines; same build-count route as the covering case
+1978	6	remove	-	yes	1959	in-line removal in a continued quote line; same build-count route as the covering case
+1979	6	remove	-	yes	1959	in-line removal in a continued quote line; same build-count route as the covering case
+1980	6	remove	-	yes	1961	line merge of continued quote lines from the other side; same build-count route as the covering case
+1981	6	remove	-	yes	1965	split of a continued quote line carries no marker; same split route as a plain line; same build-count route as the covering case
+1982	6	remove	-	yes	1965	split of a continued quote line carries no marker; same split route as a plain line; same build-count route as the covering case
+1983	7	kept	-	yes	-	in-line text edit where the layout holds an emoji span on every line of the unit; unit-build count via a pass-through spy, equal at both sizes
+1984	6	remove	-	yes	1983	in-line edit beside the emoji; same build-count route as the covering case
+1985	6	remove	-	yes	1983	in-line edit after the emoji; same build-count route as the covering case
+1986	7	kept	-	yes	-	line merge route over emoji lines; unit-build count via a pass-through spy, equal at both sizes
+1987	6	remove	-	yes	1983	in-line removal beside the emoji; same build-count route as the covering case
+1988	6	remove	-	yes	1983	removal of the emoji element, still one edited line; same build-count route as the covering case
+1989	6	remove	-	yes	1983	in-line removal; same build-count route as the covering case
+1990	6	remove	-	yes	1983	removal of the emoji element, still one edited line; same build-count route as the covering case
+1991	6	remove	-	yes	1986	line merge from the other side; same build-count route as the covering case
+1992	7	kept	-	yes	-	line split route over emoji lines; unit-build count via a pass-through spy, equal at both sizes
+1993	6	remove	-	yes	1992	line split beside the emoji; same build-count route as the covering case
+1994	6	remove	-	yes	1992	line split after the emoji; same build-count route as the covering case
+1995	7	kept	-	yes	-	edit of a code line in a quoted fence, document cut into many units; unit-build count via a pass-through spy, equal at both sizes
+1996	6	remove	-	yes	1995	code-line edit at the other end; same build-count route as the covering case
+1997	7	kept	-	yes	-	code line merged into its quoted opening fence line; unit-build count via a pass-through spy, equal at both sizes
+1998	6	remove	-	yes	1995	in-line removal in the code line; same build-count route as the covering case
+1999	6	remove	-	yes	1995	in-line removal in the code line; same build-count route as the covering case
+2000	6	remove	-	yes	1997	merge with the closing fence line instead of the opening one; same build-count route as the covering case
+2001	7	kept	-	yes	-	Enter on a quoted code line: carried-marker route inside a fence; unit-build count via a pass-through spy, equal at both sizes
+2002	6	remove	-	yes	2001	carried-marker Enter at the other end of the code line; same build-count route as the covering case
+2003	7	kept	-	yes	-	edit of a plain line in a unit bounded by code blocks, and of a code line, two targets; unit-build count via a pass-through spy, equal at both sizes
+2004	6	remove	-	yes	2003	same targets, other end of the line; same build-count route as the covering case
+2005	6	remove	-	yes	1997	merge into a fence delimiter line, unquoted; same build-count route as the covering case
+2006	6	remove	-	yes	2003	in-line removal at the same targets; same build-count route as the covering case
+2007	6	remove	-	yes	2003	in-line removal at the same targets; same build-count route as the covering case
+2008	6	remove	-	yes	1997	merge with a fence delimiter line from the other side, unquoted; same build-count route as the covering case
+2009	6	remove	-	yes	2001	split of a code line and of a plain line with no carried marker; same build-count route as the covering case
+2010	6	remove	-	yes	2001	split of a code line and of a plain line with no carried marker; same build-count route as the covering case
+2011	7	kept	-	yes	-	mass retype of code lines to plain when a fence is broken: builds must not follow the number of retyped lines
+2012	6	remove	-	yes	2011	code-to-plain mass retype again, for the lower half only
+2013	7	kept	-	yes	-	mass retype of plain lines to quote lines under a typed multi-line marker
+2014	5	remove	-	yes	2013	same keystroke with "abc" for "a"; the longer text matters to the caret limbs only
+2015	7	kept	-	yes	-	mass retype of quote lines to plain through the Backspace key handler

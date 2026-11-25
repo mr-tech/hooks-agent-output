@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covered_by	reason
+1416	6	remove	-	yes	1371	raises no error: single-line quote keystroke changes line 0 only and the plain fill holds no emoji, so surface and size leave the path of the content/40 group unchanged
+1417	6	remove	-	yes	1372	line shapes equal a fresh load: single-line quote keystroke changes line 0 only and the plain fill holds no emoji, so surface and size leave the path of the content/40 group unchanged
+1418	6	remove	-	yes	1373	forced normalise is a no-op: single-line quote keystroke changes line 0 only and the plain fill holds no emoji, so surface and size leave the path of the content/40 group unchanged
+1419	6	remove	-	yes	1375	collapsed selection: single-line quote keystroke changes line 0 only and the plain fill holds no emoji, so surface and size leave the path of the content/40 group unchanged
+1420	6	remove	-	yes	1375	next typed character lands at the caret: single-line quote keystroke changes line 0 only and the plain fill holds no emoji, so surface and size leave the path of the content/40 group unchanged
+1421	5	remove	-	yes	1371	raises no error: 2048 plain lines plus the quote line exceed the description limit (the spec labels it a growth probe past the limit) and repeat the content/40 group
+1422	5	remove	-	yes	1372	line shapes equal a fresh load: 2048 plain lines plus the quote line exceed the description limit (the spec labels it a growth probe past the limit) and repeat the content/40 group
+1423	5	remove	-	yes	1373	forced normalise is a no-op: 2048 plain lines plus the quote line exceed the description limit (the spec labels it a growth probe past the limit) and repeat the content/40 group
+1424	5	remove	-	yes	1375	collapsed selection: 2048 plain lines plus the quote line exceed the description limit (the spec labels it a growth probe past the limit) and repeat the content/40 group
+1425	5	remove	-	yes	1375	next typed character lands at the caret: 2048 plain lines plus the quote line exceed the description limit (the spec labels it a growth probe past the limit) and repeat the content/40 group
+1426	7	kept	-	yes	-	only error limb for the space-completes-the-marker keystroke; no mounted spec drives this keystroke
+1427	7	kept	-	yes	-	drives the normaliser through a typed space that completes a quote marker and fails if line 0 is not retyped to a quote line with its marker lifted
+1428	7	kept	-	yes	-	fails if the retyped quote line is left short of a fixed point (marker still in text, stale prefix)
+1429	6	remove	-	yes	1430	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1430	8	kept	-	yes	-	pins the caret boundary where the caret sits at the end of the marker text being absorbed into the prefix; asserted nowhere else
+1431	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1432	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1433	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1434	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1435	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1436	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1437	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1438	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1439	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1440	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1441	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1442	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1443	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1444	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1445	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1446	5	remove	-	yes	1426	raises no error: content of 1000 lines is the spec's own growth probe past the field limit; repeats the content/40 group
+1447	5	remove	-	yes	1427	line shapes equal a fresh load: content of 1000 lines is the spec's own growth probe past the field limit; repeats the content/40 group
+1448	5	remove	-	yes	1428	forced normalise is a no-op: content of 1000 lines is the spec's own growth probe past the field limit; repeats the content/40 group
+1449	5	remove	-	yes	1430	collapsed selection: content of 1000 lines is the spec's own growth probe past the field limit; repeats the content/40 group
+1450	5	remove	-	yes	1430	next typed character lands at the caret: content of 1000 lines is the spec's own growth probe past the field limit; repeats the content/40 group
+1451	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1452	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1453	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1454	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1455	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1456	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1457	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1458	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1459	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1460	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1461	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1462	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1463	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1464	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1465	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1466	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1467	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1468	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1469	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1470	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1471	6	remove	-	yes	1426	raises no error: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1472	6	remove	-	yes	1427	line shapes equal a fresh load: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1473	6	remove	-	yes	1428	forced normalise is a no-op: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1474	6	remove	-	yes	1430	collapsed selection: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1475	6	remove	-	yes	1430	next typed character lands at the caret: plain fill and a line-0-only change: size and surface do not alter the path the content/40 group of this keystroke drives
+1476	5	remove	-	yes	1426	raises no error: 2048 lines is the spec's growth probe past the description limit; repeats the content/40 group
+1477	5	remove	-	yes	1427	line shapes equal a fresh load: 2048 lines is the spec's growth probe past the description limit; repeats the content/40 group
+1478	5	remove	-	yes	1428	forced normalise is a no-op: 2048 lines is the spec's growth probe past the description limit; repeats the content/40 group
+1479	5	remove	-	yes	1430	collapsed selection: 2048 lines is the spec's growth probe past the description limit; repeats the content/40 group
+1480	5	remove	-	yes	1430	next typed character lands at the caret: 2048 lines is the spec's growth probe past the description limit; repeats the content/40 group
+1481	7	kept	-	yes	-	only error limb for opening a fence above emoji lines; the mounted fence spec uses plain fill only
+1482	8	kept	-	yes	-	opening a fence above emoji lines: fails if emoji elements are not put back to text on lines turned to code, or not lifted on lines turned plain; emoji-set-per-line after this keystroke asserted nowhere else
+1483	8	kept	-	yes	-	opening a fence above emoji lines: fails if any retyped emoji line is left unsettled for a later normalise; fixed point after this keystroke asserted nowhere else
+1484	6	remove	-	yes	1485	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1485	7	kept	-	yes	-	opening a fence above emoji lines: fails if the caret on the fence line is displaced while the other lines are replaced
+1486	6	remove	-	yes	1481	raises no error: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1487	6	remove	-	yes	1482	line shapes equal a fresh load: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1488	6	remove	-	yes	1483	forced normalise is a no-op: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1489	6	remove	-	yes	1485	collapsed selection: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1490	6	remove	-	yes	1485	next typed character lands at the caret: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1491	7	kept	-	yes	-	only error limb for removing an opening fence above emoji lines; the mounted fence spec uses plain fill only
+1492	8	kept	-	yes	-	removing an opening fence above emoji lines: fails if emoji elements are not put back to text on lines turned to code, or not lifted on lines turned plain; emoji-set-per-line after this keystroke asserted nowhere else
+1493	8	kept	-	yes	-	removing an opening fence above emoji lines: fails if any retyped emoji line is left unsettled for a later normalise; fixed point after this keystroke asserted nowhere else
+1494	6	remove	-	yes	1495	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1495	7	kept	-	yes	-	removing an opening fence above emoji lines: fails if the caret on the fence line is displaced while the other lines are replaced
+1496	6	remove	-	yes	1491	raises no error: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1497	6	remove	-	yes	1492	line shapes equal a fresh load: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1498	6	remove	-	yes	1493	forced normalise is a no-op: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1499	6	remove	-	yes	1495	collapsed selection: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1500	6	remove	-	yes	1495	next typed character lands at the caret: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1501	7	kept	-	yes	-	only error limb for closing a fence in the middle of emoji lines; the mounted fence spec uses plain fill only
+1502	8	kept	-	yes	-	closing a fence in the middle of emoji lines: fails if emoji elements are not put back to text on lines turned to code, or not lifted on lines turned plain; emoji-set-per-line after this keystroke asserted nowhere else
+1503	8	kept	-	yes	-	closing a fence in the middle of emoji lines: fails if any retyped emoji line is left unsettled for a later normalise; fixed point after this keystroke asserted nowhere else
+1504	6	remove	-	yes	1505	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1505	7	kept	-	yes	-	closing a fence in the middle of emoji lines: fails if the caret on the fence line is displaced while the other lines are replaced
+1506	6	remove	-	yes	1501	raises no error: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1507	6	remove	-	yes	1502	line shapes equal a fresh load: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1508	6	remove	-	yes	1503	forced normalise is a no-op: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1509	6	remove	-	yes	1505	collapsed selection: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1510	6	remove	-	yes	1505	next typed character lands at the caret: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1511	7	kept	-	yes	-	only error limb for reopening a block by removing its closing fence amid emoji lines; the mounted fence spec uses plain fill only
+1512	8	kept	-	yes	-	reopening a block by removing its closing fence amid emoji lines: fails if emoji elements are not put back to text on lines turned to code, or not lifted on lines turned plain; emoji-set-per-line after this keystroke asserted nowhere else
+1513	8	kept	-	yes	-	reopening a block by removing its closing fence amid emoji lines: fails if any retyped emoji line is left unsettled for a later normalise; fixed point after this keystroke asserted nowhere else
+1514	6	remove	-	yes	1515	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1515	7	kept	-	yes	-	reopening a block by removing its closing fence amid emoji lines: fails if the caret on the fence line is displaced while the other lines are replaced
+1516	6	remove	-	yes	1511	raises no error: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1517	6	remove	-	yes	1512	line shapes equal a fresh load: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1518	6	remove	-	yes	1513	forced normalise is a no-op: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1519	6	remove	-	yes	1515	collapsed selection: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1520	6	remove	-	yes	1515	next typed character lands at the caret: same keystroke and fill at 1000 lines; the retype-and-relift path is the one the 200-line group drives
+1521	6	remove	-	yes	512	a throw from this keystroke on this text already fails the earlier mounted-editor case on the same input
+1522	8	kept	-	yes	-	a backtick pairing across the message puts every emoji line inside a code span: fails if emoji on unedited lines stay elements; whole-unit emoji staleness after a keystroke asserted here
+1523	8	kept	-	yes	-	fails if stale emoji lines are left for a later normalise after the pairing backtick
+1524	6	remove	-	yes	1525	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1525	7	kept	-	yes	-	fails if the caret on line 0 moves while the stale lines are rebuilt; the mounted case compares text only
+1526	6	remove	-	yes	513	raises no error: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1527	6	remove	-	yes	1522	line shapes equal a fresh load: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1528	6	remove	-	yes	1523	forced normalise is a no-op: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1529	6	remove	-	yes	1525	collapsed selection: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1530	6	remove	-	yes	1525	next typed character lands at the caret: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1531	6	remove	-	yes	514	raises no error: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1532	6	remove	-	yes	1522	line shapes equal a fresh load: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1533	6	remove	-	yes	1523	forced normalise is a no-op: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1534	6	remove	-	yes	1525	collapsed selection: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1535	6	remove	-	yes	1525	next typed character lands at the caret: same pairing keystroke and fill at another size; unit covers the whole message at every size, path as in the 5-line group
+1536	6	remove	-	yes	515	a throw from this keystroke on this text already fails the earlier mounted-editor case on the same input
+1537	7	kept	-	yes	-	first group passing the description surface to the engine parse that decides the emoji set; whether the surface changes the outcome is not decidable from the editor code
+1538	7	kept	-	yes	-	first description-surface group for the fixed point after the pairing backtick; surface dependence not decidable from the editor code
+1539	6	remove	-	yes	1525	collapsed selection: fails only when the next-typed-character limb does; caret handling takes no surface
+1540	6	remove	-	yes	1525	next typed character lands at the caret: caret handling takes no surface; repeats the content/5 limb
+1541	6	remove	-	yes	516	raises no error: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1542	6	remove	-	yes	1537	line shapes equal a fresh load: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1543	6	remove	-	yes	1538	forced normalise is a no-op: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1544	6	remove	-	yes	1525	collapsed selection: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1545	6	remove	-	yes	1525	next typed character lands at the caret: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1546	6	remove	-	yes	517	raises no error: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1547	6	remove	-	yes	1537	line shapes equal a fresh load: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1548	6	remove	-	yes	1538	forced normalise is a no-op: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1549	6	remove	-	yes	1525	collapsed selection: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1550	6	remove	-	yes	1525	next typed character lands at the caret: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1551	6	remove	-	yes	518	raises no error: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1552	6	remove	-	yes	1537	line shapes equal a fresh load: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1553	6	remove	-	yes	1538	forced normalise is a no-op: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1554	6	remove	-	yes	1525	collapsed selection: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1555	6	remove	-	yes	1525	next typed character lands at the caret: same pairing keystroke, fill and surface at another size; path as in the 5-line groups
+1556	6	remove	-	yes	519	a throw from this keystroke on this text already fails the earlier mounted-editor case on the same input
+1557	8	kept	-	yes	-	removing the pairing backtick takes every line out of the code span: fails if emoji on unedited lines are not lifted back to elements
+1558	8	kept	-	yes	-	fails if lines whose emoji must be lifted again are left for a later normalise
+1559	6	remove	-	yes	1560	a non-collapsed or null selection always changes the text the next-typed-character limb of this group compares; fails only when that limb does
+1560	7	kept	-	yes	-	fails if the caret on line 0 moves while the other lines are rebuilt; the mounted case compares text only
+1561	6	remove	-	yes	520	raises no error: same unpairing Backspace and fill at 100 lines; path as in the 5-line group
+1562	6	remove	-	yes	1557	line shapes equal a fresh load: same unpairing Backspace and fill at 100 lines; path as in the 5-line group
+1563	6	remove	-	yes	1558	forced normalise is a no-op: same unpairing Backspace and fill at 100 lines; path as in the 5-line group
+1564	6	remove	-	yes	1560	collapsed selection: same unpairing Backspace and fill at 100 lines; path as in the 5-line group
+1565	6	remove	-	yes	1560	next typed character lands at the caret: same unpairing Backspace and fill at 100 lines; path as in the 5-line group

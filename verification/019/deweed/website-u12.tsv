@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+3218	5	remove	-	yes	3210	ZWJ sequence inside inline code repeats code suppressing emoji (3210) with other data
+3219	5	remove	-	yes	3211	ZWJ sequence inside a code block repeats block suppressing emoji (3211) with other data
+3220	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare skin-tone sequence is one span of its whole length; fails if the sequence is split or missed
+3221	5	remove	-	yes	3209	skin-tone sequence inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3220
+3222	5	remove	-	yes	3210	skin-tone sequence inside inline code repeats code suppressing emoji (3210) with other data
+3223	5	remove	-	yes	3211	skin-tone sequence inside a code block repeats block suppressing emoji (3211) with other data
+3224	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare keycap is one span of its whole length; fails if the sequence is split or missed
+3225	5	remove	-	yes	3209	keycap inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3224
+3226	5	remove	-	yes	3210	keycap inside inline code repeats code suppressing emoji (3210) with other data
+3227	5	remove	-	yes	3211	keycap inside a code block repeats block suppressing emoji (3211) with other data
+3228	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare flag is one span of its whole length; fails if the sequence is split or missed
+3229	5	remove	-	yes	3209	flag inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3228
+3230	5	remove	-	yes	3210	flag inside inline code repeats code suppressing emoji (3210) with other data
+3231	5	remove	-	yes	3211	flag inside a code block repeats block suppressing emoji (3211) with other data
+3232	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare tag sequence is one span of its whole length; fails if the sequence is split or missed
+3233	5	remove	-	yes	3209	tag sequence inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3232
+3234	5	remove	-	yes	3210	tag sequence inside inline code repeats code suppressing emoji (3210) with other data
+3235	5	remove	-	yes	3211	tag sequence inside a code block repeats block suppressing emoji (3211) with other data
+3236	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare heart with emoji presentation is one span of its whole length; fails if the sequence is split or missed
+3237	5	remove	-	yes	3209	heart with emoji presentation inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3236
+3238	5	remove	-	yes	3210	heart with emoji presentation inside inline code repeats code suppressing emoji (3210) with other data
+3239	5	remove	-	yes	3211	heart with emoji presentation inside a code block repeats block suppressing emoji (3211) with other data
+3240	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare emoji typed as a name is one span of its whole length; fails if the sequence is split or missed
+3241	5	remove	-	yes	3209	emoji typed as a name inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3240
+3242	5	remove	-	yes	3210	emoji typed as a name inside inline code repeats code suppressing emoji (3210) with other data
+3243	5	remove	-	yes	3211	emoji typed as a name inside a code block repeats block suppressing emoji (3211) with other data
+3244	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare custom emoji is one span of its whole length; fails if the sequence is split or missed
+3245	6	remove	-	yes	3209	custom emoji inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3244
+3246	5	remove	-	yes	3210	custom emoji inside inline code repeats code suppressing emoji (3210) with other data
+3247	5	remove	-	yes	3211	custom emoji inside a code block repeats block suppressing emoji (3211) with other data
+3248	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): only case that a bare animated custom emoji is one span of its whole length; fails if the sequence is split or missed
+3249	5	remove	-	yes	3209	animated custom emoji inside bold repeats recursion into a modifier (3209) with other data; recognition of the form is in 3248
+3250	5	remove	-	yes	3210	animated custom emoji inside inline code repeats code suppressing emoji (3210) with other data
+3251	5	remove	-	yes	3211	animated custom emoji inside a code block repeats block suppressing emoji (3211) with other data
+3252	9	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): heart without the variation selector gives no span; the one fixture where the selector alone decides, against 3236
+3253	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): emoji between colons is spanned as the character alone, not as a name; boundary between the two forms
+3254	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): backslash before a single-code-point emoji removes the span; first escape row
+3255	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escape protects the heart and the left-over selector is no emoji; differs from 3254 in the remainder
+3256	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escape protects the flag base and the left-over tag characters form no emoji
+3257	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escaped colon stops a :name: being spanned; only escape row for the name form
+3258	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escaped angle bracket stops a custom emoji being spanned; only escape row for the custom form
+3259	9	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): backslash before a digit is no escape, so the keycap keeps its span at 1..4; the one fixture where the alphanumeric exclusion decides
+3260	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escape protects exactly one code point of a ZWJ sequence and the rest is spanned at 4..9
+3261	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): after the protected base the skin-tone modifier alone is spanned; same rule as 3260, different remainder
+3262	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): after the protected first regional indicator the second alone is spanned; same rule as 3260, different remainder
+3263	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escaped leading colon leaves the wrapped character spanned at 2..4; overlaps 3253 and 3257 in part
+3264	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): emoji in a masked link address is address, no span; first row of the address table
+3265	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): emoji in a bare address is address, no span; control for 3315 where links are off
+3266	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): emoji in an angle-bracket address is address, no span; control for 3316
+3267	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): emoji in a masked link label gives no span; control for 3314 where links are off
+3268	5	remove	-	yes	3264	second single-code-point emoji in the same wrap; the helper and parser do not consult the site table, so it repeats the Unicode-emoji row
+3269	5	remove	-	yes	3265	second single-code-point emoji in the same wrap; the helper and parser do not consult the site table, so it repeats the Unicode-emoji row
+3270	5	remove	-	yes	3266	second single-code-point emoji in the same wrap; the helper and parser do not consult the site table, so it repeats the Unicode-emoji row
+3271	5	remove	-	yes	3267	second single-code-point emoji in the same wrap; the helper and parser do not consult the site table, so it repeats the Unicode-emoji row
+3272	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): ZWJ sequence ends a masked link address and is spanned at 16..24; first row of the forms that end an address
+3273	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): ZWJ sequence ends a bare address and is spanned at 12..20
+3274	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): ZWJ sequence ends an angle-bracket address and is spanned at 13..21
+3275	5	remove	-	yes	3267	ZWJ sequence in a masked link label repeats the label row (3267) with other data
+3276	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): row of the address table for a skin-tone sequence: stays address, no span, where ZWJ and tag sequences do not
+3277	6	remove	-	yes	3276	a skin-tone sequence in a bare address repeats its form row (3276) in another wrap
+3278	6	remove	-	yes	3276	a skin-tone sequence in an angle-bracket address repeats its form row (3276) in another wrap
+3279	5	remove	-	yes	3267	a skin-tone sequence in a masked link label repeats the label row (3267) with other data
+3280	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): row of the address table for a keycap: stays address, no span, where ZWJ and tag sequences do not
+3281	6	remove	-	yes	3280	a keycap in a bare address repeats its form row (3280) in another wrap
+3282	6	remove	-	yes	3280	a keycap in an angle-bracket address repeats its form row (3280) in another wrap
+3283	5	remove	-	yes	3267	a keycap in a masked link label repeats the label row (3267) with other data
+3284	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): row of the address table for a flag: stays address, no span, where ZWJ and tag sequences do not
+3285	6	remove	-	yes	3284	a flag in a bare address repeats its form row (3284) in another wrap
+3286	6	remove	-	yes	3284	a flag in an angle-bracket address repeats its form row (3284) in another wrap
+3287	5	remove	-	yes	3267	a flag in a masked link label repeats the label row (3267) with other data
+3288	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): tag sequence ends a masked link address and is spanned at 16..30; second form of the ends-address class, overlapping 3272 in part
+3289	6	remove	-	yes	3288	tag sequence in a bare address repeats its form row (3288) in another wrap
+3290	6	remove	-	yes	3288	tag sequence in an angle-bracket address repeats its form row (3288) in another wrap
+3291	5	remove	-	yes	3267	tag sequence in a masked link label repeats the label row (3267) with other data
+3292	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): row of the address table for a heart with emoji presentation: stays address, no span, where ZWJ and tag sequences do not
+3293	6	remove	-	yes	3292	a heart with emoji presentation in a bare address repeats its form row (3292) in another wrap
+3294	6	remove	-	yes	3292	a heart with emoji presentation in an angle-bracket address repeats its form row (3292) in another wrap
+3295	5	remove	-	yes	3267	a heart with emoji presentation in a masked link label repeats the label row (3267) with other data
+3296	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): row of the address table for an emoji typed as a name: stays address, no span, where ZWJ and tag sequences do not
+3297	6	remove	-	yes	3296	an emoji typed as a name in a bare address repeats its form row (3296) in another wrap
+3298	6	remove	-	yes	3296	an emoji typed as a name in an angle-bracket address repeats its form row (3296) in another wrap
+3299	6	remove	-	yes	3267	an emoji typed as a name in a masked link label repeats the label row (3267) with other data
+3300	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): custom emoji ends a masked link address at its angle bracket and is spanned at 16..24; only row of that mechanism on content
+3301	6	remove	-	yes	3300	custom emoji in a bare address repeats its form row (3300) in another wrap
+3302	6	remove	-	yes	3300	custom emoji in an angle-bracket address repeats its form row (3300) in another wrap
+3303	6	remove	-	yes	3267	custom emoji in a masked link label repeats the label row (3267) with other data
+3304	6	remove	-	yes	3300	animated custom emoji ends the address by the same angle bracket as 3300; other example data
+3305	5	remove	-	yes	3300	animated custom emoji in a bare address repeats 3300 in another wrap and spelling
+3306	5	remove	-	yes	3300	animated custom emoji in an angle-bracket address repeats 3300 in another wrap and spelling
+3307	5	remove	-	yes	3267	animated custom emoji in a masked link label repeats the label row (3267) with other data
+3308	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): two spans, character then name, adjacent and unmerged; only multi-span order case of mixed forms
+3309	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): name then character; fails if the name consumes or shifts the following emoji, overlaps 3308 in part
+3310	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): two adjacent character emoji stay two spans; fails if adjacent spans are merged
+3311	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): escape of a markdown character does not swallow a later emoji; offsets counted through the escape
+3312	6	remove	-	yes	3311	escaped underscore mid-word repeats 3311 with another escaped character
+3313	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): span offset counted across a newline inside a bold run; only multi-line case
+3314	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): embedTitleWithUrl mask: emoji in a masked link is spanned as plain text, against 3267 on content; fails if the surface took a links-on mask
+3315	8	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): embedTitleWithUrl mask: emoji in a bare address is spanned, against 3265 on content
+3316	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): embedTitleWithUrl mask: emoji in an angle-bracket address is spanned, against 3266; overlaps 3315 in part
+3317	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): emoji directly after the host with no slash; wrap asserted nowhere else
+3318	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): colon-name emoji spanned inside link syntax with links off; only name row on this mask
+3319	6	remove	-	yes	3315	name in a bare address with links off repeats 3315 with the name form (3318)
+3320	6	remove	-	yes	3316	name in an angle-bracket address with links off repeats 3316 with the name form
+3321	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): name directly after the host, where its colon could read as a port separator; boundary asserted nowhere else
+3322	6	remove	-	yes	3314	custom emoji in a masked link with links off repeats 3314 with the custom form
+3323	6	remove	-	yes	3315	custom emoji in a bare address with links off repeats 3315 with the custom form
+3324	6	remove	-	yes	3316	custom emoji in an angle-bracket address with links off repeats 3316 with the custom form
+3325	6	remove	-	yes	3317	custom emoji directly after the host repeats 3317 with the custom form
+3326	9	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): discriminating control of the links-off group: on embedTitle, links on, the same bare address gives no span
+3327	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): control for 3316 on embedTitle with links on; overlaps 3326 in part
+3328	7	kept	-	yes	-	helper-only (no production import; pins the pinned wasm through the oracle helper): custom emoji ends a bare address on the embedTitle mask; 3301 asserts it on content only
+3329	7	kept	-	no	-	helper-only: the oracle mask table against six literals; the one assertion of most bits of the oracle masks, which are held apart from the engine table on purpose; 3330 and 3331 cover two bits only
+3330	8	kept	-	no	-	helper-only: heading bit on by surface, read from the parse; fails if fieldValue or a title mask gains the bit
+3331	7	kept	-	no	-	helper-only: masked link on embedTitle and off with a url, read from the parse; overlaps 3314 in part
+3332	8	kept	-	no	-	constructsOf through the pinned wasm for four single bits; fails if the removal comparison or the bit table is wrong
+3333	7	kept	-	no	-	nested constructs name every bit in generator order; fails on a first-match-only or reordered result
+3334	8	kept	-	no	-	game mention written form against another spelling; boundary of one bit asserted nowhere else
+3335	6	remove	-	no	3334	empty result for plain text; 3334 already asserts an empty result and 3332 fails first on an inverted filter
+3336	8	kept	-	no	-	coverage table cell form and row per bit, column per surface; operator-read report
+3337	8	kept	-	no	-	zero-agree cell named unexamined in the list and the markdown line, and no other
+3338	6	remove	-	no	3337	empty unexamined list when no zero cell; 3337 already asserts that non-zero cells are not named; left unasserted here: the unexamined: none line
+3339	7	kept	-	no	-	no difference for identical boxes; earliest empty-result case of boxDifferences, fails on an always-differs change
+3340	8	kept	-	no	-	line, character and both style letters for one differing character; the only positive report shape
+3341	8	kept	-	no	-	entry split with equal attributes is no difference; fails on entry-wise instead of character-wise comparison
+3342	7	kept	-	no	-	attribute order ignored; fails if the sort is dropped
+3343	8	kept	-	no	-	url against link and looseEm against em map to one style; rows of the style table asserted nowhere else
+3344	7	kept	-	no	-	extra marker class on a delimiter is no difference; marker reduction, overlapping 3345 in part
+3345	8	kept	-	no	-	marker with a style still reads as a marker, and marker against non-marker is reported as ~ against i
+3346	8	kept	-	no	-	null native block read as unstyled characters, with a positive control in the same case
+3347	8	kept	-	no	-	entry past the line end ignored; without the bound the call throws
+3348	5	remove	-	no	3349	three fixed section headings; 3349 fails first when a section is lost, and heading wording alone is unspecified
+3349	8	kept	-	no	-	counts of each source out of its inputs, per section and per residue surface, zero included
+3350	8	kept	-	no	-	member lines by source with text JSON-quoted, newline escaped
+3351	7	kept	-	no	-	first differing character of an editor member with both attribute sets; fails on swapped or dropped fields
+3352	7	kept	-	no	-	require of the switch id detected; positive row of referencesSwitch
+3353	8	kept	-	no	-	setting name alone detected; the second disjunct decides in this fixture only
+3354	8	kept	-	no	-	ids containing the same digits rejected; boundary of the id match on both sides
+3355	8	kept	-	no	-	id outside a require call rejected; fails if the match loosens to a substring
+3356	8	kept	-	no	-	call on the alias bound to the facade id detected for two members
+3357	9	kept	-	no	-	parseEmbedTitle not found where only parseEmbedTitleWithoutLinks is called; the one fixture where the member end boundary decides
+3358	8	kept	-	no	-	alias bound to another module rejected, with the positive control on that module
+3359	8	kept	-	no	-	no facade require, no call; fails if the alias binding is no longer required
+3360	8	kept	-	yes	-	routing report for the current shape through locate and the predicates; decision-table row
+3361	8	kept	-	yes	-	both surfaces behind the switch, both named as referrers, no facade call; decision-table row
+3362	8	kept	-	yes	-	only the embed behind the switch; the one row where embed and V2 answers differ this way
+3363	7	kept	-	yes	-	mirror row, only V2 behind the switch; overlaps 3362 in part
+3364	8	kept	-	no	-	combine and rules ids read from the call shape, one require after var and one after a comma
+3365	6	remove	-	no	3364	comma-led require is already in 3364, whose second id follows a comma; adds only the first alias after a comma
+3366	8	kept	-	no	-	operator-read failure naming the predicate when the call shape is absent
+3367	8	kept	-	no	-	operator-read failure when the shape names an alias the facade never requires

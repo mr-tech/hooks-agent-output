@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+2016	7	kept	-	yes	-	exact count of fence-state reads per keystroke (200 for 200 lines) through a spy on afterLine; fails when the verified-lines cache is lost and the pass repeats, though it also fails on a refactor of the pass
+2017	6	remove	-	yes	2016	same one-pass count as the insert case, with a backspace; same path through linesAgree
+2018	7	kept	-	no	-	population control of the sized run-unit cases: pins that 60 keystrokes leave other lines alone, so a line-type regression that empties the generated cases fails here
+2019	4	remove	-	no	2020	asserts only that the two spies are called at least once; every growth case asserts the same floor on its shortest run
+2020	7	kept	-	yes	-	fence opened on line 2 turns every later line to code; bounds settles and fence reads at 5x the lines to 10x
+2021	7	kept	-	yes	-	fence removed on line 2 returns every later line to runs and lifts their emoji; the reverse direction of the opening case
+2022	6	remove	-	yes	2021	closing fence typed mid-text: lines leave code as in the fence-removed case, over half the lines
+2023	6	remove	-	yes	2020	closing fence removed mid-text: lines become code as in the fence-opened case, over half the lines
+2024	7	kept	-	yes	-	backtick completing an inline code span over the whole text reverts every line emoji through the stale-emoji rebuild
+2025	7	kept	-	yes	-	backtick removed so the span over the whole text ends and every line emoji lifts again; reverse direction
+2026	6	remove	-	yes	2024	span opened from the start of line 0 instead of its end; same stale-emoji rebuild
+2027	6	remove	-	yes	2025	span ended by a backspace at the start of line 0; same re-lift
+2028	6	remove	-	yes	2024	span opened before a space; same stale-emoji rebuild
+2029	6	remove	-	yes	2025	span ended before a space; same re-lift
+2030	6	remove	-	yes	2025	backslash escapes the opening backtick so the span ends; same re-lift as a removed backtick
+2031	6	remove	-	yes	2024	backslash removed so the span opens; same stale-emoji rebuild as a typed backtick
+2032	7	kept	-	yes	-	paste of 1,000 plain lines: the only growth bound on the paste path, held linear by the withoutNormalizing wrap of insertTextData
+2033	7	kept	-	yes	-	paste of 1,000 emoji lines: adds per-line emoji lifting to the paste bound; overlaps the plain paste in part
+2034	7	kept	-	yes	-	fence opened: at most two operations per changed line and no dirty-path growth; fails if the rebuilding guard on getDirtyPaths or the remove/insert pair is lost
+2035	7	kept	-	yes	-	fence removed: same bound on the code-to-run direction, where rebuilt lines carry lifted emoji
+2036	6	remove	-	yes	2035	closing fence typed mid-text: same rebuild as the fence-removed case over half the lines
+2037	6	remove	-	yes	2034	closing fence removed mid-text: same rebuild as the fence-opened case over half the lines
+2038	7	kept	-	yes	-	inline code span opened over the text: bounds operations and dirty paths on the stale-emoji rebuild route
+2039	7	kept	-	yes	-	inline code span ended: same bound on the re-lift direction of the stale-emoji route
+2040	6	remove	-	yes	2038	span opened from the start of line 0; same route and bound
+2041	6	remove	-	yes	2039	span ended at the start of line 0; same route and bound
+2042	6	remove	-	yes	2038	span opened before a space; same route and bound
+2043	6	remove	-	yes	2039	span ended before a space; same route and bound
+2044	6	remove	-	yes	2039	span ended by an escaping backslash; same route and bound
+2045	6	remove	-	yes	2038	span opened by removing the backslash; same route and bound
+2046	8	kept	-	yes	-	table row: Enter at the end of a quote line carries the marker; the base row of carriesMarker
+2047	8	kept	-	yes	-	table row: a split mid-line gives the new line a marker of its own and keeps the text after the caret
+2048	8	kept	-	yes	-	table row: text after the caret that itself starts with a marker is not doubled; the take-in branch of resolveCarried on a split
+2049	6	remove	-	yes	1931	same text and caret as the earlier settle case, which also asserts the line types
+2050	8	kept	-	yes	-	table row: a "> " line inside a multi-line quote carries no marker; the multi-line conjunct
+2051	8	kept	-	yes	-	table row: a plain line carries nothing; the negative row of the table
+2052	9	kept	-	yes	-	the one row where the line starts with a marker but its fence opened on a plain line, so the fence-quoted conjunct alone decides
+2053	8	kept	-	yes	-	table row: a code line in a fence opened on a quote line carries the marker as text
+2054	8	kept	-	yes	-	table row: the quote line that opens the fence carries a marker onto a line that becomes code
+2055	8	kept	-	yes	-	table row: the previous line also starts with a marker, so an implementation that reads the previous line rather than the fence opener fails only here
+2056	8	kept	-	yes	-	Backspace on a carried marker then plain typing leaves a plain line; decision row of the carried marker
+2057	8	kept	-	yes	-	a typed "> " on a carried marker is taken in rather than doubled
+2058	8	kept	-	yes	-	the take-in happens once: a second typed marker stays in the text
+2059	6	remove	-	yes	2056	Backspace then plain typing again, with text that is not a quote marker
+2060	7	kept	-	no	-	Backspace on the carried marker of a quote line leaves an empty plain line; asserts the line types the typing row does not
+2061	8	kept	-	no	-	Backspace on a carried marker held as text of a code line: the onKeyDown carried-marker branch, text and line types
+2062	8	kept	-	no	-	take-in of a typed marker on a code line, where the carried marker is text and the offset branch of resolveCarried runs
+2063	8	kept	-	no	-	a carried line retyped to code by a fence typed above still takes a typed marker in; the carried exemption in rebuildLines
+2064	5	remove	-	yes	2057	reads the carried flag of the element; the flag being set is what the take-in row already depends on
+2065	5	remove	-	yes	2062	reads the carried flag on the code-line route; the code-line take-in case depends on it
+2066	7	kept	-	yes	-	the flag is cleared once other text follows the marker; only assertion of that clearing on a quote line, read from the element
+2067	7	kept	-	yes	-	the same clearing on a code line, where the marker is kept by a text prefix test rather than quotePrefix
+2068	5	remove	-	yes	2057	flag kept after a bare angle bracket; the take-in row fails first if it is dropped
+2069	5	remove	-	yes	2062	flag kept after a bare angle bracket on a code line; the code-line take-in case fails first
+2070	7	kept	-	no	-	marker of a carried code line deleted by a range delete clears the flag; the marker-not-kept branch for code lines
+2071	5	remove	-	no	2061	same keystroke as the Backspace case on a code line; resolveCarried clears the flag even if onKeyDown did not
+2072	8	kept	-	no	-	boundary: the carried line is line 0 of the editor and its typed marker is still taken in
+2073	9	kept	-	no	-	caret inside the marker at offset 1: the offset conjunct of the carried-marker Backspace alone decides
+2074	9	kept	-	no	-	caret at offset 2 of a second text node: the first-text conjunct alone decides, on a hand-built line
+2076	8	kept	-	no	-	pieces of one split spoiler reveal together through the real preview parser; only assertion of the shared id
+2077	7	kept	-	no	-	a second click on another piece hides all; the toggle-off half of the shared reveal set
+2078	9	kept	-	no	-	discriminating control: a different spoiler stays hidden, which a single shared flag would fail
+2117	7	kept	-	yes	-	read-only view renders only fields with a name and a value; first field hidden
+2118	9	kept	-	yes	-	the one fixture with a field that has a name and no value, so the value conjunct of the filter alone decides
+2119	7	kept	-	yes	-	both displayed fields render around a hidden middle one; overlaps the first-hidden row in part
+2120	6	remove	-	yes	2119	no hidden field; rendering of two displayed fields is already in the middle-hidden row
+2121	8	kept	-	yes	-	an edit reaches the field at its full-list slot, not its filtered position; fails if the index is taken after the filter
+2122	6	remove	-	yes	2121	same slot rule with two hidden fields before
+2123	6	remove	-	yes	2121	same slot rule with a hidden middle field
+2124	6	remove	-	yes	2121	control with no hidden field; slot and filtered position coincide, so it fails only on changes the hidden rows also catch
+2125	8	kept	-	yes	-	a delete removes the displayed field, not the hidden one before it; only assertion of the delete index on the read-only route
+2126	6	remove	-	yes	2125	same delete index with two hidden fields before
+2127	6	remove	-	yes	2125	same delete index with a hidden middle field
+2128	6	remove	-	yes	2125	control with no hidden field; indices coincide
+2129	8	kept	-	yes	-	move-left and move-right are offered by full-list position; the filtered index would withhold move-left here
+2130	6	remove	-	yes	2129	same position rule with two hidden fields before
+2131	6	remove	-	yes	2129	same position rule with a hidden middle field
+2132	6	remove	-	yes	2129	control with no hidden field; positions coincide
+2228	4	remove	-	no	2229	restates the four project names of the suite config; a missing Discord project fails the next case through byName, and an added project is no regression
+2229	7	kept	-	no	-	Discord projects keep node for .ts and jsdom with the DOM setup for .tsx; config of the test runner rather than product code, scored on what a wrong edit would cost
+2230	8	kept	-	no	-	boundary an operator sees: the offline projects exclude the Discord comparisons and every project keeps the default node_modules exclude, which a bare exclude would drop
+2231	3	remove	-	no	left unasserted: the alias key set of each project as a literal	the project factory supplies the alias to every project, and a missing alias fails every import of ~ before this case
+2232	7	kept	-	no	-	pnpm test names only the offline projects; reads package.json scripts as literals, yet it is the only case that fails if the offline command starts running the Discord projects
+3120	4	remove	-	no	left unasserted: the size of the probe corpus	counts a test helper list; no product code runs and a changed fixture is not a regression
+3121	3	remove	-	no	left unasserted: the count of block-atom joins	20, 420 and 8,420 are the arithmetic of the helper loops over a literal list
+3122	4	remove	-	no	left unasserted: prefix stability of the seeded block-layer texts	a seeded helper compared with itself; the same-call equality cannot fail and the prefix check reaches no product code
+3123	5	remove	-	no	3673	prefix stability of the generator, asserted on generateInputs itself by the generator spec
+3124	7	kept	-	no	-	population control of the typed-edit differential: the count runs through getInitialValue, so a loader change that silently drops lines from the differential fails here
+3156	9	kept	-	no	-	instrument control: the canonical form separates exactly the 37 known differences of the two parsers over 272 inputs and equates the rest; test helper, no product code
+3157	8	kept	-	no	-	instrument boundary: the strict form adds exactly 13 edge-newline cases the loose form drops
+3158	7	kept	-	yes	-	instrument: pins the written notation of both forms for heading against text with a leading space, which the differ-or-not count leaves free
+3159	7	kept	-	yes	-	instrument: pins the written notation of both forms for heading with trailing hashes, which the differ-or-not count leaves free
+3160	7	kept	-	yes	-	instrument: pins the written notation of both forms for nested heading marker, which the differ-or-not count leaves free
+3161	7	kept	-	yes	-	instrument: pins the written notation of both forms for masked link with spaces in the target, which the differ-or-not count leaves free
+3162	7	kept	-	yes	-	instrument: pins the written notation of both forms for bold and italic nesting order, which the differ-or-not count leaves free
+3163	7	kept	-	yes	-	instrument: pins the written notation of both forms for underscore inside italics, which the differ-or-not count leaves free
+3164	7	kept	-	yes	-	instrument: pins the written notation of both forms for italics across a newline, which the differ-or-not count leaves free
+3165	7	kept	-	yes	-	instrument: pins the written notation of both forms for adjacent inline code, which the differ-or-not count leaves free
+3166	7	kept	-	yes	-	instrument: pins the written notation of both forms for out-of-range timestamp, which the differ-or-not count leaves free
+3167	7	kept	-	yes	-	instrument: pins the written notation of both forms for quote and spoiler nesting order, which the differ-or-not count leaves free
+3168	9	kept	-	no	-	discriminating control of the comparator: a changed mark, a changed space and a changed address each give a different form
+3169	2	remove	-	no	3156	compares one deterministic call with itself; cannot fail
+3170	7	kept	-	no	-	strict against loose on one code block edge newline, both directions; overlaps the 13-case count in part
+3171	7	kept	-	no	-	loose form writes a host-only address in the stored spelling through the native route
+3172	7	kept	-	no	-	storedLinkTarget lowers scheme and host and keeps path and query case
+3173	7	kept	-	no	-	host-only target gains the slash and keeps a title after it
+3174	7	kept	-	no	-	negative row: a mailto target is left as typed
+3175	8	kept	-	no	-	failure path the operator of the Discord command sees: unreachable network names the page and the cause; test helper
+3176	8	kept	-	no	-	failure path: a refused script names the script and the status
+3177	7	kept	-	no	-	reads every listed script and keys them in page order
+3178	7	kept	-	no	-	locates the single module holding every needle among near matches
+3179	8	kept	-	no	-	failure path: no matching module names the predicate and the count 0
+3180	8	kept	-	no	-	failure path: two matching modules are refused with the count
+3181	8	kept	-	no	-	boundary both sides: a build with no startup call or two is refused
+3182	7	kept	-	no	-	attempts of evaluated build code are recorded, an XHR member touched before open included; overlaps the refusal spec in part
+3183	8	kept	-	no	-	chunk names from the name table with the exception branch and an exponent-spelled id
+3184	8	kept	-	no	-	failure path: a runtime with no name table names the table
+3185	7	kept	-	no	-	only chunks holding every needle of a predicate are evaluated; partial matches stay unloaded
+3186	7	kept	-	no	-	refused chunk surfaces as a fetch error on the lazy-chunk route
+3187	8	kept	-	no	-	an XHR reaches no real listener and its address is recorded; the boundary that keeps evaluated Discord code off the network
+3188	7	kept	-	no	-	a WebSocket reaches no real listener; the attempt record overlaps the loaded-build case
+3189	7	kept	-	no	-	fetch rejects with the refusal, which the attempt-only case cannot tell from a fetch that was let through
+3190	2	remove	-	no	left unasserted: the corpus count and distinctness of the frozen fixture files	reads fixture JSON only; no code of the project runs
+3191	2	remove	-	no	left unasserted: the link input count of the frozen fixture files	reads fixture JSON only; no code of the project runs
+3192	2	remove	-	no	left unasserted: the typed-case count and key form of the frozen fixture files	reads fixture JSON only; no code of the project runs
+3193	3	remove	-	no	left unasserted: that every corpus and link input has a frozen webhook tree	cross-checks two fixture files; fails on a fixture regeneration, not on a behaviour
+3194	3	remove	-	no	left unasserted: that every frozen native-box entry sits in its line	checks one fixture file against itself and the corpus keys; no code of the project runs
+3195	2	remove	-	no	left unasserted: one frozen entry of the native box file of the frozen fixture files	reads fixture JSON only; no code of the project runs
+3196	7	kept	-	yes	-	the frozen spans the editor specs use as expected values are re-derived from the pinned wasm by the oracle helper, not from product code; content mask
+3197	6	remove	-	yes	3196	same mask value as content, other frozen table
+3198	7	kept	-	yes	-	field-value mask, a different literal from content
+3199	7	kept	-	yes	-	title mask, a different literal
+3200	7	kept	-	yes	-	title-with-url mask, a different literal with links off
+3201	6	remove	-	yes	3196	same mask value as content, other frozen table
+3202	8	kept	-	no	-	the drift alarm an operator reads: different bytes report no match with both hashes, against hand-held sha256 literals
+3203	7	kept	-	no	-	control: equal bytes report equal and no drift wording
+3204	7	kept	-	no	-	driftReport follows the glue module to the wasm name and fetches that address; only case on the lookup
+3205	8	kept	-	no	-	the whole Discord command exits non-zero with only loopback up, and the spawn itself is checked
+3206	7	kept	-	no	-	the command output names the page; the unit-level fetch case covers the message, not the command
+3207	7	kept	-	no	-	no case of the Discord projects passes offline; passes vacuously only if the spawn fails, which the exit case catches
+3208	7	kept	-	yes	-	hand literal anchoring the oracle helper span of a lone emoji in UTF-16 offsets; helper over the pinned wasm, no product code
+3209	7	kept	-	yes	-	span inside bold: the only literal in this unit that needs the helper to walk nested nodes
+3210	7	kept	-	yes	-	no span inside inline code
+3211	7	kept	-	yes	-	no span inside a code block
+3212	7	kept	-	yes	-	an emoji absent from the site table is still a span; a different input class from the common emoji
+3213	6	remove	-	yes	3209	inside bold again with another emoji
+3214	6	remove	-	yes	3210	inside inline code again with another emoji
+3215	6	remove	-	yes	3211	inside a code block again with another emoji
+3216	7	kept	-	yes	-	a ZWJ sequence is one span of eight units; the multi-code-point boundary
+3217	6	remove	-	yes	3209	inside bold again with a longer emoji

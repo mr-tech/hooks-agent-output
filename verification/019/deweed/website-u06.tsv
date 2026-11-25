@@ -1,0 +1,151 @@
+id	score	verdict	class	generated	covering	reason
+1266	5	remove	-	yes	1206	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; below the iteration boundary, same as 40 lines
+1267	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1268	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1269	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1270	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1271	6	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker
+1272	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1273	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1274	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1275	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1276	5	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; past the 123-line boundary the kept case already pins
+1277	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1278	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1279	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1280	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1281	5	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; past the 123-line boundary the kept case already pins; text is past the field's limit, an input the field excludes
+1282	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; text is past the field's limit, an input the field excludes
+1283	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; text is past the field's limit, an input the field excludes
+1284	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1285	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; text is past the field's limit, an input the field excludes
+1286	6	remove	-	yes	1206	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; surface reaches only the emoji parse and these lines hold no emoji
+1287	6	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; surface reaches only the emoji parse and these lines hold no emoji
+1288	6	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; surface reaches only the emoji parse and these lines hold no emoji
+1289	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1290	6	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; surface reaches only the emoji parse and these lines hold no emoji
+1291	5	remove	-	yes	1206	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; below the iteration boundary, same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1292	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1293	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1294	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1295	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1296	6	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; surface reaches only the emoji parse and these lines hold no emoji
+1297	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1298	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1299	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1300	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1301	5	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji
+1302	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1303	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1304	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1305	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1306	5	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji
+1307	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1308	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1309	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1310	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1311	5	remove	-	yes	1216	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1312	5	remove	-	yes	1207	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1313	5	remove	-	yes	1208	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1314	5	remove	-	yes	1210	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1315	5	remove	-	yes	1210	">> abc" takes the same branches as ">> a": marker length and caret move do not depend on the text after the marker; a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1316	7	kept	-	yes	-	only settle-level check that this quote keystroke throws nothing; the mounted text case overlaps only when the throw escapes the press
+1317	8	kept	-	yes	-	decision row: line types and quote prefixes after this keystroke equal a fresh load; a wrong retype of the edited or following lines fails here and nowhere earlier
+1318	7	kept	-	yes	-	fixed point after the keystroke: a leftover prefix, empty flag or carried mark the shape limb cannot see adds a forced operation
+1319	6	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1320	7	kept	-	yes	-	caret position after the marker moves out of the text: a misplaced or lost caret puts z elsewhere or nowhere
+1321	5	remove	-	yes	1316	below the iteration boundary, same as 40 lines
+1322	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1323	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1324	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1325	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1326	7	kept	-	yes	-	first size at which retyping every following line through per-line normalising overruns the editor's iteration guard; 40 lines stay green on that regression
+1327	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1328	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1329	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1330	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1331	5	remove	-	yes	1326	past the 123-line boundary the kept case already pins
+1332	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1333	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1334	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1335	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines
+1336	5	remove	-	yes	1326	past the 123-line boundary the kept case already pins; text is past the field's limit, an input the field excludes
+1337	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; text is past the field's limit, an input the field excludes
+1338	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; text is past the field's limit, an input the field excludes
+1339	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1340	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; text is past the field's limit, an input the field excludes
+1341	6	remove	-	yes	1316	surface reaches only the emoji parse and these lines hold no emoji
+1342	6	remove	-	yes	1317	surface reaches only the emoji parse and these lines hold no emoji
+1343	6	remove	-	yes	1318	surface reaches only the emoji parse and these lines hold no emoji
+1344	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1345	6	remove	-	yes	1320	surface reaches only the emoji parse and these lines hold no emoji
+1346	5	remove	-	yes	1316	below the iteration boundary, same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1347	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1348	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1349	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1350	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1351	6	remove	-	yes	1326	past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji
+1352	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1353	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1354	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1355	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1356	5	remove	-	yes	1326	past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji
+1357	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1358	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1359	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1360	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1361	5	remove	-	yes	1326	past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji
+1362	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1363	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1364	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1365	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji
+1366	5	remove	-	yes	1326	past the 123-line boundary the kept case already pins; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1367	5	remove	-	yes	1317	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1368	5	remove	-	yes	1318	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1369	5	remove	-	yes	1320	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1370	5	remove	-	yes	1320	a size-dependent failure throws and fails the error limb at 123 first; otherwise same as 40 lines; surface reaches only the emoji parse and these lines hold no emoji; text is past the field's limit, an input the field excludes
+1371	7	kept	-	yes	-	only settle-level check that this quote keystroke throws nothing; the mounted text case overlaps only when the throw escapes the press
+1372	8	kept	-	yes	-	decision row: line types and quote prefixes after this keystroke equal a fresh load; a wrong retype of the edited or following lines fails here and nowhere earlier
+1373	7	kept	-	yes	-	fixed point after the keystroke: a leftover prefix, empty flag or carried mark the shape limb cannot see adds a forced operation
+1374	6	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1375	7	kept	-	yes	-	caret position after the marker moves out of the text: a misplaced or lost caret puts z elsewhere or nowhere
+1376	5	remove	-	yes	1371	only the edited line changes, so line count decides nothing
+1377	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing
+1378	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing
+1379	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1380	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing
+1381	6	remove	-	yes	1371	only the edited line changes, so line count decides nothing
+1382	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing
+1383	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing
+1384	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1385	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing
+1386	5	remove	-	yes	1371	only the edited line changes, so line count decides nothing
+1387	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing
+1388	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing
+1389	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1390	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing
+1391	5	remove	-	yes	1371	only the edited line changes, so line count decides nothing; text is past the field's limit, an input the field excludes
+1392	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing; text is past the field's limit, an input the field excludes
+1393	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing; text is past the field's limit, an input the field excludes
+1394	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1395	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing; text is past the field's limit, an input the field excludes
+1396	6	remove	-	yes	1371	surface reaches only the emoji parse and these lines hold no emoji
+1397	6	remove	-	yes	1372	surface reaches only the emoji parse and these lines hold no emoji
+1398	6	remove	-	yes	1373	surface reaches only the emoji parse and these lines hold no emoji
+1399	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1400	6	remove	-	yes	1375	surface reaches only the emoji parse and these lines hold no emoji
+1401	5	remove	-	yes	1371	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1402	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1403	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1404	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1405	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1406	6	remove	-	yes	1371	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1407	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1408	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1409	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1410	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1411	5	remove	-	yes	1371	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1412	5	remove	-	yes	1372	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1413	5	remove	-	yes	1373	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji
+1414	5	remove	-	yes	1375	a null or ranged selection always moves or drops the z the next limb asserts, so this limb never fails alone
+1415	5	remove	-	yes	1375	only the edited line changes, so line count decides nothing; surface reaches only the emoji parse and these lines hold no emoji

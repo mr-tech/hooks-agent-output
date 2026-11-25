@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+1716	6	remove	-	yes	1706	Backspace removing a leading backtick before a space (embedDescription, 100 lines): under the iteration cap that the 200-line content case crosses; any throw here throws there
+1717	6	remove	-	yes	1697	Backspace removing a leading backtick before a space (embedDescription, 100 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1718	6	remove	-	yes	1698	Backspace removing a leading backtick before a space (embedDescription, 100 lines): same fixed-point check as the 5-line content case with more lines
+1719	5	remove	-	yes	1700	Backspace removing a leading backtick before a space (embedDescription, 100 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1720	6	remove	-	yes	1700	Backspace removing a leading backtick before a space (embedDescription, 100 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1721	6	remove	-	yes	1706	Backspace removing a leading backtick before a space (embedDescription, 200 lines): same over-cap message on a surface whose engine mask equals content's
+1722	6	remove	-	yes	1697	Backspace removing a leading backtick before a space (embedDescription, 200 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1723	6	remove	-	yes	1698	Backspace removing a leading backtick before a space (embedDescription, 200 lines): same fixed-point check as the 5-line content case with more lines
+1724	5	remove	-	yes	1700	Backspace removing a leading backtick before a space (embedDescription, 200 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1725	6	remove	-	yes	1700	Backspace removing a leading backtick before a space (embedDescription, 200 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1726	6	remove	-	yes	1706	Backspace removing a leading backtick before a space (embedDescription, 1000 lines): larger message only; no size-dependent branch beyond the cap the 200-line case already crosses
+1727	6	remove	-	yes	1697	Backspace removing a leading backtick before a space (embedDescription, 1000 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1728	6	remove	-	yes	1698	Backspace removing a leading backtick before a space (embedDescription, 1000 lines): same fixed-point check as the 5-line content case with more lines
+1729	5	remove	-	yes	1700	Backspace removing a leading backtick before a space (embedDescription, 1000 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1730	6	remove	-	yes	1700	Backspace removing a leading backtick before a space (embedDescription, 1000 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1731	7	kept	-	yes	-	backslash typed before a leading backtick: only small-message assertion that the keystroke itself does not throw; a bad path in the own-line emoji settle fails it
+1732	8	kept	-	yes	-	backslash typed before a leading backtick: the keystroke row for retyping every emoji in the unit when the inline-code pair is escaped or unescaped; fails if stale emoji lines are not rebuilt
+1733	7	kept	-	yes	-	backslash typed before a leading backtick: fixed point under a forced normalise; catches leftovers the line shapes do not show (empty spans, unsettled own line)
+1734	5	remove	-	yes	1735	backslash typed before a leading backtick (content, 5 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1735	7	kept	-	yes	-	backslash typed before a leading backtick: caret position after the own line's emoji are lifted or reverted, asserted by literal text
+1736	6	remove	-	yes	1741	backslash typed before a leading backtick (content, 100 lines): under the iteration cap that the 200-line content case crosses; any throw here throws there
+1737	6	remove	-	yes	1732	backslash typed before a leading backtick (content, 100 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1738	6	remove	-	yes	1733	backslash typed before a leading backtick (content, 100 lines): same fixed-point check as the 5-line content case with more lines
+1739	5	remove	-	yes	1735	backslash typed before a leading backtick (content, 100 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1740	6	remove	-	yes	1735	backslash typed before a leading backtick (content, 100 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1741	7	kept	-	yes	-	backslash typed before a leading backtick: first message past Slate's 42-per-dirty-path iteration cap for this keystroke; a per-line normalise of the retyped unit throws here and not at 5 lines
+1742	6	remove	-	yes	1732	backslash typed before a leading backtick (content, 200 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1743	6	remove	-	yes	1733	backslash typed before a leading backtick (content, 200 lines): same fixed-point check as the 5-line content case with more lines
+1744	5	remove	-	yes	1735	backslash typed before a leading backtick (content, 200 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1745	6	remove	-	yes	1735	backslash typed before a leading backtick (content, 200 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1746	6	remove	-	yes	1731	backslash typed before a leading backtick (embedDescription, 5 lines): surface masks are identical, so this repeats the content case
+1747	6	remove	-	yes	1732	backslash typed before a leading backtick (embedDescription, 5 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1748	6	remove	-	yes	1733	backslash typed before a leading backtick (embedDescription, 5 lines): same fixed-point check as the 5-line content case with more lines
+1749	5	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 5 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1750	6	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 5 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1751	6	remove	-	yes	1741	backslash typed before a leading backtick (embedDescription, 100 lines): under the iteration cap that the 200-line content case crosses; any throw here throws there
+1752	6	remove	-	yes	1732	backslash typed before a leading backtick (embedDescription, 100 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1753	6	remove	-	yes	1733	backslash typed before a leading backtick (embedDescription, 100 lines): same fixed-point check as the 5-line content case with more lines
+1754	5	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 100 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1755	6	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 100 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1756	6	remove	-	yes	1741	backslash typed before a leading backtick (embedDescription, 200 lines): same over-cap message on a surface whose engine mask equals content's
+1757	6	remove	-	yes	1732	backslash typed before a leading backtick (embedDescription, 200 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1758	6	remove	-	yes	1733	backslash typed before a leading backtick (embedDescription, 200 lines): same fixed-point check as the 5-line content case with more lines
+1759	5	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 200 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1760	6	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 200 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1761	6	remove	-	yes	1741	backslash typed before a leading backtick (embedDescription, 1000 lines): larger message only; no size-dependent branch beyond the cap the 200-line case already crosses
+1762	6	remove	-	yes	1732	backslash typed before a leading backtick (embedDescription, 1000 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1763	6	remove	-	yes	1733	backslash typed before a leading backtick (embedDescription, 1000 lines): same fixed-point check as the 5-line content case with more lines
+1764	5	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 1000 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1765	6	remove	-	yes	1735	backslash typed before a leading backtick (embedDescription, 1000 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1766	7	kept	-	yes	-	Backspace removing the backslash before a leading backtick: only small-message assertion that the keystroke itself does not throw; a bad path in the own-line emoji settle fails it
+1767	8	kept	-	yes	-	Backspace removing the backslash before a leading backtick: the keystroke row for retyping every emoji in the unit when the inline-code pair is escaped or unescaped; fails if stale emoji lines are not rebuilt
+1768	7	kept	-	yes	-	Backspace removing the backslash before a leading backtick: fixed point under a forced normalise; catches leftovers the line shapes do not show (empty spans, unsettled own line)
+1769	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (content, 5 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1770	7	kept	-	yes	-	Backspace removing the backslash before a leading backtick: caret position after the own line's emoji are lifted or reverted, asserted by literal text
+1771	6	remove	-	yes	1776	Backspace removing the backslash before a leading backtick (content, 100 lines): under the iteration cap that the 200-line content case crosses; any throw here throws there
+1772	6	remove	-	yes	1767	Backspace removing the backslash before a leading backtick (content, 100 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1773	6	remove	-	yes	1768	Backspace removing the backslash before a leading backtick (content, 100 lines): same fixed-point check as the 5-line content case with more lines
+1774	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (content, 100 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1775	6	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (content, 100 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1776	7	kept	-	yes	-	Backspace removing the backslash before a leading backtick: first message past Slate's 42-per-dirty-path iteration cap for this keystroke; a per-line normalise of the retyped unit throws here and not at 5 lines
+1777	6	remove	-	yes	1767	Backspace removing the backslash before a leading backtick (content, 200 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1778	6	remove	-	yes	1768	Backspace removing the backslash before a leading backtick (content, 200 lines): same fixed-point check as the 5-line content case with more lines
+1779	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (content, 200 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1780	6	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (content, 200 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1781	6	remove	-	yes	1766	Backspace removing the backslash before a leading backtick (embedDescription, 5 lines): surface masks are identical, so this repeats the content case
+1782	6	remove	-	yes	1767	Backspace removing the backslash before a leading backtick (embedDescription, 5 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1783	6	remove	-	yes	1768	Backspace removing the backslash before a leading backtick (embedDescription, 5 lines): same fixed-point check as the 5-line content case with more lines
+1784	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 5 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1785	6	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 5 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1786	6	remove	-	yes	1776	Backspace removing the backslash before a leading backtick (embedDescription, 100 lines): under the iteration cap that the 200-line content case crosses; any throw here throws there
+1787	6	remove	-	yes	1767	Backspace removing the backslash before a leading backtick (embedDescription, 100 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1788	6	remove	-	yes	1768	Backspace removing the backslash before a leading backtick (embedDescription, 100 lines): same fixed-point check as the 5-line content case with more lines
+1789	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 100 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1790	6	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 100 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1791	6	remove	-	yes	1776	Backspace removing the backslash before a leading backtick (embedDescription, 200 lines): same over-cap message on a surface whose engine mask equals content's
+1792	6	remove	-	yes	1767	Backspace removing the backslash before a leading backtick (embedDescription, 200 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1793	6	remove	-	yes	1768	Backspace removing the backslash before a leading backtick (embedDescription, 200 lines): same fixed-point check as the 5-line content case with more lines
+1794	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 200 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1795	6	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 200 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1796	6	remove	-	yes	1776	Backspace removing the backslash before a leading backtick (embedDescription, 1000 lines): larger message only; no size-dependent branch beyond the cap the 200-line case already crosses
+1797	6	remove	-	yes	1767	Backspace removing the backslash before a leading backtick (embedDescription, 1000 lines): same line-shape equality as the 5-line content case; no size or surface branch in the stale-line rebuild
+1798	6	remove	-	yes	1768	Backspace removing the backslash before a leading backtick (embedDescription, 1000 lines): same fixed-point check as the 5-line content case with more lines
+1799	5	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 1000 lines): a lost or expanded selection also misplaces the next typed character, so the caret case fails whenever this does
+1800	6	remove	-	yes	1770	Backspace removing the backslash before a leading backtick (embedDescription, 1000 lines): caret handling is confined to the edited line; repeats the 5-line content case
+1801	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1802	6	remove	-	yes	1801	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1803	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1804	6	remove	-	yes	1803	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1805	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1806	6	remove	-	yes	1805	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1807	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1808	6	remove	-	yes	1807	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1809	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1810	6	remove	-	yes	1809	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1811	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1812	6	remove	-	yes	1811	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1813	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1814	6	remove	-	yes	1813	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1815	8	kept	-	yes	-	discriminating control for its keystroke (plain lines with a partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1816	6	remove	-	yes	1815	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1817	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1818	6	remove	-	yes	1817	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1819	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1820	6	remove	-	yes	1819	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1821	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1822	6	remove	-	yes	1821	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1823	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1824	6	remove	-	yes	1823	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1825	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1826	6	remove	-	yes	1825	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1827	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1828	6	remove	-	yes	1827	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1829	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1830	6	remove	-	yes	1829	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1831	8	kept	-	yes	-	discriminating control for its keystroke (emoji lines with no partner backtick): only assertion that the edit leaves every other line untouched and does not throw at each size when one conjunct of the pairing is absent
+1832	6	remove	-	yes	1831	same control on embedDescription, whose engine mask equals content's; adds only a 1000-line size with no size-dependent branch
+1833	7	kept	-	yes	-	line merge forms a fence only the editor counts, emoji line as last line: fixed point after the keystroke; specimen text not reducible to another case from the code
+1834	6	remove	-	yes	1833	Backspace at the start of line 1 applies the same merge and leaves the same selection as Delete at the end of line 0 on the same text
+1835	7	kept	-	yes	-	typed backtick forms a fence only the editor counts, emoji line as last line: fixed point after the keystroke; specimen text not reducible to another case from the code
+1836	7	kept	-	yes	-	line merge forms a fence only the editor counts, emoji line as last line: fixed point after the keystroke; specimen text not reducible to another case from the code
+1837	6	remove	-	yes	1836	Backspace at the start of line 1 applies the same merge and leaves the same selection as Delete at the end of line 0 on the same text
+1838	7	kept	-	yes	-	typed backtick forms a fence only the editor counts, emoji line as last line: fixed point after the keystroke; specimen text not reducible to another case from the code
+1839	7	kept	-	yes	-	line merge forms a fence only the editor counts, emoji line as a line after it: fixed point after the keystroke; specimen text not reducible to another case from the code
+1840	6	remove	-	yes	1839	Backspace at the start of line 1 applies the same merge and leaves the same selection as Delete at the end of line 0 on the same text
+1841	7	kept	-	yes	-	typed backtick forms a fence only the editor counts, emoji line as a line after it: fixed point after the keystroke; specimen text not reducible to another case from the code
+1842	7	kept	-	yes	-	line merge forms a fence only the editor counts, emoji line as a line after it: fixed point after the keystroke; specimen text not reducible to another case from the code
+1843	6	remove	-	yes	1842	Backspace at the start of line 1 applies the same merge and leaves the same selection as Delete at the end of line 0 on the same text
+1844	7	kept	-	yes	-	typed backtick forms a fence only the editor counts, emoji line as a line after it: fixed point after the keystroke; specimen text not reducible to another case from the code
+1845	8	kept	-	yes	-	fence opened by an edit at a point with no selection: the empty own-line set, so the edited line itself is replaced
+1846	8	kept	-	yes	-	fence opened while a range sits inside the lines it retypes: own lines go through the retype-in-place branch and the range must survive
+1847	7	kept	-	yes	-	inline pair formed by an edit at a point with no selection: edited line is rebuilt with the rest of the unit
+1848	8	kept	-	yes	-	inline pair formed while a range sits in the unit: the two own lines are skipped by the rebuild and must be reverted by the settle pass with the range intact
+1849	7	kept	-	yes	-	inline pair formed while the caret is in another unit below a code block: remove/insert of each line above must leave the caret path unchanged
+1850	7	kept	-	yes	-	inline pair broken with no selection: every line re-lifts its emoji through the rebuild
+1851	8	kept	-	yes	-	inline pair broken while a range sits in the unit: own lines re-lift through node inserts and the range must survive
+1852	7	kept	-	yes	-	inline pair broken while the caret is in another unit below a code block: selection survives the re-lift above it
+1853	8	kept	-	yes	-	only case driving a top-level remove_node: the neighbour of the removed partner line must be noted as edited for the unit to re-lift
+1854	8	kept	-	yes	-	only case driving merge_node of the partner line into an escaping backslash: the merged-into line must be noted as edited
+1855	8	kept	-	yes	-	two units edited in one change: both must be rebuilt in a single pass, the only multi-unit stale case
+1856	8	kept	-	yes	-	fence opened over lines holding a typographic quote: only assertion that lines rebuilt as code come out with straight quotes
+1857	7	kept	-	yes	-	fence removed over typographic-quote lines: rebuilt lines are straightened and their emoji lifted on the straightened text
+1858	6	remove	-	yes	1857	closing fence typed mid-message: same to-text rebuild with straightening as the fence-removed case, over a shorter span
+1859	6	remove	-	yes	1856	closing fence removed mid-message: same to-code rebuild with straightening as the fence-opened case, over a shorter span
+1860	7	kept	-	yes	-	inline pair formed over typographic-quote lines: straightening on the stale-emoji rebuild path, which the fence cases do not reach
+1861	6	remove	-	yes	1860	same as the 5-line case with 100 lines; no size-dependent branch below the iteration cap
+1862	7	kept	-	yes	-	only typographic-quote message past the iteration cap for the pairing keystroke; throws if quotes are left to per-line normalisation
+1863	7	kept	-	yes	-	inline pair broken over typographic-quote lines: emoji re-lifted on straightened text via the stale-emoji path
+1864	6	remove	-	yes	1863	same as the 5-line case with 100 lines; no size-dependent branch below the iteration cap
+1865	7	kept	-	yes	-	only typographic-quote message past the iteration cap for the unpairing keystroke; throws if quotes are left to per-line normalisation

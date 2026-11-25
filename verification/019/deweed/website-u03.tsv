@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+630	7	kept	-	yes	-	class test: 400 generator texts typed char by char into the mounted single-line editor must reach onChange unchanged; only single-line run of this input class
+631	6	remove	-	no	633	last write of a after typing a in a full-markdown editor; 633 asserts the whole write sequence for the same route
+632	6	remove	-	no	637	one-character smoke of single-line typing; the corpus run in a single-line editor asserts the same last-write behaviour
+633	8	kept	-	no	-	pins one onChange write per typed character with the exact sequence, asserted nowhere else
+634	7	kept	-	no	-	typed line break yields a\nb and two editor lines through the mounted editor; corpus run overlaps on the text only
+635	4	remove	-	no	633	pins when the change report lands relative to a synchronous act - harness timing a refactor moves, not a user-visible regression; the write itself is in 633
+636	7	kept	-	yes	-	class test: 272-case corpus typed into the full-markdown editor reaches the message unchanged
+637	7	kept	-	yes	-	class test: corpus typed into the single-line editor; other mode and surface than 636
+790	7	kept	-	yes	-	table row: preview drawn for plain text must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+791	7	kept	-	yes	-	table row: preview drawn for bold must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+792	7	kept	-	yes	-	table row: preview drawn for italic must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+793	7	kept	-	yes	-	table row: preview drawn for underline must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+794	7	kept	-	yes	-	table row: preview drawn for strikethrough must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+795	7	kept	-	yes	-	table row: preview drawn for spoiler must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+796	7	kept	-	yes	-	table row: preview drawn for inline code must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+797	7	kept	-	yes	-	table row: preview drawn for second-level heading must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+798	7	kept	-	yes	-	table row: preview drawn for subtext must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+799	7	kept	-	yes	-	table row: preview drawn for quote must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+800	7	kept	-	yes	-	table row: preview drawn for unordered list must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+801	7	kept	-	yes	-	table row: preview drawn for ordered list start number must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+802	7	kept	-	yes	-	table row: preview drawn for masked link must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+803	7	kept	-	yes	-	table row: preview drawn for bare link must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+804	7	kept	-	yes	-	table row: preview drawn for code block with language must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+805	7	kept	-	yes	-	table row: preview drawn for code block without language must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+806	7	kept	-	yes	-	table row: preview drawn for unicode emoji must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+807	7	kept	-	yes	-	table row: preview drawn for custom emoji must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+808	7	kept	-	yes	-	table row: preview drawn for animated custom emoji must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+809	7	kept	-	yes	-	table row: preview drawn for line break must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+810	7	kept	-	yes	-	table row: preview drawn for user mention must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+811	8	kept	-	yes	-	table row: <@!id> must draw as the same user mention as <@id>; the nickname-mark form is asserted nowhere else on the drawn preview
+812	7	kept	-	yes	-	table row: preview drawn for role mention must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+813	7	kept	-	yes	-	table row: preview drawn for channel mention without list must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+814	7	kept	-	yes	-	table row: preview drawn for everyone must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+815	7	kept	-	yes	-	table row: preview drawn for here must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+816	7	kept	-	yes	-	table row: preview drawn for timestamp seconds and style must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+817	7	kept	-	yes	-	table row: preview drawn for bare timestamp must map to a literal node, independent of the engine tree; fails when the renderer changes that element; corpus slices overlap in part
+818	7	kept	-	no	-	nesting: bold inside a quote must sit inside the quote node of the drawn preview; literal expectation
+819	6	remove	-	yes	832	drawn preview equals engine tree on one hand-picked text; same comparison the twelve corpus slices make over 1,900+ inputs
+820	6	remove	-	yes	832	drawn preview equals engine tree on one hand-picked text; same comparison the twelve corpus slices make over 1,900+ inputs
+821	6	remove	-	yes	832	drawn preview equals engine tree on one hand-picked text; same comparison the twelve corpus slices make over 1,900+ inputs
+822	5	remove	-	no	832	string equality of the two visible forms for one text; the slices assert the same equality through visibleDifferences
+823	9	kept	-	no	-	discriminating control of the DOM-against-engine comparison: bold drawn against an italic tree must report exactly one difference
+824	9	kept	-	no	-	discriminating control of the loose form the legacy-equality class test reads: a known language must survive, only an unknown one is blanked; no other case would fail if the helper blanked every language
+825	7	kept	-	no	-	preview given a channel list shows the name while the element still carries the id; fails if the id attribute or the name lookup is dropped
+826	7	kept	-	no	-	editable timestamp drawn as popover trigger still carries seconds and style; only read of the onChange branch markup
+827	9	kept	-	no	-	discriminating control: a drawn timestamp must differ from a tree of another value and of another style, and equal its own
+828	9	kept	-	no	-	discriminating control: a drawn mention must differ from another id and another kind, and equal its own
+829	2	remove	-	no	4823	exercises only the test helper collapseRepeatedStyles; a helper that stopped collapsing would turn the legacy-equality class test red by itself
+830	9	kept	-	no	-	discriminating control of collapseRepeatedStyles: different styles and sibling repeats must stay apart, else the legacy-equality class test goes blind with no case failing
+831	2	remove	-	no	left unasserted: floor on the number of inputs the preview slices hold after exclusion	counts test inputs through helpers and the wasm dependency only, no production code; note it is the only floor keeping the slices from passing on an emptied population
+832	7	kept	-	yes	-	class test slice 0: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+833	7	kept	-	yes	-	class test slice 1: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+834	7	kept	-	yes	-	class test slice 2: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+835	7	kept	-	yes	-	class test slice 3: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+836	7	kept	-	yes	-	class test slice 4: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+837	7	kept	-	yes	-	class test slice 5: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+838	7	kept	-	yes	-	class test slice 6: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+839	7	kept	-	yes	-	class test slice 7: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+840	7	kept	-	yes	-	class test slice 8: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+841	7	kept	-	yes	-	class test slice 9: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+842	7	kept	-	yes	-	class test slice 10: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+843	7	kept	-	yes	-	class test slice 11: drawn content preview equals the engine tree in the visible form over its own twelfth of the held inputs
+844	2	remove	-	no	left unasserted: that the excluded inputs hold only the named mentions or an oversize timestamp	asserts each excluded input matches the same regex that excluded it; only left.length > 0 can fail
+845	5	remove	-	no	823	same control on the same inputs as 823 (bold drawn against italic tree) through an equivalent mount helper, with a weaker assertion
+846	7	kept	-	no	-	unicode emoji drawn as Twemoji image: alt, address, 22 px, not draggable, no large class
+847	8	kept	-	no	-	boundary: characters Twemoji has no file for are drawn as text with no image, on real engine output
+848	7	kept	-	no	-	typed :name: drawn with the character as alt text
+849	7	kept	-	no	-	custom emoji image: exact alt, title and CDN address; 807 overlaps on id and name only
+850	6	remove	-	no	808	animated custom emoji drawn as gif; 808 already reads the gif form and id from the same drawn image
+851	8	kept	-	no	-	emoji-only message draws at 32 px with the large class; only preview-level assertion of the large branch
+852	7	kept	-	no	-	every emoji large when only emoji and spaces, unicode and custom mixed
+853	8	kept	-	no	-	boundary: embed size 18 px wins over large for an emoji-only message
+854	5	remove	-	no	846	22 px beside text; 846 asserts the same width and no large class on another text
+855	7	kept	-	yes	-	editing the one timestamp rewrites only its characters through the mounted popover
+856	7	kept	-	yes	-	identical duplicates, first edited: second must stay untouched
+857	9	kept	-	yes	-	the one fixture where the index alone decides: second of two identical timestamps; a search by text rewrites the first
+858	8	kept	-	yes	-	boundary: a timestamp inside a code span is not counted as a drawn timestamp
+859	8	kept	-	yes	-	boundary: a timestamp inside a code block is not counted
+860	8	kept	-	yes	-	boundary: an escaped timestamp is not counted
+861	8	kept	-	yes	-	boundary: an invalid style letter is not counted
+862	7	kept	-	yes	-	timestamp nested in a spoiler is found and rewritten in place
+863	7	kept	-	yes	-	timestamp after a spoiler-nested one keeps its own index
+864	8	kept	-	yes	-	boundary: a timestamp in a link label stays text and is not counted
+865	8	kept	-	yes	-	bare form gains a style letter on edit; only row where the rewrite changes length
+866	6	remove	-	yes	857	middle of three: index selection among several, as 857 with other data
+867	8	kept	-	no	-	index stays right after the source grows in front under a mounted preview; a stale position rewrites the wrong characters
+868	6	remove	-	no	867	same stale-source behaviour as 867 with timestamps added between and after
+869	8	kept	-	no	-	user-visible failure path: a changed timestamp must show the new time, not the first drawn
+870	8	kept	-	yes	-	decision-table row: style t against a literal text, asserted nowhere else
+871	8	kept	-	yes	-	decision-table row: style T against a literal text, asserted nowhere else
+872	8	kept	-	yes	-	decision-table row: style d against a literal text, asserted nowhere else
+873	8	kept	-	yes	-	decision-table row: style D against a literal text, asserted nowhere else
+874	8	kept	-	yes	-	decision-table row: style f against a literal text, asserted nowhere else
+875	8	kept	-	yes	-	decision-table row: style F against a literal text, asserted nowhere else
+876	8	kept	-	yes	-	decision-table row: style s against a literal text, asserted nowhere else
+877	8	kept	-	yes	-	decision-table row: style S against a literal text, asserted nowhere else
+878	8	kept	-	no	-	bare timestamp defaults to f; literal expectation
+879	8	kept	-	no	-	R style as relative time against a fixed clock
+880	8	kept	-	no	-	invalid style letter stays source text and draws no timestamp
+881	8	kept	-	no	-	s and S follow the viewer zone once mounted
+882	8	kept	-	no	-	boundary: UTC before mount whatever the zone; the hydration-safe branch
+883	8	kept	-	no	-	s follows a loaded dayjs locale (en-GB)
+884	8	kept	-	no	-	fallback: a tag dayjs has no file for reads in the resolved language
+916	8	kept	-	no	-	wiring row: message content editor is given the content surface; a wrong surface parses with the wrong mask
+917	8	kept	-	no	-	wiring row: text display editor is given v2Text
+918	8	kept	-	no	-	wiring rows: embed without address gives title, description, field name and field value their surfaces
+919	9	kept	-	no	-	the one fixture where the embed address alone decides: title and field names move to embedTitleWithUrl
+923	8	kept	-	yes	-	class test on embedDescription: editor colouring equals that surface preview over 2,200+ inputs with a named residue; only editor-against-preview assertion for this surface
+924	8	kept	-	yes	-	class test on fieldValue: editor colouring equals that surface preview over 2,200+ inputs with a named residue; only editor-against-preview assertion for this surface
+925	8	kept	-	yes	-	class test on embedTitle: editor colouring equals that surface preview over 2,200+ inputs with a named residue; only editor-against-preview assertion for this surface
+926	8	kept	-	yes	-	class test on embedTitleWithUrl: editor colouring equals that surface preview over 2,200+ inputs with a named residue; only editor-against-preview assertion for this surface
+927	8	kept	-	yes	-	class test on v2Text: editor colouring equals that surface preview over 2,200+ inputs with a named residue; only editor-against-preview assertion for this surface
+928	2	remove	-	no	930	asserts the size of highlight.js own language list, no production code; 930 already fails on an empty list through its nested > 50 floor
+929	7	kept	-	no	-	literal expectation: nested scope character carries outer and own class through the decorator
+930	8	kept	-	no	-	class test: decorator classes equal highlight.js HTML per character in every language
+931	7	kept	-	no	-	no empty or out-of-node range on code lines in every language; range-bounds cases cover other inputs
+932	8	kept	-	no	-	boundary: second text node of a code line is coloured from its own offset
+933	7	kept	-	no	-	third text node: offset must sum both earlier nodes, which 932 cannot tell from previous-sibling-only
+934	8	kept	-	no	-	unknown language draws no class
+935	7	kept	-	yes	-	copy of a whole line writes the emoji element source between its neighbours to the clipboard
+936	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+937	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+938	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+939	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+940	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+941	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+942	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+943	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+944	5	remove	-	yes	935	same copy route with another source string; production copies element.source verbatim, no branch on its form
+945	8	kept	-	no	-	boundary: cut with a collapsed caret removes nothing
+946	8	kept	-	no	-	cut of a range removes it and copies it
+947	8	kept	-	no	-	copy of a range copies without removing; the cut flag alone separates it from 946
+948	8	kept	-	no	-	cut on a void emoji with a collapsed caret removes the element and copies its source
+949	7	kept	-	no	-	emoji element image takes alt, title, src from the element at 22 px
+950	8	kept	-	no	-	size decision: custom emoji and any emoji in an embed at 18 px
+951	7	kept	-	no	-	inline void wrapper carries the embed mark only in an embed
+952	7	kept	-	yes	-	typed line: emoji lifted to an element with every other character kept, literal layout
+953	7	kept	-	yes	-	escaped asterisk before an emoji stays text, emoji still lifted
+954	8	kept	-	yes	-	boundary: an escaped emoji stays text while the next one is lifted
+955	7	kept	-	yes	-	emoji after a name-like prefix and a second one after a space both lifted
+956	7	kept	-	yes	-	a typed name between letters is lifted
+957	7	kept	-	yes	-	custom emoji at line start lifted with an empty leading text
+958	8	kept	-	no	-	boundary: emoji typed into a fenced code line stays text
+959	8	kept	-	no	-	element goes back to text when a code span closes around it and returns when a backtick is removed
+960	7	kept	-	no	-	emoji arriving as an inserted text node in a settled line is lifted
+961	8	kept	-	no	-	element re-decided to the longer emoji when a skin tone is typed after it
+962	7	kept	-	yes	-	edit on the next line of the unit puts the first line element back to text
+963	7	kept	-	yes	-	same with a line in front, which an offset counted from the line rather than the unit would miss
+964	7	kept	-	yes	-	completed link around the emoji puts it back to text
+965	8	kept	-	yes	-	boundary: an unfinished "](" leaves the emoji an element; the generated title says back to text but the expectation is the element

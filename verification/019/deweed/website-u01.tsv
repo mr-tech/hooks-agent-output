@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+124	7	kept	-	no	-	mounts the wrapper under a guild provider; fails if the wrapper stops handing the provider channel list to the parser
+125	7	kept	-	no	-	thread lookup through the mounted wrapper; overlaps the later parser-level mention table only in part and sits earlier
+126	7	kept	-	no	-	empty list is distinct from no provider; fails if an empty list is drawn as a name or crashes
+127	8	kept	-	no	-	only case where the list changes under a mounted memoised wrapper; fails if channels are read non-reactively
+128	8	kept	-	no	-	wrapper mounted with no guild provider must render the id form, not throw; earliest assertion of that failure path
+133	7	kept	-	no	-	provider must start the engine on mount and report pending; fails if the start call is dropped from the mount effect
+134	7	kept	-	no	-	subscription delivers a state change to a mounted reader; fails if the hook stops subscribing
+135	6	remove	-	no	134	same subscription pass-through as the resolved case with another state value; the provider has no branch on rejected
+136	7	kept	-	no	-	snapshot read at mount, distinct from the subscription path; fails if state were held from an initial pending
+196	7	kept	-	yes	-	content call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+197	7	kept	-	yes	-	title call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+198	7	kept	-	yes	-	description call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+199	7	kept	-	yes	-	field name call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+200	7	kept	-	yes	-	field value call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+201	7	kept	-	yes	-	linked title call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+202	7	kept	-	yes	-	text display call site of the preview page draws the channel name from the guild list; each surface is its own call site, overlapping the wrapper case only in part
+203	8	kept	-	yes	-	only page-level assertion that the preview page, which has no guild provider, still renders and draws the id form
+204	6	remove	-	yes	203	every case mounts the same page and already waits for all seven pills; the no-provider id form has one mechanism, so title cannot fail without the content case failing
+205	6	remove	-	yes	203	every case mounts the same page and already waits for all seven pills; the no-provider id form has one mechanism, so description cannot fail without the content case failing
+206	6	remove	-	yes	203	every case mounts the same page and already waits for all seven pills; the no-provider id form has one mechanism, so field name cannot fail without the content case failing
+207	6	remove	-	yes	203	every case mounts the same page and already waits for all seven pills; the no-provider id form has one mechanism, so field value cannot fail without the content case failing
+208	6	remove	-	yes	203	every case mounts the same page and already waits for all seven pills; the no-provider id form has one mechanism, so linked title cannot fail without the content case failing
+209	6	remove	-	yes	203	every case mounts the same page and already waits for all seven pills; the no-provider id form has one mechanism, so text display cannot fail without the content case failing
+243	8	kept	-	no	-	control row: field-name links are drawn as links when the embed has no address; pairs with the with-address row
+244	9	kept	-	no	-	the one fixture in which the embed address alone turns field-name links off; fails if the field name is parsed on the wrong surface
+309	7	kept	-	no	-	edit reaches the held message while the editor is still open; fails if the write is deferred to blur
+310	6	remove	-	no	309	same immediate-write path with three edits instead of one; no plausible change fails this and leaves the single-edit case passing
+311	9	kept	-	no	-	focused with markdown present: the engine-pending conjunct alone keeps the editor closed, and rejected opens it
+312	9	kept	-	no	-	engine settled with markdown present: the focus conjunct alone decides that no editor is held
+313	7	kept	-	no	-	positive control for the drawer gate: editor present once the engine has resolved
+314	8	kept	-	no	-	rejected engine still opens the editor; fails if the gate is narrowed to resolved only
+315	9	kept	-	no	-	markdown present: the engine-pending conjunct alone withholds the editor in the drawer
+316	9	kept	-	no	-	engine settled: the missing-markdown conjunct alone withholds the editor in the drawer
+363	8	kept	-	no	-	only mounted assertion that the editor recolours when the engine resolves; fails if the decorate memo drops its engine dependency
+364	7	kept	-	no	-	control for the surface pair: masked link label coloured on content; also what makes the title-surface case non-vacuous
+365	8	kept	-	no	-	surface prop reaches the decorator: link off on the title-with-address mask; relies on the engine started by the first case of the file
+366	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): base row: a single lifted emoji must flatten back to its source
+367	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): zero-width joiners must survive lift and flatten
+368	6	remove	-	yes	366	full-markdown, opened on stored text (initial lift): text arrives whole, so this is one more astral emoji span, the Unicode emoji row with other data
+369	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): span starts on an ASCII digit and holds U+FE0F and U+20E3
+370	6	remove	-	yes	366	full-markdown, opened on stored text (initial lift): text arrives whole, so this is one more astral emoji span, the Unicode emoji row with other data
+371	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): tag code points must survive lift and flatten
+372	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): BMP base plus variation selector must be kept
+373	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): only single-code-unit emoji form; pairs with the variation-selector row
+374	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): astral character the engine does not know stays text and is saved whole
+375	8	kept	-	yes	-	full-markdown, opened on stored text (initial lift): the row where source differs from the drawn character: the name, not the glyph, must be saved
+376	6	remove	-	yes	375	full-markdown, opened on stored text (initial lift): text arrives whole, so this is the name row (source differs from glyph) with other data
+377	6	remove	-	yes	383	full-markdown, opened on stored text (initial lift): text arrives whole, so this is a lifted span with text either side, the between-words row with other data
+378	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): custom emoji span with its own alt and title
+379	6	remove	-	yes	378	full-markdown, opened on stored text (initial lift): the animated form takes the same editor path as the custom emoji row; only the engine tells them apart
+380	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): emoji nested inside a link node
+381	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): emoji inside a link address
+382	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): name inside an angle-bracket address
+383	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): text on both sides of the lifted span: non-zero offsets
+384	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): two adjacent inline elements with no text between them
+385	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): emoji nested inside a modifier node
+386	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): emoji inside a code span stays text
+387	8	kept	-	yes	-	full-markdown, opened on stored text (initial lift): only multi-line form: fenced code lines are skipped by the lift and joined back
+388	7	kept	-	yes	-	full-markdown, opened on stored text (initial lift): escaped emoji
+389	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): base row: a single lifted emoji must flatten back to its source
+390	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): zero-width joiners must survive lift and flatten
+391	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): modifier joins an already lifted element
+392	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): span starts on an ASCII digit and holds U+FE0F and U+20E3
+393	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): second regional indicator joins the first
+394	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): tag code points must survive lift and flatten
+395	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): BMP base plus variation selector must be kept
+396	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): only single-code-unit emoji form; pairs with the variation-selector row
+397	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): astral character the engine does not know stays text and is saved whole
+398	8	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): the row where source differs from the drawn character: the name, not the glyph, must be saved
+399	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): second colon group extends an already lifted name
+400	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): colons around a lifted emoji must not be swallowed while typing
+401	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): custom emoji span with its own alt and title
+402	6	remove	-	yes	401	full-markdown, typed a code point at a time (normaliser transitions): the animated form takes the same editor path as the custom emoji row; only the engine tells them apart
+403	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): emoji nested inside a link node
+404	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): emoji inside a link address
+405	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): name inside an angle-bracket address
+406	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): text on both sides of the lifted span: non-zero offsets
+407	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): two adjacent inline elements with no text between them
+408	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): emoji nested inside a modifier node
+409	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): emoji inside a code span stays text
+410	8	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): only multi-line form: fenced code lines are skipped by the lift and joined back
+411	7	kept	-	yes	-	full-markdown, typed a code point at a time (normaliser transitions): escaped emoji
+412	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): base row: a single lifted emoji must flatten back to its source
+413	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): zero-width joiners must survive lift and flatten
+414	6	remove	-	yes	412	full-markdown, pasted whole (paste handler and normaliser): text arrives whole, so this is one more astral emoji span, the Unicode emoji row with other data
+415	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): span starts on an ASCII digit and holds U+FE0F and U+20E3
+416	6	remove	-	yes	412	full-markdown, pasted whole (paste handler and normaliser): text arrives whole, so this is one more astral emoji span, the Unicode emoji row with other data
+417	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): tag code points must survive lift and flatten
+418	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): BMP base plus variation selector must be kept
+419	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): only single-code-unit emoji form; pairs with the variation-selector row
+420	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): astral character the engine does not know stays text and is saved whole
+421	8	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): the row where source differs from the drawn character: the name, not the glyph, must be saved
+422	6	remove	-	yes	421	full-markdown, pasted whole (paste handler and normaliser): text arrives whole, so this is the name row (source differs from glyph) with other data
+423	6	remove	-	yes	429	full-markdown, pasted whole (paste handler and normaliser): text arrives whole, so this is a lifted span with text either side, the between-words row with other data
+424	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): custom emoji span with its own alt and title
+425	6	remove	-	yes	424	full-markdown, pasted whole (paste handler and normaliser): the animated form takes the same editor path as the custom emoji row; only the engine tells them apart
+426	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): emoji nested inside a link node
+427	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): emoji inside a link address
+428	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): name inside an angle-bracket address
+429	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): text on both sides of the lifted span: non-zero offsets
+430	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): two adjacent inline elements with no text between them
+431	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): emoji nested inside a modifier node
+432	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): emoji inside a code span stays text
+433	8	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): only multi-line form: fenced code lines are skipped by the lift and joined back
+434	7	kept	-	yes	-	full-markdown, pasted whole (paste handler and normaliser): escaped emoji
+435	7	kept	-	yes	-	single-line, opened on stored text (initial lift): base row: a single lifted emoji must flatten back to its source
+436	7	kept	-	yes	-	single-line, opened on stored text (initial lift): zero-width joiners must survive lift and flatten
+437	6	remove	-	yes	435	single-line, opened on stored text (initial lift): text arrives whole, so this is one more astral emoji span, the Unicode emoji row with other data
+438	7	kept	-	yes	-	single-line, opened on stored text (initial lift): span starts on an ASCII digit and holds U+FE0F and U+20E3
+439	6	remove	-	yes	435	single-line, opened on stored text (initial lift): text arrives whole, so this is one more astral emoji span, the Unicode emoji row with other data
+440	7	kept	-	yes	-	single-line, opened on stored text (initial lift): tag code points must survive lift and flatten
+441	7	kept	-	yes	-	single-line, opened on stored text (initial lift): BMP base plus variation selector must be kept
+442	7	kept	-	yes	-	single-line, opened on stored text (initial lift): only single-code-unit emoji form; pairs with the variation-selector row
+443	7	kept	-	yes	-	single-line, opened on stored text (initial lift): astral character the engine does not know stays text and is saved whole
+444	8	kept	-	yes	-	single-line, opened on stored text (initial lift): the row where source differs from the drawn character: the name, not the glyph, must be saved
+445	6	remove	-	yes	444	single-line, opened on stored text (initial lift): text arrives whole, so this is the name row (source differs from glyph) with other data
+446	6	remove	-	yes	452	single-line, opened on stored text (initial lift): text arrives whole, so this is a lifted span with text either side, the between-words row with other data
+447	7	kept	-	yes	-	single-line, opened on stored text (initial lift): custom emoji span with its own alt and title
+448	6	remove	-	yes	447	single-line, opened on stored text (initial lift): the animated form takes the same editor path as the custom emoji row; only the engine tells them apart
+449	7	kept	-	yes	-	single-line, opened on stored text (initial lift): emoji nested inside a link node
+450	7	kept	-	yes	-	single-line, opened on stored text (initial lift): emoji inside a link address
+451	7	kept	-	yes	-	single-line, opened on stored text (initial lift): name inside an angle-bracket address
+452	7	kept	-	yes	-	single-line, opened on stored text (initial lift): text on both sides of the lifted span: non-zero offsets
+453	7	kept	-	yes	-	single-line, opened on stored text (initial lift): two adjacent inline elements with no text between them
+454	7	kept	-	yes	-	single-line, opened on stored text (initial lift): emoji nested inside a modifier node
+455	7	kept	-	yes	-	single-line, opened on stored text (initial lift): emoji inside a code span stays text
+456	7	kept	-	yes	-	single-line, opened on stored text (initial lift): escaped emoji
+457	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): base row: a single lifted emoji must flatten back to its source
+458	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): zero-width joiners must survive lift and flatten
+459	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): modifier joins an already lifted element
+460	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): span starts on an ASCII digit and holds U+FE0F and U+20E3
+461	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): second regional indicator joins the first
+462	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): tag code points must survive lift and flatten
+463	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): BMP base plus variation selector must be kept
+464	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): only single-code-unit emoji form; pairs with the variation-selector row
+465	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): astral character the engine does not know stays text and is saved whole
+466	8	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): the row where source differs from the drawn character: the name, not the glyph, must be saved
+467	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): second colon group extends an already lifted name
+468	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): colons around a lifted emoji must not be swallowed while typing
+469	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): custom emoji span with its own alt and title
+470	6	remove	-	yes	469	single-line, typed a code point at a time (normaliser transitions): the animated form takes the same editor path as the custom emoji row; only the engine tells them apart
+471	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): emoji nested inside a link node
+472	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): emoji inside a link address
+473	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): name inside an angle-bracket address
+474	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): text on both sides of the lifted span: non-zero offsets
+475	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): two adjacent inline elements with no text between them
+476	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): emoji nested inside a modifier node
+477	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): emoji inside a code span stays text
+478	7	kept	-	yes	-	single-line, typed a code point at a time (normaliser transitions): escaped emoji
+479	7	kept	-	yes	-	single-line, pasted whole (paste handler and normaliser): base row: a single lifted emoji must flatten back to its source

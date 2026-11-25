@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+1116	8	kept	-	yes	-	closing-fence backtick typed mid-message: first size where the retyped half of the message exceeds Slate's 42-per-dirty-path normalise budget; the editor-crash failure path if rebuilt lines become dirty paths, asserted nowhere else for this keystroke
+1117	6	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1118	6	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1119	6	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1120	6	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1121	5	remove	-	yes	1096	closing-fence backtick typed mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1122	5	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1123	5	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1124	5	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1125	5	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1126	5	remove	-	yes	1096	closing-fence backtick typed mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1127	5	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1128	5	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1129	5	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1130	5	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1131	5	remove	-	yes	1096	closing-fence backtick typed mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1132	5	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1133	5	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1134	5	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1135	5	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1136	5	remove	-	yes	1096	closing-fence backtick typed mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1137	5	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1138	5	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1139	5	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1140	5	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1141	5	remove	-	yes	1116	closing-fence backtick typed mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1142	5	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1143	5	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1144	5	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1145	5	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1146	6	remove	-	yes	1116	closing-fence backtick typed mid-message, no error: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1147	6	remove	-	yes	1097	closing-fence backtick typed mid-message, line shapes equal a fresh load: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1148	6	remove	-	yes	1098	closing-fence backtick typed mid-message, forced normalise is a no-op: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1149	6	remove	-	yes	1100	closing-fence backtick typed mid-message, collapsed selection: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1150	6	remove	-	yes	1100	closing-fence backtick typed mid-message, next character lands at the caret: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1151	7	kept	-	yes	-	Backspace on the closing fence mid-message: the only case where the keystroke throwing is asserted at the small size; overlaps the shape limb only in part
+1152	8	kept	-	yes	-	Backspace on the closing fence mid-message: the decision-table row for how the lines below are retyped, asserted nowhere else; oracle is the production loader, so it pins edit-equals-load, not the fence/quote rule itself
+1153	7	kept	-	yes	-	Backspace on the closing fence mid-message: the settled document is a normaliser fixed point; fails if the keystroke leaves a line the normaliser would still change
+1154	6	remove	-	yes	1155	Backspace on the closing fence mid-message: a null or expanded selection also changes the text the next-character limb compares, so this cannot fail without that case failing
+1155	7	kept	-	yes	-	Backspace on the closing fence mid-message: caret stays at the edited fence end after the lines below are replaced; literal expected text
+1156	6	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1157	6	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1158	6	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1159	6	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1160	6	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1161	6	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1162	6	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1163	6	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1164	6	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1165	6	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1166	6	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1167	6	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1168	6	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1169	6	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1170	6	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1171	8	kept	-	yes	-	Backspace on the closing fence mid-message: first size where the retyped half of the message exceeds Slate's 42-per-dirty-path normalise budget; the editor-crash failure path if rebuilt lines become dirty paths, asserted nowhere else for this keystroke
+1172	6	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1173	6	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1174	6	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1175	6	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1176	5	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1177	5	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1178	5	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1179	5	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1180	5	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1181	5	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1182	5	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1183	5	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1184	5	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1185	5	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1186	5	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1187	5	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1188	5	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1189	5	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1190	5	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1191	5	remove	-	yes	1151	Backspace on the closing fence mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1192	5	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1193	5	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1194	5	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1195	5	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1196	5	remove	-	yes	1171	Backspace on the closing fence mid-message, no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1197	5	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1198	5	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1199	5	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1200	5	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1201	6	remove	-	yes	1171	Backspace on the closing fence mid-message, no error: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1202	6	remove	-	yes	1152	Backspace on the closing fence mid-message, line shapes equal a fresh load: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1203	6	remove	-	yes	1153	Backspace on the closing fence mid-message, forced normalise is a no-op: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1204	6	remove	-	yes	1155	Backspace on the closing fence mid-message, collapsed selection: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1205	6	remove	-	yes	1155	Backspace on the closing fence mid-message, next character lands at the caret: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1206	7	kept	-	yes	-	> typed making ">>> a": the only case where the keystroke throwing is asserted at the small size; overlaps the shape limb only in part
+1207	8	kept	-	yes	-	> typed making ">>> a": the decision-table row for how the lines below are retyped, asserted nowhere else; oracle is the production loader, so it pins edit-equals-load, not the fence/quote rule itself
+1208	7	kept	-	yes	-	> typed making ">>> a": the settled document is a normaliser fixed point; fails if the keystroke leaves a line the normaliser would still change
+1209	6	remove	-	yes	1210	> typed making ">>> a": a null or expanded selection also changes the text the next-character limb compares, so this cannot fail without that case failing
+1210	8	kept	-	yes	-	caret placement after the typed marker moves out of the text into the quote prefix, asserted nowhere else
+1211	6	remove	-	yes	1206	> typed making ">>> a", no error: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1212	6	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1213	6	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1214	6	remove	-	yes	1210	> typed making ">>> a", collapsed selection: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1215	6	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: repeats the 40-line case at 122 lines; no production branch on this limb turns on line count
+1216	8	kept	-	yes	-	the size chosen at Slate's normalise budget (3 dirty paths x 42) for a whole-message retype; pins the editor-crash boundary a user would see
+1217	6	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1218	6	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1219	6	remove	-	yes	1210	> typed making ">>> a", collapsed selection: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1220	6	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: repeats the 40-line case at 123 lines; no production branch on this limb turns on line count
+1221	7	kept	-	yes	-	first size certainly past Slate's normalise budget for a whole-message retype; whether 123 lands exactly on the boundary is not decidable from the code, so this overlaps it only in part
+1222	6	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1223	6	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1224	6	remove	-	yes	1210	> typed making ">>> a", collapsed selection: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1225	6	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: repeats the 40-line case at 200 lines; no production branch on this limb turns on line count
+1226	6	remove	-	yes	1221	> typed making ">>> a", no error: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1227	6	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1228	6	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1229	6	remove	-	yes	1210	> typed making ">>> a", collapsed selection: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1230	6	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: repeats the 40-line case at 1000 lines; no production branch on this limb turns on line count
+1231	5	remove	-	yes	1206	> typed making ">>> a", no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1232	5	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1233	5	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1234	5	remove	-	yes	1210	> typed making ">>> a", collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1235	5	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1236	5	remove	-	yes	1206	> typed making ">>> a", no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1237	5	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1238	5	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1239	5	remove	-	yes	1210	> typed making ">>> a", collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1240	5	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1241	5	remove	-	yes	1216	> typed making ">>> a", no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1242	5	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1243	5	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1244	5	remove	-	yes	1210	> typed making ">>> a", collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1245	5	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1246	5	remove	-	yes	1221	> typed making ">>> a", no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1247	5	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1248	5	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1249	5	remove	-	yes	1210	> typed making ">>> a", collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1250	5	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1251	5	remove	-	yes	1221	> typed making ">>> a", no error: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1252	5	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1253	5	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1254	5	remove	-	yes	1210	> typed making ">>> a", collapsed selection: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1255	5	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: content and embedDescription pass the identical engine mask, so this repeats the content case on the same text
+1256	6	remove	-	yes	1221	> typed making ">>> a", no error: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1257	6	remove	-	yes	1207	> typed making ">>> a", line shapes equal a fresh load: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1258	6	remove	-	yes	1208	> typed making ">>> a", forced normalise is a no-op: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1259	6	remove	-	yes	1210	> typed making ">>> a", collapsed selection: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1260	6	remove	-	yes	1210	> typed making ">>> a", next character lands at the caret: largest size only; content and embedDescription share one engine mask, and no production branch turns on line count past the kept size
+1261	6	remove	-	yes	1206	same route as the ">>> a" case with a longer line text; a misplaced caret or wrong retype shows equally at one character
+1262	6	remove	-	yes	1207	same route as the ">>> a" case with a longer line text; a misplaced caret or wrong retype shows equally at one character
+1263	6	remove	-	yes	1208	same route as the ">>> a" case with a longer line text; a misplaced caret or wrong retype shows equally at one character
+1264	6	remove	-	yes	1210	same route as the ">>> a" case with a longer line text; a misplaced caret or wrong retype shows equally at one character
+1265	6	remove	-	yes	1210	same route as the ">>> a" case with a longer line text; a misplaced caret or wrong retype shows equally at one character

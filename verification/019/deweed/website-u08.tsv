@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+1566	7	kept	-	yes	-	only run of the Backspace removing the end-of-line-0 backtick (other lines lift their emoji again) at a size past one normalise pass budget on the earlier surface; fails if the retype of the other lines throws
+1567	8	kept	-	yes	-	keystroke row asserted nowhere else: Backspace removing the end-of-line-0 backtick (other lines lift their emoji again), each line compared with a fresh load at 200 lines
+1568	7	kept	-	yes	-	fixed-point check after the Backspace removing the end-of-line-0 backtick (other lines lift their emoji again); catches child-structure and flag drift the line-shape comparison does not read
+1569	5	remove	-	yes	1570	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1570	7	kept	-	yes	-	caret position after the Backspace removing the end-of-line-0 backtick (other lines lift their emoji again), through the typed z; overlaps the shape limb only in part
+1571	5	remove	-	yes	1566	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1572	5	remove	-	yes	1567	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1573	5	remove	-	yes	1568	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1574	5	remove	-	yes	1570	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1575	5	remove	-	yes	1570	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1576	5	remove	-	yes	1566	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1577	5	remove	-	yes	1567	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1578	5	remove	-	yes	1568	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1579	5	remove	-	yes	1570	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1580	5	remove	-	yes	1570	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1581	5	remove	-	yes	1566	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1582	5	remove	-	yes	1567	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1583	5	remove	-	yes	1568	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1584	5	remove	-	yes	1570	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1585	5	remove	-	yes	1570	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1586	7	kept	-	yes	-	the one run of this keystroke at the description field full size; a throw or hook timeout that grows with line count shows here and not at 200
+1587	5	remove	-	yes	1567	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1588	5	remove	-	yes	1568	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1589	5	remove	-	yes	1570	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1590	5	remove	-	yes	1570	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1591	6	remove	-	yes	1601	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1592	6	remove	-	yes	1602	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1593	6	remove	-	yes	1603	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1594	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1595	6	remove	-	yes	1605	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1596	6	remove	-	yes	1601	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1597	6	remove	-	yes	1602	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1598	6	remove	-	yes	1603	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1599	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1600	6	remove	-	yes	1605	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1601	7	kept	-	yes	-	only run of the backtick typed at the start of line 0 (every line, the caret line included, reverts its emoji to text) at a size past one normalise pass budget on the earlier surface; fails if the retype of the other lines throws
+1602	8	kept	-	yes	-	keystroke row asserted nowhere else: backtick typed at the start of line 0 (every line, the caret line included, reverts its emoji to text), each line compared with a fresh load at 200 lines
+1603	7	kept	-	yes	-	fixed-point check after the backtick typed at the start of line 0 (every line, the caret line included, reverts its emoji to text); catches child-structure and flag drift the line-shape comparison does not read
+1604	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1605	7	kept	-	yes	-	caret position after the backtick typed at the start of line 0 (every line, the caret line included, reverts its emoji to text), through the typed z; overlaps the shape limb only in part
+1606	5	remove	-	yes	1601	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1607	5	remove	-	yes	1602	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1608	5	remove	-	yes	1603	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1609	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1610	5	remove	-	yes	1605	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1611	5	remove	-	yes	1601	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1612	5	remove	-	yes	1602	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1613	5	remove	-	yes	1603	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1614	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1615	5	remove	-	yes	1605	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1616	5	remove	-	yes	1601	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1617	5	remove	-	yes	1602	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1618	5	remove	-	yes	1603	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1619	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1620	5	remove	-	yes	1605	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1621	7	kept	-	yes	-	the one run of this keystroke at the description field full size; a throw or hook timeout that grows with line count shows here and not at 200
+1622	5	remove	-	yes	1602	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1623	5	remove	-	yes	1603	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1624	5	remove	-	yes	1605	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1625	5	remove	-	yes	1605	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1626	6	remove	-	yes	1636	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1627	6	remove	-	yes	1637	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1628	6	remove	-	yes	1638	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1629	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1630	6	remove	-	yes	1640	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1631	6	remove	-	yes	1636	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1632	6	remove	-	yes	1637	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1633	6	remove	-	yes	1638	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1634	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1635	6	remove	-	yes	1640	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1636	7	kept	-	yes	-	only run of the Backspace removing the start-of-line-0 backtick (every line, the caret line included, lifts its emoji again) at a size past one normalise pass budget on the earlier surface; fails if the retype of the other lines throws
+1637	8	kept	-	yes	-	keystroke row asserted nowhere else: Backspace removing the start-of-line-0 backtick (every line, the caret line included, lifts its emoji again), each line compared with a fresh load at 200 lines
+1638	7	kept	-	yes	-	fixed-point check after the Backspace removing the start-of-line-0 backtick (every line, the caret line included, lifts its emoji again); catches child-structure and flag drift the line-shape comparison does not read
+1639	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1640	7	kept	-	yes	-	caret position after the Backspace removing the start-of-line-0 backtick (every line, the caret line included, lifts its emoji again), through the typed z; overlaps the shape limb only in part
+1641	5	remove	-	yes	1636	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1642	5	remove	-	yes	1637	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1643	5	remove	-	yes	1638	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1644	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1645	5	remove	-	yes	1640	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1646	5	remove	-	yes	1636	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1647	5	remove	-	yes	1637	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1648	5	remove	-	yes	1638	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1649	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1650	5	remove	-	yes	1640	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1651	5	remove	-	yes	1636	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1652	5	remove	-	yes	1637	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1653	5	remove	-	yes	1638	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1654	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1655	5	remove	-	yes	1640	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1656	7	kept	-	yes	-	the one run of this keystroke at the description field full size; a throw or hook timeout that grows with line count shows here and not at 200
+1657	5	remove	-	yes	1637	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1658	5	remove	-	yes	1638	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1659	5	remove	-	yes	1640	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1660	5	remove	-	yes	1640	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1661	6	remove	-	yes	1671	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1662	6	remove	-	yes	1672	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1663	6	remove	-	yes	1673	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1664	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1665	6	remove	-	yes	1675	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1666	6	remove	-	yes	1671	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1667	6	remove	-	yes	1672	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1668	6	remove	-	yes	1673	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1669	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1670	6	remove	-	yes	1675	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1671	7	kept	-	yes	-	only run of the backtick typed at the start of line 0 before a space at a size past one normalise pass budget on the earlier surface; fails if the retype of the other lines throws
+1672	7	kept	-	yes	-	whether the leading space changes what the engine pairs is not decidable from the code; backtick typed at the start of line 0 before a space, each line compared with a fresh load at 200 lines
+1673	7	kept	-	yes	-	fixed-point check after the backtick typed at the start of line 0 before a space; catches child-structure and flag drift the line-shape comparison does not read
+1674	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1675	7	kept	-	yes	-	caret position after the backtick typed at the start of line 0 before a space, through the typed z; overlaps the shape limb only in part
+1676	5	remove	-	yes	1671	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1677	5	remove	-	yes	1672	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1678	5	remove	-	yes	1673	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1679	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1680	5	remove	-	yes	1675	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1681	5	remove	-	yes	1671	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1682	5	remove	-	yes	1672	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1683	5	remove	-	yes	1673	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1684	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1685	5	remove	-	yes	1675	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1686	5	remove	-	yes	1671	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1687	5	remove	-	yes	1672	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1688	5	remove	-	yes	1673	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1689	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1690	5	remove	-	yes	1675	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1691	7	kept	-	yes	-	the one run of this keystroke at the description field full size; a throw or hook timeout that grows with line count shows here and not at 200
+1692	5	remove	-	yes	1672	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1693	5	remove	-	yes	1673	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1694	5	remove	-	yes	1675	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1695	5	remove	-	yes	1675	same assertion as the content 200-line limb; no threshold between 200 and 1000 lines decides this limb, and the size-dependent throw is kept on the first limb of this run
+1696	6	remove	-	yes	1706	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1697	6	remove	-	yes	1707	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1698	6	remove	-	yes	1708	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1699	5	remove	-	yes	1710	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1700	6	remove	-	yes	1710	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 5 lines that 200 does not take
+1701	6	remove	-	yes	1706	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1702	6	remove	-	yes	1707	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1703	6	remove	-	yes	1708	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1704	5	remove	-	yes	1710	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1705	6	remove	-	yes	1710	same keystroke and limb as the 200-line content run with fewer lines; no code path is taken at 100 lines that 200 does not take
+1706	7	kept	-	yes	-	only run of the Backspace removing the start-of-line-0 backtick before a space at a size past one normalise pass budget on the earlier surface; fails if the retype of the other lines throws
+1707	7	kept	-	yes	-	whether the leading space changes what the engine pairs is not decidable from the code; Backspace removing the start-of-line-0 backtick before a space, each line compared with a fresh load at 200 lines
+1708	7	kept	-	yes	-	fixed-point check after the Backspace removing the start-of-line-0 backtick before a space; catches child-structure and flag drift the line-shape comparison does not read
+1709	5	remove	-	yes	1710	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1710	7	kept	-	yes	-	caret position after the Backspace removing the start-of-line-0 backtick before a space, through the typed z; overlaps the shape limb only in part
+1711	5	remove	-	yes	1706	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1712	5	remove	-	yes	1707	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1713	5	remove	-	yes	1708	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data
+1714	5	remove	-	yes	1710	a selection that is null or a range also misplaces the typed z, so the caret limb of the 200-line content run fails on every change this one fails on
+1715	5	remove	-	yes	1710	embedDescription and content carry the same engine mask and no code path branches on line count below the 200-line run, so this repeats the content 200-line limb on other data

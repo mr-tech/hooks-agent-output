@@ -2283,3 +2283,23 @@ His command: `/retire` for this thread, typed in this session. Read this turn:
   they stay while the carrier is open.
 - **OWNER-QUEUE.md:** no section of this thread's. **Docket:** `docket-hooks-fixer.md` (index line in `dockets.md`).
 - **Ledger:** day files 2026-11-23 and 2026-11-24 are committed (`65ce4926`). 2026-11-25 is today's and is not committed.
+
+## 2026-11-25T18:19Z — plan 019 test-case scoring: 14 of 17 units merged (steering-closure.md)
+
+Repository website, commit `48eb60a`, clean export in this thread's scratchpad `deweed/export`. Case list:
+`verification/019/deweed/cases.tsv`, 4,826 cases. The marked set is the 81 test files that `git diff --name-status 5ec0621 48eb60a` adds,
+modifies or renames (2,494 cases). There were 17 units of at most 150 ids.
+- **Merged** (`verification/019/deweed/website-merged.tsv`, from `website-u01.tsv` to `website-u14.tsv`): 2,100 cases scored, 0 ids missing.
+  1,333 are below 7, a share of 0.635. Score counts: 2:15, 3:4, 4:10, 5:761, 6:543, 7:489, 8:247, 9:31.
+- **Covering cells checked** against the merged table: 1,121 name a case scored 7 or more; 193 name a case scored below 7 (inconsistent,
+  for whoever acts on it); 204 name an id no unit scored, marked unchecked; 767 rows have no covering cell.
+- **Not scored:** units u15 to u17 (394 ids, 3,668 to 4,826). The session's concurrent-subagent limit (20) refused their spawn, and they
+  were not retried. They are unmerged.
+- **Scorer notes for any later deletion chain:**
+  - u12: all five specs import only `__tests__/helpers/` oracle modules. They were scored as instruments; a strict "no production code"
+    reading puts all 150 at 1–2.
+  - u11: instrument specs were scored the same way.
+  - u06: its 122/123-line boundary is inferred, not run.
+  - u11 disclosed a gate: the secret-file gate refused a relative-path search inside the export. It was re-issued with absolute paths,
+    since it was not aimed at the guarded file.
+- Nothing is deleted on this. The retrospective does not wait on it. The export stays until his answer on u15 to u17.

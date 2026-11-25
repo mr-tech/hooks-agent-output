@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+480	6	remove	-	yes	413	one-line paste of a ZWJ sequence takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+481	6	remove	-	yes	414	one-line paste of a skin-tone sequence takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+482	6	remove	-	yes	415	one-line paste of a keycap takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+483	6	remove	-	yes	416	one-line paste of a flag takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+484	6	remove	-	yes	417	one-line paste of a tag sequence takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+485	6	remove	-	yes	418	one-line paste of a heart with emoji presentation takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+486	6	remove	-	yes	419	one-line paste of a heart with text presentation takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+487	6	remove	-	yes	420	one-line paste of an emoji newer than the table takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+488	6	remove	-	yes	421	one-line paste of a name takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+489	6	remove	-	yes	422	one-line paste of a skin-toned name takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+490	6	remove	-	yes	423	one-line paste of a colon-wrapped emoji takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+491	6	remove	-	yes	424	one-line paste of a custom emoji takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+492	6	remove	-	yes	425	one-line paste of an animated custom emoji takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+493	6	remove	-	yes	426	one-line paste of an emoji in a link label takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+494	6	remove	-	yes	427	one-line paste of an emoji in a link address takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+495	6	remove	-	yes	428	one-line paste of a name in a link address takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+496	6	remove	-	yes	429	one-line paste of an emoji between words takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+497	6	remove	-	yes	430	one-line paste of two emoji side by side takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+498	6	remove	-	yes	431	one-line paste of an emoji inside bold takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+499	6	remove	-	yes	432	one-line paste of an emoji inside inline code takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+500	6	remove	-	yes	434	one-line paste of an emoji after a backslash takes the same paste and lift path as the full-markdown paste of the same text; the embedTitle mask keeps every emoji, link and inline bit these forms use, and a single-line paste break fails 479 first
+501	8	kept	-	yes	-	only mounted assertion that a multi-line quote and its continuation line are written back once and unchanged; fails if load, normalise-on-mount or flatten alters the stored text or adds a second write
+502	6	remove	-	yes	501	first line of 501 alone; any change failing it fails 501
+503	7	kept	-	yes	-	empty continuation line inside a multi-line quote, the empty-line and blank-prefix branch on mount; overlaps 501 in part
+504	8	kept	-	yes	-	single-line quote followed by a bare fence, the row where quote and fence state meet on load; only mounted once-and-unchanged assertion of it
+505	7	kept	-	yes	-	fence lines inside an open multi-line quote, code lines that skip quoting; overlaps 501 and 504 in part
+506	7	kept	-	yes	-	two consecutive single-line quotes, each keeping its own marker; fails if a second marker is read as continuation
+507	7	kept	-	yes	-	multi-line quote opening below a plain line; fails if the opener is recognised on line 0 only
+508	5	remove	-	yes	501	plain text control; a lost or doubled mount write fails 501 as well
+509	7	kept	-	yes	-	quote marker in a single-line box, where quoting is off; the one mounted row for partial markdown on a marker
+510	6	remove	-	yes	509	repeats 509 with the single-line marker; neither marker is parsed in a single-line box
+511	7	kept	-	yes	-	two stored lines in a single-line box; whether the box excludes that input is not decidable from the code, and it is the only mounted two-line partial load
+512	7	kept	-	yes	-	backtick typed at end of line 0: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+513	5	remove	-	yes	512	backtick typed at end of line 0 on content at 100 lines repeats 512 with another size; the written text does not depend on surface and production code holds no size branch
+514	5	remove	-	yes	512	backtick typed at end of line 0 on content at 200 lines repeats 512 with another size; the written text does not depend on surface and production code holds no size branch
+515	5	remove	-	yes	512	backtick typed at end of line 0 on embedDescription at 5 lines repeats 512 with another size; the written text does not depend on surface and production code holds no size branch
+516	5	remove	-	yes	512	backtick typed at end of line 0 on embedDescription at 100 lines repeats 512 with another size; the written text does not depend on surface and production code holds no size branch
+517	5	remove	-	yes	512	backtick typed at end of line 0 on embedDescription at 200 lines repeats 512 with another size; the written text does not depend on surface and production code holds no size branch
+518	7	kept	-	yes	-	backtick typed at end of line 0 at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+519	7	kept	-	yes	-	Backspace removing the end backtick of line 0: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+520	5	remove	-	yes	519	Backspace removing the end backtick of line 0 on content at 100 lines repeats 519 with another size; the written text does not depend on surface and production code holds no size branch
+521	5	remove	-	yes	519	Backspace removing the end backtick of line 0 on content at 200 lines repeats 519 with another size; the written text does not depend on surface and production code holds no size branch
+522	5	remove	-	yes	519	Backspace removing the end backtick of line 0 on embedDescription at 5 lines repeats 519 with another size; the written text does not depend on surface and production code holds no size branch
+523	5	remove	-	yes	519	Backspace removing the end backtick of line 0 on embedDescription at 100 lines repeats 519 with another size; the written text does not depend on surface and production code holds no size branch
+524	5	remove	-	yes	519	Backspace removing the end backtick of line 0 on embedDescription at 200 lines repeats 519 with another size; the written text does not depend on surface and production code holds no size branch
+525	7	kept	-	yes	-	Backspace removing the end backtick of line 0 at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+526	7	kept	-	yes	-	backtick typed at start of line 0: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+527	5	remove	-	yes	526	backtick typed at start of line 0 on content at 100 lines repeats 526 with another size; the written text does not depend on surface and production code holds no size branch
+528	5	remove	-	yes	526	backtick typed at start of line 0 on content at 200 lines repeats 526 with another size; the written text does not depend on surface and production code holds no size branch
+529	5	remove	-	yes	526	backtick typed at start of line 0 on embedDescription at 5 lines repeats 526 with another size; the written text does not depend on surface and production code holds no size branch
+530	5	remove	-	yes	526	backtick typed at start of line 0 on embedDescription at 100 lines repeats 526 with another size; the written text does not depend on surface and production code holds no size branch
+531	5	remove	-	yes	526	backtick typed at start of line 0 on embedDescription at 200 lines repeats 526 with another size; the written text does not depend on surface and production code holds no size branch
+532	7	kept	-	yes	-	backtick typed at start of line 0 at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+533	7	kept	-	yes	-	Backspace removing a start backtick of line 0: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+534	5	remove	-	yes	533	Backspace removing a start backtick of line 0 on content at 100 lines repeats 533 with another size; the written text does not depend on surface and production code holds no size branch
+535	5	remove	-	yes	533	Backspace removing a start backtick of line 0 on content at 200 lines repeats 533 with another size; the written text does not depend on surface and production code holds no size branch
+536	5	remove	-	yes	533	Backspace removing a start backtick of line 0 on embedDescription at 5 lines repeats 533 with another size; the written text does not depend on surface and production code holds no size branch
+537	5	remove	-	yes	533	Backspace removing a start backtick of line 0 on embedDescription at 100 lines repeats 533 with another size; the written text does not depend on surface and production code holds no size branch
+538	5	remove	-	yes	533	Backspace removing a start backtick of line 0 on embedDescription at 200 lines repeats 533 with another size; the written text does not depend on surface and production code holds no size branch
+539	7	kept	-	yes	-	Backspace removing a start backtick of line 0 at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+540	7	kept	-	yes	-	backtick typed at start of line 0 before a space: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+541	5	remove	-	yes	540	backtick typed at start of line 0 before a space on content at 100 lines repeats 540 with another size; the written text does not depend on surface and production code holds no size branch
+542	5	remove	-	yes	540	backtick typed at start of line 0 before a space on content at 200 lines repeats 540 with another size; the written text does not depend on surface and production code holds no size branch
+543	5	remove	-	yes	540	backtick typed at start of line 0 before a space on embedDescription at 5 lines repeats 540 with another size; the written text does not depend on surface and production code holds no size branch
+544	5	remove	-	yes	540	backtick typed at start of line 0 before a space on embedDescription at 100 lines repeats 540 with another size; the written text does not depend on surface and production code holds no size branch
+545	5	remove	-	yes	540	backtick typed at start of line 0 before a space on embedDescription at 200 lines repeats 540 with another size; the written text does not depend on surface and production code holds no size branch
+546	7	kept	-	yes	-	backtick typed at start of line 0 before a space at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+547	7	kept	-	yes	-	Backspace removing a start backtick before a space: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+548	5	remove	-	yes	547	Backspace removing a start backtick before a space on content at 100 lines repeats 547 with another size; the written text does not depend on surface and production code holds no size branch
+549	5	remove	-	yes	547	Backspace removing a start backtick before a space on content at 200 lines repeats 547 with another size; the written text does not depend on surface and production code holds no size branch
+550	5	remove	-	yes	547	Backspace removing a start backtick before a space on embedDescription at 5 lines repeats 547 with another size; the written text does not depend on surface and production code holds no size branch
+551	5	remove	-	yes	547	Backspace removing a start backtick before a space on embedDescription at 100 lines repeats 547 with another size; the written text does not depend on surface and production code holds no size branch
+552	5	remove	-	yes	547	Backspace removing a start backtick before a space on embedDescription at 200 lines repeats 547 with another size; the written text does not depend on surface and production code holds no size branch
+553	7	kept	-	yes	-	Backspace removing a start backtick before a space at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+554	7	kept	-	yes	-	backslash typed before a leading backtick: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+555	5	remove	-	yes	554	backslash typed before a leading backtick on content at 100 lines repeats 554 with another size; the written text does not depend on surface and production code holds no size branch
+556	5	remove	-	yes	554	backslash typed before a leading backtick on content at 200 lines repeats 554 with another size; the written text does not depend on surface and production code holds no size branch
+557	5	remove	-	yes	554	backslash typed before a leading backtick on embedDescription at 5 lines repeats 554 with another size; the written text does not depend on surface and production code holds no size branch
+558	5	remove	-	yes	554	backslash typed before a leading backtick on embedDescription at 100 lines repeats 554 with another size; the written text does not depend on surface and production code holds no size branch
+559	5	remove	-	yes	554	backslash typed before a leading backtick on embedDescription at 200 lines repeats 554 with another size; the written text does not depend on surface and production code holds no size branch
+560	7	kept	-	yes	-	backslash typed before a leading backtick at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+561	7	kept	-	yes	-	Backspace removing a backslash before a leading backtick: the mounted route of this keystroke, through the component's change handler and its backtick-count effect to the message write; overlaps the unmounted settle cases in part
+562	5	remove	-	yes	561	Backspace removing a backslash before a leading backtick on content at 100 lines repeats 561 with another size; the written text does not depend on surface and production code holds no size branch
+563	5	remove	-	yes	561	Backspace removing a backslash before a leading backtick on content at 200 lines repeats 561 with another size; the written text does not depend on surface and production code holds no size branch
+564	5	remove	-	yes	561	Backspace removing a backslash before a leading backtick on embedDescription at 5 lines repeats 561 with another size; the written text does not depend on surface and production code holds no size branch
+565	5	remove	-	yes	561	Backspace removing a backslash before a leading backtick on embedDescription at 100 lines repeats 561 with another size; the written text does not depend on surface and production code holds no size branch
+566	5	remove	-	yes	561	Backspace removing a backslash before a leading backtick on embedDescription at 200 lines repeats 561 with another size; the written text does not depend on surface and production code holds no size branch
+567	7	kept	-	yes	-	Backspace removing a backslash before a leading backtick at the description's largest size; whether the mounted render and timers behave differently at that size is not decidable from the code
+568	7	kept	-	yes	-	third backtick typed at end of line 2: the mounted route of this keystroke to the message write; overlaps the unmounted settle cases in part
+569	5	remove	-	yes	568	third backtick typed at end of line 2 at 122 lines repeats 568 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+570	5	remove	-	yes	568	third backtick typed at end of line 2 at 123 lines repeats 568 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+571	5	remove	-	yes	568	third backtick typed at end of line 2 at 200 lines repeats 568 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+572	6	remove	-	yes	568	third backtick typed at end of line 2 at 1000 content lines repeats 568 at a larger size, itself exceeded by the 2048-line case
+573	7	kept	-	yes	-	third backtick typed at end of line 2 at the description's largest size on the mounted route; behaviour of mounted render and timers at that size is not decidable from the code
+574	7	kept	-	yes	-	Backspace at end of the fence on line 2: the mounted route of this keystroke to the message write; overlaps the unmounted settle cases in part
+575	5	remove	-	yes	574	Backspace at end of the fence on line 2 at 122 lines repeats 574 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+576	5	remove	-	yes	574	Backspace at end of the fence on line 2 at 123 lines repeats 574 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+577	5	remove	-	yes	574	Backspace at end of the fence on line 2 at 200 lines repeats 574 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+578	6	remove	-	yes	574	Backspace at end of the fence on line 2 at 1000 content lines repeats 574 at a larger size, itself exceeded by the 2048-line case
+579	7	kept	-	yes	-	Backspace at end of the fence on line 2 at the description's largest size on the mounted route; behaviour of mounted render and timers at that size is not decidable from the code
+580	7	kept	-	yes	-	third backtick typed on the closing delimiter mid-text: the mounted route of this keystroke to the message write; overlaps the unmounted settle cases in part
+581	5	remove	-	yes	580	third backtick typed on the closing delimiter mid-text at 122 lines repeats 580 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+582	5	remove	-	yes	580	third backtick typed on the closing delimiter mid-text at 123 lines repeats 580 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+583	5	remove	-	yes	580	third backtick typed on the closing delimiter mid-text at 200 lines repeats 580 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+584	6	remove	-	yes	580	third backtick typed on the closing delimiter mid-text at 1000 content lines repeats 580 at a larger size, itself exceeded by the 2048-line case
+585	7	kept	-	yes	-	third backtick typed on the closing delimiter mid-text at the description's largest size on the mounted route; behaviour of mounted render and timers at that size is not decidable from the code
+586	7	kept	-	yes	-	Backspace on the closing fence mid-text: the mounted route of this keystroke to the message write; overlaps the unmounted settle cases in part
+587	5	remove	-	yes	586	Backspace on the closing fence mid-text at 122 lines repeats 586 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+588	5	remove	-	yes	586	Backspace on the closing fence mid-text at 123 lines repeats 586 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+589	5	remove	-	yes	586	Backspace on the closing fence mid-text at 200 lines repeats 586 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+590	6	remove	-	yes	586	Backspace on the closing fence mid-text at 1000 content lines repeats 586 at a larger size, itself exceeded by the 2048-line case
+591	7	kept	-	yes	-	Backspace on the closing fence mid-text at the description's largest size on the mounted route; behaviour of mounted render and timers at that size is not decidable from the code
+592	7	kept	-	yes	-	> typed before ">> a" on line 0: the mounted route of this keystroke to the message write; overlaps the unmounted settle cases in part
+593	5	remove	-	yes	592	> typed before ">> a" on line 0 at 122 lines repeats 592 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+594	5	remove	-	yes	592	> typed before ">> a" on line 0 at 123 lines repeats 592 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+595	5	remove	-	yes	592	> typed before ">> a" on line 0 at 200 lines repeats 592 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+596	6	remove	-	yes	592	> typed before ">> a" on line 0 at 1000 content lines repeats 592 at a larger size, itself exceeded by the 2048-line case
+597	7	kept	-	yes	-	> typed before ">> a" on line 0 at the description's largest size on the mounted route; behaviour of mounted render and timers at that size is not decidable from the code
+598	6	remove	-	yes	592	> typed before ">> abc" on line 0 repeats 592 with a longer quoted text; same marker, same branch
+599	5	remove	-	yes	592	> typed before ">> abc" on line 0 at 122 lines repeats 592 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+600	5	remove	-	yes	592	> typed before ">> abc" on line 0 at 123 lines repeats 592 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+601	5	remove	-	yes	592	> typed before ">> abc" on line 0 at 200 lines repeats 592 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+602	6	remove	-	yes	592	> typed before ">> abc" on line 0 at 1000 content lines repeats 592 at a larger size, itself exceeded by the 2048-line case
+603	6	remove	-	yes	597	> typed before ">> abc" on line 0 at 2048 lines repeats 597 with a longer quoted text
+604	7	kept	-	yes	-	Backspace at text start of a loaded ">>> a": the mounted route of this keystroke to the message write; overlaps the unmounted settle cases in part
+605	5	remove	-	yes	604	Backspace at text start of a loaded ">>> a" at 122 lines repeats 604 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+606	5	remove	-	yes	604	Backspace at text start of a loaded ">>> a" at 123 lines repeats 604 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+607	5	remove	-	yes	604	Backspace at text start of a loaded ">>> a" at 200 lines repeats 604 with another size; no size branch in production code, and the 122/123 pair is asserted by the unmounted settle cases
+608	6	remove	-	yes	604	Backspace at text start of a loaded ">>> a" at 1000 content lines repeats 604 at a larger size, itself exceeded by the 2048-line case
+609	7	kept	-	yes	-	Backspace at text start of a loaded ">>> a" at the description's largest size on the mounted route; behaviour of mounted render and timers at that size is not decidable from the code
+610	6	remove	-	no	611	plain word pasted into an empty editor; any break of the paste route fails 611 too
+611	7	kept	-	no	-	multi-line paste with a language fence kept as lines; named example of the paste route, overlapping the class runs in part
+612	8	kept	-	no	-	refusal of a multi-line paste in a single-line box, with its toast and the text untouched; the only assertion of that user-visible failure path
+613	8	kept	-	yes	-	upper side of the paste length boundary: 6,001 characters refused with its toast, text untouched
+614	7	kept	-	yes	-	length refusal reached in a single-line box, past the multi-line branch; fails if the length check is nested under the full-markdown mode
+615	8	kept	-	yes	-	lower side of the paste length boundary: 6,000 characters accepted, which with 613 pins > against >=
+616	6	remove	-	yes	615	repeats 615 in a single-line box; the boundary is pinned by 615 and the single-line reach of the length branch by 614
+617	7	kept	-	yes	-	corpus texts pasted whole into a full-markdown editor each reach the message unchanged; broad inline-syntax class on the paste route
+618	7	kept	-	yes	-	one-line corpus texts pasted into a single-line box, where the title mask turns off code blocks, headings and lists the corpus holds; overlaps 617 in part
+619	7	kept	-	yes	-	seeded generator texts pasted whole, full-markdown; a different input class from the corpus, overlapping 617 in part
+620	6	remove	-	yes	618	one-line generator texts in a single-line box repeat 618 with other example data
+621	7	kept	-	yes	-	every join of up to two block atoms pasted whole; exhaustive quote and fence line pairs on the paste route
+622	7	kept	-	yes	-	the block atoms pasted into a single-line box, the only paste of quote and fence markers where quoting is off
+623	7	kept	-	yes	-	seeded block-layer texts of up to six lines pasted whole; deeper block combinations than 621, overlapping it in part
+624	6	remove	-	yes	622	one-line block-layer texts in a single-line box repeat 622 with other example data
+625	7	kept	-	yes	-	block atom joins typed a character at a time, through every intermediate fence and quote state and the carried quote marker; full-markdown
+626	7	kept	-	yes	-	block atoms typed into a single-line box, the only typing of quote and fence markers where quoting is off
+627	7	kept	-	yes	-	seeded block-layer texts of up to six lines typed a character at a time; deeper combinations than 625, overlapping it in part
+628	6	remove	-	yes	626	one-line block-layer texts typed into a single-line box repeat 626 with other example data
+629	7	kept	-	yes	-	generator texts typed a character at a time into a full-markdown editor; inline-syntax class on the typed route, overlapping the corpus run in part
