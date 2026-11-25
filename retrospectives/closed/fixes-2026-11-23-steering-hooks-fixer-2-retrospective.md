@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixes-2026-11-23-steering-hooks-fixer-2
 UUID: 70e87412
-Status: Active
-Status-Detail: "Fixer-batch retrospective over one chain, fix-normalize-fence-loop (9c with 9f riding; released website af3d95a 2026-11-23T15:24Z); awaiting pi on the owner's word."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch fixes-2026-11-23-steering-hooks-fixer-2): fix-normalize-fence-loop
@@ -23,6 +23,7 @@ as a further sighting and not re-proposed.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T15:37 | steering-hooks-fixer (spawn brief) | Fixer-batch retrospective over `fix-normalize-fence-loop` | Created. The chain delivered both defects to production. Stage time from determination to QA PASS was 1h12m, and the REJECTED round cost about 12 minutes. The chain then waited 5h10m: 3h05m with QA's PASS cue held behind a blocking prompt in the steering thread on another effort, and 2h05m on the owner's release answer. Chain sessions cost $27.94 for 68 production lines ($0.41 per line). Two new recommendations; six sightings of open recommendations; four items for steering. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
