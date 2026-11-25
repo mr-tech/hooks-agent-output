@@ -412,6 +412,24 @@ dispositioned below:
 
 Driver: `verification/019/qa/m6/fr6/run-fr6.sh`, one worker, no network, each probe in its own capped scope.
 
+### Findings (this pass)
+
+QAF-56 MEDIUM Phase 2
+- **What.** AC-6.8's timed limb (plan § M6, AC-6.8, "Time") reads: "the median wall time of one keystroke's normalise, over 50
+  keystrokes … is at most 16 ms … on each of the 200, 400, 1,000 and 2,048-line texts". At `48eb60a`, the 2,048-line "lines
+  after a `>>> ` marker" text read a 17.1 ms median in one of six bench rounds, at load 1.29 with p95 60 ms. The other five
+  read 8.0 to 8.6 ms at load 0.9 to 1.2. Read as the criterion words it, that round misses the property.
+- **Severity.** It is MEDIUM because a criterion's property was not held in a reading. The user effect is at most about one
+  frame (16.7 ms) on a 2,048-line `>>>` description.
+- **Disposition.** A stated limit under the plan's Revision 19 line ("an AC-6.8 finding below HIGH is a stated limit unless
+  it is a severity floor"). It is not a severity floor: no preserved behaviour is unasserted. So it does not block this
+  verdict.
+- **Not a regression of this round.** Earlier tip rounds of the same row read `40947a6` 8.4 and 9.2 ms, and `372339f`
+  8.7/9.9 and 8.3/9.1 ms.
+- **Routed.** The run that read 17.1 ms hung until the kill (CR-22's form, a stated limit). How many runs make a reading is
+  criterion text, so it goes to planner-019 for the seam fold (message of this pass).
+- The call is this stage's. Steering returned it under its 19:20Z ruling (message received 2026-11-25).
+
 ### Execution (website `48eb60a`)
 
 All evidence is under `verification/019/qa/m6/fr6/`, with the box load beside each run in `loads.txt`.
@@ -433,7 +451,7 @@ All evidence is under `verification/019/qa/m6/fr6/`, with the box load beside ea
 | M4 and M5 differentials | whether the paths moved | **Not owed**. `git diff --name-only 119471f 48eb60a` over production paths lists four files under `SlateEditor/utils/` (`emojiLift`, `getInitialValue`, `quoteMarker`, `withNormalizeNode`). No preview or decorator module imports them (`git grep` of their importers at `48eb60a`) | this row |
 | Round 8's assumption: a 1,000-line `a🙂` paste in Chrome, tip against `af3d95a` | the `browser-walker` helper in the stage Chrome. `next start` builds on `127.0.0.1:3107` (tip) and `:3108` (base), at `/message` → `/message/m/0/edit`, the first embed description. A real clipboard paste, timed in the page to two frames with no new operation, `editor.apply` logged (`walk/run-paste.js`). Six rounds per build, interleaved. The local stack was up and nothing was saved | Every round reads 1,000 lines, 1,000 images, no error and no top-level `move_node`. Paste to settled: tip 1,422 to 1,558 ms (median 1,500), base 1,268 to 1,479 ms (median 1,326). The ratio of medians is about 1.13, under the 1.25 line, so nothing goes to steering. The tip's paste logs `remove_node` 999 and `insert_node` 1,001 (the line rebuild); the base's logs `remove_text` 1,000, `insert_node` 2,000 and `set_selection` 1,000 | `walk/run-paste-310{7,8}-{1,2}.json` |
 | Code review Round 9's Assumption Not Checked: the browser drag of the backtick ending line 0 into a run past a code block | `walk/run-drag.js` (a native mouse drag), then `walk/run-drag-synthetic-310{7,8}.js` (slate-react's `dragstart`, `dragover` and `drop` at real coordinates, one `DataTransfer`), with `editor.apply` logged. Text: `a🙂` with a backtick, 98 `a🙂`, `a🙂` with a backtick, a code block, `z` (offselection-inline's delete/other-unit shape at N 100). Oracle: a fresh load at the tip of the text before and after the drop (`qaDragTextFreshLoad.probe`, `drag-text-fresh-load-48eb60a.json`): before 1 emoji, because the two backticks pair into inline code across the lines; after 100 | The native drag moved nothing (`opTypes` set_selection only), so it was not exercised. **The synthetic drag moved the text on both builds**: `remove_text` at [0,2], then `insert_node` at the end of `z`, with no error. Top-level `move_node` 0, so slate-react's drag does not reach CR-31's branch. At the tip, images go from 1 to 100, with 0 lines holding a raw emoji, which matches the oracle. The 99 `remove_node`/`insert_node` pairs are the rebuild. The pre-drop image counts differ (tip 1, base 100) because the tip's load is the engine's reading of multi-line inline code, and the base's load predates the engine | `walk/run-drag*.json`, `drag-text-fresh-load-48eb60a.json` |
-| AC-6.8's timed limb (median at or under 16 ms, 200 to 2,048 lines) | `withNormalizeNode.keystroke-time.bench.ts`, `vitest bench`, one worker, six rounds in the clean export, with the load in `loads.txt` | The row "lines after a `>>> ` marker, 2,048 lines" read **17.1 ms in round 1** (load 1.29, p95 60 ms). That run then hung until the 25-minute kill (exit 124), CR-22's form. Rounds 2 to 6 read 8.2, 8.0, 8.4, 8.1 and 8.6 ms at load 0.9 to 1.2. Every other row of every round is at or under 11.8 ms. Earlier tip rounds of that row: `40947a6` 8.4 and 9.2 ms; `372339f` 8.7/9.9 and 8.3/9.1 ms. **How to call one round in six is put to steering** (message 2026-11-25T13:28Z); this stage proposed QAF-56 MEDIUM, with M6 not failed on it | `bench-keystroke-time-48eb60a-r1..r6.txt` |
+| AC-6.8's timed limb (median at or under 16 ms, 200 to 2,048 lines) | `withNormalizeNode.keystroke-time.bench.ts`, `vitest bench`, one worker, six rounds in the clean export, with the load in `loads.txt` | The row "lines after a `>>> ` marker, 2,048 lines" read **17.1 ms in round 1** (load 1.29, p95 60 ms). That run then hung until the 25-minute kill (exit 124), CR-22's form. Rounds 2 to 6 read 8.2, 8.0, 8.4, 8.1 and 8.6 ms at load 0.9 to 1.2. Every other row of every round is at or under 11.8 ms. Earlier tip rounds of that row: `40947a6` 8.4 and 9.2 ms; `372339f` 8.7/9.9 and 8.3/9.1 ms. Steering returned the call to this stage. It is **QAF-56 MEDIUM**, a stated limit under Revision 19 (§ Findings, this pass) | `bench-keystroke-time-48eb60a-r1..r6.txt` |
 | AC-6.9's fence and quote time bench (its own growth and ceiling bounds) | `withNormalizeNode.fence-and-quote-time.bench.ts`, two rounds | exit 0 both rounds. Its 2,048-line rows are 44 to 86 ms, within its own ceilings, matching `40947a6`'s 45 to 88 ms | `bench-fence-and-quote-time-48eb60a-r{1,2}.txt` |
 | Code review's sub-entry: `editor.apply` logged during the paste and drag walks, for any top-level `move_node` | the walks above | **0 top-level `move_node`** in 12 paste rounds and 2 drag runs, on both builds | as above |
 
