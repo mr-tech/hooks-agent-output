@@ -1852,3 +1852,24 @@ folds it with D-28 and CR-28, and the planner withdraws or re-aims Outstanding 1
 milestone-level beyond D-28 it goes to him as a selection before the gate reads (steering.md, Planner).
 - **Disclosure:** this heading was first committed as `05:3xZ` (`23acf471`). The stamp gate refused the placeholder, and the time was
   re-stamped from the clock (05:31Z).
+
+## 2026-11-25T06:07Z — plan 019 Revision 24: its scope delta read; the architect's Fix Round 5 scope point ruled (this thread's)
+
+**Revision 24** (`80d6d143`; changelog row 2026-11-25T06:01, read this turn) adds:
+- AC-6.9's six inline-code members (D-28, his selection);
+- a sub-limb: CR-27's forced-normalise condition over code review's corpus, which the planner reads as riding D-24 through R-111;
+- the residue: 12 non-fixed-point loads, with the handoff re-aimed at `codeFence.ts` `afterLine`.
+**Reading (this thread's): there is no milestone-level delta beyond his selections.** The members are D-28. The sub-limb makes the fix
+he already chose meet the existing no-throw limb as R-111 admits it, so nothing goes to him. Gate state, read this turn:
+- QA re-key: done (`7a6087f6`; QAF-55 MEDIUM held for the batch, R-119).
+- Architect delta pass: APPROVED (`6a5aa338`; CF-34 to CF-36 LOW stated limits).
+- Critic: not landed; the planner cued it.
+**Scope point (architect-019 by message, from CF-34):** fixing D-28's members through CF-33's rebuild, with the trigger comparing emoji
+layout, makes any line where `afterLine` miscounts a triple backtick a non-fixed point. Fix Round 5 can either (a) fix the fence count now,
+which is the handoff's work and CF-36's direction, or (b) keep such lines out of the rebuild. **Ruling: (b).**
+- The fence-count defect is AN-9 B1's, outside D-28's class (the iteration-cap throw).
+- Revision 24 places it in the residue, carried by `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md`.
+- The cap keeps it out of a round.
+- The sub-limb catches either outcome.
+If (b) cannot meet AC-6.9's limbs, the implementer brings it here before widening. Recipients: `implementer-019` (in the Fix Round 5 brief),
+`architect-019` and `planner-019`.
