@@ -3,11 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Parent: slate-formatting-discord-oracle-2026-11-23.md
-Status: Active
-Status-Detail: >-
-  AN-1 to AN-7 (plan Revision 2) and every AN-8 limb (1 to 5, with 2b; plan Revision 5) have results. G-11 is not completed (X-13).
-  AN-8 limb 1, which holds M4's approval, has landed. AN-9 (plan Revision 23, D-28, CR-27) has results: A's member table at a7ad3f2
-  and 5ec0621, B1's list and B2's answer. Nothing is open for the owner.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 ---
 
 # 019 — Analysis: Slate formatting on Discord's published engine (plan M1, AN-1 to AN-8)
@@ -21,37 +18,11 @@ Status-Detail: >-
 | 2026-11-23T17:40 | 3 | analyst-019 | AN-8 limb 2b added, on `planner-019`'s ask after `db8199aa`: GAME_MENTION per legacy surface, run and observed. |
 | 2026-11-23T18:00 | 4 | analyst-019 | AN-8 limb 5 added (plan Revision 4's slow-CPU capture): 300 of 300 formatted at 4x, minimum margin 562.0 ms; H-1 and G-4 updated. Every AN-8 limb now has a result. Scratch export, bundles and packages removed. |
 | 2026-11-25T05:55 | 5 | analyst-019 | AN-9 added as its own section, commissioned by `planner-019` for plan 019 Revision 23 (D-24, D-28; R-111, CR-27): A, the cross-line keystroke class at website `a7ad3f2` and `origin/master` `5ec0621`; B1, the load outputs that are not a forced-normalise fixed point; B2, the engine's reading of an emoji in code. Captures `verification/019/analysis/an9/`. No earlier claim in this document is changed. |
+| 2026-11-25T17:10 | 5 | devops-019 | Document closed. Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Resumption State
 
-Written 2026-11-23T16:40Z at `steering-hooks-fixer`'s `/checkpoint`. The session is cleared after this commit.
-
-- **Done.** AN-1 to AN-7 and OQ-4, every result in § Findings, committed in `aafecf1`. Deliveries:
-  - to `planner-019`, message `7181587c-ea9e-4a8f-a0ee-46f2d4d02844`;
-  - to `steering-hooks-fixer`, message `41263451-81ab-44b4-a950-8fa3eb223746`, carrying the AN-3 and D-11 owner items, G-11, and H-2;
-  - to `devops-019`, message `67c2f824-d77c-4edc-86b8-e3c3a6befe70`: `2531c04a` is cited, and the spike branch can be deleted.
-- **Next.** No act is owed. The next brief comes from steering. A likely trigger is his answer to AN-3 or D-11, or the planner
-  asking for gap G-1 (GAME_MENTION) or the hypotheses H-1 or H-2. Plan 019 was at Revision 2 (`8dfd4659`) when read; at
-  `d503160e` its Revision 3 is held for those two answers. Read the plan as a diff from Revision 2.
-- **Update, changelog row 2 (resumed run).** AN-8 limbs 1 to 4 are committed. The plan was read at Revision 5 (`8cfd2fc2`). Next:
-  limb 5, which rebuilds the spike from `an1/wasmSpike.tsx.txt` and `an1/MarkdownProvider.spike.diff` in a scratch export, then
-  runs `an2-capture.js` at 4× CPU throttle, 50 captures of each of the three messages.
-- **Update, changelog row 4.** Limb 5 has landed, so every AN-8 limb is done and nothing is in flight. Next: none until a brief. The
-  AN-8 JPEGs are at `~/.cache/analysis-019-an8-cpu4/`, outside the record. The scratch export, the bundles and the packages are
-  removed.
-- **Approach in flight.** None.
-- **Refs.** Record `agent-output` `master`, HEAD `d503160e` before this commit. Website analysed at `af3d95a` from exports only. The
-  shared tree was not touched (its HEAD read `7660259`).
-- **Uncommitted or local.** Outside the record:
-  - `~/.claude/skills/discord-test-browser/test-estate.json` carries this run's estate changes (emoji `slate_oracle`, command
-    `/slateping`, the messages);
-  - the 300 AN-2 JPEGs are at `~/.cache/analysis-019-an2-jpegs/`.
-  - This session's scratch holds only copies of committed probes.
-- **Evidence run and not recorded.** None.
-- **Processes.** None of this run's are running: the servers were stopped by their wrapper's trap, and the browser is closed.
-- **Re-running the Node oracle.** Discord's assets must be fetched again into scratch: `curl` of `discord.com/app` and its scripts, as
-  in § Methodology. The probes are in `verification/019/analysis/an4/` and `an6/`, and jsdom is at
-  `/usr/local/bin/hooks/website/node_modules/jsdom`.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
 
 ## Value Statement and Business Objective
 
