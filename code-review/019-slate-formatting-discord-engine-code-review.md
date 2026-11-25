@@ -1924,7 +1924,8 @@ CR-30 LOW Round 9 (M6)
   - Falsity signature: the typographic case run per codepoint (`‘`, `’`, `“`, `”`), asserting 0 forced operations after an
     inline-code keystroke at 200 lines. It fails on the count when one copy drops a codepoint the other keeps. Fixture property:
     the codepoint is in neither the first nor the last line.
-- Under the caps this is a stated limit for the Planner batch, sent to planner-019.
+- Under the caps this is a stated limit for the Planner batch, sent to planner-019. Carried by the plan's Planner batch, row
+  R-129 (record `d8fd2eb7`), with the sweep's three LOW gaps. At the seam fold, `‘ “ ”` join AC-6.9's residue.
 
 **The sweep's survivors** (implementation document, Fix Round 5 § Self-check sweep): the dispositions are read, and I agree with
 them.
