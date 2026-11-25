@@ -1,0 +1,10 @@
+#!/bin/sh
+# usage: run-sweep6c.sh <mutants> <work> <out> <sha> files|full; second pass of the self-check sweep at <sha>, without --bail (the first
+# pass's --bail runs are read ABORTED by mutation-run.py's test-count check): "files" re-runs the first pass's aborted mutants on its three
+# files, "full" re-runs its survivors on the whole SlateEditor directory. Each its own 5G no-swap scope, one worker, no network, 250 s per run.
+mkdir -p $2 $3
+U=src/components/SlateEditor/utils/__tests__; M=src/components/SlateEditor/__tests__
+if [ "$5" = files ]; then T="$U/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx $U/withNormalizeNode.keystroke-run-unit-builds.test.tsx $M/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx"; else T=src/components/SlateEditor; fi
+cd /usr/local/bin/hooks/website && systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 unshare -rn python3 ~/.claude/tools/mutation-run.py --repo /usr/local/bin/hooks/website --sha $4 \
+  --mutants $1 --work $2 --out $3 --timeout 250 --dep node_modules -- npx vitest run --project node --project dom --maxWorkers=1 $T > $3.log.txt 2>&1
+echo "exit $?" >> $3.log.txt

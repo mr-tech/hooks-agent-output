@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/e-40947a6
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  10:13:38
+   Duration  4.66s (transform 162ms, setup 19ms, import 328ms, tests 3.61s, environment 593ms)
+
+exit 0

@@ -1,0 +1,9 @@
+#!/bin/sh
+# usage: run-bench-control.sh <scratch dir> <out dir>; AC-6.8's and AC-6.9's benches, three rounds interleaved on 40947a6 and 2c0b182
+# (production identical to the hand-off tip), each run its own 5G no-swap scope, one worker, no network, 300 s per run
+S=$1; OUT=$2; U=src/components/SlateEditor/utils/__tests__
+for r in 1 2 3; do for b in keystroke-time fence-and-quote-time; do for t in e-40947a6 e-2c0b182; do
+  L=$OUT/bench-$b-$t-r$r.txt; echo "$b $t r$r before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+  ( cd $S/$t && timeout -k 10 300 systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 unshare -rn npx vitest bench --run --maxWorkers=1 --project node --project dom $U/withNormalizeNode.$b.bench.ts > $L 2>&1 ); echo "exit $?" >> $L
+  echo "$b $t r$r after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+done; done; done

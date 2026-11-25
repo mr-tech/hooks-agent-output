@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/sweep6c-swork1/20261125T111915Z-p4177116/mutant-1
+
+
+ Test Files  32 passed (32)
+      Tests  1578 passed (1578)
+   Start at  11:23:02
+   Duration  230.53s (transform 1.40s, setup 154ms, import 13.79s, tests 196.90s, environment 14.65s)
+

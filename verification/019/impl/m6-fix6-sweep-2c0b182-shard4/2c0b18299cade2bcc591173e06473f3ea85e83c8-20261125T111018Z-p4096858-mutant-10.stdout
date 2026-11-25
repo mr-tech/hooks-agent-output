@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/sweep6b-work4/20261125T111018Z-p4096858/mutant-10
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 1 failed) 487ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 284ms
+
+ Test Files  1 failed (3)
+      Tests  1 failed | 1 passed (56)
+   Start at  11:16:59
+   Duration  2.63s (transform 396ms, setup 25ms, import 1.24s, tests 487ms, environment 666ms)
+

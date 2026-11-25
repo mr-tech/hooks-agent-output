@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (916 tests | 4 failed | 908 skipped) 442ms
+     × a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection 90ms
+     × a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection 76ms
+     × the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection 85ms
+     × the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection 88ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:255:19
+    253|     const fresh = getInitialValue(`${keystroke.changed(lines, EMOJI_FI…
+    254|     const shapes = lineShapes(editor.children as Element[]);
+    255|     expect(error).toBe('');
+       |                   ^
+    256|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+    257|     expect(editor.selection).toEqual(selection);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 4 passed | 908 skipped (916)
+   Start at  09:56:18
+   Duration  1.52s (transform 180ms, setup 19ms, import 369ms, tests 442ms, environment 558ms)
+
+exit 1

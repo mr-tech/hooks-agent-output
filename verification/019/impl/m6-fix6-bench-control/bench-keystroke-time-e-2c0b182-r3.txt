@@ -1,0 +1,205 @@
+Benchmarking is an experimental feature.
+Breaking changes might not follow SemVer, please pin Vitest's version when using it.
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/e-2c0b182
+
+keystroke-time {"name":"plain lines","lines":200,"keystrokes":50,"medianMs":1.7271749999999884,"p95Ms":4.955545000000029}
+keystroke-time {"name":"\"> \" quote lines","lines":200,"keystrokes":50,"medianMs":1.57425000000012,"p95Ms":9.026575000000093}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 200 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  440.93  0.9637  7.7498  2.2680  2.8513  7.7498  7.7498  7.7498  ±16.60%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":200,"keystrokes":50,"medianMs":1.20274100000006,"p95Ms":2.698637999999846}
+keystroke-time {"name":"plain lines","lines":400,"keystrokes":50,"medianMs":1.9357189999998354,"p95Ms":4.525463999999829}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 200 lines
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  333.55  0.8960  12.2631  2.9980  3.4909  12.2631  12.2631  12.2631  ±27.34%       50
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 200 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  642.65  0.8481  4.4752  1.5561  1.9624  4.4752  4.4752  4.4752  ±13.50%       50
+keystroke-time {"name":"\"> \" quote lines","lines":400,"keystrokes":50,"medianMs":2.099762000000055,"p95Ms":10.79934000000003}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 400 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  402.40  1.3151  6.2429  2.4851  3.0015  6.2429  6.2429  6.2429  ±13.10%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":400,"keystrokes":50,"medianMs":1.8031639999999243,"p95Ms":5.818564000000151}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 400 lines
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  231.44  1.3501  17.2041  4.3209  5.2809  17.2041  17.2041  17.2041  ±27.13%       50
+keystroke-time {"name":"plain lines","lines":1000,"keystrokes":50,"medianMs":4.14615300000014,"p95Ms":11.29693999999995}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 400 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  406.10  1.2304  6.9489  2.4624  3.0812  6.9489  6.9489  6.9489  ±14.71%       50
+keystroke-time {"name":"\"> \" quote lines","lines":1000,"keystrokes":50,"medianMs":4.614553999999771,"p95Ms":36.437398999999914}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 1000 lines 309ms
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  180.13  2.6328  15.4278  5.5515  6.7241  15.4278  15.4278  15.4278  ±14.31%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":1000,"keystrokes":50,"medianMs":4.067982999999913,"p95Ms":10.952582999999777}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 1000 lines 555ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  95.4703  2.8756  40.4966  10.4745  11.9460  40.4966  40.4966  40.4966  ±28.23%       50
+keystroke-time {"name":"plain lines","lines":2048,"keystrokes":50,"medianMs":8.407258000000184,"p95Ms":24.845126999999593}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 1000 lines 312ms
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  176.32  2.6275  15.6021  5.6716  7.1879  15.6021  15.6021  15.6021  ±14.09%       50
+keystroke-time {"name":"\"> \" quote lines","lines":2048,"keystrokes":50,"medianMs":8.535679999999957,"p95Ms":45.84735400000045}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 2048 lines 620ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  88.8401  4.9399  35.2777  11.2562  13.5366  35.2777  35.2777  35.2777  ±15.60%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":2048,"keystrokes":50,"medianMs":8.409257999999681,"p95Ms":25.11925599999995}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 2048 lines 1046ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  51.0523  5.4196  78.7331  19.5878  25.7506  78.7331  78.7331  78.7331  ±27.68%       50
+keystroke-time {"name":"lines that each hold an emoji","lines":1000,"keystrokes":50,"medianMs":11.359124999999949,"p95Ms":25.10692999999992}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 2048 lines 618ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  89.2578  4.9634  31.9902  11.2035  13.5318  31.9902  31.9902  31.9902  ±15.05%       50
+keystroke-time {"name":"fenced blocks of three lines between plain lines","lines":1364,"keystrokes":50,"medianMs":2.3360469999997804,"p95Ms":5.668760999999904}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines that each hold an emoji, 1000 lines 780ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  69.2957  9.0054  33.3530  14.4309  19.0712  33.3530  33.3530  33.3530  ±11.40%       50
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in fenced blocks of three lines between plain lines, 1364 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  312.26  1.8494  7.0946  3.2024  4.6433  7.0946  7.0946  7.0946  ±12.84%       50
+keystroke-time {"name":"plain lines","lines":200,"keystrokes":50,"medianMs":1.9163249999999152,"p95Ms":13.206942000000026}
+keystroke-time {"name":"\"> \" quote lines","lines":200,"keystrokes":50,"medianMs":1.497066000000018,"p95Ms":7.169243999999935}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 200 lines
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  297.26  0.8776  18.6646  3.3641  3.6034  18.6646  18.6646  18.6646  ±32.86%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":200,"keystrokes":50,"medianMs":1.306312000000048,"p95Ms":2.5529220000000805}
+keystroke-time {"name":"plain lines","lines":400,"keystrokes":50,"medianMs":1.9689970000000585,"p95Ms":4.870859999999993}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 200 lines
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  339.73  0.9191  13.2808  2.9435  3.6182  13.2808  13.2808  13.2808  ±27.61%       50
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 200 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  665.47  0.8514  3.4250  1.5027  1.8347  3.4250  3.4250  3.4250  ±11.76%       50
+keystroke-time {"name":"\"> \" quote lines","lines":400,"keystrokes":50,"medianMs":1.9940489999999045,"p95Ms":11.240794999999935}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 400 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  386.26  1.3826  6.2365  2.5889  3.3815  6.2365  6.2365  6.2365  ±13.37%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":400,"keystrokes":50,"medianMs":1.795184000000063,"p95Ms":5.339881999999989}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 400 lines
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  228.18  1.4385  17.0357  4.3825  5.1704  17.0357  17.0357  17.0357  ±26.86%       50
+keystroke-time {"name":"plain lines","lines":1000,"keystrokes":50,"medianMs":4.207512000000179,"p95Ms":11.268775000000005}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 400 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  412.62  1.2746  5.9325  2.4235  2.8741  5.9325  5.9325  5.9325  ±13.08%       50
+keystroke-time {"name":"\"> \" quote lines","lines":1000,"keystrokes":50,"medianMs":4.7816860000002634,"p95Ms":24.701162000000068}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 1000 lines 316ms
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  175.00  2.7893  14.4234  5.7143  6.9985  14.4234  14.4234  14.4234  ±13.81%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":1000,"keystrokes":50,"medianMs":4.4061649999998735,"p95Ms":10.094014999999672}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 1000 lines 548ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  97.3042  2.9755  48.0124  10.2771  13.5537  48.0124  48.0124  48.0124  ±28.65%       50
+keystroke-time {"name":"plain lines","lines":2048,"keystrokes":50,"medianMs":8.392334000000119,"p95Ms":21.91944199999989}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 1000 lines 312ms
+     name            hz     min      max    mean     p75      p99     p995     p999      rme  samples
+   · normalises  178.66  2.6072  15.3936  5.5973  6.8472  15.3936  15.3936  15.3936  ±13.58%       50
+keystroke-time {"name":"\"> \" quote lines","lines":2048,"keystrokes":50,"medianMs":9.188890999999785,"p95Ms":49.680643000000146}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 2048 lines 626ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  88.0064  4.9861  30.8974  11.3628  14.1549  30.8974  30.8974  30.8974  ±14.57%       50
+keystroke-time {"name":"lines after a \">>> \" marker","lines":2048,"keystrokes":50,"medianMs":8.312767999999778,"p95Ms":21.12166900000011}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 2048 lines 1069ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  49.6707  5.6577  76.6563  20.1326  27.2741  76.6563  76.6563  76.6563  ±27.18%       50
+keystroke-time {"name":"lines that each hold an emoji","lines":1000,"keystrokes":50,"medianMs":11.694951000000401,"p95Ms":23.765831000000617}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 2048 lines 624ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  88.8571  4.9856  31.9095  11.2540  14.0131  31.9095  31.9095  31.9095  ±14.35%       50
+keystroke-time {"name":"fenced blocks of three lines between plain lines","lines":1364,"keystrokes":50,"medianMs":2.298826999999619,"p95Ms":5.235186999999314}
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines that each hold an emoji, 1000 lines 785ms
+     name             hz     min      max     mean      p75      p99     p995     p999      rme  samples
+   · normalises  68.9236  9.0495  33.9940  14.5088  19.1644  33.9940  33.9940  33.9940  ±11.39%       50
+
+ ✓ |node| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in fenced blocks of three lines between plain lines, 1364 lines
+     name            hz     min     max    mean     p75     p99    p995    p999      rme  samples
+   · normalises  309.95  1.8834  9.3740  3.2263  4.5636  9.3740  9.3740  9.3740  ±13.69%       50
+
+ BENCH  Summary
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 200 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 200 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 200 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 400 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 400 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 400 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 1000 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 1000 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 1000 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 2048 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 2048 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 2048 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines that each hold an emoji, 1000 lines
+
+  |dom| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in fenced blocks of three lines between plain lines, 1364 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 200 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 200 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 200 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 400 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 400 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 400 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 1000 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 1000 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 1000 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in plain lines, 2048 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in "> " quote lines, 2048 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines after a ">>> " marker, 2048 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in lines that each hold an emoji, 1000 lines
+
+  |node| normalises - src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-time.bench.ts > one keystroke in fenced blocks of three lines between plain lines, 1364 lines
+
+exit 0

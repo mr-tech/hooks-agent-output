@@ -1,0 +1,12 @@
+withNormalizeNode.ts:68:if-false SURVIVED 50.67
+withNormalizeNode.ts:70:!== SURVIVED 51.48
+withNormalizeNode.ts:73:num SURVIVED 50.23
+withNormalizeNode.ts:75:walk-first SURVIVED 50.65
+withNormalizeNode.ts:75:< SURVIVED 50.4
+withNormalizeNode.ts:90:walk-last ABORTED 4.28
+withNormalizeNode.ts:95:=== ABORTED 4.17
+hand-stale-own-not-excluded ABORTED 10.63
+hand-record-never-cleared SURVIVED 51.19
+hand-noted-before-the-operation ABORTED 4.08
+0 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 4, control-failed 0; mut6b-shard6.json (blob ff574b8ef365972836e1226ac0ad128009ecb29e))
+exit 0

@@ -1,0 +1,12 @@
+withNormalizeNode.ts:66:if-false KILLED 28.22
+withNormalizeNode.ts:66:|| KILLED 27.94
+withNormalizeNode.ts:81:not KILLED 63.11
+withNormalizeNode.ts:95:not KILLED 63.79
+withNormalizeNode.ts:95:=== KILLED 61.99
+withNormalizeNode.ts:554:if-false KILLED 66.16
+withNormalizeNode.ts:554:not:2 KILLED 65.4
+hand-layout-read-as-empty KILLED 250.12
+hand-stale-edited-code-line-not-skipped KILLED 47.46
+hand-nested-edit-not-noted KILLED 61.76
+10 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut6c-aborted1.json (blob 66af16e14b2b17e36f7c05c8d72c4852b5e1c7b1))
+exit 0

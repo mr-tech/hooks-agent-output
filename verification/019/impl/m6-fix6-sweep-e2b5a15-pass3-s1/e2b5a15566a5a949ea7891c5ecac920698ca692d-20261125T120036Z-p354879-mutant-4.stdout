@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/sweep6d-work1/20261125T120036Z-p354879/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (919 tests | 1 failed | 908 skipped) 280ms
+     × the last line, a lone backtick pairing with the one ending line 0, removed, with no selection: raises nothing, types each line as a fresh load does and keeps the selection 12ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed | 908 skipped (919)
+   Start at  12:00:48
+   Duration  1.55s (transform 227ms, setup 28ms, import 438ms, tests 280ms, environment 637ms)
+

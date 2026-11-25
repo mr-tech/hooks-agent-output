@@ -1,0 +1,12 @@
+withNormalizeNode.ts:69:walk-first SURVIVED 231.9
+withNormalizeNode.ts:70:!== SURVIVED 229.72
+withNormalizeNode.ts:73:if-false SURVIVED 216.77
+withNormalizeNode.ts:74:=== SURVIVED 199.91
+withNormalizeNode.ts:75:walk-first SURVIVED 205.99
+withNormalizeNode.ts:75:num:2 SURVIVED 214.48
+withNormalizeNode.ts:83:walk-first SURVIVED 210.06
+withNormalizeNode.ts:93:walk-last SURVIVED 201.56
+hand-record-never-cleared SURVIVED 200.36
+hand-move-notes-source-only SURVIVED 199.4
+0 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut6c-survived4.json (blob 3ba6786fe941c7152cb61b0761f9654fad8d0ce3))
+exit 0

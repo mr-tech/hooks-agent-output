@@ -1,0 +1,8 @@
+
+> website@ typecheck /usr/local/bin/hooks/website
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx(239,35): error TS2322: Type '{ anchor: { path: Path; offset: number; }; focus: BasePoint; }' is not assignable to type 'Location | undefined'.
+  Type '{ anchor: { path: Path; offset: number; }; focus: BasePoint; }' is not assignable to type 'undefined'.
+ ELIFECYCLE  Command failed with exit code 2.
+typecheck exit 2

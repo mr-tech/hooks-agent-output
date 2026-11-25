@@ -1,0 +1,296 @@
+{
+ "sha": "e2b5a15566a5a949ea7891c5ecac920698ca692d",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/mut6d-s2.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers=1",
+  "src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx",
+  "-t",
+  "an edit made at a point while the selection is elsewhere"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 250.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/mut6d-s2.json",
+   "blob": "ea6d85af98e4a1a4b7d411ab39c8235ee1d25a80"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-control-1.stderr",
+   "seconds": 2.56,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 919,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "withNormalizeNode.ts:69:walk-last",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 69,
+    "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.66,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:75:walk-last",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 75,
+    "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the last line, a lone backtick pairing with the one ending line 0, removed, with no selection: raises nothing, types each line as a fresh load does and keeps the selection"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-2.stderr"
+  },
+  {
+   "id": "hand-removal-notes-no-neighbour",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-removal-notes-no-neighbour"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the last line, a lone backtick pairing with the one ending line 0, removed, with no selection: raises nothing, types each line as a fresh load does and keeps the selection"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-3.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:73:num",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 73,
+    "text": "if (op.type === 'split_node') return [line, line + 1];"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-4.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:90:walk-first",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 90,
+    "text": "const edited = noted ? editor.children.flatMap((line, index) => (noted.has(line) ? [index] : [])) : [];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the last line, a lone backtick pairing with the one ending line 0, removed, with no selection: raises nothing, types each line as a fresh load does and keeps the selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of the first line of each of two runs of emoji lines a code block apart, in one change, with no selection: raises nothing, types each line as a fresh load does and keeps the selection"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-5.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:69:num:2",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 69,
+    "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.66,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-6.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:75:>=",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": ">=",
+    "line": 75,
+    "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.63,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-7.stderr"
+  },
+  {
+   "id": "hand-merge-notes-merged-line",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-merge-notes-merged-line"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-8.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:74:===",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 74,
+    "text": "if (op.type === 'merge_node') return [line - 1];"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.66,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-9.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:93:walk-last",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 93,
+    "text": "edited.forEach((editedIndex) => {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 919,
+   "control_tests_run": 919,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of the first line of each of two runs of emoji lines a code block apart, in one change, with no selection: raises nothing, types each line as a fresh load does and keeps the selection"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.67,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-e2b5a15-pass3-s2/e2b5a15566a5a949ea7891c5ecac920698ca692d-20261125T120036Z-p354880-mutant-10.stderr"
+  }
+ ],
+ "score": "4 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut6d-s2.json (blob ea6d85af98e4a1a4b7d411ab39c8235ee1d25a80))"
+}

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/sweep6c-awork2/20261125T111915Z-p4177115/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (916 tests | 4 failed) 8388ms
+     × a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection 62ms
+     × a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection 62ms
+     × the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection 90ms
+     × the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection 86ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  4 failed | 1056 passed (1060)
+   Start at  11:31:58
+   Duration  48.52s (transform 511ms, setup 38ms, import 1.79s, tests 44.05s, environment 2.15s)
+

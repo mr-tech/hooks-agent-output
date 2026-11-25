@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ linesOf src/components/SlateEditor/utils/withNormalizeNode.ts:66:55
+     64|
+     65| function linesOf(op: Operation, lineCount: number): number[] {
+     66|   if (false && op.type === 'set_selection' || op.path.length === 0) re…
+       |                                                       ^
+     67|   const [line] = op.path;
+     68|   if (op.type === 'move_node') {
+ ❯ noteEdited src/components/SlateEditor/utils/withNormalizeNode.ts:80:17
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:554:54
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/set-selection.ts:35:11
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:175:43
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:73:11
+ ❯ setSelection node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:12:15
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ typeAt src/components/SlateEditor/__tests__/helpers/fenceAndQuoteKeystrokes.ts:31:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

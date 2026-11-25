@@ -1,0 +1,51 @@
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx before load 0.79 1.16 1.15 9/984 3540525 10:02:29Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx after load 0.79 1.16 1.15 2/984 3540962 10:02:31Z
+e-40947a6 src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx before load 0.79 1.16 1.15 1/984 3540964 10:02:31Z
+e-40947a6 src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx after load 0.81 1.16 1.14 1/973 3541946 10:02:37Z
+e-372339f src/components/SlateEditor/__tests__/crprobe.mounted-offselection.test.tsx before load 0.81 1.16 1.14 1/973 3541948 10:02:37Z
+e-372339f src/components/SlateEditor/__tests__/crprobe.mounted-offselection.test.tsx after load 0.99 1.18 1.15 2/984 3543852 10:02:49Z
+e-40947a6 src/components/SlateEditor/__tests__/crprobe.mounted-offselection.test.tsx before load 0.99 1.18 1.15 1/984 3543854 10:02:49Z
+e-40947a6 src/components/SlateEditor/__tests__/crprobe.mounted-offselection.test.tsx after load 1.44 1.27 1.18 1/985 3546132 10:03:03Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx before load 1.44 1.27 1.18 1/985 3546134 10:03:03Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx after load 1.46 1.29 1.19 1/990 3548820 10:03:19Z
+e-372339f-nosupp src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx before load 1.46 1.29 1.19 1/990 3548822 10:03:19Z
+e-372339f-nosupp src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx after load 1.58 1.32 1.20 2/982 3551150 10:03:34Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.keystroke-settle.test.tsx before load 1.58 1.32 1.20 2/982 3551152 10:03:34Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.keystroke-settle.test.tsx after load 1.58 1.32 1.20 1/978 3551791 10:03:37Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.paste-differential.test.tsx before load 1.58 1.32 1.20 1/978 3551793 10:03:37Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.paste-differential.test.tsx after load 1.61 1.34 1.21 1/983 3553854 10:03:50Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.class-tip.test.tsx before load 1.61 1.34 1.21 1/983 3553856 10:03:50Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.class-tip.test.tsx after load 1.61 1.34 1.21 4/998 3554369 10:03:52Z
+e-372339f src/components/SlateEditor/__tests__/crprobe.mounted-lone-backtick.test.tsx before load 1.61 1.34 1.21 3/999 3554375 10:03:52Z
+e-372339f src/components/SlateEditor/__tests__/crprobe.mounted-lone-backtick.test.tsx after load 1.56 1.33 1.21 1/991 3555047 10:03:56Z
+e-372339f src/components/SlateEditor/__tests__/crprobe.sl30-positions.test.tsx before load 1.56 1.33 1.21 1/991 3555049 10:03:56Z
+e-372339f src/components/SlateEditor/__tests__/crprobe.sl30-positions.test.tsx after load 1.95 1.45 1.25 6/991 3560958 10:04:34Z
+e-af3d95a src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx before load 1.95 1.45 1.25 4/993 3560963 10:04:34Z
+e-af3d95a src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx after load 1.96 1.49 1.27 2/1020 3564565 10:04:57Z
+e-40947a6 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx before load 1.96 1.49 1.27 2/1020 3564567 10:04:57Z
+e-40947a6 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx after load 2.20 1.55 1.29 1/976 3566201 10:05:06Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx before load 2.20 1.55 1.29 1/976 3566203 10:05:06Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx after load 2.16 1.57 1.30 5/1014 3567920 10:05:17Z
+bench fence-and-quote-time e-40947a6 r1 before load 2.16 1.57 1.30 4/1016 3567924 10:05:17Z
+bench fence-and-quote-time e-40947a6 r1 after load 2.70 1.77 1.38 1/997 3573918 10:05:55Z
+bench fence-and-quote-time e-372339f r1 before load 2.70 1.77 1.38 1/997 3573920 10:05:55Z
+bench fence-and-quote-time e-372339f r1 after load 2.88 1.93 1.45 1/995 3579749 10:06:33Z
+bench keystroke-time e-40947a6 r1 before load 2.88 1.93 1.45 1/995 3579751 10:06:33Z
+bench keystroke-time e-40947a6 r1 after load 2.53 1.90 1.45 1/986 3581527 10:06:46Z
+bench keystroke-time e-372339f r1 before load 2.53 1.90 1.45 1/986 3581529 10:06:46Z
+bench keystroke-time e-372339f r1 after load 2.26 1.88 1.45 1/993 3583294 10:06:59Z
+e-af3d95a src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx before load 2.26 1.88 1.45 1/993 3583296 10:06:59Z
+e-af3d95a src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx after load 2.64 1.98 1.49 1/987 3586340 10:07:21Z
+e-40947a6 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx before load 2.64 1.98 1.49 1/987 3586342 10:07:21Z
+e-40947a6 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx after load 2.39 1.95 1.49 3/1001 3587611 10:07:31Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx before load 2.39 1.95 1.49 3/1001 3587613 10:07:31Z
+e-372339f src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx after load 2.32 1.95 1.49 2/976 3589021 10:07:41Z
+bench fence-and-quote-time e-40947a6 r2 before load 2.32 1.95 1.49 2/976 3589023 10:07:41Z
+bench fence-and-quote-time e-40947a6 r2 after load 2.16 1.97 1.52 1/982 3593883 10:08:18Z
+bench fence-and-quote-time e-372339f r2 before load 2.16 1.97 1.52 1/982 3593885 10:08:18Z
+bench fence-and-quote-time e-372339f r2 after load 2.02 1.95 1.53 1/978 3597097 10:08:43Z
+bench keystroke-time e-40947a6 r2 before load 2.02 1.95 1.53 1/978 3597099 10:08:43Z
+bench keystroke-time e-40947a6 r2 after load 1.80 1.91 1.52 4/985 3598962 10:08:56Z
+bench keystroke-time e-372339f r2 before load 1.80 1.91 1.52 4/985 3598967 10:08:56Z
+bench keystroke-time e-372339f r2 after load 1.93 1.93 1.53 3/975 3600690 10:09:09Z
+done 10:09:09Z

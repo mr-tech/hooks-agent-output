@@ -1,0 +1,10 @@
+#!/bin/sh
+# usage: run-sweep6b.sh <mutants> <work> <out> <sha>; first pass of the self-check sweep at <sha>: its own 5G no-swap scope, one
+# worker, no network, the three files that exercise the round's guards, stopping at the first failing test (--bail=1); 250 s per run.
+# Survivors are re-run against the whole SlateEditor directory without --bail.
+mkdir -p $2 $3
+U=src/components/SlateEditor/utils/__tests__; M=src/components/SlateEditor/__tests__
+cd /usr/local/bin/hooks/website && systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 unshare -rn python3 ~/.claude/tools/mutation-run.py --repo /usr/local/bin/hooks/website --sha $4 \
+  --mutants $1 --work $2 --out $3 --timeout 250 --dep node_modules -- npx vitest run --project node --project dom --maxWorkers=1 --bail=1 \
+  $U/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx $U/withNormalizeNode.keystroke-run-unit-builds.test.tsx $M/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > $3.log.txt 2>&1
+echo "exit $?" >> $3.log.txt

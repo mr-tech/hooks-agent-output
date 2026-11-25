@@ -1,0 +1,28 @@
+#!/bin/sh
+# usage: run-tip6.sh <scratch dir> <out dir> <sha>; at <sha>, each probe in its own 5G no-swap scope, one worker, no network:
+# the off-selection probe (reviewer's, unmounted) at <sha> and 40947a6, its mounted form, CF-35's fixed-point probe on <sha> and its
+# pass-through tree, the settle and paste differentials, the class probe, SL-30's positions, then SL-29 and AC-6.8's and AC-6.9's
+# benches in two rounds interleaved with af3d95a / 40947a6
+S=$1; OUT=$2; SHA=$3; U=src/components/SlateEditor/utils/__tests__; M=src/components/SlateEditor/__tests__
+mkdir -p $OUT
+mark() { echo "$1 load $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt; }
+run() { ( cd $S/$1 && CRPROBE_OUT=$OUT/$3 PROBE_OUT=$OUT/$3 timeout -k 10 2400 systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 unshare -rn npx vitest $4 --maxWorkers=1 --project node --project dom $2 > $OUT/log-$3.txt 2>&1 ); echo "exit $?" >> $OUT/log-$3.txt; }
+probe() { mark "$1 $2 before"; rm -f $OUT/$3; run $1 $2 $3 run; mark "$1 $2 after"; }
+probe e-$SHA $U/crprobe.offselection-inline.test.tsx offsel-$SHA.jsonl
+probe e-40947a6 $U/crprobe.offselection-inline.test.tsx offsel-40947a6.jsonl
+probe e-$SHA $M/crprobe.mounted-offselection.test.tsx mounted-offsel-$SHA.jsonl
+probe e-40947a6 $M/crprobe.mounted-offselection.test.tsx mounted-offsel-40947a6.jsonl
+probe e-$SHA $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-$SHA.json
+probe e-$SHA-nosupp $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-$SHA-nosupp.json
+probe e-$SHA $U/crprobe.keystroke-settle.test.tsx keystroke-settle-$SHA.json
+probe e-$SHA $U/crprobe.paste-differential.test.tsx paste-differential-$SHA.json
+probe e-$SHA $U/crprobe.class-tip.test.tsx class-$SHA.jsonl
+probe e-$SHA $M/crprobe.mounted-lone-backtick.test.tsx mounted-lone-backtick-$SHA.jsonl
+probe e-$SHA $M/crprobe.sl30-positions.test.tsx sl30-$SHA.jsonl
+for r in 1 2; do
+  for t in e-af3d95a e-40947a6 e-$SHA; do f=crprobe.sl29-tip.test.tsx; [ $t = e-af3d95a ] && f=crprobe.sl29-base.test.tsx
+    probe $t $U/$f sl29-$t-r$r.jsonl; done
+  for b in fence-and-quote-time keystroke-time; do for t in e-40947a6 e-$SHA; do
+    mark "bench $b $t r$r before"; run $t $U/withNormalizeNode.$b.bench.ts bench-$b-$t-r$r.txt "bench --run"; mark "bench $b $t r$r after"; done; done
+done
+echo "done $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt

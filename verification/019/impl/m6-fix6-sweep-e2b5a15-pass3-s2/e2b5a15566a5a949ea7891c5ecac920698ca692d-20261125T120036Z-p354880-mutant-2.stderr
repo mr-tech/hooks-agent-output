@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the last line, a lone backtick pairing with the one ending line 0, removed, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 1: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 2: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 3: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:300:57
+    298|     const shapes = lineShapes(editor.children as Element[]);
+    299|     expect(error).toBe('');
+    300|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+       |                                                         ^
+    301|     expect(editor.selection).toEqual(selection);
+    302|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

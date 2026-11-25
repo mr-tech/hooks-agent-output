@@ -1,0 +1,16 @@
+{"kind":"insert","where":"none","n":5,"thrown":"","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"none","n":100,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"none","n":200,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"none","n":1000,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"other-unit","n":5,"thrown":"","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"other-unit","n":100,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"other-unit","n":200,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"insert","where":"other-unit","n":1000,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"none","n":5,"thrown":"","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"none","n":100,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"none","n":200,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"none","n":1000,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"other-unit","n":5,"thrown":"","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"other-unit","n":100,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"other-unit","n":200,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}
+{"kind":"delete","where":"other-unit","n":1000,"thrown":"Error: Could not completely normalize the editor after 126 iterations! This is usually due","timerThrown":"","windowErrors":[],"writes":2,"lastWriteIsExpected":true}

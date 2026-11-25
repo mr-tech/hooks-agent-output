@@ -1,0 +1,52 @@
+Self-check sweep, M6 Fix Round 6, website 40947a6..48eb60a (production code identical from 2c0b182; the mutants are made at
+2c0b182 for passes 1 and 2 and at e2b5a15 for pass 3, the same production text). Mutants: m6-fix6-mutants-2c0b182.json (60: 47
+from mutant-gen.js --range 40947a6..2c0b182, 13 by hand). Runner: mutation-run.py blob b26916e7. Each shard its own 5G no-swap scope,
+one worker, unshare -rn, 250 s per run. OOM count (kern.log "Memory cgroup out of memory") 8 before and after.
+
+Stopped first shape (owner's word, 11:09:31Z): 68 mutants, 4 shards, whole SlateEditor directory; no results; kept as
+m6-fix6-sweep-2c0b182-stopped-shard1..4.
+
+Pass 1 (11:10:18 to 11:18:15Z; m6-fix6-sweep-2c0b182-shard1..6, driver m6-fix6-run-sweep6b.sh.txt): the three files that exercise the
+round's guards, vitest --bail=1. Controls 1,060 tests, passed. Read: 0 KILLED, 40 SURVIVED, 20 ABORTED. The 20 ABORTED are runs
+--bail stopped on a failure: mutation-run.py's test-count check (count: mismatch, e.g. 56 against 1,060) classes them ABORTED, not
+KILLED. --bail therefore cannot be used with this runner; pass 2 re-runs them without it.
+
+Pass 2 (11:19:15 to 11:58:17Z; driver m6-fix6-run-sweep6c.sh.txt):
+- the 20 ABORTED, the same three files, no --bail (m6-fix6-sweep-2c0b182-pass2-aborted1..2): 20 of 20 KILLED; controls 1,060 passed.
+- the 40 SURVIVED, the whole SlateEditor directory, no --bail (m6-fix6-sweep-2c0b182-pass2-survived1..4): 0 of 40 killed; controls
+  1,578 passed (226 s); no run timed out (199 to 232 s).
+
+Pass 3 (driver m6-fix6-run-sweep6d.sh.txt; m6-fix6-sweep-e2b5a15-pass3-s1..4): the 40 against the widened off-selection case
+(e2b5a15: a line removed, a line merged, two runs changed in one edit, away from the selection), -t filter; controls 919 collected,
+passed. 11 of 40 KILLED: 66:num, 68:===, 72:>, 73:===, 75:===, 75:if-false, 75:walk-last, 90:walk-first, 93:walk-first,
+93:walk-last, hand-removal-notes-no-neighbour.
+
+Total: 31 of 60 killed, 29 survived, 0 stillborn, 0 aborted (after pass 2), 0 timed out.
+
+Survivors and dispositions (lines at 2c0b182, withNormalizeNode.ts):
+- 68:if-false, 69:walk-first, 69:walk-last, 69:num, 69:num:2, 70:!==, hand-move-notes-source-only (the move_node branch):
+  UNREACHED in the product: git grep -n -E "moveNodes|move_node" 2c0b182 -- src ':!*__tests__*' gives only this branch; slate-react's
+  drag is a delete and an insert (code review Round 9's read of Editable onDrop). Not tested.
+- 74:===, 74:num, 74:if-false, hand-merge-notes-merged-line (merge noting): EQUIVALENT on the reached path, by capture: the merge case
+  passes under each. After a top-level merge Slate's normaliser joins the merged line's two text leaves, a nested operation that notes
+  the merged line before the editor-level check runs.
+- 73:if-false, 73:num, hand-split-notes-first-half-only, 83:walk-first, 83:walk-last (split noting; a two-line note truncated): GAP,
+  LOW: equivalence not shown. A split's halves are adjacent lines of one run unit unless the second half forms a fence line, which the
+  type scan handles first; no case puts a split at a unit boundary.
+- 72:if-false, 72:num (nested operations fall through to the top-level branches: a nested merge notes line - 1, a nested split line +
+  1): GAP, LOW: the noted neighbour shares the line's unit except at a unit boundary; not probed there.
+- 75:<, 75:>=, 75:&&, 75:num, 75:num:2, 75:walk-first (the removal's range filter): EQUIVALENT by construction for the range bounds:
+  an index outside the lines adds `undefined` to the note, which matches no line; 75:walk-first drops the second neighbour, the same
+  LOW gap as the split's (adjacent lines share a unit).
+- 81:if-false (the empty note's early return): EQUIVALENT: an empty forEach; the map entry becomes an empty set.
+- 95:if-false (the code-line skip and `seen` guard, binding to the first operand): GAP, LOW: Fix Round 5's carried gap (a code line's
+  unit read), now on edited lines.
+- 554:&& and hand-noted-while-rebuilding (the rebuild's own operations noted): EQUIVALENT in behaviour: the rebuilt lines are the
+  load's, fixed points by CF-35's equality (0 of 36,560), so a re-check finds nothing; cost only.
+- hand-record-never-cleared: EQUIVALENT in behaviour, cost only: a verified line left noted is re-checked and agrees.
+
+Named mutants (QA's Named mutants whose guard this round touches): NM-87 (hand-NM-87-end-backtick-only, re-keyed to the edited-line
+loop) KILLED in pass 2. NM-83, NM-85, NM-86, NM-88: guards unchanged this round (the rebuild, the suppression, the timer); not re-run
+(dropped from the set on the owner's word, 11:09Z, with four other Round 5 hand mutants of untouched guards: the suppression, the
+code-line lift exclusion, the straightening, the caret).
+The red stand-in of the fix: hand-sources-are-the-selection-lines (the units taken from the selection, 40947a6's form) KILLED in pass 2.

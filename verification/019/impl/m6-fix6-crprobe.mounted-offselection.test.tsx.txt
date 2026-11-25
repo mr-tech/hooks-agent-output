@@ -1,0 +1,53 @@
+import { act } from 'react';
+import {
+  afterEach, beforeAll, it, vi,
+} from 'vitest';
+import { writeFileSync } from 'node:fs';
+import { Editor, Transforms } from 'slate';
+
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { unmountEditor(); });
+
+function textOf(n: number, lineZero: string, tail: boolean) {
+  const lines = Array.from({ length: n }, (_, i) => (i === 0 ? lineZero : i === n - 1 ? 'a🙂`' : 'a🙂'));
+  return lines.join('\n') + (tail ? '\n```\ncode\n```\nz' : '');
+}
+
+const rows: object[] = [];
+const cases = (['insert', 'delete'] as const).flatMap((kind) => (['none', 'other-unit'] as const).flatMap((where) => [5, 100, 200, 1000].map((n) => [kind, where, n] as const)));
+it.each(cases)('%s, selection %s, %j a🙂 lines, mounted', async (kind, where, n) => {
+  const tail = where === 'other-unit';
+  const before = textOf(n, kind === 'insert' ? 'a🙂' : 'a🙂`', tail);
+  const expected = textOf(n, kind === 'insert' ? 'a🙂`' : 'a🙂', tail);
+  const mounted = mountEditor(before, false, 'embedDescription');
+  const errors: string[] = [];
+  const onError = (e: ErrorEvent) => { errors.push(String(e.message).slice(0, 90)); };
+  window.addEventListener('error', onError);
+  let thrown = '';
+  let timerThrown = '';
+  const { editor } = mounted;
+  try {
+    await act(async () => {
+      if (where === 'none') Transforms.deselect(editor);
+      else Transforms.select(editor, Editor.end(editor, [editor.children.length - 1]));
+    });
+    await act(async () => {
+      const end0 = Editor.end(editor, [0]);
+      if (kind === 'insert') Transforms.insertText(editor, '`', { at: end0 });
+      else Transforms.delete(editor, { at: { anchor: { path: end0.path, offset: end0.offset - 1 }, focus: end0 } });
+    });
+  } catch (e) { thrown = String(e).slice(0, 90); }
+  try {
+    await act(async () => { vi.runOnlyPendingTimers(); });
+  } catch (e) { timerThrown = String(e).slice(0, 90); }
+  window.removeEventListener('error', onError);
+  const last = mounted.writes.at(-1) ?? '';
+  rows.push({
+    kind, where, n, thrown, timerThrown, windowErrors: errors, writes: mounted.writes.length, lastWriteIsExpected: last === expected,
+  });
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+}, 600_000);

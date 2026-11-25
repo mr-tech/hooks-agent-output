@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/sweep6b-work1/20261125T111018Z-p4096855/mutant-8
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (916 tests | 1 failed) 5497ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 57ms
+
+ Test Files  1 failed | 1 passed (3)
+      Tests  1 failed | 906 passed (972)
+   Start at  11:16:20
+   Duration  34.40s (transform 468ms, setup 38ms, import 1.59s, tests 30.99s, environment 1.41s)
+

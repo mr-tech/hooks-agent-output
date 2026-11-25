@@ -1,0 +1,323 @@
+{
+ "sha": "2c0b18299cade2bcc591173e06473f3ea85e83c8",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/mut6c-aborted2.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers=1",
+  "src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx",
+  "src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx",
+  "src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 250.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/mut6c-aborted2.json",
+   "blob": "3cb3f17e0f0dce2c97f23bde9d4b4ce53c810db8"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-control-1.stderr",
+   "seconds": 44.73,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1060,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "withNormalizeNode.ts:66:===",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 66,
+    "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 28.03,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:66:===:2",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 66,
+    "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 63.27,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-2.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:90:walk-last",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 90,
+    "text": "const edited = noted ? editor.children.flatMap((line, index) => (noted.has(line) ? [index] : [])) : [];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 63.39,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-3.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:95:||",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 95,
+    "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\" after it > leaves nothing for a forced normalise of \"# *``**word \u2764\ufe0f``* https://x.y/a*b*c\ud83d\ude42\\n``\ud83d\ude42<@1558266761101447248>``\\n`__||\\\\(x\\\\(|| \ud83d\ude42 https://x.y__` \ud83d\udc4d\ud83c\udffd :smile:\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\" after it > leaves nothing for a forced normalise of \"# https://x.y/a*b*c \ud83d\ude42 [text](https://example.com)\\n- ``*\ud83d\ude42 https://x.y <t:-1:f>*``\\n### `_\\\\:x\\\\: <:hooks:1558266761101447248>_`\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\\nc\" after it > leaves nothing for a forced normalise of \"# *``**word \u2764\ufe0f``* https://x.y/a*b*c\ud83d\ude42\\n``\ud83d\ude42<@1558266761101447248>``\\n`__||\\\\(x\\\\(|| \ud83d\ude42 https://x.y__` \ud83d\udc4d\ud83c\udffd :smile:\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\\nc\" after it > leaves nothing for a forced normalise of \"# https://x.y/a*b*c \ud83d\ude42 [text](https://example.com)\\n- ``*\ud83d\ude42 https://x.y <t:-1:f>*``\\n### `_\\\\:x\\\\: <:hooks:1558266761101447248>_`\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 48.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-4.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:95:||:2",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 95,
+    "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\" after it > leaves nothing for a forced normalise of \"# *``**word \u2764\ufe0f``* https://x.y/a*b*c\ud83d\ude42\\n``\ud83d\ude42<@1558266761101447248>``\\n`__||\\\\(x\\\\(|| \ud83d\ude42 https://x.y__` \ud83d\udc4d\ud83c\udffd :smile:\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\" after it > leaves nothing for a forced normalise of \"# https://x.y/a*b*c \ud83d\ude42 [text](https://example.com)\\n- ``*\ud83d\ude42 https://x.y <t:-1:f>*``\\n### `_\\\\:x\\\\: <:hooks:1558266761101447248>_`\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\\nc\" after it > leaves nothing for a forced normalise of \"# *``**word \u2764\ufe0f``* https://x.y/a*b*c\ud83d\ude42\\n``\ud83d\ude42<@1558266761101447248>``\\n`__||\\\\(x\\\\(|| \ud83d\ude42 https://x.y__` \ud83d\udc4d\ud83c\udffd :smile:\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with \"\\nc\" after it > leaves nothing for a forced normalise of \"# https://x.y/a*b*c \ud83d\ude42 [text](https://example.com)\\n- ``*\ud83d\ude42 https://x.y <t:-1:f>*``\\n### `_\\\\:x\\\\: <:hooks:1558266761101447248>_`\" to change after a keystroke on another line, [1,\"end\",\"backtick\"]",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a'",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a\ud83d\ude42'"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 134.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-5.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:554:not",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 554,
+    "text": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 65.49,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-6.stderr"
+  },
+  {
+   "id": "hand-stale-own-not-excluded",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-stale-own-not-excluded"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": null,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "failing_titles": [
+    "hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines",
+    "hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines",
+    "hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines",
+    "hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines",
+    "hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines",
+    "hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines",
+    "hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines"
+   ],
+   "exit": -9,
+   "timedOut": true,
+   "seconds": 250.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-7.stderr"
+  },
+  {
+   "id": "hand-NM-87-end-backtick-only",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-NM-87-end-backtick-only"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 62.18,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-8.stderr"
+  },
+  {
+   "id": "hand-sources-are-the-selection-lines",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-sources-are-the-selection-lines"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 49.88,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-9.stderr"
+  },
+  {
+   "id": "hand-noted-before-the-operation",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-noted-before-the-operation"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1060,
+   "control_tests_run": 1060,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 60.07,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-aborted2/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177115-mutant-10.stderr"
+  }
+ ],
+ "score": "10 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut6c-aborted2.json (blob 3cb3f17e0f0dce2c97f23bde9d4b4ce53c810db8))"
+}

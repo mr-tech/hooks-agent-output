@@ -1,0 +1,12 @@
+withNormalizeNode.ts:69:walk-last SURVIVED 2.66
+withNormalizeNode.ts:75:walk-last KILLED 2.62
+hand-removal-notes-no-neighbour KILLED 2.71
+withNormalizeNode.ts:73:num SURVIVED 2.69
+withNormalizeNode.ts:90:walk-first KILLED 2.72
+withNormalizeNode.ts:69:num:2 SURVIVED 2.66
+withNormalizeNode.ts:75:>= SURVIVED 2.63
+hand-merge-notes-merged-line SURVIVED 2.65
+withNormalizeNode.ts:74:=== SURVIVED 2.66
+withNormalizeNode.ts:93:walk-last KILLED 2.67
+4 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut6d-s2.json (blob ea6d85af98e4a1a4b7d411ab39c8235ee1d25a80))
+exit 0

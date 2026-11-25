@@ -1,0 +1,277 @@
+{
+ "sha": "2c0b18299cade2bcc591173e06473f3ea85e83c8",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/mut6c-survived1.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--project",
+  "node",
+  "--project",
+  "dom",
+  "--maxWorkers=1",
+  "src/components/SlateEditor"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 250.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/mut6c-survived1.json",
+   "blob": "cb2d163ab3e60eabfa9081cb17bf94176ed4c72f"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-control-1.stderr",
+   "seconds": 225.81,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1578,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "withNormalizeNode.ts:66:num",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 66,
+    "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 231.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:69:walk-last",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 69,
+    "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 229.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-2.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:72:if-false",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 72,
+    "text": "if (op.path.length > 1) return [line];"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 216.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-3.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:73:===",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 73,
+    "text": "if (op.type === 'split_node') return [line, line + 1];"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 202.92,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-4.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:74:num",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 74,
+    "text": "if (op.type === 'merge_node') return [line - 1];"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 204.63,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-5.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:75:walk-last",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 75,
+    "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 216.63,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-6.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:75:&&",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 75,
+    "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 211.66,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-7.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:83:walk-last",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 83,
+    "text": "lines.forEach((line) => edited.add(editor.children[line]));"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 202.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-8.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:95:if-false",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 95,
+    "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 199.1,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-9.stderr"
+  },
+  {
+   "id": "hand-removal-notes-no-neighbour",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "hand",
+    "line": 0,
+    "text": "hand-removal-notes-no-neighbour"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1578,
+   "control_tests_run": 1578,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 198.07,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix6-sweep-2c0b182-pass2-survived1/2c0b18299cade2bcc591173e06473f3ea85e83c8-20261125T111915Z-p4177116-mutant-10.stderr"
+  }
+ ],
+ "score": "0 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut6c-survived1.json (blob cb2d163ab3e60eabfa9081cb17bf94176ed4c72f))"
+}

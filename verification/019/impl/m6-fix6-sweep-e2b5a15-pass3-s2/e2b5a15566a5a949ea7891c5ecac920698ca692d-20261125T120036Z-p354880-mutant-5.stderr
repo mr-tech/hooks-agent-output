@@ -1,0 +1,44 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > the last line, a lone backtick pairing with the one ending line 0, removed, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 1: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 2: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++   "line 3: [\"div\",null,false,\"\",[]] but expected [\"div\",null,false,\"\",[\"🙂\"]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:300:57
+    298|     const shapes = lineShapes(editor.children as Element[]);
+    299|     expect(error).toBe('');
+    300|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+       |                                                         ^
+    301|     expect(editor.selection).toEqual(selection);
+    302|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of the first line of each of two runs of emoji lines a code block apart, in one change, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 210 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:299:19
+    297|     const fresh = getInitialValue(after, 'embedDescription', false) as…
+    298|     const shapes = lineShapes(editor.children as Element[]);
+    299|     expect(error).toBe('');
+       |                   ^
+    300|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+    301|     expect(editor.selection).toEqual(selection);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

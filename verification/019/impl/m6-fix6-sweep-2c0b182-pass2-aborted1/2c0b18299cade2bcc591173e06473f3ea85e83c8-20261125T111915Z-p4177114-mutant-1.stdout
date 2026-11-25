@@ -1,0 +1,713 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/779e9595-5d82-4159-9da6-6e8e9dd23201/scratchpad/sweep6c-awork1/20261125T111915Z-p4177114/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 56 failed) 14199ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 129ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 326ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 420ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 18ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 167ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 414ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1444ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 20ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 107ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 185ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 15ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 88ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 94ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 569ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 17ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 196ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 289ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 10ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 127ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 236ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1417ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 11ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 77ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 164ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 11ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 69ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 97ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 555ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 16ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 184ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 324ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 15ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 161ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 239ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1445ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 14ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 72ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 156ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 10ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 85ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 142ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 660ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 11ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 86ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 90ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 8ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 51ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 109ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 519ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 18ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 197ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 284ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 20ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 121ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 276ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1608ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (916 tests | 557 failed | 35 skipped) 3473ms
+       × raises no error 7ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 8ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 9ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 12ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 11ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 10ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 21ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 11ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 9ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 21ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 5ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 9ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 10ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 19ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 9ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 9ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 32ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 2ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 12ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 2ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 2ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 2ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 2ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 7ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 3ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 2ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 3ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 2ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 3ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves each line typed as a fresh load of the changed text builds it 15ms
+         × puts the next typed character where the edit leaves the caret 0ms
+     × raises no error and changes no line but its own, on content 1ms
+     × raises no error and changes no line but its own, on embedDescription 1ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 1ms
+     × raises no error and changes no line but its own, on content 1ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 1ms
+     × raises no error and changes no line but its own, on content 1ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 1ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × raises no error and changes no line but its own, on content 0ms
+     × raises no error and changes no line but its own, on embedDescription 0ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 7ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 0ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 1ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 1ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 0ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 0ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 0ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 0ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 0ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 0ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 0ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 1ms
+     × a code fence opened by a backtick inserted at the end of line 2, with a range from line 5 to line 8: raises nothing, types each line as a fresh load does and keeps the selection 2ms
+     × a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with a range from line 5 to line 8: raises nothing, types each line as a fresh load does and keeps the selection 2ms
+     × a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection 4ms
+     × the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with a range from line 5 to line 8: raises nothing, types each line as a fresh load does and keeps the selection 2ms
+     × the backtick ending line 0 deleted, unpairing the one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection 1ms
+     × leaves no typographic quote in a line it changes 6ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 5ms
+     × leaves no typographic quote in a line it changes 0ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 6ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 5ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 4ms
+     × leaves no typographic quote in a line it changes 0ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 2ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 15ms
+       × puts the next typed character where the edit leaves the caret 0ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 88 failed) 321ms
+     × builds at least one run unit for a character typed in a one-line message 15ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 11ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 4ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 3ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 9ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 3ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 3ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 9ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 3ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 3ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 9ms
+       × builds as many for insert at the middle of a line in the longest message as in the shortest 4ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for backspace at the middle of a line in the longest message as in the shortest 3ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the middle of a line in the longest message as in the shortest 3ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for enter at the middle of a line in the longest message as in the shortest 2ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 4ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 4ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 2ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 20ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 4ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 2ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 1ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 1ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 1ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 2ms
+       × builds as many run units in the longest message as in the shortest 2ms
+       × builds as many run units in the longest message as in the shortest 3ms
+       × builds as many run units in the longest message as in the shortest 6ms
+       × builds as many run units in the longest message as in the shortest 5ms
+       × builds as many run units in the longest message as in the shortest 5ms
+     × reads the fence state of each line of a 200-line message once for a insert that changes no line type 4ms
+     × reads the fence state of each line of a 200-line message once for a backspace that changes no line type 3ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 3ms
+     × counts a line settle and a fence read for a character typed in a one-line message 1ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 8ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 2ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 1ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 4ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0' 5ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing the backtick at th…' 2ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 2ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …' 2ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 7ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …' 3ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backslash typed before a leading ba…' 3ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…' 8ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a' 1ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a paste of lines of a🙂' 0ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing the backtick at th…' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 6ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backslash typed before a leading ba…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…' 4ms
+
+ Test Files  3 failed (3)
+      Tests  701 failed | 324 passed | 35 skipped (1060)
+   Start at  11:20:02
+   Duration  26.96s (transform 561ms, setup 38ms, import 1.97s, tests 17.99s, environment 2.15s)
+

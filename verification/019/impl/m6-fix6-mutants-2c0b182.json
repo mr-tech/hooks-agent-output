@@ -1,0 +1,542 @@
+[
+ {
+  "id": "withNormalizeNode.ts:66:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "{\n  if (op.t",
+  "new": "{\n  if (false && op.t",
+  "op": "if-false",
+  "line": 66,
+  "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:66:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "ype === 'se",
+  "new": "ype !== 'se",
+  "op": "===",
+  "line": 66,
+  "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:66:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' || o",
+  "new": "' && o",
+  "op": "||",
+  "line": 66,
+  "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:66:===:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "h === 0",
+  "new": "h !== 0",
+  "op": "===",
+  "line": 66,
+  "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:66:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= 0) ",
+  "new": "= 1) ",
+  "op": "num",
+  "line": 66,
+  "text": "if (op.type === 'set_selection' || op.path.length === 0) return [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:68:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "h;\n  if (op.ty",
+  "new": "h;\n  if (false && op.ty",
+  "op": "if-false",
+  "line": 68,
+  "text": "if (op.type === 'move_node') {"
+ },
+ {
+  "id": "withNormalizeNode.ts:68:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "ype === 'mo",
+  "new": "ype !== 'mo",
+  "op": "===",
+  "line": 68,
+  "text": "if (op.type === 'move_node') {"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "[Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]",
+  "new": "(Array.isArray([Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]) ? [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]].slice(0, 1) : [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]])",
+  "op": "walk-first",
+  "line": 69,
+  "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "[Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]",
+  "new": "(Array.isArray([Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]) ? [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]].slice(-1) : [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]])",
+  "op": "walk-last",
+  "line": 69,
+  "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ".[0],",
+  "new": ".[1],",
+  "op": "num",
+  "line": 69,
+  "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:num:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ".[0]]",
+  "new": ".[1]]",
+  "op": "num",
+  "line": 69,
+  "text": "return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]"
+ },
+ {
+  "id": "withNormalizeNode.ts:70:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x !== u",
+  "new": "x === u",
+  "op": "!==",
+  "line": 70,
+  "text": ".filter((index): index is number => index !== undefined);"
+ },
+ {
+  "id": "withNormalizeNode.ts:72:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "}\n  if (op.p",
+  "new": "}\n  if (false && op.p",
+  "op": "if-false",
+  "line": 72,
+  "text": "if (op.path.length > 1) return [line];"
+ },
+ {
+  "id": "withNormalizeNode.ts:72:>",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "th > 1)",
+  "new": "th >= 1)",
+  "op": ">",
+  "line": 72,
+  "text": "if (op.path.length > 1) return [line];"
+ },
+ {
+  "id": "withNormalizeNode.ts:72:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "> 1) ",
+  "new": "> 2) ",
+  "op": "num",
+  "line": 72,
+  "text": "if (op.path.length > 1) return [line];"
+ },
+ {
+  "id": "withNormalizeNode.ts:73:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e];\n  if (op.typ",
+  "new": "e];\n  if (false && op.typ",
+  "op": "if-false",
+  "line": 73,
+  "text": "if (op.type === 'split_node') return [line, line + 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:73:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (op.type === 'split_node')",
+  "new": "  if (op.type !== 'split_node')",
+  "op": "===",
+  "line": 73,
+  "text": "if (op.type === 'split_node') return [line, line + 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:73:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e + 1];\n ",
+  "new": "e + 2];\n ",
+  "op": "num",
+  "line": 73,
+  "text": "if (op.type === 'split_node') return [line, line + 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:74:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "+ 1];\n  if (op.type ",
+  "new": "+ 1];\n  if (false && op.type ",
+  "op": "if-false",
+  "line": 74,
+  "text": "if (op.type === 'merge_node') return [line - 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:74:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "ype === 'me",
+  "new": "ype !== 'me",
+  "op": "===",
+  "line": 74,
+  "text": "if (op.type === 'merge_node') return [line - 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:74:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e - 1];\n ",
+  "new": "e - 2];\n ",
+  "op": "num",
+  "line": 74,
+  "text": "if (op.type === 'merge_node') return [line - 1];"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "- 1];\n  if (op.type ",
+  "new": "- 1];\n  if (false && op.type ",
+  "op": "if-false",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "pe === 'r",
+  "new": "pe !== 'r",
+  "op": "===",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "[line - 1, line]",
+  "new": "(Array.isArray([line - 1, line]) ? [line - 1, line].slice(0, 1) : [line - 1, line])",
+  "op": "walk-first",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "[line - 1, line]",
+  "new": "(Array.isArray([line - 1, line]) ? [line - 1, line].slice(-1) : [line - 1, line])",
+  "op": "walk-last",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " 1,",
+  "new": " 2,",
+  "op": "num",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:>=",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "index >= 0 && ",
+  "new": "index > 0 && ",
+  "op": ">=",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:num:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x >= 0 && i",
+  "new": "x >= 1 && i",
+  "op": "num",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "0 && i",
+  "new": "0 || i",
+  "op": "&&",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:75:<",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "x < l",
+  "new": "x <= l",
+  "op": "<",
+  "line": 75,
+  "text": "if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);"
+ },
+ {
+  "id": "withNormalizeNode.ts:81:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (!li",
+  "new": "\n  if (false && !li",
+  "op": "if-false",
+  "line": 81,
+  "text": "if (!lines.length) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:81:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " (!li",
+  "new": " (li",
+  "op": "not",
+  "line": 81,
+  "text": "if (!lines.length) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:83:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " lines.",
+  "new": " (Array.isArray(lines) ? lines.slice(0, 1) : lines).",
+  "op": "walk-first",
+  "line": 83,
+  "text": "lines.forEach((line) => edited.add(editor.children[line]));"
+ },
+ {
+  "id": "withNormalizeNode.ts:83:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " lines.",
+  "new": " (Array.isArray(lines) ? lines.slice(-1) : lines).",
+  "op": "walk-last",
+  "line": 83,
+  "text": "lines.forEach((line) => edited.add(editor.children[line]));"
+ },
+ {
+  "id": "withNormalizeNode.ts:90:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "? editor.children.f",
+  "new": "? (Array.isArray(editor.children) ? editor.children.slice(0, 1) : editor.children).f",
+  "op": "walk-first",
+  "line": 90,
+  "text": "const edited = noted ? editor.children.flatMap((line, index) => (noted.has(line) ? [index] : [])) : [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:90:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "? editor.children.f",
+  "new": "? (Array.isArray(editor.children) ? editor.children.slice(-1) : editor.children).f",
+  "op": "walk-last",
+  "line": 90,
+  "text": "const edited = noted ? editor.children.flatMap((line, index) => (noted.has(line) ? [index] : [])) : [];"
+ },
+ {
+  "id": "withNormalizeNode.ts:93:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  edited.f",
+  "new": "  (Array.isArray(edited) ? edited.slice(0, 1) : edited).f",
+  "op": "walk-first",
+  "line": 93,
+  "text": "edited.forEach((editedIndex) => {"
+ },
+ {
+  "id": "withNormalizeNode.ts:93:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  edited.f",
+  "new": "  (Array.isArray(edited) ? edited.slice(-1) : edited).f",
+  "op": "walk-last",
+  "line": 93,
+  "text": "edited.forEach((editedIndex) => {"
+ },
+ {
+  "id": "withNormalizeNode.ts:95:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   if (!ed",
+  "new": "   if (false && !ed",
+  "op": "if-false",
+  "line": 95,
+  "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:95:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " (!ed",
+  "new": " (ed",
+  "op": "not",
+  "line": 95,
+  "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:95:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e || e",
+  "new": "e && e",
+  "op": "||",
+  "line": 95,
+  "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:95:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "Line.type === 'codeBloc",
+  "new": "Line.type !== 'codeBloc",
+  "op": "===",
+  "line": 95,
+  "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:95:||:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' || s",
+  "new": "' && s",
+  "op": "||",
+  "line": 95,
+  "text": "if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:554:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "}\n    if (!parti",
+  "new": "}\n    if (false && !parti",
+  "op": "if-false",
+  "line": 554,
+  "text": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);"
+ },
+ {
+  "id": "withNormalizeNode.ts:554:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "}\n    if (!partialMar",
+  "new": "}\n    if (partialMar",
+  "op": "not",
+  "line": 554,
+  "text": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);"
+ },
+ {
+  "id": "withNormalizeNode.ts:554:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "n && !",
+  "new": "n || !",
+  "op": "&&",
+  "line": 554,
+  "text": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);"
+ },
+ {
+  "id": "withNormalizeNode.ts:554:not:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " !r",
+  "new": " r",
+  "op": "not",
+  "line": 554,
+  "text": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);"
+ },
+ {
+  "id": "hand-stale-own-not-excluded",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      if (!layout || own.has(index)) return;",
+  "new": "      if (!layout) return;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-stale-own-not-excluded"
+ },
+ {
+  "id": "hand-layout-read-as-empty",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      if (!emojiAgrees(line, spansInLine(unit, layout, index, width), lineStart)) stale.push(index);",
+  "new": "      if (!emojiAgrees(line, [], lineStart)) stale.push(index);",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-layout-read-as-empty"
+ },
+ {
+  "id": "hand-NM-87-end-backtick-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;",
+  "new": "    if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex) || !flattenNodeText(editedLine).endsWith('`')) return;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-NM-87-end-backtick-only"
+ },
+ {
+  "id": "hand-stale-edited-code-line-not-skipped",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;",
+  "new": "    if (!editedLine || seen.has(editedIndex)) return;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-stale-edited-code-line-not-skipped"
+ },
+ {
+  "id": "hand-sources-are-the-selection-lines",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  const edited = noted ? editor.children.flatMap((line, index) => (noted.has(line) ? [index] : [])) : [];",
+  "new": "  const edited = [...own];",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-sources-are-the-selection-lines"
+ },
+ {
+  "id": "hand-noted-while-rebuilding",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);",
+  "new": "if (!partialMarkdown) noteEdited(editor, op);",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-noted-while-rebuilding"
+ },
+ {
+  "id": "hand-record-never-cleared",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  verifiedLines.set(editor, editor.children);\n  editedLines.delete(editor);\n",
+  "new": "  verifiedLines.set(editor, editor.children);\n",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-record-never-cleared"
+ },
+ {
+  "id": "hand-removal-notes-no-neighbour",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (op.type === 'remove_node') return [line - 1, line].filter((index) => index >= 0 && index < lineCount);",
+  "new": "  if (op.type === 'remove_node') return [line].filter((index) => index < lineCount);",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-removal-notes-no-neighbour"
+ },
+ {
+  "id": "hand-split-notes-first-half-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (op.type === 'split_node') return [line, line + 1];",
+  "new": "  if (op.type === 'split_node') return [line];",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-split-notes-first-half-only"
+ },
+ {
+  "id": "hand-merge-notes-merged-line",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (op.type === 'merge_node') return [line - 1];",
+  "new": "  if (op.type === 'merge_node') return [line];",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-merge-notes-merged-line"
+ },
+ {
+  "id": "hand-nested-edit-not-noted",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (op.path.length > 1) return [line];",
+  "new": "  if (op.path.length > 1) return [];",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-nested-edit-not-noted"
+ },
+ {
+  "id": "hand-move-notes-source-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    return [Path.transform([line], op)?.[0], Path.transform(op.path, op)?.[0]]",
+  "new": "    return [Path.transform([line], op)?.[0]]",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-move-notes-source-only"
+ },
+ {
+  "id": "hand-noted-before-the-operation",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    const before = editor.children;\n    const { quotePrefix } = op.type === 'split_node' ? op.properties as Partial<Element> : {};\n    if (op.type === 'split_node' && quotePrefix) {\n      apply({ ...op, properties: { ...op.properties, quotePrefix: '', carried: undefined } });\n    } else {\n      apply(op);\n    }\n    if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);\n",
+  "new": "    const before = editor.children;\n    if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor, op);\n    const { quotePrefix } = op.type === 'split_node' ? op.properties as Partial<Element> : {};\n    if (op.type === 'split_node' && quotePrefix) {\n      apply({ ...op, properties: { ...op.properties, quotePrefix: '', carried: undefined } });\n    } else {\n      apply(op);\n    }\n",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-noted-before-the-operation"
+ }
+]

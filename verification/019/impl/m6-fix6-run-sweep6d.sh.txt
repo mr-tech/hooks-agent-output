@@ -1,0 +1,8 @@
+#!/bin/sh
+# usage: run-sweep6d.sh <mutants> <work> <out> <sha>; the 40 survivors of the second pass against the widened off-selection case
+# ("an edit made at a point while the selection is elsewhere") at <sha>; own 5G no-swap scope, one worker, no network, 250 s per run
+mkdir -p $2 $3
+cd /usr/local/bin/hooks/website && systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 unshare -rn python3 ~/.claude/tools/mutation-run.py --repo /usr/local/bin/hooks/website --sha $4 \
+  --mutants $1 --work $2 --out $3 --timeout 250 --dep node_modules -- npx vitest run --project node --project dom --maxWorkers=1 \
+  src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx -t "an edit made at a point while the selection is elsewhere" > $3.log.txt 2>&1
+echo "exit $?" >> $3.log.txt
