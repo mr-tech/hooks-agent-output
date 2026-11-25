@@ -3,16 +3,23 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 15 pass 1 on plan revision 23: APPROVED, and closed at that pass. F-57 HIGH (SL-29) is closed by property under the stop authority, with an entry condition on QA Phase 2 of M6's third fix round: a timed reading of each paste member and each emoji-line fence keystroke beside the chain base's. It stays an entry condition, with no revision 24, by his selection at 20:54Z (effort rulings block 2026-11-24T20:54Z). F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 16."
-Artifact-Revision: 23 — read as the delta 960052d1..49a20690 (cycle 15 pass 1)
-Reviewed-At: "49a20690 — repos=agent-output; website read at 42128cd, as at cycle 14"
+Status-Detail: "Cycle 16 pass 1 on plan revision 24: APPROVED, and closed at that pass, read with SL-30's entry condition. F-59 HIGH (SL-30) is closed by property under the stop authority: the plan names members of D-28's class beyond line 0 by AN-9's read and leaves them unbounded, so QA Phase 2 of M6's Fix Round 5 has an entry condition, a no-throw reading at that round's tip for each of them. Its form (entry condition, listed members in a revision 25, or residue as written) is put to him through steering. F-60 MEDIUM (SL-31, the inline-code members' cost) and F-61 LOW are stated limits for the plan's Planner batch. From cycle 15: F-57 HIGH (SL-29) is closed by property, an entry condition on QA Phase 2 by his selection at 20:54Z (effort rulings block 2026-11-24T20:54Z), and F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 17."
+Artifact-Revision: 24 — read as the delta 49a20690..80d6d143 (cycle 16 pass 1)
+Reviewed-At: "80d6d143 — repos=agent-output; no website source read at this pass"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 23 (`49a20690`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 23 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 24 (`80d6d143`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 24 as deltas.
+**Read at cycle 16 pass 1**: the plan's diff `49a20690..80d6d143` (its last commit `ca1ba0eb..80d6d143` line by line, the
+registrations before it as every changed line); register rows D-24, D-27 and D-28; the selection ledger's day file
+`steering/selection-ledger/2026-11-25.md`, whole; effort rulings blocks 2026-11-25T05:26Z, 05:28Z, 05:30Z and 05:31Z; the
+analysis's AN-9 section as its diff at record `00c91e3a`; under `verification/019/analysis/an9/`, the four
+`unmounted-*.jsonl` and `mounted-*.jsonl` captures, recounted by this pass's own script; under
+`verification/019/code-review/m6fix4-a7ad3f2/`, its README, `compare-fixedpoint-tip-vs-nosuppression-mutant.out.txt` and
+`mutant-no-suppression.diff.txt`; the re-aimed handoff's diff; GLOSSARY, "Severity floor". No website source was read.
 **Read at cycle 15 pass 1**: the plan's diff `960052d1..49a20690`; effort rulings blocks 2026-11-24T19:20Z, 19:43Z (record
 `6507ae1e`) and 20:07Z (record `8b684907`); the selection ledger's block 2026-11-24T20:07Z; the code review document at CR-25
 and CR-24 (Round 7, record `e92137fe`); `verification/019/code-review/m6fix2-85ece66/` (its README,
@@ -151,8 +158,62 @@ for the 15,480 figure.
 | 2026-11-24T20:12 | planner-019 (message naming revision 23 at `49a20690`) | cycle 15 pass 1: plan revision 23 | Cycle 15 opens because revision 23 changes AC-6.9's text. Depth: delta-bounded; the delta `960052d1..49a20690` is 69 added and 14 removed lines (`git diff --numstat`, 8 commits, 6 of them registrations and a verdict row, R-98 to R-103, and 2 carrying revision 23), fully readable as a diff. It adds members and one limb to a criterion and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-26, and CF-31, CR-24, CR-25, F-56, NM-76, NM-78 and NM-80 in registration rows. The diff, read whole, changes AC-6.9's first line, its reports, its keystroke and text classes, its growth limb and its residue, and adds the work-per-line limb; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register row D-26 and Planner batch rows. Artifact changes: the fence keystrokes run over `a🙂` texts, pastes of `a` and `a🙂` lines join the class on his 20:07Z selection (D-26), and a standing limb bounds two call counts at 1,000 lines by 10 times those at 200. New findings: F-57 (HIGH), the second instance of CF-30's shape, closed by property with stated limit SL-29 and an entry condition, the stop authority firing, and its form put to steering; F-58 (LOW), a member under SL-26. M7 is out of scope for this pass. Verdict APPROVED. |
 | 2026-11-24T20:12 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-57 is closed by property, with SL-29's entry condition for the plan's Planner batch. F-58 closes as landed-by-author, its discharging document the plan's Planner batch. |
 | 2026-11-24T20:55 | steering-hooks-fixer (message relaying his selection) | F-57's form | No pass. He chose "Agent: time it at QA (Recommended)" at 20:54Z: SL-29 stays an entry condition on QA Phase 2 of M6's third fix round, and there is no revision 24. His words are in the selection ledger's block 2026-11-24T20:54Z and the effort rulings block of the same time (record `be956e8d`), both seen in this turn. No finding state moves. |
+| 2026-11-25T06:06 | planner-019 (message naming revision 24 at `80d6d143`) | cycle 16 pass 1: plan revision 24 | Resumed after a clear from this document's Resumption State at `ed2a520a`; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 16 opens because revision 24 changes AC-6.9's text; it is not the seam fold, so M7 stays unread. Depth: delta-bounded; the delta `49a20690..80d6d143` is 130 added and 39 removed lines (`git diff --numstat`, 17 commits: revision 24, 14 carrying the registration and verdict rows R-104 to R-118, a row repair and a checkpoint), fully readable as a diff. It adds members and one sub-limb to a criterion and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added AN-9, D-27, D-28, G-9a and G-9e, and CF-32, CF-33, CR-26 to CR-29, F-57, F-58, QAF-53, QAF-54, SL-29 and R-104 to R-118 in registration rows. Before revision 24's commit the diff changes no criterion (changelog, Resumption State, the owed re-verdicts table, D-27, D-28 and Planner batch rows); revision 24 changes AC-6.9's reports, class statement, keystroke and text classes, no-throw, write and caret limbs, walk and residue. Artifact changes: six inline-code keystrokes join AC-6.9 on his 05:28Z selection (D-28, AN-9), the no-throw limb gains a pending timer's error and a fixed-point sub-limb read over code review's corpus (CR-27), and the residue names AN-9's gaps and 12 non-fixed-point loads. New findings: F-59 (HIGH), a further instance of the residue shape, closed by property with stated limit SL-30 and an entry condition, the stop authority firing, its form put to steering; F-60 (MEDIUM), stated limit SL-31; F-61 (LOW). M7 is out of scope for this pass. Verdict APPROVED. |
+| 2026-11-25T06:06 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-59 is closed by property, with SL-30's entry condition for the plan's Planner batch. F-60 and F-61 close as landed-by-author, their discharging document the plan's Planner batch. |
 
 ## Verdict
+
+**APPROVED — cycle 16, pass 1.** The stop authority fired on one shape (F-59), so that finding, though HIGH, is closed here
+by a property and an entry condition and is not sent back for a revision. The hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings. Revision 24 adds six members to AC-6.9 on his 05:28Z selection (D-28)
+and one sub-limb, and adds no milestone. One item goes past D-28's words: the sub-limb's reading over code review's corpus
+(CR-27), which the changelog row rides on D-24. Steering's block 05:31Z keeps that judgement for its own read at commit, so
+it is flagged here and not ruled.
+
+This gate passes revision 24 for M6's Fix Round 5, **read with SL-30's entry condition**. Routed to the owner through
+steering: whether F-59 stays an entry condition, becomes listed members in a revision 25, or stays residue as written. The
+architect's and QA's reads of revision 24 are separate. The implementer is not messaged: the plan holds Fix Round 5 for
+steering's word once all three gates pass.
+
+What holds in revision 24's delta:
+- **D-28 is his selection.** The answer and the two other options match `steering/selection-ledger/2026-11-25.md`, block
+  05:28Z, as read in this pass. The option text the row quotes is the rulings block's wording, not the ledger's (F-61).
+- **The members are AN-9's, and the captures say what the table says.** Recounted from the raw rows by this pass's script:
+  at `a7ad3f2`, 48 unmounted rows throw, every one a single backtick over `a🙂` lines with a partner, at 100, 200 and 1,000
+  lines (16 each), in 8 shape cells on 2 surfaces, which are the six members with two start forms; no row throws at 5
+  lines. At `5ec0621`, 0 of 128 single-backtick rows change another line or throw. Mounted at `a7ad3f2`, the 6 rows that
+  lose the write and raise the timer's error are all the backtick typed at the end of line 0.
+- **The no-throw and write limbs are red on the reported defect** (CR-28): the throw on all six members from 100 lines, and
+  the lost write on the end-of-line backtick, mounted.
+- **The fixed-point sub-limb is a differential that can fail and pass.** Code review's capture reads 14 non-fixed-point
+  keystrokes at the tip and 8 with the override a pass-through, 6 differing, over 36,560 keystrokes and 1,285 inputs. The
+  mutant is one line. The 8 shared ones are outside the limb by its form and are carried by the re-aimed handoff.
+- **The accepted residue does not travel into another limb.** The 12 loads that are not a normaliser fixed point are
+  keystroke results in the corpus. AN-9 B1 reads 0 non-fixed loads among AC-6.9's 82 texts and its own 776 cell texts (at 5
+  and 100 lines), so the fresh-load limb and the sub-limb's per-member reading do not contradict each other on any member.
+- **The handoff has an owning stage and an event trigger**, and names its evidence by path.
+- **F-57's property, re-read for this revision's two quoted defects:** CR-28 has the no-throw and write limbs, and CR-27 the
+  sub-limb. Both hold.
+
+**Stop authority: F-59.** He chose the option that "covers the kind, not just this case", and D-28 says every keystroke that
+changes other lines joins the no-throw rule. AN-9 typed at the start and end of line 0 only. The plan's own residue says
+that, by AN-9's code read, any edit that toggles inline code over another line's emoji is a member wherever it is typed, and
+then leaves those keystrokes unbounded. So Fix Round 5 can pass every limb with the throw still present for a backtick typed
+on the partner line, in the middle of a line, or removed with Delete. This is the residue shape of F-53, whose earlier forms
+already produced CR-25's `a🙂` member and CR-28 itself. The class is stated below as a property over the members the plan
+names, and its gap is stated limit SL-30 with an entry condition.
+
+**F-60** (MEDIUM): the six members have no cost reading, and production does no cross-line work on them. **F-61** (LOW):
+four wording points.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `80d6d143`).
+
+The cycle 15 verdict follows, as written at that pass.
 
 **APPROVED — cycle 15, pass 1.** The stop authority fired on one shape (F-57), so that finding, though HIGH, is closed here
 by a property and an entry condition and is not sent back for a revision. The hard stop did not fire (pass 1 of 15 in this
@@ -863,6 +924,16 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 16 pass 1: this pass assumes that AN-9's inference is true, that a backtick typed or removed away from line 0's start
+and end toggles inline code over other lines' emoji and throws as the six members do, and does not test it. A run needs an
+export of the website at `a7ad3f2` with its packages and a capped vitest scope, which is more than a minute. The ground is
+AN-9's read of `emojiLift.ts` `liftLoaded` and `withNormalizeNode.ts` `resolveEmoji` over `runUnit.ts` `unitAround`, not
+re-read here. If it is false, the same probe with the keystroke on a middle line and on the partner line changes 0 other
+lines and raises nothing at `a7ad3f2`, and F-59 has no member. Code review owns closing it, with its class probe at Fix
+Round 5's tip (SL-30).
+
+Cycle 15 pass 1's line, below, was not re-read in this pass.
+
 Cycle 15 pass 1: this pass assumes that a paste whose line settles and fence reads are linear can still take several times
 today's time, and does not test it. No fixed tree exists. The ground is two captures: a paste's unit builds are linear in
 count (399 and 799 in `paste-count-85ece66.jsonl`) and each runs over the text so far, and one plain insert at `42128cd`
@@ -1012,6 +1083,79 @@ None.
 ### Open
 
 None.
+
+### Closed at cycle 16 pass 1
+
+F-59 HIGH cycle 16 pass 1 — closed by property with stated limit SL-30 and an entry condition; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of F-53 in this document
+- **Title**: D-28's class is stated whole and bound at line 0 only, while the plan names further members by read and
+  leaves them unbounded.
+- **Location**: plan revision 24, AC-6.9 "The class (D-28, revision 24)", the inline-code rows of "The keystroke class",
+  and "Residue" (the bullet on AN-9's gaps); register row D-28.
+- **Description**: the option he chose reads, in the ledger: "Every keystroke that changes other lines joins the editor's
+  no-crash rule", after a probe "at the start and end of lines", and "this option covers the kind, not just this case".
+  AN-9's grid typed at the start and end of line 0. The residue says "By AN-9's code read, not run, any edit that toggles
+  inline code over another line's emoji is a member wherever it is typed", and lists a class keystroke in the middle of a
+  line or on the partner line, and Delete, as not bounded. The criterion therefore binds a smaller set than the ruling
+  names, and says so.
+- **Impact**: the six probed members throw from 100 lines at `a7ad3f2` (48 of 48 rows at 100 lines and up, this pass's
+  recount) and not at production. If the unprobed positions behave as AN-9 reads them, Fix Round 5 can pass every limb and
+  the release still adds a throw on typed input in a message of 100 or more emoji lines. That would be the "fourth crash of
+  this kind" the option he declined named. SL-26 listed "a backtick typed or deleted inside a line" as residue at cycle 14,
+  and CR-28 came out of it.
+- **The property, in place of a revision**: every keystroke the plan names as a member of D-28's class has a no-throw
+  reading at the fix round's tip before QA Phase 2 passes that round. Its domain is the members the plan names:
+  - the six listed inline-code members, and the fence and `>>>` members: the no-throw limb. Holds;
+  - the members named by read in the residue: a single backtick or an escaping `\` typed, or removed by Backspace or
+    Delete, in the middle of line 0, on a middle line, or on the partner line, over `a🙂` lines with a partner across a
+    line break. No limb or reading. Fails.
+- **SL-30, an entry condition on QA Phase 2 of M6's Fix Round 5**: the record holds, at that round's tip, a reading of the
+  thrown error, a pending timer's error and the last write for each position named above, at the sizes the listed members
+  run. The artifact class is a probe capture under `verification/019/`. Code review bears the detection: its class probe
+  already reads CR-28's keystroke on each tree. A throw at any of them is a member of D-28's class and goes to steering,
+  then back to the fix under D-28. It is not a stated limit.
+- **Residue of the property**, a bounded class with no bound on its behaviour: fills other than `a🙂` (G-9b), partial mode
+  (G-9e), undo and redo, paste, sizes between 5 and 100 lines (G-9c), and the browser's native input (G-9d), which B-11's
+  walk reads for one member. A user report on one of them goes under AC-6.9's row in QA's register.
+- **Landing trigger**: the planner registers SL-30 in the Planner batch and sends it to the implementer, code review and QA
+  with the release of Fix Round 5. Whether it lands instead as listed members in a revision 25, or stays residue as
+  written, is his, through steering.
+
+F-60 MEDIUM cycle 16 pass 1 — closed as landed-by-author, stated limit SL-31; discharging document: the plan's Planner batch. Duplicates the shape of F-57 in this document
+- **Title**: the inline-code members have no cost reading, and production does no work across lines on them.
+- **Location**: plan revision 24, AC-6.9 "Residue" ("the cost of the inline-code members"), "Work per line" and "Cost";
+  D-27.
+- **Description**: the work-per-line and timed limbs bind the fence and paste members, and SL-29's timed reading (D-27)
+  names the same two. At `5ec0621` a single backtick changes no other line (0 of 128 rows, this pass's recount), so
+  whatever a fix does per line is new work. The plan's Outstanding 3 row gives 797 and 3,997 operations before the throw
+  at 200 and 1,000 lines (not re-derived).
+- **Impact**: a fix can settle these keystrokes and take seconds at 1,000 lines, as CR-25's fence close did (7.6 s), with
+  every limb green. Unlike the fence members, the base has a completed reading to compare against.
+- **Under SL-31**: the six members' cost is residue with no bound, as the plan says. Code review's SL-29 probe at Fix
+  Round 5's tip bears the detection where it carries them; otherwise a user report under AC-6.9's row in QA's register.
+  Below HIGH, so a stated limit under block 14:48Z with no round. This gate does not read it as a severity floor: the
+  plan claims no speed for these members.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
+
+F-61 LOW cycle 16 pass 1 — closed as landed-by-author; discharging document: the plan's Planner batch
+- **Title**: four wording points in revision 24's delta and D-28's row.
+- **Location**: register row D-28; AC-6.9 "The defects, as reported", "The class", "The keystroke class", "No throw" and
+  "Residue".
+- **Description**:
+  1. D-28's "Option text" cell, and the sentence "The owner was told: …" cited to the ledger, carry the rulings block's
+     wording. The ledger's option, which is the text he saw, differs in its words and ends "This is the third crash of this
+     kind, and this option covers the kind, not just this case", which the row leaves out.
+  2. The no-throw limb's timer clause does not say it is read on the mounted editor. AN-9 records the timer's error in its
+     mounted probes only, so an unmounted reading passes with the defect present. The write limb, which is mounted, still
+     catches the same keystroke.
+  3. "Backspace removing a leading backtick" does not say both start forms, where AN-9's A4 has two (8 throwing shape cells
+     for six members). The class statement says the probe ran "on both surfaces" at `5ec0621`, where AN-9 ran that tree
+     once with no surface, and lists `\` among characters that pair, where AN-9 says it pairs with nothing.
+  4. The residue still opens "The limbs bind the keystroke class over the text class, and nothing else is bounded by them",
+     while the new sub-limb's corpus reading binds 36,560 keystrokes outside that class.
+- **Impact**: a reader of the register misses the sentence the class rests on, and a reader of the residue misreads the
+  sub-limb's reach.
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2. Point 2 goes to QA with
+  the batch row, since its re-key reads the limb.
 
 ### Closed at cycle 15 pass 1
 
@@ -1640,6 +1784,14 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 16 pass 1: the plan was read as `git diff ca1ba0eb 80d6d143` and `git diff -U0 49a20690 ca1ba0eb`, with the
+  analysis and handoff diffs, saved in this session's scratchpad; the ID comparison and the open-question count ran in
+  memory. The recount of AN-9's captures is a script of this pass over the committed `jsonl` rows; nothing was installed
+  and no website code was run. F-58's Planner batch row, not seen at the last checkpoint, is in the plan (its table row
+  citing record `d58217d4`). QA's re-key on revision 24 (`7a6087f6`) was committed while this pass ran: its commit
+  subject, which names QAF-55 on the inline-code members' cost, was seen in the log, and the document was not read
+  before this pass was written. F-60 was reached on this pass's own read. The architect's read was not seen.
+  `node tools/check-repo.js` at session start printed failures in other stages' documents and none in this one.
 - Cycle 15 pass 1: the plan was read as `git diff 960052d1 49a20690` and both revisions as `git show` copies, saved in this
   session's scratchpad; the ID comparison and the open-question count ran in memory. Nothing was installed or run beyond
   reads. The architect's and QA's reads of revision 23 were not read before this pass was written.
@@ -1687,6 +1839,11 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 - Passes 1 to 3 otherwise: in this document at `af0b21d`.
 
 ## Resumption State
+
+**Since the checkpoint below (2026-11-25T06:06Z).** Cycle 16 pass 1 is APPROVED on plan revision 24 (`80d6d143`) and
+closed. The verdict went to `planner-019`, and F-59's form to `steering-hooks-fixer` as an owner-needing item, with no
+answer yet. The next pass is still the seam fold's read, now cycle 17, as the diff from `80d6d143`; it also checks SL-30's
+readings and F-60's and F-61's batch rows. The wake is armed again.
 
 Checkpoint written at steering's ask on 2026-11-24T21:02Z, at a seam, for a clear. It replaces the checkpoint of 08:09Z
 (this document at record `0fa902d`) and carries each of its standing items below.
