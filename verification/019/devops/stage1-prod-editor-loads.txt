@@ -1,0 +1,18 @@
+2026-11-25T17:07:57Z
+production https://hooks.gg/message/m/0/edit, signed out, load only
+== chrome143 143.0.7499.4 loadsWithPageError=0/10
+load=0 loadEvent=true ms=636 pageerrors=0
+load=1 loadEvent=true ms=315 pageerrors=0
+load=2 loadEvent=true ms=282 pageerrors=0
+load=3 loadEvent=true ms=351 pageerrors=0
+load=4 loadEvent=true ms=366 pageerrors=0
+load=5 loadEvent=true ms=335 pageerrors=0
+load=6 loadEvent=true ms=311 pageerrors=0
+load=7 loadEvent=true ms=287 pageerrors=0
+load=8 loadEvent=true ms=593 pageerrors=0
+load=9 loadEvent=true ms=306 pageerrors=0
+== chrome116 116.0.5845.96 loadsWithPageError=0/4
+load=0 loadEvent=true ms=353 pageerrors=0
+load=1 loadEvent=true ms=283 pageerrors=0
+load=2 loadEvent=true ms=308 pageerrors=0
+load=3 loadEvent=true ms=300 pageerrors=0

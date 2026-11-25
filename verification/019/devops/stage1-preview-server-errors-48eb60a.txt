@@ -1,0 +1,8 @@
+date=2026-11-25T17:05:25Z
+url=https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/media/discord_markdown_wasm_bg.0g4-dsbt98mfj.wasm
+bytes=1230190 sha256=da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0
+preview runtime log, first lines only (path, line, digest, count):
+/message/m/0/edit Error: Invalid environment variables 1363069307 32
+/message/m/new Error: Invalid environment variables 1363069307 32
+/message/m/new ❌ Invalid environment variables: { - 1
+variables the log names as missing: DATABASE_URL REDISHOST REDISPORT REDISUSER REDISPASSWORD (names only)

@@ -3,7 +3,7 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Active
-Status-Detail: "Stage 1 for plan 019 is done: website 48eb60a verified and recorded, B-5 carried. Waits on QA Phase 3 on that tip, then the owner release answer in the devops session. No ref has moved."
+Status-Detail: "Stage 1 is done and QA Phase 3 is Release Verified at website 48eb60a. The readiness block and runbook are complete to R-1. Waits on the owner release answer in the devops session. No serving ref has moved."
 ---
 
 # Deployment — plan 019, Slate formatting on Discord's engine (website `master`)
@@ -79,7 +79,7 @@ authoritative on execution).
 |---|---|---|
 | B-1, B-2, B-3, B-4, B-7 (both limbs), B-8, B-9, B-10, B-11 | observable pre-release | EXECUTED 2026-11-25, PASS (UAT § Flow Execution and § Release Decision, at `48eb60a`) |
 | B-5 | post-deploy-observable | Carried: `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md` |
-| B-6 | observable pre-release, decidable only on the release tip | Act-time row R-1 of the runbook below (QA Phase 3), blank |
+| B-6 | observable pre-release, decidable only on the release tip | EXECUTED 2026-11-25, PASS at runbook row R-1 (QA Phase 3, record `c41a8459`) |
 
 **Plan at rest.** Revision 26 is critic-approved and the critique is closed Resolved. The unfolded Planner batch is carried by
 `planning/slate-editor-rebuild-sizing-2026-11-25.md` (D-33). The architect's closing pass is waived. `planner-019`'s Resumption State
@@ -97,7 +97,7 @@ authoritative on execution).
 
 **M4 and M5 together (plan M7, AF-2).** `e58f2ed`, `2e36107` and `cf126ea` are each in `48eb60a` and not in `5ec0621`.
 
-**Tree.** Website `git status --porcelain` shows only another session's `.playwright-mcp/`. Under `verification/019/`, two modified files
+**Tree.** Website `git status --porcelain` shows only another session's `.playwright-mcp/`. At Stage 1, under `verification/019/`, two modified files
 (`impl/m6-fix-bench-fix.txt`, `.time`) went back to `implementer-019`, which restored them and noted it (record `f8093679`); `git diff
 --quiet HEAD` then passed. The untracked files there are captured images, which stay out of commits.
 
@@ -105,18 +105,17 @@ authoritative on execution).
 sweep of added comment and title lines in `5ec0621..48eb60a` for ID tokens found one line, whose match is the number "1,000" in a test
 title, and no basename.
 
-**Workspace `CLAUDE.md` Test Conventions update (plan M7; block "2026-11-25T15:49Z").** It is **owed and not yet written**. M7 says the
-implementer proposes the text in its implementation document at M3 and steering lands it in the record at release. No 019 implementation
-document carries a proposal (`grep -i 'propos\|CLAUDE\.md\|Test Conventions'` over `implementation/019-*.md`), and `agent-output/CLAUDE.md`
-does not name `test:discord`. It changes the record only, so it does not move the release tip. The proposal is `implementer-019`'s, the
-landing and commit are steering's. What M7 asks the text to hold: the two-command form with the two `discord-*` projects; the definition
-of offline; `pnpm test:discord` runs at every website release gate and every pin change, run by devops at Stage 1 of a later release; the
-outcome table's later-release column; and the changed sentence "runs the whole suite".
+**Workspace `CLAUDE.md` Test Conventions update (plan M7; block "2026-11-25T15:49Z").** **Landed** before the release by steering
+(record `16928fc5`; rulings block "2026-11-25T16:52Z"), from `implementer-019`'s proposed text (M6 implementation document, record
+`6a9311ef`). It was missing when this stage first looked: M7 had it proposed at M3 and no document carried it, so this stage asked
+steering for it. It changes the record only; the release tip did not move. For later releases it makes devops at Stage 1 the runner of
+`pnpm test:discord` where the chain does not touch the formatting region.
 
 **Packaging at the tip** (a `git archive` export of `48eb60a`, no `.env` file; captures `verification/019/devops/stage1-*-48eb60a.txt`).
 - `pnpm install --frozen-lockfile --prefer-offline` under pnpm **10.28.2**, node v24.14.0: exit 0. 10.28.2 is `packageManager`'s pin and
-  the version read in the Vercel build log of 2026-11-23 (AN-1 section). Packages came from this box's store, so the registry fetch was
-  not exercised here.
+  the version read in the Vercel build log of 2026-11-23 (AN-1 section). Packages came from this box's store; Vercel's own online install is covered by
+  the Preview read below.
+
 - `SKIP_ENV_VALIDATION=1 pnpm build`: exit 0, Next.js 16.4.6.
 - Built assets: one wasm under `.next/static`, 1,230,190 bytes, sha256 equal to the installed package's (`da7b9e5e…57fb0`); 5 client
   files carry the Discord copyright notice; 0 name `simple-markdown`; 0 name `discord.com/assets` (the test oracle does not ship, D-4).
@@ -127,8 +126,36 @@ Production baseline before the push (standing ruling 21), 2026-11-25T16:41Z: the
 (`verification/019/devops/b5-baseline-before-push.json`), with no page or console error. The reader read the fixed values on a local build
 of `48eb60a` (`b5-dryrun-local-48eb60a.json`). Production page loads this round: signed out, nothing saved or sent.
 
+**Preview read (owed to devops at Stage 1 by analysis G-3 and QA M2's Assumption Not Checked).** A throwaway commit `ed60e5b` (`48eb60a`
+plus `vercel.json` `{"buildCommand": "SKIP_ENV_VALIDATION=1 next build"}`, built with a temporary index, shared tree untouched) was
+pushed to `release-check/019` at 2026-11-25T16:52:38Z and deleted at 17:08Z. No `.github/workflows` exists, so no Action ran. The only
+alias was `…-git-release-check-019-hooks-gg.vercel.app` (`dpl_6mREYp7sjh4zg4qiEuTD6FycxTML`); `master` stayed `5ec0621`. Pages were
+loaded signed out; nothing was clicked or saved. Captures `verification/019/devops/stage1-preview-*` and `stage1-prod-*`.
+- **Vercel builds the tip.** Ready in 27 s: Vercel CLI 66.6.0, `pnpm@10.28.2` by corepack (the deploy host's package manager,
+  re-derived), its own online install, Next.js 16.4.6.
+- **Engine.** The wasm is served and is the pinned one: 1,230,190 bytes, sha256 `da7b9e5e…57fb0`. Discord's copyright notice is in a
+  served chunk on `/preview`, `/message/m/new` and `/message/m/0/edit` (AC-2.6 on a Vercel build).
+- **Page errors, and their source.** `/preview`: none. `/message/m/new`: 3 of 20 loads in Chrome 116, 1 of 10 in Chromium 143.
+  `/message/m/0/edit`: 20 of 20 and 10 of 10. Chromium 143 shows React error #419 (the server could not finish a Suspense boundary).
+  The Preview's runtime log gives the server error: `Invalid environment variables`, digest `1363069307`, naming `DATABASE_URL`,
+  `REDISHOST`, `REDISPORT`, `REDISUSER`, `REDISPASSWORD`, which the Preview target lacks (AN-1 section 1). Chrome 116 reports the
+  error's message as `undefined`, so its identity there rests on the same pages and the same server log. This is the source of the
+  three errors AN-1 saw on the spike Preview, by page and count.
+- **Not a property of the release.** Production's server HTML for `/message/m/0/edit` has no failed boundary (5 reads) and 14
+  production loads raised no page error. A local build of `48eb60a` with the environment check passing renders the same page on the
+  server with no failed boundary (`stage1-local-ssr-48eb60a.txt`).
+- **Production, observed in passing (base code, nothing pushed).** Between about 16:55Z and 17:04Z two waits of 60 s for the load event
+  on production `/message/m/0/edit` timed out, and one `curl` of it got no response in 60 s. The 14 loads at 17:08Z each finished
+  under 0.7 s. Not diagnosed.
+
 **Two commands not completed.** A record search was not completed; nothing in this record depends on it. A shell command building test
 fixtures was not completed; the fixtures were then written with the Write tool.
+
+**Forward items.** A sweep of the chain's documents found items whose only carrier was a closing document. Carriers written:
+`handoff/slate-formatting-engine-and-oracle-follow-ups-2026-11-25.md` (names RK-9),
+`handoff/slate-formatting-unwalked-browser-behaviour-2026-11-25.md`,
+`handoff/website-leftovers-outside-the-formatting-region-2026-11-25.md`,
+`handoff/slate-formatting-rollback-stored-emoji-read-2026-11-25.md`. QA's AN-3 re-read was sent to `qa-019` and run in Phase 3.
 
 ## Release readiness — re-derivation block (before any ref moves)
 
@@ -143,10 +170,15 @@ fixtures was not completed; the fixtures were then written with the Write tool.
 | Serving refs | `master` only; the move is a fast-forward from `5ec0621` | **Re-derived**: `release-move.js --report` exit 0; `--dry-run` exit 0, every check passed |
 | Exclusions a verdict declared | `.playwright-mcp/` (untracked): `release-move.js` leaves untracked paths alone. `discord-reports/` (ignored): no effect | **Re-derived** by the dry run |
 
-**Open disagreements with predecessor documents.** One is open: plan M7's convention-text proposal at M3 was never written (above). It
-does not bear on the tree that ships. Closed by this stage: QA's B-5 instrument filter would have missed the fixed first anchor
-(corrected in the carrier); QA Phase 1's assumption that production served `af3d95a` is superseded by the baseline taken this round
-(the push of `5ec0621` is the deploy evidence, and no host-side commit read is made).
+**Open disagreements with predecessor documents.** None open. Closed by this stage: the missing convention text has landed (above);
+QA's B-5 instrument filter would have missed the fixed first anchor (corrected in the carrier); QA Phase 1's assumption that production
+served `af3d95a` is superseded by the baseline taken this round (the push of `5ec0621` is the deploy evidence, and no host-side commit
+read is made).
+
+**Predecessors' assumptions the release exercises.** That Vercel's install gives the same tree as the offline one (QA Phase 3): the
+Preview read serves the pinned wasm; re-read on the production site at R-6. That the engine builds and runs on production's build
+(plan RK-1): closed by B-5's read. After a rollback only, the old site's preview of stored emoji (critique cycle 18): carried by its
+handoff. No live session can run any of these before the push.
 
 **Release-tip verdict (Phase 2A step 3).** The tip is M6 Phase 2's `Verified-At` itself, so its tree is that verdict's tree
 (`f50f8aa…`) and the Phase 2 verdict covers it. QA Phase 3 is still run, because B-6 and block "2026-11-25T15:49Z" require it. Its record
@@ -156,7 +188,7 @@ is the evidence the release move cites.
 
 | Row | Step | Predicted | Result | Abort |
 |---|---|---|---|---|
-| R-1 | QA Phase 3 on `48eb60a`: `pnpm test` offline, `pnpm test:discord` (B-6), AC-3.3's full generator run with `MOUNTED_GENERATOR_COUNT=1000`, and the open-handoff sweep (`qa-phase-3.md` step 1b) | Both commands exit 0; drift-alarm hashes equal or the outcome cause recorded |  | Any non-zero exit or a release-tip record not at `Release Verified`: no push |
+| R-1 | QA Phase 3 on `48eb60a`: `pnpm test` offline, `pnpm test:discord` (B-6), AC-3.3's full generator run with `MOUNTED_GENERATOR_COUNT=1000`, and the open-handoff sweep (`qa-phase-3.md` step 1b) | Both commands exit 0; drift-alarm hashes equal or the outcome cause recorded | **PASS** (record `c41a8459`, `qa/website-48eb60a-release-tip-qa.md`, Release Verified): offline 4,785 of 4,785 exit 0; `test:discord` 41 of 41 exit 0, wasm hashes equal; generator 17 of 17 exit 0; step 1b, 39 open handoffs, 11 match, none holds | Any non-zero exit or a release-tip record not at `Release Verified`: no push |
 | R-2 | Owner's release answer, asked in this session | yes |  | Anything but yes: no push, record "Aborted" |
 | R-3 | `git -C website ls-remote origin refs/heads/master` | `5ec0621…` |  | Another value: re-assemble the tip; the verdicts re-key |
 | R-4 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 48eb60a --dry-run --qa-record <release-tip record>` | every check passed |  | Any refusal: stop |
@@ -170,7 +202,7 @@ is the evidence the release move cites.
 |---|---|
 | UAT approval | APPROVED FOR RELEASE at `48eb60a` |
 | QA approval | M2 to M6 QA Complete; M6 at `48eb60a` |
-| Release-tip verdict | M6 Phase 2 at `48eb60a` covers the tree; QA Phase 3 pending (R-1) |
+| Release-tip verdict | `qa/website-48eb60a-release-tip-qa.md`, Release Verified at `48eb60a` (record `c41a8459`); B-6 EXECUTED, PASS |
 | Release consistency | Done (above) |
 | Packaging integrity | Install and build pass at the tip (above) |
 | Workspace cleanliness | Done (above) |
@@ -197,8 +229,7 @@ Not released.
 
 ## Next Actions
 
-- QA Phase 3 on `48eb60a` (started by steering).
-- The `CLAUDE.md` convention text: `implementer-019` proposes, steering lands.
+- The release question, then R-2 to R-7.
 - At release: the carrier `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md` and the rebuild sizing document
   have this release as their trigger. Steering tells the owner the rebuild is ready; it opens on his word only (block "2026-11-25T15:38Z").
 

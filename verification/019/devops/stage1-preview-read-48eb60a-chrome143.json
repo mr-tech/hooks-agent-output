@@ -1,0 +1,167 @@
+{
+ "at": "2026-11-25T17:01:15.758Z",
+ "base": "https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app",
+ "browser": "143.0.7499.4",
+ "loads": 10,
+ "pages": {
+  "preview": {
+   "path": "/preview",
+   "loadsWithPageError": 0,
+   "pageErrors": [],
+   "throws": [],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 10
+   },
+   "strong": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "scriptsRead": 25,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/3x6rfyh-qzyrz.js"
+   ]
+  },
+  "new": {
+   "path": "/message/m/new",
+   "loadsWithPageError": 1,
+   "pageErrors": [
+    {
+     "load": 8,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    }
+   ],
+   "throws": [
+    {
+     "load": 8,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    }
+   ],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 10
+   },
+   "strong": [],
+   "scriptsRead": 45,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/33ydt163-vytp.js"
+   ]
+  },
+  "edit": {
+   "path": "/message/m/0/edit",
+   "loadsWithPageError": 10,
+   "pageErrors": [
+    {
+     "load": 0,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 1,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 2,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 3,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 4,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 5,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 6,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 7,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 8,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    },
+    {
+     "load": 9,
+     "message": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+     "stack": ""
+    }
+   ],
+   "throws": [
+    {
+     "load": 0,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 1,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 2,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 3,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 4,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 5,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 6,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 7,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 8,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    },
+    {
+     "load": 9,
+     "text": "probe-throw error@https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app/_next/static/immutable/chunks/32xdb6vs25tsx.js:1:101498 msg=Uncaught Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. type=[object Error] value=Error: Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings. stack="
+    }
+   ],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 10
+   },
+   "strong": [],
+   "scriptsRead": 44,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/33ydt163-vytp.js"
+   ]
+  }
+ }
+}

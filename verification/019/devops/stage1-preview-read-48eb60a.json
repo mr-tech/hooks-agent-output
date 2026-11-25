@@ -1,0 +1,188 @@
+{
+ "at": "2026-11-25T16:54:59.983Z",
+ "base": "https://hooks-gg-website-4enwnbvcj-hooks-gg.vercel.app",
+ "browser": "116.0.5845.96",
+ "loads": 20,
+ "pages": {
+  "preview": {
+   "path": "/preview",
+   "loadsWithPageError": 0,
+   "pageErrors": [],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 20
+   },
+   "strong": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "scriptsRead": 25,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/3x6rfyh-qzyrz.js"
+   ]
+  },
+  "new": {
+   "path": "/message/m/new",
+   "loadsWithPageError": 3,
+   "pageErrors": [
+    {
+     "load": 0,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 5,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 15,
+     "message": "undefined",
+     "stack": ""
+    }
+   ],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 20
+   },
+   "strong": [],
+   "scriptsRead": 45,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/33ydt163-vytp.js"
+   ]
+  },
+  "edit": {
+   "path": "/message/m/0/edit",
+   "loadsWithPageError": 20,
+   "pageErrors": [
+    {
+     "load": 0,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 1,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 2,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 3,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 4,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 5,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 6,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 7,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 8,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 9,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 10,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 11,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 12,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 13,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 14,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 15,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 16,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 17,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 18,
+     "message": "undefined",
+     "stack": ""
+    },
+    {
+     "load": 19,
+     "message": "undefined",
+     "stack": ""
+    }
+   ],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 20
+   },
+   "strong": [],
+   "scriptsRead": 44,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/33ydt163-vytp.js"
+   ]
+  }
+ }
+}
