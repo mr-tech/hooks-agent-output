@@ -1,0 +1,42 @@
+typecheck before load 0.73 0.82 1.36 2/1022 773851 12:43:09Z
+typecheck after load 0.95 0.87 1.36 1/1042 777552 12:43:33Z
+suite before load 0.95 0.87 1.36 1/1042 777554 12:43:33Z
+suite after load 8.52 3.67 2.33 1/1009 789458 12:44:45Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx before load 8.52 3.67 2.33 1/1009 789481 12:44:45Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx after load 7.92 3.63 2.32 2/1017 789900 12:44:48Z
+x40 src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx before load 7.92 3.63 2.32 2/1017 789902 12:44:48Z
+x40 src/components/SlateEditor/utils/__tests__/crprobe.offselection-inline.test.tsx after load 7.37 3.58 2.32 2/1026 790761 12:44:54Z
+x48 src/components/SlateEditor/__tests__/qaMountedOffSelection.probe.test.tsx before load 7.37 3.58 2.32 2/1026 790763 12:44:54Z
+x48 src/components/SlateEditor/__tests__/qaMountedOffSelection.probe.test.tsx after load 6.32 3.54 2.32 1/1025 792990 12:45:09Z
+x40 src/components/SlateEditor/__tests__/qaMountedOffSelection.probe.test.tsx before load 6.32 3.54 2.32 1/1025 792992 12:45:09Z
+x40 src/components/SlateEditor/__tests__/qaMountedOffSelection.probe.test.tsx after load 5.53 3.54 2.35 3/1032 795547 12:45:26Z
+x48 src/components/SlateEditor/__tests__/crprobe.sl30-positions.test.tsx before load 5.53 3.54 2.35 2/1032 795549 12:45:26Z
+x48 src/components/SlateEditor/__tests__/crprobe.sl30-positions.test.tsx after load 3.88 3.35 2.33 1/1034 800836 12:46:03Z
+x7a src/components/SlateEditor/__tests__/crprobe.sl30-positions.test.tsx before load 3.88 3.35 2.33 1/1034 800838 12:46:03Z
+x7a src/components/SlateEditor/__tests__/crprobe.sl30-positions.test.tsx after load 2.93 3.15 2.30 1/1002 806574 12:46:45Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx before load 2.93 3.15 2.30 1/1002 806576 12:46:45Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx after load 2.50 3.05 2.28 1/1033 808658 12:46:59Z
+x48n src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx before load 2.50 3.05 2.28 1/1033 808660 12:46:59Z
+x48n src/components/SlateEditor/utils/__tests__/crprobe.keystroke-fixedpoint.test.tsx after load 2.24 2.96 2.26 2/1009 810821 12:47:14Z
+xaf src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx before load 2.22 2.95 2.26 1/1008 811191 12:47:17Z
+xaf src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx after load 1.94 2.83 2.24 1/1022 814320 12:47:38Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx before load 1.94 2.83 2.24 1/1022 814322 12:47:38Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx after load 1.79 2.77 2.23 8/1013 815781 12:47:48Z
+xaf src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx before load 1.79 2.77 2.23 2/1013 815783 12:47:48Z
+xaf src/components/SlateEditor/utils/__tests__/crprobe.sl29-base.test.tsx after load 1.71 2.69 2.21 2/1009 818910 12:48:10Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx before load 1.71 2.69 2.21 2/1009 818912 12:48:10Z
+x48 src/components/SlateEditor/utils/__tests__/crprobe.sl29-tip.test.tsx after load 1.60 2.63 2.20 1/1015 820248 12:48:19Z
+done 12:48:19Z
+suite lo-up before 1.59 2.53 2.18 2/1024 825657 12:48:51Z
+suite lo-up after 7.91 4.69 2.99 1/1045 836859 12:50:01Z
+discord-live before load 3.22 3.91 2.82 2/1050 846047 12:51:03Z
+discord-live after load 3.56 3.95 2.86 3/1037 849756 12:51:27Z
+discord-offline before load 3.56 3.95 2.86 2/1038 849760 12:51:27Z
+discord-offline after load 3.36 3.90 2.85 1/1047 850467 12:51:31Z
+full-count before load 3.36 3.90 2.85 1/1047 850469 12:51:31Z
+full-count after load 2.06 3.33 2.75 1/1043 863548 12:53:03Z
+build x48s before load 2.06 3.33 2.75 1/1043 863551 12:53:03Z
+build x48s after load 4.24 3.78 2.91 4/1065 866934 12:53:25Z
+build xaf before load 4.24 3.78 2.91 4/1065 866937 12:53:25Z
+build xaf after load 5.36 4.08 3.03 2/1056 870597 12:53:48Z
+done 12:53:48Z

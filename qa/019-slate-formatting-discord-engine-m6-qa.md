@@ -412,6 +412,26 @@ dispositioned below:
 
 Driver: `verification/019/qa/m6/fr6/run-fr6.sh`, one worker, no network, each probe in its own capped scope.
 
+### Execution (website `48eb60a`)
+
+All evidence is under `verification/019/qa/m6/fr6/`, with the box load beside each run in `loads.txt`.
+
+| Item | Instrument | Result | Evidence |
+|---|---|---|---|
+| Typecheck | `pnpm run typecheck` (both programs) | exit 0 | `typecheck-48eb60a.*` |
+| Whole offline suite | `vitest run --project node --project dom`, JSON reporter, in a clean export (`x48s`, 686 of 686 blobs), under `unshare -rn` with `lo` up | **4,785 of 4,785, 238 files, exit 0**, 70.0 s. Disclosed: the driver's first run had `lo` down, and 15 cases that use a loopback server failed (`fetch failed`, empty renders), exit 1. That was my instrument error, not the tree's. It is kept as `suite-48eb60a-lo-down.*` and not scored | `suite-48eb60a.*` |
+| AC-3.3's 60 s cap | the suite's wall time against `af3d95a`'s 31.1 s plus 60 s = 91.1 s | 70.0 s, within. Load 0.95 at the start (`loads.txt`) | `suite-48eb60a.time` |
+| `test:discord` live | network on | 41 of 41, exit 0 | `discord-live-48eb60a.*` |
+| `test:discord` offline | `unshare -rn`, `lo` up | exit 1, loud (`OracleError … fetch failed`), as designed | `discord-offline-48eb60a.*` |
+| The full count (R-92) | `MOUNTED_GENERATOR_COUNT=1000`, the pasted and typed generator files | 17 of 17, exit 0, 92.0 s; the title reads "the first 1000 generator inputs" | `full-count-48eb60a.*` |
+| `next build` | tip `x48s` and base `xaf`, `.env.local` copied in (not read) | exit 0, both | `build-x48s.*`, `build-xaf.*` |
+| **R-129, the 24 rows** | code review's `crprobe.offselection-inline` (sha256 in `placed-probes.sha256`) | **24 of 24 clean** at the tip: no throw, 0 lines unlike a fresh load, and forced normalise 0 on every row. The control `40947a6` reads **12 of 24 red** (insert and delete × none and other-unit, at 100 to 1,000), matching code review's recorded 12 | `offsel-48eb60a.jsonl`, `offsel-40947a6.jsonl` |
+| **R-130, the timer clause** | `qaMountedOffSelection.probe` (this stage's), mounted through the suite's `mountEditor`, pending timers run | **16 of 16** none and other-unit rows clean at the tip: no throw on the edit or the timer, no window or console error, fresh-load shapes, last write equal to the expected text. The planted pending-timer row is caught (`timerThrown: planted pending-timer error`) on both trees. The control `40947a6` reads **12 of 16 red**, all on the edit. No real timer error was seen on either tree, so the timer limb's power rests on the planted row | `mounted-offsel-48eb60a.jsonl`, `mounted-offsel-40947a6.jsonl` |
+| **SL-30** (D-30) | the implementer's `crprobe.sl30-positions` (sha256 `3c1eb81d…`), mounted, 18 scenarios × sizes, 126 rows | **0 of 126 red** at the tip. The control `a7ad3f2` reads 61 of 126 red, 21 of them with a timer error | `sl30-summary.txt`, `sl30-*.jsonl` |
+| **SL-29** (D-27) | code review's `crprobe.sl29-{tip,base}`, two interleaved rounds against `af3d95a`, judged by `sl29-table9b.py` (block 20:58Z's line) | **0 of 20 over the line** | `sl29-table-48eb60a.txt` |
+| **CF-35's equality** | code review's fixed-point corpus on the tip and on its own pass-through tree (`x48n`), the implementer's comparator `cf35-equality.py` | **0 of 36,560 documents differ**, and 0 selections. Both trees have the same 8 non-fixed-point keystrokes (QAF-48's class residue) and 0 errors. The comparator has fired on a real difference before: 6 of 36,560 at `a7ad3f2` against its mutant (code review, `m6fix4-a7ad3f2/compare-fixedpoint-tip-vs-nosuppression-mutant.out.txt`) | `cf35-equality-48eb60a.out.txt` |
+| M4 and M5 differentials | whether the paths moved | **Not owed**. `git diff --name-only 119471f 48eb60a` over production paths lists four files under `SlateEditor/utils/` (`emojiLift`, `getInitialValue`, `quoteMarker`, `withNormalizeNode`). No preview or decorator module imports them (`git grep` of their importers at `48eb60a`) | this row |
+
 ## Resumption State
 
 Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a seam. Every write is committed.
