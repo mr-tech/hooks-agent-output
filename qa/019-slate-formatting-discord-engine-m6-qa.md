@@ -525,6 +525,35 @@ UAT next, through steering: no `uat` session is listed. UAT runs B-11 on a local
 
 ## Resumption State
 
+Rewritten 2026-11-25T15:53 at steering's `/checkpoint` (about 329K tokens), at a seam. Every write is committed.
+
+- **Done.** M6 Phase 2 is **QA Complete at website `48eb60a`** (§ Pass on Fix Round 6, records `5f7a5b7c` and `135068f`; plan
+  R-135 `8f07d03f`). The verdict went to steering, which started uat-019 on it.
+  - The effort-final sweep was not run, on the owner's waiver (block 2026-11-25T15:46Z, `95913e2e`). Its partial pass-1
+    tables under `verification/019/qa/m6/fr6/sweep/` are not scored.
+  - QAF-56 MEDIUM (AC-6.8's timed limb, 1 of 6 rounds at 17.1 ms) is a stated limit (R-134). The run count goes to the seam
+    fold.
+  - Earlier today: R-126's reading is unread at `5ec0621` (`91388b39`), and R-129 and R-130 were recorded as entry conditions
+    (`5db177b`, `ab9f6ba`).
+- **Next: Phase 3** at devops' release tip, when devops or steering asks, naming this state.
+  - Read `~/.claude/agent-skills/stage-procedures/qa-phase-3.md` first.
+  - The owner's "bare minimum on 019" (block 15:46Z) governs scope; read that block before planning the pass.
+  - Owed at Phase 3, per R-92: the full 1,000 mounted generator inputs (`MOUNTED_GENERATOR_COUNT=1000`) on the release tip.
+  - Method that worked this pass: a `git archive` export, blob identity, and `pnpm install --frozen-lockfile --offline` inside
+    it. Run the suite as `unshare -rn sh -c "ip link set lo up && …"`. **With `lo` down, 15 loopback cases fail**; that
+    was my instrument error at the first run.
+- **Approach in flight.** None.
+- **Branch and HEAD.** Website is on `chain/019-slate-formatting-discord-engine` at `48eb60a`. I wrote nothing in the shared
+  tree. Record `master` is at `135068f` or later.
+- **Local state.** No process of mine runs, apart from the harness's playwright MCP. The local stack is down, and both
+  `next start` servers are stopped. The scratch exports `x48`, `x48s`, `x48n`, `x40`, `x7a`, `xaf` and `x5e` remain in this
+  session's scratchpad; they are disposable. The walk PNGs stay untracked under `verification/019/qa/m6/fr6/walk/`, as
+  captured media.
+- **Evidence run but not recorded.** None.
+- **Questions sent.** None open. planner-019 has QAF-56 (R-134). Steering has the verdict.
+
+### Earlier resumption state (2026-11-25T06:28, superseded by the above)
+
 Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a seam. Every write is committed.
 
 - **Done since 2026-11-24T17:04.** Phase 1 re-keyed on Revisions 22 to 25, all in the Phase 1 document
