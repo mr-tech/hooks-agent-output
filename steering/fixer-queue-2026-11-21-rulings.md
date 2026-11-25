@@ -2224,3 +2224,14 @@ Read this turn: `uat/019-slate-formatting-discord-engine-uat.md` Status UAT Comp
   `planning/slate-editor-rebuild-sizing-2026-11-25.md`. `planner-019` owns that document and is asked to add the row (Resumption State
   `f9599d67`). UAT-2 is an instrument note and stays in the UAT document, with no carrier.
 - The 16:28Z usage reading was live (weekly_all 89%), so there is no non-live block to put to him.
+
+## 2026-11-25T16:52Z — plan 019 M7: the workspace CLAUDE.md Test Conventions update landed by this thread
+
+M7 ("Record updates", plan Revision 26) says the implementer proposes the text and steering lands it at release. Block 15:49Z kept it.
+`devops-019` found by message (after 16:34Z) that no implementation document carried the text. `implementer-019` proposed it in
+`implementation/019-slate-formatting-discord-engine-m6-implementation.md` § "Proposed Test Conventions update" (`6a9311ef`).
+- **Landed** verbatim in `agent-output/CLAUDE.md` § Test Conventions: Text 1 replaces the Runner paragraph and its code block, and Text 2
+  is the new subsection "Offline, and the Discord command", before Axioms. Read first at website `48eb60a`: `package.json` `test` and
+  `test:discord`, and `vitest.config.ts`'s four projects, which match the text. The ID-token grep over the new lines has 0 hits.
+- `devops-019` is told the M6 implementation document can close.
+- Gate satisfied (standing 24): the record-write gate hook refused a shell heredoc append to this file. Re-issued with the Edit tool.

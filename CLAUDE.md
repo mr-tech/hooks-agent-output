@@ -22,13 +22,18 @@ The symlink itself is not tracked by any repo.
 
 ## Test Conventions (`website`)
 
-Runner: vitest. Commands, run from `website/`:
+Runner: vitest, in four projects. `node` and `dom` are the offline suite. `discord-node` and `discord-dom` are the Discord
+comparisons: every test under a `__tests__/discord/` directory, which the offline projects exclude. Commands, run from `website/`:
 
 ```sh
-pnpm test                                                    # runs the whole suite
-npx vitest run --reporter=json --outputFile=/tmp/report.json # machine-readable capture
-pnpm run typecheck                                            # BOTH tsc programs, see below
+pnpm test                # the offline suite: projects node and dom
+pnpm test:discord        # the Discord comparisons: projects discord-node and discord-dom; needs the network
+npx vitest run --project node --project dom --reporter=json --outputFile=/tmp/report.json  # machine-readable capture, offline suite
+pnpm run typecheck       # BOTH tsc programs, see below
 ```
+
+A bare `npx vitest run` (no `--project`) runs all four projects, the Discord comparisons included. Name the projects whenever a run
+is meant to be the offline suite.
 
 **A green pass set is not a green run — record the process exit code beside the counters.** A
 vitest run can report every case passed in its JSON summary and still exit non-zero (a post-teardown
@@ -85,6 +90,36 @@ data the test computes over.
   Compare a file count against the reporter's own `testResults` entries, one per file — and compare
   by **path membership**, not only by size: two file lists of the same length can still disagree on
   which files they contain.
+
+### Offline, and the Discord command
+
+**`pnpm test` stays green offline.** "Offline" means a network namespace with only loopback up (`unshare -rn` with `lo` up). The
+offline suite holds the properties, the finite maps and masks, and the Discord-derived values frozen as literals. A test that needs
+Discord's served build lives under `__tests__/discord/`, never in the offline suite.
+
+**`pnpm test:discord` fetches Discord's served build and compares the site against it.** It fails loudly when it cannot fetch. Where a
+live value departs from a frozen one, it names both. It runs at every `website` release gate and at every change of the
+`@discord/markdown-wasm` pin:
+- A chain that touches the formatting region (`src/components/SlateEditor/**`, `src/utils/markdown/**`,
+  `src/components/Markdown*.tsx`) runs it through its QA at Phase 2 and Phase 3.
+- A chain that changes the pin runs it through its QA.
+- Every other `website` release runs it through devops at Stage 1, at the release tip, and devops records the output in that chain's
+  deployment document. This holds whether or not the chain touches the region. Devops is the runner because every `website`
+  release passes through Stage 1, while not every chain has a QA Phase 3.
+
+What a red run does depends on its cause and on the chain:
+
+| Cause | A chain touching the region | A pin change | A release not touching the region |
+|---|---|---|---|
+| The fetch fails (loopback-only namespace or a real outage) | Holds the gate. It re-runs when reachable and holds until a green run: the release waits on the network, not on Discord's schedule. | Same | Fails loudly. Devops records the failure in the deployment document, and it does not hold the release. A failure that persists into the next region chain's opening is that chain's to clear. |
+| Drift alarm: the served wasm differs from the pinned one (both hashes reported) | Not a failure. The native-box comparisons still run on the pinned wasm, and report "not comparable under drift" where the served box code cannot initialise against it. Recorded, with an upgrade handoff cited (Owning-Stage planner, Review-Trigger "when the pin is next changed, or the next chain touching the region opens"). | The upgrade is a deliberate change. It re-runs the whole command, moves the pin, the frozen counts and the `version=` lines, and re-reads the frozen masks from the served code. | Recorded. The upgrade handoff is cited, or devops writes it if none is open. |
+| A module locator matches zero modules or several | Holds the gate, and that chain repairs the locator. If the legacy parser is gone from the served bundle, the question goes to the owner through steering. | Same | Does not hold the release. Devops writes a handoff (Owning-Stage planner, Review-Trigger "the next chain touching the region opens"). If the legacy parser is gone, the question goes to the owner through steering. |
+| A frozen literal departs from its live value | Holds the gate. The literal is re-derived from the live oracle and read before it is frozen again. | Same | Does not hold the release. A handoff, as above. |
+| The site differs from Discord on a class held to Discord | A defect. It holds the gate and is fixed. | A defect of the new pin or of the site | Does not hold the release. A handoff, as above. |
+| A legacy-only surface may have moved, or an adjustment is dead or stale | Holds the gate. A moved surface goes to the owner through steering, and its adjustments stay until he rules. A dead or stale adjustment alone is removed or re-derived in that chain. | Same | Does not hold the release. A moved surface goes to the owner through steering. A dead or stale adjustment is a handoff, as above. |
+
+The command never holds a release that does not touch the region, whether Discord has moved or cannot be reached. The region at that
+tip is the one the last region chain's gates passed, so a red run there is news about Discord, and a handoff carries it.
 
 ### Axioms
 
