@@ -2,12 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: >-
-  M5 is built on chain/019-slate-formatting-discord-engine (slices at website 921eeb8, 6f4d48f, 65b8e2c, 3ffb2b4, 2e36107), was approved
-  by code review (fdb41883) and QA Failed on QAF-39 (263aa3c6); Fix Round 1 is at cf126ea and was approved with comments by code review (record 79f96321). Earlier text: handed to code review at 2e36107. Open: the convention check's 8 FAILs, all eslint errors already in SlateEditor/index.tsx at the base
-  (Outstanding 1, ruled (a) below); 9 sweep survivors dispositioned as equivalent or not M5's (Outstanding 3); the emoji and block-layer
-  exclusions of AC-5.8 (Outstanding 4); a blind spot in M4's visibleForm helper (Outstanding 5).
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Handoff-At: cf126ea — repos=website — M5 fix round 1 (QAF-39), handed to code review; the fix commit itself adds frozen test data and two counts and changes no source; the tree at cf126ea also holds M6's 8cb4d83, c3af0ac and f58a816, which change decorator.tsx, unitStyles.ts, SlateEditor/index.tsx and Desktop/Mobile, and which M6 hands over (code review's correction, record 79f96321); M5 itself was handed at 2e36107, approved by code review (record fdb41883), and QA Failed on QAF-39 only
 ---
 
@@ -30,6 +26,7 @@ Handoff-At: cf126ea — repos=website — M5 fix round 1 (QAF-39), handed to cod
 | 2026-11-24T05:10 | qa-019 (QA Failed at 2e36107 on QAF-39, record 263aa3c6) | Fix round 1 | Two members of QAF-39's class added to the frozen native box at `cf126ea`; m5-d2 red on one of them. See § Fix Round 1. |
 | 2026-11-24T03:49 | steering-hooks-fixer (message: resume M5 from the Resumption State) | Slices 2 and 3, hand-off | Code lines `6f4d48f`, properties and call sites `65b8e2c`, comment removal `3ffb2b4`, sweep-survivor cases `2e36107`; handed to code review at `2e36107`. Between: M3 fix rounds 7 (CR-15, `d6aab03`) and 8 (QAF-38, `81c68b2`), both closed by their reviewers. |
 | 2026-11-24T01:28 | steering-hooks-fixer (message, M5 stage start, block 2026-11-24T01:02Z) | Build M5 | Slice 1 at `921eeb8`. Between: M3 fix round 6 (`9a5f4fe`, `b04c09f`) and M4's stub-tree records, for qa-019's record `908aeee0`. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Implementation Summary
 
@@ -236,15 +233,4 @@ Code review of M5 at `2e36107`, in this order of risk: `highlightScan.ts` and `c
 
 ## Resumption State
 
-Superseded at 2026-11-24T05:10Z: M5's state is Fix Round 1 above, handed to code review at `cf126ea`; M6's Resumption State is in `019-slate-formatting-discord-engine-m6-implementation.md`. What follows is the earlier text, kept for the record.
-
-Written 03:55Z at M5's hand-off seam (about 343K tokens), for a `/clear`.
-
-- **Done.** M5 complete and handed to code review at website `2e36107` (this document's `Handoff-At`); messages sent to `code-reviewer-019` and `steering-hooks-fixer`. The owner ruled (a) on the `SlateEditor/index.tsx` eslint errors (block 2026-11-24T03:48Z, carrier handoff `67001740`). M3 fix rounds 7 and 8 are closed by code review and QA (M3 QA Complete at `81c68b2`). Website commits this session: `6f4d48f`, `65b8e2c`, `3ffb2b4`, `d6aab03`, `81c68b2`, `2e36107`. Record at `bfd894ed`.
-- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `2e36107`; the tree holds only the foreign `?? .playwright-mcp/`.
-- **Next.** (1) If code review of M5 returns findings, a fix round: the Class Sweep table per finding, each fix starts red. (2) M6 (read plan M6 and the M4 document's "M5 and M6 flows, derived ahead of stage start"; the second reading, emoji with no image stays text, belongs to M6). M6 starts only on steering's stage-start word. (3) The M4 follow-up (visibleForm's dead `c` branch) was sent to steering as a carrier question; no action of mine unless asked.
-- **Approach in flight.** None; no uncommitted source work.
-- **Local state not restored.** Scratch only under the session scratchpad: `export-m5b`, `mrun-work`, `mut*.py`, `mutants-m5.json`. No process of mine runs (the sweep and the wait shell are gone).
-- **Evidence run but not recorded.** None; everything is under `verification/019/impl/m5-*` and `m3-r7-*`, `m3-r8-*`.
-- **Questions sent.** None open. To `code-reviewer-019`: M5 ready, with the case-count account. To steering: the visibleForm carrier.
-- **Cache-warm wake.** Deleted at this checkpoint. Arm a new one on the next turn.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
