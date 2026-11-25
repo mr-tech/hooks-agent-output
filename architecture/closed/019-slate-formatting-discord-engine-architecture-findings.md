@@ -2,87 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: >-
-  Delta pass on plan 019 revision 25 (record cf62ffc1, D-29 to D-31, CF-35's equality form): APPROVED, with no new finding.
-  CF-35's equality, measured on code review's captures, gives the same 6 keystrokes at a7ad3f2. One observation goes to
-  steering: the "emoji drawing collapse" in D-29's option is the engine's reading of line-crossing inline code, not a defect.
-  Delta pass on plan 019 revision 24 (record 80d6d143, D-28's class and CR-27's sub-limb in AC-6.9): APPROVED. Three LOW
-  findings are stated limits under the M6 cap. CF-34: the rebuild trigger compares line type only, so compare the class's whole
-  state, emoji layout included. CF-35: the corpus differential's condition is equal documents on both trees. CF-36: take fence
-  state from the engine, not codeFence.ts's hand scan. CF-33's soundness premise is corrected (my error, shown by AN-9 B1). It
-  holds nothing. Steering ruled that the fence fix stays with the handoff (b, block 06:07Z). CF-34 states a form for (b).
-  Design read for M6 Fix Round 4 (block 22:41Z), CF-33. The `a🙂` fence cost is Slate's pending dirty-path list, rebuilt on every
-  path-transforming op, which makes it O(N²). Measured on plain Slate: hand-built ops and per-line rebuild both stay quadratic. The
-  form that reaches the line is to rebuild the changed lines from the load path (liftLoaded), 2 ops each, with getDirtyPaths
-  suppressed for those ops. Its op floor is 11.6 ms at 1,000 lines; the site's own build time is unmeasured. It bears on AC-6.9's
-  no-throw refusal wording, which goes to steering. For implementer-019.
-  Delta pass on plan 019 revision 23 (record 49a20690, CR-25 and D-26 in AC-6.9): APPROVED. CF-32 (LOW: key the settle memory on
-  Slate's line objects plus the incoming fence state, not editor.children, and run a paste in one withoutNormalizing drain) is a
-  stated limit for the third fix round. It holds nothing.
-  Delta pass on plan 019 revision 22 (record 960052d1, AC-6.9's last fold, D-25): APPROVED. CF-30 is resolved as folded. CF-31
-  (LOW: handleEditor's whole-line insertText puts the caret at the end; delete the marker's range instead) is a stated limit for
-  the second fix round. It holds nothing.
-  Delta pass on plan 019 revision 21 (record 81523bd6, D-24 and AC-6.9): APPROVED. No owner-authored invariant is touched; A-11
-  is restated at the closing pass. CF-30 (LOW: retype before the drain starts, so Slate's 42-per-dirty-path budget scales; never
-  lift it unboundedly or catch the throw) is a stated limit for the second fix round. It holds nothing.
-  Delta pass on plan 019 revision 20 (record cf7e4d91, the corpus bound dropped and the fenced-quote texts added): APPROVED.
-  CF-29 (LOW: the fenced-quote 2,048-line size exceeds every field limit; name it a growth probe and settle the timed limb's
-  scope) is a stated limit. It holds nothing.
-  Delta pass on plan 019 revision 19 (record 4a68f286, AC-6.8's count without per-kind literals): APPROVED. CF-27's literal is
-  withdrawn, and the error was mine (F-48's probe). CF-28 (LOW: every sized text is one run unit, so add a many-unit sized text)
-  is a stated limit. It holds nothing.
-  Delta pass on plan 019 revision 18 (record 18e434e6, AC-6.8's count window and literal): APPROVED, superseded by revision
-  19's pass.
-  Delta pass on plan 019 revision 17 (record 34850209, AC-6.8's count and bench folds): APPROVED, re-dispositioned under
-  steering's block 07:13Z. CF-27 (MEDIUM: the count's window is one Editor.normalize drain, and the literal is the lines the
-  keystroke dirties: 1, 2, 1) is a stated limit (R-82) whose reading governs the count limb until the seam fold. It holds
-  nothing.
-  Delta pass on plan 019 revision 16 (record 30e2a5b8, AC-6.8 keystroke cost, D-23): APPROVED. CF-25 (LOW: resolve the changed
-  line's unit once from handleElement and drop handleEditor's all-lines loop; count through a vi.mock pass-through, not a
-  production counter) and CF-26 (LOW: the timed limb as a vitest bench file in the repo) are stated limits for M6's fix round.
-  They hold nothing.
-  Delta pass on plan 019 revision 15 (record 79eeced6, QAF-40 and QAF-41 folds): APPROVED. CF-24 (LOW: take remedy (a); the
-  package's parseLossless gives each emoji node its span and source text on the pinned wasm, so the helper needs no join) is a
-  stated limit for the M6 implementer under block 04:18Z. It holds nothing.
-  Delta pass on plan 019 revision 14 (record 2c3c8d1a, AC-6.7 quote continuation, D-22): APPROVED under the M6 cap. CF-22 (LOW:
-  carry the marker in an insertBreak override, since paste emits the same split_node op) and CF-23 (LOW: "carried" is state no
-  field holds; a transient element field is the home) are stated limits for the Planner batch. They hold nothing.
-  Delta pass on plan 019 revision 13 (record f9b406d6, AC-6.5's expected-span source, D-21): APPROVED under the M6 cap. The
-  oracle helper on every surface fits the pattern and is independent of the lift as read at website 2e36107. CF-21 (LOW: don't
-  freeze; the helper runs offline and the current pattern runs it live) is a stated limit for the Planner batch. It holds nothing.
-  Delta pass on plan 019 revision 12 (record b0af4dc3): APPROVED under steering's M3 cap (block 22:35Z). CF-18 and CF-19 are
-  resolved; the atom narrowing fits D-14's visible form. CF-20 (LOW: atoms compare on kind and identifying fields, not
-  "source span", because legacy trees carry no spans) is a stated limit in the Planner batch. It holds nothing.
-  Delta pass on plan 019 revision 11 (record ec2440d9, AC-3.7's residue list): APPROVED_WITH_CHANGES. CF-18 (MEDIUM): the
-  measurement behind the per-input list left out the inputs containing atoms (1,034 of 2,378 per rich surface), so AC-3.7 must
-  measure them or state them as an excluded class before M4's residue-list commit. CF-19 (LOW): RK-9 needs a fire condition
-  and a route.
-  Delta pass on plan 019 revision 10 (record 890d0b78, AC-4.4 / D-17): APPROVED. CF-17 (LOW: how the channel lookup reaches the
-  renderer; recommended form is parser state, fed by a non-throwing GuildProvider accessor) is a stated limit under the M4 cap.
-  It holds nothing.
-  Delta pass on plan 019 revision 9 (record 47348a6d, AC-4.7 delta only): APPROVED. CF-15 is resolved. CF-16 (LOW: the vi-VN
-  fixture's expected value depends on test order, since dayjs's locale is global) is at steering-hooks-fixer for decision
-  under block 18:02Z.
-  Delta pass on plan 019 revision 8 (record 7b419f5b): APPROVED. CF-14 is resolved. CF-15 (LOW: AC-4.7's ja-JP fixture names a
-  locale the site loads, so use a tag with no file, e.g. vi-VN) is a stated limit in the Planner batch under the cap. It holds
-  nothing.
-  Delta pass on plan 019 revision 7 (record e0eb1e87): APPROVED under steering's M4/M6 cap (rulings block 17:56Z, b95a3d43).
-  CF-13 is resolved as option (a). CF-14 (LOW: Intl should take dayjs's effective locale, and the America/New_York case should
-  state the mounted state) goes to the Planner batch as a stated limit on AC-4.7, with no revision round. It holds nothing.
-  Delta pass on plan 019 revision 6 (record 946d4e54): APPROVED_WITH_CHANGES. CF-12 is resolved, and the field value's one
-  differing bit, HEADING, was run and changes no emoji span. CF-13 (LOW): AC-4.7's s and S must take the timestamp component's
-  locale and pre-mount UTC rule. It is a Planner batch row, folded before M4's code. It holds nothing else.
-  Delta pass on plan 019 revision 5 (record d2912590): APPROVED. CF-11 is folded as recommended. CF-12 (LOW, non-blocking)
-  asks which mask module 818948 runs under on the non-content surfaces.
-  Delta pass on plan 019 revision 4 (record e53c7cdb): APPROVED. CF-9 and CF-10 are folded as found. CF-11 (LOW, a
-  recommendation the planner may fold or decline with its reason) is on AC-6.5's expected spans.
-  Delta pass on plan 019 revision 3 (record 9ac9ba62): APPROVED_WITH_CHANGES on two LOW findings (CF-9 the emoji lift on
-  edit, CF-10 the emoji element's derived fields). A′/B3, CF-8, the run unit and D-13's removal are carried as designed.
-  § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3).
-  Delta pass on plan 019 revision 2 (record 8dfd4659): APPROVED_WITH_CHANGES. CF-1 to CF-7 are folded as found. One new
-  LOW defect against the Test Conventions: a single `discord` vitest project cannot keep the environment-by-extension
-  rule (CF-8). CF-2's option b is OQ-5, at steering. Goes to planner-019; the next delta pass reads CF-8's fold.
+Status: Resolved
+Status-Detail: "Closed at plan 019's release (website master 48eb60a, 2026-11-25T17:39Z). Every pass from the conformance pass on revision 1 to the delta pass on revision 25 is recorded, each with its verdict in the Changelog. Every CF item is dispositioned: folded, resolved, or a stated limit in the plan's Planner batch, with CF-36 carried by the re-aimed handoff. The closing pass was waived (effort rulings block 15:46Z, Q2; plan D-33). Four evergreen-record limbs are left open and carried by the record's INBOX.md entry 'architect-019 — FYI' of 2026-11-25: (1) website.md A-11's restatement from the released tree; (2) the Problem Area 'Preview images show no guild-resolved display'; (3) CR-21's unimported emoji-regex; (4) the master document's reconciliation since 2026-11-20, beside devops-019's entry listing 019's lines."
 ---
 
 # 019 — architecture conformance: Slate formatting on Discord's engine
@@ -91,6 +12,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-25T17:45 | architect-019 | Document closed | Status: Resolved. Closed at plan 019's release (website `master` `48eb60a`; deployment record `deployment/closed/019-slate-formatting-discord-engine-deployment.md`), on `steering-hooks-fixer`'s brief. The closing pass was waived (effort rulings block "2026-11-25T15:46Z", Q2; plan D-33, read). Open items are carried by the record's `INBOX.md` entry "architect-019 — FYI" (2026-11-25). The Status-Detail's per-pass verdict lines are removed. They carried each pass's verdict and findings, which live in this Changelog's rows and in each pass's own section. |
 | 2026-11-25T06:17 | architect-019 | Delta pass on plan 019 revision 25 (record `cf62ffc1`); § Delta pass, revision 25. APPROVED, no new finding; CF-35's equality measured; an observation on D-29's option text goes to steering | Commissioned by `planner-019`'s message. Read as `git diff 80d6d143 cf62ffc1` on the plan, with AN-9's `engine-trees.txt` and code review's `m6fix4-a7ad3f2/` captures. One count ran over existing captures, in a capped `timeout`. Its output is in `verification/019/architect-conformance/rev25/`. |
 | 2026-11-25T06:08 | architect-019 | CF-34's scope point recorded as ruled (b) by steering (block 06:07Z, record `9ba0662c`); a form for (b) added under CF-34 | From `steering-hooks-fixer`'s message; the block was read at `9ba0662c`. Derived from AN-9 B1 and `resolveEmoji` at `a7ad3f2`, not run. Process fact: the stamp gate refused this row's first stamp, 06:09, which I typed ahead of the clock. It was corrected to the `date -u` minute. |
 | 2026-11-25T06:05 | architect-019 | Delta pass on plan 019 revision 24 (record `80d6d143`); § Delta pass, revision 24. APPROVED; CF-34, CF-35 and CF-36 LOW raised as stated limits. CF-33's soundness premise and revision 21's A-11 consequence get reconcile notes (my error, shown by AN-9 B1). `system-architecture.md`'s hand-regex Problem Area gains B1's measured consequence | Commissioned by `planner-019`'s message. Read as `git diff 49a20690 80d6d143` on the plan, with AN-9 (record `00c91e3a`), the re-aimed handoff, and website `a7ad3f2` `codeFence.ts` and `withNormalizeNode.ts` through `git show`/`git grep`. Nothing was run. Resumed after a `/clear` from the Resumption State at `4dfc0505`. |
@@ -126,24 +48,7 @@ Status-Detail: >-
 
 ## Resumption State
 
-Written 2026-11-25T06:05Z, after the revision 24 delta pass. Record branch `master`.
-
-**Done.** Delta passes on plan 019 revisions 13 to 25 are recorded, each a section below. The last plan revision read is revision
-25, at record `cf62ffc1`. The Fix Round 4 design read (CF-33) was delivered. Its soundness premise carries a reconcile note
-(revision 24 pass). The question it raised, whether the suppression is admitted, was answered at R-111 and bound at revision 24.
-
-**Next.**
-- The **closing conformance pass** (architect.md), when `steering-hooks-fixer` starts it, once M6's fold has had its critic read.
-  It reads the delta from revision 25 to the plan's revision at that time, landing each confirmed pattern and Problem Area. It
-  restates `website.md` A-11 from the fixed tree (Open items), and then closes this document under Document Lifecycle.
-- Or a **delta read** of any revision planner-019 cues before then. Read it as `git diff cf62ffc1 <commit>` on the plan.
-- Or a **Fix Round 5 question** from `implementer-019` or `code-reviewer-019` on CF-34 to CF-36.
-
-**Approach in flight.** None. Nothing in the shared website tree was mutated. The only probe scripts are under
-`verification/019/architect-conformance/{rev13,rev15,fix3-lift}/` and are committed.
-
-**Questions out.** None. CF-34's scope point was ruled (b) by steering (block 06:07Z, record `9ba0662c`). Its form for (b) is
-under CF-34 and was sent to `implementer-019`.
+Closed 2026-11-25T17:45Z, Resolved, at plan 019's release. Nothing resumes here; the open limbs are in the record's `INBOX.md`.
 
 ## Open items
 
@@ -168,8 +73,10 @@ under CF-34 and was sent to `implementer-019`.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
-**Closing obligation.** This findings document closes no later than devops Stage 1 of chain 019, after the closing pass
-(Document Lifecycle).
+**At closure (2026-11-25T17:45Z).** The closing pass was waived (plan D-33). The CF rows above are in the closed plan's Planner
+batch, and CF-36 is in its handoff. The A-11, Problem Area, Packaging/CR-21 and master-reconciliation items are carried by the
+record's `INBOX.md` entry "architect-019 — FYI" of 2026-11-25. The Packaging line's rewrite is also in devops-019's release entry
+there.
 
 ## Design this plan builds on
 
