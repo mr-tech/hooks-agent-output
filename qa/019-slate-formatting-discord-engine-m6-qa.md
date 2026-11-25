@@ -2,11 +2,12 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Verified-At: "119471f — repos=website; M6 at the code review's Round 6 Reviewed-At; git-archive exports with their own frozen offline installs, 677 of 677 blobs"
-Status: Testing In Progress
+Verified-At: "48eb60a — repos=website; M6 Fix Round 6 at code review's Round 9 sub-entry Reviewed-At; git-archive exports with their own frozen offline installs, 686 of 686 blobs"
+Status: QA Complete
 Status-Detail: >-
-  M6 Phase 2 on Fix Round 6 at 48eb60a (code review Round 9 sub-entry, APPROVED_WITH_COMMENTS, record 2f94aff4), plan Revision 25
-  to R-132. The standing verdict is QA Failed at 119471f until this pass publishes.
+  M6 at 48eb60a (Fix Round 6), plan Revision 25 to R-134. Entry conditions met: R-129, R-130's timer clause, SL-29 and SL-30.
+  Suite 4,785 of 4,785, exit 0. QAF-56 MEDIUM is a stated limit (R-134). The effort-final mutation sweep was not run, on the
+  owner's waiver (block 2026-11-25T15:46Z). Next is UAT, through steering, with B-11.
 Phase: 2
 ---
 
@@ -30,6 +31,7 @@ row. B-10 (AC-6.8) was minted at the Phase 1 re-key on Revision 16.
 | 2026-11-24T09:32 | code-reviewer-019 (message: Round 6 sub-entry APPROVED_WITH_COMMENTS at `42128cd`, record `602344e`) | QA Phase 2 on CR-20's fix round | Phase 2: Testing In Progress at `42128cd`. Scope and criteria are recorded before execution (§ Refresh on CR-20's fix round). Steering's brief has not arrived. |
 | 2026-11-24T14:35 | steering-hooks-fixer (message: stop; effort rulings block 14:33Z, record `d7eb0a40`) | Stop the M6 refresh at the next seam, end every run, record results for the next fix round | Stopped, no verdict published. Status is back to QA Failed, the verdict at `119471f`. Before the stop, criteria 1 to 6 and 8 had held at `42128cd` (§ Results at `42128cd`). The effort-final sweep was stopped partway through its second pass and is unscored. Its processes were killed and confirmed gone. Nothing of this pass is running. |
 | 2026-11-25T12:37 | code-reviewer-019 (message: Round 9 sub-entry APPROVED_WITH_COMMENTS at `48eb60a`, record `2f94aff4`; plan R-131 `744b54b1`) | Phase 2 on M6 Fix Round 6 | Phase 2: Testing In Progress at `48eb60a`. The stage start is re-derived from the committed review record (`Reviewed-At: 48eb60a`). Steering's brief has not arrived, so this pass works from the plan's Decisions Register (D-27 to D-31), R-126 to R-132 and the Round 9 sub-entry's Assumption Not Checked. |
+| 2026-11-25T15:48 | steering-hooks-fixer (message: the owner's waiver of the effort-final sweep, rulings block 15:46Z, record `95913e2e`) | Stop the sweep; verdict on what has run | Phase 2 verdict: **QA Complete** at `48eb60a`. The sweep is stopped and recorded as not run on the waiver; its partial pass-1 tables are not scored. Entry conditions are all met. QAF-56 MEDIUM is a stated limit. Next is UAT, with B-11 (§ Pass on Fix Round 6, Verdict). |
 
 ## Scope and stage start
 
@@ -454,6 +456,69 @@ All evidence is under `verification/019/qa/m6/fr6/`, with the box load beside ea
 | AC-6.8's timed limb (median at or under 16 ms, 200 to 2,048 lines) | `withNormalizeNode.keystroke-time.bench.ts`, `vitest bench`, one worker, six rounds in the clean export, with the load in `loads.txt` | The row "lines after a `>>> ` marker, 2,048 lines" read **17.1 ms in round 1** (load 1.29, p95 60 ms). That run then hung until the 25-minute kill (exit 124), CR-22's form. Rounds 2 to 6 read 8.2, 8.0, 8.4, 8.1 and 8.6 ms at load 0.9 to 1.2. Every other row of every round is at or under 11.8 ms. Earlier tip rounds of that row: `40947a6` 8.4 and 9.2 ms; `372339f` 8.7/9.9 and 8.3/9.1 ms. Steering returned the call to this stage. It is **QAF-56 MEDIUM**, a stated limit under Revision 19 (§ Findings, this pass) | `bench-keystroke-time-48eb60a-r1..r6.txt` |
 | AC-6.9's fence and quote time bench (its own growth and ceiling bounds) | `withNormalizeNode.fence-and-quote-time.bench.ts`, two rounds | exit 0 both rounds. Its 2,048-line rows are 44 to 86 ms, within its own ceilings, matching `40947a6`'s 45 to 88 ms | `bench-fence-and-quote-time-48eb60a-r{1,2}.txt` |
 | Code review's sub-entry: `editor.apply` logged during the paste and drag walks, for any top-level `move_node` | the walks above | **0 top-level `move_node`** in 12 paste rounds and 2 drag runs, on both builds | as above |
+
+### The effort-final sweep: not run, on the owner's waiver
+
+The owner waived it at rulings block "2026-11-25T15:46Z" (record `95913e2e`). His words: "Is there much value in maintaining the
+mutation sweeps since we're just going to be rebuilding? In fact, we should only be doing the bare minimum on 019 now." He chose
+"Agent: stop the sweep (Recommended)". Steering relayed the waiver; I read it in the record before acting.
+
+- **What had run.** The mutant set was written and committed: 615 generated, 24 hand and 16 Phase 1 named mutants (`fr6/sweep/`,
+  records `1205cf7`, `730773d`). Pass 1 started 13:30:29Z. One file finished before the stop (`preview.tsx`, 14:52:40Z). Its
+  tables and the other files' partial tables stay under `fr6/sweep/pass1-shard-*`. **They are not scored**: no figure from
+  them enters this verdict.
+- **Stopped.** At 15:48Z the helper was stopped, and the two drivers (reparented to init) were killed with their whole trees
+  (34 processes, by process group). `pgrep -af 'mutation-run|sweep-driver|vitest related'` then matched only my own shell. The
+  scratch work directory was removed.
+- **Disclosed.** The runner's `--dep node_modules` binds the website tree's `node_modules` read-only (`bwrap --ro-bind`), not
+  the export's. Its lockfile matches `48eb60a`.
+- **What is therefore not read.** These were owed through the sweep and stand unread on the waiver:
+  - the kills of every generated mutant;
+  - the hand mutants on Fix Round 6's `linesOf` branches, and the coupling mutants on `noteEdited`'s two conjuncts;
+  - NM-73 to NM-88 at the tip;
+  - QAF-50's case under W12, re-anchored;
+  - QAF-46's member under its mutation.
+
+### Verdict
+
+**QA Complete for M6 at `48eb60a`**, on what has run, with the sweep not run on the owner's waiver. This pass is
+milestone-scoped, so the plan-level Status is left alone.
+
+- **Entry conditions: all met.**
+  - R-129: 24 of 24, with the control 12 of 24 red.
+  - R-130's timer clause: 16 of 16 mounted, with the planted row and the control 12 of 16 red.
+  - SL-30: 0 of 126, with the control 61 of 126 red.
+  - SL-29: 0 of 20 over the line.
+- **AC-6.9.**
+  - CF-35's equality: 0 of 36,560.
+  - The no-throw, fresh-load, write and caret limbs: in the suite and in the probes above, all green, with real-tree controls red.
+  - The growth and ceiling bench: exit 0 both rounds.
+- **AC-6.8.**
+  - The count limb is green in the suite.
+  - The timed limb holds in 5 of 6 rounds. The sixth is QAF-56 MEDIUM, a stated limit (R-134).
+- **The suite and builds.**
+  - Suite: 4,785 of 4,785, exit 0, at 70.0 s, so AC-3.3's 91.1 s line holds.
+  - Typecheck exit 0, `next build` exit 0, live 41 of 41, `test:discord` offline loud.
+  - The full count: 17 of 17, exit 0.
+- **Code review's Round 9 items.** The drag is exercised by its own events and matches the fresh-load oracle. No top-level
+  `move_node` was seen in 12 paste rounds or 2 drags. The Chrome 1,000-line paste runs at about 1.13 times the base.
+- **Findings open from this pass.** QAF-56 MEDIUM, a stated limit. QAF-42 LOW (R-69) stays open as before.
+- **Blocking-condition register.** This pass appends no row. Rows inherited and not discharged: B-11 (AC-6.9's human-observable
+  form), which is UAT's on this build. Rows B-1 to B-10 are as the register states; this pass did not touch them.
+
+### Assumption Not Checked
+
+This pass assumes that the suite's AC-6.9 limbs and the probes above discriminate the defects the waived sweep would have
+seeded. In particular, it assumes Fix Round 6's `linesOf` branch notes (`split_node`, `merge_node`, `remove_node`) are each the
+sole carrier of a case. It does not test this, because the sweep that would have shown it was waived.
+- **The signature of its falsity.** A wrong line noted by one of those branches would leave a run of emoji lines unsettled after
+  an off-selection split, merge or removal, while every case stays green. That is CR-31's form, on the other branches.
+- **Who owns closing it.** No stage: the owner waived the sweep for this effort. Any later chain that keeps `linesOf` owns it.
+
+### Handoff
+
+UAT next, through steering: no `uat` session is listed. UAT runs B-11 on a local production build of `48eb60a`, and the
+`next build` for that is already proven here (exit 0).
 
 ## Resumption State
 

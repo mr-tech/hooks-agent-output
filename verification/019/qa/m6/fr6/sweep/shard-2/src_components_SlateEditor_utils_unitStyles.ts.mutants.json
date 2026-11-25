@@ -1,0 +1,362 @@
+[
+  {
+    "id": "unitStyles.ts:21:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "x: false };",
+    "new": "x: true };",
+    "op": "false",
+    "line": 21,
+    "text": "const NONE: CharStyle = { classNames: [], syntax: false };"
+  },
+  {
+    "id": "unitStyles.ts:32:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "k':\n      if (walk.linkC",
+    "new": "k':\n      if (false && walk.linkC",
+    "op": "if-false",
+    "line": 32,
+    "text": "if (walk.linkClosed) walk.paint(token, [], true);"
+  },
+  {
+    "id": "unitStyles.ts:32:true",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "k':\n      if (walk.linkClosed) walk.paint(token, [], true);\n      else walk.paint(token, stack, false);\n      ",
+    "new": "k':\n      if (walk.linkClosed) walk.paint(token, [], false);\n      else walk.paint(token, stack, false);\n      ",
+    "op": "true",
+    "line": 32,
+    "text": "if (walk.linkClosed) walk.paint(token, [], true);"
+  },
+  {
+    "id": "unitStyles.ts:33:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "e walk.paint(token, stack, false);\n      break;\n    case 's",
+    "new": "e walk.paint(token, stack, true);\n      break;\n    case 's",
+    "op": "false",
+    "line": 33,
+    "text": "else walk.paint(token, stack, false);"
+  },
+  {
+    "id": "unitStyles.ts:39:true",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "oken, [], true);\n      b",
+    "new": "oken, [], false);\n      b",
+    "op": "true",
+    "line": 39,
+    "text": "walk.paint(token, [], true);"
+  },
+  {
+    "id": "unitStyles.ts:42:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "], false);\n",
+    "new": "], true);\n",
+    "op": "false",
+    "line": 42,
+    "text": "walk.paint(token, ['lang'], false);"
+  },
+  {
+    "id": "unitStyles.ts:45:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": ": stack, false);\n      ",
+    "new": ": stack, true);\n      ",
+    "op": "false",
+    "line": 45,
+    "text": "walk.paint(token, walk.inCodeBlock ? ['codeBlockText'] : stack, false);"
+  },
+  {
+    "id": "unitStyles.ts:48:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "l':\n      if (walk.linkC",
+    "new": "l':\n      if (false && walk.linkC",
+    "op": "if-false",
+    "line": 48,
+    "text": "if (walk.linkClosed) walk.paint(token, [], true);"
+  },
+  {
+    "id": "unitStyles.ts:48:true",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "l':\n      if (walk.linkClosed) walk.paint(token, [], true);\n      else walk.paint(token, stack, false);\n      ",
+    "new": "l':\n      if (walk.linkClosed) walk.paint(token, [], false);\n      else walk.paint(token, stack, false);\n      ",
+    "op": "true",
+    "line": 48,
+    "text": "if (walk.linkClosed) walk.paint(token, [], true);"
+  },
+  {
+    "id": "unitStyles.ts:49:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "e walk.paint(token, stack, false);\n      break;\n    case 'n",
+    "new": "e walk.paint(token, stack, true);\n      break;\n    case 'n",
+    "op": "false",
+    "line": 49,
+    "text": "else walk.paint(token, stack, false);"
+  },
+  {
+    "id": "unitStyles.ts:59:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": " if (r",
+    "new": " if (false && r",
+    "op": "if-false",
+    "line": 59,
+    "text": "if (renderer === 'modifier') {"
+  },
+  {
+    "id": "unitStyles.ts:59:===",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "er === 'm",
+    "new": "er !== 'm",
+    "op": "===",
+    "line": 59,
+    "text": "if (renderer === 'modifier') {"
+  },
+  {
+    "id": "unitStyles.ts:61:&&",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "e && M",
+    "new": "e || M",
+    "op": "&&",
+    "line": 61,
+    "text": "return style && MODIFIER_CLASS[style] ? [...stack, MODIFIER_CLASS[style]] : stack;"
+  },
+  {
+    "id": "unitStyles.ts:66:&&",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "r && N",
+    "new": "r || N",
+    "op": "&&",
+    "line": 66,
+    "text": "const added = renderer && NODE_CLASS[renderer];"
+  },
+  {
+    "id": "unitStyles.ts:72:===",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "er === 'c",
+    "new": "er !== 'c",
+    "op": "===",
+    "line": 72,
+    "text": "const inner = renderer === 'codeBlock'"
+  },
+  {
+    "id": "unitStyles.ts:73:true",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": " true ",
+    "new": " false ",
+    "op": "true",
+    "line": 73,
+    "text": "? { ...walk, inCodeBlock: true }"
+  },
+  {
+    "id": "unitStyles.ts:74:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "k, inCodeBlock: false, linkClosed: fa",
+    "new": "k, inCodeBlock: true, linkClosed: fa",
+    "op": "false",
+    "line": 74,
+    "text": ": { ...walk, inCodeBlock: false, linkClosed: false };"
+  },
+  {
+    "id": "unitStyles.ts:74:false:2",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "d: false };",
+    "new": "d: true };",
+    "op": "false",
+    "line": 74,
+    "text": ": { ...walk, inCodeBlock: false, linkClosed: false };"
+  },
+  {
+    "id": "unitStyles.ts:78:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "\n    if (child",
+    "new": "\n    if (false && child",
+    "op": "if-false",
+    "line": 78,
+    "text": "if (child.type === 'node') {"
+  },
+  {
+    "id": "unitStyles.ts:78:===",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "pe === 'n",
+    "new": "pe !== 'n",
+    "op": "===",
+    "line": 78,
+    "text": "if (child.type === 'node') {"
+  },
+  {
+    "id": "unitStyles.ts:80:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": " if (\n",
+    "new": " if (false && \n",
+    "op": "if-false",
+    "line": 80,
+    "text": "} else if ("
+  },
+  {
+    "id": "unitStyles.ts:81:===",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "er === 's",
+    "new": "er !== 's",
+    "op": "===",
+    "line": 81,
+    "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+  },
+  {
+    "id": "unitStyles.ts:81:&&",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "' && c",
+    "new": "' || c",
+    "op": "&&",
+    "line": 81,
+    "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+  },
+  {
+    "id": "unitStyles.ts:81:===:2",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "pe === 'w",
+    "new": "pe !== 'w",
+    "op": "===",
+    "line": 81,
+    "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+  },
+  {
+    "id": "unitStyles.ts:81:&&:2",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "' && p",
+    "new": "' || p",
+    "op": "&&",
+    "line": 81,
+    "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+  },
+  {
+    "id": "unitStyles.ts:81:===:3",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "pe === 't",
+    "new": "pe !== 't",
+    "op": "===",
+    "line": 81,
+    "text": "renderer === 'subtext' && child.kind.type === 'whitespace' && previous?.type === 'token'"
+  },
+  {
+    "id": "unitStyles.ts:82:&&",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "  && p",
+    "new": "  || p",
+    "op": "&&",
+    "line": 82,
+    "text": "&& previous.kind.type === 'subtext_marker'"
+  },
+  {
+    "id": "unitStyles.ts:82:===",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "pe === 's",
+    "new": "pe !== 's",
+    "op": "===",
+    "line": 82,
+    "text": "&& previous.kind.type === 'subtext_marker'"
+  },
+  {
+    "id": "unitStyles.ts:84:true",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "d, [], true);\n    ",
+    "new": "d, [], false);\n    ",
+    "op": "true",
+    "line": 84,
+    "text": "walk.paint(child, [], true);"
+  },
+  {
+    "id": "unitStyles.ts:87:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "     if (child",
+    "new": "     if (false && child",
+    "op": "if-false",
+    "line": 87,
+    "text": "if (child.kind.type === 'link_close') inner.linkClosed = true;"
+  },
+  {
+    "id": "unitStyles.ts:87:===",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "pe === 'l",
+    "new": "pe !== 'l",
+    "op": "===",
+    "line": 87,
+    "text": "if (child.kind.type === 'link_close') inner.linkClosed = true;"
+  },
+  {
+    "id": "unitStyles.ts:87:true",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": " true;",
+    "new": " false;",
+    "op": "true",
+    "line": 87,
+    "text": "if (child.kind.type === 'link_close') inner.linkClosed = true;"
+  },
+  {
+    "id": "unitStyles.ts:96:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "= false,\n",
+    "new": "= true,\n",
+    "op": "false",
+    "line": 96,
+    "text": "startsInCodeBlock = false,"
+  },
+  {
+    "id": "unitStyles.ts:99:if-false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": " if (!",
+    "new": " if (false && !",
+    "op": "if-false",
+    "line": 99,
+    "text": "if (!parsed) return undefined;"
+  },
+  {
+    "id": "unitStyles.ts:99:not",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "!",
+    "new": "",
+    "op": "not",
+    "line": 99,
+    "text": "if (!parsed) return undefined;"
+  },
+  {
+    "id": "unitStyles.ts:105:num",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "0",
+    "new": "1",
+    "op": "num",
+    "line": 105,
+    "text": "for (let i = Math.max(token.span.start - shift, 0); i < end; i += 1) styles[i] = style;"
+  },
+  {
+    "id": "unitStyles.ts:105:<",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": " < ",
+    "new": " <= ",
+    "op": "<",
+    "line": 105,
+    "text": "for (let i = Math.max(token.span.start - shift, 0); i < end; i += 1) styles[i] = style;"
+  },
+  {
+    "id": "unitStyles.ts:105:num:2",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "1",
+    "new": "2",
+    "op": "num",
+    "line": 105,
+    "text": "for (let i = Math.max(token.span.start - shift, 0); i < end; i += 1) styles[i] = style;"
+  },
+  {
+    "id": "unitStyles.ts:107:false",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "t, inCodeBlock: false, linkClosed: fa",
+    "new": "t, inCodeBlock: true, linkClosed: fa",
+    "op": "false",
+    "line": 107,
+    "text": "walkNode(tree, [], { paint, inCodeBlock: false, linkClosed: false });"
+  },
+  {
+    "id": "unitStyles.ts:107:false:2",
+    "file": "src/components/SlateEditor/utils/unitStyles.ts",
+    "old": "d: false })",
+    "new": "d: true })",
+    "op": "false",
+    "line": 107,
+    "text": "walkNode(tree, [], { paint, inCodeBlock: false, linkClosed: false });"
+  }
+]

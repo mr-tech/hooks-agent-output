@@ -1,0 +1,167 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-13
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 2224ms
+     × hands the message that text in a full-markdown editor 1554ms
+     × hands the message that text in a full-markdown editor 41ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 10814ms
+     × hands the message that text in a full-markdown editor 2901ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8233ms
+     × hands the message that text in a full-markdown editor 3608ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 8 failed) 3150ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 49ms
+     × gives the code lines the language typed onto their opening fence 30ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 32ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 53ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 47ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 53ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 68ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 128ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 69 failed) 4320ms
+     × equals an emoji inside a code block typed one character at a time 50ms
+     × equals an emoji after a backslash typed one character at a time 34ms
+     × equals a Unicode emoji pasted whole 61ms
+     × equals a ZWJ sequence pasted whole 29ms
+     × equals a skin-tone sequence pasted whole 34ms
+     × equals a keycap pasted whole 31ms
+     × equals a flag pasted whole 35ms
+     × equals a tag sequence pasted whole 31ms
+     × equals a heart with emoji presentation pasted whole 30ms
+     × equals a heart with text presentation pasted whole 30ms
+     × equals an emoji newer than the site's table pasted whole 32ms
+     × equals an emoji typed as a name pasted whole 33ms
+     × equals a skin-toned name pasted whole 28ms
+     × equals a colon-wrapped emoji pasted whole 35ms
+     × equals a custom emoji pasted whole 30ms
+     × equals an animated custom emoji pasted whole 28ms
+     × equals an emoji in a link label pasted whole 39ms
+     × equals an emoji in a link address pasted whole 28ms
+     × equals a name in a link address pasted whole 37ms
+     × equals an emoji between words pasted whole 29ms
+     × equals two emoji side by side pasted whole 38ms
+     × equals an emoji inside bold pasted whole 38ms
+     × equals an emoji inside inline code pasted whole 41ms
+     × equals an emoji inside a code block pasted whole 64ms
+     × equals an emoji after a backslash pasted whole 47ms
+     × equals a Unicode emoji typed one character at a time 45ms
+     × equals a ZWJ sequence typed one character at a time 48ms
+     × equals a skin-tone sequence typed one character at a time 42ms
+     × equals a keycap typed one character at a time 39ms
+     × equals a flag typed one character at a time 50ms
+     × equals a tag sequence typed one character at a time 39ms
+     × equals a heart with emoji presentation typed one character at a time 37ms
+     × equals a heart with text presentation typed one character at a time 45ms
+     × equals an emoji newer than the site's table typed one character at a time 43ms
+     × equals an emoji typed as a name typed one character at a time 43ms
+     × equals a skin-toned name typed one character at a time 45ms
+     × equals a colon-wrapped emoji typed one character at a time 50ms
+     × equals a custom emoji typed one character at a time 45ms
+     × equals an animated custom emoji typed one character at a time 59ms
+     × equals an emoji in a link label typed one character at a time 55ms
+     × equals an emoji in a link address typed one character at a time 44ms
+     × equals a name in a link address typed one character at a time 55ms
+     × equals an emoji between words typed one character at a time 47ms
+     × equals two emoji side by side typed one character at a time 67ms
+     × equals an emoji inside bold typed one character at a time 48ms
+     × equals an emoji inside inline code typed one character at a time 54ms
+     × equals an emoji after a backslash typed one character at a time 68ms
+     × equals a Unicode emoji pasted whole 61ms
+     × equals a ZWJ sequence pasted whole 48ms
+     × equals a skin-tone sequence pasted whole 46ms
+     × equals a keycap pasted whole 52ms
+     × equals a flag pasted whole 45ms
+     × equals a tag sequence pasted whole 54ms
+     × equals a heart with emoji presentation pasted whole 53ms
+     × equals a heart with text presentation pasted whole 48ms
+     × equals an emoji newer than the site's table pasted whole 51ms
+     × equals an emoji typed as a name pasted whole 45ms
+     × equals a skin-toned name pasted whole 44ms
+     × equals a colon-wrapped emoji pasted whole 49ms
+     × equals a custom emoji pasted whole 46ms
+     × equals an animated custom emoji pasted whole 42ms
+     × equals an emoji in a link label pasted whole 51ms
+     × equals an emoji in a link address pasted whole 46ms
+     × equals a name in a link address pasted whole 45ms
+     × equals an emoji between words pasted whole 51ms
+     × equals two emoji side by side pasted whole 46ms
+     × equals an emoji inside bold pasted whole 51ms
+     × equals an emoji inside inline code pasted whole 64ms
+     × equals an emoji after a backslash pasted whole 56ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 24 failed) 67413ms
+     × hands the message the changed text on content, in a message of 40 lines 276ms
+     × hands the message the changed text on content, in a message of 122 lines 476ms
+     × hands the message the changed text on content, in a message of 123 lines 440ms
+     × hands the message the changed text on content, in a message of 200 lines 665ms
+     × hands the message the changed text on content, in a message of 1000 lines 3431ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 7307ms
+     × hands the message the changed text on content, in a message of 40 lines 222ms
+     × hands the message the changed text on content, in a message of 122 lines 544ms
+     × hands the message the changed text on content, in a message of 123 lines 474ms
+     × hands the message the changed text on content, in a message of 200 lines 752ms
+     × hands the message the changed text on content, in a message of 1000 lines 3609ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 7153ms
+     × hands the message the changed text on content, in a message of 40 lines 186ms
+     × hands the message the changed text on content, in a message of 122 lines 547ms
+     × hands the message the changed text on content, in a message of 123 lines 538ms
+     × hands the message the changed text on content, in a message of 200 lines 876ms
+     × hands the message the changed text on content, in a message of 1000 lines 4317ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 9058ms
+     × hands the message the changed text on content, in a message of 40 lines 195ms
+     × hands the message the changed text on content, in a message of 122 lines 533ms
+     × hands the message the changed text on content, in a message of 123 lines 515ms
+     × hands the message the changed text on content, in a message of 200 lines 856ms
+     × hands the message the changed text on content, in a message of 1000 lines 4207ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 9220ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 12 failed) 30695ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1417ms
+       × builds as many run units in the longest message as in the shortest 1088ms
+       × builds as many run units in the longest message as in the shortest 1206ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 2460ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 1845ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 1507ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 1912ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 2007ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 1910ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 1430ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 1843ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 3222ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 2 failed) 164ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 35ms
+     × takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line 36ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (919 tests | 29 failed | 260 skipped) 286361ms
+       × leaves each line typed as a fresh load of the changed text builds it 5ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 40ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 41ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 49ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 37ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 39ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 43ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 40ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 46ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 49ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 38ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 45ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 50ms
+     × a code fence opened by a backtick inserted at the end of line 2, with no selection: raises nothing, types each line as a fresh load does and keeps the selection 1615ms
+     × a code fence opened by a backtick inserted at the end of line 2, with a range from line 5 to line 8: raises nothing, types each line as a fresh load does and keeps the selection 1608ms
+     × leaves no typographic quote in a line it changes 1665ms
+     × leaves no typographic quote in a line it changes 1211ms
+     × leaves no typographic quote in a line it changes 1469ms
+     × leaves no typographic quote in a line it changes 1700ms
+
+ Test Files  9 failed | 32 passed (41)
+      Tests  148 failed | 1254 passed | 260 skipped (1662)
+     Errors  379 errors
+   Start at  14:17:33
+   Duration  300.85s (transform 3.29s, setup 264ms, import 34.07s, tests 491.59s, environment 30.85s)
+

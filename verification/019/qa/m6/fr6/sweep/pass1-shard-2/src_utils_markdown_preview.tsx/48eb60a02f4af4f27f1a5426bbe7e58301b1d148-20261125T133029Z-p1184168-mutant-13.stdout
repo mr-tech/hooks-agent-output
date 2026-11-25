@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-13
+
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 7 failed) 856ms
+     × names the channel after content  when the guild list is in reach 383ms
+     × names the channel after title  when the guild list is in reach 48ms
+     × names the channel after description  when the guild list is in reach 47ms
+     × names the channel after field name  when the guild list is in reach 36ms
+     × names the channel after field value  when the guild list is in reach 40ms
+     × names the channel after linked title  when the guild list is in reach 39ms
+     × names the channel after text display  when the guild list is in reach 36ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 300ms
+     × reads a channel mention by its id when the preview shows the channel's name 7ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 3 failed) 64ms
+     × names a listed channel 38ms
+     × names a thread under a listed channel 4ms
+     × shows the new name when the list changes under a mounted preview 5ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 14 failed) 405ms
+     × renders as the table says when the list state is withoutId 6ms
+     × renders as the table says when the list state is topLevel 2ms
+     × renders as the table says when the list state is threadOnly 2ms
+     × is given a listed forum channel its name 1ms
+     × is given an active post under a listed forum channel its name 2ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × names a thread of the second listed channel, and one of the first, in the same list 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+
+ Test Files  4 failed | 41 passed (45)
+      Tests  25 failed | 739 passed (764)
+   Start at  13:47:33
+   Duration  63.57s (transform 2.65s, setup 275ms, import 41.17s, tests 171.66s, environment 31.81s)
+

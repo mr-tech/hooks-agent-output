@@ -1,0 +1,123 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261125T145240Z-p1901004/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 21613ms
+     × on embedDescription, every content character carries the style set its preview gives it 5218ms
+     × on fieldValue, every content character carries the style set its preview gives it 4453ms
+     × on embedTitle, every content character carries the style set its preview gives it 3758ms
+     × on v2Text, every content character carries the style set its preview gives it 4178ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (919 tests | 25 failed) 8017ms
+     × counts an operation for a line that is not a fixed point 16ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 8ms
+     × leaves no typographic quote in a line it changes 8ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 5ms
+     × leaves no typographic quote in a line it changes 10ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 7ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 4ms
+     × leaves no typographic quote in a line it changes 4ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 7ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 5ms
+     × leaves no typographic quote in a line it changes 8ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 6ms
+     × leaves no typographic quote in a line it changes 13ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 6ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 8 failed) 6866ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0' 27ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing the backtick at th…' 19ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 27ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 20ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 19ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 21ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backslash typed before a leading ba…' 18ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…' 18ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 4893ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 2604ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2245ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 7ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 5ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 10ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 6ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 18 failed) 72ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 25ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 1ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 2ms
+     × turns an emoji into an element when it arrives as a text node in a line that was already settled 2ms
+     × puts an emoji element on the first line when the second is edited back to text 1ms
+     × puts an emoji element on the second line when the third is edited back to text 1ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 2ms
+     × puts an emoji in a link label back to text once "](" is typed after it 0ms
+     × puts a caret in front of the element at the same place in the text 1ms
+     × puts a caret right in front of the element at the same place in the text 1ms
+     × puts a caret on the element at the same place in the text 1ms
+     × puts a caret right after the element at the same place in the text 3ms
+     × puts a caret after the element and a typed backtick at the same place in the text 1ms
+     × puts a caret on a second element at the same place in the text 1ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emoji-split-invariance.test.ts (15 tests | 15 failed) 98ms
+     × carries bold across an emoji element 25ms
+     × keeps the delimiters on either side of an emoji as syntax 3ms
+     × carries italic across an emoji element on a quote line 3ms
+     × colours the characters around an emoji in "**X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "*a X b*" as it does the same text with one character in its place 15ms
+     × colours the characters around an emoji in "~~X~~" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "__X__" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "||a X||" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "a X b" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "-# a X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "*a\nX b*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "> *a X*" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "**a\n> X**" as it does the same text with one character in its place 2ms
+     × colours the characters around an emoji in "# X" as it does the same text with one character in its place 1ms
+     × colours the characters around an emoji in "- X *a*" as it does the same text with one character in its place 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 9 failed) 1241ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 295ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 189ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 168ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 195ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 170ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 190ms
+     × are literal for an emoji before and one after a fenced block 1ms
+     × are literal for an emoji only in the run after a fenced block 1ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 7 failed) 1462ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 9ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 1ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 1ms
+     × loads the text on each side of the emoji in "\\🙂 🙂" into its own text node 1ms
+     × loads the text on each side of the emoji in "a:smile:b" into its own text node 1ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 2ms
+     × loads the text on each side of the emoji in "`🙂` 🙂" into its own text node 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (36 tests | 13 failed) 94ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 11ms
+     × lists a still custom emoji with its source span and image 4ms
+     × lists the emoji of a unit that starts inside a code block after the closing fence, then an emoji as the table says 2ms
+     × lists the emoji of a unit that starts inside a code block after the closing fence, an emoji, and a second opening fence as the table says 2ms
+     × lists the emoji outside a code span and none inside it 2ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 1ms
+     × holds a span of a layout when both ends match 1ms
+     × holds the middle span of a layout of three spans 1ms
+     × holds the last span of a layout of three spans 0ms
+       × lists the spans of a line of two spans 1ms
+       × lists the spans of a line cut inside its second span 1ms
+       × lists the spans of a line cut just after its second span 1ms
+       × lists the spans of a line cut just before its second span 1ms
+
+ Test Files  9 failed | 41 passed (50)
+      Tests  105 failed | 1687 passed (1792)
+   Start at  14:59:06
+   Duration  71.59s (transform 3.15s, setup 344ms, import 37.85s, tests 202.55s, environment 33.20s)
+

@@ -1,0 +1,56 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is topLevel
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:93:47
+     91|   it('names the second of two listed channels when the mention names t…
+     92|     const list = [channel('222', 'rules', 0), channel('111', 'general'…
+     93|     expect(render('content', '<#111>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     94|     expect(render('content', '<#222>', list)).toBe(`${INTERACTIVE('cha…
+     95|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the content surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedDescription surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitle surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitleWithUrl surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the fieldValue surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the v2Text surface when the list holds it
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:109:55
+    107|     ['content'], ['embedDescription'], ['embedTitle'], ['embedTitleWit…
+    108|   ] as Array<[Surface]>)('is named on the %s surface when the list hol…
+    109|     expect(render(surface, '<#111>', LISTS.topLevel)).toBe(`${INTERACT…
+       |                                                       ^
+    110|   });
+    111| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+

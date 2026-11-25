@@ -1,0 +1,38 @@
+[
+  {
+    "id": "MarkdownEmoji.tsx:16:if-false",
+    "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+    "old": " if (i",
+    "new": " if (false && i",
+    "op": "if-false",
+    "line": 16,
+    "text": "if (isEmbed) size = '18';"
+  },
+  {
+    "id": "MarkdownEmoji.tsx:17:if-false",
+    "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+    "old": " if (j",
+    "new": " if (false && j",
+    "op": "if-false",
+    "line": 17,
+    "text": "else if (jumboable) size = '32';"
+  },
+  {
+    "id": "MarkdownEmoji.tsx:23:false",
+    "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+    "old": "false",
+    "new": "true",
+    "op": "false",
+    "line": 23,
+    "text": "draggable={false}"
+  },
+  {
+    "id": "MarkdownEmoji.tsx:24:&&",
+    "file": "src/utils/markdown/components/MarkdownEmoji.tsx",
+    "old": "&&",
+    "new": "||",
+    "op": "&&",
+    "line": 24,
+    "text": "className={classNames('discord-visualizer__emoji', jumboable && 'discord-visualizer__emoji-jumboable')}"
+  }
+]

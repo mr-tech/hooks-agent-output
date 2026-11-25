@@ -1,0 +1,162 @@
+[
+  {
+    "id": "runUnit.ts:7:===",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "s === '",
+    "new": "s !== '",
+    "op": "===",
+    "line": 7,
+    "text": "const placeholder = (child: Descendant, emojiAs: 'placeholder' | 'source') => (emojiAs === 'source' && isEmojiElement(child) ? child.source : '?');"
+  },
+  {
+    "id": "runUnit.ts:7:&&",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "' && i",
+    "new": "' || i",
+    "op": "&&",
+    "line": 7,
+    "text": "const placeholder = (child: Descendant, emojiAs: 'placeholder' | 'source') => (emojiAs === 'source' && isEmojiElement(child) ? child.source : '?');"
+  },
+  {
+    "id": "runUnit.ts:14:!==",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "t !== u",
+    "new": "t === u",
+    "op": "!==",
+    "line": 14,
+    "text": "return element !== undefined && element.type !== 'codeBlock';"
+  },
+  {
+    "id": "runUnit.ts:14:&&",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "d && e",
+    "new": "d || e",
+    "op": "&&",
+    "line": 14,
+    "text": "return element !== undefined && element.type !== 'codeBlock';"
+  },
+  {
+    "id": "runUnit.ts:14:!==:2",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "e !== '",
+    "new": "e === '",
+    "op": "!==",
+    "line": 14,
+    "text": "return element !== undefined && element.type !== 'codeBlock';"
+  },
+  {
+    "id": "runUnit.ts:17:num",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "- 1))",
+    "new": "- 2))",
+    "op": "num",
+    "line": 17,
+    "text": "while (isRun(first - 1)) first -= 1;"
+  },
+  {
+    "id": "runUnit.ts:17:num:2",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "-= 1;\n ",
+    "new": "-= 2;\n ",
+    "op": "num",
+    "line": 17,
+    "text": "while (isRun(first - 1)) first -= 1;"
+  },
+  {
+    "id": "runUnit.ts:19:num",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "+ 1))",
+    "new": "+ 2))",
+    "op": "num",
+    "line": 19,
+    "text": "while (isRun(last + 1)) last += 1;"
+  },
+  {
+    "id": "runUnit.ts:19:num:2",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "+= 1;\n ",
+    "new": "+= 2;\n ",
+    "op": "num",
+    "line": 19,
+    "text": "while (isRun(last + 1)) last += 1;"
+  },
+  {
+    "id": "runUnit.ts:22:<=",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "<=",
+    "new": "<",
+    "op": "<=",
+    "line": 22,
+    "text": "for (let index = first; index <= last; index += 1) {"
+  },
+  {
+    "id": "runUnit.ts:22:num",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "= 1) ",
+    "new": "= 2) ",
+    "op": "num",
+    "line": 22,
+    "text": "for (let index = first; index <= last; index += 1) {"
+  },
+  {
+    "id": "runUnit.ts:24:if-false",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": " if (i",
+    "new": " if (false && i",
+    "op": "if-false",
+    "line": 24,
+    "text": "if (index > first) text += '\\n';"
+  },
+  {
+    "id": "runUnit.ts:24:>",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": " > ",
+    "new": " >= ",
+    "op": ">",
+    "line": 24,
+    "text": "if (index > first) text += '\\n';"
+  },
+  {
+    "id": "runUnit.ts:25:if-false",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": " if (e",
+    "new": " if (false && e",
+    "op": "if-false",
+    "line": 25,
+    "text": "if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';"
+  },
+  {
+    "id": "runUnit.ts:25:===",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "e === '",
+    "new": "e !== '",
+    "op": "===",
+    "line": 25,
+    "text": "if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';"
+  },
+  {
+    "id": "runUnit.ts:27:walk-first",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "element.children",
+    "new": "(Array.isArray(element.children) ? element.children.slice(0, 1) : element.children)",
+    "op": "walk-first",
+    "line": 27,
+    "text": "text += element.children.map((child) => (Text.isText(child) ? child.text : placeholder(child, emojiAs))).join('');"
+  },
+  {
+    "id": "runUnit.ts:27:walk-last",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "element.children",
+    "new": "(Array.isArray(element.children) ? element.children.slice(-1) : element.children)",
+    "op": "walk-last",
+    "line": 27,
+    "text": "text += element.children.map((child) => (Text.isText(child) ? child.text : placeholder(child, emojiAs))).join('');"
+  },
+  {
+    "id": "qa-m5-d2-runUnit-no-quote-prefix",
+    "file": "src/components/SlateEditor/utils/runUnit.ts",
+    "old": "    if (element.type === 'blockQuote') text += element.quotePrefix ?? '> ';\n",
+    "new": "    // quote prefix left out\n",
+    "limb": "the run unit leaves each quote line's prefix out (m5-d2 in its M6 home)"
+  }
+]

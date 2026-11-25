@@ -1,0 +1,858 @@
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to MarkdownProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Author inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to TextField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to TextField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to j inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-10/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 53 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#general' ]
+
+- Expected
++ Received
+
+  [
+-   "#general",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:36:23
+     34|   it('names a listed channel', () => {
+     35|     const el = mountDom(<Context.Provider value={guild([channel('111',…
+     36|     expect(pills(el)).toEqual(['#general']);
+       |                       ^
+     37|   });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/53]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a thread under a listed channel
+AssertionError: expected [ '#111' ] to deeply equal [ '#a-thread' ]
+
+- Expected
++ Received
+
+  [
+-   "#a-thread",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:42:23
+     40|     const list = [channel('222', 'rules', 0, [{ id: '111', name: 'a-th…
+     41|     const el = mountDom(<Context.Provider value={guild(list)}>{drawn('…
+     42|     expect(pills(el)).toEqual(['#a-thread']);
+       |                       ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/53]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > shows the new name when the list changes under a mounted preview
+AssertionError: expected [ '#111' ] to deeply equal [ '#general' ]
+
+- Expected
++ Received
+
+  [
+-   "#general",
++   "#111",
+  ]
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:58:23
+     56|     }
+     57|     const el = mountDom(<Harness />);
+     58|     expect(pills(el)).toEqual(['#general']);
+       |                       ^
+     59|
+     60|     act(() => { setList([channel('111', 'renamed')]); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/53]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with no guild provider above it > renders, and draws the channel in its id form
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/53]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after title  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after description  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after field name  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after field value  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after linked title  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after text display  when the guild list is in reach
+AssertionError: expected '#111' to be '#general' // Object.is equality
+
+Expected: "#general"
+Received: "#111"
+
+ ❯ src/app/preview/__tests__/page.channel-names.test.tsx:63:35
+     61|   it.each(SURFACES)('names the channel after %s when the guild list is…
+     62|     const el = await mountPage(true);
+     63|     expect(drawnNextTo(el, lead)).toBe('#general');
+       |                                   ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/53]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+AssertionError: expected +0 to be 7 // Object.is equality
+
+- Expected
++ Received
+
+- 7
++ 0
+
+ ❯ vi.waitFor.timeout src/app/preview/__tests__/page.channel-names.test.tsx:50:72
+     48|   await vi.waitFor(async () => {
+     49|     await act(async () => {});
+     50|     expect(el.querySelectorAll('.discord-visualizer__mention').length)…
+       |                                                                        ^
+     51|   }, { timeout: 5000 });
+     52|   return el;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/53]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a channel mention with no list
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/53]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > an atom is read from the element, not from the text it shows > reads a channel mention by its id when the preview shows the channel's name
+AssertionError: expected '#123' to be '#general' // Object.is equality
+
+Expected: "#general"
+Received: "#123"
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:100:28
+     98|     const drawnChannel = previewParser('content')('<#123>', state as n…
+     99|     const el = mountDom(drawnChannel);
+    100|     expect(el.textContent).toBe('#general');
+       |                            ^
+    101|     expect(canonFromDom(el)).toEqual([N('m', 'channel:123', null)]);
+    102|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/53]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderModifier src/utils/markdown/preview.tsx:179:20
+ ❯ renderNode src/utils/markdown/preview.tsx:148:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/53]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:133:9
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws no text that says unknown in any of the 60 cells
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws every one of the 60 cells as something visible
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with no provider
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is topLevel
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is threadOnly
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#a-thread</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="444">#help-forum</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="444">#444</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:79:77
+     77|
+     78|   it('is given a listed forum channel its name', () => {
+     79|     expect(render('content', '<#444>', [channel('444', 'help-forum', 1…
+       |                                                                             ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given an active post under a listed forum channel its name
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#my-question</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="555">#555</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:84:47
+     82|   it('is given an active post under a listed forum channel its name', …
+     83|     const list = [channel('444', 'help-forum', 15, [{ id: '555', name:…
+     84|     expect(render('content', '<#555>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:93:47
+     91|   it('names the second of two listed channels when the mention names t…
+     92|     const list = [channel('222', 'rules', 0), channel('111', 'general'…
+     93|     expect(render('content', '<#111>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+     94|     expect(render('content', '<#222>', list)).toBe(`${INTERACTIVE('cha…
+     95|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names a thread of the second listed channel, and one of the first, in the same list
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="501">#first-thread</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="501">#501</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:102:47
+    100|       channel('333', 'help', 0, [{ id: '502', name: 'second-thread' }]…
+    101|     ];
+    102|     expect(render('content', '<#501>', list)).toBe(`${INTERACTIVE('cha…
+       |                                               ^
+    103|     expect(render('content', '<#502>', list)).toBe(`${INTERACTIVE('cha…
+    104|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/53]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the content surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedDescription surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitle surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitleWithUrl surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the fieldValue surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the v2Text surface when the list holds it
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#general</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive" data-mention-kind="channel" data-mention-id="111">#111</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:109:55
+    107|     ['content'], ['embedDescription'], ['embedTitle'], ['embedTitleWit…
+    108|   ] as Array<[Surface]>)('is named on the %s surface when the list hol…
+    109|     expect(render(surface, '<#111>', LISTS.topLevel)).toBe(`${INTERACT…
+       |                                                       ^
+    110|   });
+    111| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/53]⎯
+

@@ -1,0 +1,180 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:543:5
+    541|   editor.normalize = (options) => {
+    542|     if (!partialMarkdown && Editor.isNormalizing(editor)) linesAgree(e…
+    543|     normalize(options);
+       |     ^
+    544|   };
+    545|
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/65]⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 60 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…'
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:543:5
+    541|   editor.normalize = (options) => {
+    542|     if (!partialMarkdown && Editor.isNormalizing(editor)) linesAgree(e…
+    543|     normalize(options);
+       |     ^
+    544|   };
+    545|
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/65]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:91:27
+     89|
+     90|   it('raises no error', () => {
+     91|     expect(outcome.error).toBe('');
+       |                           ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/65]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with a range from line 5 to line 8: raises nothing, types each line as a fresh load does and keeps the selection
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of line 0, pairing with one ending the last emoji line, with the caret on a line after a code block below the edit: raises nothing, types each line as a fresh load does and keeps the selection
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:299:19
+    297|     const fresh = getInitialValue(after, 'embedDescription', false) as…
+    298|     const shapes = lineShapes(editor.children as Element[]);
+    299|     expect(error).toBe('');
+       |                   ^
+    300|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+    301|     expect(editor.selection).toEqual(selection);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/65]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > an edit made at a point while the selection is elsewhere > a backtick inserted at the end of the first line of each of two runs of emoji lines a code block apart, in one change, with no selection: raises nothing, types each line as a fresh load does and keeps the selection
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 210 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:299:19
+    297|     const fresh = getInitialValue(after, 'embedDescription', false) as…
+    298|     const shapes = lineShapes(editor.children as Element[]);
+    299|     expect(error).toBe('');
+       |                   ^
+    300|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+    301|     expect(editor.selection).toEqual(selection);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/65]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over 100 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over 200 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over 100 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over 200 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over 100 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over 200 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over 100 lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over 200 lines holding a typographic quote > leaves no typographic quote in a line it changes
+AssertionError: expected [Function] to not throw an error but 'Error: Could not completely normalize…' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state."
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:322:54
+    320|     const after = shapesOf(keystroke.changed(lines, TYPOGRAPHIC_QUOTE_…
+    321|     const editor = editorHolding(keystroke.text(lines, TYPOGRAPHIC_QUO…
+    322|     expect(() => keystroke.press(editor, lines)).not.toThrow();
+       |                                                      ^
+    323|     const changed = (index: number) => before[index] !== after[index];
+    324|     const quoted = (line: Element) => TYPOGRAPHIC_QUOTES.test(flattenN…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/65]⎯
+

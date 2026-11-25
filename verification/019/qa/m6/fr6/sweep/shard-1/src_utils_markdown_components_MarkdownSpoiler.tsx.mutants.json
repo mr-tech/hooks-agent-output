@@ -1,0 +1,74 @@
+[
+  {
+    "id": "MarkdownSpoiler.tsx:17:if-false",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": " if (!",
+    "new": " if (false && !",
+    "op": "if-false",
+    "line": 17,
+    "text": "if (!next.delete(id)) next.add(id);"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:17:not",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": "(!n",
+    "new": "(n",
+    "op": "not",
+    "line": 17,
+    "text": "if (!next.delete(id)) next.add(id);"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:28:false",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": "false",
+    "new": "true",
+    "op": "false",
+    "line": 28,
+    "text": "const [ownVisible, setOwnVisible] = useState(false);"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:30:!==",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": "d !== n",
+    "new": "d === n",
+    "op": "!==",
+    "line": 30,
+    "text": "const isShared = shared !== null && id !== undefined;"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:30:&&",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": "l && i",
+    "new": "l || i",
+    "op": "&&",
+    "line": 30,
+    "text": "const isShared = shared !== null && id !== undefined;"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:30:!==:2",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": "d !== u",
+    "new": "d === u",
+    "op": "!==",
+    "line": 30,
+    "text": "const isShared = shared !== null && id !== undefined;"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:38:if-false",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": " if (i",
+    "new": " if (false && i",
+    "op": "if-false",
+    "line": 38,
+    "text": "if (isShared) shared.toggle(id);"
+  },
+  {
+    "id": "MarkdownSpoiler.tsx:39:not",
+    "file": "src/utils/markdown/components/MarkdownSpoiler.tsx",
+    "old": "(!o",
+    "new": "(o",
+    "op": "not",
+    "line": 39,
+    "text": "else setOwnVisible(!ownVisible);"
+  }
+]

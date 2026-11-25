@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-45
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 4 failed) 23844ms
+     × on embedDescription, every content character carries the style set its preview gives it 5495ms
+     × on fieldValue, every content character carries the style set its preview gives it 5147ms
+     × on embedTitle, every content character carries the style set its preview gives it 4283ms
+     × on v2Text, every content character carries the style set its preview gives it 4489ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 4038ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 654ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 384ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 380ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 280ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 292ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 321ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 278ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 266ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 331ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 265ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 242ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 218ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 2 failed) 473ms
+     × masked link 23ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 18ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 5 failed) 87ms
+     × draws a masked link as an anchor whose href is the engine url and whose label is its text 18ms
+     × keeps a https link as an anchor 1ms
+     × keeps a mailto link as an anchor 1ms
+     × draws a javascript link as its label with no href 1ms
+     × draws a data link as its label with no href 1ms
+
+ Test Files  4 failed | 41 passed (45)
+      Tests  23 failed | 741 passed (764)
+   Start at  14:25:49
+   Duration  75.22s (transform 3.20s, setup 299ms, import 44.68s, tests 213.09s, environment 33.73s)
+

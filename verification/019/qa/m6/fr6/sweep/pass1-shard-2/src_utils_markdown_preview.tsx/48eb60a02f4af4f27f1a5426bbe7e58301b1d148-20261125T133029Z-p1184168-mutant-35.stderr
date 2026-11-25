@@ -1,0 +1,4057 @@
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Harness inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Harness inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to MarkdownProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Author inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to TextField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to TextField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to j inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.field-name-links.test.tsx > an embed field name in the preview > draws its links as links when the embed has no url
+An update to MarkdownProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.field-name-links.test.tsx > an embed field name in the preview > draws its links as links when the embed has no url
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Author inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to DiscordContentEditor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedTitle inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to EmbedField inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/preview/__tests__/page.field-name-links.test.tsx > an embed field name in the preview > draws its links as links when the embed has no url
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 51 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with no guild provider above it > renders, and draws the channel in its id form
+AssertionError: expected ' b' to be 'a #111 b' // Object.is equality
+
+Expected: "a #111 b"
+Received: " b"
+
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:69:28
+     67|   it('renders, and draws the channel in its id form', () => {
+     68|     const el = mountDom(drawn('a <#111> b'));
+     69|     expect(el.textContent).toBe('a #111 b');
+       |                            ^
+     70|     expect(pills(el)).toEqual(['#111']);
+     71|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/51]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after content  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after title  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after description  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after field name  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after field value  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after linked title  when the guild list is in reach
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > names the channel after text display  when the guild list is in reach
+AssertionError: expected undefined to be '#general' // Object.is equality
+
+- Expected:
+"#general"
+
++ Received:
+undefined
+
+ ❯ src/app/preview/__tests__/page.channel-names.test.tsx:63:35
+     61|   it.each(SURFACES)('names the channel after %s when the guild list is…
+     62|     const el = await mountPage(true);
+     63|     expect(drawnNextTo(el, lead)).toBe('#general');
+       |                                   ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/51]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+AssertionError: expected undefined to be '#111' // Object.is equality
+
+- Expected:
+"#111"
+
++ Received:
+undefined
+
+ ❯ src/app/preview/__tests__/page.channel-names.test.tsx:68:35
+     66|   it.each(SURFACES)('shows the channel id after %s, and still renders,…
+     67|     const el = await mountPage(false);
+     68|     expect(drawnNextTo(el, lead)).toBe('#111');
+       |                                   ^
+     69|   });
+     70| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/51]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.field-name-links.test.tsx > an embed field name in the preview > draws its links as links when the embed has no url
+AssertionError: expected <a href="https://z.q/"></a> to have a length of 2 but got 1
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ src/app/preview/__tests__/page.field-name-links.test.tsx:36:40
+     34|   it('draws its links as links when the embed has no url', async () =>…
+     35|     const name = await fieldNames({});
+     36|     expect(name.querySelectorAll('a')).toHaveLength(2);
+       |                                        ^
+     37|   });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree
+AssertionError: expected [ …(10) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 0,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 1,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 2,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 3,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 4,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 5,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 6,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 7,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 8,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 9,
++     "dimensions": [
++       "text",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:75:85
+     73|     '[a](https://x.y/ "t") https://z.q/ <https://w.v>',
+     74|   ])('%j reads as the visible form of the engine tree', (source) => {
+     75|     expect(visibleDifferences(drawn(source), 'dom', nativeParse(source…
+       |                                                                                     ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree
+AssertionError: expected [ …(25) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 0,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 1,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 2,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 3,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 4,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 5,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 6,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 7,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 8,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 9,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 10,
++     "dimensions": [
++       "text",
++       "link",
++     ],
++   },
++   {
++     "at": 11,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 12,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 13,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 14,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 15,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 16,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 17,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 18,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 19,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 20,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 21,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 22,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 23,
++     "dimensions": [
++       "text",
++     ],
++   },
++   {
++     "at": 24,
++     "dimensions": [
++       "text",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:75:85
+     73|     '[a](https://x.y/ "t") https://z.q/ <https://w.v>',
+     74|   ])('%j reads as the visible form of the engine tree', (source) => {
+     75|     expect(visibleDifferences(drawn(source), 'dom', nativeParse(source…
+       |                                                                                     ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > gives the same visible form string for the same rendering
+AssertionError: expected '[[" ","","",""],[">","","",""],[" ","…' to be '[["a","b","",""],[" ","","",""],[">",…' // Object.is equality
+
+Expected: "[["a","b","",""],[" ","","",""],[">","","",""],[" ","","",""],["b","","",""]]"
+Received: "[[" ","","",""],[">","","",""],[" ","","",""],["b","","",""]]"
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:79:48
+     77|
+     78|   it('gives the same visible form string for the same rendering', () =…
+     79|     expect(visibleFromDom(drawn('**a** > b'))).toBe(visibleFromNative(…
+       |                                                ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+AssertionError: expected [ 'corpus:37', 'corpus:61', …(103) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:37",
++   "corpus:61",
++   "corpus:73",
++   "corpus:97",
++   "corpus:246",
++   "link:21",
++   "link:45",
++   "link:57",
++   "link:81",
++   "link:93",
++   "gen:115",
++   "gen:130",
++   "gen:143",
++   "gen:156",
++   "gen:176",
++   "gen:193",
++   "gen:210",
++   "gen:242",
++   "gen:259",
++   "gen:290",
++   "gen:303",
++   "gen:321",
++   "gen:351",
++   "gen:367",
++   "gen:399",
++   "gen:415",
++   "gen:430",
++   "gen:446",
++   "gen:464",
++   "gen:506",
++   "gen:522",
++   "gen:537",
++   "gen:567",
++   "gen:584",
++   "gen:598",
++   "gen:627",
++   "gen:644",
++   "gen:658",
++   "gen:684",
++   "gen:701",
++   "gen:714",
++   "gen:728",
++   "gen:742",
++   "gen:756",
++   "gen:770",
++   "gen:784",
++   "gen:817",
++   "gen:832",
++   "gen:845",
++   "gen:862",
++   "gen:892",
++   "gen:908",
++   "gen:922",
++   "gen:941",
++   "gen:971",
++   "gen:988",
++   "gen:1002",
++   "gen:1018",
++   "gen:1052",
++   "gen:1069",
++   "gen:1084",
++   "gen:1100",
++   "gen:1115",
++   "gen:1166",
++   "gen:1222",
++   "gen:1247",
++   "gen:1259",
++   "gen:1276",
++   "gen:1292",
++   "gen:1304",
++   "gen:1320",
++   "gen:1332",
++   "gen:1361",
++   "gen:1377",
++   "gen:1392",
++   "gen:1407",
++   "gen:1422",
++   "gen:1436",
++   "gen:1450",
++   "gen:1480",
++   "gen:1496",
++   "gen:1518",
++   "gen:1533",
++   "gen:1578",
++   "gen:1594",
++   "gen:1606",
++   "gen:1637",
++   "gen:1663",
++   "gen:1677",
++   "gen:1690",
++   "gen:1703",
++   "gen:1718",
++   "gen:1732",
++   "gen:1748",
++   "gen:1761",
++   "gen:1792",
++   "gen:1820",
++   "gen:1835",
++   "gen:1847",
++   "gen:1863",
++   "gen:1881",
++   "gen:1896",
++   "gen:1913",
++   "gen:1947",
++   "gen:1992",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+AssertionError: expected [ 'corpus:38', 'corpus:62', …(104) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:38",
++   "corpus:62",
++   "corpus:98",
++   "corpus:134",
++   "link:22",
++   "link:46",
++   "link:82",
++   "gen:12",
++   "gen:55",
++   "gen:131",
++   "gen:144",
++   "gen:158",
++   "gen:178",
++   "gen:194",
++   "gen:229",
++   "gen:243",
++   "gen:261",
++   "gen:275",
++   "gen:322",
++   "gen:353",
++   "gen:368",
++   "gen:385",
++   "gen:416",
++   "gen:431",
++   "gen:447",
++   "gen:465",
++   "gen:479",
++   "gen:493",
++   "gen:523",
++   "gen:553",
++   "gen:585",
++   "gen:599",
++   "gen:645",
++   "gen:659",
++   "gen:673",
++   "gen:685",
++   "gen:702",
++   "gen:715",
++   "gen:729",
++   "gen:743",
++   "gen:757",
++   "gen:771",
++   "gen:800",
++   "gen:833",
++   "gen:847",
++   "gen:864",
++   "gen:880",
++   "gen:893",
++   "gen:909",
++   "gen:923",
++   "gen:957",
++   "gen:973",
++   "gen:989",
++   "gen:1004",
++   "gen:1037",
++   "gen:1053",
++   "gen:1070",
++   "gen:1101",
++   "gen:1117",
++   "gen:1134",
++   "gen:1151",
++   "gen:1198",
++   "gen:1210",
++   "gen:1223",
++   "gen:1235",
++   "gen:1248",
++   "gen:1260",
++   "gen:1277",
++   "gen:1321",
++   "gen:1347",
++   "gen:1378",
++   "gen:1393",
++   "gen:1423",
++   "gen:1452",
++   "gen:1466",
++   "gen:1499",
++   "gen:1519",
++   "gen:1549",
++   "gen:1564",
++   "gen:1579",
++   "gen:1595",
++   "gen:1607",
++   "gen:1624",
++   "gen:1638",
++   "gen:1651",
++   "gen:1665",
++   "gen:1678",
++   "gen:1691",
++   "gen:1704",
++   "gen:1719",
++   "gen:1733",
++   "gen:1749",
++   "gen:1762",
++   "gen:1780",
++   "gen:1793",
++   "gen:1807",
++   "gen:1836",
++   "gen:1848",
++   "gen:1864",
++   "gen:1882",
++   "gen:1898",
++   "gen:1914",
++   "gen:1933",
++   "gen:1949",
++   "gen:1967",
++   "gen:1993",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+AssertionError: expected [ 'corpus:51', 'corpus:63', …(101) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:51",
++   "corpus:63",
++   "corpus:212",
++   "link:35",
++   "link:59",
++   "gen:44",
++   "gen:56",
++   "gen:117",
++   "gen:145",
++   "gen:160",
++   "gen:179",
++   "gen:230",
++   "gen:244",
++   "gen:262",
++   "gen:276",
++   "gen:293",
++   "gen:310",
++   "gen:324",
++   "gen:337",
++   "gen:354",
++   "gen:369",
++   "gen:401",
++   "gen:417",
++   "gen:432",
++   "gen:448",
++   "gen:466",
++   "gen:480",
++   "gen:494",
++   "gen:508",
++   "gen:524",
++   "gen:569",
++   "gen:586",
++   "gen:601",
++   "gen:615",
++   "gen:631",
++   "gen:646",
++   "gen:660",
++   "gen:674",
++   "gen:686",
++   "gen:703",
++   "gen:716",
++   "gen:744",
++   "gen:758",
++   "gen:772",
++   "gen:786",
++   "gen:801",
++   "gen:820",
++   "gen:835",
++   "gen:848",
++   "gen:866",
++   "gen:881",
++   "gen:895",
++   "gen:926",
++   "gen:944",
++   "gen:1006",
++   "gen:1021",
++   "gen:1040",
++   "gen:1055",
++   "gen:1072",
++   "gen:1102",
++   "gen:1118",
++   "gen:1152",
++   "gen:1169",
++   "gen:1199",
++   "gen:1211",
++   "gen:1249",
++   "gen:1261",
++   "gen:1279",
++   "gen:1306",
++   "gen:1322",
++   "gen:1335",
++   "gen:1348",
++   "gen:1367",
++   "gen:1410",
++   "gen:1482",
++   "gen:1502",
++   "gen:1520",
++   "gen:1538",
++   "gen:1550",
++   "gen:1565",
++   "gen:1582",
++   "gen:1596",
++   "gen:1609",
++   "gen:1639",
++   "gen:1652",
++   "gen:1666",
++   "gen:1692",
++   "gen:1705",
++   "gen:1720",
++   "gen:1735",
++   "gen:1750",
++   "gen:1781",
++   "gen:1794",
++   "gen:1808",
++   "gen:1837",
++   "gen:1849",
++   "gen:1865",
++   "gen:1883",
++   "gen:1900",
++   "gen:1915",
++   "gen:1934",
++   "gen:1969",
++   "gen:1994",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+AssertionError: expected [ 'corpus:112', 'link:60', …(99) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:112",
++   "link:60",
++   "link:84",
++   "gen:118",
++   "gen:133",
++   "gen:146",
++   "gen:161",
++   "gen:180",
++   "gen:245",
++   "gen:263",
++   "gen:277",
++   "gen:311",
++   "gen:325",
++   "gen:338",
++   "gen:388",
++   "gen:419",
++   "gen:433",
++   "gen:450",
++   "gen:467",
++   "gen:481",
++   "gen:495",
++   "gen:509",
++   "gen:525",
++   "gen:540",
++   "gen:556",
++   "gen:570",
++   "gen:588",
++   "gen:602",
++   "gen:616",
++   "gen:633",
++   "gen:647",
++   "gen:661",
++   "gen:717",
++   "gen:731",
++   "gen:745",
++   "gen:775",
++   "gen:804",
++   "gen:821",
++   "gen:836",
++   "gen:849",
++   "gen:882",
++   "gen:896",
++   "gen:911",
++   "gen:927",
++   "gen:945",
++   "gen:959",
++   "gen:976",
++   "gen:993",
++   "gen:1007",
++   "gen:1023",
++   "gen:1042",
++   "gen:1056",
++   "gen:1073",
++   "gen:1088",
++   "gen:1104",
++   "gen:1119",
++   "gen:1137",
++   "gen:1170",
++   "gen:1187",
++   "gen:1200",
++   "gen:1212",
++   "gen:1237",
++   "gen:1250",
++   "gen:1280",
++   "gen:1349",
++   "gen:1368",
++   "gen:1381",
++   "gen:1395",
++   "gen:1411",
++   "gen:1425",
++   "gen:1439",
++   "gen:1454",
++   "gen:1469",
++   "gen:1483",
++   "gen:1503",
++   "gen:1521",
++   "gen:1539",
++   "gen:1597",
++   "gen:1610",
++   "gen:1626",
++   "gen:1641",
++   "gen:1653",
++   "gen:1680",
++   "gen:1693",
++   "gen:1706",
++   "gen:1721",
++   "gen:1736",
++   "gen:1751",
++   "gen:1764",
++   "gen:1782",
++   "gen:1795",
++   "gen:1809",
++   "gen:1824",
++   "gen:1838",
++   "gen:1850",
++   "gen:1867",
++   "gen:1884",
++   "gen:1935",
++   "gen:1970",
++   "gen:1983",
++   "gen:1995",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+AssertionError: expected [ 'corpus:77', 'corpus:89', …(93) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:77",
++   "corpus:89",
++   "corpus:113",
++   "corpus:250",
++   "link:1",
++   "link:13",
++   "link:37",
++   "link:61",
++   "gen:119",
++   "gen:134",
++   "gen:147",
++   "gen:162",
++   "gen:181",
++   "gen:197",
++   "gen:232",
++   "gen:247",
++   "gen:295",
++   "gen:312",
++   "gen:326",
++   "gen:339",
++   "gen:372",
++   "gen:389",
++   "gen:420",
++   "gen:434",
++   "gen:451",
++   "gen:483",
++   "gen:526",
++   "gen:541",
++   "gen:557",
++   "gen:571",
++   "gen:589",
++   "gen:648",
++   "gen:662",
++   "gen:676",
++   "gen:705",
++   "gen:760",
++   "gen:776",
++   "gen:805",
++   "gen:822",
++   "gen:837",
++   "gen:852",
++   "gen:883",
++   "gen:899",
++   "gen:912",
++   "gen:928",
++   "gen:947",
++   "gen:960",
++   "gen:978",
++   "gen:994",
++   "gen:1024",
++   "gen:1057",
++   "gen:1074",
++   "gen:1089",
++   "gen:1105",
++   "gen:1121",
++   "gen:1139",
++   "gen:1171",
++   "gen:1188",
++   "gen:1201",
++   "gen:1226",
++   "gen:1238",
++   "gen:1251",
++   "gen:1264",
++   "gen:1296",
++   "gen:1308",
++   "gen:1324",
++   "gen:1337",
++   "gen:1350",
++   "gen:1369",
++   "gen:1396",
++   "gen:1414",
++   "gen:1427",
++   "gen:1440",
++   "gen:1455",
++   "gen:1504",
++   "gen:1522",
++   "gen:1568",
++   "gen:1598",
++   "gen:1611",
++   "gen:1627",
++   "gen:1642",
++   "gen:1654",
++   "gen:1723",
++   "gen:1752",
++   "gen:1766",
++   "gen:1783",
++   "gen:1797",
++   "gen:1825",
++   "gen:1851",
++   "gen:1885",
++   "gen:1902",
++   "gen:1917",
++   "gen:1937",
++   "gen:1955",
++   "gen:1996",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+AssertionError: expected [ 'corpus:90', 'corpus:102', …(108) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:90",
++   "corpus:102",
++   "corpus:114",
++   "corpus:138",
++   "corpus:227",
++   "link:2",
++   "link:14",
++   "link:62",
++   "link:74",
++   "link:86",
++   "gen:71",
++   "gen:107",
++   "gen:120",
++   "gen:135",
++   "gen:148",
++   "gen:163",
++   "gen:183",
++   "gen:217",
++   "gen:249",
++   "gen:266",
++   "gen:281",
++   "gen:296",
++   "gen:313",
++   "gen:341",
++   "gen:357",
++   "gen:373",
++   "gen:390",
++   "gen:405",
++   "gen:435",
++   "gen:452",
++   "gen:469",
++   "gen:484",
++   "gen:497",
++   "gen:513",
++   "gen:528",
++   "gen:543",
++   "gen:559",
++   "gen:576",
++   "gen:590",
++   "gen:604",
++   "gen:637",
++   "gen:649",
++   "gen:664",
++   "gen:690",
++   "gen:707",
++   "gen:720",
++   "gen:735",
++   "gen:777",
++   "gen:791",
++   "gen:806",
++   "gen:823",
++   "gen:853",
++   "gen:869",
++   "gen:900",
++   "gen:914",
++   "gen:930",
++   "gen:948",
++   "gen:961",
++   "gen:979",
++   "gen:1025",
++   "gen:1044",
++   "gen:1075",
++   "gen:1090",
++   "gen:1107",
++   "gen:1140",
++   "gen:1155",
++   "gen:1189",
++   "gen:1202",
++   "gen:1214",
++   "gen:1227",
++   "gen:1239",
++   "gen:1265",
++   "gen:1282",
++   "gen:1310",
++   "gen:1325",
++   "gen:1338",
++   "gen:1351",
++   "gen:1370",
++   "gen:1384",
++   "gen:1397",
++   "gen:1415",
++   "gen:1441",
++   "gen:1456",
++   "gen:1486",
++   "gen:1506",
++   "gen:1541",
++   "gen:1554",
++   "gen:1569",
++   "gen:1586",
++   "gen:1599",
++   "gen:1613",
++   "gen:1628",
++   "gen:1669",
++   "gen:1682",
++   "gen:1696",
++   "gen:1709",
++   "gen:1724",
++   "gen:1784",
++   "gen:1798",
++   "gen:1812",
++   "gen:1840",
++   "gen:1852",
++   "gen:1870",
++   "gen:1886",
++   "gen:1903",
++   "gen:1918",
++   "gen:1938",
++   "gen:1956",
++   "gen:1985",
++   "gen:1998",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+AssertionError: expected [ 'corpus:91', 'corpus:115', …(101) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:91",
++   "corpus:115",
++   "corpus:228",
++   "link:3",
++   "link:15",
++   "link:87",
++   "gen:72",
++   "gen:108",
++   "gen:121",
++   "gen:149",
++   "gen:164",
++   "gen:184",
++   "gen:199",
++   "gen:218",
++   "gen:235",
++   "gen:250",
++   "gen:267",
++   "gen:282",
++   "gen:297",
++   "gen:314",
++   "gen:328",
++   "gen:342",
++   "gen:358",
++   "gen:375",
++   "gen:392",
++   "gen:407",
++   "gen:436",
++   "gen:453",
++   "gen:470",
++   "gen:485",
++   "gen:498",
++   "gen:529",
++   "gen:544",
++   "gen:560",
++   "gen:577",
++   "gen:592",
++   "gen:605",
++   "gen:619",
++   "gen:650",
++   "gen:708",
++   "gen:721",
++   "gen:736",
++   "gen:749",
++   "gen:762",
++   "gen:778",
++   "gen:792",
++   "gen:808",
++   "gen:824",
++   "gen:839",
++   "gen:871",
++   "gen:915",
++   "gen:931",
++   "gen:950",
++   "gen:962",
++   "gen:980",
++   "gen:996",
++   "gen:1011",
++   "gen:1026",
++   "gen:1045",
++   "gen:1076",
++   "gen:1109",
++   "gen:1123",
++   "gen:1141",
++   "gen:1156",
++   "gen:1173",
++   "gen:1190",
++   "gen:1203",
++   "gen:1253",
++   "gen:1283",
++   "gen:1326",
++   "gen:1340",
++   "gen:1352",
++   "gen:1371",
++   "gen:1386",
++   "gen:1399",
++   "gen:1416",
++   "gen:1443",
++   "gen:1457",
++   "gen:1525",
++   "gen:1542",
++   "gen:1570",
++   "gen:1614",
++   "gen:1629",
++   "gen:1644",
++   "gen:1656",
++   "gen:1670",
++   "gen:1697",
++   "gen:1710",
++   "gen:1725",
++   "gen:1740",
++   "gen:1754",
++   "gen:1769",
++   "gen:1786",
++   "gen:1799",
++   "gen:1829",
++   "gen:1841",
++   "gen:1855",
++   "gen:1920",
++   "gen:1939",
++   "gen:1957",
++   "gen:1973",
++   "gen:1986",
++   "gen:1999",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+AssertionError: expected [ 'corpus:20', 'corpus:229', …(105) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:20",
++   "corpus:229",
++   "link:4",
++   "link:16",
++   "link:28",
++   "link:88",
++   "link:100",
++   "gen:123",
++   "gen:185",
++   "gen:201",
++   "gen:219",
++   "gen:236",
++   "gen:252",
++   "gen:284",
++   "gen:315",
++   "gen:345",
++   "gen:359",
++   "gen:376",
++   "gen:393",
++   "gen:408",
++   "gen:424",
++   "gen:439",
++   "gen:458",
++   "gen:486",
++   "gen:499",
++   "gen:516",
++   "gen:530",
++   "gen:545",
++   "gen:561",
++   "gen:593",
++   "gen:606",
++   "gen:621",
++   "gen:639",
++   "gen:666",
++   "gen:679",
++   "gen:709",
++   "gen:723",
++   "gen:737",
++   "gen:750",
++   "gen:763",
++   "gen:793",
++   "gen:809",
++   "gen:825",
++   "gen:840",
++   "gen:855",
++   "gen:872",
++   "gen:887",
++   "gen:902",
++   "gen:933",
++   "gen:951",
++   "gen:981",
++   "gen:997",
++   "gen:1012",
++   "gen:1046",
++   "gen:1061",
++   "gen:1093",
++   "gen:1110",
++   "gen:1142",
++   "gen:1174",
++   "gen:1191",
++   "gen:1204",
++   "gen:1216",
++   "gen:1229",
++   "gen:1241",
++   "gen:1254",
++   "gen:1268",
++   "gen:1284",
++   "gen:1299",
++   "gen:1327",
++   "gen:1341",
++   "gen:1353",
++   "gen:1372",
++   "gen:1387",
++   "gen:1402",
++   "gen:1417",
++   "gen:1430",
++   "gen:1444",
++   "gen:1458",
++   "gen:1474",
++   "gen:1488",
++   "gen:1511",
++   "gen:1528",
++   "gen:1543",
++   "gen:1556",
++   "gen:1572",
++   "gen:1589",
++   "gen:1601",
++   "gen:1617",
++   "gen:1631",
++   "gen:1645",
++   "gen:1657",
++   "gen:1671",
++   "gen:1698",
++   "gen:1726",
++   "gen:1741",
++   "gen:1787",
++   "gen:1800",
++   "gen:1814",
++   "gen:1830",
++   "gen:1842",
++   "gen:1857",
++   "gen:1873",
++   "gen:1905",
++   "gen:1940",
++   "gen:1958",
++   "gen:1974",
++   "gen:1987",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+AssertionError: expected [ 'corpus:93', 'corpus:266', …(95) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:93",
++   "corpus:266",
++   "link:5",
++   "link:101",
++   "gen:111",
++   "gen:138",
++   "gen:168",
++   "gen:203",
++   "gen:220",
++   "gen:237",
++   "gen:253",
++   "gen:270",
++   "gen:285",
++   "gen:299",
++   "gen:316",
++   "gen:331",
++   "gen:346",
++   "gen:425",
++   "gen:487",
++   "gen:500",
++   "gen:518",
++   "gen:531",
++   "gen:548",
++   "gen:563",
++   "gen:579",
++   "gen:594",
++   "gen:607",
++   "gen:622",
++   "gen:652",
++   "gen:667",
++   "gen:695",
++   "gen:710",
++   "gen:724",
++   "gen:738",
++   "gen:751",
++   "gen:764",
++   "gen:780",
++   "gen:794",
++   "gen:811",
++   "gen:841",
++   "gen:856",
++   "gen:873",
++   "gen:888",
++   "gen:903",
++   "gen:935",
++   "gen:952",
++   "gen:964",
++   "gen:983",
++   "gen:998",
++   "gen:1030",
++   "gen:1048",
++   "gen:1063",
++   "gen:1094",
++   "gen:1111",
++   "gen:1125",
++   "gen:1158",
++   "gen:1175",
++   "gen:1193",
++   "gen:1205",
++   "gen:1217",
++   "gen:1230",
++   "gen:1242",
++   "gen:1255",
++   "gen:1269",
++   "gen:1286",
++   "gen:1300",
++   "gen:1328",
++   "gen:1342",
++   "gen:1354",
++   "gen:1373",
++   "gen:1388",
++   "gen:1403",
++   "gen:1445",
++   "gen:1476",
++   "gen:1489",
++   "gen:1514",
++   "gen:1529",
++   "gen:1544",
++   "gen:1557",
++   "gen:1590",
++   "gen:1632",
++   "gen:1673",
++   "gen:1699",
++   "gen:1728",
++   "gen:1743",
++   "gen:1757",
++   "gen:1788",
++   "gen:1815",
++   "gen:1831",
++   "gen:1843",
++   "gen:1858",
++   "gen:1875",
++   "gen:1890",
++   "gen:1906",
++   "gen:1923",
++   "gen:1942",
++   "gen:1988",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+AssertionError: expected [ 'corpus:10', 'corpus:46', …(112) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:10",
++   "corpus:46",
++   "corpus:94",
++   "corpus:106",
++   "corpus:267",
++   "link:18",
++   "link:30",
++   "link:66",
++   "link:90",
++   "link:102",
++   "gen:63",
++   "gen:126",
++   "gen:139",
++   "gen:152",
++   "gen:204",
++   "gen:222",
++   "gen:239",
++   "gen:254",
++   "gen:286",
++   "gen:317",
++   "gen:332",
++   "gen:347",
++   "gen:363",
++   "gen:378",
++   "gen:395",
++   "gen:411",
++   "gen:460",
++   "gen:474",
++   "gen:489",
++   "gen:501",
++   "gen:519",
++   "gen:532",
++   "gen:549",
++   "gen:564",
++   "gen:580",
++   "gen:595",
++   "gen:609",
++   "gen:624",
++   "gen:641",
++   "gen:653",
++   "gen:668",
++   "gen:681",
++   "gen:696",
++   "gen:711",
++   "gen:725",
++   "gen:739",
++   "gen:765",
++   "gen:781",
++   "gen:812",
++   "gen:858",
++   "gen:874",
++   "gen:905",
++   "gen:918",
++   "gen:937",
++   "gen:953",
++   "gen:984",
++   "gen:999",
++   "gen:1031",
++   "gen:1049",
++   "gen:1064",
++   "gen:1079",
++   "gen:1096",
++   "gen:1145",
++   "gen:1162",
++   "gen:1177",
++   "gen:1206",
++   "gen:1218",
++   "gen:1231",
++   "gen:1256",
++   "gen:1272",
++   "gen:1287",
++   "gen:1317",
++   "gen:1329",
++   "gen:1343",
++   "gen:1355",
++   "gen:1374",
++   "gen:1389",
++   "gen:1404",
++   "gen:1433",
++   "gen:1446",
++   "gen:1460",
++   "gen:1490",
++   "gen:1515",
++   "gen:1530",
++   "gen:1545",
++   "gen:1560",
++   "gen:1575",
++   "gen:1591",
++   "gen:1603",
++   "gen:1619",
++   "gen:1633",
++   "gen:1647",
++   "gen:1659",
++   "gen:1674",
++   "gen:1687",
++   "gen:1700",
++   "gen:1714",
++   "gen:1729",
++   "gen:1744",
++   "gen:1758",
++   "gen:1772",
++   "gen:1789",
++   "gen:1803",
++   "gen:1816",
++   "gen:1832",
++   "gen:1844",
++   "gen:1859",
++   "gen:1876",
++   "gen:1891",
++   "gen:1907",
++   "gen:1924",
++   "gen:1944",
++   "gen:1960",
++   "gen:1989",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+AssertionError: expected [ 'corpus:35', 'corpus:47', …(110) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:35",
++   "corpus:47",
++   "corpus:95",
++   "corpus:107",
++   "corpus:244",
++   "corpus:268",
++   "link:19",
++   "link:31",
++   "link:55",
++   "link:91",
++   "link:103",
++   "gen:52",
++   "gen:64",
++   "gen:113",
++   "gen:128",
++   "gen:140",
++   "gen:171",
++   "gen:189",
++   "gen:206",
++   "gen:240",
++   "gen:256",
++   "gen:272",
++   "gen:288",
++   "gen:301",
++   "gen:319",
++   "gen:349",
++   "gen:365",
++   "gen:379",
++   "gen:396",
++   "gen:428",
++   "gen:443",
++   "gen:461",
++   "gen:476",
++   "gen:490",
++   "gen:502",
++   "gen:520",
++   "gen:565",
++   "gen:581",
++   "gen:596",
++   "gen:610",
++   "gen:625",
++   "gen:642",
++   "gen:655",
++   "gen:669",
++   "gen:682",
++   "gen:697",
++   "gen:712",
++   "gen:726",
++   "gen:740",
++   "gen:753",
++   "gen:767",
++   "gen:782",
++   "gen:797",
++   "gen:830",
++   "gen:843",
++   "gen:890",
++   "gen:919",
++   "gen:938",
++   "gen:985",
++   "gen:1000",
++   "gen:1016",
++   "gen:1034",
++   "gen:1050",
++   "gen:1097",
++   "gen:1113",
++   "gen:1146",
++   "gen:1178",
++   "gen:1207",
++   "gen:1220",
++   "gen:1232",
++   "gen:1257",
++   "gen:1288",
++   "gen:1302",
++   "gen:1318",
++   "gen:1330",
++   "gen:1344",
++   "gen:1357",
++   "gen:1405",
++   "gen:1420",
++   "gen:1434",
++   "gen:1462",
++   "gen:1478",
++   "gen:1492",
++   "gen:1531",
++   "gen:1546",
++   "gen:1561",
++   "gen:1576",
++   "gen:1592",
++   "gen:1604",
++   "gen:1620",
++   "gen:1635",
++   "gen:1648",
++   "gen:1660",
++   "gen:1675",
++   "gen:1688",
++   "gen:1716",
++   "gen:1730",
++   "gen:1745",
++   "gen:1775",
++   "gen:1790",
++   "gen:1804",
++   "gen:1817",
++   "gen:1833",
++   "gen:1845",
++   "gen:1860",
++   "gen:1877",
++   "gen:1894",
++   "gen:1908",
++   "gen:1927",
++   "gen:1945",
++   "gen:1978",
++   "gen:1990",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+AssertionError: expected [ 'corpus:48', 'corpus:72', …(97) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:48",
++   "corpus:72",
++   "corpus:96",
++   "corpus:108",
++   "corpus:132",
++   "corpus:233",
++   "corpus:245",
++   "link:32",
++   "link:68",
++   "gen:114",
++   "gen:129",
++   "gen:141",
++   "gen:174",
++   "gen:192",
++   "gen:209",
++   "gen:226",
++   "gen:258",
++   "gen:289",
++   "gen:302",
++   "gen:320",
++   "gen:334",
++   "gen:350",
++   "gen:366",
++   "gen:382",
++   "gen:398",
++   "gen:414",
++   "gen:505",
++   "gen:551",
++   "gen:566",
++   "gen:582",
++   "gen:597",
++   "gen:626",
++   "gen:713",
++   "gen:727",
++   "gen:741",
++   "gen:754",
++   "gen:783",
++   "gen:798",
++   "gen:816",
++   "gen:860",
++   "gen:891",
++   "gen:907",
++   "gen:921",
++   "gen:939",
++   "gen:955",
++   "gen:968",
++   "gen:987",
++   "gen:1001",
++   "gen:1017",
++   "gen:1035",
++   "gen:1051",
++   "gen:1068",
++   "gen:1099",
++   "gen:1114",
++   "gen:1131",
++   "gen:1165",
++   "gen:1208",
++   "gen:1221",
++   "gen:1233",
++   "gen:1258",
++   "gen:1274",
++   "gen:1289",
++   "gen:1303",
++   "gen:1319",
++   "gen:1331",
++   "gen:1345",
++   "gen:1360",
++   "gen:1391",
++   "gen:1421",
++   "gen:1435",
++   "gen:1449",
++   "gen:1463",
++   "gen:1479",
++   "gen:1493",
++   "gen:1517",
++   "gen:1532",
++   "gen:1547",
++   "gen:1562",
++   "gen:1577",
++   "gen:1593",
++   "gen:1605",
++   "gen:1649",
++   "gen:1676",
++   "gen:1689",
++   "gen:1717",
++   "gen:1731",
++   "gen:1760",
++   "gen:1777",
++   "gen:1791",
++   "gen:1805",
++   "gen:1819",
++   "gen:1834",
++   "gen:1861",
++   "gen:1880",
++   "gen:1895",
++   "gen:1928",
++   "gen:1946",
++   "gen:1964",
++   "gen:1979",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > large when only emoji and spaces make up the message, for every one of them
+AssertionError: expected [ 32 ] to deeply equal [ 32, 32 ]
+
+- Expected
++ Received
+
+  [
+    32,
+-   32,
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:63:44
+     61|   it('large when only emoji and spaces make up the message, for every …
+     62|     const images = imagesOf(draw('🙂 <:wave:123>'));
+     63|     expect(images.map((img) => img.width)).toEqual([32, 32]);
+       |                                            ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx > the preview draws an emoji > small once any text sits beside it
+AssertionError: expected [] to deeply equal [ 22 ]
+
+- Expected
++ Received
+
+- [
+-   22,
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/preview.emoji-draw.test.tsx:73:44
+     71|   it('small once any text sits beside it', () => {
+     72|     const images = imagesOf(draw('🙂 hi'));
+     73|     expect(images.map((img) => img.width)).toEqual([22]);
+       |                                            ^
+     74|   });
+     75| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with one timestamp between text
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the second
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the second
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with the bare form
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with three timestamps, the middle one
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/press.ts:15:8
+     13| export default function press(el: HTMLElement) {
+     14|   act(() => {
+     15|     el.dispatchEvent(new PointerEvent('pointerdown', {
+       |        ^
+     16|       bubbles: true, cancelable: true, pointerId: 1, pointerType: 'mou…
+     17|     }));
+ ❯ process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.press src/components/__tests__/helpers/press.ts:14:3
+ ❯ editTimestamp src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:41:3
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:73:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with identical duplicates, the first
+AssertionError: expected [ '<t:1700000000:t> <t:1700000000:R>' ] to deeply equal [ '<t:1700000000:R> <t:1700000000:t>' ]
+
+- Expected
++ Received
+
+  [
+-   "<t:1700000000:R> <t:1700000000:t>",
++   "<t:1700000000:t> <t:1700000000:R>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > with a timestamp inside a spoiler, the first
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "||<t:1700000000:R>|| <t:1700000000:d>",
++   "||<t:1700000000:t>|| <t:1700000000:R>",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:74:21
+     72|     const el = mountDom(<Harness initial={source} />);
+     73|     await editTimestamp(el, index);
+     74|     expect(history).toEqual([expected]);
+       |                     ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added before the existing ones while the preview stays mounted
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/press.ts:15:8
+     13| export default function press(el: HTMLElement) {
+     14|   act(() => {
+     15|     el.dispatchEvent(new PointerEvent('pointerdown', {
+       |        ^
+     16|       bubbles: true, cancelable: true, pointerId: 1, pointerType: 'mou…
+     17|     }));
+ ❯ process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.press src/components/__tests__/helpers/press.ts:14:3
+ ❯ editTimestamp src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:41:3
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:81:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx > editing the i-th timestamp in the preview rewrites that timestamp's characters and no others > after a timestamp is added between and after the existing ones
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/press.ts:15:8
+     13| export default function press(el: HTMLElement) {
+     14|   act(() => {
+     15|     el.dispatchEvent(new PointerEvent('pointerdown', {
+       |        ^
+     16|       bubbles: true, cancelable: true, pointerId: 1, pointerType: 'mou…
+     17|     }));
+ ❯ process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.press src/components/__tests__/helpers/press.ts:14:3
+ ❯ editTimestamp src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:41:3
+ ❯ src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx:89:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/51]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in the viewer's zone once mounted
+AssertionError: expected [ '11/14/23, 5:13:20 PM' ] to deeply equal [ '11/14/23, 5:13 PM', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 5:13 PM",
+    "11/14/23, 5:13:20 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:79:62
+     77|   it('formats in the viewer\'s zone once mounted', () => {
+     78|     process.env.TZ = 'America/New_York';
+     79|     expect(stampText(draw(`<t:${STAMP}:s> <t:${STAMP}:S>`))).toEqual([…
+       |                                                              ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/51]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:1113', 'gen:1368', …(2) ] to deeply equal [ 'gen:1113', 'gen:1368', …(4) ]
+
+- Expected
++ Received
+
+  [
+    "gen:1113",
+    "gen:1368",
+-   "gen:1677",
+    "gen:709",
+    "gen:870",
+-   "link:61",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:151:26
+    149|     }
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+       |                          ^
+    152|     expect(differing).toEqual([]);
+    153|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/51]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+AssertionError: expected [ 'gen:870' ] to deeply equal [ 'gen:1677', 'gen:870', 'link:61' ]
+
+- Expected
++ Received
+
+  [
+-   "gen:1677",
+    "gen:870",
+-   "link:61",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:151:26
+    149|     }
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+       |                          ^
+    152|     expect(differing).toEqual([]);
+    153|   }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/51]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+AssertionError: expected [ 'corpus:10', 'corpus:20', …(1227) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:10",
++   "corpus:20",
++   "corpus:29",
++   "corpus:39",
++   "corpus:40",
++   "corpus:72",
++   "corpus:73",
++   "corpus:89",
++   "corpus:90",
++   "corpus:93",
++   "corpus:95",
++   "corpus:96",
++   "corpus:98",
++   "corpus:102",
++   "corpus:106",
++   "corpus:107",
++   "corpus:108",
++   "corpus:113",
++   "corpus:114",
++   "corpus:121",
++   "corpus:125",
++   "corpus:126",
++   "corpus:128",
++   "corpus:129",
++   "corpus:130",
++   "corpus:131",
++   "corpus:135",
++   "corpus:136",
++   "corpus:233",
++   "corpus:266",
++   "corpus:267",
++   "link:8",
++   "link:9",
++   "link:32",
++   "link:33",
++   "link:34",
++   "link:49",
++   "gen:52",
++   "gen:71",
++   "gen:72",
++   "gen:73",
++   "gen:74",
++   "gen:75",
++   "gen:76",
++   "gen:77",
++   "gen:78",
++   "gen:103",
++   "gen:104",
++   "gen:111",
++   "gen:112",
++   "gen:113",
++   "gen:117",
++   "gen:119",
++   "gen:120",
++   "gen:121",
++   "gen:122",
++   "gen:125",
++   "gen:126",
++   "gen:127",
++   "gen:128",
++   "gen:130",
++   "gen:133",
++   "gen:134",
++   "gen:135",
++   "gen:136",
++   "gen:137",
++   "gen:138",
++   "gen:139",
++   "gen:141",
++   "gen:142",
++   "gen:145",
++   "gen:151",
++   "gen:154",
++   "gen:158",
++   "gen:159",
++   "gen:160",
++   "gen:161",
++   "gen:162",
++   "gen:163",
++   "gen:164",
++   "gen:165",
++   "gen:166",
++   "gen:169",
++   "gen:172",
++   "gen:174",
++   "gen:175",
++   "gen:177",
++   "gen:179",
++   "gen:183",
++   "gen:185",
++   "gen:191",
++   "gen:192",
++   "gen:194",
++   "gen:195",
++   "gen:197",
++   "gen:198",
++   "gen:199",
++   "gen:200",
++   "gen:202",
++   "gen:205",
++   "gen:207",
++   "gen:208",
++   "gen:209",
++   "gen:212",
++   "gen:213",
++   "gen:214",
++   "gen:215",
++   "gen:216",
++   "gen:218",
++   "gen:220",
++   "gen:221",
++   "gen:224",
++   "gen:226",
++   "gen:227",
++   "gen:228",
++   "gen:229",
++   "gen:230",
++   "gen:234",
++   "gen:235",
++   "gen:236",
++   "gen:237",
++   "gen:238",
++   "gen:241",
++   "gen:242",
++   "gen:245",
++   "gen:246",
++   "gen:247",
++   "gen:248",
++   "gen:249",
++   "gen:250",
++   "gen:251",
++   "gen:252",
++   "gen:253",
++   "gen:257",
++   "gen:260",
++   "gen:261",
++   "gen:262",
++   "gen:265",
++   "gen:267",
++   "gen:268",
++   "gen:270",
++   "gen:272",
++   "gen:273",
++   "gen:275",
++   "gen:278",
++   "gen:279",
++   "gen:281",
++   "gen:282",
++   "gen:283",
++   "gen:284",
++   "gen:285",
++   "gen:286",
++   "gen:287",
++   "gen:289",
++   "gen:290",
++   "gen:296",
++   "gen:299",
++   "gen:300",
++   "gen:301",
++   "gen:304",
++   "gen:305",
++   "gen:307",
++   "gen:309",
++   "gen:310",
++   "gen:311",
++   "gen:312",
++   "gen:314",
++   "gen:315",
++   "gen:316",
++   "gen:318",
++   "gen:319",
++   "gen:321",
++   "gen:322",
++   "gen:323",
++   "gen:324",
++   "gen:325",
++   "gen:326",
++   "gen:327",
++   "gen:329",
++   "gen:334",
++   "gen:337",
++   "gen:340",
++   "gen:343",
++   "gen:344",
++   "gen:346",
++   "gen:347",
++   "gen:348",
++   "gen:350",
++   "gen:351",
++   "gen:352",
++   "gen:354",
++   "gen:355",
++   "gen:356",
++   "gen:357",
++   "gen:359",
++   "gen:361",
++   "gen:362",
++   "gen:366",
++   "gen:369",
++   "gen:372",
++   "gen:373",
++   "gen:376",
++   "gen:377",
++   "gen:379",
++   "gen:380",
++   "gen:381",
++   "gen:383",
++   "gen:385",
++   "gen:386",
++   "gen:388",
++   "gen:391",
++   "gen:393",
++   "gen:395",
++   "gen:396",
++   "gen:397",
++   "gen:398",
++   "gen:401",
++   "gen:403",
++   "gen:404",
++   "gen:405",
++   "gen:406",
++   "gen:407",
++   "gen:409",
++   "gen:410",
++   "gen:411",
++   "gen:412",
++   "gen:415",
++   "gen:416",
++   "gen:417",
++   "gen:418",
++   "gen:420",
++   "gen:421",
++   "gen:422",
++   "gen:423",
++   "gen:424",
++   "gen:425",
++   "gen:427",
++   "gen:428",
++   "gen:429",
++   "gen:431",
++   "gen:433",
++   "gen:435",
++   "gen:438",
++   "gen:439",
++   "gen:441",
++   "gen:443",
++   "gen:448",
++   "gen:449",
++   "gen:450",
++   "gen:451",
++   "gen:453",
++   "gen:454",
++   "gen:456",
++   "gen:457",
++   "gen:458",
++   "gen:460",
++   "gen:461",
++   "gen:462",
++   "gen:463",
++   "gen:464",
++   "gen:465",
++   "gen:467",
++   "gen:470",
++   "gen:471",
++   "gen:472",
++   "gen:474",
++   "gen:477",
++   "gen:478",
++   "gen:483",
++   "gen:484",
++   "gen:486",
++   "gen:487",
++   "gen:488",
++   "gen:492",
++   "gen:494",
++   "gen:495",
++   "gen:496",
++   "gen:497",
++   "gen:498",
++   "gen:500",
++   "gen:502",
++   "gen:503",
++   "gen:504",
++   "gen:505",
++   "gen:506",
++   "gen:509",
++   "gen:511",
++   "gen:512",
++   "gen:513",
++   "gen:514",
++   "gen:516",
++   "gen:517",
++   "gen:518",
++   "gen:519",
++   "gen:522",
++   "gen:523",
++   "gen:526",
++   "gen:527",
++   "gen:528",
++   "gen:530",
++   "gen:531",
++   "gen:532",
++   "gen:534",
++   "gen:535",
++   "gen:536",
++   "gen:540",
++   "gen:542",
++   "gen:543",
++   "gen:544",
++   "gen:546",
++   "gen:548",
++   "gen:553",
++   "gen:554",
++   "gen:556",
++   "gen:557",
++   "gen:558",
++   "gen:559",
++   "gen:562",
++   "gen:563",
++   "gen:564",
++   "gen:565",
++   "gen:566",
++   "gen:568",
++   "gen:569",
++   "gen:571",
++   "gen:572",
++   "gen:573",
++   "gen:575",
++   "gen:576",
++   "gen:577",
++   "gen:580",
++   "gen:581",
++   "gen:582",
++   "gen:583",
++   "gen:587",
++   "gen:591",
++   "gen:594",
++   "gen:595",
++   "gen:596",
++   "gen:597",
++   "gen:599",
++   "gen:600",
++   "gen:601",
++   "gen:602",
++   "gen:604",
++   "gen:606",
++   "gen:608",
++   "gen:609",
++   "gen:610",
++   "gen:612",
++   "gen:615",
++   "gen:616",
++   "gen:617",
++   "gen:619",
++   "gen:620",
++   "gen:621",
++   "gen:622",
++   "gen:623",
++   "gen:624",
++   "gen:625",
++   "gen:627",
++   "gen:628",
++   "gen:629",
++   "gen:630",
++   "gen:632",
++   "gen:635",
++   "gen:636",
++   "gen:637",
++   "gen:639",
++   "gen:641",
++   "gen:643",
++   "gen:645",
++   "gen:647",
++   "gen:649",
++   "gen:653",
++   "gen:657",
++   "gen:658",
++   "gen:660",
++   "gen:662",
++   "gen:663",
++   "gen:664",
++   "gen:669",
++   "gen:670",
++   "gen:671",
++   "gen:672",
++   "gen:673",
++   "gen:674",
++   "gen:678",
++   "gen:681",
++   "gen:683",
++   "gen:684",
++   "gen:685",
++   "gen:687",
++   "gen:693",
++   "gen:694",
++   "gen:695",
++   "gen:696",
++   "gen:700",
++   "gen:701",
++   "gen:708",
++   "gen:709",
++   "gen:710",
++   "gen:711",
++   "gen:715",
++   "gen:716",
++   "gen:717",
++   "gen:722",
++   "gen:723",
++   "gen:724",
++   "gen:725",
++   "gen:728",
++   "gen:729",
++   "gen:731",
++   "gen:732",
++   "gen:733",
++   "gen:734",
++   "gen:735",
++   "gen:736",
++   "gen:737",
++   "gen:738",
++   "gen:740",
++   "gen:741",
++   "gen:742",
++   "gen:743",
++   "gen:745",
++   "gen:747",
++   "gen:749",
++   "gen:751",
++   "gen:752",
++   "gen:753",
++   "gen:754",
++   "gen:756",
++   "gen:757",
++   "gen:760",
++   "gen:762",
++   "gen:763",
++   "gen:766",
++   "gen:767",
++   "gen:768",
++   "gen:771",
++   "gen:772",
++   "gen:773",
++   "gen:774",
++   "gen:775",
++   "gen:777",
++   "gen:780",
++   "gen:781",
++   "gen:782",
++   "gen:783",
++   "gen:784",
++   "gen:785",
++   "gen:788",
++   "gen:789",
++   "gen:791",
++   "gen:792",
++   "gen:793",
++   "gen:794",
++   "gen:796",
++   "gen:797",
++   "gen:800",
++   "gen:801",
++   "gen:802",
++   "gen:803",
++   "gen:804",
++   "gen:805",
++   "gen:807",
++   "gen:808",
++   "gen:810",
++   "gen:814",
++   "gen:817",
++   "gen:818",
++   "gen:820",
++   "gen:821",
++   "gen:824",
++   "gen:826",
++   "gen:828",
++   "gen:829",
++   "gen:830",
++   "gen:832",
++   "gen:833",
++   "gen:834",
++   "gen:835",
++   "gen:837",
++   "gen:839",
++   "gen:842",
++   "gen:845",
++   "gen:846",
++   "gen:848",
++   "gen:849",
++   "gen:853",
++   "gen:856",
++   "gen:857",
++   "gen:859",
++   "gen:860",
++   "gen:861",
++   "gen:862",
++   "gen:864",
++   "gen:865",
++   "gen:870",
++   "gen:871",
++   "gen:872",
++   "gen:873",
++   "gen:877",
++   "gen:879",
++   "gen:883",
++   "gen:884",
++   "gen:885",
++   "gen:887",
++   "gen:888",
++   "gen:890",
++   "gen:891",
++   "gen:892",
++   "gen:893",
++   "gen:894",
++   "gen:898",
++   "gen:899",
++   "gen:900",
++   "gen:901",
++   "gen:902",
++   "gen:903",
++   "gen:904",
++   "gen:905",
++   "gen:906",
++   "gen:907",
++   "gen:908",
++   "gen:909",
++   "gen:910",
++   "gen:911",
++   "gen:912",
++   "gen:913",
++   "gen:915",
++   "gen:916",
++   "gen:917",
++   "gen:918",
++   "gen:921",
++   "gen:923",
++   "gen:924",
++   "gen:925",
++   "gen:926",
++   "gen:927",
++   "gen:928",
++   "gen:930",
++   "gen:933",
++   "gen:934",
++   "gen:935",
++   "gen:936",
++   "gen:937",
++   "gen:938",
++   "gen:939",
++   "gen:940",
++   "gen:941",
++   "gen:942",
++   "gen:943",
++   "gen:945",
++   "gen:946",
++   "gen:947",
++   "gen:948",
++   "gen:949",
++   "gen:950",
++   "gen:951",
++   "gen:953",
++   "gen:957",
++   "gen:960",
++   "gen:961",
++   "gen:962",
++   "gen:963",
++   "gen:967",
++   "gen:968",
++   "gen:969",
++   "gen:971",
++   "gen:972",
++   "gen:974",
++   "gen:977",
++   "gen:978",
++   "gen:979",
++   "gen:980",
++   "gen:981",
++   "gen:982",
++   "gen:986",
++   "gen:987",
++   "gen:988",
++   "gen:990",
++   "gen:991",
++   "gen:993",
++   "gen:994",
++   "gen:996",
++   "gen:997",
++   "gen:998",
++   "gen:999",
++   "gen:1000",
++   "gen:1001",
++   "gen:1002",
++   "gen:1003",
++   "gen:1005",
++   "gen:1006",
++   "gen:1008",
++   "gen:1009",
++   "gen:1012",
++   "gen:1013",
++   "gen:1015",
++   "gen:1016",
++   "gen:1017",
++   "gen:1019",
++   "gen:1022",
++   "gen:1023",
++   "gen:1025",
++   "gen:1026",
++   "gen:1027",
++   "gen:1028",
++   "gen:1029",
++   "gen:1030",
++   "gen:1032",
++   "gen:1035",
++   "gen:1036",
++   "gen:1037",
++   "gen:1039",
++   "gen:1041",
++   "gen:1042",
++   "gen:1044",
++   "gen:1046",
++   "gen:1048",
++   "gen:1050",
++   "gen:1052",
++   "gen:1054",
++   "gen:1057",
++   "gen:1058",
++   "gen:1059",
++   "gen:1061",
++   "gen:1062",
++   "gen:1063",
++   "gen:1066",
++   "gen:1067",
++   "gen:1068",
++   "gen:1069",
++   "gen:1070",
++   "gen:1074",
++   "gen:1075",
++   "gen:1076",
++   "gen:1079",
++   "gen:1080",
++   "gen:1084",
++   "gen:1085",
++   "gen:1089",
++   "gen:1090",
++   "gen:1091",
++   "gen:1093",
++   "gen:1094",
++   "gen:1095",
++   "gen:1096",
++   "gen:1098",
++   "gen:1099",
++   "gen:1100",
++   "gen:1101",
++   "gen:1102",
++   "gen:1105",
++   "gen:1109",
++   "gen:1110",
++   "gen:1111",
++   "gen:1112",
++   "gen:1113",
++   "gen:1114",
++   "gen:1116",
++   "gen:1117",
++   "gen:1118",
++   "gen:1119",
++   "gen:1123",
++   "gen:1126",
++   "gen:1129",
++   "gen:1130",
++   "gen:1131",
++   "gen:1134",
++   "gen:1136",
++   "gen:1138",
++   "gen:1139",
++   "gen:1141",
++   "gen:1143",
++   "gen:1144",
++   "gen:1145",
++   "gen:1148",
++   "gen:1149",
++   "gen:1150",
++   "gen:1152",
++   "gen:1154",
++   "gen:1155",
++   "gen:1156",
++   "gen:1158",
++   "gen:1159",
++   "gen:1160",
++   "gen:1161",
++   "gen:1162",
++   "gen:1163",
++   "gen:1165",
++   "gen:1167",
++   "gen:1169",
++   "gen:1170",
++   "gen:1173",
++   "gen:1174",
++   "gen:1175",
++   "gen:1177",
++   "gen:1178",
++   "gen:1179",
++   "gen:1180",
++   "gen:1181",
++   "gen:1183",
++   "gen:1184",
++   "gen:1186",
++   "gen:1187",
++   "gen:1190",
++   "gen:1192",
++   "gen:1193",
++   "gen:1194",
++   "gen:1195",
++   "gen:1199",
++   "gen:1200",
++   "gen:1201",
++   "gen:1202",
++   "gen:1203",
++   "gen:1204",
++   "gen:1206",
++   "gen:1207",
++   "gen:1209",
++   "gen:1210",
++   "gen:1213",
++   "gen:1214",
++   "gen:1215",
++   "gen:1218",
++   "gen:1220",
++   "gen:1221",
++   "gen:1222",
++   "gen:1223",
++   "gen:1224",
++   "gen:1226",
++   "gen:1227",
++   "gen:1228",
++   "gen:1230",
++   "gen:1231",
++   "gen:1232",
++   "gen:1235",
++   "gen:1241",
++   "gen:1242",
++   "gen:1244",
++   "gen:1246",
++   "gen:1248",
++   "gen:1250",
++   "gen:1252",
++   "gen:1253",
++   "gen:1254",
++   "gen:1255",
++   "gen:1257",
++   "gen:1258",
++   "gen:1262",
++   "gen:1264",
++   "gen:1266",
++   "gen:1267",
++   "gen:1268",
++   "gen:1270",
++   "gen:1274",
++   "gen:1276",
++   "gen:1277",
++   "gen:1278",
++   "gen:1279",
++   "gen:1280",
++   "gen:1282",
++   "gen:1284",
++   "gen:1285",
++   "gen:1286",
++   "gen:1287",
++   "gen:1288",
++   "gen:1289",
++   "gen:1291",
++   "gen:1293",
++   "gen:1295",
++   "gen:1296",
++   "gen:1299",
++   "gen:1300",
++   "gen:1302",
++   "gen:1303",
++   "gen:1304",
++   "gen:1305",
++   "gen:1306",
++   "gen:1308",
++   "gen:1310",
++   "gen:1311",
++   "gen:1314",
++   "gen:1315",
++   "gen:1316",
++   "gen:1317",
++   "gen:1318",
++   "gen:1319",
++   "gen:1320",
++   "gen:1321",
++   "gen:1322",
++   "gen:1324",
++   "gen:1325",
++   "gen:1326",
++   "gen:1327",
++   "gen:1328",
++   "gen:1330",
++   "gen:1331",
++   "gen:1333",
++   "gen:1335",
++   "gen:1337",
++   "gen:1338",
++   "gen:1339",
++   "gen:1340",
++   "gen:1342",
++   "gen:1343",
++   "gen:1344",
++   "gen:1345",
++   "gen:1349",
++   "gen:1350",
++   "gen:1351",
++   "gen:1352",
++   "gen:1353",
++   "gen:1355",
++   "gen:1356",
++   "gen:1357",
++   "gen:1358",
++   "gen:1359",
++   "gen:1360",
++   "gen:1361",
++   "gen:1362",
++   "gen:1363",
++   "gen:1364",
++   "gen:1365",
++   "gen:1368",
++   "gen:1370",
++   "gen:1371",
++   "gen:1372",
++   "gen:1373",
++   "gen:1375",
++   "gen:1377",
++   "gen:1378",
++   "gen:1379",
++   "gen:1381",
++   "gen:1382",
++   "gen:1383",
++   "gen:1384",
++   "gen:1386",
++   "gen:1387",
++   "gen:1388",
++   "gen:1389",
++   "gen:1390",
++   "gen:1391",
++   "gen:1393",
++   "gen:1395",
++   "gen:1397",
++   "gen:1398",
++   "gen:1399",
++   "gen:1400",
++   "gen:1403",
++   "gen:1404",
++   "gen:1405",
++   "gen:1406",
++   "gen:1407",
++   "gen:1408",
++   "gen:1409",
++   "gen:1411",
++   "gen:1412",
++   "gen:1413",
++   "gen:1414",
++   "gen:1416",
++   "gen:1417",
++   "gen:1418",
++   "gen:1420",
++   "gen:1422",
++   "gen:1423",
++   "gen:1425",
++   "gen:1426",
++   "gen:1427",
++   "gen:1429",
++   "gen:1430",
++   "gen:1432",
++   "gen:1435",
++   "gen:1436",
++   "gen:1438",
++   "gen:1440",
++   "gen:1443",
++   "gen:1444",
++   "gen:1446",
++   "gen:1449",
++   "gen:1450",
++   "gen:1451",
++   "gen:1452",
++   "gen:1455",
++   "gen:1457",
++   "gen:1461",
++   "gen:1462",
++   "gen:1465",
++   "gen:1466",
++   "gen:1467",
++   "gen:1469",
++   "gen:1470",
++   "gen:1471",
++   "gen:1473",
++   "gen:1474",
++   "gen:1475",
++   "gen:1477",
++   "gen:1478",
++   "gen:1483",
++   "gen:1484",
++   "gen:1485",
++   "gen:1486",
++   "gen:1487",
++   "gen:1490",
++   "gen:1491",
++   "gen:1492",
++   "gen:1493",
++   "gen:1494",
++   "gen:1495",
++   "gen:1496",
++   "gen:1497",
++   "gen:1498",
++   "gen:1500",
++   "gen:1502",
++   "gen:1503",
++   "gen:1504",
++   "gen:1505",
++   "gen:1506",
++   "gen:1507",
++   "gen:1509",
++   "gen:1512",
++   "gen:1514",
++   "gen:1515",
++   "gen:1517",
++   "gen:1518",
++   "gen:1519",
++   "gen:1522",
++   "gen:1523",
++   "gen:1525",
++   "gen:1529",
++   "gen:1530",
++   "gen:1533",
++   "gen:1534",
++   "gen:1537",
++   "gen:1540",
++   "gen:1543",
++   "gen:1544",
++   "gen:1545",
++   "gen:1546",
++   "gen:1547",
++   "gen:1548",
++   "gen:1550",
++   "gen:1551",
++   "gen:1552",
++   "gen:1555",
++   "gen:1556",
++   "gen:1557",
++   "gen:1558",
++   "gen:1559",
++   "gen:1560",
++   "gen:1562",
++   "gen:1563",
++   "gen:1564",
++   "gen:1566",
++   "gen:1567",
++   "gen:1568",
++   "gen:1569",
++   "gen:1570",
++   "gen:1571",
++   "gen:1574",
++   "gen:1576",
++   "gen:1577",
++   "gen:1580",
++   "gen:1581",
++   "gen:1584",
++   "gen:1585",
++   "gen:1586",
++   "gen:1587",
++   "gen:1588",
++   "gen:1589",
++   "gen:1591",
++   "gen:1592",
++   "gen:1593",
++   "gen:1594",
++   "gen:1595",
++   "gen:1596",
++   "gen:1597",
++   "gen:1601",
++   "gen:1603",
++   "gen:1604",
++   "gen:1605",
++   "gen:1606",
++   "gen:1607",
++   "gen:1608",
++   "gen:1609",
++   "gen:1610",
++   "gen:1611",
++   "gen:1612",
++   "gen:1614",
++   "gen:1615",
++   "gen:1623",
++   "gen:1624",
++   "gen:1627",
++   "gen:1628",
++   "gen:1631",
++   "gen:1632",
++   "gen:1633",
++   "gen:1634",
++   "gen:1636",
++   "gen:1638",
++   "gen:1639",
++   "gen:1641",
++   "gen:1642",
++   "gen:1644",
++   "gen:1645",
++   "gen:1648",
++   "gen:1651",
++   "gen:1652",
++   "gen:1653",
++   "gen:1654",
++   "gen:1656",
++   "gen:1662",
++   "gen:1663",
++   "gen:1665",
++   "gen:1667",
++   "gen:1670",
++   "gen:1671",
++   "gen:1672",
++   "gen:1674",
++   "gen:1677",
++   "gen:1679",
++   "gen:1680",
++   "gen:1681",
++   "gen:1682",
++   "gen:1683",
++   "gen:1688",
++   "gen:1689",
++   "gen:1691",
++   "gen:1694",
++   "gen:1697",
++   "gen:1698",
++   "gen:1699",
++   "gen:1703",
++   "gen:1704",
++   "gen:1705",
++   "gen:1708",
++   "gen:1709",
++   "gen:1712",
++   "gen:1713",
++   "gen:1714",
++   "gen:1716",
++   "gen:1718",
++   "gen:1719",
++   "gen:1720",
++   "gen:1721",
++   "gen:1723",
++   "gen:1726",
++   "gen:1728",
++   "gen:1730",
++   "gen:1731",
++   "gen:1732",
++   "gen:1733",
++   "gen:1734",
++   "gen:1735",
++   "gen:1736",
++   "gen:1738",
++   "gen:1740",
++   "gen:1741",
++   "gen:1742",
++   "gen:1743",
++   "gen:1745",
++   "gen:1748",
++   "gen:1750",
++   "gen:1751",
++   "gen:1758",
++   "gen:1760",
++   "gen:1761",
++   "gen:1762",
++   "gen:1764",
++   "gen:1765",
++   "gen:1766",
++   "gen:1768",
++   "gen:1770",
++   "gen:1773",
++   "gen:1774",
++   "gen:1776",
++   "gen:1778",
++   "gen:1779",
++   "gen:1780",
++   "gen:1783",
++   "gen:1784",
++   "gen:1786",
++   "gen:1787",
++   "gen:1788",
++   "gen:1789",
++   "gen:1790",
++   "gen:1794",
++   "gen:1795",
++   "gen:1796",
++   "gen:1797",
++   "gen:1799",
++   "gen:1800",
++   "gen:1802",
++   "gen:1803",
++   "gen:1804",
++   "gen:1805",
++   "gen:1806",
++   "gen:1807",
++   "gen:1808",
++   "gen:1809",
++   "gen:1810",
++   "gen:1812",
++   "gen:1813",
++   "gen:1814",
++   "gen:1815",
++   "gen:1817",
++   "gen:1818",
++   "gen:1819",
++   "gen:1820",
++   "gen:1822",
++   "gen:1823",
++   "gen:1824",
++   "gen:1825",
++   "gen:1826",
++   "gen:1827",
++   "gen:1828",
++   "gen:1829",
++   "gen:1830",
++   "gen:1831",
++   "gen:1833",
++   "gen:1835",
++   "gen:1837",
++   "gen:1838",
++   "gen:1839",
++   "gen:1840",
++   "gen:1841",
++   "gen:1842",
++   "gen:1843",
++   "gen:1845",
++   "gen:1847",
++   "gen:1848",
++   "gen:1849",
++   "gen:1850",
++   "gen:1851",
++   "gen:1853",
++   "gen:1855",
++   "gen:1856",
++   "gen:1858",
++   "gen:1859",
++   "gen:1860",
++   "gen:1861",
++   "gen:1862",
++   "gen:1865",
++   "gen:1867",
++   "gen:1869",
++   "gen:1873",
++   "gen:1874",
++   "gen:1875",
++   "gen:1876",
++   "gen:1877",
++   "gen:1878",
++   "gen:1879",
++   "gen:1880",
++   "gen:1881",
++   "gen:1882",
++   "gen:1883",
++   "gen:1885",
++   "gen:1887",
++   "gen:1889",
++   "gen:1890",
++   "gen:1891",
++   "gen:1892",
++   "gen:1893",
++   "gen:1894",
++   "gen:1895",
++   "gen:1896",
++   "gen:1897",
++   "gen:1899",
++   "gen:1900",
++   "gen:1902",
++   "gen:1906",
++   "gen:1908",
++   "gen:1909",
++   "gen:1910",
++   "gen:1911",
++   "gen:1912",
++   "gen:1913",
++   "gen:1916",
++   "gen:1917",
++   "gen:1918",
++   "gen:1920",
++   "gen:1923",
++   "gen:1924",
++   "gen:1930",
++   "gen:1931",
++   "gen:1932",
++   "gen:1933",
++   "gen:1935",
++   "gen:1936",
++   "gen:1939",
++   "gen:1940",
++   "gen:1941",
++   "gen:1942",
++   "gen:1943",
++   "gen:1944",
++   "gen:1947",
++   "gen:1948",
++   "gen:1949",
++   "gen:1950",
++   "gen:1952",
++   "gen:1953",
++   "gen:1955",
++   "gen:1956",
++   "gen:1958",
++   "gen:1963",
++   "gen:1965",
++   "gen:1968",
++   "gen:1969",
++   "gen:1973",
++   "gen:1974",
++   "gen:1975",
++   "gen:1976",
++   "gen:1978",
++   "gen:1983",
++   "gen:1984",
++   "gen:1985",
++   "gen:1986",
++   "gen:1987",
++   "gen:1988",
++   "gen:1989",
++   "gen:1990",
++   "gen:1991",
++   "gen:1992",
++   "gen:1993",
++   "gen:1994",
++   "gen:1995",
++   "gen:1996",
++   "gen:1997",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx:152:23
+    150|     expect(compared).toBeGreaterThan(2200);
+    151|     expect(named.sort()).toEqual(NAMED[surface]);
+    152|     expect(differing).toEqual([]);
+       |                       ^
+    153|   }, 600_000);
+    154| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/51]⎯
+
+ FAIL  |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx > a spoiler the engine splits into pieces > reveals every piece when any one piece is clicked
+AssertionError: expected <span …(3)><span …(2)></span></span> to have a length of 2 but got 1
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:27:20
+     25|     const container = mount('||1. foo\n2. ba||r');
+     26|     const pieces = container.querySelectorAll('.spoiler');
+     27|     expect(pieces).toHaveLength(2);
+       |                    ^
+     28|     expect(hidden(container)).toEqual([true, true]);
+     29|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/51]⎯
+
+ FAIL  |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx > a spoiler the engine splits into pieces > hides every piece again when a revealed piece is clicked
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:21:49
+     19|
+     20| const hidden = (container: HTMLElement) => [...container.querySelector…
+     21| const click = (el: Element) => { act(() => { el.dispatchEvent(new Mous…
+       |                                                 ^
+     22|
+     23| describe('a spoiler the engine splits into pieces', () => {
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ click src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:21:34
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:38:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/51]⎯
+
+ FAIL  |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx > a spoiler the engine splits into pieces > leaves a different spoiler hidden
+AssertionError: expected [ false ] to deeply equal [ false, true ]
+
+- Expected
++ Received
+
+  [
+    false,
+-   true,
+  ]
+
+ ❯ src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx:45:31
+     43|     const container = mount('||a|| and ||b||');
+     44|     click(container.querySelectorAll('.spoiler')[0]);
+     45|     expect(hidden(container)).toEqual([false, true]);
+       |                               ^
+     46|   });
+     47| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/51]⎯
+

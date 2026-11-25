@@ -1,0 +1,47 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in the viewer's zone once mounted
+AssertionError: expected [ '11/14/23, 10:13 PM', …(1) ] to deeply equal [ '11/14/23, 5:13 PM', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 5:13 PM",
+-   "11/14/23, 5:13:20 PM",
++   "11/14/23, 10:13 PM",
++   "11/14/23, 10:13:20 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:79:62
+     77|   it('formats in the viewer\'s zone once mounted', () => {
+     78|     process.env.TZ = 'America/New_York';
+     79|     expect(stampText(draw(`<t:${STAMP}:s> <t:${STAMP}:S>`))).toEqual([…
+       |                                                              ^
+     80|   });
+     81|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx > the s and S styles follow the time zone, the mount state and the dayjs locale > formats in UTC before mount, whatever the viewer's zone
+AssertionError: expected [ '11/14/23, 5:13 PM' ] to deeply equal [ '11/14/23, 10:13 PM' ]
+
+- Expected
++ Received
+
+  [
+-   "11/14/23, 10:13 PM",
++   "11/14/23, 5:13 PM",
+  ]
+
+ ❯ src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx:84:54
+     82|   it('formats in UTC before mount, whatever the viewer\'s zone', () =>…
+     83|     process.env.TZ = 'America/New_York';
+     84|     expect(stampText(draw(`<t:${STAMP}:s>`, false))).toEqual(['11/14/2…
+       |                                                      ^
+     85|   });
+     86|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261125T145240Z-p1901004/mutant-18
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 3 failed) 76ms
+     × puts a caret right after the element at the same place in the text 9ms
+     × puts a caret after the element and a typed backtick at the same place in the text 3ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 3ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  3 failed | 1789 passed (1792)
+   Start at  15:21:20
+   Duration  64.12s (transform 2.65s, setup 243ms, import 32.42s, tests 185.50s, environment 28.97s)
+

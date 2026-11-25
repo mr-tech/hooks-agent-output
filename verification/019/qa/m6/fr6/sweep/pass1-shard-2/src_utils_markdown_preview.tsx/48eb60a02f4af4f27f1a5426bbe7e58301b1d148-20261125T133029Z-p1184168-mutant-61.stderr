@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-not-ready.test.ts > the preview parser before the engine is ready > draws nothing while the engine is pending
+AssertionError: expected '**a**' to be null
+
+- Expected:
+null
+
++ Received:
+"**a**"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-not-ready.test.ts:32:55
+     30|   it('draws nothing while the engine is pending', async () => {
+     31|     const { preview } = await fresh();
+     32|     expect(preview.previewParser('content')('**a**')).toBeNull();
+       |                                                       ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

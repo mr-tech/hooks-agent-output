@@ -1,0 +1,101 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 14231ms
+     × hands the message that text in a full-markdown editor 7264ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (919 tests | 77 failed) 9157ms
+       × leaves each line typed as a fresh load of the changed text builds it 7ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 5ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 19135ms
+     × hands the message that text in a full-markdown editor 2554ms
+     × hands the message that text in a full-markdown editor 3343ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 11987ms
+     × hands the message that text in a full-markdown editor 6807ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 4 failed) 8464ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 8ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 2ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 3ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 1 failed) 100ms
+     × takes in a typed quote marker inside a fence opened on a quote line 12ms
+
+ Test Files  6 failed | 35 passed (41)
+      Tests  86 failed | 1576 passed (1662)
+   Start at  13:33:33
+   Duration  61.35s (transform 3.18s, setup 279ms, import 33.82s, tests 172.84s, environment 30.87s)
+

@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link whose tree holds no label > as its address, for a contact link in a fixture tree that invents engine output
+TypeError: Cannot read properties of undefined (reading 'text')
+ ❯ linkLabel src/utils/markdown/preview.tsx:112:44
+    110|   if (kind === 'contact') {
+    111|     const token = node.children.find((child) => child.type === 'token'…
+    112|     return token?.type !== 'token' ? token.text : url;
+       |                                            ^
+    113|   }
+    114|   return url;
+ ❯ renderNode src/utils/markdown/preview.tsx:157:21
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+ ❯ renderNode src/utils/markdown/preview.tsx:121:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

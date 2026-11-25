@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-10
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 3 failed) 3393ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 266ms
+     × gives the code lines the language typed onto their opening fence 152ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 169ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 5 failed) 9323ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 191ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 127ms
+       × builds as many run units in the longest message as in the shortest 158ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 75ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 77ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (919 tests | 65 skipped) 40412ms
+
+ Test Files  3 failed | 38 passed (41)
+      Tests  8 failed | 1589 passed | 65 skipped (1662)
+   Start at  14:10:07
+   Duration  75.17s (transform 3.43s, setup 292ms, import 35.75s, tests 224.05s, environment 32.02s)
+

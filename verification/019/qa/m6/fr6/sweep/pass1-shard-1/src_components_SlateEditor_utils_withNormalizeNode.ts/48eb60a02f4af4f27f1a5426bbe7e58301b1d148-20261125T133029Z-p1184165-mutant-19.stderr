@@ -1,0 +1,19 @@
+
+<--- Last few GCs --->
+
+[2054113:0x3d0e5000]   337405 ms: Scavenge (interleaved) 3963.0 (4109.6) -> 3947.7 (4141.6) MB, pooled: 0 MB, 8.82 / 0.00 ms  (average mu = 0.240, current mu = 0.276) allocation failure; 
+[2054113:0x3d0e5000]   339490 ms: Mark-Compact 3981.2 (4142.6) -> 3948.8 (4135.8) MB, pooled: 12 MB, 2036.12 / 0.00 ms  (average mu = 0.160, current mu = 0.038) allocation failure; scavenge might not succeed
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x735eec node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/usr/local/bin/node]
+ 2: 0xbafc40  [/usr/local/bin/node]
+ 3: 0xbafd2f  [/usr/local/bin/node]
+ 4: 0xe48825  [/usr/local/bin/node]
+ 5: 0xe48852  [/usr/local/bin/node]
+ 6: 0xe48b4a  [/usr/local/bin/node]
+ 7: 0xe5906a  [/usr/local/bin/node]
+ 8: 0xe5d410  [/usr/local/bin/node]
+ 9: 0x18efec1  [/usr/local/bin/node]
+[vitest-pool]: Timeout terminating forks worker for test files /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-19/src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx.

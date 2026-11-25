@@ -1,0 +1,3 @@
+2026-11-25T13:30:29Z start src/utils/markdown/preview.tsx (64 mutants)
+2026-11-25T14:52:40Z end src/utils/markdown/preview.tsx exit=0
+2026-11-25T14:52:40Z start src/components/SlateEditor/utils/emojiLift.ts (60 mutants)

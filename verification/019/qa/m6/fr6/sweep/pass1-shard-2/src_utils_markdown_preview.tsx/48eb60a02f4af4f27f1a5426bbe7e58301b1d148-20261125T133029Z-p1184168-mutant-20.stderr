@@ -1,0 +1,22 @@
+stderr | src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws an emoji the image table has no file for > as its source text, with no image, for a fixture tree that invents engine output
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws an emoji the image table has no file for > as its source text, with no image, for a fixture tree that invents engine output
+AssertionError: expected '<span class="discord-visualizer__emoj…' to be '©' // Object.is equality
+
+Expected: "©"
+Received: "<span class="discord-visualizer__emoji-container"><img draggable="false" alt="©" width="32" height="32" decoding="async" data-nimg="1" class="discord-visualizer__emoji discord-visualizer__emoji-jumboable" style="color:transparent"/></span>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:115:46
+    113| describe('the preview draws an emoji the image table has no file for',…
+    114|   it('as its source text, with no image, for a fixture tree that inven…
+    115|     expect(markupOf(emojiFixture('©'), '©')).toBe('©');
+       |                                              ^
+    116|   });
+    117| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

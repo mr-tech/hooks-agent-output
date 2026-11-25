@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-11
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 8 failed) 373ms
+     × renders as the table says when the list state is topLevel 7ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+
+ Test Files  1 failed | 44 passed (45)
+      Tests  8 failed | 756 passed (764)
+   Start at  13:45:21
+   Duration  65.78s (transform 2.52s, setup 255ms, import 37.41s, tests 188.73s, environment 28.96s)
+

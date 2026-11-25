@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261125T145240Z-p1901004/mutant-15
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts (2 tests | 1 failed) 52ms
+     × forgets the oldest unit once 256 others have followed it, and keeps the newest 20ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 1791 passed (1792)
+   Start at  15:17:45
+   Duration  65.36s (transform 2.97s, setup 256ms, import 33.05s, tests 189.59s, environment 29.25s)
+

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-23
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 4 failed) 81ms
+     × as an image of the Twemoji file, with the character as its alt text 41ms
+     × large, at 32 pixels with the large class, when the message holds only emoji 3ms
+     × large when only emoji and spaces make up the message, for every one of them 6ms
+     × small once any text sits beside it 4ms
+
+ Test Files  1 failed | 44 passed (45)
+      Tests  4 failed | 760 passed (764)
+   Start at  13:59:53
+   Duration  61.87s (transform 2.66s, setup 244ms, import 38.45s, tests 170.69s, environment 30.04s)
+

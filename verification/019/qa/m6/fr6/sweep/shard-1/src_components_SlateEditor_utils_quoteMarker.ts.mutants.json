@@ -1,0 +1,47 @@
+[
+  {
+    "id": "quoteMarker.ts:4:not",
+    "file": "src/components/SlateEditor/utils/quoteMarker.ts",
+    "old": "!",
+    "new": "",
+    "op": "not",
+    "line": 4,
+    "text": "const opens = !continued && /^ *>>> /.test(line);"
+  },
+  {
+    "id": "quoteMarker.ts:4:&&",
+    "file": "src/components/SlateEditor/utils/quoteMarker.ts",
+    "old": "&&",
+    "new": "||",
+    "op": "&&",
+    "line": 4,
+    "text": "const opens = !continued && /^ *>>> /.test(line);"
+  },
+  {
+    "id": "quoteMarker.ts:6:||",
+    "file": "src/components/SlateEditor/utils/quoteMarker.ts",
+    "old": "d || o",
+    "new": "d && o",
+    "op": "||",
+    "line": 6,
+    "text": "const quoted = continued || opens || /^ *> /.test(afterOpening);"
+  },
+  {
+    "id": "quoteMarker.ts:6:||:2",
+    "file": "src/components/SlateEditor/utils/quoteMarker.ts",
+    "old": "s || /",
+    "new": "s && /",
+    "op": "||",
+    "line": 6,
+    "text": "const quoted = continued || opens || /^ *> /.test(afterOpening);"
+  },
+  {
+    "id": "quoteMarker.ts:9:num",
+    "file": "src/components/SlateEditor/utils/quoteMarker.ts",
+    "old": "0",
+    "new": "1",
+    "op": "num",
+    "line": 9,
+    "text": "quoted, opens, marker: line.slice(0, line.length - text.length), text,"
+  }
+]

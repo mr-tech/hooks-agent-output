@@ -1,0 +1,361 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 19 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts > the emoji layouts of run units kept between calls > parses a unit once for the same surface, text and code-block start, and again when either differs
+AssertionError: expected 2 to be 3 // Object.is equality
+
+- Expected
++ Received
+
+- 3
++ 2
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts:30:22
+     28|     emojiLayout('embedDescription', 'once 🙂');
+     29|     emojiLayout('content', 'once 🙂', true);
+     30|     expect(parses()).toBe(3);
+       |                      ^
+     31|   });
+     32|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists a unicode emoji with its source span and image
+AssertionError: expected [] to deeply equal [ { start: +0, end: 2, …(5) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "alt": "🙂",
+-     "custom": false,
+-     "end": 2,
+-     "source": "🙂",
+-     "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f642.svg",
+-     "start": 0,
+-     "title": "",
+-   },
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:35:50
+     33|     }]],
+     34|   ] as const)('lists %s with its source span and image', (_name, text,…
+     35|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists an emoji typed as a name, with the characters around it with its source span and image
+AssertionError: expected [] to deeply equal [ { start: 1, end: 8, …(5) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "alt": "😄",
+-     "custom": false,
+-     "end": 8,
+-     "source": ":smile:",
+-     "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f604.svg",
+-     "start": 1,
+-     "title": "",
+-   },
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:35:50
+     33|     }]],
+     34|   ] as const)('lists %s with its source span and image', (_name, text,…
+     35|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists a skin-tone sequence with its source span and image
+AssertionError: expected [] to deeply equal [ { start: +0, end: 4, …(5) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "alt": "👍🏽",
+-     "custom": false,
+-     "end": 4,
+-     "source": "👍🏽",
+-     "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d-1f3fd.svg",
+-     "start": 0,
+-     "title": "",
+-   },
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:35:50
+     33|     }]],
+     34|   ] as const)('lists %s with its source span and image', (_name, text,…
+     35|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists a still custom emoji with its source span and image
+AssertionError: expected [] to deeply equal [ { start: 2, end: 10, …(5) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "alt": "<:n:123>",
+-     "custom": true,
+-     "end": 10,
+-     "source": "<:n:123>",
+-     "src": "https://cdn.discordapp.com/emojis/123.png",
+-     "start": 2,
+-     "title": "n",
+-   },
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:35:50
+     33|     }]],
+     34|   ] as const)('lists %s with its source span and image', (_name, text,…
+     35|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists an animated custom emoji with its source span and image
+AssertionError: expected [] to deeply equal [ { start: +0, end: 9, …(5) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "alt": "<a:n:456>",
+-     "custom": true,
+-     "end": 9,
+-     "source": "<a:n:456>",
+-     "src": "https://cdn.discordapp.com/emojis/456.gif",
+-     "start": 0,
+-     "title": "n",
+-   },
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:35:50
+     33|     }]],
+     34|   ] as const)('lists %s with its source span and image', (_name, text,…
+     35|     expect(emojiLayout('content', text)?.emojis).toEqual(expected);
+       |                                                  ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > keeps an id past 2^53 as digits that survive JSON
+SyntaxError: "undefined" is not valid JSON
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:49:17
+     47|   it('keeps an id past 2^53 as digits that survive JSON', () => {
+     48|     const [emoji] = emojiLayout('content', '<:n:1574460051593240606>')…
+     49|     expect(JSON.parse(JSON.stringify(emoji)).src).toBe('https://cdn.di…
+       |                 ^
+     50|   });
+     51|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists no emoji inside a fenced code block
+AssertionError: expected [ { start: 6, end: 8, …(5) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "alt": "🙂",
++     "custom": false,
++     "end": 8,
++     "source": "🙂",
++     "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f642.svg",
++     "start": 6,
++     "title": "",
++   },
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:58:50
+     56|     ['a fenced code block', 'a\n```\n🙂\n```'],
+     57|   ])('lists no emoji inside %s', (_name, text) => {
+     58|     expect(emojiLayout('content', text)?.emojis).toEqual([]);
+       |                                                  ^
+     59|   });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > lists the emoji outside a code span and none inside it
+AssertionError: expected [] to deeply equal [ +0, 8 ]
+
+- Expected
++ Received
+
+- [
+-   0,
+-   8,
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:75:56
+     73|   it('lists the emoji outside a code span and none inside it', () => {
+     74|     const layout = emojiLayout('content', '🙂 `🙂` 🙂');
+     75|     expect(layout?.emojis.map((emoji) => emoji.start)).toEqual([0, 8]);
+       |                                                        ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > builds the element of a span with the span's own image, alt and title and no line fields set
+TypeError: Cannot read properties of undefined (reading 'source')
+ ❯ Module.emojiElementOf src/components/SlateEditor/utils/emojiLift.ts:80:18
+     78|     empty: false,
+     79|     children: [{ type: 'span', text: '' }],
+     80|     source: span.source,
+       |                  ^
+     81|     src: span.src,
+     82|     alt: span.alt,
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:80:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds a span of a layout when both ends match
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:100:82
+     98|     ['neither end matches', 3, 9, false],
+     99|   ])('holds a span of a layout when %s', (_name, start, end, expected)…
+    100|     expect(holdsSpan(emojiLayout('content', 'x <:n:123>') as never, st…
+       |                                                                                  ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds the first of three spans of a layout of three spans
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds the middle span of a layout of three spans
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > holds the last span of a layout of three spans
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:111:80
+    109|     ['a span past the last', 9, 11, false],
+    110|   ])('holds %s of a layout of three spans', (_name, start, end, expect…
+    111|     expect(holdsSpan(emojiLayout('content', '🙂a🙂 🙂') as never, star…
+       |                                                                                ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > the spans of a line of a unit > lists the spans of the first line
+AssertionError: expected [] to deeply equal [ [ +0, 2 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     0,
+-     2,
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:128:36
+    126|       ['a line cut just before its second span', 1, 3, [[4, 6]]],
+    127|     ])('lists the spans of %s', (_name, line, width, expected) => {
+    128|       expect(spansOf(line, width)).toEqual(expected);
+       |                                    ^
+    129|     });
+    130|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > the spans of a line of a unit > lists the spans of a line of two spans
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > the spans of a line of a unit > lists the spans of a line cut just after its second span
+AssertionError: expected [] to deeply equal [ [ 4, 6 ], [ 7, 9 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     4,
+-     6,
+-   ],
+-   [
+-     7,
+-     9,
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:128:36
+    126|       ['a line cut just before its second span', 1, 3, [[4, 6]]],
+    127|     ])('lists the spans of %s', (_name, line, width, expected) => {
+    128|       expect(spansOf(line, width)).toEqual(expected);
+       |                                    ^
+    129|     });
+    130|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/19]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > the spans of a line of a unit > lists the spans of a line cut inside its second span
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts > the emoji of one run unit > the spans of a line of a unit > lists the spans of a line cut just before its second span
+AssertionError: expected [] to deeply equal [ [ 4, 6 ] ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     4,
+-     6,
+-   ],
+- ]
++ []
+
+ ❯ src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts:128:36
+    126|       ['a line cut just before its second span', 1, 3, [[4, 6]]],
+    127|     ])('lists the spans of %s', (_name, line, width, expected) => {
+    128|       expect(spansOf(line, width)).toEqual(expected);
+       |                                    ^
+    129|     });
+    130|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/19]⎯
+

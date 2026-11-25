@@ -1,0 +1,49 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-33
+
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 812ms
+     × names the channel after content  when the guild list is in reach 294ms
+     × names the channel after title  when the guild list is in reach 67ms
+     × names the channel after description  when the guild list is in reach 55ms
+     × names the channel after field name  when the guild list is in reach 47ms
+     × names the channel after field value  when the guild list is in reach 38ms
+     × names the channel after linked title  when the guild list is in reach 34ms
+     × names the channel after text display  when the guild list is in reach 35ms
+     × shows the channel id after content , and still renders, with no guild provider 65ms
+     × shows the channel id after title , and still renders, with no guild provider 35ms
+     × shows the channel id after description , and still renders, with no guild provider 34ms
+     × shows the channel id after field name , and still renders, with no guild provider 28ms
+     × shows the channel id after field value , and still renders, with no guild provider 25ms
+     × shows the channel id after linked title , and still renders, with no guild provider 27ms
+     × shows the channel id after text display , and still renders, with no guild provider 28ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 323ms
+     × reads a channel mention by its id when the preview shows the channel's name 9ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 5 failed) 61ms
+     × names a listed channel 34ms
+     × names a thread under a listed channel 6ms
+     × keeps the id form when the list is empty 5ms
+     × shows the new name when the list changes under a mounted preview 4ms
+     × renders, and draws the channel in its id form 5ms
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (79 tests | 16 failed) 445ms
+     × renders as the table says when the list state is noProvider 21ms
+     × renders as the table says when the list state is empty 3ms
+     × renders as the table says when the list state is withoutId 2ms
+     × renders as the table says when the list state is topLevel 2ms
+     × renders as the table says when the list state is threadOnly 2ms
+     × is given a listed forum channel its name 1ms
+     × is given an active post under a listed forum channel its name 2ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × names the second of two listed channels when the mention names the second 2ms
+     × names a thread of the second listed channel, and one of the first, in the same list 2ms
+     × is named on the content surface when the list holds it 2ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 1ms
+     × is named on the v2Text surface when the list holds it 1ms
+
+ Test Files  4 failed | 41 passed (45)
+      Tests  36 failed | 728 passed (764)
+   Start at  14:11:03
+   Duration  69.74s (transform 2.73s, setup 301ms, import 41.67s, tests 195.30s, environment 32.32s)
+

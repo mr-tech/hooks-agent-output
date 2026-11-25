@@ -1,0 +1,202 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 23 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+     12|   const text = node.children.map((c) => flattenText(c, allowEmoji)).jo…
+       |                              ^
+     13|   if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}$…
+     14|   return text;
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:112:59
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:111:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:174:48
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+      5| import type { Descendant } from 'slate';
+      6|
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+       |                                                                                                              ^
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:112:59
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:111:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:174:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:41
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:112:59
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:111:33
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on content, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 40 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 122 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 123 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 200 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 1000 > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the start of the text of…' > on embedDescription, in a message of 2048 > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"div\",\">>> \",false,\"\",[]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:96:65
+     94|   it('leaves each line typed as a fresh load of the changed text build…
+     95|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     96|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     97|   });
+     98|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 1025 to be 101 // Object.is equality
+
+- Expected
++ Received
+
+- 101
++ 1025
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:114:25
+    112|       }).filter((pair): pair is number[] => pair !== null);
+    113|       counts.forEach(([shortest, longest]) => {
+    114|         expect(longest).toBe(shortest);
+       |                         ^
+    115|         expect(shortest).toBeGreaterThanOrEqual(1);
+    116|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:113:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 683 to be 101 // Object.is equality
+
+- Expected
++ Received
+
+- 101
++ 683
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:114:25
+    112|       }).filter((pair): pair is number[] => pair !== null);
+    113|       counts.forEach(([shortest, longest]) => {
+    114|         expect(longest).toBe(shortest);
+       |                         ^
+    115|         expect(shortest).toBeGreaterThanOrEqual(1);
+    116|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:113:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > for 'the third backtick typed at the end o…' > builds as many run units in the longest message as in the shortest
+AssertionError: expected 1025 to be 101 // Object.is equality
+
+- Expected
++ Received
+
+- 101
++ 1025
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:131:31
+    129|         };
+    130|         const shortest = builtIn(200);
+    131|         expect(builtIn(2048)).toBe(shortest);
+       |                               ^
+    132|         expect(shortest).toBeGreaterThanOrEqual(1);
+    133|       }, 600_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…'
+AssertionError: expected 2001 to be less than or equal to 1020
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:239:32
+    237|     const allowed = (changed: number) => OPERATIONS_PER_CHANGED_LINE *…
+    238|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    239|     expect(longest.operations).toBeLessThanOrEqual(allowed(longest.cha…
+       |                                ^
+    240|     expect(shortest.operations).toBeLessThanOrEqual(allowed(shortest.c…
+    241|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:112:59
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:111:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:174:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/23]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of a quote line, in front of text that starts with a quote marker saves what the table says
+RangeError: Maximum call stack size exceeded
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:384:3
+ ❯ getMatches node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:170:24
+ ❯ apply node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/plugin/with-react.ts:74:4
+ ❯ apply node_modules/.pnpm/slate-history@0.113.1_slate@0.123.0/node_modules/slate-history/src/with-history.ts:115:4
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:552:7
+    550|       apply({ ...op, properties: { ...op.properties, quotePrefix: '', …
+    551|     } else {
+    552|       apply(op);
+       |       ^
+    553|     }
+    554|     if (!partialMarkdown && !rebuilding.has(editor)) noteEdited(editor…
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:131:14
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:130:14
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:174:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/23]⎯
+

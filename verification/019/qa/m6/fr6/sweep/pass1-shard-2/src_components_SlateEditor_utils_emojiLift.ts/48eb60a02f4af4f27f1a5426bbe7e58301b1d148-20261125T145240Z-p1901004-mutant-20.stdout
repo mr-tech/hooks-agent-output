@@ -1,0 +1,57 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261125T145240Z-p1901004/mutant-20
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 30ms
+     × on embedDescription, every content character carries the style set its preview gives it 19ms
+     × on fieldValue, every content character carries the style set its preview gives it 1ms
+     × on embedTitle, every content character carries the style set its preview gives it 1ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1ms
+     × on v2Text, every content character carries the style set its preview gives it 1ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 42 failed) 291ms
+     × hands the message the changed text on content, in a message of 40 lines 33ms
+     × hands the message the changed text on content, in a message of 122 lines 8ms
+     × hands the message the changed text on content, in a message of 123 lines 5ms
+     × hands the message the changed text on content, in a message of 200 lines 5ms
+     × hands the message the changed text on content, in a message of 1000 lines 17ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 24ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 2ms
+     × hands the message the changed text on content, in a message of 123 lines 2ms
+     × hands the message the changed text on content, in a message of 200 lines 2ms
+     × hands the message the changed text on content, in a message of 1000 lines 2ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 3ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 1ms
+     × hands the message the changed text on content, in a message of 123 lines 1ms
+     × hands the message the changed text on content, in a message of 200 lines 2ms
+     × hands the message the changed text on content, in a message of 1000 lines 2ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 3ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 1ms
+     × hands the message the changed text on content, in a message of 123 lines 1ms
+     × hands the message the changed text on content, in a message of 200 lines 1ms
+     × hands the message the changed text on content, in a message of 1000 lines 2ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 4ms
+     × hands the message the changed text on content, in a message of 40 lines 3ms
+     × hands the message the changed text on content, in a message of 122 lines 3ms
+     × hands the message the changed text on content, in a message of 123 lines 3ms
+     × hands the message the changed text on content, in a message of 200 lines 3ms
+     × hands the message the changed text on content, in a message of 1000 lines 13ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 26ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 3ms
+     × hands the message the changed text on content, in a message of 123 lines 3ms
+     × hands the message the changed text on content, in a message of 200 lines 15ms
+     × hands the message the changed text on content, in a message of 1000 lines 13ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 29ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 3ms
+     × hands the message the changed text on content, in a message of 123 lines 2ms
+     × hands the message the changed text on content, in a message of 200 lines 3ms
+     × hands the message the changed text on content, in a message of 1000 lines 14ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 26ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 4 failed) 97ms
+     × hands the message that text in a full-markdown editor 64ms
+     × hands the message that text in a single-line editor 11ms
+     × hands the message that text in a full-markdown editor 11ms
+     × hands the message that text in a single-line editor 9ms

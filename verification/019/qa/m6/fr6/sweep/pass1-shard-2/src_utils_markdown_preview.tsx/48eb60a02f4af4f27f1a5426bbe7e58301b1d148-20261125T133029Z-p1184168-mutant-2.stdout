@@ -1,0 +1,92 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-2
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx (5 tests | 5 failed) 12321ms
+     × on embedDescription, every content character carries the style set its preview gives it 3180ms
+     × on fieldValue, every content character carries the style set its preview gives it 2620ms
+     × on embedTitle, every content character carries the style set its preview gives it 2189ms
+     × on embedTitleWithUrl, every content character carries the style set its preview gives it 1994ms
+     × on v2Text, every content character carries the style set its preview gives it 2330ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-edit.test.tsx (15 tests | 9 failed) 1547ms
+     × with one timestamp between text 29ms
+     × with identical duplicates, the first 403ms
+     × with identical duplicates, the second 13ms
+     × with a timestamp inside a spoiler, the first 143ms
+     × with a timestamp inside a spoiler, the second 16ms
+     × with the bare form 2ms
+     × with three timestamps, the middle one 10ms
+     × after a timestamp is added before the existing ones while the preview stays mounted 24ms
+     × after a timestamp is added between and after the existing ones 18ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 1983ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 293ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 155ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 134ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 129ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 128ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 152ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 157ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 150ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 142ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 136ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 136ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 143ms
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 14 failed) 830ms
+     × names the channel after content  when the guild list is in reach 251ms
+     × names the channel after title  when the guild list is in reach 91ms
+     × names the channel after description  when the guild list is in reach 50ms
+     × names the channel after field name  when the guild list is in reach 48ms
+     × names the channel after field value  when the guild list is in reach 46ms
+     × names the channel after linked title  when the guild list is in reach 36ms
+     × names the channel after text display  when the guild list is in reach 35ms
+     × shows the channel id after content , and still renders, with no guild provider 31ms
+     × shows the channel id after title , and still renders, with no guild provider 52ms
+     × shows the channel id after description , and still renders, with no guild provider 42ms
+     × shows the channel id after field name , and still renders, with no guild provider 42ms
+     × shows the channel id after field value , and still renders, with no guild provider 34ms
+     × shows the channel id after linked title , and still renders, with no guild provider 37ms
+     × shows the channel id after text display , and still renders, with no guild provider 34ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 13 failed) 322ms
+     × bold 14ms
+     × italic 4ms
+     × underline 4ms
+     × strikethrough 4ms
+     × spoiler 5ms
+     × unordered list 4ms
+     × masked link 8ms
+     × a line break 2ms
+     × puts a bold run inside a quote inside the quote node 3ms
+     × "**a** *b* __c__ ~~d~~ ||e|| `f`" reads as the visible form of the engine tree 7ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 11ms
+     × "[a](https://x.y/ \"t\") https://z.q/ <https://w.v>" reads as the visible form of the engine tree 5ms
+     × gives the same visible form string for the same rendering 3ms
+ ❯ |dom| src/app/preview/__tests__/page.field-name-links.test.tsx (2 tests | 1 failed) 377ms
+     × draws its links as links when the embed has no url 333ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.timestamp-styles.test.tsx (15 tests | 1 failed) 89ms
+     × formats in the viewer's zone once mounted 9ms
+ ❯ |dom| src/utils/markdown/__tests__/preview.emoji-draw.test.tsx (9 tests | 2 failed) 103ms
+     × large when only emoji and spaces make up the message, for every one of them 11ms
+     × small once any text sits beside it 4ms
+ ❯ |dom| src/utils/markdown/components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx (3 tests | 3 failed) 66ms
+     × reveals every piece when any one piece is clicked 34ms
+     × hides every piece again when a revealed piece is clicked 4ms
+     × leaves a different spoiler hidden 20ms
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 1 failed) 63ms
+     × renders, and draws the channel in its id form 11ms
+ ❯ |node| src/utils/markdown/__tests__/preview.fenced-code-block-draw.test.ts (27 tests | 2 failed) 69ms
+     × renders a code block for text after and an empty line inside 5ms
+     × renders a code block for text after and an empty line inside 1ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 8 failed) 70ms
+     × draws bold 18ms
+     × draws italic 2ms
+     × draws underline 1ms
+     × draws strikethrough 1ms
+     × keeps a line break between two lines of text 2ms
+     × draws a masked link as an anchor whose href is the engine url and whose label is its text 10ms
+     × draws an ordered list from its first number 1ms
+     × keeps a blank line between two paragraphs 1ms
+
+ Test Files  12 failed | 33 passed (45)
+      Tests  71 failed | 693 passed (764)
+   Start at  13:33:54
+   Duration  65.93s (transform 2.82s, setup 297ms, import 41.58s, tests 181.23s, environment 31.64s)
+

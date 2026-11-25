@@ -1,0 +1,104 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1599ms
+     × hands the message that text in a full-markdown editor 266ms
+     × hands the message that text in a full-markdown editor 200ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 11548ms
+     × hands the message that text in a full-markdown editor 3746ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 127115ms
+     × hands the message that text in a full-markdown editor 5965ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 2 failed) 6407ms
+     × hands the message a line break typed as a new line 205ms
+     × hands the message that text in a full-markdown editor 413ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 15 failed) 6143ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 146ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 122ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 137ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 106ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 196ms
+     × writes no text to the lines a typed multi-line quote marker takes in 227ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 117ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 83ms
+     × makes the lines after a removed multi-line quote marker plain lines 86ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 248ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 216ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 426ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 166ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 177ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 547ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 7234ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 3758ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 3409ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 16 failed) 1830ms
+     × at the end of a quote line saves what the table says 168ms
+     × in the middle of a quote line saves what the table says 123ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 131ms
+     × in the middle of the first line of a multi-line quote saves what the table says 118ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 159ms
+     × at the end of a plain line saves what the table says 86ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 112ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 103ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 97ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 127ms
+     × leaves an empty line when the carried marker is removed with Backspace 102ms
+     × takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line 139ms
+     × is set on the line Enter makes from a quote line 83ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 71ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 85ms
+     × is resolved on the first line of the editor too 79ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 54 failed) 553347ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 426ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 3921ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 7640ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 209ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 3477ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 7055ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 48522ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 176ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 346ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 174ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 318ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 2142ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 269ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 5202ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 10884ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 294ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 6917ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 15291ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 99366ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 418ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 152ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 319ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 439ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 161ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 368ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 2612ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 409ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 7500ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 14958ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 396ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 8300ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 17417ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 101269ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 388ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 159ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 303ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 433ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 149ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 341ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 2338ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 515ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 241ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 378ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 442ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 154ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 304ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 2136ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 480ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 9781ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 20861ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 515ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 9158ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 20075ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 116741ms

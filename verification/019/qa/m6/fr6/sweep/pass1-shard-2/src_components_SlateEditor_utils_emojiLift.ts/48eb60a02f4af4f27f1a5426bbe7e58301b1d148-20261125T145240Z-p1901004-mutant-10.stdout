@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261125T145240Z-p1901004/mutant-10
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout-cache.test.ts (2 tests | 1 failed) 47ms
+     × parses a unit once for the same surface, text and code-block start, and again when either differs 13ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (36 tests | 18 failed) 63ms
+     × lists a unicode emoji with its source span and image 15ms
+     × lists an emoji typed as a name, with the characters around it with its source span and image 1ms
+     × lists a skin-tone sequence with its source span and image 1ms
+     × lists a still custom emoji with its source span and image 2ms
+     × lists an animated custom emoji with its source span and image 1ms
+     × keeps an id past 2^53 as digits that survive JSON 1ms
+     × lists no emoji inside a fenced code block 2ms
+     × lists the emoji outside a code span and none inside it 1ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 1ms
+     × holds a span of a layout when both ends match 1ms
+     × holds the first of three spans of a layout of three spans 1ms
+     × holds the middle span of a layout of three spans 0ms
+     × holds the last span of a layout of three spans 0ms
+       × lists the spans of the first line 1ms
+       × lists the spans of a line of two spans 0ms
+       × lists the spans of a line cut inside its second span 0ms
+       × lists the spans of a line cut just after its second span 0ms
+       × lists the spans of a line cut just before its second span 1ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  19 failed | 1773 passed (1792)
+   Start at  15:05:07
+   Duration  67.47s (transform 2.89s, setup 252ms, import 33.71s, tests 195.95s, environment 29.94s)
+

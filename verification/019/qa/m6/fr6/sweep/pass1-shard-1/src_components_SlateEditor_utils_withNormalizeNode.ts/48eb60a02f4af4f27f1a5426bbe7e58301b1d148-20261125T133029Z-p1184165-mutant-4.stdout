@@ -1,0 +1,134 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1447ms
+     × hands the message that text in a full-markdown editor 184ms
+     × hands the message that text in a full-markdown editor 94ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 11532ms
+     × hands the message that text in a full-markdown editor 3789ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7602ms
+     × hands the message that text in a full-markdown editor 3482ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 40 failed) 3175ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 54ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 38ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 37ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 25ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 13ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 22ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 20ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 27ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 46ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 33ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 34ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 32ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 36ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 26ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 29ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 23ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 28ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 24ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 22ms
+     × keeps every line after a multi-line quote marker as a quote line 30ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 29ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 18ms
+     × writes no text to the lines a typed multi-line quote marker takes in 26ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 13ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 24ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 23ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 50ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 27ms
+     × makes the lines after a removed multi-line quote marker plain lines 22ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 81ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 33ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 55ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 63ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 80ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 19ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 21ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 81ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 25ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 35ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 140ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 18 failed) 78592ms
+     × hands the message the changed text on content, in a message of 40 lines 212ms
+     × hands the message the changed text on content, in a message of 122 lines 588ms
+     × hands the message the changed text on content, in a message of 123 lines 630ms
+     × hands the message the changed text on content, in a message of 200 lines 971ms
+     × hands the message the changed text on content, in a message of 1000 lines 4800ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 9569ms
+     × hands the message the changed text on content, in a message of 40 lines 215ms
+     × hands the message the changed text on content, in a message of 122 lines 558ms
+     × hands the message the changed text on content, in a message of 123 lines 662ms
+     × hands the message the changed text on content, in a message of 200 lines 945ms
+     × hands the message the changed text on content, in a message of 1000 lines 4202ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11017ms
+     × hands the message the changed text on content, in a message of 40 lines 416ms
+     × hands the message the changed text on content, in a message of 122 lines 1128ms
+     × hands the message the changed text on content, in a message of 123 lines 1134ms
+     × hands the message the changed text on content, in a message of 200 lines 1965ms
+     × hands the message the changed text on content, in a message of 1000 lines 9082ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 18571ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 26 failed) 489ms
+     × at the end of a quote line saves what the table says 39ms
+     × in the middle of a quote line saves what the table says 12ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 13ms
+     × in the middle of the first line of a multi-line quote saves what the table says 18ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 22ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 38ms
+     × at the end of a quote line that opens a fence saves what the table says 16ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 10ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 11ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 15ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 17ms
+     × leaves an empty line when the carried marker is removed with Backspace 18ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 22ms
+     × takes in a typed quote marker inside a fence opened on a quote line 19ms
+     × takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line 14ms
+     × is set on the line Enter makes from a quote line 11ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 17ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 12ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 18ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 13ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 17ms
+     × is cleared when the marker of a carried code line is deleted by hand 21ms
+     × is cleared by Backspace after the carried marker of a code line 20ms
+     × is resolved on the first line of the editor too 12ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 20ms
+     × leaves a caret at the end of a second text node of the line alone 21ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 28 failed) 81860ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 1406ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 1922ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 2047ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 2069ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 1862ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1706ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 1639ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 1877ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 1270ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 1284ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 1383ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 2904ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 1840ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1786ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 1324ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 1355ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 3957ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 4229ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 1687ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 1565ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 1538ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1530ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 3529ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 1805ms
+       × builds as many run units in the longest message as in the shortest 3518ms
+       × builds as many run units in the longest message as in the shortest 1899ms
+       × builds as many run units in the longest message as in the shortest 20717ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 1915ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (919 tests | 275 skipped) 282459ms
+
+ Test Files  8 failed | 33 passed (41)
+      Tests  116 failed | 1271 passed | 275 skipped (1662)
+     Errors  455 errors
+   Start at  13:39:41
+   Duration  297.62s (transform 3.35s, setup 389ms, import 36.17s, tests 548.08s, environment 32.48s)
+

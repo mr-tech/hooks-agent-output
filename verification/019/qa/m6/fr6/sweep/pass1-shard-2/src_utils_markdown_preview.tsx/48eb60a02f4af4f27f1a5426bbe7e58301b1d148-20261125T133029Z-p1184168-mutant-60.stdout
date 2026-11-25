@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-60
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 4416ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 550ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 356ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 323ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 307ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 345ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 360ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 362ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 350ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 329ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 384ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 345ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 271ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 3 failed) 461ms
+     × unordered list 16ms
+     × ordered list from three 6ms
+     × "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree 21ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 2 failed) 90ms
+     × draws an ordered list from its first number 8ms
+     × draws an unordered list 2ms
+
+ Test Files  3 failed | 42 passed (45)
+      Tests  17 failed | 747 passed (764)
+   Start at  14:44:09
+   Duration  84.92s (transform 3.55s, setup 322ms, import 48.47s, tests 242.34s, environment 37.48s)
+

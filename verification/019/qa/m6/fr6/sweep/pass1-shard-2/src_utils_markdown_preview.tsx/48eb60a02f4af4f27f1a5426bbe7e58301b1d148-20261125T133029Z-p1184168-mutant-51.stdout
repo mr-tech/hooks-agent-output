@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-51
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 2827ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 423ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 238ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 241ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 210ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 222ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 226ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 204ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 161ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 179ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 229ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 187ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 191ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 1 failed) 67ms
+     × draws a bare link with the normalised url as its label 7ms
+
+ Test Files  2 failed | 43 passed (45)
+      Tests  13 failed | 751 passed (764)
+   Start at  14:33:08
+   Duration  58.96s (transform 2.71s, setup 262ms, import 37.96s, tests 160.17s, environment 29.21s)
+

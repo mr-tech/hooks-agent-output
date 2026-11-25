@@ -1,0 +1,80 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > shows plain text while the engine is pending and colours the same text once it resolves
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > draws a masked link label as link text on the content surface
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.coloured-by-surface.test.tsx > the editor colours by the surface it is given > draws the same masked link as plain text on the title surface of an embed that has an address, whose mask has links off
+TypeError: Cannot read properties of undefined (reading 'tree')
+ ❯ emojiLayout src/components/SlateEditor/utils/emojiLift.ts:64:18
+     62|   if (false && !parsed) return undefined;
+     63|   const layout: EmojiLayout = { emojis: [] };
+     64|   collect(parsed.tree, text, parsed.shift, layout);
+       |                  ^
+     65|   layout.emojis.sort((a, b) => a.start - b.start);
+     66|   if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:144:20
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:140:36
+ ❯ src/components/SlateEditor/utils/getInitialValue.ts:64:10
+ ❯ src/components/SlateEditor/index.tsx:52:70
+ ❯ mountStateImpl node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:8268:24
+ ❯ mountState node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:8289:22
+ ❯ Object.useState node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:26243:18
+ ❯ process.env.NODE_ENV.exports.useState node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1263:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx > the editor normalizer before the markdown engine has loaded > keeps an emoji element where it is and changes no text
+TypeError: Cannot read properties of undefined (reading 'tree')
+ ❯ emojiLayout src/components/SlateEditor/utils/emojiLift.ts:64:18
+     62|   if (false && !parsed) return undefined;
+     63|   const layout: EmojiLayout = { emojis: [] };
+     64|   collect(parsed.tree, text, parsed.shift, layout);
+       |                  ^
+     65|   layout.emojis.sort((a, b) => a.start - b.start);
+     66|   if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {
+ ❯ resolveEmoji src/components/SlateEditor/utils/withNormalizeNode.ts:316:18
+ ❯ handleElement src/components/SlateEditor/utils/withNormalizeNode.ts:485:3
+ ❯ Object.editor.normalizeNode src/components/SlateEditor/utils/withNormalizeNode.ts:593:14
+ ❯ normalizeNode node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:86:15
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts > the input classes of the round-trip properties > enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps
+TypeError: Cannot read properties of undefined (reading 'tree')
+ ❯ emojiLayout src/components/SlateEditor/utils/emojiLift.ts:64:18
+     62|   if (false && !parsed) return undefined;
+     63|   const layout: EmojiLayout = { emojis: [] };
+     64|   collect(parsed.tree, text, parsed.shift, layout);
+       |                  ^
+     65|   layout.emojis.sort((a, b) => a.start - b.start);
+     66|   if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:144:20
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:140:36
+ ❯ src/components/SlateEditor/utils/getInitialValue.ts:64:10
+ ❯ src/components/SlateEditor/__tests__/helpers/blockLayerEdits.ts:12:20
+ ❯ Module.blockLayerEdits src/components/SlateEditor/__tests__/helpers/blockLayerEdits.ts:10:33
+ ❯ src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts:38:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts > the editor before the markdown engine has loaded > loads a message with an emoji as one text span and styles nothing
+TypeError: Cannot read properties of undefined (reading 'tree')
+ ❯ emojiLayout src/components/SlateEditor/utils/emojiLift.ts:64:18
+     62|   if (false && !parsed) return undefined;
+     63|   const layout: EmojiLayout = { emojis: [] };
+     64|   collect(parsed.tree, text, parsed.shift, layout);
+       |                  ^
+     65|   layout.emojis.sort((a, b) => a.start - b.start);
+     66|   if (layoutCache.size >= LAYOUT_CACHE_LIMIT) {
+ ❯ src/components/SlateEditor/utils/emojiLift.ts:144:20
+ ❯ liftLoaded src/components/SlateEditor/utils/emojiLift.ts:140:36
+ ❯ Module. src/components/SlateEditor/utils/getInitialValue.ts:64:10
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.engine-not-ready.test.ts:15:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+

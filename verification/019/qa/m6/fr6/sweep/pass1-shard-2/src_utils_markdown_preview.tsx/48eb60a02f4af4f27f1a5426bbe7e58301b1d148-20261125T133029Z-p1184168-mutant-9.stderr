@@ -1,0 +1,288 @@
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+TypeError: Cannot read properties of null (reading 'find')
+    at channelName (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:42:24)
+    at renderMention (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:82:20)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:161:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:52
+    at Array.map (<anonymous>)
+    at renderInline (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:94:16)
+    at renderNode (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:123:14)
+    at /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:100:8
+    at Array.map (<anonymous>)
+    at renderBlocks (/tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-9/src/utils/markdown/preview.tsx:98:16) {
+  [stack]: [Getter/Setter],
+  [message]: "Cannot read properties of null (reading 'find')"
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 30 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with no guild provider above it > renders, and draws the channel in its id form
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (false && !channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/30]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+AssertionError: expected +0 to be 7 // Object.is equality
+
+- Expected
++ Received
+
+- 7
++ 0
+
+ ❯ vi.waitFor.timeout src/app/preview/__tests__/page.channel-names.test.tsx:50:72
+     48|   await vi.waitFor(async () => {
+     49|     await act(async () => {});
+     50|     expect(el.querySelectorAll('.discord-visualizer__mention').length)…
+       |                                                                        ^
+     51|   }, { timeout: 5000 });
+     52|   return el;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/30]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > a channel mention with no list
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedDescription, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on fieldValue, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitle, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on embedTitleWithUrl, every content character carries the style set its preview gives it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/decorator.preview-equals.test.tsx > the editor of a legacy-only surface colours each content character as that surface's preview does > on v2Text, every content character carries the style set its preview gives it
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (false && !channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/30]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (false && !channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderModifier src/utils/markdown/preview.tsx:179:20
+ ❯ renderNode src/utils/markdown/preview.tsx:148:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/30]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (false && !channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:133:9
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/30]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws no text that says unknown in any of the 60 cells
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws every one of the 60 cells as something visible
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with no provider
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:42:24
+     40| function channelName(channels: Ctx['channels'], id: string) {
+     41|   if (false && !channels) return undefined;
+     42|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     43|   if (top) return top.name;
+     44|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:82:20
+ ❯ renderNode src/utils/markdown/preview.tsx:161:14
+ ❯ src/utils/markdown/preview.tsx:94:52
+ ❯ renderInline src/utils/markdown/preview.tsx:94:16
+ ❯ renderNode src/utils/markdown/preview.tsx:123:14
+ ❯ src/utils/markdown/preview.tsx:100:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/30]⎯
+

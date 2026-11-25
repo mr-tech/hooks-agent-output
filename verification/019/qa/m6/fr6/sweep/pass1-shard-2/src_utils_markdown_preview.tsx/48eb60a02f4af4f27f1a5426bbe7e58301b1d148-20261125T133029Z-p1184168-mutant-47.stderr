@@ -1,0 +1,20 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link whose tree holds no label > as its address, for a masked link in a fixture tree that invents engine output
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview draws a link whose tree holds no label > as its address, for a contact link in a fixture tree that invents engine output
+AssertionError: expected '<a href="https://a.b/"></a>' to be '<a href="https://a.b/">https://a.b/</…' // Object.is equality
+
+Expected: "<a href="https://a.b/">https://a.b/</a>"
+Received: "<a href="https://a.b/"></a>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:125:61
+    123|
+    124|   it.each(['masked', 'contact'])('as its address, for a %s link in a f…
+    125|     expect(markupOf(unlabelled(kind, 'https://a.b/'), 'x')).toBe('<a h…
+       |                                                             ^
+    126|   });
+    127| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

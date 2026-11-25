@@ -1,0 +1,926 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > unordered list
+AssertionError: expected [ { t: 'N', name: 'ol1', …(2) } ] to deeply equal [ { t: 'N', name: 'ul', …(2) } ]
+
+- Expected
++ Received
+
+@@ -23,9 +23,9 @@
+          ],
+          "name": "li",
+          "t": "N",
+        },
+      ],
+-     "name": "ul",
++     "name": "ol1",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:61:27
+     59|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     60|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     61|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form of the rendered preview: one node for each element the renderer draws > ordered list from three
+AssertionError: expected [ { t: 'N', name: 'ul', …(2) } ] to deeply equal [ { t: 'N', name: 'ol3', …(2) } ]
+
+- Expected
++ Received
+
+@@ -12,9 +12,9 @@
+          ],
+          "name": "li",
+          "t": "N",
+        },
+      ],
+-     "name": "ol3",
++     "name": "ul",
+      "t": "N",
+    },
+  ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:61:27
+     59|     ['a timestamp with no style', '<t:1700000000>', [N('ts', '17000000…
+     60|   ] as [string, string, CNode[]][])('%s', (_name, source, expected) =>…
+     61|     expect(drawn(source)).toEqual(expected);
+       |                           ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx > the DOM form against the engine tree it was drawn from > "# h\n> q\n- l1\n- l2\n1. o\n```py\nz\n```" reads as the visible form of the engine tree
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "at": 2,
++     "dimensions": [
++       "block",
++     ],
++   },
++   {
++     "at": 3,
++     "dimensions": [
++       "block",
++     ],
++   },
++   {
++     "at": 4,
++     "dimensions": [
++       "block",
++     ],
++   },
++   {
++     "at": 5,
++     "dimensions": [
++       "block",
++     ],
++   },
++   {
++     "at": 6,
++     "dimensions": [
++       "block",
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx:75:85
+     73|     '[a](https://x.y/ "t") https://z.q/ <https://w.v>',
+     74|   ])('%j reads as the visible form of the engine tree', (source) => {
+     75|     expect(visibleDifferences(drawn(source), 'dom', nativeParse(source…
+       |                                                                                     ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 0 of twelve
+AssertionError: expected [ 'corpus:169', 'corpus:181', …(49) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:169",
++   "corpus:181",
++   "corpus:258",
++   "gen:102",
++   "gen:115",
++   "gen:156",
++   "gen:210",
++   "gen:274",
++   "gen:290",
++   "gen:303",
++   "gen:321",
++   "gen:335",
++   "gen:367",
++   "gen:430",
++   "gen:464",
++   "gen:537",
++   "gen:567",
++   "gen:644",
++   "gen:658",
++   "gen:742",
++   "gen:770",
++   "gen:784",
++   "gen:799",
++   "gen:845",
++   "gen:862",
++   "gen:908",
++   "gen:941",
++   "gen:1002",
++   "gen:1018",
++   "gen:1052",
++   "gen:1069",
++   "gen:1100",
++   "gen:1197",
++   "gen:1222",
++   "gen:1234",
++   "gen:1259",
++   "gen:1332",
++   "gen:1377",
++   "gen:1422",
++   "gen:1480",
++   "gen:1594",
++   "gen:1606",
++   "gen:1637",
++   "gen:1663",
++   "gen:1677",
++   "gen:1718",
++   "gen:1820",
++   "gen:1847",
++   "gen:1881",
++   "gen:1932",
++   "gen:1992",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 1 of twelve
+AssertionError: expected [ 'corpus:170', 'corpus:182', …(43) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:170",
++   "corpus:182",
++   "gen:131",
++   "gen:158",
++   "gen:194",
++   "gen:261",
++   "gen:275",
++   "gen:306",
++   "gen:336",
++   "gen:353",
++   "gen:385",
++   "gen:614",
++   "gen:659",
++   "gen:685",
++   "gen:715",
++   "gen:743",
++   "gen:847",
++   "gen:880",
++   "gen:923",
++   "gen:989",
++   "gen:1037",
++   "gen:1086",
++   "gen:1101",
++   "gen:1151",
++   "gen:1185",
++   "gen:1210",
++   "gen:1223",
++   "gen:1248",
++   "gen:1293",
++   "gen:1452",
++   "gen:1499",
++   "gen:1536",
++   "gen:1595",
++   "gen:1624",
++   "gen:1651",
++   "gen:1665",
++   "gen:1704",
++   "gen:1762",
++   "gen:1780",
++   "gen:1807",
++   "gen:1821",
++   "gen:1836",
++   "gen:1898",
++   "gen:1914",
++   "gen:1949",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 2 of twelve
+AssertionError: expected [ 'corpus:171', 'corpus:183', …(33) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:171",
++   "corpus:183",
++   "corpus:260",
++   "gen:132",
++   "gen:145",
++   "gen:160",
++   "gen:179",
++   "gen:230",
++   "gen:354",
++   "gen:417",
++   "gen:494",
++   "gen:524",
++   "gen:674",
++   "gen:703",
++   "gen:730",
++   "gen:835",
++   "gen:1072",
++   "gen:1087",
++   "gen:1118",
++   "gen:1169",
++   "gen:1211",
++   "gen:1249",
++   "gen:1322",
++   "gen:1367",
++   "gen:1453",
++   "gen:1502",
++   "gen:1550",
++   "gen:1582",
++   "gen:1692",
++   "gen:1705",
++   "gen:1808",
++   "gen:1837",
++   "gen:1849",
++   "gen:1865",
++   "gen:1883",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 3 of twelve
+AssertionError: expected [ 'corpus:172', 'corpus:184', …(41) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:172",
++   "corpus:184",
++   "gen:118",
++   "gen:133",
++   "gen:161",
++   "gen:196",
++   "gen:277",
++   "gen:311",
++   "gen:325",
++   "gen:338",
++   "gen:402",
++   "gen:509",
++   "gen:570",
++   "gen:647",
++   "gen:661",
++   "gen:675",
++   "gen:745",
++   "gen:759",
++   "gen:804",
++   "gen:821",
++   "gen:836",
++   "gen:882",
++   "gen:911",
++   "gen:993",
++   "gen:1007",
++   "gen:1023",
++   "gen:1153",
++   "gen:1170",
++   "gen:1187",
++   "gen:1200",
++   "gen:1280",
++   "gen:1336",
++   "gen:1381",
++   "gen:1469",
++   "gen:1483",
++   "gen:1610",
++   "gen:1626",
++   "gen:1680",
++   "gen:1693",
++   "gen:1706",
++   "gen:1809",
++   "gen:1824",
++   "gen:1838",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 4 of twelve
+AssertionError: expected [ 'corpus:161', 'corpus:173', …(40) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:161",
++   "corpus:173",
++   "gen:134",
++   "gen:197",
++   "gen:326",
++   "gen:339",
++   "gen:372",
++   "gen:451",
++   "gen:557",
++   "gen:589",
++   "gen:603",
++   "gen:705",
++   "gen:822",
++   "gen:837",
++   "gen:899",
++   "gen:928",
++   "gen:960",
++   "gen:1043",
++   "gen:1089",
++   "gen:1105",
++   "gen:1139",
++   "gen:1201",
++   "gen:1213",
++   "gen:1226",
++   "gen:1238",
++   "gen:1337",
++   "gen:1350",
++   "gen:1369",
++   "gen:1396",
++   "gen:1414",
++   "gen:1427",
++   "gen:1440",
++   "gen:1455",
++   "gen:1522",
++   "gen:1568",
++   "gen:1611",
++   "gen:1695",
++   "gen:1825",
++   "gen:1917",
++   "gen:1937",
++   "gen:1955",
++   "gen:1996",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 5 of twelve
+AssertionError: expected [ 'corpus:162', 'corpus:263', …(43) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:162",
++   "corpus:263",
++   "gen:120",
++   "gen:217",
++   "gen:266",
++   "gen:281",
++   "gen:313",
++   "gen:357",
++   "gen:390",
++   "gen:435",
++   "gen:469",
++   "gen:497",
++   "gen:513",
++   "gen:559",
++   "gen:590",
++   "gen:690",
++   "gen:707",
++   "gen:748",
++   "gen:761",
++   "gen:777",
++   "gen:806",
++   "gen:869",
++   "gen:914",
++   "gen:930",
++   "gen:1025",
++   "gen:1044",
++   "gen:1075",
++   "gen:1107",
++   "gen:1172",
++   "gen:1202",
++   "gen:1214",
++   "gen:1310",
++   "gen:1370",
++   "gen:1441",
++   "gen:1613",
++   "gen:1628",
++   "gen:1753",
++   "gen:1767",
++   "gen:1784",
++   "gen:1840",
++   "gen:1852",
++   "gen:1886",
++   "gen:1918",
++   "gen:1938",
++   "gen:1985",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 6 of twelve
+AssertionError: expected [ 'corpus:91', 'corpus:175', …(42) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:91",
++   "corpus:175",
++   "gen:164",
++   "gen:199",
++   "gen:235",
++   "gen:314",
++   "gen:392",
++   "gen:423",
++   "gen:453",
++   "gen:470",
++   "gen:529",
++   "gen:544",
++   "gen:665",
++   "gen:736",
++   "gen:749",
++   "gen:762",
++   "gen:808",
++   "gen:824",
++   "gen:854",
++   "gen:871",
++   "gen:950",
++   "gen:962",
++   "gen:980",
++   "gen:1026",
++   "gen:1060",
++   "gen:1092",
++   "gen:1215",
++   "gen:1253",
++   "gen:1298",
++   "gen:1340",
++   "gen:1371",
++   "gen:1386",
++   "gen:1399",
++   "gen:1416",
++   "gen:1570",
++   "gen:1710",
++   "gen:1725",
++   "gen:1754",
++   "gen:1829",
++   "gen:1841",
++   "gen:1855",
++   "gen:1920",
++   "gen:1973",
++   "gen:1999",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 7 of twelve
+AssertionError: expected [ 'corpus:164', 'corpus:176', …(51) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:164",
++   "corpus:176",
++   "link:76",
++   "gen:123",
++   "gen:201",
++   "gen:219",
++   "gen:236",
++   "gen:284",
++   "gen:359",
++   "gen:393",
++   "gen:424",
++   "gen:458",
++   "gen:486",
++   "gen:516",
++   "gen:545",
++   "gen:578",
++   "gen:606",
++   "gen:639",
++   "gen:679",
++   "gen:723",
++   "gen:763",
++   "gen:779",
++   "gen:825",
++   "gen:840",
++   "gen:855",
++   "gen:933",
++   "gen:951",
++   "gen:997",
++   "gen:1061",
++   "gen:1093",
++   "gen:1124",
++   "gen:1191",
++   "gen:1241",
++   "gen:1268",
++   "gen:1284",
++   "gen:1299",
++   "gen:1341",
++   "gen:1353",
++   "gen:1402",
++   "gen:1430",
++   "gen:1458",
++   "gen:1474",
++   "gen:1488",
++   "gen:1528",
++   "gen:1556",
++   "gen:1589",
++   "gen:1617",
++   "gen:1726",
++   "gen:1800",
++   "gen:1814",
++   "gen:1830",
++   "gen:1940",
++   "gen:1974",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 8 of twelve
+AssertionError: expected [ 'corpus:165', 'corpus:177', …(41) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:165",
++   "corpus:177",
++   "link:77",
++   "gen:203",
++   "gen:237",
++   "gen:253",
++   "gen:299",
++   "gen:316",
++   "gen:487",
++   "gen:500",
++   "gen:548",
++   "gen:563",
++   "gen:607",
++   "gen:622",
++   "gen:640",
++   "gen:652",
++   "gen:695",
++   "gen:780",
++   "gen:794",
++   "gen:811",
++   "gen:856",
++   "gen:873",
++   "gen:888",
++   "gen:903",
++   "gen:983",
++   "gen:998",
++   "gen:1063",
++   "gen:1125",
++   "gen:1193",
++   "gen:1205",
++   "gen:1230",
++   "gen:1242",
++   "gen:1342",
++   "gen:1373",
++   "gen:1489",
++   "gen:1514",
++   "gen:1686",
++   "gen:1699",
++   "gen:1728",
++   "gen:1815",
++   "gen:1906",
++   "gen:1959",
++   "gen:1988",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 9 of twelve
+AssertionError: expected [ 'corpus:166', 'corpus:178', …(43) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:166",
++   "corpus:178",
++   "link:54",
++   "gen:99",
++   "gen:222",
++   "gen:239",
++   "gen:271",
++   "gen:286",
++   "gen:317",
++   "gen:347",
++   "gen:395",
++   "gen:501",
++   "gen:564",
++   "gen:580",
++   "gen:609",
++   "gen:641",
++   "gen:668",
++   "gen:696",
++   "gen:725",
++   "gen:739",
++   "gen:765",
++   "gen:781",
++   "gen:827",
++   "gen:918",
++   "gen:984",
++   "gen:1064",
++   "gen:1162",
++   "gen:1177",
++   "gen:1206",
++   "gen:1218",
++   "gen:1256",
++   "gen:1317",
++   "gen:1355",
++   "gen:1374",
++   "gen:1419",
++   "gen:1446",
++   "gen:1460",
++   "gen:1560",
++   "gen:1575",
++   "gen:1619",
++   "gen:1647",
++   "gen:1789",
++   "gen:1859",
++   "gen:1876",
++   "gen:1989",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 10 of twelve
+AssertionError: expected [ 'corpus:155', 'corpus:179', …(49) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:155",
++   "corpus:179",
++   "gen:100",
++   "gen:128",
++   "gen:171",
++   "gen:189",
++   "gen:333",
++   "gen:396",
++   "gen:413",
++   "gen:428",
++   "gen:461",
++   "gen:502",
++   "gen:533",
++   "gen:581",
++   "gen:610",
++   "gen:682",
++   "gen:697",
++   "gen:726",
++   "gen:740",
++   "gen:753",
++   "gen:782",
++   "gen:890",
++   "gen:919",
++   "gen:966",
++   "gen:1016",
++   "gen:1034",
++   "gen:1050",
++   "gen:1065",
++   "gen:1113",
++   "gen:1207",
++   "gen:1220",
++   "gen:1302",
++   "gen:1318",
++   "gen:1420",
++   "gen:1478",
++   "gen:1531",
++   "gen:1561",
++   "gen:1592",
++   "gen:1604",
++   "gen:1620",
++   "gen:1660",
++   "gen:1675",
++   "gen:1716",
++   "gen:1745",
++   "gen:1775",
++   "gen:1804",
++   "gen:1833",
++   "gen:1845",
++   "gen:1908",
++   "gen:1945",
++   "gen:1962",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/17]⎯
+
+ FAIL  |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx > the content preview, drawn, against the engine tree it was drawn from > is the same in the visible form, for the inputs of slice 11 of twelve
+AssertionError: expected [ 'corpus:156', 'corpus:180', …(46) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "corpus:156",
++   "corpus:180",
++   "corpus:269",
++   "gen:101",
++   "gen:114",
++   "gen:174",
++   "gen:192",
++   "gen:226",
++   "gen:289",
++   "gen:334",
++   "gen:398",
++   "gen:414",
++   "gen:521",
++   "gen:566",
++   "gen:582",
++   "gen:626",
++   "gen:643",
++   "gen:670",
++   "gen:713",
++   "gen:769",
++   "gen:783",
++   "gen:860",
++   "gen:878",
++   "gen:891",
++   "gen:907",
++   "gen:939",
++   "gen:955",
++   "gen:1017",
++   "gen:1099",
++   "gen:1131",
++   "gen:1196",
++   "gen:1233",
++   "gen:1274",
++   "gen:1303",
++   "gen:1319",
++   "gen:1331",
++   "gen:1360",
++   "gen:1577",
++   "gen:1661",
++   "gen:1747",
++   "gen:1760",
++   "gen:1777",
++   "gen:1791",
++   "gen:1880",
++   "gen:1895",
++   "gen:1946",
++   "gen:1964",
++   "gen:1979",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx:44:41
+     42|     const slice = held.filter((_, at) => at % SLICES === k);
+     43|     const differing = slice.filter((i) => visibleDifferences(drawnDom(…
+     44|     expect(differing.map((i) => i.src)).toEqual([]);
+       |                                         ^
+     45|   });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/17]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws an ordered list from its first number
+AssertionError: expected '<ul><li>a</li><li>b</li></ul>' to be '<ol start="3"><li>a</li><li>b</li></o…' // Object.is equality
+
+Expected: "<ol start="3"><li>a</li><li>b</li></ol>"
+Received: "<ul><li>a</li><li>b</li></ul>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:77:45
+     75|
+     76|   it('draws an ordered list from its first number', () => {
+     77|     expect(render('content', '3. a\n4. b')).toBe('<ol start="3"><li>a<…
+       |                                             ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/17]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts > the preview renders blocks > draws an unordered list
+AssertionError: expected '<ol><li>a</li></ol>' to be '<ul><li>a</li></ul>' // Object.is equality
+
+Expected: "<ul><li>a</li></ul>"
+Received: "<ol><li>a</li></ol>"
+
+ ❯ src/utils/markdown/__tests__/preview.engine-tree-render.test.ts:81:38
+     79|
+     80|   it('draws an unordered list', () => {
+     81|     expect(render('content', '- a')).toBe('<ul><li>a</li></ul>');
+       |                                      ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/17]⎯
+

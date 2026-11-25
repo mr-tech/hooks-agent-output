@@ -1,0 +1,56 @@
+[
+  {
+    "id": "Desktop.tsx:25:false",
+    "file": "src/components/DiscordContentEditor/Desktop.tsx",
+    "old": " false,",
+    "new": " true,",
+    "op": "false",
+    "line": 25,
+    "text": "visualStyle, value, onChange, onClose, className, isEmbed = false, forceOpen, surface,"
+  },
+  {
+    "id": "Desktop.tsx:90:not",
+    "file": "src/components/DiscordContentEditor/Desktop.tsx",
+    "old": " {!_f",
+    "new": " {_f",
+    "op": "not",
+    "line": 90,
+    "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+  },
+  {
+    "id": "Desktop.tsx:90:||",
+    "file": "src/components/DiscordContentEditor/Desktop.tsx",
+    "old": "d || e",
+    "new": "d && e",
+    "op": "||",
+    "line": 90,
+    "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+  },
+  {
+    "id": "Desktop.tsx:90:===",
+    "file": "src/components/DiscordContentEditor/Desktop.tsx",
+    "old": "ne === 'p",
+    "new": "ne !== 'p",
+    "op": "===",
+    "line": 90,
+    "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+  },
+  {
+    "id": "Desktop.tsx:90:||:2",
+    "file": "src/components/DiscordContentEditor/Desktop.tsx",
+    "old": "' || !",
+    "new": "' && !",
+    "op": "||",
+    "line": 90,
+    "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+  },
+  {
+    "id": "Desktop.tsx:90:not:2",
+    "file": "src/components/DiscordContentEditor/Desktop.tsx",
+    "old": " !m",
+    "new": " m",
+    "op": "not",
+    "line": 90,
+    "text": "{!_focused || engine === 'pending' || !markdown ? null : ("
+  }
+]

@@ -1,0 +1,21 @@
+emojiLift.ts:26:num SURVIVED 86.93
+emojiLift.ts:30:=== KILLED 88.98
+emojiLift.ts:44:if-false KILLED 80.71
+emojiLift.ts:44:=== KILLED 39.17
+emojiLift.ts:45:walk-first KILLED 77.14
+emojiLift.ts:45:walk-last KILLED 82.18
+emojiLift.ts:46:if-false KILLED 70.01
+emojiLift.ts:46:=== KILLED 54.99
+emojiLift.ts:50:num KILLED 76.94
+emojiLift.ts:56:false KILLED 72.23
+emojiLift.ts:60:if-false KILLED 71.66
+emojiLift.ts:62:if-false KILLED 68.87
+emojiLift.ts:62:not KILLED 475.09
+emojiLift.ts:66:if-false KILLED 68.21
+emojiLift.ts:66:>= KILLED 70.26
+emojiLift.ts:77:false KILLED 72.2
+emojiLift.ts:78:false KILLED 72.46
+emojiLift.ts:88:num KILLED 69.03
+emojiLift.ts:93:num KILLED 69.39
+emojiLift.ts:95:< KILLED 900.15
+mutation-run: interrupted

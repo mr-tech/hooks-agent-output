@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_utils_markdown_preview.tsx/20261125T133029Z-p1184168/mutant-6
+
+ ❯ |dom| src/utils/markdown/__tests__/preview.dom-equals-engine-tree.test.tsx (15 tests | 12 failed) 3445ms
+     × is the same in the visible form, for the inputs of slice 0 of twelve 506ms
+     × is the same in the visible form, for the inputs of slice 1 of twelve 259ms
+     × is the same in the visible form, for the inputs of slice 2 of twelve 276ms
+     × is the same in the visible form, for the inputs of slice 3 of twelve 307ms
+     × is the same in the visible form, for the inputs of slice 4 of twelve 269ms
+     × is the same in the visible form, for the inputs of slice 5 of twelve 246ms
+     × is the same in the visible form, for the inputs of slice 6 of twelve 207ms
+     × is the same in the visible form, for the inputs of slice 7 of twelve 259ms
+     × is the same in the visible form, for the inputs of slice 8 of twelve 264ms
+     × is the same in the visible form, for the inputs of slice 9 of twelve 265ms
+     × is the same in the visible form, for the inputs of slice 10 of twelve 211ms
+     × is the same in the visible form, for the inputs of slice 11 of twelve 247ms
+ ❯ |dom| src/utils/markdown/__tests__/canonFromDom.element-map.test.tsx (41 tests | 1 failed) 305ms
+     × a line break 10ms
+ ❯ |node| src/utils/markdown/__tests__/preview.engine-tree-render.test.ts (24 tests | 2 failed) 65ms
+     × keeps a line break between two lines of text 6ms
+     × keeps a blank line between two paragraphs 1ms
+
+ Test Files  3 failed | 42 passed (45)
+      Tests  15 failed | 749 passed (764)
+   Start at  13:39:13
+   Duration  62.32s (transform 2.78s, setup 271ms, import 40.28s, tests 168.89s, environment 31.37s)
+

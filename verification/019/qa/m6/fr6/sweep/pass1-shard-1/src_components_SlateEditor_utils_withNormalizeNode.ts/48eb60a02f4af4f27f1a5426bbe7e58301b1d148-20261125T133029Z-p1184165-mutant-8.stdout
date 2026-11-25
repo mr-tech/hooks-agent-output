@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-1/src_components_SlateEditor_utils_withNormalizeNode.ts/20261125T133029Z-p1184165/mutant-8
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 7220ms
+     × hands the message that text in a full-markdown editor 5936ms
+     × hands the message that text in a full-markdown editor 478ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 12162ms
+     × hands the message that text in a full-markdown editor 4001ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 9026ms
+     × hands the message that text in a full-markdown editor 4245ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 1 failed) 3572ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 600ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 8 failed) 98822ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 207ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 9654ms
+       × builds as many run units in the longest message as in the shortest 10839ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 13266ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 13332ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 12188ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 15573ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 13703ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 12 failed) 550409ms
+     × hands the message the changed text on content, in a message of 40 lines 1733ms
+     × hands the message the changed text on content, in a message of 122 lines 6684ms
+     × hands the message the changed text on content, in a message of 123 lines 6340ms
+     × hands the message the changed text on content, in a message of 200 lines 11041ms
+     × hands the message the changed text on content, in a message of 1000 lines 70398ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 180470ms
+     × hands the message the changed text on content, in a message of 40 lines 2258ms
+     × hands the message the changed text on content, in a message of 122 lines 5400ms
+     × hands the message the changed text on content, in a message of 123 lines 5327ms
+     × hands the message the changed text on content, in a message of 200 lines 8986ms
+     × hands the message the changed text on content, in a message of 1000 lines 58091ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 176907ms

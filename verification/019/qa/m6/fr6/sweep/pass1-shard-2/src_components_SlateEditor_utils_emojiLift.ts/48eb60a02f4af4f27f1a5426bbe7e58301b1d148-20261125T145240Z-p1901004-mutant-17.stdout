@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/b69130eb-0e7b-4d21-b68a-5fe151ce9b99/scratchpad/sweep-work/pass1-2/src_components_SlateEditor_utils_emojiLift.ts/20261125T145240Z-p1901004/mutant-17
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (36 tests | 1 failed) 57ms
+     × builds the element of a span with the span's own image, alt and title and no line fields set 8ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 1791 passed (1792)
+   Start at  15:20:08
+   Duration  67.34s (transform 2.84s, setup 295ms, import 33.98s, tests 195.16s, environment 30.36s)
+

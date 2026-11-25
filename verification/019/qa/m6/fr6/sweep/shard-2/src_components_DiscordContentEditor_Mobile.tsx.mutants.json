@@ -1,0 +1,29 @@
+[
+  {
+    "id": "Mobile.tsx:93:===",
+    "file": "src/components/DiscordContentEditor/Mobile.tsx",
+    "old": "ne === 'p",
+    "new": "ne !== 'p",
+    "op": "===",
+    "line": 93,
+    "text": "{engine === 'pending' || !markdown ? null : ("
+  },
+  {
+    "id": "Mobile.tsx:93:||",
+    "file": "src/components/DiscordContentEditor/Mobile.tsx",
+    "old": "' || !",
+    "new": "' && !",
+    "op": "||",
+    "line": 93,
+    "text": "{engine === 'pending' || !markdown ? null : ("
+  },
+  {
+    "id": "Mobile.tsx:93:not",
+    "file": "src/components/DiscordContentEditor/Mobile.tsx",
+    "old": " !m",
+    "new": " m",
+    "op": "not",
+    "line": 93,
+    "text": "{engine === 'pending' || !markdown ? null : ("
+  }
+]

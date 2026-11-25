@@ -1,0 +1,39 @@
+[
+  {
+    "id": "flattenNodeText.ts:11:if-false",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": " if (i",
+    "new": " if (false && i",
+    "op": "if-false",
+    "line": 11,
+    "text": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';"
+  },
+  {
+    "id": "qa-E2-save-writes-alt",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+    "new": "if (isEmojiElement(node)) return allowEmoji ? node.alt : '';",
+    "limb": "E-2 / AC-6.2: the saved text writes an element's alt"
+  },
+  {
+    "id": "qa-E2-save-writes-title",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+    "new": "if (isEmojiElement(node)) return allowEmoji ? node.title : '';",
+    "limb": "E-2 / AC-6.2: the saved text writes an element's title"
+  },
+  {
+    "id": "qa-E2-save-drops-element",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "if (isEmojiElement(node)) return allowEmoji ? node.source : '';",
+    "new": "if (isEmojiElement(node)) return '';",
+    "limb": "E-2: the saved text drops every element"
+  },
+  {
+    "id": "qa-E2-quote-prefix-default",
+    "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+    "old": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;",
+    "new": "if (node.type === 'blockQuote') return `> ${text}`;",
+    "limb": "E-2: a quote line saves '> ' whatever its prefix (>>> lost)"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "Embed.tsx:98:not",
+    "file": "src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx",
+    "old": "!!u",
+    "new": "!u",
+    "op": "not",
+    "line": 98,
+    "text": "embedHasUrl={!!url}"
+  }
+]

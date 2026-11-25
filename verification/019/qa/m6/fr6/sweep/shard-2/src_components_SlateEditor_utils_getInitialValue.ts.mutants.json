@@ -1,0 +1,128 @@
+[
+  {
+    "id": "getInitialValue.ts:17:not",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": " !p",
+    "new": " p",
+    "op": "not",
+    "line": 17,
+    "text": "const quoting = !partialMarkdown && !isCodeBlock;"
+  },
+  {
+    "id": "getInitialValue.ts:17:&&",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "n && !",
+    "new": "n || !",
+    "op": "&&",
+    "line": 17,
+    "text": "const quoting = !partialMarkdown && !isCodeBlock;"
+  },
+  {
+    "id": "getInitialValue.ts:17:not:2",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": " !i",
+    "new": " i",
+    "op": "not",
+    "line": 17,
+    "text": "const quoting = !partialMarkdown && !isCodeBlock;"
+  },
+  {
+    "id": "getInitialValue.ts:21:||",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "||",
+    "new": "&&",
+    "op": "||",
+    "line": 21,
+    "text": "inMultilineBlockQuote = inMultilineBlockQuote || split?.opens === true;"
+  },
+  {
+    "id": "getInitialValue.ts:21:===",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "s === t",
+    "new": "s !== t",
+    "op": "===",
+    "line": 21,
+    "text": "inMultilineBlockQuote = inMultilineBlockQuote || split?.opens === true;"
+  },
+  {
+    "id": "getInitialValue.ts:21:true",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "s === true;\n    ",
+    "new": "s === false;\n    ",
+    "op": "true",
+    "line": 21,
+    "text": "inMultilineBlockQuote = inMultilineBlockQuote || split?.opens === true;"
+  },
+  {
+    "id": "getInitialValue.ts:22:===",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "d === t",
+    "new": "d !== t",
+    "op": "===",
+    "line": 22,
+    "text": "const isBlockQuote = split?.quoted === true;"
+  },
+  {
+    "id": "getInitialValue.ts:22:true",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "d === true;\n    ",
+    "new": "d === false;\n    ",
+    "op": "true",
+    "line": 22,
+    "text": "const isBlockQuote = split?.quoted === true;"
+  },
+  {
+    "id": "getInitialValue.ts:28:if-false",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "e if (is",
+    "new": "e if (false && is",
+    "op": "if-false",
+    "line": 28,
+    "text": "} else if (isBlockQuote) {"
+  },
+  {
+    "id": "getInitialValue.ts:54:if-false",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "  if (in",
+    "new": "  if (false && in",
+    "op": "if-false",
+    "line": 54,
+    "text": "if (input.length === 0) {"
+  },
+  {
+    "id": "getInitialValue.ts:54:===",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": "h === 0",
+    "new": "h !== 0",
+    "op": "===",
+    "line": 54,
+    "text": "if (input.length === 0) {"
+  },
+  {
+    "id": "getInitialValue.ts:54:num",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": " 0)",
+    "new": " 1)",
+    "op": "num",
+    "line": 54,
+    "text": "if (input.length === 0) {"
+  },
+  {
+    "id": "getInitialValue.ts:58:false",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": " false,",
+    "new": " true,",
+    "op": "false",
+    "line": 58,
+    "text": "startCodeBlock: false,"
+  },
+  {
+    "id": "getInitialValue.ts:59:true",
+    "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+    "old": " true,",
+    "new": " false,",
+    "op": "true",
+    "line": 59,
+    "text": "empty: true,"
+  }
+]

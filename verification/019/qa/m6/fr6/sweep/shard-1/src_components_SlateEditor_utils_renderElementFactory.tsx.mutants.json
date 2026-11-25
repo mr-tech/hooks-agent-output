@@ -1,0 +1,11 @@
+[
+  {
+    "id": "renderElementFactory.tsx:51:||",
+    "file": "src/components/SlateEditor/utils/renderElementFactory.tsx",
+    "old": "||",
+    "new": "&&",
+    "op": "||",
+    "line": 51,
+    "text": "const size = element.custom || isEmbed ? '18' : '22';"
+  }
+]
