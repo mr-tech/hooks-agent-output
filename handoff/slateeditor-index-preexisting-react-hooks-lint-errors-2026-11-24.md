@@ -1,9 +1,9 @@
 ---
 UUID: 67001740
 Status: Open
-Status-Detail: "Eight eslint errors in website src/components/SlateEditor/index.tsx, present since before plan 019 began, are owed a fix inside the Slate formatting effort. On his selection they ship listed with plan 019's release. The fix waits for that release."
+Status-Detail: "Eight eslint errors in website src/components/SlateEditor/index.tsx, present since before plan 019 began. Plan 019 shipped them listed, at website master 48eb60a (2026-11-25T17:39Z); QA's release-tip read still counts 8. The fix goes to the editor rebuild, which rewrites this file. Its sizing document (planning/slate-editor-rebuild-sizing-2026-11-25.md) names this handoff for the rebuild plan to disposition at entry."
 Owning-Stage: steering thread for the Slate formatting effort (steering-hooks-fixer), to route the fix (a fixer round or the effort's next plan)
-Review-Trigger: "the production deploy of website master carrying plan 019 (its single release, M7); or, earlier, when src/components/SlateEditor/index.tsx is next edited outside plan 019"
+Review-Trigger: "the editor rebuild's scoping determination; or, earlier, when src/components/SlateEditor/index.tsx is next edited outside that rebuild"
 ---
 
 # SlateEditor/index.tsx: pre-existing react-hooks and unused-variable lint errors
@@ -56,3 +56,4 @@ the errors as a `BLOCKED` question with two options. He chose, by selection, "Ag
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-24T03:47 | steering-hooks-fixer | Created on his selection, from the M5 hand-off's BLOCKED question; the evidence is the helper's three eslint captures. |
+| 2026-11-25T17:43 | steering-hooks-fixer | The trigger fired at plan 019's production deploy (website `master` `48eb60a`, 17:39Z). Read: `qa/closed/website-48eb60a-release-tip-qa.md` still counts 8 errors. Disposition: the fix is routed to the editor rebuild, whose sizing document names this handoff (§ What it does to 019, the four open handoffs). The trigger now points at that rebuild. |
