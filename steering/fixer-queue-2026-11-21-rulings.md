@@ -1927,3 +1927,19 @@ code `` `\na🙂\na🙂` ``: the later lines' emoji are code text.
 production doesn't have". The emoji change is the release matching Discord's formatter, which is the plan's design. The only harm it adds
 there is the page error. His choice stands on that (D-29). The architect claims nothing about how Discord's client draws the glyph, or the
 preview. Told to him at 06:18Z. The check that would have caught it: reading AN-9's engine trees before writing the option.
+
+## 2026-11-25T06:20Z — plan 019 M6 Fix Round 5: implementation start (steering's recorded start)
+
+Every pre-code gate has passed **Revision 25** (`cf62ffc1`): QA re-key `f7df4423`, architect `e0228ee5`, critic `fdebc3ac` (cycle 17 pass 1);
+planner record `f1a2f2f7` (R-124, R-125). The other start conditions, read this turn:
+- No unresolved `OPEN QUESTION` in the plan: 7 hits by `grep -c`, every one carrying resolved, closed or none.
+- No `handoff/` commit since 06:15Z (`git log --since`).
+- The website is on `chain/019-slate-formatting-discord-engine` at `a7ad3f2`, with only the foreign `?? .playwright-mcp/` in
+  `git status --porcelain`.
+- The kern.log OOM count is 4.
+**Fix Round 5 starts**, briefed to `implementer-019` by message, naming its Resumption State at `32c4a684`. Scope:
+- D-28's class, with AC-6.9's inline-code members and their count limb (D-31);
+- CR-28 HIGH and CR-27 MEDIUM, the corpus sub-limb under R-111;
+- the design guidance: CF-34 with block 06:07Z's (b), which keeps lines `afterLine` miscounts out of the rebuild;
+- QA Phase 2's entry condition, SL-30 (D-30).
+Sweeps and probes run capped (a MemoryMax scope, one worker, `unshare -rn`).
