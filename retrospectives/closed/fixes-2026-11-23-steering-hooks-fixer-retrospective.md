@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixes-2026-11-23-steering-hooks-fixer
 UUID: 06f4c0c7
-Status: Active
-Status-Detail: "Fixer-batch retrospective over seven chains of effort fixer-queue-2026-11-21 (released 2026-11-21T23:18Z to 2026-11-23T08:38Z); awaiting pi on the owner's word."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch fixes-2026-11-23-steering-hooks-fixer): seven chains of fixer-queue-2026-11-21
@@ -25,6 +25,7 @@ its recommendations recurs here, it is named, not re-proposed.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T09:00 | steering-hooks-fixer (spawn brief; effort rulings block 2026-11-23T08:48Z) | Fixer-batch retrospective over seven chains | Created. All seven delivered their scope to production. $127.86 across the chains' own sessions plus $69.25 steering, for 239 added production lines. The decorator chain took six rounds and 39% of the chain spend. Each gate's catch came from an instrument wider than the first party's examples. Website `master` ran single-lane, and one outside fault (five production settings missing on Vercel) held the queue for about 17.5 hours. Eleven recommendations and nine items for steering. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
