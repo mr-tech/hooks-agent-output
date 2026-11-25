@@ -157,6 +157,10 @@ fixtures was not completed; the fixtures were then written with the Write tool.
 `handoff/website-leftovers-outside-the-formatting-region-2026-11-25.md`,
 `handoff/slate-formatting-rollback-stored-emoji-read-2026-11-25.md`. QA's AN-3 re-read was sent to `qa-019` and run in Phase 3.
 
+**Documents closed (step 8).** Closed documents for Plan 019: planning, implementation (M2 to M6), analysis, code-review, qa (six) and uat
+moved to `closed/` as Committed, 15 in all (record `67585cf4` to `3584dc59`). `qa/website-48eb60a-release-tip-qa.md` stays open until the
+release. `check-repo.js` afterwards: no failure from a line this stage wrote; the others are in the record inbox.
+
 ## Release readiness — re-derivation block (before any ref moves)
 
 | Item | Statement | Basis |
@@ -191,7 +195,7 @@ is the evidence the release move cites.
 | R-1 | QA Phase 3 on `48eb60a`: `pnpm test` offline, `pnpm test:discord` (B-6), AC-3.3's full generator run with `MOUNTED_GENERATOR_COUNT=1000`, and the open-handoff sweep (`qa-phase-3.md` step 1b) | Both commands exit 0; drift-alarm hashes equal or the outcome cause recorded | **PASS** (record `c41a8459`, `qa/website-48eb60a-release-tip-qa.md`, Release Verified): offline 4,785 of 4,785 exit 0; `test:discord` 41 of 41 exit 0, wasm hashes equal; generator 17 of 17 exit 0; step 1b, 39 open handoffs, 11 match, none holds | Any non-zero exit or a release-tip record not at `Release Verified`: no push |
 | R-2 | Owner's release answer, asked in this session | yes |  | Anything but yes: no push, record "Aborted" |
 | R-3 | `git -C website ls-remote origin refs/heads/master` | `5ec0621…` |  | Another value: re-assemble the tip; the verdicts re-key |
-| R-4 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 48eb60a --dry-run --qa-record <release-tip record>` | every check passed |  | Any refusal: stop |
+| R-4 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 48eb60a --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-48eb60a-release-tip-qa.md` | every check passed | Rehearsed 2026-11-25T17:10Z: every check passed, nothing moved, remote `master` `5ec0621`. Run again after R-2 | Any refusal: stop |
 | R-5 | The same without `--dry-run` | `master` moves to `48eb60a` at origin and locally; the tree is switched to `master` |  | Any refusal: stop, report, do not retry in another form |
 | R-6 | `git -C website ls-remote origin refs/heads/master` | `48eb60a…` |  | Another value: stop and report |
 | R-7 | Fill E-WEBSITE-PUSH in the B-5 carrier, then `post-deploy-launcher.js … --smoke` | SMOKE OK |  | Smoke failure: fix the kit; the push stands |
