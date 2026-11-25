@@ -2,13 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: >-
-  M6 is built on chain/019-slate-formatting-discord-engine. Earlier deliveries: 119471f, then Fix Rounds 1 to 5 at 42128cd,
-  85ece66, 2b82972, a7ad3f2 and 40947a6 (Round 9 REJECTED on CR-28 HIGH's off-selection member). Fix Round 6 (CR-28's
-  off-selection member; R-129's entry condition) keys the emoji check on the lines an edit changed and is handed to code review
-  at 48eb60a: whole suite 4,785 of 4,785, exit 0; the reviewer's off-selection probe 24 of 24 clean; CF-35 0 of 36,560; SL-30 0
-  of 126; SL-29 0 of 20 over; sweep 31 of 60 killed, 29 dispositioned.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Handoff-At: 48eb60a — repos=website — M6 Fix Round 6 (CR-28's off-selection member, R-129) handed to code review; whole suite 4,785 of 4,785, exit 0
 ---
 
@@ -40,6 +35,7 @@ The plan's Status was already `In Progress`.
 | 2026-11-25T12:37 | code-reviewer-019 (Round 9 sub-entry at `48eb60a` APPROVED_WITH_COMMENTS, CR-31 LOW, `2f94aff4`) | Correct the record's claim on `move_node` noting | Reconcile notes in place in Fix Round 6's What changed and Self-check sweep, and in `m6-fix6-sweep-reading.txt`: a top-level move notes only its target. Swept as a class: `grep -n -iE "move_node\|source and target\|move-notes\|moveNodes\|\bmove\b"` over this document, the sweep reading and `~/.claude/agents/INBOX.md` gives 15 hits in the record files and 0 in the inbox; 3 carry this claim (the three corrected), and 12 are earlier rounds' text on other code. No code change. |
 | 2026-11-25T16:37 | devops-019 (message: Stage 1, devops.md step 5; disposition `m6-fix-bench-fix.{txt,time}`) | Disposition the two uncommitted bench captures | They were mine, not foreign. Restored to their content at HEAD: the committed `exit=0` run stands, and the tail from the killed un-timed run is dropped. A reconcile note is placed in the superseded Resumption State's Branch and HEAD line. No code change. |
 | 2026-11-25T16:50 | steering-hooks-fixer (brief: propose M7's Test Conventions text; Resumption State `bf49059b`) | Propose the workspace `CLAUDE.md` Test Conventions update owed by M7 | Section "Proposed Test Conventions update" added: the two-command form, the offline definition, the rule for who runs the Discord command, and the outcome table with the later-release column. The capture line now names its projects, because a bare run includes the Discord projects (read at `48eb60a`). This was owed at M3 and missed there. Steering lands it. No code change. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Implementation Summary
 
@@ -1166,69 +1162,4 @@ Code review of M6 at `119471f`, in order of risk: `withNormalizeNode.ts` (`resol
 
 ## Resumption State
 
-Written 2026-11-25 after Fix Round 6's hand-off to code review; brought current at the checkpoint (2026-11-25T15:26Z, steering's word).
-
-- **Done.** Fix Round 6 at website `48eb60a` (the hand-off tip): red spec `1288100`; fix `372339f`; `2c0b182` (node-keyed note); `e2b5a15` (whole-line rows); `48eb60a` (type fix). Whole suite 4,785 of 4,785, exit 0; typecheck exit 0; the reviewer's off-selection probe 24 of 24 clean, mounted 16 of 16; CF-35 0 of 36,560; the three corpora byte-identical to `40947a6`'s; SL-30 0 of 126; SL-29 0 of 20 over; sweep 31 of 60 killed, 29 dispositioned. Evidence under `verification/019/impl/m6-fix6-*`.
-- **Since the hand-off.** Code review's Round 9 sub-entry at `48eb60a`: APPROVED_WITH_COMMENTS, CR-28 resolved (record `2f94aff4`; plan R-131). CR-31 LOW (my "move_node: source and target" claim did not hold) corrected in place by reconcile notes (`fb7dbc99`); code review read it and keeps CR-31 a stated limit, carried by plan R-132. QA Phase 2 is under way (steering's message).
-- **Next, and its start condition.** QA Phase 2's verdict on `48eb60a` (R-129's condition, the browser drag, SL-30, CF-35). A fix round starts on a finding and steering's start; nothing of mine is in flight.
-- **For steering.** Two inbox entries for pi (`~/.claude/agents/INBOX.md`, the reshaped sweep and the bench stall); the owner's words on the sweep are quoted there and in Gate satisfactions.
-- **Local state not restored.** Scratchpad exports and probes only (`e-372339f*`, `e-2c0b182*`, `gen/`, `sweep6b-work*`, `sweep6c-*work*`, `sweep6d-work*`, links to the previous scratchpad's `e-40947a6`, `e-af3d95a`, `export-a7`, into which I copied the off-selection probes); nothing of mine in the shared tree; no process of mine running. `git status` in the website lists only the foreign `?? .playwright-mcp/`.
-- **Questions sent.** None open.
-- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `48eb60a`.
-- **Cache-warm wake.** Armed (one-shot, re-armed at each wake).
-
-### Earlier Resumption State (after Fix Round 5's hand-off, superseded)
-
-Written 2026-11-25 after Fix Round 5's hand-off to code review.
-
-- **Done.** Fix Round 5 at website `40947a6` (the hand-off tip): red specs `9480bca`, `0cd01c4`; fix `ded68fc`, `40947a6`; `f56bc58`, `70c5a86`, `55e5fdd`. Whole suite 4,776 of 4,776, exit 0; typecheck exit 0; CF-35 0 of 36,560; SL-30 0 of 126; SL-29 0 of 20 over; sweep 54 of 71 killed, 17 survivors dispositioned. Evidence under `verification/019/impl/m6-fix5-*`.
-- **Next, and its start condition.** Code review of `40947a6` against `a7ad3f2`, then QA Phase 2 (SL-30, NM-85 to NM-88, CF-35, B-11). A fix round starts on a finding and steering's start.
-- **For steering.** CR-29 measured cleared on the fence case (40.9 / 44.9 ms at 1,000 typographic lines); its disposition is steering's. The OOM count moved 4 to 8 by my uncapped-worker run at 07:08Z (disclosed).
-- **Local state not restored.** Scratchpad exports and probes only (`export-a7`, `e-*`, `sweep-work*`, `sweep-rwork*`, `logs/`); nothing of mine in the shared tree; no process of mine running (the sweep scopes ended; the stale waiter stopped). `git status` in the website lists only the foreign `?? .playwright-mcp/`.
-- **Questions sent.** None open. Sent: the typographic throw (steering ruled option 1, block 07:09Z); the four-scope restart (told).
-- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `40947a6`.
-- **Cache-warm wake.** Armed (one-shot, re-armed at each wake).
-
-### Earlier Resumption State (after Fix Round 4's hand-off, superseded)
-
-Written 2026-11-25 after Fix Round 4's hand-off to code review.
-
-- **Done.** Fix Round 4 (CR-25's time member in CF-33's form; CR-26; plan Revision 23, R-111): red specs `1dbfe4a`, the fix `a38ed45`, `8821d1a`, `f630b55`, `e3eb35d`, `514050d`, `a7ad3f2` (the hand-off tip). Whole suite 4,356 of 4,356, exit 0 (`m6-fix4-suite-a7ad3f2.log.txt`); typecheck exit 0; SL-29: 0 of 20 readings over their lines (`m6-fix4-sl29-a7ad3f2/`); differentials against `85ece66`: 0 regressions, 11 keystrokes now equal a fresh load, 6 more non-fixed-point keystrokes in the corpus (Outstanding 1). Evidence under `verification/019/impl/m6-fix4-*`.
-- **Next, and its start condition.** Code review of `a7ad3f2` against `2b82972` (the document's Next Steps (Fix Round 4)), then QA Phase 2 with SL-29. Nothing of mine is in flight; a fix round starts on a finding and steering's start.
-- **For steering and the planner (sent with the hand-off).** Outstanding 1 (R-111 and six corpus keystrokes), 2 and 3 (two pre-existing defects found by the class probe: curly quotes in bulk, a lone backtick over emoji lines throws).
-- **Local state not restored.** Scratchpad exports and probes only (`export-tip`, `export-wt`, `export-fuzz`, `sl29/`, `sl29b/`, `sweep4/`, `diff*/`): nothing in the shared tree; no process of mine running (the sweeps' scopes ended; `ps` read at the hand-off). `git status` in the website lists only the foreign `?? .playwright-mcp/`.
-- **Questions sent.** None open. Sent: the getInitialValue reading (steering, architect), the sweep stops and capped re-runs (steering).
-- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `a7ad3f2`.
-- **Evidence run but not recorded.** None: the typecheck output of the failing `e3eb35d` run was overwritten (Test Execution Results).
-- **Cache-warm wake.** Armed (one-shot, re-armed at each wake).
-
-### Earlier Resumption State (after Fix Round 3's hand-off, superseded)
-
-Written 2026-11-24 after Fix Round 3's hand-off to code review.
-
-- **Done.** Fix Round 3 (CR-25, D-24's fence members over `a🙂` lines, D-26's paste members, CR-24; plan Revision 23): red specs `c1a1da1`, the fix `1b555bb`, refinements `49fc364`, `5623ed8`, `3d988f7`, the quote-prefix red `59f65a4` and fix `2b82972` (the hand-off tip). Whole suite 4,219 of 4,219, exit 0, 64.5 s (`m6-fix3-suite-2b82972.log.txt`); typecheck exit 0; keystroke differential 0 of 36,560 differ from `85ece66`; sweep 11 of 12 killed at the last increment, survivor NM-82 (QAF-54's stated limit). Evidence under `verification/019/impl/m6-fix3-*`.
-- **Next, and its start condition.** Steering ruled on SL-29's fence reading (block `2026-11-24T22:41Z`, agent-output `40823e74`): it goes back for a fix under D-24 and is not accepted. A lift redesign inside `src/components/SlateEditor/**` is in scope (for example rebuilding a line's children, or building its operations by hand). **Fix Round 4 starts when architect-019's design read on the lift and code-reviewer-019's verdict on `2b82972` have both landed**, and steering's start message names this Resumption State. Until then nothing of mine is in flight and I write no code. Round 4's approach in outline: the cost per emoji line is 4 operations (`remove_text`, `set_node`, `insert_node` of the emoji, `insert_node` of the padding) at about 250 µs each through Slate's transforms (`m6-fix3-timing/ops-tip-close-line2.jsonl`); the readings to beat are `m6-fix3-timing/out-af3d95a-r*.jsonl` against `out-3d988f7-r*.jsonl` (the tip's `2b82972` code is the same as `3d988f7` on the lift path).
-- **For steering (SL-29's routing).** Done: sent at the hand-off, ruled on above.
-- **Local state not restored.** Scratchpad exports and probes only (`export-42128cd`, `export-85`, `export-mut`, `export-tip`, `timing/export-base`, `timing/export-tip`, `spike/`, `sweep-work/`): nothing in the shared tree, no process of mine running (`ps` read at the hand-off). `git status` in the website lists only the foreign `?? .playwright-mcp/`.
-- **Questions sent.** None open. BLOCKED sent to steering-hooks-fixer at 19:50Z (no recorded start); answered by the start of 20:54Z.
-- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `2b82972`.
-- **Evidence run but not recorded.** None.
-- **Cache-warm wake.** Armed (one-shot, re-armed at each wake).
-
-### Earlier Resumption State (after Fix Round 2's hand-off, superseded)
-
-- **Done.** Fix Round 2 (AC-6.9, plan Revision 22): red specs `a90ed57`, the fix `a1037e4`, the fence-state count cases `85ece66` (the hand-off tip). Whole suite 4,160 of 4,160, exit 0, 66.0 s; typecheck exit 0. This document is current at `85ece66`; the evidence is in `verification/019/impl/m6-fix2-*`.
-- **Next, and its start condition.** Code review Round 7 REJECTED `85ece66` on CR-25 HIGH (record `e92137fe`), with CR-24 LOW. The reviewer messaged me directly. Steering's block 19:43Z records no start: Revision 23 is being drafted with the gates held, and the paste member waits on the owner's selection. I hold code (BLOCKED sent to steering-hooks-fixer, 19:50Z). Start condition: steering's recorded start once the gates have passed Revision 23, and his answer on paste before the paste member is coded.
-- **Spike (exploratory, in a scratch export of `85ece66`; nothing in the shared tree, nothing committed on the chain).** Three changes to `withNormalizeNode.ts` (`verification/019/impl/m6-fix3-spike-85ece66.diff`). `resolveEmoji` settles all of a run's lines in one call (`while (resolveLine(...))`) and takes its settled set after the lifts. The settled memo's `children` is carried across `insert_node` and `remove_node` of an empty span inside a line (`keepsSourceText`), the padding `handleElement` adds after a lift. `insertTextData` is wrapped in `Editor.withoutNormalizing`. Counts at 200 and 1,000 lines (`m6-fix3-spike-count-*.jsonl`, probe `m6-fix3-spike-count.test.tsx.txt`; `unitAround` builds, `spansInLine` settles, `afterLine` reads; 0 lines differ from a fresh load in every row):
-  - Close a fence over `a🙂`: base 297 builds, 39,894 and 999,494 settles, 8.3 s at 1,000. Spike: 2 builds, 397 and 1,997 settles, 1.2 s.
-  - Paste of `a🙂`: base 60,299 and 1,501,499 settles, 30.7 s at 1,000. Spike: 400 and 2,000 settles, 600 and 3,000 fence reads, 2.2 s.
-  - Every count ratio from 200 to 1,000 lines is 5. The same holds for plain `a`, `:smile: b`, `> a🙂` and empty lines.
-  - The `src/components/SlateEditor` suite on the spike (20:08Z, network-isolated): 31 files, 956 of 956 passed, exit 0 (`m6-fix3-spike-slateeditor-suite-85ece66.log.txt`). The owner chose to fix the paste member too (steering message, effort rulings block 20:07Z); my hold on code stands until steering records the start after Revision 23's gates.
-  - Not done: the whole suite, a differential of document and selection against `85ece66` (the paste caret included), the TDD red rows. The red specs and the fix are written again, test first, after the start.
-- **For the planner and steering (sent with the hand-off).** The ceilings hold, thinly: 78 to 88 ms against 104 at 2,048 lines, and one closing-delimiter growth reading of 18.5 against 20. Backspace unmaking `>>>` throws from 122 lines at `42128cd`, not 123.
-- **Local state not restored.** Scratchpad exports only (`export-42128cd`, `export-dev`, `export-mut`, `export-ceil`, `export-nov`, `export-scan`, `cfgdir`, `sweep-work*`, probe files): nothing in the shared tree. No process of mine is running. Two `git grep` runs of another session held the box at load 38 until 18:35Z and are gone.
-- **Questions sent.** None open. Disclosure sent to steering-hooks-fixer (the SIGTERM to foreign self-test processes); it asked for it to be written into this document, which it now is.
-- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `85ece66`; `git status` lists only the foreign `?? .playwright-mcp/`. Agent-output: the foreign modified `verification/019/impl/m6-fix-bench-fix.{time,txt}`, `INBOX.md` and untracked captures are not mine and are left.
-  - *Reconcile note, 2026-11-25T16:37Z:* the line above was wrong about `m6-fix-bench-fix.{time,txt}`. They were mine. My bench run at about 07:46Z had no timeout, and I re-ran with `timeout 500`. The re-run's output is the capture committed at `9c6bb958` (`exit=0`, `real 0m6.969s`). The un-timed run was killed later, at `real 83m10s` (`exit=143`), and wrote its tail over that capture after the commit. The line read the leftover diff as another session's because I did not trace it to that process; devops-019 traced it through transcript `1a11ed03`. Disposition: both paths restored to their content at HEAD. The committed capture stands as the Fix Round 1 evidence, and the killed run's tail is not evidence. Swept: `grep -n -iE foreign` over this document, filtered to `bench-fix`, gives 1 hit (this line) before and after.
-- **Evidence run but not recorded.** None. The early timing readings at load 38 (0.25 s at 200 lines, 1.9 s at 2,048) are named in Fix Round 2 as taken on a loaded box and not kept.
-- **Cache-warm wake.** Deleted at this checkpoint (steering asked, 19:20Z). Arm a new one on the next turn.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
