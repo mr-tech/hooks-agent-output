@@ -40,3 +40,19 @@ build x48s after load 4.24 3.78 2.91 4/1065 866934 12:53:25Z
 build xaf before load 4.24 3.78 2.91 4/1065 866937 12:53:25Z
 build xaf after load 5.36 4.08 3.03 2/1056 870597 12:53:48Z
 done 12:53:48Z
+bench fence-and-quote-time r1 before 1.09 1.77 2.30 1/1021 927439 13:00:10Z
+bench fence-and-quote-time r1 after 1.29 1.77 2.29 1/1037 930113 13:00:29Z
+bench keystroke-time r1 before 1.29 1.77 2.29 1/1037 930115 13:00:29Z
+bench keystroke-time r1 after 0.38 0.52 0.89 3/1065 1138992 13:25:29Z
+bench fence-and-quote-time r2 before 0.38 0.52 0.89 4/1047 1138995 13:25:29Z
+bench fence-and-quote-time r2 after 1.05 0.67 0.93 1/1003 1141704 13:25:48Z
+bench keystroke-time r2 before 1.05 0.67 0.93 1/1003 1141706 13:25:48Z
+bench keystroke-time r2 after 1.04 0.68 0.93 1/1012 1142851 13:25:55Z
+bench keystroke-time r3 before 0.86 0.68 0.91 1/1012 1150686 13:26:49Z
+bench keystroke-time r3 after 0.87 0.69 0.91 1/1021 1151682 13:26:56Z
+bench keystroke-time r4 before 0.87 0.69 0.91 1/1021 1151684 13:26:56Z
+bench keystroke-time r4 after 0.97 0.72 0.92 1/1038 1153220 13:27:03Z
+bench keystroke-time r5 before 0.97 0.72 0.92 1/1038 1153222 13:27:03Z
+bench keystroke-time r5 after 0.97 0.72 0.92 1/1005 1154204 13:27:10Z
+bench keystroke-time r6 before 0.97 0.72 0.92 2/1005 1154206 13:27:10Z
+bench keystroke-time r6 after 1.21 0.78 0.94 1/1004 1155366 13:27:18Z
