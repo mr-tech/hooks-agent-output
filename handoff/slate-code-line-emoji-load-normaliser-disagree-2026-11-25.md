@@ -1,50 +1,55 @@
 ---
 UUID: b8d8f875
 Status: Open
-Status-Detail: "The editor's load path and its normaliser disagree on an emoji in a code line next to a plain line, so a fresh load is not a normaliser fixed point for such a text. Owed: one rule for both. Blocks nothing in plan 019, where it is a stated limit."
+Status-Detail: "The editor's fence count (`codeFence.ts` `afterLine`) treats a triple backtick that Discord's formatter does not read as a fence as a fence, so the load and the normaliser disagree on the next line. Owed: a fence count that agrees with the engine. Blocks nothing in plan 019, where it is AC-6.9's residue."
 Owning-Stage: implementer
-Review-Trigger: when `src/components/SlateEditor/utils/withNormalizeNode.ts` `resolveLine`, or `getInitialValue.ts` `buildLines` / `emojiLift.ts` `liftLoaded`, is next edited after plan 019's release
+Review-Trigger: when `src/components/SlateEditor/utils/codeFence.ts` `afterLine`, `getInitialValue.ts` `buildLines` or `withNormalizeNode.ts` `resolveLine` is next edited after plan 019's release
 ---
 
-# The editor's load and normaliser disagree on an emoji in a code line
+# The editor counts a non-fence triple backtick as a fence, so its load and normaliser disagree
 
 ## What is seeded
 
-For some texts whose last line is a code line holding an emoji, next to a plain line, the website editor builds two different
-line states:
-- **the load** (`getInitialValue.ts` `buildLines`, then `emojiLift.ts` `liftLoaded`) leaves the code line's emoji as text;
-- **the normaliser** (`withNormalizeNode.ts` `resolveLine`, over a run unit that includes the code line's neighbours) lifts it
-  into an emoji element.
+In the website editor, `codeFence.ts` `afterLine` counts a triple backtick as a fence delimiter in two cases where Discord's
+formatter (`@discord/markdown-wasm`, as the site pins it) does not read one: when the triple backtick is escaped, and when it
+sits inside inline code that crosses a line. Two things follow:
+- **the load** (`getInitialValue.ts` `buildLines`, then `emojiLift.ts` `liftLoaded`) types the next line as a code line and
+  leaves its emoji as text;
+- **the normaliser** (`withNormalizeNode.ts` `resolveLine`) then lifts that emoji into an emoji element.
 
-So a freshly loaded state is not a normaliser fixed point for these texts: a forced `Editor.normalize` changes it. Plan 019's
-architecture record states the intended invariant, that stored line structure always equals `getInitialValue` of the saved text
-(architect findings, § Delta pass, revision 21). Here the normaliser is the side that departs from it.
+So for such a text a fresh load is not a normaliser fixed point: a forced `Editor.normalize` changes it, by 3 to 9 operations.
+The engine reads those lines as plain text holding an emoji, with no code block over them. The normaliser's lifted state is
+therefore the one Discord's formatter supports, and the load's code-line typing is the wrong side.
 
-The work owed: one rule for whether an emoji in a code line is lifted, used by both paths, so the load is a fixed point for every
-text. Which rule matches Discord (an emoji inside code shown as text or as an image) is unread here and is read first.
+The work owed: the editor's fence count agrees with the engine's code-block parse on an escaped triple backtick and on one
+inside line-crossing inline code. Then every load is a fixed point, and a fresh load equals Discord's reading.
 
-Members observed, from code review's 36,560-keystroke fixed-point corpus, are keystrokes after which a second forced normalise
-changes the state: `599|0|end|<delete>`, `599|1|start|<backspace>`, `728|1|end|\``, `941|0|end|<delete>`, `941|1|start|<backspace>`,
-`1190|1|end|\``, and 8 further keystrokes present at website `85ece66` as well (14 at `a7ad3f2` against 8 at `85ece66`).
+Members, from AN-9 B1: 12 distinct texts, every one a final text of a keystroke in code review's 36,560-keystroke fixed-point
+corpus. None of the corpus's 1,244 loaded texts, its 20 fixtures, AC-6.9's 82 texts or AN-9's 776 cell texts is among them.
+At website `85ece66` (before the suppression) 8 corpus keystrokes end in one of these texts.
 
-At `a7ad3f2` the six end in the load's state, equal to a fresh load of the final text, where `85ece66` left the normaliser's
-state. The saved text is the same either way. This is an inference from the fresh-load equality, not run here.
+Plan 019's Revision 24 handles the other 6, which its fix round's dirty-path suppression causes: AC-6.9's no-throw limb,
+sub-limb "A suppressed line is a fixed point". This handoff carries the load's own disagreement, which predates that
+suppression.
 
 ## Evidence
 
-- `agent-output` `implementation/019-slate-formatting-discord-engine-m6-implementation.md` at record `32c4a684`, § Fix Round 4,
-  "Differentials" (keystrokes, fixed-point probe) and Outstanding Items (Fix Round 4) item 1. Capture:
-  `verification/019/impl/m6-fix4-differentials/keystroke-11-differing-vs-fresh-load.jsonl`.
-- The probe is code review's, under `verification/019/code-review/m6fix3-2b82972/`.
-- Not read at the chain base `af3d95a`.
+- `agent-output` `analysis/019-slate-formatting-discord-engine-analysis.md` § "AN-9 B1 — load outputs that are not a
+  forced-normalise fixed point" and § "AN-9 B2 — which state Discord's formatter supports" (record `00c91e3`). Captures:
+  `verification/019/analysis/an9/load-fixedpoint-a7ad3f2.jsonl`, `b1-texts.json`, `engine-b2.jsonl`, `cr27-key-map.out.txt`.
+- The mechanism through `afterLine` is AN-9's code read, not run.
+- Code review's mutant comparison: `verification/019/code-review/m6fix4-a7ad3f2/compare-fixedpoint-tip-vs-nosuppression-mutant.out.txt`
+  (14 at `a7ad3f2`, 8 with the override a pass-through).
+- Not read at production `5ec0621`.
 
 ## Origin
 
-Plan 019 (`planning/019-slate-formatting-discord-engine.md`), M6 Fix Round 4, Outstanding 1. The planner disposed of it as a
-stated limit under the M4 to M6 cap (Planner batch row "Fix Round 4's Outstanding 1"; effort rulings block 2026-11-25T05:19Z routed it).
+Plan 019 (`planning/019-slate-formatting-discord-engine.md`), M6 Fix Round 4, Outstanding 1, and code review's CR-27
+(Round 8 sub-entry, record `9cb3a3da`). Revision 24 places the load's part in AC-6.9's residue, citing this handoff.
 
 ## Changelog
 
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-25T05:22 | planner-019 | Opened from M6 Fix Round 4's Outstanding 1. |
+| 2026-11-25T06:00 | planner-019 | Re-aimed at plan 019 Revision 24, from AN-9 (record `00c91e3`): the cause is `afterLine`'s count of a non-fence triple backtick, and the normaliser's state is the engine's. The 6 suppression-caused keystrokes move to Revision 24's AC-6.9. R-114's claim that the skip did not cause them was the planner's error (R-118). |
