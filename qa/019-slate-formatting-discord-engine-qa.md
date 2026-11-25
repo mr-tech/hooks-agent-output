@@ -5,9 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 23 (record 49a20690, CR-25, D-26). QAF-53 is resolved by his selection at 20:54Z
-  (SL-29: a timed reading against af3d95a at this stage's M6 Phase 2), and QAF-54 LOW is a stated limit. QAF-42 LOW (R-69)
-  stays open. Register: B-1 to B-11.
+  Phase 1 re-keyed on plan 019 Revision 24 (record 80d6d143, D-28, AN-9, CR-27, CR-28). QAF-55 MEDIUM (a severity floor:
+  the inline-code members' cost per line has no failing assertion) is open for the planner. QAF-42 LOW (R-69) stays open.
+  Register: B-1 to B-11, with B-11 gaining K4.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -54,8 +54,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 23 (record
-`49a20690`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 24 (record
+`80d6d143`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -86,6 +86,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T14:48 | planner-019 (message: Revision 21 at `81523bd6`, D-24, steering block 14:33Z) | Phase 1 re-key on Revision 21 | § Re-key on Revision 21. P-Q26 at `42128cd`, a mounted editor: every AC-6.9 limb reached except the growth limb, and each of no-throw and caret carries a failing case alone. **QAF-52 MEDIUM**: the `>>>` keystrokes' expected texts and caret points cannot be reached in the editor's marker model. Named mutants NM-73 to NM-77. **B-11** minted (AC-6.9's walk), with its instrument run at `42128cd` by the browser-walker. Disclosed: the stamp gate refused this row's first write, whose stamp I typed a minute ahead of the clock. Its stamp now matches a `date -u` read made for it. |
 | 2026-11-24T17:11 | planner-019 (message: Revision 22 at `960052d1`, steering block 14:48Z, D-25 block 17:03Z) | Phase 1 re-key on Revision 22 | § Re-key on Revision 22. QAF-52 is closed: the making members `>>> za` and `>>> zabc` are read red at `af3d95a` and `42128cd` from the planner's captures. The unmaking member's `a` and `za` are re-read from P-Q26's log, green on write and caret at `42128cd` and red only on no-throw. CF-30's refusal is checked, and the suite cannot carry it alone, so Phase 2 adds a diff read. The ceilings of 27 and 104 ms are re-derived from the capture. NM-78 to NM-80 are added. B-11 is re-specified (K1a `>> a`, K1b `>> abc`, with `run-K1b.js` added). Register swept. No new finding. |
 | 2026-11-24T20:12 | planner-019 (message: Revision 23 at `49a20690`, CR-25, D-26; steering blocks 19:43Z and 20:07Z) | Phase 1 re-key on Revision 23 | § Re-key on Revision 23. Read: code review's counts at `85ece66` and the implementer's spike counts and timings. The count limb is red at `85ece66` on the closing and paste members, and linear on opening. **QAF-53 MEDIUM** (a severity floor): the spike meets every count ratio (5) while paste time grows 11.8 to 22.5 times, and no limb holds paste to today's speed. The plan's paste figures cite steering's scratch. **QAF-54 LOW**: the positive control does not show the boundaries see each line. NM-81 and NM-82 are added. Register swept: B-8, B-10 and B-11 cleared, and the user-report line widened. |
+| 2026-11-25T06:04 | planner-019 (message: Revision 24 at `80d6d143`, D-28, AN-9, CR-27, CR-28) | Phase 1 re-key on Revision 24 | § Re-key on Revision 24. The six inline-code members, their red at `a7ad3f2`, their absence at production and the sub-limb's red were checked against AN-9's member table. **QAF-55 MEDIUM** (a severity floor): the residue frees A1 to A6 from both cost limbs, while the headline claims cost per line for the class, and SL-29's yardstick cannot serve them. NM-85 to NM-87 are added, with Phase 2 obligations for the timer error's in-case red and for the corpus differential's pass-through tree. B-11 gains K4, its instrument run at `a7ad3f2` in this pass. |
 
 ## Reading
 
@@ -1769,6 +1770,77 @@ figures, and the judgement of "roughly today's speed" is steering's. That is thi
 - Falsity: any hit, an emoji element inside a code block after the second edit on an ordinary text. Each hit is recorded with its text and keystrokes and is a finding at CR-27's floor.
 - The probe runs on the round's tip and, as a control, on code review's no-suppression mutant (`mutant-no-suppression.diff.txt`), where the 6 corpus states are fixed points. It goes under `verification/019/qa/m6/`.
 
+## Re-key on Revision 24
+
+Revision 24 (record `80d6d143`) was read as its diff from `ca1ba0eb`. It answers D-28 (his selection 05:28Z), AN-9 (record
+`00c91e3`) and code review's Round 8 sub-entry (CR-27, CR-28; record `9cb3a3da`). Every change is in AC-6.9:
+- the class statement;
+- six inline-code members, A1 to A6;
+- their text class: `a🙂` lines, the last ending in a backtick; N of 5, 100, 200 and 1,000 on `embedDescription`, and 5, 100 and
+  200 on `content`;
+- the no-throw limb's pending-timer error;
+- the sub-limb "A suppressed line is a fixed point", read after every member and as a corpus differential against the
+  pass-through tree;
+- the write limb's mounted red;
+- the caret and human-observable lines;
+- the residue's AN-9 gaps and non-fixed-point loads.
+
+**Checked against AN-9's captures** (`verification/019/analysis/an9/member-table-compact.txt` and the analysis document § AN-9 A,
+read this pass):
+- **The members.** The table's 8 inline-code rows with a partner are the six members. A3 and A4 each group two texts (`` ` ``
+  at the start of `a🙂` and of ` a🙂`).
+- **Red at the tip.** Every member throws from 100 lines on both surfaces at `a7ad3f2`. A1 (the backtick at the end of line 0)
+  also loses its write and raises the timer error.
+- **Production.** At `5ec0621` every member changes 0 other lines and throws nothing, so the release adds them, as the plan says.
+- **The sub-limb's red is real.** After the throw at the tip, a forced normalise applies 78 to 980 operations for A2, A4 and A5,
+  and 0 for A1, A3 and A6. The corpus differential's red is code review's 6 (14 against the pass-through's 8).
+- **Controls exist in the record.** The `>>>`, fence and `` ` ``-without-partner rows, and the plain-`a` fills, change other
+  lines or not as AN-9 records, with no throw at the tip. The plan's "on plain `a` lines, or with no partner … not in the class"
+  matches the table.
+
+**QAF-55 MEDIUM Phase 1**
+AC-6.9's headline says a keystroke of the class "costs no more per line as the message grows". The residue now frees the
+inline-code members from both cost limbs: "the work-per-line and timed limbs bind the fence and paste members only". So A1 to A6
+have no assertion that fails if a fix settles them in time that grows faster than the lines. That is CR-25's class, found HIGH on
+the fence keystrokes. CR-25 found it through exactly this kind of residue sentence.
+
+Production's A1 does almost nothing: 2 operations and 1 to 4 ms (CR-28), changing 0 other lines. A settling fix must re-lift the
+emoji on every line below, 199 or 999 lines. So the SL-29 yardstick, today's median plus a quarter, cannot serve, because a
+correct fix exceeds it by construction. No measurement of a settling tree exists, since every tree that changes these lines
+throws. This is a severity floor: the criterion claims the behaviour, and no assertion fails when it is lost. It is MEDIUM, and
+excepted from the last-fold rule.
+
+Property wanted: A1 to A6 on the `a🙂` texts on `embedDescription` added to the standing work-per-line count limb (line settles
+and fence reads at 1,000 at most 10 times those at 200), the form that fits work a correct fix must do on every line. Phase 2 also
+records each member's tip median at 200 and 1,000 lines beside the fence members' as context, with the box load. It is reported
+to steering as SL-29 reports, but held to no ceiling.
+
+**Coverage obligations for Phase 2** (in the fifth round's tree):
+- **NM-85:** a timer, left pending by the keystroke, that throws when run. The no-throw case must go red by assertion inside the
+  case, not only through a non-zero process exit. Vitest reports a timer's throw as an unhandled error, which leaves every case
+  green and fails only the exit (the workspace's Test Conventions). The exit code is recorded beside the counters either way.
+- **The corpus differential:** its pass-through tree is built from the fifth round's own diff, by making that round's suppression
+  a pass-through. Code review's `mutant-no-suppression.diff.txt` applies only if the override is unchanged. If the round removes
+  the suppression, the differential is recorded as vacuous, with the `git grep` that shows no override.
+- **Controls in both directions, per member:** each of A1 to A6 also runs on the plain-`a` fill and with no partner. The case
+  asserts no other line changes and no throw, so a test that reads every text as changed fails.
+- **NM-86:** the rebuild applied to the inline-code members without the emoji re-lift on the lines below. The fresh-load and
+  fixed-point reads go red.
+- **NM-87:** the fix keyed to the end-of-line backtick (A1) alone. A2 to A6 stay red on no-throw. This is the class read that the
+  D-28 option names ("the whole class").
+- This stage's carried CR-27 probe on ordinary texts (above) stands. It reaches the residue's "any edit that toggles inline code
+  over another line's emoji", which no limb binds.
+
+**Register (B-11).** The plan's walk gains a backtick typed at the end of the first line of a 200-line embed description of emoji
+lines, whose last line ends in a backtick. B-11 is re-specified in its own cells with a case K4, `run-K4.js`, once its
+instrument has run at `a7ad3f2` in this pass. Until then B-11's cells are as before.
+
+Register sweep. The predicate: rows citing AC-6.9, a code-fence, `>>>` or inline-code keystroke, an emoji-bearing fill, or the
+suppression. B-8 (AC-3.3's paste text) and B-10 (AC-6.8) are checked and cleared. B-11 is re-specified. The user-report line
+gains the inline-code keystrokes. Rows inherited and not discharged: B-1 to B-11.
+
+Phase 1 is keyed to Revision 24. **QAF-55 MEDIUM** (a severity floor) goes to the planner, open. QAF-42 LOW (R-69) stays open.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -1802,7 +1874,9 @@ AC-6.5, dated, with its text and the stage that read it. So is a user report tha
 AC-6.7 (B-9). So is a user report of a pause on an input outside AC-6.8's sized texts, under AC-6.8 (B-10; revision 20). So is a
 user report of an editor error or a misplaced character after a code-fence or `>>>` keystroke, under AC-6.9 (B-11; revision 21).
 So is a user report of a slow edit on one of revision 23's residue members, under AC-6.9 (B-11): a paste other than the
-listed members, undo or redo, another fill, or another keystroke of the class. None is recorded yet.
+listed members, undo or redo, another fill, or another keystroke of the class. So is a user report of an editor error, a
+lost character or a pause after a backtick or `\` typed or deleted near inline code in a long message (revision 24, D-28). None
+is recorded yet.
 
 ## Assumption Not Checked
 
