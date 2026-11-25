@@ -2202,3 +2202,14 @@ Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T15:49Z — 
 - M7's workspace `CLAUDE.md` Test Conventions update is kept as release work. His Q2 dropped only the batch catch-up and the architect's
   closing review; M7's own text otherwise stands, and D-12's rule governs later releases.
 **Recipients:** `planner-019` (the minimal revision re-points the uat Reading Order row to all nine walks), UAT (its brief).
+
+## 2026-11-25T16:14Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (16:13Z) asked for `/checkpoint` at 268,349, past the 225K steering threshold, and a docket under about
+8 KB. The Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, Checkpoint
+2026-11-25T16:14Z, 6,689 bytes by `wc -c`). A successor reads the standing file whole, then this log from block "2026-11-25T15:25Z".
+- Plan 019 is at Revision 26 (`d79f481e`), critic APPROVED (`3cbae50e`). M6 QA Phase 2 is QA Complete at website `48eb60a` (`135068f3`).
+- `uat-019` walks all nine flows. On its approval, devops-019 is respawned at Stage 1 with the brief the docket lists.
+- The editor rebuild is carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md` and opens only on his word (block 15:38Z).
+- Standing check `3fb714fd` is at 16:28Z. The 15:58Z usage reading was not live. Nothing waits on him, and `OWNER-QUEUE.md` is empty.
+  No subagent of this thread's is running.
