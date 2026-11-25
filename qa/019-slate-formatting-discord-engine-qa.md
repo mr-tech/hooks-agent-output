@@ -1760,6 +1760,15 @@ figures, and the judgement of "roughly today's speed" is steering's. That is thi
 - Falsity: the tip's median is more than 1.25 times `af3d95a`'s. That reading goes to steering-hooks-fixer with its figures and load, as SL-29 sends a paste miss.
 - Captures go under `verification/019/qa/m6/`. B-11 is not used for it, since UAT's walk does not time.
 
+2026-11-25T05:31 reconcile (code-reviewer-019's message; Round 8 sub-entry at website `a7ad3f2`, Fix Round 4 REJECTED on CR-28 HIGH with CR-27 MEDIUM, record `9cb3a3da`, CR-27 read this pass). There is still no M6 hand-off. SL-29 is met at `a7ad3f2` by code review's table (0 of 20 over, `verification/019/code-review/m6fix4-a7ad3f2/sl29-table.txt`). This stage's browser paste check above stands for the next round's tip.
+
+**Taken by this stage from the sub-entry's Assumption Not Checked, for M6 Phase 2 on the next round.** The assumption: CR-27's 6 non-fixed-point states (corpus inputs 599, 728, 941 and 1190) are reached only through corpus edge texts. The instrument:
+- Ordinary texts from a generator, never the corpus: one or more fenced code blocks whose lines hold an emoji (`a🙂`, `🙂`, `:smile:`), with plain and quoted lines around them, at 3 to 40 lines.
+- For each text, every keystroke kind at each line's start and end, then a second edit: `a` typed at the end of each code line in turn.
+- After each edit, two reads. No emoji element sits inside a code-block line. A forced normalise applies no operation, counted by the `editor.apply` spy with its positive control.
+- Falsity: any hit, an emoji element inside a code block after the second edit on an ordinary text. Each hit is recorded with its text and keystrokes and is a finding at CR-27's floor.
+- The probe runs on the round's tip and, as a control, on code review's no-suppression mutant (`mutant-no-suppression.diff.txt`), where the 6 corpus states are fixed points. It goes under `verification/019/qa/m6/`.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
