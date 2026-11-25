@@ -517,6 +517,9 @@ sole carrier of a case. It does not test this, because the sweep that would have
 
 ### Handoff
 
+The plan row is R-135 (`8f07d03f`). Disclosed: the stamp gate refused my first stamp on that row, which I had typed a minute
+ahead of the clock. It was re-stamped from `date -u` and committed.
+
 UAT next, through steering: no `uat` session is listed. UAT runs B-11 on a local production build of `48eb60a`, and the
 `next build` for that is already proven here (exit 0).
 
