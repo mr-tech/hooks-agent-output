@@ -3,11 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "48eb60a — repos=website; M6 Fix Round 6 at code review's Round 9 sub-entry Reviewed-At; git-archive exports with their own frozen offline installs, 686 of 686 blobs"
-Status: QA Complete
-Status-Detail: >-
-  M6 at 48eb60a (Fix Round 6), plan Revision 25 to R-134. Entry conditions met: R-129, R-130's timer clause, SL-29 and SL-30.
-  Suite 4,785 of 4,785, exit 0. QAF-56 MEDIUM is a stated limit (R-134). The effort-final mutation sweep was not run, on the
-  owner's waiver (block 2026-11-25T15:46Z). Next is UAT, through steering, with B-11.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Phase: 2
 ---
 
@@ -32,6 +29,7 @@ row. B-10 (AC-6.8) was minted at the Phase 1 re-key on Revision 16.
 | 2026-11-24T14:35 | steering-hooks-fixer (message: stop; effort rulings block 14:33Z, record `d7eb0a40`) | Stop the M6 refresh at the next seam, end every run, record results for the next fix round | Stopped, no verdict published. Status is back to QA Failed, the verdict at `119471f`. Before the stop, criteria 1 to 6 and 8 had held at `42128cd` (§ Results at `42128cd`). The effort-final sweep was stopped partway through its second pass and is unscored. Its processes were killed and confirmed gone. Nothing of this pass is running. |
 | 2026-11-25T12:37 | code-reviewer-019 (message: Round 9 sub-entry APPROVED_WITH_COMMENTS at `48eb60a`, record `2f94aff4`; plan R-131 `744b54b1`) | Phase 2 on M6 Fix Round 6 | Phase 2: Testing In Progress at `48eb60a`. The stage start is re-derived from the committed review record (`Reviewed-At: 48eb60a`). Steering's brief has not arrived, so this pass works from the plan's Decisions Register (D-27 to D-31), R-126 to R-132 and the Round 9 sub-entry's Assumption Not Checked. |
 | 2026-11-25T15:48 | steering-hooks-fixer (message: the owner's waiver of the effort-final sweep, rulings block 15:46Z, record `95913e2e`) | Stop the sweep; verdict on what has run | Phase 2 verdict: **QA Complete** at `48eb60a`. The sweep is stopped and recorded as not run on the waiver; its partial pass-1 tables are not scored. Entry conditions are all met. QAF-56 MEDIUM is a stated limit. Next is UAT, with B-11 (§ Pass on Fix Round 6, Verdict). |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Scope and stage start
 
@@ -525,140 +523,4 @@ UAT next, through steering: no `uat` session is listed. UAT runs B-11 on a local
 
 ## Resumption State
 
-Rewritten 2026-11-25T15:53 at steering's `/checkpoint` (about 329K tokens), at a seam. Every write is committed.
-
-- **Done.** M6 Phase 2 is **QA Complete at website `48eb60a`** (§ Pass on Fix Round 6, records `5f7a5b7c` and `135068f`; plan
-  R-135 `8f07d03f`). The verdict went to steering, which started uat-019 on it.
-  - The effort-final sweep was not run, on the owner's waiver (block 2026-11-25T15:46Z, `95913e2e`). Its partial pass-1
-    tables under `verification/019/qa/m6/fr6/sweep/` are not scored.
-  - QAF-56 MEDIUM (AC-6.8's timed limb, 1 of 6 rounds at 17.1 ms) is a stated limit (R-134). The run count goes to the seam
-    fold.
-  - Earlier today: R-126's reading is unread at `5ec0621` (`91388b39`), and R-129 and R-130 were recorded as entry conditions
-    (`5db177b`, `ab9f6ba`).
-- **Next: Phase 3** at devops' release tip, when devops or steering asks, naming this state.
-  - Read `~/.claude/agent-skills/stage-procedures/qa-phase-3.md` first.
-  - The owner's "bare minimum on 019" (block 15:46Z) governs scope; read that block before planning the pass.
-  - Owed at Phase 3, per R-92: the full 1,000 mounted generator inputs (`MOUNTED_GENERATOR_COUNT=1000`) on the release tip.
-  - Method that worked this pass: a `git archive` export, blob identity, and `pnpm install --frozen-lockfile --offline` inside
-    it. Run the suite as `unshare -rn sh -c "ip link set lo up && …"`. **With `lo` down, 15 loopback cases fail**; that
-    was my instrument error at the first run.
-- **Approach in flight.** None.
-- **Branch and HEAD.** Website is on `chain/019-slate-formatting-discord-engine` at `48eb60a`. I wrote nothing in the shared
-  tree. Record `master` is at `135068f` or later.
-- **Local state.** No process of mine runs, apart from the harness's playwright MCP. The local stack is down, and both
-  `next start` servers are stopped. The scratch exports `x48`, `x48s`, `x48n`, `x40`, `x7a`, `xaf` and `x5e` remain in this
-  session's scratchpad; they are disposable. The walk PNGs stay untracked under `verification/019/qa/m6/fr6/walk/`, as
-  captured media.
-- **Evidence run but not recorded.** None.
-- **Questions sent.** None open. planner-019 has QAF-56 (R-134). Steering has the verdict.
-
-### Earlier resumption state (2026-11-25T06:28, superseded by the above)
-
-Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a seam. Every write is committed.
-
-- **Done since 2026-11-24T17:04.** Phase 1 re-keyed on Revisions 22 to 25, all in the Phase 1 document
-  (`qa/019-slate-formatting-discord-engine-qa.md`, its § Re-key on Revision 22 to 25, records `e2890214`, `d46f68ff`, `7a6087f6`,
-  `5a9af9be` and `f7df4423`). Every gate has passed Revision 25 (plan record `f1a2f2f7`). Fix Round 5 is with implementer-019.
-  - Findings: QAF-52 closed (revision 22). QAF-53 resolved by D-27 (SL-29). QAF-54 is a stated limit. QAF-55 closed by D-31.
-    QAF-42 LOW (R-69) stays open.
-  - Code review rejected Fix Round 2 (`85ece66`, CR-25), Fix Round 3 (`2b82972`, Round 8) and Fix Round 4 (`a7ad3f2`, CR-28,
-    CR-27). No M6 hand-off has reached this stage since 42128cd.
-  - B-11 gained K1a and K1b (revision 22) and K4 (revision 24), with K4's walk run at `a7ad3f2` in Chrome. Every case now runs
-    twice, because closing the JSON view drops edit mode and the caret.
-- **Next: M6 Phase 2 on Fix Round 5.** The stage start is code review's committed verdict and its `Reviewed-At`, never a message.
-  Work in a `git archive` export of that SHA, with blob identity checked and a **frozen offline install inside the export**.
-  Turbopack refuses a `node_modules` symlink pointing outside the export.
-  - **Entry conditions.**
-    - **SL-29** (D-27). The yardstick is steering's block 20:58Z: the tip median must be within the larger base median at that
-      N plus a quarter. Fence members compare against `af3d95a`'s median, throw named, with the plain `a` reading beside each
-      as context. Paste is read per fill, as told to steering; there is no reply, so that reading stands. A reading over its
-      line goes to steering with its figures and load.
-    - **SL-30** (D-30). Run F-59's wider set, mounted: a backtick or `\` typed, Backspace or Delete, mid-line 0, on a middle
-      line, or on the partner line. Sizes: 5, 100, 200 and 1,000 on `embedDescription`, and 5, 100 and 200 on `content`, over
-      `a🙂` lines with a partner. Run `5ec0621` as the control. A throw goes to steering as a D-28 member.
-    - **CR-28's off-selection member** (R-129, planning `d8fd2eb`, D-30's form; added 2026-11-25T09:58 from planner-019's
-      message). This is an entry condition on Phase 2 of Fix Round 6. At the round's tip, run code review's
-      `verification/019/code-review/m6fix5-40947a6/crprobe.offselection-inline.test.tsx.txt` (sha256 `e38d4f2b…`) over its
-      24 rows, unmounted: insert or delete × none, other-unit or the at-edit control × N of 5, 100, 200 and 1,000, over
-      `a🙂` `embedDescription` lines. This shape was read from the probe, its line 29. Every row must show no thrown error and
-      line shapes equal to a fresh load of its text. The probe reads no timer, so the pending-timer clause is this stage's own
-      instrument: a mounted run of the 16 none and other-unit rows through the suite's mount helper (the form of
-      `crprobe.mounted-lone-backtick`), mutated before its result is trusted. A failing row sends the round back to the fix.
-      Earlier readings were 12 of 24 red at `40947a6`, 18 of 24 at `a7ad3f2` and 0 of 24 at `af3d95a`. No criterion's text
-      changes. Corrected 2026-11-25T10:05 per R-130 (planning `d1325df`): the sizes were wrongly given as "40 to 1,000", and
-      the timer reading was wrongly put on code review's probe.
-  - **AC-6.9's obligations** (Phase 1 document, § Re-key on Revisions 21 to 25):
-    - every limb over every member and N;
-    - NM-73 to NM-88, with CF-30's diff read for a `catch` or a `shouldNormalize` budget;
-    - the forced-normalise read through an `editor.apply` spy, with a planted non-fixed-point control;
-    - CF-35's equality differential over code review's corpus, against the round's own pass-through tree;
-    - the timer clause read mounted, red by assertion inside the case, with the exit code recorded;
-    - the count limb, A1 to A6 included, with tip medians and load recorded as context;
-    - the growth limb with the load beside each reading, called straight (block 19:20Z).
-  - **Assumptions this stage took:**
-    - Round 8's: a Chrome-profiled paste of 1,000 `a🙂` lines on local builds of the tip and `af3d95a`, at least 3 runs each.
-      Over 1.25 times goes to steering.
-    - The Round 8 sub-entry's: the CR-27 probe on ordinary generated texts with a second edit, against code review's
-      no-suppression mutant.
-    - The implementer's pre-fix figures for `>> abc` and for paste growth with load.
-  - **The owed list from before still applies** (the list below, from 2026-11-24): TDD rows, the suite, typecheck, live,
-    `test:discord` offline, `next build`, the 1,000 mounted generator inputs, AC-3.3's 60 s cap, AC-6.8's limbs, QAF-50's and
-    QAF-46's reds, and the M4 and M5 differentials if their paths moved. Then the effort-final sweep over
-    `git diff 5ec0621..<tip>` production paths, with `mutant-gen.js` plus the hand mutants. Run it through a helper, with explicit
-    file filters, because `--exclude` fails under the projects config.
-  - **B-11:** UAT runs it, at K1a, K1b, K2, K3 and K4, two runs per case, on that round's build.
-- **Hazards met this session.**
-  - A secret-file hook refuses a broad `grep` whose paths could reach a guarded workflow file. Use literal directories, or `-l`.
-  - Typing a claim of a past read from memory: one note was corrected (record `41956266`). Read the source first.
-- **Approach in flight.** None.
-- **Local state.** Website is on `chain/019-slate-formatting-discord-engine` at HEAD `a7ad3f2`, the implementer's. I wrote nothing
-  there. The `a7x` export is deleted. The 3107 server is stopped, and the local stack is down. No process of mine runs. The walk's
-  PNGs stay untracked, as captured media, under `verification/019/qa/phase1-rev24/walk/` and the earlier walk folders.
-- **Evidence run but not recorded.** None.
-- **Questions sent.** None open. The per-fill paste reading was put to steering, with no reply, so it stands.
-- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
-
-**The owed list from 2026-11-24, kept as written:**
-
-- **Done.**
-  - **M6 Phase 2:** QA Failed at `119471f`, record `4da9b76b`, plan R-89 at `150f5097`. Sent to implementer-019 (QAF-50 for the
-    fix round) and to planner-019, which registered QAF-46 to QAF-49 at R-90, record `14309101`.
-  - **m5-d2 in its `runUnit.ts` form:** KILLED by `decorator.native-box-classes` (`hand-pass-shard-1/`). It is not owed again
-    unless the fix round changes `runUnit.ts`.
-  - **Phase 1:** re-keyed through Revision 20 (records `d53b1b30`, `e74108e`, `4764a6e`, `0dca93e`). Nothing is open there: QAF-42,
-    QAF-43 and QAF-44 are closed, and QAF-45 is folded as SL-22.
-- **Next: the M6 refresh on CR-20's fix round.** Stage start is code review's committed sub-entry and its `Reviewed-At`, never the
-  message. Run in a `git archive` export of that SHA, with a frozen offline install, `next-env.d.ts` copied in, and blob identity
-  checked (`verification/019/qa/m6/blob-identity.py`). Owed:
-  - the TDD rows of the round (each new function red at assertion level, or stub-tree red and green);
-  - the whole offline suite (JSON and exit code), typecheck, live, `pnpm test:discord` offline and `next build`;
-  - **the full 1,000 generator inputs once, `MOUNTED_GENERATOR_COUNT=1000`, with its exit code** (planner-019, R-92: AC-3.3's
-    full count has no home in `pnpm test:discord`; `pnpm test` runs 400). It is owed again at Phase 3 on the release tip;
-  - Outstanding 1 (3 of 161,136 differences, `\` typed on an unclosed fence's opening line) is residue in QAF-48's class;
-  - QAF-51's browser look: `>` typed at the start of `>> a` on a message of 123 lines, in the round's build. Record the result
-    as a changelog row in `handoff/slate-quote-marker-normalize-iteration-cap-2026-11-24.md` (R-93, `50715407`). If the editor
-    stops taking input, raise QAF-51's severity here and message planner-019 and steering: it may be a release question;
-  - **typed-generated alone, once, before the suite** (this document's Assumption Not Checked: no extra writes, no timeout);
-  - **AC-3.3's 60 s cap:** both whole suites back to back, `2e36107` and the fix tip, against the chain base's 31.1 s;
-  - **AC-6.8:**
-    - the count limb, with its cross-size equality and floor on the sized texts: plain, `> `, `>>>`, CF-28's many-unit text,
-      the fenced-quote texts, and `a🙂` at 200 and 1,000 lines;
-    - the time limb from the `*.bench.ts` under `__tests__/` (CF-26, SL-20). Read how it runs under the config's projects, and
-      record the load beside each median (16 ms bound);
-    - SL-23's left-out keystrokes, and SL-24's growth-probe line;
-    - NM-70 and NM-71 red, and NM-72 expected to survive (P-Q23 to P-Q25 in the Phase 1 document);
-  - QAF-50's case red under W12. QAF-46's `🫩` member red under a mutation;
-  - the M4 and M5 differentials if the round touches their paths: `qaPreviewDump` and `qaDecoratorDump`, both with their
-    planted controls;
-  - **the effort-final sweep** over `git diff 5ec0621..<fix tip>` production paths, with `mutant-gen.js` plus
-    `qa-hand-mutants-119471f.json` re-checked for exact-once at the new tip. Run it through a helper, with at most two shards and
-    the whole suite. **`--exclude` does not work under this config's projects**, so use explicit file filters if scoping, with a
-    survivors-only whole-suite second pass. Every survivor is dispositioned.
-- **Watch.** Under five-way load the typed-generated file overran 300 s, and its single-line case then reported extra writes.
-- **Approach in flight.** None.
-- **Local state.** Website is on `chain/019-slate-formatting-discord-engine`, HEAD `119471f`, the implementer's. I wrote nothing
-  there. Scratch exports kept for the refresh: `m5x` (`2e36107`) and `m6x` (`119471f`), both under this session's scratchpad.
-  The probe export and the sweep work directories are deleted. No process of mine is running.
-- **Evidence run but not recorded.** None.
-- **Questions sent.** None open.
-- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
