@@ -1,0 +1,114 @@
+[
+ {
+  "id": "qa-nm-73-swallow-the-normalise",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    normalize(options);\n  };",
+  "new": "    try { normalize(options); } catch { /* swallowed */ }\n  };",
+  "limb": "Phase 1 hand:NM-73-swallow-the-normalise (from m6-fix2-mutants-a1037e4.json)"
+ },
+ {
+  "id": "qa-nm-74-lines-below-left-untyped",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "        Transforms.setNodes(editor, {\n          type,",
+  "new": "        if (childLocation < 1) Transforms.setNodes(editor, {\n          type,",
+  "limb": "Phase 1 hand:NM-74-lines-below-left-untyped (from m6-fix2-mutants-a1037e4.json)"
+ },
+ {
+  "id": "qa-nm-75-selection-to-document-end",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    normalize(options);\n  };",
+  "new": "    normalize(options);\n    if (editor.selection) Transforms.select(editor, Editor.end(editor, []));\n  };",
+  "limb": "Phase 1 hand:NM-75-selection-to-document-end (from m6-fix2-mutants-a1037e4.json)"
+ },
+ {
+  "id": "qa-nm-77-extra-forced-normalise",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    normalize(options);\n  };",
+  "new": "    normalize(options);\n    if (!options?.force) Editor.normalize(editor, { force: true });\n  };",
+  "limb": "Phase 1 hand:NM-77-extra-forced-normalise (from m6-fix2-mutants-a1037e4.json)"
+ },
+ {
+  "id": "qa-nm-78-caret-one-before-the-text-end",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "            Transforms.delete(editor, { at: marker });",
+  "new": "            Transforms.delete(editor, { at: marker });\n            Transforms.select(editor, { path: [childLocation, 0], offset: Math.max(0, flattenNodeText(line).length - quotePrefix.length - 1) });",
+  "limb": "Phase 1 hand:NM-78-caret-one-before-the-text-end (from m6-fix2-mutants-a1037e4.json)"
+ },
+ {
+  "id": "qa-nm-80-unbounded-shouldNormalize",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  editor.normalize = (options) => {",
+  "new": "  editor.shouldNormalize = () => true;\n  editor.normalize = (options) => {",
+  "limb": "Phase 1 hand:NM-80-unbounded-shouldNormalize (from m6-fix2-mutants-a1037e4.json)"
+ },
+ {
+  "id": "qa-nm-81b-one-resolve-per-call-and-first-change-returns",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  sharing.forEach((index) => settleLine(editor, unit, layout, index));\n",
+  "new": "  if (sharing.some((index) => resolveLine(editor, unit, layout, index))) return;\n",
+  "limb": "Phase 1 hand-NM-81b-one-resolve-per-call-and-first-change-returns (from m6-fix3-mutants-49fc364.json)"
+ },
+ {
+  "id": "qa-nm-82-settle-off-the-boundary",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  const spans = spansInLine(unit, layout, lineIndex, width);",
+  "new": "  const spans = lineIndex === 0\n    ? spansInLine(unit, layout, lineIndex, width)\n    : layout.emojis.filter((emoji) => emoji.start >= lineStart && emoji.end <= lineStart + width);",
+  "limb": "Phase 1 hand-NM-82-settle-off-the-boundary (from m6-fix3-mutants-49fc364.json)"
+ },
+ {
+  "id": "qa-nm-82-spansInLine-once-per-unit",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  const spans = spansInLine(unit, layout, lineIndex, width);",
+  "new": "  const seen = ((globalThis as { nm82?: WeakSet<object> }).nm82 ??= new WeakSet<object>());\n  const spans = seen.has(unit)\n    ? layout.emojis.filter((emoji) => emoji.start >= lineStart && emoji.end <= lineStart + width)\n    : (seen.add(unit), spansInLine(unit, layout, lineIndex, width));",
+  "limb": "Phase 1 hand-NM-82-spansInLine-once-per-unit (from m6-fix3-mutants-nm82-2b82972.json)"
+ },
+ {
+  "id": "qa-nm-84-suppress-keystroke-own-operation",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(rebuilding.has(editor) ? [] : getDirtyPaths(op))",
+  "new": "(rebuilding.has(editor) || op.type === 'insert_text' || op.type === 'remove_text' ? [] : getDirtyPaths(op))",
+  "limb": "Phase 1 hand-NM-84-suppress-keystroke-own-operation (from m6-fix4-mutants-a7ad3f2.json)"
+ },
+ {
+  "id": "qa-nm-83-no-emoji-lift",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "const lifted = liftLoaded(built, surface, changed);",
+  "new": "const lifted = built;",
+  "limb": "Phase 1 hand-NM-83-no-emoji-lift (from m6-fix4-mutants-a7ad3f2.json)"
+ },
+ {
+  "id": "qa-nm-83-no-lift",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      editor.apply({ type: 'insert_node', path: [index], node: lifted[index] });",
+  "new": "      editor.apply({ type: 'insert_node', path: [index], node: built[index] });",
+  "limb": "Phase 1 hand-NM-83-no-lift (from m6-fix5-mutants-40947a6.json)"
+ },
+ {
+  "id": "qa-nm-86-stale-lines-not-lifted",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      editor.apply({ type: 'insert_node', path: [index], node: lifted[index] });",
+  "new": "      editor.apply({ type: 'insert_node', path: [index], node: stale ? built[index] : lifted[index] });",
+  "limb": "Phase 1 hand-NM-86-stale-lines-not-lifted (from m6-fix5-mutants-40947a6.json)"
+ },
+ {
+  "id": "qa-nm-87-end-backtick-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex)) return;",
+  "new": "    if (!editedLine || editedLine.type === 'codeBlock' || seen.has(editedIndex) || !flattenNodeText(editedLine).endsWith('`')) return;",
+  "limb": "Phase 1 hand-NM-87-end-backtick-only (from m6-fix6-mutants-2c0b182.json)"
+ },
+ {
+  "id": "qa-nm-85-pending-timer-throws",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    rebuilding.delete(editor);\n",
+  "new": "    rebuilding.delete(editor);\n    if (stale) setTimeout(() => { throw new Error('planted timer'); }, 0);\n",
+  "limb": "Phase 1 hand-NM-85-pending-timer-throws (from m6-fix5-mutants-40947a6.json)"
+ },
+ {
+  "id": "qa-nm-88-one-stale-line-per-pass",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "rebuildLines(editor, surface, stale); });",
+  "new": "rebuildLines(editor, surface, stale.slice(0, 1)); });",
+  "limb": "Phase 1 hand-NM-88-one-stale-line-per-pass (from m6-fix5-mutants-40947a6.json)"
+ }
+]
