@@ -1822,3 +1822,21 @@ planner's R-115 (`ea2d137f`, row rejoined `387dc2b5`), by its message. "Revised 
 10 to 23), not read by this thread. Gate rounds since approval were not counted.
 **Acted:** the selection goes to `planner-019` for Revision 24 under R-115's class form. The planner commissions the enumeration probe.
 Code review of `a7ad3f2` runs on. Critic, architect, QA and the implementer get it in their next briefs.
+
+## 2026-11-25T05:30Z — plan 019 code review Round 8 sub-entry at a7ad3f2: REJECTED on CR-28 HIGH; CR-29 accepted as a stated limit (this thread's)
+
+`code-reviewer-019` by message (05:3xZ), with record `9cb3a3da` (not opened by this thread), says:
+- **REJECTED** on CR-28 HIGH, the lone-backtick throw. D-28 covers it (R-116, `44796cb8`, read in the plan register by `grep`). It throws
+  from 100 `a🙂` lines at `85ece66` and at the tip; `af3d95a` does not throw. Mounted, the typed backtick never reaches the message.
+- CR-25 and CR-26 are RESOLVED, with SL-29 0 of 20 over in its own readings.
+- CR-27 MEDIUM (the suppression's fixed point on corpus keystrokes) goes to the planner as R-111's owner.
+**CR-29 MEDIUM, put to this thread under block 20:58Z's yardstick:** closing a fence over lines that each hold a typographic quote is over the
+line (`a’` 114.6 / 9,589 ms; `a’🙂` 279.6 / 18,466 ms at 200 / 1,000). It is the same at `85ece66`, and `af3d95a` throws there. It is reachable only
+from a loaded or imported message. **Ruling: accepted as a stated limit, not sent back.**
+- The cap (block 2026-11-24T00:49Z) makes a gap below HIGH a stated limit, with no round.
+- SL-29's members are the `a` and `a🙂` fills (block 20:54Z). This fill is AC-6.9's residue.
+- The planner already registered the same defect as Outstanding 2 (R-114, `1c718c16`), carried by
+  `handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md`.
+- Production throws on this case, so the release does not make it worse.
+`code-reviewer-019` is at 332,347 (`cc-usage.py sessions`, 05:30Z), past its 325K threshold: it is asked for `/checkpoint` once its record
+is complete, and cleared after.
