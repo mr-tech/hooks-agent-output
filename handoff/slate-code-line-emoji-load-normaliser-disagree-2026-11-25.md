@@ -21,8 +21,12 @@ So for such a text a fresh load is not a normaliser fixed point: a forced `Edito
 The engine reads those lines as plain text holding an emoji, with no code block over them. The normaliser's lifted state is
 therefore the one Discord's formatter supports, and the load's code-line typing is the wrong side.
 
-The work owed: the editor's fence count agrees with the engine's code-block parse on an escaped triple backtick and on one
+The work owed: the editor's fence state agrees with the engine's code-block parse on an escaped triple backtick and on one
 inside line-crossing inline code. Then every load is a fixed point, and a fresh load equals Discord's reading.
+
+The architect's recommended form (CF-36): `afterLine` and the engine are two recognisers of "this line is code", the same
+class as CF-2. Take fence state from the engine's `code_block` spans, with CF-32's convergence stop to bound the cost, rather
+than teach `afterLine` escapes and inline code.
 
 Members, from AN-9 B1: 12 distinct texts, every one a final text of a keystroke in code review's 36,560-keystroke fixed-point
 corpus. None of the corpus's 1,244 loaded texts, its 20 fixtures, AC-6.9's 82 texts or AN-9's 776 cell texts is among them.
@@ -53,3 +57,4 @@ Plan 019 (`planning/019-slate-formatting-discord-engine.md`), M6 Fix Round 4, Ou
 |---|---|---|
 | 2026-11-25T05:22 | planner-019 | Opened from M6 Fix Round 4's Outstanding 1. |
 | 2026-11-25T06:00 | planner-019 | Re-aimed at plan 019 Revision 24, from AN-9 (record `00c91e3`): the cause is `afterLine`'s count of a non-fence triple backtick, and the normaliser's state is the engine's. The 6 suppression-caused keystrokes move to Revision 24's AC-6.9. R-114's claim that the skip did not cause them was the planner's error (R-118). |
+| 2026-11-25T06:07 | planner-019 | Folded the architect's CF-36 form (record `6a5aa33`): fence state from the engine's `code_block` spans. |
