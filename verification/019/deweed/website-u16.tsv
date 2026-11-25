@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+3818	5	remove	-	no	3743	every cell's exact markup is asserted by the table rows; a blank cell fails those first
+3819	2	remove	-	no	3687	counts a test-generator corpus only; exercises no production code
+3820	5	remove	-	yes	3743	an "unknown" fallback for an unresolved channel fails the exact no-provider row first; mention drawing is context-free
+3821	5	remove	-	yes	3745	same property on the list-without-id state; the exact withoutId row fails first
+3822	5	remove	-	no	4825	identity run of the residue check on its own list; an over-reporting check shows in the live class test
+3823	9	kept	-	no	-	discriminating control of the residue class test: the only fixture where an unlisted difference is reported
+3824	9	kept	-	no	-	discriminating control: the only fixture where a changed signature alone is reported
+3825	9	kept	-	no	-	discriminating control: stale decided by the measurement-absent disjunct alone
+3826	9	kept	-	no	-	discriminating control: stale decided by the no-longer-an-input disjunct alone
+3827	7	kept	-	no	-	frozen list's family counts against its entries; earlier of the identical pair with the discord-project case
+3828	9	kept	-	no	-	discriminating control: the only fixture where an undefined family is reported
+3829	9	kept	-	no	-	discriminating control: the only fixture where a family count mismatch is reported
+3830	2	remove	-	no	left unasserted: the (a)/(b)/(c) prefix of each residue family's reason text	pattern over fixture JSON strings; exercises neither production nor helper code
+3831	7	kept	-	no	-	literal runs for the signature the frozen list is compared by: joins, dimension change, gap, two dimensions
+3832	2	remove	-	no	3831	reduce over an empty array; cannot fail short of a rewrite the run-joining case catches
+3833	4	remove	Source-text assertion	no	left unasserted: no behaviour; absence of simple-markdown imports (unresolvable-specifier half is 3398)	reads every module's text for an import specifier; fails on re-adding a dependency, not on a behaviour regression
+3834	4	remove	-	no	left unasserted: no behaviour; absence of simple-markdown from the manifest	reads package.json fields; a guard on a removed dependency, no product surface
+3835	3	remove	-	no	left unasserted: no behaviour; absence of the patch file, workspace entry and ambient declaration	existence checks of three removed files/entries; reachable only by reverting the removal
+3836	5	remove	-	no	832	instrument tolerance (style nesting order); a stricter instrument fails the drawn-vs-engine class test
+3837	5	remove	-	no	4825	instrument tolerance (text-node split, legacy side); a stricter instrument fails the legacy class test
+3838	5	remove	-	no	4825	instrument tolerance (paragraph wrapper); a stricter instrument fails the legacy class test
+3839	5	remove	-	no	4825	instrument tolerance (adjacent spoiler pieces); a stricter instrument fails the legacy class test
+3840	5	remove	-	no	832	instrument tolerance (bold/italic on whitespace); a stricter instrument fails the drawn-vs-engine class test
+3841	5	remove	-	no	4825	instrument tolerance (edge newlines); a stricter instrument fails the legacy class test
+3842	5	remove	-	no	832	instrument tolerance (code block edge newline); a stricter instrument fails the drawn-vs-engine class test
+3843	5	remove	-	no	4825	instrument tolerance (link target spelling); a stricter instrument fails the legacy class test
+3844	5	remove	-	no	4825	instrument tolerance (block/inline nesting order); a stricter instrument fails the legacy class test
+3845	5	remove	-	no	832	pins the instrument's label-less link units; a wrong unit shows on the link inputs of the class test
+3846	9	kept	-	yes	-	discriminating control of the visible-form class tests: displayed text
+3847	6	remove	-	yes	3846	consumed marker differs in displayed text and bold, both controlled by their own rows
+3848	7	kept	-	yes	-	control that bold and italic are not conflated; overlaps the dom-side control and the dimension case in part
+3849	9	kept	-	yes	-	discriminating control: bold mark present vs absent
+3850	9	kept	-	yes	-	discriminating control: the only one for underline
+3851	9	kept	-	yes	-	discriminating control: the only one for strikethrough
+3852	9	kept	-	yes	-	discriminating control: the only one for inline code
+3853	9	kept	-	yes	-	discriminating control: the only one for spoiler
+3854	9	kept	-	yes	-	discriminating control: link target value
+3855	9	kept	-	yes	-	discriminating control: heading level
+3856	6	remove	-	yes	3855	a dropped heading block fails the heading-level control too
+3857	9	kept	-	yes	-	discriminating control: the only one for subtext
+3858	9	kept	-	yes	-	discriminating control: the only one for a quote block
+3859	9	kept	-	yes	-	discriminating control: code block language
+3860	9	kept	-	yes	-	discriminating control: list kind
+3861	9	kept	-	yes	-	discriminating control: ordered list start number
+3862	9	kept	-	yes	-	discriminating control: list item boundary (the per-item index)
+3863	9	kept	-	yes	-	discriminating control: list depth
+3864	9	kept	-	yes	-	discriminating control: an interior newline is a unit
+3865	7	kept	-	yes	-	count of line breaks; overlaps the line-break position control in part
+3866	7	kept	-	no	-	link presence on the legacy side; overlaps the native link-target control in part
+3867	9	kept	-	no	-	the one fixture where the spoiled-quote-bar branch decides
+3868	9	kept	-	no	-	the only control that atoms carry kind and value (timestamp, mention, emoji)
+3869	9	kept	-	no	-	the only exact assertion of the reported dimension and position, which signatures are built from
+3870	7	kept	-	no	-	text dimension reported where a marker is consumed; loose (some/includes), overlaps 3869 in part
+3871	5	remove	-	no	832	equal renderings report nothing; the class test asserts the same empty result over the corpus
+3907	8	kept	-	no	-	literal classes on both sides of an emoji element; the offset-after-element arithmetic asserted literally nowhere else
+3908	7	kept	-	no	-	delimiters directly around an emoji stay syntax; overlaps 3907 in part
+3909	8	kept	-	no	-	literal classes across an emoji on a quote line: quote prefix and element width together
+3910	5	remove	Self-referential oracle	yes	3908	same mechanics as the literal delimiter-around-emoji case; expectation drawn from the decorator itself
+3911	5	remove	Self-referential oracle	yes	3907	same single-line offset mechanics as the literal bold case
+3912	5	remove	Self-referential oracle	yes	3908	other delimiter, same mechanics
+3913	5	remove	Self-referential oracle	yes	3908	other delimiter, same mechanics
+3914	5	remove	Self-referential oracle	yes	3907	other delimiter, same single-line offset mechanics
+3915	5	remove	Self-referential oracle	yes	3907	unstyled text; every label is "-" on both sides, so only a throw could fail it
+3916	3	remove	Self-referential oracle	yes	4050	nothing follows the emoji, so only the node before it is compared and the offset under test never enters
+3917	7	kept	Self-referential oracle	yes	-	emoji at the start of a later line of the unit: line start plus element width, on no literal case
+3918	5	remove	Self-referential oracle	yes	3909	same input shape as the literal quote-line case
+3919	7	kept	Self-referential oracle	yes	-	emoji on a quoted second line under a style opened on the first; quote prefix on a later line
+3920	2	remove	Self-referential oracle	yes	4051	both text nodes around the emoji are empty, so nothing is compared
+3921	5	remove	Self-referential oracle	yes	3907	single-line text after an emoji, same offset mechanics
+3922	8	kept	-	no	-	editor classes against the frozen native box over 200+ inputs, emoji elements included; independent oracle, content surface
+3923	8	kept	-	no	-	literal for the one input the class test leaves out: a fence closing and reopening on one line
+3924	7	kept	-	no	-	one engine parse for a unit of 51 text nodes; fails if the per-pass unit or style cache is dropped
+3925	7	kept	-	no	-	unit boundaries: three lines share one parse, a code block starts another
+3926	8	kept	-	no	-	only the edited unit is parsed again, with its new text; a stale or over-wide cache fails
+3927	7	kept	-	no	-	512 units redrawn with no parse; the cache limit from below
+3928	7	kept	-	no	-	513th unit evicts the oldest only; the cache limit from above
+3929	7	kept	-	yes	-	no empty or out-of-node range over 2,378 inputs on content; the failure Slate would crash on
+3930	5	remove	-	yes	3929	same mask as content and the same full-markdown path
+3931	6	remove	-	yes	3929	range machinery is surface-independent; only one mask bit differs from content
+3932	7	kept	-	yes	-	single-line path (no quote or fence lines) under the title mask
+3933	6	remove	-	yes	3932	same single-line path as embedTitle, a narrower mask
+3934	5	remove	-	yes	3929	same mask as content and the same full-markdown path
+3935	2	remove	-	no	831	length of a fixture array; exercises no production code, and 831 asserts the same count
+3936	7	kept	-	yes	-	full span record of a unicode emoji through the layout; overlaps the load and src cases in part
+3937	8	kept	-	yes	-	named emoji between characters: span 1..8 and the character as alt, asserted nowhere else
+3938	7	kept	-	yes	-	skin-tone sequence as one span of four units with the joined file name
+3939	8	kept	-	yes	-	custom emoji record: source as alt, name as title, custom flag, png
+3940	7	kept	-	yes	-	animated custom emoji takes the gif; overlaps 3939 in part
+3941	7	kept	-	yes	-	text-presentation symbols are not lifted; earliest assertion of that boundary
+3942	6	remove	-	yes	3941	another text-presentation symbol, same boundary
+3943	8	kept	-	yes	-	an escaped emoji is not lifted; earliest assertion at the layout
+3944	7	kept	-	yes	-	a colon name that is no emoji stays text
+3945	7	kept	-	no	-	snowflake past 2^53 keeps its digits through the layout; emojiSrc alone is covered elsewhere
+3946	7	kept	-	yes	-	no emoji inside inline code
+3947	7	kept	-	yes	-	no emoji inside a masked link
+3948	7	kept	-	yes	-	no emoji inside a bare link address
+3949	6	remove	-	yes	3982	a unit never holds a code block's inner line; the load route asserts the same outcome
+3950	6	remove	-	yes	3951	first line without a fence under a code-block start is not a unit the editor builds; the table rows cover the start-inside path
+3951	8	kept	-	yes	-	decision-table row: closing fence then a reopening fence swallows the emoji
+3952	8	kept	-	yes	-	decision-table row: span positions after the prepended fence are shifted back
+3953	8	kept	-	yes	-	decision-table row: emoji after the close is listed, the one after a second opening fence is not
+3954	7	kept	-	no	-	two emoji around a code span, sorted starts; overlaps 3946 in part
+3955	7	kept	-	no	-	element built from a span, field for field
+3956	7	kept	-	yes	-	a span held when both ends match
+3957	9	kept	-	yes	-	the one fixture where the end comparison alone decides
+3958	9	kept	-	yes	-	the one fixture where the start comparison alone decides
+3959	5	remove	-	yes	3958	neither end matches; the start comparison already rejects it
+3960	7	kept	-	yes	-	binary search lands on the first of three spans
+3961	7	kept	-	yes	-	binary search lands on the middle span
+3962	7	kept	-	yes	-	binary search lands on the last span
+3963	5	remove	-	yes	3957	start matches, end sooner; same conjunct on other data
+3964	5	remove	-	yes	3958	start between spans; same conjunct on other data
+3965	7	kept	-	yes	-	start past the last span: the loop's upper bound
+3966	7	kept	-	yes	-	spans of the first line only, the next line's left out
+3967	8	kept	-	yes	-	a later line's two spans in unit offsets, the end exactly at the line's width
+3968	7	kept	-	yes	-	a line past every span lists none
+3969	9	kept	-	yes	-	the one fixture where a span starting inside the cut but ending past it is dropped
+3970	5	remove	-	yes	3967	same line and width as the two-span row
+3971	7	kept	-	yes	-	span starting exactly at the cut is dropped; overlaps 3969 in part
+3972	8	kept	-	no	-	cache key: one parse for the same unit, another when surface or code-block start differs
+3973	7	kept	-	no	-	oldest layout evicted after 256 others, newest kept
+3974	8	kept	-	yes	-	lifted ranges against the frozen engine spans over 2,800+ inputs on content
+3975	5	remove	-	yes	3974	same mask and path as content; cannot tell a hardcoded surface apart
+3976	7	kept	-	yes	-	a mask that differs from content; fails if the surface is not passed to the parse
+3977	8	kept	-	yes	-	single-line load path under the title mask
+3978	7	kept	-	yes	-	title-with-url mask; overlaps embedTitle in part
+3979	5	remove	-	yes	3974	same mask and path as content
+3980	7	kept	-	yes	-	literal ranges on both sides of a fenced block, independent of the frozen file
+3981	5	remove	-	yes	3980	run after a fenced block, already in 3980's second range
+3982	7	kept	-	yes	-	an emoji on a code line is never lifted, as a literal
+3983	5	remove	-	yes	3980	three runs around two blocks, the same mechanics as 3980
+3984	5	remove	-	no	930	plain text carries no class; the every-language comparison through the decorator asserts it
+3985	5	remove	-	no	930	one scope's class; asserted through the decorator in every language
+3986	5	remove	-	no	929	nested scope classes; asserted through the decorator
+3987	4	remove	-	no	930	the unsplit two-class string is a representation; the drawn classes are asserted split in 930
+3988	5	remove	-	yes	930	entity counted as one character; the snippets carry an ampersand in every language
+3989	5	remove	-	yes	930	entity counted as one character; the snippets carry "<"
+3990	5	remove	-	yes	930	entity counted as one character; the snippets carry ">"
+3991	5	remove	-	yes	930	entity counted as one character; the snippets carry a double quote
+3992	5	remove	-	yes	930	entity counted as one character; the snippets carry a single quote
+3993	7	kept	-	no	-	an empty scope adds no character; not decidable from the code whether a snippet produces one
+3994	7	kept	-	yes	-	stored text with an escaped emoji and bold loads back unchanged
+3995	5	remove	-	yes	3994	escaped emoji again, at the end
+3996	5	remove	-	yes	3994	escapes with no emoji and no quote; nothing in the load path touches it
+3997	7	kept	-	yes	-	a lifted emoji after a colon word keeps its source on flatten
+3998	5	remove	-	yes	3994	escaped emoji again, with a trailing colon word
+3999	9	kept	-	yes	-	stored text: the one fixture where a continuation line's empty quote prefix decides the saved text
+4000	6	remove	-	yes	3999	the opening line alone, already in 3999
+4001	7	kept	-	yes	-	an empty line inside a multi-line quote keeps its place
+4002	7	kept	-	yes	-	a "> " line inside a multi-line quote keeps its own marker

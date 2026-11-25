@@ -2324,3 +2324,39 @@ M4 line 319). They are the retrospective's figures, not re-computed. Weekly use 
 **On the record at the retrospective's ask:** devops-019's tmux pane read 1x2 (`tmux display -p '#{pane_width}x#{pane_height}'`, 17:28Z),
 so its permission prompt was read from the registry's `waitingFor`. This thread edited its own docket with a shell `sed` at 17:28Z, against
 its standing rule (Edit or `record-edit.js` only). The content was right; the method was not.
+
+## 2026-11-25T18:38Z — steering-hooks-fixer retired: close-out (retire skill, step 7)
+
+- **Where each chain rests:**
+  - Plan 019 is Released (website `master` `48eb60a`, 17:39Z). Every stage document is in `closed/`.
+  - Its retrospective is `retrospectives/019-slate-formatting-discord-engine-retrospective.md` (`d451993e`, Active; pi only on his word).
+    It seeded `handoff/slate-editor-rebuild-retrospective-019-seeds-2026-11-25.md` for the rebuild's planner.
+  - The fixer queue has no chain in flight. It is handed on in `TODO.md` § "Take over the hooks fixer queue and its carriers (retired
+    `steering-hooks-fixer`)" (`79815c4c`).
+  - The editor rebuild opens on his word alone (block 18:09Z). Its carrier is `planning/slate-editor-rebuild-sizing-2026-11-25.md`.
+- **No fixer retrospective is owed:** 0 fixer chains closed since `fixes-2026-11-23-steering-hooks-fixer-3`.
+- **Test-case scoring, all 17 units merged** (`verification/019/deweed/website-merged.tsv`):
+  - 2,494 of 2,494 marked cases scored, 0 missing. 1,560 are below 7, a share of 0.626. Scores: 1:2, 2:45, 3:8, 4:15, 5:901, 6:589,
+    7:575, 8:292, 9:67.
+  - Covering cells: 1,315 kept; 201 name a case below 7; 577 name an unscored id (unchecked); 934 have none.
+  - u17 classed five routing cases and 4792 as "Third-party source assertion" (its own judgement: Discord's served build, not a package).
+  - u17 disclosed the same secret-file gate refusal as u11, re-issued with absolute export paths. Nothing is deleted on this table.
+  - The export is removed: `du -s` of the scoring scratch was 922,008 KB before and 1,856 KB after, and `ls -d` of the export fails.
+- **Sessions stopped:** every 019 stage session (devops, qa, uat, implementer, planner, critic, code-reviewer, architect). No other session was this thread's.
+- **Removed from the box:** the scoring export alone. Docker: no containers, and the images mariadb:11.8 and postgres:16 predate 019.
+  `/var/tmp`: no 019 captures. The exited 019 sessions' scratch dirs under `/tmp/claude-1000/-usr-local-bin-hooks*` were **not** removed:
+  no instrument mapped a dir to a 019 session reliably (the transcripts carry no session name). This is named in the hand-on entry for a
+  later sweep.
+- **Jobs:** none left (`CronList` empty). Crontab lines 95 to 97 (devops-019's B5R reader) stay, because the B-5 carrier needs them.
+- **Carriers still open:**
+  - `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md` (B-5). `steering-coordinator` took its read at its 18:57Z check.
+  - `handoff/slate-formatting-unwalked-browser-behaviour-2026-11-25.md`, `handoff/website-leftovers-outside-the-formatting-region-2026-11-25.md`,
+    `handoff/slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md`, `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`.
+  - The four engine/oracle/rollback/code-line handoffs dated 2026-11-25, and the retrospective's seeds handoff.
+  - The rebuild sizing document. Agents revisit row V-123 (proposed, not approved).
+- **Coordination files:**
+  - `OWNER-QUEUE.md`: this thread has no section, and none is owed.
+  - The docket's unstarted work is in `TODO.md`. `docket-hooks-fixer.md` is deleted, and its line is removed from `dockets.md`.
+  - Ledger day files 2026-11-23 and 2026-11-24 are committed (`65ce4926`). 2026-11-25 is today's and is left for a later thread.
+  - The agents `INBOX.md` entry (critic tier) is left uncommitted for its owner.
+- The close-out commit is the one that carries this block.

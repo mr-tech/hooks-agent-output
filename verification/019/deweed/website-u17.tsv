@@ -1,0 +1,95 @@
+id	score	disposition	class	generated	covering	reason
+4003	5	remove	-	yes	507	same input opened in the mounted editor and written back unchanged; a loader change to this text fails that case first
+4004	5	remove	-	yes	506	same input written back unchanged by the mounted editor; the default "> " prefix also hides a dropped quotePrefix here
+4005	7	kept	-	yes	-	quote marker inside a fence must load as code text; first case on this input, the atom-join class repeats it later
+4006	7	kept	-	yes	-	leading-space quote marker keeps its own prefix; fails if quotePrefix is normalised to "> "
+4007	7	kept	-	yes	-	indented multi-line quote opener with a continued line; input in no other fixture or class
+4008	5	remove	-	yes	509	same input, single-line box, written back unchanged by the mounted editor
+4009	5	remove	-	yes	511	same input, single-line box, written back unchanged by the mounted editor
+4010	7	kept	-	yes	-	first literal of the child layout around a lifted emoji: text node, element, text node
+4011	6	remove	-	yes	4010	same split as the plain case with an escaped asterisk before it; the engine, not the loader, decides the span
+4012	6	remove	-	yes	3974	two spans on one line; the lifted ranges are frozen per input in the class case and the text by the load classes
+4013	8	kept	-	yes	-	escaped emoji stays text and a final emoji is followed by an empty text node; that boundary is asserted nowhere else
+4014	6	remove	-	yes	3937	name-form span between letters, same input as the layout case
+4015	8	kept	-	yes	-	adjacent emoji with empty text nodes before, between and after; the only fixture of that boundary
+4016	6	remove	-	yes	3954	no lift inside a code span and a lift outside it, as the layout case holds
+4017	6	remove	-	yes	3947	no lift in a masked link label or a bare address, as the layout cases hold
+4018	5	remove	-	yes	3941	copyright and trademark signs stay text, as the layout case holds
+4019	5	remove	-	yes	3936	plain unicode emoji lifted as one span; saved text also held by the mounted open case
+4020	6	remove	-	yes	3974	ZWJ sequence is a generator piece, so its lifted range is frozen in the class case; its saved text is held by the mounted open case
+4021	6	remove	-	yes	3974	skin-tone sequence is a generator piece, so its lifted range is frozen in the class case; its saved text is held by the mounted open case
+4022	6	remove	-	yes	3974	keycap is a generator piece, so its lifted range is frozen in the class case; its saved text is held by the mounted open case
+4023	6	remove	-	yes	3974	flag is a generator piece, so its lifted range is frozen in the class case; its saved text is held by the mounted open case
+4024	6	remove	-	yes	3974	tag sequence is a generator piece, so its lifted range is frozen in the class case; its saved text is held by the mounted open case
+4025	6	remove	-	yes	3974	heart with emoji presentation is a generator piece, so its lifted range is frozen in the class case; its saved text is held by the mounted open case
+4026	6	remove	-	yes	3937	name-form emoji lifted as one span, as the layout case holds
+4027	6	remove	-	yes	3974	skin-toned name is a corpus input whose lifted range the class case freezes
+4028	6	remove	-	yes	3939	custom emoji lifted as one span, as the layout case holds
+4029	6	remove	-	yes	3940	animated custom emoji lifted as one span, as the layout case holds
+4030	5	remove	-	yes	3942	no span for a heart with no emoji presentation, as the layout case holds
+4031	5	remove	-	yes	3941	no span for a copyright sign, as the layout case holds
+4032	5	remove	-	yes	3943	no span for an emoji after a backslash, as the layout case holds
+4033	5	remove	-	yes	3944	no span for a name that is no emoji, as the layout case holds
+4034	8	kept	-	yes	-	stored text of every corpus input survives the full-markdown loader; the mounted classes paste and type but do not load
+4035	7	kept	-	yes	-	link inputs through the loader; emoji inside links must not be lifted out of the text
+4036	8	kept	-	yes	-	1,000 generated texts through quote, fence and emoji lift together; only load-route class at this size
+4037	7	kept	-	yes	-	emoji-name boundary strings and fenced pairs through the loader
+4038	8	kept	-	yes	-	every join of up to three block atoms: the exhaustive block-layer table for quote prefix and fence parity on load
+4039	7	kept	-	yes	-	seeded block-layer texts of up to six lines; overlaps the atom joins only in part
+4040	7	kept	-	yes	-	single-line box takes the embedTitle mask and no quote or fence handling; corpus through that path
+4041	7	kept	-	yes	-	link inputs on the single-line path, where the title mask changes what is a link
+4042	7	kept	-	yes	-	generated texts on the single-line path
+4043	7	kept	-	yes	-	emoji-name boundary strings on the single-line path
+4044	7	kept	-	yes	-	block atoms must load as plain lines in a single-line box; fails if quote handling leaks into it
+4045	7	kept	-	yes	-	seeded block-layer texts on the single-line path; undecided against the atom joins, so 7
+4046	8	kept	-	no	-	engine not loaded: the loader lifts nothing and the decorator draws nothing; the only case of that path for the loader
+4047	6	remove	-	no	3922	bold delimiters and inside: inputs of this shape are in the frozen native box the decorator class case compares against, through this function
+4048	6	remove	-	no	3922	masked link label, brackets and destination: inputs of this shape are in the frozen native box the decorator class case compares against, through this function
+4049	6	remove	-	no	3922	bare link address: inputs of this shape are in the frozen native box the decorator class case compares against, through this function
+4050	6	remove	-	no	3922	subtext marker and its space: inputs of this shape are in the frozen native box the decorator class case compares against, through this function
+4051	6	remove	-	no	3922	uncoloured heading and list markers: inputs of this shape are in the frozen native box the decorator class case compares against, through this function
+4052	6	remove	-	no	3922	"*a\nb*" is a frozen native-box input in the decorator class case; the class of the break itself reaches no range
+4053	7	kept	-	no	-	raw astral character before styled text; the decorator cases only see emoji as one-wide elements, so the UTF-16 offset is checked here alone
+4054	6	remove	-	no	3922	unclosed opening fence: the frozen box holds "```unclosed\nx", which takes the same odd-fence path
+4055	5	remove	-	no	left unasserted: an empty unit giving an empty list rather than no styles	the decorator draws nothing for either result, so only a refactor fails it
+4786	2	remove	Third-party source assertion	no	4788	no site code runs; a module that is not located throws in the file setup, so every case here fails with it
+4787	9	kept	Third-party source assertion	no	-	discriminating control for the routing case: the switch predicate is true on a real module of the served build and false on the embed renderer
+4788	8	kept	Third-party source assertion	no	-	live alarm for the premise that embeds and V2 text are not behind the native switch; no site code, but nothing else reads it
+4789	8	kept	Third-party source assertion	no	-	live alarm that the embed renderer still makes its three legacy calls; the offline predicate cases use made-up modules
+4790	8	kept	Third-party source assertion	no	-	live alarm that the V2 text display still calls the legacy parse
+4791	1	remove	-	no	4825	restates a constant of the test helpers; no site code
+4792	2	remove	Third-party source assertion	no	4794	no site code; a rule set that is not found throws inside every surface parse below
+4793	5	remove	-	no	3366	no live input: the same throw on an absent call shape as the offline case
+4794	8	kept	-	no	-	live legacy fact behind the per-surface masks: heading in description and V2 text, text in a field value and a title
+4795	8	kept	-	no	-	live legacy fact behind the masks: list in description and field value, text in a title
+4796	8	kept	-	no	-	live legacy fact behind the two title masks: masked link with no embed url, text with one
+4797	8	kept	-	no	-	class case over the corpus: description and V2 text parse as content does, the premise for giving them the content mask
+4798	7	kept	-	no	-	every live parse of 2,378 inputs on six surfaces and both boxes completed; the cell count is by construction
+4799	2	remove	-	no	left unasserted: live agree counts other than a non-zero bold cell on content	agree is only ever counted with total, so the first assertion cannot fail
+4800	3	remove	-	no	3337	vacuous when no cell is unexamined; the naming of such cells is held offline
+4801	4	remove	-	no	4816	non-zero counts and key names fixed by the builder; that the two parsers disagree somewhere is the control case
+4802	2	remove	-	no	4821	reads back the file this spec wrote with its own head line; no site code
+4803	1	remove	-	no	4821	the same read-back of the spec's own write
+4804	6	remove	-	no	4813	hand example of the native box helper; its output is re-derived whole against the frozen literals
+4805	5	remove	-	no	4813	bold in the native box is in the frozen literals, whose content the lifted-data case reads
+4806	6	remove	-	no	4813	"*a\nb*" is a frozen native-box input re-derived live
+4807	6	remove	-	no	4813	masked links are frozen native-box inputs re-derived live
+4808	6	remove	-	no	4813	"# one" and "- a" are frozen native-box inputs re-derived live
+4809	8	kept	-	no	-	legacy box styles each line alone; no frozen data holds legacy box output, so this row is here only
+4810	8	kept	-	no	-	legacy box links the destination and not the label; the opposite of the native row, here only
+4811	7	kept	-	no	-	class case of the box instrument: every entry of 87 typed cases sits where it says in its line, in both boxes
+4812	9	kept	-	no	-	discriminating control for the typed-cases class case: shows the newline-only entry it drops is real in legacy and absent in native
+4813	8	kept	-	no	-	only check that the frozen native-box literals, the expected values of the decorator class case, are what the box gives
+4814	2	remove	-	no	4817	no site code; a module that is not located throws in setup and fails the whole file
+4815	7	kept	-	no	-	positive control with a literal canonical form for a live legacy parse; partly held by the frozen-tree cases
+4816	9	kept	-	no	-	discriminating control for the agree-class comparison: an Appendix A input parses differently in legacy and native
+4817	8	kept	-	no	-	only check that the frozen legacy trees used offline are what the served build gives
+4818	8	kept	-	no	-	Discord's evaluated code attempted no request on the live build; the offline cases prove refusal on made-up scripts only
+4819	8	kept	-	no	-	only check of the frozen webhook-state trees against the served build
+4820	9	kept	-	no	-	the one input on which allowEmojiLinks alone decides the tree, over the corpus and the link inputs
+4821	8	kept	-	no	-	pins the hash of the wasm the site ships and prints the served one; a dependency bump or served drift shows here only
+4822	3	remove	Self-referential oracle	no	3202	expects match to equal the comparison the helper itself makes; fixed bytes decide it offline
+4823	8	kept	-	no	-	the site's preview drawn for more than 1,000 inputs equals Discord's live legacy tree on the agree class
+4824	9	kept	-	no	-	discriminating control for the case above: the left-out inputs exist and each does differ, so the exclusion hides nothing else
+4825	8	kept	-	no	-	the preview of the five surfaces differs from live legacy on exactly the frozen residue list; unlisted, changed and stale entries all fail
+4826	4	remove	-	no	left unasserted: family counts of the frozen residue list agreeing with its entries	reads only the frozen list against itself; no site code and no live value

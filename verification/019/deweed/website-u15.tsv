@@ -1,0 +1,151 @@
+id	score	disposition	class	generated	covering	reason
+3668	5	remove	-	no	3476	game-mention bit of each mask is already fixed by the per-surface literal cases; any mask change fails those first
+3669	5	remove	-	no	3477	link bits of the two title masks are already fixed by their literal cases; cannot fail before them
+3670	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (seed determinism and range of the helper PRNG)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3671	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (helper PRNG reference value)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3672	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (count and seed dependence of the helper corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3673	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (prefix stability of the helper corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3674	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (catalogue leads the helper corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3675	2	remove	-	yes	left unasserted: no production behaviour; test-helper corpus property (balanced and unbalanced ** in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3676	2	remove	-	yes	left unasserted: no production behaviour; test-helper corpus property (balanced and unbalanced ~~ in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3677	2	remove	-	yes	left unasserted: no production behaviour; test-helper corpus property (balanced and unbalanced || in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3678	2	remove	-	yes	left unasserted: no production behaviour; test-helper corpus property (balanced and unbalanced __ in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3679	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (every Syntax bit tagged in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3680	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (bit tags match the text they sit on)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3681	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (nesting depth of the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3682	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (balanced and unbalanced delimiters by tag)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3683	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (link forms present in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3684	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (emoji positions around links in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3685	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (emoji forms present in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3686	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (timestamp style letters in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3687	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (mention kinds present in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3688	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (game mention form and its untagged near-miss)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3689	2	remove	-	no	left unasserted: no production behaviour; test-helper corpus property (block constructs present in the corpus)	imports only __tests__/helpers/markdownGenerator; exercises no production code (it guards that the corpus fed to the property specs is not vacuous)
+3690	5	remove	-	yes	791	same input **a** already pinned to a strong element by the element-map case
+3691	5	remove	-	yes	792	same input *a* already pinned to an em element by the element-map case
+3692	5	remove	-	yes	793	same input __a__ already pinned to a u element by the element-map case
+3693	5	remove	-	yes	794	same input ~~a~~ already pinned to an s element by the element-map case
+3694	7	kept	-	yes	-	only assertion of the inline class on drawn inline code; element-map pins the tag only
+3695	5	remove	-	yes	790	plain text drawn as text, other example data
+3696	6	remove	-	yes	797	heading level drawn from the engine level, repeated at level 1
+3697	5	remove	-	yes	797	same input shape ## already pinned to h2 by the element-map case
+3698	5	remove	-	no	809	same input a\nb, same drawn text
+3699	5	remove	-	no	802	masked link as anchor with href and label, other example data
+3700	7	kept	-	no	-	literal label and href for a bare link that absorbs a trailing emoji; property specs compare it only against the engine itself
+3701	7	kept	-	no	-	only assertion of the quote divider bar; element-map pins the quote wrapper and blockquote only
+3702	6	remove	-	no	801	ordered list start number, repeated with two items
+3703	5	remove	-	no	800	unordered list markup, other example data
+3704	8	kept	-	no	-	unknown-language branch of the code block (plain, no highlighter call) asserted nowhere else
+3705	5	remove	-	no	798	subtext block with marker consumed, other example data
+3706	7	kept	-	no	-	literal for the empty node between paragraphs; line-break case covers one newline only
+3707	7	kept	-	yes	-	positive control of the fixture route: an allowed scheme does draw an anchor, so the refusal cases are not vacuous
+3708	7	kept	-	yes	-	only case in which the preview draws a mailto anchor
+3709	9	kept	-	yes	-	the one fixture where the scheme alone decides: the engine never hands such a link, so only this proves the renderer consults the allow-list
+3710	6	remove	-	yes	3709	same allow-list gate in the renderer with another refused scheme; data: refusal itself is 3454
+3711	7	kept	-	no	-	reaches the no-image branch of the emoji renderer on an emoji node, which the real engine route may not
+3712	7	kept	-	yes	-	label fallback to the address for a masked link without label nodes
+3713	7	kept	-	yes	-	contact-link fallback branch (no label, no url token) drawn as the address
+3714	8	kept	-	no	-	pending engine draws nothing; the preview-level state branch is asserted nowhere else
+3715	8	kept	-	no	-	rejected engine shows the raw source; the user-visible failure path of the preview
+3716	7	kept	-	yes	-	multi-line body kept with its inner newline through the public parser; element-map covers one line
+3717	6	remove	-	yes	3716	two-line body again, without a tag
+3718	5	remove	-	yes	3716	multi-line body, one more line
+3719	5	remove	-	yes	3716	multi-line body, one more line, no tag
+3720	5	remove	-	yes	805	one-line body with no tag, other example data
+3721	8	kept	-	yes	-	one-line fence boundary: body on the fence line is content, not a language
+3722	8	kept	-	yes	-	empty line inside a block survives the edge-newline trim; boundary asserted nowhere else
+3723	6	remove	-	yes	3722	inner empty line kept, repeated with a tag
+3724	6	remove	-	yes	3722	inner empty lines kept, repeated with two
+3725	7	kept	-	yes	-	whitespace-only inner line kept verbatim; fails alone on a per-line trim
+3726	5	remove	-	yes	3725	whitespace-only inner line, repeated with a tag
+3727	7	kept	-	yes	-	block after a text line: leading edge of the body when the fence is not first
+3728	7	kept	-	yes	-	block before a text line: trailing edge of the body when text follows
+3729	7	kept	-	yes	-	the field-value parser draws a code block end to end; first case on that surface
+3730	5	remove	-	yes	3729	field surface, same path as content with other body
+3731	5	remove	-	yes	3729	field surface, same path as content with other body
+3732	5	remove	-	yes	3729	field surface, same path as content with other body
+3733	5	remove	-	yes	3729	field surface, same path as content with other body
+3734	5	remove	-	yes	3721	one-line fence, repeated on the field surface; the body path does not vary by surface
+3735	5	remove	-	yes	3722	inner empty line, repeated on the field surface
+3736	5	remove	-	yes	3722	inner empty line, repeated on the field surface with a tag
+3737	5	remove	-	yes	3722	inner empty lines, repeated on the field surface
+3738	5	remove	-	yes	3725	whitespace-only line, repeated on the field surface
+3739	5	remove	-	yes	3725	whitespace-only line, repeated on the field surface with a tag
+3740	5	remove	-	yes	3727	text before the block, repeated on the field surface
+3741	5	remove	-	yes	3728	text after the block, repeated on the field surface
+3742	8	kept	-	no	-	title surface draws no code block end to end; the only drawn-output row for that mask bit
+3743	7	kept	-	yes	-	exact pill markup (interactive class, kind and id attributes) with a null list; wrapper case 128 reads text only
+3744	5	remove	-	yes	126	same input and empty list, id form already asserted through the wrapper
+3745	8	kept	-	yes	-	row where a list is present but lacks the id: id form kept; first assertion of that row
+3746	6	remove	-	yes	124	listed channel named, repeated with the target second in the list
+3747	5	remove	-	yes	125	same list shape and input: thread under a listed channel named
+3748	7	kept	-	no	-	forum-type channel named; fails alone if naming were narrowed by channel type
+3749	6	remove	-	no	125	thread name lookup, repeated under a forum parent
+3750	5	remove	-	no	3745	id absent from the list keeps the id form, other example data
+3751	5	remove	-	no	124	listed channel named for either position; first half repeats the top-level row verbatim
+3752	7	kept	-	no	-	threads searched across every listed channel; fails alone if only the first channel were searched
+3753	5	remove	-	yes	124	content surface, same input as the top-level row
+3754	5	remove	-	yes	198	channel named on the description surface, already asserted through the preview page
+3755	5	remove	-	yes	197	channel named on the title surface, already asserted through the preview page
+3756	5	remove	-	yes	201	channel named on the linked-title surface, already asserted through the preview page
+3757	5	remove	-	yes	200	channel named on the field-value surface, already asserted through the preview page
+3758	5	remove	-	yes	202	channel named on the text-display surface, already asserted through the preview page
+3759	7	kept	-	yes	-	exact interactive pill and @id text for a user mention; element-map reads kind and id only
+3760	5	remove	-	yes	3759	user with list state empty: same source and expected value; the list is read only for channel mentions
+3761	5	remove	-	yes	3759	user with list state withoutId: same source and expected value; the list is read only for channel mentions
+3762	5	remove	-	yes	3759	user with list state topLevel: same source and expected value; the list is read only for channel mentions
+3763	5	remove	-	yes	3759	user with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3764	7	kept	-	yes	-	exact non-interactive pill and text for a role mention
+3765	5	remove	-	yes	3764	role with list state empty: same source and expected value; the list is read only for channel mentions
+3766	5	remove	-	yes	3764	role with list state withoutId: same source and expected value; the list is read only for channel mentions
+3767	5	remove	-	yes	3764	role with list state topLevel: same source and expected value; the list is read only for channel mentions
+3768	5	remove	-	yes	3764	role with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3769	8	kept	-	yes	-	game mention drawn as its source text; decision-table row asserted nowhere else
+3770	5	remove	-	yes	3769	game with list state empty: same source and expected value; the list is read only for channel mentions
+3771	5	remove	-	yes	3769	game with list state withoutId: same source and expected value; the list is read only for channel mentions
+3772	5	remove	-	yes	3769	game with list state topLevel: same source and expected value; the list is read only for channel mentions
+3773	5	remove	-	yes	3769	game with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3774	7	kept	-	yes	-	command mention drawn as its source text
+3775	5	remove	-	yes	3774	command with list state empty: same source and expected value; the list is read only for channel mentions
+3776	5	remove	-	yes	3774	command with list state withoutId: same source and expected value; the list is read only for channel mentions
+3777	5	remove	-	yes	3774	command with list state topLevel: same source and expected value; the list is read only for channel mentions
+3778	5	remove	-	yes	3774	command with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3779	7	kept	-	yes	-	everyone pill with its source text and an empty id
+3780	5	remove	-	yes	3779	everyone with list state empty: same source and expected value; the list is read only for channel mentions
+3781	5	remove	-	yes	3779	everyone with list state withoutId: same source and expected value; the list is read only for channel mentions
+3782	5	remove	-	yes	3779	everyone with list state topLevel: same source and expected value; the list is read only for channel mentions
+3783	5	remove	-	yes	3779	everyone with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3784	7	kept	-	yes	-	here pill with its source text and an empty id
+3785	5	remove	-	yes	3784	here with list state empty: same source and expected value; the list is read only for channel mentions
+3786	5	remove	-	yes	3784	here with list state withoutId: same source and expected value; the list is read only for channel mentions
+3787	5	remove	-	yes	3784	here with list state topLevel: same source and expected value; the list is read only for channel mentions
+3788	5	remove	-	yes	3784	here with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3789	7	kept	-	yes	-	static mention drawn as its source text; first of the static kinds
+3790	5	remove	-	yes	3789	home with list state empty: same source and expected value; the list is read only for channel mentions
+3791	5	remove	-	yes	3789	home with list state withoutId: same source and expected value; the list is read only for channel mentions
+3792	5	remove	-	yes	3789	home with list state topLevel: same source and expected value; the list is read only for channel mentions
+3793	5	remove	-	yes	3789	home with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3794	6	remove	-	yes	3789	static mention as source text, same branch with another static kind
+3795	5	remove	-	yes	3789	browse with list state empty: same source and expected value; the list is read only for channel mentions
+3796	5	remove	-	yes	3789	browse with list state withoutId: same source and expected value; the list is read only for channel mentions
+3797	5	remove	-	yes	3789	browse with list state topLevel: same source and expected value; the list is read only for channel mentions
+3798	5	remove	-	yes	3789	browse with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3799	6	remove	-	yes	3789	static mention as source text, same branch with another static kind
+3800	5	remove	-	yes	3789	customize with list state empty: same source and expected value; the list is read only for channel mentions
+3801	5	remove	-	yes	3789	customize with list state withoutId: same source and expected value; the list is read only for channel mentions
+3802	5	remove	-	yes	3789	customize with list state topLevel: same source and expected value; the list is read only for channel mentions
+3803	5	remove	-	yes	3789	customize with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3804	6	remove	-	yes	3789	static mention as source text, same branch with another static kind
+3805	5	remove	-	yes	3789	guide with list state empty: same source and expected value; the list is read only for channel mentions
+3806	5	remove	-	yes	3789	guide with list state withoutId: same source and expected value; the list is read only for channel mentions
+3807	5	remove	-	yes	3789	guide with list state topLevel: same source and expected value; the list is read only for channel mentions
+3808	5	remove	-	yes	3789	guide with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3809	6	remove	-	yes	3789	static mention as source text, same branch with another static kind
+3810	5	remove	-	yes	3789	linked_roles with list state empty: same source and expected value; the list is read only for channel mentions
+3811	5	remove	-	yes	3789	linked_roles with list state withoutId: same source and expected value; the list is read only for channel mentions
+3812	5	remove	-	yes	3789	linked_roles with list state topLevel: same source and expected value; the list is read only for channel mentions
+3813	5	remove	-	yes	3789	linked_roles with list state threadOnly: same source and expected value; the list is read only for channel mentions
+3814	7	kept	-	no	-	typed @! form kept as the pill text; element-map reads kind and id only
+3815	9	kept	-	no	-	the fixture where the kind alone decides: id is a listed channel id yet a role mention is not named
+3816	7	kept	-	no	-	same control on the user branch: listed id, user mention keeps its form
+3817	5	remove	-	no	3745	every one of the 60 cells is pinned to an exact literal by the table cases, none holding the word; cannot fail before them
