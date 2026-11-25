@@ -2,7 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: UAT Complete
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Verified-At: "48eb60a — repos=website; the chain branch's head, built in place with next build (exit 0) and served by next start on 127.0.0.1:3000"
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -18,6 +19,7 @@ Release-Decision: APPROVED FOR RELEASE
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-25T16:31 | steering-hooks-fixer (brief `steering/019-brief-uat.md`, record `5a2a60ca`) | UAT for plan 019: all nine pre-release walks (rulings block "2026-11-25T15:49Z") | All nine rows EXECUTED, all PASS on website `48eb60a`. **APPROVED FOR RELEASE**. B-5 stays post-deploy (devops' carrier); B-6 is QA Phase 3's. Two findings, neither blocking: UAT-1 (pre-existing, also in production) and UAT-2 (local-build instrument limit). |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Stage start and tree
 
