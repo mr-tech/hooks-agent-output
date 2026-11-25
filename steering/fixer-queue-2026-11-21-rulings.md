@@ -1774,3 +1774,18 @@ and the M6 cap (block 2026-11-24T00:49Z: below HIGH is a stated limit, HIGH is n
 criterion change. The candidate severities are the implementer's.
 `implementer-019` ran its own `/checkpoint`: its Resumption State was committed at `32c4a684` and its wake was deleted. It was cleared at
 05:1xZ (`tmux-agent clear`), past its 225K threshold (512K by its own message).
+
+## 2026-11-25T05:24Z — plan 019 R-114: the planner's dispositions of Round 4's found defects; Outstanding 3 may go to him
+
+`planner-019` by message (05:2xZ) and its commit `1c718c16` (R-114, one hit by `grep -c` in the plan) disposition the four items against
+Revision 23, with no revision:
+- **Outstanding 1 (LOW)** and **Outstanding 2 (MEDIUM)** are stated limits under the cap, each with a handoff:
+  `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md` and `handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md`.
+- **Outstanding 5 (LOW)** is a stated limit; no behaviour reads the stale flag.
+- **Outstanding 3** is MEDIUM by the planner's re-derivation, against the implementer's HIGH, and outside every criterion. Under the cap it is
+  a stated limit. The planner reads lifting the cap as his call, since it is the throw D-24 chose to fix, on a different keystroke. A lift means
+  a Revision 24, a milestone-level scope delta on M6 (three gate reads, a fix round, code review and QA's re-check).
+Two premises the choice turns on are unread: whether production (`origin/master` `5ec0621`) already throws there, and whether the typed text
+survives the throw (the HIGH/MEDIUM line). A `general-purpose-sonnet` helper was started at 05:2xZ to refute the claim by running the probe at
+`a7ad3f2` and at `origin/master`, capped (4G scope, one worker, `unshare -rn`, exports only). The prompt to him waits on its result. Code review
+of `a7ad3f2` runs on.
