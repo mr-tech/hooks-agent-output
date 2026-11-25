@@ -1,0 +1,27 @@
+date=2026-11-25T16:46:17Z
+diff 5ec0621..48eb60a: 2908695 bytes sha256 8ec9bce0d09c0f7d0862b5b98d8589ac6f065c5d60cf97b7b7960b3176603490
+git apply --check -R against the tree at 48eb60a: exit=0
+tree HEAD=48eb60a02f4af4f27f1a5426bbe7e58301b1d148
+base tree=e29ea947a7eaa3bd6071339a10626266d5e1bb0b tip tree=f50f8aa46b0111cd389e68557d4918a3f8f306d7
+--- release-move --report
+one serving ref at origin (master); no pair
+exit=0
+--- release-move master 48eb60a --dry-run
+repo     /usr/local/bin/hooks/website
+ref      master
+target   48eb60a02f4af4f27f1a5426bbe7e58301b1d148
+remote   origin/master 5ec06212d73073ab556e46582c3b23e3468da3a3
+local    master 5ec06212d73073ab556e46582c3b23e3468da3a3
+untracked 17 path(s) left alone
+evidence none: a real move refuses without --qa-record or --reason
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit=0
+--- ls-remote
+5ec06212d73073ab556e46582c3b23e3468da3a3	HEAD
+854bbbc2aafc7bbd65958e9d0930de4027347364	refs/heads/backup
+d21b32ec12e59025e0b7d11333462ef4088f85f1	refs/heads/external-message-api
+5ec06212d73073ab556e46582c3b23e3468da3a3	refs/heads/master
+4fe53b6c6f3f1effd454662b8822705ead2262c1	refs/heads/redesign
+d5f2dc8c8b31398531fc23ddf51fdd60d5fe922a	refs/heads/regex-refactor
