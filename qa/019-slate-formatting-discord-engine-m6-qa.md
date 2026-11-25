@@ -359,28 +359,60 @@ absence of the throw.
 
 ## Resumption State
 
-Rewritten 2026-11-24T17:04 at steering's `/checkpoint` (about 404K tokens), at a seam. Every write is committed.
+Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a seam. Every write is committed.
 
-- **Since 14:35.** The Phase 1 re-key on Revision 21 is committed (record `225ef4a6`, Phase 1 document § Re-key on Revision 21):
-  P-Q26, **QAF-52 MEDIUM**, NM-73 to NM-77, and **B-11** minted with its walk run at `42128cd`. planner-019 took QAF-52 into
-  Revision 22. Its unmaking member becomes Backspace at the start of the quote line's text, giving `a` and then `za`. Revision 22
-  also carries the 27 and 104 ms ceilings and CF-30, which refuses a caught throw or an unbounded `shouldNormalize`.
-- **Steering's message at 17:03Z, verbatim:** "the owner chose to fix your QAF-52 caret in this release (selection 17:03Z; effort
-  rulings block "2026-11-24T17:03Z", record 0fa784d0). Expected: `>> a` → `>>> za`, `>> abc` → `>>> zabc`. My helper's run puts
-  the caret at the end of the line's text (`>> abc` gives `>>> abcz`), at af3d95a and 42128cd. The planner folds this into
-  Revision 22, which your re-key reads." My offset-1 reading on `a` is the end of that one-character text, so the two agree.
-- **Next: the Phase 1 re-key on Revision 22**, when planner-019 sends it. Read it as the diff from `81523bd6`. Check QAF-52's fold:
-  making gives `>>> za` and `>>> zabc`, with the caret fix in scope; unmaking gives `a`, then `za`. Check CF-30's refusal against
-  NM-73 (a swallowed throw). NM-73 then becomes a mutant the criterion forbids by construction. Re-check B-11's K1 prediction
-  (now `>>> za`, and add `>> abc`), then sweep the register on rows citing AC-6.9. Then the M6 refresh at the second fix
-  round's code-reviewed tip. The owed list below still applies, plus the sweep carry-over in § Results, and
-  QAF-51's caret-placement observation checked again in the round's build, and AC-6.9's limbs and NM-73 to NM-77 (Phase 1
-  document). Every scratch export is deleted, including the 14:50 `tipx` used for P-Q26 and the walk. The local database is
-  down (`uat-local-stack.sh down`, 14:47), and the 3107 server is stopped (0 listeners). No server, sweep or vitest of mine runs.
-  Website is on `chain/019-slate-formatting-discord-engine` at HEAD `42128cd`, and I wrote nothing there. Nothing of mine is
-  uncommitted, and no evidence is run but unrecorded. The walk's PNGs stay untracked under `phase1-rev21/walk/` and
-  `m6/fix/browser/`, as captured media. Questions open: QAF-52 with planner-019, folding into Revision 22. The model-selection probe outputs that back QAF-51's handoff row are in
-  `fix/browser/model-selection-*.out.txt`: the selection stays at `[0,0]` offset 1 after `>` at 2 to 123 lines, on both trees.
+- **Done since 2026-11-24T17:04.** Phase 1 re-keyed on Revisions 22 to 25, all in the Phase 1 document
+  (`qa/019-slate-formatting-discord-engine-qa.md`, its § Re-key on Revision 22 to 25, records `e2890214`, `d46f68ff`, `7a6087f6`,
+  `5a9af9be` and `f7df4423`). Every gate has passed Revision 25 (plan record `f1a2f2f7`). Fix Round 5 is with implementer-019.
+  - Findings: QAF-52 closed (revision 22). QAF-53 resolved by D-27 (SL-29). QAF-54 is a stated limit. QAF-55 closed by D-31.
+    QAF-42 LOW (R-69) stays open.
+  - Code review rejected Fix Round 2 (`85ece66`, CR-25), Fix Round 3 (`2b82972`, Round 8) and Fix Round 4 (`a7ad3f2`, CR-28,
+    CR-27). No M6 hand-off has reached this stage since 42128cd.
+  - B-11 gained K1a and K1b (revision 22) and K4 (revision 24), with K4's walk run at `a7ad3f2` in Chrome. Every case now runs
+    twice, because closing the JSON view drops edit mode and the caret.
+- **Next: M6 Phase 2 on Fix Round 5.** The stage start is code review's committed verdict and its `Reviewed-At`, never a message.
+  Work in a `git archive` export of that SHA, with blob identity checked and a **frozen offline install inside the export**.
+  Turbopack refuses a `node_modules` symlink pointing outside the export.
+  - **Entry conditions.**
+    - **SL-29** (D-27). The yardstick is steering's block 20:58Z: the tip median must be within the larger base median at that
+      N plus a quarter. Fence members compare against `af3d95a`'s median, throw named, with the plain `a` reading beside each
+      as context. Paste is read per fill, as told to steering; there is no reply, so that reading stands. A reading over its
+      line goes to steering with its figures and load.
+    - **SL-30** (D-30). Run F-59's wider set, mounted: a backtick or `\` typed, Backspace or Delete, mid-line 0, on a middle
+      line, or on the partner line. Sizes: 5, 100, 200 and 1,000 on `embedDescription`, and 5, 100 and 200 on `content`, over
+      `a🙂` lines with a partner. Run `5ec0621` as the control. A throw goes to steering as a D-28 member.
+  - **AC-6.9's obligations** (Phase 1 document, § Re-key on Revisions 21 to 25):
+    - every limb over every member and N;
+    - NM-73 to NM-88, with CF-30's diff read for a `catch` or a `shouldNormalize` budget;
+    - the forced-normalise read through an `editor.apply` spy, with a planted non-fixed-point control;
+    - CF-35's equality differential over code review's corpus, against the round's own pass-through tree;
+    - the timer clause read mounted, red by assertion inside the case, with the exit code recorded;
+    - the count limb, A1 to A6 included, with tip medians and load recorded as context;
+    - the growth limb with the load beside each reading, called straight (block 19:20Z).
+  - **Assumptions this stage took:**
+    - Round 8's: a Chrome-profiled paste of 1,000 `a🙂` lines on local builds of the tip and `af3d95a`, at least 3 runs each.
+      Over 1.25 times goes to steering.
+    - The Round 8 sub-entry's: the CR-27 probe on ordinary generated texts with a second edit, against code review's
+      no-suppression mutant.
+    - The implementer's pre-fix figures for `>> abc` and for paste growth with load.
+  - **The owed list from before still applies** (the list below, from 2026-11-24): TDD rows, the suite, typecheck, live,
+    `test:discord` offline, `next build`, the 1,000 mounted generator inputs, AC-3.3's 60 s cap, AC-6.8's limbs, QAF-50's and
+    QAF-46's reds, and the M4 and M5 differentials if their paths moved. Then the effort-final sweep over
+    `git diff 5ec0621..<tip>` production paths, with `mutant-gen.js` plus the hand mutants. Run it through a helper, with explicit
+    file filters, because `--exclude` fails under the projects config.
+  - **B-11:** UAT runs it, at K1a, K1b, K2, K3 and K4, two runs per case, on that round's build.
+- **Hazards met this session.**
+  - A secret-file hook refuses a broad `grep` whose paths could reach a guarded workflow file. Use literal directories, or `-l`.
+  - Typing a claim of a past read from memory: one note was corrected (record `41956266`). Read the source first.
+- **Approach in flight.** None.
+- **Local state.** Website is on `chain/019-slate-formatting-discord-engine` at HEAD `a7ad3f2`, the implementer's. I wrote nothing
+  there. The `a7x` export is deleted. The 3107 server is stopped, and the local stack is down. No process of mine runs. The walk's
+  PNGs stay untracked, as captured media, under `verification/019/qa/phase1-rev24/walk/` and the earlier walk folders.
+- **Evidence run but not recorded.** None.
+- **Questions sent.** None open. The per-fill paste reading was put to steering, with no reply, so it stands.
+- **Cache-warm wake.** Deleted at this checkpoint. Arm it again on the next turn.
+
+**The owed list from 2026-11-24, kept as written:**
 
 - **Done.**
   - **M6 Phase 2:** QA Failed at `119471f`, record `4da9b76b`, plan R-89 at `150f5097`. Sent to implementer-019 (QAF-50 for the
