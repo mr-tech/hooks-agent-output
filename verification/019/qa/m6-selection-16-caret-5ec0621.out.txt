@@ -1,0 +1,18 @@
+Plan 019 R-126 reading: caret on Fix Round 5's 16 selection-only keystrokes at production 5ec0621 (master), with code review's fixed-point probe.
+Probe: ../agent-output/verification/019/code-review/m6fix2-85ece66/crprobe.keystroke-fixedpoint.test.tsx.txt sha256 4af3cc3fc33148d4040d037c19e9795bec36ae9fb03d5a4b63b3f28540ec477e
+Checked 2026-11-25T09:40Z by git cat-file / git show against website 5ec0621; probe not executed.
+--- probe imports resolved at 5ec0621 (placed at src/components/SlateEditor/utils/__tests__/):
+ABSENT  src/utils/markdown/engine.ts
+ABSENT  src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts
+present src/components/SlateEditor/utils/getInitialValue.ts
+present src/components/SlateEditor/utils/index.tsx
+--- probe's call: withNormalizeNode(editor, false, 'embedDescription'); 5ec0621's signature:
+215:export default (editor: Editor, partialMarkdown: boolean, parseEmoji: InteractiveParser) => {
+--- probe's call: getInitialValue(text, 'embedDescription', false); 5ec0621's signature:
+export default (
+  input: string,
+  parseEmoji: InteractiveParser,
+  partialMarkdown: boolean,
+): Descendant[] => {
+--- 5ec0621 is an ancestor of chain tip 40947a6: yes
+Result: the probe will not run at 5ec0621 unmodified - startEngine's module and the roundTripInputs helper (which supplies input indices 232..1257) are absent, and both builder calls take a different signature. Caret at 5ec0621: unread.
