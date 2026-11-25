@@ -1838,6 +1838,10 @@ CR-29 MEDIUM Round 8 (M6; disposition steering's, under block 20:58Z)
   on its own. If it is sent back, the structural form is the rewrite folded into the rebuild: the load-built line carries the
   rewritten text, so the line is a fixed point.
 
+CR-29's disposition (2026-11-25): **a stated limit**, by steering's block 05:30Z (record `9fe446a8`). Under the cap of block
+2026-11-24T00:49Z, a gap below HIGH is a stated limit with no round, and this fill is AC-6.9's residue. It is carried by
+`handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md` (R-114's Outstanding 2).
+
 **Verdict, Round 8 sub-entry: REJECTED** for M6 at `a7ad3f2`, on CR-28 HIGH: typing a backtick in a 100-line emoji message throws,
 where today's site does not.
 - CR-27 MEDIUM is a severity floor and blocks the hand-off to QA.
@@ -1872,7 +1876,7 @@ other open M3 LOWs were raised before the cap and keep the carriers named below.
 Blocking (Round 8 sub-entry, M6 at `a7ad3f2`):
 - **CR-28 HIGH**: an emoji-layout change across many lines must settle without Slate's iteration error. Use the Preferred form: CF-33's scoped rebuild, extended to the lift. The falsity signature is the lone-backtick case at 200 `a🙂` lines.
 - **CR-27 MEDIUM**: one lift rule for code lines, so the rebuilt lines are a normaliser fixed point. The falsity signature is the forced-normalise case over the four corpus inputs.
-- **CR-29 MEDIUM** is steering's to send back or accept (block 20:58Z).
+- CR-29 MEDIUM is a stated limit (block 05:30Z), carried by its handoff.
 
 Blocking (Round 8, M6 at `2b82972`, superseded by the sub-entry): **CR-25 HIGH, the time member**: bring the `a🙂` fence keystrokes within SL-29's line (block 20:58Z) at 200 and 1,000 lines, keeping the count limb and D-24's throw fix, in the lift form architect-019's design read gives (block 22:41Z). Fix Round 4 also carries **CR-26 LOW** (marker placement inside a `>>>` quote).
 
