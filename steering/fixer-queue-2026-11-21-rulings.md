@@ -2129,3 +2129,11 @@ construction (the helper's note). "Skips none of 019's remaining steps" is P4-3'
 is not asked: it comes back with the sizing.
 **Acted:** `planner-019` is commissioned to size the rebuild; `researcher-slate-editor-design` is told the answers to record. 019's QA Phase 2
 runs on.
+
+## 2026-11-25T15:28Z — his ruling: plan 019 does not carry the rebuild
+
+His words (witnessed, this session): "019 will not carry the new work."
+Reading (this thread's): this answers research OQ-3. Any rebuild of the editor is its own effort, never a revision, milestone or rider of 019.
+019 continues to its release on the current editor, under D-19. He has not said whether a rebuild happens; block 15:25Z's "size a rebuild
+first" stands, so the sizing goes on for the separate-effort timing only. No chain is opened and no ID is minted until he opens one.
+**Recipients:** `planner-019` (the sizing drops the inside-019 timing), `researcher-slate-editor-design` (OQ-3).
