@@ -1968,3 +1968,23 @@ in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-
 - At hand-off this thread reads the round's figures, SL-29, the forced-normalise and corpus sub-limb, D-31's count limb and the OOM
   disclosures. Then code review, then QA Phase 2 with SL-29 and SL-30.
 - Standing check `a2902b82` is at 07:27Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
+
+## 2026-11-25T07:09Z — plan 019 M6 Fix Round 5: the typographic-quote inline-code throw is D-28's class; the round widens past (b) (this thread's)
+
+`implementer-019` by message (07:0xZ) reports an owner-needing scope item. At the round's tip `70c5a86`, the inline-code keystrokes over `a’🙂`
+lines throw Slate's 126-iteration error. Its proposed fix folds the typographic rewrite into the rebuild, which goes past block 06:07Z's (b).
+Premises, read this turn from `verification/019/impl/m6-fix5-tip-70c5a86/`:
+- `typographic-inline-70c5a86.jsonl`: 24 of 32 rows throw, every one at 100, 200 or 1,000 lines; none of the 8 rows at 5 throws.
+- `typographic-inline-5ec0621.jsonl` (production), classified by script: the 128 rows for runs `` ` `` and ``` `` ``` have no error and 0 other
+  lines changed. The 36 throwing rows and the 12 rows with other lines changed are all the ``` ``` ``` run. That run is CR-29's fence case,
+  which production also throws on (block 05:30Z). The implementer's "no throw at any size" holds only for the inline-code runs.
+**Ruling: its option 1. The round folds the typographic rewrite into the rebuild, red case first.** This is not put to him: his 05:28Z
+selection answers it. He chose *Fix the whole class* ("Every keystroke that changes other lines joins the no-crash rule") over *Ship it as a
+known limit* ("the release ships a crash production does not have"). Block 06:14Z Q1 kept that choice. This throw is a crash that production
+does not have, so it is in the iteration-cap class. (b) was this thread's guidance, so widening it is this thread's call. CR-29 stays a stated
+limit unless the round's measurement shows it cleared.
+- **Recipients:** `implementer-019` now. `planner-019` and `architect-019` hear of it in the seam-fold and closing-pass briefs (the R-114 handoff
+  and Outstanding 2 may change; CF-34's design changes). `code-reviewer-019` reads it in the implementer's document.
+- **OOM:** the kern.log count is 8, up from 4 (06:57Z). There were 4 `Memory cgroup out of memory` kills of `MainThread`, 07:08:20–07:08:29Z.
+  The implementer is told to disclose them and to re-run anything killed, capped.
+- The website tip is `55e5fdd` (`git log`, 07:09Z).
