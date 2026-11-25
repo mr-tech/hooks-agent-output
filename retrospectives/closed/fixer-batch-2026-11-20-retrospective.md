@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixer-batch-2026-11-20
 UUID: 9bdfb3dd
-Status: Active
-Status-Detail: "Fixer-batch retrospective over fix-dialog-closes-on-first-portal-load (website 1ad625e) and fix-personal-message-access (website 983681c), written after both chains closed out. Rests until pi runs on the owner's command."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch 2026-11-20): fix-dialog-closes-on-first-portal-load, fix-personal-message-access
@@ -20,6 +20,7 @@ Status-Detail: "Fixer-batch retrospective over fix-dialog-closes-on-first-portal
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T01:54 | steering-roadmap-hooks (spawn brief, rulings block 2026-11-20T01:50Z) | Fixer-batch retrospective over chains A and B | Written from the documents. Cost read per chain. Ten recommendations, each naming the file it would change. No handoff created. One gate event disclosed under Corpus. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
