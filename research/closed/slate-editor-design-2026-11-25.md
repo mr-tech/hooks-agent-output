@@ -1,8 +1,8 @@
 ---
 UUID: 416ecf54
 Parent: slate-formatting-discord-oracle-2026-11-23
-Status: Active
-Status-Detail: "All four parts are written and the owner has answered OQ-1 to OQ-3: a rebuild is sized first by planner-019 and would be its own effort, never part of plan 019; for a rebuild, emoji are decided per line and the quote marker is hidden. OQ-4 and G-8 go to the sizing. Stays Active until the sizing lands; the close is on steering's cue. Checkpointed, no unit in flight."
+Status: Answered
+Status-Detail: "Answered. The owner chose to rebuild the editor's Slate layer on Discord's model as its own effort after plan 019 releases, with emoji decided per line and the quote marker hidden. The decision and this document's open items are carried by planning/slate-editor-rebuild-sizing-2026-11-25.md: OQ-4 and G-8 are answered there, and G-1, G-3 and G-10 go to the rebuild's analysis. G-4 stays with plan 019's own record. G-2, G-5, G-6, G-7 and G-9 lapse, each with its reason in Remaining Gaps."
 ---
 
 # Is there a better design for the website's message editor, and what would adopting it change for plan 019?
@@ -15,34 +15,11 @@ Status-Detail: "All four parts are written and the owner has answered OQ-1 to OQ
 | 2026-11-25T11:59 | researcher-slate-editor-design | Parts 2 to 4, System Weaknesses, Open Questions, Remaining Gaps, Recommendations and two appendices written; P1-4's caller sentence corrected; first commit | The 11:47 text was never committed. Its P1-4 said the inline-object pass had one caller; a second module calls one of its helpers, and the sentence now says so. The defect-extraction helper's table is used in P3-5 and P4-2 and marked there. The survey helper's table is used in P2-4 and marked there; the six rows of Part 2's table are this session's reads. A proof-of-concept was run once (P3-2 to P3-4, Appendices A and B). Record check at session start: exit 1, 41 failures outside the baseline, none in a research document. |
 | 2026-11-25T15:27 | researcher-slate-editor-design | Owner's answers recorded; OQ-1 and OQ-2 resolved, OQ-3 deferred, OQ-4 and G-8 routed; Resumption State written; checkpoint at steering's ask | Effort rulings block "2026-11-25T15:25Z" (record commit `903a6252`), read whole at this write, at `steering-hooks-fixer`'s message. Nothing in § Findings was re-run. G-3 gains steering's helper's undo reading, marked as not made here. Record check after the first commit: exit 1, the same 41 failures as at session start, none in this document. Cache-warm wake deleted at this checkpoint. |
 | 2026-11-25T15:29 | researcher-slate-editor-design | OQ-3 resolved on the owner's words; Resumption State rewritten | Effort rulings block "2026-11-25T15:28Z" (record commit `f3096590`), read whole at this write, at `steering-hooks-fixer`'s message, which arrived after the 15:27 checkpoint was committed (record `dc9da4cd`). Nothing in § Findings was re-run. No wake was armed for this turn. |
+| 2026-11-25T15:38 | researcher-slate-editor-design | Document closed | Status: Answered. Resumed from the Resumption State (record commit `93f27e5f`) on `steering-hooks-fixer`'s cue; the session was not cleared in between. Read whole at this write: effort rulings block "2026-11-25T15:36Z" (record commit `b7a4b8d2`), and in `planning/slate-editor-rebuild-sizing-2026-11-25.md` at record commit `6c3bba2b` its header, changelog, § What was asked, § The answer in brief, the "It adds" list of § What it re-runs, § OQ-4 and § Not measured; its other sections were not read. Nothing in § Findings was re-run or re-verified at the close; it is carried as written. Each open question and gap now names its carrier or its lapse. The record's index is left for steering to rebuild. |
 
 ## Resumption State
 
-Checkpoint written 2026-11-25T15:27Z at `steering-hooks-fixer`'s ask and rewritten 2026-11-25T15:29Z when OQ-3's answer arrived after
-it; the session is cleared after this commit. Later documents are authoritative on the state of every item named here.
-
-- **Done.** The research: first committed revision at record `0f8b22cf`, delivered to `steering-hooks-fixer`. The owner's
-  answers are recorded at this revision (Open Questions). Nothing in § Findings was re-run or re-read after the first revision.
-- **Next act.** The close, on `steering-hooks-fixer`'s cue once `planner-019`'s sizing lands: the Close Procedure, with OQ-4
-  and every row of Remaining Gaps given a carrier by path or a stated lapse. Until then the document stays Active.
-- **Approach in flight.** None; no research unit is open.
-- **Trees.** The record, `agent-output` on `master`, HEAD `f3096590` before this commit. The website tree was not touched: it
-  was read from `git archive` exports of `5ec0621` and `2c0b182`, since deleted.
-- **Uncommitted.** One entry of this session's in `INBOX.md`, headed "2026-11-25 — researcher-slate-editor-design — FYI", left
-  for the record's owning session by the inbox's convention. Nothing else, and nothing locally mutated.
-- **Evidence run but not recorded.** None. The proof-of-concept's readings are Appendix A and its script is Appendix B.
-- **Questions sent, and to whom.** Two messages to `steering-hooks-fixer`: one reporting a read that was not completed (id
-  `21796324-fc3e-41d8-a9ae-530ce13ef1e6`), one delivering this document with OQ-1 to OQ-3 (id
-  `80e87694-b25e-4938-8e6e-edd7608214e6`), answered by rulings blocks "2026-11-25T15:25Z" and "15:28Z". None awaits an answer. Nothing was
-  put to the owner directly, and no plan 019 session was messaged.
-- **Processes and scratch.** `pstree -ap` of this session at the checkpoint shows the harness's browser tool server and no
-  process this session's work started. Its scratch directory holds the scripts, the proof-of-concept's output and the two
-  helpers' tables (§ Scratch instruments), and no clone, export or copy of Discord's scripts.
-- **Standing bounds.** The brief's: read-only on the website tree; no message to a plan 019 session and no write to a plan 019
-  document; Discord's test server only; Discord's code is never committed; no `.env*` value is read; the bare word `none` is
-  not used in a command; a stopped call goes to `steering-hooks-fixer` and is not re-issued.
-- **Wake.** The cache-warm wake was deleted at the 15:27Z checkpoint and was not armed for this rewrite; it is armed again at
-  the next briefed turn.
+Closed on `steering-hooks-fixer`'s cue of 2026-11-25; nothing is in flight and no question awaits an answer (the last checkpoint's text is in record commit `93f27e5f`).
 
 ## Question
 
@@ -434,36 +411,34 @@ whole at this write). Each question's argument is in this document's first commi
 - OQ-3 RESOLVED — plan 019 does not carry a rebuild. His words: "019 will not carry the new work." Any rebuild is its own
   effort, and 019 goes to its release on the current editor under D-19; whether a rebuild happens at all he has not said
   (the reading is `steering-hooks-fixer`'s). Rulings block "2026-11-25T15:28Z".
-- OQ-4 ROUTED — to `planner-019`'s sizing of a rebuild, by `steering-hooks-fixer`'s message to this session after that block.
-  The block records the commission and does not name OQ-4, and no sizing document exists yet, so the item's text stays here
-  until one does: whether the colouring and the preview need any change under a rebuild is not concluded. The preview does not
-  reference the editor (P4-4) and the colouring's mapping is a pure function, but the colouring's line-to-offset step
-  (`decorator.tsx`, `runUnit.ts`) belongs to the current line structure; the scope statement's sibling surfaces are typing,
-  paste, load and save, all of which a rebuild replaces.
+- OQ-4 RESOLVED — the preview and the colouring's pure functions need no change under a rebuild; the colouring's per-line glue
+  (`decorator.tsx`, `runUnit.ts`, about 122 lines) is adapted, and where a colouring run ends is left to the rebuild's
+  analysis. The determination is `planner-019`'s. `planning/slate-editor-rebuild-sizing-2026-11-25.md`, § "OQ-4: colouring and preview under a
+  rebuild".
 
 ## Remaining Gaps
 
-| # | Unknown | Why not resolved | What would close it |
-|---|---|---|---|
-| G-1 | Discord's native path, running | The test account is on the older path; the native path is read from code only | An account in the native experiment; read the box's nodes for a cross-line bold, a cross-line inline code with an emoji, and a fence |
-| G-2 | Whether Discord's box saves `   > q` and `>>> q` as `> q` | Read in the serialiser, not run (P1-7) | Type both in the test server's box and read the draft text, or send to the test channel and read the stored content |
-| G-3 | How `slate-history` behaves under passes that run after a change | Discord uses its own snapshot history (P1-8); the proof-of-concept has no history. Since the first revision, steering's refutation helper reports that three undos under `slate-history` 0.113.1 after the after-change pass leave every line right (rulings block "2026-11-25T15:25Z", Premises); that run was not made or read here, and three undos are not the keystroke set | The proof-of-concept with `withHistory`, undoing each keystroke of P3-2 |
-| G-4 | The cause of the three open rows with none recorded (paste against a fresh load; paste caret; the fuzz's 20 cases) | Not probed by the chain; out of this question's reach without running the chain's suite, which the brief forbids in the shared tree | The chain's own probes on those rows |
-| G-5 | A flat-text editor's behaviour on the site's phones, with IME, with the emoji picker and in partial mode | No candidate was run | A throwaway mount of the candidate beside the current editor, walked on the devices the site supports |
-| G-6 | Whether an adoptable open-source editor with Discord's rules exists that the sweep missed | The sweep is a helper's, over GitHub's and npm's search, with three code searches it could not verify; 17 of its 23 rows were not read here | A second sweep by a different route (code search for `-# ` subtext and `\|\|` spoiler handling inside editor plugins) |
-| G-10 | What Slate changed between 0.123.0 and 0.147.4, and whether any of it bears on the iteration cap or on decorations | Not read | The Slate changelog over that range |
-| G-7 | Lazily loaded Discord scripts | Only the 364 preloaded scripts were fetched | Fetch the chunk map and search it for a second caller of the inline-object pass |
-| G-8 | The size of either rebuild | Sizing is planning | ROUTED — `planner-019` is commissioned to size a rebuild on Discord's model (rulings block "2026-11-25T15:25Z", "Acted") |
-| G-9 | Class sizes in P3-5 and counts in P4-2 | The helper's enumeration over the plan and the implementation document, not re-counted here | Re-count from the plan's batch table |
+| # | Unknown | Why not resolved | What would close it | At the close |
+|---|---|---|---|---|
+| G-1 | Discord's native path, running | The test account is on the older path; the native path is read from code only | An account in the native experiment; read the box's nodes for a cross-line bold, a cross-line inline code with an emoji, and a fence | Carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md`, § "What it re-runs": an owner step for P3-6, optional, stated as a limit of the rebuild's plan if no account on the native path can be had |
+| G-2 | Whether Discord's box saves `   > q` and `>>> q` as `> q` | Read in the serialiser, not run (P1-7) | Type both in the test server's box and read the draft text, or send to the test channel and read the stored content | Lapses. He chose the hidden marker with the site storing it (OQ-2), so no decision waits on how Discord saves it |
+| G-3 | How `slate-history` behaves under passes that run after a change | Discord uses its own snapshot history (P1-8); the proof-of-concept has no history. Since the first revision, steering's refutation helper reports that three undos under `slate-history` 0.113.1 after the after-change pass leave every line right (rulings block "2026-11-25T15:25Z", Premises); that run was not made or read here, and three undos are not the keystroke set | The proof-of-concept with `withHistory`, undoing each keystroke of P3-2 | Carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md`, § "What it re-runs": a question of the rebuild's analysis milestone |
+| G-4 | The cause of the three open rows with none recorded (paste against a fresh load; paste caret; the fuzz's 20 cases) | Not probed by the chain; out of this question's reach without running the chain's suite, which the brief forbids in the shared tree | The chain's own probes on those rows | Stays where the rows were raised: the Outstanding lists of `implementation/019-slate-formatting-discord-engine-m6-implementation.md` (the helper's pointers; not re-read here). Nothing of this document's is owed on them |
+| G-5 | A flat-text editor's behaviour on the site's phones, with IME, with the emoji picker and in partial mode | No candidate was run | A throwaway mount of the candidate beside the current editor, walked on the devices the site supports | Lapses. He chose Discord's model on Slate, so no flat-text editor is being considered |
+| G-6 | Whether an adoptable open-source editor with Discord's rules exists that the sweep missed | The sweep is a helper's, over GitHub's and npm's search, with three code searches it could not verify; 17 of its 23 rows were not read here | A second sweep by a different route (code search for `-# ` subtext and `\|\|` spoiler handling inside editor plugins) | Lapses. An editor to adopt mattered before his choice to rebuild on Discord's model; P2-4 stands as "not found", not as "does not exist" |
+| G-10 | What Slate changed between 0.123.0 and 0.147.4, and whether any of it bears on the iteration cap or on decorations | Not read | The Slate changelog over that range | Carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md`, § "What it re-runs" and § "Not measured": a question of the rebuild's analysis milestone, with whether to upgrade Slate left to its plan |
+| G-7 | Lazily loaded Discord scripts | Only the 364 preloaded scripts were fetched | Fetch the chunk map and search it for a second caller of the inline-object pass | Lapses as a stated limit of P1-4. The read G-1 carries would show the box's behaviour whichever script produces it |
+| G-8 | The size of either rebuild | Sizing is planning | The planner | Answered in `planning/slate-editor-rebuild-sizing-2026-11-25.md`, § "Size" |
+| G-9 | Class sizes in P3-5 and counts in P4-2 | The helper's enumeration over the plan and the implementation document, not re-counted here | Re-count from the plan's batch table | Lapses. The class sizes informed P3-5 and P4-2 only, and the sizing counted its own figures from the tree |
 
 ## Recommendations (investigation only)
 
-The smallest set of reads that would settle the choice fastest:
+Each was written before the owner's answers; its fate is the gap's (Remaining Gaps, "At the close").
 
 1. Done: OQ-1 to OQ-3 went to the owner through steering and were answered (Open Questions).
-2. Close G-3 with the existing proof-of-concept plus `withHistory`: one short run.
-3. Close G-1 and G-2 on the test server if an account on the native path can be had.
-4. If the flat-text model is of interest, G-5 before anything else: its unknowns are all on devices.
+2. G-3, undo under passes after a change: carried to the rebuild's analysis.
+3. G-1 on the test server: carried as an optional owner step. G-2: lapsed.
+4. G-5, the flat-text model on devices: lapsed with that model.
 
 ## Scratch instruments (perishable)
 
