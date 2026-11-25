@@ -1,0 +1,65 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/export-fuzz
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 4 failed | 68 skipped) 2910ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 664ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 1634ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 433ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 172ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+AssertionError: expected 4988 to be less than or equal to 998
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:242:32
+    240|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+    241|     const dirtyPathsAllowed = shortest.dirtyPaths + DIRTY_PATHS_BESIDE…
+    242|     expect(longest.dirtyPaths).toBeLessThanOrEqual(dirtyPathsAllowed);
+       |                                ^
+    243|   }, 900_000);
+    244| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…'
+AssertionError: expected 7979 to be less than or equal to 1589
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:242:32
+    240|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+    241|     const dirtyPathsAllowed = shortest.dirtyPaths + DIRTY_PATHS_BESIDE…
+    242|     expect(longest.dirtyPaths).toBeLessThanOrEqual(dirtyPathsAllowed);
+       |                                ^
+    243|   }, 900_000);
+    244| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+AssertionError: expected 3997 to be less than or equal to 807
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:242:32
+    240|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+    241|     const dirtyPathsAllowed = shortest.dirtyPaths + DIRTY_PATHS_BESIDE…
+    242|     expect(longest.dirtyPaths).toBeLessThanOrEqual(dirtyPathsAllowed);
+       |                                ^
+    243|   }, 900_000);
+    244| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…'
+AssertionError: expected 2500 to be less than or equal to 510
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:242:32
+    240|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+    241|     const dirtyPathsAllowed = shortest.dirtyPaths + DIRTY_PATHS_BESIDE…
+    242|     expect(longest.dirtyPaths).toBeLessThanOrEqual(dirtyPathsAllowed);
+       |                                ^
+    243|   }, 900_000);
+    244| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 68 skipped (72)
+   Start at  04:18:23
+   Duration  3.98s (transform 177ms, setup 22ms, import 324ms, tests 2.91s, environment 587ms)
+

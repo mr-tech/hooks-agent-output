@@ -1,0 +1,38 @@
+
+<--- Last few GCs --->
+
+[962997:0x4304a000]    23763 ms: Scavenge (interleaved) 2042.2 (2049.8) -> 2040.4 (2050.1) MB, pooled: 0 MB, 5.59 / 0.00 ms  (average mu = 0.218, current mu = 0.155) allocation failure; 
+[962997:0x4304a000]    24430 ms: Mark-Compact (reduce) 2042.9 (2050.3) -> 2040.2 (2046.8) MB, pooled: 0 MB, 611.64 / 0.00 ms  (+ 5.0 ms in 23 steps since start of marking, biggest step 5.0 ms, walltime since start of marking 624 ms) (average mu = 0.183, c
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x735eec node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/usr/local/bin/node]
+ 2: 0xbafc40  [/usr/local/bin/node]
+ 3: 0xbafd2f  [/usr/local/bin/node]
+ 4: 0xe48825  [/usr/local/bin/node]
+ 5: 0xe48852  [/usr/local/bin/node]
+ 6: 0xe48b4a  [/usr/local/bin/node]
+ 7: 0xe5906a  [/usr/local/bin/node]
+ 8: 0xe5d410  [/usr/local/bin/node]
+ 9: 0x18efec1  [/usr/local/bin/node]
+[vitest-pool]: Timeout terminating forks worker for test files /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/jwork2/20261125T044615Z-p860443/mutant-2/src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx.
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.<anonymous> node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_cdad2253cb500984f4c425f868ad603b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3447:22
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_cdad2253cb500984f4c425f868ad603b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3014:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_cdad2253cb500984f4c425f868ad603b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3013:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+

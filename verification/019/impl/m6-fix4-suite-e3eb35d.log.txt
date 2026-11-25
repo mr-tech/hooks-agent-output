@@ -1,0 +1,24 @@
+
+> website@ test /usr/local/bin/hooks/website
+> vitest run --project node --project dom
+
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+ Test Files  237 passed (237)
+      Tests  4356 passed (4356)
+   Start at  04:10:25
+   Duration  63.89s (transform 33.80s, setup 1.49s, import 207.90s, tests 398.39s, environment 121.89s)
+

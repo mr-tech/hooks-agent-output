@@ -1,0 +1,7 @@
+withNormalizeNode.ts:52:walk-last ABORTED 399.34
+withNormalizeNode.ts:60:walk-last ABORTED 399.34
+hand-NM-84-suppress-keystroke-own-operation KILLED 130.52
+hand-carried-not-excluded KILLED 141.6
+hand-own-focus-line-dropped KILLED 139.22
+withNormalizeNode.ts:isBlockQuote-not ABORTED 228.16
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 3, control-failed 0; mutants-inc2-2.json (blob 4fbb23bfaae162da48c23ad20c5a6f7a6844063e))

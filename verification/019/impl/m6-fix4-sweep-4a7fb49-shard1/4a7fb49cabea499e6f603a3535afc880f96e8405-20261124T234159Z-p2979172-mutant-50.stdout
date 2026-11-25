@@ -1,0 +1,156 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-50
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 7428ms
+     × hands the message that text in a full-markdown editor 2319ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1133ms
+     × hands the message that text in a full-markdown editor 158ms
+     × hands the message that text in a full-markdown editor 43ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 5859ms
+     × hands the message that text in a full-markdown editor 2425ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 30 failed) 129170ms
+     × hands the message the changed text on content, in a message of 40 lines 263ms
+     × hands the message the changed text on content, in a message of 122 lines 363ms
+     × hands the message the changed text on content, in a message of 123 lines 366ms
+     × hands the message the changed text on content, in a message of 200 lines 562ms
+     × hands the message the changed text on content, in a message of 1000 lines 2671ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 5543ms
+     × hands the message the changed text on content, in a message of 40 lines 347ms
+     × hands the message the changed text on content, in a message of 122 lines 1025ms
+     × hands the message the changed text on content, in a message of 123 lines 1199ms
+     × hands the message the changed text on content, in a message of 200 lines 1889ms
+     × hands the message the changed text on content, in a message of 1000 lines 9206ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 21769ms
+     × hands the message the changed text on content, in a message of 40 lines 488ms
+     × hands the message the changed text on content, in a message of 122 lines 1403ms
+     × hands the message the changed text on content, in a message of 123 lines 1417ms
+     × hands the message the changed text on content, in a message of 200 lines 2305ms
+     × hands the message the changed text on content, in a message of 1000 lines 11040ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 23296ms
+     × hands the message the changed text on content, in a message of 40 lines 228ms
+     × hands the message the changed text on content, in a message of 122 lines 690ms
+     × hands the message the changed text on content, in a message of 123 lines 706ms
+     × hands the message the changed text on content, in a message of 200 lines 1156ms
+     × hands the message the changed text on content, in a message of 1000 lines 5541ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 10978ms
+     × hands the message the changed text on content, in a message of 40 lines 239ms
+     × hands the message the changed text on content, in a message of 122 lines 706ms
+     × hands the message the changed text on content, in a message of 123 lines 690ms
+     × hands the message the changed text on content, in a message of 200 lines 1111ms
+     × hands the message the changed text on content, in a message of 1000 lines 5520ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11147ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 14 failed) 35031ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 1101ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 1077ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1920ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 2042ms
+       × builds as many run units in the longest message as in the shortest 2203ms
+       × builds as many run units in the longest message as in the shortest 1330ms
+       × builds as many run units in the longest message as in the shortest 1321ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 1668ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 1929ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 3055ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 2340ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 2510ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 3933ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 3061ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 14 failed) 3166ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 39ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 16ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 15ms
+     × gives the code lines the language typed onto their opening fence 28ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 31ms
+     × writes no text to the lines a typed multi-line quote marker takes in 33ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 110ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 27ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 75ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 68ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 56ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 104ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 96ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 99ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 69 failed) 3642ms
+     × equals an emoji inside a code block typed one character at a time 40ms
+     × equals an emoji after a backslash typed one character at a time 29ms
+     × equals a Unicode emoji pasted whole 30ms
+     × equals a ZWJ sequence pasted whole 27ms
+     × equals a skin-tone sequence pasted whole 32ms
+     × equals a keycap pasted whole 40ms
+     × equals a flag pasted whole 26ms
+     × equals a tag sequence pasted whole 25ms
+     × equals a heart with emoji presentation pasted whole 27ms
+     × equals a heart with text presentation pasted whole 30ms
+     × equals an emoji newer than the site's table pasted whole 31ms
+     × equals an emoji typed as a name pasted whole 28ms
+     × equals a skin-toned name pasted whole 28ms
+     × equals a colon-wrapped emoji pasted whole 32ms
+     × equals a custom emoji pasted whole 33ms
+     × equals an animated custom emoji pasted whole 30ms
+     × equals an emoji in a link label pasted whole 33ms
+     × equals an emoji in a link address pasted whole 33ms
+     × equals a name in a link address pasted whole 30ms
+     × equals an emoji between words pasted whole 30ms
+     × equals two emoji side by side pasted whole 28ms
+     × equals an emoji inside bold pasted whole 32ms
+     × equals an emoji inside inline code pasted whole 30ms
+     × equals an emoji inside a code block pasted whole 42ms
+     × equals an emoji after a backslash pasted whole 44ms
+     × equals a Unicode emoji typed one character at a time 39ms
+     × equals a ZWJ sequence typed one character at a time 38ms
+     × equals a skin-tone sequence typed one character at a time 36ms
+     × equals a keycap typed one character at a time 40ms
+     × equals a flag typed one character at a time 35ms
+     × equals a tag sequence typed one character at a time 37ms
+     × equals a heart with emoji presentation typed one character at a time 41ms
+     × equals a heart with text presentation typed one character at a time 39ms
+     × equals an emoji newer than the site's table typed one character at a time 37ms
+     × equals an emoji typed as a name typed one character at a time 41ms
+     × equals a skin-toned name typed one character at a time 38ms
+     × equals a colon-wrapped emoji typed one character at a time 36ms
+     × equals a custom emoji typed one character at a time 39ms
+     × equals an animated custom emoji typed one character at a time 36ms
+     × equals an emoji in a link label typed one character at a time 35ms
+     × equals an emoji in a link address typed one character at a time 41ms
+     × equals a name in a link address typed one character at a time 38ms
+     × equals an emoji between words typed one character at a time 37ms
+     × equals two emoji side by side typed one character at a time 39ms
+     × equals an emoji inside bold typed one character at a time 37ms
+     × equals an emoji inside inline code typed one character at a time 36ms
+     × equals an emoji after a backslash typed one character at a time 43ms
+     × equals a Unicode emoji pasted whole 43ms
+     × equals a ZWJ sequence pasted whole 50ms
+     × equals a skin-tone sequence pasted whole 40ms
+     × equals a keycap pasted whole 44ms
+     × equals a flag pasted whole 44ms
+     × equals a tag sequence pasted whole 38ms
+     × equals a heart with emoji presentation pasted whole 41ms
+     × equals a heart with text presentation pasted whole 45ms
+     × equals an emoji newer than the site's table pasted whole 43ms
+     × equals an emoji typed as a name pasted whole 44ms
+     × equals a skin-toned name pasted whole 44ms
+     × equals a colon-wrapped emoji pasted whole 41ms
+     × equals a custom emoji pasted whole 43ms
+     × equals an animated custom emoji pasted whole 41ms
+     × equals an emoji in a link label pasted whole 40ms
+     × equals an emoji in a link address pasted whole 44ms
+     × equals a name in a link address pasted whole 40ms
+     × equals an emoji between words pasted whole 43ms
+     × equals two emoji side by side pasted whole 44ms
+     × equals an emoji inside bold pasted whole 41ms
+     × equals an emoji inside inline code pasted whole 44ms
+     × equals an emoji after a backslash pasted whole 41ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 14 failed) 436ms
+     × at the end of a quote line saves what the table says 40ms
+     × in the middle of a quote line saves what the table says 22ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 70ms
+     × at the end of a quote line that opens a fence saves what the table says 55ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 21ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 21ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 21ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 25ms
+     × leaves an empty line when the carried marker is removed with Backspace 20ms
+     × takes in a typed quote marker inside a fence opened on a quote line 43ms
+     × is set on the line Enter makes from a quote line 15ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 17ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 15ms
+     × is resolved on the first line of the editor too 18ms

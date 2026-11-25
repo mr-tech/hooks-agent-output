@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-28
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 3 failed) 2907ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 242ms
+     × gives the code lines the language typed onto their opening fence 126ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 141ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 65 skipped) 42668ms
+
+ Test Files  2 failed | 19 passed (21)
+      Tests  3 failed | 1004 passed | 65 skipped (1072)
+   Start at  00:57:35
+   Duration  99.01s (transform 1.35s, setup 111ms, import 10.21s, tests 166.66s, environment 10.47s)
+

@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork2/20261125T025746Z-p112411/mutant-15
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 33726ms
+     × hands the message that text in a full-markdown editor 28831ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 13518ms
+     × hands the message that text in a full-markdown editor 5983ms
+     × hands the message that text in a full-markdown editor 7022ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7958ms
+     × hands the message that text in a full-markdown editor 4536ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 3 failed) 6663ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 239ms
+     × keeps "> a" a plain line while it is typed 3ms
+     × keeps ">>> a" a plain line while it is typed 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 7 failed) 80ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 7ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 4ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 4ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 2ms
+     × is cleared when the marker of a carried code line is deleted by hand 2ms
+     × is resolved on the first line of the editor too 3ms
+
+ Test Files  5 failed | 16 passed (21)
+      Tests  14 failed | 1058 passed (1072)
+   Start at  03:46:51
+   Duration  135.50s (transform 967ms, setup 103ms, import 8.95s, tests 114.08s, environment 9.46s)
+

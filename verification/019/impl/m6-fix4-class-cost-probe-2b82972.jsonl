@@ -1,0 +1,12 @@
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’","n":200,"medianMs":121.4}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’","n":1000,"medianMs":9359.8}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’🙂","n":200,"medianMs":300.9}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’🙂","n":1000,"medianMs":21274.2}
+{"error":"Error: Could not completely normalize the editor after 126 i","n":200}
+{"error":"Error: Could not completely normalize the editor after 126 i","n":200}
+{"error":"Error: Could not completely normalize the editor after 126 i","n":200}
+{"probe":"backtick at end of line 0, closing backtick on the last line","fill":"a🙂","n":200,"medianMs":51,"ops":797}
+{"error":"Error: Could not completely normalize the editor after 126 i","n":1000}
+{"error":"Error: Could not completely normalize the editor after 126 i","n":1000}
+{"error":"Error: Could not completely normalize the editor after 126 i","n":1000}
+{"probe":"backtick at end of line 0, closing backtick on the last line","fill":"a🙂","n":1000,"medianMs":656.3,"ops":3997}

@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 6117ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 3216ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2865ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 3 failed) 87ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 10ms
+     × puts a caret on a second element at the same place in the text 4ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 2 failed) 1243ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 8ms
+     × loads the text on each side of the emoji in "<:n:123><a:m:4>" into its own text node 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 1056ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 262ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 161ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 151ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitle 148ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedTitleWithUrl 141ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 163ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (36 tests | 2 failed) 61ms
+       × lists the spans of a line of two spans 7ms
+       × lists the spans of a line cut just after its second span 1ms
+
+ Test Files  5 failed | 16 passed (21)
+      Tests  15 failed | 1057 passed (1072)
+   Start at  00:13:53
+   Duration  79.30s (transform 1.43s, setup 106ms, import 10.37s, tests 134.45s, environment 10.35s)
+

@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-29
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 8013ms
+     × hands the message that text in a full-markdown editor 565ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 1 failed) 37740ms
+     × hands the message that text in a full-markdown editor 1420ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 3 failed) 3211ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 89ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 72ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 462ms
+
+ Test Files  3 failed | 18 passed (21)
+      Tests  5 failed | 1067 passed (1072)
+     Errors  172 errors
+   Start at  00:59:16
+   Duration  82.70s (transform 1.40s, setup 128ms, import 10.33s, tests 141.13s, environment 10.57s)
+

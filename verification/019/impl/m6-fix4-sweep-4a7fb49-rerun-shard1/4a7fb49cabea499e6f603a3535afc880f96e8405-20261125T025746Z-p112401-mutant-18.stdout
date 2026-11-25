@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork1/20261125T025746Z-p112401/mutant-18
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 7200ms
+     × hands the message that text in a full-markdown editor 2076ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 24 failed) 85028ms
+     × hands the message the changed text on content, in a message of 40 lines 242ms
+     × hands the message the changed text on content, in a message of 122 lines 739ms
+     × hands the message the changed text on content, in a message of 123 lines 730ms
+     × hands the message the changed text on content, in a message of 200 lines 1184ms
+     × hands the message the changed text on content, in a message of 1000 lines 5769ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11459ms
+     × hands the message the changed text on content, in a message of 40 lines 192ms
+     × hands the message the changed text on content, in a message of 122 lines 546ms
+     × hands the message the changed text on content, in a message of 123 lines 547ms
+     × hands the message the changed text on content, in a message of 200 lines 892ms
+     × hands the message the changed text on content, in a message of 1000 lines 4293ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8736ms
+     × hands the message the changed text on content, in a message of 40 lines 275ms
+     × hands the message the changed text on content, in a message of 122 lines 764ms
+     × hands the message the changed text on content, in a message of 123 lines 750ms
+     × hands the message the changed text on content, in a message of 200 lines 1233ms
+     × hands the message the changed text on content, in a message of 1000 lines 6066ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 12344ms
+     × hands the message the changed text on content, in a message of 40 lines 280ms
+     × hands the message the changed text on content, in a message of 122 lines 755ms
+     × hands the message the changed text on content, in a message of 123 lines 758ms
+     × hands the message the changed text on content, in a message of 200 lines 1239ms
+     × hands the message the changed text on content, in a message of 1000 lines 6024ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 12367ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 869ms
+     × hands the message that text in a full-markdown editor 155ms
+     × hands the message that text in a full-markdown editor 36ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 5275ms
+     × hands the message that text in a full-markdown editor 2125ms

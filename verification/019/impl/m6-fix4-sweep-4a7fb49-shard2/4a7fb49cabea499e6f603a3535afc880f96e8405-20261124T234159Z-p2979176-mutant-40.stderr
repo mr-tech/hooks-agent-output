@@ -1,0 +1,61 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+     12|   const text = node.children.map((c) => flattenText(c, allowEmoji)).jo…
+       |                              ^
+     13|   if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}$…
+     14|   return text;
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 513 to be 51 // Object.is equality
+
+- Expected
++ Received
+
+- 51
++ 513
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:113:25
+    111|       }).filter((pair): pair is number[] => pair !== null);
+    112|       counts.forEach(([shortest, longest]) => {
+    113|         expect(longest).toBe(shortest);
+       |                         ^
+    114|         expect(shortest).toBeGreaterThanOrEqual(1);
+    115|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:112:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 342 to be 51 // Object.is equality
+
+- Expected
++ Received
+
+- 51
++ 342
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:113:25
+    111|       }).filter((pair): pair is number[] => pair !== null);
+    112|       counts.forEach(([shortest, longest]) => {
+    113|         expect(longest).toBe(shortest);
+       |                         ^
+    114|         expect(shortest).toBeGreaterThanOrEqual(1);
+    115|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:112:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

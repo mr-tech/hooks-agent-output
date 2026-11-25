@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork2/20261125T025746Z-p112411/mutant-17
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 31035ms
+     × hands the message that text in a full-markdown editor 26523ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 12457ms
+     × hands the message that text in a full-markdown editor 5975ms
+     × hands the message that text in a full-markdown editor 5982ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7448ms
+     × hands the message that text in a full-markdown editor 4198ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 4 failed) 6369ms
+     × leaves no typographic quote in a line it changes 23ms
+     × leaves no typographic quote in a line it changes 99ms
+     × leaves no typographic quote in a line it changes 41ms
+     × leaves no typographic quote in a line it changes 8ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 5 failed) 75ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 7ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 4ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 3ms
+     × is resolved on the first line of the editor too 2ms
+
+ Test Files  5 failed | 16 passed (21)
+      Tests  13 failed | 1059 passed (1072)
+   Start at  03:51:21
+   Duration  127.32s (transform 945ms, setup 90ms, import 8.81s, tests 106.22s, environment 9.35s)
+

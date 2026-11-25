@@ -1,0 +1,440 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the 272-case corpus whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> a\nb\nc', '>>> # head\n- item' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ b
++ c",
++   ">>> # head
++ - item",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the first 400 generator inputs whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> a\nb\nc', …(17) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ b
++ c",
++   ">>> - https://x.y.
++ -# *\\<x\\<*",
++   ">>> **_🙂 https://x.y_ é\\~x\\~ [:smile:](https://x.y/a*b*c)
++   - <t:1700000000:s>
++ ||`@here`|| https://example.com/a_b🙂[🙂](https://x.y)",
++   ">>> - ||*``🪿``* hello world
++ ## **||é <t:1700000000>** <t:1700000000:R>",
++   ">>> ## _~~[text](<https://example.com>)~~ <t:1700000000:S> <t:1700000000:x>_ https://example.com/a_b🙂🙂 https://example.com/a_b
++ 1. ```[:smile:](https://x.y)```",
++   ">>> hello world<id:browse>
++ # ``\\[x\\[ <@!1558266761101447248>``",
++   ">>> -# https://example.com/a_b 🙂
++ # tail ",
++   ">>> `tail `
++ ## `<@1558266761101447248> 👨‍👩‍👧`",
++   ">>> # <@&1558266761101447248> é
++ ## [<:hooks:1558266761101447248>](https://example.com/a_b)
++ 1️⃣<t:1700000000:t>",
++   ">>> 🙂 https://x.y
++ ||*\\*x\\**",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   ">>> ### *[text](<https://example.com>) <id:browse>
++ # ````*\\~x\\~*````",
++   ">>> # 日本 https://x.y/a(b)c
++ [**bold** label](https://example.com)@everyone",
++   ">>> `<@1558266761101447248>` 🙂 https://x.y/a*b*c
++   - _<https://x.y> <t:1700000000:D>
++ 1. *~~``[:smile:](https://example.com/a_b)``~~*",
++   ">>> ## ||**__\\#x\\#__**|| <@1558266761101447248> 🙂
++ ## @everyone
++ *<t:1700000000:x>  lead* [text](https://example.com \"a title\")",
++   ">>> __🪿
++ ## **``__x_y ❤️https://x.y🙂``",
++   ">>> ### ~~[a 🙂 b](https://example.com/a_b)™ ❤️ ❤
++ - hello world [text](https://example.com \"a title\")",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of the joins of up to two block atoms whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ '>>> a\na', '>>> a\n>>> a', …(54) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> a
++ a",
++   ">>> a
++ >>> a",
++   ">>> a
++ >>> ",
++   ">>> a
++   >>> b",
++   ">>> a
++ >>> > a",
++   ">>> a
++ ```",
++   ">>> a
++ ```js",
++   ">>> a
++ ```c++",
++   ">>> a
++ ``` js",
++   ">>> a
++ ```js x",
++   ">>> a
++ a```",
++   ">>> a
++ ```a```",
++   ">>> a
++ foo",
++   ">>> a
++ 🙂 b",
++   ">>> 
++ a",
++   ">>> 
++ >>> a",
++   ">>> 
++ >>> ",
++   ">>> 
++   >>> b",
++   ">>> 
++ >>> > a",
++   ">>> 
++ ```",
++   ">>> 
++ ```js",
++   ">>> 
++ ```c++",
++   ">>> 
++ ``` js",
++   ">>> 
++ ```js x",
++   ">>> 
++ a```",
++   ">>> 
++ ```a```",
++   ">>> 
++ foo",
++   ">>> 
++ 🙂 b",
++   "  >>> b
++ a",
++   "  >>> b
++ >>> a",
++   "  >>> b
++ >>> ",
++   "  >>> b
++   >>> b",
++   "  >>> b
++ >>> > a",
++   "  >>> b
++ ```",
++   "  >>> b
++ ```js",
++   "  >>> b
++ ```c++",
++   "  >>> b
++ ``` js",
++   "  >>> b
++ ```js x",
++   "  >>> b
++ a```",
++   "  >>> b
++ ```a```",
++   "  >>> b
++ foo",
++   "  >>> b
++ 🙂 b",
++   ">>> > a
++ a",
++   ">>> > a
++ >>> a",
++   ">>> > a
++ >>> ",
++   ">>> > a
++   >>> b",
++   ">>> > a
++ >>> > a",
++   ">>> > a
++ ```",
++   ">>> > a
++ ```js",
++   ">>> > a
++ ```c++",
++   ">>> > a
++ ``` js",
++   ">>> > a
++ ```js x",
++   ">>> > a
++ a```",
++   ">>> > a
++ ```a```",
++   ">>> > a
++ foo",
++   ">>> > a
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx > pasting each text of 300 seeded block-layer texts whole > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(33) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> ``` 
++ ```a\\>>> 
++ ```js
++ >> js```_
++ >> 
++ #",
++   ">>> >>> a
++ >> #> 
++ #>>> 
++ >> a#||",
++   "```jsa|| 
++  > 
++ >> ||
++ >>>  ```
++ ``` ```",
++   "```c++> _~~
++ >>> js~~```
++ `> a",
++   ">>> js
++ ```c++~~",
++   "||a
++ >>> _~~a
++ ~~>>> *",
++   ">>> a
++ ```js*b||
++ ``` a#*",
++   "```js> 
++ ```jsb```js
++ ```  ||
++ >>> js b
++ ```js*js",
++   ">>> > ~~
++ ```\\",
++   ">>> *
++ _
++ ```b",
++   ">>> a>>> 
++ js
++ >>> _",
++   ">>> 
++ >>> ",
++   ">||js\\
++ >>> _
++ ``` ",
++   ">`> \\
++ >>> _ js
++ >||`",
++   ">#\\
++ >>> b#
++ ```c++ 
++ ```js\\b_",
++   ">>> 
++ ```~~",
++   ">>> # 
++ ``` __\\
++ ```js```#
++ ``` ||
++ ``` >>> *",
++   ">>> 
++ ``` 
++ ```||
++ \\",
++   ">>> 
++ ajs
++ >> ",
++   " > `b~~
++ >>> > `
++ \\
++ *",
++   ">>> \\*
++ ```js `
++ ```c++b \\",
++   "
++ >>> 
++ #b ",
++   "
++ >> ~~||
++  > 
++ >>> js
++ #",
++   ">_~~
++ >>> 
++
++ *",
++   "```*```
++ >>> b>>> js
++ >
++ js`
++ > _
++ ~~",
++   "``` js_*
++ `b||
++ ```
++ >>> 
++ ``` ##",
++   ">>> 
++ ```js*>>> *
++ ``` ||> ~~
++ ~~
++ aajs",
++   ">>> 
++ ```c++ ||
++ >>> ```a`
++ ||b>>> ",
++   "```js~~
++ >>> \\||```
++ ```~~js
++ ~~
++ ``` ",
++   ">> ||~~~~
++ >>> `
++ ```js
++ ||```
++ ```c++",
++   ">>> > \\
++ ``` ```
++ a
++ ``` ||>>> \\",
++   "> >>> #`
++ >>> ```> ~~
++ ``` a
++ ||js",
++   ">>> 
++ >> a#`
++ ```js`js",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx:67:75
+     65|     ['a single-line editor', true],
+     66|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     67|     expect(await pastedMismatches(mountedInputs(name, partial), partia…
+       |                                                                           ^
+     68|   }, 300_000);
+     69| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ …(12) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   ">>> ``` 
++ ```a\\>>> 
++ ```js
++ >> js```_
++ >> 
++ #",
++   ">>> a
++ ```js*b||
++ ``` a#*",
++   ">#\\
++ >>> b#
++ ```c++ 
++ ```js\\b_",
++   ">>> # 
++ ``` __\\
++ ```js```#
++ ``` ||
++ ``` >>> *",
++   ">>> 
++ ``` 
++ ```||
++ \\",
++   ">>> \\*
++ ```js `
++ ```c++b \\",
++   ">>> 
++ ```js*>>> *
++ ``` ||> ~~
++ ~~
++ aajs",
++   ">>> 
++ ```c++ ||
++ >>> ```a`
++ ||b>>> ",
++   "```js~~
++ >>> \\||```
++ ```~~js
++ ~~
++ ``` ",
++   ">> ||~~~~
++ >>> `
++ ```js
++ ||```
++ ```c++",
++   "> >>> #`
++ >>> ```> ~~
++ ``` a
++ ||js",
++   ">>> \\```||
++ ```c++>>> 
++ ``` 
++ _js*
++ >> #
++ > ||",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

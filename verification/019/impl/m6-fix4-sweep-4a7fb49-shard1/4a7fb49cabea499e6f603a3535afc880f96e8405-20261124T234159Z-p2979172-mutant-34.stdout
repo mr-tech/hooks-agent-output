@@ -1,0 +1,179 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-34
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 31651ms
+     × hands the message that text in a full-markdown editor 26644ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 11493ms
+     × hands the message that text in a full-markdown editor 5271ms
+     × hands the message that text in a full-markdown editor 5589ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8885ms
+     × hands the message that text in a full-markdown editor 5060ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 2 failed) 30098ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 1467ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 945ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 81 failed) 43977ms
+       × puts the next typed character where the edit leaves the caret 7ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 69 failed) 2761ms
+     × equals an emoji inside a code block typed one character at a time 52ms
+     × equals an emoji after a backslash typed one character at a time 12ms
+     × equals a Unicode emoji pasted whole 12ms
+     × equals a ZWJ sequence pasted whole 11ms
+     × equals a skin-tone sequence pasted whole 12ms
+     × equals a keycap pasted whole 12ms
+     × equals a flag pasted whole 11ms
+     × equals a tag sequence pasted whole 16ms
+     × equals a heart with emoji presentation pasted whole 14ms
+     × equals a heart with text presentation pasted whole 9ms
+     × equals an emoji newer than the site's table pasted whole 11ms
+     × equals an emoji typed as a name pasted whole 11ms
+     × equals a skin-toned name pasted whole 13ms
+     × equals a colon-wrapped emoji pasted whole 13ms
+     × equals a custom emoji pasted whole 12ms
+     × equals an animated custom emoji pasted whole 13ms
+     × equals an emoji in a link label pasted whole 14ms
+     × equals an emoji in a link address pasted whole 15ms
+     × equals a name in a link address pasted whole 16ms
+     × equals an emoji between words pasted whole 23ms
+     × equals two emoji side by side pasted whole 18ms
+     × equals an emoji inside bold pasted whole 18ms
+     × equals an emoji inside inline code pasted whole 16ms
+     × equals an emoji inside a code block pasted whole 19ms
+     × equals an emoji after a backslash pasted whole 11ms
+     × equals a Unicode emoji typed one character at a time 13ms
+     × equals a ZWJ sequence typed one character at a time 28ms
+     × equals a skin-tone sequence typed one character at a time 19ms
+     × equals a keycap typed one character at a time 24ms
+     × equals a flag typed one character at a time 22ms
+     × equals a tag sequence typed one character at a time 44ms
+     × equals a heart with emoji presentation typed one character at a time 22ms
+     × equals a heart with text presentation typed one character at a time 19ms
+     × equals an emoji newer than the site's table typed one character at a time 19ms
+     × equals an emoji typed as a name typed one character at a time 51ms
+     × equals a skin-toned name typed one character at a time 86ms
+     × equals a colon-wrapped emoji typed one character at a time 21ms
+     × equals a custom emoji typed one character at a time 29ms
+     × equals an animated custom emoji typed one character at a time 34ms
+     × equals an emoji in a link label typed one character at a time 64ms
+     × equals an emoji in a link address typed one character at a time 70ms
+     × equals a name in a link address typed one character at a time 70ms
+     × equals an emoji between words typed one character at a time 33ms
+     × equals two emoji side by side typed one character at a time 33ms
+     × equals an emoji inside bold typed one character at a time 63ms
+     × equals an emoji inside inline code typed one character at a time 36ms
+     × equals an emoji after a backslash typed one character at a time 26ms
+     × equals a Unicode emoji pasted whole 24ms
+     × equals a ZWJ sequence pasted whole 23ms
+     × equals a skin-tone sequence pasted whole 23ms
+     × equals a keycap pasted whole 25ms
+     × equals a flag pasted whole 26ms
+     × equals a tag sequence pasted whole 31ms
+     × equals a heart with emoji presentation pasted whole 25ms
+     × equals a heart with text presentation pasted whole 23ms
+     × equals an emoji newer than the site's table pasted whole 28ms
+     × equals an emoji typed as a name pasted whole 35ms
+     × equals a skin-toned name pasted whole 41ms
+     × equals a colon-wrapped emoji pasted whole 29ms
+     × equals a custom emoji pasted whole 32ms
+     × equals an animated custom emoji pasted whole 28ms
+     × equals an emoji in a link label pasted whole 20ms
+     × equals an emoji in a link address pasted whole 29ms
+     × equals a name in a link address pasted whole 21ms
+     × equals an emoji between words pasted whole 24ms
+     × equals two emoji side by side pasted whole 24ms
+     × equals an emoji inside bold pasted whole 25ms
+     × equals an emoji inside inline code pasted whole 21ms
+     × equals an emoji after a backslash pasted whole 21ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 7 failed) 91ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 9ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 4ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 4ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 2ms
+     × leaves an empty line when the carried marker is removed with Backspace 5ms
+     × takes in a typed quote marker inside a fence opened on a quote line 5ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 2ms
+
+ Test Files  7 failed | 14 passed (21)
+      Tests  163 failed | 909 passed (1072)
+   Start at  01:36:53
+   Duration  112.89s (transform 1.35s, setup 109ms, import 9.60s, tests 203.13s, environment 9.79s)
+

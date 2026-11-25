@@ -1,0 +1,620 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n> a', '> a\n> ', …(14) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ > a",
++   "> a
++ > ",
++   "> a
++ > > a",
++   "> a
++ > >>> a",
++   "> 
++ > a",
++   "> 
++ > ",
++   "> 
++ > > a",
++   "> 
++ > >>> a",
++   "> > a
++ > a",
++   "> > a
++ > ",
++   "> > a
++ > > a",
++   "> > a
++ > >>> a",
++   "> >>> a
++ > a",
++   "> >>> a
++ > ",
++   "> >>> a
++ > > a",
++   "> >>> a
++ > >>> a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ Array(8) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "```js
++ ```c++*js||
++ > _
++ > `",
++   " 
++ > js~~
++ > 
++ js||\\",
++   "> > _*
++ > ||`\\
++ ```c++ _||
++ >> 
++ >_||",
++   "bb`
++ > 
++ > \\```",
++   "> #
++ > js||
++ >>> ```",
++   "``||
++
++ >  
++ > a**",
++   " > \\
++ > 
++ > `
++ ```c++*\\`
++ ```js||~~",
++   "> __
++ > `> ",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> a\n> b', …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> a
++ > b",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   "> `a*b` <t:1700000000:d> <t:1700000000:F>
++ > ||``\\`x\\` ©`` <id:browse>|| [<:hooks:1558266761101447248>](https://example.com/a_b)
++   - \\[x\\[ \\[x\\[",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ '> ```\n> x\n> ```', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "> ```
++ > x
++ > ```",
++   "> a
++ > b",
++   "> ||sp||
++ > **b**",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines holding a typographic quote > leaves no typographic quote in a line it changes
+AssertionError: expected [ 3, 4, 5, 6, 7, 8, 9, 10, 11, …(188) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   3,
++   4,
++   5,
++   6,
++   7,
++   8,
++   9,
++   10,
++   11,
++   12,
++   13,
++   14,
++   15,
++   16,
++   17,
++   18,
++   19,
++   20,
++   21,
++   22,
++   23,
++   24,
++   25,
++   26,
++   27,
++   28,
++   29,
++   30,
++   31,
++   32,
++   33,
++   34,
++   35,
++   36,
++   37,
++   38,
++   39,
++   40,
++   41,
++   42,
++   43,
++   44,
++   45,
++   46,
++   47,
++   48,
++   49,
++   50,
++   51,
++   52,
++   53,
++   54,
++   55,
++   56,
++   57,
++   58,
++   59,
++   60,
++   61,
++   62,
++   63,
++   64,
++   65,
++   66,
++   67,
++   68,
++   69,
++   70,
++   71,
++   72,
++   73,
++   74,
++   75,
++   76,
++   77,
++   78,
++   79,
++   80,
++   81,
++   82,
++   83,
++   84,
++   85,
++   86,
++   87,
++   88,
++   89,
++   90,
++   91,
++   92,
++   93,
++   94,
++   95,
++   96,
++   97,
++   98,
++   99,
++   100,
++   101,
++   102,
++   103,
++   104,
++   105,
++   106,
++   107,
++   108,
++   109,
++   110,
++   111,
++   112,
++   113,
++   114,
++   115,
++   116,
++   117,
++   118,
++   119,
++   120,
++   121,
++   122,
++   123,
++   124,
++   125,
++   126,
++   127,
++   128,
++   129,
++   130,
++   131,
++   132,
++   133,
++   134,
++   135,
++   136,
++   137,
++   138,
++   139,
++   140,
++   141,
++   142,
++   143,
++   144,
++   145,
++   146,
++   147,
++   148,
++   149,
++   150,
++   151,
++   152,
++   153,
++   154,
++   155,
++   156,
++   157,
++   158,
++   159,
++   160,
++   161,
++   162,
++   163,
++   164,
++   165,
++   166,
++   167,
++   168,
++   169,
++   170,
++   171,
++   172,
++   173,
++   174,
++   175,
++   176,
++   177,
++   178,
++   179,
++   180,
++   181,
++   182,
++   183,
++   184,
++   185,
++   186,
++   187,
++   188,
++   189,
++   190,
++   191,
++   192,
++   193,
++   194,
++   195,
++   196,
++   197,
++   198,
++   199,
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:164:18
+    162|       .filter((index) => index >= 0);
+    163|     expect(after.filter((shape, index) => shape !== before[index]).len…
+    164|     expect(kept).toEqual([]);
+       |                  ^
+    165|   });
+    166| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines holding a typographic quote > leaves no typographic quote in a line it changes
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:501:5
+    499|   editor.normalize = (options) => {
+    500|     if (!partialMarkdown && Editor.isNormalizing(editor)) linesAgree(e…
+    501|     normalize(options);
+       |     ^
+    502|   };
+    503|
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…', over lines holding a typographic quote > leaves no typographic quote in a line it changes
+AssertionError: expected [ 101, 102, 103, 104, 105, 106, …(93) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   101,
++   102,
++   103,
++   104,
++   105,
++   106,
++   107,
++   108,
++   109,
++   110,
++   111,
++   112,
++   113,
++   114,
++   115,
++   116,
++   117,
++   118,
++   119,
++   120,
++   121,
++   122,
++   123,
++   124,
++   125,
++   126,
++   127,
++   128,
++   129,
++   130,
++   131,
++   132,
++   133,
++   134,
++   135,
++   136,
++   137,
++   138,
++   139,
++   140,
++   141,
++   142,
++   143,
++   144,
++   145,
++   146,
++   147,
++   148,
++   149,
++   150,
++   151,
++   152,
++   153,
++   154,
++   155,
++   156,
++   157,
++   158,
++   159,
++   160,
++   161,
++   162,
++   163,
++   164,
++   165,
++   166,
++   167,
++   168,
++   169,
++   170,
++   171,
++   172,
++   173,
++   174,
++   175,
++   176,
++   177,
++   178,
++   179,
++   180,
++   181,
++   182,
++   183,
++   184,
++   185,
++   186,
++   187,
++   188,
++   189,
++   190,
++   191,
++   192,
++   193,
++   194,
++   195,
++   196,
++   197,
++   198,
++   199,
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:164:18
+    162|       .filter((index) => index >= 0);
+    163|     expect(after.filter((shape, index) => shape !== before[index]).len…
+    164|     expect(kept).toEqual([]);
+       |                  ^
+    165|   });
+    166| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > a quote marker types the line as typed once the carried marker is taken in or removed
+AssertionError: expected '> a\n> > b' to be '> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+  > a
+- > b
++ > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:77:28
+     75|     if (!typed.startsWith('> ')) pressBackspace(editor);
+     76|     typeKeys(editor, typed);
+     77|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > two quote markers types the line as typed once the carried marker is taken in or removed
+AssertionError: expected '> a\n> > > b' to be '> a\n> > b' // Object.is equality
+
+- Expected
++ Received
+
+  > a
+- > > b
++ > > > b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:77:28
+     75|     if (!typed.startsWith('> ')) pressBackspace(editor);
+     76|     typeKeys(editor, typed);
+     77|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker inside a fence opened on a quote line
+AssertionError: expected '> ```\n> > x\n> > ```' to be '> ```\n> x\n> ```' // Object.is equality
+
+- Expected
++ Received
+
+  > ```
+- > x
+- > ```
++ > > x
++ > > ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:96:28
+     94|     Transforms.select(editor, Editor.end(editor, [0]));
+     95|     typeKeys(editor, '\n> x\n> ```');
+     96|     expect(textOf(editor)).toBe('> ```\n> x\n> ```');
+       |                            ^
+     97|   });
+     98| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket
+AssertionError: expected [ 1 ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   1,
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:120:34
+    118|     const editor = enterAt(text, line, 'end');
+    119|     typeKeys(editor, typed);
+    120|     expect(carriedLines(editor)).toEqual(expected);
+       |                                  ^
+    121|   });
+    122|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > The carried mark of a quote marker > is resolved on the first line of the editor too
+AssertionError: expected '> > b' to be '> b' // Object.is equality
+
+Expected: "> b"
+Received: "> > b"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:141:28
+    139|     Transforms.select(editor, Editor.end(editor, [0]));
+    140|     typeKeys(editor, '> b');
+    141|     expect(textOf(editor)).toBe('> b');
+       |                            ^
+    142|   });
+    143| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/13]⎯
+

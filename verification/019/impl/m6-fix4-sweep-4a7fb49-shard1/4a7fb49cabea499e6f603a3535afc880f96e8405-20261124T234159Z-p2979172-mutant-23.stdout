@@ -1,0 +1,72 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-23
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 10125ms
+     × hands the message that text in a full-markdown editor 3059ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 3460ms
+     × hands the message that text in a full-markdown editor 1715ms
+     × hands the message that text in a full-markdown editor 906ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7518ms
+     × hands the message that text in a full-markdown editor 3293ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 18 failed) 68888ms
+     × hands the message the changed text on content, in a message of 40 lines 195ms
+     × hands the message the changed text on content, in a message of 122 lines 587ms
+     × hands the message the changed text on content, in a message of 123 lines 564ms
+     × hands the message the changed text on content, in a message of 200 lines 998ms
+     × hands the message the changed text on content, in a message of 1000 lines 4552ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8630ms
+     × hands the message the changed text on content, in a message of 40 lines 193ms
+     × hands the message the changed text on content, in a message of 122 lines 539ms
+     × hands the message the changed text on content, in a message of 123 lines 529ms
+     × hands the message the changed text on content, in a message of 200 lines 850ms
+     × hands the message the changed text on content, in a message of 1000 lines 4242ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8473ms
+     × hands the message the changed text on content, in a message of 40 lines 336ms
+     × hands the message the changed text on content, in a message of 122 lines 1010ms
+     × hands the message the changed text on content, in a message of 123 lines 1003ms
+     × hands the message the changed text on content, in a message of 200 lines 1593ms
+     × hands the message the changed text on content, in a message of 1000 lines 7704ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 16300ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 12 failed) 27681ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 1320ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 1127ms
+       × builds as many for backspace at the start of a line in the longest message as in the shortest 1214ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 1592ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 1265ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 1271ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 1151ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 2043ms
+       × builds as many run units in the longest message as in the shortest 1543ms
+       × builds as many run units in the longest message as in the shortest 1409ms
+       × builds as many run units in the longest message as in the shortest 4550ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 1965ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 18 failed) 2114ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 45ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 25ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 26ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 37ms
+     × keeps every line after a multi-line quote marker as a quote line 21ms
+     × writes no text to the lines a typed multi-line quote marker takes in 31ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 26ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 26ms
+     × makes the lines after a removed multi-line quote marker plain lines 15ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 51ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 61ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 35ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 63ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 10ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 4ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 49ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 22ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 118ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 2 failed) 181ms
+     × in the middle of the first line of a multi-line quote saves what the table says 41ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 33ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 165 skipped) 162171ms
+
+ Test Files  8 failed | 13 passed (21)
+      Tests  54 failed | 853 passed | 165 skipped (1072)
+     Errors  123 errors
+   Start at  00:56:44
+   Duration  213.67s (transform 1.59s, setup 152ms, import 10.95s, tests 314.53s, environment 10.56s)
+

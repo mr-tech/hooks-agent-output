@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 2 failed) 8101ms
+       × leaves each line typed as a fresh load of the changed text builds it 7ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 3 failed) 984ms
+     × are literal for an emoji before and one after a fenced block 6ms
+     × are literal for an emoji only in the run after a fenced block 1ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+
+ Test Files  2 failed | 19 passed (21)
+      Tests  5 failed | 1067 passed (1072)
+   Start at  00:21:50
+   Duration  73.95s (transform 1.43s, setup 117ms, import 10.16s, tests 124.44s, environment 10.04s)
+

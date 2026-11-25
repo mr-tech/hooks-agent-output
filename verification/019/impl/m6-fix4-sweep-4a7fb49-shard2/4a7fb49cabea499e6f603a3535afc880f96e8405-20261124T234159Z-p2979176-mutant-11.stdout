@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 7 failed) 8622ms
+       × leaves each line typed as a fresh load of the changed text builds it 8ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+     × leaves no typographic quote in a line it changes 113ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts (10 tests | 6 failed) 966ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content 230ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription 145ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue 142ms
+     × are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text 135ms
+     × are literal for an emoji before and one after a fenced block 1ms
+     × are literal for an emoji on each side of two fenced blocks 1ms
+
+ Test Files  2 failed | 19 passed (21)
+      Tests  13 failed | 1059 passed (1072)
+   Start at  00:16:32
+   Duration  76.31s (transform 1.47s, setup 123ms, import 10.23s, tests 128.95s, environment 10.14s)
+

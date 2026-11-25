@@ -1,0 +1,158 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx > the editor normalizer before the markdown engine has loaded > keeps an emoji element where it is and changes no text
+AssertionError: expected [ 'a🙂b' ] to deeply equal [ 'a', '[🙂]', 'b' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+-   "[🙂]",
+-   "b",
++   "a🙂b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.engine-not-ready.test.tsx:27:19
+     25|     Editor.normalize(editor, { force: true });
+     26|     const kinds = (editor.children[0] as Element).children.map((child)…
+     27|     expect(kinds).toEqual(['a', '[🙂]', 'b']);
+       |                   ^
+     28|   });
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > marks which fence lines start inside a code block once a fence typed above them opens one
+AssertionError: expected [ 'a```\n```\n```', …(3) ] to deeply equal [ 'a```\n```\n```', …(3) ]
+
+- Expected
++ Received
+
+@@ -1,13 +1,13 @@
+  [
+    "a```
+  ```
+  ```",
+    [
+-     "div",
+-     "div",
+-     "div",
++     "blockQuote",
++     "blockQuote",
++     "blockQuote",
+    ],
+    [
+      false,
+      false,
+      true,
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:129:8
+    127|     const after = (editor.children as Element[]).map((child) => child.…
+    128|     expect([textOf(editor), typesOf(editor), before, after])
+    129|       .toEqual(['a```\n```\n```', ['div', 'div', 'div'], [false, false…
+       |        ^
+    130|   });
+    131|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps the lines after a code block holding a multi-line quote marker as plain lines
+AssertionError: expected [ 'blockQuote', 'codeBlock', …(2) ] to deeply equal [ 'div', 'codeBlock', 'div', 'div' ]
+
+- Expected
++ Received
+
+  [
+-   "div",
++   "blockQuote",
+    "codeBlock",
+-   "div",
+-   "div",
++   "blockQuote",
++   "blockQuote",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:151:29
+    149|     const editor = loadedEditor('```\n>>> a\n```\nb');
+    150|     Editor.normalize(editor, { force: true });
+    151|     expect(typesOf(editor)).toEqual(['div', 'codeBlock', 'div', 'div']…
+       |                             ^
+    152|   });
+    153|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > makes the lines after a removed multi-line quote marker plain lines
+AssertionError: expected [ 'a\nb', …(1) ] to deeply equal [ 'a\nb', [ 'div', 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    "a
+  b",
+    [
+-     "div",
+-     "div",
++     "blockQuote",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:177:47
+    175|     Transforms.select(editor, Editor.start(editor, [0]));
+    176|     pressBackspace(editor);
+    177|     expect([textOf(editor), typesOf(editor)]).toEqual(['a\nb', ['div',…
+       |                                               ^
+    178|   });
+    179| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > leaves an empty line when the carried marker is removed with Backspace
+AssertionError: expected [ '> a\n', …(1) ] to deeply equal [ '> a\n', [ 'blockQuote', 'div' ] ]
+
+- Expected
++ Received
+
+  [
+    "> a
+  ",
+    [
+      "blockQuote",
+-     "div",
++     "blockQuote",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:83:87
+     81|     const editor = enterAt('> a', 0, 'end');
+     82|     pressBackspace(editor);
+     83|     expect([textOf(editor), (editor.children as Element[]).map((line) …
+       |                                                                                       ^
+     84|   });
+     85|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts > the input classes of the round-trip properties > enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps
+AssertionError: expected [ { …(4) }, { …(4) }, …(15440) ] to have a length of 15480 but got 15442
+
+- Expected
++ Received
+
+- 15480
++ 15442
+
+ ❯ src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts:39:19
+     37|   it('enumerates the typed-edit differential as 15,480 edits over the …
+     38|     const edits = blockLayerEdits(800);
+     39|     expect(edits).toHaveLength(15480);
+       |                   ^
+     40|     expect(edits.every((e) => e.offset >= 0 && e.expected.length === e…
+     41|     expect(edits[0]).toEqual({
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

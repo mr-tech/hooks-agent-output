@@ -1,0 +1,15 @@
+import gzip, json, sys, collections
+a = json.load(gzip.open(sys.argv[1])); b = json.load(gzip.open(sys.argv[2]))
+def norm(r):
+    o = json.loads(r['after'])
+    if isinstance(o, dict) and 's' in o and isinstance(o['s'], dict): o['s'].pop('classNames', None)
+    return o
+diff = [k for k in a if norm(a[k]) != norm(b[k])]
+print('keystrokes', len(a), 'differ after dropping selection classNames', len(diff))
+cd = [k for k in diff if norm(a[k]).get('c') != norm(b[k]).get('c')]
+sd = [k for k in diff if norm(a[k]).get('s') != norm(b[k]).get('s') and k not in cd]
+print('children differ', len(cd), 'selection only', len(sd))
+for k in (cd[:5] + sd[:3]):
+    print(k); print(' A', json.dumps(norm(a[k]))[:600]); print(' B', json.dumps(norm(b[k]))[:600])
+nfa = [k for k in a if not a[k]['fixedPoint']]; nfb = [k for k in b if not b[k]['fixedPoint']]
+print('non-fixed-point A', len(nfa), 'B', len(nfb), 'new in B', sorted(set(nfb) - set(nfa)))

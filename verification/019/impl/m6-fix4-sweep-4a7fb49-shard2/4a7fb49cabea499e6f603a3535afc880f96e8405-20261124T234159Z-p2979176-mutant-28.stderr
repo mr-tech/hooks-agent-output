@@ -1,0 +1,154 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 13 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 40
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 122
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 123
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 200
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 1000
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 40
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 122
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+     77| function rebuildLines(editor: Editor, surface: Surface): Set<number> {
+     78|   const own = ownLines(editor);
+     79|   const texts = editor.children.map((line) => flattenNodeText(line));
+       |                                 ^
+     80|   const built = buildLines(texts, false);
+     81|   const changed = built.flatMap((line, index) => (sameType(editor.chil…
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+ ❯ linesAgree src/components/SlateEditor/utils/withNormalizeNode.ts:193:7
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:500:59
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 123
+RangeError: Maximum call stack size exceeded
+ ❯ node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/set-nodes.ts:125:5
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-node/set-nodes.ts:14:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:172:35
+ ❯ setNodes node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/node.ts:182:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:171:20
+    169|         }
+    170|
+    171|         Transforms.setNodes(editor, {
+       |                    ^
+    172|           type,
+    173|           lang,
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 200
+RangeError: Maximum call stack size exceeded
+ ❯ _objectSpread$a node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:2230:25
+ ❯ _objectSpread node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/general.ts:148:23
+ ❯ transform node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/apply.ts:33:13
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:105:29
+ ❯ apply node_modules/.pnpm/slate-dom@0.123.0_slate@0.123.0/node_modules/slate-dom/src/plugin/with-dom.ts:205:4
+ ❯ apply node_modules/.pnpm/slate-react@0.123.0_react-dom@19.2.4_react@19.2.4__react@19.2.4_slate-dom@0.123.0_slate@0.123.0__slate@0.123.0/node_modules/slate-react/src/plugin/with-react.ts:74:4
+ ❯ apply node_modules/.pnpm/slate-history@0.113.1_slate@0.123.0/node_modules/slate-history/src/with-history.ts:115:4
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:510:7
+    508|       apply({ ...op, properties: { ...op.properties, quotePrefix: '', …
+    509|     } else {
+    510|       apply(op);
+       |       ^
+    511|     }
+    512|     const known = settledLines.get(editor);
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:96:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 1000
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 2048
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+      5| import type { Descendant } from 'slate';
+      6|
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+       |                                                                                                              ^
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/16]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives the code lines the language typed onto their opening fence
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/16]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:1
+      5| import type { Descendant } from 'slate';
+      6|
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+       | ^
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+ ❯ linesAgree src/components/SlateEditor/utils/withNormalizeNode.ts:193:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/16]⎯
+

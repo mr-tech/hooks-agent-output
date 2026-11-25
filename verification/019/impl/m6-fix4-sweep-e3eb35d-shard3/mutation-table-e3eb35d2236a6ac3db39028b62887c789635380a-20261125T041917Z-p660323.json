@@ -1,0 +1,176 @@
+{
+ "sha": "e3eb35d2236a6ac3db39028b62887c789635380a",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/mutants-inc3.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run",
+  "--maxWorkers=1",
+  "src/components/SlateEditor/utils/__tests__/withNormalizeNode",
+  "src/components/SlateEditor/utils/__tests__/emojiLift",
+  "src/components/SlateEditor/utils/__tests__/getInitialValue",
+  "src/components/SlateEditor/__tests__"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 400.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/mutants-inc3.json",
+   "blob": "47037c2e144129cc9e117305dd03bc6e2951b87d"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-control-1.stderr",
+   "seconds": 145.6,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1075,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "withNormalizeNode.ts:38:walk-last",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 38,
+    "text": "&& JSON.stringify(line.children.map(childKey)) === JSON.stringify(built.children.map(childKey))"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1075,
+   "control_tests_run": 1075,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 147.19,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:38:walk-last:2",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 38,
+    "text": "&& JSON.stringify(line.children.map(childKey)) === JSON.stringify(built.children.map(childKey))"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 1075,
+   "control_tests_run": 1075,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 145.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-2.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:448:||",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 448,
+    "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!code && splitQuote(text, false).opens);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1075,
+   "control_tests_run": 1075,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 143.84,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-3.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:448:false",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 448,
+    "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!code && splitQuote(text, false).opens);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1075,
+   "control_tests_run": 1075,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > at the end of a quote line inside a multi-line quote saves what the table says"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 145.05,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-4.stderr"
+  },
+  {
+   "id": "hand-NM-no-suppression@e3eb35d",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1075,
+   "control_tests_run": 1075,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": null,
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 199.0,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/019/impl/m6-fix4-sweep-e3eb35d-shard3/e3eb35d2236a6ac3db39028b62887c789635380a-20261125T041917Z-p660323-mutant-5.stderr"
+  }
+ ],
+ "score": "3 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-inc3.json (blob 47037c2e144129cc9e117305dd03bc6e2951b87d))"
+}

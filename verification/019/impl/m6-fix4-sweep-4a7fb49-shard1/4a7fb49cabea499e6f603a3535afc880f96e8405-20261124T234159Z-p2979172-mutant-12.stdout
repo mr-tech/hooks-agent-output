@@ -1,0 +1,238 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-12
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 8641ms
+     × hands the message that text in a full-markdown editor 2745ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1111ms
+     × hands the message that text in a full-markdown editor 173ms
+     × hands the message that text in a full-markdown editor 95ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 6672ms
+     × hands the message that text in a full-markdown editor 2822ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 18 failed) 61100ms
+     × hands the message the changed text on content, in a message of 40 lines 200ms
+     × hands the message the changed text on content, in a message of 122 lines 477ms
+     × hands the message the changed text on content, in a message of 123 lines 461ms
+     × hands the message the changed text on content, in a message of 200 lines 786ms
+     × hands the message the changed text on content, in a message of 1000 lines 3885ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 7868ms
+     × hands the message the changed text on content, in a message of 40 lines 172ms
+     × hands the message the changed text on content, in a message of 122 lines 452ms
+     × hands the message the changed text on content, in a message of 123 lines 478ms
+     × hands the message the changed text on content, in a message of 200 lines 756ms
+     × hands the message the changed text on content, in a message of 1000 lines 3723ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 7564ms
+     × hands the message the changed text on content, in a message of 40 lines 310ms
+     × hands the message the changed text on content, in a message of 122 lines 887ms
+     × hands the message the changed text on content, in a message of 123 lines 865ms
+     × hands the message the changed text on content, in a message of 200 lines 1445ms
+     × hands the message the changed text on content, in a message of 1000 lines 6862ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 14934ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 40 failed) 2391ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 47ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 33ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 29ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 21ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 14ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 18ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 18ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 25ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 27ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 22ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 16ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 20ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 17ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 20ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 18ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 16ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 16ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 15ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 17ms
+     × keeps every line after a multi-line quote marker as a quote line 15ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 17ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 11ms
+     × writes no text to the lines a typed multi-line quote marker takes in 23ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 11ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 18ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 18ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 34ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 16ms
+     × makes the lines after a removed multi-line quote marker plain lines 14ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 63ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 23ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 38ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 22ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 69ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 25ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 16ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 45ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 22ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 24ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 107ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 25 failed) 416ms
+     × at the end of a quote line saves what the table says 32ms
+     × in the middle of a quote line saves what the table says 11ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 15ms
+     × in the middle of the first line of a multi-line quote saves what the table says 15ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 18ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 30ms
+     × at the end of a quote line that opens a fence saves what the table says 13ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 10ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 11ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 14ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 14ms
+     × leaves an empty line when the carried marker is removed with Backspace 16ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 21ms
+     × takes in a typed quote marker inside a fence opened on a quote line 17ms
+     × is set on the line Enter makes from a quote line 11ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 18ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 13ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 15ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 12ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 17ms
+     × is cleared when the marker of a carried code line is deleted by hand 15ms
+     × is cleared by Backspace after the carried marker of a code line 15ms
+     × is resolved on the first line of the editor too 11ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 15ms
+     × leaves a caret at the end of a second text node of the line alone 15ms
+ ❯ |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts (5 tests | 1 failed) 45ms
+     × enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps 36ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 132 failed | 55 skipped) 178094ms
+       × raises no error 5ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 3ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+
+ Test Files  8 failed | 12 passed (21)
+      Tests  234 failed | 734 passed | 55 skipped (1072)
+     Errors  453 errors
+   Start at  00:23:05
+   Duration  227.98s (transform 1.38s, setup 105ms, import 10.05s, tests 293.88s, environment 10.07s)
+

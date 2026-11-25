@@ -1,0 +1,115 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-14
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 8775ms
+     × hands the message that text in a full-markdown editor 2796ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1788ms
+     × hands the message that text in a full-markdown editor 978ms
+     × hands the message that text in a full-markdown editor 128ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 6825ms
+     × hands the message that text in a full-markdown editor 2920ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 42 failed) 136287ms
+     × hands the message the changed text on content, in a message of 40 lines 404ms
+     × hands the message the changed text on content, in a message of 122 lines 796ms
+     × hands the message the changed text on content, in a message of 123 lines 757ms
+     × hands the message the changed text on content, in a message of 200 lines 1204ms
+     × hands the message the changed text on content, in a message of 1000 lines 5758ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11620ms
+     × hands the message the changed text on content, in a message of 40 lines 248ms
+     × hands the message the changed text on content, in a message of 122 lines 661ms
+     × hands the message the changed text on content, in a message of 123 lines 668ms
+     × hands the message the changed text on content, in a message of 200 lines 1063ms
+     × hands the message the changed text on content, in a message of 1000 lines 5343ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 10101ms
+     × hands the message the changed text on content, in a message of 40 lines 232ms
+     × hands the message the changed text on content, in a message of 122 lines 697ms
+     × hands the message the changed text on content, in a message of 123 lines 644ms
+     × hands the message the changed text on content, in a message of 200 lines 1048ms
+     × hands the message the changed text on content, in a message of 1000 lines 5260ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 10477ms
+     × hands the message the changed text on content, in a message of 40 lines 255ms
+     × hands the message the changed text on content, in a message of 122 lines 671ms
+     × hands the message the changed text on content, in a message of 123 lines 706ms
+     × hands the message the changed text on content, in a message of 200 lines 1108ms
+     × hands the message the changed text on content, in a message of 1000 lines 5490ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11598ms
+     × hands the message the changed text on content, in a message of 40 lines 246ms
+     × hands the message the changed text on content, in a message of 122 lines 718ms
+     × hands the message the changed text on content, in a message of 123 lines 709ms
+     × hands the message the changed text on content, in a message of 200 lines 1113ms
+     × hands the message the changed text on content, in a message of 1000 lines 5622ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11630ms
+     × hands the message the changed text on content, in a message of 40 lines 248ms
+     × hands the message the changed text on content, in a message of 122 lines 802ms
+     × hands the message the changed text on content, in a message of 123 lines 740ms
+     × hands the message the changed text on content, in a message of 200 lines 1387ms
+     × hands the message the changed text on content, in a message of 1000 lines 5978ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 11233ms
+     × hands the message the changed text on content, in a message of 40 lines 255ms
+     × hands the message the changed text on content, in a message of 122 lines 674ms
+     × hands the message the changed text on content, in a message of 123 lines 683ms
+     × hands the message the changed text on content, in a message of 200 lines 1138ms
+     × hands the message the changed text on content, in a message of 1000 lines 5492ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 10806ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 38 failed) 2368ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 43ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 35ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 35ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 14ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 19ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 26ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 27ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 23ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 18ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 17ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 18ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 17ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 18ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 22ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 29ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 28ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 33ms
+     × gives each line of "```js\n```a```\nfoo\n```" the language it loads with after a forced normalise 23ms
+     × gives each line of "```js\nfoo\n```\n```c++\nbar\n```" the language it loads with after a forced normalise 30ms
+     × keeps every line after a multi-line quote marker as a quote line 18ms
+     × gives the code lines the language typed onto their opening fence 22ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 19ms
+     × writes no text to the lines a typed multi-line quote marker takes in 19ms
+     × keeps the lines after a code block holding a multi-line quote marker as plain lines 26ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 17ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 38ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 18ms
+     × makes the lines after a removed multi-line quote marker plain lines 19ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 21ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 39ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 61ms
+     × keeps the text of each text of the 1,662-line probe corpus through a forced normalise, and a second forced normalise performs no operation 287ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 30ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 61ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 28ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 32ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 33ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 110ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 5255ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 2753ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 2465ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 12 failed) 316ms
+     × at the end of a quote line saves what the table says 40ms
+     × in the middle of a quote line saves what the table says 23ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 31ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 28ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 17ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 16ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 21ms
+     × leaves an empty line when the carried marker is removed with Backspace 24ms
+     × is set on the line Enter makes from a quote line 25ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 15ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 15ms
+     × is resolved on the first line of the editor too 14ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 4 failed) 186ms
+     × puts an emoji element on the first line when the second is edited back to text 34ms
+     × puts an emoji element on the second line when the third is edited back to text 30ms
+     × puts an emoji element of the second line of a code block back to text 36ms
+     × puts each emoji element of a fenced code line back to text 26ms
+ ❯ |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts (5 tests | 1 failed) 43ms
+     × enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps 34ms

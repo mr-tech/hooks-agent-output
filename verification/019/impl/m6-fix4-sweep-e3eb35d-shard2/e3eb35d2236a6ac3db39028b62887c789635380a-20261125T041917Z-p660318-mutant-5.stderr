@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line
+AssertionError: expected '> ```a\n> > \nb' to be '> ```a\n> \nb' // Object.is equality
+
+- Expected
++ Received
+
+  > ```a
+- > 
++ > > 
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:105:28
+    103|     Transforms.select(editor, Editor.end(editor, [1]));
+    104|     typeKeys(editor, '> ');
+    105|     expect(textOf(editor)).toBe('> ```a\n> \nb');
+       |                            ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

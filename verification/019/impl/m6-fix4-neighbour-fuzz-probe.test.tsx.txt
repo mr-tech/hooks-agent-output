@@ -1,0 +1,36 @@
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import { Editor, Transforms } from 'slate';
+import { editorHolding } from '../../__tests__/helpers/keystrokes';
+import { lineShapes } from '../../__tests__/helpers/fenceAndQuoteKeystrokes';
+import getInitialValue from '../getInitialValue';
+import { startEngine } from '~/utils/markdown/engine';
+import type { Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+let seed = 12345;
+const rnd = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+const TOKENS = ['a', '🙂', '`', '``', '```', '||', '*', 'b', '`🙂', '🙂`', '||🙂', ' '];
+const randomLine = () => Array.from({ length: 1 + Math.floor(rnd() * 3) }, () => TOKENS[Math.floor(rnd() * TOKENS.length)]).join('');
+it('neighbour fuzz', { timeout: 900000 }, () => {
+  const bad: string[] = []; let n = 0;
+  for (let t = 0; t < 4000; t += 1) {
+    const lines = Array.from({ length: 3 + Math.floor(rnd() * 5) }, randomLine);
+    const text = lines.join('\n');
+    for (let i = 0; i < lines.length; i += 1) for (const key of ['tick', 'back']) {
+      const editor = editorHolding(text, 'embedDescription');
+      let after = '';
+      try {
+        const at = Editor.end(editor, [i]);
+        Transforms.select(editor, at);
+        if (key === 'tick') editor.insertText('`'); else editor.deleteBackward('character');
+        after = (editor.children as Element[]).map((l) => l.children.map((c: any) => (c.type === 'emoji' ? c.source : c.text)).join('')).map((s, k) => ((editor.children[k] as Element).type === 'blockQuote' ? `${(editor.children[k] as Element).quotePrefix}${s}` : s)).join('\n');
+      } catch (e) { bad.push(`ERR ${JSON.stringify(text)} ${i} ${key}`); continue; }
+      n += 1;
+      const fresh = getInitialValue(after, 'embedDescription', false) as Element[];
+      const got = lineShapes(editor.children as Element[]); const want = lineShapes(fresh);
+      if (got.length !== want.length || got.some((s, k) => s !== want[k])) bad.push(`${JSON.stringify(text)}|${i}|${key}`);
+    }
+  }
+  writeFileSync(process.env.FUZZ_OUT as string, JSON.stringify({ n, bad }));
+});

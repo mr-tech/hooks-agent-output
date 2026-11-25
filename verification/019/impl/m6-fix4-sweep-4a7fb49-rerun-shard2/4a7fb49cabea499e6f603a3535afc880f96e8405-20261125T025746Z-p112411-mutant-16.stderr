@@ -1,0 +1,136 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > raises no error
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:90:27
+     88|
+     89|   it('raises no error', () => {
+     90|     expect(outcome.error).toBe('');
+       |                           ^
+     91|   });
+     92|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 178, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 178,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:100:20
+     98|   it('leaves nothing for a forced normalise of the whole message to ch…
+     99|     const forced = { operations: outcome.forcedOperations, error: outc…
+    100|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the ``` on li…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 978, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 978,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:100:20
+     98|   it('leaves nothing for a forced normalise of the whole message to ch…
+     99|     const forced = { operations: outcome.forcedOperations, error: outc…
+    100|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 78, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 78,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:100:20
+     98|   it('leaves nothing for a forced normalise of the whole message to ch…
+     99|     const forced = { operations: outcome.forcedOperations, error: outc…
+    100|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 478, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 478,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:100:20
+     98|   it('leaves nothing for a forced normalise of the whole message to ch…
+     99|     const forced = { operations: outcome.forcedOperations, error: outc…
+    100|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:501:5
+    499|   editor.normalize = (options) => {
+    500|     if (!partialMarkdown && Editor.isNormalizing(editor)) linesAgree(e…
+    501|     normalize(options);
+       |     ^
+    502|   };
+    503|
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+

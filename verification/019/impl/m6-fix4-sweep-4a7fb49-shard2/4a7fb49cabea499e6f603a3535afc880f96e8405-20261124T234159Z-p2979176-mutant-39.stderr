@@ -1,0 +1,43 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced quote blocks (2,048 lines is p…' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 513 to be 51 // Object.is equality
+
+- Expected
++ Received
+
+- 51
++ 513
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:113:25
+    111|       }).filter((pair): pair is number[] => pair !== null);
+    112|       counts.forEach(([shortest, longest]) => {
+    113|         expect(longest).toBe(shortest);
+       |                         ^
+    114|         expect(shortest).toBeGreaterThanOrEqual(1);
+    115|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:112:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the end of a line in the longest message as in the shortest
+AssertionError: expected 342 to be 51 // Object.is equality
+
+- Expected
++ Received
+
+- 51
++ 342
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:113:25
+    111|       }).filter((pair): pair is number[] => pair !== null);
+    112|       counts.forEach(([shortest, longest]) => {
+    113|         expect(longest).toBe(shortest);
+       |                         ^
+    114|         expect(shortest).toBeGreaterThanOrEqual(1);
+    115|       });
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:112:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

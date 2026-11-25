@@ -1,0 +1,7 @@
+withNormalizeNode.ts:52:walk-first KILLED 400.12
+withNormalizeNode.ts:60:walk-first KILLED 400.2
+hand-NM-83-no-emoji-lift KILLED 145.04
+hand-no-suppression KILLED 192.72
+hand-bad-codepoint-not-excluded KILLED 137.03
+hand-lift-every-unit KILLED 137.49
+6 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-inc2-1.json (blob 4305329e462197dd89f551dad1f8ec46bcaaa43a))

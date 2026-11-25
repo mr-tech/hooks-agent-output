@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork2/20261125T025746Z-p112411/mutant-16
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 8 failed) 9859ms
+       × raises no error 5ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 3ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × raises no error 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 4 failed) 6543ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 93ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 43ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 77ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 35ms
+
+ Test Files  2 failed | 19 passed (21)
+      Tests  12 failed | 1060 passed (1072)
+   Start at  03:49:08
+   Duration  131.53s (transform 955ms, setup 97ms, import 8.79s, tests 110.46s, environment 9.28s)
+

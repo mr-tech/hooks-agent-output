@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-39
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 2 failed) 6848ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 43ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 49ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  2 failed | 1070 passed (1072)
+   Start at  01:15:16
+   Duration  73.70s (transform 1.38s, setup 112ms, import 10.05s, tests 124.05s, environment 10.07s)
+

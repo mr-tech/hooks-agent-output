@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork1/20261125T025746Z-p112401/mutant-8
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 16 failed) 7603ms
+       × raises no error 6ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 2ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+     × leaves no typographic quote in a line it changes 73ms
+     × leaves no typographic quote in a line it changes 87ms
+     × leaves no typographic quote in a line it changes 41ms
+     × leaves no typographic quote in a line it changes 36ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 4 failed) 6781ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 69ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 25ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 50ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 19ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 2 failed) 6522ms
+     × keeps "> a" a plain line while it is typed 8ms
+     × keeps ">>> a" a plain line while it is typed 3ms
+
+ Test Files  3 failed | 18 passed (21)
+      Tests  22 failed | 1050 passed (1072)
+   Start at  03:31:48
+   Duration  133.65s (transform 947ms, setup 90ms, import 8.83s, tests 112.41s, environment 9.39s)
+

@@ -1,0 +1,81 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/jwork2/20261125T044615Z-p860443/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 29926ms
+     × hands the message that text in a full-markdown editor 25826ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 13857ms
+     × hands the message that text in a full-markdown editor 5982ms
+     × hands the message that text in a full-markdown editor 7424ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7240ms
+     × hands the message that text in a full-markdown editor 4236ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 31 failed) 7392ms
+     × builds at least one run unit for a character typed in a one-line message 15ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 52ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 22ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 18ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 21ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 42ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 24ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 19ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 18ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 40ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 17ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 22ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 16ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 41ms
+       × builds as many for insert at the middle of a line in the longest message as in the shortest 12ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 13ms
+       × builds as many for backspace at the middle of a line in the longest message as in the shortest 12ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 22ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 21ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 22ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 47ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 21ms
+       × builds as many for insert at the start of a line in the longest message as in the shortest 24ms
+       × builds as many for insert at the end of a line in the longest message as in the shortest 22ms
+       × builds as many for backspace at the end of a line in the longest message as in the shortest 37ms
+       × builds as many for delete at the start of a line in the longest message as in the shortest 28ms
+     × counts a line settle and a fence read for a character typed in a one-line message 1ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 83ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 53ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 67ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 58ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 6 failed) 2824ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 1512ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 1278ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a link address 4ms
+     × are the engine's emoji after each emoji token of the probe is typed inside a bare address 4ms
+     × are the engine's emoji after each emoji token of the probe is typed after a backslash 3ms
+     × are the engine's emoji after each emoji token of the probe is typed between two characters of plain text 12ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 7 failed) 81ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 7ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line 4ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 4ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 1ms
+     × is cleared when the marker of a carried code line is deleted by hand 2ms
+     × is resolved on the first line of the editor too 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 17 failed) 62ms
+     × keeps every character of "x🙂 abcdefghijklmnopq" and turns the emoji the engine finds into elements 13ms
+     × keeps every character of "\\*🙂abc" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "\\🙂🙂 abc" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "a :ok🙂 🙂 b" and turns the emoji the engine finds into elements 2ms
+     × keeps every character of "a:smile:b" and turns the emoji the engine finds into elements 1ms
+     × keeps every character of "<:n:123>x" and turns the emoji the engine finds into elements 1ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 7ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 1ms
+     × puts an emoji element on the first line when the second is edited back to text 2ms
+     × puts an emoji element on the second line when the third is edited back to text 1ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 1ms
+     × puts an emoji element back to text once a web address is typed in front of it 1ms
+     × puts a caret on the element at the same place in the text 3ms
+     × puts a caret right after the element at the same place in the text 2ms
+     × puts a caret after the element and a typed backtick at the same place in the text 2ms
+     × puts a caret on a second element at the same place in the text 2ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 1ms
+
+ Test Files  7 failed | 14 passed (21)
+      Tests  65 failed | 1010 passed (1075)
+   Start at  05:01:54
+   Duration  129.38s (transform 1.00s, setup 95ms, import 9.30s, tests 107.14s, environment 9.80s)
+

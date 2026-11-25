@@ -1,0 +1,169 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-21
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 6 failed) 39874ms
+     × hands the message the changed text on content, in a message of 40 lines 331ms
+     × hands the message the changed text on content, in a message of 122 lines 978ms
+     × hands the message the changed text on content, in a message of 123 lines 978ms
+     × hands the message the changed text on content, in a message of 200 lines 1578ms
+     × hands the message the changed text on content, in a message of 1000 lines 7796ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 15497ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 8230ms
+     × hands the message that text in a full-markdown editor 104ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7654ms
+     × hands the message that text in a full-markdown editor 3380ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 19913ms
+     × hands the message that text in a full-markdown editor 2282ms
+     × hands the message that text in a full-markdown editor 6635ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 40 failed) 2564ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 49ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 38ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 30ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 19ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 10ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 17ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 24ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 29ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 37ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 19ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 19ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 20ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 16ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 25ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 21ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 20ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 21ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 17ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 26ms
+     × keeps every line after a multi-line quote marker as a quote line 21ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 10ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 2ms
+     × writes no text to the lines a typed multi-line quote marker takes in 23ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 13ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 20ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 17ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 44ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 19ms
+     × makes the lines after a removed multi-line quote marker plain lines 20ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 67ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 24ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 53ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 39ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 64ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 19ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 22ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 58ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 21ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 26ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 117ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 25 failed) 451ms
+     × at the end of a quote line saves what the table says 33ms
+     × in the middle of a quote line saves what the table says 13ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 15ms
+     × in the middle of the first line of a multi-line quote saves what the table says 17ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 21ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 30ms
+     × at the end of a quote line that opens a fence saves what the table says 13ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 11ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 14ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 14ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 16ms
+     × leaves an empty line when the carried marker is removed with Backspace 16ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 23ms
+     × takes in a typed quote marker inside a fence opened on a quote line 13ms
+     × is set on the line Enter makes from a quote line 12ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 16ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 12ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 18ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 15ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 20ms
+     × is cleared when the marker of a carried code line is deleted by hand 21ms
+     × is cleared by Backspace after the carried marker of a code line 19ms
+     × is resolved on the first line of the editor too 13ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 19ms
+     × leaves a caret at the end of a second text node of the line alone 20ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 77 failed | 55 skipped) 61684ms
+       × leaves each line typed as a fresh load of the changed text builds it 8ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 5ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 7ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+
+ Test Files  7 failed | 13 passed (21)
+      Tests  165 failed | 802 passed | 55 skipped (1072)
+     Errors  76 errors
+   Start at  00:49:11
+   Duration  125.10s (transform 1.56s, setup 122ms, import 10.44s, tests 191.08s, environment 10.54s)
+

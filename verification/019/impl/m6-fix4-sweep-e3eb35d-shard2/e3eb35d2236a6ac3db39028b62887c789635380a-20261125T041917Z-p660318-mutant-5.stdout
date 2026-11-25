@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/iwork2/20261125T041917Z-p660318/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 1 failed) 85ms
+     × takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line 9ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  1 failed | 1074 passed (1075)
+   Start at  04:31:28
+   Duration  143.98s (transform 1.08s, setup 97ms, import 9.60s, tests 121.47s, environment 9.80s)
+

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork1/20261125T025746Z-p112401/mutant-14
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 4 failed) 6462ms
+     × leaves no typographic quote in a line it changes 18ms
+     × leaves no typographic quote in a line it changes 10ms
+     × leaves no typographic quote in a line it changes 10ms
+     × leaves no typographic quote in a line it changes 6ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  4 failed | 1068 passed (1072)
+   Start at  03:45:57
+   Duration  133.91s (transform 974ms, setup 94ms, import 8.91s, tests 112.56s, environment 9.44s)
+

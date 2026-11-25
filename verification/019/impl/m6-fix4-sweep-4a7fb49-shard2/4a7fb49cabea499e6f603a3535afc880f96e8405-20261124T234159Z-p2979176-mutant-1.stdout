@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 42 failed) 300ms
+     × hands the message the changed text on content, in a message of 40 lines 32ms
+     × hands the message the changed text on content, in a message of 122 lines 7ms
+     × hands the message the changed text on content, in a message of 123 lines 5ms
+     × hands the message the changed text on content, in a message of 200 lines 6ms
+     × hands the message the changed text on content, in a message of 1000 lines 17ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 43ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 1ms
+     × hands the message the changed text on content, in a message of 123 lines 1ms
+     × hands the message the changed text on content, in a message of 200 lines 1ms
+     × hands the message the changed text on content, in a message of 1000 lines 2ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 5ms
+     × hands the message the changed text on content, in a message of 40 lines 1ms
+     × hands the message the changed text on content, in a message of 122 lines 1ms
+     × hands the message the changed text on content, in a message of 123 lines 1ms
+     × hands the message the changed text on content, in a message of 200 lines 2ms
+     × hands the message the changed text on content, in a message of 1000 lines 4ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 5ms
+     × hands the message the changed text on content, in a message of 40 lines 1ms
+     × hands the message the changed text on content, in a message of 122 lines 2ms
+     × hands the message the changed text on content, in a message of 123 lines 2ms
+     × hands the message the changed text on content, in a message of 200 lines 1ms
+     × hands the message the changed text on content, in a message of 1000 lines 2ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 3ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 2ms
+     × hands the message the changed text on content, in a message of 123 lines 3ms
+     × hands the message the changed text on content, in a message of 200 lines 3ms
+     × hands the message the changed text on content, in a message of 1000 lines 11ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 22ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 2ms
+     × hands the message the changed text on content, in a message of 123 lines 3ms
+     × hands the message the changed text on content, in a message of 200 lines 3ms
+     × hands the message the changed text on content, in a message of 1000 lines 14ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 24ms
+     × hands the message the changed text on content, in a message of 40 lines 2ms
+     × hands the message the changed text on content, in a message of 122 lines 2ms
+     × hands the message the changed text on content, in a message of 123 lines 2ms
+     × hands the message the changed text on content, in a message of 200 lines 3ms
+     × hands the message the changed text on content, in a message of 1000 lines 12ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 36ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 4 failed) 104ms
+     × hands the message that text in a full-markdown editor 69ms
+     × hands the message that text in a single-line editor 11ms
+     × hands the message that text in a full-markdown editor 11ms
+     × hands the message that text in a single-line editor 10ms

@@ -1,0 +1,104 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work1/20261124T234159Z-p2979172/mutant-22
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 9559ms
+     × hands the message that text in a full-markdown editor 2952ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1253ms
+     × hands the message that text in a full-markdown editor 198ms
+     × hands the message that text in a full-markdown editor 82ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7134ms
+     × hands the message that text in a full-markdown editor 3045ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 18 failed) 68082ms
+     × hands the message the changed text on content, in a message of 40 lines 187ms
+     × hands the message the changed text on content, in a message of 122 lines 546ms
+     × hands the message the changed text on content, in a message of 123 lines 578ms
+     × hands the message the changed text on content, in a message of 200 lines 899ms
+     × hands the message the changed text on content, in a message of 1000 lines 4285ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8344ms
+     × hands the message the changed text on content, in a message of 40 lines 184ms
+     × hands the message the changed text on content, in a message of 122 lines 496ms
+     × hands the message the changed text on content, in a message of 123 lines 536ms
+     × hands the message the changed text on content, in a message of 200 lines 850ms
+     × hands the message the changed text on content, in a message of 1000 lines 4159ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8403ms
+     × hands the message the changed text on content, in a message of 40 lines 326ms
+     × hands the message the changed text on content, in a message of 122 lines 957ms
+     × hands the message the changed text on content, in a message of 123 lines 991ms
+     × hands the message the changed text on content, in a message of 200 lines 1540ms
+     × hands the message the changed text on content, in a message of 1000 lines 7653ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 17245ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 40 failed) 2759ms
+     × settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged 58ms
+     × settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged 39ms
+     × settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged 34ms
+     × settles on a forced normalise of ">>> a\nb" with its text unchanged 21ms
+     × settles on a forced normalise of ">>> a" with its text unchanged 12ms
+     × settles on a forced normalise of ">>> a\n\nb" with its text unchanged 19ms
+     × settles on a forced normalise of ">>> a\n> b" with its text unchanged 19ms
+     × settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged 28ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its start 36ms
+     × accepts a character typed into a quote plus a bare fence on line 0 at its end 20ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its start 21ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 23ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its start 23ms
+     × accepts a character typed into a quote plus a bare fence on line 2 at its end 32ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its start 25ms
+     × accepts a character typed into a quote plus a bare fence on line 3 at its end 24ms
+     × accepts a character typed after a multi-line quote marker followed by a bare fence 22ms
+     × gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise 19ms
+     × gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise 25ms
+     × keeps every line after a multi-line quote marker as a quote line 22ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 29ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 20ms
+     × writes no text to the lines a typed multi-line quote marker takes in 28ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 12ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 17ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 21ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 44ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 19ms
+     × makes the lines after a removed multi-line quote marker plain lines 16ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 62ms
+     × keeps the text of each text of the 106 link inputs through a forced normalise, and a second forced normalise performs no operation 26ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 60ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 46ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 75ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 19ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 20ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 55ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 19ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 37ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 121ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 25 failed) 479ms
+     × at the end of a quote line saves what the table says 36ms
+     × in the middle of a quote line saves what the table says 14ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 15ms
+     × in the middle of the first line of a multi-line quote saves what the table says 19ms
+     × at the end of a quote line inside a multi-line quote saves what the table says 22ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 37ms
+     × at the end of a quote line that opens a fence saves what the table says 13ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 14ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 14ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 15ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 16ms
+     × leaves an empty line when the carried marker is removed with Backspace 17ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 27ms
+     × takes in a typed quote marker inside a fence opened on a quote line 12ms
+     × is set on the line Enter makes from a quote line 12ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 18ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 12ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 15ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 15ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 24ms
+     × is cleared when the marker of a carried code line is deleted by hand 20ms
+     × is cleared by Backspace after the carried marker of a code line 20ms
+     × is resolved on the first line of the editor too 13ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 18ms
+     × leaves a caret at the end of a second text node of the line alone 16ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 275 skipped) 267998ms
+
+ Test Files  7 failed | 13 passed (21)
+      Tests  103 failed | 659 passed | 275 skipped (1072)
+     Errors  456 errors
+   Start at  00:51:17
+   Duration  325.01s (transform 1.48s, setup 127ms, import 10.76s, tests 398.93s, environment 10.64s)
+

@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-37
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 6 failed) 38128ms
+     × hands the message the changed text on content, in a message of 40 lines 272ms
+     × hands the message the changed text on content, in a message of 122 lines 783ms
+     × hands the message the changed text on content, in a message of 123 lines 790ms
+     × hands the message the changed text on content, in a message of 200 lines 1268ms
+     × hands the message the changed text on content, in a message of 1000 lines 6206ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 13125ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 8785ms
+     × hands the message that text in a full-markdown editor 568ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 4 failed) 12147ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 53ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 56ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 2071ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 2152ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 1 failed) 2684ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 187ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 1 failed | 65 skipped) 122761ms
+     × leaves no typographic quote in a line it changes 3513ms
+
+ Test Files  5 failed | 16 passed (21)
+      Tests  13 failed | 994 passed | 65 skipped (1072)
+   Start at  01:10:46
+   Duration  184.43s (transform 1.44s, setup 129ms, import 10.48s, tests 261.81s, environment 10.39s)
+

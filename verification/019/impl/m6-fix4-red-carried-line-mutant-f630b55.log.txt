@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/export-fuzz
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (29 tests | 1 failed) 78ms
+     × takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line
+AssertionError: expected '> ```a\n> > \nb' to be '> ```a\n> \nb' // Object.is equality
+
+- Expected
++ Received
+
+  > ```a
+- > 
++ > > 
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:105:28
+    103|     Transforms.select(editor, Editor.end(editor, [1]));
+    104|     typeKeys(editor, '> ');
+    105|     expect(textOf(editor)).toBe('> ```a\n> \nb');
+       |                            ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 28 passed (29)
+   Start at  04:08:13
+   Duration  1.10s (transform 158ms, setup 22ms, import 294ms, tests 78ms, environment 573ms)
+

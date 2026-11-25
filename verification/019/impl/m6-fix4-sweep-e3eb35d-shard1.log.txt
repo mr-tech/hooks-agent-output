@@ -1,0 +1,7 @@
+withNormalizeNode.ts:38:&& KILLED 400.16
+withNormalizeNode.ts:38:=== SURVIVED 146.85
+withNormalizeNode.ts:46:num KILLED 144.07
+withNormalizeNode.ts:448:not KILLED 139.11
+withNormalizeNode.ts:125:not@e3eb35d ABORTED 223.05
+hand-own-focus-line-dropped@e3eb35d KILLED 132.97
+4 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 1, control-failed 0; mutants-inc1.json (blob a7a3367bc7625c554183c1c31cc95c5780e4ebed))

@@ -1,0 +1,62 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-19
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 6 failed) 12977ms
+     × hands the message the changed text on content, in a message of 40 lines 27ms
+     × hands the message the changed text on content, in a message of 122 lines 47ms
+     × hands the message the changed text on content, in a message of 123 lines 50ms
+     × hands the message the changed text on content, in a message of 200 lines 54ms
+     × hands the message the changed text on content, in a message of 1000 lines 295ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 737ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 33 failed) 7832ms
+       × puts the next typed character where the edit leaves the caret 7ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 1 failed) 6837ms
+       × builds as many run units in the longest message as in the shortest 14ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 5 failed) 6986ms
+     × keeps every line after a multi-line quote marker as a quote line 8ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 2ms
+     × starts a quoted line with no marker when a line of a multi-line quote is split 3ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 1ms
+     × makes the lines after a removed multi-line quote marker plain lines 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 1 failed) 94ms
+     × in the middle of the first line of a multi-line quote saves what the table says 8ms
+ ❯ |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts (5 tests | 1 failed) 50ms
+     × enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps 39ms
+
+ Test Files  6 failed | 15 passed (21)
+      Tests  47 failed | 1025 passed (1072)
+   Start at  00:39:58
+   Duration  71.95s (transform 1.48s, setup 119ms, import 10.19s, tests 120.14s, environment 10.20s)
+

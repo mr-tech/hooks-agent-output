@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a code fence opened by text inserted at a point, while the selection is elsewhere > types each line as a fresh load does and keeps the selection, with a range from line 5 to line 8
+AssertionError: expected { …(3) } to deeply equal { …(3) }
+
+- Expected
++ Received
+
+@@ -6,12 +6,12 @@
+        0,
+      ],
+    },
+    "classNames": [],
+    "focus": {
+-     "offset": 1,
++     "offset": 3,
+      "path": [
+-       8,
++       198,
+        0,
+      ],
+    },
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:164:30
+    162|     const shapes = lineShapes(editor.children as Element[]);
+    163|     expect(firstDifferences(shapes, lineShapes(fresh))).toEqual([]);
+    164|     expect(editor.selection).toEqual(selection);
+       |                              ^
+    165|   });
+    166| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

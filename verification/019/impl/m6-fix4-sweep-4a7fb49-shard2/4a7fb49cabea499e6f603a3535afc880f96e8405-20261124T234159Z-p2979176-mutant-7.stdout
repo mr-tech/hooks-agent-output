@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-set-equals-the-engines.test.tsx (8 tests | 2 failed) 4181ms
+     × are the engine's emoji after each backtick typed before and after the emoji, and after each is deleted again 2135ms
+     × are the engine's emoji after "[" is typed before the emoji and "](https://x.y)" after it, and after each is deleted again 1936ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (24 tests | 13 failed) 83ms
+     × turns an emoji element back into its text when backticks are typed around it, and again into an element when one is removed 9ms
+     × turns an emoji element into the longer emoji the engine now finds when a skin tone is typed after it 2ms
+     × puts an emoji element on the first line when the second is edited back to text 3ms
+     × puts an emoji element on the second line when the third is edited back to text 2ms
+     × puts an emoji in a link label back to text once "](https://x.y)" is typed after it 8ms
+     × puts an emoji element back to text once a web address is typed in front of it 1ms
+     × puts an emoji element of the second line of a code block back to text 2ms
+     × puts each emoji element of a fenced code line back to text 2ms
+     × puts a caret on the element at the same place in the text 2ms
+     × puts a caret right after the element at the same place in the text 1ms
+     × puts a caret after the element and a typed backtick at the same place in the text 2ms
+     × puts a caret on a second element at the same place in the text 2ms
+     × puts a caret at the end of the text in front of a second element at the same place in the text 2ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/emojiLift.layout.test.ts (36 tests | 6 failed) 59ms
+     × holds a span of a layout when only the start matches 6ms
+     × holds a span of a layout when only the end matches 1ms
+     × holds a span of a layout when neither end matches 1ms
+     × holds a span that starts where one starts and ends sooner of a layout of three spans 1ms
+     × holds a span that starts between two spans of a layout of three spans 1ms
+     × holds a span past the last of a layout of three spans 1ms
+
+ Test Files  3 failed | 18 passed (21)
+      Tests  21 failed | 1051 passed (1072)
+   Start at  00:12:10
+   Duration  76.97s (transform 1.48s, setup 119ms, import 10.39s, tests 129.62s, environment 10.47s)
+

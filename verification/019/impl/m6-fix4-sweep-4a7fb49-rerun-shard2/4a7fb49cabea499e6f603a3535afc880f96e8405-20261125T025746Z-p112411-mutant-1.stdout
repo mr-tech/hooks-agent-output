@@ -1,0 +1,47 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork2/20261125T025746Z-p112411/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 7444ms
+     × hands the message that text in a full-markdown editor 2334ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 36 failed) 130728ms
+     × hands the message the changed text on content, in a message of 40 lines 251ms
+     × hands the message the changed text on content, in a message of 122 lines 405ms
+     × hands the message the changed text on content, in a message of 123 lines 391ms
+     × hands the message the changed text on content, in a message of 200 lines 618ms
+     × hands the message the changed text on content, in a message of 1000 lines 2819ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 5865ms
+     × hands the message the changed text on content, in a message of 40 lines 218ms
+     × hands the message the changed text on content, in a message of 122 lines 519ms
+     × hands the message the changed text on content, in a message of 123 lines 512ms
+     × hands the message the changed text on content, in a message of 200 lines 832ms
+     × hands the message the changed text on content, in a message of 1000 lines 4538ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8135ms
+     × hands the message the changed text on content, in a message of 40 lines 181ms
+     × hands the message the changed text on content, in a message of 122 lines 494ms
+     × hands the message the changed text on content, in a message of 123 lines 490ms
+     × hands the message the changed text on content, in a message of 200 lines 801ms
+     × hands the message the changed text on content, in a message of 1000 lines 3907ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 7883ms
+     × hands the message the changed text on content, in a message of 40 lines 314ms
+     × hands the message the changed text on content, in a message of 122 lines 928ms
+     × hands the message the changed text on content, in a message of 123 lines 946ms
+     × hands the message the changed text on content, in a message of 200 lines 2441ms
+     × hands the message the changed text on content, in a message of 1000 lines 7937ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 15924ms
+     × hands the message the changed text on content, in a message of 40 lines 323ms
+     × hands the message the changed text on content, in a message of 122 lines 946ms
+     × hands the message the changed text on content, in a message of 123 lines 936ms
+     × hands the message the changed text on content, in a message of 200 lines 1538ms
+     × hands the message the changed text on content, in a message of 1000 lines 8030ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 15607ms
+     × hands the message the changed text on content, in a message of 40 lines 313ms
+     × hands the message the changed text on content, in a message of 122 lines 942ms
+     × hands the message the changed text on content, in a message of 123 lines 973ms
+     × hands the message the changed text on content, in a message of 200 lines 1541ms
+     × hands the message the changed text on content, in a message of 1000 lines 7569ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 15440ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 900ms
+     × hands the message that text in a full-markdown editor 155ms
+     × hands the message that text in a full-markdown editor 40ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 5486ms
+     × hands the message that text in a full-markdown editor 2262ms

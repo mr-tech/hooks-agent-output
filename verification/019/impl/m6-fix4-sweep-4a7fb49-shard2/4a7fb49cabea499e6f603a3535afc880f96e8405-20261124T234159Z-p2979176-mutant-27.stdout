@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-27
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 8696ms
+     × hands the message that text in a full-markdown editor 2806ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 5550ms
+     × hands the message that text in a full-markdown editor 4656ms
+     × hands the message that text in a full-markdown editor 238ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 6933ms
+     × hands the message that text in a full-markdown editor 2813ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 12 failed) 129812ms
+     × hands the message the changed text on content, in a message of 40 lines 819ms
+     × hands the message the changed text on content, in a message of 122 lines 2176ms
+     × hands the message the changed text on content, in a message of 123 lines 2212ms
+     × hands the message the changed text on content, in a message of 200 lines 3799ms
+     × hands the message the changed text on content, in a message of 1000 lines 24084ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 67116ms
+     × hands the message the changed text on content, in a message of 40 lines 202ms
+     × hands the message the changed text on content, in a message of 122 lines 515ms
+     × hands the message the changed text on content, in a message of 123 lines 601ms
+     × hands the message the changed text on content, in a message of 200 lines 926ms
+     × hands the message the changed text on content, in a message of 1000 lines 4009ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 8328ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 5 failed) 30024ms
+       × builds as many run units in the longest message as in the shortest 5078ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 6914ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 1580ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 6430ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 1704ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 1 failed) 2810ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 283ms
+
+ Test Files  6 failed | 14 passed (21)
+      Tests  22 failed | 601 passed | 16 skipped (1072)
+     Errors  1 error
+   Start at  00:54:38
+   Duration  176.30s (transform 1.48s, setup 123ms, import 10.39s, tests 210.26s, environment 10.47s)
+

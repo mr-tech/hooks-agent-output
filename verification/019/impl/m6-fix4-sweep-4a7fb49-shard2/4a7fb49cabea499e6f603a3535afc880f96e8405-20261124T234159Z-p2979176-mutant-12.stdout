@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-12
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 1 failed) 7293ms
+     × hands the message that text in a full-markdown editor 115ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 13709ms
+     × hands the message that text in a full-markdown editor 2019ms
+     × hands the message that text in a full-markdown editor 2494ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 6 failed) 2143ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 10ms
+     × keeps the text of each text of the 272-case corpus through a forced normalise, and a second forced normalise performs no operation 62ms
+     × keeps the text of each text of 1,000 generator inputs through a forced normalise, and a second forced normalise performs no operation 292ms
+     × keeps the text of each text of the joins of up to two block atoms through a forced normalise, and a second forced normalise performs no operation 49ms
+     × keeps the text of each text of 3,000 seeded block-layer texts through a forced normalise, and a second forced normalise performs no operation 114ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 245ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 9 failed) 90ms
+     × at the end of a code line inside a fence opened on a plain line saves what the table says 7ms
+     × at the end of a code line inside a fence opened on a quote line saves what the table says 3ms
+     × at the end of a quoted code line that follows another one in a fence opened on a plain line saves what the table says 2ms
+     × leaves an empty line when the carried marker of a line inside a fence opened on a quote line is removed with Backspace 3ms
+     × is set on the line Enter makes from a code line inside a fence opened on a quote line 1ms
+     × on the line made from a code line inside a fence opened on a quote line, one angle bracket is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 1ms
+     × is cleared when the marker of a carried code line is deleted by hand 2ms
+     × deletes the marker only with the caret right after it, as the first text of a collapsed selection 2ms
+     × leaves a caret at the end of a second text node of the line alone 3ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (52 tests | 5 failed) 1260ms
+     × loads "```\n>>> a\n```" with its text unchanged 6ms
+     × loads each text of the 272-case corpus with its text unchanged 21ms
+     × loads each text of 1,000 generator inputs with its text unchanged 125ms
+     × loads each text of the joins of up to three block atoms with its text unchanged 280ms
+     × loads each text of 3,000 seeded block-layer texts with its text unchanged 145ms
+ ❯ |node| src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts (5 tests | 1 failed) 45ms
+     × enumerates the typed-edit differential as 15,480 edits over the first 800 block-layer texts, each at an offset of a line the loader keeps 36ms
+
+ Test Files  6 failed | 15 passed (21)
+      Tests  24 failed | 1048 passed (1072)
+   Start at  00:17:49
+   Duration  68.07s (transform 1.46s, setup 124ms, import 10.07s, tests 112.38s, environment 10.12s)
+

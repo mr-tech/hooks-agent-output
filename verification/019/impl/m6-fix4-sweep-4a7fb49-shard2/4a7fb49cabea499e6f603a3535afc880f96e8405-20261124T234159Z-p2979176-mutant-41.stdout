@@ -1,0 +1,319 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-41
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 8950ms
+     × hands the message that text in a full-markdown editor 2768ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 42 failed) 9162ms
+     × hands the message the changed text on content, in a message of 40 lines 111ms
+     × hands the message the changed text on content, in a message of 122 lines 129ms
+     × hands the message the changed text on content, in a message of 123 lines 79ms
+     × hands the message the changed text on content, in a message of 200 lines 118ms
+     × hands the message the changed text on content, in a message of 1000 lines 458ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 820ms
+     × hands the message the changed text on content, in a message of 40 lines 31ms
+     × hands the message the changed text on content, in a message of 122 lines 59ms
+     × hands the message the changed text on content, in a message of 123 lines 61ms
+     × hands the message the changed text on content, in a message of 200 lines 93ms
+     × hands the message the changed text on content, in a message of 1000 lines 298ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 630ms
+     × hands the message the changed text on content, in a message of 40 lines 24ms
+     × hands the message the changed text on content, in a message of 122 lines 86ms
+     × hands the message the changed text on content, in a message of 123 lines 69ms
+     × hands the message the changed text on content, in a message of 200 lines 72ms
+     × hands the message the changed text on content, in a message of 1000 lines 259ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 557ms
+     × hands the message the changed text on content, in a message of 40 lines 25ms
+     × hands the message the changed text on content, in a message of 122 lines 68ms
+     × hands the message the changed text on content, in a message of 123 lines 58ms
+     × hands the message the changed text on content, in a message of 200 lines 78ms
+     × hands the message the changed text on content, in a message of 1000 lines 270ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 634ms
+     × hands the message the changed text on content, in a message of 40 lines 23ms
+     × hands the message the changed text on content, in a message of 122 lines 55ms
+     × hands the message the changed text on content, in a message of 123 lines 57ms
+     × hands the message the changed text on content, in a message of 200 lines 90ms
+     × hands the message the changed text on content, in a message of 1000 lines 311ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 666ms
+     × hands the message the changed text on content, in a message of 40 lines 25ms
+     × hands the message the changed text on content, in a message of 122 lines 53ms
+     × hands the message the changed text on content, in a message of 123 lines 54ms
+     × hands the message the changed text on content, in a message of 200 lines 87ms
+     × hands the message the changed text on content, in a message of 1000 lines 305ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 750ms
+     × hands the message the changed text on content, in a message of 40 lines 38ms
+     × hands the message the changed text on content, in a message of 122 lines 74ms
+     × hands the message the changed text on content, in a message of 123 lines 90ms
+     × hands the message the changed text on content, in a message of 200 lines 109ms
+     × hands the message the changed text on content, in a message of 1000 lines 434ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 851ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 1053ms
+     × hands the message that text in a full-markdown editor 138ms
+     × hands the message that text in a full-markdown editor 19ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 6933ms
+     × hands the message that text in a full-markdown editor 2793ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 136 failed | 370 skipped) 4882ms
+       × raises no error 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 4ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 10ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 10ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 20ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 11ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 16ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 2ms
+       × leaves each line typed as a fresh load of the changed text builds it 20ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 9ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 1ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 2ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 0ms
+       × leaves each line typed as a fresh load of the changed text builds it 3ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 12ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × raises no error 1ms
+       × leaves each line typed as a fresh load of the changed text builds it 19ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+     × leaves no typographic quote in a line it changes 5ms
+     × leaves no typographic quote in a line it changes 2ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 3ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx (54 tests | 17 failed) 2530ms
+     × accepts a character typed into a quote plus a bare fence on line 1 at its end 5ms
+     × turns ">>> x" typed into a plain line into a quote line that keeps its marker 1ms
+     × turns "> x" typed into a plain line into a quote line that keeps its marker 1ms
+     × gives the code lines the language typed onto their opening fence 1ms
+     × marks which fence lines start inside a code block once a fence typed above them opens one 1ms
+     × writes no text to the lines a typed multi-line quote marker takes in 1ms
+     × keeps the quote marker of a line in "```\n> ```" when a typed character turns it into a code line 3ms
+     × keeps the quote marker of a line in "```\n>>> ```" when a typed character turns it into a code line 1ms
+     × keeps the quote marker of a line in "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b" when a typed character turns it into a code line 2ms
+     × keeps a later multi-line quote marker when a multi-line quote is opened above it 1ms
+     × makes the lines after a removed multi-line quote marker plain lines 1ms
+     × leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them 3ms
+     × leaves the lines of "> q" with "> a\nb\n> c" pasted as a fresh load builds them 3ms
+     × leaves the lines of "```js\nx\n```\n> q" with "# h\ntext\n> q\n-# s" pasted as a fresh load builds them 4ms
+     × leaves the lines of ">>> a" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 2ms
+     × leaves the lines of ">>> a\nb" with "> ```\n> x\n> ```\nc" pasted as a fresh load builds them 2ms
+     × keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts 56ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (72 tests | 18 failed) 5788ms
+       × builds as many for enter at the start of a line in the longest message as in the shortest 15ms
+       × builds as many for enter at the end of a line in the longest message as in the shortest 5ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 3ms
+       × builds as many for delete at the end of a line in the longest message as in the shortest 16ms
+       × builds as many run units in the longest message as in the shortest 7ms
+       × builds as many run units in the longest message as in the shortest 5ms
+       × builds as many run units in the longest message as in the shortest 6ms
+       × builds as many run units in the longest message as in the shortest 5ms
+       × builds as many run units in the longest message as in the shortest 3ms
+     × counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line 80ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 5ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the ``` on li…' 2ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'the third backtick typed at the end o…' 2ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the ``` on li…' 3ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 2ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 3ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx (135 tests | 69 failed) 2072ms
+     × equals an emoji inside a code block typed one character at a time 15ms
+     × equals an emoji after a backslash typed one character at a time 7ms
+     × equals a Unicode emoji pasted whole 22ms
+     × equals a ZWJ sequence pasted whole 9ms
+     × equals a skin-tone sequence pasted whole 10ms
+     × equals a keycap pasted whole 12ms
+     × equals a flag pasted whole 11ms
+     × equals a tag sequence pasted whole 12ms
+     × equals a heart with emoji presentation pasted whole 13ms
+     × equals a heart with text presentation pasted whole 10ms
+     × equals an emoji newer than the site's table pasted whole 10ms
+     × equals an emoji typed as a name pasted whole 10ms
+     × equals a skin-toned name pasted whole 11ms
+     × equals a colon-wrapped emoji pasted whole 9ms
+     × equals a custom emoji pasted whole 10ms
+     × equals an animated custom emoji pasted whole 12ms
+     × equals an emoji in a link label pasted whole 10ms
+     × equals an emoji in a link address pasted whole 10ms
+     × equals a name in a link address pasted whole 11ms
+     × equals an emoji between words pasted whole 12ms
+     × equals two emoji side by side pasted whole 11ms
+     × equals an emoji inside bold pasted whole 15ms
+     × equals an emoji inside inline code pasted whole 11ms
+     × equals an emoji inside a code block pasted whole 17ms
+     × equals an emoji after a backslash pasted whole 12ms
+     × equals a Unicode emoji typed one character at a time 8ms
+     × equals a ZWJ sequence typed one character at a time 12ms
+     × equals a skin-tone sequence typed one character at a time 11ms
+     × equals a keycap typed one character at a time 11ms
+     × equals a flag typed one character at a time 15ms
+     × equals a tag sequence typed one character at a time 17ms
+     × equals a heart with emoji presentation typed one character at a time 13ms
+     × equals a heart with text presentation typed one character at a time 15ms
+     × equals an emoji newer than the site's table typed one character at a time 12ms
+     × equals an emoji typed as a name typed one character at a time 13ms
+     × equals a skin-toned name typed one character at a time 21ms
+     × equals a colon-wrapped emoji typed one character at a time 12ms
+     × equals a custom emoji typed one character at a time 12ms
+     × equals an animated custom emoji typed one character at a time 14ms
+     × equals an emoji in a link label typed one character at a time 18ms
+     × equals an emoji in a link address typed one character at a time 19ms
+     × equals a name in a link address typed one character at a time 13ms
+     × equals an emoji between words typed one character at a time 17ms
+     × equals two emoji side by side typed one character at a time 16ms
+     × equals an emoji inside bold typed one character at a time 13ms
+     × equals an emoji inside inline code typed one character at a time 15ms
+     × equals an emoji after a backslash typed one character at a time 14ms
+     × equals a Unicode emoji pasted whole 26ms
+     × equals a ZWJ sequence pasted whole 21ms
+     × equals a skin-tone sequence pasted whole 27ms
+     × equals a keycap pasted whole 28ms
+     × equals a flag pasted whole 16ms
+     × equals a tag sequence pasted whole 24ms
+     × equals a heart with emoji presentation pasted whole 15ms
+     × equals a heart with text presentation pasted whole 16ms
+     × equals an emoji newer than the site's table pasted whole 16ms
+     × equals an emoji typed as a name pasted whole 20ms
+     × equals a skin-toned name pasted whole 17ms
+     × equals a colon-wrapped emoji pasted whole 19ms
+     × equals a custom emoji pasted whole 18ms
+     × equals an animated custom emoji pasted whole 19ms
+     × equals an emoji in a link label pasted whole 18ms
+     × equals an emoji in a link address pasted whole 19ms
+     × equals a name in a link address pasted whole 17ms
+     × equals an emoji between words pasted whole 17ms
+     × equals two emoji side by side pasted whole 18ms
+     × equals an emoji inside bold pasted whole 28ms
+     × equals an emoji inside inline code pasted whole 20ms
+     × equals an emoji after a backslash pasted whole 19ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 14 failed) 73ms
+     × at the end of a quote line saves what the table says 17ms
+     × in the middle of a quote line saves what the table says 3ms
+     × in the middle of a quote line, in front of text that starts with a quote marker saves what the table says 1ms
+     × at the end of a quote line that opens a fence saves what the table says 2ms
+     × a plain line types the line as typed once the carried marker is taken in or removed 1ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 1ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 1ms
+     × two angle brackets with no space types the line as typed once the carried marker is taken in or removed 1ms
+     × leaves an empty line when the carried marker is removed with Backspace 1ms
+     × takes in a typed quote marker inside a fence opened on a quote line 2ms
+     × is set on the line Enter makes from a quote line 1ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 1ms
+     × on the line made from a quote line, one angle bracket is cleared once "> a" is typed after the marker and kept for a bare angle bracket 1ms
+     × is resolved on the first line of the editor too 1ms
+
+ Test Files  9 failed | 12 passed (21)
+      Tests  300 failed | 402 passed | 370 skipped (1072)
+     Errors  775 errors
+   Start at  01:17:48
+   Duration  45.14s (transform 1.40s, setup 122ms, import 10.16s, tests 65.56s, environment 9.97s)
+

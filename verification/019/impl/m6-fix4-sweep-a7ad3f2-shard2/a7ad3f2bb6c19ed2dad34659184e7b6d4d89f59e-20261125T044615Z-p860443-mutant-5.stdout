@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/jwork2/20261125T044615Z-p860443/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (562 tests | 1 failed) 7668ms
+     × types each line as a fresh load does and keeps the selection, with a range from line 5 to line 8 45ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  1 failed | 1074 passed (1075)
+   Start at  05:06:26
+   Duration  138.12s (transform 993ms, setup 87ms, import 9.10s, tests 116.40s, environment 9.65s)
+

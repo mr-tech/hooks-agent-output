@@ -1,0 +1,19 @@
+withNormalizeNode.ts:81:walk-last KILLED 400.11
+withNormalizeNode.ts:90:if-false KILLED 213.23
+withNormalizeNode.ts:95:walk-last KILLED 400.13
+withNormalizeNode.ts:125:not ABORTED 222.35
+withNormalizeNode.ts:139:true KILLED 400.12
+withNormalizeNode.ts:158:&& KILLED 134.47
+withNormalizeNode.ts:199:if-false KILLED 134.27
+withNormalizeNode.ts:500:not KILLED 135.02
+hand-NM-no-suppression KILLED 188.94
+hand-neighbour-runs-dropped SURVIVED 134.1
+hand-layout-not-sorted SURVIVED 133.87
+withNormalizeNode.ts:144:if-false SURVIVED 135.1
+withNormalizeNode.ts:193:if-false KILLED 121.61
+withNormalizeNode.ts:350:walk-first KILLED 134.98
+withNormalizeNode.ts:500:&& KILLED 400.12
+hand-own-lines-rebuilt KILLED 206.49
+hand-carried-not-excluded SURVIVED 127.04
+hand-unsettled-lines-skipped-by-old-path KILLED 400.17
+13 of 17 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 1, control-failed 0; mutants-rerun1.json (blob ec777a7c62faee63abce80d6ebea1588eb60d208))

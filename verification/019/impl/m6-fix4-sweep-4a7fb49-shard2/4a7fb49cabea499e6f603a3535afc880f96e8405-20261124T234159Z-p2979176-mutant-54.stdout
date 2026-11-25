@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-54
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (560 tests | 3 failed | 5 skipped) 209377ms
+       × raises no error 3ms
+       × leaves each line typed as a fresh load of the changed text builds it 6ms
+       × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+
+ Test Files  1 failed | 19 passed (21)
+      Tests  3 failed | 1044 passed | 5 skipped (1072)
+     Errors  1 error
+   Start at  01:46:04
+   Duration  288.38s (transform 1.44s, setup 121ms, import 10.14s, tests 450.07s, environment 10.05s)
+

@@ -1,0 +1,1505 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 26 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 40
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ linesAgree src/components/SlateEditor/utils/withNormalizeNode.ts:193:7
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:500:59
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 122
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 123
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 200
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on content, in a message of 1000
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 40
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 122
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 123
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 200
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 1000
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…' > on embedDescription, in a message of 2048
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 40
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 122
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 123
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 200
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on content, in a message of 1000
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 40
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 122
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 123
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 200
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 1000
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…' > on embedDescription, in a message of 2048
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/47]⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on content, in a message of 40 lines
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:1
+      5| import type { Descendant } from 'slate';
+      6|
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+       | ^
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+ ❯ linesAgree src/components/SlateEditor/utils/withNormalizeNode.ts:193:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on content, in a message of 122 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on content, in a message of 123 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on content, in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on content, in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx > 'Backspace at the end of the closing `…' > hands the message the changed text on embedDescription, in a message of 2048 lines
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:1
+      5| import type { Descendant } from 'slate';
+      6|
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+       | ^
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ linesAgree src/components/SlateEditor/utils/withNormalizeNode.ts:193:7
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:500:59
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:14:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+ ❯ linesAgree src/components/SlateEditor/utils/withNormalizeNode.ts:193:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:10:7
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+     10|   if (Text.isText(node)) return node.text;
+       |       ^
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+     12|   const text = node.children.map((c) => flattenText(c, allowEmoji)).jo…
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of 300 seeded block-layer texts one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > marks which fence lines start inside a code block once a fence typed above them opens one
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+      5| import type { Descendant } from 'slate';
+      6|
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+       |                                                                                                              ^
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…', over lines holding a typographic quote > leaves no typographic quote in a line it changes
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > in 'fenced blocks of three lines between …' > builds as many for delete at the end of a line in the longest message as in the shortest
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor builds the run units a keystroke changes, however long the message > counts a keystroke in a sized message for each kind and place, outside the keystrokes that move another line
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace at the end of the closing `…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a code-fence keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor receiving a paste at the end of a quote line > leaves the lines of "> q" with "# h\n> a" pasted as a fresh load builds them
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > editor holding loaded block-layer text > keeps the text with one character spliced in, for a character typed at each offset of each line of 800 seeded texts
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Enter in the editor > in the middle of a quote line, in front of text that starts with a quote marker saves what the table says
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+      7| export default (node: Descendant | Descendant[], allowEmoji = true) =>…
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+       |          ^
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:10:7
+      8|
+      9| function flattenText(node: Descendant, allowEmoji: boolean): string {
+     10|   if (Text.isText(node)) return node.text;
+       |       ^
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+     12|   const text = node.children.map((c) => flattenText(c, allowEmoji)).jo…
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:41
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/47]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives the code lines the language typed onto their opening fence
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+     10|   if (Text.isText(node)) return node.text;
+     11|   if (isEmojiElement(node)) return allowEmoji ? node.source : '';
+     12|   const text = node.children.map((c) => flattenText(c, allowEmoji)).jo…
+       |                              ^
+     13|   if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}$…
+     14|   return text;
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/47]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 75 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:41
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:12:30
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:118:25
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:13
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+ ❯ Object.withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:1838:12
+ ❯ retypeLines src/components/SlateEditor/utils/withNormalizeNode.ts:138:18
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+RangeError: Maximum call stack size exceeded
+ ❯ flattenText src/components/SlateEditor/utils/flattenNodeText.ts:9:10
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:121
+ ❯ src/components/SlateEditor/utils/flattenNodeText.ts:7:110
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:79:47
+ ❯ rebuildLines src/components/SlateEditor/utils/withNormalizeNode.ts:79:33
+ ❯ src/components/SlateEditor/utils/withNormalizeNode.ts:139:48
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:4402:5
+ ❯ Object.withoutNormalizing$1 [as withoutNormalizing] node_modules/.pnpm/slate@0.123.0/node_modules/slate/dist/index.js:6561:33
+
+This error originated in "src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "hands the message that text in a full-markdown editor". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+

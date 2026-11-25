@@ -1,0 +1,269 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves each line typed as a fresh load of the changed text builds it
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves each line typed as a fresh load of the changed text builds it
+AssertionError: expected [ …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: [\"div\",null,false,\"\",[\"🙂\"]] but expected [\"div\",null,false,\"\",[]]",
++   "line 1: [\"div\",null,false,\"\",[\"🙂\"]] but expected [\"div\",null,false,\"\",[]]",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:95:65
+     93|   it('leaves each line typed as a fresh load of the changed text build…
+     94|     const fresh = getInitialValue(expected.fresh, surface, false) as E…
+     95|     expect(firstDifferences(outcome.shapes, lineShapes(fresh))).toEqua…
+       |                                                                 ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…', over lines that each hold an emoji > on embedDescription, in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace at the end of the closing `…', over lines that each hold an emoji > on embedDescription, in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 6, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 6,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:100:20
+     98|   it('leaves nothing for a forced normalise of the whole message to ch…
+     99|     const forced = { operations: outcome.forcedOperations, error: outc…
+    100|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'the third backtick typed at the end o…', over lines holding a typographic quote > leaves no typographic quote in a line it changes
+AssertionError: expected [ +0, 1 ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   0,
++   1,
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:164:18
+    162|       .filter((index) => index >= 0);
+    163|     expect(after.filter((shape, index) => shape !== before[index]).len…
+    164|     expect(kept).toEqual([]);
+       |                  ^
+    165|   });
+    166| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on content
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on embedDescription
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on fieldValue
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are the spans the engine's own parse gives, frozen from the oracle helper, over every input, on v2Text
+AssertionError: expected [ 'probe:1512', 'probe:1513', …(113) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "probe:1512",
++   "probe:1513",
++   "probe:1514",
++   "probe:1515",
++   "probe:1517",
++   "probe:1518",
++   "probe:1519",
++   "probe:1521",
++   "probe:1522",
++   "probe:1525",
++   "probe:1526",
++   "probe:1528",
++   "probe:1529",
++   "probe:1530",
++   "probe:1532",
++   "probe:1533",
++   "probe:1534",
++   "probe:1535",
++   "probe:1536",
++   "probe:1537",
++   "probe:1538",
++   "probe:1539",
++   "probe:1540",
++   "probe:1541",
++   "probe:1542",
++   "probe:1543",
++   "probe:1544",
++   "probe:1546",
++   "probe:1548",
++   "probe:1549",
++   "probe:1550",
++   "probe:1551",
++   "probe:1552",
++   "probe:1553",
++   "probe:1554",
++   "probe:1555",
++   "probe:1556",
++   "probe:1557",
++   "probe:1558",
++   "probe:1560",
++   "probe:1561",
++   "probe:1562",
++   "probe:1564",
++   "probe:1565",
++   "probe:1566",
++   "probe:1569",
++   "probe:1572",
++   "probe:1573",
++   "probe:1574",
++   "probe:1576",
++   "probe:1577",
++   "probe:1579",
++   "probe:1580",
++   "probe:1581",
++   "probe:1582",
++   "probe:1583",
++   "probe:1585",
++   "probe:1586",
++   "probe:1587",
++   "probe:1588",
++   "probe:1589",
++   "probe:1590",
++   "probe:1591",
++   "probe:1592",
++   "probe:1594",
++   "probe:1595",
++   "probe:1596",
++   "probe:1597",
++   "probe:1599",
++   "probe:1600",
++   "probe:1601",
++   "probe:1602",
++   "probe:1603",
++   "probe:1604",
++   "probe:1605",
++   "probe:1607",
++   "probe:1608",
++   "probe:1609",
++   "probe:1610",
++   "probe:1611",
++   "probe:1615",
++   "probe:1617",
++   "probe:1618",
++   "probe:1619",
++   "probe:1620",
++   "probe:1621",
++   "probe:1622",
++   "probe:1623",
++   "probe:1626",
++   "probe:1628",
++   "probe:1630",
++   "probe:1632",
++   "probe:1633",
++   "probe:1634",
++   "probe:1635",
++   "probe:1636",
++   "probe:1637",
++   "probe:1638",
++   "probe:1639",
++   "probe:1641",
++   "probe:1643",
++   "probe:1644",
++   "probe:1645",
++   "probe:1646",
++   "probe:1647",
++   "probe:1648",
++   "probe:1649",
++   "probe:1650",
++   "probe:1651",
++   "probe:1652",
++   "probe:1653",
++   "probe:1654",
++   "probe:1656",
++   "probe:1657",
++   "probe:1659",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:35:19
+     33|       ))
+     34|       .map((input) => input.key);
+     35|     expect(wrong).toEqual([]);
+       |                   ^
+     36|   }, 120_000);
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are literal for an emoji before and one after a fenced block
+AssertionError: expected [ [ 15, 17 ] ] to deeply equal [ [ +0, 2 ], [ 15, 17 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     0,
+-     2,
+-   ],
+-   [
+      15,
+      17,
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:44:43
+     42|     ['an emoji on each side of two fenced blocks', '🙂\n```\na\n```\n�…
+     43|   ] as const)('are literal for %s', (_label, text, ranges) => {
+     44|     expect(liftedRanges(text, 'content')).toEqual(ranges);
+       |                                           ^
+     45|   });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts > the character ranges the editor lifts into emoji elements when it loads a text > are literal for an emoji on each side of two fenced blocks
+AssertionError: expected [ [ 26, 28 ] ] to deeply equal [ [ +0, 2 ], [ 13, 15 ], [ 26, 28 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+-     0,
+-     2,
+-   ],
+-   [
+-     13,
+-     15,
+-   ],
+-   [
+      26,
+      28,
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.emoji-spans-equal-the-engines.test.ts:44:43
+     42|     ['an emoji on each side of two fenced blocks', '🙂\n```\na\n```\n�…
+     43|   ] as const)('are literal for %s', (_label, text, ranges) => {
+     44|     expect(liftedRanges(text, 'content')).toEqual(ranges);
+       |                                           ^
+     45|   });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+

@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork1/20261125T025746Z-p112401/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 33595ms
+     × hands the message that text in a full-markdown editor 27625ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 13140ms
+     × hands the message that text in a full-markdown editor 6028ms
+     × hands the message that text in a full-markdown editor 6578ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 7818ms
+     × hands the message that text in a full-markdown editor 4475ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx (28 tests | 7 failed) 79ms
+     × a quote marker types the line as typed once the carried marker is taken in or removed 7ms
+     × two quote markers types the line as typed once the carried marker is taken in or removed 3ms
+     × takes in a typed quote marker inside a fence opened on a quote line 4ms
+     × on the line made from a quote line is cleared once "> a" is typed after the marker and kept for a bare angle bracket 4ms
+     × on the line made from a code line inside a fence opened on a quote line is cleared once "> ```\n> x" is typed after the marker and kept for a bare angle bracket 2ms
+     × is cleared when the marker of a carried code line is deleted by hand 2ms
+     × is resolved on the first line of the editor too 2ms
+
+ Test Files  4 failed | 17 passed (21)
+      Tests  11 failed | 1061 passed (1072)
+   Start at  03:29:33
+   Duration  133.20s (transform 927ms, setup 93ms, import 9.01s, tests 111.84s, environment 9.42s)
+

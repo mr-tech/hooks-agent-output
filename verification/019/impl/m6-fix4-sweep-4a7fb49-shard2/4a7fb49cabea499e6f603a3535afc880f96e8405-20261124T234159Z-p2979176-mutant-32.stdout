@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/work2/20261124T234159Z-p2979176/mutant-32
+
+
+ Test Files  21 passed (21)
+      Tests  1072 passed (1072)
+   Start at  01:03:25
+   Duration  80.08s (transform 1.49s, setup 132ms, import 10.71s, tests 135.53s, environment 10.53s)
+

@@ -1,0 +1,18 @@
+withNormalizeNode.ts:86:walk-last KILLED 400.17
+withNormalizeNode.ts:90:||:2 KILLED 131.26
+withNormalizeNode.ts:124:not KILLED 304.1
+withNormalizeNode.ts:135:|| KILLED 127.37
+withNormalizeNode.ts:144:not KILLED 400.12
+withNormalizeNode.ts:193:false KILLED 123.33
+withNormalizeNode.ts:350:walk-last KILLED 129.78
+withNormalizeNode.ts:548:if-false KILLED 135.8
+hand-NM-84-suppress-keystroke-own-operation KILLED 120.95
+hand-bad-codepoint-not-excluded KILLED 132.72
+withNormalizeNode.ts:37:=== KILLED 400.08
+withNormalizeNode.ts:158:if-false KILLED 133.5
+withNormalizeNode.ts:193:false:2 SURVIVED 134.15
+withNormalizeNode.ts:500:if-false KILLED 134.04
+withNormalizeNode.ts:548:not KILLED 136.66
+hand-NM-83-no-emoji-lift KILLED 132.68
+hand-suppression-not-cleared KILLED 128.39
+16 of 17 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-rerun2.json (blob 202df9cb0b8f2265dbd6a1aadf83cb8e68e6092d))

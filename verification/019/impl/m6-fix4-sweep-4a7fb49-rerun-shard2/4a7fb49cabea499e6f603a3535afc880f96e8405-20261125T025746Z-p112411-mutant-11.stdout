@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/38a87473-44b6-4629-87c8-5a86d8940af2/scratchpad/sweep4/rwork2/20261125T025746Z-p112411/mutant-11
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 7642ms
+     × hands the message that text in a full-markdown editor 2490ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.fence-and-quote-keystrokes-reach-the-message.test.tsx (42 tests | 12 failed) 109401ms
+     × hands the message the changed text on content, in a message of 40 lines 657ms
+     × hands the message the changed text on content, in a message of 122 lines 1923ms
+     × hands the message the changed text on content, in a message of 123 lines 1977ms
+     × hands the message the changed text on content, in a message of 200 lines 3188ms
+     × hands the message the changed text on content, in a message of 1000 lines 21699ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 54488ms
+     × hands the message the changed text on content, in a message of 40 lines 171ms
+     × hands the message the changed text on content, in a message of 122 lines 467ms
+     × hands the message the changed text on content, in a message of 123 lines 465ms
+     × hands the message the changed text on content, in a message of 200 lines 750ms
+     × hands the message the changed text on content, in a message of 1000 lines 4499ms
+     × hands the message the changed text on embedDescription, in a message of 2048 lines 7068ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 4658ms
+     × hands the message that text in a full-markdown editor 3900ms
+     × hands the message that text in a full-markdown editor 212ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 5743ms
+     × hands the message that text in a full-markdown editor 2396ms
