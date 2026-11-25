@@ -2264,3 +2264,22 @@ Active) § The answer in brief: about 865 of 1,558 production lines replaced, an
 **Effect:** this thread does not raise the rebuild again. It opens on his word alone. The sizing document stays Active as its carrier.
 - `architect-019` closed the 019 findings document Resolved (`3fd48461`, now `architecture/closed/…`). Its four open limbs are carried
   by its record-INBOX entry. `architect-019` is stopped. Every 019 stage session is now stopped.
+
+## 2026-11-25T18:13Z — /retire run by him: inventory (retire skill, step 1)
+
+His command: `/retire` for this thread, typed in this session. Read this turn:
+- **Effort `fixer-queue-2026-11-21`:**
+  - Plan 019 is Released (`planning/closed/…`; website `origin/master` `48eb60a`). Every stage document is in `closed/`, the architecture
+    findings included (`3fd48461`).
+  - Its post-deploy row B-5 rides `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md` (Open), with its crontab reader B5R.
+  - Its retrospective (`retrospective-019`, subagent) is running. Test-case scoring: 2,494 of 4,826 cases are marked (`verification/019/deweed/cases.tsv`).
+    Units u01 to u14 are running. u15 to u17 were refused by the session's concurrent-subagent limit (20) and are not started.
+  - The fixer queue holds no chain in flight. Its unstarted items are the v1 `id` precision, the CR-1 `/preview` matcher, and the
+    handoff-carried leftovers.
+- **Fixer chains closed since the last retrospective** (`fixes-2026-11-23-steering-hooks-fixer-3`): 0 (docket count), so no fixer retrospective is owed.
+- **Sessions this thread started:** devops, qa, uat, implementer, planner, critic, code-reviewer and architect `-019`, all stopped by
+  `tmux-agent stop` this evening. The agents tmux server lists `steering-hooks-fixer` alone.
+- **Jobs:** this thread's cron is the one-shot `c35f91ca` (18:37Z, the B-5 read). Crontab lines 95 to 97 are devops-019's B5R reader;
+  they stay while the carrier is open.
+- **OWNER-QUEUE.md:** no section of this thread's. **Docket:** `docket-hooks-fixer.md` (index line in `dockets.md`).
+- **Ledger:** day files 2026-11-23 and 2026-11-24 are committed (`65ce4926`). 2026-11-25 is today's and is not committed.
