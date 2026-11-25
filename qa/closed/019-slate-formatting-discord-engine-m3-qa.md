@@ -3,11 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "81c68b2 — repos=website; refresh pass over fix round 8 (81c68b2, test-only; code review's fix confirmation of QAF-38 at 81c68b2, APPROVED_WITH_COMMENTS), git-archive export with its own frozen offline install; earlier passes at 2c1590f, e58f2ed and d6aab03"
-Status: QA Complete
-Status-Detail: >-
-  Refresh over fix round 8, run at 81c68b2. QAF-38 is closed: all six routingReport field mutants are KILLED offline, each by an
-  AssertionError on a stub-build case. Every M3 finding is now closed (QAF-32, QAF-33's write limb, QAF-36, QAF-38). M3 passes,
-  milestone-scoped. The plan's Status is not moved.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Phase: 2
 ---
 
@@ -28,6 +25,7 @@ APPROVED_WITH_COMMENTS at `Reviewed-At: 2c1590f` (record `6c55e994`; plan R-36 a
 | 2026-11-24T01:08 | implementer-019 (message: fix round 5 at `380e82d`), code-reviewer-019 (message: Round 3 sub-entry at `380e82d` APPROVED_WITH_COMMENTS, record `d31214e4`) | Phase 2 refresh pass over fix round 5 | Phase 2 refresh at `e58f2ed`, which contains `380e82d` (§ Refresh pass). Frozen offline install exit 0. Offline 3454 of 3454, exit 0. Whole `pnpm test:discord` offline: exit 1, names the page, no pass count. Live: 41 of 41, exit 0, with the drift message on stderr and at the report head. **QAF-32 closed**: a planted file that passes offline turns its case red. **QAF-33's write limb closed.** **QAF-36 MEDIUM raised**: a QA mutant forcing the comparison to "equal" survives, 15 of 15 live. Verdict **QA Failed** on QAF-36. The M3 Assumption Not Checked (the install) is settled by the frozen install. |
 | 2026-11-24T02:11 | code-reviewer-019 (message: CR-15 confirmed, M3 APPROVED_WITH_COMMENTS at `d6aab03`, record `fed65ffa`) | Refresh pass over fix rounds 6 and 7; the code review's two items (the whole offline suite, `routingReport`'s fields) | Refresh at `d6aab03` (§ Refresh pass, rounds 6 and 7). Frozen offline install exit 0. Offline 3,268 of 3,268 over 223 files, exit 0. Live 41 of 41, exit 0. The whole `pnpm test:discord` offline: exit 1, names the page, no pass count. **QAF-36 closed**: 3 of 3 QA mutants KILLED offline. **QAF-38 MEDIUM raised**: 0 of 6 `routingReport` field mutants killed live. Verdict **QA Failed** on QAF-38. |
 | 2026-11-24T02:50 | code-reviewer-019 (message: QAF-38 fix confirmed, M3 APPROVED_WITH_COMMENTS at `81c68b2`, record `47e4ccf5`) | Refresh pass over fix round 8; the code review's two items (the whole offline suite, QAF-38's closure) | Phase 2 refresh at `81c68b2` (§ Refresh pass, round 8). Frozen offline install exit 0. Offline 3,272 of 3,272 over 223 files, exit 0. Typecheck exit 0. Live 41 of 41, exit 0. The whole `pnpm test:discord` offline: exit 1, names the page, no pass count. **QAF-38 closed**: 6 of 6 QA mutants KILLED offline. Verdict **QA Complete**, milestone-scoped. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Scope and stage start
 
