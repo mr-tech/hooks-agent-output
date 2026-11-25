@@ -2185,3 +2185,20 @@ short of UAT. UAT's five flows are the docket's B-3, B-7, B-9, B-10, B-11 (not r
 architect's closing pass (devops.md step 2c's wait on it is lifted; devops' brief negates it). The batch's open rows are carried by the
 rebuild's sizing document. **Recipients:** `qa-019` (now), `planner-019` (the minimal revision, which registers these waivers), `critic-019`
 (reads that revision), devops (its Stage 1 brief).
+
+## 2026-11-25T15:49Z — selection: UAT walks all nine flows (correcting a wrong premise in block 15:46Z's Q2); the planner's other items ruled (this thread's)
+
+**Correction (this thread's error):** block 15:46Z's Q2 option said "Keep user testing of the five flows". The plan's walk list (QA register,
+`qa/019-slate-formatting-discord-engine-qa.md` lines 1917–1927, read this turn) has nine pre-release UAT walks: B-1, B-2, B-3, B-4, B-7, B-8,
+B-9, B-10, B-11. The five came from this thread's docket, not the plan; block 15:46Z marked them "not re-read in the plan". `planner-019`
+found it by message (received after 15:47Z). The check that would have caught it: reading the register's B-rows before writing the option.
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T15:49Z — steering-hooks-fixer`. Put by this thread; the wording is its own.
+- *Agent: all nine walks (Recommended)* (the most work, mostly the emoji picker's database and sign-in set-up) / *Agent: the five plus links*
+  (B-1, B-4, B-8 not walked) / *Agent: only the five* (four not walked; the link fix checked only after release).
+**Chosen: "Agent: all nine walks (Recommended)".** B-5 (production read of AC-4.2) and B-6 (QA Phase 3's two commands) stay in the kept steps.
+**This thread's rulings on the planner's other items** (by the same message), under block 15:46Z's selection:
+- AC-3.3's full generator count (`MOUNTED_GENERATOR_COUNT=1000`) runs once at QA Phase 3 on the release tip: QA Phase 3 is kept.
+- QAF-53 (b): left as written and carried to the rebuild; the release claim on paste cost is QA's SL-29 reading at Phase 2, which QA runs.
+- M7's workspace `CLAUDE.md` Test Conventions update is kept as release work. His Q2 dropped only the batch catch-up and the architect's
+  closing review; M7's own text otherwise stands, and D-12's rule governs later releases.
+**Recipients:** `planner-019` (the minimal revision re-points the uat Reading Order row to all nine walks), UAT (its brief).
