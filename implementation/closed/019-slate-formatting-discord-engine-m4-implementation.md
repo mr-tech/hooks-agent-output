@@ -2,13 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: >-
-  M4 is built and handed to code review at website e58f2ed on chain/019-slate-formatting-discord-engine: slices 1, 2a to 2d and 3 (the
-  DOM reader, atoms from element data, the adjustment measurement (size 0), the frozen residue list of 6,142 entries, AC-3.1, AC-3.6,
-  AC-3.7, AC-4.5). Open for code review and QA: the plan questions of Outstanding 0a, the stub-tree records not made (TDD Compliance),
-  and three equivalent self-check survivors (Test Execution Results). The M3 fix round for QAF-32 and QAF-33 is committed at 380e82d
-  and recorded in the M3 document, Round 5.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Handoff-At: e58f2ed — repos=website — M4 handed to code review; the offline suite, typecheck and convention check recorded below are the tree at this SHA
 ---
 
@@ -34,6 +29,7 @@ for M3 is owed before M4 is handed on, see Outstanding 1).
 | 2026-11-23T22:20 | (own order) | Slice 2c timestamps, slice 2d field name | Committed at `36924ae` and `6379abc`. |
 | 2026-11-23T22:12 | code-reviewer-019 (message, Round 3 sub-entry) | M3 CR-10 | Fixed at `2c1590f` (M3 document, Round 4); M3 re-handed. Slice 2b (emoji) committed at `c32e058`. |
 | 2026-11-23T22:05 | steering-hooks-fixer (message) | Continue M4 after `/clear`; Revision 10's AC-4.4 (D-17) approved by all three gates, mention code released | Slice 2a: mentions coded test-first and committed at `f131f06`. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Implementation Summary
 
@@ -384,13 +380,4 @@ Code review of M4 at `e58f2ed`; the M3 fix round (Round 5 in the M3 document) go
 
 ## Resumption State
 
-Written at the checkpoint after M4 was handed to code review, for a `/clear`.
-
-- **Done.** Website chain branch `chain/019-slate-formatting-discord-engine`, HEAD `e58f2ed`, no uncommitted source work (`?? .playwright-mcp/` is foreign). M4 is built and handed to `code-reviewer-019` at `e58f2ed` (this document, `Handoff-At`; record repo commit `bc73f58c`). The M3 fix round for QAF-32 and QAF-33 is at `380e82d`, recorded in the M3 document Round 5 (`Handoff-At: 380e82d`), sent to `code-reviewer-019` and `qa-019`. Suite at the tip: 212 files, 3,454 of 3,454, exit 0; typecheck exit 0; self-check sweep and Named mutants recorded above; convention-check dispositioned.
-- **Next, in order.** (1) Code review of M4 may return findings: a fix round starts red, the Class Sweep table is owed per finding (this document's Class Sweep), and CR-11 (Outstanding -1) is read at that round: the XHR Proxy records at call, not at read; I carry it or state the gap in the M3 Class Sweep. (2) The planner's rulings on Outstanding 0a (c) to (h) (sent to `planner-019`): fold into the document when they arrive; (e) and (f) may move AC-3.1's exclusion and form. (3) QA's refresh pass over M3 Round 5, then QA Phase 2 on M4. (4) M5 (the editor's colouring on `parseLossless`) needs steering's stage start and QA Phase 1 at a SHA, after M4's review.
-- **Rulings that bind.** Cap (his selection 00:48Z, rulings block 2026-11-24T00:49Z, record `8de0ac36`): M4, M5 and M6 are capped with M3; a gate finding below HIGH is a stated limit with no fix round, unless it is the gate's severity-floor finding; a proposal to ship M4 alone is with the planner. AC-3.7: per-input frozen entries, planner R-41/R-42 (revision 12); RK-9: D-14 stands, the residue stays listed (steering, block 2026-11-23T23:33Z). SL-12: an atom is read from the element's data, never its text. R-30: M6 does not exit while `BASE_RED`, `EDITS_BASE_RED` or `holdsEmoji` is in `src`. Any question for the owner goes to steering by SendMessage as a selection prompt, never as prose in the document.
-- **Approach in flight.** None.
-- **Local state not restored.** None. Scratch only: `scratchpad/export-m4c` (disposable mutant export), `scratchpad/mrwork*`, the build script `build_entries.py` that cut the list (its rules are in the document's family table).
-- **Evidence run but not recorded.** None. The measurement drivers' texts are records (`m4-dom-residue-driver.test.tsx.txt`, `m4-dom-residue-signatures-driver.test.tsx.txt`); the one unreproducible figure (the adjustment's reach) is named in the document.
-- **Questions sent.** Plan questions to `planner-019` (c to h): answered, plan R-44 (record `49cb5d73`), all six disposed as stated limits with no revision: (c) families are labels, the entries decide; (d) size 0 accepted as M4's recorded size; (e) AC-3.1's exclusion accepted, QA checks it by predicate; (f) both normalisations accepted, code review checks they apply to both sides; (g) X-27 added at the fold; (h) the absent-export check accepted as stronger than AC-4.5's. Steering has none from me. No owner question.
-- **Cache-warm wake.** Deleted at this checkpoint. Arm a new one on the next turn.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
