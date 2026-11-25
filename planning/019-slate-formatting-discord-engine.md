@@ -2,15 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: UAT Approved
-Status-Detail: >-
-  M1 to M6 are complete. M6 is approved by code review at website `48eb60a` (R-131) and is QA Complete at Phase 2 there (R-135).
-  He cut 019 to release essentials (D-33, block 2026-11-25T15:46Z): QA's effort-final mutation sweep, the Planner batch fold
-  and the architect's closing pass are waived. UAT walks all nine flows (D-34), and devops Stage 1, QA Phase 3 and his release
-  approval stand. Revision 26 is that minimal revision. It re-argues M7's premise, so M7 is no longer `PREMISE-STALE`, registers
-  D-32 to D-34, and points the batch's open rows at the rebuild sizing document. No criterion changes. The critic approved
-  it (cycle 18 pass 1, record `3cbae50e`; R-136), so devops Stage 1 is unblocked on the plan's side. UAT runs alongside on Revision 25's criteria, which Revision 26 does not change. A
-  rebuild of the editor is its own effort after this release, opened on his word (D-32).
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25). Target release: website master to Vercel production, awaiting the release answer. Post-deploy row B-5 is carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md."
 Revision: 26
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
@@ -192,6 +185,7 @@ Lane: full
 | 2026-11-25T15:52 | 26 | planner-019 | Triggered by his rulings at effort rulings blocks "2026-11-25T15:28Z", "15:36Z", "15:38Z", "15:46Z" and "15:49Z" (D-32 to D-34) and by M6's QA Phase 2 verdict (R-135). The revision re-argues M7's premise against M4 to M6's shipped behaviour, so M7 is no longer `PREMISE-STALE` (R-76). It waives the architect's closing-pass rows in M7, routes UAT to all nine walks, and carries the unfolded Planner batch to the rebuild sizing document as it stands. Scope delta: no criterion changes. M7 loses its architect record-update rows, and the planned batch fold is dropped to the rebuild. Of the batch's 124 rows, 79 do not contain "discharged" (`grep -v -i -c` over the table at this write). Two of those, F-35 and F-41, are discharged here, so 77 are carried. Since approval, revisions 10 to 26 have run. This one triggers one critic read and no other gate. The plan still delivers what was first asked, plus the editor fixes he chose, and releases the current editor. |
 | 2026-11-25T15:57 | R-136 | planner-019 | Recorded critique cycle 18 pass 1 on revision 26, APPROVED with the critique closed (record `3cbae50e`), in the owed re-verdicts table and Status-Detail. F-63 (SL-32), F-64 and F-65 LOW are carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md` (D-33). Scope delta: none — registration only. |
 | 2026-11-25T16:32 | R-137 | uat-019 | UAT on website `48eb60a` (plan read at Revision 26; the walks are keyed to Revision 25, and 26 changes no criterion): all nine pre-release rows (B-1 to B-4, B-7 to B-11) EXECUTED and PASS. **APPROVED FOR RELEASE**; plan Status set to UAT Approved. B-5 is post-deploy (devops' carrier); B-6 is QA Phase 3's. UAT-1 LOW pre-existing (also in production) and UAT-2 LOW (local-build instrument limit), neither a 019 defect. Document: `uat/019-slate-formatting-discord-engine-uat.md`. |
+| 2026-11-25T17:10 | R-138 | devops-019 | Status write: Committed (devops Stage 1 at website `48eb60a`; QA Phase 3 Release Verified, record `c41a8459`; release not yet asked). B-5 is carried by `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md`. |
 
 ## Resumption State
 
