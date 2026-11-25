@@ -1,0 +1,148 @@
+chain: sessions matching '*019' or '*019-<n>' from 2026-11-23T09:18Z to 2026-11-25T17:39Z
+59 of 59 resolved from the registry cache (live entry gone): analyst-019, analyst-019, architect-019, architect-019, architect-019, architect-019, code-reviewer-019, code-reviewer-019, code-reviewer-019, code-reviewer-019, code-reviewer-019, code-reviewer-019, code-reviewer-019, critic-019, critic-019, critic-019, critic-019, critic-019, critic-019, critic-019, devops-019, devops-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, implementer-019, planner-019, planner-019, planner-019, planner-019, planner-019, planner-019, planner-019, planner-019, qa-019, qa-019, qa-019, qa-019, qa-019, qa-019, qa-019, qa-019, qa-019, qa-019, uat-019
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+analyst-019 [8ca68c2a]        claude-opus                199       414  57,013,486    420,785   154,121    17.85
+                                main 199 req $17.85 · cached seen 2026-11-23T15:39:13Z
+analyst-019 [431f24ac]        claude-opus                175       391  31,257,351    225,418    80,140     9.66
+                                main 175 req $9.66 · cached seen 2026-11-23T16:41:27Z
+architect-019 [eecb59d3]      claude-opus                147       324  38,124,963    352,196   114,938    12.74
+                                main 147 req $12.74 · cached seen 2026-11-23T16:30:04Z
+architect-019 [ab4e1d8f]      claude-opus                193       438  42,520,202    310,648   101,026    13.01
+                                main 193 req $13.01 · cached seen 2026-11-23T17:45:13Z
+architect-019 [be34f3dd]      claude-opus                235       560  57,464,042    348,787   139,019    17.07
+                                main 235 req $17.07 · cached seen 2026-11-24T04:00:13Z
+architect-019 [c4028432]      claude-opus                 94       215  15,797,106    188,379    46,995     5.61
+                                main 94 req $5.61 · cached seen 2026-11-24T22:57:44Z
+code-reviewer-019 [5273f70c]  claude-opus                136       289  30,059,855    311,465   106,223    10.63
+                                main 136 req $10.63 · cached seen 2026-11-23T19:08:09Z
+code-reviewer-019 [4a82279f]  claude-opus                172       373  39,655,140    316,559   134,658    13.16
+                                main 172 req $13.16 · cached seen 2026-11-23T21:34:27Z
+code-reviewer-019 [81fbd451]  claude-opus                179       400  39,253,165    353,152   156,772    13.81
+                                main 179 req $13.81 · cached seen 2026-11-24T01:09:56Z
+code-reviewer-019 [0380c447]  claude-opus                219       479  51,467,110    346,128   152,019    16.10
+                                main 219 req $16.10 · cached seen 2026-11-24T07:07:46Z
+code-reviewer-019 [2fde42e7]  claude-opus                166       380  34,335,805    308,600   122,000    11.78
+                                main 166 req $11.78 · cached seen 2026-11-24T19:44:52Z
+code-reviewer-019 [4e2e0b87]  claude-opus                173       387  42,390,643    329,416   125,211    13.62
+                                main 173 req $13.62 · cached seen 2026-11-25T05:32:30Z
+code-reviewer-019 [c354f307]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-25T15:27:18Z
+critic-019 [1390d06b]         claude-fabl                 86       176  33,102,904    548,550   228,049    55.48
+                                main 86 req $55.48 · cached seen 2026-11-23T15:53:39Z
+critic-019 [40a5f814]         claude-fabl                 95       216  28,714,080    368,501   114,283    41.80
+                                main 95 req $41.80 · cached seen 2026-11-23T16:38:33Z
+critic-019 [96057b64]         claude-fabl                106       250  27,223,183    335,420    90,012    38.43
+                                main 106 req $38.43 · cached seen 2026-11-23T18:15:33Z
+critic-019 [7fd33349]         claude-fabl                 95       222  22,269,622    308,297   111,984    34.04
+                                main 95 req $34.04 · cached seen 2026-11-24T04:09:57Z
+critic-019 [78438e62]         claude-fabl                 80       184  19,743,871    345,626   102,100    31.76
+                                main 80 req $31.76 · cached seen 2026-11-24T08:10:38Z
+critic-019 [1258a59c]         claude-fabl                 79       188  20,764,608    359,414    80,979    32.00
+                                main 79 req $32.00 · cached seen 2026-11-24T21:03:05Z
+critic-019 [5c544e0c]         -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-25T15:58:46Z
+devops-019 [1a020d02]         claude-sonn                 64       142   9,416,263    147,738    36,957     1.90
+                                main 64 req $1.90 · cached seen 2026-11-23T16:01:36Z
+devops-019 [b72c0ead]         claude-sonn                172       362  44,454,529    791,987   203,124     9.13
+  own                         claude-sonn                121       258  37,160,826    449,611   148,513     7.00
+  general-purpose-sonnet      claude-sonn                 51       104   7,293,703    342,376    54,611     2.13
+                                main 121 req $7.00 · subagent 51 req $2.13 · cached seen 2026-11-25T16:34:18Z
+implementer-019 [509fc1c2]    claude-sonn                 95       187  19,758,011    260,235    85,056     3.87
+                                main 95 req $3.87 · cached seen 2026-11-23T18:49:14Z
+implementer-019 [990555ae]    claude-sonn                124       262  27,496,489    290,797   119,911     5.11
+                                main 124 req $5.11 · cached seen 2026-11-23T19:07:54Z
+implementer-019 [797cff0a]    claude-sonn                 74       152  12,918,139    206,260    71,875     2.84
+                                main 74 req $2.84 · cached seen 2026-11-23T19:53:54Z
+implementer-019 [2724148d]    claude-sonn                178       361  43,410,999    381,934   193,812     7.81
+                                main 178 req $7.81 · cached seen 2026-11-23T20:24:22Z
+implementer-019 [f233c0c0]    claude-sonn                120       251  29,161,858    292,738    86,121     4.95
+                                main 120 req $4.95 · cached seen 2026-11-23T21:16:00Z
+implementer-019 [13713b6c]    claude-sonn                134       275  26,312,763    271,264   110,194     4.82
+                                main 134 req $4.82 · cached seen 2026-11-23T21:50:04Z
+implementer-019 [c49f7331]    claude-sonn                181       394  44,233,642    344,053   163,586     7.44
+                                main 181 req $7.44 · cached seen 2026-11-23T22:18:59Z
+implementer-019 [7b2a9c70]    claude-sonn                144       299  32,858,638    313,308   129,291     5.83
+                                main 144 req $5.83 · cached seen 2026-11-24T00:28:29Z
+implementer-019 [36f3a347]    claude-sonn                202       428  48,736,412    348,487   170,584     7.97
+                                main 202 req $7.97 · cached seen 2026-11-24T01:28:28Z
+implementer-019 [d6b33f3c]    claude-sonn                240       510  96,166,671    612,751   286,602    14.93
+                                main 240 req $14.93 · cached seen 2026-11-24T03:49:25Z
+implementer-019 [ba9d1188]    claude-sonn                142       308  24,867,861    244,500   123,576     4.70
+                                main 142 req $4.70 · cached seen 2026-11-24T05:12:39Z
+implementer-019 [1a11ed03]    claude-sonn                228       503  61,422,229    420,574   228,109    10.11
+                                main 228 req $10.11 · cached seen 2026-11-24T07:07:03Z
+implementer-019 [a0587103]    claude-sonn                204       424  58,581,416    414,790   204,096     9.56
+                                main 204 req $9.56 · cached seen 2026-11-24T09:11:24Z
+implementer-019 [4e1ff191]    claude-sonn                183       392  50,917,827    368,978   173,883     8.31
+                                main 183 req $8.31 · cached seen 2026-11-24T19:21:46Z
+implementer-019 [38a87473]    claude-sonn                248       532  83,179,479    481,155   246,333    12.71
+                                main 248 req $12.71 · cached seen 2026-11-24T22:42:07Z
+implementer-019 [a1a65e98]    claude-opus,claude-sonn    215       454  77,719,832    821,091   226,215    23.19
+                                main 215 req $23.19 · cached seen 2026-11-25T05:18:56Z
+implementer-019 [779e9595]    claude-opus                180       414  39,091,079    291,853   126,053    12.68
+                                main 180 req $12.68 · cached seen 2026-11-25T09:34:54Z
+implementer-019 [bfee3488]    claude-opus                 29        61   2,455,890    108,094    16,490     1.69
+                                main 29 req $1.69 · cached seen 2026-11-25T15:27:14Z
+planner-019 [36266ab7]        claude-opus                124       274  34,161,187    385,508   130,288    12.52
+                                main 124 req $12.52 · cached seen 2026-11-23T15:53:18Z
+planner-019 [7bc37535]        claude-opus                212       501  66,998,249    435,221   219,924    21.28
+                                main 212 req $21.28 · cached seen 2026-11-23T16:35:49Z
+planner-019 [a2fc352e]        claude-opus                195       449  42,681,259    294,945   130,528    13.51
+                                main 195 req $13.51 · cached seen 2026-11-23T18:15:37Z
+planner-019 [86821608]        claude-opus                226       546  55,057,763    345,717   173,284    17.25
+                                main 226 req $17.25 · cached seen 2026-11-24T01:10:04Z
+planner-019 [98f25e6a]        claude-opus                216       519  50,568,527    316,695   157,852    15.81
+                                main 216 req $15.81 · cached seen 2026-11-24T07:40:33Z
+planner-019 [9efbb14a]        claude-opus                314       704  68,393,088    617,366   244,503    22.75
+  own                         claude-opus                220       510  51,925,424    365,400   159,404    16.50
+  analyst                     claude-opus                 94       194  16,467,664    251,966    85,099     6.26
+                                main 220 req $16.50 · subagent 94 req $6.26 · cached seen 2026-11-24T20:12:03Z
+planner-019 [ede9f29e]        claude-opus                180       414  40,388,634    325,047   114,826    12.98
+                                main 180 req $12.98 · cached seen 2026-11-25T06:28:08Z
+planner-019 [d8cfd191]        claude-opus                 14        32   1,117,699     56,807     4,487     0.77
+                                main 14 req $0.77 · cached seen 2026-11-25T15:59:15Z
+qa-019 [5ad516d8]             claude-opus                153       329  40,856,647    361,628   132,984    13.73
+                                main 153 req $13.73 · cached seen 2026-11-23T15:53:39Z
+qa-019 [7d11f59a]             claude-opus                165       364  39,641,517    314,273   115,181    12.75
+                                main 165 req $12.75 · cached seen 2026-11-23T17:45:07Z
+qa-019 [13333d84]             claude-haik,claude-opus    160       354  33,180,729    338,576   122,349    11.24
+  own                         claude-opus                152       338  33,033,686    291,014   114,433    11.22
+  general-purpose             claude-haik                  8        16     147,043     47,562     7,916     0.01
+                                main 152 req $11.22 · subagent 8 req $0.01 · cached seen 2026-11-23T19:54:53Z
+qa-019 [57821669]             claude-opus                187       406  44,029,133    309,752   127,025    13.83
+                                main 187 req $13.83 · cached seen 2026-11-23T23:36:28Z
+qa-019 [1b2c4c75]             claude-opus,claude-sonn    212       462  43,046,093    351,988   144,428    13.93
+  own                         claude-opus                192       420  42,389,057    305,805   137,992    13.69
+  browser-walker              claude-sonn                 20        42     657,036     46,183     6,436     0.25
+                                main 192 req $13.69 · subagent 20 req $0.25 · cached seen 2026-11-24T02:41:03Z
+qa-019 [7e5518eb]             claude-haik,claude-opus    231       508  52,306,184    562,868   184,492    16.25
+  own                         claude-opus                188       416  50,121,904    380,591   155,771    16.19
+  general-purpose             claude-haik                 43        92   2,184,280    182,277    28,721     0.06
+                                main 188 req $16.19 · subagent 43 req $0.06 · cached seen 2026-11-24T05:39:59Z
+qa-019 [3158170a]             claude-haik,claude-opus    296       643  60,539,823    691,331   186,830    17.95
+  own                         claude-opus                231       509  57,707,627    367,825   145,321    17.39
+  browser-walker              claude-sonn                 35        70   1,673,831     67,784    16,084     0.50
+  general-purpose             claude-haik                 30        64   1,158,365    255,722    25,425     0.06
+                                main 231 req $17.39 · subagent 65 req $0.55 · cached seen 2026-11-24T08:10:38Z
+qa-019 [edcac30c]             claude-opus,claude-sonn    190       440  38,710,328    368,039   117,781    12.58
+  own                         claude-opus                161       382  37,651,785    320,909   107,802    12.26
+  browser-walker              claude-sonn                 29        58   1,058,543     47,130     9,979     0.32
+                                main 161 req $12.26 · subagent 29 req $0.32 · cached seen 2026-11-24T17:05:28Z
+qa-019 [b69130eb]             claude-haik,claude-opus    257       567  44,665,459    547,408   186,797    14.21
+  own                         claude-opus                195       439  41,928,937    307,899   111,782    13.09
+  browser-walker              claude-sonn                 35        72   1,522,525     75,209    14,098     0.48
+  general-purpose             claude-haik                 16        32     693,571     66,380    29,834     0.03
+  general-purpose-sonnet      claude-sonn                 11        24     520,426     97,920    31,083     0.61
+                                main 195 req $13.09 · subagent 62 req $1.12 · cached seen 2026-11-25T06:28:31Z
+qa-019 [015cd3b3]             claude-opus                 77       157   9,569,637    139,141    41,318     3.85
+                                main 77 req $3.85 · cached seen 2026-11-25T15:52:01Z
+uat-019                       claude-opus,claude-sonn    282       584  29,275,841    538,301   135,031     9.33
+  own                         claude-opus                116       248  18,019,929    229,382    64,055     6.72
+  browser-walker              claude-sonn                166       336  11,255,912    308,919    70,976     2.61
+                                main 116 req $6.72 · subagent 166 req $2.61 · cached seen 2026-11-25T15:51:11Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                     9477    20,8502,259,504,960 20,790,539 7,832,305   804.59
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

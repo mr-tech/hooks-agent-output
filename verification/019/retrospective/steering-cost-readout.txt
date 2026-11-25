@@ -1,0 +1,66 @@
+chain: sessions matching '*hooks-fixer' or '*hooks-fixer-<n>' from 2026-11-23T09:18Z to 2026-11-25T17:39Z
+14 of 15 resolved from the registry cache (live entry gone): steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+steering-hooks-fix [de89c5c3] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-22T07:57:31Z
+steering-hooks-fix [be654015] claude-opus                 20        48   5,471,434     23,806    13,440     1.55
+                                main 20 req $1.55 · cached seen 2026-11-23T08:14:59Z
+steering-hooks-fix [51d829bf] claude-fabl,claude-haik    296       669  50,839,193  1,011,599   223,588    20.95
+  own                         claude-opus                201       475  43,718,921    588,750   121,051    15.88
+  deweeder                    claude-fabl                  8        18     293,810     68,145    19,548     2.12
+  general-purpose             claude-haik                 25        50     850,205    114,314    43,539     0.04
+  general-purpose-sonnet      claude-sonn                 23        46     455,817     53,850    10,518     0.29
+  retrospective               claude-opus                 39        80   5,520,440    186,540    28,932     2.62
+                                main 201 req $15.88 · subagent 95 req $5.07 · cached seen 2026-11-23T09:21:27Z
+steering-hooks-fix [38cf2ba7] claude-haik,claude-opus    238       584  44,917,481    428,866   123,441    13.69
+  own                         claude-opus                201       510  44,059,213    271,927   106,236    13.11
+  Explore                     claude-haik                  4         8      58,374     23,591     1,261     0.00
+  general-purpose-sonnet      claude-sonn                 33        66     799,894    133,348    15,944     0.57
+                                main 201 req $13.11 · subagent 37 req $0.58 · cached seen 2026-11-23T15:57:47Z
+steering-hooks-fix [989cba7f] claude-fabl,claude-haik    232       530  38,275,965    599,197   165,802    14.90
+  own                         claude-opus                157       378  28,627,338    219,924    91,370     9.31
+  deweeder                    claude-fabl                  7        14     195,949     53,231    12,193     1.47
+  general-purpose             claude-haik                  6        12      87,831     20,570     4,165     0.01
+  general-purpose-sonnet      claude-sonn                 11        22     283,050     92,973    19,117     0.45
+  retrospective               claude-opus                 51       104   9,081,797    212,499    38,957     3.66
+                                main 157 req $9.31 · subagent 75 req $5.59 · cached seen 2026-11-23T18:27:02Z
+steering-hooks-fix [5cdf1538] claude-opus,claude-sonn    187       445  25,992,217    306,011   101,172     8.71
+  own                         claude-opus                142       355  24,465,016    202,392    77,119     8.06
+  general-purpose-sonnet      claude-sonn                 45        90   1,527,201    103,619    24,053     0.65
+                                main 142 req $8.06 · subagent 45 req $0.65 · cached seen 2026-11-23T22:06:14Z
+steering-hooks-fix [dd384ce3] claude-opus,claude-sonn    230       523  44,650,445    389,453   143,272    14.21
+  own                         claude-opus                203       469  44,061,624    299,329   128,241    13.77
+  general-purpose-sonnet      claude-sonn                 27        54     588,821     90,124    15,031     0.43
+                                main 203 req $13.77 · subagent 27 req $0.43 · cached seen 2026-11-24T01:45:48Z
+steering-hooks-fix [62ba58b4] claude-opus,claude-sonn    186       460  32,747,050    254,753    99,950    10.29
+  own                         claude-opus                176       440  32,480,593    219,044    92,514    10.10
+  general-purpose-sonnet      claude-sonn                 10        20     266,457     35,709     7,436     0.19
+                                main 176 req $10.10 · subagent 10 req $0.19 · cached seen 2026-11-24T04:30:42Z
+steering-hooks-fix [73f0c622] claude-opus,claude-sonn    138       318  21,899,663    707,580    97,968    11.02
+  own                         claude-opus                107       256  21,104,201    588,338    73,007    10.39
+  general-purpose-sonnet      claude-sonn                 31        62     795,462    119,242    24,961     0.63
+                                main 107 req $10.39 · subagent 31 req $0.63 · cached seen 2026-11-24T08:12:11Z
+steering-hooks-fix [16578806] claude-opus,claude-sonn    129       322  22,522,006    250,659    81,074     7.91
+  own                         claude-opus                119       302  22,306,135    220,807    76,947     7.77
+  general-purpose-sonnet      claude-sonn                 10        20     215,871     29,852     4,127     0.14
+                                main 119 req $7.77 · subagent 10 req $0.14 · cached seen 2026-11-24T17:21:17Z
+steering-hooks-fix [48c99ffd] claude-opus                136       322  23,389,167    196,654    76,079     7.77
+                                main 136 req $7.77 · cached seen 2026-11-24T21:01:13Z
+steering-hooks-fix [86ee582d] claude-opus,claude-sonn    163       387  29,076,559    322,794    99,912     9.75
+  own                         claude-opus                151       363  28,717,716    228,773    90,497     9.39
+  general-purpose-sonnet      claude-sonn                 12        24     358,843     94,021     9,415     0.37
+                                main 151 req $9.39 · subagent 12 req $0.37 · cached seen 2026-11-25T04:21:18Z
+steering-hooks-fix [0ce41555] claude-opus                128       304  22,132,083    215,869    70,357     7.56
+                                main 128 req $7.56 · cached seen 2026-11-25T07:05:44Z
+steering-hooks-fix [6c226974] claude-opus,claude-sonn    151       358  28,798,704    391,825    91,628    10.52
+  own                         claude-opus                146       348  28,712,916    364,029    87,067    10.40
+  general-purpose-sonnet      claude-sonn                  5        10      85,788     27,796     4,561     0.12
+                                main 146 req $10.40 · subagent 5 req $0.12 · cached seen 2026-11-25T10:47:31Z
+steering-hooks-fix [7ed7e042] claude-opus                 82       188  13,123,218    161,639    40,303     4.72
+                                main 82 req $4.72 · cached seen 2026-11-25T16:14:47Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                     2316     5,458 403,835,185  5,260,705 1,427,986   143.55
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

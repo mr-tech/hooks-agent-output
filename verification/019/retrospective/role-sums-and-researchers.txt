@@ -1,0 +1,26 @@
+critic-019           sessions= 7 reqs=  541 $233.51
+implementer-019      sessions=18 reqs= 2921 $148.52
+qa-019               sessions=10 reqs= 1928 $130.32
+planner-019          sessions= 8 reqs= 1481 $116.87
+code-reviewer-019    sessions= 7 reqs= 1045 $79.10
+architect-019        sessions= 4 reqs=  669 $48.43
+analyst-019          sessions= 2 reqs=  374 $27.51
+devops-019           sessions= 2 reqs=  236 $11.03
+uat-019              sessions= 1 reqs=  282 $9.33
+804.62
+                                main 82 req $4.72 · cached seen 2026-11-25T16:14:47Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                     2316     5,458 403,835,185  5,260,705 1,427,986   143.55
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+chain: sessions matching '*hooks-fixer' or '*hooks-fixer-<n>' from 2026-11-23T09:18Z to 2026-11-25T17:39Z
+14 of 15 resolved from the registry cache (live entry gone): steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer, steering-hooks-fixer
+
+                              TOTAL                      331       700  74,434,043  1,229,755   459,239   106.47
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+                              TOTAL                      269       560  62,595,357  1,028,129   318,091    63.80
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+
+[exited with code 0]
