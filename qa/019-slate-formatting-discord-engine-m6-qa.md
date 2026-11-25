@@ -384,11 +384,14 @@ Rewritten 2026-11-25T06:28 at steering's `/checkpoint` (about 349K tokens), at a
     - **CR-28's off-selection member** (R-129, planning `d8fd2eb`, D-30's form; added 2026-11-25T09:58 from planner-019's
       message). This is an entry condition on Phase 2 of Fix Round 6. At the round's tip, run code review's
       `verification/019/code-review/m6fix5-40947a6/crprobe.offselection-inline.test.tsx.txt` (sha256 `e38d4f2b…`) over its
-      24 rows: an inline-code backtick inserted at or removed from line 0's end, with the selection null or in a separate run
-      unit after a code block, over `a🙂` `embedDescription` lines at 40 to 1,000. Every row must show no thrown error, no
-      pending timer's error, and line shapes equal to a fresh load of its text. A failing row sends the round back to the fix.
+      24 rows, unmounted: insert or delete × none, other-unit or the at-edit control × N of 5, 100, 200 and 1,000, over
+      `a🙂` `embedDescription` lines. This shape was read from the probe, its line 29. Every row must show no thrown error and
+      line shapes equal to a fresh load of its text. The probe reads no timer, so the pending-timer clause is this stage's own
+      instrument: a mounted run of the 16 none and other-unit rows through the suite's mount helper (the form of
+      `crprobe.mounted-lone-backtick`), mutated before its result is trusted. A failing row sends the round back to the fix.
       Earlier readings were 12 of 24 red at `40947a6`, 18 of 24 at `a7ad3f2` and 0 of 24 at `af3d95a`. No criterion's text
-      changes.
+      changes. Corrected 2026-11-25T10:05 per R-130 (planning `d1325df`): the sizes were wrongly given as "40 to 1,000", and
+      the timer reading was wrongly put on code review's probe.
   - **AC-6.9's obligations** (Phase 1 document, § Re-key on Revisions 21 to 25):
     - every limb over every member and N;
     - NM-73 to NM-88, with CF-30's diff read for a `catch` or a `shouldNormalize` budget;
