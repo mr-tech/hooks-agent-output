@@ -2,8 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Committed
-Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25). Target release: website master to Vercel production, awaiting the release answer. Post-deploy row B-5 is carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md."
+Status: Released
+Status-Detail: "Released: website master 48eb60a, pushed 2026-11-25T17:39Z. Post-deploy row B-5 is carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md."
 Revision: 26
 Target-Release: "website master → Vercel production, one release carrying M2 to M7 (preview and editor together, AF-2)"
 Epic-Alignment: "Slate formatting effort (effort rulings `steering/fixer-queue-2026-11-21-rulings.md` blocks 09:07Z, 09:18Z); no roadmap epic"
@@ -186,6 +186,7 @@ Lane: full
 | 2026-11-25T15:57 | R-136 | planner-019 | Recorded critique cycle 18 pass 1 on revision 26, APPROVED with the critique closed (record `3cbae50e`), in the owed re-verdicts table and Status-Detail. F-63 (SL-32), F-64 and F-65 LOW are carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md` (D-33). Scope delta: none — registration only. |
 | 2026-11-25T16:32 | R-137 | uat-019 | UAT on website `48eb60a` (plan read at Revision 26; the walks are keyed to Revision 25, and 26 changes no criterion): all nine pre-release rows (B-1 to B-4, B-7 to B-11) EXECUTED and PASS. **APPROVED FOR RELEASE**; plan Status set to UAT Approved. B-5 is post-deploy (devops' carrier); B-6 is QA Phase 3's. UAT-1 LOW pre-existing (also in production) and UAT-2 LOW (local-build instrument limit), neither a 019 defect. Document: `uat/019-slate-formatting-discord-engine-uat.md`. |
 | 2026-11-25T17:10 | R-138 | devops-019 | Status write: Committed (devops Stage 1 at website `48eb60a`; QA Phase 3 Release Verified, record `c41a8459`; release not yet asked). B-5 is carried by `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md`. |
+| 2026-11-25T17:40 | R-139 | devops-019 | Status write: Released. Website `master` `48eb60a` pushed 2026-11-25T17:39Z on his release answer (selection, devops session). B-5 is read by its scheduled reader from the carrier. |
 
 ## Resumption State
 
