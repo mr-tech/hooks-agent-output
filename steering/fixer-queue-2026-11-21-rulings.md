@@ -2137,3 +2137,21 @@ Reading (this thread's): this answers research OQ-3. Any rebuild of the editor i
 019 continues to its release on the current editor, under D-19. He has not said whether a rebuild happens; block 15:25Z's "size a rebuild
 first" stands, so the sizing goes on for the separate-effort timing only. No chain is opened and no ID is minted until he opens one.
 **Recipients:** `planner-019` (the sizing drops the inside-019 timing), `researcher-slate-editor-design` (OQ-3).
+
+## 2026-11-25T15:36Z — selection: rebuild the editor as its own effort after 019 ships (put after 15:28Z, on the sizing; answered 15:36Z)
+
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T15:36Z — steering-hooks-fixer`. Put by this thread, answered by selection;
+the wording is this thread's. Source: `planning/slate-editor-rebuild-sizing-2026-11-25.md` (`a7e10f4c`), § The answer in brief, § What it
+re-runs, § Not measured, read this turn.
+- *Agent: rebuild after 019 (Recommended)*: once 019 ships, a new effort rebuilds the editor on Discord's model with his emoji (per line) and
+  quote-mark (hidden) answers; removes the designs behind the crash and fresh-load bugs; costs the size stated, with its own review, QA and
+  user testing.
+- *Agent: decide once 019 is live*: no effort now; asked again after 019 ships.
+- *Agent: no rebuild*: the open items stay; more crash cases may turn up untested.
+**Chosen: "Agent: rebuild after 019 (Recommended)".**
+Premises read this turn: the five replaced files at website `48eb60a` total 865 lines (`git show | wc -l`: 600, 169, 65, 20, 11); 52 commits
+`2e36107..48eb60a` (`git rev-list --count`), 2026-11-24T03:43:33Z to 2026-11-25T12:18:48Z. The 459 adapted, 234 kept and 25/17 test-file
+counts are the planner's, not re-counted. "Fewer fix rounds" was put as the planner's guess.
+**Acted:** the rebuild opens as its own effort on 019's release, with a scoping determination then (steering.md); no ID until then. Its
+carrier until then is the sizing document, kept Active by `planner-019` with the trigger "019's release". The research document is cued to
+close, carried by the sizing.
