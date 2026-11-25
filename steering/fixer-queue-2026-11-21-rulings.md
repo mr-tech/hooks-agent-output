@@ -1873,3 +1873,15 @@ which is the handoff's work and CF-36's direction, or (b) keep such lines out of
 - The sub-limb catches either outcome.
 If (b) cannot meet AC-6.9's limbs, the implementer brings it here before widening. Recipients: `implementer-019` (in the Fix Round 5 brief),
 `architect-019` and `planner-019`.
+
+## 2026-11-25T06:08Z — plan 019 critique of Revision 24: APPROVED with F-59 HIGH closed as SL-30; its form goes to him
+
+`critic-019` by message, with record `343b1ed0`: Revision 24 is APPROVED. F-59 HIGH: D-28's rule is bound to six keystrokes, all at the start
+or end of line 0. The residue says, by AN-9's code read and not run, that a backtick typed or removed elsewhere is also a member. Those
+positions are mid-line, a middle line, the partner line, and Delete. His chosen option said "Every keystroke that changes other lines joins
+the editor's no-crash rule", so this narrows a class he worded. It goes back to him as a selection (steering.md, Planner). The critic
+closed it as SL-30, an entry condition, and offers three forms: read them at QA, list them in a Revision 25, or leave as written.
+**Premise before the prompt:** the throw at the unprobed positions is AN-9's inference. The same refutation helper (block 05:26Z) is
+running it at `a7ad3f2` and `origin/master`, capped, with five positions at 100, 200 and 1,000 lines. The prompt is put on its result.
+Fix Round 5's start waits on his answer, because one option re-gates. All three gates have passed Revision 24: QA `7a6087f6`, architect
+`6a5aa338`, critic `343b1ed0`. The critic's CR-27 flag is answered by block 06:07Z.
