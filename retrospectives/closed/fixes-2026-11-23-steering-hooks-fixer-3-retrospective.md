@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixes-2026-11-23-steering-hooks-fixer-3
 UUID: 03934cdc
-Status: Active
-Status-Detail: "Fixer-batch retrospective over one chain, fix-image-uploader-url (9e; released website af3d95a -> 5ec0621 2026-11-23T18:36:07Z); awaiting pi on the owner's word."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch fixes-2026-11-23-steering-hooks-fixer-3): fix-image-uploader-url
@@ -23,6 +23,7 @@ recurs here, it is named as a further sighting and not re-proposed.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T18:54 | steering-hooks-fixer (spawn brief) | Fixer-batch retrospective over `fix-image-uploader-url` | Created. The chain delivered all five limbs to production in 2h42m from determination to push, with almost no waiting. Three gates failed it. Two failures (CR-1, QAF-4) were behaviours the fixer's document claimed with no case holding them. One (QAF-1) was a test host whose callbacks did not behave like the consumers'. Chain sessions cost $28.90 to the push for 41 production lines ($0.70 per line). Three new recommendations, one of them on the owner's relayed remark about release-prompt length; eight sightings of open recommendations; three items for steering. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
