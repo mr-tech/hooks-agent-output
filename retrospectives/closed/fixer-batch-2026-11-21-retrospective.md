@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixer-batch-2026-11-21
 UUID: 7997d4f2
-Status: Active
-Status-Detail: "Fixer-batch retrospective over fix-message-page-header-decode (website 983681c..7923a1d), fix-trpc-batch-limit (website d1bb9b0..76da25c) and fix-website-dependency-audit (record tools, crontab line 2026-11-21T01:11Z), written after all three chains closed out. Rests until pi runs on the owner's command."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch 2026-11-21): fix-message-page-header-decode, fix-trpc-batch-limit, fix-website-dependency-audit
@@ -21,6 +21,7 @@ Status-Detail: "Fixer-batch retrospective over fix-message-page-header-decode (w
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T01:55 | steering-roadmap-hooks (spawn brief; rulings block 2026-11-21T01:45Z of `steering/fix-website-dependency-audit-rulings.md`) | Fixer-batch retrospective over chains 1 to 3 | Written from the documents. Cost read once per chain. Ten recommendations, each naming the file it would change, plus sightings for three pending recommendations of the 2026-11-20 batch. No handoff created. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
