@@ -3,11 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "7dcedc9 — repos=website; M2 paths at the code review's Round 2 Reviewed-At, run in a git-archive export with its own frozen install; refresh over fix round 2 (78c5f74..7dcedc9)"
-Status: QA Complete
-Status-Detail: >-
-  M2 at website 7dcedc9 passes, milestone-scoped. QAF-29 and QAF-30 are closed by fix round 2, each seen red under a QA mutant.
-  AC-2.1 to AC-2.4, AC-2.6 and AC-2.7 pass. AC-2.5 passes on its adapter and provider limbs; its surface limbs belong to the M4
-  and M5 passes. The effort-final mutation sweep stays owed. A later production change to an M2 path expires this verdict.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Phase: 2
 ---
 
@@ -25,6 +22,7 @@ Code review: `code-review/019-slate-formatting-discord-engine-code-review.md` (r
 |------|---------------|---------|---------|
 | 2026-11-23T19:35 | code-reviewer-019 (message: M2 APPROVED_WITH_COMMENTS, record `1b351f50`, Reviewed-At website `78c5f74`) | QA Phase 2 on M2 | Phase 2: milestone-scoped pass on M2 at `78c5f74`. Steering's Phase 2 brief has not arrived. So this pass read the plan's Decisions Register, the cap and the 18:02Z ruling, and the code review's Assumption Not Checked (AC-2.6) itself. The stage start is the review's committed verdict, re-derived at the record. The verdict is **QA Failed** on QAF-29 MEDIUM (AC-2.4). QAF-30 LOW is also raised. AC-2.6's mechanism-removed control is built and discriminates. The plan's Status is not moved (milestone-scoped). |
 | 2026-11-23T19:49 | code-reviewer-019 (message: M2 Round 2 APPROVED_WITH_COMMENTS, record `86ba88f4`, Reviewed-At website `7dcedc9`) | Refresh after QA Failed | Refresh pass over fix round 2's M2 paths (`78c5f74..7dcedc9`: `engine.ts`, `engine.kind-maps`, `engine.surface-masks`). It ran in an export of `7dcedc9`: frozen install, 3041 of 3041 offline with exit 0, build and typecheck exit 0, and the notice re-read. QM-1 and QM-2 were seen red. QAF-29 and QAF-30 are closed. Verdict: **QA Complete** for M2, milestone-scoped. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Scope and stage start
 
