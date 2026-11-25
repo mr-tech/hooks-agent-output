@@ -3,12 +3,10 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "119471f — repos=website; M6 at the code review's Round 6 Reviewed-At; git-archive exports with their own frozen offline installs, 677 of 677 blobs"
-Status: QA Failed
+Status: Testing In Progress
 Status-Detail: >-
-  The verdict standing is QA Failed at 119471f. The refresh at 42128cd was stopped unpublished by steering's stop (effort rulings
-  block 14:33Z, record d7eb0a40): M6 takes another fix round, for the code-fence normalise throw in QAF-51's form and for CR-23.
-  Its results so far are recorded below for that round. M6's verdict is taken on that round's code-reviewed tip, after the Phase 1
-  re-key on the planner's revision.
+  M6 Phase 2 on Fix Round 6 at 48eb60a (code review Round 9 sub-entry, APPROVED_WITH_COMMENTS, record 2f94aff4), plan Revision 25
+  to R-132. The standing verdict is QA Failed at 119471f until this pass publishes.
 Phase: 2
 ---
 
@@ -31,6 +29,7 @@ row. B-10 (AC-6.8) was minted at the Phase 1 re-key on Revision 16.
 | 2026-11-24T09:14 | planner-019 (message: CR-20 fix round hand-off, Outstanding 2; implementation record `9c6bb958`, plan R-92 at `7100aab8`) | Probe Outstanding 2 at the chain base `af3d95a` and set a severity | Not the fix-round refresh: code review's verdict on the round has not been given. Both trees throw Slate's cap error, the chain base `af3d95a` and the fix tip `42128cd` alike, on the same threshold: they settle at 122 lines and throw from 123. After the throw the document is correct. So the defect is **pre-existing**: **QAF-51 LOW**, for the planner's handoff. No browser look was taken. Captured at `verification/019/qa/m6/gt-marker-base/`. The record-write hook refused a shell heredoc for that README, so it was written with the Write tool. |
 | 2026-11-24T09:32 | code-reviewer-019 (message: Round 6 sub-entry APPROVED_WITH_COMMENTS at `42128cd`, record `602344e`) | QA Phase 2 on CR-20's fix round | Phase 2: Testing In Progress at `42128cd`. Scope and criteria are recorded before execution (§ Refresh on CR-20's fix round). Steering's brief has not arrived. |
 | 2026-11-24T14:35 | steering-hooks-fixer (message: stop; effort rulings block 14:33Z, record `d7eb0a40`) | Stop the M6 refresh at the next seam, end every run, record results for the next fix round | Stopped, no verdict published. Status is back to QA Failed, the verdict at `119471f`. Before the stop, criteria 1 to 6 and 8 had held at `42128cd` (§ Results at `42128cd`). The effort-final sweep was stopped partway through its second pass and is unscored. Its processes were killed and confirmed gone. Nothing of this pass is running. |
+| 2026-11-25T12:37 | code-reviewer-019 (message: Round 9 sub-entry APPROVED_WITH_COMMENTS at `48eb60a`, record `2f94aff4`; plan R-131 `744b54b1`) | Phase 2 on M6 Fix Round 6 | Phase 2: Testing In Progress at `48eb60a`. The stage start is re-derived from the committed review record (`Reviewed-At: 48eb60a`). Steering's brief has not arrived, so this pass works from the plan's Decisions Register (D-27 to D-31), R-126 to R-132 and the Round 9 sub-entry's Assumption Not Checked. |
 
 ## Scope and stage start
 
