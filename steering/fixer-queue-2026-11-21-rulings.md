@@ -1806,3 +1806,19 @@ revision would still be a milestone-level scope delta on M6, which goes to him a
 - **Disclosure (05:27Z):** at the standing check this thread tried to update its docket with a shell `sed`. The record-write gate refused
   it, and the edit was re-made with the Edit tool. That breaks this thread's own standing rule: docket edits use Write, Edit or
   `record-edit.js` only.
+
+## 2026-11-25T05:28Z — selection: plan 019 Outstanding 3, the editor crash the release adds (put 05:28Z, answered 05:28Z)
+
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T05:28Z — steering-hooks-fixer`. Put by this thread, answered by selection.
+The question and the option wording are this thread's.
+- *Fix the whole class (Recommended)*: before the rewrite, an agent probes every formatting character that can pair across lines (backtick, `>`,
+  `||`, `*`, `_`, `~`) at the start and end of lines over 200- and 1,000-line messages. Every keystroke that changes other lines joins the
+  no-crash rule. Then a plan revision, three plan-gate reads, Fix Round 5, code review and QA again. The probe time is not measured.
+- *Fix only this keystroke*: just the lone-backtick member; the same revision, gate reads and rounds; a fourth case may surface.
+- *Ship it as a known limit*: no rounds; the release ships a crash production does not have, carried by a handoff.
+**Chosen: "Fix the whole class (Recommended)"**, by selection.
+Premises: the throw is at `a7ad3f2` and not at `origin/master` (block 05:26Z, the helper's run). HIGH, the class and the costs come from the
+planner's R-115 (`ea2d137f`, row rejoined `387dc2b5`), by its message. "Revised 14 times since approval" is the planner's count (revisions
+10 to 23), not read by this thread. Gate rounds since approval were not counted.
+**Acted:** the selection goes to `planner-019` for Revision 24 under R-115's class form. The planner commissions the enumeration probe.
+Code review of `a7ad3f2` runs on. Critic, architect, QA and the implementer get it in their next briefs.
