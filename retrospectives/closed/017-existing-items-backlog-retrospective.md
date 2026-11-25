@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
-Status-Detail: "Written after chain 017's close-out (every stage document terminal and in closed/; released website master 787bec5, generator prod 8512a1d). Rests until pi runs on the owner's command."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective 017: the existing-items backlog (Hooks.gg backlog items 2 to 5, plus rider M8)
@@ -17,6 +17,7 @@ Status-Detail: "Written after chain 017's close-out (every stage document termin
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T20:37 | steering-roadmap-hooks (spawn brief, rulings block 2026-11-19T20:25Z) | Retrospective of chain 017 from the record alone, weighing five candidate items steering named | Written. Value delivered YES. Seven recommendations, each naming the file it would change. Cost readout $434.74 for the 41 stage sessions and $23.27 for steering's rows, captured under `verification/017/retrospective/`. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
