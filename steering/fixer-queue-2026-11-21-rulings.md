@@ -1732,3 +1732,12 @@ The standing check reads `grep -c 'invoked oom-killer' /var/log/kern.log` = 1, u
 - The cap held. Nothing outside the scope was killed: every 019 session is live (`cc-usage.py sessions`, 01:27Z), and 16.1 GB is available.
 - `implementer-019` is told by message to find the mutant that lost the worker and re-run it alone. On that evidence it is not a kill.
   It records both in the round's Gate satisfactions, and lowers `--maxWorkers` if the scope keeps reaching 5G.
+
+## 2026-11-25T02:57Z — OOM count 1 → 4: three memory-cgroup kills inside implementer-019's re-run scope (this thread's)
+
+`grep -c 'invoked oom-killer' /var/log/kern.log` = 4. All three new kills are at 02:41:10 (lines 649, 728 and 807; pids 4174795, 4184239
+and 4184427). Their `oom_memcg` is `run-r9fa7de1c96e7419f9277e30fde5e1e9a.scope`: the implementer's `sweep4/run-rerun.sh 4a7fb49`, with
+MemoryMax 5G, active since 02:12:33Z.
+- The cap held again. Every 019 session is live, and 17.1 GB is available (02:57Z).
+- `implementer-019` is told by message to lower `--maxWorkers`, to 1 if need be, without raising the ceiling. It re-runs the mutants that
+  lost workers, and records all four kills and their re-runs in the round.
