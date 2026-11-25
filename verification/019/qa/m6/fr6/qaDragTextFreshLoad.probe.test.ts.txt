@@ -1,0 +1,18 @@
+// QA probe: the drag walk's pasted text, loaded fresh on this tree (getInitialValue, embedDescription): emoji elements per line.
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import type { Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import { startEngine } from '~/utils/markdown/engine';
+beforeAll(async () => { await startEngine(); });
+it('drag text fresh load', () => {
+  const lines = ['a🙂`', ...Array(98).fill('a🙂'), 'a🙂`', '```', 'code', '```', 'z'];
+  const v = getInitialValue(lines.join('\n'), 'embedDescription', false) as Element[];
+  const emojiPerLine = v.map((l) => l.children.filter((c) => (c as Element).type === 'emoji').length);
+  const ctl = getInitialValue(Array(100).fill('a🙂').join('\n'), 'embedDescription', false) as Element[];
+  const after = ['a🙂', ...Array(98).fill('a🙂'), 'a🙂`', '```', 'code', '```', 'z`'];
+  const va = getInitialValue(after.join('\n'), 'embedDescription', false) as Element[];
+  const emojiAfter = va.map((l) => l.children.filter((c) => (c as Element).type === 'emoji').length);
+  writeFileSync(process.env.QAPROBE_OUT as string, JSON.stringify({ afterDragExpected: { lines: va.length, emojiTotal: emojiAfter.reduce((a, b) => a + b, 0), lastLineTypes: va.slice(-5).map((l) => l.type) }, lines: v.length, emojiTotal: emojiPerLine.reduce((a, b) => a + b, 0), linesWithEmoji: emojiPerLine.filter(Boolean).length, first3: emojiPerLine.slice(0, 3), control100PlainEmoji: ctl.reduce((a, l) => a + l.children.filter((c) => (c as Element).type === 'emoji').length, 0) }));
+});
