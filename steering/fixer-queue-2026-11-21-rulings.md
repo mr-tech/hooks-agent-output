@@ -2006,3 +2006,25 @@ His words (witnessed, this session): "I meant agent's inbox."
 **Acted:** this thread's entry is deleted from `/usr/local/bin/statbot/agent-output/INBOX.md` and re-lodged as an FYI in `~/.claude/agents/INBOX.md`,
 with the same content and his correction quoted. Block 07:14Z's routing was this thread's misreading of "agent's output". The inbox-commit
 conflict in that block no longer applies: the Agents inbox is left uncommitted for its owning session.
+
+## 2026-11-25T09:35Z — plan 019 M6 Fix Round 5 handed to code review at website 40947a6; hand-off read; implementer-019 cleared (this thread's)
+
+The chain stalled from 09:09Z to 09:29Z: implementer-019's waiter watched the logs of shards it had already stopped. This thread found it at the
+09:29Z check and messaged the session; an agents INBOX FYI is lodged. The implementer then handed off: record `ccfa46d7`,
+`Handoff-At: 40947a6`. Its `/checkpoint` was committed in the same commit, and the session was cleared at 09:35Z (`tmux-agent clear`). By the time
+this thread read the hand-off, `code-reviewer-019` was already busy (`cc-usage.py sessions`). Read this turn from the implementation document's
+§ Fix Round 5, lines 886–990:
+- Suite 4,776 of 4,776, exit 0; typecheck exit 0. SL-29: 0 of 20 over. CF-35's corpus equality: 0 of 36,560 differ. CR-27 residual: 0.
+  SL-30: 0 of 126. Typographic fill: 32 of 32 clean (24 of 32 threw at `70c5a86`).
+- D-31's count limb is on test `keystroke-run-unit-builds`. Its red was shown by the members' throw, not by the count: NM-88 was killed
+  only by the 250 s limit, and the implementer leaves it to QA's own NM-88. **For QA.**
+- Self-check sweep: 54 of 71 killed. The 17 survivors include three LOW gaps the implementer leaves unfixed (its Outstanding 5).
+- **CR-29: measured cleared** on the fence case: 40.9 / 44.9 ms at 1,000 typographic lines, against 18.5 s at `a7ad3f2`. **Disposition (this
+  thread's): CR-29 is held cleared, pending code review's own reading of it.** If the reviewer confirms, its handoff
+  `slate-fence-close-cost-typographic-quote-lines-2026-11-25.md` and Outstanding 2 (R-114) go to the planner to be closed at the seam fold.
+- **A product-behaviour change the implementer declares** (Observations, line 897): on 16 keystrokes the caret now lands at the edit point,
+  rather than after the line's last emoji. Per steering.md, Implementer, it goes to `planner-019` for premise re-derivation. Sent by message
+  today, naming its Resumption State `27550841`.
+- OOM: 4 → 8, caused by its own uncapped-worker suite run at 07:08Z (disclosed and voided). Count 8 at hand-off.
+- **Record-write disclosure:** the implementer wrote its front matter, changelog row and Resumption State with a `python3` script, which is not
+  a permitted form under standing ruling 24. Rounds 2 and 4 disclosed the same. Recorded here for the 019 retrospective; nothing sent.
