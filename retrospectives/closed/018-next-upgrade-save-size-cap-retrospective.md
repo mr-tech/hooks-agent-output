@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Active
-Status-Detail: "Written after chain 018's close-out (every stage document terminal and in closed/; website master 7923a1d to d1bb9b0, released 2026-11-20T08:07:52Z; post-deploy carrier Addressed). Rests until pi runs on the owner's command."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective 018: Next.js 16.4.6 and the save-list cap (H-002, M-001)
@@ -17,6 +17,7 @@ Status-Detail: "Written after chain 018's close-out (every stage document termin
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T13:57 | steering-roadmap-hooks (spawn brief) | Retrospective of chain 018 from the record alone | Written. Value delivered: YES. Seven recommendations, each naming the file it would change. Cost readout: $233.60 from the determination to the release, across the 018 family, security and steering. Captures are under `verification/018/retrospective/`. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
