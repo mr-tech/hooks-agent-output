@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixes-2026-11-21-steering-hooks-4
 UUID: d6194936
-Status: Active
-Status-Detail: "Fixer-batch retrospective (batch of one) over fix-api-secret-compare (website b68f94c..0c14d5b, released 18:35:45Z after one QA Failed and one REJECTED round); awaiting pi on the owner's word."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch fixes-2026-11-21-steering-hooks-4): fix-api-secret-compare
@@ -22,6 +22,7 @@ paragraph; chain rulings block 18:23Z). The Origin follows the lifecycle's batch
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T18:53 | steering-hooks (spawn prompt; chain rulings block 2026-11-21T18:47Z) | Batch-of-one retrospective over fixer chain `fix-api-secret-compare` | Created. Value delivered to the serving ref; serving itself not yet observed. 4h54m from determination to release, of which about 3h24m was the chain waiting on two owner prompts. QAF-1 and CR-2 show that each gate's mutant set missed something the next gate's caught. Nine recommendations. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
