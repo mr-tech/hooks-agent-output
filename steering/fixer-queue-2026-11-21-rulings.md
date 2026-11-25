@@ -1741,3 +1741,13 @@ MemoryMax 5G, active since 02:12:33Z.
 - The cap held again. Every 019 session is live, and 17.1 GB is available (02:57Z).
 - `implementer-019` is told by message to lower `--maxWorkers`, to 1 if need be, without raising the ceiling. It re-runs the mutants that
   lost workers, and records all four kills and their re-runs in the round.
+
+## 2026-11-25T04:19Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (04:1xZ) asked for `/checkpoint`: 231,503 by `cc-usage.py sessions`, past the 225K steering threshold. The
+Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`).
+- M6 Fix Round 4 is with `implementer-019` (busy, 451K, website tip `514050d`). It is building CF-33's form under R-111, plus CR-26. Its third,
+  capped mutation sweep runs to about 06:5xZ at most.
+- At its hand-off, this thread reads the round's figures, SL-29's readings, the forced-normalise reading and the OOM disclosures, then
+  code review, then QA Phase 2. A miss on SL-29's line comes here first (block 22:41Z).
+- Standing check `1b9c6366` is at 04:27Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
