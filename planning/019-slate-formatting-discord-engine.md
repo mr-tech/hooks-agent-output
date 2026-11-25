@@ -263,6 +263,18 @@ Written at steering's ask (checkpoint for a clear), 2026-11-25T06:27Z, after R-1
   AN-9's under `verification/019/analysis/an9/`.
 
 **Next.**
+- **Superseding the items below (2026-11-25T15:50Z).** He cut 019 to release essentials (effort rulings blocks "2026-11-25T15:46Z"
+  and "15:49Z"). Code review approved M6 at `48eb60a` (R-131), and QA Phase 2 on M6 is running without its effort-final mutation
+  sweep. The seam fold is replaced by one minimal revision, written once QA's Phase 2 verdict lands and read by the critic. It
+  carries:
+  - M7's re-argument paragraph (R-76), naming R-126's caret change;
+  - registration of his three waivers: QA's effort-final sweep on M6, the Planner batch fold, and the architect's closing pass.
+    M7's architect closing-pass rows go. M7's workspace `CLAUDE.md` Test Conventions update stays;
+  - the open Planner batch rows pointed, as they stand, at `planning/slate-editor-rebuild-sizing-2026-11-25.md` as their
+    carrier, with no per-row disposition.
+  It does not waive or change any UAT walk: UAT walks all nine (B-1 to B-4 and B-7 to B-11, block 15:49Z). B-5, B-6 and AC-3.3's
+  full generator count stay in QA and devops. QAF-53 (b) goes to the rebuild as written, and the paste-cost claim is QA's SL-29
+  reading. The rebuild opens only on his word (block 15:38Z).
 - **Fix Round 5 is running** on Revision 25. Register its code review and QA findings as Planner batch rows. A HIGH, a
   severity floor, or a throw at an SL-30 position (a D-28 member) goes to steering first.
 - No other planning pass is owed until the seam fold. The caps stand:
