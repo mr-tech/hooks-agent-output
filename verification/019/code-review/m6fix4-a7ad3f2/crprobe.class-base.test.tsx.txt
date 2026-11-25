@@ -1,0 +1,39 @@
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import markdown from '~/utils/markdown';
+beforeAll(() => {});
+const parser = markdown.interactive.parseEmoji;
+const fresh = (text: string) => getInitialValue(text, parser, false);
+const build = (text: string) => { const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parser); e.children = fresh(text) as Descendant[]; return e; };
+const median = (xs: number[]) => xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+it('pre-existing members: lone backtick, typographic quotes', { timeout: 1190000 }, () => {
+  const rows: object[] = [];
+  for (const fill of ['a🙂', 'a']) for (const n of [40, 100, 122, 123, 200, 1000]) {
+    const ts: number[] = []; let error = ''; let ops = 0;
+    for (let r = 0; r < 3; r += 1) {
+      const text = Array.from({ length: n }, (_, i) => (i === n - 1 ? `${fill}\`` : fill)).join('\n');
+      const e = build(text); let c = 0; const { apply } = e; e.apply = (op) => { c += 1; apply(op); };
+      Transforms.select(e, Editor.end(e, [0]));
+      const t0 = performance.now(); try { e.insertText('`'); } catch (x) { error = String(x).slice(0, 70); } ts.push(performance.now() - t0); ops = c;
+    }
+    rows.push({ probe: 'lone backtick end of line 0, backtick ends last line', fill, n, medianMs: +median(ts).toFixed(1), ops, error });
+  }
+  for (const fill of ['a’', 'a’🙂']) for (const n of [200, 1000]) {
+    const ts: number[] = []; let error = ''; let ops = 0;
+    for (let r = 0; r < 3; r += 1) {
+      const text = Array.from({ length: n }, (_, i) => (i === 2 ? '```' : fill)).join('\n');
+      const e = build(text); let c = 0; const { apply } = e; e.apply = (op) => { c += 1; apply(op); };
+      Transforms.select(e, Editor.end(e, [2]));
+      const t0 = performance.now(); try { e.deleteBackward('character'); } catch (x) { error = String(x).slice(0, 70); } ts.push(performance.now() - t0); ops = c;
+    }
+    rows.push({ probe: 'typographic quotes, Backspace on ``` of line 2', fill, n, medianMs: +median(ts).toFixed(1), ops, error });
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

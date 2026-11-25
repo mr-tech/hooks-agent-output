@@ -1,0 +1,11 @@
+#!/bin/sh
+# usage: run-fix4.sh <scratch dir>; SL-29 at af3d95a and a7ad3f2 (two rounds), then differentials and counts at a7ad3f2
+S=$1; D=src/components/SlateEditor/utils/__tests__; OUT=$S/out4; mkdir -p $OUT
+run() { # tree probe outname
+  echo "$1 $2 load_before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+  ( cd $S/e-$1 && CRPROBE_OUT=$OUT/$3 timeout -k 10 1500 unshare -rn npx vitest run $D/crprobe.$2.test.tsx > $OUT/log-$3.txt 2>&1 ); rc=$?
+  echo "$1 $2 exit $rc load_after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+}
+for r in 1 2; do run af3d95a sl29-base sl29-af3d95a-r$r.jsonl; run a7ad3f2 sl29-tip sl29-a7ad3f2-r$r.jsonl; done
+for p in paste-differential keystroke-fixedpoint keystroke-settle fence-emoji-count paste-count; do run a7ad3f2 $p $p-a7ad3f2.json; done
+echo done >> $OUT/loads.txt

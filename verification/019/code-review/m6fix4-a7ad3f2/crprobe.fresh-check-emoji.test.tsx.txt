@@ -1,0 +1,33 @@
+import { beforeAll, it, vi } from 'vitest';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
+import { createEditor, Editor } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import getInitialValue from '../getInitialValue';
+import flattenNodeText from '../flattenNodeText';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+import { startEngine } from '~/utils/markdown/engine';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const shapes = (lines: Element[]) => lines.map((l) => JSON.stringify([l.type, l.quotePrefix ?? null, l.startCodeBlock ?? null, l.lang ?? null,
+  l.children.filter((c) => (c as { type?: string }).type === 'emoji').map((c) => (c as { source: string }).source)]));
+it('fresh-load and forced-normalise check of named keystroke results', { timeout: 600000 }, () => {
+  const keys = (process.env.CRPROBE_KEYS as string).split(',');
+  const rows: object[] = [];
+  for (const [name, file] of [['85ece66', process.env.CRPROBE_OLD], ['tip', process.env.CRPROBE_TIP]] as const) {
+    const d = JSON.parse(gunzipSync(readFileSync(file as string)).toString());
+    for (const k of keys) {
+      const after = JSON.parse(d[k].after); const children = after.c as Element[];
+      const text = flattenNodeText(children as Descendant[]);
+      const fresh = shapes(getInitialValue(text, 'embedDescription', false) as Element[]);
+      const got = shapes(children);
+      const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, 'embedDescription');
+      e.children = JSON.parse(JSON.stringify(children)); const o0 = e.operations.length; Editor.normalize(e, { force: true });
+      rows.push({ tree: name, key: k, equalsFresh: JSON.stringify(got) === JSON.stringify(fresh), forcedOps: e.operations.length - o0,
+        firstDiff: got.map((g, i) => (g !== fresh[i] ? `line ${i}: ${g} fresh ${fresh[i]}` : '')).filter(Boolean)[0] ?? '' });
+    }
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

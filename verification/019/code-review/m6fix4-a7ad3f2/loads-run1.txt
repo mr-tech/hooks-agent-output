@@ -1,0 +1,19 @@
+af3d95a sl29-base load_before 1.89 3.58 3.60 4/1108 1092097 05:18:48Z
+af3d95a sl29-base exit 0 load_after 1.92 3.45 3.56 1/1111 1096793 05:19:13Z
+a7ad3f2 sl29-tip load_before 1.92 3.45 3.56 1/1111 1096795 05:19:13Z
+a7ad3f2 sl29-tip exit 0 load_after 1.85 3.37 3.53 1/1128 1099027 05:19:25Z
+af3d95a sl29-base load_before 1.85 3.37 3.53 1/1128 1099029 05:19:25Z
+af3d95a sl29-base exit 0 load_after 2.77 3.47 3.56 3/1125 1103269 05:19:49Z
+a7ad3f2 sl29-tip load_before 2.77 3.47 3.56 3/1125 1103271 05:19:49Z
+a7ad3f2 sl29-tip exit 0 load_after 2.45 3.37 3.52 2/1136 1105505 05:20:02Z
+a7ad3f2 paste-differential load_before 2.45 3.37 3.52 2/1136 1105507 05:20:02Z
+a7ad3f2 paste-differential exit 0 load_after 2.82 3.40 3.53 1/1097 1108250 05:20:16Z
+a7ad3f2 keystroke-fixedpoint load_before 2.82 3.40 3.53 2/1097 1108252 05:20:16Z
+a7ad3f2 keystroke-fixedpoint exit 0 load_after 3.00 3.41 3.53 1/1157 1111519 05:20:31Z
+a7ad3f2 keystroke-settle load_before 3.00 3.41 3.53 1/1157 1111521 05:20:31Z
+a7ad3f2 keystroke-settle exit 0 load_after 3.08 3.42 3.54 1/1140 1112131 05:20:35Z
+a7ad3f2 fence-emoji-count load_before 3.08 3.42 3.54 1/1140 1112133 05:20:35Z
+a7ad3f2 fence-emoji-count exit 0 load_after 3.08 3.42 3.54 1/1144 1112597 05:20:37Z
+a7ad3f2 paste-count load_before 3.08 3.42 3.54 1/1144 1112599 05:20:37Z
+a7ad3f2 paste-count exit 0 load_after 2.92 3.38 3.52 1/1145 1113197 05:20:40Z
+done

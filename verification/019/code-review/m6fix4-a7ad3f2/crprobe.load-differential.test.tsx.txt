@@ -1,0 +1,19 @@
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { corpusTexts, generatorTexts } from '../../__tests__/helpers/roundTripInputs';
+import { startEngine } from '~/utils/markdown/engine';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const EXTRA = ['>>> a\n> b', '>>>  a', ' >>> a\n>>> b', '> >>> a', '>>> > a', '>>>a', '> ```\n> x\n> ```', '>>> a\n```\n> x\n```\n> y', '  > a', '>  a', '>', '> ', '>>> ', '>>>', 'a\n>>> b\n> c\n>>> d'];
+it('load differential', { timeout: 1190000 }, () => {
+  const texts = [...corpusTexts(), ...generatorTexts(3000), ...EXTRA];
+  const out: Record<string, string> = {};
+  texts.forEach((t, i) => {
+    for (const surface of ['content', 'embedDescription'] as const) for (const partial of [false, true]) {
+      let v = ''; try { v = JSON.stringify(getInitialValue(t, surface, partial)); } catch (e) { v = `ERR ${String(e).slice(0, 80)}`; }
+      out[`${i}|${surface}|${partial}`] = v;
+    }
+  });
+  writeFileSync(process.env.CRPROBE_OUT as string, JSON.stringify({ texts, out }));
+});

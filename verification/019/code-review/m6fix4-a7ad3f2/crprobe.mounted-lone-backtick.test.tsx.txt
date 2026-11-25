@@ -1,0 +1,31 @@
+import { act } from 'react';
+import {
+  afterEach, beforeAll, it, vi,
+} from 'vitest';
+import { writeFileSync } from 'node:fs';
+import { Editor, Transforms } from 'slate';
+
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { unmountEditor(); });
+
+const rows: object[] = [];
+it.each([40, 100, 200])('a lone backtick at the end of line 0 of %j a🙂 lines whose last line ends in a backtick, mounted', async (lines) => {
+  const text = Array.from({ length: lines }, (_, i) => (i === lines - 1 ? 'a🙂`' : 'a🙂')).join('\n');
+  const mounted = mountEditor(text, false, 'embedDescription');
+  const errors: string[] = [];
+  const onError = (e: ErrorEvent) => { errors.push(String(e.message).slice(0, 90)); };
+  window.addEventListener('error', onError);
+  let thrown = '';
+  try {
+    await act(async () => { Transforms.select(mounted.editor, Editor.end(mounted.editor, [0])); mounted.editor.insertText('`'); });
+    await act(async () => { vi.runOnlyPendingTimers(); });
+  } catch (e) { thrown = String(e).slice(0, 90); }
+  window.removeEventListener('error', onError);
+  const last = mounted.writes.at(-1) ?? '';
+  rows.push({ lines, thrown, windowErrors: errors, writes: mounted.writes.length, lastWriteHasBacktick: last.split('\n')[0] === 'a🙂`' });
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+}, 300_000);

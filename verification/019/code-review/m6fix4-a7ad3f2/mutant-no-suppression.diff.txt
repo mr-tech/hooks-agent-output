@@ -1,0 +1,4 @@
+462c462
+<   editor.getDirtyPaths = (op) => (rebuilding.has(editor) ? [] : getDirtyPaths(op));
+---
+>   editor.getDirtyPaths = (op) => getDirtyPaths(op);

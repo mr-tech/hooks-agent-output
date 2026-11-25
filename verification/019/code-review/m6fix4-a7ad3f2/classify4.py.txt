@@ -1,0 +1,19 @@
+# usage: python3 -I classify4.py <old.json.gz> <tip.json.gz>; differences with the selection's classNames dropped
+import gzip, json, sys, collections
+a = json.load(gzip.open(sys.argv[1])); b = json.load(gzip.open(sys.argv[2]))
+def norm(s):
+    if s.startswith('ERR'): return s
+    d = json.loads(s)
+    sel = d.get('s')
+    if sel: sel = {k: v for k, v in sel.items() if k != 'classNames'}
+    return json.dumps({'c': d['c'], 's': sel}, sort_keys=True)
+def parts(s):
+    d = json.loads(s); return d['c'], {k: v for k, v in (d['s'] or {}).items() if k != 'classNames'}
+kinds = collections.Counter(); ex = collections.defaultdict(list)
+for k in a:
+    if a[k]['after'] == b[k]['after']: continue
+    if norm(a[k]['after']) == norm(b[k]['after']): kinds['classNames-only'] += 1; continue
+    ca, sa = parts(a[k]['after']); cb, sb = parts(b[k]['after'])
+    kind = tuple(n for n, x, y in (('children', ca, cb), ('selection', sa, sb)) if x != y)
+    kinds[kind] += 1; ex[kind].append(k)
+for kind, n in kinds.most_common(): print(n, kind, ex.get(kind, [])[:40])

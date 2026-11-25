@@ -1,0 +1,9 @@
+#!/bin/sh
+# usage: run-fix4b.sh <scratch dir>; pre-existing class members at three trees, and the fixed-point probe on the no-suppression mutant
+S=$1; D=src/components/SlateEditor/utils/__tests__; OUT=$S/out4; mkdir -p $OUT
+run() { echo "$1 $2 load_before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads-b.txt
+  ( cd $S/e-$1 && CRPROBE_OUT=$OUT/$3 timeout -k 10 1500 unshare -rn npx vitest run $D/crprobe.$2.test.tsx > $OUT/log-$3.txt 2>&1 ); rc=$?
+  echo "$1 $2 exit $rc load_after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads-b.txt; }
+run af3d95a class-base class-af3d95a.jsonl; run 85ece66 class-tip class-85ece66.jsonl; run a7ad3f2 class-tip class-a7ad3f2.jsonl
+run a7ad3f2-nosupp keystroke-fixedpoint keystroke-fixedpoint-a7ad3f2-nosupp.json
+echo done >> $OUT/loads-b.txt

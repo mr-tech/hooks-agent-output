@@ -1,0 +1,18 @@
+pastes 15966 texts 887 bases 9
+85ece66 errors 0 freshFail 249 textFail 2658 zFail 2661
+tip errors 0 freshFail 85 textFail 2658 zFail 2661
+freshOk tip wrong where 85ece66 right 0 Counter() []
+freshOk 85ece66 wrong where tip right 164 Counter({'>>> a\nb': 79, '>>> a': 78, '': 2, 'x': 1, 'a 🙂 b\nc': 1, '```js\nx\n```\n> q': 1, '```\nx': 1, 'a\n> b\nc': 1})
+textOk tip wrong where 85ece66 right 0 Counter() []
+textOk 85ece66 wrong where tip right 0 Counter()
+zOk tip wrong where 85ece66 right 0 Counter() []
+zOk 85ece66 wrong where tip right 0 Counter()
+raw snapshot differs 4301 [(('```js\nx\n```\n> q', 'end'), 406), (('> q', 'end'), 406), (('x', 'end'), 404), (('a 🙂 b\nc', 'end'), 404), (('>>> a\nb', 'end'), 404), (('>>> a', 'end'), 404), (('```\nx', 'end'), 404), (('a\n> b\nc', 'end'), 404), (('> q', 'start'), 211), (('', 'start'), 113), (('', 'end'), 113), (('a 🙂 b\nc', 'start'), 93)]
+selection differs 171 children differ 3540
+shapes differ 164 [('>>> a\nb', 79), ('>>> a', 78), ('', 2), ('x', 1), ('a 🙂 b\nc', 1), ('```js\nx\n```\n> q', 1), ('```\nx', 1), ('a\n> b\nc', 1)]
+EX 124|2|start '```\nblock\n```' 'a 🙂 b\nc' z85 True ztip True fresh True True
+EX 125|2|start '```js\nlet a = 1;\n```' 'a 🙂 b\nc' z85 True ztip True fresh True True
+EX 127|2|start '```JS\nx\n```' 'a 🙂 b\nc' z85 True ztip True fresh True True
+EX 136|4|start '> ```\n> x\n> ```' '>>> a\nb' z85 False ztip False fresh False True
+EX 136|6|start '> ```\n> x\n> ```' '>>> a' z85 False ztip False fresh False True
+EX 142|4|start '> a\n> b' '>>> a\nb' z85 False ztip False fresh False True

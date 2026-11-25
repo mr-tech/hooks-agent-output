@@ -1,0 +1,16 @@
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":40,"medianMs":12.5,"ops":158,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":100,"medianMs":33.4,"ops":398,"error":"Error: Could not completely normalize the editor after 126 iterations!"}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":122,"medianMs":36.5,"ops":486,"error":"Error: Could not completely normalize the editor after 126 iterations!"}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":123,"medianMs":26.1,"ops":490,"error":"Error: Could not completely normalize the editor after 126 iterations!"}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":200,"medianMs":53.3,"ops":798,"error":"Error: Could not completely normalize the editor after 126 iterations!"}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":1000,"medianMs":673.8,"ops":3998,"error":"Error: Could not completely normalize the editor after 126 iterations!"}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":40,"medianMs":0.5,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":100,"medianMs":0.7,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":122,"medianMs":0.6,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":123,"medianMs":0.4,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":200,"medianMs":1.2,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":1000,"medianMs":3.3,"ops":2,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’","n":200,"medianMs":114.6,"ops":987,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’","n":1000,"medianMs":9589,"ops":4987,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’🙂","n":200,"medianMs":279.6,"ops":1578,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’🙂","n":1000,"medianMs":18466.4,"ops":7978,"error":""}
