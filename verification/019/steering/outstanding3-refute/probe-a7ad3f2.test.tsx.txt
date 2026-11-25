@@ -1,0 +1,23 @@
+import { act } from 'react';
+import { appendFileSync } from 'node:fs';
+import { Editor, Node, Transforms } from 'slate';
+import { afterEach, it, vi } from 'vitest';
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+
+afterEach(() => { unmountEditor(); });
+const row = (o: object) => appendFileSync(process.env.PROBE_OUT as string, `${JSON.stringify(o)}\n`);
+it.each([5, 200, 1000])('probe %i', async (n) => {
+  const text = Array.from({ length: n }, (_, i) => (i === n - 1 ? 'a🙂`' : 'a🙂')).join('\n');
+  const m = mountEditor(text, false);
+  act(() => { Transforms.select(m.editor, Editor.end(m.editor, [0])); });
+  const w0 = m.writes.length;
+  let err = '';
+  try { await act(async () => { m.editor.insertText('`'); }); } catch (x) { err = String(x).slice(0, 90); }
+  try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (x) { err += ' | timers: ' + String(x).slice(0, 90); }
+  const line0 = () => Node.string(m.editor.children[0]);
+  const after1 = { err, line0: line0(), nodes: m.editor.children.length, writesSince: m.writes.length - w0, lastWriteLine0: (m.writes.at(-1) ?? '').split('\n')[0], lastWriteLines: (m.writes.at(-1) ?? '').split('\n').length, sel: JSON.stringify(m.editor.selection) };
+  let err2 = '';
+  try { await act(async () => { m.editor.insertText('x'); }); } catch (x) { err2 = String(x).slice(0, 90); }
+  try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (x) { err2 += ' | timers: ' + String(x).slice(0, 90); }
+  row({ n, step1: after1, step2: { err2, line0: line0(), writesSince: m.writes.length - w0, lastWriteLine0: (m.writes.at(-1) ?? '').split('\n')[0], lastWriteLines: (m.writes.at(-1) ?? '').split('\n').length } });
+}, 300000);

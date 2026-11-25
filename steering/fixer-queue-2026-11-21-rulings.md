@@ -1789,3 +1789,17 @@ Two premises the choice turns on are unread: whether production (`origin/master`
 survives the throw (the HIGH/MEDIUM line). A `general-purpose-sonnet` helper was started at 05:2xZ to refute the claim by running the probe at
 `a7ad3f2` and at `origin/master`, capped (4G scope, one worker, `unshare -rn`, exports only). The prompt to him waits on its result. Code review
 of `a7ad3f2` runs on.
+
+## 2026-11-25T05:26Z — plan 019 Outstanding 3: the refutation run says the release adds the throw; back to the planner for severity
+
+The helper's run (evidence copied to `verification/019/steering/outstanding3-refute/`, read this turn) mounted the real `SlateEditor` in each
+tree's export, inserted a backtick at the end of line 0, then an `x`:
+- **At `a7ad3f2`:** it throws Slate's 126-iteration error at 200 and at 1,000 lines, and none at 5. After the throw a pending timer raises
+  `Cannot resolve a DOM point from Slate point`. The backtick stays in the editor but reaches `onChange` only with the next keystroke (0 writes
+  after the backtick, then 1 holding it after the `x`). The `x` is accepted with no throw.
+- **At `origin/master` `5ec0621` (production code):** no throw at 5, 200 or 1,000 lines, and one write after the backtick. That tree stores
+  the emoji as `:slight_smile:`. The implementer's probe does not run there, so the helper wrote a substitute mounted probe.
+- **Not run:** the browser's native input path (the harness calls `editor.insertText`).
+Reading (this thread's): the throw is not in production, so the chain's release adds it. That answers the planner's open premise ("whether
+the release adds this throw is open"). It goes back to `planner-019` to re-derive its severity. If it is HIGH, the cap does not apply. A
+revision would still be a milestone-level scope delta on M6, which goes to him as a selection. The prompt is put once the planner answers.
