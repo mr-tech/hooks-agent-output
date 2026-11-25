@@ -39,6 +39,7 @@ The plan's Status was already `In Progress`.
 | 2026-11-25T12:27 | steering-hooks-fixer (start, block `2026-11-25T09:53Z`, record `13ca80cb`; Resumption State at `ccfa46d7`); code-reviewer-019 (Round 9 REJECTED `40947a6` on CR-28 HIGH's off-selection member, `32670053`); planner-019 (R-128 to R-130) | The sixth M6 fix round: CR-28's off-selection member, R-129's entry condition | Red spec `1288100`; fix `372339f`; `2c0b182`, `e2b5a15`, `48eb60a`; handed to code review at `48eb60a`. The sweep was reshaped on the owner's word. See Fix Round 6. |
 | 2026-11-25T12:37 | code-reviewer-019 (Round 9 sub-entry at `48eb60a` APPROVED_WITH_COMMENTS, CR-31 LOW, `2f94aff4`) | Correct the record's claim on `move_node` noting | Reconcile notes in place in Fix Round 6's What changed and Self-check sweep, and in `m6-fix6-sweep-reading.txt`: a top-level move notes only its target. Swept as a class: `grep -n -iE "move_node\|source and target\|move-notes\|moveNodes\|\bmove\b"` over this document, the sweep reading and `~/.claude/agents/INBOX.md` gives 15 hits in the record files and 0 in the inbox; 3 carry this claim (the three corrected), and 12 are earlier rounds' text on other code. No code change. |
 | 2026-11-25T16:37 | devops-019 (message: Stage 1, devops.md step 5; disposition `m6-fix-bench-fix.{txt,time}`) | Disposition the two uncommitted bench captures | They were mine, not foreign. Restored to their content at HEAD: the committed `exit=0` run stands, and the tail from the killed un-timed run is dropped. A reconcile note is placed in the superseded Resumption State's Branch and HEAD line. No code change. |
+| 2026-11-25T16:50 | steering-hooks-fixer (brief: propose M7's Test Conventions text; Resumption State `bf49059b`) | Propose the workspace `CLAUDE.md` Test Conventions update owed by M7 | Section "Proposed Test Conventions update" added: the two-command form, the offline definition, the rule for who runs the Discord command, and the outcome table with the later-release column. The capture line now names its projects, because a bare run includes the Discord projects (read at `48eb60a`). This was owed at M3 and missed there. Steering lands it. No code change. |
 
 ## Implementation Summary
 
@@ -1085,6 +1086,79 @@ Read in `m6-fix6-sweep-reading.txt`. `mutant-gen.js --range 40947a6..2c0b182`: 4
 ### Next Steps (Fix Round 6)
 
 `code-reviewer-019` reads the round at `48eb60a` against `40947a6` as a Round 9 sub-entry: `withNormalizeNode.ts` (`linesOf`, `noteEdited`, the `apply` wrapper's call, `linesAgree`'s clear, `staleEmojiLines`' sources), then the widened case. Re-run `crprobe.offselection-inline` at the tip (my output is `m6-fix6-tip-2c0b182/offsel-2c0b182.jsonl`; production is identical at `48eb60a`). Then QA Phase 2: R-129's condition with its own mounted run, the browser drag (Round 9's Assumption Not Checked), SL-30, CF-35.
+
+## Proposed Test Conventions update (M7's record update; steering lands it)
+
+Proposed 2026-11-25T16:50Z on steering-hooks-fixer's brief. The target is canonical `agent-output/CLAUDE.md` § `## Test Conventions (`website`)`. Nothing here edits that file, and no website source or tip moves.
+
+The plan says the implementer proposes this text at M3 (§ M7, "Record updates"). I did not, and no 019 implementation document carried it until now. The miss is mine: I read M3's Form as code to build and did not follow its last sentence to M7's record update.
+
+**Read at website `48eb60a`.** `package.json` has `"test": "vitest run --project node --project dom"` and `"test:discord": "vitest run --project discord-node --project discord-dom"`. `vitest.config.ts` declares four projects through `project()`: `node` and `dom` both exclude `**/__tests__/discord/**`, `discord-node` includes `src/**/__tests__/discord/**/*.test.ts` and `discord-dom` includes `src/**/__tests__/discord/**/*.test.tsx`. A run of `npx vitest list --filesOnly --json` with no `--project`, network-isolated (`unshare -rn`, `lo` up), exits 0 and lists files in all four projects: node 130, dom 108, discord-node 5, discord-dom 1, tallied by `projectName` from the JSON. So the current capture line, `npx vitest run --reporter=json …`, runs the Discord comparisons as well as the offline suite. That is why the proposal names the projects in it.
+
+### Text 1 replaces the current "Runner: vitest. Commands…" paragraph and its code block
+
+````markdown
+Runner: vitest, in four projects. `node` and `dom` are the offline suite. `discord-node` and `discord-dom` are the Discord
+comparisons: every test under a `__tests__/discord/` directory, which the offline projects exclude. Commands, run from `website/`:
+
+```sh
+pnpm test                # the offline suite: projects node and dom
+pnpm test:discord        # the Discord comparisons: projects discord-node and discord-dom; needs the network
+npx vitest run --project node --project dom --reporter=json --outputFile=/tmp/report.json  # machine-readable capture, offline suite
+pnpm run typecheck       # BOTH tsc programs, see below
+```
+
+A bare `npx vitest run` (no `--project`) runs all four projects, the Discord comparisons included. Name the projects whenever a run
+is meant to be the offline suite.
+````
+
+### Text 2 is a new subsection, placed after "Instrument note" and before "Axioms"
+
+````markdown
+### Offline, and the Discord command
+
+**`pnpm test` stays green offline.** "Offline" means a network namespace with only loopback up (`unshare -rn` with `lo` up). The
+offline suite holds the properties, the finite maps and masks, and the Discord-derived values frozen as literals. A test that needs
+Discord's served build lives under `__tests__/discord/`, never in the offline suite.
+
+**`pnpm test:discord` fetches Discord's served build and compares the site against it.** It fails loudly when it cannot fetch. Where a
+live value departs from a frozen one, it names both. It runs at every `website` release gate and at every change of the
+`@discord/markdown-wasm` pin:
+- A chain that touches the formatting region (`src/components/SlateEditor/**`, `src/utils/markdown/**`,
+  `src/components/Markdown*.tsx`) runs it through its QA at Phase 2 and Phase 3.
+- A chain that changes the pin runs it through its QA.
+- Every other `website` release runs it through devops at Stage 1, at the release tip, and devops records the output in that chain's
+  deployment document. This holds whether or not the chain touches the region. Devops is the runner because every `website`
+  release passes through Stage 1, while not every chain has a QA Phase 3.
+
+What a red run does depends on its cause and on the chain:
+
+| Cause | A chain touching the region | A pin change | A release not touching the region |
+|---|---|---|---|
+| The fetch fails (loopback-only namespace or a real outage) | Holds the gate. It re-runs when reachable and holds until a green run: the release waits on the network, not on Discord's schedule. | Same | Fails loudly. Devops records the failure in the deployment document, and it does not hold the release. A failure that persists into the next region chain's opening is that chain's to clear. |
+| Drift alarm: the served wasm differs from the pinned one (both hashes reported) | Not a failure. The native-box comparisons still run on the pinned wasm, and report "not comparable under drift" where the served box code cannot initialise against it. Recorded, with an upgrade handoff cited (Owning-Stage planner, Review-Trigger "when the pin is next changed, or the next chain touching the region opens"). | The upgrade is a deliberate change. It re-runs the whole command, moves the pin, the frozen counts and the `version=` lines, and re-reads the frozen masks from the served code. | Recorded. The upgrade handoff is cited, or devops writes it if none is open. |
+| A module locator matches zero modules or several | Holds the gate, and that chain repairs the locator. If the legacy parser is gone from the served bundle, the question goes to the owner through steering. | Same | Does not hold the release. Devops writes a handoff (Owning-Stage planner, Review-Trigger "the next chain touching the region opens"). If the legacy parser is gone, the question goes to the owner through steering. |
+| A frozen literal departs from its live value | Holds the gate. The literal is re-derived from the live oracle and read before it is frozen again. | Same | Does not hold the release. A handoff, as above. |
+| The site differs from Discord on a class held to Discord | A defect. It holds the gate and is fixed. | A defect of the new pin or of the site | Does not hold the release. A handoff, as above. |
+| A legacy-only surface may have moved, or an adjustment is dead or stale | Holds the gate. A moved surface goes to the owner through steering, and its adjustments stay until he rules. A dead or stale adjustment alone is removed or re-derived in that chain. | Same | Does not hold the release. A moved surface goes to the owner through steering. A dead or stale adjustment is a handoff, as above. |
+
+The command never holds a release that does not touch the region, whether Discord has moved or cannot be reached. The region at that
+tip is the one the last region chain's gates passed, so a red run there is news about Discord, and a handoff carries it.
+````
+
+### Where each part comes from (plan Revision 26)
+
+| Proposed text | Plan source | Read at |
+|---|---|---|
+| Four projects; the two commands; the `__tests__/discord/` split | M3 Form, first two bullets (CF-8) | `package.json`, `vitest.config.ts` at `48eb60a` |
+| Projects named in the capture line; a bare run runs all four | Not in the plan; follows from "runs the whole suite" changing (M7) | `vitest list` above |
+| Offline green; the definition of offline; what the offline suite holds | D-12; M3 Form, the `pnpm test` bullet (QA P-Q1, QAF-13) | plan |
+| Fails loudly; names both values | M3 Form, the `pnpm test:discord` bullet (QAF-6a); AC-3.5 | plan |
+| Who runs it: region chains' QA, a pin change's QA, devops at Stage 1 for every other release | D-12; M3 "Who runs it" (F-24, F-28) | plan |
+| The table | M3's outcome table (F-2) with "This chain" left out, since it closes with 019. "A later chain touching the region" becomes the region column, and the later-release column is kept as written (CF-3, F-28) | plan |
+| Closing paragraph | M3, the paragraph under the table | plan |
+
+The proposed text carries no ID tokens (the file's footer: evergreen conventions only). The plan's C1 to C6 labels and its AC and decision references stay in this table.
 
 ## Next Steps (first delivery, `119471f`)
 
