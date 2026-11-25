@@ -2249,3 +2249,18 @@ is Status Released (record `10301859`), pushed 17:39Z on his selection in `devop
 - **B-5** fires from 18:23Z (reader B5R). This thread reads the handoff at 18:37Z (one-shot `c35f91ca`). A FAIL or no Result goes to him.
 - **Rebuild:** per block 15:38Z, not opened. He is told it is ready, and it opens on his word.
 - Gate satisfied: the stamp gate hook refused a typed 17:44 changelog stamp in the lint handoff (the clock read 17:43). Re-stamped from `date -u`.
+
+## 2026-11-25T18:09Z — selection: the editor rebuild does not open yet (put after 17:44Z under block 15:38Z, answered 18:09Z)
+
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T18:09Z — steering-hooks-fixer`. Put by this thread, answered by selection;
+the wording is this thread's. No option was marked recommended.
+- *Agent: open it now*: scoping check and determination, then the planner. The website tree switch needs the coordinator's go. 019's
+  closure finishes in parallel.
+- *Agent: not yet*: the rebuild stays ready on its sizing document, and the editor's open bugs stay as they are on the live site. Not asked
+  again until he says so.
+**Chosen: "Agent: not yet".**
+Premises read this turn: website `origin/master` `48eb60a` (`git ls-remote`). The sizing document (`planning/slate-editor-rebuild-sizing-2026-11-25.md`,
+Active) § The answer in brief: about 865 of 1,558 production lines replaced, and the full stage set (the planner's counts, not re-counted).
+**Effect:** this thread does not raise the rebuild again. It opens on his word alone. The sizing document stays Active as its carrier.
+- `architect-019` closed the 019 findings document Resolved (`3fd48461`, now `architecture/closed/…`). Its four open limbs are carried
+  by its record-INBOX entry. `architect-019` is stopped. Every 019 stage session is now stopped.
