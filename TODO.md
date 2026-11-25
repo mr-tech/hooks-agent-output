@@ -232,3 +232,30 @@ The batch retrospective's recommendations 1 and 6 (`retrospectives/fixes-2026-11
 or QA catch in its seven chains came from a wider instrument than the fixer's own cases — the grammar-oracle corpus, a seeded random probe,
 mutants. Their inputs sit chain-local under `verification/fix-decorator-offsets/`. A suite case driving the real parser over that corpus
 (literal oracle, axiom E) would carry them into every later editor fix. Website test work; carried under "fix everything".
+
+## Take over the hooks fixer queue and its carriers (retired `steering-hooks-fixer`)
+
+Lodged 2026-11-25 by `steering-hooks-fixer`, which the owner retired with `/retire`. Plan 019 is released, and no chain is in flight. A new
+hooks steering thread starts from `steering/fixer-queue-2026-11-21-standing.md` (read whole), then
+`steering/fixer-queue-2026-11-21-rulings.md` from block "2026-11-25T18:13Z — /retire run by him: inventory" to the tail.
+- **The fixer queue** (his commission, standing entry 1, "fix everything", entry 2), not started: website v1 `id: Number(m.id)` precision
+  (`messages.ts:40`, `[id].ts:42`); the `/preview` matcher above; and the items on `handoff/website-leftovers-outside-the-formatting-region-2026-11-25.md`
+  (dead `hasThumbnail` prop and CSS, the generator 304 on a revisited `/preview`). For each: a re-sweep at `origin/master`, a refutation,
+  a determination, the coordinator's go for the tree switch, then `chain/<slug>`.
+- **The editor rebuild** opens on his word alone. On his selection at 18:09Z ("not yet") it is not raised again. Carrier:
+  `planning/slate-editor-rebuild-sizing-2026-11-25.md`.
+- **Carriers this thread owned:**
+  - `handoff/slate-formatting-unwalked-browser-behaviour-2026-11-25.md`: trigger is the first user report or the rebuild's scoping.
+  - `handoff/slate-editor-index-preexisting-react-hooks-lint-errors-2026-11-24.md`: trigger is the rebuild's scoping.
+  - `handoff/website-leftovers-outside-the-formatting-region-2026-11-25.md`.
+  - `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`: items 4, 5 and 7, routing.
+  - `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md` (B-5): its crontab reader B5R closes it on a PASS. A FAIL or no
+    Result needs him. `steering-coordinator` was handed the first read.
+- **This thread's open TODO items:**
+  - `fix-v1-guild-messages-auth`'s implementation document reads Committed though shipped.
+  - `verification/fix-git-dependency-pins/scoping/sweep.md` has 3 LINKS failures.
+  - Batches c and e used the pathspec `src/**/__tests__/**`, missing `src/__tests__/` (unchecked).
+  - Handoff 5b19c3e4 (emoji picker): `discord-test-browser` for the guild-picker limb; the IME limb needs a phone.
+  - F-7 (handoff 017): a per-frame focus sampler with a browser-walker at its next touch.
+  - A stale `.next/types/validator.ts` makes the in-tree typecheck exit 2 (build output, held).
+  - The closed fixer chains' scratch under `/tmp/claude-1000/-usr-local-bin-hooks-website/` (about 381 MB) is swept after a citation check.
