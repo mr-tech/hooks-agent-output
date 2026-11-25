@@ -1723,3 +1723,12 @@ this thread did not re-read: vitest per mutant with no worker cap, 12 workers at
 - `implementer-019` is told, as a blocking message, to stop the sweep and re-run it with `--maxWorkers` and a memory ceiling (lifecycle
   `SKILL.md`, Background work), and to record both in the round. Fix Round 3's sweeps ran the same way, uncapped; that round's document
   states its runner's flags (lines 648 on).
+
+## 2026-11-25T01:27Z — OOM count 0 → 1: a memory-cgroup kill inside implementer-019's capped sweep scope (this thread's)
+
+The standing check reads `grep -c 'invoked oom-killer' /var/log/kern.log` = 1, up from 0 (last read 00:57Z). The kill is at 00:57:20:
+`kern.log` line 568, "Memory cgroup out of memory: Killed process 3465958 (MainThread) ... anon-rss:1689372kB". Its `oom_memcg` is
+`run-r035fb7cb7b7e454fa1409751120ec0b1.scope`, the 5G scope of block 23:41Z's capped re-run.
+- The cap held. Nothing outside the scope was killed: every 019 session is live (`cc-usage.py sessions`, 01:27Z), and 16.1 GB is available.
+- `implementer-019` is told by message to find the mutant that lost the worker and re-run it alone. On that evidence it is not a kill.
+  It records both in the round's Gate satisfactions, and lowers `--maxWorkers` if the scope keeps reaching 5G.
