@@ -234,6 +234,7 @@ Lane: full
 | 2026-11-25T12:37 | R-132 | planner-019 | Registered code review's CR-31 LOW (Round 9 sub-entry, record `2f94aff4`) as a Planner batch stated limit under the M6 cap, for AC-6.9's residue at the seam fold beside R-129's off-selection lines. Scope delta: none — registration only. |
 | 2026-11-25T12:37 | R-133 | planner-019 | Corrected CR-31's Planner batch row on code review's point (record `5f224c30`): a found move path re-reads its severity from what it reaches, not as HIGH by default. The planner's error. Scope delta: none — registration only. |
 | 2026-11-25T15:31 | R-134 | planner-019 | Registered QA's QAF-56 MEDIUM (record `3ffb466`) as a Planner batch stated limit under block 07:21Z. The run count of AC-6.8's timed limb goes to the seam fold. Recorded that the planner's sizing of a Slate-layer rebuild after 019's release (`planning/slate-editor-rebuild-sizing-2026-11-25.md`, `a7e10f4`; blocks 15:25Z and 15:28Z) changes nothing in this plan: "019 will not carry the new work." Scope delta: none — registration only. |
+| 2026-11-25T15:49 | R-135 | qa-019 | QA Phase 2 on M6 (milestone-scoped): **QA Complete** at website `48eb60a` (Fix Round 6, code review's Round 9 sub-entry), record `5f7a5b7c`. R-129, R-130's timer clause, SL-29 and SL-30 are met. Suite 4,785 of 4,785, exit 0. QAF-56 MEDIUM is a stated limit (R-134). The effort-final mutation sweep was not run, on the owner's waiver (rulings block 2026-11-25T15:46Z). Plan-level Status unchanged. Next is UAT, with B-11. |
 
 ## Resumption State
 
