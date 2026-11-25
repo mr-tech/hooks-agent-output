@@ -1982,6 +1982,38 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
+**Checkpoint, 2026-11-25T05:31Z, for a `/clear`** at steering's ask (`steering-hooks-fixer`, 332K tokens). This block is current. The
+blocks below it are history where they disagree.
+
+- **Done.**
+  - Round 8 at `2b82972` (Fix Round 3): REJECTED on CR-25's time member (record `7376a74c`, plan R-112).
+  - Its sub-entry at `a7ad3f2` (Fix Round 4): **REJECTED on CR-28 HIGH**, with CR-27 MEDIUM (record `9cb3a3da`, plan R-117
+    `a2515c01`).
+    - CR-28 is the lone-backtick iteration-cap throw that the owner's D-28 covers. It throws from 100 `a🙂` lines, mounted too;
+      `af3d95a` does not throw.
+    - CR-27: the suppression's fixed-point condition fails on 6 corpus keystrokes, and the no-suppression mutant restores all 6.
+  - CR-25 HIGH and CR-26 LOW are RESOLVED at `a7ad3f2`, with SL-29 at 0 of 20 over.
+  - CR-29 MEDIUM is a stated limit (block 05:30Z, `9fe446a8`), carried by `handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md`.
+- **Next.** Fix Round 5's review. Steering's brief will name this state. It is a sub-entry of Round 8 unless the fix touches beyond
+  CR-28 and CR-27; whatever D-28's class revision adds may make it a round. Before reading the diff:
+  - Read plan Revision 24, which answers CR-27 against R-111 once AN-9 has enumerated D-28's class, and record its criteria at
+    round open.
+  - Then re-run, from `verification/019/code-review/m6fix4-a7ad3f2/` (README there):
+    - `run-fix4.sh` (SL-29 at `af3d95a` and the tip; differentials and counts);
+    - `run-fix4b.sh` (class members at three trees, and the fixed-point probe on a no-suppression mutant of the tip);
+    - the load differential against `a7ad3f2`;
+    - the fresh-check over the keystroke differential's substantive differences (`classify4.py` drops `classNames`);
+    - the mounted lone-backtick probe.
+  - CR-28's falsity case must be red at `a7ad3f2` by assertion. Every member AN-9 lists needs a probe at `af3d95a` and at the tip.
+  - QA holds both Assumptions Not Checked for the next tip: the browser paste (`a721fd95`), and the generator for CR-27 (`fcc0ba6d`).
+- **Approach in flight.** None.
+- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `a7ad3f2`, never moved by me. The record is on `master`.
+- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds disposable exports (`r8/e-*`, including the
+  `e-a7ad3f2-nosupp` mutant) and outputs. Every cited output is copied under `verification/019/code-review/`.
+- **Evidence run but not recorded.** None.
+- **Questions sent, and to whom.** CR-27 against R-111, to planner-019, to be answered in Revision 24. Nothing else is open.
+- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
+
 Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, 367,141 tokens). The earlier state, from
 07:07Z, is kept below where it still holds.
 
