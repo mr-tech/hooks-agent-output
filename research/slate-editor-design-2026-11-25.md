@@ -2,7 +2,7 @@
 UUID: 416ecf54
 Parent: slate-formatting-discord-oracle-2026-11-23
 Status: Active
-Status-Detail: "All four parts are written and the owner has answered: a rebuild is sized first by planner-019, and for a rebuild emoji are decided per line and the quote marker is hidden (OQ-1, OQ-2). OQ-3 comes back with the sizing; OQ-4 and G-8 go to the sizing. Stays Active until the sizing lands; the close is on steering's cue. Checkpointed, no unit in flight."
+Status-Detail: "All four parts are written and the owner has answered OQ-1 to OQ-3: a rebuild is sized first by planner-019 and would be its own effort, never part of plan 019; for a rebuild, emoji are decided per line and the quote marker is hidden. OQ-4 and G-8 go to the sizing. Stays Active until the sizing lands; the close is on steering's cue. Checkpointed, no unit in flight."
 ---
 
 # Is there a better design for the website's message editor, and what would adopting it change for plan 019?
@@ -14,25 +14,26 @@ Status-Detail: "All four parts are written and the owner has answered: a rebuild
 | 2026-11-25T11:47 | researcher-slate-editor-design | Document created; Part 1 written | Brief `steering/slate-editor-design-brief-researcher.md`; the owner's question and its sharpening are effort rulings blocks "2026-11-25T11:38Z" and "2026-11-25T11:40Z" (`steering/fixer-queue-2026-11-21-rulings.md`), both read at this write. Two helpers are running (open-source survey; plan 019 defect extraction); nothing of theirs is in this revision. |
 | 2026-11-25T11:59 | researcher-slate-editor-design | Parts 2 to 4, System Weaknesses, Open Questions, Remaining Gaps, Recommendations and two appendices written; P1-4's caller sentence corrected; first commit | The 11:47 text was never committed. Its P1-4 said the inline-object pass had one caller; a second module calls one of its helpers, and the sentence now says so. The defect-extraction helper's table is used in P3-5 and P4-2 and marked there. The survey helper's table is used in P2-4 and marked there; the six rows of Part 2's table are this session's reads. A proof-of-concept was run once (P3-2 to P3-4, Appendices A and B). Record check at session start: exit 1, 41 failures outside the baseline, none in a research document. |
 | 2026-11-25T15:27 | researcher-slate-editor-design | Owner's answers recorded; OQ-1 and OQ-2 resolved, OQ-3 deferred, OQ-4 and G-8 routed; Resumption State written; checkpoint at steering's ask | Effort rulings block "2026-11-25T15:25Z" (record commit `903a6252`), read whole at this write, at `steering-hooks-fixer`'s message. Nothing in § Findings was re-run. G-3 gains steering's helper's undo reading, marked as not made here. Record check after the first commit: exit 1, the same 41 failures as at session start, none in this document. Cache-warm wake deleted at this checkpoint. |
+| 2026-11-25T15:29 | researcher-slate-editor-design | OQ-3 resolved on the owner's words; Resumption State rewritten | Effort rulings block "2026-11-25T15:28Z" (record commit `f3096590`), read whole at this write, at `steering-hooks-fixer`'s message, which arrived after the 15:27 checkpoint was committed (record `dc9da4cd`). Nothing in § Findings was re-run. No wake was armed for this turn. |
 
 ## Resumption State
 
-Checkpoint written 2026-11-25T15:27Z at `steering-hooks-fixer`'s ask; the session is cleared after this commit. Later documents are
-authoritative on the state of every item named here.
+Checkpoint written 2026-11-25T15:27Z at `steering-hooks-fixer`'s ask and rewritten 2026-11-25T15:29Z when OQ-3's answer arrived after
+it; the session is cleared after this commit. Later documents are authoritative on the state of every item named here.
 
 - **Done.** The research: first committed revision at record `0f8b22cf`, delivered to `steering-hooks-fixer`. The owner's
   answers are recorded at this revision (Open Questions). Nothing in § Findings was re-run or re-read after the first revision.
-- **Next act.** The close, on `steering-hooks-fixer`'s cue once `planner-019`'s sizing lands: the Close Procedure, with OQ-3,
-  OQ-4 and every row of Remaining Gaps given a carrier by path or a stated lapse. Until then the document stays Active.
+- **Next act.** The close, on `steering-hooks-fixer`'s cue once `planner-019`'s sizing lands: the Close Procedure, with OQ-4
+  and every row of Remaining Gaps given a carrier by path or a stated lapse. Until then the document stays Active.
 - **Approach in flight.** None; no research unit is open.
-- **Trees.** The record, `agent-output` on `master`, HEAD `3ffb4663` before this commit. The website tree was not touched: it
+- **Trees.** The record, `agent-output` on `master`, HEAD `f3096590` before this commit. The website tree was not touched: it
   was read from `git archive` exports of `5ec0621` and `2c0b182`, since deleted.
 - **Uncommitted.** One entry of this session's in `INBOX.md`, headed "2026-11-25 — researcher-slate-editor-design — FYI", left
   for the record's owning session by the inbox's convention. Nothing else, and nothing locally mutated.
 - **Evidence run but not recorded.** None. The proof-of-concept's readings are Appendix A and its script is Appendix B.
 - **Questions sent, and to whom.** Two messages to `steering-hooks-fixer`: one reporting a read that was not completed (id
   `21796324-fc3e-41d8-a9ae-530ce13ef1e6`), one delivering this document with OQ-1 to OQ-3 (id
-  `80e87694-b25e-4938-8e6e-edd7608214e6`), answered by rulings block "2026-11-25T15:25Z". None awaits an answer. Nothing was
+  `80e87694-b25e-4938-8e6e-edd7608214e6`), answered by rulings blocks "2026-11-25T15:25Z" and "15:28Z". None awaits an answer. Nothing was
   put to the owner directly, and no plan 019 session was messaged.
 - **Processes and scratch.** `pstree -ap` of this session at the checkpoint shows the harness's browser tool server and no
   process this session's work started. Its scratch directory holds the scripts, the proof-of-concept's output and the two
@@ -40,7 +41,8 @@ authoritative on the state of every item named here.
 - **Standing bounds.** The brief's: read-only on the website tree; no message to a plan 019 session and no write to a plan 019
   document; Discord's test server only; Discord's code is never committed; no `.env*` value is read; the bare word `none` is
   not used in a command; a stopped call goes to `steering-hooks-fixer` and is not re-issued.
-- **Wake.** The cache-warm wake is deleted at this checkpoint and is armed again at the next turn.
+- **Wake.** The cache-warm wake was deleted at the 15:27Z checkpoint and was not armed for this rewrite; it is armed again at
+  the next briefed turn.
 
 ## Question
 
@@ -429,9 +431,9 @@ whole at this write). Each question's argument is in this document's first commi
   Discord (Recommended)". It binds a rebuild only; D-13 stands for the current editor. Rulings block "2026-11-25T15:25Z".
 - OQ-2 RESOLVED — for a rebuild, a quote line's marker is hidden, the site still storing it beside the text: his selection
   "Agent: hidden, like Discord (Recommended)". It binds a rebuild only. Same block.
-- OQ-3 DEFERRED — not put to him, by `steering-hooks-fixer`: he chose "Agent: size a rebuild first (Recommended)", and whether
-  a rebuild happens inside plan 019 or after its release comes back to him with the sizing. Same block. If no sizing lands,
-  the question lapses with it.
+- OQ-3 RESOLVED — plan 019 does not carry a rebuild. His words: "019 will not carry the new work." Any rebuild is its own
+  effort, and 019 goes to its release on the current editor under D-19; whether a rebuild happens at all he has not said
+  (the reading is `steering-hooks-fixer`'s). Rulings block "2026-11-25T15:28Z".
 - OQ-4 ROUTED — to `planner-019`'s sizing of a rebuild, by `steering-hooks-fixer`'s message to this session after that block.
   The block records the commission and does not name OQ-4, and no sizing document exists yet, so the item's text stays here
   until one does: whether the colouring and the preview need any change under a rebuild is not concluded. The preview does not
