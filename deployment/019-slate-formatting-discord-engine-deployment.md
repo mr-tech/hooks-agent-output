@@ -144,6 +144,17 @@ loaded signed out; nothing was clicked or saved. Captures `verification/019/devo
 - **Not a property of the release.** Production's server HTML for `/message/m/0/edit` has no failed boundary (5 reads) and 14
   production loads raised no page error. A local build of `48eb60a` with the environment check passing renders the same page on the
   server with no failed boundary (`stage1-local-ssr-48eb60a.txt`).
+- **Refutation check, and the one gap it found.** A `general-purpose-sonnet` helper, given the conclusion alone, did not refute it: on
+  a local build of `48eb60a`, removing only those five variables brings the failed boundary and React #419 back, and supplying them
+  clears both; `src/env.mjs` is unchanged by the release. Its gap: because the Preview threw first, the new formatter module had not
+  been loaded inside a Vercel function.
+- **Second Preview, closing that gap.** Commit `f58f6b0` (`48eb60a`, the same `vercel.json`, and `next.config.js`
+  `env: { SKIP_ENV_VALIDATION: '1' }`, so the check is skipped at runtime too), pushed to `release-check/019` at 17:14:00Z, Ready in
+  17 s, deleted afterwards. `/message/m/0/edit` server-renders on Vercel with no failed boundary (47,532 bytes); `/message/m/new` and
+  `/preview` carry the same markers as production; 30 loads in Chromium 143 raised no page error; the wasm was served on each.
+  (`stage1-preview2-*`. Its runtime log returned no records, which is not relied on.)
+- **Not observable before the push:** that production's current variables are all present for a new deployment (the live site renders
+  with the ones it was built with; the release adds none), and signed-in pages with real data on Vercel.
 - **Production, observed in passing (base code, nothing pushed).** Between about 16:55Z and 17:04Z two waits of 60 s for the load event
   on production `/message/m/0/edit` timed out, and one `curl` of it got no response in 60 s. The 14 loads at 17:08Z each finished
   under 0.7 s. Not diagnosed.
@@ -213,7 +224,8 @@ is the evidence the release move cites.
 
 ## User Confirmation
 
-Not asked. It is asked after R-1, in this session; this section will record how it was put and when.
+Put at 2026-11-25T17:38 by selection prompt, in this session, after R-1 passed and with the readiness block above committed. Remote `master` read
+`5ec0621` just before. Answer: pending.
 
 ## Release Execution
 

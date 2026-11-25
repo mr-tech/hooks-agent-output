@@ -1,0 +1,64 @@
+{
+ "at": "2026-11-25T17:14:38.899Z",
+ "base": "https://hooks-gg-website-e9mh6n1wc-hooks-gg.vercel.app",
+ "browser": "143.0.7499.4",
+ "loads": 10,
+ "pages": {
+  "preview": {
+   "path": "/preview",
+   "loadsWithPageError": 0,
+   "pageErrors": [],
+   "throws": [],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 10
+   },
+   "strong": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "scriptsRead": 25,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/3x6rfyh-qzyrz.js"
+   ]
+  },
+  "new": {
+   "path": "/message/m/new",
+   "loadsWithPageError": 0,
+   "pageErrors": [],
+   "throws": [],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 10
+   },
+   "strong": [],
+   "scriptsRead": 45,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/33ydt163-vytp.js"
+   ]
+  },
+  "edit": {
+   "path": "/message/m/0/edit",
+   "loadsWithPageError": 0,
+   "pageErrors": [],
+   "throws": [],
+   "consoleErrors": {},
+   "wasm": {
+    "200": 10
+   },
+   "strong": [],
+   "scriptsRead": 44,
+   "scriptsWithNotice": [
+    "/_next/static/immutable/chunks/33ydt163-vytp.js"
+   ]
+  }
+ }
+}
