@@ -1,0 +1,9 @@
+#!/bin/sh
+# usage: run-sl30.sh <scratch dir> <out dir>; SL-30's positions, mounted, at the round's tip and at a7ad3f2
+S=$1; OUT=$2; M=src/components/SlateEditor/__tests__
+run() { echo "$1 load_before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt; rm -f $OUT/$2
+  ( cd $S/$1 && PROBE_OUT=$OUT/$2 timeout -k 10 2400 unshare -rn npx vitest run --maxWorkers=1 --project node --project dom $M/crprobe.sl30-positions.test.tsx > $OUT/log-$2.txt 2>&1 ); rc=$?
+  echo "$1 exit $rc load_after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt; }
+run e-ded68fc sl30-ded68fc.jsonl
+run export-a7 sl30-a7ad3f2.jsonl
+echo "done $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt

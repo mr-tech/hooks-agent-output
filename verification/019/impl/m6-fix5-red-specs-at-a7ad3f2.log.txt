@@ -1,0 +1,579 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (854 tests | 93 failed) 18271ms
+         × raises no error 5ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 3ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × raises no error 1ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 1ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 8ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 1ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 2ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 3ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 1ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 2ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 2ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 1ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 2ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 1ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 2ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 16 failed) 7393ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0' 67ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing the backtick at th…' 91ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 51ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …' 79ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 55ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …' 74ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backslash typed before a leading ba…' 72ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…' 53ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0' 50ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing the backtick at th…' 72ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 55ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 75ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 51ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 69ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backslash typed before a leading ba…' 69ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…' 55ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 40 failed) 17877ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 259ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 388ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 136ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 279ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1809ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 115ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 226ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 93ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 200ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1240ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 155ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 299ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 121ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 259ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1618ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 85ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 232ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 92ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 193ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1232ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 155ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 312ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 191ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 235ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1580ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 81ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 196ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 90ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 171ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1272ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 123ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 190ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 85ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 170ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1199ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 151ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 297ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 132ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 235ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1591ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 149 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the end of line 0' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing the backtick at th…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing the backtick at th…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing the backtick at th…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing the backtick at th…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing the backtick at th…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backtick typed at the start of line…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backtick at the …' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backslash typed before a leading ba…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backslash typed before a leading ba…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backslash typed before a leading ba…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backslash typed before a leading ba…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'a backslash typed before a leading ba…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx > 'Backspace removing a backslash before…' > hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing the backtick at th…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backslash typed before a leading ba…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor settles a line and reads a line's fence state in proportion to the lines an edit changes > does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing the backtick at th…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'a backslash typed before a leading ba…'
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…'
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/core/should-normalize.ts:11:10
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:121:49
+ ❯ shouldNormalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:71:16
+ ❯ fn node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/without-normalizing.ts:10:4
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:183:55
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:973:11
+ ❯ withoutNormalizing node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/editor/normalize.ts:41:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:157:37
+ ❯ Object.editor.normalize src/components/SlateEditor/utils/withNormalizeNode.ts:466:5
+    464|   editor.normalize = (options) => {
+    465|     if (!partialMarkdown && Editor.isNormalizing(editor)) linesAgree(e…
+    466|     normalize(options);
+       |     ^
+    467|   };
+    468|
+ ❯ normalize node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/editor.ts:897:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the end of line 0', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backtick typed at the start of line…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > raises no error
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backslash before…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > raises no error
+AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:91:27
+     89|
+     90|   it('raises no error', () => {
+     91|     expect(outcome.error).toBe('');
+       |                           ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 78, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 78,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:101:20
+     99|   it('leaves nothing for a forced normalise of the whole message to ch…
+    100|     const forced = { operations: outcome.forcedOperations, error: outc…
+    101|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 178, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 178,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:101:20
+     99|   it('leaves nothing for a forced normalise of the whole message to ch…
+    100|     const forced = { operations: outcome.forcedOperations, error: outc…
+    101|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing the backtick at th…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 978, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 978,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:101:20
+     99|   it('leaves nothing for a forced normalise of the whole message to ch…
+    100|     const forced = { operations: outcome.forcedOperations, error: outc…
+    101|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 0: a🙂z but expected za🙂' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: a🙂z but expected za🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 80, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 80,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:101:20
+     99|   it('leaves nothing for a forced normalise of the whole message to ch…
+    100|     const forced = { operations: outcome.forcedOperations, error: outc…
+    101|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 180, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 180,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:101:20
+     99|   it('leaves nothing for a forced normalise of the whole message to ch…
+    100|     const forced = { operations: outcome.forcedOperations, error: outc…
+    101|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > leaves nothing for a forced normalise of the whole message to change or to raise
+AssertionError: expected { operations: 980, error: '' } to deeply equal { operations: +0, error: '' }
+
+- Expected
++ Received
+
+  {
+    "error": "",
+-   "operations": 0,
++   "operations": 980,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:101:20
+     99|   it('leaves nothing for a forced normalise of the whole message to ch…
+    100|     const forced = { operations: outcome.forcedOperations, error: outc…
+    101|     expect(forced).toEqual({ operations: 0, error: '' });
+       |                    ^
+    102|   });
+    103|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 0:  a🙂z but expected z a🙂' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0:  a🙂z but expected z a🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: \\`a🙂z but expected \\z`a🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"]
+AssertionError: expected { Object (forcedOperations, forcedError) } to deeply equal { forcedOperations: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+    "forcedError": "",
+-   "forcedOperations": 0,
++   "forcedOperations": 3,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:185:37
+    183|     else if (key === 'backspace') editor.deleteBackward('character');
+    184|     else editor.insertText('`');
+    185|     expect(forcedNormalise(editor)).toEqual({ forcedOperations: 0, for…
+       |                                     ^
+    186|   });
+    187| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/149]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"]
+AssertionError: expected { Object (forcedOperations, forcedError) } to deeply equal { forcedOperations: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+    "forcedError": "",
+-   "forcedOperations": 0,
++   "forcedOperations": 9,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:185:37
+    183|     else if (key === 'backspace') editor.deleteBackward('character');
+    184|     else editor.insertText('`');
+    185|     expect(forcedNormalise(editor)).toEqual({ forcedOperations: 0, for…
+       |                                     ^
+    186|   });
+    187| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/149]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  149 failed | 849 passed (998)
+   Start at  06:28:50
+   Duration  47.58s (transform 407ms, setup 28ms, import 1.54s, tests 43.54s, environment 1.72s)
+
+exit 1

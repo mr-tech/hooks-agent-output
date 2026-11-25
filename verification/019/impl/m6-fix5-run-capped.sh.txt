@@ -1,0 +1,6 @@
+#!/bin/sh
+# usage: run-capped.sh <tree> <log> <vitest args...>; one worker, no network, 5G memory scope, no swap
+T=$1; L=$2; shift 2
+cd "$T" && systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 -p RuntimeMaxSec=3000 -- \
+  timeout -k 10 2900 unshare -rn sh -c 'ip link set lo up 2>/dev/null; exec npx vitest run --maxWorkers=1 "$@"' sh "$@" > "$L" 2>&1
+echo "exit $?" >> "$L"

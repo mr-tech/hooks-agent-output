@@ -1,0 +1,15 @@
+#!/bin/sh
+# usage: run-diff5.sh <scratch dir> <out dir>; the reviewer's probes, unmodified, at ded68fc and at ded68fc with the getDirtyPaths override made a pass-through
+S=$1; OUT=$2; U=src/components/SlateEditor/utils/__tests__; M=src/components/SlateEditor/__tests__
+run() { # tree probe-path outname [surface]
+  echo "$1 $2 load_before $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+  ( cd $S/e-$1 && CRPROBE_SURFACE=${4:-embedDescription} CRPROBE_OUT=$OUT/$3 timeout -k 10 2400 unshare -rn npx vitest run --maxWorkers=1 --project node --project dom $2 > $OUT/log-$3.txt 2>&1 ); rc=$?
+  echo "$1 $2 exit $rc load_after $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt
+}
+run ded68fc $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-ded68fc.json
+run ded68fc-nosupp $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-ded68fc-nosupp.json
+run ded68fc $U/crprobe.keystroke-settle.test.tsx keystroke-settle-ded68fc.json
+run ded68fc $U/crprobe.paste-differential.test.tsx paste-differential-ded68fc.json
+run ded68fc $U/crprobe.class-tip.test.tsx class-ded68fc.jsonl
+run ded68fc $M/crprobe.mounted-lone-backtick.test.tsx mounted-lone-backtick-ded68fc.jsonl
+echo "done $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt

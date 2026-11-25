@@ -1,0 +1,15 @@
+pastes 15966 texts 887 bases 9
+a7ad3f2 errors 0 freshFail 85 textFail 2658 zFail 2661
+tip errors 0 freshFail 81 textFail 2658 zFail 2661
+freshOk tip wrong where a7ad3f2 right 0 Counter() []
+freshOk a7ad3f2 wrong where tip right 4 Counter({'>>> a\nb': 2, '>>> a': 2})
+textOk tip wrong where a7ad3f2 right 0 Counter() []
+textOk a7ad3f2 wrong where tip right 0 Counter()
+zOk tip wrong where a7ad3f2 right 0 Counter() []
+zOk a7ad3f2 wrong where tip right 0 Counter()
+raw snapshot differs 552 [(('', 'start'), 97), (('', 'end'), 97), (('>>> a\nb', 'start'), 31), (('>>> a', 'start'), 31), (('x', 'start'), 30), (('x', 'end'), 30), (('a 🙂 b\nc', 'start'), 30), (('a 🙂 b\nc', 'end'), 30), (('>>> a\nb', 'end'), 30), (('>>> a', 'end'), 30), (('a\n> b\nc', 'start'), 30), (('a\n> b\nc', 'end'), 30)]
+selection differs 0 children differ 198
+shapes differ 4 [('>>> a\nb', 2), ('>>> a', 2)]
+EX 480|4|start '> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> ' '>>> a\nb' z85 False ztip False fresh False True
+EX 480|6|start '> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> ' '>>> a' z85 False ztip False fresh False True
+EX 676|4|start '> _<a:dance:1558266761101447248>_ 🙂 https://x.y\\<x\\<\n### ||_' '>>> a\nb' z85 False ztip False fresh False True

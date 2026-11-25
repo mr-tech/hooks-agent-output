@@ -1,0 +1,32 @@
+{"name":"a backtick typed at the end of line 0","n":5,"ms":15.6,"ops":38,"error":""}
+{"name":"a backtick typed at the end of line 0","n":100,"ms":68.8,"ops":526,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the end of line 0","n":200,"ms":109.1,"ops":926,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the end of line 0","n":1000,"ms":761.6,"ops":4126,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing the backtick at the end of line 0","n":5,"ms":9.3,"ops":34,"error":""}
+{"name":"Backspace removing the backtick at the end of line 0","n":100,"ms":69.8,"ops":280,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing the backtick at the end of line 0","n":200,"ms":139.2,"ops":480,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing the backtick at the end of line 0","n":1000,"ms":1191.6,"ops":2080,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the start of line 0","n":5,"ms":2.7,"ops":42,"error":""}
+{"name":"a backtick typed at the start of line 0","n":100,"ms":40.6,"ops":530,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the start of line 0","n":200,"ms":80,"ops":930,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the start of line 0","n":1000,"ms":758,"ops":4130,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backtick at the start of line 0","n":5,"ms":3.2,"ops":37,"error":""}
+{"name":"Backspace removing a backtick at the start of line 0","n":100,"ms":40.1,"ops":282,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backtick at the start of line 0","n":200,"ms":84.1,"ops":482,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backtick at the start of line 0","n":1000,"ms":930.1,"ops":2082,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the start of line 0, before a space","n":5,"ms":2,"ops":42,"error":""}
+{"name":"a backtick typed at the start of line 0, before a space","n":100,"ms":29.3,"ops":530,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the start of line 0, before a space","n":200,"ms":66.5,"ops":930,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backtick typed at the start of line 0, before a space","n":1000,"ms":717.9,"ops":4130,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backtick at the start of line 0, before a space","n":5,"ms":3.5,"ops":37,"error":""}
+{"name":"Backspace removing a backtick at the start of line 0, before a space","n":100,"ms":56.3,"ops":282,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backtick at the start of line 0, before a space","n":200,"ms":120.9,"ops":482,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backtick at the start of line 0, before a space","n":1000,"ms":1159.7,"ops":2082,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backslash typed before a leading backtick on line 0","n":5,"ms":3,"ops":37,"error":""}
+{"name":"a backslash typed before a leading backtick on line 0","n":100,"ms":57.5,"ops":282,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backslash typed before a leading backtick on line 0","n":200,"ms":117.2,"ops":482,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"a backslash typed before a leading backtick on line 0","n":1000,"ms":1173,"ops":2082,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backslash before a leading backtick on line 0","n":5,"ms":2.3,"ops":42,"error":""}
+{"name":"Backspace removing a backslash before a leading backtick on line 0","n":100,"ms":31.9,"ops":530,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backslash before a leading backtick on line 0","n":200,"ms":107.4,"ops":930,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}
+{"name":"Backspace removing a backslash before a leading backtick on line 0","n":1000,"ms":749.5,"ops":4130,"error":"Error: Could not completely normalize the editor after 126 iterations! This is usually due"}

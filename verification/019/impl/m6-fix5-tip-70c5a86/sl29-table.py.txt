@@ -1,0 +1,21 @@
+# usage: python3 -I sl29-table.py <dir>; SL-29's line (steering block 20:58Z): 1.25 times the larger of the opening and closing base
+# medians at that size, per fill, the fence's open and close pooled; the paste member's line is 1.25 times its own base median.
+# Rounds 1 and 2 of af3d95a (base), a7ad3f2 and 70c5a86 are read from sl29-<tree>-r<n>.jsonl.
+import json, sys, os
+d = sys.argv[1]
+def rows(t, r): return [json.loads(l) for l in open(os.path.join(d, f'sl29-{t}-r{r}.jsonl'))]
+trees = {'base': 'e-af3d95a', 'a7ad3f2': 'export-a7', '70c5a86': 'e-70c5a86'}
+data = {k: {r: {(x['kind'], x['fill'], x['n'], x['name']): x for x in rows(t, r)} for r in (1, 2)} for k, t in trees.items()}
+keys = list(data['70c5a86'][1])
+def line(key):
+    kind, fill, n, name = key
+    same = [k for k in data['base'][1] if k[0] == kind and k[1] == fill and k[2] == n] if kind == 'fence' else [key]
+    return 1.25 * max(max(data['base'][r][k]['medianMs'] for r in (1, 2)) for k in same)
+over = 0
+print('member | fill | N | af3d95a r1/r2 (T=throws) | line | a7ad3f2 r1/r2 | 70c5a86 r1/r2 | 70c5a86 verdict | 70c5a86 error / mismatch | 70c5a86 ops')
+for k in keys:
+    b = [data['base'][r][k] for r in (1, 2)]; a = [data['a7ad3f2'][r][k] for r in (1, 2)]; t = [data['70c5a86'][r][k] for r in (1, 2)]
+    L = line(k); worst = max(x['medianMs'] for x in t); ok = worst <= L; over += not ok
+    T = ' T' if any(x['error'] for x in b) else ''
+    print(f"{k[3]} | {k[1]} | {k[2]} | {b[0]['medianMs']}/{b[1]['medianMs']}{T} | {L:.1f} | {a[0]['medianMs']}/{a[1]['medianMs']} | {t[0]['medianMs']}/{t[1]['medianMs']} | {'within' if ok else 'OVER'} | {t[0]['error'] or '-'}/{t[0]['mismatch']},{t[1]['mismatch']} | {t[0]['ops']}")
+print('over', over, 'of', len(keys))

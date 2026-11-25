@@ -1,0 +1,20 @@
+# usage: python3 -I cf35-equality.py <fixed.json[.gz]> <pass-through.json[.gz]>
+# CF-35's condition: after each corpus keystroke the document (children) on the fixed tree equals the document on the
+# same tree with the getDirtyPaths override made a pass-through. Also prints each tree's non-fixed-point keystrokes.
+import gzip, json, sys
+def load(p): return json.load(gzip.open(p) if p.endswith('.gz') else open(p))
+a, b = load(sys.argv[1]), load(sys.argv[2])
+assert a.keys() == b.keys()
+def children(s): return s if s.startswith('ERR') else json.dumps(json.loads(s)['c'], sort_keys=True)
+def selection(s):
+    if s.startswith('ERR'): return s
+    sel = json.loads(s)['s']
+    return json.dumps({k: v for k, v in sel.items() if k != 'classNames'} if sel else None, sort_keys=True)
+docs = [k for k in a if children(a[k]['after']) != children(b[k]['after'])]
+sels = [k for k in a if selection(a[k]['after']) != selection(b[k]['after'])]
+print('keystrokes', len(a))
+print('documents differ', len(docs), docs[:40])
+print('selections differ (classNames dropped)', len(sels), sels[:40])
+for name, d in (('fixed', a), ('pass-through', b)):
+    nf = [k for k in d if not d[k]['fixedPoint']]
+    print(name, 'non-fixed-point', len(nf), nf[:40], 'errors', sum(v['after'].startswith('ERR') for v in d.values()))

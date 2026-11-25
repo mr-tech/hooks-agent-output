@@ -1,0 +1,29 @@
+sl29 e-af3d95a r1 before load 1.27 1.54 1.42 2/979 1909184 06:48:21Z
+sl29 e-af3d95a r1 after load 1.31 1.53 1.42 1/980 1912160 06:48:44Z
+sl29 export-a7 r1 before load 1.31 1.53 1.42 1/980 1912162 06:48:44Z
+sl29 export-a7 r1 after load 1.50 1.56 1.43 1/985 1913861 06:48:56Z
+sl29 e-ded68fc r1 before load 1.50 1.56 1.43 1/985 1913863 06:48:56Z
+sl29 e-ded68fc r1 after load 1.42 1.55 1.42 1/985 1915184 06:49:06Z
+bench fence-and-quote-time export-a7 r1 before load 1.42 1.55 1.42 1/985 1915186 06:49:06Z
+bench fence-and-quote-time export-a7 r1 after load 1.64 1.59 1.44 1/979 1917804 06:49:25Z
+bench fence-and-quote-time e-ded68fc r1 before load 1.64 1.59 1.44 1/979 1917806 06:49:25Z
+bench fence-and-quote-time e-ded68fc r1 after load 1.82 1.63 1.46 4/1008 1920498 06:49:44Z
+bench keystroke-time export-a7 r1 before load 1.82 1.63 1.46 4/1009 1920504 06:49:44Z
+bench keystroke-time export-a7 r1 after load 1.76 1.62 1.46 1/983 1921382 06:49:51Z
+bench keystroke-time e-ded68fc r1 before load 1.76 1.62 1.46 1/983 1921384 06:49:51Z
+bench keystroke-time e-ded68fc r1 after load 1.78 1.63 1.46 1/991 1922412 06:49:58Z
+sl29 e-af3d95a r2 before load 1.78 1.63 1.46 1/991 1922414 06:49:58Z
+sl29 e-af3d95a r2 after load 1.51 1.58 1.45 1/981 1925585 06:50:21Z
+sl29 export-a7 r2 before load 1.51 1.58 1.45 1/981 1925587 06:50:21Z
+sl29 export-a7 r2 after load 1.65 1.61 1.46 2/981 1927300 06:50:33Z
+sl29 e-ded68fc r2 before load 1.65 1.61 1.46 2/981 1927302 06:50:33Z
+sl29 e-ded68fc r2 after load 1.55 1.59 1.45 1/982 1928697 06:50:43Z
+bench fence-and-quote-time export-a7 r2 before load 1.55 1.59 1.45 1/982 1928699 06:50:43Z
+bench fence-and-quote-time export-a7 r2 after load 1.60 1.60 1.46 1/968 1931147 06:51:02Z
+bench fence-and-quote-time e-ded68fc r2 before load 1.60 1.60 1.46 1/968 1931149 06:51:02Z
+bench fence-and-quote-time e-ded68fc r2 after load 1.85 1.66 1.48 1/979 1934005 06:51:22Z
+bench keystroke-time export-a7 r2 before load 1.85 1.66 1.48 1/979 1934007 06:51:22Z
+bench keystroke-time export-a7 r2 after load 1.86 1.66 1.48 2/997 1934896 06:51:28Z
+bench keystroke-time e-ded68fc r2 before load 1.86 1.66 1.48 2/997 1934899 06:51:28Z
+bench keystroke-time e-ded68fc r2 after load 1.81 1.66 1.48 2/988 1935954 06:51:36Z
+done 06:51:36Z

@@ -1,0 +1,4 @@
+194 fields empty e.g. 389|0|start
+4 fields children,quotePrefix e.g. 480|4|start
+lines whose empty flag differs, by value:
+362 ('a7ad3f2 empty', True, 'ded68fc empty', False, 'line text empty', False)

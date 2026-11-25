@@ -1,0 +1,9 @@
+files 3 total 998 passed 849 failed 149
+40 ('SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx', 'Error: Could not completely normalize the editor after N iterations! This is usually due t')
+40 ('withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx', "AssertionError: expected 'Could not completely normalize the ed…' to be '' // Object.is eq")
+20 ('withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx', "AssertionError: expected { operations: N, error: '' } to deeply equal { operations: +N, er")
+16 ('withNormalizeNode.keystroke-run-unit-builds.test.tsx', 'Error: Could not completely normalize the editor after N iterations! This is usually due t')
+12 ('withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx', 'AssertionError: expected { Object (forcedOperations, forcedError) } to deeply equal { forc')
+7 ('withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx', "AssertionError: expected [ 'line N: a🙂z but expected za🙂' ] to deeply equal []")
+7 ('withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx', "AssertionError: expected [ 'line N:  a🙂z but expected z a🙂' ] to deeply equal []")
+7 ('withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx', 'AssertionError: expected [ Array(N) ] to deeply equal []')

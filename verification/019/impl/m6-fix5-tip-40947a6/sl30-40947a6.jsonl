@@ -1,0 +1,126 @@
+{"scenario":"backtick typed mid-line on line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed at the end of the middle line","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backtick typed mid-line on the middle line","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the partner backtick (line 0 ends in one)","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backtick mid-line on line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backtick mid-line on line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing the backtick at the end of the middle line","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing the backtick at the end of the middle line","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before a mid-line backtick on line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before a mid-line backtick on line 0","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the backtick ending the middle line","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the backtick ending the middle line","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"backslash typed before the partner backtick","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Backspace removing a backslash before the partner backtick","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"content","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"content","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"content","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"embedDescription","n":5,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"embedDescription","n":100,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"embedDescription","n":200,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}
+{"scenario":"Delete removing a backslash before the partner backtick","surface":"embedDescription","n":1000,"errs":[],"writes":1,"lastWriteIsExpected":true,"shapeDiffs":0}

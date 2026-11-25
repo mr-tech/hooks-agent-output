@@ -1,0 +1,20 @@
+{"kind":"fence","fill":"a🙂","n":200,"name":"open: third backtick end of line 2","medianMs":13.1,"times":[28.8,13.1,11.5,13.5,12.1],"ops":396,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a🙂","n":200,"name":"close: Backspace end of ``` line 2","medianMs":15.3,"times":[18.6,15.3,16.9,10.1,9.8],"ops":396,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a🙂","n":200,"name":"open: third backtick at middle closing delimiter","medianMs":8,"times":[8,7.6,8.9,8.4,7.9],"ops":201,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a🙂","n":200,"name":"close: Backspace at middle closing ```","medianMs":8.3,"times":[8.3,8.5,10.4,4.6,4.8],"ops":201,"error":"","mismatch":0,"firstBad":""}
+{"kind":"paste","fill":"a🙂","n":200,"name":"paste through insertData","medianMs":85,"times":[109.8,88.9,85,82,75.5],"ops":1000,"error":"","mismatch":0}
+{"kind":"fence","fill":"a🙂","n":1000,"name":"open: third backtick end of line 2","medianMs":41,"times":[43.2,39.6,41],"ops":1996,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a🙂","n":1000,"name":"close: Backspace end of ``` line 2","medianMs":44.8,"times":[44.6,44.8,50.2],"ops":1996,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a🙂","n":1000,"name":"open: third backtick at middle closing delimiter","medianMs":29.3,"times":[36.2,27.7,29.3],"ops":1001,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a🙂","n":1000,"name":"close: Backspace at middle closing ```","medianMs":24.4,"times":[24.4,24,24.7],"ops":1001,"error":"","mismatch":0,"firstBad":""}
+{"kind":"paste","fill":"a🙂","n":1000,"name":"paste through insertData","medianMs":1175.9,"times":[1170,1175.9,1192.6],"ops":5000,"error":"","mismatch":0}
+{"kind":"fence","fill":"a","n":200,"name":"open: third backtick end of line 2","medianMs":5.3,"times":[5.6,5.1,5.2,6.2,5.3],"ops":396,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a","n":200,"name":"close: Backspace end of ``` line 2","medianMs":5.7,"times":[5.7,5.8,7.7,5.6,5.7],"ops":396,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a","n":200,"name":"open: third backtick at middle closing delimiter","medianMs":3.4,"times":[4.3,3.4,3.4,4,3.4],"ops":201,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a","n":200,"name":"close: Backspace at middle closing ```","medianMs":3.5,"times":[3.4,3.4,3.5,6.8,3.7],"ops":201,"error":"","mismatch":0,"firstBad":""}
+{"kind":"paste","fill":"a","n":200,"name":"paste through insertData","medianMs":52.4,"times":[52.4,55.5,53.1,51,49],"ops":598,"error":"","mismatch":0}
+{"kind":"fence","fill":"a","n":1000,"name":"open: third backtick end of line 2","medianMs":33.7,"times":[36.2,33.7,33.3],"ops":1996,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a","n":1000,"name":"close: Backspace end of ``` line 2","medianMs":36.2,"times":[37.4,35.5,36.2],"ops":1996,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a","n":1000,"name":"open: third backtick at middle closing delimiter","medianMs":22.6,"times":[27.1,22.6,22.5],"ops":1001,"error":"","mismatch":0,"firstBad":""}
+{"kind":"fence","fill":"a","n":1000,"name":"close: Backspace at middle closing ```","medianMs":21.8,"times":[23.6,21.8,18.6],"ops":1001,"error":"","mismatch":0,"firstBad":""}
+{"kind":"paste","fill":"a","n":1000,"name":"paste through insertData","medianMs":669.6,"times":[684.6,669.6,653.8],"ops":2998,"error":"","mismatch":0}

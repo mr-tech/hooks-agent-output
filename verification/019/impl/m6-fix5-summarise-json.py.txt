@@ -1,0 +1,13 @@
+import json,sys,collections,re
+d=json.load(open(sys.argv[1]))
+rows=[]
+for f in d['testResults']:
+    for t in f['assertionResults']:
+        rows.append((f['name'].split('/')[-1], t['fullName'], t['status'], (t.get('failureMessages') or [''])[0].split('\n')[0][:160]))
+print('files',len(d['testResults']),'total',d['numTotalTests'],'passed',d['numPassedTests'],'failed',d['numFailedTests'])
+c=collections.Counter()
+for fn,name,st,msg in rows:
+    if st=='failed':
+        key=(fn, re.sub(r'\d+','N',msg)[:90])
+        c[key]+=1
+for k,v in sorted(c.items(), key=lambda x:-x[1]): print(v,k)

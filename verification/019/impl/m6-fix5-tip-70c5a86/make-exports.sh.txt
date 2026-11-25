@@ -1,0 +1,17 @@
+#!/bin/sh
+# usage: make-exports.sh <scratch dir> <sha>; exports e-<sha> and e-<sha>-nosupp (the getDirtyPaths override made a pass-through),
+# each with node_modules linked and the reviewer's probes and the SL-29 / SL-30 probes copied in
+S=$1; SHA=$2; CR=/usr/local/bin/hooks/agent-output/verification/019/code-review
+for t in $SHA $SHA-nosupp; do rm -rf $S/e-$t; mkdir -p $S/e-$t; git -C /usr/local/bin/hooks/website archive $SHA | tar -x -C $S/e-$t; ln -s /usr/local/bin/hooks/website/node_modules $S/e-$t/node_modules
+  U=$S/e-$t/src/components/SlateEditor/utils/__tests__; M=$S/e-$t/src/components/SlateEditor/__tests__
+  cp $CR/m6fix2-85ece66/crprobe.keystroke-fixedpoint.test.tsx.txt $U/crprobe.keystroke-fixedpoint.test.tsx
+  cp $CR/m6fix2-85ece66/crprobe.keystroke-settle.test.tsx.txt $U/crprobe.keystroke-settle.test.tsx
+  cp $CR/m6fix3-2b82972/crprobe.paste-differential.test.tsx.txt $U/crprobe.paste-differential.test.tsx
+  cp $CR/m6fix4-a7ad3f2/crprobe.class-tip.test.tsx.txt $U/crprobe.class-tip.test.tsx
+  cp $CR/m6fix3-2b82972/crprobe.sl29-tip.test.tsx.txt $U/crprobe.sl29-tip.test.tsx
+  cp $CR/m6fix4-a7ad3f2/crprobe.mounted-lone-backtick.test.tsx.txt $M/crprobe.mounted-lone-backtick.test.tsx
+  cp $S/sl30-positions.test.tsx $M/crprobe.sl30-positions.test.tsx
+done
+F=$S/e-$SHA-nosupp/src/components/SlateEditor/utils/withNormalizeNode.ts
+sed -i "s/  editor.getDirtyPaths = (op) => (rebuilding.has(editor) ? \[\] : getDirtyPaths(op));/  editor.getDirtyPaths = (op) => getDirtyPaths(op);/" $F
+git -C /usr/local/bin/hooks/website show $SHA:src/components/SlateEditor/utils/withNormalizeNode.ts | diff - $F

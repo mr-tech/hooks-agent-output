@@ -1,0 +1,16 @@
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":40,"medianMs":3.5,"ops":80,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":100,"medianMs":5.5,"ops":200,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":122,"medianMs":7.7,"ops":244,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":123,"medianMs":7.4,"ops":246,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":200,"medianMs":9.5,"ops":400,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a🙂","n":1000,"medianMs":42.6,"ops":2000,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":40,"medianMs":0.4,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":100,"medianMs":0.6,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":122,"medianMs":0.6,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":123,"medianMs":0.7,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":200,"medianMs":1.1,"ops":2,"error":""}
+{"probe":"lone backtick end of line 0, backtick ends last line","fill":"a","n":1000,"medianMs":4.9,"ops":2,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’","n":200,"medianMs":8.1,"ops":396,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’","n":1000,"medianMs":40.9,"ops":1996,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’🙂","n":200,"medianMs":8.3,"ops":396,"error":""}
+{"probe":"typographic quotes, Backspace on ``` of line 2","fill":"a’🙂","n":1000,"medianMs":44.9,"ops":1996,"error":""}

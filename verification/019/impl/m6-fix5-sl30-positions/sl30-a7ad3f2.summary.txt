@@ -1,0 +1,19 @@
+rows 126, rows with a throw, timer error, wrong last write or shape difference: 61
+backtick typed mid-line on line 0 | conte5:ok conte100:throw+timer+write conte200:throw+timer+write embed5:ok embed100:throw+timer+write embed200:throw+timer+write embed1000:throw+timer+write
+backtick typed at the end of the middle line | conte5:ok conte100:ok conte200:throw+timer+write embed5:ok embed100:ok embed200:throw+timer+write embed1000:throw+timer+write
+backtick typed mid-line on the middle line | conte5:ok conte100:ok conte200:throw+timer+write embed5:ok embed100:ok embed200:throw+timer+write embed1000:throw+timer+write
+Backspace removing the partner backtick (line 0 ends in one) | conte5:ok conte100:throw+timer+write conte200:throw+timer+write embed5:ok embed100:throw+timer+write embed200:throw+timer+write embed1000:throw+timer+write
+Delete removing the partner backtick (line 0 ends in one) | conte5:ok conte100:throw+timer+write conte200:throw+timer+write embed5:ok embed100:throw+timer+write embed200:throw+timer+write embed1000:throw+timer+write
+Delete removing the backtick at the end of line 0 | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+Backspace removing a backtick mid-line on line 0 | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+Delete removing a backtick mid-line on line 0 | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+Backspace removing the backtick at the end of the middle line | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+Delete removing the backtick at the end of the middle line | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+backslash typed before a mid-line backtick on line 0 | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+Backspace removing a backslash before a mid-line backtick on line 0 | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+Delete removing a backslash before a mid-line backtick on line 0 | conte5:ok conte100:throw conte200:throw embed5:ok embed100:throw embed200:throw embed1000:throw
+backslash typed before the backtick ending the middle line | conte5:ok conte100:ok conte200:ok embed5:ok embed100:ok embed200:ok embed1000:ok
+Backspace removing a backslash before the backtick ending the middle line | conte5:ok conte100:ok conte200:ok embed5:ok embed100:ok embed200:ok embed1000:ok
+backslash typed before the partner backtick | conte5:ok conte100:ok conte200:ok embed5:ok embed100:ok embed200:ok embed1000:ok
+Backspace removing a backslash before the partner backtick | conte5:ok conte100:ok conte200:ok embed5:ok embed100:ok embed200:ok embed1000:ok
+Delete removing a backslash before the partner backtick | conte5:ok conte100:ok conte200:ok embed5:ok embed100:ok embed200:ok embed1000:ok

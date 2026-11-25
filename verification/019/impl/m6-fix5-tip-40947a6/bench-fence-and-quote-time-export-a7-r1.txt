@@ -1,0 +1,79 @@
+Benchmarking is an experimental feature.
+Breaking changes might not follow SemVer, please pin Vitest's version when using it.
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/export-a7
+
+fence-and-quote-time {"name":"the third backtick typed at the end of line 2","lines":200,"keystrokes":25,"medianMs":7.286582999999837,"p95Ms":12.311126000000058,"load":"1.58 1.85 1.98 3/1064 2222086"}
+fence-and-quote-time {"name":"the third backtick typed at the end of line 2","lines":2048,"keystrokes":25,"medianMs":78.81198200000017,"p95Ms":87.95477800000026,"load":"1.54 1.84 1.98 1/1058 2222404"}
+fence-and-quote-time {"name":"Backspace at the end of the ``` on line 2","lines":200,"keystrokes":25,"medianMs":5.540777000000162,"p95Ms":7.140050999999858,"load":"1.54 1.84 1.98 2/1058 2222427"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…' 2739ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999      rme  samples
+   · settles in a message of 200 lines    115.37   5.4835  13.4658   8.6677  11.3759  13.4658  13.4658  13.4658  ±12.61%       27
+   · settles in a message of 2048 lines  11.9986  76.7641   102.99  83.3434  83.8802   102.99   102.99   102.99   ±2.91%       27
+fence-and-quote-time {"name":"Backspace at the end of the ``` on line 2","lines":2048,"keystrokes":25,"medianMs":85.11086899999918,"p95Ms":94.60936899999979,"load":"1.54 1.84 1.98 2/1065 2222761"}
+fence-and-quote-time {"name":"the third backtick typed at the end of the closing delimiter in the middle of the text","lines":200,"keystrokes":25,"medianMs":3.90132100000028,"p95Ms":7.8150049999994735,"load":"1.54 1.84 1.98 4/1060 2222865"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the ``` on li…' 2707ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999      rme  samples
+   · settles in a message of 200 lines    156.02   5.2345  17.5298   6.4094   6.5285  17.5298  17.5298  17.5298  ±14.43%       27
+   · settles in a message of 2048 lines  11.5424  79.0595   101.57  86.6373  88.7482   101.57   101.57   101.57   ±2.31%       27
+fence-and-quote-time {"name":"the third backtick typed at the end of the closing delimiter in the middle of the text","lines":2048,"keystrokes":25,"medianMs":47.77511599999889,"p95Ms":216.91268900000068,"load":"1.57 1.84 1.98 5/1077 2223162"}
+fence-and-quote-time {"name":"Backspace at the end of the closing ``` in the middle of the text","lines":200,"keystrokes":25,"medianMs":3.4811489999992773,"p95Ms":4.767562999999427,"load":"1.57 1.84 1.98 1/1073 2223252"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…' 2324ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999      rme  samples
+   · settles in a message of 200 lines    180.26   3.6534  21.3520   5.5476   6.5055  21.3520  21.3520  21.3520  ±24.95%       27
+   · settles in a message of 2048 lines  13.2259  46.3007   222.91  75.6093  52.7902   222.91   222.91   222.91  ±31.29%       27
+fence-and-quote-time {"name":"Backspace at the end of the closing ``` in the middle of the text","lines":2048,"keystrokes":25,"medianMs":46.14135999999962,"p95Ms":48.271176000000196,"load":"1.57 1.84 1.98 1/1072 2223410"}
+fence-and-quote-time {"name":"> typed at the start of line 0 \">> a\"","lines":200,"keystrokes":25,"medianMs":6.035148000000845,"p95Ms":8.75928500000009,"load":"1.57 1.84 1.98 3/1072 2223410"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the closing `…' 1519ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999     rme  samples
+   · settles in a message of 200 lines    249.24   3.3873   6.7051   4.0122   4.1809   6.7051   6.7051   6.7051  ±7.18%       27
+   · settles in a message of 2048 lines  20.7204  46.5403  50.3889  48.2617  48.9160  50.3889  50.3889  50.3889  ±0.94%       27
+fence-and-quote-time {"name":"> typed at the start of line 0 \">> a\"","lines":2048,"keystrokes":25,"medianMs":86.53837299999941,"p95Ms":95.41906000000017,"load":"1.53 1.83 1.97 3/1083 2223776"}
+fence-and-quote-time {"name":"> typed at the start of line 0 \">> abc\"","lines":200,"keystrokes":25,"medianMs":5.573651000000609,"p95Ms":7.849137999999584,"load":"1.53 1.83 1.97 1/1079 2223893"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: '> typed at the start of line 0 ">> a"' 2864ms
+     name                                     hz      min     max     mean      p75     p99    p995    p999     rme  samples
+   · settles in a message of 200 lines    145.82   5.9871  9.3936   6.8576   7.3118  9.3936  9.3936  9.3936  ±5.90%       27
+   · settles in a message of 2048 lines  11.0691  84.9162  104.39  90.3415  91.8780  104.39  104.39  104.39  ±1.79%       27
+fence-and-quote-time {"name":"> typed at the start of line 0 \">> abc\"","lines":2048,"keystrokes":25,"medianMs":81.74843799999871,"p95Ms":90.83134500000051,"load":"1.53 1.83 1.97 1/1064 2224210"}
+fence-and-quote-time {"name":"Backspace at the start of the text of a loaded \">>> a\" on line 0","lines":200,"keystrokes":25,"medianMs":5.341506000000663,"p95Ms":7.713757999999871,"load":"1.53 1.83 1.97 2/1064 2224210"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: '> typed at the start of line 0 ">> ab…' 2725ms
+     name                                     hz      min      max     mean      p75      p99     p995     p999      rme  samples
+   · settles in a message of 200 lines    140.90   5.3361  28.6411   7.0974   6.4117  28.6411  28.6411  28.6411  ±25.00%       27
+   · settles in a message of 2048 lines  11.7114  80.9030  94.6104  85.3871  87.3044  94.6104  94.6104  94.6104   ±1.74%       27
+fence-and-quote-time {"name":"Backspace at the start of the text of a loaded \">>> a\" on line 0","lines":2048,"keystrokes":25,"medianMs":79.33646800000133,"p95Ms":98.07295599999998,"load":"1.48 1.81 1.97 2/1058 2224552"}
+
+ ✓ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the start of the text of…' 2681ms
+     name                                     hz      min     max     mean      p75     p99    p995    p999     rme  samples
+   · settles in a message of 200 lines    167.93   5.3773  8.2078   5.9550   6.0485  8.2078  8.2078  8.2078  ±5.13%       27
+   · settles in a message of 2048 lines  11.6455  78.9124  131.80  85.8703  87.8451  131.80  131.80  131.80  ±4.91%       27
+
+ BENCH  Summary
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…'
+    9.62x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the ``` on li…'
+    13.52x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'the third backtick typed at the end o…'
+    13.63x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the end of the closing `…'
+    12.03x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: '> typed at the start of line 0 ">> a"'
+    13.17x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: '> typed at the start of line 0 ">> ab…'
+    12.03x faster than settles in a message of 2048 lines
+
+  |dom| settles in a message of 200 lines - src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-time.bench.ts > one keystroke: 'Backspace at the start of the text of…'
+    14.42x faster than settles in a message of 2048 lines
+
+exit 0

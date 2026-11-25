@@ -1,0 +1,23 @@
+#!/bin/sh
+# usage: run-tip5.sh <scratch dir> <out dir> <sha>; at <sha>: the reviewer's probes (and the fixed-point probe on the
+# pass-through tree), SL-30's positions, then two interleaved timing rounds (SL-29 with af3d95a and a7ad3f2; AC-6.8's and AC-6.9's
+# benches with a7ad3f2); one worker, no network
+S=$1; OUT=$2; SHA=$3; U=src/components/SlateEditor/utils/__tests__; M=src/components/SlateEditor/__tests__
+mark() { echo "$1 load $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt; }
+probe() { mark "$1 $2 before"; ( cd $S/$1 && CRPROBE_OUT=$OUT/$3 PROBE_OUT=$OUT/$3 timeout -k 10 2400 unshare -rn npx vitest run --maxWorkers=1 --project node --project dom $2 > $OUT/log-$3.txt 2>&1 ); echo "exit $?" >> $OUT/log-$3.txt; mark "$1 $2 after"; }
+probe e-$SHA $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-$SHA.json
+probe e-$SHA-nosupp $U/crprobe.keystroke-fixedpoint.test.tsx keystroke-fixedpoint-$SHA-nosupp.json
+probe e-$SHA $U/crprobe.keystroke-settle.test.tsx keystroke-settle-$SHA.json
+probe e-$SHA $U/crprobe.paste-differential.test.tsx paste-differential-$SHA.json
+probe e-$SHA $U/crprobe.class-tip.test.tsx class-$SHA.jsonl
+probe e-$SHA $M/crprobe.mounted-lone-backtick.test.tsx mounted-lone-backtick-$SHA.jsonl
+rm -f $OUT/sl30-$SHA.jsonl; probe e-$SHA $M/crprobe.sl30-positions.test.tsx sl30-$SHA.jsonl
+for r in 1 2; do
+  for t in e-af3d95a export-a7 e-$SHA; do f=crprobe.sl29-tip.test.tsx; [ $t = e-af3d95a ] && f=crprobe.sl29-base.test.tsx
+    rm -f $OUT/sl29-$t-r$r.jsonl; probe $t $U/$f sl29-$t-r$r.jsonl; done
+  for b in fence-and-quote-time keystroke-time; do for t in export-a7 e-$SHA; do
+    mark "bench $b $t r$r before"
+    ( cd $S/$t && timeout -k 10 1500 unshare -rn npx vitest bench --run --maxWorkers=1 --project dom $U/withNormalizeNode.$b.bench.ts > $OUT/bench-$b-$t-r$r.txt 2>&1 ); echo "exit $?" >> $OUT/bench-$b-$t-r$r.txt
+    mark "bench $b $t r$r after"; done; done
+done
+echo "done $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt

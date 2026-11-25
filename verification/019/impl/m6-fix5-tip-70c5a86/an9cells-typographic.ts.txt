@@ -1,0 +1,34 @@
+// AN-9 cell generator, shared by every AN-9 probe at both trees. One keystroke on line 0 of an N-line text of fill lines.
+export type Op = 'type' | 'backspace' | 'escape' | 'unescape';
+export type Cell = {
+  id: string; ch: string; k: number; sp: string; pos: 'start' | 'end'; op: Op; partner: boolean;
+  fill: string; n: number; text: string; line0: string; expected0: string;
+  // caret: 'start' = start of line 0's text; 'end' = end of line 0; number = offset in line 0's first text node
+  caret: 'start' | 'end' | number; key: string;
+};
+export const CHARS = ['`'];
+export const FILLS = ['a\u2019\u{1F642}'];
+export function cells(ns: number[], fills = FILLS, chars = CHARS): Cell[] {
+  const out: Cell[] = [];
+  for (const fill of fills) for (const n of ns) for (const ch of chars) for (const k of [1, 2, 3]) {
+    const run = ch.repeat(k); const less = ch.repeat(k - 1);
+    const shapes: Array<Omit<Cell, 'id' | 'ch' | 'k' | 'partner' | 'fill' | 'n' | 'text'>> = [
+      { sp: '', pos: 'end', op: 'type', line0: `${fill}${less}`, expected0: `${fill}${run}`, caret: 'end', key: ch },
+      { sp: '', pos: 'end', op: 'backspace', line0: `${fill}${run}`, expected0: `${fill}${less}`, caret: 'end', key: '<bs>' },
+      { sp: '', pos: 'start', op: 'type', line0: `${less}${fill}`, expected0: `${run}${fill}`, caret: 0, key: ch },
+      { sp: '', pos: 'start', op: 'backspace', line0: `${run}${fill}`, expected0: `${less}${fill}`, caret: k, key: '<bs>' },
+      { sp: ' ', pos: 'start', op: 'type', line0: `${less} ${fill}`, expected0: `${run} ${fill}`, caret: 0, key: ch },
+      { sp: ' ', pos: 'start', op: 'backspace', line0: `${run} ${fill}`, expected0: `${less} ${fill}`, caret: k, key: '<bs>' },
+      { sp: '', pos: 'start', op: 'escape', line0: `${run}${fill}`, expected0: `\\${run}${fill}`, caret: 0, key: '\\' },
+      { sp: '', pos: 'start', op: 'unescape', line0: `\\${run}${fill}`, expected0: `${run}${fill}`, caret: 1, key: '<bs>' },
+    ];
+    for (const partner of [true, false]) for (const s of shapes) {
+      const last = partner ? `${fill}${run}` : fill;
+      const lines = Array.from({ length: n }, (_, i) => (i === 0 ? s.line0 : i === n - 1 ? last : fill));
+      const id = `${JSON.stringify(run)}|${s.pos}${s.sp ? '+sp' : ''}|${s.op}|${partner ? 'partner' : 'control'}|${fill}|${n}`;
+      out.push({ ...s, id, ch, k, partner, fill, n, text: lines.join('\n') });
+    }
+  }
+  return out;
+}
+export const expectedText = (c: Cell): string => [c.expected0, ...c.text.split('\n').slice(1)].join('\n');

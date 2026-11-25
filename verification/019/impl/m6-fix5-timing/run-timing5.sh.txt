@@ -1,0 +1,19 @@
+#!/bin/sh
+# usage: run-timing5.sh <scratch dir> <out dir>; two interleaved rounds: SL-29's probe at af3d95a (base), a7ad3f2 and ded68fc,
+# then AC-6.9's fence bench and AC-6.8's keystroke bench at a7ad3f2 and ded68fc; one worker, no network
+S=$1; OUT=$2; D=src/components/SlateEditor/utils/__tests__
+mark() { echo "$1 load $(cat /proc/loadavg) $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt; }
+for r in 1 2; do
+  for t in e-af3d95a export-a7 e-ded68fc; do
+    f=crprobe.sl29-tip.test.tsx; [ $t = e-af3d95a ] && f=crprobe.sl29-base.test.tsx
+    mark "sl29 $t r$r before"
+    ( cd $S/$t && CRPROBE_OUT=$OUT/sl29-$t-r$r.jsonl timeout -k 10 1500 unshare -rn npx vitest run --maxWorkers=1 --project node --project dom $D/$f > $OUT/log-sl29-$t-r$r.txt 2>&1 ); echo "exit $?" >> $OUT/log-sl29-$t-r$r.txt
+    mark "sl29 $t r$r after"
+  done
+  for b in fence-and-quote-time keystroke-time; do for t in export-a7 e-ded68fc; do
+    mark "bench $b $t r$r before"
+    ( cd $S/$t && timeout -k 10 1500 unshare -rn npx vitest bench --run --maxWorkers=1 --project dom $D/withNormalizeNode.$b.bench.ts > $OUT/bench-$b-$t-r$r.txt 2>&1 ); echo "exit $?" >> $OUT/bench-$b-$t-r$r.txt
+    mark "bench $b $t r$r after"
+  done; done
+done
+echo "done $(date -u +%H:%M:%SZ)" >> $OUT/loads.txt

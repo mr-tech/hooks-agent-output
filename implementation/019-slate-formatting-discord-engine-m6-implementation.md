@@ -839,6 +839,121 @@ The increment (`4a7fb49..e3eb35d`: `f630b55`'s `ownLines`, `childKey`, `carriesM
 
 `code-reviewer-019` reads the fix round at the hand-off tip against `2b82972`, in order of risk: `withNormalizeNode.ts` (`rebuildLines`, `retypeLines`' skip, `holdsMarkerInText`, the `editor.getDirtyPaths` override and its scope), `quoteMarker.ts` and `getInitialValue.ts` (`buildLines`), `emojiLift.ts` (`liftLoaded`'s `only`, the search), then the cases. Re-run `run-sl29.sh` and `run-diff.sh` at the tip (the probes are in `verification/019/code-review/m6fix3-2b82972/`; their outputs here are under `m6-fix4-sl29-e3eb35d/` and `m6-fix4-differentials/`). Then QA Phase 2: SL-29's timed readings (mine are the figures above), the forced-normalise observation with its positive control, NM-83 and NM-84 against the round's tree, and the browser paste check.
 
+## Fix Round 5 (D-28's inline-code members, D-31's count limb; CR-28 HIGH, CR-27 MEDIUM; the corpus sub-limb under R-111; SL-30; plan Revision 25)
+
+Start: steering's block `2026-11-25T06:20Z` (agent-output `e78f4d69`), on plan Revision 25 (`cf62ffc1`), every gate passed (QA `f7df4423`, architect `e0228ee5`, critic `fdebc3ac`). Widened at steering's block `2026-11-25T07:09Z` (commit `1a3c2452`) to fold the typographic rewrite into the rebuild (below).
+
+### Entry Conditions (Fix Round 5)
+
+| Condition | Where satisfied | Pinned by |
+|---|---|---|
+| Stage start | effort rulings block `2026-11-25T06:20Z`, agent-output `e78f4d69`; brief names the Resumption State at `32c4a684` | not owed (a record fact) |
+| QA Phase 1 keyed to the revision | QA re-key on Revision 25, `f7df4423` | not owed |
+| Code review's verdict on `a7ad3f2` | Round 8 sub-entry, `9cb3a3da`: REJECTED on CR-28 HIGH, CR-27 MEDIUM; CR-29 a stated limit (block 05:30Z) | not owed |
+| Design guidance | CF-34 and CF-35 (architect `de16816`/`6a5aa33`); steering's (b), block 06:07Z (`9ba0662c`): lines `afterLine` miscounts stay out of the rebuild | the four corpus inputs' forced-normalise cases (below) |
+| SL-30 (D-30), QA Phase 2's entry condition | the positions probe at the round's tip (Observations) | not a suite case (D-30: a probe capture) |
+| The widening | steering's block 07:09Z: the typographic-quote fill folded into the rebuild in this round; CR-29 stays a stated limit unless measured cleared | the typographic cases (below) |
+| Open question | none | n/a |
+
+### Flows (user-visible work)
+
+No new surface, view or input. What changes for the user: in a long message of emoji lines, typing or deleting a backtick or a backslash that opens or closes inline code across lines no longer raises the editor's internal error, and the keystroke reaches the message; the emoji inside the span show as text, as Discord's formatter reads them (steering block 06:18Z). The caret stays where the keystroke left it when a line's last emoji is lifted (below). A line holding a typographic quote that such a keystroke changes has the quote straightened, as the editor already did for a line it normalised.
+
+### What changed (Fix Round 5)
+
+- **CF-34's form: the rebuild's trigger compares emoji too** (`withNormalizeNode.ts` `staleEmojiLines`, `emojiAgrees`, `retypeLines`). When every line's type, fence state and marker agree, the check builds the run unit around each end of the selection (`ownLines`), reads the engine's layout for it (the layout the normaliser reads, `emojiLayout` over `unitAround(…, 'source')`), and compares each other line's emoji elements, by offset and source, with the layout's spans in that line. The lines that differ are replaced by `rebuildLines` from the load path (`buildLines`, then `liftLoaded` over their run units), two operations each, under the existing suppression. The selection's own lines stay on the normal path. There is no branch on the character typed or on the line's position; a code line is never compared (inline code cannot toggle inside a code block).
+- **(b), keeping lines `afterLine` miscounts out of the rebuild** (CR-27's six): `rebuildLines` leaves to the normal path, unsuppressed, a line the fence scan types as code in which the engine reads an emoji (`emojiLift.ts` `liftsInLine`: the engine's layout over the unit the normaliser would read for that line). Those are AN-9 B1's lines; the normaliser lifts their emoji as it does on the pass-through tree. The fence-count defect itself stays with the handoff.
+- **The typographic quote folded into the rebuild** (steering block 07:09Z): a rebuilt line other than the selection's is built from its text with `‘ ’` made `'` and `“ ”` made `"` (`straightened`, the rewrite `handleElement` applies), so it is a fixed point; the typographic-quote exclusion of Fix Round 4 is gone from the rebuild and from the emoji check.
+- **The caret** (`fixSelection`): it moves the caret past a line's last emoji only when the caret is at the end of the text before it. It had moved a caret anywhere in that text, so the start-of-line Backspace and the backslash members left the caret at the line's end (red at every size, 5 lines included).
+- A `carried` conjunct I first gave the emoji check is removed: a carried line holds only its marker, so it holds no emoji and is never stale.
+
+Commits on the chain: `9480bca` (red specs), `ded68fc` (the fix), `f56bc58` (QA's controls), `70c5a86` (the comparison without strings), `55e5fdd` (the carried conjunct; the typographic case for the inline-code members), `0cd01c4` (the typographic red case), `40947a6` (the typographic fold; the hand-off tip).
+
+### TDD Compliance (Fix Round 5)
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| the eight inline-code keystrokes (D-28's six members) over `a🙂` lines with a partner, N 5/100/200 on `content`, 5/100/200/1,000 on `embedDescription`: no throw, fresh-load shapes, forced normalise 0, collapsed selection, caret (`staleEmojiLines`, `rebuildLines`' `stale`) | `withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx` (`limbs` reused) | Yes (`9480bca`) | Yes, at `a7ad3f2`: `m6-fix5-red-specs-at-a7ad3f2.{log.txt,summary.txt,json.gz}` | `expected 'Could not completely normalize the ed…' to be ''` (40), forced normalise `{ operations: 78 … 980 }` (20), caret `line 0: a🙂z but expected za🙂` (21) | Yes (`ded68fc`) |
+| the same keystrokes mounted: the last write, and no error from a pending timer | `SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx` (new) | Yes (`9480bca`) | Yes, at `a7ad3f2`, same log | `Error: Could not completely normalize the editor after 126 iterations` (40 of 56) | Yes |
+| D-31's count limb for the eight (line settles and fence reads at 1,000 at most 10 times 200), and two operations per changed line with no dirty path handed to Slate | `withNormalizeNode.keystroke-run-unit-builds.test.tsx` (`EDITS` and the rebuild case extended) | Yes (`9480bca`) | Yes, at `a7ad3f2`, by the members' throw (16), not by the count: the plan's "not yet seen red" stands; the count's own red is NM-88's (sweep) | `Error: Could not completely normalize …` | Yes |
+| CR-27: the four corpus inputs (599, 728, 941, 1190) after their six keystrokes, with and without a line after: forced normalise applies 0 operations (`liftsInLine`, its exclusion in `rebuildLines`) | settle file, "a line a fence typed above turns into a code line while the engine reads an emoji in it" | Yes (`9480bca`) | Yes, at `a7ad3f2`, same log | `forcedOperations: 3 … 9` (12 of 12) | Yes |
+| the caret before a line's last emoji (`fixSelection`'s `atItsEnd`) | settle file, the caret limb of the start-of-line Backspace and backslash members | Yes (`9480bca`) | Yes, at `a7ad3f2` at 5 lines too: `line 0: a🙂z but expected za🙂`, `line 0:  a🙂z but expected z a🙂` | assertion | Yes |
+| QA's controls: each keystroke over plain `a` lines with a partner, and over `a🙂` lines with none, changes no other line and raises nothing | settle file, `INLINE_CODE_CONTROLS` | after the fix (`f56bc58`), a control | not red at `a7ad3f2` (production-shaped on both trees); red against `hand-layout-read-as-empty` in the sweep | the control's mutant | Yes |
+| the typographic fold (`straightened` in `rebuildLines`): the inline-code keystrokes over `a’🙂` lines at 5, 100, 200 lines raise nothing and leave no curly quote in a line they change | settle file, the existing typographic case tightened (`TYPOGRAPHIC_QUOTE_KEYSTROKES`) | Yes (`0cd01c4`) | Yes, at `55e5fdd`: `m6-fix5-red-typographic-55e5fdd.{log.txt,summary.txt}` | `expected [Function] to not throw an error but 'Error: Could not completely…'` (16 of 28) | Yes (`40947a6`) |
+| `emojiAgrees` (the string comparison replaced) | covered by the above | a refactor with coverage: **evidence**: the four corpora's outputs at `70c5a86` are byte-identical (`cmp`) to `ded68fc`'s (keystroke fixed-point, its pass-through, settle, paste) and the class probe's operations and errors are identical | n/a | n/a | Yes |
+
+`tdd-check.py` is for Python sources; these are TypeScript, so the rows are read. The two disclosures for the table: the rows were written into this document after the red commit `9480bca`, not in its commit (the record repository is a separate commit; nothing in the red run changed); and two of the round's commits are labelled `refactor` (`70c5a86`, `55e5fdd`), each with its evidence above.
+
+### Test Execution Results (Fix Round 5)
+
+| Command | Results | Compilation, lint and compatibility |
+|---|---|---|
+| `npx vitest run --project node --project dom --maxWorkers=1` under `unshare -rn` (loopback up), in a 5G no-swap scope, at **`40947a6`** | 238 files, **4,776 of 4,776, exit 0**, 400 s (`m6-fix5-suite-40947a6.log.txt`); before the round 4,356 | `pnpm run typecheck` exit 0 (`m6-fix5-typecheck-40947a6.log.txt`); `eslint` on the six changed files: 0 errors, 0 warnings. `eslint src/components/SlateEditor`: 8 errors and 1 warning, all in `index.tsx` and `onChange.ts`, which this round does not touch (the pre-existing `react-hooks` handoff) |
+| the SlateEditor directory at each commit | 1,516 (`ded68fc`), 1,548 (`70c5a86`), 1,556 (`55e5fdd`), 1,572 (`40947a6`, before a blank-line fix), all passed, exit 0 | |
+| `node ~/.claude/tools/convention-check.js website --since=a7ad3f2` | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 foreign `.playwright-mcp` captures; the ID-token check, which it does not implement: **unchecked by it**). By hand over `git diff a7ad3f2..40947a6 -U0 -- src`: 253 added lines, 0 match the ID-token class or a date (`grep -ciE`), 0 comment lines added | `m6-fix5-convention-check-40947a6.txt` |
+
+### Observations at the tip (all probes unmodified, in exports, `unshare -rn`, one worker, 5G no-swap scopes)
+
+- **CF-35's equality** (code review's fixed-point corpus, 36,560 keystrokes; the pass-through tree is the tip with its own `getDirtyPaths` override made a pass-through, diff `m6-fix5-differentials-ded68fc/mutant-no-suppression-ded68fc.diff.txt`): **0 documents differ, 0 selections differ** (`m6-fix5-tip-40947a6/cf35-equality-40947a6.out.txt`). Both trees leave the same 8 non-fixed-point keystrokes, the load's own disagreement the handoff carries; CR-27's six are not among them.
+- **Against `a7ad3f2`** (the reviewer's captures): fixed-point probe, 6 keystrokes differ in children (CR-27's six, now the pass-through's state) and 16 in the selection only; settle probe 0 (classNames apart). The 16: a backslash typed, or Delete, at the start of a line ending in an emoji; `a7ad3f2` left the caret after the line's last emoji, the tip leaves it at the edit (`m6-fix5-differentials-ded68fc/selection-16-a7ad3f2-vs-ded68fc.out.txt`). **Outside the members' class, and a behaviour change**: the caret now lands where the keystroke leaves it.
+- **Pastes** (15,966): 0 regressions on the text, caret and fresh-load limbs; 4 more equal a fresh load (85 to 81). 198 differ in children: 194 only in the `empty` flag (362 lines where `a7ad3f2` kept `empty: true` on a line holding text; the tip has the load's `false`), 4 the improvements (`paste-children-differ-classified.out.txt`).
+- **CR-28 / the class probe** (reviewer's `crprobe.class-tip`): the lone backtick at the end of line 0 over `a🙂` lines throws at no size, 2 operations per line, 9.5 ms at 200 and 42.6 ms at 1,000; mounted at 40, 100 and 200 lines, no error and the backtick in the last write.
+- **SL-30** (my probe, `crprobe.sl30-positions.test.tsx.txt`, re-deriving steering's probe2 over F-59's superset: a backtick or a backslash typed, or removed by Backspace or Delete, mid-line on line 0, at the end and mid-line of the middle line, and on the partner line; 18 positions at N 5/100/200 on `content` and 5/100/200/1,000 on `embedDescription`, mounted): **0 of 126 with a throw, a timer error, a wrong last write or a line unlike a fresh load** at `40947a6` (`m6-fix5-tip-40947a6/sl30-40947a6.summary.txt`). At `a7ad3f2` the same probe throws on 13 of the 18 positions from 100 or 200 lines, with steering's four among them (`m6-fix5-sl30-positions/sl30-a7ad3f2.summary.txt`).
+- **The typographic fill** (my probe): the eight keystrokes over `a’🙂` lines at 5, 100, 200, 1,000: 32 of 32 without error at `40947a6`; at `70c5a86` 24 of 32 threw from 100 lines. At production `5ec0621` (AN-9's probe, fill changed) the single and double backtick runs are clean; **correction (steering's classification): all 36 throwing rows and all 12 with other lines changed there are the triple-backtick run**, which is CR-29's fence case.
+- **CR-29 measured**: Backspace on line 2's ``` over typographic lines takes 8.1 / 8.3 ms at 200 lines and 40.9 / 44.9 ms at 1,000 (`a’` / `a’🙂`), 396 and 1,996 operations, against 9.5 s and 18.5 s at `a7ad3f2`. That is inside SL-29's lines for the other fills; whether it clears CR-29 is steering's to read.
+- **SL-29** (reviewer's probe, two rounds interleaved with `af3d95a` and `a7ad3f2`, load 1.4 to 2.6): **0 of 20 over the line** (`m6-fix5-tip-40947a6/sl29-table.txt`). The `a🙂` paste reads 1,170 / 1,176 ms at 1,000 lines against `a7ad3f2`'s 2,105 / 2,124; the fence members read 0 to 6 ms above `a7ad3f2` (the per-code-line engine read of (b)).
+- **AC-6.9's timed limb** (`fence-and-quote-time.bench.ts`, two rounds, exit 0): every median within 27 ms at 200 and 104 ms at 2,048; the largest 87.5 ms (`>` at the start of `>> abc`, 2,048 lines), `a7ad3f2` 86.5.
+- **AC-6.8's timed limb** (`keystroke-time.bench.ts`, two rounds, exit 0): every median within 16 ms. The new check costs per keystroke: plain 2,048 lines 8.8 / 9.0 ms against 7.1 / 7.9 at `a7ad3f2`; `a🙂` 1,000 lines 11.8 / 10.6 against 8.7 / 8.2. The 95th percentiles are in the files.
+- **D-31's boundary**: the count limb observes `spansInLine` and `afterLine`. Under CF-34 the lift moved into `liftLoaded`, whose own `spansInLine` calls are internal to `emojiLift.ts` and not seen by the mock; the emoji check calls `spansInLine` once per line of the selection's unit through the import, so the observed count is the per-line work of the check. That is the boundary I name for the limb.
+- OOM count (kern.log "Memory cgroup out of memory"): 4 at the round's start, 8 after my uncapped-worker suite run (Gate satisfactions), 8 at the hand-off.
+
+### Patterns Extended (Fix Round 5)
+
+| Surface | Pattern extended |
+|---|---|
+| The rebuild's trigger | CF-33's `retypeLines` → `rebuildLines` path: the emoji check is one more trigger into it, and a rebuilt line is the load's (`buildLines`, `liftLoaded`) as before |
+| A code line's lift | the normaliser's own reading (`unitAround`, `emojiLayout`, `spansInLine`), wrapped once in `emojiLift.ts` `liftsInLine` beside `liftLoaded` |
+| The quote rewrite | `handleElement`'s rule (‘ ’ to ', “ ” to "), written once as `straightened` for text the rebuild builds |
+| The tests | `limbs` over a new `INLINE_CODE_KEYSTROKES` list built by the helper's own `keystroke` factory (now passed the fill); the mounted file mirrors `SlateEditor.fence-and-quote-keystrokes-reach-the-message`; `EDITS` and the rebuild case extended; the typographic case extended rather than a sibling added |
+
+### Files Modified and Created (Fix Round 5)
+
+| Path | Changes |
+|---|---|
+| `src/components/SlateEditor/utils/withNormalizeNode.ts` | `emojiAgrees`, `staleEmojiLines`, `straightened`; `rebuildLines` takes the stale lines and leaves a code line the engine lifts in to the normal path; `retypeLines` triggers the rebuild on stale emoji; `fixSelection`'s `atItsEnd`; `holdsBadCodepoint` removed |
+| `src/components/SlateEditor/utils/emojiLift.ts` | `liftsInLine` |
+| `src/components/SlateEditor/__tests__/helpers/fenceAndQuoteKeystrokes.ts` | the factory passes the fill; `INLINE_CODE_KEYSTROKES`, `INLINE_CODE_KEYSTROKES_WITHOUT_PARTNER`, `INLINE_CODE_SIZES` |
+| `src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx` (new) | the mounted write and timer case |
+| `…/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx` | the members, the controls, the four corpus inputs, the typographic case widened (its existing four fence titles gain "over 200 lines") |
+| `…/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx` | `EDITS` and the rebuild case take the inline-code members |
+
+### Class Sweep (Fix Round 5)
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-28 (an edit whose emoji-layout change spans many lines throws), the reviewer's form: members by probe | the SL-30 probe (18 positions × 7 sizes), the class probe, AN-9's inline-code rows (`INLINE_CODE_KEYSTROKES`), and the typographic fill | at `a7ad3f2`: 13 of 18 positions throw from 100 or 200 lines; the 8 members throw from 100; at `70c5a86` the typographic fill throws (24 of 32) | all fixed at `40947a6`: 0 of 126, 0 of 32, the members green. Not reached: fills other than `a🙂` and `a’🙂`, partial mode (the rebuild runs in full mode only), undo/redo, the browser's native input (F-59's residue) |
+| CR-27 (a suppressed line that is not a normaliser fixed point), CF-35's predicate | the fixed-point corpus on the tip and on its pass-through tree, documents compared | 6 at `a7ad3f2` (`599|0|end|<delete>`, `599|1|start|<backspace>`, `728|1|end|\``, `941|0|end|<delete>`, `941|1|start|<backspace>`, `1190|1|end|\``) | fixed; residual **0 of 36,560** at `40947a6` |
+| the caret jump (`fixSelection`), derived by me: a caret moved past an emoji it was not at | the fixed-point corpus's selections against `a7ad3f2` | 16 keystrokes plus the members' caret rows | all now at the edit point; residual 0 in the members' rows |
+
+### Gate satisfactions disclosed in the round
+
+- **An uncapped-worker suite run, four OOM kills.** At 07:08Z I ran `pnpm test` inside a 5G scope without `--maxWorkers=1`; the scope's memory cgroup killed four vitest workers (07:08:20 to 07:08:29Z, kern.log count 4 to 8). Steering's brief requires one worker. The run (238 files, 4,613 of 4,760, 4 errors) measured nothing and is void (`suite-55e5fdd-uncapped-workers-void.log`, scratchpad, not kept); I re-ran it at one worker at once (4,760 of 4,760, exit 0), and every later run was at one worker. No other run of mine was hit.
+- **A probe that failed to load**: the first SL-30 run lacked the `env.mjs` mock (0 tests, exit 1); fixed and re-run, the failed outputs deleted.
+- **Source edits by script**: the website source and test edits were made with `python3` replace scripts over the files, then linted and type-checked; record documents were edited with the Edit tool only.
+- **Comment gate, `rm` check, record-write gate:** none fired.
+
+### Outstanding Items (Fix Round 5)
+
+1. **Per-keystroke cost.** The emoji check adds about 1 to 3 ms to an ordinary keystroke at the largest sizes (AC-6.8's bench, above), within 16 ms. A cheaper trigger needs a reading of whether the layout changed outside the selection's lines; not attempted.
+2. **The `empty` flag** (Fix Round 4's Outstanding 5): a rebuilt line takes the load's flag, so 362 pasted lines' stale `empty: true` is now `false`. Nothing I found reads it on these paths; not separately tested.
+3. **CR-29** is measured cleared on the fence case (above); its disposition is steering's (block 07:09Z).
+4. **The 8 non-fixed-point loads** stay with the handoff (both trees equal).
+5. **Self-diagnosis (method).** I first ran the typographic exclusion as given by Fix Round 4 and found its throw only because I probed the class beyond the plan's fill; the check that would have found it in design is to ask, for every exclusion from the rebuild, what path the excluded line then takes at N = 200. I also ran a whole-suite run without the brief's worker cap.
+
+### Next Steps (Fix Round 5)
+
+`code-reviewer-019` reads the round at `40947a6` against `a7ad3f2`: `withNormalizeNode.ts` (`staleEmojiLines`, `rebuildLines`' code-line exclusion and `straightened`, `fixSelection`), `emojiLift.ts` `liftsInLine`, then the cases. The probes and drivers are under `verification/019/impl/m6-fix5-*` (`run-tip5.sh.txt`, `make-exports.sh.txt`). Then QA Phase 2: SL-30 (my capture is above; QA's own runs at the tip and at `5ec0621`), NM-85 to NM-88, CF-35's equality, B-11.
+
 ## Next Steps (first delivery, `119471f`)
 
 Code review of M6 at `119471f`, in order of risk: `withNormalizeNode.ts` (`resolveEmoji`, `revertToText`, the carry), `emojiLift.ts`, the `simple-markdown` removal; it reads 8cb4d83, c3af0ac and f58a816 as a first review (they were in the tree at M5's Fix Round 1). Then QA Phase 2: it re-runs m5-d2 against `runUnit.ts` and reads NM-68 and NM-69 on the QAF-42 fixture forms. The planner confirmed the source-text reading (R-74, no revision); the seam fold names it in AC-6.5.

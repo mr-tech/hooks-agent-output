@@ -1,0 +1,641 @@
+[
+ {
+  "id": "emojiLift.ts:132:if-false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "  if (!l",
+  "new": "  if (false && !l",
+  "op": "if-false",
+  "line": 132,
+  "text": "if (!layout) return false;"
+ },
+ {
+  "id": "emojiLift.ts:132:not",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "(!l",
+  "new": "(l",
+  "op": "not",
+  "line": 132,
+  "text": "if (!layout) return false;"
+ },
+ {
+  "id": "emojiLift.ts:132:false",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "rn false;\n ",
+  "new": "rn true;\n ",
+  "op": "false",
+  "line": 132,
+  "text": "if (!layout) return false;"
+ },
+ {
+  "id": "emojiLift.ts:133:walk-first",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "= lines[index].children.r",
+  "new": "= (Array.isArray(lines[index].children) ? lines[index].children.slice(0, 1) : lines[index].children).r",
+  "op": "walk-first",
+  "line": 133,
+  "text": "const width = lines[index].children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "emojiLift.ts:133:walk-last",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "= lines[index].children.r",
+  "new": "= (Array.isArray(lines[index].children) ? lines[index].children.slice(-1) : lines[index].children).r",
+  "op": "walk-last",
+  "line": 133,
+  "text": "const width = lines[index].children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "emojiLift.ts:133:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " 0)",
+  "new": " 1)",
+  "op": "num",
+  "line": 133,
+  "text": "const width = lines[index].children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "emojiLift.ts:134:>",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": " > ",
+  "new": " >= ",
+  "op": ">",
+  "line": 134,
+  "text": "return spansInLine(unit, layout, index, width).length > 0;"
+ },
+ {
+  "id": "emojiLift.ts:134:num",
+  "file": "src/components/SlateEditor/utils/emojiLift.ts",
+  "old": "> 0;\n",
+  "new": "> 1;\n",
+  "op": "num",
+  "line": 134,
+  "text": "return spansInLine(unit, layout, index, width).length > 0;"
+ },
+ {
+  "id": "withNormalizeNode.ts:50:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "om = 0;\n  l",
+  "new": "om = 1;\n  l",
+  "op": "num",
+  "line": 50,
+  "text": "let from = 0;"
+ },
+ {
+  "id": "withNormalizeNode.ts:51:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "d = 0;\n  ",
+  "new": "d = 1;\n  ",
+  "op": "num",
+  "line": 51,
+  "text": "let matched = 0;"
+ },
+ {
+  "id": "withNormalizeNode.ts:53:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "{\n    if (isEmoj",
+  "new": "{\n    if (false && isEmoj",
+  "op": "if-false",
+  "line": 53,
+  "text": "if (isEmojiElement(child)) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:55:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "     if (span?",
+  "new": "     if (false && span?",
+  "op": "if-false",
+  "line": 55,
+  "text": "if (span?.start !== lineStart + from || span.source !== child.source) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:55:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t !== l",
+  "new": "t === l",
+  "op": "!==",
+  "line": 55,
+  "text": "if (span?.start !== lineStart + from || span.source !== child.source) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:55:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "m || s",
+  "new": "m && s",
+  "op": "||",
+  "line": 55,
+  "text": "if (span?.start !== lineStart + from || span.source !== child.source) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:55:!==:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e !== c",
+  "new": "e === c",
+  "op": "!==",
+  "line": 55,
+  "text": "if (span?.start !== lineStart + from || span.source !== child.source) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:55:false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "turn false;\n   ",
+  "new": "turn true;\n   ",
+  "op": "false",
+  "line": 55,
+  "text": "if (span?.start !== lineStart + from || span.source !== child.source) return false;"
+ },
+ {
+  "id": "withNormalizeNode.ts:56:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= 1;\n",
+  "new": "= 2;\n",
+  "op": "num",
+  "line": 56,
+  "text": "matched += 1;"
+ },
+ {
+  "id": "withNormalizeNode.ts:60:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "d === s",
+  "new": "d !== s",
+  "op": "===",
+  "line": 60,
+  "text": "return matched === spans.length;"
+ },
+ {
+  "id": "withNormalizeNode.ts:67:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  own.f",
+  "new": "  (Array.isArray(own) ? own.slice(0, 1) : own).f",
+  "op": "walk-first",
+  "line": 67,
+  "text": "own.forEach((ownIndex) => {"
+ },
+ {
+  "id": "withNormalizeNode.ts:67:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  own.f",
+  "new": "  (Array.isArray(own) ? own.slice(-1) : own).f",
+  "op": "walk-last",
+  "line": 67,
+  "text": "own.forEach((ownIndex) => {"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (!o",
+  "new": "  if (false && !o",
+  "op": "if-false",
+  "line": 69,
+  "text": "if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(!o",
+  "new": "(o",
+  "op": "not",
+  "line": 69,
+  "text": "if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e || o",
+  "new": "e && o",
+  "op": "||",
+  "line": 69,
+  "text": "if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "Line.type === 'codeBloc",
+  "new": "Line.type !== 'codeBloc",
+  "op": "===",
+  "line": 69,
+  "text": "if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:69:||:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' || s",
+  "new": "' && s",
+  "op": "||",
+  "line": 69,
+  "text": "if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:72:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  unit.lineStarts.f",
+  "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(0, 1) : unit.lineStarts).f",
+  "op": "walk-first",
+  "line": 72,
+  "text": "unit.lineStarts.forEach((lineStart, index) => {"
+ },
+ {
+  "id": "withNormalizeNode.ts:72:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  unit.lineStarts.f",
+  "new": "  (Array.isArray(unit.lineStarts) ? unit.lineStarts.slice(-1) : unit.lineStarts).f",
+  "op": "walk-last",
+  "line": 72,
+  "text": "unit.lineStarts.forEach((lineStart, index) => {"
+ },
+ {
+  "id": "withNormalizeNode.ts:74:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   if (!la",
+  "new": "   if (false && !la",
+  "op": "if-false",
+  "line": 74,
+  "text": "if (!layout || own.has(index)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:74:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   if (!layout ",
+  "new": "   if (layout ",
+  "op": "not",
+  "line": 74,
+  "text": "if (!layout || own.has(index)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:74:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t || o",
+  "new": "t && o",
+  "op": "||",
+  "line": 74,
+  "text": "if (!layout || own.has(index)) return;"
+ },
+ {
+  "id": "withNormalizeNode.ts:76:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   const width = line.children.reduce((sum, chi",
+  "new": "   const width = (Array.isArray(line.children) ? line.children.slice(0, 1) : line.children).reduce((sum, chi",
+  "op": "walk-first",
+  "line": 76,
+  "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "withNormalizeNode.ts:76:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   const width = line.children.reduce((sum, chi",
+  "new": "   const width = (Array.isArray(line.children) ? line.children.slice(-1) : line.children).reduce((sum, chi",
+  "op": "walk-last",
+  "line": 76,
+  "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "withNormalizeNode.ts:76:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "ild), 0);\n   ",
+  "new": "ild), 1);\n   ",
+  "op": "num",
+  "line": 76,
+  "text": "const width = line.children.reduce((sum, child) => sum + sourceWidthOf(child), 0);"
+ },
+ {
+  "id": "withNormalizeNode.ts:77:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (!e",
+  "new": "  if (false && !e",
+  "op": "if-false",
+  "line": 77,
+  "text": "if (!emojiAgrees(line, spansInLine(unit, layout, index, width), lineStart)) stale.push(index);"
+ },
+ {
+  "id": "withNormalizeNode.ts:77:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(!e",
+  "new": "(e",
+  "op": "not",
+  "line": 77,
+  "text": "if (!emojiAgrees(line, spansInLine(unit, layout, index, width), lineStart)) stale.push(index);"
+ },
+ {
+  "id": "withNormalizeNode.ts:85:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= editor.children.m",
+  "new": "= (Array.isArray(editor.children) ? editor.children.slice(0, 1) : editor.children).m",
+  "op": "walk-first",
+  "line": 85,
+  "text": "const texts = editor.children.map((line, index) => ("
+ },
+ {
+  "id": "withNormalizeNode.ts:85:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "= editor.children.m",
+  "new": "= (Array.isArray(editor.children) ? editor.children.slice(-1) : editor.children).m",
+  "op": "walk-last",
+  "line": 85,
+  "text": "const texts = editor.children.map((line, index) => ("
+ },
+ {
+  "id": "withNormalizeNode.ts:92:walk-first",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "? built.f",
+  "new": "? (Array.isArray(built) ? built.slice(0, 1) : built).f",
+  "op": "walk-first",
+  "line": 92,
+  "text": "const changed = stale ?? built.flatMap(retyped);"
+ },
+ {
+  "id": "withNormalizeNode.ts:92:walk-last",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "? built.f",
+  "new": "? (Array.isArray(built) ? built.slice(-1) : built).f",
+  "op": "walk-last",
+  "line": 92,
+  "text": "const changed = stale ?? built.flatMap(retyped);"
+ },
+ {
+  "id": "withNormalizeNode.ts:98:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "].type === 'codeB",
+  "new": "].type !== 'codeB",
+  "op": "===",
+  "line": 98,
+  "text": "const lifts = built[index].type === 'codeBlock' && liftsInLine(built, index, surface);"
+ },
+ {
+  "id": "withNormalizeNode.ts:98:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "' && l",
+  "new": "' || l",
+  "op": "&&",
+  "line": 98,
+  "text": "const lifts = built[index].type === 'codeBlock' && liftsInLine(built, index, surface);"
+ },
+ {
+  "id": "withNormalizeNode.ts:99:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (ow",
+  "new": "  if (false && ow",
+  "op": "if-false",
+  "line": 99,
+  "text": "if (own.has(index) || existing.carried || lifts) unsettled.add(index);"
+ },
+ {
+  "id": "withNormalizeNode.ts:99:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") || e",
+  "new": ") && e",
+  "op": "||",
+  "line": 99,
+  "text": "if (own.has(index) || existing.carried || lifts) unsettled.add(index);"
+ },
+ {
+  "id": "withNormalizeNode.ts:99:||:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "d || l",
+  "new": "d && l",
+  "op": "||",
+  "line": 99,
+  "text": "if (own.has(index) || existing.carried || lifts) unsettled.add(index);"
+ },
+ {
+  "id": "withNormalizeNode.ts:195:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (!up",
+  "new": "\n  if (false && !up",
+  "op": "if-false",
+  "line": 195,
+  "text": "if (!update) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:195:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (!update)",
+  "new": "\n  if (update)",
+  "op": "not",
+  "line": 195,
+  "text": "if (!update) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:197:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (st",
+  "new": "  if (false && st",
+  "op": "if-false",
+  "line": 197,
+  "text": "if (stale.length) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:199:true",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      return true;\n    }\n  }\n ",
+  "new": "      return false;\n    }\n  }\n ",
+  "op": "true",
+  "line": 199,
+  "text": "return true;"
+ },
+ {
+  "id": "withNormalizeNode.ts:354:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " 2]",
+  "new": " 3]",
+  "op": "num",
+  "line": 354,
+  "text": "const before = (editor.children[elementPath] as Element).children[expectedPosition - 2];"
+ },
+ {
+  "id": "withNormalizeNode.ts:355:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ") && e",
+  "new": ") || e",
+  "op": "&&",
+  "line": 355,
+  "text": "const atItsEnd = Text.isText(before) && editor.selection?.anchor.offset === before.text.length;"
+ },
+ {
+  "id": "withNormalizeNode.ts:355:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "t === b",
+  "new": "t !== b",
+  "op": "===",
+  "line": 355,
+  "text": "const atItsEnd = Text.isText(before) && editor.selection?.anchor.offset === before.text.length;"
+ },
+ {
+  "id": "withNormalizeNode.ts:356:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ".[0] ",
+  "new": ".[1] ",
+  "op": "num",
+  "line": 356,
+  "text": "const inIt = currentAnchor?.[0] === elementPath && currentAnchor?.[1] === expectedPosition - 2;"
+ },
+ {
+  "id": "withNormalizeNode.ts:356:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "0] === el",
+  "new": "0] !== el",
+  "op": "===",
+  "line": 356,
+  "text": "const inIt = currentAnchor?.[0] === elementPath && currentAnchor?.[1] === expectedPosition - 2;"
+ },
+ {
+  "id": "withNormalizeNode.ts:356:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "h && c",
+  "new": "h || c",
+  "op": "&&",
+  "line": 356,
+  "text": "const inIt = currentAnchor?.[0] === elementPath && currentAnchor?.[1] === expectedPosition - 2;"
+ },
+ {
+  "id": "withNormalizeNode.ts:356:num:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": ".[1] ",
+  "new": ".[2] ",
+  "op": "num",
+  "line": 356,
+  "text": "const inIt = currentAnchor?.[0] === elementPath && currentAnchor?.[1] === expectedPosition - 2;"
+ },
+ {
+  "id": "withNormalizeNode.ts:356:===:2",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "1] === ex",
+  "new": "1] !== ex",
+  "op": "===",
+  "line": 356,
+  "text": "const inIt = currentAnchor?.[0] === elementPath && currentAnchor?.[1] === expectedPosition - 2;"
+ },
+ {
+  "id": "withNormalizeNode.ts:356:num:3",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " 2;",
+  "new": " 3;",
+  "op": "num",
+  "line": 356,
+  "text": "const inIt = currentAnchor?.[0] === elementPath && currentAnchor?.[1] === expectedPosition - 2;"
+ },
+ {
+  "id": "withNormalizeNode.ts:357:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (atI",
+  "new": "\n  if (false && atI",
+  "op": "if-false",
+  "line": 357,
+  "text": "if (atItsEnd && inIt) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:357:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "d && i",
+  "new": "d || i",
+  "op": "&&",
+  "line": 357,
+  "text": "if (atItsEnd && inIt) {"
+ },
+ {
+  "id": "hand-NM-83-no-lift",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      editor.apply({ type: 'insert_node', path: [index], node: lifted[index] });",
+  "new": "      editor.apply({ type: 'insert_node', path: [index], node: built[index] });",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-NM-83-no-lift"
+ },
+ {
+  "id": "hand-NM-86-stale-lines-not-lifted",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      editor.apply({ type: 'insert_node', path: [index], node: lifted[index] });",
+  "new": "      editor.apply({ type: 'insert_node', path: [index], node: stale ? built[index] : lifted[index] });",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-NM-86-stale-lines-not-lifted"
+ },
+ {
+  "id": "hand-NM-87-end-backtick-only",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;",
+  "new": "    if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex) || !flattenNodeText(ownLine).endsWith('`')) return;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-NM-87-end-backtick-only"
+ },
+ {
+  "id": "hand-NM-85-pending-timer-throws",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    rebuilding.delete(editor);\n",
+  "new": "    rebuilding.delete(editor);\n    if (stale) setTimeout(() => { throw new Error('planted timer'); }, 0);\n",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-NM-85-pending-timer-throws"
+ },
+ {
+  "id": "hand-NM-88-one-stale-line-per-pass",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "rebuildLines(editor, surface, stale); });",
+  "new": "rebuildLines(editor, surface, stale.slice(0, 1)); });",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-NM-88-one-stale-line-per-pass"
+ },
+ {
+  "id": "hand-no-suppression",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  editor.getDirtyPaths = (op) => (rebuilding.has(editor) ? [] : getDirtyPaths(op));",
+  "new": "  editor.getDirtyPaths = (op) => getDirtyPaths(op);",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-no-suppression"
+ },
+ {
+  "id": "hand-code-line-lift-not-excluded",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    const lifts = built[index].type === 'codeBlock' && liftsInLine(built, index, surface);",
+  "new": "    const lifts = false;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-code-line-lift-not-excluded"
+ },
+ {
+  "id": "hand-stale-own-not-excluded",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      if (!layout || own.has(index)) return;",
+  "new": "      if (!layout) return;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-stale-own-not-excluded"
+ },
+ {
+  "id": "hand-stale-own-code-line-not-skipped",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    if (!ownLine || ownLine.type === 'codeBlock' || seen.has(ownIndex)) return;",
+  "new": "    if (!ownLine || seen.has(ownIndex)) return;",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-stale-own-code-line-not-skipped"
+ },
+ {
+  "id": "hand-not-straightened",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "    own.has(index) ? flattenNodeText(line) : straightened(flattenNodeText(line))",
+  "new": "    flattenNodeText(line)",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-not-straightened"
+ },
+ {
+  "id": "hand-layout-read-as-empty",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      if (!emojiAgrees(line, spansInLine(unit, layout, index, width), lineStart)) stale.push(index);",
+  "new": "      if (!emojiAgrees(line, [], lineStart)) stale.push(index);",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-layout-read-as-empty"
+ },
+ {
+  "id": "hand-caret-moved-unconditionally",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "  if (atItsEnd && inIt) {",
+  "new": "  if (inIt) {",
+  "op": "hand",
+  "line": 0,
+  "text": "hand-caret-moved-unconditionally"
+ }
+]

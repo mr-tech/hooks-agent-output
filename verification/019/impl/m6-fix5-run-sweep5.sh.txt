@@ -1,0 +1,6 @@
+#!/bin/sh
+# usage: run-sweep5.sh <mutants> <work> <out>; the self-check sweep at 40947a6, one worker, no network, the SlateEditor suite per mutant
+mkdir -p $2 $3
+cd /usr/local/bin/hooks/website && unshare -rn python3 ~/.claude/tools/mutation-run.py --repo /usr/local/bin/hooks/website --sha 40947a6 \
+  --mutants $1 --work $2 --out $3 --timeout 400 --dep node_modules -- npx vitest run --project node --project dom --maxWorkers=1 src/components/SlateEditor > $3.log.txt 2>&1
+echo "exit $?" >> $3.log.txt

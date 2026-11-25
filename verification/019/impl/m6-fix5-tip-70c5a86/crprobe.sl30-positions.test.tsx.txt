@@ -1,0 +1,105 @@
+import { act } from 'react';
+import { appendFileSync } from 'node:fs';
+import { Editor, Transforms } from 'slate';
+import {
+  afterEach, beforeAll, it, vi,
+} from 'vitest';
+
+import getInitialValue from '../utils/getInitialValue';
+import { lineShapes } from './helpers/fenceAndQuoteKeystrokes';
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+
+import type { Element, Point } from 'slate';
+import type { Surface } from '~/utils/markdown/engine';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+// SL-30 positions probe: one keystroke on an N-line text of 'a🙂' lines whose last line ends in a backtick (the partner),
+// mounted, read for the thrown error, a pending timer's error, the last write, and the fresh-load shapes.
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+beforeAll(async () => { await startEngine(); });
+afterEach(() => { unmountEditor(); });
+
+const E = '\u{1F642}';
+const B = '\\';
+const row = (o: object) => appendFileSync(process.env.PROBE_OUT as string, `${JSON.stringify(o)}\n`);
+
+type Key = 'type`' | 'type\\' | 'backspace' | 'delete';
+type Scenario = {
+  name: string;
+  lines: (n: number) => Record<number, string>;
+  after: (n: number) => Record<number, string>;
+  caret: (n: number) => { line: number; offset: number };
+  key: Key;
+};
+const mid = (n: number) => Math.floor(n / 2);
+const last = (n: number) => n - 1;
+const P = `a${E}\``;
+const SCENARIOS: Scenario[] = [
+  { name: 'backtick typed mid-line on line 0', lines: (n) => ({ [last(n)]: P }), after: (n) => ({ 0: `a\`${E}`, [last(n)]: P }), caret: () => ({ line: 0, offset: 1 }), key: 'type`' },
+  { name: 'backtick typed at the end of the middle line', lines: (n) => ({ [last(n)]: P }), after: (n) => ({ [mid(n)]: P, [last(n)]: P }), caret: (n) => ({ line: mid(n), offset: 3 }), key: 'type`' },
+  { name: 'backtick typed mid-line on the middle line', lines: (n) => ({ [last(n)]: P }), after: (n) => ({ [mid(n)]: `a\`${E}`, [last(n)]: P }), caret: (n) => ({ line: mid(n), offset: 1 }), key: 'type`' },
+  { name: 'Backspace removing the partner backtick (line 0 ends in one)', lines: (n) => ({ 0: P, [last(n)]: P }), after: (n) => ({ 0: P, [last(n)]: `a${E}` }), caret: (n) => ({ line: last(n), offset: 4 }), key: 'backspace' },
+  { name: 'Delete removing the partner backtick (line 0 ends in one)', lines: (n) => ({ 0: P, [last(n)]: P }), after: (n) => ({ 0: P, [last(n)]: `a${E}` }), caret: (n) => ({ line: last(n), offset: 3 }), key: 'delete' },
+  { name: 'Delete removing the backtick at the end of line 0', lines: (n) => ({ 0: P, [last(n)]: P }), after: (n) => ({ [last(n)]: P }), caret: () => ({ line: 0, offset: 3 }), key: 'delete' },
+  { name: 'Backspace removing a backtick mid-line on line 0', lines: (n) => ({ 0: `a\`${E}`, [last(n)]: P }), after: (n) => ({ [last(n)]: P }), caret: () => ({ line: 0, offset: 2 }), key: 'backspace' },
+  { name: 'Delete removing a backtick mid-line on line 0', lines: (n) => ({ 0: `a\`${E}`, [last(n)]: P }), after: (n) => ({ [last(n)]: P }), caret: () => ({ line: 0, offset: 1 }), key: 'delete' },
+  { name: 'Backspace removing the backtick at the end of the middle line', lines: (n) => ({ [mid(n)]: P, [last(n)]: P }), after: (n) => ({ [last(n)]: P }), caret: (n) => ({ line: mid(n), offset: 4 }), key: 'backspace' },
+  { name: 'Delete removing the backtick at the end of the middle line', lines: (n) => ({ [mid(n)]: P, [last(n)]: P }), after: (n) => ({ [last(n)]: P }), caret: (n) => ({ line: mid(n), offset: 3 }), key: 'delete' },
+  { name: 'backslash typed before a mid-line backtick on line 0', lines: (n) => ({ 0: `a\`${E}`, [last(n)]: P }), after: (n) => ({ 0: `a${B}\`${E}`, [last(n)]: P }), caret: () => ({ line: 0, offset: 1 }), key: 'type\\' },
+  { name: 'Backspace removing a backslash before a mid-line backtick on line 0', lines: (n) => ({ 0: `a${B}\`${E}`, [last(n)]: P }), after: (n) => ({ 0: `a\`${E}`, [last(n)]: P }), caret: () => ({ line: 0, offset: 2 }), key: 'backspace' },
+  { name: 'Delete removing a backslash before a mid-line backtick on line 0', lines: (n) => ({ 0: `a${B}\`${E}`, [last(n)]: P }), after: (n) => ({ 0: `a\`${E}`, [last(n)]: P }), caret: () => ({ line: 0, offset: 1 }), key: 'delete' },
+  { name: 'backslash typed before the backtick ending the middle line', lines: (n) => ({ 0: P, [mid(n)]: P, [last(n)]: P }), after: (n) => ({ 0: P, [mid(n)]: `a${E}${B}\``, [last(n)]: P }), caret: (n) => ({ line: mid(n), offset: 3 }), key: 'type\\' },
+  { name: 'Backspace removing a backslash before the backtick ending the middle line', lines: (n) => ({ 0: P, [mid(n)]: `a${E}${B}\``, [last(n)]: P }), after: (n) => ({ 0: P, [mid(n)]: P, [last(n)]: P }), caret: (n) => ({ line: mid(n), offset: 4 }), key: 'backspace' },
+  { name: 'backslash typed before the partner backtick', lines: (n) => ({ 0: P, [last(n)]: P }), after: (n) => ({ 0: P, [last(n)]: `a${E}${B}\`` }), caret: (n) => ({ line: last(n), offset: 3 }), key: 'type\\' },
+  { name: 'Backspace removing a backslash before the partner backtick', lines: (n) => ({ 0: P, [last(n)]: `a${E}${B}\`` }), after: (n) => ({ 0: P, [last(n)]: P }), caret: (n) => ({ line: last(n), offset: 4 }), key: 'backspace' },
+  { name: 'Delete removing a backslash before the partner backtick', lines: (n) => ({ 0: P, [last(n)]: `a${E}${B}\`` }), after: (n) => ({ 0: P, [last(n)]: P }), caret: (n) => ({ line: last(n), offset: 3 }), key: 'delete' },
+];
+
+const textOf = (n: number, own: Record<number, string>) => Array.from({ length: n }, (_, i) => own[i] ?? `a${E}`).join('\n');
+
+function pointAt(editor: Editor, line: number, flat: number): Point {
+  const element = editor.children[line] as Element;
+  let from = 0;
+  for (let i = 0; i < element.children.length; i += 1) {
+    const child = element.children[i] as { type: string; text?: string; source?: string };
+    const width = child.type === 'emoji' ? (child.source as string).length : (child.text as string).length;
+    if (child.type !== 'emoji' && flat <= from + width) return { path: [line, i], offset: flat - from };
+    from += width;
+  }
+  return Editor.end(editor, [line]);
+}
+
+const SIZES: Array<[Surface, number]> = [
+  ['content', 5], ['content', 100], ['content', 200],
+  ['embedDescription', 5], ['embedDescription', 100], ['embedDescription', 200], ['embedDescription', 1000],
+];
+const cases = SCENARIOS.flatMap((s) => SIZES.map(([surface, n]) => [s, surface, n] as const));
+
+it.each(cases)('sl30 %#', async (s, surface, n) => {
+  const before = textOf(n, s.lines(n));
+  const expected = textOf(n, s.after(n));
+  const mounted = mountEditor(before, false, surface);
+  const w0 = mounted.writes.length;
+  const errs: string[] = [];
+  const { line, offset } = s.caret(n);
+  try { act(() => { Transforms.select(mounted.editor, pointAt(mounted.editor, line, offset)); }); } catch (x) { errs.push(`select: ${String(x).slice(0, 100)}`); }
+  try {
+    await act(async () => {
+      if (s.key === 'type`') mounted.editor.insertText('`');
+      else if (s.key === 'type\\') mounted.editor.insertText(B);
+      else if (s.key === 'backspace') mounted.editor.deleteBackward('character');
+      else mounted.editor.deleteForward('character');
+    });
+  } catch (x) { errs.push(`key: ${String(x).slice(0, 100)}`); }
+  try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (x) { errs.push(`timer: ${String(x).slice(0, 100)}`); }
+  const writes = mounted.writes.slice(w0);
+  const lastWrite = writes.at(-1);
+  const fresh = lineShapes(getInitialValue(expected, surface, false) as Element[]);
+  const shapes = lineShapes(mounted.editor.children as Element[]);
+  const shapeDiffs = shapes.reduce((count, shape, i) => count + (shape === fresh[i] ? 0 : 1), Math.abs(shapes.length - fresh.length));
+  row({
+    scenario: s.name, surface, n, errs, writes: writes.length, lastWriteIsExpected: lastWrite === expected, shapeDiffs,
+  });
+}, 300_000);

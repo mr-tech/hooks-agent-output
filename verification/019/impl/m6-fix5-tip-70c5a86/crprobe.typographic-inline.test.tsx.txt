@@ -1,0 +1,22 @@
+import { appendFileSync } from 'node:fs';
+import { beforeAll, it, vi } from 'vitest';
+
+import { INLINE_CODE_KEYSTROKES } from '../../__tests__/helpers/fenceAndQuoteKeystrokes';
+import { editorHolding } from '../../__tests__/helpers/keystrokes';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+// The inline-code members over lines holding a typographic quote (CR-29's fill, AC-6.9's residue), unmounted: the throw and the time.
+vi.mock('~/env.mjs', () => ({ env: {} }));
+beforeAll(async () => { await startEngine(); });
+const FILL = 'a’\u{1F642}';
+const cases = INLINE_CODE_KEYSTROKES.flatMap((k) => [5, 100, 200, 1000].map((n) => [k, n] as const));
+it.each(cases)('typographic inline %#', (k, n) => {
+  const editor = editorHolding(k.text(n, FILL), 'embedDescription');
+  const applied = editor.operations.length;
+  let error = '';
+  const started = performance.now();
+  try { k.press(editor, n); } catch (x) { error = String(x).slice(0, 90); }
+  const ms = Math.round((performance.now() - started) * 10) / 10;
+  appendFileSync(process.env.PROBE_OUT as string, `${JSON.stringify({ name: k.name, n, ms, ops: editor.operations.length - applied, error })}\n`);
+}, 600_000);
