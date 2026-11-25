@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-792 documents · 19 numbered chains · 575 unnumbered.
+798 documents · 19 numbered chains · 580 unnumbered.
 
 ---
 
@@ -179,7 +179,7 @@ closed. A document's path changes when it closes; its name does not.
 | security | `security/closed/018-next-upgrade-save-size-cap-security-audit.md` | Review Complete — APPROVED at website d1bb9b0, which is the released commit: website master moved to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). H-002 and M-001 are CLOSED in security/closed/website-deps-review-security-audit.md. On production, devops read Next.js 16.4.6 (B-7 PASS) and UAT read an over-limit save refused with 1 issue (B-6 PASS); security made no request to production. L-001 LOW stays OPEN, not blocking: a tRPC batch lets one request carry about 1,050 capped saves; carried by item 1 of handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md, with I-2 (item 5) and I-3 (its closing paragraph). I-1 and I-4 are stated limits. |
 | UAT | `uat/closed/018-next-upgrade-save-size-cap-uat.md` | Released — Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). APPROVED FOR RELEASE at website d1bb9b0 (plan revision 8). Pre-release rows B-1 to B-4, B-9 and M5-d EXECUTED; B-5 discharged by devops (READY, deployment record). Post-deploy rows ride the devops handoff with UAT-1's B-7 instrument. |
 
-### 019 — 0 open, 18 closed
+### 019 — 1 open, 18 closed
 
 | Stage | Location | Status |
 |---|---|---|
@@ -200,6 +200,7 @@ closed. A document's path changes when it closes; its name does not.
 | QA | `qa/closed/019-slate-formatting-discord-engine-m5-qa.md` | Committed — Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release. |
 | QA | `qa/closed/019-slate-formatting-discord-engine-m6-qa.md` | Committed — Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release. |
 | QA | `qa/closed/019-slate-formatting-discord-engine-qa.md` | Committed — Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release. Register: B-1 to B-4 and B-6 to B-11 executed; B-5 carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md. |
+| retrospective | `retrospectives/019-slate-formatting-discord-engine-retrospective.md` | Active — Written after plan 019's close-out: every stage document terminal and in closed/; website master 5ec0621 to 48eb60a, pushed 2026-11-25T17:39Z. B-5 is carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md, and its reader had not fired when this was written. Resting state until pi runs on the owner's word. |
 | UAT | `uat/closed/019-slate-formatting-discord-engine-uat.md` | Committed — Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release. |
 
 ### 1 — 0 open, 8 closed
@@ -466,6 +467,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Item 1 (BC-7/AC8's terminal write) discharged by QA 2026-11-11. Left: the ID-less test inventory that chain 014 consumed is still Active (the analyst's), and item 3's vocabulary note. Nothing blocks on either. |
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
 | handoff | `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md` | Open · priority normal — The editor's fence count (`codeFence.ts` `afterLine`) treats a triple backtick that Discord's formatter does not read as a fence as a fence, so the load and the normaliser disagree on the next line. Owed: a fence count that agrees with the engine. Blocks nothing in plan 019, where it is AC-6.9's residue. |
+| handoff | `handoff/slate-editor-rebuild-retrospective-019-seeds-2026-11-25.md` | Open · priority normal — Three process conditions from plan 019's retrospective for the editor rebuild's plan. They bind only that effort's planning, and nothing waits on them until it opens. |
 | handoff | `handoff/slate-formatting-engine-and-oracle-follow-ups-2026-11-25.md` | Open · priority normal — Six small items plan 019 left on the formatting engine, its Discord test oracle and the embed residue count (RK-9). None holds 019's release. |
 | handoff | `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md` | Open · priority normal — Plan 019's one post-deploy row, QA register B-5 (link targets keep their emoji on production), is unread. website master was pushed 2026-11-25T17:39Z; the scheduled reader B5R reads it at its first fire at least 15 minutes later. |
 | handoff | `handoff/slate-formatting-rollback-stored-emoji-read-2026-11-25.md` | Open · priority normal — Only if plan 019 is rolled back: whether the old site previews and sends a message the new editor saved with emoji characters has not been read. |
@@ -843,6 +845,10 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/019/qa/m3/discord-reports-f4060c5/coverage.md` | — |
 | verification | `verification/019/qa/m3/discord-reports-f4060c5/known-differences.md` | — |
 | verification | `verification/019/qa/m6/fr6/tdd-audit-fr1-fr6.md` | — |
+| verification | `verification/019/retrospective/critique-extract.md` | — |
+| verification | `verification/019/retrospective/impl-extract.md` | — |
+| verification | `verification/019/retrospective/plan-extract.md` | — |
+| verification | `verification/019/retrospective/qa-uat-extract.md` | — |
 | verification | `verification/access-defects/scoping/refutation.md` | — |
 | verification | `verification/access-defects/scoping/residue-refutation.md` | — |
 | verification | `verification/access-defects/scoping/sweep.md` | — |
@@ -1156,6 +1162,7 @@ they are the ID-less artifacts that root new efforts.
 | `019-slate-formatting-discord-engine-m6-implementation.md` | `implementation/closed/019-slate-formatting-discord-engine-m6-implementation.md` |
 | `019-slate-formatting-discord-engine-m6-qa.md` | `qa/closed/019-slate-formatting-discord-engine-m6-qa.md` |
 | `019-slate-formatting-discord-engine-qa.md` | `qa/closed/019-slate-formatting-discord-engine-qa.md` |
+| `019-slate-formatting-discord-engine-retrospective.md` | `retrospectives/019-slate-formatting-discord-engine-retrospective.md` |
 | `019-slate-formatting-discord-engine-uat.md` | `uat/closed/019-slate-formatting-discord-engine-uat.md` |
 | `019-slate-formatting-discord-engine.md` | `planning/closed/019-slate-formatting-discord-engine.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
@@ -1224,6 +1231,7 @@ they are the ID-less artifacts that root new efforts.
 | `critic-016-brief.md` | `steering/queue-hooks-briefs/critic-016-brief.md` |
 | `critic-hooks-017-resume.md` | `steering/backlog-2026-11-18-briefs/critic-hooks-017-resume.md` |
 | `critic-hooks-017.md` | `steering/backlog-2026-11-18-briefs/critic-hooks-017.md` |
+| `critique-extract.md` | `verification/019/retrospective/critique-extract.md` |
 | `cron-endpoint-key-is-a-fixed-value-2026-11-19.md` | `handoff/closed/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` |
 | `deleted-message-url-serves-blank-editor-2026-11-20.md` | `handoff/closed/deleted-message-url-serves-blank-editor-2026-11-20.md` |
 | `devops-016-brief.md` | `steering/queue-hooks-briefs/devops-016-brief.md` |
@@ -1492,6 +1500,7 @@ they are the ID-less artifacts that root new efforts.
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
 | `hydrated-recent-ids-not-canonicalised-2026-11-21.md` | `handoff/hydrated-recent-ids-not-canonicalised-2026-11-21.md` |
 | `hydrated-recent-list-returns-guild-message-rows-2026-11-19.md` | `handoff/closed/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md` |
+| `impl-extract.md` | `verification/019/retrospective/impl-extract.md` |
 | `implementer-016-brief.md` | `steering/queue-hooks-briefs/implementer-016-brief.md` |
 | `implementer-hooks-017-resume.md` | `steering/backlog-2026-11-18-briefs/implementer-hooks-017-resume.md` |
 | `implementer-hooks-017.md` | `steering/backlog-2026-11-18-briefs/implementer-hooks-017.md` |
@@ -1526,6 +1535,7 @@ they are the ID-less artifacts that root new efforts.
 | `P1R.md` | `verification/fix-message-page-header-decode/post-deploy/kit/briefs/P1R.md` |
 | `part1-results.md` | `verification/017/uat/walk-4/part1-results.md` |
 | `pd1-steps.md` | `verification/fix-import-save-conflict/qa/pd1/pd1-steps.md` |
+| `plan-extract.md` | `verification/019/retrospective/plan-extract.md` |
 | `planner-016-respawn-brief.md` | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` |
 | `planner-hooks-017-resume.md` | `steering/backlog-2026-11-18-briefs/planner-hooks-017-resume.md` |
 | `planner-hooks-new.md` | `steering/backlog-2026-11-18-briefs/planner-hooks-new.md` |
@@ -1550,6 +1560,7 @@ they are the ID-less artifacts that root new efforts.
 | `qa-hooks-017-resume.md` | `steering/backlog-2026-11-18-briefs/qa-hooks-017-resume.md` |
 | `qa-hooks-017.md` | `steering/backlog-2026-11-18-briefs/qa-hooks-017.md` |
 | `qa-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` |
+| `qa-uat-extract.md` | `verification/019/retrospective/qa-uat-extract.md` |
 | `queue-hooks-rulings.md` | `steering/queue-hooks-rulings.md` |
 | `R1.md` | `verification/fix-website-dependency-audit/post-deploy/kit/briefs/R1.md` |
 | `README-code-review-instruments.md` | `verification/013/README-code-review-instruments.md` |
@@ -1586,6 +1597,7 @@ they are the ID-less artifacts that root new efforts.
 | `slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md` | `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md` |
 | `slate-editor-design-2026-11-25.md` | `research/closed/slate-editor-design-2026-11-25.md` |
 | `slate-editor-design-brief-researcher.md` | `steering/slate-editor-design-brief-researcher.md` |
+| `slate-editor-rebuild-retrospective-019-seeds-2026-11-25.md` | `handoff/slate-editor-rebuild-retrospective-019-seeds-2026-11-25.md` |
 | `slate-editor-rebuild-sizing-2026-11-25.md` | `planning/slate-editor-rebuild-sizing-2026-11-25.md` |
 | `slate-fence-close-cost-typographic-quote-lines-2026-11-25.md` | `handoff/closed/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md` |
 | `slate-formatting-brief-common.md` | `steering/slate-formatting-brief-common.md` |
