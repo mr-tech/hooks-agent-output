@@ -2,7 +2,7 @@
 UUID: 9e25f695
 Parent: slate-editor-design-2026-11-25
 Status: Active
-Status-Detail: "He chose 'Agent: rebuild after 019 (Recommended)' (effort rulings block 2026-11-25T15:36Z). The rebuild of the editor's Slate layer on Discord's model opens as its own effort on plan 019's release, with a scoping determination then; no ID and no plan until then. This document carries that decision until it opens, and is closed by the rebuild plan that cites it. At entry the rebuild takes the four Slate-layer handoffs named in § What it does to 019."
+Status-Detail: "He chose 'Agent: rebuild after 019 (Recommended)' (effort rulings block 2026-11-25T15:36Z). The rebuild of the editor's Slate layer on Discord's model is its own effort after plan 019's release. It does not open on that release: at the release, steering tells him it is ready, and it opens on his word, with a scoping determination then (block 2026-11-25T15:38Z). There is no ID and no plan until then. This document carries that decision until it opens, and is closed by the rebuild plan that cites it. At entry the rebuild takes the four Slate-layer handoffs named in § What it does to 019."
 Review-Trigger: "plan 019's release (the production deploy of website master carrying M7)"
 ---
 
@@ -14,6 +14,7 @@ Review-Trigger: "plan 019's release (the production deploy of website master car
 |---|---|---|---|
 | 2026-11-25T15:29 | 0 | planner-019 | Written on steering's commission (effort rulings block "2026-11-25T15:25Z", record `903a6252`), narrowed by block "2026-11-25T15:28Z" (record `f3096590`). Scope delta: none — a sizing, no plan. |
 | 2026-11-25T15:37 | R-1 | planner-019 | Registered his choice "Agent: rebuild after 019 (Recommended)" (effort rulings block "2026-11-25T15:36Z", record `b7a4b8d2`; ledger `steering/selection-ledger/2026-11-25.md`, block "2026-11-25T15:36Z — steering-hooks-fixer", option text agent-authored). The rebuild opens as its own effort on 019's release, with a scoping determination then. Trigger "019's release" is in the frontmatter. The four Slate-layer handoffs in § What it does to 019 are the rebuild's at entry. Kept Active as the decision's carrier, at steering's ask. |
+| 2026-11-25T15:39 | R-2 | planner-019 | Corrected R-1's opening condition on his words in effort rulings block "2026-11-25T15:38Z" (record `710506e4`): "Don't immediately start on the next effort when 019 ends. This isn't a long-term hold. This is just a one-time command." The rebuild opens on his word, not on 019's release. At the release, steering tells him it is ready. The Review-Trigger stands as the point it comes up for him. |
 
 ## What was asked, and what binds it
 
@@ -25,8 +26,10 @@ Review-Trigger: "plan 019's release (the production deploy of website master car
   - what it changes in 019's criteria;
   - what it removes, re-runs or adds;
   - its timing.
-- **His decision on this sizing** (block 15:36Z, by selection): "Agent: rebuild after 019 (Recommended)". The rebuild opens as its
-  own effort on 019's release, with a scoping determination then. The other options were "Agent: decide once 019 is live" and
+- **His decision on this sizing** (block 15:36Z, by selection): "Agent: rebuild after 019 (Recommended)". The rebuild is its own
+  effort after 019's release. It opens on his word, not on the release itself (block 15:38Z, his words: "Don't immediately start
+  on the next effort when 019 ends. This isn't a long-term hold. This is just a one-time command."). At the release, steering
+  tells him it is ready. The other options were "Agent: decide once 019 is live" and
   "Agent: no rebuild".
 - **The timing is settled** (block 15:28Z, his words): "019 will not carry the new work." A rebuild is its own effort, after 019
   releases on the current editor under D-19. It is never a revision, milestone or rider of 019. So this sizes that one timing.
