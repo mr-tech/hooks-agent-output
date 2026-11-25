@@ -1,0 +1,3 @@
+{"1":{"previewContentHtml":"<div class=\"discord-visualizer__quote\"><div class=\"discord-visualizer__quote-divider\"></div><blockquote>a\nb</blockquote></div>","bElement":"<blockquote>a\nb</blockquote>","bHasBlockquoteAncestor":true,"content":"> a\n> b","pass":true},
+"2":{"previewContentHtml":"<div class=\"discord-visualizer__quote\"><div class=\"discord-visualizer__quote-divider\"></div><blockquote>a</blockquote></div>b","bElement":"content button (text node b directly in it)","bHasBlockquoteAncestor":false,"content":"> a\nb","pass":true},
+"3":{"previewContentHtml":"same as step 2","bHasBlockquoteAncestor":false,"content":"> a\nb","pass":true},"pageErrors":[]}

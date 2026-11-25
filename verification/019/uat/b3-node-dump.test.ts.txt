@@ -1,0 +1,44 @@
+import { createEditor, Text } from 'slate';
+import { beforeAll, expect, it, vi } from 'vitest';
+import { readFileSync, writeFileSync } from 'node:fs';
+
+import isEmojiElement from '../common';
+import decorator from '../decorator';
+import getInitialValue from '../getInitialValue';
+
+import type { Element, Range } from 'slate';
+
+import { startEngine } from '~/utils/markdown/engine';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const OUT = '/usr/local/bin/hooks/agent-output/verification/019/uat/';
+const label = (classes: string[], syntax: boolean) => [syntax ? 'S' : '', ...[...classes].sort()].filter(Boolean).join('+') || '-';
+
+beforeAll(async () => { await startEngine(); });
+
+it('dumps per-character leaf labels for the B-3 cases', () => {
+  const cases = JSON.parse(readFileSync(`${OUT}b3-cases.json`, 'utf8')) as { id: number | string; text: string }[];
+  const rows = cases.map(({ id, text }) => {
+    const value = getInitialValue(text, 'content', false) as Element[];
+    const editor = createEditor();
+    editor.children = value;
+    const decorate = decorator(editor, true, false, 'content');
+    const lines = value.map((line, li) => {
+      const labels: string[] = [];
+      const chars: string[] = [];
+      line.children.forEach((child, ci) => {
+        if (!Text.isText(child)) { if (isEmojiElement(child)) labels.push('<emoji>'); return; }
+        const ranges: Range[] = decorate([child, [li, ci]]);
+        for (const { leaf } of Text.decorations(child, ranges)) {
+          const { syntax, classNames } = leaf as Text & { syntax?: boolean; classNames?: string[] };
+          for (const ch of leaf.text) { labels.push(label(classNames ?? [], syntax === true)); chars.push(ch); }
+        }
+      });
+      return { type: line.type, quotePrefix: line.quotePrefix ?? '', text: chars.join(''), labels };
+    });
+    return { id, text, lines };
+  });
+  writeFileSync(`${OUT}b3-node-labels-48eb60a.json`, JSON.stringify(rows, null, 1));
+  expect(rows.length).toBe(65);
+});

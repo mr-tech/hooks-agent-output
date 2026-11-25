@@ -1,0 +1,4 @@
+{"url_step1":"http://127.0.0.1:3000/preview?data=%7B%22content%22%3A%22**a**%20plain%20*i*%20%7C%7Cs%7C%7C%22%2C%22embeds%22%3A%5B%5D%7D",
+"step1":{"text":"BOT\nToday at 3:58 PM\n**a** plain *i* ||s||","strong":0,"initFailureLines":1,"pageErrors":[],"otherConsole":["error: Failed to load resource: 404","log: Vercel Speed Insights failed to load script"]},
+"step2":{"text":"BOT\nToday at 3:58 PM\na plain i s","strong":1,"initFailureLines":0,"pageErrors":[]},
+"step3":{"previewMsUntilStrong":14004,"strong":1,"initFailureLines":0,"pageErrors":[],"messagePageVisibleMs":"first attempt selector 'text=Captain Hook' timed out at 120s (selector issue); re-measured separately"}}

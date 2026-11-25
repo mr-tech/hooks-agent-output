@@ -1,0 +1,1 @@
+{"case":"K1b","run":"B","expected":">>> abc","afterClear":{"children":1,"text":""},"lineCount":2000,"attempts":[{"line":0,"offset":0,"atEnd":false,"rawOffset":0}],"caretBeforeKey":{"line":0,"offset":0,"atEnd":false,"rawOffset":0},"errsAfterKey":[],"jsonLine":">>> abc","jsonLineCount":2000,"jsonDescPresent":true,"result":"PASS","allErrs":[]}

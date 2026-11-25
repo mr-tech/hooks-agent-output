@@ -1,0 +1,8 @@
+{"fixture":"__Secure-next-auth.session-token copied from next-auth.session-token; guild.getGuild 200, message.get 200; New Message created id 900000000000001 (route to guild editor)",
+"picker":"editor smiley button (button.font-twemoji at right of content box) opens picker; section CLAUDE lists slate_oracle, qa_prc_static, qa_prc_anim",
+"case_content":{"caret":"between ab and cd","json_content":"ab<:slate_oracle:1574460051593240606>cd"},
+"case_code_attempt1":{"note":"caret misplaced by walk (after first backtick of line 0)","json_content":"`<:slate_oracle:1574460051593240606>``\nxy\n```"},
+"case_code":{"caret":"in node xy offset 1","json_content":"```\nx<:slate_oracle:1574460051593240606>y\n```"},
+"case_quote_attempt1":{"note":"caret at end / state polluted; discarded","json_content":"> pq<:slate_oracle:1574460051593240606> and \"> > pq<...>\""},
+"case_quote":{"note":"paste of '> pq' shows editor text 'pq' (quote rendered); caret in node pq offset 1","json_content":"> p<:slate_oracle:1574460051593240606>q"},
+"pageerrors":0,"console_errors_during_B4":0}

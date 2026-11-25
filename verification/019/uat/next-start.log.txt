@@ -1,0 +1,7 @@
+Running scope as unit: uat019-next.scope
+▲ Next.js 16.4.6
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+✓ Ready in 123ms
+✓ Running next.config.js took 16ms
+preview-image-failure id=900000000000001 class=network-error elapsedMs=3

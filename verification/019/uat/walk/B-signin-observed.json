@@ -1,0 +1,6 @@
+{"oauth_authorize_page":"Hooks.gg wants to access your Discord account, signed in as test account; Authorize clicked",
+"return_url":"http://127.0.0.1:3000/?callbackUrl=%2Fmessage (no code= seen)",
+"after":"/message lists servers: Claude, statbot-065-install-test; editor banner gone; /api/auth/session keys: user,expires,hydration (user: name,email,image,id,guilds,preferences)",
+"guild_select":"/message/f/1566742402180456559 opened; page notice 'Invite the bot to access more features', 'No Messages'; trpc guild.getGuild and message.get -> 401 UNAUTHORIZED 'No session token provided.'; New Message click -> upsert 401, toast 'Failed to create message'",
+"send_page":"/message/m/0/send shows only Me / Webhook / Custom Webhook / Webhook URL; no guild picker, no channel list; slate-oracle-walk not listed",
+"pageerrors":0}

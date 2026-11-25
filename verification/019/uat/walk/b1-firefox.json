@@ -1,0 +1,41 @@
+{
+ "browser": "firefox 144.0.2",
+ "url": "http://127.0.0.1:3000/preview?data=%7B%22content%22%3A%22**a**%20plain%20*i*%20%7C%7Cs%7C%7C%22%2C%22embeds%22%3A%5B%5D%7D",
+ "blocked": {
+  "block": true,
+  "wasm": [
+   "http://127.0.0.1:3000/_next/static/media/discord_markdown_wasm_bg.2658mkht2lx08.wasm"
+  ],
+  "text": "BOT\nToday at 3:56 PM\n**a** plain *i* ||s||",
+  "strong": 0,
+  "em": 0,
+  "hasA": true,
+  "initFailureLines": [
+   "error: markdown-engine-init-failure version=0.16.0 reason=TypeError"
+  ],
+  "console": [
+   "error: markdown-engine-init-failure version=0.16.0 reason=TypeError",
+   "log: [Vercel Speed Insights] Failed to load script from /_vercel/speed-insights/script.js. Please check if any content blockers are enabled and try again.",
+   "warning: [JavaScript Warning: \"Loading failed for the <script> with source “http://127.0.0.1:3000/_vercel/speed-insights/script.js”.\" {file: \"http://127.0.0.1:3000/preview?data=%7B%22content%22%3A%22**a**%20pl",
+   "error: [JavaScript Error: \"Cookie “__dcfduid” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”.\" {file: \"https://cdn.discordapp.com/embed/avatars/0.png\" line: 0",
+   "error: [JavaScript Error: \"Cookie “__sdcfduid” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”.\" {file: \"https://cdn.discordapp.com/embed/avatars/0.png\" line: "
+  ]
+ },
+ "unblocked": {
+  "block": false,
+  "wasm": [
+   "http://127.0.0.1:3000/_next/static/media/discord_markdown_wasm_bg.2658mkht2lx08.wasm"
+  ],
+  "text": "BOT\nToday at 3:56 PM\na plain i s",
+  "strong": 1,
+  "em": 1,
+  "hasA": false,
+  "initFailureLines": [],
+  "console": [
+   "log: [Vercel Speed Insights] Failed to load script from /_vercel/speed-insights/script.js. Please check if any content blockers are enabled and try again.",
+   "warning: [JavaScript Warning: \"Loading failed for the <script> with source “http://127.0.0.1:3000/_vercel/speed-insights/script.js”.\" {file: \"http://127.0.0.1:3000/preview?data=%7B%22content%22%3A%22**a**%20pl",
+   "error: [JavaScript Error: \"Cookie “__dcfduid” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”.\" {file: \"https://cdn.discordapp.com/embed/avatars/0.png\" line: 0",
+   "error: [JavaScript Error: \"Cookie “__sdcfduid” has been rejected because it is in a cross-site context and its “SameSite” is “Lax” or “Strict”.\" {file: \"https://cdn.discordapp.com/embed/avatars/0.png\" line: "
+  ]
+ }
+}
