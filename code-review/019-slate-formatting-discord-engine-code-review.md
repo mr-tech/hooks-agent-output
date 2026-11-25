@@ -1973,7 +1973,8 @@ CR-31 LOW Round 9 (M6)
   - `linesOf` has one caller, `noteEdited`, and no other operation changes under either form.
   - Fixture property: the moved line leaves a run with at least two other lines, and lands in a different run.
 - Under the M6 cap this is a stated limit for the Planner batch unless a later round touches `linesOf`. In that case it rides
-  that round. It is sent to planner-019, and to implementer-019 for the record's line.
+  that round. It is sent to planner-019, and to implementer-019 for the record's line. Carried by the plan's Planner batch, row
+  R-132 (record `062dda5c`), for AC-6.9's residue at the seam fold.
 
 **Dispositions.**
 - CR-28 HIGH: RESOLVED (its disposition line in Round 9).
