@@ -1900,6 +1900,9 @@ CR-28 HIGH Round 8 (M6; Round 9 status: open on one member)
   a D-28 member"). AC-6.9's class is stated for keystrokes, and a drag-and-drop move is not one. Whether the member is inside D-28
   is steering's to read, and then the owner's if needed. If it is ruled outside, CR-28 becomes a stated limit and the verdict is
   re-dispositioned in a sub-entry.
+  - Ruled 2026-11-25 by steering's block 09:50Z (record `1dae25f0`): **fixed in this chain**, under standing ruling 2 ("Just fix
+    everything you find along the way"), not under D-28's keystroke wording. CR-28 stays HIGH, and the verdict stands with no
+    re-disposition. Fix Round 6 starts on planner-019's reading of R-128's possible plan gap. Steering also reads CR-29 as cleared.
 
 CR-30 LOW Round 9 (M6)
 - **Location**: `withNormalizeNode.ts`: `straightened`, used by `rebuildLines`, and `BAD_APOSTROPHE_CODEPOINTS`,
