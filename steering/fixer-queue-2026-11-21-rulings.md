@@ -1841,7 +1841,7 @@ from a loaded or imported message. **Ruling: accepted as a stated limit, not sen
 `code-reviewer-019` is at 332,347 (`cc-usage.py sessions`, 05:30Z), past its 325K threshold: it is asked for `/checkpoint` once its record
 is complete, and cleared after.
 
-## 2026-11-25T05:3xZ — plan 019: the planner corrects R-114 on Outstanding 1; CR-27 folds into Revision 24; AN-9 commissioned
+## 2026-11-25T05:31Z — plan 019: the planner corrects R-114 on Outstanding 1; CR-27 folds into Revision 24; AN-9 commissioned
 
 `planner-019` by message: AN-9 (the class enumeration for D-28) is commissioned to the analyst in the background, under capped runs (5G scope,
 one worker, `unshare -rn`, exports, the OOM count before and after). It corrects its R-114 message: code review's CR-27 mutant shows the six
@@ -1850,3 +1850,5 @@ severity-floor finding (excepted from the cap). Outstanding 1's stated limit no 
 folds it with D-28 and CR-28, and the planner withdraws or re-aims Outstanding 1's handoff there.
 **This thread's gate:** CR-27's fold goes beyond his D-28 selection. Revision 24's changelog scope delta is read at commit, and if it is
 milestone-level beyond D-28 it goes to him as a selection before the gate reads (steering.md, Planner).
+- **Disclosure:** this heading was first committed as `05:3xZ` (`23acf471`). The stamp gate refused the placeholder, and the time was
+  re-stamped from the clock (05:31Z).
