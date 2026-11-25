@@ -194,9 +194,39 @@ Lane: full
 
 ## Resumption State
 
-Written at steering's ask (checkpoint for a clear), 2026-11-25T06:27Z, after R-125 at `f1a2f2f7`.
+Written at steering's ask (checkpoint for a clear), 2026-11-25T15:58Z, after R-136 at `1c12646`.
 
-**Done.**
+**Done since the 06:27Z checkpoint.**
+- R-126 to R-136 and Revision 26 are committed (Revision 26 at `d79f481`). Fix Rounds 5 and 6 are registered (R-126 to R-133):
+  the caret change, CR-28's off-selection member as an entry condition (D-30's form), CR-30, CR-31 and Outstanding 5 as stated
+  limits, and Outstanding 2 discharged with its handoff closed Addressed (`afecb57`). M6 is approved by code review at
+  `48eb60a` (R-131) and is QA Complete at Phase 2 (R-135). QAF-56 is a stated limit (R-134).
+- He decided the rebuild and the cut (D-32 to D-34). The rebuild is its own effort after 019's release and opens on his word.
+  019 runs on essentials: the sweep, the batch fold and the architect's closing pass are waived. UAT walks all nine flows.
+- Revision 26, the minimal revision: M7's premise is re-argued, so M7 is not `PREMISE-STALE`. The register gains D-32 to D-34.
+  M7's architect rows are waived. The `uat` row and the walk list name nine walks. The batch is carried as it stands by
+  `planning/slate-editor-rebuild-sizing-2026-11-25.md`. The critic APPROVED it (cycle 18, record `3cbae50e`; R-136), with
+  F-63 to F-65 LOW carried by the sizing document (`b336e2a`).
+- The sizing document (Active, no ID; last commit `b336e2a`) carries D-32's decision, the four Slate-layer handoffs and 019's
+  unfolded batch (every row with an open clause, F-65). Its Review-Trigger is 019's release.
+
+**Next.**
+- Nothing is owed by the planner in 019 until a stage sends a verdict to register: UAT, devops Stage 1, QA Phase 3 or the
+  release. Register it as an R-row. A finding goes to the sizing document as a carried item, unless it is release-essential
+  (a severity floor, or something M7 or devops needs), which goes to steering first (D-33).
+- The caps stand: a finding below HIGH on M3 to M6 is a stated limit, except a severity floor.
+- Any question for him goes to steering by SendMessage as a selection prompt, never as prose here.
+
+**Approach in flight.** None. No uncommitted edit.
+
+**Refs.** Record `master`. Website read only by `git -C /usr/local/bin/hooks/website show`, `cat-file` or `git grep`, last at
+`48eb60a`. A Planner batch cell stays on one line. Edit record files with the Edit or Write tool only. Stamps come from
+`date -u +%Y-%m-%dT%H:%M`. The shell runs from `/usr/local/bin/hooks/agent-output`. Effort rulings:
+`steering/fixer-queue-2026-11-21-rulings.md`.
+
+**Questions sent, and to whom.** None open.
+
+**History before 06:27Z (kept for reference).**
 - Revisions 0 to 25 and registrations R-1 to R-125 are committed. Other stages' rows carry duplicate numbers (R-47 records the
   reconcile) and some sit out of order (R-94, R-103 and R-112 are code review's); they are cited by stamp and author.
 - Decisions D-20 to D-31 are registered. D-23 to D-26 and D-28 each lift the cap for their own items alone. D-27 times paste
@@ -218,19 +248,8 @@ Written at steering's ask (checkpoint for a clear), 2026-11-25T06:27Z, after R-1
 - Captures: `verification/019/planning/fence-refute/`, `verification/019/planning/paste-refute/` (copied for QAF-53), and
   AN-9's under `verification/019/analysis/an9/`.
 
-**Next.**
-- **Superseding the items below (2026-11-25T15:52Z).** Revision 26, the minimal revision, is written. It waits for the critic's
-  read. The critic APPROVED it (R-136), and its three LOW findings went to the sizing document. Nothing else in 019 is owed by
-  the planner except registering later verdicts that other stages send. Revision 26 carries (D-32 to D-34):
-  - M7's re-argument paragraph (R-76), naming R-126's caret change;
-  - registration of his three waivers: QA's effort-final sweep on M6, the Planner batch fold, and the architect's closing pass.
-    M7's architect closing-pass rows go. M7's workspace `CLAUDE.md` Test Conventions update stays;
-  - the open Planner batch rows pointed, as they stand, at `planning/slate-editor-rebuild-sizing-2026-11-25.md` as their
-    carrier, with no per-row disposition.
-  It does not waive or change any UAT walk: UAT walks all nine (B-1 to B-4 and B-7 to B-11, block 15:49Z). B-5, B-6 and AC-3.3's
-  full generator count stay in QA and devops. QAF-53 (b) goes to the rebuild as written, and the paste-cost claim is QA's SL-29
-  reading. The rebuild opens only on his word (block 15:38Z).
-- **Fix Round 5 is running** on Revision 25. Register its code review and QA findings as Planner batch rows. A HIGH, a
+**Superseded "Next" of 06:27Z (history; the seam fold below did not happen, D-33).**
+- Fix Round 5 was running on Revision 25. Register its code review and QA findings as Planner batch rows. A HIGH, a
   severity floor, or a throw at an SL-30 position (a D-28 member) goes to steering first.
 - No other planning pass is owed until the seam fold. The caps stand:
   - M3 to M6 (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a Planner batch stated limit, except a severity floor;
@@ -272,20 +291,6 @@ Written at steering's ask (checkpoint for a clear), 2026-11-25T06:27Z, after R-1
     (R-127), and AC-6.9's residue gains the `\`-before-emoji Delete line;
   - Round 9 (R-129): CR-28's off-selection form in AC-6.9's class and residue (with F-62), CR-30's unexercised quotes, and
     Outstanding 5's Exclusions row. Outstanding 2 is discharged, so no Exclusions row is owed for it.
-- Any question for him goes to steering by SendMessage as a selection prompt, never as prose here (his ruling, relayed 23:3xZ).
-
-**Approach in flight.** None. No uncommitted edit.
-
-**Refs.** Record `master`. The website was read only through `git -C /usr/local/bin/hooks/website show` or `git grep`, at
-`af3d95a`, `5ec0621`, `7dcedc9`, `f4060c5`, `2e36107`, `119471f`, `42128cd`, `85ece66` and `a7ad3f2`. A Planner batch cell
-must stay on one line: R-115's and revision 25's edits broke the table with line breaks and were rejoined. Record shell edits are refused by the
-record-write gate; edit the plan with the Edit tool only, and write new record files with the Write tool. Changelog stamps
-come from `date -u +%Y-%m-%dT%H:%M`; the stamp-gate hook refuses a typed future stamp. Probe captures are under
-`verification/019/planning/`. The shell runs from
-`/usr/local/bin/hooks/agent-output`, never from `preview-image-generator` (effort rulings block 15:29Z). Effort rulings:
-`steering/fixer-queue-2026-11-21-rulings.md`.
-
-**Questions sent, and to whom.** All to `steering-hooks-fixer`. None is open.
 
 ## Reading Order
 
