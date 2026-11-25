@@ -1,0 +1,64 @@
+// AN-9 unmounted class probe at production (origin/master 5ec0621; the editor normaliser takes no surface, so surface is a label only): one keystroke on line 0, per cell: throw, operations, other lines whose
+// state (type, quotePrefix, startCodeBlock, lang, emoji element sources) changed, forced-normalise operations after, and
+// lines differing from a fresh load of the resulting text.
+import { appendFileSync } from 'node:fs';
+import { createEditor, Editor, Node, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import getInitialValue from '../utils/getInitialValue';
+import flattenNodeText from '../utils/flattenNodeText';
+import onKeyDown from '../utils/onKeyDown';
+import { withEmojis, withNormalizeNode } from '../utils';
+import { cells, expectedText } from './an9cells';
+import type { Descendant, Element } from 'slate';
+import type { KeyboardEvent } from 'react';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import markdown from '~/utils/markdown';
+beforeAll(() => {});
+const { parseEmoji } = markdown.interactive;
+type Surface = 'content' | 'embedDescription';
+const sig = (l: Element) => JSON.stringify([l.type, l.quotePrefix ?? null, l.startCodeBlock ?? null, l.lang ?? null,
+  l.children.filter((c) => (c as { type?: string }).type === 'emoji').map((c) => (c as { ast: { content: string } }).ast.content)]);
+function build(text: string, surface: Surface) {
+  void surface; const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parseEmoji);
+  e.children = getInitialValue(text, parseEmoji, false) as Descendant[];
+  let ops = 0; const { apply } = e; e.apply = (op) => { ops += 1; apply(op); };
+  return { e, ops: () => ops };
+}
+const bsEvent = () => ({ key: 'Backspace', defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } });
+const SURFACES = (process.env.AN9_SURFACES ?? 'content,embedDescription').split(',') as Surface[];
+const NS = (process.env.AN9_NS ?? '5,100,200,1000').split(',').map(Number);
+for (const surface of SURFACES) for (const n of NS) {
+  it(`cells ${surface} ${n}`, { timeout: 3000000 }, () => {
+    for (const c of cells([n])) {
+      const { e, ops } = build(c.text, surface);
+      const line0 = e.children[0] as Element;
+      let { caret } = c; let expected = expectedText(c);
+      if (line0.type === 'blockQuote' && typeof caret === 'number') {
+        if (c.op === 'type' || c.op === 'escape') { appendFileSync(process.env.AN9_OUT as string, `${JSON.stringify({ id: c.id, surface, skipped: 'line 0 loads as a quote; a keystroke at its start lands after the marker' })}\n`); continue; }
+        caret = 'start'; expected = [c.line0.slice((line0.quotePrefix ?? '').length), ...c.text.split('\n').slice(1)].join('\n');
+      }
+      const before = e.children.map((l) => sig(l as Element));
+      const at = caret === 'start' ? Editor.start(e, [0]) : caret === 'end' ? Editor.end(e, [0]) : { path: [0, 0], offset: caret };
+      Transforms.select(e, at);
+      const o0 = ops(); let err = ''; const t0 = performance.now();
+      try {
+        if (c.key === '<bs>') { const ev = bsEvent(); onKeyDown(e, false, undefined)(ev as unknown as KeyboardEvent<HTMLDivElement>); if (!ev.defaultPrevented) e.deleteBackward('character'); }
+        else e.insertText(c.key);
+      } catch (x) { err = String(x).slice(0, 80); }
+      const ms = performance.now() - t0; const keyOps = ops() - o0;
+      const after = e.children.map((l) => sig(l as Element));
+      let otherChanged = 0; for (let i = 1; i < Math.max(before.length, after.length); i += 1) if (before[i] !== after[i]) otherChanged += 1;
+      const text = flattenNodeText(e.children);
+      const freshSig = (getInitialValue(text, parseEmoji, false) as Element[]).map(sig);
+      let freshDiff = 0; for (let i = 0; i < Math.max(freshSig.length, after.length); i += 1) if (freshSig[i] !== after[i]) freshDiff += 1;
+      const o1 = ops(); let forcedErr = '';
+      try { Editor.normalize(e, { force: true }); } catch (x) { forcedErr = String(x).slice(0, 80); }
+      const row = { id: c.id, surface, run: JSON.stringify(c.ch.repeat(c.k)), pos: c.pos + (c.sp ? '+sp' : ''), op: c.op, partner: c.partner, fill: c.fill, n,
+        err, keyOps, ms: +ms.toFixed(1), otherChanged, modelEqualsExpected: text.replaceAll(':slight_smile:', '🙂') === expected, freshDiff, forcedOps: ops() - o1, forcedErr,
+        line0After: Node.string(e.children[0]).slice(0, 12) };
+      appendFileSync(process.env.AN9_OUT as string, `${JSON.stringify(row)}\n`);
+    }
+  });
+}

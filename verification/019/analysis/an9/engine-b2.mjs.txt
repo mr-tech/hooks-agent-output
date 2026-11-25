@@ -1,0 +1,19 @@
+// AN-9 B2: for each B1 text, parse the whole text with the site's engine (content and embedDescription masks) and report, for the
+// line the forced normalise changed: whether any engine node covering it is a code_block or inline code, and which emoji nodes lie on it.
+import { readFileSync } from 'node:fs';
+import { init, parseLossless } from '/usr/local/bin/hooks/website/node_modules/@discord/markdown-wasm/src/index.js';
+await init?.().catch(() => {});
+const rows = JSON.parse(readFileSync(process.argv[2], 'utf8'));
+for (const r of rows) for (const [surface, mask] of [['content', 0x3fffffff], ['embedDescription', 0x3fffffff]]) {
+  const { text } = r; const lines = text.split('\n');
+  const from = lines.slice(0, r.line).join('\n').length + (r.line ? 1 : 0); const to = from + lines[r.line].length;
+  const codeKinds = new Set(); const emojis = [];
+  const walk = (n) => {
+    const k = n.kind.type;
+    if ((k === 'code_block' || k === 'code') && n.span.start < to && n.span.end > from) codeKinds.add(k);
+    if (k === 'emoji' && n.span.start >= from && n.span.end <= to) emojis.push(text.slice(n.span.start, n.span.end));
+    n.children.forEach((c) => c.type === 'node' && walk(c));
+  };
+  walk(parseLossless(text, mask));
+  console.log(JSON.stringify({ surface, line: r.line, lineText: lines[r.line], engineCodeOverLine: [...codeKinds], engineEmojiOnLine: emojis, editorLoad: r.loaded, editorAfterForcedNormalise: r.after, text }));
+}

@@ -1,0 +1,30 @@
+// AN-9 engine read: which delimiters pair across a line break in @discord/markdown-wasm 0.16.0 as the site pins it,
+// and whether an emoji inside inline code / a code block parses as an emoji node.
+import { init, parseLossless } from '/usr/local/bin/hooks/website/node_modules/@discord/markdown-wasm/src/index.js';
+await init?.().catch(() => {});
+const MASK = { content: 0x3fffffff, embedDescription: 0x3fffffff };
+const walk = (n, f, depth = 0) => { f(n, depth); (n.children ?? []).forEach((c) => c.type === 'node' && walk(c, f, depth + 1)); };
+const kindOf = (n) => n.kind.type + (n.kind.value?.kind ? '.' + n.kind.value.kind : '');
+const out = [];
+const punct = [...'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'];
+for (const surface of Object.keys(MASK)) {
+  for (const c of punct) for (const k of [1, 2, 3]) {
+    const d = c.repeat(k);
+    for (const [shape, text] of [['open-end-l0,close-end-last', `a${d}\nb\nc${d}`], ['open-start-l0,close-end-last', `${d}a\nb\nc${d}`], ['open-end-l0,close-start-last', `a${d}\nb\n${d}c`]]) {
+      const tree = parseLossless(text, MASK[surface]);
+      const crossing = [];
+      walk(tree, (n) => {
+        const k2 = n.kind.type; if (['document', 'paragraph', 'quote', 'list', 'list_item', 'text', 'empty'].includes(k2)) return;
+        const s = text.slice(n.span.start, n.span.end); if (s.includes('\n')) crossing.push({ kind: kindOf(n), span: [n.span.start, n.span.end] });
+      });
+      out.push({ surface, delim: d, shape, text, crossing });
+    }
+  }
+  // emoji inside code
+  for (const text of ['`🙂`', '`a\n🙂`', '```\n🙂\n```', 'a\n```\n🙂\n```\nb 🙂', '`:smile:`', '```\n:smile:\n```', '🙂', ':smile:', '||🙂||', '**🙂**', '```\n🙂']) {
+    const tree = parseLossless(text, MASK[surface]);
+    const nodes = []; walk(tree, (n, depth) => nodes.push({ kind: kindOf(n), depth, src: text.slice(n.span.start, n.span.end) }));
+    out.push({ surface, emojiProbe: text, nodes, emojiNodes: nodes.filter((n) => n.kind.startsWith('emoji')).length });
+  }
+}
+console.log(out.map((o) => JSON.stringify(o)).join('\n'));

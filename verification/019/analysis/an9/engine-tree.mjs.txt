@@ -1,0 +1,4 @@
+import { init, parseLossless } from '/usr/local/bin/hooks/website/node_modules/@discord/markdown-wasm/src/index.js';
+await init?.().catch(() => {});
+const show = (n, text, d = 0) => { if (n.kind) { console.log('  '.repeat(d) + n.kind.type + (n.kind.value?.kind ? '.' + n.kind.value.kind : ''), JSON.stringify(text.slice(n.span.start, n.span.end))); n.children.forEach((c) => c.type === 'node' && show(c, text, d + 1)); } };
+for (const t of process.argv.slice(2)) { const text = JSON.parse(t); console.log('==', JSON.stringify(text)); show(parseLossless(text, 0x3fffffff), text); }

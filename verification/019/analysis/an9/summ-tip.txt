@@ -1,0 +1,82 @@
+rows 4576 skipped 32
+conte ">>>"|start+sp|backspace|control|a N5:chg4 0.5ms | N100:chg99 3.1ms | N200:chg199 4.9ms | N1000:chg999 32.6ms
+conte ">>>"|start+sp|backspace|control|a🙂 N5:chg4 0.5ms | N100:chg99 3.1ms | N200:chg199 6.3ms | N1000:chg999 37.4ms
+conte ">>>"|start+sp|backspace|partner|a N5:chg4 0.7ms | N100:chg99 3.8ms | N200:chg199 6.5ms | N1000:chg999 36.3ms
+conte ">>>"|start+sp|backspace|partner|a🙂 N5:chg4 0.9ms | N100:chg99 4.4ms | N200:chg199 9ms | N1000:chg999 51.8ms
+conte ">>>"|start+sp|type|control|a N5:chg4 0.9ms | N100:chg99 3.9ms | N200:chg199 6.8ms | N1000:chg999 46.8ms
+conte ">>>"|start+sp|type|control|a🙂 N5:chg4 0.9ms | N100:chg99 4.3ms | N200:chg199 9ms | N1000:chg999 55.1ms
+conte ">>>"|start+sp|type|partner|a N5:chg4 1ms | N100:chg99 4ms | N200:chg199 6.3ms | N1000:chg999 38.3ms
+conte ">>>"|start+sp|type|partner|a🙂 N5:chg4 1.3ms | N100:chg99 5ms | N200:chg199 8.8ms | N1000:chg999 52.6ms
+conte "`"|end|backspace|partner|a🙂 N5:chg4 4.2ms | N100:chg99 THROW f78 29.7ms | N200:chg199 THROW f178 64.5ms | N1000:chg999 THROW f978 868.5ms
+conte "`"|end|type|partner|a🙂 N5:chg4 2.1ms | N100:chg99 THROW 21.7ms | N200:chg199 THROW 45.3ms | N1000:chg999 THROW 680.8ms
+conte "`"|start+sp|backspace|partner|a🙂 N5:chg4 2.7ms | N100:chg99 THROW f80 30.6ms | N200:chg199 THROW f180 65.5ms | N1000:chg999 THROW f980 887.3ms
+conte "`"|start+sp|type|partner|a🙂 N5:chg4 1.7ms | N100:chg99 THROW 24.9ms | N200:chg199 THROW 44.7ms | N1000:chg999 THROW 670.2ms
+conte "`"|start|backspace|partner|a🙂 N5:chg4 3ms | N100:chg99 THROW f80 31.5ms | N200:chg199 THROW f180 67.2ms | N1000:chg999 THROW f980 849.4ms
+conte "`"|start|escape|partner|a🙂 N5:chg4 2.2ms | N100:chg99 THROW f80 33ms | N200:chg199 THROW f180 74.8ms | N1000:chg999 THROW f980 886.6ms
+conte "`"|start|type|partner|a🙂 N5:chg4 1.5ms | N100:chg99 THROW 22.7ms | N200:chg199 THROW 44.6ms | N1000:chg999 THROW 676.9ms
+conte "`"|start|unescape|partner|a🙂 N5:chg4 1.3ms | N100:chg99 THROW 18.9ms | N200:chg199 THROW 50.2ms | N1000:chg999 THROW 719.9ms
+conte "```"|end|backspace|control|a N5:chg4 0.6ms | N100:chg99 3.5ms | N200:chg199 5.9ms | N1000:chg999 31ms
+conte "```"|end|backspace|control|a🙂 N5:chg4 0.7ms | N100:chg99 3.5ms | N200:chg199 6.3ms | N1000:chg999 41ms
+conte "```"|end|backspace|partner|a N5:chg4 0.8ms | N100:chg99 3.8ms | N200:chg199 5.3ms | N1000:chg999 33.3ms
+conte "```"|end|backspace|partner|a🙂 N5:chg4 0.4ms | N100:chg99 3.3ms | N200:chg199 5.4ms | N1000:chg999 33.4ms
+conte "```"|end|type|control|a N5:chg4 0.4ms | N100:chg99 2.9ms | N200:chg199 5.1ms | N1000:chg999 31.3ms
+conte "```"|end|type|control|a🙂 N5:chg4 0.4ms | N100:chg99 3.3ms | N200:chg199 7.6ms | N1000:chg999 32ms
+conte "```"|end|type|partner|a N5:chg4 1.4ms | N100:chg99 5ms | N200:chg199 5ms | N1000:chg999 31.6ms
+conte "```"|end|type|partner|a🙂 N5:chg4 0.6ms | N100:chg99 2.7ms | N200:chg199 7.4ms | N1000:chg999 31.3ms
+conte "```"|start+sp|backspace|control|a N5:chg4 0.5ms | N100:chg99 3.3ms | N200:chg199 5.5ms | N1000:chg999 34.7ms
+conte "```"|start+sp|backspace|control|a🙂 N5:chg4 1.2ms | N100:chg99 4.3ms | N200:chg199 7.8ms | N1000:chg999 44.5ms
+conte "```"|start+sp|backspace|partner|a N5:chg4 0.7ms | N100:chg99 3.2ms | N200:chg199 5.4ms | N1000:chg999 34.6ms
+conte "```"|start+sp|backspace|partner|a🙂 N5:chg4 0.5ms | N100:chg99 2.9ms | N200:chg199 5.9ms | N1000:chg999 39.2ms
+conte "```"|start+sp|type|control|a N5:chg4 0.4ms | N100:chg99 3ms | N200:chg199 4.8ms | N1000:chg999 30.3ms
+conte "```"|start+sp|type|control|a🙂 N5:chg4 0.8ms | N100:chg99 3.4ms | N200:chg199 5.3ms | N1000:chg999 33ms
+conte "```"|start+sp|type|partner|a N5:chg4 0.5ms | N100:chg99 4.2ms | N200:chg199 7.8ms | N1000:chg999 31ms
+conte "```"|start+sp|type|partner|a🙂 N5:chg4 0.3ms | N100:chg99 2.9ms | N200:chg199 6.3ms | N1000:chg999 33.7ms
+conte "```"|start|backspace|control|a N5:chg4 0.6ms | N100:chg99 4.2ms | N200:chg199 7.7ms | N1000:chg999 34.1ms
+conte "```"|start|backspace|control|a🙂 N5:chg4 1.3ms | N100:chg99 5ms | N200:chg199 8.1ms | N1000:chg999 46.7ms
+conte "```"|start|backspace|partner|a N5:chg4 0.7ms | N100:chg99 3.6ms | N200:chg199 8.2ms | N1000:chg999 35.1ms
+conte "```"|start|backspace|partner|a🙂 N5:chg4 0.4ms | N100:chg99 3.3ms | N200:chg199 5.1ms | N1000:chg999 33.8ms
+conte "```"|start|type|control|a N5:chg4 0.5ms | N100:chg99 7.4ms | N200:chg199 5.9ms | N1000:chg999 30.3ms
+conte "```"|start|type|control|a🙂 N5:chg4 0.6ms | N100:chg99 6.1ms | N200:chg199 5.8ms | N1000:chg999 35.7ms
+conte "```"|start|type|partner|a N5:chg4 0.7ms | N100:chg99 3.4ms | N200:chg199 4.9ms | N1000:chg999 29.5ms
+conte "```"|start|type|partner|a🙂 N5:chg4 0.3ms | N100:chg99 2.6ms | N200:chg199 4.7ms | N1000:chg999 31.7ms
+embed ">>>"|start+sp|backspace|control|a N5:chg4 0.2ms | N100:chg99 2.6ms | N200:chg199 8.3ms | N1000:chg999 34ms
+embed ">>>"|start+sp|backspace|control|a🙂 N5:chg4 0.2ms | N100:chg99 3ms | N200:chg199 7.5ms | N1000:chg999 36.4ms
+embed ">>>"|start+sp|backspace|partner|a N5:chg4 0.7ms | N100:chg99 3ms | N200:chg199 7ms | N1000:chg999 41.2ms
+embed ">>>"|start+sp|backspace|partner|a🙂 N5:chg4 0.3ms | N100:chg99 4.8ms | N200:chg199 8.1ms | N1000:chg999 52ms
+embed ">>>"|start+sp|type|control|a N5:chg4 0.4ms | N100:chg99 3.4ms | N200:chg199 6.8ms | N1000:chg999 38.7ms
+embed ">>>"|start+sp|type|control|a🙂 N5:chg4 0.4ms | N100:chg99 4.6ms | N200:chg199 8.8ms | N1000:chg999 63.7ms
+embed ">>>"|start+sp|type|partner|a N5:chg4 0.4ms | N100:chg99 3.3ms | N200:chg199 7.3ms | N1000:chg999 38.5ms
+embed ">>>"|start+sp|type|partner|a🙂 N5:chg4 0.5ms | N100:chg99 5.5ms | N200:chg199 10.9ms | N1000:chg999 51.9ms
+embed "`"|end|backspace|partner|a🙂 N5:chg4 1.5ms | N100:chg99 THROW f78 27.6ms | N200:chg199 THROW f178 77.7ms | N1000:chg999 THROW f978 898.2ms
+embed "`"|end|type|partner|a🙂 N5:chg4 0.6ms | N100:chg99 THROW 20.2ms | N200:chg199 THROW 52.7ms | N1000:chg999 THROW 736.2ms
+embed "`"|start+sp|backspace|partner|a🙂 N5:chg4 1.4ms | N100:chg99 THROW f80 30.3ms | N200:chg199 THROW f180 66.9ms | N1000:chg999 THROW f980 1044.6ms
+embed "`"|start+sp|type|partner|a🙂 N5:chg4 1ms | N100:chg99 THROW 20.9ms | N200:chg199 THROW 50ms | N1000:chg999 THROW 712.9ms
+embed "`"|start|backspace|partner|a🙂 N5:chg4 1.4ms | N100:chg99 THROW f80 27.2ms | N200:chg199 THROW f180 73.7ms | N1000:chg999 THROW f980 875ms
+embed "`"|start|escape|partner|a🙂 N5:chg4 1.2ms | N100:chg99 THROW f80 32.9ms | N200:chg199 THROW f180 78.3ms | N1000:chg999 THROW f980 926.4ms
+embed "`"|start|type|partner|a🙂 N5:chg4 0.9ms | N100:chg99 THROW 17.6ms | N200:chg199 THROW 53ms | N1000:chg999 THROW 675.7ms
+embed "`"|start|unescape|partner|a🙂 N5:chg4 1.3ms | N100:chg99 THROW 24.9ms | N200:chg199 THROW 51.9ms | N1000:chg999 THROW 684.4ms
+embed "```"|end|backspace|control|a N5:chg4 0.3ms | N100:chg99 2.8ms | N200:chg199 6.7ms | N1000:chg999 36.6ms
+embed "```"|end|backspace|control|a🙂 N5:chg4 0.3ms | N100:chg99 3.4ms | N200:chg199 6.7ms | N1000:chg999 43.5ms
+embed "```"|end|backspace|partner|a N5:chg4 0.4ms | N100:chg99 2.5ms | N200:chg199 5.5ms | N1000:chg999 33.8ms
+embed "```"|end|backspace|partner|a🙂 N5:chg4 0.6ms | N100:chg99 4ms | N200:chg199 5.8ms | N1000:chg999 115.2ms
+embed "```"|end|type|control|a N5:chg4 0.2ms | N100:chg99 2.1ms | N200:chg199 4.8ms | N1000:chg999 30.2ms
+embed "```"|end|type|control|a🙂 N5:chg4 0.2ms | N100:chg99 2.7ms | N200:chg199 5ms | N1000:chg999 36.7ms
+embed "```"|end|type|partner|a N5:chg4 0.3ms | N100:chg99 2.6ms | N200:chg199 4.7ms | N1000:chg999 35.4ms
+embed "```"|end|type|partner|a🙂 N5:chg4 0.3ms | N100:chg99 2.7ms | N200:chg199 7.9ms | N1000:chg999 45.4ms
+embed "```"|start+sp|backspace|control|a N5:chg4 0.3ms | N100:chg99 3ms | N200:chg199 5.2ms | N1000:chg999 32.8ms
+embed "```"|start+sp|backspace|control|a🙂 N5:chg4 0.5ms | N100:chg99 3.6ms | N200:chg199 10.4ms | N1000:chg999 40ms
+embed "```"|start+sp|backspace|partner|a N5:chg4 0.3ms | N100:chg99 2.6ms | N200:chg199 5.8ms | N1000:chg999 35.7ms
+embed "```"|start+sp|backspace|partner|a🙂 N5:chg4 0.3ms | N100:chg99 3ms | N200:chg199 5.7ms | N1000:chg999 35.2ms
+embed "```"|start+sp|type|control|a N5:chg4 0.3ms | N100:chg99 2.3ms | N200:chg199 4.8ms | N1000:chg999 31.7ms
+embed "```"|start+sp|type|control|a🙂 N5:chg4 0.3ms | N100:chg99 3.5ms | N200:chg199 5.7ms | N1000:chg999 42.5ms
+embed "```"|start+sp|type|partner|a N5:chg4 0.2ms | N100:chg99 5.2ms | N200:chg199 5.4ms | N1000:chg999 30.9ms
+embed "```"|start+sp|type|partner|a🙂 N5:chg4 0.3ms | N100:chg99 2.4ms | N200:chg199 5.9ms | N1000:chg999 31.4ms
+embed "```"|start|backspace|control|a N5:chg4 0.4ms | N100:chg99 2.6ms | N200:chg199 5.6ms | N1000:chg999 33.5ms
+embed "```"|start|backspace|control|a🙂 N5:chg4 0.6ms | N100:chg99 3.7ms | N200:chg199 7.6ms | N1000:chg999 51.3ms
+embed "```"|start|backspace|partner|a N5:chg4 0.4ms | N100:chg99 3.2ms | N200:chg199 5.6ms | N1000:chg999 34ms
+embed "```"|start|backspace|partner|a🙂 N5:chg4 0.3ms | N100:chg99 2.8ms | N200:chg199 6.1ms | N1000:chg999 33ms
+embed "```"|start|type|control|a N5:chg4 0.6ms | N100:chg99 2.3ms | N200:chg199 7.5ms | N1000:chg999 29.3ms
+embed "```"|start|type|control|a🙂 N5:chg4 0.3ms | N100:chg99 2.8ms | N200:chg199 5.7ms | N1000:chg999 36.4ms
+embed "```"|start|type|partner|a N5:chg4 0.2ms | N100:chg99 2.7ms | N200:chg199 7ms | N1000:chg999 30.6ms
+embed "```"|start|type|partner|a🙂 N5:chg4 0.2ms | N100:chg99 2.4ms | N200:chg199 5.2ms | N1000:chg999 39.2ms
+interesting 80 of 1144

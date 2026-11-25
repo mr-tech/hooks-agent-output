@@ -1,0 +1,120 @@
+">>>"|start+sp|backspace|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+">>>"|start+sp|backspace|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+">>>"|start+sp|backspace|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+">>>"|start+sp|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+">>>"|start+sp|type|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+">>>"|start+sp|type|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@200,1000 lost@200,1000
+">>>"|start+sp|type|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+">>>"|start+sp|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@200,1000 lost@200,1000
+"`"|end|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|end|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@100,200,1000 lost@100,200,1000
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|start+sp|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|start+sp|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|start|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|start|escape|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|start|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"`"|start|unescape|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+    om both-surfaces chg[0/0/0/0] throw@- mthrow@- timer@- lost@-
+"```"|end|backspace|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|end|backspace|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+"```"|end|backspace|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|end|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+"```"|end|type|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@200,1000 lost@200,1000
+"```"|end|type|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@200,1000 lost@200,1000
+"```"|end|type|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@200,1000 lost@200,1000
+"```"|end|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@200,1000 lost@200,1000
+"```"|start+sp|backspace|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start+sp|backspace|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+"```"|start+sp|backspace|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start+sp|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+"```"|start+sp|type|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start+sp|type|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start+sp|type|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start+sp|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start|backspace|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start|backspace|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+"```"|start|backspace|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start|backspace|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@100,200,1000 mthrow@100,200,1000 timer@- lost@-
+"```"|start|type|control|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start|type|control|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start|type|partner|a
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-
+"```"|start|type|partner|a🙂
+    tip both-surfaces chg[4/99/199/999] throw@- mthrow@- timer@- lost@-
+    om both-surfaces chg[4/99/199/999] throw@200,1000 mthrow@200,1000 timer@- lost@-

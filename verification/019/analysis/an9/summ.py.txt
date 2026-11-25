@@ -1,0 +1,20 @@
+# AN-9 summary of unmounted class rows: one line per (surface, cell-without-N) where any N shows other lines changed,
+# a throw, a forced-normalise operation, or a model text other than the expected.
+import json, sys
+from collections import defaultdict
+rows = [json.loads(l) for l in open(sys.argv[1])]
+rs = [r for r in rows if 'skipped' not in r]
+print('rows', len(rs), 'skipped', len(rows) - len(rs))
+g = defaultdict(dict)
+for r in rs:
+    key = (r['surface'], r['id'].rsplit('|', 1)[0]); g[key][r['n']] = r
+interesting = 0
+for key, byn in sorted(g.items()):
+    if any(r['otherChanged'] or r['err'] or r['forcedOps'] or r['forcedErr'] or not r['modelEqualsExpected'] for r in byn.values()):
+        interesting += 1
+        cells = []
+        for n in sorted(byn):
+            r = byn[n]
+            cells.append(f"N{n}:chg{r['otherChanged']}{' THROW' if r['err'] else ''}{' f'+str(r['forcedOps']) if r['forcedOps'] else ''}{' FERR' if r['forcedErr'] else ''}{' fresh'+str(r['freshDiff']) if r['freshDiff'] else ''}{' TEXT!' if not r['modelEqualsExpected'] else ''} {r['ms']}ms")
+        print(key[0][:5], key[1], ' | '.join(cells))
+print('interesting', interesting, 'of', len(g))

@@ -1,0 +1,31 @@
+import { act } from 'react';
+import { Editor, Transforms } from 'slate';
+import { ELEMENT_TO_NODE } from 'slate-dom';
+import { vi } from 'vitest';
+import SlateEditor from '..';
+import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+import { EmojiPickerContext } from '~/components/EmojiPicker/utils';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('~/providers/MarkdownProvider', async () => {
+  const { default: loaded } = await import('~/utils/markdown');
+  return { useMarkdown: () => loaded };
+});
+const closedPicker = { setOnInsert: () => {}, setShowPicker: () => {}, showPicker: false, insertEmoji: () => {} };
+export function mountEditor(initialValue: string, partialMarkdown: boolean) {
+  vi.useFakeTimers();
+  const writes: string[] = [];
+  mountDom(
+    <EmojiPickerContext value={closedPicker}>
+      <SlateEditor initialValue={initialValue} onChange={(v) => { writes.push(v); }}
+        emojiParser={markdown.interactive.parseEmoji} contentParser={markdown.interactive.parseContent}
+        partialMarkdown={partialMarkdown} aria-label='message content' />
+    </EmojiPickerContext>,
+  );
+  act(() => { vi.runOnlyPendingTimers(); });
+  const element = document.querySelector('[data-slate-editor]') as HTMLElement;
+  const editor = ELEMENT_TO_NODE.get(element) as unknown as Editor;
+  return { writes, editor, element };
+}
+export function unmountEditor() { unmountDom(); vi.useRealTimers(); }

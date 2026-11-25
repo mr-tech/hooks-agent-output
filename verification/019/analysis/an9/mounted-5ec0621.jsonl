@@ -1,0 +1,744 @@
+{"id":"\"`\"|end|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|partner|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|control|a|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|partner|a|100","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|control|a|100","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":4}","writesSince":0,"initialWrite":true,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":4}","writesSince":0,"initialWrite":true,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|partner|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|control|a|200","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|type|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|backspace|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|escape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|unescape|partner|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|type|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|backspace|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|escape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|unescape|control|a|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":4}","writesSince":0,"initialWrite":true,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":4}","writesSince":0,"initialWrite":true,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|partner|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|control|a|1000","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":true,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|partner|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|control|a🙂|5","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|partner|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|backspace|control|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|partner|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a🙂|100","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|backspace|control|a🙂|100","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"``\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,2],\"offset\":3}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,2],\"offset\":3}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":15}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>>\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":15}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>>\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"||\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"|||\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"*\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"**\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"***\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"_\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"__\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"___\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|type|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|backspace|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|escape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|unescape|partner|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|end|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|type|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start+sp|backspace|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|escape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"~~~\"|start|unescape|control|a🙂|200","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|partner|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|type|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|end|backspace|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|type|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|backspace|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|type|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start+sp|backspace|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|escape|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"`\"|start|unescape|control|a🙂|1000","surface":"content","err":"","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,2],\"offset\":3}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|end|type|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,2],\"offset\":3}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\"```\"|end|backspace|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|type|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start|backspace|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|type|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\"```\"|start+sp|backspace|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":15}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>>\"|start+sp|backspace|partner|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}
+{"id":"\">>>\"|start+sp|type|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 126 iterations! This is u","timerErr":"Error: Cannot resolve a DOM point from Slate point: {\"path\":[0,0],\"offset\":15}","writesSince":0,"initialWrite":false,"lastWriteIsKeystrokeText":false,"writeLost":true}
+{"id":"\">>>\"|start+sp|backspace|control|a🙂|1000","surface":"content","err":"Error: Could not completely normalize the editor after 84 iterations! This is us","timerErr":"","writesSince":1,"initialWrite":false,"lastWriteIsKeystrokeText":true,"writeLost":false}

@@ -1,0 +1,50 @@
+{"surface":"content","delim":"#","shape":"line-start prefix","text":"# a\nb\nc","crossing":["heading"]}
+{"surface":"content","delim":"##","shape":"line-start prefix","text":"## a\nb\nc","crossing":["heading"]}
+{"surface":"content","delim":"###","shape":"line-start prefix","text":"### a\nb\nc","crossing":["heading"]}
+{"surface":"content","delim":"*","shape":"line-start prefix","text":"* a\nb\nc","crossing":["list","list_item"]}
+{"surface":"content","delim":"-","shape":"line-start prefix","text":"- a\nb\nc","crossing":["list","list_item"]}
+{"surface":"content","delim":">","shape":"line-start prefix","text":"> a\nb\nc","crossing":["quote"]}
+{"surface":"content","delim":">>>","shape":"line-start prefix","text":">>> a\nb\nc","crossing":["quote"]}
+{"surface":"content","delim":"`","shape":"2l open-start close-end","text":"`a\nb`","crossing":["code"]}
+{"surface":"content","delim":"`","shape":"2l open-end close-start","text":"a `\n` b","crossing":["code"]}
+{"surface":"content","delim":"`","shape":"2l open-start close-start","text":"`a\n`b","crossing":["code"]}
+{"surface":"content","delim":"`","shape":"3l open-start close-end","text":"`a\nb\nc`","crossing":["code"]}
+{"surface":"content","delim":"`","shape":"3l spaced","text":"x `a\nb\nc` y","crossing":["code"]}
+{"surface":"content","delim":"`","shape":"2l emoji","text":"`a🙂\na🙂`","crossing":["code"]}
+{"surface":"content","delim":"``","shape":"2l open-start close-end","text":"``a\nb``","crossing":["code"]}
+{"surface":"content","delim":"``","shape":"2l open-end close-start","text":"a ``\n`` b","crossing":["code"]}
+{"surface":"content","delim":"``","shape":"2l open-start close-start","text":"``a\n``b","crossing":["code"]}
+{"surface":"content","delim":"``","shape":"3l open-start close-end","text":"``a\nb\nc``","crossing":["code"]}
+{"surface":"content","delim":"``","shape":"3l spaced","text":"x ``a\nb\nc`` y","crossing":["code"]}
+{"surface":"content","delim":"``","shape":"2l emoji","text":"``a🙂\na🙂``","crossing":["code"]}
+{"surface":"content","delim":"```","shape":"2l open-start close-end","text":"```a\nb```","crossing":["code_block"]}
+{"surface":"content","delim":"```","shape":"2l open-end close-start","text":"a ```\n``` b","crossing":["code"]}
+{"surface":"content","delim":"```","shape":"2l open-start close-start","text":"```a\n```b","crossing":["code"]}
+{"surface":"content","delim":"```","shape":"3l open-start close-end","text":"```a\nb\nc```","crossing":["code_block"]}
+{"surface":"content","delim":"```","shape":"3l spaced","text":"x ```a\nb\nc``` y","crossing":["code_block"]}
+{"surface":"content","delim":"```","shape":"2l emoji","text":"```a🙂\na🙂```","crossing":["code_block"]}
+{"surface":"embedDescription","delim":"#","shape":"line-start prefix","text":"# a\nb\nc","crossing":["heading"]}
+{"surface":"embedDescription","delim":"##","shape":"line-start prefix","text":"## a\nb\nc","crossing":["heading"]}
+{"surface":"embedDescription","delim":"###","shape":"line-start prefix","text":"### a\nb\nc","crossing":["heading"]}
+{"surface":"embedDescription","delim":"*","shape":"line-start prefix","text":"* a\nb\nc","crossing":["list","list_item"]}
+{"surface":"embedDescription","delim":"-","shape":"line-start prefix","text":"- a\nb\nc","crossing":["list","list_item"]}
+{"surface":"embedDescription","delim":">","shape":"line-start prefix","text":"> a\nb\nc","crossing":["quote"]}
+{"surface":"embedDescription","delim":">>>","shape":"line-start prefix","text":">>> a\nb\nc","crossing":["quote"]}
+{"surface":"embedDescription","delim":"`","shape":"2l open-start close-end","text":"`a\nb`","crossing":["code"]}
+{"surface":"embedDescription","delim":"`","shape":"2l open-end close-start","text":"a `\n` b","crossing":["code"]}
+{"surface":"embedDescription","delim":"`","shape":"2l open-start close-start","text":"`a\n`b","crossing":["code"]}
+{"surface":"embedDescription","delim":"`","shape":"3l open-start close-end","text":"`a\nb\nc`","crossing":["code"]}
+{"surface":"embedDescription","delim":"`","shape":"3l spaced","text":"x `a\nb\nc` y","crossing":["code"]}
+{"surface":"embedDescription","delim":"`","shape":"2l emoji","text":"`a🙂\na🙂`","crossing":["code"]}
+{"surface":"embedDescription","delim":"``","shape":"2l open-start close-end","text":"``a\nb``","crossing":["code"]}
+{"surface":"embedDescription","delim":"``","shape":"2l open-end close-start","text":"a ``\n`` b","crossing":["code"]}
+{"surface":"embedDescription","delim":"``","shape":"2l open-start close-start","text":"``a\n``b","crossing":["code"]}
+{"surface":"embedDescription","delim":"``","shape":"3l open-start close-end","text":"``a\nb\nc``","crossing":["code"]}
+{"surface":"embedDescription","delim":"``","shape":"3l spaced","text":"x ``a\nb\nc`` y","crossing":["code"]}
+{"surface":"embedDescription","delim":"``","shape":"2l emoji","text":"``a🙂\na🙂``","crossing":["code"]}
+{"surface":"embedDescription","delim":"```","shape":"2l open-start close-end","text":"```a\nb```","crossing":["code_block"]}
+{"surface":"embedDescription","delim":"```","shape":"2l open-end close-start","text":"a ```\n``` b","crossing":["code"]}
+{"surface":"embedDescription","delim":"```","shape":"2l open-start close-start","text":"```a\n```b","crossing":["code"]}
+{"surface":"embedDescription","delim":"```","shape":"3l open-start close-end","text":"```a\nb\nc```","crossing":["code_block"]}
+{"surface":"embedDescription","delim":"```","shape":"3l spaced","text":"x ```a\nb\nc``` y","crossing":["code_block"]}
+{"surface":"embedDescription","delim":"```","shape":"2l emoji","text":"```a🙂\na🙂```","crossing":["code_block"]}

@@ -6,7 +6,8 @@ Parent: slate-formatting-discord-oracle-2026-11-23.md
 Status: Active
 Status-Detail: >-
   AN-1 to AN-7 (plan Revision 2) and every AN-8 limb (1 to 5, with 2b; plan Revision 5) have results. G-11 is not completed (X-13).
-  AN-8 limb 1, which holds M4's approval, has landed. Nothing is open for the owner.
+  AN-8 limb 1, which holds M4's approval, has landed. AN-9 (plan Revision 23, D-28, CR-27) has results: A's member table at a7ad3f2
+  and 5ec0621, B1's list and B2's answer. Nothing is open for the owner.
 ---
 
 # 019 — Analysis: Slate formatting on Discord's published engine (plan M1, AN-1 to AN-8)
@@ -19,6 +20,7 @@ Status-Detail: >-
 | 2026-11-23T17:36 | 2 | analyst-019 | Resumed after `/clear` from the Resumption State at `6bf42552`, on `planner-019`'s AN-8 commission (plan Revision 3, `9ac9ba62`; scope confirmed by message `4f5801aa`). M1 was read again at Revision 5 (`8cfd2fc2`): limb 5 was added at Revision 4, and limbs 1 to 4 are unchanged. AN-8 limbs 1 to 4 were added under § Findings, with G-1 and G-3 updated and G-7 added. No earlier claim in this document was re-verified, except that AN-3's GAME_MENTION cell is withdrawn (limb 2). Limb 5 is in progress. |
 | 2026-11-23T17:40 | 3 | analyst-019 | AN-8 limb 2b added, on `planner-019`'s ask after `db8199aa`: GAME_MENTION per legacy surface, run and observed. |
 | 2026-11-23T18:00 | 4 | analyst-019 | AN-8 limb 5 added (plan Revision 4's slow-CPU capture): 300 of 300 formatted at 4x, minimum margin 562.0 ms; H-1 and G-4 updated. Every AN-8 limb now has a result. Scratch export, bundles and packages removed. |
+| 2026-11-25T05:55 | 5 | analyst-019 | AN-9 added as its own section, commissioned by `planner-019` for plan 019 Revision 23 (D-24, D-28; R-111, CR-27): A, the cross-line keystroke class at website `a7ad3f2` and `origin/master` `5ec0621`; B1, the load outputs that are not a forced-normalise fixed point; B2, the engine's reading of an emoji in code. Captures `verification/019/analysis/an9/`. No earlier claim in this document is changed. |
 
 ## Resumption State
 
@@ -517,6 +519,244 @@ Revision 4 added limb 5, which is recorded separately below.
   `/preview` URL twice, as a 304.
   - Fastest disconfirming test: two identical `generateMessagePreviewImage` calls on one pooled browser at `8512a1d`.
   - Missing telemetry: the generator's per-capture status code. A generator change is a re-scope (X-11), so this goes to steering.
+
+## AN-9 — Keystrokes that change other lines, and loads that are not a normaliser fixed point (plan Revision 23; D-24, D-28)
+
+Commissioned by `planner-019` for plan 019 Revision 23. Revision 24 waits on it. Read for it, at write time: in the plan, AC-6.9 from
+"The defects, as reported" through "Residue (rewritten at revision 23"; D-24 and D-28 at the quote column; the Planner batch rows on
+R-111's reading and on Fix Round 4's Outstanding 1 and 3. Also read the common brief `steering/slate-formatting-brief-common.md`, and
+code review's and steering's captures (`verification/019/code-review/m6fix4-a7ad3f2/`, `verification/019/steering/outstanding3-refute/`).
+Every capture cited below is under `verification/019/analysis/an9/`.
+
+### AN-9 method and provenance
+
+- **Trees.** `git archive a7ad3f2` (the tip) and `git archive 5ec0621` (`origin/master`, production), each in this session's
+  scratch, with `node_modules` symlinked to the website clone's. `git diff --quiet 5ec0621 af3d95a -- src/components/SlateEditor
+  src/utils/markdown` exited 0, so 5ec0621 equals the chain base on the editor paths. The shared website tree was not checked out,
+  switched or written. The installed versions are slate 0.123.0, slate-react 0.123.0, slate-history 0.113.1 and
+  `@discord/markdown-wasm` 0.16.0, the version the tip pins.
+- **Caps.** Every vitest run (`run-an9.sh.txt`) ran inside `systemd-run --user --scope -p MemoryMax=5G -p MemorySwapMax=0
+  -p TasksMax=512 -p RuntimeMaxSec=5400` and `unshare -rn`, with `--maxWorkers=1`. Two deviations, disclosed here:
+  - The first N = 5 smoke run of the tip's unmounted probe (05:38:09Z) ran under `unshare -rn` without the scope. Its output is
+    not used.
+  - The engine reads (`engine-*.mjs.txt`) first ran under `unshare -rn` only. They were re-run inside the same scope, and `cmp`
+    found each output identical (exit 0 for all four).
+- **OOM.** `grep -c 'Memory cgroup out of memory' /var/log/kern.log` read 4 at 05:31Z, 4 before the first run and 4 at the end
+  (05:54:40Z). The per-run reads are in `runs.txt`.
+- **The cell grid** (`an9cells.ts.txt`) holds one keystroke on line 0 of an N-line text, with the other lines a fill line.
+  - Characters: `` ` ``, `>`, `|`, `*`, `_` and `~`, each as a run of k = 1, 2 or 3.
+  - Shapes: typing the k-th character at the end of line 0, and Backspace removing it; the same at the start of line 0, with and
+    without a space after the run. Two shapes are added beyond the brief's list, labelled `escape` and `unescape`: `\` typed in
+    front of a complete opener at the start of line 0, and Backspace removing that `\`.
+  - Partner: the same run ending the last line, or none (the control).
+  - Fills: `a` and `a🙂`. N: 5, 100, 200 and 1,000. Surfaces: `content` and `embedDescription`.
+  - At 5ec0621 the editor's normaliser and load take no surface (`withNormalizeNode(editor, partialMarkdown, parseEmoji)`), so its
+    rows ran once, labelled `content`.
+  - A Backspace goes through `onKeyDown` first, and `deleteBackward` runs only if `onKeyDown` did not prevent it, as
+    `fenceAndQuoteKeystrokes.ts` `backspace` does.
+  - A typing cell whose line 0 loads as a quote (`> a`, from `>` k = 2 with a space) is skipped (32 rows at the tip, 16 at
+    5ec0621): the caret's start is after the marker, so the keystroke is not the one the cell names.
+- **"State" of a line.** It is `[type, quotePrefix, startCodeBlock, lang, emoji elements]`, the shape AC-6.9's fresh-load limb
+  compares. Emoji elements are their `source` at the tip and their `ast.content` at 5ec0621. "Lines changed" counts the lines
+  other than line 0 whose state differs before and after the keystroke.
+- **Unmounted probes** (`an9.unmounted-{tip,om}.test.tsx.txt`) record, per cell:
+  - any throw from the keystroke, and the operations it applies (a pass-through spy on `editor.apply`);
+  - the lines changed, and whether the model's text equals the cell's literal expected text;
+  - the lines differing from a fresh `getInitialValue` of the resulting text;
+  - the operations a forced `Editor.normalize` applies afterwards.
+- **Mounted probes** (`an9.mounted-{tip,om}.test.tsx.txt`) mount the real `SlateEditor`. The tip uses the suite's
+  `__tests__/helpers/mountedEditor.tsx`; 5ec0621 uses steering's substitute helper (`mountedOm.tsx.txt`, copied from
+  `verification/019/steering/outstanding3-refute/mountedOm-origin-master-5ec0621.tsx.txt`). Per cell they record the keystroke's
+  throw, any error from `vi.runOnlyPendingTimers()` afterwards, and the `onChange` writes after the keystroke and before any next
+  keystroke. "Write lost" means the last of those writes is not the cell's expected text. At 5ec0621, `:slight_smile:` is read
+  back as `🙂` before the comparison, because production stores the emoji by name (S-07).
+  - Which cells ran mounted (`mounted-ids-all.txt`, 1,488 cells at the tip and 744 at 5ec0621): every member at every N, its
+    control and its plain-`a` counterpart, and the whole grid at N = 200.
+  - Eight N = 200 mounted rows (`">>"|start+sp|type`) are probe artefacts. Unmounted they were skipped as above; the mounted
+    probe ran them with Backspace's caret rule. They are excluded.
+- **Provenance labels:** **[run]** executed this session; **[read]** read from the source and not executed.
+
+### AN-9 A — the engine: which constructs pair across a line break
+
+- **[run] Detector** (`engine-pair3.mjs.txt`, output `engine-pair3.jsonl`). A delimiter run pairs across lines when adding the same
+  run on the last line changes the engine node kinds covering any character of an earlier line. It was run over every ASCII
+  punctuation character, runs of 1 to 3, both fills, 3 and 5 lines, opener at the start or end of line 0, closer at the start or end
+  of the last line, and both masks.
+- **[run] Runs that pair** (both masks, both fills): `` ` ``, ``` `` ```, ```` ``` ````, `*` (only when it opens at the start of a
+  line), `**`, `***`, `_`, `__`, `___`, `||`, `|||`, `~~` and `~~~`.
+  - No other ASCII punctuation character pairs. Single `|` and single `~` do not pair.
+  - So the option text's six characters cover the class, and no character is added. The engine's output and the brief's list
+    agree, which is the check the brief asked for.
+  - `\` pairs with nothing, but typing it breaks a pair: the `escape` and `unescape` shapes cover that.
+- **[run] How the engine represents it** (`engine-trees.txt`).
+  - A modifier pairs across a break as one fragment per line's paragraph: `**a\nb**` gives `modifier.bold "**a"` and
+    `modifier.bold "b**"`.
+  - Inline code is one node spanning the break: `` `a\nb` `` gives `` code "`a\nb`" ``.
+  - `>` has no closer. `>>> ` opens a quote that runs to the end of the text, and `> ` quotes one line.
+- **[run] Emoji in code** (`engine-pair.jsonl`, `emojiProbe` rows; and `engine-trees.txt`).
+  - Inside inline code or a closed code block the engine produces no emoji node: `` `🙂` ``, `` `a\n🙂` ``, ```` ```\n🙂\n``` ````
+    and `` `:smile:` `` all give 0.
+  - Inside a modifier it does: `||🙂||` and `**🙂**` give 1.
+  - So among the pairing constructs, only inline code and fences can change a line's emoji elements. Modifiers change only the
+    colouring.
+
+### AN-9 A — the member table
+
+A member is a keystroke that changes the state of at least one line other than its own, at either tree. The table folds the two
+surfaces, which agreed in every member row at both trees (`member-table-compact.txt`, built by `compact.py.txt` from
+`member-table.txt`). "Throw" is Slate's "Could not completely normalize the editor after 126 iterations", unmounted and mounted
+alike. "Timer" is `Cannot resolve a DOM point from Slate point` from a pending timer. "Lost" means `onChange` handed the message
+nothing carrying the keystroke before the next keystroke. Each cell lists the N where the property holds; "–" means at no N in
+5, 100, 200 and 1,000. Lines changed are N − 1 at every N (4 / 99 / 199 / 999) for every member at the tip.
+
+| # | Member (line 0; partner on the last line) | Fills | Tip `a7ad3f2`: throw / timer / lost | Production `5ec0621`: lines changed; throw / timer / lost | Added by the release |
+|---|---|---|---|---|---|
+| A1 | `` ` `` typed at the end of `a🙂`, partner `` ` `` (the known member) | `a🙂` | 100, 200, 1,000 / 100, 200, 1,000 / 100, 200, 1,000 | 0; – / – / – | **yes** |
+| A2 | Backspace removing that `` ` `` (`a🙂` + `` ` `` → `a🙂`) | `a🙂` | 100, 200, 1,000 / – / – | 0; – / – / – | **yes** |
+| A3 | `` ` `` typed at the start of `a🙂`, and of ` a🙂` | `a🙂` | 100, 200, 1,000 / – / – | 0; – / – / – | **yes** |
+| A4 | Backspace removing a leading `` ` `` (both forms) | `a🙂` | 100, 200, 1,000 / – / – | 0; – / – / – | **yes** |
+| A5 | `\` typed before a leading `` ` `` (escape) | `a🙂` | 100, 200, 1,000 / – / – | 0; – / – / – | **yes** |
+| A6 | Backspace removing that `\` (unescape) | `a🙂` | 100, 200, 1,000 / – / – | 0; – / – / – | **yes** |
+| F1 | Third `` ` `` typed at the end of line 0 (` `` `→` ``` `), with or without a partner | `a`, `a🙂` | – / – / – | N − 1; 200, 1,000 / 200, 1,000 / 200, 1,000 | no (the release removes it) |
+| F2 | Backspace removing it at the end, partner or not | `a`; `a🙂` | – / – / – | N − 1; `a` 200, 1,000, `a🙂` 100, 200, 1,000 / – / – | no (removed) |
+| F3 | Third `` ` `` typed at the start of line 0 (with or without a space after), partner or not | `a`, `a🙂` | – / – / – | N − 1; 200, 1,000 / – / – | no (removed) |
+| F4 | Backspace removing a leading third `` ` `` (both forms), partner or not | `a`; `a🙂` | – / – / – | N − 1; `a` 200, 1,000, `a🙂` 100, 200, 1,000 / – / – | no (removed) |
+| Q1 | `>` typed at the start of `>> a` / `>> a🙂` (makes `>>> `), partner or not | `a`; `a🙂` | – / – / – | N − 1; 200, 1,000 / `a🙂` only: 200, 1,000 / `a🙂` only: 200, 1,000 | no (removed) |
+| Q2 | Backspace at the start of a loaded `>>> a` (drops the marker), partner or not | `a`, `a🙂` | – / – / – | N − 1; 100, 200, 1,000 / – / – | no (removed) |
+
+- **[run] Members A1 to A6, the inline-code family, are the class the release adds.** Members A1 to A6 exist only with an
+  emoji-bearing fill and a partner.
+  - With `a` lines the engine still pairs the backtick, but no line's state changes (0 lines changed, no throw), because there is
+    no emoji to revert.
+  - With no partner nothing pairs (0 lines changed).
+  - They throw at 100 lines and above, and not at 5, on both surfaces, unmounted and mounted, at the tip. At 5ec0621 they change
+    no other line: its load and normaliser parse emoji one line at a time
+    (`getInitialValue.ts` and `withNormalizeNode.ts` `handleElement` at 5ec0621, **[read]**), so a backtick on line 0 cannot reach
+    line N's emoji.
+  - Of the six, only A1 loses the write and raises the timer error (6 of 6 mounted rows: 3 N × 2 surfaces). A2 to A6 throw, but the
+    last write carries the keystroke's text (42 of 42 mounted rows).
+  - After the throw, a forced normalise applies 0 operations for A1, A3 and A6. At N = 100 / 200 / 1,000 it applies 78 / 178 /
+    978 operations for A2 and 80 / 180 / 980 for A4 and A5: the R-111 condition failing on top of the throw (`summ-tip.txt`).
+- **[run] F1 to F4 and Q1 to Q2, the fence and `>>>` families, change every line below at both trees.** At the tip none of them
+  throws, times out or loses a write at any N on either surface, and a forced normalise afterwards applies 0 operations. At
+  5ec0621 they throw from 100 or 200 lines, which is D-24's defect at the base, reproduced. F1 and Q1 on `a🙂` lose the write
+  there. These keystrokes are AC-6.9's class already, at line 0 rather than line 2. In none of them is the release the cause.
+- **[run] Reproduction of the known member.** At the tip, A1 throws from 100 lines on `a🙂` (code review's `class-a7ad3f2.jsonl`:
+  from 100, not at 40). Mounted, it writes nothing after the keystroke and raises the timer error at 100, 200 and 1,000, as
+  steering's `probe-a7.jsonl` showed at 200 and 1,000. At 5ec0621 it changes nothing, does not throw, and writes once, as
+  `probe-om.jsonl` showed.
+- **[run] Non-members.** Over the whole grid, these change no other line's state at either tree, at any N, on either surface:
+  - every `*`, `_`, `~` and `|` cell (all runs, shapes, fills, partners);
+  - `` ` `` on `a` lines;
+  - `>` runs of 1 and 2, apart from the quote cells above;
+  - the `` `` `` cells.
+
+  The mounted N = 200 sweep of the whole grid found no throw, timer error or lost write outside the members (tip: 48 throwing rows,
+  all A1 to A6; 5ec0621: 74, all F and Q).
+- **[run] Why the double backtick adds no member in this grid** (`engine-trees.txt`). A single backtick against a `` `` `` partner
+  already pairs (`` a🙂`\na🙂\na🙂`` `` gives one code node). So the keystroke that toggles the span is the first backtick, a k = 1
+  member against any partner run, and the second changes nothing.
+- **[read] High-confidence inference, the class beyond the grid.** In the tip's mechanism, a line's emoji elements come from the
+  engine's parse of a unit: `emojiLift.ts` `liftLoaded` and `withNormalizeNode.ts` `resolveEmoji` over `runUnit.ts` `unitAround`,
+  the contiguous non-code lines. So any single edit that changes whether an emoji on another line of the same unit lies inside
+  inline code is a member. That covers a backtick typed or deleted anywhere on any line, an escaping `\`, and a Delete, not only
+  the line-0 positions probed.
+  - The grid measured the start and end of line 0 only.
+  - Fastest test: the same probe with the keystroke on the middle line and on the last line's partner, and with Delete.
+
+### AN-9 B1 — load outputs that are not a forced-normalise fixed point
+
+Probe: `an9.load-fixedpoint.test.tsx.txt`, output `load-fixedpoint-a7ad3f2.jsonl`, at the tip, full mode. For each unique text it
+loads `getInitialValue`'s output, runs `Editor.normalize(editor, { force: true })`, and counts operations through a pass-through
+spy on `editor.apply`.
+
+| Text set | Surfaces | Unique texts | Not a fixed point |
+|---|---|---|---|
+| Code review's corpus (`QUOTEY`, `UNCLEAN`, `corpusTexts()`, `generatorTexts(1000)`, as `crprobe.keystroke-fixedpoint` builds `ALL`) | `embedDescription`, `content` | 1,244 | **0** on each |
+| That probe's `FIXTURES` (defined there, not in `ALL`) | both | 20 | **0** |
+| AC-6.9's texts (`FENCE_AND_QUOTE_KEYSTROKES` and `SINGLE_QUOTE_KEYSTROKES`, `text` and `changed` at every listed N, the `a🙂` fence texts, and the paste members' texts) | both | 82 | **0** |
+| AN-9's cell texts and expected texts, N = 5 and 100 | both | 776 | **0** |
+| Extension: the final text of every keystroke in code review's tip fixed-point output (`keystroke-fixedpoint-a7ad3f2.json.gz`) | `embedDescription` | 32,208 | **12** |
+
+- **[run] So no load text the corpus or AC-6.9 enumerates leaves a non-fixed load.** The class lives in texts that keystrokes
+  produce. All 14 of code review's tip non-fixed-point keystrokes end in one of the 12 texts (`cr27-key-map.out.txt`). CR-27's six
+  map to B1 rows 6, 8, 9 and 11: two pairs share a text. The other eight map to rows 0 to 5, 7 and 10.
+- **The 12 texts** (`b1-texts.json`). The changed line, and the operations the forced normalise applies (`remove_text`,
+  `split_node` and `insert_node`, as the probe's `byType` records):
+
+  | Row | Text (escaped as JSON) | Changed line | Operations |
+  |---|---|---|---|
+  | 0 | `"\\```\n``a 🙂\n```"` | 1 | 3 |
+  | 1 | `"\\```\n``a 🙂\n```\nb 🙂"` | 1 | 3 |
+  | 2 | ``"`q\n```ts\n``a 🙂\n```\n🙂"`` | 2 | 3 |
+  | 3 | ``"q`\n```ts\n``a 🙂\n```\n🙂"`` | 2 | 3 |
+  | 4 | `"q\n\\```ts\n``a 🙂\n```\n🙂"` | 2 | 3 |
+  | 5 | a `\```py` text with 👍🏽 and 🙂 on line 1 | 1 | 6 |
+  | 6 | a two-line text whose line 0 ends in ```` \`x\```_…_`` ```` | 1 | 3 |
+  | 7 | a `\```ts` text with a 🙂 on line 1 | 1 | 3 |
+  | 8 | a three-line text whose line 1 holds ```` ``🙂…``` ```` | 2 | 9 |
+  | 9 | a two-line text whose line 0 holds ```` …``` ```` | 1 | 3 |
+  | 10 | a `\```ts` text with a 👨‍👩‍👧 on line 1 | 1 | 3 |
+  | 11 | a three-line text whose line 1 holds ```` ``*🙂…*``` ```` | 2 | 3 |
+
+  Full texts are in the capture. In every row the changed line is `codeBlock` in the load with no emoji element. After the
+  forced normalise it holds one emoji element per engine emoji on it (rows 5 and 8: 2 and 3). The text is unchanged in every
+  row (`textUnchanged: true`).
+- **[read] The mechanism.** Every row holds a ```` ``` ```` that the engine does not read as a fence: escaped (`\```), or inside an
+  inline code span that crosses a line break (rows 2, 3, 6, 8, 9, 11). The editor's fence model counts it anyway:
+  `codeFence.ts` `afterLine` and `isCodeLine` split on ```` ``` ```` with no escape or inline-code reading. So the next line loads
+  as `codeBlock`.
+  - The load never lifts a `codeBlock` line: `liftLoaded` skips it as a unit start, and `unitAround` stops at it.
+  - The normaliser does. `resolveEmoji` on a `codeBlock` line takes `unitAround(children, line, 'source')`, which starts at that
+    line and extends over the neighbouring non-code lines, with `startsInCodeBlock` read from its first line. The engine finds no
+    code block over that unit, so `resolveLine` lifts the emoji.
+  - That is CR-27's "an emoji in a code-block line next to a plain line", where the line is a code line by the editor's count only.
+
+### AN-9 B2 — which state Discord's formatter supports
+
+- **[run] Inside real code, an emoji is text.** Inside inline code or a closed code block the engine produces no emoji node
+  (`engine-pair.jsonl`, above). Where the editor and the engine agree that a line is code, the load's text state is the
+  engine's.
+- **[run] On the 12 disagreement lines, the engine reads the emoji as emoji** (`engine-b2.jsonl`, both masks, whole text parsed).
+  - No `code_block` node covers the changed line in any row.
+  - Every emoji the normaliser lifts is an engine emoji node on that line: 12 of 12 rows, the same list as the normaliser's
+    after-state.
+  - Inline code covers part of the line in 10 rows (another part of it, never the emoji). For example, row 0 parses as
+    `` text "\`" ``, `` code "``\n``" ``, `text "a "`, `emoji "🙂"` (`engine-trees.txt`).
+- **So the normaliser's lifted state matches Discord's formatter as the site uses it, on every B1 text.** The load's text state
+  follows the editor's own fence count, which disagrees with the engine there.
+  - **[read] High-confidence inference:** the site's preview parses the whole text with the same engine, so it shows those emoji
+    as emoji while the loaded editor holds them as text. No preview was rendered this run.
+
+### AN-9 reconciliation with the Decisions Register
+
+- **D-28** (read at its quote column, his words "Fix the whole class (Recommended)", option text agent-authored).
+  - The option text names "every formatting character that can pair across lines (backtick, `>`, `||`, `*`, `_`, `~`)". The engine
+    read confirms those six cover the pairing runs, and adds no character.
+  - Of the six, only the backtick (inline code and fence) and `>` (`>>> `) change other lines' state in this editor.
+  - "Every keystroke that changes other lines" is A1 to A6, F1 to F4 and Q1 to Q2 in the grid, and by the inference above, any
+    edit that toggles inline code over another line's emoji.
+- **D-24** governs F and Q. They do not throw at the tip at line 0, as AC-6.9 already requires at line 2.
+- **R-111's reading** ("a forced normalise … applies no operation and raises nothing").
+  - At the tip it holds after every non-throwing member.
+  - It fails after A2, A4 and A5, on top of their throw.
+  - B1 shows that the forced normalise fails, for a cause the load and suppression carry, on 12 keystroke-result texts and on no
+    load text the corpus or AC-6.9 enumerates.
+- No registered requirement is contradicted by these determinations.
+
+### AN-9 gaps and analysis recommendations
+
+| # | Unknown | Why open | Fastest test |
+|---|---|---|---|
+| G-9a | Members away from line 0's start and end (middle-line keystrokes, a keystroke on the partner line, Delete) | The grid measured line 0's start and end only | The unmounted probe with the caret moved; the inference above predicts members wherever inline code over another line's emoji toggles |
+| G-9b | Fills other than `a` and `a🙂` (custom emoji, mixed lines, quotes) | Out of the brief's grid | The same probe with `a<:x:1>` and `> a🙂` fills |
+| G-9c | The N at which A1 to A6 start to throw between 5 and 100 | The grid's N | Code review's 40 shows none at 40. Bisect 40 to 100 |
+| G-9d | The browser's native input path for A1 | Not run; jsdom and `insertText` are the instrument | UAT's walk at B-11's build |
+| G-9e | Whether partial mode (`embedTitle`) has members | Full mode only | `partialMarkdown: true` on the same grid |
+
+Not run: Delete, undo and redo, paste, partial mode, middle-line keystrokes, and the preview render.
+
+The scratch exports at both SHAs, probes, scripts and outputs are removed at the run's close (hand-back).
 
 ## Determinations that bear on the plan's text (for the planner; not plan items)
 

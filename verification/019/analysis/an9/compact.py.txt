@@ -1,0 +1,28 @@
+# AN-9 compact member table: per member (surface folded where both surfaces agree), per tree, the N at which each property holds.
+import json, re, sys
+from collections import defaultdict
+lines = open(sys.argv[1]).read().splitlines()[1:]
+rx = re.compile(r'^(\w+) (.*)\|(\d+) :: tip\[(.*)\] :: om\[(.*)\]$')
+d = defaultdict(lambda: defaultdict(dict))
+for l in lines:
+    m = rx.match(l); surf, base, n, tip, om = m.groups(); d[base][surf][int(n)] = (tip, om)
+def props(s):
+    p = {}
+    p['chg'] = int(re.search(r'chg (\d+)', s).group(1)) if 'chg' in s else None
+    p['throw'] = s.startswith('chg') and ', THROW' in s.split('mounted')[0]
+    mm = s.split('mounted: ')[1] if 'mounted: ' in s else ''
+    p['mthrow'] = 'THROW' in mm; p['timer'] = 'timer ERR' in mm; p['lost'] = 'LOST' in mm; p['mrun'] = bool(mm)
+    return p
+for base in sorted(d):
+    out = []
+    for tree in (0, 1):
+        res = {}
+        for surf in sorted(d[base]):
+            byn = d[base][surf]
+            ns = sorted(byn)
+            pp = {n: props(byn[n][tree]) for n in ns}
+            def at(k): return ','.join(str(n) for n in ns if pp[n][k]) or '-'
+            res[surf] = f"chg[{'/'.join(str(pp[n]['chg']) for n in ns)}] throw@{at('throw')} mthrow@{at('mthrow')} timer@{at('timer')} lost@{at('lost')}"
+        if len(set(res.values())) == 1: out.append(('tip' if tree == 0 else 'om') + ' both-surfaces ' + list(res.values())[0])
+        else: out += [('tip' if tree == 0 else 'om') + f' {s[:5]} ' + v for s, v in res.items()]
+    print(base); [print('   ', o) for o in out]

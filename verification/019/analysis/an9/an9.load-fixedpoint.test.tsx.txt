@@ -1,0 +1,77 @@
+// AN-9 B1: every text whose getInitialValue output is not a fixed point of a forced Editor.normalize, at the tip (a7ad3f2).
+// Operations are counted through a pass-through spy on editor.apply (not a children comparison).
+import { appendFileSync, readFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
+import { createEditor, Editor } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import getInitialValue from '../utils/getInitialValue';
+import flattenNodeText from '../utils/flattenNodeText';
+import { withEmojis, withNormalizeNode } from '../utils';
+import { corpusTexts, generatorTexts } from './helpers/roundTripInputs';
+import {
+  CONTENT_SIZES, DESCRIPTION_SIZES, EMOJI_FILL, EMOJI_SIZES, FENCE_AND_QUOTE_KEYSTROKES, SINGLE_QUOTE_KEYSTROKES,
+} from './helpers/fenceAndQuoteKeystrokes';
+import { cells, expectedText } from './an9cells';
+import type { Descendant, Element, Operation } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import { startEngine } from '~/utils/markdown/engine';
+beforeAll(async () => { await startEngine(); });
+type Surface = 'content' | 'embedDescription';
+// The corpus, exactly as code review's keystroke-fixedpoint probe builds ALL (verification/019/code-review/m6fix2-85ece66/crprobe.keystroke-fixedpoint.test.tsx.txt)
+const QUOTEY = [' 🙂 a', '>> 🙂 a', '>🙂 a', '>> a\n🙂', ' abc\nb 🙂', '> a\n>> b 🙂', '>>> a\n🙂\n```\nx\n```'];
+const UNCLEAN = ['```\n``a 🙂\n```', '```ts\n`a 🙂`\n```', '``` x ```\n🙂 a', '````\n🙂\n````', '```\n``a 🙂\n```\nb 🙂', 'q\n```ts\n``a 🙂\n```\n🙂'];
+const FIXTURES = ['```ts\n``a 🙂\n```', '`a\n🙂`', '`a\nb\n🙂 c`', '||a\n🙂||', '```\nx\n```\n`a\n🙂`', 'a\n```\n🙂\n```\nb 🙂', '```\n🙂\n', '> `a\n> 🙂`', '>>> `a\n🙂`', '`a\n```\n🙂`\n```', 'x `\n```js\ncode 🙂\n```\n` 🙂', '\\`a\n🙂`', ':smile: `a\nb 🙂`', 'a 🙂\n```\n', '``a\n```\n🙂``', '🙂 `\n```\n🙂\n```\n🙂 `', '```\n`\n```\n🙂`', '*a\n🙂*', 'a\n```js\n🙂\n```\n🙂', '> ```\n> 🙂\n> ```\n🙂'];
+function groups(): Array<[string, string[], Surface[]]> {
+  const corpus = [...QUOTEY, ...UNCLEAN, ...corpusTexts(), ...generatorTexts(1000)];
+  const ac69: string[] = [];
+  for (const k of [...FENCE_AND_QUOTE_KEYSTROKES, ...SINGLE_QUOTE_KEYSTROKES]) {
+    for (const n of new Set([...CONTENT_SIZES, ...DESCRIPTION_SIZES])) { ac69.push(k.text(n), k.changed(n)); }
+    if (k.isFence) for (const n of EMOJI_SIZES) { ac69.push(k.text(n, EMOJI_FILL), k.changed(n, EMOJI_FILL)); }
+  }
+  for (const n of [200, 1000]) for (const fill of ['a', EMOJI_FILL]) ac69.push(Array.from({ length: n }, () => fill).join('\n'));
+  const an9: string[] = [];
+  for (const c of cells([5, 100])) an9.push(c.text, expectedText(c));
+  const keyed: string[] = [];
+  const file = process.env.AN9_KEYED;
+  if (file) {
+    const d = JSON.parse(gunzipSync(readFileSync(file)).toString()) as Record<string, { after: string }>;
+    for (const v of Object.values(d)) if (!v.after.startsWith('ERR')) keyed.push(flattenNodeText(JSON.parse(v.after).c as Descendant[]));
+  }
+  return [['corpus', corpus, ['embedDescription', 'content']], ['corpus-fixtures', FIXTURES, ['embedDescription', 'content']],
+    ['ac69', ac69, ['embedDescription', 'content']], ['an9-cells-N5-N100', an9, ['embedDescription', 'content']],
+    ['corpus-keystroke-results-a7ad3f2', [...new Set(keyed)], ['embedDescription']]];
+}
+const sig = (l: Element) => JSON.stringify([l.type, l.quotePrefix ?? null, l.startCodeBlock ?? null, l.lang ?? null,
+  l.children.filter((c) => (c as { type?: string }).type === 'emoji').map((c) => (c as { source: string }).source)]);
+it('load fixed point', { timeout: 3000000 }, () => {
+  const out = process.env.AN9_OUT as string;
+  for (const [group, texts, surfaces] of groups()) for (const surface of surfaces) {
+    const seen = new Set<string>(); let total = 0; let nonFixed = 0;
+    for (const text of texts) {
+      if (seen.has(text)) continue; seen.add(text); total += 1;
+      const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, surface);
+      const loaded = getInitialValue(text, surface, false) as Descendant[];
+      e.children = loaded;
+      const ops: Operation[] = []; const { apply } = e; e.apply = (op) => { ops.push(op); apply(op); };
+      let err = '';
+      try { Editor.normalize(e, { force: true }); } catch (x) { err = String(x).slice(0, 80); }
+      if (!ops.length && !err) continue;
+      nonFixed += 1;
+      const touched = [...new Set(ops.map((op) => ('path' in op ? op.path[0] : -1)))].sort((a, b) => a - b);
+      const byType: Record<string, number> = {}; ops.forEach((op) => { byType[op.type] = (byType[op.type] ?? 0) + 1; });
+      const lines = text.split('\n');
+      appendFileSync(out, `${JSON.stringify({
+        group, surface, text: text.length > 400 ? `${text.slice(0, 400)}…(${text.length} chars, ${lines.length} lines)` : text,
+        ops: ops.length, byType, err, touchedLines: touched.slice(0, 12), touchedCount: touched.length,
+        firstTouched: touched[0] === undefined || touched[0] < 0 ? null : {
+          line: touched[0], text: lines[touched[0]], loaded: sig(loaded[touched[0]] as Element), after: sig(e.children[touched[0]] as Element),
+          prev: touched[0] > 0 ? sig(loaded[touched[0] - 1] as Element) : null, next: loaded[touched[0] + 1] ? sig(loaded[touched[0] + 1] as Element) : null,
+        },
+        textUnchanged: flattenNodeText(e.children) === text,
+      })}\n`);
+    }
+    appendFileSync(out, `${JSON.stringify({ summary: true, group, surface, total, nonFixed })}\n`);
+  }
+});

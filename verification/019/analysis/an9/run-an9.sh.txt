@@ -1,0 +1,9 @@
+#!/bin/sh
+# usage: run-an9.sh <scratch> <tree e-a7|e-om> <probe basename> <out name> <runtime s> [env assignments...]
+S=$1; T=$2; P=$3; O=$4; R=$5; shift 5
+OUT=$S/out; mkdir -p $OUT
+echo "$T $P $O start load $(cat /proc/loadavg) $(date -u +%H:%M:%SZ) oom $(grep -c 'Memory cgroup out of memory' /var/log/kern.log)" >> $OUT/runs.txt
+rm -f $OUT/$O.jsonl
+( cd $S/$T && env AN9_OUT=$OUT/$O.jsonl "$@" systemd-run --user --scope -q -p MemoryMax=5G -p MemorySwapMax=0 -p TasksMax=512 -p RuntimeMaxSec=$R \
+    unshare -rn npx vitest run --maxWorkers=1 src/components/SlateEditor/__tests__/$P > $OUT/$O.log 2>&1 ); rc=$?
+echo "$T $P $O exit $rc load $(cat /proc/loadavg) $(date -u +%H:%M:%SZ) oom $(grep -c 'Memory cgroup out of memory' /var/log/kern.log)" >> $OUT/runs.txt

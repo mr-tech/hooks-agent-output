@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9efbb14a-73a2-4ba5-81ee-31602e556f15/scratchpad/e-om
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  05:40:15
+   Duration  219.30s (transform 487ms, setup 23ms, import 1.18s, tests 217.36s, environment 599ms)
+

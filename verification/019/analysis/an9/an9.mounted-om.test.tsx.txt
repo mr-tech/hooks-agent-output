@@ -1,0 +1,42 @@
+// AN-9 mounted probe at production (origin/master 5ec0621): the real SlateEditor through steering's substitute helper mountedOm.tsx
+// (verification/019/steering/outstanding3-refute/mountedOm-origin-master-5ec0621.tsx.txt); the editor takes no surface, so surface is a label. Per cell: the keystroke's
+// throw, any error a pending timer raises afterwards, the writes onChange makes after the keystroke and before any next keystroke,
+// and whether the last of them is the keystroke's text (built from the cell's literals).
+import { act } from 'react';
+import { appendFileSync, readFileSync } from 'node:fs';
+import { Editor, Transforms } from 'slate';
+import { afterEach, it, vi } from 'vitest';
+import onKeyDown from '../utils/onKeyDown';
+import { mountEditor, unmountEditor } from './mountedOm';
+import { cells, expectedText } from './an9cells';
+import type { KeyboardEvent } from 'react';
+import type { Element } from 'slate';
+afterEach(() => { unmountEditor(); });
+type Surface = 'content' | 'embedDescription';
+const IDS = new Set(readFileSync(process.env.AN9_IDS as string, 'utf8').split('\n').filter(Boolean));
+const SURFACES = (process.env.AN9_SURFACES ?? 'content,embedDescription').split(',') as Surface[];
+const NS = (process.env.AN9_NS ?? '5,100,200,1000').split(',').map(Number);
+const bsEvent = () => ({ key: 'Backspace', defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } });
+const todo: Array<[Surface, ReturnType<typeof cells>[number]]> = [];
+for (const surface of SURFACES) for (const c of cells(NS)) if (IDS.has(`${surface} ${c.id}`)) todo.push([surface, c]);
+it.each(todo.map((t, i) => [i, t[0], t[1].id]))('cell %i %s %s', async (i) => {
+  const [surface, c] = todo[i as number];
+  void surface; const m = mountEditor(c.text, false);
+  const line0 = m.editor.children[0] as Element;
+  let { caret } = c; let expected = expectedText(c);
+  if (line0.type === 'blockQuote' && typeof caret === 'number') { caret = 'start'; expected = [c.line0.slice((line0.quotePrefix ?? '').length), ...c.text.split('\n').slice(1)].join('\n'); }
+  act(() => { Transforms.select(m.editor, caret === 'start' ? Editor.start(m.editor, [0]) : caret === 'end' ? Editor.end(m.editor, [0]) : { path: [0, 0], offset: caret }); });
+  const w0 = m.writes.length; const initialWrite = m.writes.at(-1) === c.text;
+  let err = ''; let timerErr = '';
+  try {
+    await act(async () => {
+      if (c.key === '<bs>') { const ev = bsEvent(); onKeyDown(m.editor, false, undefined)(ev as unknown as KeyboardEvent<HTMLDivElement>); if (!ev.defaultPrevented) m.editor.deleteBackward('character'); }
+      else m.editor.insertText(c.key);
+    });
+  } catch (x) { err = String(x).slice(0, 80); }
+  try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (x) { timerErr = String(x).slice(0, 80); }
+  const writesSince = m.writes.length - w0;
+  const last = (m.writes.at(-1) ?? '').replaceAll(':slight_smile:', '🙂');
+  appendFileSync(process.env.AN9_OUT as string, `${JSON.stringify({ id: c.id, surface, err, timerErr, writesSince, initialWrite,
+    lastWriteIsKeystrokeText: last === expected, writeLost: last !== expected })}\n`);
+}, 600000);

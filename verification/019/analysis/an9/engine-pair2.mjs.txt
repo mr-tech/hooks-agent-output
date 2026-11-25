@@ -1,0 +1,23 @@
+// AN-9 engine read, second pass: two-line and spaced shapes, and quote nodes, over every ASCII punctuation delimiter of length 1-3.
+import { init, parseLossless } from '/usr/local/bin/hooks/website/node_modules/@discord/markdown-wasm/src/index.js';
+await init?.().catch(() => {});
+const MASK = { content: 0x3fffffff, embedDescription: 0x3fffffff };
+const walk = (n, f) => { f(n); (n.children ?? []).forEach((c) => c.type === 'node' && walk(c, f)); };
+const kindOf = (n) => n.kind.type + (n.kind.value?.kind ? '.' + n.kind.value.kind : '');
+const punct = [...'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'];
+const shapes = (d) => [
+  ['2l open-start close-end', `${d}a\nb${d}`], ['2l open-end close-start', `a ${d}\n${d} b`], ['2l open-start close-start', `${d}a\n${d}b`],
+  ['3l open-start close-end', `${d}a\nb\nc${d}`], ['3l spaced', `x ${d}a\nb\nc${d} y`], ['2l emoji', `${d}a🙂\na🙂${d}`],
+  ['line-start prefix', `${d} a\nb\nc`], ['line-start prefix nospace', `${d}a\nb\nc`],
+];
+const out = [];
+for (const surface of Object.keys(MASK)) for (const c of punct) for (const k of [1, 2, 3]) {
+  const d = c.repeat(k);
+  for (const [shape, text] of shapes(d)) {
+    const tree = parseLossless(text, MASK[surface]);
+    const crossing = new Set();
+    walk(tree, (n) => { const kd = n.kind.type; if (['document', 'paragraph', 'text', 'empty'].includes(kd)) return; if (text.slice(n.span.start, n.span.end).includes('\n')) crossing.add(kindOf(n)); });
+    if (crossing.size) out.push({ surface, delim: d, shape, text, crossing: [...crossing] });
+  }
+}
+console.log(out.map((o) => JSON.stringify(o)).join('\n'));

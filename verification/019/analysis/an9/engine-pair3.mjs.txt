@@ -1,0 +1,31 @@
+// AN-9 engine read (the detector used): a delimiter "pairs across lines" when adding a partner on the last line changes
+// the node kinds covering any character of an earlier line. Per-character kind stacks are compared with and without the partner.
+import { init, parseLossless } from '/usr/local/bin/hooks/website/node_modules/@discord/markdown-wasm/src/index.js';
+await init?.().catch(() => {});
+const MASK = { content: 0x3fffffff, embedDescription: 0x3fffffff };
+const kindOf = (n) => n.kind.type + (n.kind.value?.kind ? '.' + n.kind.value.kind : '');
+function stacks(text, mask) {
+  const st = Array.from({ length: text.length }, () => []);
+  const walk = (n, path) => { const p = [...path, kindOf(n)]; for (let i = n.span.start; i < n.span.end; i += 1) st[i] = p; n.children.forEach((c) => c.type === 'node' && walk(c, p)); };
+  walk(parseLossless(text, mask), []);
+  return st.map((s) => s.filter((k) => !['document', 'paragraph'].includes(k)).join('>'));
+}
+const punct = [...'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'];
+const out = [];
+for (const surface of Object.keys(MASK)) for (const fill of ['a', 'a🙂']) for (const c of punct) for (const k of [1, 2, 3]) {
+  const d = c.repeat(k);
+  for (const n of [3, 5]) for (const open of ['start', 'end']) for (const close of ['start', 'end']) {
+    const lines = Array.from({ length: n }, () => fill);
+    const l0 = open === 'start' ? `${d}${fill}` : `${fill}${d}`;
+    const last = close === 'start' ? `${d}${fill}` : `${fill}${d}`;
+    const withP = [l0, ...lines.slice(1, -1), last].join('\n');
+    const without = [l0, ...lines.slice(1)].join('\n');
+    const a = stacks(withP, MASK[surface]); const b = stacks(without, MASK[surface]);
+    // compare characters of lines 0..n-2 (identical prefix in both texts)
+    const prefixLen = [l0, ...lines.slice(1, -1)].join('\n').length;
+    const changed = new Set();
+    for (let i = 0; i < prefixLen; i += 1) if (a[i] !== b[i]) changed.add(withP.slice(0, i).split('\n').length - 1);
+    if (changed.size) out.push({ surface, fill, delim: d, n, open, close, linesChanged: [...changed], sample: [...changed].slice(0, 1).map((ln) => ({ line: ln, with: a[withP.split('\n').slice(0, ln).join('\n').length + (ln ? 1 : 0)], without: b[withP.split('\n').slice(0, ln).join('\n').length + (ln ? 1 : 0)] })) });
+  }
+}
+console.log(out.map((o) => JSON.stringify(o)).join('\n'));

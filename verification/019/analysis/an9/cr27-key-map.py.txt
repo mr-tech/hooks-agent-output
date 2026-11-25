@@ -1,0 +1,16 @@
+# AN-9: map code review's 14 tip non-fixed-point keystrokes to B1's 12 non-fixed load texts (flattenNodeText transcribed for a lookup only)
+# usage: python3 -I cr27-key-map.py <code-review keystroke-fixedpoint-a7ad3f2.json.gz> <an9/b1-texts.json>
+import gzip, json, sys
+d = json.loads(gzip.open(sys.argv[1]).read())
+b1 = [r['text'] for r in json.load(open(sys.argv[2]))]
+def flat(n):
+    if 'text' in n and 'children' not in n: return n['text']
+    if n.get('type') == 'emoji': return n['source']
+    t = ''.join(flat(c) for c in n['children'])
+    return (n.get('quotePrefix') if n.get('quotePrefix') is not None else '> ') + t if n.get('type') == 'blockQuote' else t
+keys = ['7|0|start|\\', '11|0|start|\\', '12|0|start|`', '12|0|end|`', '12|1|start|\\', '436|0|start|\\', '599|0|end|<delete>', '599|1|start|<backspace>', '714|0|start|\\', '728|1|end|`', '941|0|end|<delete>', '941|1|start|<backspace>', '1186|0|start|\\', '1190|1|end|`']
+for k in keys:
+    v = d[k]; text = '\n'.join(flat(c) for c in json.loads(v['after'])['c'])
+    full = [i for i, t in enumerate(b1) if t == text]
+    pre = [i for i, t in enumerate(b1) if t.endswith(')') and '…(' in t and text.startswith(t.split('…(')[0])]
+    print(k, 'fixedPoint', v['fixedPoint'], 'B1 row', full or pre or 'none')

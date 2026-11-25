@@ -1,0 +1,46 @@
+# AN-9 member table: joins the unmounted rows of both trees (and the mounted rows where present) by cell.
+# A cell is a member when its keystroke changes the state of at least one line other than line 0 at either tree.
+# usage: members.py <tip unmounted> <om unmounted> [<tip mounted> <om mounted>] ; writes the table to stdout and ids to $AN9_IDS_OUT
+import json, os, sys
+from collections import defaultdict
+def load(p):
+    d = {}
+    if not p or not os.path.exists(p): return d
+    for l in open(p):
+        r = json.loads(l)
+        if 'skipped' in r: continue
+        d[(r['surface'], r['id'])] = r
+    return d
+tip, om = load(sys.argv[1]), load(sys.argv[2])
+mt = load(sys.argv[3]) if len(sys.argv) > 3 else {}
+mo = load(sys.argv[4]) if len(sys.argv) > 4 else {}
+def omrow(surface, cid): return om.get(('content', cid))  # production's normaliser takes no surface: one run, labelled content
+groups = defaultdict(dict)
+for (surface, cid), r in tip.items():
+    base = cid.rsplit('|', 1)[0]
+    groups[(surface, base)][r['n']] = (r, omrow(surface, cid), mt.get((surface, cid)), mo.get(('content', cid)))
+members = []
+for key, byn in sorted(groups.items()):
+    if any(t['otherChanged'] or (o and o['otherChanged']) or t['err'] for t, o, _, _ in byn.values()):
+        members.append(key)
+ids = []
+for surface, base in members:
+    for n in (5, 100, 200, 1000): ids.append(f"{surface} {base}|{n}")
+    # controls: the no-partner counterpart, and the plain-a counterpart
+    for alt in {base.replace('|partner|', '|control|'), base.replace('|a🙂', '|a') if base.endswith('|a🙂') else base}:
+        for n in (5, 100, 200, 1000): ids.append(f"{surface} {alt}|{n}")
+if os.environ.get('AN9_IDS_OUT'):
+    open(os.environ['AN9_IDS_OUT'], 'w').write('\n'.join(sorted(set(ids))) + '\n')
+def cell(t, o, m, mo_):
+    def one(r, mr):
+        if r is None: return 'not run'
+        s = f"chg {r['otherChanged']}, {'THROW' if r['err'] else 'no throw'}"
+        if mr is None: s += ', mounted not run'
+        else: s += f", mounted: {'THROW' if mr['err'] else 'no throw'}, timer {'ERR' if mr['timerErr'] else 'none'}, writes {mr['writesSince']}, {'LOST' if mr['writeLost'] else 'kept'}"
+        return s
+    return one(t, m), one(o, mo_)
+print('members', len(members))
+for key in members:
+    for n, (t, o, m, mo_) in sorted(groups[key].items()):
+        a, b = cell(t, o, m, mo_)
+        print(f"{key[0][:5]} {key[1]}|{n} :: tip[{a}] :: om[{b}]")
