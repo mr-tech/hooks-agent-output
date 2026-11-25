@@ -8,7 +8,7 @@ Status-Detail: >-
   findings are stated limits under the M6 cap. CF-34: the rebuild trigger compares line type only, so compare the class's whole
   state, emoji layout included. CF-35: the corpus differential's condition is equal documents on both trees. CF-36: take fence
   state from the engine, not codeFence.ts's hand scan. CF-33's soundness premise is corrected (my error, shown by AN-9 B1). It
-  holds nothing. Whether the handoff's fence fix rides Fix Round 5 goes to steering.
+  holds nothing. Steering ruled that the fence fix stays with the handoff (b, block 06:07Z). CF-34 states a form for (b).
   Design read for M6 Fix Round 4 (block 22:41Z), CF-33. The `a🙂` fence cost is Slate's pending dirty-path list, rebuilt on every
   path-transforming op, which makes it O(N²). Measured on plain Slate: hand-built ops and per-line rebuild both stay quadratic. The
   form that reaches the line is to rebuild the changed lines from the load path (liftLoaded), 2 ops each, with getDirtyPaths
@@ -88,6 +88,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-25T06:08 | architect-019 | CF-34's scope point recorded as ruled (b) by steering (block 06:07Z, record `9ba0662c`); a form for (b) added under CF-34 | From `steering-hooks-fixer`'s message; the block was read at `9ba0662c`. Derived from AN-9 B1 and `resolveEmoji` at `a7ad3f2`, not run. Process fact: the stamp gate refused this row's first stamp, 06:09, which I typed ahead of the clock. It was corrected to the `date -u` minute. |
 | 2026-11-25T06:05 | architect-019 | Delta pass on plan 019 revision 24 (record `80d6d143`); § Delta pass, revision 24. APPROVED; CF-34, CF-35 and CF-36 LOW raised as stated limits. CF-33's soundness premise and revision 21's A-11 consequence get reconcile notes (my error, shown by AN-9 B1). `system-architecture.md`'s hand-regex Problem Area gains B1's measured consequence | Commissioned by `planner-019`'s message. Read as `git diff 49a20690 80d6d143` on the plan, with AN-9 (record `00c91e3a`), the re-aimed handoff, and website `a7ad3f2` `codeFence.ts` and `withNormalizeNode.ts` through `git show`/`git grep`. Nothing was run. Resumed after a `/clear` from the Resumption State at `4dfc0505`. |
 | 2026-11-24T22:46 | architect-019 | Design read for M6 Fix Round 4 (§ Design read: the emoji lift for `a🙂` fence keystrokes); CF-33 | Commissioned by `steering-hooks-fixer` under block 22:41Z (agent-output `40823e74`). Read the implementation document at `731ff3a1`, `slate` 0.123.0 (read-only) and website `2b82972`. Two plain-Slate probes ran in capped scopes; the captures are in `verification/019/architect-conformance/fix3-lift/`. Process fact: the two probe scripts were written with a shell heredoc. They are captures, not record documents, and the README says so. |
 | 2026-11-24T20:10 | architect-019 | Delta pass on plan 019 revision 23 (record `49a20690`); § Delta pass, revision 23. APPROVED; CF-32 LOW raised as a stated limit; A-11's owed restatement gains the memoisation consequence | Commissioned by `planner-019`'s message. Read as `git diff 17bb8f2c 49a20690` on the plan, with `withNormalizeNode.ts` at website `85ece66` read. Nothing was run. |
@@ -137,8 +138,8 @@ Written 2026-11-25T06:05Z, after the revision 24 delta pass. Record branch `mast
 **Approach in flight.** None. Nothing in the shared website tree was mutated. The only probe scripts are under
 `verification/019/architect-conformance/{rev13,rev15,fix3-lift}/` and are committed.
 
-**Questions out.** CF-34's consequence: whether the handoff's fence-count fix rides Fix Round 5. Sent to `steering-hooks-fixer`
-and `planner-019`. The answer is steering's.
+**Questions out.** None. CF-34's scope point was ruled (b) by steering (block 06:07Z, record `9ba0662c`). Its form for (b) is
+under CF-34 and was sent to `implementer-019`.
 
 ## Open items
 
@@ -461,6 +462,19 @@ weight on more inputs. A rebuilt line where `afterLine` miscounts (CF-36) is a n
 may meet B1-shaped texts through the new path. The fix then either corrects the fence count in the round, which is the handoff's
 work, or keeps out of the rebuild any line where the two can disagree. Whether the handoff's fix rides Fix Round 5 is a scope
 question for steering. The sub-limb catches either outcome, so no defect passes unseen.
+
+**Ruled (b)** by `steering-hooks-fixer` (effort rulings block "2026-11-25T06:07Z", record `9ba0662c`, read). Lines `afterLine`
+miscounts stay out of the rebuild. The fence-count fix, with CF-36's engine fence state, stays with the handoff. If (b) cannot
+meet AC-6.9's limbs, the implementer takes it to steering.
+
+**A form for (b) that needs no second grammar:**
+- **Gate the emoji comparison.** CF-34's emoji-layout comparison applies only to lines the scan types as non-code. Inline code
+  cannot toggle inside a code block, so a real code line never changes emoji layout through a D-28 member.
+- **Every B1 line is scan-typed code** (`codeBlock` in the load, with no emoji element; AN-9 B1). Such a line stays on the normal
+  path: `resolveEmoji` lifts its emoji with no suppression, as the pass-through tree does today.
+- **What this leaves.** A line the scan types as code is still rebuilt for a type change, as in CF-33's fence members. A
+  miscount there is the edge the sub-limb still counts. That case is the handoff's, and it goes to steering under the ruling.
+- **Not run.** This is derived from AN-9 B1's table and `resolveEmoji` at `a7ad3f2`.
 
 LOW: AC-6.9's limbs verify whichever form is built. This is design guidance below HIGH, so it is a stated limit for Fix Round 5
 under the M6 cap. D-28 lifts the cap for the class's fix, not for guidance on its form.
