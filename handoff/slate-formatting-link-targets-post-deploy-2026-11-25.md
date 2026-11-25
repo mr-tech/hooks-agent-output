@@ -1,7 +1,7 @@
 ---
 UUID: ba01be8d
 Status: Open
-Status-Detail: "Plan 019's one post-deploy row, QA register B-5 (link targets keep their emoji on production), is unread. It waits on the production push of website master carrying 019; the scheduled reader B5R reads it after that push."
+Status-Detail: "Plan 019's one post-deploy row, QA register B-5 (link targets keep their emoji on production), is unread. website master was pushed 2026-11-25T17:39Z; the scheduled reader B5R reads it at its first fire at least 15 minutes later."
 Owning-Stage: "the headless devops reader B5R, scheduled by crontab (kit verification/019/post-deploy/kit/); a failed read goes to the owner through the steering thread"
 Review-Trigger: "the first fire of reader B5R at least 15 minutes after the production push of website master carrying plan 019"
 ---
@@ -44,7 +44,7 @@ Devops fills `When` in the round that pushes. The reader's gate opens 15 minutes
 
 | Event | When (UTC) | Ref and SHA | Recorded by |
 |---|---|---|---|
-| E-WEBSITE-PUSH |  |  |  |
+| E-WEBSITE-PUSH | 2026-11-25T17:39 | website `master` `48eb60a02f4af4f27f1a5426bbe7e58301b1d148` | devops-019 |
 
 ## Schedule
 
@@ -76,3 +76,4 @@ Plan 019 Testing Strategy (post-deploy observable) and QA register B-5; the carr
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-25T16:44 | devops-019 | Created at Stage 1 with B-5 carried in full, the production baseline, the dry run and the schedule. |
+| 2026-11-25T17:39 | devops-019 | E-WEBSITE-PUSH filled: pushed at 17:39:32Z (origin/master reflog, `update by push`). |
