@@ -36,7 +36,7 @@ One row of plan 019's blocking-condition register (`qa/019-slate-formatting-disc
 punycoded address, as Discord draws it. QA Phase 1 § Assumption Not Checked: the 2026-11-23 unfixed reading assumed production served
 `af3d95a`. That limb is superseded by the baseline below, taken again before this release's push.
 
-**Result:** (blank until read)
+**Result:** **PASS** (2026-11-25T18:23): `https://x.xn--y-bz3s/` and `https://x.y/%F0%9F%99%82`; 0 errors recorded; output `verification/019/post-deploy/kit/out/B5R.20261125T1823Z.json`; read 43 min after the push
 
 ## Event ledger
 
@@ -77,3 +77,4 @@ Plan 019 Testing Strategy (post-deploy observable) and QA register B-5; the carr
 |---|---|---|
 | 2026-11-25T16:44 | devops-019 | Created at Stage 1 with B-5 carried in full, the production baseline, the dry run and the schedule. |
 | 2026-11-25T17:39 | devops-019 | E-WEBSITE-PUSH filled: pushed at 17:39:32Z (origin/master reflog, `update by push`). |
+| 2026-11-25T18:23 | B5R | B-5 read once on production: PASS, both link targets keep their emoji; output `verification/019/post-deploy/kit/out/B5R.20261125T1823Z.json`. | run-B5R-complete |

@@ -1,0 +1,22 @@
+{
+ "at": "2026-11-25T18:23:12.320Z",
+ "url": "https://hooks.gg/message/m/0/edit",
+ "typed": "https://x.y🙂 [a](https://x.y/🙂)",
+ "library": "/home/dev/.cache/qa-083-harness/node_modules/playwright-core",
+ "browser": "143.0.7499.4",
+ "status": 200,
+ "editorsOnPage": 1,
+ "editorText": "https://x.y🙂 [a](https://x.y/🙂)",
+ "anchors": [
+  [
+   "https://x.xn--y-bz3s/",
+   "https://x.xn--y-bz3s/"
+  ],
+  [
+   "https://x.y/%F0%9F%99%82",
+   "a"
+  ]
+ ],
+ "errors": [],
+ "slightSmileInAnyTarget": false
+}
