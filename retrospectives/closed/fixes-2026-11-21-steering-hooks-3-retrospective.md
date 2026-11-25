@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fixes-2026-11-21-steering-hooks-3
 UUID: f717f5b2
-Status: Active
-Status-Detail: "Fixer-batch retrospective over fix-message-link-import-empty (diagnosis only, closed on a known limit, no release) and fix-desktop-draft-as-typed (website b663b35..b68f94c, released, P-1 holds); both closed out."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective (fixer batch fixes-2026-11-21-steering-hooks-3): fix-message-link-import-empty, fix-desktop-draft-as-typed
@@ -24,6 +24,7 @@ Batch c records that deviation (effort rulings, block 10:28Z, item 3).
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T15:37 | steering-hooks (spawn brief `scratchpad/batch-d/retro-brief.md`; effort rulings block 2026-11-21T15:31Z) | Fixer-batch retrospective over chains 3c and 4 of effort `fixer-queue-2026-11-21`, including whether batch c's lessons were applied | Written from the documents. The cost was read once per chain, and the captures are in `verification/fixes-2026-11-21-steering-hooks-3/cost/`. Eight recommendations, plus sightings of batch c's pending ones. No handoff created. Items for steering are under Handoff. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
