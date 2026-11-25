@@ -1,0 +1,1684 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 118 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a ZWJ sequence typed one character at a time
+AssertionError: expected '\u200d\u200d👧👩👨' to be '👨\u200d👩\u200d👧' // Object.is equality
+
+Expected: "👨‍👩‍👧"
+Received: "‍‍👧👩👨"
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-tone sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-tone sequence typed one character at a time
+AssertionError: expected '' to be '👍🏽' // Object.is equality
+
+- Expected
++ Received
+
+- 👍🏽
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a keycap typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a keycap typed one character at a time
+AssertionError: expected '' to be '1️⃣' // Object.is equality
+
+- Expected
++ Received
+
+- 1️⃣
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a flag typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a flag typed one character at a time
+AssertionError: expected '' to be '🇬🇧' // Object.is equality
+
+- Expected
++ Received
+
+- 🇬🇧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a tag sequence typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a tag sequence typed one character at a time
+AssertionError: expected '' to be '🏴󠁧󠁢󠁥󠁮󠁧󠁿' // Object.is equality
+
+- Expected
++ Received
+
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with emoji presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with emoji presentation typed one character at a time
+AssertionError: expected '' to be '❤️' // Object.is equality
+
+- Expected
++ Received
+
+- ❤️
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with text presentation typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with text presentation typed one character at a time
+AssertionError: expected '' to be '❤' // Object.is equality
+
+- Expected
++ Received
+
+- ❤
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji newer than the site's table typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji newer than the site's table typed one character at a time
+AssertionError: expected '' to be '🫩' // Object.is equality
+
+- Expected
++ Received
+
+- 🫩
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji typed as a name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji typed as a name typed one character at a time
+AssertionError: expected '' to be ':smile:' // Object.is equality
+
+- Expected
++ Received
+
+- :smile:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-toned name typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-toned name typed one character at a time
+AssertionError: expected '' to be ':thumbsup::skin-tone-3:' // Object.is equality
+
+- Expected
++ Received
+
+- :thumbsup::skin-tone-3:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a colon-wrapped emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a colon-wrapped emoji typed one character at a time
+AssertionError: expected '' to be ':🙂:' // Object.is equality
+
+- Expected
++ Received
+
+- :🙂:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a custom emoji typed one character at a time
+AssertionError: expected '' to be '<:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an animated custom emoji typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an animated custom emoji typed one character at a time
+AssertionError: expected '' to be '<a:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <a:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link label typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link label typed one character at a time
+AssertionError: expected '' to be '[🙂](https://x.y)' // Object.is equality
+
+- Expected
++ Received
+
+- [🙂](https://x.y)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link address typed one character at a time
+AssertionError: expected '' to be '[a](https://x.y/🙂)' // Object.is equality
+
+- Expected
++ Received
+
+- [a](https://x.y/🙂)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a name in a link address typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a name in a link address typed one character at a time
+AssertionError: expected '' to be '<https://x.y/:smile:>' // Object.is equality
+
+- Expected
++ Received
+
+- <https://x.y/:smile:>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji between words typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji between words typed one character at a time
+AssertionError: expected '' to be 'a 🙂 b' // Object.is equality
+
+- Expected
++ Received
+
+- a 🙂 b
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals two emoji side by side typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals two emoji side by side typed one character at a time
+AssertionError: expected '' to be '🙂🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside bold typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside bold typed one character at a time
+AssertionError: expected '' to be '**🙂 b**' // Object.is equality
+
+- Expected
++ Received
+
+- **🙂 b**
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside inline code typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside inline code typed one character at a time
+AssertionError: expected '' to be '`🙂`' // Object.is equality
+
+- Expected
++ Received
+
+- `🙂`
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside a code block typed one character at a time
+AssertionError: expected '' to be '```js\nx = "🙂"\n```' // Object.is equality
+
+- Expected
++ Received
+
+- ```js
+- x = "🙂"
+- ```
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji after a backslash typed one character at a time
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji after a backslash typed one character at a time
+AssertionError: expected '' to be '\🙂' // Object.is equality
+
+- Expected
++ Received
+
+- \🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a Unicode emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a Unicode emoji pasted whole
+AssertionError: expected '' to be '🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a ZWJ sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a ZWJ sequence pasted whole
+AssertionError: expected '' to be '👨\u200d👩\u200d👧' // Object.is equality
+
+- Expected
++ Received
+
+- 👨‍👩‍👧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-tone sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-tone sequence pasted whole
+AssertionError: expected '' to be '👍🏽' // Object.is equality
+
+- Expected
++ Received
+
+- 👍🏽
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a keycap pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a keycap pasted whole
+AssertionError: expected '' to be '1️⃣' // Object.is equality
+
+- Expected
++ Received
+
+- 1️⃣
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a flag pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a flag pasted whole
+AssertionError: expected '' to be '🇬🇧' // Object.is equality
+
+- Expected
++ Received
+
+- 🇬🇧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a tag sequence pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a tag sequence pasted whole
+AssertionError: expected '' to be '🏴󠁧󠁢󠁥󠁮󠁧󠁿' // Object.is equality
+
+- Expected
++ Received
+
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with emoji presentation pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with emoji presentation pasted whole
+AssertionError: expected '' to be '❤️' // Object.is equality
+
+- Expected
++ Received
+
+- ❤️
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a heart with text presentation pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a heart with text presentation pasted whole
+AssertionError: expected '' to be '❤' // Object.is equality
+
+- Expected
++ Received
+
+- ❤
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji newer than the site's table pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji newer than the site's table pasted whole
+AssertionError: expected '' to be '🫩' // Object.is equality
+
+- Expected
++ Received
+
+- 🫩
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji typed as a name pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji typed as a name pasted whole
+AssertionError: expected '' to be ':smile:' // Object.is equality
+
+- Expected
++ Received
+
+- :smile:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a skin-toned name pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a skin-toned name pasted whole
+AssertionError: expected '' to be ':thumbsup::skin-tone-3:' // Object.is equality
+
+- Expected
++ Received
+
+- :thumbsup::skin-tone-3:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a colon-wrapped emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a colon-wrapped emoji pasted whole
+AssertionError: expected '' to be ':🙂:' // Object.is equality
+
+- Expected
++ Received
+
+- :🙂:
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a custom emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a custom emoji pasted whole
+AssertionError: expected '' to be '<:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an animated custom emoji pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an animated custom emoji pasted whole
+AssertionError: expected '' to be '<a:n:123>' // Object.is equality
+
+- Expected
++ Received
+
+- <a:n:123>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link label pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link label pasted whole
+AssertionError: expected '' to be '[🙂](https://x.y)' // Object.is equality
+
+- Expected
++ Received
+
+- [🙂](https://x.y)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[37/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji in a link address pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji in a link address pasted whole
+AssertionError: expected '' to be '[a](https://x.y/🙂)' // Object.is equality
+
+- Expected
++ Received
+
+- [a](https://x.y/🙂)
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[38/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals a name in a link address pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a name in a link address pasted whole
+AssertionError: expected '' to be '<https://x.y/:smile:>' // Object.is equality
+
+- Expected
++ Received
+
+- <https://x.y/:smile:>
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji between words pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji between words pasted whole
+AssertionError: expected '' to be 'a 🙂 b' // Object.is equality
+
+- Expected
++ Received
+
+- a 🙂 b
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[40/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals two emoji side by side pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals two emoji side by side pasted whole
+AssertionError: expected '' to be '🙂🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[41/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside bold pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside bold pasted whole
+AssertionError: expected '' to be '**🙂 b**' // Object.is equality
+
+- Expected
++ Received
+
+- **🙂 b**
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[42/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside inline code pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji inside inline code pasted whole
+AssertionError: expected '' to be '`🙂`' // Object.is equality
+
+- Expected
++ Received
+
+- `🙂`
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[43/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji inside a code block pasted whole
+AssertionError: expected '' to be '```js\nx = "🙂"\n```' // Object.is equality
+
+- Expected
++ Received
+
+- ```js
+- x = "🙂"
+- ```
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[44/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a full-markdown editor > equals an emoji after a backslash pasted whole
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals an emoji after a backslash pasted whole
+AssertionError: expected '' to be '\🙂' // Object.is equality
+
+- Expected
++ Received
+
+- \🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:54:35
+     52|     const mounted = mountEditor('', partial);
+     53|     await pasteText(mounted, form);
+     54|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     55|     unmountEditor();
+     56|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[45/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a Unicode emoji typed one character at a time
+AssertionError: expected '' to be '🙂' // Object.is equality
+
+- Expected
++ Received
+
+- 🙂
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[46/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx > the message saved from a single-line editor > equals a ZWJ sequence typed one character at a time
+AssertionError: expected '' to be '👨\u200d👩\u200d👧' // Object.is equality
+
+- Expected
++ Received
+
+- 👨‍👩‍👧
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.tsx:47:35
+     45|     const mounted = mountEditor('', partial);
+     46|     await typeText(mounted, form);
+     47|     expect(mounted.writes.at(-1)).toBe(form);
+       |                                   ^
+     48|     unmountEditor();
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[47/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ 'a\n🙂 b', '\n🙂 b', …(32) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a
++ 🙂 b",
++   "
++ 🙂 b",
++   "> a
++ 🙂 b",
++   ">>> a
++ 🙂 b",
++   ">>> 
++ 🙂 b",
++   "> 
++ 🙂 b",
++   " > a
++ 🙂 b",
++   "  >>> b
++ 🙂 b",
++   ">>> > a
++ 🙂 b",
++   "> > a
++ 🙂 b",
++   "> >>> a
++ 🙂 b",
++   "```a```
++ 🙂 b",
++   "foo
++ 🙂 b",
++   "🙂 b",
++   "🙂 b
++ a",
++   "🙂 b
++ ",
++   "🙂 b
++ > a",
++   "🙂 b
++ >>> a",
++   "🙂 b
++ >>> ",
++   "🙂 b
++ > ",
++   "🙂 b
++  > a",
++   "🙂 b
++   >>> b",
++   "🙂 b
++ >>> > a",
++   "🙂 b
++ > > a",
++   "🙂 b
++ > >>> a",
++   "🙂 b
++ ```",
++   "🙂 b
++ ```js",
++   "🙂 b
++ ```c++",
++   "🙂 b
++ ``` js",
++   "🙂 b
++ ```js x",
++   "🙂 b
++ a```",
++   "🙂 b
++ ```a```",
++   "🙂 b
++ foo",
++   "🙂 b
++ 🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[48/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx > typing each text of the joins of up to two block atoms one character at a time > hands the message that text in a single-line editor
+AssertionError: expected [ '🙂 b' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "🙂 b",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx:18:74
+     16|     ['a single-line editor', true],
+     17|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     18|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     19|   }, 300_000);
+     20| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[49/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a full-markdown editor
+AssertionError: expected [ Array(206) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "👨‍👩‍👧",
++   "👍🏽",
++   "1️⃣",
++   "🇬🇧",
++   "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   ":🙂:",
++   "<t:-1:f>",
++   "🙂 https://x.y",
++   "[🙂](https://x.y)",
++   "[:smile:](https://x.y)",
++   "[<:hooks:1558266761101447248>](https://x.y)",
++   "[a 🙂 b](https://x.y)",
++   "🙂 https://example.com/a_b",
++   "[🙂](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "[a 🙂 b](https://example.com/a_b)",
++   "🙂 https://x.y/a*b*c",
++   "[🙂](https://x.y/a*b*c)",
++   "[:smile:](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[a 🙂 b](https://x.y/a*b*c)",
++   "1. ``**1️⃣<@!1558266761101447248> https://x.y. 🪿``
++ ## [a](https://example.com/a_b/🙂)
++ 1. https://x.y 🙂 <id:guide>",
++   "*\\#x\\#* <t:1700000000:x> \\[x\\[
++ -# *__*1️⃣*__* \\)x\\)é",
++   "🙂 https://x.y/a*b*c",
++   "`_<@1558266761101447248>[🙂](https://example.com/a_b)_ ❤️ <@!1558266761101447248>
++ -# ||[<:hooks:1558266761101447248>](https://x.y)||
++ **@everyone**",
++   "  - <#1558266761101447248> 🇬🇧",
++   "## _||*[a 🙂 b](https://x.y)https://x.y/a(b)c*||_ <@&1558266761101447248> [a 🙂 b](https://example.com/a_b)
++ ## _*1️⃣ 🙂* ™",
++   "-# ``~~_<t:1700000000:x> \\)x\\)_~~`` <:hooks:1558266761101447248>
++ - ||~~:smile:
++ 1️⃣[a [b] c](https://example.com)",
++   "### ~~~~🙂 https://x.y/a*b*c~~ [<:hooks:1558266761101447248>](https://x.y)~~ \\_x\\_
++ ## hello world
++ ### ***``👨‍👩‍👧 <https://x.y>`` é** [dev](dev://branch/main)*",
++   "> <t:1700000000:d>
++ 1. ||__https://x.y/a*b*c 🙂 https://x.y.__
++ ````[a](https://x.y/🙂)",
++   "©:🙂:
++ > <id:home>",
++   "1. ~~™ https://example.com~~
++ -# 👍🏽
++ -# ``[🙂](https://x.y)`` <id:browse>[<:hooks:1558266761101447248>](https://x.y)",
++   "1. [a 🙂 b](https://example.com/a_b)[a 🙂 b](https://x.y/a*b*c)
++ # *:🙂: a*b*",
++   "_||1️⃣ \\>x\\>",
++   "_<#1558266761101447248> [<:hooks:1558266761101447248>](https://x.y/a*b*c)_
++ **tail ** \\(x\\(",
++   "  - [<:hooks:1558266761101447248>](https://x.y)[🙂](https://x.y)
++ <t:1700000000:R>[a 🙂 b](https://x.y/a*b*c)
++ ### https://x.y/a(b)c [text](https://example.com \"a title\")",
++   ">>> **_🙂 https://x.y_ é\\~x\\~ [:smile:](https://x.y/a*b*c)
++   - <t:1700000000:s>
++ ||`@here`|| https://example.com/a_b🙂[🙂](https://x.y)",
++   "-# <game:1558266761101447248> <a@b.co>
++ > 🙂 https://x.y
++ - `*\\<x\\< 2 < 3*`",
++   "- ||`*[<:hooks:1558266761101447248>](https://x.y)https://example.com/a_b🙂*`||
++ __*©*__ https://example.com/path?q=1&r=2#f <a:dance:1558266761101447248>",
++   "# ~~**<#1558266761101447248> [🙂](https://x.y)** [a 🙂 b](https://example.com/a_b)~~
++   - 1️⃣
++ ## _~~` lead❤️` x_y <id:guide>~~ 🙂 [a](https://x.y/a*b*c/🙂)_ [a](https://x.y/a*b*c/🙂) <a:dance:1558266761101447248>",
++   "## <t:-1:f><t:1700000000:R>",
++   "### [text](<https://example.com>)
++ ## [text](https://example.com) \\|x\\|
++ ## ||1️⃣ 日本||",
++   ">>> - ||*``🪿``* hello world
++ ## **||é <t:1700000000>** <t:1700000000:R>",
++   "### `_<t:1700000000:T>https://x.y/a*b*c 🙂_
++   - ````:smile: [<:hooks:1558266761101447248>](https://example.com/a_b)````",
++   "||👍🏽 <t:1700000000>||",
++   "# \\)x\\) [a 🙂 b](https://x.y)",
++   "## ~~`🪿`~~",
++   "1. __***C++ <@$1558266761101447248>* https://x.y/a*b*c🙂__
++ ~~```<t:1700000000:d> <https://x.y>```~~
++ > [<:hooks:1558266761101447248>](https://example.com/a_b)https://x.y🙂",
++   "_||``<@1558266761101447248>``|| [a](https://example.com/a_b/🙂) [text](https://example.com \"a title\")_ <a@b.co>
++ __````</ping:1558266761101447248>````__ <t:1700000000:s> :🙂:
++ **<id:home>** https://x.y. snake_case",
++   "## ~~https://x.y/a(b)c~~ a*b
++ ``**\\|x\\|<@$1558266761101447248>** a*b``
++ - *~~[🙂](https://example.com/a_b) \\:x\\:~~ 🙂 https://example.com/a_b <t:1700000000:T> \\`x\\`",
++   "1. **__❤️ https://example.com/path?q=1&r=2#f
++ ## __<a:dance:1558266761101447248>[🙂](https://x.y/a*b*c) C++ word",
++   "- <@1558266761101447248> 👨‍👩‍👧
++ [**bold** label](https://example.com) [a](https://x.y/a*b*c/🙂)
++ > *``_https://example.com/path?q=1&r=2#f@everyone_* [a](https://example.com/a_b/🙂)",
++   "*~~_\\_x\\_ 1️⃣_~~ 🙂 https://example.com/a_b ❤",
++   "-# ||**👍🏽 [a](https://example.com/a_b/🙂)** tail  @everyone|| https://x.y/a*b*c 🙂
++ ## ``__\\(x\\( <:hooks:1558266761101447248>__ <game:1558266761101447248>``",
++   "## <id:guide> snake_case
++ ``~~[<:hooks:1558266761101447248>](https://x.y) snake_case~~ https://example.com/a_b🙂 ©`` [a 🙂 b](https://example.com/a_b) [🙂](https://x.y)
++ ### *\\`x\\`",
++   "-# __🏴󠁧󠁢󠁥󠁮󠁧󠁿 \\`x\\`__",
++   "1. _<t:1700000000:R> 🇬🇧_ \\)x\\)",
++   "**_**https://x.y 🙂** https://example.com/a_b 🙂<@1558266761101447248>**
++ **``__<id:guide> <id:browse>`` 🇬🇧<t:1700000000:s>
++ *<id:home> <t:1700000000:S> \\:x\\: ™",
++   ">>> -# https://example.com/a_b 🙂
++ # tail ",
++   "1. __**~~1️⃣ \\>x\\>~~** ❤️__
++ ___`<t:1700000000:d> 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <id:home> é__ [text](<https://example.com>) @here_
++ ❤️",
++   "-# __:🙂:👍🏽__",
++   "- `**<a:dance:1558266761101447248>https://x.y/a*b*c 🙂**` <#1558266761101447248>
++   - ~~<a@b.co> [<:hooks:1558266761101447248>](https://x.y/a*b*c)~~
++ 1. **2 < 3 <t:1700000000:D>**",
++   "## ``||||[<:hooks:1558266761101447248>](https://x.y)|||| <id:guide>``
++ > ||[a 🙂 b](https://example.com/a_b)🪿||",
++   ">>> C++ \\:x\\:
++ > _*_🇬🇧 a*b_ [:smile:](https://x.y) <t:-1:f>* https://x.y. ©_
++ > _<@!1558266761101447248>_",
++   "[a [b] c](https://example.com)
++ ### 🙂[a](https://example.com/a_b/🙂)",
++   "> C++
++ > ~~https://x.y/a*b*c 🙂 \\(x\\(~~
++ ||https://x.y/a*b*c 🙂<@1558266761101447248>|| [:smile:](https://example.com/a_b) :🙂:",
++   ">>> `tail `
++ ## `<@1558266761101447248> 👨‍👩‍👧`",
++   "## ||[🙂](https://x.y/a*b*c)||
++   - *```é` 🪿`` [a 🙂 b](https://x.y/a*b*c)*
++ # `[🙂](https://x.y) é",
++   "  - **:🙂: 🙂 https://x.y/a*b*c** <:hooks:1558266761101447248>
++ ## __<@$1558266761101447248>:smile:__ https://example.com/path?q=1&r=2#f",
++   "1. __``~~a~~`` https://example.com 🙂 https://example.com/a_b
++ # [text](<https://example.com>) https://example.com/a_b🙂",
++   "  - ``https://x.y/a(b)c \\>x\\>``
++ __~~[a 🙂 b](https://example.com/a_b) 日本  lead \\]x\\]",
++   "# _**[text](https://example.com \"a title\")** https://x.y/a*b*c🙂 https://example.com/path?q=1&r=2#f_
++ - ~~[<:hooks:1558266761101447248>](https://x.y)
++ 1. ||[🙂](https://x.y/a*b*c) ❤",
++   "- 🏴󠁧󠁢󠁥󠁮󠁧󠁿https://example.com/path?q=1&r=2#f
++ ## ||C++
++ # ~~___https://x.y 🙂_~~ \\*x\\* https://x.y 🙂",
++   "<t:1700000000>
++ ## [:smile:](https://x.y/a*b*c)",
++   "### **hello world**
++ 👨‍👩‍👧 2 < 3
++ - __**[**bold** label](https://example.com)**__ [a 🙂 b](https://example.com/a_b)",
++   "  - ____https://example.com/a_b 🙂 @everyone__ <id:guide>__ é
++ *<https://x.y/🙂>*
++ @everyone <t:1700000000:x>",
++   "~~[🙂](https://x.y) [dev](dev://branch/main) \\`x\\` 2 < 3
++ *_||2 < 3|| 🙂 https://x.y/a*b*c \\_x\\__ <id:customize>* [**bold** label](https://example.com)",
++   "-# [🙂](https://x.y)™
++ - :🙂: <@!1558266761101447248>",
++   "https://x.y 🙂 2 < 3
++ > <t:1700000000:f> \\)x\\)",
++   "™
++ > *[a](https://x.y/🙂)*
++ - ||<id:guide> [<:hooks:1558266761101447248>](https://x.y/a*b*c)||",
++   "## <@&1558266761101447248> [dev](dev://branch/main)
++ ``___<t:1700000000:f>__ https://x.y🙂 <t:1700000000:f>``
++ **__<a:dance:1558266761101447248>__** tail  \\(x\\(",
++   "> `a*b` <t:1700000000:d> <t:1700000000:F>
++ > ||``\\`x\\` ©`` <id:browse>|| [<:hooks:1558266761101447248>](https://example.com/a_b)
++   - \\[x\\[ \\[x\\[",
++   "> **~~https://x.y/a*b*c🙂 <https://x.y/🙂>~~ <t:1700000000:D> 🪿 \\)x\\) snake_case
++ - _**https://x.y/a*b*c 🙂 ™ <t:1700000000:f>_
++ <id:home>",
++   "❤
++ ## `_<t:1700000000:s>` \\<x\\< 👨‍👩‍👧",
++   "<:hooks:1558266761101447248>
++ 1. <#1558266761101447248>
++ 🪿https://example.com/a_b 🙂",
++   "-# <@$1558266761101447248>
++ > ~~🇬🇧~~
++ > *_[a](https://x.y/a*b*c/🙂)_ <t:1700000000:R> <t:1700000000:R>* hello world a",
++   "**_https://x.y/a(b)c [a 🙂 b](https://example.com/a_b)_ C++[text](https://example.com)** <@$1558266761101447248>",
++   "  - ~~**`❤️**~~
++ ### [a 🙂 b](https://x.y)
++ [text](<https://example.com>)",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "1. <@$1558266761101447248>🪿
++ -# **__<t:1700000000:R>https://x.y🙂__ <t:1700000000:d> <a:dance:1558266761101447248>** [text](https://example.com \"a title\") ™",
++   "# `||||<id:guide> [:smile:](https://example.com/a_b)|| [**bold** label](https://example.com)|| \\|x\\| [:smile:](https://example.com/a_b)
++ ### `||<t:1700000000> <@$1558266761101447248>|| 👨‍👩‍👧 <@$1558266761101447248>`
++ # <t:1700000000:x> [🙂](https://x.y)",
++   "- **[a 🙂 b](https://x.y/a*b*c)**
++   - __https://example.com/path?q=1&r=2#f__ <id:customize>",
++   "### ~~*<game:1558266761101447248><@&1558266761101447248>*~~ 🪿
++ `https://x.y 🙂 <t:1700000000:f>` \\>x\\>
++ [a 🙂 b](https://x.y/a*b*c)",
++   "### <a:dance:1558266761101447248>[<:hooks:1558266761101447248>](https://example.com/a_b)
++   - [**bold** label](https://example.com)",
++   ">>> # <@&1558266761101447248> é
++ ## [<:hooks:1558266761101447248>](https://example.com/a_b)
++ 1️⃣<t:1700000000:t>",
++   "# __*🙂 https://x.y/a*b*c https://example.com* 🙂 https://example.com/a_b__ [<:hooks:1558266761101447248>](https://x.y/a*b*c) [a 🙂 b](https://example.com/a_b)
++ - 🙂",
++   "# ____\\[x\\[ \\`x\\`_ <:hooks:1558266761101447248>\\]x\\]__
++ - 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ <@1558266761101447248> 👍🏽",
++   "- <t:1700000000:D>
++ -# _https://x.y/a(b)c_
++ 1. __||``\\]x\\] <id:browse>`` [:smile:](https://x.y/a*b*c)__",
++   "https://x.y 🙂 [text](<https://example.com>)
++ _hello world <id:guide>_",
++   ">>> 🙂 https://x.y
++ ||*\\*x\\**",
++   "<t:1700000000:R> https://example.com/a_b🙂
++ ### _\\#x\\#🏴󠁧󠁢󠁥󠁮󠁧󠁿_",
++   "<t:1700000000:S> 1️⃣
++ > [a 🙂 b](https://example.com/a_b)",
++   "  - __\\<x\\<__
++ ### <t:1700000000:f>
++ 1. [:smile:](https://x.y/a*b*c) <id:home>",
++   ">>> -# [**bold** label](https://example.com)
++ ||***[dev](dev://branch/main)** [:smile:](https://example.com/a_b) <t:1700000000:Z>*||",
++   "# *``[🙂](https://x.y/a*b*c) \\>x\\>`` 🙂 https://x.y/a*b*c™
++ ~~\\<x\\< [🙂](https://x.y/a*b*c) https://example.com/a_b🙂",
++   "1. ~~[a [b] c](https://example.com)<a:dance:1558266761101447248>~~ <id:customize>
++ ||<t:1700000000:R> [dev](dev://branch/main)||",
++   "****:🙂: hello world* \\)x\\) <t:1700000000:Z>*** <t:1700000000:s> \\:x\\:",
++   "  - x_y<t:1700000000:F>
++ ### <a@b.co>
++ > a*b [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "-# <id:customize> \\*x\\*
++ 1. ``_<t:-1:f> https://example.com_ [:smile:](https://example.com/a_b)``
++ - ||`\\`x\\`` <t:1700000000:x>|| snake_case [<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "<https://x.y> @everyone
++ > **word <https://x.y/🙂> [<:hooks:1558266761101447248>](https://x.y)",
++   "*__[a 🙂 b](https://x.y/a*b*c) <@$1558266761101447248>  leadtail *",
++   "- `[a [b] c](https://example.com) <t:1700000000:x>` [a 🙂 b](https://example.com/a_b)<t:1700000000:d>
++ ## *:smile:a*",
++   "__<t:1700000000:Z> [🙂](https://x.y)__",
++   "1. ||_<@!1558266761101447248> 🙂 https://example.com/a_b_ :smile:</ping:1558266761101447248>|| https://example.com
++ ### `**__snake_casehttps://x.y/a*b*c🙂 :🙂:**` \\>x\\>",
++   "`<id:guide>` [🙂](https://x.y) \\*x\\*",
++   "||🙂 https://x.y/a*b*c <t:1700000000:S>|| 🙂 https://example.com/a_bhttps://example.com
++ -# ||<@1558266761101447248> 2 < 3|| \\>x\\> lead
++   - __`<a:dance:1558266761101447248>`__",
++   "``~~[a 🙂 b](https://example.com/a_b)~~``
++ 1. 2 < 3",
++   "- https://x.y🙂
++ > ``[<:hooks:1558266761101447248>](https://x.y)`` https://example.com/a_b 🙂<t:1700000000:x>
++ ### `[<:hooks:1558266761101447248>](https://example.com/a_b)` [dev](dev://branch/main) <t:1700000000:S>",
++   "> __**~~\\>x\\>~~ https://x.y🙂**__
++ __*🇬🇧 <id:customize>*__",
++   "1. ``[a 🙂 b](https://example.com/a_b) 🙂``
++ ~~<t:1700000000:D>~~",
++   "### `[<:hooks:1558266761101447248>](https://x.y/a*b*c)`
++ -# __<id:home> </ping:1558266761101447248>__ https://x.y/a*b*c 🙂
++ ``\\<x\\<`` \\`x\\`",
++   "**||<t:-1:f> [<:hooks:1558266761101447248>](https://x.y)||** 🙂 https://example.com/a_b ❤
++ https://example.com/path?q=1&r=2#f [<:hooks:1558266761101447248>](https://x.y/a*b*c)
++ 1. C++",
++   "__👍🏽 <t:1700000000:d>_
++ - ~~**<t:1700000000:S> 日本** [text](https://example.com \"a title\") [text](<https://example.com>)[:smile:](https://x.y)",
++   "<id:guide>
++ ## ||a*b [🙂](https://x.y/a*b*c)||
++   - **||❤ https://x.y.||** é",
++   "~~``x_y`` @here https://x.y 🙂~~
++ __**\\#x\\# :smile:__ 👍🏽
++ - \\_x\\_日本",
++   "## ~~*`<id:home>` :🙂:<t:1700000000:s>*~~ a*b \\~x\\~
++ - [a [b] c](https://example.com) snake_case
++ ## `\\|x\\|`",
++   "1. <id:guide> <id:linked-roles>
++ ## ````<game:1558266761101447248> https://x.y/a*b*c🙂```  lead` [a 🙂 b](https://x.y/a*b*c) [a](https://example.com/a_b/🙂)
++ -# *hello world*",
++   "-# **👨‍👩‍👧 :🙂: snake_case",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   "  - ~~<t:1700000000:D> 日本~~ [:smile:](https://x.y/a*b*c) :🙂:",
++   ">>> -# __``[dev](dev://branch/main)`` \\<x\\<__
++ ||2 < 3 [:smile:](https://x.y/a*b*c)|| https://x.y/a(b)c",
++   "> [🙂](https://x.y) https://x.y 🙂",
++   "- ||*:🙂:<t:1700000000:d>*||",
++   "||**__x_y\\#x\\#__ ❤️** <t:1700000000:T><id:linked-roles>|| ❤️ 2 < 3
++ - ` lead`",
++   "- ~~é~~
++ 1. **<@$1558266761101447248> <t:1700000000:D>🙂 https://x.y* https://x.y.[text](<https://example.com>)",
++   "> [text](<https://example.com>)
++ 👨‍👩‍👧
++ - [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "_*🏴󠁧󠁢󠁥󠁮󠁧󠁿 [**bold** label](https://example.com)* <id:home> <t:-1:f> <id:guide>
++ ## ``[text](https://example.com)🙂 https://x.y/a*b*c",
++   "_❤️ <t:1700000000:R> <@1558266761101447248>[:smile:](https://example.com/a_b)
++ -# **_<t:1700000000:R>_ 🙂 https://x.y/a*b*c 🪿 👍🏽",
++   "# **||日本||** https://example.com/a_b 🙂
++ ❤️
++ > <game:1558266761101447248> <t:1700000000:x>",
++   "  - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 \\|x\\|",
++   "[:smile:](https://x.y/a*b*c) \\`x\\`
++ ``_[text](<https://example.com>)_``
++ - [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b",
++   "||[a 🙂 b](https://x.y/a*b*c)||
++ ``||\\>x\\> 🙂 </ping:1558266761101447248>[a 🙂 b](https://x.y)``
++ -# https://x.y🙂 \\|x\\|",
++   "  - ____\\*x\\* [a 🙂 b](https://example.com/a_b)__ 🏴󠁧󠁢󠁥󠁮󠁧󠁿 https://x.y/a*b*c🙂
++ ## <t:-1:f> <:hooks:1558266761101447248>",
++   "  - 🙂 x_y
++ - \\]x\\]
++ ### <@&1558266761101447248> ™",
++   "*_[<:hooks:1558266761101447248>](https://x.y)_ a*b [a 🙂 b](https://example.com/a_b) https://example.com/a_b 🙂 \\)x\\)
++ ### ||~~`[a](https://x.y/a*b*c/🙂) \\|x\\|` https://example.com/a_b🙂 🏴󠁧󠁢󠁥󠁮󠁧󠁿~~|| <t:1700000000:x>",
++   "-# \\~x\\~ [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "- 🙂 https://example.com/a_b <t:1700000000:s>
++ __🙂<@!1558266761101447248>__ \\|x\\|",
++   "-# ~~``*[<:hooks:1558266761101447248>](https://example.com/a_b) \\:x\\:`` <a:dance:1558266761101447248>word~~ https://x.y/a*b*c 🙂 https://x.y 🙂
++ ***https://x.y🙂❤️** [a 🙂 b](https://x.y)",
++   "-# *🪿* <@$1558266761101447248> \\<x\\<
++ -# *||*[a [b] c](https://example.com)*|| \\_x\\_*
++ 1. **\\`x\\` <https://x.y/🙂>* <id:customize> <t:1700000000:s>",
++   "tail  ™
++ > 🙂
++ - _*<t:1700000000:D>*_ <@1558266761101447248> <t:1700000000:Z>",
++   "1. ||<t:1700000000:t>hello world 🙂 https://x.y/a*b*c
++ -# [a](https://example.com/a_b/🙂)",
++   "||``<:hooks:1558266761101447248> <a:dance:1558266761101447248>``||
++ ## tail  [a](https://example.com/a_b/🙂)",
++   "*<t:1700000000:S> [a 🙂 b](https://x.y)*
++ _~~https://x.y/a*b*c🙂 </ping:1558266761101447248>~~ <t:1700000000:f> 🙂_
++ __[text](<https://example.com>) [:smile:](https://x.y/a*b*c)",
++   "``**:🙂:[:smile:](https://x.y/a*b*c)**``
++ # ``**🇬🇧 https://x.y/a(b)c [:smile:](https://x.y/a*b*c)``",
++   "**`**https://example.com/a_b 🙂**`**
++ # \\|x\\| <t:1700000000:R>",
++   "<t:1700000000:t> 👍🏽",
++   "1. 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   ">>> `<@1558266761101447248>` 🙂 https://x.y/a*b*c
++   - _<https://x.y> <t:1700000000:D>
++ 1. *~~``[:smile:](https://example.com/a_b)``~~*",
++   "  - ||<a:dance:1558266761101447248>||
++ __https://x.y/a(b)c__
++ __@everyone__",
++   ">>> ## ||**__\\#x\\#__**|| <@1558266761101447248> 🙂
++ ## @everyone
++ *<t:1700000000:x>  lead* [text](https://example.com \"a title\")",
++   "  - ```_<t:1700000000> <id:browse>_ [<:hooks:1558266761101447248>](https://x.y) <t:1700000000>```
++ _[dev](dev://branch/main)日本 <#1558266761101447248>[🙂](https://x.y)",
++   "1. __❤️__ 🇬🇧 \\`x\\`",
++   "-# ||**__<t:1700000000:t> [a](https://x.y/🙂)<:hooks:1558266761101447248>**||
++ - \\*x\\*
++ # _[a](https://x.y/🙂)<@$1558266761101447248>_",
++   ">>> __🪿
++ ## **``__x_y ❤️https://x.y🙂``",
++   "<t:1700000000:T> 🙂 https://x.y
++ _~~__🏴󠁧󠁢󠁥󠁮󠁧󠁿__~~_",
++   "### ``[:smile:](https://example.com/a_b)`` <@$1558266761101447248> <game:1558266761101447248>
++   - <@!1558266761101447248>
++ ### _`<t:1700000000:D>[a [b] c](https://example.com)`_",
++   "-# <id:browse>
++ - ||`❤ 🙂 https://x.y` \\[x\\[||",
++   "# ~~🏴󠁧󠁢󠁥󠁮󠁧󠁿~~
++ ### ~~\\#x\\#~~ \\)x\\) [<:hooks:1558266761101447248>](https://x.y)
++ ### __*[a 🙂 b](https://x.y) word*__",
++   "~~**\\~x\\~**~~ https://x.y. \\~x\\~
++ 1. 🙂 https://x.y/a*b*c
++ 1. ___\\]x\\]\\_x\\__",
++   "1. ___\\)x\\) [:smile:](https://x.y/a*b*c)__ <a@b.co> </ping:1558266761101447248>
++ ||**_[**bold** label](https://example.com)**",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "> [a 🙂 b](https://x.y/a*b*c)\\_x\\_",
++   "# ||*\\_x\\_<t:1700000000:t>*|| 1️⃣
++ [text](https://example.com \"a title\")",
++   "- _||<t:1700000000><id:guide>|| \\<x\\<_
++ # ___||[text](<https://example.com>)_ 日本 </ping:1558266761101447248> 🏴󠁧󠁢󠁥󠁮󠁧󠁿
++ ~~____👍🏽\\[x\\[ [<:hooks:1558266761101447248>](https://x.y) <t:1700000000:R> <t:-1:f>",
++   ">>> ### ~~[a 🙂 b](https://example.com/a_b)™ ❤️ ❤
++ - hello world [text](https://example.com \"a title\")",
++   "1. ~~\\*x\\*https://x.y 🙂~~
++ ## ~~<@&1558266761101447248> C++~~
++ -# ``~~🙂 https://x.y/a*b*c~~`` a*b x_y",
++   "- *__<t:1700000000:f> [🙂](https://x.y)__ <a@b.co> https://x.y 🙂* \\)x\\)
++ # <game:1558266761101447248>",
++   "- [a 🙂 b](https://x.y/a*b*c)[a](https://example.com/a_b/🙂)
++   - *@here*
++ ~~**<t:1700000000:s>** [a](https://x.y/🙂) https://x.y/a(b)c a*b",
++   "__[:smile:](https://x.y) <t:1700000000:x>__ \\]x\\]\\<x\\<
++ -# ||**||<@$1558266761101447248>👍🏽||** https://example.com/a_b🙂 <a@b.co>||",
++   "### [a 🙂 b](https://x.y) \\#x\\#
++ > **<t:1700000000:x> @here**",
++   "*__https://x.y/a(b)c__*
++ ### _©_
++ ### ~~__``https://x.y 🙂 <t:-1:f>``__",
++   "-# _https://example.com
++ -# **https://x.y/a*b*c🙂** word [<:hooks:1558266761101447248>](https://example.com/a_b)
++ ___~~1️⃣~~ 1️⃣ <game:1558266761101447248>",
++   "# \\]x\\]
++   - ~~[text](https://example.com)👨‍👩‍👧~~",
++   "> ~~[a](https://x.y/🙂)~~
++ -# __||\\<x\\<||__ \\)x\\) snake_case
++ # `__**[:smile:](https://example.com/a_b) \\]x\\]** https://example.com/a_b 🙂 🪿__ <t:1700000000:t>",
++   "[:smile:](https://example.com/a_b)",
++   "https://example.com/a_b 🙂 <game:1558266761101447248>
++ > ``<t:1700000000:R> [a 🙂 b](https://example.com/a_b)
++ -# <id:guide>https://x.y 🙂",
++   "> x_y
++ 1. ~~~~1️⃣~~ hello world~~ <t:1700000000:f>
++   - \\[x\\[",
++   "## https://x.y/a*b*c 🙂 https://x.y/a*b*c🙂
++ [a [b] c](https://example.com) <@&1558266761101447248>
++ > *****[🙂](https://example.com/a_b)*** <t:1700000000:t>**",
++   "# _<https://x.y/🙂> \\(x\\(_ [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "||https://x.y🙂 [<:hooks:1558266761101447248>](https://x.y)|| 🙂 https://x.y/a*b*c <@$1558266761101447248>
++ 1. <t:1700000000:Z> [:smile:](https://x.y/a*b*c)
++ `https://example.com/a_b🙂 \\`x\\`",
++   "~~日本~~ <a:dance:1558266761101447248> <t:1700000000:s>
++ -# <t:1700000000:F> </ping:1558266761101447248>
++ ||__~~<t:1700000000:f>",
++   "-# <id:guide>é
++ `<game:1558266761101447248>👍🏽` <@$1558266761101447248> 🇬🇧",
++   "> [<:hooks:1558266761101447248>](https://x.y)",
++   "- ~~https://example.com
++ # `**`<t:1700000000:F> <#1558266761101447248>** [a 🙂 b](https://x.y)<#1558266761101447248>`
++ \\<x\\<",
++   "-# <id:home> [**bold** label](https://example.com)
++ 1. ``_[:smile:](https://example.com/a_b) 🙂 https://x.y/a*b*c_``
++ - ___https://x.y🙂日本_ <a@b.co><t:1700000000:s>__",
++   "# [a](https://x.y/🙂)
++ # <t:-1:f>
++ **<t:1700000000:f>**",
++   "  - ~~\\#x\\# <:hooks:1558266761101447248> :🙂:",
++   "~~<@&1558266761101447248>https://x.y/a*b*c 🙂~~
++ 1. <id:home> https://x.y🙂",
++   "> https://x.y/a(b)c<t:1700000000:T>
++ -# `**[🙂](https://x.y) <t:1700000000:x>**
++   - ||🙂 https://example.com/a_b||",
++   "__``**<t:1700000000:R>**`` C++ <game:1558266761101447248>
++   - [🙂](https://x.y)",
++   "- [dev](dev://branch/main)
++ \\>x\\>日本
++ # ||`hello world`|| 1️⃣",
++   "<t:-1:f> 日本
++ 1. *_❤️ snake_case_* </ping:1558266761101447248> 🙂",
++   "  - ~~__**[a 🙂 b](https://x.y/a*b*c)[a](https://x.y/🙂) [:smile:](https://example.com/a_b) @herehttps://example.com/a_b🙂",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[50/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx > typing each text of the first 400 generator inputs one character at a time > hands the message that text in a single-line editor
+AssertionError: expected [ '👨\u200d👩\u200d👧', '👍🏽', …(56) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "👨‍👩‍👧",
++   "👍🏽",
++   "1️⃣",
++   "🇬🇧",
++   "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   ":🙂:",
++   "<t:-1:f>",
++   "🙂 https://x.y",
++   "[🙂](https://x.y)",
++   "[:smile:](https://x.y)",
++   "[<:hooks:1558266761101447248>](https://x.y)",
++   "[a 🙂 b](https://x.y)",
++   "🙂 https://example.com/a_b",
++   "[🙂](https://example.com/a_b)",
++   "[:smile:](https://example.com/a_b)",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "[a 🙂 b](https://example.com/a_b)",
++   "🙂 https://x.y/a*b*c",
++   "[🙂](https://x.y/a*b*c)",
++   "[:smile:](https://x.y/a*b*c)",
++   "[<:hooks:1558266761101447248>](https://x.y/a*b*c)",
++   "[a 🙂 b](https://x.y/a*b*c)",
++   "🙂 https://x.y/a*b*c",
++   "  - <#1558266761101447248> 🇬🇧",
++   "_||1️⃣ \\>x\\>",
++   "## <t:-1:f><t:1700000000:R>",
++   "||👍🏽 <t:1700000000>||",
++   "# \\)x\\) [a 🙂 b](https://x.y)",
++   "## ~~`🪿`~~",
++   "*~~_\\_x\\_ 1️⃣_~~ 🙂 https://example.com/a_b ❤",
++   "-# __🏴󠁧󠁢󠁥󠁮󠁧󠁿 \\`x\\`__",
++   "1. _<t:1700000000:R> 🇬🇧_ \\)x\\)",
++   "-# __:🙂:👍🏽__",
++   "**_https://x.y/a(b)c [a 🙂 b](https://example.com/a_b)_ C++[text](https://example.com)** <@$1558266761101447248>",
++   ">>> `*[:smile:](https://x.y)*` <@!1558266761101447248><t:1700000000>",
++   "``~~<t:-1:f> https://x.y/a(b)c~~`` <t:1700000000:T>",
++   "****:🙂: hello world* \\)x\\) <t:1700000000:Z>*** <t:1700000000:s> \\:x\\:",
++   "*__[a 🙂 b](https://x.y/a*b*c) <@$1558266761101447248>  leadtail *",
++   "__<t:1700000000:Z> [🙂](https://x.y)__",
++   "`<id:guide>` [🙂](https://x.y) \\*x\\*",
++   "-# **👨‍👩‍👧 :🙂: snake_case",
++   "[<:hooks:1558266761101447248>](https://example.com/a_b) :smile:",
++   "  - ~~<t:1700000000:D> 日本~~ [:smile:](https://x.y/a*b*c) :🙂:",
++   "> [🙂](https://x.y) https://x.y 🙂",
++   "- ||*:🙂:<t:1700000000:d>*||",
++   "  - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 \\|x\\|",
++   "-# \\~x\\~ [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "<t:1700000000:t> 👍🏽",
++   "1. 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
++   "1. __❤️__ 🇬🇧 \\`x\\`",
++   "-# <a@b.co>[:smile:](https://example.com/a_b)",
++   "> [a 🙂 b](https://x.y/a*b*c)\\_x\\_",
++   "[:smile:](https://example.com/a_b)",
++   "# _<https://x.y/🙂> \\(x\\(_ [<:hooks:1558266761101447248>](https://example.com/a_b)",
++   "> [<:hooks:1558266761101447248>](https://x.y)",
++   "  - ~~\\#x\\# <:hooks:1558266761101447248> :🙂:",
++   "  - ~~__**[a 🙂 b](https://x.y/a*b*c)[a](https://x.y/🙂) [:smile:](https://example.com/a_b) @herehttps://example.com/a_b🙂",
++   ">>> ### [text](https://example.com \"a title\")[:smile:](https://x.y)",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx:17:74
+     15|     ['a single-line editor', true],
+     16|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     17|     expect(await typedMismatches(mountedInputs(name, partial), partial…
+       |                                                                          ^
+     18|   }, 300_000);
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[51/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a full-markdown editor
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx > typing each text of the 272-case corpus one character at a time > hands the message that text in a single-line editor
+AssertionError: expected [ '👍🏽', …(6) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "👍🏽",
++   ":thumbsup::skin-tone-3:",
++   "**:smile:**",
++   "`:smile:`",
++   ":smile: :smile:",
++   "a:smile:b",
++   "<:a:1><:b:2>",
++ ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx:53:78
+     51|     ['a single-line editor', true],
+     52|   ] as const)('hands the message that text in %s', async (_mode, parti…
+     53|     expect(await typedMismatches(mountedInputs('corpus', partial), par…
+       |                                                                              ^
+     54|   }, 300_000);
+     55| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[52/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 0: a🙂z but expected za🙂' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: a🙂z but expected za🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[53/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 0:  a🙂z but expected z a🙂' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0:  a🙂z but expected z a🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[54/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: \\`a🙂z but expected \\z`a🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[55/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 200 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 199: az🙂 but expected a🙂z' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 199: az🙂 but expected a🙂z",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[56/118]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a paste of lines of a🙂 into an empty description > of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 999: az🙂 but expected a🙂z' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 999: az🙂 but expected a🙂z",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[57/118]⎯
+

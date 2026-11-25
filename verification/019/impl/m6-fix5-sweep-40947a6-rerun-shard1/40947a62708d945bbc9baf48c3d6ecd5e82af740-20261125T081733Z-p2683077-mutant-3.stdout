@@ -1,0 +1,5 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-rwork1/20261125T081733Z-p2683077/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 9254ms
+     × hands the message that text in a full-markdown editor 2677ms

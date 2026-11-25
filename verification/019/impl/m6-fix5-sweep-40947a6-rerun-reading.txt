@@ -1,0 +1,50 @@
+rerun1 withNormalizeNode.ts:67:walk-first: SURVIVED 198.27 tests 1572 | 
+rerun1 withNormalizeNode.ts:72:walk-last: SURVIVED 204.61 tests 1572 | 
+rerun1 withNormalizeNode.ts:77:not: KILLED 250.12 tests None | hands the message that text in a full-markdown editor
+rerun1 withNormalizeNode.ts:99:||: KILLED 250.12 tests None | hands the message that text in a full-markdown editor; puts the next typed character where the edit leaves the caret
+rerun1 withNormalizeNode.ts:355:===: KILLED 200.71 tests 1572 | 
+rerun1 withNormalizeNode.ts:357:&&: KILLED 203.75 tests 1572 | 
+rerun1 hand-stale-own-not-excluded: KILLED 250.13 tests None | hands the message that text in a full-markdown editor; hands the message the changed text, and leaves no error for a timer, on content in a messa
+rerun1 withNormalizeNode.ts:74:if-false: SURVIVED 204.48 tests 1572 | 
+rerun1 withNormalizeNode.ts:85:walk-first: KILLED 250.16 tests None | hands the message that text in a full-markdown editor; hands the message the changed text, and leaves no error for a timer, on content in a messa
+rerun1 withNormalizeNode.ts:99:||:2: KILLED 198.72 tests 1572 | |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystro; |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystro
+rerun1 withNormalizeNode.ts:356:num: KILLED 200.06 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun1 hand-NM-83-no-lift: KILLED 250.12 tests None | 
+rerun1 hand-stale-own-code-line-not-skipped: SURVIVED 182.99 tests 1572 | 
+rerun2 withNormalizeNode.ts:69:if-false: SURVIVED 198.18 tests 1572 | 
+rerun2 withNormalizeNode.ts:74:not: KILLED 217.12 tests 1572 | 
+rerun2 withNormalizeNode.ts:85:walk-last: KILLED 250.13 tests None | hands the message that text in a full-markdown editor; hands the message the changed text, and leaves no error for a timer, on content in a messa
+rerun2 withNormalizeNode.ts:195:if-false: KILLED 207.99 tests 1572 | 
+rerun2 withNormalizeNode.ts:356:===: KILLED 199.86 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun2 hand-NM-86-stale-lines-not-lifted: KILLED 250.06 tests None | 
+rerun2 hand-not-straightened: KILLED 196.86 tests 1572 | 
+rerun2 withNormalizeNode.ts:74:||: KILLED 250.13 tests None | hands the message that text in a full-markdown editor; hands the message the changed text, and leaves no error for a timer, on content in a messa
+rerun2 withNormalizeNode.ts:92:walk-first: KILLED 250.16 tests None | hands the message that text in a full-markdown editor; hands the message the changed text on content, in a message of 40 lines
+rerun2 withNormalizeNode.ts:195:not: KILLED 209.66 tests 1572 | 
+rerun2 withNormalizeNode.ts:356:&&: SURVIVED 198.61 tests 1572 | 
+rerun2 hand-NM-87-end-backtick-only: KILLED 208.58 tests 1572 | 
+rerun2 hand-layout-read-as-empty: KILLED 250.12 tests None | hands the message that text in a full-markdown editor
+rerun3 withNormalizeNode.ts:69:||: SURVIVED 198.77 tests 1572 | 
+rerun3 withNormalizeNode.ts:76:walk-first: KILLED 250.12 tests None | hands the message that text in a full-markdown editor
+rerun3 withNormalizeNode.ts:92:walk-last: KILLED 250.08 tests None | hands the message that text in a full-markdown editor; hands the message the changed text on content, in a message of 40 lines
+rerun3 withNormalizeNode.ts:197:if-false: KILLED 210.16 tests 1572 | 
+rerun3 withNormalizeNode.ts:356:num:2: KILLED 201.79 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun3 hand-NM-85-pending-timer-throws: KILLED 173.27 tests 1572 | 
+rerun3 hand-caret-moved-unconditionally: KILLED 196.33 tests 1572 | 
+rerun3 withNormalizeNode.ts:76:walk-last: KILLED 250.12 tests None | hands the message that text in a full-markdown editor
+rerun3 withNormalizeNode.ts:98:===: KILLED 250.1 tests None | 
+rerun3 withNormalizeNode.ts:199:true: SURVIVED 194.98 tests 1572 | 
+rerun3 withNormalizeNode.ts:356:===:2: KILLED 201.71 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun3 hand-NM-88-one-stale-line-per-pass: KILLED 250.14 tests None | 
+rerun4 withNormalizeNode.ts:69:||:2: SURVIVED 199.33 tests 1572 | 
+rerun4 withNormalizeNode.ts:76:num: SURVIVED 203.07 tests 1572 | 
+rerun4 withNormalizeNode.ts:98:&&: KILLED 250.12 tests None | 
+rerun4 withNormalizeNode.ts:354:num: KILLED 200.81 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun4 withNormalizeNode.ts:356:num:3: KILLED 200.61 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun4 hand-no-suppression: KILLED 250.12 tests None | 
+rerun4 withNormalizeNode.ts:72:walk-first: SURVIVED 197.0 tests 1572 | 
+rerun4 withNormalizeNode.ts:77:if-false: KILLED 216.68 tests 1572 | 
+rerun4 withNormalizeNode.ts:99:if-false: KILLED 250.12 tests None | hands the message that text in a full-markdown editor; puts the next typed character where the edit leaves the caret
+rerun4 withNormalizeNode.ts:355:&&: KILLED 195.7 tests 1572 | 
+rerun4 withNormalizeNode.ts:357:if-false: KILLED 201.75 tests 1572 | |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.; |dom| src/components/SlateEditor/__tests__/SlateEditor.emoji-forms-reach-the-message.test.
+rerun4 hand-code-line-lift-not-excluded: KILLED 197.75 tests 1572 | |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystro; |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystro

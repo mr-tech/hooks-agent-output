@@ -1,0 +1,15 @@
+withNormalizeNode.ts:67:walk-first SURVIVED 198.27
+withNormalizeNode.ts:72:walk-last SURVIVED 204.61
+withNormalizeNode.ts:77:not KILLED 250.12
+withNormalizeNode.ts:99:|| KILLED 250.12
+withNormalizeNode.ts:355:=== KILLED 200.71
+withNormalizeNode.ts:357:&& KILLED 203.75
+hand-stale-own-not-excluded KILLED 250.13
+withNormalizeNode.ts:74:if-false SURVIVED 204.48
+withNormalizeNode.ts:85:walk-first KILLED 250.16
+withNormalizeNode.ts:99:||:2 KILLED 198.72
+withNormalizeNode.ts:356:num KILLED 200.06
+hand-NM-83-no-lift KILLED 250.12
+hand-stale-own-code-line-not-skipped SURVIVED 182.99
+9 of 13 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mut-r1.json (blob d09d63dd0ce3c1110910d7bce6824c950eb94745))
+exit 0

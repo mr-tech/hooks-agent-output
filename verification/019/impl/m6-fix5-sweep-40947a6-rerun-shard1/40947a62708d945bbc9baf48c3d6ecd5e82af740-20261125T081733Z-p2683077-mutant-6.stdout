@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-rwork1/20261125T081733Z-p2683077/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (910 tests | 21 failed) 8247ms
+         × puts the next typed character where the edit leaves the caret 8ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 0ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+         × puts the next typed character where the edit leaves the caret 1ms
+
+ Test Files  1 failed | 31 passed (32)
+      Tests  21 failed | 1551 passed (1572)
+   Start at  08:39:22
+   Duration  202.63s (transform 1.20s, setup 128ms, import 12.48s, tests 171.85s, environment 13.52s)
+

@@ -1,0 +1,72 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-rwork3/20261125T081733Z-p2683079/mutant-6
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 11861ms
+     × hands the message that text in a full-markdown editor 6470ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 56 failed) 22653ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 115ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 321ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 423ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 18ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 156ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 467ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1647ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 26ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 144ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 283ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 25ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 214ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 340ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1565ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 26ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 208ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 336ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 18ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 146ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 386ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1647ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 18ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 154ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 305ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 19ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 211ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 375ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1638ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 19ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 199ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 337ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 12ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 125ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 272ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1707ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 17ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 142ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 266ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 18ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 219ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 317ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1640ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 28ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 225ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 361ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 21ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 210ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 540ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 2060ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 20ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 212ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 335ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 23ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 147ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 330ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1619ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.pasted-text-reaches-the-message.test.tsx (15 tests | 2 failed) 11222ms
+     × hands the message that text in a full-markdown editor 755ms
+     × hands the message that text in a full-markdown editor 2811ms
+
+ Test Files  3 failed | 29 passed (32)
+      Tests  59 failed | 1513 passed (1572)
+     Errors  123 errors
+   Start at  08:39:29
+   Duration  172.11s (transform 1.32s, setup 136ms, import 12.50s, tests 141.10s, environment 13.68s)
+

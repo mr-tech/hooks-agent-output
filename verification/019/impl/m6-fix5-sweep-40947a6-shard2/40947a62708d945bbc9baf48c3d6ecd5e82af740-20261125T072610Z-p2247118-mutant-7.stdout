@@ -1,0 +1,62 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-work2/20261125T072610Z-p2247118/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 11604ms
+     × hands the message that text in a full-markdown editor 6504ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 28 failed) 18788ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 90ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 239ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 359ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 15ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 123ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 224ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1304ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 19ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 157ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 282ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 10ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 100ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 189ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1120ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 23ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 155ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 293ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 12ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 110ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 192ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1161ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 5 lines 24ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 151ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 283ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 5 lines 10ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 106ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 230ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1137ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (910 tests | 12 failed | 175 skipped) 7486ms
+     × leaves no typographic quote in a line it changes 5ms
+     × leaves no typographic quote in a line it changes 4ms
+     × leaves no typographic quote in a line it changes 7ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 4ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 7ms
+     × leaves no typographic quote in a line it changes 1ms
+     × leaves no typographic quote in a line it changes 3ms
+     × leaves no typographic quote in a line it changes 4ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 8 failed) 7116ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0' 9ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 5ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 8ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 4ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…' 4ms
+
+ Test Files  4 failed | 28 passed (32)
+      Tests  49 failed | 1348 passed | 175 skipped (1572)
+   Start at  07:51:40
+   Duration  163.13s (transform 1.19s, setup 131ms, import 12.10s, tests 133.30s, environment 13.08s)
+

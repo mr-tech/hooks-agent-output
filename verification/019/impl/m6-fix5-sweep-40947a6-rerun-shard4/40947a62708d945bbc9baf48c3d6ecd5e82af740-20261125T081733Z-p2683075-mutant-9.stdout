@@ -1,0 +1,93 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-rwork4/20261125T081733Z-p2683075/mutant-9
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-generated-text-reaches-the-message.test.tsx (2 tests | 1 failed) 33442ms
+     × hands the message that text in a full-markdown editor 28279ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-block-text-reaches-the-message.test.tsx (4 tests | 2 failed) 11416ms
+     × hands the message that text in a full-markdown editor 5035ms
+     × hands the message that text in a full-markdown editor 5758ms
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.typed-text-reaches-the-message.test.tsx (7 tests | 1 failed) 8016ms
+     × hands the message that text in a full-markdown editor 4587ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (910 tests | 82 failed) 43887ms
+       × puts the next typed character where the edit leaves the caret 7ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 1ms
+       × puts the next typed character where the edit leaves the caret 0ms
+       × puts the next typed character where the edit leaves the caret 1ms
+     × types each line as a fresh load does and keeps the selection, with a range from line 5 to line 8 64ms

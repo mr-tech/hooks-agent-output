@@ -1,0 +1,78 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"]
+AssertionError: expected { Object (forcedOperations, forcedError) } to deeply equal { forcedOperations: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+    "forcedError": "",
+-   "forcedOperations": 0,
++   "forcedOperations": 3,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:203:37
+    201|     else if (key === 'backspace') editor.deleteBackward('character');
+    202|     else editor.insertText('`');
+    203|     expect(forcedNormalise(editor)).toEqual({ forcedOperations: 0, for…
+       |                                     ^
+    204|   });
+    205| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "" after it > leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"]
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > a line a fence typed above turns into a code line while the engine reads an emoji in it, with "\nc" after it > leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"]
+AssertionError: expected { Object (forcedOperations, forcedError) } to deeply equal { forcedOperations: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+    "forcedError": "",
+-   "forcedOperations": 0,
++   "forcedOperations": 9,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:203:37
+    201|     else if (key === 'backspace') editor.deleteBackward('character');
+    202|     else editor.insertText('`');
+    203|     expect(forcedNormalise(editor)).toEqual({ forcedOperations: 0, for…
+       |                                     ^
+    204|   });
+    205| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx > Typing onto a carried quote marker > takes in a typed quote marker on a carried marker whose line a fence typed above turned into a code line
+AssertionError: expected '> ```a\n> > \nb' to be '> ```a\n> \nb' // Object.is equality
+
+- Expected
++ Received
+
+  > ```a
+- > 
++ > > 
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-continues-on-enter.test.tsx:105:28
+    103|     Transforms.select(editor, Editor.end(editor, [1]));
+    104|     typeKeys(editor, '> ');
+    105|     expect(textOf(editor)).toBe('> ```a\n> \nb');
+       |                            ^
+    106|   });
+    107| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+

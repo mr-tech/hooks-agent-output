@@ -1,0 +1,134 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-rwork3/20261125T081733Z-p2683079/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 40 failed) 19855ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 305ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 437ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 137ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 457ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1935ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 132ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 263ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 113ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 209ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1368ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 178ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 377ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 121ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 256ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1806ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 114ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 228ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 97ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 203ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1302ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 174ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 334ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 119ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 267ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1886ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 95ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 237ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 103ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 188ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1318ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 98ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 218ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 102ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 209ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1342ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 175ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 336ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 122ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 285ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1747ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (910 tests | 66 failed | 25 skipped) 21156ms
+         × raises no error 5ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 3ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 0ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 1ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 1ms
+         × leaves nothing for a forced normalise of the whole message to change or to raise 0ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 0ms
+     × leaves no typographic quote in a line it changes 39ms
+     × leaves no typographic quote in a line it changes 79ms
+     × leaves no typographic quote in a line it changes 60ms
+     × leaves no typographic quote in a line it changes 132ms
+     × leaves no typographic quote in a line it changes 37ms
+     × leaves no typographic quote in a line it changes 72ms
+     × leaves no typographic quote in a line it changes 39ms
+     × leaves no typographic quote in a line it changes 99ms
+     × leaves no typographic quote in a line it changes 40ms
+     × leaves no typographic quote in a line it changes 77ms
+     × leaves no typographic quote in a line it changes 57ms
+     × leaves no typographic quote in a line it changes 132ms
+     × leaves no typographic quote in a line it changes 59ms
+     × leaves no typographic quote in a line it changes 135ms
+     × leaves no typographic quote in a line it changes 35ms
+     × leaves no typographic quote in a line it changes 71ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 16 failed) 9028ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0' 126ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing the backtick at th…' 179ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 113ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …' 164ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 125ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backtick at the …' 138ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backslash typed before a leading ba…' 86ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…' 58ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0' 55ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing the backtick at th…' 77ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 60ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 86ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 59ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backtick at the …' 81ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backslash typed before a leading ba…' 80ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…' 58ms
+
+ Test Files  3 failed | 29 passed (32)
+      Tests  122 failed | 1425 passed | 25 skipped (1572)
+   Start at  08:32:37
+   Duration  209.01s (transform 1.17s, setup 142ms, import 12.34s, tests 178.55s, environment 13.10s)
+

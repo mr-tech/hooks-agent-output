@@ -1,0 +1,13 @@
+emojiLift.ts:132:not KILLED 198.03
+emojiLift.ts:133:walk-first SURVIVED 195.57
+emojiLift.ts:133:num SURVIVED 188.23
+emojiLift.ts:134:num KILLED 189.63
+withNormalizeNode.ts:51:num KILLED 400.1
+withNormalizeNode.ts:55:if-false KILLED 162.04
+withNormalizeNode.ts:55:|| KILLED 164.24
+withNormalizeNode.ts:55:false KILLED 193.88
+withNormalizeNode.ts:60:=== KILLED 400.13
+withNormalizeNode.ts:67:walk-last SURVIVED 190.39
+withNormalizeNode.ts:69:not KILLED 203.09
+withNormalizeNode.ts:69:=== KILLED 201.98
+mutation-run: interrupted

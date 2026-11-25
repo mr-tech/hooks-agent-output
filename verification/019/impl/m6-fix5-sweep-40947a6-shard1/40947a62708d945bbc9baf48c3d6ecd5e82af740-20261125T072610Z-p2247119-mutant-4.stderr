@@ -1,0 +1,27 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…'
+AssertionError: expected 4987 to be less than or equal to 2014
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:239:32
+    237|     const allowed = (changed: number) => OPERATIONS_PER_CHANGED_LINE *…
+    238|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    239|     expect(longest.operations).toBeLessThanOrEqual(allowed(longest.cha…
+       |                                ^
+    240|     expect(shortest.operations).toBeLessThanOrEqual(allowed(shortest.c…
+    241|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx > the editor rebuilds the lines a keystroke changes in work that does not grow with their number > applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…'
+AssertionError: expected 2498 to be less than or equal to 1020
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx:239:32
+    237|     const allowed = (changed: number) => OPERATIONS_PER_CHANGED_LINE *…
+    238|     expect(longest.changed).toBeGreaterThanOrEqual(large / 4);
+    239|     expect(longest.operations).toBeLessThanOrEqual(allowed(longest.cha…
+       |                                ^
+    240|     expect(shortest.operations).toBeLessThanOrEqual(allowed(shortest.c…
+    241|     expect(shortest.dirtyPaths).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

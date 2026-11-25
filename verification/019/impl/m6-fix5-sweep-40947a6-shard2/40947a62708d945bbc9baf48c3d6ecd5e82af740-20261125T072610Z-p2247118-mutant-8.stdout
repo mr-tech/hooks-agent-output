@@ -1,0 +1,68 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-work2/20261125T072610Z-p2247118/mutant-8
+
+ ❯ |dom| src/components/SlateEditor/__tests__/SlateEditor.inline-code-keystrokes-reach-the-message.test.tsx (56 tests | 20 failed) 22328ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 290ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 467ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 168ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 435ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1934ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 183ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 347ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 110ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 274ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1987ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 171ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 350ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 119ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 259ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1904ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 100 lines 158ms
+     × hands the message the changed text, and leaves no error for a timer, on content in a message of 200 lines 317ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 100 lines 149ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 200 lines 255ms
+     × hands the message the changed text, and leaves no error for a timer, on embedDescription in a message of 1000 lines 1762ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (910 tests | 28 failed | 25 skipped) 11960ms
+         × raises no error 5ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 1ms
+         × raises no error 0ms
+         × raises no error 1ms
+         × raises no error 1ms
+     × leaves no typographic quote in a line it changes 40ms
+     × leaves no typographic quote in a line it changes 72ms
+     × leaves no typographic quote in a line it changes 32ms
+     × leaves no typographic quote in a line it changes 73ms
+     × leaves no typographic quote in a line it changes 35ms
+     × leaves no typographic quote in a line it changes 73ms
+     × leaves no typographic quote in a line it changes 29ms
+     × leaves no typographic quote in a line it changes 71ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 8 failed) 7561ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the end of line 0' 69ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 57ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'a backtick typed at the start of line…' 64ms
+     × does at most 10 times the line settles and fence reads at 1,000 lines as at 200, for 'Backspace removing a backslash before…' 64ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the end of line 0' 53ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 57ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'a backtick typed at the start of line…' 60ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace removing a backslash before…' 56ms
+
+ Test Files  3 failed | 29 passed (32)
+      Tests  56 failed | 1491 passed | 25 skipped (1572)
+   Start at  07:54:25
+   Duration  192.71s (transform 1.20s, setup 122ms, import 12.08s, tests 162.61s, environment 13.21s)
+

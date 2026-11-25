@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-work1/20261125T072610Z-p2247119/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.keystroke-run-unit-builds.test.tsx (88 tests | 2 failed) 8770ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'the third backtick typed at the end o…' 521ms
+     × applies two operations for each changed line and hands Slate no dirty path for them, for 'Backspace at the end of the closing `…' 219ms
+
+ Test Files  1 failed | 31 passed (32)
+      Tests  2 failed | 1570 passed (1572)
+   Start at  07:39:09
+   Duration  188.99s (transform 1.16s, setup 124ms, import 11.84s, tests 159.75s, environment 12.87s)
+

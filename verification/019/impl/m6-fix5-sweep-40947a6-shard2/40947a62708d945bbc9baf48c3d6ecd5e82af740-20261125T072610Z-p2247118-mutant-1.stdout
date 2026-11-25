@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/a1a65e98-c6f1-4c43-8ac5-517c823623a8/scratchpad/sweep-work2/20261125T072610Z-p2247118/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx (910 tests | 12 failed) 8308ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 15ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 2ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 3ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 3ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 2ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 3ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [0,"end","delete"] 7ms
+     × leaves nothing for a forced normalise of "[:smile:](https://x.y/a*b*c) \\`x\\`\n``_[text](<https://example.com>)_``\n- [<:hooks:1558266761101447248>](https://x.y) 🙂 https://example.com/a_b" to change after a keystroke on another line, [1,"start","backspace"] 2ms
+     × leaves nothing for a forced normalise of "# *``**word ❤️``* https://x.y/a*b*c🙂\n``🙂<@1558266761101447248>``\n`__||\\(x\\(|| 🙂 https://x.y__` 👍🏽 :smile:" to change after a keystroke on another line, [1,"end","backtick"] 3ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [0,"end","delete"] 2ms
+     × leaves nothing for a forced normalise of "- `**🙂 https://x.y/a*b*c [a [b] c](https://example.com)**`\n``~~<https://x.y/🙂>~~``\n# ___<id:guide> 🪿__" to change after a keystroke on another line, [1,"start","backspace"] 2ms
+     × leaves nothing for a forced normalise of "# https://x.y/a*b*c 🙂 [text](https://example.com)\n- ``*🙂 https://x.y <t:-1:f>*``\n### `_\\:x\\: <:hooks:1558266761101447248>_`" to change after a keystroke on another line, [1,"end","backtick"] 2ms
+
+ Test Files  1 failed | 31 passed (32)
+      Tests  12 failed | 1560 passed (1572)
+   Start at  07:29:26
+   Duration  196.91s (transform 1.31s, setup 141ms, import 12.31s, tests 166.65s, environment 13.31s)
+

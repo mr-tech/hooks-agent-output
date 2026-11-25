@@ -1,0 +1,84 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 0: a🙂z but expected za🙂' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: a🙂z but expected za🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'Backspace removing a backtick at the …', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ 'line 0:  a🙂z but expected z a🙂' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0:  a🙂z but expected z a🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on content > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 5 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 100 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 200 lines > puts the next typed character where the edit leaves the caret
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx > 'a backslash typed before a leading ba…', over lines that each hold an emoji and a last line ending in a backtick > on embedDescription > in a message of 1000 lines > puts the next typed character where the edit leaves the caret
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "line 0: \\`a🙂z but expected \\z`a🙂",
++ ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.fence-and-quote-keystrokes-settle.test.tsx:109:87
+    107|
+    108|   it('puts the next typed character where the edit leaves the caret', …
+    109|     expect(firstDifferences(outcome.afterZ.split('\n'), expected.after…
+       |                                                                                       ^
+    110|   });
+    111| }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/21]⎯
+
