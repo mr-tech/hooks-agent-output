@@ -5,9 +5,8 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 24 (record 80d6d143, D-28, AN-9, CR-27, CR-28). QAF-55 MEDIUM (a severity floor:
-  the inline-code members' cost per line has no failing assertion) is open for the planner. QAF-42 LOW (R-69) stays open.
-  Register: B-1 to B-11, with B-11 gaining K4.
+  Phase 1 re-keyed on plan 019 Revision 25 (record cf62ffc1, D-29 to D-31). QAF-55 is closed (D-31). SL-29 and SL-30 are
+  entry conditions on this stage's M6 Phase 2. QAF-42 LOW (R-69) stays open. Register: B-1 to B-11.
   Phase 2 passes are in their own documents.
 Phase: 1
 ---
@@ -54,8 +53,8 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 - **Evidence not recorded.** None.
 - **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 24 (record
-`80d6d143`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 25 (record
+`cf62ffc1`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -87,6 +86,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T17:11 | planner-019 (message: Revision 22 at `960052d1`, steering block 14:48Z, D-25 block 17:03Z) | Phase 1 re-key on Revision 22 | § Re-key on Revision 22. QAF-52 is closed: the making members `>>> za` and `>>> zabc` are read red at `af3d95a` and `42128cd` from the planner's captures. The unmaking member's `a` and `za` are re-read from P-Q26's log, green on write and caret at `42128cd` and red only on no-throw. CF-30's refusal is checked, and the suite cannot carry it alone, so Phase 2 adds a diff read. The ceilings of 27 and 104 ms are re-derived from the capture. NM-78 to NM-80 are added. B-11 is re-specified (K1a `>> a`, K1b `>> abc`, with `run-K1b.js` added). Register swept. No new finding. |
 | 2026-11-24T20:12 | planner-019 (message: Revision 23 at `49a20690`, CR-25, D-26; steering blocks 19:43Z and 20:07Z) | Phase 1 re-key on Revision 23 | § Re-key on Revision 23. Read: code review's counts at `85ece66` and the implementer's spike counts and timings. The count limb is red at `85ece66` on the closing and paste members, and linear on opening. **QAF-53 MEDIUM** (a severity floor): the spike meets every count ratio (5) while paste time grows 11.8 to 22.5 times, and no limb holds paste to today's speed. The plan's paste figures cite steering's scratch. **QAF-54 LOW**: the positive control does not show the boundaries see each line. NM-81 and NM-82 are added. Register swept: B-8, B-10 and B-11 cleared, and the user-report line widened. |
 | 2026-11-25T06:04 | planner-019 (message: Revision 24 at `80d6d143`, D-28, AN-9, CR-27, CR-28) | Phase 1 re-key on Revision 24 | § Re-key on Revision 24. The six inline-code members, their red at `a7ad3f2`, their absence at production and the sub-limb's red were checked against AN-9's member table. **QAF-55 MEDIUM** (a severity floor): the residue frees A1 to A6 from both cost limbs, while the headline claims cost per line for the class, and SL-29's yardstick cannot serve them. NM-85 to NM-87 are added, with Phase 2 obligations for the timer error's in-case red and for the corpus differential's pass-through tree. B-11 gains K4, its instrument run at `a7ad3f2` in this pass. |
+| 2026-11-25T06:18 | planner-019 (message: Revision 25 at `cf62ffc1`, D-29 to D-31) | Phase 1 re-key on Revision 25 | § Re-key on Revision 25. QAF-55 is closed by D-31's count limb over A1 to A6. CF-35's equality differential and the mounted timer clause match the Phase 2 obligations. SL-30's four positions are checked against steering's `probe2-*.jsonl`. This stage's SL-30 probe runs F-59's wider set, with production as the control. NM-88 is added. Register swept. No new finding. |
 
 ## Reading
 
@@ -1861,6 +1861,49 @@ Phase 1 is keyed to Revision 24. **QAF-55 MEDIUM** (a severity floor) goes to th
 - **F-61 point 2.** AC-6.9's timer clause is read on the mounted editor. AN-9 sees the timer's error in its mounted probes only,
   so an unmounted run passes with the defect present. NM-85 above runs mounted. Its red is by assertion inside the case, with the
   exit code recorded.
+
+## Re-key on Revision 25
+
+Revision 25 (record `cf62ffc1`) was read as its diff from `a45919de`. It is his D-29 to D-31 (block 06:14Z, record `a7b6ee15`).
+- QAF-55 is discharged into AC-6.9's work-per-line limb (D-31). A1 to A6 on the `a🙂` `embedDescription` texts at 200 and 1,000
+  lines must count line settles over every drain, at most 10 times as many at 1,000 as at 200. That is the property QAF-55 asked
+  for, so **QAF-55 is closed**. The tip medians are recorded with the load as context, held to no ceiling, as asked.
+- The corpus differential takes CF-35's equality form: after every corpus keystroke, the fixed tree's document equals the
+  pass-through tree's, with the pass-through tree built from that round's own suppression. That matches this document's Phase 2
+  obligation. Its red at `a7ad3f2` is code review's 6 differing keystrokes.
+- The timer clause is read mounted (F-61 point 2), as NM-85 already runs.
+- SL-30 is an entry condition on this stage's Phase 2 by D-30, with no plan revision.
+
+**SL-30's positions, checked against steering's capture** (`verification/019/steering/outstanding3-refute/probe2-a7.jsonl` and
+`probe2-om.jsonl`, tabulated this pass). These are mounted jsdom runs at 100, 200 and 1,000 lines:
+- **Throw at 100, 200 and 1,000 lines at `a7ad3f2`:** a backtick typed in the middle of line 0 (also a timer error, 0 writes);
+  Backspace removing the partner backtick on the last line (also a timer error, 0 writes); Delete removing line 0's backtick (1
+  write, no timer error).
+- **Throw at 200 and 1,000, not at 100:** a backtick typed at the end of the middle line.
+- **Production `5ec0621`:** throws on none, with 1 write each.
+- The plan's description matches.
+
+F-59's property is wider than these four: a backtick or an escaping `\` typed, or removed by Backspace or Delete, in the middle of
+line 0, on a middle line, or on the partner line. This stage's SL-30 probe at Phase 2 runs that superset, so it meets both D-30's
+named positions and F-59's text:
+- the probe runs mounted, at 5, 100, 200 and 1,000 lines on `embedDescription`, and 5, 100 and 200 on `content`, over `a🙂` lines
+  with a partner;
+- it reads the thrown error, a pending timer's error and the last write for each;
+- it runs at the round's tip and at `5ec0621` as the control;
+- it is captured under `verification/019/qa/m6/`.
+
+A throw at any position goes to steering as a member of D-28's class, and back to the fix, never to a stated limit.
+
+**Coverage obligation added: NM-88.** The inline-code members' count limb is not seen red on any tree, because the tip throws
+first. NM-88 plants a per-operation settle in the fixed tree: settled state keyed on `editor.children` restored for the emoji
+rebuild path, CR-25's memory. It must make the count limb red by assertion on A1 to A6, at a ratio well above 10. Where the fix
+moves the settle off the mocked boundary (CF-34), QAF-54's stated limit applies, and NM-82's survivor is recorded under it.
+
+Register sweep. The predicate: rows citing AC-6.9, an inline-code keystroke, or the suppression. B-11 is unchanged: the plan's
+human-observable form is as at revision 24, and K4 carries it. B-8 and B-10 are cleared. Rows inherited and not discharged: B-1
+to B-11.
+
+Phase 1 is keyed to Revision 25. There is no new finding. QAF-55 is closed. QAF-42 LOW (R-69) stays open.
 
 ## Blocking-condition register (the chain's one register)
 
