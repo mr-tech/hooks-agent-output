@@ -1,0 +1,31 @@
+import { act } from 'react';
+import { appendFileSync } from 'node:fs';
+import { Editor, Transforms } from 'slate';
+import { afterEach, it, vi } from 'vitest';
+import { mountEditor, unmountEditor } from './helpers/mountedEditor';
+
+afterEach(() => { unmountEditor(); });
+const row = (o: object) => appendFileSync(process.env.PROBE_OUT as string, `${JSON.stringify(o)}\n`);
+const mk = (n: number, first: boolean) => Array.from({ length: n }, (_, i) => `a🙂${(i === n - 1 || (first && i === 0)) ? '`' : ''}`).join('\n');
+type Sc = { name: string; first: boolean; at: (e: Editor, n: number) => any; key: (e: Editor) => void };
+const ins = (e: Editor) => e.insertText('`');
+const scs: Sc[] = [
+  { name: 'control end of line 0, typed', first: false, at: (e) => Editor.end(e, [0]), key: ins },
+  { name: '1 middle of line 0 (a|emoji), typed', first: false, at: (e) => ({ path: [0, 0], offset: 1 }), key: ins },
+  { name: '2 end of middle line n/2, typed', first: false, at: (e, n) => Editor.end(e, [n / 2]), key: ins },
+  { name: '3 partner: Backspace after last-line backtick, load has line-0 backtick', first: true, at: (e, n) => Editor.end(e, [n - 1]), key: (e) => e.deleteBackward('character') },
+  { name: '4 Delete before line-0 backtick, load has both', first: true, at: (e) => { const p = Editor.end(e, [0]); return { path: p.path, offset: p.offset - 1 }; }, key: (e) => e.deleteForward('character') },
+  { name: '5 start of line 0, typed', first: false, at: (e) => Editor.start(e, [0]), key: ins },
+];
+const cases = scs.flatMap((s) => [100, 200, 1000].map((n) => [s, n] as const));
+it.each(cases)('probe2 %#', async (s, n) => {
+  const m = mountEditor(mk(n, s.first), false);
+  const w0 = m.writes.length;
+  const errs: string[] = [];
+  let pt: any = null;
+  try { pt = s.at(m.editor, n); act(() => { Transforms.select(m.editor, pt); }); } catch (x) { errs.push(`select: ${String(x).slice(0, 80)}`); }
+  try { await act(async () => { s.key(m.editor); }); } catch (x) { errs.push(`key: ${String(x).slice(0, 100)}`); }
+  try { await act(async () => { vi.runOnlyPendingTimers(); }); } catch (x) { errs.push(`timer: ${String(x).slice(0, 100)}`); }
+  const w = m.writes.slice(w0); const last = (w.at(-1) ?? '').split('\n');
+  row({ scenario: s.name, n, point: pt, errs, writes: w.length, lastWriteLines: w.length ? last.length : null, lastWriteLine0: last[0], lastWriteLastLine: last.at(-1) });
+}, 300000);

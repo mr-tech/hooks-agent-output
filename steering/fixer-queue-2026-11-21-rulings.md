@@ -1885,3 +1885,26 @@ closed it as SL-30, an entry condition, and offers three forms: read them at QA,
 running it at `a7ad3f2` and `origin/master`, capped, with five positions at 100, 200 and 1,000 lines. The prompt is put on its result.
 Fix Round 5's start waits on his answer, because one option re-gates. All three gates have passed Revision 24: QA `7a6087f6`, architect
 `6a5aa338`, critic `343b1ed0`. The critic's CR-27 flag is answered by block 06:07Z.
+
+## 2026-11-25T06:14Z — selection: plan 019, the corrected crash premise, F-59's positions and QAF-55's speed check (put 06:1xZ, answered 06:14Z)
+
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T06:14Z — steering-hooks-fixer`. Put by this thread as three questions,
+answered by selection. The wording is this thread's.
+**Correction put to him first.** Block 05:28Z's prompt said "The backtick isn't passed on for saving until the next keystroke, so a save at
+that moment loses it". That holds only in the jsdom harness. QA's Chrome walk K4 at `a7ad3f2` (record `5a9af9be`; read this turn from
+`verification/019/qa/phase1-rev24/walk/K4-steps1-4.json` and `step5.json`, not re-run) shows:
+- one page error;
+- the JSON view holds the backtick before the next key, and a reload keeps it;
+- `emojiElementsBefore` 200, `emojiElementsAfter` 1.
+The planner's R-123 (`a45919de`) re-derives MEDIUM on QAF-51's precedent. **The check that would have caught it:** a browser walk before
+the 05:28Z prompt. This thread's error.
+- Q1 *Keep fixing the class (Recommended)* / *Withdraw: known limit*. **Chosen: Keep fixing the class.** D-28 stands.
+- Q2, F-59's form, with the premise run this turn (`verification/019/steering/outstanding3-refute/probe2-*.jsonl`): at `a7ad3f2` a mid-line
+  backtick on line 0, partner Backspace and Delete throw at 100, 200 and 1,000 lines; a middle line's end throws at 200 and 1,000, not 100;
+  `5ec0621` throws on none. The options were *Check them before QA passes (Recommended)* / *List them in the plan* / *Leave as written*.
+  **Chosen: Check them before QA passes.** That is SL-30 as the critic framed it, with no revision for it.
+- Q3, QAF-55 against F-60: *Add a speed check (Recommended)* / *No speed check*. **Chosen: Add a speed check.** A1 to A6 join the standing
+  count limb (1,000 at most 10 times 200) in a Revision 25. Per the planner's message, CF-35 and F-61 points 2 to 4 ride it with no extra
+  round. Three gate reads follow before Fix Round 5. Revision 24's reads took 06:02–06:08 by `git log` commit times.
+**Acted:** this goes to `planner-019` for Revision 25 and SL-30's registration. The critic, the architect and QA read Revision 25 per the
+next-act table. Fix Round 5 starts once all three pass, with this thread's recorded start naming Revision 25, SL-30 and block 06:07Z's (b).
