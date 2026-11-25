@@ -2050,3 +2050,20 @@ Start conditions read now: plan `Revision: 25`; no `handoff/` commit since 06:15
 block 06:20Z and not re-read individually; website on the chain branch with only the foreign `?? .playwright-mcp/`; OOM count 8.
 CR-29's typographic fill is measured cleared by the reviewer too (38.4 / 44.4 ms at 1,000). **CR-29 cleared**, and its handoff and Outstanding 2
 go to the planner to close.
+
+## 2026-11-25T09:53Z — plan 019 M6 Fix Round 6: implementation start (steering's recorded start)
+
+`planner-019` by message: R-128's member needs registration only. R-129 (`d8fd2eb7`, 3 hits in the plan by `grep -c`) mirrors his D-30 form.
+QA Phase 2's entry condition gains the reviewer's off-selection probe, which must show all 24 rows clean at the round's tip. Conditions read this
+turn:
+- Plan `Revision: 25`, whose three gate reads passed per block 06:20Z.
+- QA document `Phase: 1` at `f7df4423`.
+- No `handoff/` file added since 06:15Z (`git log --diff-filter=A`). The planner closed CR-29's handoff at `afecb570`.
+- 7 `OPEN QUESTION` hits, the count from block 09:50Z.
+- Website on `chain/019-slate-formatting-discord-engine` at `40947a6`, with only the foreign `?? .playwright-mcp/`.
+- OOM count 8.
+**Fix Round 6 starts.** It is briefed to `implementer-019` by message, naming its Resumption State `ccfa46d7`. Scope:
+- CR-28 HIGH's off-selection member: Round 9's Required Action, record `32670053`.
+- R-129's 24-row probe green at the tip.
+- No other member is added. The drag route and the other characters off the selection are the seam fold's residue (R-129).
+Sweeps and probes run capped (a MemoryMax scope, one worker, `unshare -rn`). The waiter keys on its own runs.
