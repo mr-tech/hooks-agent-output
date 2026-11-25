@@ -2155,3 +2155,12 @@ counts are the planner's, not re-counted. "Fewer fix rounds" was put as the plan
 **Acted:** the rebuild opens as its own effort on 019's release, with a scoping determination then (steering.md); no ID until then. Its
 carrier until then is the sizing document, kept Active by `planner-019` with the trigger "019's release". The research document is cued to
 close, carried by the sizing.
+
+## 2026-11-25T15:38Z — his command: do not start the rebuild effort the moment 019 ends (one time)
+
+His words (witnessed, this session): "Don't immediately start on the next effort when 019 ends. This isn't a long-term hold. This is just a
+one-time command."
+Reading (this thread's): at 019's release this thread does not open the rebuild effort (no scoping determination, no stage start). It
+tells him 019 is out and the rebuild is ready to open, and opens it on his word. It amends block 15:36Z's "opens on 019's release" for
+this one transition only; it is not a standing rule for other efforts and is not added to the standing file.
+**Recipient:** `planner-019`, whose sizing document's Status-Detail says the rebuild "opens as its own effort on plan 019's release".
