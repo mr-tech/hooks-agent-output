@@ -1958,3 +1958,13 @@ The definition pins `model: sonnet`, `effort: high` (`~/.claude/agents/implement
 - Fix Round 5 started 06:20Z (block 06:20Z), so its first 18 minutes ran on Sonnet and the rest on Opus.
 - The comparison is with Rounds 1 to 4, all on the pinned model; that is this thread's reading of the definition, not read per round.
 - There is a matching agents INBOX entry, steering-coordinator, 2026-11-25.
+
+## 2026-11-25T07:04Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (07:04Z) asked for `/checkpoint` at 263,662, past the 225K steering threshold. The Resumption State is
+in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`).
+- M6 Fix Round 5 is with `implementer-019` (busy, 442,881; website tip `70c5a86`; one capped run up to 09:25Z). It owes a `/checkpoint` at
+  its hand-off seam.
+- At hand-off this thread reads the round's figures, SL-29, the forced-normalise and corpus sub-limb, D-31's count limb and the OOM
+  disclosures. Then code review, then QA Phase 2 with SL-29 and SL-30.
+- Standing check `a2902b82` is at 07:27Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
