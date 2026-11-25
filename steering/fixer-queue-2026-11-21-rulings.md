@@ -2067,3 +2067,12 @@ turn:
 - R-129's 24-row probe green at the tip.
 - No other member is added. The drag route and the other characters off the selection are the seam fold's residue (R-129).
 Sweeps and probes run capped (a MemoryMax scope, one worker, `unshare -rn`). The waiter keys on its own runs.
+
+## 2026-11-25T10:46Z — this thread checkpointed for a clear, at the coordinator's ask
+
+`steering-coordinator` by message (10:44Z) asked for `/checkpoint` at 249,888, past the 225K steering threshold. The Resumption State is in this
+thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fixer.md`, Checkpoint 2026-11-25T10:46Z).
+- M6 Fix Round 6 is with `implementer-019` (206,571; website `2c0b182`; its tip runs in a 5G scope). It is not yet handed off.
+- At hand-off, this thread reads the round's figures and R-129/R-130's off-selection probe. Then code review (a Round 9 sub-entry), then QA
+  Phase 2.
+- Standing check `03f749f1` is at 10:59Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
