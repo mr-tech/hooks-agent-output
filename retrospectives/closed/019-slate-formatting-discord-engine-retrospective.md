@@ -2,8 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: "Written after plan 019's close-out: every stage document terminal and in closed/; website master 5ec0621 to 48eb60a, pushed 2026-11-25T17:39Z. B-5 is carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md, and its reader had not fired when this was written. Resting state until pi runs on the owner's word."
+Status: Processed
+Status-Detail: "Processed by pi batch 38 on 2026-11-25: every recommendation is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder."
 ---
 
 # Retrospective 019: Slate formatting on Discord's engine
@@ -17,6 +17,7 @@ Status-Detail: "Written after plan 019's close-out: every stage document termina
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-25T18:22 | steering-hooks-fixer (spawn brief, 2026-11-25, after 18:09Z) | Retrospective of plan 019 from the record alone, with eight candidate items to re-derive | Written. Value delivered: PARTIAL. Twelve recommendations, each naming the file it would change. One handoff seeded for the editor rebuild's planner. The cost readout is filed under `verification/019/retrospective/`. |
+| 2026-11-25T22:25 | pi (pi-batch) | Document closed | Status: Processed. pi batch 38 extracted the recommendations: each is landed in the definitions, filed as a tools item, routed to a record inbox or declined with its reason, in batch 38's analysis and ledger in the statbot record's process-improvement folder. |
 
 ## Summary
 
