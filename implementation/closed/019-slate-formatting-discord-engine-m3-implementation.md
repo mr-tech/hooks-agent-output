@@ -2,11 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: >-
-  M3 (the fuzzer and oracle, in the suite) is complete on chain/019-slate-formatting-discord-engine; fix round 8 (QAF-38) is handed back to QA at 81c68b2 (round 7, CR-15, was approved by code review at d6aab03).
-  Open for the reviewer and QA: the landing of the base-red limbs (Outstanding 3), two equivalent mutants (Outstanding 6), and what the
-  jsdom paste drive does not show (Outstanding 7).
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Handoff-At: 81c68b2 — repos=website — M3 fix round 8 (QAF-38) handed back to QA's refresh pass; round 7 was d6aab03; at this SHA's tree the whole offline suite ran 223 files, 3,272 of 3,272, exit 0 (`m3-suite-r8.{log.txt,exit}`), typecheck exit 0 (`m3-r8-typecheck.txt`)
 ---
 
@@ -33,6 +30,7 @@ M2 is in `implementation/019-slate-formatting-discord-engine-m2-implementation.m
 | 2026-11-23T21:13 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 M3 from the Resumption State | Items 5, 6, 7, 9, 10, 11 and the residue grouping, commits `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`. M3 handed to code review. |
 | 2026-11-23T20:08 | steering-hooks-fixer (message, session `2581957`) | Continue plan 019 with M3 | Outstanding items 3, 1, 2 (surface calls and measurement) and 4 (boxes, frozen native literals), commits `9ad0939`, `dff2f0d`, `00148c8`, `492b813`, `c113084`. Checkpoint at 231K tokens. |
 | 2026-11-23T19:08 | steering-hooks-fixer (message, record `1189b7e0`) | Continue with M3 | Parts 1 to 5 below, commits `805fff6`, `548b16b`, `78c5f74` (M2 fix), `1bcab7a`. Checkpoint at 293K tokens (`cc-usage.py sessions`). |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Implementation Summary
 
@@ -371,13 +369,4 @@ Code review of M3 at `f4060c5`, in this order of risk: the held-out sets (Outsta
 
 ## Resumption State
 
-Written 21:15Z UTC at the M3 hand-off seam (414K tokens by `cc-usage.py sessions`), for a `/clear`.
-
-- **Done.** M3 complete and handed to `code-reviewer-019` at website `f4060c5` (this document's `Handoff-At`); messages sent to `code-reviewer-019` and `steering-hooks-fixer`. Website commits this session: `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`.
-- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `f4060c5`. The website tree holds only the foreign `?? .playwright-mcp/`. The record holds this document and the M3 captures, committed.
-- **Next.** (1) If code review of M3 returns findings, a fix round: the Class Sweep table is owed per finding, and the fix starts red. (2) M4 (the preview on the engine): read plan M4, then the Findings 4 residue grouping, which is a text-family grouping, so M4's first work is the tree predicates, one class at a time, tested against (a) engine-only, (b) structural, (c) proven. **First act of M4 is the flow ask to `steering-hooks-fixer` before any code** (brief): derive the flows from the codebase, record one line each in the M4 document, and send only those that hold a decision. M4 and M6 are capped by ruling 17:56Z (a gap below HIGH becomes a stated limit). Write a new document `implementation/019-slate-formatting-discord-engine-m4-implementation.md`.
-- **Approach in flight.** None. No uncommitted source work.
-- **Local state not restored.** None. No process of mine runs. Scratch files only under the session scratchpad (a downloaded Discord build in `scratchpad/build` and `scratchpad/lazy`, mutant exports `export`, `export2`, `export3`: disposable).
-- **Evidence run but not recorded.** None; every run is under `verification/019/impl/m3-*`.
-- **Questions sent.** None open. For QA at Phase 2: Outstanding 2 (hold-outs) and Outstanding 5 (product-source mutation sweeps owed).
-- **Cache-warm wake.** Job `c8e4a267` (armed 20:24) deleted at this checkpoint. Arm a new one on the next turn.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
