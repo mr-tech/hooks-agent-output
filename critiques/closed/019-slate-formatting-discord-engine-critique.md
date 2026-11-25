@@ -3,16 +3,21 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Status: Resolved
-Status-Detail: "Cycle 16 pass 1 on plan revision 24: APPROVED, and closed at that pass, read with SL-30's entry condition. F-59 HIGH (SL-30) is closed by property under the stop authority: the plan names members of D-28's class beyond line 0 by AN-9's read and leaves them unbounded, so QA Phase 2 of M6's Fix Round 5 has an entry condition, a no-throw reading at that round's tip for each of them. Its form (entry condition, listed members in a revision 25, or residue as written) is put to him through steering. F-60 MEDIUM (SL-31, the inline-code members' cost) and F-61 LOW are stated limits for the plan's Planner batch. From cycle 15: F-57 HIGH (SL-29) is closed by property, an entry condition on QA Phase 2 by his selection at 20:54Z (effort rulings block 2026-11-24T20:54Z), and F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 17."
-Artifact-Revision: 24 — read as the delta 49a20690..80d6d143 (cycle 16 pass 1)
-Reviewed-At: "80d6d143 — repos=agent-output; no website source read at this pass"
+Status-Detail: "Cycle 17 pass 1 on plan revision 25: APPROVED, and closed at that pass, read with SL-30's entry condition. F-62 LOW (AC-6.9's headline and D-29's option text) is a Planner batch item. From cycle 16: F-59 HIGH (SL-30) is closed by property, an entry condition on QA Phase 2 of M6's Fix Round 5 by his selection at 06:14Z (D-30; effort rulings block 2026-11-25T06:14Z), registered in the plan's Planner batch; F-60 and F-61 are RESOLVED, verified landed at revision 25. From cycle 15: F-57 HIGH (SL-29) is closed by property, an entry condition on QA Phase 2 by his selection at 20:54Z (effort rulings block 2026-11-24T20:54Z), and F-58 LOW is a stated limit under SL-26. From cycle 14: F-52 is RESOLVED and SL-25 withdrawn; F-53 (SL-26), F-54 (SL-27), F-55 points 3 and 4 (SL-28) and F-56 are Planner batch rows (R-97, R-99). Carried from cycle 13: F-1 to F-33, F-36, F-37, F-40, F-45 and F-48 are RESOLVED, each verified landed. F-34 (SL-11), F-35, F-38 (SL-12), F-39 (SL-13), F-41 (SL-15), F-42 (SL-16), F-43 (SL-17), F-44, F-46 (SL-19), F-47 (SL-20) and F-49 (SL-22) are Planner batch rows in the plan (R-32, R-41, R-63, R-69, R-71, revision 18's row, R-86). F-50 (SL-23) and F-51 (SL-24) close as landed-by-author, stated limits for the plan's Planner batch under steering's block 07:21Z. M7 is marked PREMISE-STALE (plan R-76) and was not reviewed. A later revision that changes a criterion's text opens cycle 18."
+Artifact-Revision: 25 — read as the delta 80d6d143..cf62ffc1 (cycle 17 pass 1)
+Reviewed-At: "cf62ffc1 — repos=agent-output; no website source read at this pass"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 019, Slate formatting on Discord's engine
 
-**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 24 (`80d6d143`). Revisions 1 and 2 were read whole
-(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 24 as deltas.
+**Artifact**: `planning/019-slate-formatting-discord-engine.md`, revision 25 (`cf62ffc1`). Revisions 1 and 2 were read whole
+(passes 1 and 2); revision 3 as a delta with M5 and M6 whole (pass 3); revisions 4 to 25 as deltas.
+**Read at cycle 17 pass 1**: the plan's diff `80d6d143..cf62ffc1`, line by line; AC-6.9's headline as it stands at
+`cf62ffc1`; the selection ledger's block 2026-11-25T06:14Z; effort rulings blocks 2026-11-25T06:07Z, 06:08Z and 06:14Z;
+`verification/019/steering/outstanding3-refute/probe2-a7.jsonl` and `probe2-om.jsonl`, tallied by this pass's script; code
+review's two `keystroke-fixedpoint-a7ad3f2*.json.gz` captures, compared record by record by this pass's script. No website
+source was read.
 **Read at cycle 16 pass 1**: the plan's diff `49a20690..80d6d143` (its last commit `ca1ba0eb..80d6d143` line by line, the
 registrations before it as every changed line); register rows D-24, D-27 and D-28; the selection ledger's day file
 `steering/selection-ledger/2026-11-25.md`, whole; effort rulings blocks 2026-11-25T05:26Z, 05:28Z, 05:30Z and 05:31Z; the
@@ -160,8 +165,50 @@ for the 15,480 figure.
 | 2026-11-24T20:55 | steering-hooks-fixer (message relaying his selection) | F-57's form | No pass. He chose "Agent: time it at QA (Recommended)" at 20:54Z: SL-29 stays an entry condition on QA Phase 2 of M6's third fix round, and there is no revision 24. His words are in the selection ledger's block 2026-11-24T20:54Z and the effort rulings block of the same time (record `be956e8d`), both seen in this turn. No finding state moves. |
 | 2026-11-25T06:06 | planner-019 (message naming revision 24 at `80d6d143`) | cycle 16 pass 1: plan revision 24 | Resumed after a clear from this document's Resumption State at `ed2a520a`; nothing written before the clear was re-verified, and this pass's claims are its own reads. Cycle 16 opens because revision 24 changes AC-6.9's text; it is not the seam fold, so M7 stays unread. Depth: delta-bounded; the delta `49a20690..80d6d143` is 130 added and 39 removed lines (`git diff --numstat`, 17 commits: revision 24, 14 carrying the registration and verdict rows R-104 to R-118, a row repair and a checkpoint), fully readable as a diff. It adds members and one sub-limb to a criterion and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added AN-9, D-27, D-28, G-9a and G-9e, and CF-32, CF-33, CR-26 to CR-29, F-57, F-58, QAF-53, QAF-54, SL-29 and R-104 to R-118 in registration rows. Before revision 24's commit the diff changes no criterion (changelog, Resumption State, the owed re-verdicts table, D-27, D-28 and Planner batch rows); revision 24 changes AC-6.9's reports, class statement, keystroke and text classes, no-throw, write and caret limbs, walk and residue. Artifact changes: six inline-code keystrokes join AC-6.9 on his 05:28Z selection (D-28, AN-9), the no-throw limb gains a pending timer's error and a fixed-point sub-limb read over code review's corpus (CR-27), and the residue names AN-9's gaps and 12 non-fixed-point loads. New findings: F-59 (HIGH), a further instance of the residue shape, closed by property with stated limit SL-30 and an entry condition, the stop authority firing, its form put to steering; F-60 (MEDIUM), stated limit SL-31; F-61 (LOW). M7 is out of scope for this pass. Verdict APPROVED. |
 | 2026-11-25T06:06 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-59 is closed by property, with SL-30's entry condition for the plan's Planner batch. F-60 and F-61 close as landed-by-author, their discharging document the plan's Planner batch. |
+| 2026-11-25T06:18 | planner-019 (message naming revision 25 at `cf62ffc1`) | cycle 17 pass 1: plan revision 25 | Cycle 17 opens because revision 25 changes AC-6.9's text. Depth: delta-bounded; the delta `80d6d143..cf62ffc1` is 63 added and 25 removed lines (`git diff --numstat`, 5 commits: revision 25 and 4 carrying the registration rows R-119 to R-123), fully readable as a diff. It adds members to one limb and reshapes no milestone. Boundary check by the in-memory ID regex over both revisions: none removed; added D-29 to D-31, and CF-34 to CF-36, F-59 to F-61, NM-85, NM-87, QAF-55, SL-30, SL-31 and R-119 to R-123 in registration rows. The diff, read whole, changes AC-6.9's reports, class statement, one keystroke row, the no-throw limb's timer clause, the corpus differential, the work-per-line limb and the residue; its other hunks are the header, the changelog, the Resumption State, the owed re-verdicts table, register rows D-28 to D-31 and Planner batch rows. Artifact changes: the six inline-code members join the work-per-line count limb on his 06:14Z selection (D-31), the corpus differential is an equality between the fixed and pass-through trees (CF-35), and SL-30 is registered as QA Phase 2's entry condition (D-30). Findings addressed: F-60 and F-61 RESOLVED; F-59's landing is in the plan; the cycle 16 assumption is answered, true. New finding: F-62 (LOW), for the Planner batch. A reconcile note is added to F-60's line. M7 is out of scope for this pass. Verdict APPROVED. |
+| 2026-11-25T06:18 | critic-019 | Document closed | Status: Resolved, set at the approving pass and edited in `critiques/closed/` without a move. F-62 closes as landed-by-author, its discharging document the plan's Planner batch. |
 
 ## Verdict
+
+**APPROVED — cycle 17, pass 1.** The stop authority did not fire, and the hard stop did not fire (pass 1 of 15 in this
+cycle). Pricing: sized to the ask plus his rulings. Revision 25 adds the six inline-code members to one existing limb on
+his 06:14Z selection (D-31) and adds no milestone.
+
+This gate passes revision 25 for M6's Fix Round 5, **read with SL-30's entry condition** (D-30). Nothing routes to the
+owner. The architect's and QA's reads of revision 25 are separate. The implementer is not messaged: the plan holds Fix
+Round 5 for steering's word once all three gates pass.
+
+What holds in revision 25's delta:
+- **D-29, D-30 and D-31 are the ledger's block.** Each answer, each set of other options and D-30's and D-31's option texts
+  match `steering/selection-ledger/2026-11-25.md`, block 06:14Z, as read in this pass. D-28's option text is now the
+  ledger's. D-29's option text drops its last sentence (F-62).
+- **The new count members are his chosen form.** D-31's option names the existing check, 1,000 lines at most 10 times 200,
+  and the limb states it over line settles for the six members on the `a🙂` description texts. The limb says it is not yet
+  seen red and names who reads it red: QA at Phase 2, against a planted per-operation settle.
+- **F-57's gap applies to these members and the plan says so.** A count can read linear while the time does not, and the
+  residue keeps "the timed cost of the inline-code members" unbounded. QA records tip medians as context. D-31 chose the
+  count, so this is not re-raised.
+- **The equality form is red on the same six.** Compared record by record by this pass's script, the fixed tree's and the
+  pass-through tree's captures differ in the document after the keystroke for 6 of 36,560 keystrokes, the same 6 whose
+  fixed-point flag differs. The architect's derivation, marked not run, holds at `a7ad3f2`.
+- **SL-30 is registered with his D-30**, and the positions it names throw. Steering's run, tallied by this pass's script:
+  at `a7ad3f2` a backtick typed in the middle of line 0, the partner's Backspace and a Delete of line 0's backtick raise
+  errors at 100, 200 and 1,000 lines, and the end of a middle line at 200 and 1,000; `5ec0621` raises none in 18 rows.
+- **F-61's four points landed** as its batch row says, each read in the diff.
+- **F-59's severity.** Its HIGH rested on R-115's lost write, which R-123 now reads as holding on the jsdom path only. It
+  is not re-derived here: D-29 kept the class fix after that correction, and D-30 settles F-59's form.
+
+**F-62** (LOW): AC-6.9's headline still names only keystrokes that change the type of every line below, and D-29's option
+text drops a sentence.
+
+**M7 is out of scope for this pass** (`PREMISE-STALE`, R-76).
+
+**RK-8, the class from pass 1: no new member found by this pass.**
+
+`Target-Release` is unchanged. No `OPEN QUESTION` is unresolved (0 of 7 lines without `[RESOLVED]` or `[CLOSED]`, counted in
+memory over the plan at `cf62ffc1`).
+
+The cycle 16 verdict follows, as written at that pass.
 
 **APPROVED — cycle 16, pass 1.** The stop authority fired on one shape (F-59), so that finding, though HIGH, is closed here
 by a property and an entry condition and is not sent back for a revision. The hard stop did not fire (pass 1 of 15 in this
@@ -924,6 +971,16 @@ Present, in user-story form, and delivered directly. Unchanged at revision 4.
 
 ## Assumption Not Checked
 
+Cycle 17 pass 1: this pass assumes that a per-operation settle on the six inline-code members makes their line-settle
+count at 1,000 lines exceed 10 times the count at 200, so the new limb can read red, and does not test it. No tree exists
+where these members settle: at `a7ad3f2` each throws first. The ground is code review's measurement of about 25 for the
+fence close at `85ece66`, a different keystroke. If it is false, QA's planted mutant reads 10 or under at Phase 2 and the
+limb passes with the defect present. QA owns closing it, with that mutant at Fix Round 5's tip.
+
+Cycle 16 pass 1's line, below, is answered, and it is true: steering's positions run
+(`verification/019/steering/outstanding3-refute/probe2-a7.jsonl`, tallied in this pass) raises errors at every position
+SL-30 names.
+
 Cycle 16 pass 1: this pass assumes that AN-9's inference is true, that a backtick typed or removed away from line 0's start
 and end toggles inline code over other lines' emoji and throws as the six members do, and does not test it. A run needs an
 export of the website at `a7ad3f2` with its packages and a capped vitest scope, which is more than a minute. The ground is
@@ -1084,6 +1141,19 @@ None.
 
 None.
 
+### Closed at cycle 17 pass 1
+
+F-62 LOW cycle 17 pass 1 — closed as landed-by-author; discharging document: the plan's Planner batch
+- **Title**: AC-6.9's headline does not name the inline-code members, and D-29's option text drops a sentence.
+- **Location**: plan revision 25, AC-6.9's first line and headline sentence; register row D-29.
+- **Description**: the headline reads "A keystroke that changes the type of every line below it, or a paste of many
+  lines", under "(D-24 to D-26; revisions 21 to 23 …)". The inline-code members change other lines' emoji elements, not
+  their type, and they joined by D-28 and D-31 at revisions 24 and 25. QA reads the headline's "costs no more per line"
+  as covering them, and this gate read it as not covering them; the sentence supports both. D-29's quoted option text
+  ends before the ledger's last sentence, "The next two questions settle how far the fix reaches.", with no mark.
+- **Impact**: two gates rated one member differently off the same sentence (QAF-55 and F-60).
+- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
+
 ### Closed at cycle 16 pass 1
 
 F-59 HIGH cycle 16 pass 1 — closed by property with stated limit SL-30 and an entry condition; landed-by-author, discharging document: the plan's Planner batch. Duplicates the shape of F-53 in this document
@@ -1119,43 +1189,13 @@ F-59 HIGH cycle 16 pass 1 — closed by property with stated limit SL-30 and an 
 - **Landing trigger**: the planner registers SL-30 in the Planner batch and sends it to the implementer, code review and QA
   with the release of Fix Round 5. Whether it lands instead as listed members in a revision 25, or stays residue as
   written, is his, through steering.
+- **Landed (cycle 17 pass 1)**: SL-30 is a Planner batch row in the plan at `cf62ffc1` and stays an entry condition by his
+  06:14Z selection (D-30). Steering's positions run shows the named positions throw at `a7ad3f2`.
 
-F-60 MEDIUM cycle 16 pass 1 — closed as landed-by-author, stated limit SL-31; discharging document: the plan's Planner batch. Duplicates the shape of F-57 in this document
-- **Title**: the inline-code members have no cost reading, and production does no work across lines on them.
-- **Location**: plan revision 24, AC-6.9 "Residue" ("the cost of the inline-code members"), "Work per line" and "Cost";
-  D-27.
-- **Description**: the work-per-line and timed limbs bind the fence and paste members, and SL-29's timed reading (D-27)
-  names the same two. At `5ec0621` a single backtick changes no other line (0 of 128 rows, this pass's recount), so
-  whatever a fix does per line is new work. The plan's Outstanding 3 row gives 797 and 3,997 operations before the throw
-  at 200 and 1,000 lines (not re-derived).
-- **Impact**: a fix can settle these keystrokes and take seconds at 1,000 lines, as CR-25's fence close did (7.6 s), with
-  every limb green. Unlike the fence members, the base has a completed reading to compare against.
-- **Under SL-31**: the six members' cost is residue with no bound, as the plan says. Code review's SL-29 probe at Fix
-  Round 5's tip bears the detection where it carries them; otherwise a user report under AC-6.9's row in QA's register.
-  Below HIGH, so a stated limit under block 14:48Z with no round. This gate does not read it as a severity floor: the
-  plan claims no speed for these members.
-- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2.
+F-60 MEDIUM cycle 16 pass 1 RESOLVED — the six inline-code members join AC-6.9's work-per-line count limb by his D-31; verified landed at plan revision 25 (`cf62ffc1`). SL-31 is discharged. The argument is in this document at `343b1ed0`. Duplicates: QAF-55 in `qa/019-slate-formatting-discord-engine-qa.md`
+- **Reconcile note (2026-11-25T06:18Z).** This line said at `343b1ed0` that it was not a severity floor because "the plan claims no speed for these members". That pass read the delta and not AC-6.9's headline, which says the class "costs no more per line as the message grows" and names keystrokes that change the type of every line below. QA read that sentence as covering these members. The claim was made about text this gate had not read, and the error is this gate's; whether the headline covers them is F-62. The other cycle 16 findings, F-59 and F-61, were re-read for a claim about plan text outside the delta, and neither makes one.
 
-F-61 LOW cycle 16 pass 1 — closed as landed-by-author; discharging document: the plan's Planner batch
-- **Title**: four wording points in revision 24's delta and D-28's row.
-- **Location**: register row D-28; AC-6.9 "The defects, as reported", "The class", "The keystroke class", "No throw" and
-  "Residue".
-- **Description**:
-  1. D-28's "Option text" cell, and the sentence "The owner was told: …" cited to the ledger, carry the rulings block's
-     wording. The ledger's option, which is the text he saw, differs in its words and ends "This is the third crash of this
-     kind, and this option covers the kind, not just this case", which the row leaves out.
-  2. The no-throw limb's timer clause does not say it is read on the mounted editor. AN-9 records the timer's error in its
-     mounted probes only, so an unmounted reading passes with the defect present. The write limb, which is mounted, still
-     catches the same keystroke.
-  3. "Backspace removing a leading backtick" does not say both start forms, where AN-9's A4 has two (8 throwing shape cells
-     for six members). The class statement says the probe ran "on both surfaces" at `5ec0621`, where AN-9 ran that tree
-     once with no surface, and lists `\` among characters that pair, where AN-9 says it pairs with nothing.
-  4. The residue still opens "The limbs bind the keystroke class over the text class, and nothing else is bounded by them",
-     while the new sub-limb's corpus reading binds 36,560 keystrokes outside that class.
-- **Impact**: a reader of the register misses the sentence the class rests on, and a reader of the residue misreads the
-  sub-limb's reach.
-- **Landing trigger**: the Planner batch fold at the seam after the last milestone's QA Phase 2. Point 2 goes to QA with
-  the batch row, since its re-key reads the limb.
+F-61 LOW cycle 16 pass 1 RESOLVED — point 1 landed in D-28's row at plan R-122 and in AC-6.9's reports at revision 25; points 2 to 4 at revision 25 (the mounted timer clause, both start forms, the class statement's `\` and `5ec0621` run, the residue's opening). Verified in the diff `80d6d143..cf62ffc1`. The argument is in this document at `343b1ed0`.
 
 ### Closed at cycle 15 pass 1
 
@@ -1784,6 +1824,12 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Process record
 
+- Cycle 17 pass 1: the plan was read as `git diff 80d6d143 cf62ffc1` saved in this session's scratchpad; the ID
+  comparison and the open-question count ran in memory. Two tallies ran as scripts of this pass over committed captures;
+  nothing was installed and no website code was run. A first tally of steering's positions run used field names the
+  capture does not have and printed no errors for either tree; it was re-run on the capture's `scenario` and `errs`
+  fields, and only the second is cited. The architect's and QA's reads of revision 25 were not read before this pass was
+  written. This pass's edits to this document were applied with `record-edit.js`.
 - Cycle 16 pass 1: the plan was read as `git diff ca1ba0eb 80d6d143` and `git diff -U0 49a20690 ca1ba0eb`, with the
   analysis and handoff diffs, saved in this session's scratchpad; the ID comparison and the open-question count ran in
   memory. The recount of AN-9's captures is a script of this pass over the committed `jsonl` rows; nothing was installed
@@ -1840,10 +1886,11 @@ Earlier passes, still standing: listed in this critique at `af0b21d`.
 
 ## Resumption State
 
-**Since the checkpoint below (2026-11-25T06:06Z).** Cycle 16 pass 1 is APPROVED on plan revision 24 (`80d6d143`) and
-closed. The verdict went to `planner-019`, and F-59's form to `steering-hooks-fixer` as an owner-needing item, with no
-answer yet. The next pass is still the seam fold's read, now cycle 17, as the diff from `80d6d143`; it also checks SL-30's
-readings and F-60's and F-61's batch rows. The wake is armed again.
+**Since the checkpoint below (2026-11-25T06:18Z).** Cycle 16 pass 1 (revision 24, `80d6d143`) and cycle 17 pass 1
+(revision 25, `cf62ffc1`) are APPROVED and closed. Each verdict went to `planner-019`. F-59's form went to
+`steering-hooks-fixer` and was answered by his 06:14Z selection (D-30): SL-30 is an entry condition. No question awaits an
+answer. The next pass is still the seam fold's read, now cycle 18, as the diff from `cf62ffc1`; it also checks that the
+record holds SL-30's readings, and F-62's batch row. The wake is armed.
 
 Checkpoint written at steering's ask on 2026-11-24T21:02Z, at a seam, for a clear. It replaces the checkpoint of 08:09Z
 (this document at record `0fa902d`) and carries each of its standing items below.
