@@ -2104,3 +2104,28 @@ than trying to reuse my own functions and hooks. But I don't know."
 **Acted:** relayed verbatim to `researcher-slate-editor-design` as the framing of its question 4: the comparison is a ground-up rebuild
 against continuing to extend the current functions and hooks, each with what it removes from and adds to 019's remaining work. It is a
 question, not a decision; 019 runs on.
+
+## 2026-11-25T15:25Z — selection: size a rebuild of the editor first; for a rebuild, emoji per line and the quote marker hidden (put after 12:02Z, answered 15:25Z)
+
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T15:25Z — steering-hooks-fixer`. Put by this thread as three questions,
+answered by selection; the wording is this thread's. Source: `research/slate-editor-design-2026-11-25.md` (`0f8b22cf`, Active), read this turn
+§ Part 3, § Part 4, Open Questions, Remaining Gaps, Appendix A.
+- Q1, rebuild or extend. Options: *Agent: size a rebuild first (Recommended)* (the planner sizes a rebuild on Discord's model and what it
+  changes in 019's checks; then the choice comes back with that cost; 019 keeps going; sizing time unmeasured) / *Agent: finish 019, rebuild
+  after* (019 ships as is; a rebuild is its own effort; the current editor is live meanwhile with its open items) / *Agent: rebuild inside 019*
+  (the preview waits; review, QA and user testing run again) / *Agent: keep extending* (open items stay; more crash cases may turn up untested).
+  **Chosen: "Agent: size a rebuild first (Recommended)".**
+- Q2, emoji for a rebuild (research OQ-1, against D-13): *Agent: per line, like Discord (Recommended)* (matches Discord's box and removes that
+  crash family; in wrapped inline code the editor shows a picture where the preview shows code text, expected of Discord's box, unseen) /
+  *Agent: keep whole message*. **Chosen: "Agent: per line, like Discord (Recommended)".**
+- Q3, quote marker for a rebuild (OQ-2): *Agent: hidden, like Discord (Recommended)* (the site still stores it beside the text; some of that bug
+  family can return) / *Agent: visible, styled*. **Chosen: "Agent: hidden, like Discord (Recommended)".**
+Premises: "about 850 lines" and "12 of the 32 test files" are the research's P4-4 (`wc -l` and a script; not re-run here). The crash mechanism
+(P3-2) was tried by a `general-purpose-sonnet` refutation helper this turn, with the research's script and its own: not refuted. Inside
+`normalizeNode` throws the 126-iteration error at 200 and 1,000 lines; the after-change pass never throws, a forced normalise after it changes
+nothing, and three undos under `slate-history` 0.113.1 leave every line right (scratch `w/poc.cjs`, `w/mine.cjs`). P3-3 is weak by
+construction (the helper's note). "Skips none of 019's remaining steps" is P4-3's row.
+**Scope of Q2 and Q3:** they bind a rebuild only. D-13 and every current criterion of Revision 25 stand. Research OQ-3 (inside 019 or after)
+is not asked: it comes back with the sizing.
+**Acted:** `planner-019` is commissioned to size the rebuild; `researcher-slate-editor-design` is told the answers to record. 019's QA Phase 2
+runs on.
