@@ -3,7 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Reviewed-At: "48eb60a — repos=website; Round 9's sub-entry is M6 Fix Round 6 at 48eb60a (40947a6..48eb60a); Round 9 is M6 Fix Round 5 at 40947a6 (a7ad3f2..40947a6); Round 8's sub-entry is M6 Fix Round 4 at a7ad3f2 (2b82972..a7ad3f2); Round 8 is M6 Fix Round 3 at 2b82972 (85ece66..2b82972); Round 7 is M6 Fix Round 2 at 85ece66 (42128cd..85ece66); Round 6's sub-entry is CR-20's fix at 42128cd (119471f..42128cd, its tree 10abfa9's); Round 6 is M6 at 119471f (cf126ea^..119471f plus 8cb4d83, c3af0ac, f58a816); M5 Round 5 at 2e36107 with its QAF-39 sub-entry at cf126ea; M3 at 81c68b2; M4 at e58f2ed; M2 closed at 7dcedc9"
-Status: In Review
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Round: 9
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -39,6 +40,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-25T05:29 | implementer-019 (M6 Fix Round 4, record `32c4a684`, `Handoff-At: a7ad3f2`); architect-019 (CF-33, `4dfc0505`); planner-019 (R-111, `b1f0f60c`) | Round 8 sub-entry: confirm CR-25's time member and CR-26 | Round 8 sub-entry at `a7ad3f2`: **REJECTED** on CR-28 HIGH (a lone backtick at the end of line 0, paired with one ending the last line, throws Slate's iteration error from 100 `a🙂` lines at `85ece66` and the tip, and mounted the backtick never reaches the message; `af3d95a` takes 2 operations with no throw). CR-27 MEDIUM is a severity floor: 6 corpus keystrokes leave rebuilt lines that a forced normalise changes, and the no-suppression mutant restores them. CR-29 MEDIUM goes to steering (block 20:58Z): a fence close over typographic-quote lines takes 9.6 to 18.5 s at 1,000 lines. CR-25 HIGH RESOLVED (SL-29 0 of 20 over); CR-26 LOW RESOLVED; load unchanged in 0 of 13,148; no paste regressions. Evidence `verification/019/code-review/m6fix4-a7ad3f2/`. |
 | 2026-11-25T09:47 | implementer-019 (M6 Fix Round 5, record `ccfa46d7`, `Handoff-At: 40947a6`); planner-019 (Revision 25 notice, record `f1a2f2f7`); steering-hooks-fixer (round start 06:20Z `e78f4d69`, widening 07:09Z); steering's brief for the round not arrived | Review M6 Fix Round 5 (D-28's inline-code members, CR-28, CR-27, the typographic fold) | Round 9 at `40947a6`, a round because it adds Revision 25's members, the widening and the caret change: **REJECTED** on CR-28 HIGH, still open on one member. An inline-code backtick inserted or removed away from the selection (selection null, or in another run unit) throws Slate's iteration error from 100 `a🙂` lines, where `af3d95a` throws in 0 of 24 rows. slate-react 0.123.0's default `onDrop` reaches it by code read. Routed to steering as a D-28 member. Everything else assessed holds: the six members and controls, mounted too; CF-35's equality, 0 of 36,560 on two instruments; CR-27 RESOLVED; CR-29's `’` fill measured cleared; SL-29 0 of 20 over; no paste regressions; the 16 caret changes all on the edited line. CR-30 LOW is new (the typographic rule is written twice). Evidence `verification/019/code-review/m6fix5-40947a6/`. Milestone-scoped: the plan Status is not moved. |
 | 2026-11-25T12:34 | implementer-019 (M6 Fix Round 6, record `6c1e3e33`, `Handoff-At: 48eb60a`); steering-hooks-fixer (ruling block 09:50Z `1dae25f0`); planner-019 (R-129, R-130); steering's brief for the round not arrived | Round 9 sub-entry: confirm CR-28's off-selection member | Round 9 sub-entry at `48eb60a`: **APPROVED_WITH_COMMENTS**. CR-28 HIGH RESOLVED: Round 9's probe is 24 of 24 clean, and the falsity case is red at `40947a6` by assertion. The re-attack's seven off-selection forms are clean at the tip, except `moveNodes`, which throws nothing but leaves the run's emoji lines unsettled (3 forced operations per line, at every N). That is CR-31 LOW, unreached (no move source in `src`), a stated limit. The four corpora are byte-identical to `40947a6`'s; CF-35 0 of 36,560; SL-29 0 of 20 over. M6 goes to QA Phase 2. Evidence `verification/019/code-review/m6fix6-48eb60a/`. Milestone-scoped: the plan Status is not moved. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Scope of this round
 
@@ -2143,153 +2145,4 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-**Checkpoint for a `/clear`, at steering's ask (361,491 tokens).** Written at the Round 9 sub-entry's verdict (12:34Z) and brought up to date at this checkpoint. Where this block and the ones below disagree, this one holds.
-- **Since the verdict.** CR-31 is carried by plan R-132 (`5f224c30`), and R-133 corrects its severity wording. The implementer corrected its record's `move_node` claim (`fb7dbc99`).
-- **Questions sent.** None open.
-- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad `r9/` exports and outputs are disposable, and everything cited is under `verification/019/code-review/m6fix5-40947a6/` and `m6fix6-48eb60a/`.
-- **Evidence run but not recorded.** None.
-- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
-- **Done.** Round 9's sub-entry at `48eb60a` (Fix Round 6): APPROVED_WITH_COMMENTS. CR-28 RESOLVED; CR-31 LOW new (the `move_node` branch); M6 handed to QA Phase 2. Evidence: `verification/019/code-review/m6fix6-48eb60a/`.
-- **Next.** Nothing owed until QA Phase 2 hands back a finding, or a further fix reaches this review. Any such fix is a sub-entry of Round 9 unless it reaches beyond its findings.
-- **Branch and HEAD.** Website at `48eb60a`, never moved by me. The scratchpad exports are disposable.
-
-The block below, written at 09:47Z, is history.
-- **Done.** Round 9 at `40947a6` (Fix Round 5): REJECTED on CR-28 HIGH, open on its off-selection member, routed to steering as a D-28 member. CR-27 RESOLVED; CR-29's `’` fill measured cleared; CR-30 LOW is new. Evidence: `verification/019/code-review/m6fix5-40947a6/`.
-- **Next.** Wait for steering's reading of the member. If it is ruled inside D-28: the next fix round's review, a sub-entry of Round 9 unless the fix reaches beyond CR-28. Re-run `run9.sh`: the off-selection probe at three trees, CF-35's equality on that tip's own pass-through, SL-29 and the class and mounted probes. CR-28's falsity case must be red at `40947a6` by assertion. If it is ruled outside: a sub-entry that re-dispositions CR-28 as a stated limit.
-- **Branch and HEAD.** Website on `chain/019-slate-formatting-discord-engine` at `40947a6`, never moved by me. The scratchpad exports (`r9/e-*`) are disposable.
-- **Cache-warm wake.** Armed (one-shot, re-armed at each wake).
-
-**Checkpoint, 2026-11-25T05:31Z, for a `/clear`** at steering's ask (`steering-hooks-fixer`, 332K tokens). This block is current. The
-blocks below it are history where they disagree.
-
-- **Done.**
-  - Round 8 at `2b82972` (Fix Round 3): REJECTED on CR-25's time member (record `7376a74c`, plan R-112).
-  - Its sub-entry at `a7ad3f2` (Fix Round 4): **REJECTED on CR-28 HIGH**, with CR-27 MEDIUM (record `9cb3a3da`, plan R-117
-    `a2515c01`).
-    - CR-28 is the lone-backtick iteration-cap throw that the owner's D-28 covers. It throws from 100 `a🙂` lines, mounted too;
-      `af3d95a` does not throw.
-    - CR-27: the suppression's fixed-point condition fails on 6 corpus keystrokes, and the no-suppression mutant restores all 6.
-  - CR-25 HIGH and CR-26 LOW are RESOLVED at `a7ad3f2`, with SL-29 at 0 of 20 over.
-  - CR-29 MEDIUM is a stated limit (block 05:30Z, `9fe446a8`), carried by `handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md`.
-- **Next.** Fix Round 5's review. Steering's brief will name this state. It is a sub-entry of Round 8 unless the fix touches beyond
-  CR-28 and CR-27; whatever D-28's class revision adds may make it a round. Before reading the diff:
-  - Read plan Revision 24, which answers CR-27 against R-111 once AN-9 has enumerated D-28's class, and record its criteria at
-    round open.
-  - Then re-run, from `verification/019/code-review/m6fix4-a7ad3f2/` (README there):
-    - `run-fix4.sh` (SL-29 at `af3d95a` and the tip; differentials and counts);
-    - `run-fix4b.sh` (class members at three trees, and the fixed-point probe on a no-suppression mutant of the tip);
-    - the load differential against `a7ad3f2`;
-    - the fresh-check over the keystroke differential's substantive differences (`classify4.py` drops `classNames`);
-    - the mounted lone-backtick probe.
-  - CR-28's falsity case must be red at `a7ad3f2` by assertion. Every member AN-9 lists needs a probe at `af3d95a` and at the tip.
-  - QA holds both Assumptions Not Checked for the next tip: the browser paste (`a721fd95`), and the generator for CR-27 (`fcc0ba6d`).
-- **Approach in flight.** None.
-- **Branch and HEAD.** Website `chain/019-slate-formatting-discord-engine` at `a7ad3f2`, never moved by me. The record is on `master`.
-- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds disposable exports (`r8/e-*`, including the
-  `e-a7ad3f2-nosupp` mutant) and outputs. Every cited output is copied under `verification/019/code-review/`.
-- **Evidence run but not recorded.** None.
-- **Questions sent, and to whom.** None open. planner-019 answered CR-27 by message: R-111 binds every input the suppression applies
-  to, not only the members, and its own R-114 reading ("The cause is not the skip") was wrong. Revision 24 restates this, and AN-9
-  enumerates the load/normaliser disagreement and D-28's class.
-- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
-
-Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, 367,141 tokens). The earlier state, from
-07:07Z, is kept below where it still holds.
-
-- **Done.**
-  - **Round 7 at `85ece66`** (M6 Fix Round 2, AC-6.9): **REJECTED** on CR-25 HIGH, with CR-24 LOW (record `e92137fe`; plan R-103
-    at `7054250e`). Hand-back sent to implementer-019, and the plan gap to planner-019.
-  - Steering ruled (effort rulings block 19:43Z, record `6507ae1e`): the cap does not carve out CR-25's paste member, and the
-    verdict stands as written. The fence member rides D-24. Whether the paste joins this round's criterion is a scope question
-    steering is putting to the owner.
-  - M2 at `7dcedc9`, M3 at `81c68b2`, M4 at `e58f2ed`, M5 at `2e36107` (with QAF-39 at `cf126ea`) and M6 at `119471f`: all
-    APPROVED_WITH_COMMENTS.
-  - Plan rows: R-53, R-55, R-57, R-60, R-73 and R-77. The planner registered the findings: R-54, R-61 and R-78.
-  - CR-20's short-message claim is corrected by the reconcile note in Round 6, and withdrawn to steering in the same channel.
-- **Done since (2026-11-24T09:29Z).** The CR-20 fix confirmation is the Round 6 sub-entry at `42128cd`: APPROVED_WITH_COMMENTS,
-  with CR-22 LOW and CR-23 MEDIUM. The fix did not touch `runUnit.ts` or `decorator.tsx`, so step 3 of the earlier plan (the
-  both-trees decorator differential) was not owed.
-- **Done since (Round 7).** M6 Fix Round 2 at `85ece66` is REJECTED on CR-25 HIGH, with CR-24 LOW. Probes are in
-  `verification/019/code-review/m6fix2-85ece66/`.
-- **Done since (Round 8, 2026-11-24T22:55Z).** M6 Fix Round 3 at `2b82972` is REJECTED on CR-25's time member (steering block 22:41Z already sends it back under D-24). CR-25's count member and CR-24 are RESOLVED, and CR-26 LOW is new. The evidence is in `verification/019/code-review/m6fix3-2b82972/`.
-- **Done since (Round 8 sub-entry, 2026-11-25).** M6 Fix Round 4 at `a7ad3f2` is REJECTED on CR-28 HIGH (a lone backtick throws from 100 `a🙂` lines, mounted too, where `af3d95a` does not), with CR-27 MEDIUM (the suppression's fixed-point condition fails on 6 corpus keystrokes; the mutant restores them). CR-29 MEDIUM (typographic quotes) goes to steering. CR-25 and CR-26 are RESOLVED. The evidence is in `verification/019/code-review/m6fix4-a7ad3f2/`.
-- **Next (pending).** The next fix round (CR-28, CR-27, and CR-29 if it is sent back), as a sub-entry of Round 8 unless it touches beyond them. Re-run `run-fix4.sh` and `run-fix4b.sh` (exports of af3d95a, 85ece66, the tip, and the no-suppression mutant), the load differential, the fresh-check over the keystroke differential's differences, and the mounted lone-backtick probe.
-- **Plan row.** R-117 is committed (`a2515c01`), after the planner's R-116 and D-28 (`44796cb8`). The planner answers CR-27
-  against R-111 in Revision 24's batch, which waits on AN-9's enumeration of D-28's class. Read that revision before the next fix
-  round.
-- **Superseded (Fix Round 4 plan).** Fix Round 4 (CR-25's time member with architect-019's lift design read, and CR-26), at its hand-off. It is a sub-entry of Round 8 unless it touches beyond those findings. Re-run, from `m6fix3-2b82972/`: `run-sl29.sh` (all three trees, judged against block 20:58Z's line, both fills), `run-diff.sh` (paste and keystroke differentials, counts) and the committed count limb at `85ece66`. Read R-111 (CF-33's form under the no-throw limb): where a suppression is used, a forced `Editor.normalize` after every keystroke member, at every N, applies no operation, and the suppression covers only the replacement operations built from the load path.
-- **Fix Round 4's design, and what it adds to the review.**
-  - CF-33 (architect-019, record `4dfc0505`, timings in `verification/019/architect-conformance/fix3-lift/`) measures the cause of
-    the per-operation growth: Slate's pending dirty-path list, rebuilt on each `insert_node` and `remove_node`.
-  - Its recommended form rebuilds the changed lines from the load path, with `editor.getDirtyPaths` returning `[]` for those
-    operations alone.
-  - Under R-111, and the planner's ruling on the no-throw clause (steering block 22:48Z, which I read first), I review that
-    suppression as a guard:
-    - **Scope.** A mutant that widens it to every operation, or to every `insert_node`, must fail a committed case by assertion.
-      An operation from another source in the same drain must still dirty its path.
-    - **Fixed point.** A forced `Editor.normalize` after every keystroke member, at every N, applies no operation.
-    - **Differentials.** The keystroke and paste differentials show 0 new differences.
-  - QA has taken Round 8's Assumption Not Checked into its Phase 2 on Fix Round 4, with its own browser, not B-11 (record
-    `a721fd95`).
-- **Superseded (Fix Round 3 plan).** Fix Round 3 (CR-25), which reaches this review at its hand-off. It is a sub-entry of Round 7 unless it
-  touches beyond CR-25's scope, in which case it is Round 8. First read the owner's answer on the paste member (steering's next
-  rulings block after 19:43Z), and any plan revision the planner writes for CR-25's gap.
-  1. Read the fix diff at its `Handoff-At` through `git show`. Exports go by `git archive` into the scratchpad, with
-     `node_modules` symlinked from the website clone. Run under `unshare -rn`.
-  2. Copy the probes from `verification/019/code-review/m6fix2-85ece66/` (drop `.txt`, set `CRPROBE_OUT`):
-     `crprobe.fence-emoji-count` and `crprobe.paste-count`. The ratio at 1,000 against 200 must be at most 10; it was about 25.
-     Check that the implementer's counting cases are red at `85ece66`, with a mutant restoring the `editor.children` key if needed.
-  3. Re-run `crprobe.keystroke-fixedpoint` and `crprobe.keystroke-settle` against `85ece66`, and classify with `classify.py` and
-     `caret-line-check.py`. Expect 0 differences, or a stated family.
-  4. Time `crprobe.fence-emoji` and `crprobe.paste-emoji-unmounted` against Round 7's tables (base `af3d95a` figures there).
-     Re-run the planted-ceiling bench control, and the mounted no-catch probe if CR-24 is touched.
-  5. Re-run CR-25's enumeration (`git grep -n "=== editor.children\|editor.children ===" <sha> -- src ':!*__tests__*'`) with a
-     second instrument, and break its predicate. A memo keyed some other way that still resets per operation is a member.
-  6. Then the changelog row (`record-edit.js` with `{now}`), the plan row by `plan-row-commit.js` (the next R number), and the
-     hand-off to QA or back to the implementer.
-  M7 is devops's. This review has no M7 round unless steering asks.
-- **SL-29 brief (planner-019, 2026-11-24T20:5xZ, D-27, block 20:54Z, plan record `e241aa14`).** Step 4 is widened to every
-  SL-29 member, tip beside `af3d95a` on the same probe, box load beside each: paste `a` and `a🙂` through `insertData`, and
-  opening and closing a fence on the `a🙂` texts, each at 200 and 1,000 lines. CR-25 stays unresolved while any member is several
-  times the base, whatever the count limbs read. Paste base medians: `verification/019/planning/paste-refute/out-af3d95a.jsonl`.
-  **Premise defect, sent to planner-019 and steering at 20:58Z:** `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl` shows
-  that all four `a🙂` fence members at 200 and 1,000 lines (and every `a` member at those sizes) carry `Error: Could not completely
-  normalize` at the base. Each base median there (16.2 to 48.1 ms) times the iteration-cap throw, not a completed keystroke, so
-  "several times the base" has no valid denominator for the fence members. The paste members' base runs have no errors. The fence
-  members wait for steering's ruling on the comparator. Until then, the tip readings are recorded beside the base's throw time,
-  and the throw is named on each row.
-- **SL-29 comparator, ruled (effort rulings block 2026-11-24T20:58Z, record `493aa6cc`).** A fence tip reading compares
-  against `af3d95a`'s median on the same probe, with the base's throw named beside it, built as the plain-line fence ceiling
-  (plan § the fence keystrokes' ceiling) is built. The ruling's arithmetic:
-  - Roughly today's speed is a tip median of at most (the larger base median at that N) × 1.25, for fence and paste alike.
-  - A reading above that line goes to steering with its figures and the load. It is not a fail on its own.
-  - A tip throw, or a write failure, fails on its own limb.
-  - Context only: the same keystroke's plain `a` reading, at the same size, at the tip.
-
-  How I apply it:
-  - For a fence, "larger" means the larger of the open and close medians, as in the plan's ceiling.
-  - A paste member has one base median per fill and N. I hold each paste member to its own median, which is the stricter
-    reading, and I have told steering so.
-  - I re-run the base in the same session as the tip and judge against that run. Round 7's figures are recorded beside it.
-
-  Lines from the committed figures:
-
-  | Member | Base medians | Line (× 1.25) |
-  |---|---|---|
-  | `a🙂` fence, N = 200 | close 16.2, open 16.9 ms | 21.1 ms |
-  | `a🙂` fence, N = 1,000 | close 48.1, open 43.5 ms | 60.1 ms |
-  | Paste `a`, N = 200 | 135.1 ms | 168.9 ms |
-  | Paste `a`, N = 1,000 | 1,695 ms | 2,118.8 ms |
-  | Paste `a🙂`, N = 200 | 237 ms | 296.3 ms |
-  | Paste `a🙂`, N = 1,000 | 2,972.1 ms | 3,715.1 ms |
-
-  Sources: the fence medians are from `code-review/m6fix2-85ece66/fence-emoji-af3d95a.jsonl`, and the paste medians from
-  `planning/paste-refute/out-af3d95a.jsonl`.
-- **Approach in flight.** None.
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `a7ad3f2`. I never move it. The
-  record is on `master`.
-- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds probe copies and outputs, all disposable;
-  the exports are deleted.
-- **Evidence run but not recorded.** None. Everything cited is under `verification/019/code-review/`.
-- **Questions sent, and to whom.** None of mine is open: the SL-29 fence comparator is ruled (block 20:58Z).
-- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
