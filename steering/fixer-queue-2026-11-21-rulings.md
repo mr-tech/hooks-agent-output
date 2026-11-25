@@ -2213,3 +2213,14 @@ Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T15:49Z — 
 - The editor rebuild is carried by `planning/slate-editor-rebuild-sizing-2026-11-25.md` and opens only on his word (block 15:38Z).
 - Standing check `3fb714fd` is at 16:28Z. The 15:58Z usage reading was not live. Nothing waits on him, and `OWNER-QUEUE.md` is empty.
   No subagent of this thread's is running.
+
+## 2026-11-25T16:33Z — plan 019 UAT approved; devops-019 respawned at Stage 1; UAT-1 routed to the rebuild's sizing document
+
+Read this turn: `uat/019-slate-formatting-discord-engine-uat.md` Status UAT Complete, `Verified-At: 48eb60a`, APPROVED FOR RELEASE (record
+`d06fe6b5`); plan Status UAT Approved, R-137 (`d2b99b88`). `uat-019` sent the spawn cue for devops by message at 16:32Z.
+- **Acted:** `devops-019` is spawned fresh at Stage 1 (category `slate-formatting`), brief `steering/019-brief-devops.md` rewritten. Its
+  `Duties negated:` line names the architect's closing pass (block 15:46Z; D-33).
+- **UAT-1** (LOW, pre-existing, also in production): the UAT document routes it to this thread for the editor rebuild. Its carrier is
+  `planning/slate-editor-rebuild-sizing-2026-11-25.md`. `planner-019` owns that document and is asked to add the row (Resumption State
+  `f9599d67`). UAT-2 is an instrument note and stays in the UAT document, with no carrier.
+- The 16:28Z usage reading was live (weekly_all 89%), so there is no non-live block to put to him.
