@@ -2143,7 +2143,12 @@ Phase 2 on M4, which runs `pnpm test:discord` at the approved SHA.
 
 ## Resumption State
 
-**Current, 2026-11-25T12:34Z** (written at the Round 9 sub-entry's verdict). Where this block and the ones below disagree, this one holds.
+**Checkpoint for a `/clear`, at steering's ask (361,491 tokens).** Written at the Round 9 sub-entry's verdict (12:34Z) and brought up to date at this checkpoint. Where this block and the ones below disagree, this one holds.
+- **Since the verdict.** CR-31 is carried by plan R-132 (`5f224c30`), and R-133 corrects its severity wording. The implementer corrected its record's `move_node` claim (`fb7dbc99`).
+- **Questions sent.** None open.
+- **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad `r9/` exports and outputs are disposable, and everything cited is under `verification/019/code-review/m6fix5-40947a6/` and `m6fix6-48eb60a/`.
+- **Evidence run but not recorded.** None.
+- **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
 - **Done.** Round 9's sub-entry at `48eb60a` (Fix Round 6): APPROVED_WITH_COMMENTS. CR-28 RESOLVED; CR-31 LOW new (the `move_node` branch); M6 handed to QA Phase 2. Evidence: `verification/019/code-review/m6fix6-48eb60a/`.
 - **Next.** Nothing owed until QA Phase 2 hands back a finding, or a further fix reaches this review. Any such fix is a sub-entry of Round 9 unless it reaches beyond its findings.
 - **Branch and HEAD.** Website at `48eb60a`, never moved by me. The scratchpad exports are disposable.
