@@ -1989,3 +1989,13 @@ limit unless the round's measurement shows it cleared.
   The implementer is told to disclose them and to re-run anything killed, capped.
 - The website tip is `55e5fdd` (`git log`, 07:09Z).
 - Gate satisfied: the record-write gate hook refused this thread's shell edit of its docket, so the edit was re-made with the Edit tool.
+
+## 2026-11-25T07:14Z — his command: lodge the implementer's documentation load as a likely high-value trim
+
+His question, then his command (witnessed, this session):
+- "Does the implementer have to write a lot of documents as it's writing code?"
+- "Lodge in agent's output that this needs to be evaluated as a likely high value place to trim"
+**Acted:** one FYI entry appended to `/usr/local/bin/statbot/agent-output/INBOX.md`, the Agent Output domain's inbox (steering.md, Coordination
+files), read as his "agent's output". It carries his words, plan 019's implementation-document sizes (`wc -c`) and `verification/019/impl`'s
+335M (`du -sh`), and it names `~/.claude/agents/implementer.md` as the Agents domain's file. The inbox is left uncommitted for its owning
+session (steering.md). Its preamble instead says "Commit the one path, by pathspec", and that conflict has been told to him.
