@@ -2,10 +2,8 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Status: Active
-Status-Detail: >-
-  M2 coded and committed on chain/019-slate-formatting-discord-engine; code review round 1 REJECTED 22f3e58 (CR-1, CR-2); fix round 1
-  committed at 78c5f74 and handed back. M3 in progress (own document when handed off).
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release."
 Handoff-At: 7dcedc9 — repos=website — fix round 2 (QA Phase 2 QAF-29, QAF-30) over 78c5f74; fix round 1 was 78c5f74 over 22f3e58 (the M3 commits 805fff6 and 548b16b sit between them and touch no M2 file but add one test helper that names the engine, AC-2.1's second member; review by path over src/utils/markdown/engine.ts and its engine.* tests)
 ---
 
@@ -30,6 +28,7 @@ QA Phase 1: `qa/019-slate-formatting-discord-engine-qa.md` (record `26f3a3c`). C
 | 2026-11-23T19:40 | qa-019 (message; QA record `0b00154b`, plan row R-26) | Fix round 2: QAF-29 MEDIUM, QAF-30 LOW | Fix commit `7dcedc9`. Section "Fix Round 2" below. |
 | 2026-11-23T19:24 | code-reviewer-019 (message; review record `a8588f39`) | Fix round 1: CR-1, CR-2 | Fix commit `78c5f74`. Section "Fix Round 1" below. CR-3 carried to M5. CR-4 deferred to M3's oracle round (stated below). |
 | 2026-11-23T19:06 | implementer-019 | Checkpoint | Session prefix at 289,182 tokens (`cc-usage.py sessions`), past the 225K seam threshold, after M2. Resumption State written. M3 to M6 are not started. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. |
 
 ## Implementation Summary
 
@@ -331,18 +330,4 @@ exit 0 (`m2fix2-suite-7dcedc9-offline.{json,log.txt,exit}`). `pnpm run typecheck
 
 ## Resumption State
 
-Written 2026-11-23 at the end of M2, for a `/clear`.
-
-- **Done.** Plan Status `In Progress`. Baseline recorded. M2 committed: `1005eec` (adapter, tests, provider, pin, R-A) and `22f3e58`
-  (two link rows). Self-check sweep recorded. This document is the M2 delivery.
-- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `22f3e58`. The tree holds only the foreign
-  `?? .playwright-mcp/`. `.next/` holds the build output of the last build and is ignored by git.
-- **Next.** M3, then M4 to M6 on the plan's order (M3's `pnpm test:discord` and its vitest projects `discord-node` and
-  `discord-dom`; the legacy oracle runner, AN-4; the normaliser; the seeded generator). Before code on M4, M5 or M6, send
-  `steering-hooks-fixer` the flows that hold a decision (brief). Run `node ~/.claude/tools/convention-check.js website
-  --since=5ec0621` before each hand-off.
-- **Approach in flight.** None. No uncommitted work in the website tree.
-- **Local state not restored.** None. The scratch export `exp-1005eec` was deleted (its `node_modules` was a symlink; the shared tree's is intact). No process of mine is running.
-- **Evidence run but not recorded.** None: every capture is under `verification/019/impl/` (to be committed with this document).
-- **Questions sent, and to whom.** None.
-- **Cache-warm wake.** Armed at 18:49 (job `af676f9b`); deleted at this checkpoint.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
