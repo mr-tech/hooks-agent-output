@@ -24,6 +24,9 @@ passed. 11 of 40 KILLED: 66:num, 68:===, 72:>, 73:===, 75:===, 75:if-false, 75:w
 Total: 31 of 60 killed, 29 survived, 0 stillborn, 0 aborted (after pass 2), 0 timed out.
 
 Survivors and dispositions (lines at 2c0b182, withNormalizeNode.ts):
+- [Corrected 2026-11-25T12:37Z, CR-31 LOW, code review record 2f94aff4: for a top-level move both transforms in the branch return the
+  target path, so the branch never notes the run the line left, and hand-move-notes-source-only, which drops the second transform, is
+  equivalent to the code rather than a source-only note. The disposition below stands for the other six.]
 - 68:if-false, 69:walk-first, 69:walk-last, 69:num, 69:num:2, 70:!==, hand-move-notes-source-only (the move_node branch):
   UNREACHED in the product: git grep -n -E "moveNodes|move_node" 2c0b182 -- src ':!*__tests__*' gives only this branch; slate-react's
   drag is a delete and an insert (code review Round 9's read of Editable onDrop). Not tested.
