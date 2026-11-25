@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/019-slate-formatting-discord-engine -> website master 5ec06212d73073ab556e46582c3b23e3468da3a3 -> 48eb60a02f4af4f27f1a5426bbe7e58301b1d148 (fast-forward)"
 UUID: f13a0412
 Verified-At: "48eb60a02f4af4f27f1a5426bbe7e58301b1d148 — repos=website; the tip's tree f50f8aa4 is the M6 Phase 2 Verified-At tree (qa/019-slate-formatting-discord-engine-m6-qa.md, record ce8d31a0); git-archive export x48p, 686 of 686 blobs"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master 5ec0621 -> 48eb60a (plan 019, one plan). Runbook R-1: pnpm test offline 4,785 of 4,785, exit 0; pnpm test:discord live 41 of 41, exit 0, wasm hashes equal (no C2 drift), offline loud (C1, as designed); AC-3.3's full count 17 of 17, exit 0. The gated time-based set ran once (both bench files, exit 0). Step 1b: 39 open handoffs, 11 match, none holds the release. The M3 AN-3 re-read: both legacy surfaces drawn as legacySurfaceParse reads them, build 679963."
+Status: Released
+Status-Detail: "Released: website master 48eb60a, pushed 2026-11-25T17:39Z. R-1 verdict: offline 4,785 of 4,785 and test:discord 41 of 41, both exit 0; generator 17 of 17; B-6 passed."
 Phase: 3
 ---
 
@@ -25,6 +25,7 @@ row. It executes B-6 (below). The UAT document and the deployment record are aut
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-25T16:59 | `steering-hooks-fixer` for `devops-019`; `devops-019` (message: the M3 AN-3 re-read) | Phase 3 at the release tip `48eb60a`, runbook R-1 | Phase 3. The tip is the M6 Phase 2 tree. R-1's commands were run anyway, as B-6 and block "2026-11-25T15:49Z" require. Also run: step 1b, the gated set, and M3's two Phase 3 items. **Release Verified.** |
+| 2026-11-25T17:40 | devops-019 | Release closure | Status: Released (pushed 2026-11-25T17:39Z). § Assumption Not Checked: closed on the install limb by the Preview of the same lockfile (Vercel online install, wasm sha256 `da7b9e5e…57fb0`; deployment record § Preview read). The deployed behaviour is read by the B-5 reader; no host-side read was made. |
 
 ## Scope (qa-phase-3.md, first line)
 
