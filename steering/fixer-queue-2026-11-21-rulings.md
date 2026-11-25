@@ -2076,3 +2076,23 @@ thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks-fi
 - At hand-off, this thread reads the round's figures and R-129/R-130's off-selection probe. Then code review (a Round 9 sub-entry), then QA
   Phase 2.
 - Standing check `03f749f1` is at 10:59Z. Nothing waits on him, and `OWNER-QUEUE.md` is empty. No subagent of this thread's is running.
+
+## 2026-11-25T11:38Z — selection: research whether a better editor design exists; plan 019 keeps going (put 11:38Z, answered 11:38Z)
+
+His question (witnessed, this session): "A lot of work is being put into extending my Slate implementation. One thing I have to wonder is if
+there is just a better implementation out there. The reason I ask this is because I really wasn't referencing anything specific other than
+just Discord's DOM output when creating functions like with normalization."
+Ledger: `steering/selection-ledger/2026-11-25.md`, block `2026-11-25T11:38Z — steering-hooks-fixer`. Put by this thread, answered by selection;
+the wording is this thread's.
+- *Agent: research it, keep going*: a researcher studies how Discord's box is built and what else exists, and reports whether a different
+  design would cut the remaining work; Discord's code studied as a model, never copied; the fix round carries on; time and cost unmeasured.
+- *Agent: research it, pause 019*: the same, with 019 stopped at the current round's end until the answer is in.
+- *Agent: no research*: 019 carries on unchanged.
+**Chosen: "Agent: research it, keep going"**, by selection.
+Premises, read this turn: the oracle research (`research/closed/slate-formatting-discord-oracle-2026-11-23.md`) asked only which formatter
+describes Discord (its § Question); it found Discord's text box is a Slate editor (`[data-slate-editor]`, V-21) with a rule-to-Slate module
+(339200) and a native token-to-decoration module (818948), read by content predicate, not studied for design. Chain spend $735.26 over
+8,402 requests, all sessions named `*-019` (`cc-usage.py chain 019`, no `--since`). Discord's code: tests only, never shipped (block
+2026-11-23T09:17Z).
+**Acted:** a researcher, `researcher-slate-editor-design`, is started outside the pipeline (steering.md: a question upstream of committing to
+an effort goes to the researcher), brief `steering/slate-editor-design-brief-researcher.md`. 019's round, code review and QA proceed unchanged.
