@@ -1999,3 +1999,10 @@ His question, then his command (witnessed, this session):
 files), read as his "agent's output". It carries his words, plan 019's implementation-document sizes (`wc -c`) and `verification/019/impl`'s
 335M (`du -sh`), and it names `~/.claude/agents/implementer.md` as the Agents domain's file. The inbox is left uncommitted for its owning
 session (steering.md). Its preamble instead says "Commit the one path, by pathspec", and that conflict has been told to him.
+
+## 2026-11-25T07:16Z — correction: his trim item goes to the Agents inbox
+
+His words (witnessed, this session): "I meant agent's inbox."
+**Acted:** this thread's entry is deleted from `/usr/local/bin/statbot/agent-output/INBOX.md` and re-lodged as an FYI in `~/.claude/agents/INBOX.md`,
+with the same content and his correction quoted. Block 07:14Z's routing was this thread's misreading of "agent's output". The inbox-commit
+conflict in that block no longer applies: the Agents inbox is left uncommitted for its owning session.
