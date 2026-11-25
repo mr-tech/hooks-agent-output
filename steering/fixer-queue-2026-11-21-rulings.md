@@ -2031,7 +2031,7 @@ this thread read the hand-off, `code-reviewer-019` was already busy (`cc-usage.p
 
 ## 2026-11-25T09:50Z — plan 019 code review Round 9 at 40947a6: REJECTED on CR-28 HIGH; the off-selection member is fixed in this chain (this thread's)
 
-`code-reviewer-019` by message (09:4xZ), with record `32670053` and plan row R-128 (`b0406ef2`). The member: an inline-code backtick inserted at
+`code-reviewer-019` by message (received before 09:50Z), with record `32670053` and plan row R-128 (`b0406ef2`). The member: an inline-code backtick inserted at
 line 0's end, or removed from it, away from the selection (selection null, or in a separate run unit after a code block). It throws Slate's
 126-iteration error from 100 `a🙂` lines. Read this turn by `grep -c` over `verification/019/code-review/m6fix5-40947a6/`:
 - `offsel-40947a6.jsonl`: 12 of 24 rows throw.
