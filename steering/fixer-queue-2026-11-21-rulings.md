@@ -1917,3 +1917,13 @@ entry condition (D-30), and is cued to the three gates.
 That may describe correct behaviour. AN-9 B2 found that inside real inline code Discord's formatter treats an emoji as text, so the defect may
 be the page error alone. His choice does not turn on it, since the release still adds the error. AC-6.9's fresh-load limb decides the tip's
 emoji state. Told to him in chat at 06:1xZ as a candidate correction.
+
+## 2026-11-25T06:18Z — plan 019: the emoji half of the 06:14Z option text was wrong; told to him; architect APPROVED Revision 25
+
+`architect-019` by message, with record `e0228ee5`: Revision 25 APPROVED, no finding. This thread read the engine capture
+`verification/019/analysis/an9/engine-trees.txt` lines 52–58 this turn. `"a🙂`\na🙂\na🙂``"` parses as text `a`, emoji `🙂`, then
+code `` `\na🙂\na🙂` ``: the later lines' emoji are code text.
+**Correction (this thread's error):** Q1's option said the release "would otherwise add a page error and the emoji drawing collapse that
+production doesn't have". The emoji change is the release matching Discord's formatter, which is the plan's design. The only harm it adds
+there is the page error. His choice stands on that (D-29). The architect claims nothing about how Discord's client draws the glyph, or the
+preview. Told to him at 06:18Z. The check that would have caught it: reading AN-9's engine trees before writing the option.
