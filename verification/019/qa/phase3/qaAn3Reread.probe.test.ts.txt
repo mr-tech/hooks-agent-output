@@ -1,0 +1,27 @@
+// QA Phase 3 (plan 019): AN-3's re-read at the release tip. legacySurfaceParse's tree on the served build, for one input, on the two
+// legacy surfaces a message can carry (embed description, V2 text display). Placed in the export only; writes JSON to QAPROBE_OUT.
+import { writeFileSync } from 'node:fs';
+import { it } from 'vitest';
+import { cleanTree, openLive } from '../helpers/discordLive';
+import { legacySurfaceParse } from '../helpers/discordSurfaces';
+
+const INPUT = process.env.QA_AN3_INPUT ?? '';
+const kinds = (tree: unknown): string[] => {
+  const out: string[] = []; const seen = new WeakSet<object>();
+  const walk = (v: unknown) => {
+    if (v === null || typeof v !== 'object' || seen.has(v)) return; seen.add(v);
+    if (Array.isArray(v)) { v.forEach(walk); return; }
+    const r = v as { type?: unknown; content?: unknown; items?: unknown };
+    if (typeof r.type === 'string') out.push(r.type);
+    walk(r.content); walk(r.items);
+  };
+  walk(tree); return out;
+};
+it('reads the legacy tree of one input on the embed description and the V2 text display', async () => {
+  const live = await openLive();
+  const rows = (['embedDescription', 'v2Text'] as const).map((s) => {
+    const t = legacySurfaceParse(live, s, INPUT);
+    return { surface: s, kinds: kinds(t), tree: cleanTree(t) };
+  });
+  writeFileSync(process.env.QAPROBE_OUT as string, JSON.stringify({ build: (live.build as { number?: unknown }).number ?? live.build, input: INPUT, rows }, null, 1));
+}, 120_000);

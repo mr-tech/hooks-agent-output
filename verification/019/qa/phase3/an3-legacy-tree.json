@@ -1,0 +1,741 @@
+{
+ "build": {
+  "html": "<78208 chars, omitted>",
+  "scripts": [
+   "533077.2dfad94f9e3eb9ae.js",
+   "536004.e6d0bfe7eaa85f98.js",
+   "libdiscore-wasm-fetch.5306b4c88499697d.js",
+   "935812.8fd8f77874b20b64.js",
+   "434742.40153028c06c7cd8.js",
+   "527542.c2f0c4923f072342.js",
+   "948255.c493786c9a5e173b.js",
+   "704141.b062a8e731bedb10.js",
+   "240060.9d6ae099d60b8c2d.js",
+   "162412.c4263560de18f500.js",
+   "99286.40ef6b9b98b91481.js",
+   "40715.b38a501065648eae.js",
+   "fast-connect.932acd28174f19c9.js",
+   "324644.ce8af4ab3cb21606.js",
+   "619666.09dd54383afdd816.js",
+   "sentry.3e2358e66647fd1c.js",
+   "193433.f5f124f315a0b3bd.js",
+   "471903.14ae73cae47dc78b.js",
+   "773047.04f908b30e5a5afb.js",
+   "699403.7db02e7faedcbbf3.js",
+   "909091.e8e39f982461cfa2.js",
+   "506933.f50d417232acaffe.js",
+   "776412.733b094a6990787d.js",
+   "384209.64ae3242bc1be8c5.js",
+   "354320.c302abfc17f6fbb8.js",
+   "448400.bf5ae5741b0e6c2d.js",
+   "332923.0db005bc18bd1b47.js",
+   "476662.67c7335cf761856c.js",
+   "447505.62e5bbc9e3075a97.js",
+   "188259.a38a69432335ceb8.js",
+   "253044.047bc7aef97cb052.js",
+   "311913.51689caa7583cd4c.js",
+   "881717.2c24b765cfce9354.js",
+   "239502.b61909819aff5274.js",
+   "343178.2671a17b2c530be3.js",
+   "685143.cfbbe63075960680.js",
+   "436803.8fb29995473cfcda.js",
+   "790853.b0a19863c49ded06.js",
+   "545666.e86eb16890fbf16a.js",
+   "985768.26e813724d6b12ba.js",
+   "960179.6fc85a7681607487.js",
+   "552653.6527f36deb303c89.js",
+   "324931.0f0d6fd2775da782.js",
+   "159597.6d04ff63ff3bf465.js",
+   "483754.ad8a60cfb6beb0d9.js",
+   "599618.cc95d2b385d78b65.js",
+   "991625.4fb163a785261c0a.js",
+   "230029.d3c6dc71499eacd4.js",
+   "687828.d65aa2f9043a9e02.js",
+   "78987.6defe4eeb4febc7b.js",
+   "761444.7a81d7726f8c082b.js",
+   "300559.9a2f42cc26eaf398.js",
+   "570385.4a7792ee9bf9f2aa.js",
+   "491899.4883c48dd083705a.js",
+   "818479.515da1a86870664f.js",
+   "586206.97763dafc1aed24e.js",
+   "441674.53d81dedfbfa7448.js",
+   "607986.7a19cb6d95dc8d44.js",
+   "616090.fa716e0237bd8426.js",
+   "796662.35d0ad2f11e5df39.js",
+   "801781.1c3eb1de3de5525b.js",
+   "31537.580521228f15f22d.js",
+   "5257.74aab6aad113e4a2.js",
+   "587882.0accfb6019a73988.js",
+   "677625.175e9cf6afc85609.js",
+   "901522.7c523b535195f3e6.js",
+   "878504.4c99af367a5c2369.js",
+   "196063.64ae7a5417e53aec.js",
+   "392028.929e26c151747628.js",
+   "124054.084d56a146d5155d.js",
+   "703298.d9651de4a049779e.js",
+   "686889.77ceb8368182ed71.js",
+   "56886.bf93daf25e874a61.js",
+   "417867.4f672a8ecb2dcf8b.js",
+   "520689.ee9ecdf4726b18e7.js",
+   "839772.04fd025a37617b99.js",
+   "811198.0f3f547366b110cc.js",
+   "870809.1b0c586bfc1950d8.js",
+   "142753.dc8d14e1166eafb5.js",
+   "415695.23ac5ede8f2ef9d6.js",
+   "927532.f864b0731410e2da.js",
+   "44141.1910be43251ad42d.js",
+   "308378.3557129d9ca36224.js",
+   "846900.c624e9d01243c25c.js",
+   "551353.0908b4696ff96883.js",
+   "144909.8ef825a03e17ddd0.js",
+   "55994.78b2d3036e5423c2.js",
+   "736919.999da1340ccb7893.js",
+   "678749.7696ea52747fb597.js",
+   "327545.e17f1f451f634555.js",
+   "163466.26b97e61071de584.js",
+   "234017.756a0a4b49a7e5e0.js",
+   "126301.ae0fcd1d9cd55004.js",
+   "274972.2b9b9b38ef296a3c.js",
+   "715170.3677c077ac7592fc.js",
+   "206988.aca984cad957bb3f.js",
+   "237427.d5047596e736ba7d.js",
+   "713398.6bb63844615676cf.js",
+   "110425.17cb0820bce3fcd7.js",
+   "668756.af3564b284982b99.js",
+   "390430.a79370dd6546e8dd.js",
+   "629972.1017b0772d0ee80c.js",
+   "120933.3e96cd9aa91a1858.js",
+   "258616.a08839f11d8fd402.js",
+   "25300.c9c189821574c9d4.js",
+   "516201.f526fee6485a123c.js",
+   "853564.94bb27fbc77167ef.js",
+   "249938.2255d56558538993.js",
+   "85427.60d047257462dbf3.js",
+   "791370.5bc8c14688f4f89a.js",
+   "827776.46bc9bfa3ab2a844.js",
+   "876400.e3fca32126a52613.js",
+   "915213.2b37166a55f252af.js",
+   "358404.926ff832b0475c0e.js",
+   "884848.65a364921379092f.js",
+   "121046.cb26095620f20d66.js",
+   "752704.570cd46b3ed21549.js",
+   "411619.8cf8a55d095f7b0e.js",
+   "947870.a49198a550e0a0e2.js",
+   "834050.44220e3163aa5155.js",
+   "814796.a5aca5fd9869ddca.js",
+   "891089.fcfad057f3b66a86.js",
+   "691747.4585e9b7d4b0a5aa.js",
+   "447272.117b41a0efa7cb27.js",
+   "611137.c1544470877afd97.js",
+   "923068.efa9c15bb038a078.js",
+   "886807.83fe6669ebd81758.js",
+   "795854.e660eb251058d765.js",
+   "556128.ac603cce92b196e6.js",
+   "624872.c1f65210ebc5dde9.js",
+   "693744.3a2cc32cec002cc3.js",
+   "770096.078e346090395e63.js",
+   "775417.9f3816a1c76ece88.js",
+   "932696.290b2cc82ee26431.js",
+   "564447.aa4e7d4957dd31ff.js",
+   "906710.5afc059d443795dd.js",
+   "970760.3f036515d3202f90.js",
+   "306695.047f4003d08371e7.js",
+   "477235.bbd75b60b2375715.js",
+   "251400.ebb20281f06bd6d2.js",
+   "553829.ff76e86da47e6065.js",
+   "865257.074804603629bb96.js",
+   "14335.8f50c7e3cc239ed9.js",
+   "291103.5c95e7c5054090fc.js",
+   "315513.0c7cb90aa2547bcf.js",
+   "36565.8ad4b31655b4a13d.js",
+   "560570.6d6863cc9b5be2cf.js",
+   "875762.0faff2d508166911.js",
+   "586984.cd1c8f37a8a56294.js",
+   "728925.2a954a23e552fb0d.js",
+   "84194.7a96ed0da9aa13e5.js",
+   "485480.972a5feaf434c63d.js",
+   "641877.79572c88dd0c5ad1.js",
+   "336046.4d2ed45b740b99ac.js",
+   "58495.f6d1390846ec4ef4.js",
+   "212298.ad76762e962de86a.js",
+   "253781.0821a394b6b5c409.js",
+   "242187.12b3a852672dc194.js",
+   "256257.5f64dc7bef9ba4b6.js",
+   "561672.806e5e661413965d.js",
+   "675582.6f9debfe193e5e72.js",
+   "977306.ba17dceb004051ed.js",
+   "847980.91d14d4e8f945ddd.js",
+   "165994.4366ce8ea007c41c.js",
+   "747400.1a24f3adeb2cbf83.js",
+   "843335.151d661c2c4fc146.js",
+   "250440.8f51b20c6bb413fd.js",
+   "201074.8d8eef15ef47e375.js",
+   "879641.03a4822308e46ae3.js",
+   "609019.a7fabfac14ccfe16.js",
+   "74853.ea8fd7c33a5d9b04.js",
+   "325522.2fabc676ed6f1474.js",
+   "401317.62ef9d17a8ce5915.js",
+   "790340.65513a5f8d068784.js",
+   "147119.9c205582c91a640f.js",
+   "425292.22690b7aa291e77a.js",
+   "209994.a42b8368c2fcc33a.js",
+   "311580.27f0758216ec7f93.js",
+   "174554.dc02090a13ac5c58.js",
+   "116815.a813b1540f8e5f02.js",
+   "813057.3d0ec26e932ff4a6.js",
+   "569603.f632bdd6b938fab4.js",
+   "152862.4bff9ffdbec6f98d.js",
+   "357900.2be0310d231d14d3.js",
+   "148729.2ab03507e225b377.js",
+   "650195.f844dde3e414f262.js",
+   "778082.49907758126631f3.js",
+   "67702.fc37a9d076329cc0.js",
+   "662387.28f250d3ebd04dd5.js",
+   "31544.4ee0a41fa08d657c.js",
+   "334168.37d041c20ab60868.js",
+   "582012.d1d42b5c0a079958.js",
+   "166336.e941e6850e324127.js",
+   "113658.cf06d9bf7a638984.js",
+   "162182.d9b44195ed8c81d3.js",
+   "860640.524df581b916be8a.js",
+   "681801.6ccda25ae9ae2d1f.js",
+   "66149.ca5812ccbdc794f9.js",
+   "996969.2ac0eff13bbf285e.js",
+   "281342.42b2568090c9c8ed.js",
+   "967850.3ceca6b75ecc4fca.js",
+   "67909.e80e2eef66b78e1e.js",
+   "916885.da7e8961fc9da5f8.js",
+   "272804.88e7ee651344f4ff.js",
+   "291329.2fd3d03bfeec2d58.js",
+   "449933.1fef0f59804b1518.js",
+   "985236.f143e8eed7d14552.js",
+   "254929.7cd5919208cd6b76.js",
+   "799357.673f66050cb454df.js",
+   "889880.6168d67492a40c10.js",
+   "375724.2d395ca913e15043.js",
+   "999272.efbb7b8180f1b7b1.js",
+   "216112.e35547a04276efad.js",
+   "490514.009f3a5d6fd7c6d3.js",
+   "962953.efacc474f464190f.js",
+   "550929.3e5ea6c0d7f1b829.js",
+   "64769.1cd2f96d4932cce8.js",
+   "86729.e75247c15eda1c30.js",
+   "971156.4473ca46c0020556.js",
+   "60002.07f17861d05cc1eb.js",
+   "260009.65bb5ddea83833c4.js",
+   "715867.c48b7bdb311ddfc0.js",
+   "266201.e4648aea55533fe8.js",
+   "56606.5c8ba0ba75707f69.js",
+   "520218.84126fcc82400143.js",
+   "738015.514a696d03e7463d.js",
+   "40791.8612079342fe2b04.js",
+   "996907.7aa24c2a1735af5c.js",
+   "831130.93b57e30b9af5017.js",
+   "377989.a152ee2d65aaa09a.js",
+   "358931.06d6e12bdb5a2656.js",
+   "880150.cb0a2e35b25714c0.js",
+   "168248.7fba6469a2b0d300.js",
+   "490743.65e900c16c8a6fae.js",
+   "533240.24a5cc963a13b0e1.js",
+   "734818.ab25259010ef2eb9.js",
+   "936090.d0b07bd6a60dda9e.js",
+   "841136.e32c25fe1f7bc3c8.js",
+   "560338.d18c357db5b4104d.js",
+   "459086.d17dfedd352c72f8.js",
+   "720210.36a33ec921115dd3.js",
+   "601152.beb72a20761b5ef9.js",
+   "319714.68ab1c05bd855e85.js",
+   "331249.05d9da4c91f98842.js",
+   "249727.2bf08fad52716bef.js",
+   "896691.4e440f4a5100acc6.js",
+   "779367.8dcba54709d22939.js",
+   "992956.c27dc6ba0fe7628f.js",
+   "428643.4295606ee85d48f4.js",
+   "630290.cb81983babd7654c.js",
+   "189423.2d06adb055ff7c4a.js",
+   "642578.2d2d2072995fff7a.js",
+   "471043.aa6f734d51c4b4c3.js",
+   "487458.2abb30f35c207376.js",
+   "938177.7e1f79b0c0280a0d.js",
+   "93012.8df4bbf508b73d3e.js",
+   "99965.9aabd23d0f71f9f6.js",
+   "706073.ebc5444ac354d1bb.js",
+   "227512.9a2cbaa984a6a457.js",
+   "806152.6d482347ae2f943c.js",
+   "679502.b4dd63e30c9761f4.js",
+   "245652.240530aa67cdc98c.js",
+   "104864.937fd445880ff32d.js",
+   "887789.d28eb4a1e1b6d012.js",
+   "330855.888d882cb0dc4b42.js",
+   "866212.f80fc5e64f3c005e.js",
+   "675327.96c5b42d7f100fce.js",
+   "82171.e48a8d1f7588d676.js",
+   "535308.8a0336e66db43d16.js",
+   "762309.b0a2b3055e1ebe9a.js",
+   "340341.4756b698214869f2.js",
+   "450998.ce58dd486b8cdaa9.js",
+   "40271.019ed9f97f495a30.js",
+   "285558.8260cf8d4cd4313f.js",
+   "939329.06d734a3650d6d93.js",
+   "352421.ab53cc150b1606fa.js",
+   "794188.5784b78187ccd4b1.js",
+   "718878.7ee22c19799f6069.js",
+   "462955.a2dcd2059adbd23c.js",
+   "409495.f011a40937f4bf6c.js",
+   "919170.6526d50b20d116e1.js",
+   "881286.9307ed314b920e7c.js",
+   "903072.04add21715eeefe4.js",
+   "411302.c31a618e0c1c9676.js",
+   "587669.511c134580558bf3.js",
+   "501017.7da281a2e58fe498.js",
+   "306670.a106daefaebb2114.js",
+   "384613.f4e6212edd0a6688.js",
+   "593586.91576a2f629b9917.js",
+   "642341.fb4aa3242a64e031.js",
+   "795186.2f4cb85a4787419d.js",
+   "264141.ab94ecaa46de7cd5.js",
+   "555956.4a7227742b510ff1.js",
+   "752924.65a0a16cab953386.js",
+   "727797.741c8bf633df962b.js",
+   "868544.06fa3d5f3f77769d.js",
+   "978226.f7ecb8d660cdbeaf.js",
+   "911747.940e81fc7f4544e2.js",
+   "538712.2cd8f8463915d6b0.js",
+   "47268.6275f0fe997e7e78.js",
+   "655825.559d7abd530b408c.js",
+   "703942.44acea8a0a84e9b1.js",
+   "454423.8f5c49440706eaa7.js",
+   "227955.289f4d3918cff62f.js",
+   "198496.6d276e77d82734bf.js",
+   "77413.f0bf27eaba77b3f5.js",
+   "521332.ffe754e3531494d6.js",
+   "267526.b05bdea445963333.js",
+   "669174.57f57879174d84a7.js",
+   "967062.38d09daaa78abeed.js",
+   "408734.b0fa70b1a2d9fb6e.js",
+   "306968.fb491ed6ab062ade.js",
+   "635014.80db2916892f51cf.js",
+   "123141.02eff44201220abf.js",
+   "653383.a3422cf708895dca.js",
+   "545749.4cf5e91affc73f2e.js",
+   "587308.4c62a32fca8d0709.js",
+   "10071.4f37c6cd3f5104cf.js",
+   "481597.863ed3e6ce8f9f34.js",
+   "599266.b000d0ebf0acab1a.js",
+   "847727.df0adb53ace998ba.js",
+   "760662.129fcb17759b8f2c.js",
+   "72338.e738d2e8c7d5a2c6.js",
+   "337375.be0d8393b9961a78.js",
+   "970200.f6cf04f82204d283.js",
+   "50726.63d7f5a78f0ea431.js",
+   "765531.16f1125971e7dad4.js",
+   "613085.628cd0981fde307b.js",
+   "897937.32b39c12d0b1b735.js",
+   "32125.7b1b7b6ad9d4475f.js",
+   "516949.2c434e60d7659f29.js",
+   "898957.abf86327115960e2.js",
+   "638658.87d03ff6c9783240.js",
+   "625000.41e7de10d6ef5003.js",
+   "355059.efabce00fc6942bf.js",
+   "8078.99b496a6260c4229.js",
+   "69112.792ffda2d1c60cdb.js",
+   "119182.9973584b1f652c29.js",
+   "547715.fa9431d091638132.js",
+   "462722.4e770788b897b56a.js",
+   "808616.3b3482b4d7a5b5fd.js",
+   "44715.8318198a114eb888.js",
+   "489870.b74010873ad8c069.js",
+   "226867.1e71fce096770982.js",
+   "419070.a248636d4a4a7b5a.js",
+   "vnd-emoji.37018cbf3ec4dae2.js",
+   "240406.9249439b2436496b.js",
+   "586783.a688bc19409912cd.js",
+   "564996.6fc04b58dc2ab5b6.js",
+   "527029.ca7dcba2cd153b4d.js",
+   "212361.4a69dfb63eda8d3a.js",
+   "897963.01388e7d46655b34.js",
+   "698610.174da93ccb01bd4a.js",
+   "178170.7b37b52fd82c8370.js",
+   "843880.f232feba46f34e80.js",
+   "124901.4a962df36484ed21.js",
+   "531875.dbe748f5f8bcf116.js",
+   "867880.e4fb77326582e6b7.js",
+   "602511.4186af6a6375e8cc.js",
+   "832936.f99c9d6f15f8d600.js",
+   "988758.8ef9e6cdf9300b81.js",
+   "41814.71b223a8d7abb540.js",
+   "824723.83f506e0ae941eff.js",
+   "web.55063002a61599e3.js"
+  ]
+ },
+ "input": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```",
+ "rows": [
+  {
+   "surface": "embedDescription",
+   "kinds": [
+    "heading",
+    "text",
+    "strong",
+    "text",
+    "text",
+    "em",
+    "text",
+    "text",
+    "u",
+    "text",
+    "text",
+    "s",
+    "text",
+    "text",
+    "inlineCode",
+    "text",
+    "spoiler",
+    "text",
+    "text",
+    "link",
+    "text",
+    "text",
+    "emoji",
+    "text",
+    "channelMention",
+    "text",
+    "blockQuote",
+    "text",
+    "list",
+    "text",
+    "codeBlock"
+   ],
+   "tree": [
+    {
+     "level": 1,
+     "content": [
+      {
+       "type": "text",
+       "content": "h"
+      }
+     ],
+     "type": "heading"
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "b"
+      }
+     ],
+     "type": "strong"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "i"
+      }
+     ],
+     "type": "em"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "u"
+      }
+     ],
+     "type": "u"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "s"
+      }
+     ],
+     "type": "s"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": "c",
+     "type": "inlineCode"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "sp"
+      }
+     ],
+     "channelId": "0",
+     "type": "spoiler"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "l"
+      }
+     ],
+     "target": "https://example.com/",
+     "title": "",
+     "type": "link"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "name": ":smile:",
+     "surrogate": "😄",
+     "src": "/assets/58a76b2430663605.svg",
+     "type": "emoji"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "type": "channelMention",
+     "id": "1574358729577599086"
+    },
+    {
+     "type": "text",
+     "content": "\n"
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "q\n"
+      }
+     ],
+     "type": "blockQuote"
+    },
+    {
+     "ordered": false,
+     "items": [
+      [
+       {
+        "type": "text",
+        "content": "li"
+       }
+      ]
+     ],
+     "consumedLeadingNewline": false,
+     "type": "list"
+    },
+    {
+     "lang": "js",
+     "content": "x",
+     "inQuote": false,
+     "type": "codeBlock"
+    }
+   ]
+  },
+  {
+   "surface": "v2Text",
+   "kinds": [
+    "heading",
+    "text",
+    "strong",
+    "text",
+    "text",
+    "em",
+    "text",
+    "text",
+    "u",
+    "text",
+    "text",
+    "s",
+    "text",
+    "text",
+    "inlineCode",
+    "text",
+    "spoiler",
+    "text",
+    "text",
+    "link",
+    "text",
+    "text",
+    "emoji",
+    "text",
+    "channelMention",
+    "text",
+    "blockQuote",
+    "text",
+    "list",
+    "text",
+    "codeBlock"
+   ],
+   "tree": [
+    {
+     "level": 1,
+     "content": [
+      {
+       "type": "text",
+       "content": "h"
+      }
+     ],
+     "type": "heading"
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "b"
+      }
+     ],
+     "type": "strong"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "i"
+      }
+     ],
+     "type": "em"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "u"
+      }
+     ],
+     "type": "u"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "s"
+      }
+     ],
+     "type": "s"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": "c",
+     "type": "inlineCode"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "sp"
+      }
+     ],
+     "channelId": "0",
+     "type": "spoiler"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "l"
+      }
+     ],
+     "target": "https://example.com/",
+     "title": "",
+     "type": "link"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "name": ":smile:",
+     "surrogate": "😄",
+     "src": "/assets/58a76b2430663605.svg",
+     "type": "emoji"
+    },
+    {
+     "type": "text",
+     "content": " "
+    },
+    {
+     "type": "channelMention",
+     "id": "1574358729577599086"
+    },
+    {
+     "type": "text",
+     "content": "\n"
+    },
+    {
+     "content": [
+      {
+       "type": "text",
+       "content": "q\n"
+      }
+     ],
+     "type": "blockQuote"
+    },
+    {
+     "ordered": false,
+     "items": [
+      [
+       {
+        "type": "text",
+        "content": "li"
+       }
+      ]
+     ],
+     "consumedLeadingNewline": false,
+     "type": "list"
+    },
+    {
+     "lang": "js",
+     "content": "x",
+     "inQuote": false,
+     "type": "codeBlock"
+    }
+   ]
+  }
+ ],
+ "buildNumber": "679963"
+}

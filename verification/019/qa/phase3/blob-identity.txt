@@ -1,0 +1,1 @@
+48eb60a02f4af4f27f1a5426bbe7e58301b1d148 /tmp/claude-1000/-usr-local-bin-hooks/015cd3b3-fceb-49de-be05-c82f9fd7f4d4/scratchpad/x48p: 686 of 686 tracked blobs equal; 0 differ

@@ -1,0 +1,32 @@
+[
+ {
+  "status": 200,
+  "message_id": "1575193331028459524",
+  "error": null,
+  "embeds": [
+   {
+    "bit": "QA_PHASE3_MIX",
+    "with_url": false,
+    "stored": {
+     "type": "rich",
+     "title": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```",
+     "description": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```",
+     "fields": [
+      {
+       "name": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```",
+       "value": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```",
+       "inline": false
+      }
+     ],
+     "author": {
+      "name": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```"
+     },
+     "footer": {
+      "text": "# h\n**b** *i* __u__ ~~s~~ `c` ||sp|| [l](https://example.com) :smile: <#1574358729577599086>\n> q\n- li\n```js\nx\n```"
+     },
+     "content_scan_version": 0
+    }
+   }
+  ]
+ }
+]

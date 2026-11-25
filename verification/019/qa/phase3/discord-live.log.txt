@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/015cd3b3-fceb-49de-be05-c82f9fd7f4d4/scratchpad/x48p
+
+ ✓ |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts (10 tests) 2744ms
+ ✓ |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts (9 tests) 2995ms
+     ✓ parses a corpus input that the two Discord parsers agree on to the same canonical form  617ms
+ ✓ |discord-node| src/utils/markdown/__tests__/discord/discordSurfaces.oracle-controls.test.ts (7 tests) 3146ms
+     ✓ draws a heading in an embed description and in a V2 text display, and as text in a field value and a title  673ms
+ ✓ |discord-node| src/utils/markdown/__tests__/discord/discordRouting.oracle-controls.test.ts (5 tests) 12803ms
+wasm: served wasm sha256 da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0, pinned wasm sha256 da7b9e5e0d7d7eb610127d15cc5e81b51c0bcbcbc166d0a0ffcda16e8dd57fb0: equal
+coverage: unexamined cells: GAME_MENTION / content, GAME_MENTION / embedDescription, GAME_MENTION / fieldValue, GAME_MENTION / v2Text, CODE_BLOCK / embedTitle
+ ✓ |discord-node| src/utils/markdown/__tests__/discord/discordReports.run.test.ts (6 tests) 13320ms
+ ✓ |discord-dom| src/utils/markdown/__tests__/discord/discordPreview.legacy-equality.test.tsx (4 tests) 20134ms
+     ✓ draws what legacy holds, in the loose canonical form, for every such input but the ones whose mention the site draws as source text  3499ms
+     ✓ leaves out only inputs holding a command, game or static mention, which the site draws as its source text  804ms
+     ✓ differs from it on exactly the inputs the frozen residue list names, and in exactly the way it names  13984ms
+
+ Test Files  6 passed (6)
+      Tests  41 passed (41)
+   Start at  16:52:35
+   Duration  23.92s (transform 2.17s, setup 33ms, import 7.14s, tests 55.14s, environment 776ms)
+
+JSON report written to /usr/local/bin/hooks/agent-output/verification/019/qa/phase3/discord-live.json

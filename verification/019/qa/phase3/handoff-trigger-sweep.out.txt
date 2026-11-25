@@ -1,0 +1,23 @@
+open handoffs (Status Open, outside closed/): 39; matching: 11
+- preview-fenced-code-block-test-hand-rolled-renderer-2026-11-24.md [names-verdict]
+    Review-Trigger: when `website/src/utils/markdown/__tests__/preview.fenced-code-block-draw.test.ts` is next edited, or when a chain next changes the preview's fenced-code-block drawing after plan 019 closes
+- project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md [website-push]
+    Review-Trigger: "when /usr/local/bin/hooks-deprecated/cdn, or any other tree outside /usr/local/bin/hooks/website that names project-utils, is next re-pinned or re-installed against project-utils master"
+- pusher-message-update-channels-are-public-2026-11-19.md [website-push]
+    Review-Trigger: when website src/server/api/routers/shared.ts or src/providers/MessageProvider/usePusher.ts is next edited, or when the next chain touching website access control opens
+- slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md [names-verdict]
+    Review-Trigger: when `src/components/SlateEditor/utils/codeFence.ts` `afterLine`, `getInitialValue.ts` `buildLines` or `withNormalizeNode.ts` `resolveLine` is next edited after plan 019's release
+- slate-formatting-link-targets-post-deploy-2026-11-25.md [names-verdict,website-push]
+    Review-Trigger: "the first fire of reader B5R at least 15 minutes after the production push of website master carrying plan 019"
+- slate-formatting-rollback-stored-emoji-read-2026-11-25.md [names-verdict,website-push]
+    Review-Trigger: "a revert of website master past 48eb60a (plan 019's release) is decided"
+- slate-formatting-unwalked-browser-behaviour-2026-11-25.md [names-verdict]
+    Review-Trigger: "the first user report about the editor or the preview after plan 019's release, or the editor rebuild's scoping, whichever comes first"
+- slate-smart-quote-repair-untested-2026-11-24.md [names-verdict]
+    Review-Trigger: when `website/src/components/SlateEditor/withNormalizeNode.ts` `handleElement`'s smart-quote repair is next edited, or when a chain next opens that file's normaliser for change after plan 019 closes
+- slateeditor-index-preexisting-react-hooks-lint-errors-2026-11-24.md [names-verdict,website-push]
+    Review-Trigger: "the production deploy of website master carrying plan 019 (its single release, M7); or, earlier, when src/components/SlateEditor/index.tsx is next edited outside plan 019"
+- website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md [website-push]
+    Review-Trigger: "when website's production install or build is next changed to omit devDependencies (an install flag, a Vercel install-command change, or a pnpm production-only install), or when website's package.json dependency sections are next edited"
+- website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md [website-push]
+    Review-Trigger: After chain 018's release, when website's src/pages/api/trpc/[trpc].ts, src/middleware.ts, src/app/_navigation/Redirects/Server.tsx or a dependency entry of package.json is next edited, when a tRPC procedure with a list in its input is added, when @trpc/server or zod next changes version, or when website's hosting changes (ecosystem.config.json or vercel.json is next edited, or a deployment that runs next start is proposed), whichever comes first.

@@ -1,0 +1,8 @@
+client build 679963 | oracle build 679963
+1575193331028459524 embedDescription EQUAL
+  DOM    ['heading', 'strong', 'em', 'u', 's', 'inlineCode', 'spoiler', 'link', 'emoji', 'channelMention', 'blockQuote', 'list', 'codeBlock']
+  legacy ['heading', 'strong', 'em', 'u', 's', 'inlineCode', 'spoiler', 'link', 'emoji', 'channelMention', 'blockQuote', 'list', 'codeBlock']
+1575193337995071610 v2Text EQUAL
+  DOM    ['heading', 'strong', 'em', 'u', 's', 'inlineCode', 'spoiler', 'link', 'emoji', 'channelMention', 'blockQuote', 'list', 'codeBlock']
+  legacy ['heading', 'strong', 'em', 'u', 's', 'inlineCode', 'spoiler', 'link', 'emoji', 'channelMention', 'blockQuote', 'list', 'codeBlock']
+control (DOM vs a reading without heading): DIFFER (fires)
