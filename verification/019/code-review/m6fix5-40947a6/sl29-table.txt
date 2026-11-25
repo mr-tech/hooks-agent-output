@@ -1,0 +1,21 @@
+open: third backtick end of line 2 | a🙂 | 200 | base 26.6/22.9 T | line 33.2 | tip 13.4/13.7 | within | err - mism 0,0 | ops 396
+close: Backspace end of ``` line 2 | a🙂 | 200 | base 22.8/17.2 T | line 33.2 | tip 13.8/15.8 | within | err - mism 0,0 | ops 396
+open: third backtick at middle closing delimiter | a🙂 | 200 | base 14.6/14.7 T | line 33.2 | tip 8.6/7 | within | err - mism 0,0 | ops 201
+close: Backspace at middle closing ``` | a🙂 | 200 | base 14.5/14.2 | line 33.2 | tip 5.2/7.8 | within | err - mism 0,0 | ops 201
+paste through insertData | a🙂 | 200 | base 249.3/240.6 | line 311.6 | tip 80.5/84.9 | within | err - mism 0,0 | ops 1000
+open: third backtick end of line 2 | a🙂 | 1000 | base 45.8/44.7 T | line 61.8 | tip 39.3/47.9 | within | err - mism 0,0 | ops 1996
+close: Backspace end of ``` line 2 | a🙂 | 1000 | base 49.4/48.1 T | line 61.8 | tip 42.5/44.6 | within | err - mism 0,0 | ops 1996
+open: third backtick at middle closing delimiter | a🙂 | 1000 | base 33.6/33.3 T | line 61.8 | tip 25.7/25.9 | within | err - mism 0,0 | ops 1001
+close: Backspace at middle closing ``` | a🙂 | 1000 | base 38/31.4 T | line 61.8 | tip 22.9/22.9 | within | err - mism 0,0 | ops 1001
+paste through insertData | a🙂 | 1000 | base 2961.1/2989.9 | line 3737.4 | tip 1174.9/1160.8 | within | err - mism 0,0 | ops 5000
+open: third backtick end of line 2 | a | 200 | base 15.5/15.7 T | line 20.0 | tip 5.5/5.5 | within | err - mism 0,0 | ops 396
+close: Backspace end of ``` line 2 | a | 200 | base 16/14.9 T | line 20.0 | tip 6/6 | within | err - mism 0,0 | ops 396
+open: third backtick at middle closing delimiter | a | 200 | base 12.6/12.1 | line 20.0 | tip 3.4/3.5 | within | err - mism 0,0 | ops 201
+close: Backspace at middle closing ``` | a | 200 | base 12.6/13.2 | line 20.0 | tip 3.3/3.8 | within | err - mism 0,0 | ops 201
+paste through insertData | a | 200 | base 125.3/126.7 | line 158.4 | tip 48/48.2 | within | err - mism 0,0 | ops 598
+open: third backtick end of line 2 | a | 1000 | base 37.7/42 T | line 57.6 | tip 34.6/32.7 | within | err - mism 0,0 | ops 1996
+close: Backspace end of ``` line 2 | a | 1000 | base 38.8/46.1 T | line 57.6 | tip 37.7/34.6 | within | err - mism 0,0 | ops 1996
+open: third backtick at middle closing delimiter | a | 1000 | base 32.3/38.4 T | line 57.6 | tip 21.4/22.6 | within | err - mism 0,0 | ops 1001
+close: Backspace at middle closing ``` | a | 1000 | base 28.5/33.4 T | line 57.6 | tip 20.2/20.6 | within | err - mism 0,0 | ops 1001
+paste through insertData | a | 1000 | base 1763.5/1742.8 | line 2204.4 | tip 642/660.9 | within | err - mism 0,0 | ops 2998
+over 0 of 20

@@ -1,0 +1,56 @@
+import { createEditor, Editor, Element as SlateElement, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { beforeAll, it, vi } from 'vitest';
+import { writeFileSync } from 'node:fs';
+import getInitialValue from '../getInitialValue';
+import { withEmojis, withNormalizeNode } from '..';
+import type { Descendant, Element } from 'slate';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+import markdown from '~/utils/markdown';
+beforeAll(() => {});
+const parser = markdown.interactive.parseEmoji;
+const SURFACE = 'embedDescription' as const;
+const fresh = (text: string) => getInitialValue(text, parser, false) as Element[];
+const build = (text: string) => { const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parser); e.children = fresh(text) as Descendant[]; return e; };
+const shape = (line: Element) => JSON.stringify([line.type, line.quotePrefix ?? null, line.startCodeBlock, line.lang,
+  line.children.filter((c) => SlateElement.isElement(c) && (c as Element).type === 'emoji').map((c) => (c as unknown as { source: string }).source)]);
+const shapes = (lines: Element[]) => lines.map(shape);
+
+// The edit is applied at line 0's end, away from the selection: a backtick inserted (pairs with the one ending the last a🙂 line),
+// or a backtick removed from a line 0 that already holds one. Selection: none, on a separate unit after a code block, or (control)
+// at the edit point.
+type Where = 'none' | 'other-unit' | 'at-edit';
+function textOf(n: number, lineZero: string, tail: boolean) {
+  const lines = Array.from({ length: n }, (_, i) => (i === 0 ? lineZero : i === n - 1 ? 'a🙂`' : 'a🙂'));
+  return lines.join('\n') + (tail ? '\n```\ncode\n```\nz' : '');
+}
+it('off-selection inline-code edits', { timeout: 1190000 }, () => {
+  const rows: object[] = [];
+  for (const kind of ['insert', 'delete'] as const) for (const where of ['none', 'other-unit', 'at-edit'] as Where[]) for (const n of [5, 100, 200, 1000]) {
+    const tail = where === 'other-unit';
+    const before = textOf(n, kind === 'insert' ? 'a🙂' : 'a🙂`', tail);
+    const expected = textOf(n, kind === 'insert' ? 'a🙂`' : 'a🙂', tail);
+    const e = build(before);
+    let ops = 0; const { apply } = e; e.apply = (op) => { ops += 1; apply(op); };
+    const end0 = Editor.end(e, [0]);
+    if (where === 'none') Transforms.deselect(e);
+    else if (where === 'other-unit') Transforms.select(e, Editor.end(e, [e.children.length - 1]));
+    else Transforms.select(e, end0);
+    let error = '';
+    const t0 = performance.now();
+    try {
+      if (kind === 'insert') Transforms.insertText(e, '`', { at: end0 });
+      else Transforms.delete(e, { at: { anchor: { path: end0.path, offset: end0.offset - 1 }, focus: end0 } });
+    } catch (x) { error = String(x).slice(0, 80); }
+    const ms = performance.now() - t0;
+    const opsEdit = ops;
+    const want = shapes(fresh(expected));
+    const got = shapes(e.children as Element[]);
+    const linesUnlikeFreshLoad = got.length === want.length ? got.filter((s, i) => s !== want[i]).length : -1;
+    let forcedOps = -1; let forcedError = '';
+    if (!error) { ops = 0; try { Editor.normalize(e, { force: true }); } catch (x) { forcedError = String(x).slice(0, 80); } forcedOps = ops; }
+    rows.push({ kind, where, n, error, opsEdit, ms: +ms.toFixed(1), linesUnlikeFreshLoad, forcedOps, forcedError });
+  }
+  writeFileSync(process.env.CRPROBE_OUT as string, rows.map((r) => JSON.stringify(r)).join('\n'));
+});

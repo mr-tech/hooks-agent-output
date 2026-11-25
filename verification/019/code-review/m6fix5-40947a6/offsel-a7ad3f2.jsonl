@@ -1,0 +1,24 @@
+{"kind":"insert","where":"none","n":5,"error":"","opsEdit":13,"ms":8.6,"linesUnlikeFreshLoad":0,"forcedOps":0,"forcedError":""}
+{"kind":"insert","where":"none","n":100,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":298,"ms":36.9,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"none","n":200,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":598,"ms":74.5,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"none","n":1000,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":2998,"ms":1248.8,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"other-unit","n":5,"error":"","opsEdit":18,"ms":2.2,"linesUnlikeFreshLoad":0,"forcedOps":0,"forcedError":""}
+{"kind":"insert","where":"other-unit","n":100,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":398,"ms":29.3,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"other-unit","n":200,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":798,"ms":54.3,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"other-unit","n":1000,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":3998,"ms":612.5,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"at-edit","n":5,"error":"","opsEdit":18,"ms":0.8,"linesUnlikeFreshLoad":0,"forcedOps":0,"forcedError":""}
+{"kind":"insert","where":"at-edit","n":100,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":398,"ms":20.2,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"at-edit","n":200,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":798,"ms":46.6,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"insert","where":"at-edit","n":1000,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":3998,"ms":616,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"none","n":5,"error":"","opsEdit":13,"ms":6.2,"linesUnlikeFreshLoad":0,"forcedOps":0,"forcedError":""}
+{"kind":"delete","where":"none","n":100,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":220,"ms":41.2,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"none","n":200,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":420,"ms":73.5,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"none","n":1000,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":2020,"ms":877.2,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"other-unit","n":5,"error":"","opsEdit":14,"ms":1.5,"linesUnlikeFreshLoad":0,"forcedOps":0,"forcedError":""}
+{"kind":"delete","where":"other-unit","n":100,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":221,"ms":27.5,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"other-unit","n":200,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":421,"ms":68,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"other-unit","n":1000,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":2021,"ms":838.8,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"at-edit","n":5,"error":"","opsEdit":14,"ms":1.6,"linesUnlikeFreshLoad":0,"forcedOps":0,"forcedError":""}
+{"kind":"delete","where":"at-edit","n":100,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":221,"ms":26.4,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"at-edit","n":200,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":421,"ms":67.6,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
+{"kind":"delete","where":"at-edit","n":1000,"error":"Error: Could not completely normalize the editor after 126 iterations! This is u","opsEdit":2021,"ms":840.2,"linesUnlikeFreshLoad":0,"forcedOps":-1,"forcedError":""}
