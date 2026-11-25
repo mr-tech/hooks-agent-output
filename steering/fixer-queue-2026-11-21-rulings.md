@@ -2096,3 +2096,11 @@ describes Discord (its § Question); it found Discord's text box is a Slate edit
 2026-11-23T09:17Z).
 **Acted:** a researcher, `researcher-slate-editor-design`, is started outside the pipeline (steering.md: a question upstream of committing to
 an effort goes to the researcher), brief `steering/slate-editor-design-brief-researcher.md`. 019's round, code review and QA proceed unchanged.
+
+## 2026-11-25T11:40Z — his clarification of the research question: rebuild from the ground up, or keep extending
+
+His words (witnessed, this session): "My main point is that it might be better to like rebuild the implementation from the ground up rather
+than trying to reuse my own functions and hooks. But I don't know."
+**Acted:** relayed verbatim to `researcher-slate-editor-design` as the framing of its question 4: the comparison is a ground-up rebuild
+against continuing to extend the current functions and hooks, each with what it removes from and adds to 019's remaining work. It is a
+question, not a decision; 019 runs on.
