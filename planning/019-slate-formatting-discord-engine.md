@@ -228,32 +228,33 @@ Lane: full
 
 ## Resumption State
 
-Written at steering's ask (checkpoint for a clear), 2026-11-24T20:10Z, after revision 23 at `49a20690`.
+Written at steering's ask (checkpoint for a clear), 2026-11-25T06:27Z, after R-125 at `f1a2f2f7`.
 
 **Done.**
-- Revisions 0 to 23 and registrations R-1 to R-103 are committed. Other stages' rows carry duplicate numbers (R-47 records the
-  reconcile) and some sit out of order (R-94 and R-103 are code review's); they are cited by stamp and author. Revision 23 has
-  two changelog rows (19:44, drafted; 20:08, completed with D-26) because the paste member joined it before any gate read it.
-- Decisions D-20 to D-26 are registered. D-23 (CR-20), D-24 (code-fence and `>>>` throw, CR-23), D-25 (`>>>` caret) and D-26
-  (CR-25's paste) each lift the cap for their own items alone.
-- M1 to M5 are complete; M5 was QA Complete after QAF-39 (R-75). M4 and M5 shipped on the chain branch, so M7 is marked
-  `PREMISE-STALE` (R-76).
-- M6: CR-20's fix round (website `42128cd`) was approved by code review. The second fix round (AC-6.9, revision 22) was handed
-  at `85ece66` and REJECTED by code review Round 7 on CR-25 HIGH (R-103). Revision 23 (`6ef51baa` drafted, `49a20690`
-  completed) answers it: AC-6.9's fence keystrokes over `a🙂` texts, paste members (D-26), a standing count limb (at most 10
-  times from 200 to 1,000 lines) and a rewritten residue. CR-24 LOW is a stated limit.
-- Handoffs opened this session: `handoff/slate-smart-quote-repair-untested-2026-11-24.md` (QAF-49) and
-  `handoff/preview-fenced-code-block-test-hand-rolled-renderer-2026-11-24.md` (QAF-47), both Open. The QAF-51 handoff is
-  superseded and in `handoff/closed/`.
-- The helper probe captures behind AC-6.9's ceiling and caret are under `verification/019/planning/fence-refute/`.
+- Revisions 0 to 25 and registrations R-1 to R-125 are committed. Other stages' rows carry duplicate numbers (R-47 records the
+  reconcile) and some sit out of order (R-94, R-103 and R-112 are code review's); they are cited by stamp and author.
+- Decisions D-20 to D-31 are registered. D-23 to D-26 and D-28 each lift the cap for their own items alone. D-27 times paste
+  and fence speed at QA (SL-29). D-29 keeps D-28 after the corrected premise (R-123: in Chrome the backtick's write is kept).
+  D-30 makes SL-30 an entry condition. D-31 puts the inline-code members in the count limb.
+- M1 to M5 are complete; M7 is `PREMISE-STALE` (R-76).
+- M6 history: Fix Round 3 (`2b82972`) was REJECTED on CR-25's time member (R-112). Fix Round 4 (`a7ad3f2`, CF-33's rebuild
+  under a `getDirtyPaths` suppression) was REJECTED on CR-28 HIGH (R-117). The release-added throw class led to D-28, AN-9
+  (analysis record `00c91e3`), Revision 24 (`80d6d143`) and Revision 25 (`cf62ffc1`).
+- **Every gate has passed Revision 25**: QA `f7df4423`, architect `e0228ee5`, critic `fdebc3ac` (R-124, R-125). Steering was
+  told, and it started implementer-019 on Fix Round 5 (its `e78f4d69`). SL-30, CF-34 and block 06:07Z's (b) were sent to the
+  implementer, code review and QA at 06:20Z.
+- My readings: R-111 binds every input the suppression applies to. R-114's contrary sentence on Outstanding 1 was my error,
+  withdrawn at R-118 in the plan and in messages to code review and steering. R-115's HIGH on Outstanding 3 rested on a jsdom
+  write loss that Chrome did not show (R-123), also my error.
+- Handoffs opened this session: `handoff/slate-code-line-emoji-load-normaliser-disagree-2026-11-25.md`, re-aimed at
+  `codeFence.ts` `afterLine` with CF-36's form, and `handoff/slate-fence-close-cost-typographic-quote-lines-2026-11-25.md`
+  (Outstanding 2, CR-29). Both are Open. Earlier: QAF-49's and QAF-47's handoffs are Open.
+- Captures: `verification/019/planning/fence-refute/`, `verification/019/planning/paste-refute/` (copied for QAF-53), and
+  AN-9's under `verification/019/analysis/an9/`.
 
 **Next.**
-- **Revision 25 is cued to the critic, the architect (delta pass) and QA's re-key** (D-29 to D-31). Register each pass
-  as it lands in the owed re-verdicts row "Revision 25's delta". When all three pass, tell `steering-hooks-fixer`, which
-  starts Fix Round 5. With that start, send SL-30 (D-30) and CF-34 with block 06:07Z's (b) to implementer-019,
-  code-reviewer-019 and qa-019. Fix Rounds 3 and 4 ran on revision 23 (SL-29, D-27, R-111). QAF-53 (b), F-58, CR-26 and Fix Round
-  4's Outstanding 2 and 5 join the seam fold's rows.
-- A HIGH finding, or a severity floor, on revision 23 goes to steering for a ruling before any revision 24.
+- **Fix Round 5 is running** on Revision 25. Register its code review and QA findings as Planner batch rows. A HIGH, a
+  severity floor, or a throw at an SL-30 position (a D-28 member) goes to steering first.
 - No other planning pass is owed until the seam fold. The caps stand:
   - M3 to M6 (blocks 22:35Z and 00:49Z): a finding below HIGH becomes a Planner batch stated limit, except a severity floor;
   - AC-6.5 (block 04:18Z): a further gap below HIGH is a stated limit;
@@ -286,13 +287,17 @@ Written at steering's ask (checkpoint for a clear), 2026-11-24T20:10Z, after rev
   - this session's rows: CF-29, SL-23 to SL-28, CF-31, F-56, CR-22, CR-24, QAF-46 to QAF-48, AC-3.3's new generator count (400)
     and its full count's home (`MOUNTED_GENERATOR_COUNT=1000`, run by QA at Phase 2 and Phase 3), Outstanding 1's
     unclean-fence residue (with QAF-48, in X-19's row), AC-6.9's unmaking onset at 122 lines, and AC-6.8's "Every bound"
-    line, which now holds only cross-size equality.
+    line, which now holds only cross-size equality;
+  - from 2026-11-24 to 25: QAF-53 (b), F-58, CR-26, the 246 shared fresh-load paste failures, Fix Round 4's Outstanding 2
+    and 5 (Exclusions rows citing their carriers), F-62 (AC-6.9's headline names the class by its effect), and SL-31's
+    discharge into D-31.
 - Any question for him goes to steering by SendMessage as a selection prompt, never as prose here (his ruling, relayed 23:3xZ).
 
 **Approach in flight.** None. No uncommitted edit.
 
 **Refs.** Record `master`. The website was read only through `git -C /usr/local/bin/hooks/website show` or `git grep`, at
-`af3d95a`, `5ec0621`, `7dcedc9`, `f4060c5`, `2e36107`, `119471f` and `42128cd`. Record shell edits are refused by the
+`af3d95a`, `5ec0621`, `7dcedc9`, `f4060c5`, `2e36107`, `119471f`, `42128cd`, `85ece66` and `a7ad3f2`. A Planner batch cell
+must stay on one line: R-115's and revision 25's edits broke the table with line breaks and were rejoined. Record shell edits are refused by the
 record-write gate; edit the plan with the Edit tool only, and write new record files with the Write tool. Changelog stamps
 come from `date -u +%Y-%m-%dT%H:%M`; the stamp-gate hook refuses a typed future stamp. Probe captures are under
 `verification/019/planning/`. The shell runs from
