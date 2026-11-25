@@ -3,11 +3,8 @@ ID: 019
 Origin: 019
 UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
-Status: Awaiting Implementation
-Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 25 (record cf62ffc1, D-29 to D-31). QAF-55 is closed (D-31). SL-29 and SL-30 are
-  entry conditions on this stage's M6 Phase 2. QAF-42 LOW (R-69) stays open. Register: B-1 to B-11.
-  Phase 2 passes are in their own documents.
+Status: Committed
+Status-Detail: "Committed at website 48eb60a (devops Stage 1, 2026-11-25), awaiting release. Register: B-1 to B-4 and B-6 to B-11 executed; B-5 carried by handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md."
 Phase: 1
 ---
 
@@ -15,47 +12,7 @@ Phase: 1
 
 ## Resumption State
 
-Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at a seam).
-
-- **Done.**
-  - Phase 1 on revisions 1 to 12, each re-key committed (last `e645035`, with SL-12 and SL-13 read in at `cb5a601`). Nothing is
-    open in Phase 1. QAF-31 is carried as SL-11.
-  - Phase 2 on M2: QA Complete at `7dcedc9` (`qa/019-slate-formatting-discord-engine-m2-qa.md`, plan R-26, R-28).
-  - Phase 2 on M3: **QA Failed** at `2c1590f` on QAF-32 and QAF-33, both MEDIUM severity floors excepted from the M3 cap
-    (block 22:35Z). `qa/019-slate-formatting-discord-engine-m3-qa.md`, record `98801f5c`, plan R-43 at `fc254c75`. Sent to
-    `implementer-019` (msg `e5c6a8b1`). Register row B-8 appended. Captures in `verification/019/qa/m3/`.
-- **Next.**
-  - M3 refresh, when code review's committed re-verdict of the fix round arrives (stage start at its `Reviewed-At`, never at the
-    message). Scope: that round's diff. Re-run in a fresh export: the offline suite with exit code; the whole `pnpm test:discord`
-    in `unshare -rn` with lo up (QAF-32: no `\d+ passed`); the live command, reading both hashes in its output (QAF-33); each
-    fix's red run, read. A round with no production change re-runs only what it closes.
-  - Phase 2 on M4, M5 and M6, each in its own `qa/019-…-m<n>-qa.md`, each from that milestone's committed code review verdict.
-  - Carried:
-    - M4: its own frozen install (the M3 pass's Assumption Not Checked); AC-4.4's decision-table oracle and NM-48 to NM-57;
-      AC-3.7 with NM-58 to NM-67 and SL-12's per-field atom fixtures; RK-9: a residue count above M4's on any surface or mask
-      routes to steering (D-14 kept, block 23:33Z); AC-2.6's chunk re-read after M4's renderer changes; the convention-check
-      FAIL and three CANDIDATEs seen in M4 files at `2c1590f`.
-    - M4 and M5: AC-2.5's surface limbs. M5: survivors G5 and W12 (partial-mode element type) and W9 (the smart-quote repair,
-      untested anywhere).
-    - M6: W8 killed once the hold-outs go; the CR-7 exit check, `git -C website grep -c "BASE_RED\|holdsEmoji" <M6 tip> -- src`,
-      which must print nothing (14 lines over 5 files at `f4060c5`).
-    - AC-2.1's oracle-helper mask clause (`Syntax.ALL & ~Syntax.DEV_LINKS`): not read in the M3 pass, so it is read at the M3
-      refresh. QAF-27's `<t:…:s> <t:…:f>` member is read at the AC-4.3 audit.
-    - The effort-final mutation sweep over `git diff 5ec0621..<final tip>` production paths, with mutant-gen.
-  - Rulings in force: M3, M4 and M6 are capped below HIGH, except a severity floor (blocks 17:56Z, 22:35Z). Any AC-4.7 gap goes to
-    steering before any fold (18:02Z). Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection
-    prompt, never as prose in a document (relayed 23:3xZ).
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `268b9fb`. It is not mine to
-  switch.
-- **Approach in flight.** None.
-- **Uncommitted or local.** Nothing in the record. The M3 exports (`m3x`, `f40x`) were deleted. The scratchpad holds only
-  drafts and edit files, all perishable.
-- **Evidence not recorded.** None.
-- **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
-
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 25 (record
-`cf62ffc1`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
-§ Re-key section says what moved.
+Closed at devops Stage 1 (2026-11-25, website `48eb60a`); the section as it stood is at record `4fe3c793`.
 
 ## Changelog
 
@@ -87,6 +44,7 @@ Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at
 | 2026-11-24T20:12 | planner-019 (message: Revision 23 at `49a20690`, CR-25, D-26; steering blocks 19:43Z and 20:07Z) | Phase 1 re-key on Revision 23 | § Re-key on Revision 23. Read: code review's counts at `85ece66` and the implementer's spike counts and timings. The count limb is red at `85ece66` on the closing and paste members, and linear on opening. **QAF-53 MEDIUM** (a severity floor): the spike meets every count ratio (5) while paste time grows 11.8 to 22.5 times, and no limb holds paste to today's speed. The plan's paste figures cite steering's scratch. **QAF-54 LOW**: the positive control does not show the boundaries see each line. NM-81 and NM-82 are added. Register swept: B-8, B-10 and B-11 cleared, and the user-report line widened. |
 | 2026-11-25T06:04 | planner-019 (message: Revision 24 at `80d6d143`, D-28, AN-9, CR-27, CR-28) | Phase 1 re-key on Revision 24 | § Re-key on Revision 24. The six inline-code members, their red at `a7ad3f2`, their absence at production and the sub-limb's red were checked against AN-9's member table. **QAF-55 MEDIUM** (a severity floor): the residue frees A1 to A6 from both cost limbs, while the headline claims cost per line for the class, and SL-29's yardstick cannot serve them. NM-85 to NM-87 are added, with Phase 2 obligations for the timer error's in-case red and for the corpus differential's pass-through tree. B-11 gains K4, its instrument run at `a7ad3f2` in this pass. |
 | 2026-11-25T06:18 | planner-019 (message: Revision 25 at `cf62ffc1`, D-29 to D-31) | Phase 1 re-key on Revision 25 | § Re-key on Revision 25. QAF-55 is closed by D-31's count limb over A1 to A6. CF-35's equality differential and the mounted timer clause match the Phase 2 obligations. SL-30's four positions are checked against steering's `probe2-*.jsonl`. This stage's SL-30 probe runs F-59's wider set, with production as the control. NM-88 is added. Register swept. No new finding. |
+| 2026-11-25T17:10 | devops-019 | Document closed | Status: Committed at website `48eb60a`, awaiting release. B-5, still open, is carried by `handoff/slate-formatting-link-targets-post-deploy-2026-11-25.md`. |
 
 ## Reading
 
