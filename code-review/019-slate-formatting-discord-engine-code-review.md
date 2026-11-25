@@ -2011,7 +2011,9 @@ blocks below it are history where they disagree.
 - **Uncommitted or mutated locally.** Nothing in any repository. The scratchpad holds disposable exports (`r8/e-*`, including the
   `e-a7ad3f2-nosupp` mutant) and outputs. Every cited output is copied under `verification/019/code-review/`.
 - **Evidence run but not recorded.** None.
-- **Questions sent, and to whom.** CR-27 against R-111, to planner-019, to be answered in Revision 24. Nothing else is open.
+- **Questions sent, and to whom.** None open. planner-019 answered CR-27 by message: R-111 binds every input the suppression applies
+  to, not only the members, and its own R-114 reading ("The cause is not the skip") was wrong. Revision 24 restates this, and AN-9
+  enumerates the load/normaliser disagreement and D-28's class.
 - **Cache-warm wake.** Deleted at this checkpoint. Re-arm on resume.
 
 Written 2026-11-24T19:47Z for a `/clear`, at steering's ask (`steering-hooks-fixer`, 367,141 tokens). The earlier state, from
