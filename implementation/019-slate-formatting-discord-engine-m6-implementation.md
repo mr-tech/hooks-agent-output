@@ -1091,10 +1091,11 @@ Code review of M6 at `119471f`, in order of risk: `withNormalizeNode.ts` (`resol
 
 ## Resumption State
 
-Written 2026-11-25 after Fix Round 6's hand-off to code review.
+Written 2026-11-25 after Fix Round 6's hand-off to code review; brought current at the checkpoint (2026-11-25T15:26Z, steering's word).
 
 - **Done.** Fix Round 6 at website `48eb60a` (the hand-off tip): red spec `1288100`; fix `372339f`; `2c0b182` (node-keyed note); `e2b5a15` (whole-line rows); `48eb60a` (type fix). Whole suite 4,785 of 4,785, exit 0; typecheck exit 0; the reviewer's off-selection probe 24 of 24 clean, mounted 16 of 16; CF-35 0 of 36,560; the three corpora byte-identical to `40947a6`'s; SL-30 0 of 126; SL-29 0 of 20 over; sweep 31 of 60 killed, 29 dispositioned. Evidence under `verification/019/impl/m6-fix6-*`.
-- **Next, and its start condition.** Code review of `48eb60a` against `40947a6` (a Round 9 sub-entry), then QA Phase 2 with R-129's condition. A fix round starts on a finding and steering's start.
+- **Since the hand-off.** Code review's Round 9 sub-entry at `48eb60a`: APPROVED_WITH_COMMENTS, CR-28 resolved (record `2f94aff4`; plan R-131). CR-31 LOW (my "move_node: source and target" claim did not hold) corrected in place by reconcile notes (`fb7dbc99`); code review read it and keeps CR-31 a stated limit, carried by plan R-132. QA Phase 2 is under way (steering's message).
+- **Next, and its start condition.** QA Phase 2's verdict on `48eb60a` (R-129's condition, the browser drag, SL-30, CF-35). A fix round starts on a finding and steering's start; nothing of mine is in flight.
 - **For steering.** Two inbox entries for pi (`~/.claude/agents/INBOX.md`, the reshaped sweep and the bench stall); the owner's words on the sweep are quoted there and in Gate satisfactions.
 - **Local state not restored.** Scratchpad exports and probes only (`e-372339f*`, `e-2c0b182*`, `gen/`, `sweep6b-work*`, `sweep6c-*work*`, `sweep6d-work*`, links to the previous scratchpad's `e-40947a6`, `e-af3d95a`, `export-a7`, into which I copied the off-selection probes); nothing of mine in the shared tree; no process of mine running. `git status` in the website lists only the foreign `?? .playwright-mcp/`.
 - **Questions sent.** None open.
