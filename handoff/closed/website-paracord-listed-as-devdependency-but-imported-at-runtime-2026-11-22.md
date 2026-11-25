@@ -1,7 +1,7 @@
 ---
 UUID: 02a4cca1
-Status: Open
-Status-Detail: "Website lists paracord under devDependencies while runtime source imports it. Predates fix-git-dependency-pins and works while the production install includes devDependencies. Noted by the code review and not raised there. Waits on a change to how the site's production install treats devDependencies."
+Status: Addressed
+Status-Detail: "Addressed by plan 019's rider R-A, released as website master 48eb60a (pushed 2026-11-25T17:39Z). At 48eb60a, package.json lists paracord in dependencies and not in devDependencies (read with git show 48eb60a:package.json). AC-2.7 R-A was verified by plan 019's gates."
 Owning-Stage: planner
 Review-Trigger: "when website's production install or build is next changed to omit devDependencies (an install flag, a Vercel install-command change, or a pnpm production-only install), or when website's package.json dependency sections are next edited"
 ---
@@ -32,3 +32,4 @@ Code review round 2 of `fix-git-dependency-pins`: "That predates this chain and 
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-22T17:05 | devops | Created at the close of release 2 of `fix-git-dependency-pins`, so the observation has a carrier outside the closing documents. |
+| 2026-11-25T17:42 | steering-hooks-fixer | Document closed. Status: Addressed. Plan 019's rider R-A moved `paracord` to `dependencies`, released at website `master` `48eb60a` (`git ls-remote origin master`, read in this closure's turn). devops-019 named the closure as steering's. |
